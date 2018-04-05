@@ -6,15 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/15/2017
-ms.topic: tutorial
+ms.date: 03/23/2018
+ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b03ece52c4ff77c9e0abbc794325cd7e9a20c915
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções para o Azure IoT Edge
 
@@ -104,7 +104,8 @@ O Agente do Edge não tem permissões para acessar a imagem de um módulo.
 Tente executar o comando `iotedgectl login` novamente.
 
 ## <a name="iotedgectl-cant-find-docker"></a>iotedgectl não consegue localizar o Docker
-iotedgectl falha ao executar o comando de instalação ou de início e imprime a seguinte mensagem nos logs:
+
+Os comandos `iotedgectl setup` ou `iotedgectl start` falhar e imprimem a seguinte mensagem para os logs:
 ```output
 File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
   info = self._client.info()
@@ -119,6 +120,33 @@ iotedgectl não consegue localizar o Docker, que é um pré-requisito.
 
 ### <a name="resolution"></a>Resolução
 Instale o Docker, verifique se ele está em execução e tente novamente.
+
+## <a name="iotedgectl-setup-fails-with-an-invalid-hostname"></a>A configuração de iotedgectl falha com um nome de host inválido
+
+O comando `iotedgectl setup` falha e imprime a mensagem a seguir: 
+
+```output
+Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
+```
+
+### <a name="root-cause"></a>Causa raiz
+O tempo de execução de IoT Edge só pode oferecer suporte a nomes de host com menos de 64 caracteres. Geralmente, isso não é um problema para máquinas físicas, mas poderá ocorrer quando você configurar o tempo de execução em uma máquina virtual. Os nomes de host gerados automaticamente para máquinas virtuais do Windows hospedadas no Azure, em particular, tendem a ser longos. 
+
+### <a name="resolution"></a>Resolução
+Quando você vir esse erro, você pode resolvê-lo a configurar o nome DNS de sua máquina virtual e, em seguida, definindo o nome DNS de nome de host no comando de instalação.
+
+1. No portal do Azure, navegue até a página de visão geral de sua máquina virtual. 
+2. Selecione **configurar** em nome DNS. Caso sua máquina virtual já tenha um nome DNS configurado, você não precisará configurar um novo. 
+
+   ![Configurar nome DNS](./media/troubleshoot/configure-dns.png)
+
+3. Forneça um valor para **rótulo do nome DNS** e selecione **Salvar**.
+4. Copie o novo nome DNS, que deve estar no formato **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
+5. Dentro da máquina virtual, use o comando a seguir para configurar o tempo de execução do IoT Edge com seu nome DNS:
+
+   ```input
+   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
+   ```
 
 ## <a name="next-steps"></a>Próximas etapas
 Você acha que encontrou um bug na plataforma IoT Edge? [Envie um problema](https://github.com/Azure/iot-edge/issues) para que possamos continuar a melhorar. 

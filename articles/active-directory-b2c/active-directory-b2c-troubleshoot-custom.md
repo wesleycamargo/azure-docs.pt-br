@@ -3,22 +3,19 @@ title: Application Insights para solucionar problemas de Políticas Personalizad
 description: como configurar o Application Insights para rastrear a execução de políticas personalizadas
 services: active-directory-b2c
 documentationcenter: ''
-author: saeedakhter-msft
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: saeda
-ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: davidmu
+ms.openlocfilehash: 3e27976b02ee75083b07ca2e4f0c06e19502d1f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Coleta de logs
 
@@ -104,7 +101,7 @@ As entradas podem ser longas.  Exporte para CSV para uma análise mais detalhada
 Saiba mais sobre essa ferramentas de análise [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
 >[!NOTE]
->A comunidade desenvolveu um visualizador userjourney para ajudar os desenvolvedores de identidade.  Não tem suporte da Microsoft e é disponibilizado estritamente como está.  Ele lê na sua instância do Application Insights e fornece uma exibição bem estruturada dos eventos userjourney.  Obtenha o código-fonte e o implante em sua própria solução.
+>A comunidade desenvolveu um visualizador userjourney para ajudar os desenvolvedores de identidade.  Não tem suporte da Microsoft e é disponibilizado estritamente como está.  Ele faz leitura da instância do Application Insights e fornece uma visão bem estruturada dos eventos do percurso do usuário.  Obtenha o código-fonte e o implante em sua própria solução.
 
 A versão do visualizador que faz leitura dos eventos do Application Insights está localizada [aqui](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 

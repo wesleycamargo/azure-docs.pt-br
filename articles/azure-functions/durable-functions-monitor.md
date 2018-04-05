@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 617b33a9f860ce3b06ff560de22824037eab8332
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário do Monitor em Funções Duráveis - Exemplo de observador meteorológico
 
@@ -26,8 +26,8 @@ O padrão de monitoramento refere-se a um processo *recorrente* flexível em um 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* Siga as instruções em [Instalar Funções Duráveis](durable-functions-install.md) para configurar o exemplo.
-* Este artigo pressupõe que você já tenha passado pelo passo a passo do exemplo [Sequência Hello](durable-functions-sequence.md).
+* [Instalar Funções Duráveis](durable-functions-install.md).
+* Complete a [Sequência Hello](durable-functions-sequence.md) passo a passo.
 
 ## <a name="scenario-overview"></a>Visão geral do cenário
 
@@ -64,7 +64,7 @@ Este artigo explica as seguintes funções no aplicativo de exemplo:
 * `E3_GetIsClear`: uma função de atividade que verifica as condições meteorológicas atuais de um local.
 * `E3_SendGoodWeatherAlert`: uma função de atividade que envia uma mensagem SMS via Twilio.
 
-As seções a seguir explicam a configuração e o código que são usados para desenvolvimento no portal do Azure. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
+As seções a seguir explicam a configuração e o código utilizados para o script C#. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>A orquestração de monitoramento meteorológico (Código de exemplo do Portal do Azure e Visual Studio Code)
 
@@ -113,7 +113,7 @@ E aqui está o código que envia a mensagem SMS:
 
 ## <a name="run-the-sample"></a>Execute o exemplo
 
-Usando as funções disparadas por HTTP incluídas no exemplo, é possível iniciar a orquestração enviando a seguinte solicitação HTTP POST:
+Usando as funções disparadas por HTTP incluídas no exemplo, você pode iniciar a orquestração enviando a seguinte solicitação HTTP POST:
 
 ```
 POST https://{host}/orchestrators/E3_Monitor

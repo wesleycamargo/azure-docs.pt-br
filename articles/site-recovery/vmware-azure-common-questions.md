@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 7e556bff2e9ebdd1efc969660cc8b4a33f3adcdb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - replicação do VMware para Azure
 
@@ -48,6 +48,13 @@ Se você for um administrador de assinaturas, terá as permissões de replicaç�
 
 ### <a name="what-do-i-need-on-premises"></a>O que é necessário no local?
 No local, serão necessários os componentes do Site Recovery instalados em uma única VM VMware. Além disso, será necessária uma infraestrutura VMware com pelo menos um host ESXi, e é recomendável um vCenter Server. Adicionalmente, você precisará de uma ou mais VMs VMware para replicar. [Saiba mais](vmware-azure-architecture.md) sobre a arquitetura do VMware para o Azure.
+
+O servidor de configuração local pode ser implantado em uma das duas maneiras a seguir
+
+1. Implantá-lo utilizando um modelo de VM que tenha o servidor de configuração pré-instalado. [Leia mais aqui](vmware-azure-tutorial.md#download-the-vm-template).
+2. Implantá-lo utilizando a configuração em um computador Windows Server 2016 de sua escolha. [Leia mais aqui](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+Para descobrir as etapas de introdução da implantação do servidor de configuração em seus próprios computadores com Windows Server, na meta Proteção de habilitar proteção, escolha **Para Azure > Não virtualizado/outro**.
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Para onde as VMs locais são replicadas?
 Os dados replicam para o armazenamento do Azure. Ao executar um failover, o Site Recovery cria automaticamente VMs do Azure a partir da conta de armazenamento.
@@ -109,7 +116,7 @@ Analise os [pré-requisitos](vmware-azure-deploy-configuration-server.md#prerequ
 É recomendável utilizar a última versão do modelo de OVF para [criar a VM do servidor de configuração](vmware-azure-deploy-configuration-server.md). Se por algum motivo isso não for possível, por exemplo, não tiver acesso ao servidor VMware, você poderá [baixar o arquivo de Instalação Unificada](physical-azure-set-up-source.md) do portal e executá-lo em uma VM. 
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Um servidor de configuração pode replicar para mais de uma região?
-Não Para fazer isso, é necessário configurar um servidor de configuração em cada região.
+Nº Para fazer isso, é necessário configurar um servidor de configuração em cada região.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>É possível hospedar um servidor de configuração no Azure?
 Embora seja possível, a VM do Azure em execução no servidor de configuração precisa comunicar-se com a infraestrutura VMware e VMs locais. A sobrecarga provavelmente não é viável.

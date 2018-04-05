@@ -1,6 +1,6 @@
 ---
-title: "Replicação de dados no Armazenamento do Azure | Microsoft Docs"
-description: "Os dados na sua conta do Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura)."
+title: Replicação de dados no Armazenamento do Azure | Microsoft Docs
+description: Os dados na sua conta do Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura).
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 600b66af3b7da24c5a40d09d5cdf76f2d5be67ac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-storage-replication"></a>Replicação de Armazenamento do Azure
 
@@ -30,14 +30,14 @@ Ao criar uma conta de armazenamento, você deve selecionar uma das seguintes op�
 * [Armazenamento com redundância geográfica (GRS)](#geo-redundant-storage)
 * [Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)](#read-access-geo-redundant-storage)
 
-O RA-GRS (armazenamento com redundância geográfica com acesso de leitura) é a opção padrão na criação de uma conta de armazenamento.
+O LRS (armazenamento com redundância local) é a opção padrão na criação de uma conta de armazenamento.
 
 A tabela a seguir fornece uma visão geral das diferenças entre LRS, ZRS, GRS e RA-GRS. As próximas seções deste artigo abordam cada tipo de replicação mais detalhadamente.
 
 | Estratégia de replicação | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Os dados são replicados entre vários datacenters. |Não  |sim |sim |sim |
-| Os dados podem ser lidos de um local secundário, bem como do local primário. |Não  |Não  |Não  |sim |
+| Os dados são replicados entre vários datacenters. |Não  |Sim |Sim |sim |
+| Os dados podem ser lidos de um local secundário, bem como do local primário. |Não  |Não |Não |sim |
 | Concepção de modo a fornecer ___ durabilidade de objetos em um determinado ano. |no mínimo 99,999999999% (11 9's)|no mínimo 99,9999999999% (12 9's)|no mínimo 99,99999999999999% (16 9's)|no mínimo 99,99999999999999% (16 9's)|
 
 Consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para informações sobre preços para as opções de redundância diferentes.

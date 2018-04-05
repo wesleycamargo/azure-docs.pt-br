@@ -1,6 +1,6 @@
 ---
 title: Enviar por push a imagem do Docker para o registro privado do Azure
-description: "Envie e obtenha imagens do Docker para um registro de contêiner privado no Azure usando a CLI do Docker"
+description: Envie e obtenha imagens do Docker para um registro de contêiner privado no Azure usando a CLI do Docker
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Envie sua primeira imagem para um registro de contêiner privado do Docker usando a CLI do Docker
 
@@ -21,7 +21,7 @@ Um registro de contêiner do Azure armazena e gerencia imagens de contêiner pri
 
 Nas etapas a seguir, você baixará uma [imagem Nginx](https://store.docker.com/images/nginx) oficial do registro do Hub do Docker público, a rotulará para seu registro de contêiner do Azure privado, enviará por push para o registro e, em seguida, efetuará pull dela do registro.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Registro de Contêiner do Azure** - crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure 2.0](container-registry-get-started-azure-cli.md).
 * **CLI do Docker** – para configurar o computador local como um host do Docker e acessar os comandos da CLI do Docker, instale o [Docker](https://docs.docker.com/engine/installation/).
@@ -123,4 +123,8 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que conhece os fundamentos, você está pronto para começar a usar o registro! Por exemplo, implante imagens de contêiner do registro em um cluster de [Serviço de Contêiner do Azure (AKS)](../aks/tutorial-kubernetes-prepare-app.md).
+Agora que conhece os fundamentos, você está pronto para começar a usar o registro! Implante imagens de contêiner do registro para:
+
+* [Serviço de Contêiner do Azure (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Instâncias de Contêiner do Azure](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

@@ -1,8 +1,8 @@
 ---
-title: "Use o Apache Spark para leitura e gravação dados no Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Saiba como configurar uma conexão entre o cluster do Azure HDInsight Spark e um Banco de Dados SQL do Azure para ler dados, gravar dados e transmitir dados em um Banco de Dados SQL"
+title: Use o Apache Spark para leitura e gravação dados no Banco de Dados SQL do Azure | Microsoft Docs
+description: Saiba como configurar uma conexão entre o cluster do Azure HDInsight Spark e um Banco de Dados SQL do Azure para ler dados, gravar dados e transmitir dados em um Banco de Dados SQL
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/29/2018
+ms.date: 03/28/2018
 ms.author: nitinme
-ms.openlocfilehash: 28ed6b9774bb85c7ec806c7775c34f8bc3d66bde
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011471224d79ae326ccc33fc23fd6fada347497b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Usar o cluster do Azure HDInsight Spark para leitura e gravação dos dados no Banco de Dados SQL do Azure
 
@@ -161,7 +161,7 @@ Nesta seção, usamos um exemplo CSV de arquivo disponível no cluster para cria
 
     a. Inicie o SSMS e conecte-se ao Banco de Dados SQL do Azure, fornecendo os detalhes de conexão como mostrado na captura de tela abaixo.
 
-    ![Conectar-se ao Banco de Dados SQL usando SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Conectar-se ao Banco de Dados SQL usando SSMS")
+    ![Conectar-se ao Banco de Dados SQL usando SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Conectar-se ao Banco de Dados SQL SSMS")
 
     b. No Pesquisador de Objetos, expanda o Banco de Dados SQL do Azure e o nó da Tabela para ver o **dbo.hvactable** criado.
 
@@ -234,7 +234,7 @@ Nesta seção, transmitimos dados para o **hvactable** já criados no Banco de D
         
          var streamingQuery = WriteToSQLQuery.start()
 
-6. Verifique se os dados estão sendo transmitidos para o **hvactable** executando a seguinte consulta. Sempre que você executar a consulta, o número de linhas na tabela aumentando será exibido.
+6. Verifique se os dados estão sendo transmitidos para o **hvactable** executando a seguinte consulta no SQL Server Management Studio (SSMS). Sempre que você executar a consulta, o número de linhas na tabela aumentando será exibido.
 
         SELECT COUNT(*) FROM hvactable
 

@@ -3,36 +3,36 @@ title: Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure
 description: Aprenda como gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: 
-author: jejiang
+documentationcenter: ''
+author: Jejiang
 manager: omafnan
-editor: 
+editor: ''
 tags: Azure Cosmos DB
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: Jejiang
-ms.openlocfilehash: baa7eee614159f9c6af493aff74b27773471f7d7
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.date: 03/20/2018
+ms.author: jejiang
+ms.openlocfilehash: 18f580f1eae31c9bf3626e100217467bb48ca881
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure (Versão Prévia)
 
-O uso do Azure Cosmos DB no Gerenciador de Armazenamento do Azure permite que os usuários gerenciem entidades do Azure Cosmos DB, manipulem dados, atualizem procedimentos armazenados e gatilhos junto com outras entidades do Azure, como os blobs de armazenamento e as filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local. No momento, o Gerenciador de Armazenamento do Azure oferece suporte a todas as <!--and MongoDB--> contas do SQL. O Gerenciador de Armazenamento do Azure não funciona com o Emulador Local do Azure Cosmos DB. 
+O uso do Azure Cosmos DB no Gerenciador de Armazenamento do Azure permite que os usuários gerenciem entidades do Azure Cosmos DB, manipulem dados, atualizem procedimentos armazenados e gatilhos junto com outras entidades do Azure, como os blobs de armazenamento e as filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local. Neste momento, o Gerenciador de Armazenamento do Azure oferece suporte para contas do SQL, MongoDB, Graph e Tabela.
 
 Neste artigo, você pode aprender como usar o Gerenciador de Armazenamento para gerenciar o Azure Cosmos DB.
 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Uma conta do Azure Cosmos DB para a API do SQL <!--or MongoDB API-->. Caso não tenha uma conta, você pode criar uma no Portal do Azure, conforme descrito em [Azure Cosmos DB: Compilar um aplicativo Web da API com o .NET e com o Portal do Azure](create-sql-api-dotnet.md).
+Uma conta do Azure Cosmos DB para a API do SQL<!--or MongoDB API-->. Caso não tenha uma conta, você pode criar uma no Portal do Azure, conforme descrito em [Azure Cosmos DB: Compilar um aplicativo Web da API com o .NET e com o Portal do Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalação
 
@@ -40,7 +40,7 @@ Instale os bits mais recentes do Gerenciador de Armazenamento do Azure aqui: [Ge
 
 ## <a name="connect-to-an-azure-subscription"></a>Conectar-se a uma assinatura do Azure
 
-1. Depois de instalar o **Gerenciador de Armazenamento do Azure**, clique no ícone de **plug-in** à esquerda, conforme mostrado na imagem a seguir.
+1. Depois de instalar o **Gerenciador de Armazenamento do Azure**, clique no ícone de **plug-in** à esquerda, conforme mostrado na imagem a seguir:
        
    ![Ícone do plug-in](./media/storage-explorer/plug-in-icon.png)
  
@@ -60,19 +60,32 @@ Instale os bits mais recentes do Gerenciador de Armazenamento do Azure aqui: [Ge
 
     ![Lista de contas](./media/storage-explorer/account-list.png)
 
-    Você conectou sua **Conta do Azure Cosmos DB** à sua assinatura do Azure com êxito.
+    Você conectou sua **Conta do Cosmos DB** à sua assinatura do Azure com êxito.
 
 ## <a name="connect-to-azure-cosmos-db-by-using-a-connection-string"></a>Conectar-se ao Azure Cosmos DB usando uma cadeia de conexão
 
 Um modo alternativo de se conectar a um Azure Cosmos DB é usar uma cadeia de conexão. Siga as etapas abaixo para se conectar usando uma cadeia de conexão.
 
-1. Encontre a opção **Local e Anexo** na árvore à esquerda, clique com o botão direito do mouse em **Contas do Azure Cosmos DB** e escolha **Conectar-se ao Azure Cosmos DB...**
+1. Encontre a opção **Local e Anexo** na árvore à esquerda, clique com o botão direito do mouse em **Contas do Cosmos DB** e escolha **Conectar-se ao Cosmos DB...**
 
-    ![Conectar-se ao Azure Cosmos DB por uma cadeia de conexão](./media/storage-explorer/connect-to-db-by-connection-string.png)
+    ![Conectar-se ao Cosmos DB por uma cadeia de conexão](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Escolha a **Experiência Padrão** apropriada para o seu tipo de conta, <!--either-->DocumentDB **ou** MongoDB<!--or **MongoDB**-->, cole na sua **Cadeia de Conexão** e, em seguida, clique em **OK** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão, consulte [Obtenha a cadeia de conexão](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Atualmente, só há suporte para API do SQL e de Tabela. Escolha a API, cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão, consulte [Obtenha a cadeia de conexão](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![Cadeia de conexão](./media/storage-explorer/connection-string.png)
+
+## <a name="connect-to-azure-cosmos-db-by-using-local-emulator"></a>Conectar-se ao Azure Cosmos DB usando um emulador local
+Use as seguintes etapas para se conectar a um Azure Cosmos DB pelo Emulador. Atualmente, só há suporte para conta do SQL.
+1. Instale o emulador e inicialize-o. Para saber como instalar o emulador, consulte [Emulador Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+2. Encontre a opção **Local e Anexo** na árvore à esquerda, clique com o botão direito do mouse em **Contas do Cosmos DB** e escolha **Conectar-se ao Emulador Cosmos DB...**
+
+    ![Conecte-se ao Cosmos DB pelo emulador](./media/storage-explorer/emulator-entry.png)
+
+3. Atualmente, só há suporte para API do SQL. Cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão, consulte [Obtenha a cadeia de conexão](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+
+    ![Conecte-se ao Cosmos DB pelo diálogo do emulador](./media/storage-explorer/emulator-dialog.png)
+
+
 
 ## <a name="azure-cosmos-db-resource-management"></a>Gerenciamento de recursos do Azure Cosmos DB
 
@@ -100,54 +113,100 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 
 ### <a name="database-and-collection-management"></a>Gerenciamento de banco de dados e coleção
 #### <a name="create-a-database"></a>Criar um banco de dados 
-Clique com o botão direito do mouse na conta do Azure Cosmos DB, escolha **Criar Banco de Dados**, insira o nome do banco de dados e pressione **Enter** para concluir.
-
-![Criar banco de dados](./media/storage-explorer/create-database.png) 
+-   Clique com o botão direito do mouse na conta do Azure Cosmos DB, escolha **Criar Banco de Dados**, insira o nome do banco de dados e pressione **Enter** para concluir.
+       
+    ![Criar banco de dados](./media/storage-explorer/create-database.png) 
 
 #### <a name="delete-a-database"></a>Excluir um banco de dados
-Clique com o botão direito do mouse no banco de dados, clique em **Excluir Banco de Dados** e em **Sim** na janela pop-up. O nó do banco de dados é excluído e a conta do Azure Cosmos DB é atualizada automaticamente.
+- Clique com o botão direito do mouse no banco de dados, clique em **Excluir Banco de Dados** e em **Sim** na janela pop-up. O nó do banco de dados é excluído e a conta do Azure Cosmos DB é atualizada automaticamente.
 
-![Excluir database1](./media/storage-explorer/delete-database1.png)  
+    ![Excluir database1](./media/storage-explorer/delete-database1.png)  
 
-![Excluir database2](./media/storage-explorer/delete-database2.png) 
+    ![Excluir database2](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>Criar uma coleção
-Clique com o botão direito do mouse no banco de dados, escolha **Criar Coleção** e, em seguida, forneça as seguintes informações como **ID da Coleção**, **Capacidade de Armazenamento**, etc. Clique em **OK** para concluir. Para obter informações sobre configurações da chave de partição, consulte [Design de particionamento](partition-data.md#designing-for-partitioning).
+1. Clique com o botão direito do mouse no banco de dados, escolha **Criar Coleção** e, em seguida, forneça as seguintes informações como **ID da Coleção**, **Capacidade de Armazenamento**, etc. Clique em **OK** para concluir. 
 
-Se uma chave de partição for usada ao criar uma coleção, depois que a criação for concluída, o valor da chave de partição não poderá ser alterado na coleção.
+    ![Criar collection1](./media/storage-explorer/create-collection.png)
 
-![Criar collection1](./media/storage-explorer/create-collection.png)
+    ![Criar collection2](./media/storage-explorer/create-collection2.png) 
 
-![Criar collection2](./media/storage-explorer/create-collection2.png) 
+2. Selecione **Unlimited** para ser capaz de especificar a chave de partição, depois clique em **OK** para concluir.
+
+    Se uma chave de partição for usada ao criar uma coleção, depois que a criação for concluída, o valor da chave de partição não poderá ser alterado na coleção. Para obter informações sobre configurações da chave de partição, consulte [Design de particionamento](partition-data.md#designing-for-partitioning).
+
+    ![Chave de partição](./media/storage-explorer/partitionkey.png)
 
 #### <a name="delete-a-collection"></a>Excluir uma coleção
-Clique com o botão direito do mouse na coleção, clique em **Excluir Coleção** e, em seguida, clique em **Sim** na janela pop-up. 
+- Clique com o botão direito do mouse na coleção, clique em **Excluir Coleção** e, em seguida, clique em **Sim** na janela pop-up. 
 
-O nó da coleção é excluído e o banco de dados é atualizado automaticamente.  
+    O nó da coleção é excluído e o banco de dados é atualizado automaticamente.
 
-![Excluir coleção](./media/storage-explorer/delete-collection.png) 
+    ![Excluir coleção](./media/storage-explorer/delete-collection.png) 
 
 ### <a name="document-management"></a>Gerenciamento de documentos
 
 #### <a name="create-and-modify-documents"></a>Criar e modificar documentos
-Para criar um novo documento, abra **Documentos** na janela esquerda, clique em **Novo Documento**, edite o conteúdo no painel direito e clique em **Salvar**. Você também pode atualizar um documento existente e, em seguida, clicar em **Salvar**. As alterações podem ser descartadas clicando em **Descartar**.
+- Para criar um novo documento, abra **Documentos** na janela esquerda, clique em **Novo Documento**, edite o conteúdo no painel direito e clique em **Salvar**. Você também pode atualizar um documento existente e, em seguida, clicar em **Salvar**. As alterações podem ser descartadas clicando em **Descartar**.
 
-![Documento](./media/storage-explorer/document.png)
+    ![Documento](./media/storage-explorer/document.png)
 
 #### <a name="delete-a-document"></a>Excluir um documento
-Clique no botão **Excluir** para excluir o documento selecionado.
-#### <a name="query-for-documents"></a>Consulta de documentos
-Edite o filtro de documentos inserindo uma [Consulta SQL](sql-api-sql-query.md) e, em seguida, clique em **Aplicar**.
+- Clique no botão **Excluir** para excluir o documento selecionado.
 
-![Filter](./media/storage-explorer/filter.png)
+#### <a name="query-for-documents"></a>Consulta de documentos
+- Edite o filtro de documentos inserindo uma [Consulta SQL](sql-api-sql-query.md) e, em seguida, clique em **Aplicar**.
+
+    ![Filtro de documentos](./media/storage-explorer/document-filter.png)
+
+
+
+### <a name="graph-management"></a>Gerenciamento de gráfico
+
+#### <a name="create-and-modify-vertex"></a>Criar e modificar vértice
+1. Para criar um novo vértice, abra o **Gráfico** na janela esquerda, clique em **Novo vértice**, edite o conteúdo e clique em **OK**.    
+2. Para modificar um vértice existente, clique no ícone de caneta no painel direito.   
+
+    ![Grafo](./media/storage-explorer/vertex.png)
+
+#### <a name="delete-a-graph"></a>Excluir um gráfico
+- Para excluir um vértice, clique no ícone de lixeira ao lado do nome do vértice.
+
+#### <a name="filter-for-graph"></a>Filtro para gráficos
+- Edite o filtro de gráficos inserindo uma [consulta gremlin](gremlin-support.md), depois clique em **Aplicar Filtro**.
+
+    ![Filtro do gráfico](./media/storage-explorer/graph-filter.png)
+
+### <a name="table-management"></a>Gerenciamento de tabela
+
+#### <a name="create-and-modify-table"></a>Criar e modificar tabela
+1. Para criar uma nova tabela, abra **Entidades** na janela esquerda, clique em **Adicionar**, edite o conteúdo na caixa de diálogo **Adicionar entidade**, adicione a propriedade clicando no botão **Adicionar Propriedade**, em seguida, clique em **Inserir**.
+2. Para modificar uma tabela, clique em **Editar**, modifique o conteúdo e clique em **Atualizar**.
+
+    ![Tabela](./media/storage-explorer/table.png)
+
+#### <a name="import-and-export-table"></a>Importar e exportar tabela
+1. Para importar, clique no botão **Importar** e escolha uma tabela existente.
+2. Para exportar, clique no botão **Exportar** e escolha uma tabela existente.
+
+    ![Importação e exportação de tabela](./media/storage-explorer/table-import-export.png)
+
+#### <a name="delete-entities"></a>Excluir entidades
+- Selecione as entidades e clique no botão **Excluir**.
+
+    ![Exclusão de tabela](./media/storage-explorer/table-delete.png)
+
+#### <a name="query-table"></a>Tabela de consulta
+- Clique no botão **Consulta**, insira a condição de consulta e clique no botão **Executar consulta**. Feche o painel de consulta clicando no botão **Fechar consulta**.
+
+    ![Consulta de tabela](./media/storage-explorer/table-query.png)
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Gerenciar procedimentos armazenados, gatilhos e UDFs
 * Para criar um procedimento armazenado, na árvore à esquerda, clique com botão direito do mouse em **Procedimento Armazenado**, escolha **Criar Procedimento Armazenado**, insira um nome à esquerda, digite os scripts do procedimento armazenado na janela à direita e, em seguida, clique em **Criar**. 
 * Você também pode editar os procedimentos armazenados existentes ao clicar neles duas vezes, fazer a atualização e, em seguida, clicar em **Atualizar** para salvar ou clicar em **Descartar** para cancelar a alteração.
 
-![Procedimento armazenado](./media/storage-explorer/stored-procedure.png)
-
-* As operações para **Gatilhos** e **UDF** são semelhantes às operações para **Procedimentos Armazenados**.
+    ![Procedimento armazenado](./media/storage-explorer/stored-procedure.png)
+* As operações para **Gatilhos** e **UDF** são semelhantes aos **Procedimentos Armazenados**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

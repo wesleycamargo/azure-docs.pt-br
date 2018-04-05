@@ -9,11 +9,11 @@ ms.date: 3/14/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 9f7d32d3d1208b6fe6075f7dacdd6d350aee03e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 45c5ccd0f891a5592eee7400de108c5097f75286
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Início Rápido: crie uma atribuição de política para identificar recursos sem conformidade usando o módulo do PowerShell do Azure RM
 
@@ -48,7 +48,7 @@ Os comandos anteriores usam as seguintes informações:
 - **Nome**: nome de exibição da atribuição de política. Nesse caso, você está usando *Auditar Máquinas Virtuais sem atribuição de Managed Disks*.
 - **Definição**: a definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a definição de política – *Auditar Máquinas Virtuais sem Managed Disks*.
 - **Escopo**: um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Pode variar de uma assinatura a grupos de recursos. Substitua o &lt;escopo&gt; pelo nome do seu grupo de recursos.
-- **SKU**: esse comando cria uma atribuição de política com o nível standard. O nível standard permite que você atinja correção, avaliação de conformidade e gerenciamento em escala. Atualmente, o nível Standard é gratuito. No futuro, esse nível incorrerá em custos. Quando ocorrer a alteração dos preços, ela será anunciada junto com mais detalhes em [preços do Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+- **SKU**: esse comando cria uma atribuição de política com o nível standard. O nível standard permite que você atinja correção, avaliação de conformidade e gerenciamento em escala. Para obter detalhes adicionais sobre tipos de preço, consulte [Preços do Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 Agora, você está pronto para identificar recursos sem conformidade para compreender o estado de conformidade de seu ambiente.

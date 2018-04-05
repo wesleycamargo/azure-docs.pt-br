@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao WAF (Firewall do aplicativo Web) para o Gateway de Aplicativo do Azure | Microsoft Docs"
-description: "Esta página fornece uma visão geral do WAF (Firewall do aplicativo Web) do Gateway de Aplicativo"
+title: Introdução ao WAF (Firewall do aplicativo Web) para o Gateway de Aplicativo do Azure | Microsoft Docs
+description: Esta página fornece uma visão geral do WAF (Firewall do aplicativo Web) do Gateway de Aplicativo
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="web-application-firewall-waf"></a>Firewall do aplicativo Web (WAF)
 
@@ -44,7 +44,7 @@ Estes são os principais benefícios fornecidos pelo Gateway de Aplicativo e pel
 
 * Monitore seu aplicativo Web contra ataques usando um log de WAF em tempo real. Esse log é integrado ao [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) a fim de acompanhar os logs e alertas de WAF e monitorar facilmente as tendências.
 
-* O WAF será integrado com a Central de Segurança do Azure em breve. A Central de Segurança do Azure permite uma exibição central do estado da segurança de todos os seus recursos do Azure.
+* O WAF se integra à Central de Segurança do Azure. A Central de Segurança do Azure permite uma exibição central do estado da segurança de todos os seus recursos do Azure.
 
 ### <a name="customization"></a>Personalização
 
@@ -72,7 +72,7 @@ O Gateway de Aplicativo dá suporte a dois conjuntos de regras, CRS 3.0 e CRS 2.
 
 O conjunto de regras principais 3.0 fornecido tem 13 grupos de regras, conforme mostra a tabela a seguir. Cada um desses grupos de regra contém várias regras, que podem ser desabilitadas.
 
-|RuleGroup|Descrição|
+|RuleGroup|DESCRIÇÃO|
 |---|---|
 |**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|Contém as regras para proteção contra spam conhecidos ou atividade mal-intencionada.|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Contém as regras para bloquear métodos (PUT, PATCH< .)|
@@ -92,7 +92,7 @@ O conjunto de regras principais 3.0 fornecido tem 13 grupos de regras, conforme 
 
 O conjunto de regras principais 2.2.9 fornecido tem 10 grupos de regras, conforme mostra a tabela a seguir. Cada um desses grupos de regra contém várias regras, que podem ser desabilitadas.
 
-|RuleGroup|Descrição|
+|RuleGroup|DESCRIÇÃO|
 |---|---|
 |**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|Contém as regras para proteção contra violações de protocolo (caracteres inválidos, GET com um corpo de solicitação etc.)|
 |**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|Contém as regras para proteção contra informações de cabeçalho incorretas.|
@@ -114,7 +114,7 @@ O WAF do Gateway de Aplicativo pode ser configurado para ser executado nestes do
 
 ### <a name="application-gateway-waf-reports"></a>Monitoramento de WAF
 
-É importante monitorar a integridade de seu gateway de aplicativo. O monitoramento da integridade de seu firewall de aplicativo Web, e dos aplicativos que ele protege, é fornecido por meio do registro em log e da integração com o Azure Monitor, a Central de Segurança do Azure (em breve) e o Log Analytics.
+É importante monitorar a integridade de seu gateway de aplicativo. O monitoramento da integridade de seu firewall do aplicativo Web e dos aplicativos que ele protege é fornecido por meio do registro em log e da integração com o Azure Monitor, a Central de Segurança do Azure e o Log Analytics.
 
 ![diagnóstico](./media/application-gateway-web-application-firewall-overview/diagnostics.png)
 
@@ -124,7 +124,7 @@ Cada log de gateway de aplicativo é integrado ao [Azure Monitor](../monitoring-
 
 #### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A [Central de Segurança do Azure](../security-center/security-center-intro.md) ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Agora, o gateway de aplicativo [integra a Central de Segurança do Azure](application-gateway-integration-security-center.md). A Central de Segurança do Azure verifica seu ambiente para detectar aplicativos Web desprotegidos. Agora, ele pode recomendar o WAF de gateway de aplicativo para proteger esses recursos vulneráveis. Você pode criar o WAF de gateway de aplicativo na Central de Segurança do Azure.  Essas instâncias WAF são integradas à Central de Segurança do Azure e enviarão alertas e informações de integridade para a Central de Segurança do Azure para a geração de relatórios.
+A [Central de Segurança do Azure](../security-center/security-center-intro.md) ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. O gateway de aplicativo [integra a Central de Segurança do Azure](application-gateway-integration-security-center.md). A Central de Segurança do Azure verifica seu ambiente para detectar aplicativos Web desprotegidos. Agora, ele pode recomendar o WAF de gateway de aplicativo para proteger esses recursos vulneráveis. Você pode criar o WAF de gateway de aplicativo na Central de Segurança do Azure.  Essas instâncias WAF são integradas à Central de Segurança do Azure e enviarão alertas e informações de integridade para a Central de Segurança do Azure para a geração de relatórios.
 
 ![figura 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 

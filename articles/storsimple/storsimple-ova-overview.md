@@ -1,24 +1,24 @@
 ---
-title: "Visão geral da Matriz Virtual do Microsoft Azure StorSimple | Microsoft Docs"
-description: "Descreve a Matriz Virtual do StorSimple, uma solução de armazenamento integrado que gerencia as tarefas de armazenamento entre uma matriz virtual local e o armazenamento em nuvem do Microsoft Azure."
+title: Visão geral da Matriz Virtual do Microsoft Azure StorSimple | Microsoft Docs
+description: Descreve a Matriz Virtual do StorSimple, uma solução de armazenamento integrado que gerencia as tarefas de armazenamento entre uma matriz virtual local e o armazenamento em nuvem do Microsoft Azure.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/16/2017
+ms.date: 03/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b9a5797751fa970c569c93e5efe300d4d74319ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
 
@@ -73,10 +73,10 @@ A tabela a seguir descreve algumas das principais vantagens oferecidas pela solu
 
 Confira abaixo um resumo das cargas de trabalho com suporte do StorSimple.
 
-|Cenário     |Carga de trabalho     |Suportado      |Restrições               |
+|Cenário     |Carga de trabalho     |Com suporte      |Restrições               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |Compartilhamento de arquivos     |Sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
-|Arquivamento de nuvem  |Compartilhamento de arquivos de arquivamento     |Sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
+|ROBO  |Compartilhamento de arquivos     |sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
+|Arquivamento de nuvem  |Compartilhamento de arquivos de arquivamento     |sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
 
 A Matriz Virtual StorSimple é mais adequada para dados acessados com pouca frequência. Embora a matriz virtual tenha um cache local para melhorar o desempenho, os usuários devem supor que o dispositivo atende a arquivos no nível mais baixo de armazenamento (nuvem). Cada matriz virtual pode gravar e ler no armazenamento do Azure em aproximadamente 100 Mbps. Esse link é compartilhado entre todas as solicitações que chegam ao dispositivo e pode tornar-se um gargalo, conforme mostra o diagrama a seguir.
 
@@ -205,6 +205,15 @@ O Microsoft Azure StorSimple usa eliminação de duplicação e compactação de
 ### <a name="scheduled-and-on-demand-backups"></a>Backups agendados e sob demanda
 
 Os recursos de proteção de dados StorSimple permitem que você crie backups sob demanda. Além disso, um agendamento padrão garante que o backup dos dados seja realizado diariamente. Backups são feitos na forma de instantâneos incrementais, que são armazenados na nuvem. Instantâneos, que registram apenas as alterações desde o último backup, podem ser criados e restaurados rapidamente. Esses instantâneos podem ser extremamente importantes em cenários de recuperação de desastres, pois substituem os sistemas de armazenamento secundário (como backup em fita) e permitem restaurar dados para o data center ou para locais alternativos, se necessário.
+
+## <a name="gdpr-compliance"></a>Conformidade de GDPR
+O [GDPR (Regulamento Geral sobre a Proteção de Dados)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é uma lei de privacidade e proteção de dados da União Europeia (UE). O GDPR contém muitos requisitos sobre como coletar, armazenar e usar informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam da UE e coletam, analisam dados vinculados para residentes da UE.
+
+O Gerenciador de Dispositivos de StorSimple para séries virtuais é compatível com GDPR. Há duas instâncias de chave, onde as informações pessoais são coletadas e exibidas no serviço:
+ - Configurações de usuário de alerta em que os endereços de email dos usuários são configurados. Essas informações podem ser apagadas pelo administrador. 
+ - Usuários que podem acessar os dados que residem nos compartilhamentos. Uma lista de usuários que podem acessar os dados de compartilhamento é exibida e pode ser exportada. Essa lista também será excluída quando os compartilhamentos são excluídos.
+
+Para mais informações, revise a [Política de Privacidade da Microsoft na Central de Confiabilidade](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Próximas etapas
 

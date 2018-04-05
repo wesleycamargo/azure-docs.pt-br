@@ -1,24 +1,24 @@
 ---
-title: "Diretrizes para implantação do Active Directory do Windows Server em Máquinas Virtuais do Azure | Microsoft Docs"
-description: "Se você sabe como implantar serviços de domínio do AD e serviços de federação do AD no local, saiba como eles funcionam em máquinas virtuais do Azure."
+title: Diretrizes para implantação do Active Directory do Windows Server em Máquinas Virtuais do Azure | Microsoft Docs
+description: Se você sabe como implantar serviços de domínio do AD e serviços de federação do AD no local, saiba como eles funcionam em máquinas virtuais do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 03/20/2018
 ms.author: femila
-ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c2d58e056cdb285be51d259492e11e6ae37b253e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure
 Este artigo explica as diferenças importantes entre implantar o AD DS (Serviços de Domínio do Active Directory) do Windows Server e o AD FS (Serviços de Federação do Active Directory) no local e implantá-los em máquinas virtuais do Microsoft Azure.
@@ -71,8 +71,10 @@ Confira [Rede Virtual](http://azure.microsoft.com/documentation/services/virtual
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>Os endereços IP estáticos devem ser configurados com o Azure PowerShell.
-Os endereços dinâmicos são alocados por padrão, mas usam o cmdlet Set-AzureStaticVNetIP para atribuir um endereço IP estático em vez disso. Que define um endereço IP que será mantido por meio da recuperação de serviço e desligamento/reinício da VM. Para saber mais, confira [Endereço IP interno estático para máquinas virtuais](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
+### <a name="static-ip-addresses-can-be-configured-with-azure-powershell"></a>Endereços IP estáticos podem ser configurados com o Azure PowerShell
+Endereços dinâmicos são alocados por padrão, mas utilize o cmdlet Set-AzureStaticVNetIP para atribuir um endereço IP estático. Esse cmdlet define um endereço IP estático que persistirá durante a recuperação do serviço e o desligamento/reinício da VM. Para saber mais, confira [Endereço IP interno estático para máquinas virtuais](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). Também é possível configurar um endereço IP estático ao criar a VM no Portal do Azure, conforme mostrado abaixo. Para obter mais informações, consulte [Criar uma VM com um endereço IP público estático usando o Portal do Azure](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
+
+![captura de tela da etapa para adicionar um endereço IP estático ao criar uma VM](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>Termos e definições
 A seguir temos uma lista parcial dos termos de várias tecnologias do Azure que serão referenciados neste artigo.
@@ -408,7 +410,7 @@ Você precisa optar entre implantar controladores de domínio somente leitura ou
 
 O Azure não apresenta o risco de segurança física de uma filial, mas os RODCs podem ser ainda mais econômicos porque os recursos que eles fornecem são apropriados para esses ambientes, mas por razões muito diferentes. Por exemplo, os RODCs não têm replicações de saída e podem preencher segredos (senhas) de forma seletiva. Por outro lado, a falta desses segredos pode exigir que o tráfego de saída sob demanda valide-os como um usuário ou o computador autentica. Mas os segredos podem ser seletivamente preenchidos previamente e armazenados em cache.
 
-Os RODCs fornecem uma vantagem adicional em relação a questões de HBI e PII porque você pode adicionar atributos que contêm dados confidenciais ao FAS (conjunto de atributos filtrados) do RODC. O FAS é um conjunto de atributos personalizáveis que não são replicados para RODCs. Você pode usar o FAS como proteção caso não possa ou não deseje armazenar o PII ou HBI no Azure. Para saber mais, confira [conjunto de atributos filtrados do RODC[(https://technet.microsoft.com/library/cc753459)]
+Os RODCs fornecem uma vantagem adicional em relação a questões de HBI e PII porque você pode adicionar atributos que contêm dados confidenciais ao FAS (conjunto de atributos filtrados) do RODC. O FAS é um conjunto de atributos personalizáveis que não são replicados para RODCs. Você pode usar o FAS como proteção caso não possa ou não deseje armazenar o PII ou HBI no Azure. Para obter mais informações, consulte [conjunto de atributos filtrados pra o RODC [(https://technet.microsoft.com/library/cc753459)].
 
 Verifique se os aplicativos serão compatíveis com os RODCs que você planeja usar. Muitos aplicativos habilitados para o Active Directory do Windows Server funcionam bem com RODCs, mas alguns aplicativos poderão ser executados de maneira ineficiente ou falhar se não tiverem acesso a um controlador de domínio gravável. Para saber mais, confira [Guia de compatibilidade de aplicativos de controladores de domínio somente leitura](https://technet.microsoft.com/library/cc755190).
 

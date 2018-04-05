@@ -1,11 +1,11 @@
 ---
-title: "Limites de serviço no Azure Search | Microsoft Docs"
-description: "Limites do serviço usados para o planejamento de capacidade e limites máximos de solicitações e respostas para o Azure Search."
+title: Limites de serviço no Azure Search | Microsoft Docs
+description: Limites do serviço usados para o planejamento de capacidade e limites máximos de solicitações e respostas para o Azure Search.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: 857a8606-c1bf-48f1-8758-8032bbe220ad
 ms.service: search
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/09/2017
+ms.date: 03/26/2018
 ms.author: heidist
-ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fb2234e79e8deb98a94068f31a40c8f0b415d7ba
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço no Azure Search
 Os limites máximos de armazenamento, cargas de trabalho, quantidades de índices, documentos e outros objetos dependem do tipo de preço ao qual o [Azure Search é provisionado](search-create-service-portal.md), que pode ser **Gratuito**, **Básico** ou **Standard**.
@@ -32,30 +32,35 @@ Os limites máximos de armazenamento, cargas de trabalho, quantidades de índice
 > Um serviço é provisionado em uma camada específica. Saltar camadas para obter capacidade envolve o provisionamento de um novo serviço (não há nenhuma atualização local). Para obter mais informações, confira [Escolher uma camada ou SKU](search-sku-tier.md). Para saber mais sobre o ajuste de capacidade em um serviço já provisionado, consulte [Dimensionar níveis de recursos para cargas de trabalho de indexação e consulta](search-capacity-planning.md).
 >
 
-## <a name="per-subscription-limits"></a>Por limites de assinatura
+## <a name="subscription-limits"></a>Limites de assinatura
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## <a name="per-service-limits"></a>Por limites do serviço
+## <a name="service-limits"></a>Limites de serviço
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-## <a name="per-index-limits"></a>Por limites de índice
-Há uma correspondência entre os limites em índices e aqueles em indexadores. Dado um limite de 200 índices, o limite máximo de indexadores também é 200 para o mesmo serviço.
+## <a name="index-limits"></a>Limites de índice
 
 | Recurso | Grátis | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Índice: campos máximos por índice |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Índice: máximo de perfis de pontuação por índice |100 |100 |100 |100 |100 |100 |
-| Índice: funções máximas por perfil |8 |8 |8 |8 |8 |8 |
-| Indexadores: carga de indexação máxima por invocação |10.000 documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |N/D <sup>2</sup> |
-| Indexadores: tempo de execução máximo | 1 a 3 minutos <sup>3</sup> |24 horas |24 horas |24 horas |24 horas |N/D <sup>2</sup> |
-| Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |256 |N/D <sup>2</sup> |
-| Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob |32.000 |64.000 |4 milhões |4 milhões |4 milhões |N/D <sup>2</sup> |
+| Máximo de campos por índice |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
+| Máximo de perfis de pontuação por índice |100 |100 |100 |100 |100 |100 |
+| Máximo de funções por perfil |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> A camada do tipo Básico é a única SKU que tem limite inferior de 100 campos por índice.
 
-<sup>2</sup> O S3 HD atualmente não dá suporte a indexadores. Contate o suporte do Azure se você tiver uma necessidade urgente para essa funcionalidade.
+## <a name="indexer-limits"></a>Limites de indexador
 
-<sup>3</sup> O tempo máximo de execução do indexador para a Camada gratuita é de três minutos para fontes de blob e um minuto para todas as outras fontes de dados.
+| Recurso | Grátis | Basic | S1 | S2 | S3 | S3 HD |
+| --- | --- | --- | --- | --- | --- | --- |
+| Carga de indexação máxima por invocação |10.000 documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |N/D <sup>1</sup> |
+| Tempo de execução máximo | 1-3 minutos <sup>2</sup> |24 horas |24 horas |24 horas |24 horas |N/D <sup>1</sup> |
+| Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |256 |N/D <sup>1</sup> |
+| Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob |32.000 |64.000 |4 milhões |4 milhões |4 milhões |N/D <sup>1</sup> |
+
+<sup>1</sup> O S3 HD atualmente não dá suporte a indexadores. Contate o suporte do Azure se você tiver uma necessidade urgente para essa funcionalidade.
+
+<sup>2</sup> O tempo máximo de execução do indexador para a Camada gratuita é de três minutos para fontes de blob e um minuto para todas as outras fontes de dados.
+
 
 ## <a name="document-size-limits"></a>Limites de tamanho do documento
 | Recurso | Grátis | Basic | S1 | S2 | S3 | S3 HD |

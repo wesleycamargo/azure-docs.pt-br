@@ -1,8 +1,8 @@
 ---
-title: "Personalizar os clusters HDInsight usando ações de script – Azure | Microsoft Docs"
-description: "Adicione componentes personalizados a clusters HDInsight baseados em Linux usando ações de script. As ações de script são scripts Bash que podem ser usados para personalizar a configuração do cluster ou adicionar mais serviços e utilitários, como Hue, Solr ou R."
+title: Personalizar os clusters HDInsight usando ações de script – Azure | Microsoft Docs
+description: Adicione componentes personalizados a clusters HDInsight baseados em Linux usando ações de script. As ações de script são scripts Bash que podem ser usados para personalizar a configuração do cluster ou adicionar mais serviços e utilitários, como Hue, Solr ou R.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc8078a1681b8977a0748f633df02beb2f2bdc8a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalizar clusters HDInsight baseados em Linux usando ações de script
 
@@ -210,17 +210,19 @@ Esta seção fornece exemplos sobre as diferentes maneiras em que você pode usa
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Usar uma ação de script em modelos do Azure Resource Manager
 
-Ações de script podem ser usadas com modelos do Azure Resource Manager. Para obter um exemplo, consulte [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
+Ações de script podem ser usadas com modelos do Azure Resource Manager. Para obter um exemplo, consulte [ https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/ ](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
 
 Neste exemplo, a ação de script é adicionada usando o seguinte código:
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 Para obter informações sobre como implantar um modelo, consulte os seguintes documentos:
 
@@ -305,15 +307,21 @@ Antes de prosseguir, certifique-se de ter instalado e configurado a CLI do Azure
 
 1. Para alternar para o modo Azure Resource Manager, use o seguinte comando na linha de comando:
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. Use o comando a seguir para fazer logon em sua assinatura do Azure.
 
-        azure login
+    ```bash
+    azure login
+    ```
 
 3. Use o comando a seguir para aplicar uma ação de script a um cluster em execução
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     Se você omitir parâmetros para esse comando, você será solicitado a fornecê-los. Caso o script especificado com `-u` aceite parâmetros, você poderá especificá-los usando o parâmetro `-p`.
 
@@ -337,7 +345,7 @@ Consulte [Executar ações de script em um cluster em execução](https://msdn.m
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Aplicar uma ação de script a um cluster em execução no SDK do .NET do HDInsight
 
-Para obter um exemplo de como usar o SDK do .NET para aplicar scripts a um cluster, consulte [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Para obter um exemplo de como usar o SDK do .NET para aplicar scripts a um cluster, consulte [ https://github.com/Azure-Samples/hdinsight-dotnet-script-action ](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>Exibir o histórico, promover e rebaixar ações de script
 
@@ -429,7 +437,7 @@ Você pode usar a interface do usuário da Web Ambari para exibir as informaçõ
 
 ### <a name="using-the-ambari-web-ui"></a>Usando a interface do usuário da Web do Ambari
 
-1. No seu navegador, navegue até https://CLUSTERNAME.azurehdinsight.net. Substitua CLUSTERNAME com o nome do cluster HDInsight.
+1. No navegador, navegue até https://CLUSTERNAME.azurehdinsight.net. Substitua CLUSTERNAME com o nome do cluster HDInsight.
 
     Quando solicitado, insira o nome de conta de administrador (admin) e a senha correspondente para o cluster. Você precisará reinserir as credenciais de administrador em um formulário da Web.
 
@@ -493,7 +501,7 @@ __Causa__: esse erro ocorre se você atualizar o cliente de Armazenamento do Azu
 
 __Resolução__: para resolver esse erro, conecte-se manualmente a cada nó de cluster usando `ssh`, e use o comando a seguir para reinstalar a versão do cliente de armazenamento correta:
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 

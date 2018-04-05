@@ -1,6 +1,6 @@
 ---
-title: "Camadas de preço no Banco de Dados do Azure para MySQL"
-description: "Este artigo descreve os tipos de preço no Banco de Dados do Azure para MySQL."
+title: Camadas de preço no Banco de Dados do Azure para MySQL
+description: Este artigo descreve os tipos de preço no Banco de Dados do Azure para MySQL.
 services: mysql
 author: jan-eng
 ms.author: janeng
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 6bd24da05c337a902ce0e4a2b9acf22a809eb653
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ec475648f1da4420e86bf59053d95770409bed8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -22,7 +22,7 @@ Um Banco de Dados do Azure para servidor MySQL pode ser criado em um dos três t
 |    | **Básico** | **Uso geral** | **Otimizado para memória** |
 |:---|:----------|:--------------------|:---------------------|
 | Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memória por vCore | 1x | 2 x Básico | 2x Uso Geral |
 | Tamanho do Armazenamento | 5 GB a 1 TB | 5 GB a 1 TB | 5 GB a 1 TB |
 | Tipo de armazenamento | Armazenamento Standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
@@ -33,14 +33,39 @@ A tabela abaixo pode ser usada como um ponto de partida para escolher um tipo de
 | Tipo de preço  | Cargas de trabalho de destino |
 |:-------------|:-----------------|
 | Basic | Cargas de trabalho que exigem desempenho de E/S e computação leve. Os exemplos incluem servidores usados para desenvolvimento ou teste ou aplicativos de pequena escala usados com pouca frequência. |
-| Uso Geral | A maioria das cargas de trabalho que exigem a computação e a memória balanceadas com a taxa de transferência de E/S escalonável. Os exemplos incluem servidores para hospedar aplicativos Web e móveis e outros aplicativos corporativos.|
+| Uso geral | A maioria das cargas de trabalho que exigem a computação e a memória balanceadas com a taxa de transferência de E/S escalonável. Os exemplos incluem servidores para hospedar aplicativos Web e móveis e outros aplicativos corporativos.|
 | Otimizado para Memória | Cargas de trabalho de banco de dados de alto desempenho que exigem desempenho na memória para o processamento de transações mais rápido e com simultaneidade mais alta. Os exemplos incluem servidores para o processamento de dados em tempo real e aplicativos analíticos ou transacionais de alto desempenho.|
 
 Depois de criar um servidor, o número de vCores pode ser aumentado ou reduzido em segundos. Você pode também, independentemente, ajustar a quantidade de armazenamento de backup e o período de retenção de backup para cima ou para baixo sem tempo de inatividade do aplicativo. Confira a seção de dimensionamento abaixo para obter mais detalhes.
 
 ## <a name="compute-generations-vcores-and-memory"></a>Gerações de computação, vCores e memória
 
-Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. Atualmente, duas gerações de computação, Gen 4 e Gen 5, são oferecidas para sua escolha. As CPUs lógicas de 4ª geração são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4 GHz. As CPUs lógicas de 5ª geração são baseadas em processadores E5-2673 v4 (Broadwell) 2,3 GHz.
+Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. Atualmente, duas gerações de computação, Gen 4 e Gen 5, são oferecidas para sua escolha. As CPUs lógicas de 4ª geração são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4 GHz. As CPUs lógicas de 5ª geração são baseadas em processadores E5-2673 v4 (Broadwell) 2,3 GHz. As Gerações 4 e 5 estão disponíveis nas seguintes regiões (o "X" indica disponível): 
+
+| **Região do Azure** | **Geração 4** | **Geração 5** |
+|:---|:----------:|:--------------------:|
+| Centro dos EUA |  | X |
+| Leste dos EUA | X | X |
+| Leste dos EUA 2 | X |  |
+| Centro-Norte dos EUA | X |  |
+| Centro-Sul dos Estados Unidos | X |  |
+| Oeste dos EUA | X | X |
+| Oeste dos EUA 2 |  | X |
+| Canadá Central | X | X |
+| Leste do Canadá | X | X |
+| Sul do Brasil | X |  |
+| Norte da Europa | X | X |
+| Europa Ocidental | X | X |
+| Oeste do Reino Unido |  | X |
+| Sul do Reino Unido |  | X |
+| Ásia Oriental | X |  |
+| Sudeste Asiático | X |  |
+| Leste da Austrália |  | X |
+| Índia Central | X |  |
+| Índia Ocidental | X |  |
+| Leste do Japão | X |  |
+| Oeste do Japão | X |  |
+| Sul da Coreia |  | X |
 
 Dependendo do tipo de preço, cada vCore é configurado com uma quantidade específica de memória. Quando você aumenta ou reduz o número de vCores para o servidor, a memória aumenta ou diminui proporcionalmente. A camada de uso geral fornece o dobro da quantidade de memória por vCore comparada com a camada Básico. O nível de otimização de memória fornece o dobro da quantidade de memória comparado com a camada de uso geral.
 

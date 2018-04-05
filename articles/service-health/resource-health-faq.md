@@ -1,24 +1,24 @@
 ---
 title: Perguntas frequentes sobre o Azure Resource Health | Microsoft Docs
-description: "Visão geral do Azure Resource Health"
+description: Visão geral do Azure Resource Health
 services: Resource health
 documentationcenter: dev-center-name
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 07/05/2017
+ms.date: 03/27/2018
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2a0758f5db381f721120cbc1c018a491c018aa8d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-resource-health-faq"></a>Perguntas frequentes sobre o Azure Resource Health
 Conheça as respostas para as perguntas comuns sobre o Azure Resource Health.
@@ -81,12 +81,12 @@ O Resource Health está disponível em todas as geografias do Azure, exceto nas 
 - Alemanha Central
 - Nordeste da Alemanha
 
-## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>De que forma o Resource Health é diferente do Painel do Service Health ou das notificações de serviço do portal do Azure?
-As informações fornecidas pelo Resource Health são mais específicas do que aquelas fornecidas pelo Painel do Azure Service Health.
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Como o Resource Health é diferente do status do Azure ou painel de Integridade de Serviço?
+As informações fornecidas pelo Resource Health são mais específicas do que aquelas fornecidas pelo status do Azure ou painel de Integridade do Serviço.
 
-Enquanto o [Status do Azure](https://status.azure.com) e as notificações de serviço do portal informam sobre problemas de serviço que afetam um amplo conjunto de clientes (por exemplo, uma região do Azure), o Resource Health expõe eventos mais granulares que são relevantes apenas ao recurso específico. Por exemplo, se um host for reinicializado inesperadamente, o Resource Health alertará somente os clientes cujas máquinas virtuais estavam em execução nesse host.
+Enquanto o [status do Azure](https://status.azure.com) e o painel de Integridade do Serviço informam sobre problemas de serviço que afetam um amplo conjunto de clientes (por exemplo, uma região do Azure), o Resource Health expõe eventos mais granulares que são relevantes apenas ao recurso específico. Por exemplo, se um host for reinicializado inesperadamente, o Resource Health alertará somente os clientes cujas máquinas virtuais estavam em execução nesse host.
 
-É importante observar que, para fornecer visibilidade completa sobre eventos que afetam os recursos, o Resource Health também exibe eventos publicados nas notificações do Service e no Painel do Service Health.
+É importante observar que, para fornecer visibilidade completa sobre eventos que afetam os recursos, o Resource Health também exibe eventos publicados no painel da Integridade do Serviço.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>Preciso ativar o Resource Health em cada recurso?
 Não. As informações de integridade estão disponíveis para todos os tipos de recursos disponíveis por meio do Resource Health. 

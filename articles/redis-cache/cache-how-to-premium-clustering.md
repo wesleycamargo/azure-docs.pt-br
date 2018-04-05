@@ -1,24 +1,24 @@
 ---
 title: Como configurar o clustering do Redis para um Cache Redis do Azure Premium | Microsoft Docs
-description: "Saiba como criar e gerenciar o clustering do Redis para as instâncias da camada Premium do Cache Redis do Azure"
+description: Saiba como criar e gerenciar o clustering do Redis para as instâncias da camada Premium do Cache Redis do Azure
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: wesmc
-ms.openlocfilehash: 16281cca4e4bc95e145317365d42382ab11fde93
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 4af6545058ab0031d7cd1b38618b6d80204f83b9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Como configurar o clustering do Redis para um Cache Redis do Azure Premium
 O Cache Redis do Azure apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos do nível Premium, como clustering, persistência e suporte à rede virtual. Este artigo descreve como configurar o clustering em uma instância premium do Cache Redis do Azure.
@@ -33,7 +33,7 @@ O Cache Redis do Azure oferece o cluster Redis como [implementado no Redis](http
 * Mais taxa de transferência: a taxa de transferência aumenta linearmente à medida que o número de fragmentos aumenta. 
 * Mais tamanho de memória: aumenta linearmente à medida que o número de fragmentos aumenta.  
 
-Para obter mais informações sobre tamanho, taxa de transferência e largura de banda com caches premium, veja [Qual oferta e tamanho de Cache Redis devo usar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+O clustering não aumenta o número de conexões disponíveis para um cache em cluster. Para obter mais informações sobre tamanho, taxa de transferência e largura de banda com caches premium, veja [Qual oferta e tamanho de Cache Redis devo usar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 No Azure, o cluster Redis é oferecido como um modelo primário/de réplica em que cada fragmento tem um par primário/de réplica, com a replicação gerenciada pelo serviço de Cache Redis do Azure. 
 
@@ -75,6 +75,8 @@ Para alterar o tamanho do cluster em um cache premium em execução com clusteri
 ![Tamanho do cluster Redis][redis-cache-redis-cluster-size]
 
 Para alterar o tamanho do cluster, use o controle deslizante ou digite um número entre 1 e 10 na caixa de texto **Contagem de fragmentos** e clique em **OK** para salvar.
+
+Aumentar o tamanho do cluster aumenta a taxa de transferência máxima e o tamanho do cache. Aumentar o tamanho do cluster não aumenta o as conexões máximas disponíveis para clientes.
 
 > [!NOTE]
 > O dimensionamento de um cluster executa o comando [MIGRAR](https://redis.io/commands/migrate), que é um comando oneroso. Assim, tendo em vista o impacto mínimo, considere a execução dessa operação fora do horário de pico. Durante o processo de migração, você verá um aumento na carga do servidor. O dimensionamento de um cluster é um processo demorado, e o tempo necessário depende do número de chaves e do tamanho dos valores associados a essas chaves.
@@ -132,7 +134,7 @@ No momento, nem todos os clientes dão suporte ao clustering do Redis. StackExch
 Você pode se conectar ao seu cache usando os mesmos [pontos de extremidade](cache-configure.md#properties), [portas](cache-configure.md#properties) e [chaves](cache-configure.md#access-keys) usados ao conectar-se a um cache que não tem o clustering habilitado. O Redis gerencia o clustering no back-end para que você não precise gerenciá-lo por meio de seu cliente.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Posso me conectar diretamente aos fragmentos individuais do meu cache?
-Oficialmente, não há suporte para isso. Dito isso, cada fragmento consiste em um par de cache primário/de réplica que é conhecido coletivamente como uma instância de cache. Você pode se conectar a essas instâncias de cache usando o utilitário redis-cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub. Esta versão implementa o suporte básico quando iniciado com o switch `-c` . Para saber mais, confira [Brincando com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io) no [tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial).
+Oficialmente, não há suporte para isso. Dito isso, cada fragmento consiste em um par de cache primário/de réplica que é conhecido coletivamente como uma instância de cache. Você pode se conectar a essas instâncias de cache usando o utilitário redis-cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub. Esta versão implementa o suporte básico quando iniciado com o switch `-c` . Para obter mais informações, consulte [Brincando com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io)no [Tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial).
 
 Para não SSL, use os comandos a seguir.
 

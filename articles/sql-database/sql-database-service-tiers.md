@@ -1,26 +1,19 @@
 ---
 title: Serviço do Banco de Dados SQL do Azure | Microsoft Docs
 description: Saiba mais sobre as camadas de serviço para bancos de dados únicos e em pool para fornecer níveis de desempenho e tamanhos de armazenamento.
-keywords: ''
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 02/28/2018
+ms.date: 03/21/2018
+manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: ebfd44098a81b4a9d8863623458460ceb25f0d5d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3fe7add4ad4c5563a6307db0dec27c658913429b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quais são as camadas de serviço do Banco de Dados SQL do Azure?
 
@@ -40,7 +33,8 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 |CPU|Baixo|Baixo, Médio, Alto|Médio, Alto|
 |Taxa de transferência de E/S (aproximada) |2.5 IOPS por DTU  | 2.5 IOPS por DTU | 48 IOPS por DTU|
 |Latência de E/S (aproximada)|5 ms (leitura), 10 ms (gravação)|5 ms (leitura), 10 ms (gravação)|2 ms (leitura/gravação)|
-|Indexação de ColumnStore e OLTP in-memory|N/D|N/D|Com suporte|
+|Indexação ColumnStore |N/D|S3 e acima|Com suporte|
+|OLTP na memória|N/D|N/D|Com suporte|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Limites de tamanho de armazenamento e nível de desempenho

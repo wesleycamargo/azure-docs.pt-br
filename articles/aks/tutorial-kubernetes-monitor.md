@@ -1,6 +1,6 @@
 ---
 title: Tutorial do Kubernetes no Azure - Monitorar o Kubernetes
-description: "Tutorial do AKS– monitorar o Kubernetes com o OMS (Microsoft Operations Management Suite)"
+description: Tutorial do AKS – monitorar o Kubernetes com o Azure Log Analytics
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 227601858dbe07e6cb774a2d24878ddca05aaf56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86ae0c5ab302c49fa58df887d9dffef6cec31708
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>Monitorar o AKS (Serviço de Contêiner do Azure)
+# <a name="tutorial-monitor-azure-container-service-aks"></a>Tutorial: monitorar o Serviço de Contêiner do Azure (AKS)
 
 Monitorar seu cluster do Kubernetes e os contêineres é fundamental, principalmente ao executar um cluster de produção em grande escala e com vários aplicativos.
 
@@ -40,11 +40,11 @@ No portal do Azure, selecione **Criar um recurso** e procure `Container Monitori
 
 ![Adicionar solução](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Crie um novo espaço de trabalho do OMS ou selecione um existente. O formulário Espaço de Trabalho do OMS o orientará durante este processo.
+Crie um novo espaço de trabalho do Log Analytics ou selecione um existente. O formulário de Espaço de trabalho do Log Analytics o orienta durante este processo.
 
 Ao criar o espaço de trabalho, selecione **Fixar no Painel** para recuperação fácil.
 
-![Espaço de Trabalho do OMS](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+![Espaço de trabalho do Log Analytics](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
 Ao terminar, selecione **OK**. Após a conclusão da validação, selecione **Criar** para criar a solução de monitoramento de contêiner.
 
@@ -58,7 +58,7 @@ Para recuperar esses valores, selecione **Espaço de Trabalho do OMS** no menu e
 
 ## <a name="create-kubernetes-secret"></a>Criar segredo Kubernetes
 
-Armazene as configurações de espaço de trabalho do OMS em um segredo Kubernetes chamado `omsagent-secret` usando o comando [kubectl create secret] [ kubectl-create-secret]. Atualize `WORKSPACE_ID` com sua ID de espaço de trabalho do OMS e `WORKSPACE_KEY` com a chave do espaço de trabalho.
+Armazene as configurações de espaço de trabalho do Log Analytics em um segredo Kubernetes chamado `omsagent-secret` usando o comando [kubectl create secret][kubectl-create-secret]. Atualize `WORKSPACE_ID` com sua ID de espaço de trabalho do Log Analytics e `WORKSPACE_KEY` com a chave do espaço de trabalho.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -154,7 +154,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-Depois que os agentes estiverem em execução, levará vários minutos para que o OMS ingira e processe os dados.
+Depois que os agentes estiverem em execução, levará vários minutos para que o Log Analytics ingira e processe os dados.
 
 ## <a name="access-monitoring-data"></a>Acessar dados de monitoramento
 
@@ -166,7 +166,7 @@ Consulte a [documentação do Azure Log Analytics][log-analytics-docs] para obte
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você monitorou o cluster do Kubernetes com o OMS. As tarefas abordadas incluíram:
+Neste tutorial, você monitorou o cluster Kubernetes com o Log Analytics. As tarefas abordadas incluíram:
 
 > [!div class="checklist"]
 > * Configuração da solução de monitoramento de contêiner

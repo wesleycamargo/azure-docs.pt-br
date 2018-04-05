@@ -1,8 +1,8 @@
 ---
-title: "Noções básicas sobre alertas no Azure Log Analytics | Microsoft Docs"
-description: "Alertas no Log Analytics identificam informações importantes em seu repositório do OMS e podem notificar proativamente problemas ou invocar ações para tentar corrigi-los.  Este artigo descreve os diferentes tipos de regras de alerta e como elas são definidas."
+title: Noções básicas sobre alertas no Azure Log Analytics | Microsoft Docs
+description: Alertas no Log Analytics identificam informações importantes em seu repositório do OMS e podem notificar proativamente problemas ou invocar ações para tentar corrigi-los.  Este artigo descreve os diferentes tipos de regras de alerta e como elas são definidas.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: ece2e7eeb53aebbb18bce4bb34e03307b0aea74c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Noções básicas sobre alertas no Log Analytics
 
@@ -102,7 +102,7 @@ Por exemplo, se você quisesse alertar quando o processador ultrapassasse 90%, u
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-Se você quisesse alertar quando o processador ficasse acima de 90% durante um determinado período, usaria uma consulta com o [comando measure](log-analytics-search-reference.md#commands), como no seguinte, com o limite para a regra de alerta **maior do que 0**.
+Se você quisesse alertar quando o processador ficasse acima de 90% durante um determinado período, usaria uma consulta com o `measure`comando, como no seguinte, com o limite para a regra de alerta**maior do que 0**.
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
@@ -119,7 +119,7 @@ Se você quisesse alertar quando o processador ficasse acima de 90% durante um d
 Regras de alerta de **Medição métrica** criam um alerta para cada objeto em uma consulta com um valor que excede um limite especificado.  Eles têm as diferenças distintas a seguir em relação às regras de alerta de **Número de resultados**.
 
 #### <a name="log-search"></a>Pesquisa de log
-Embora você possa usar qualquer consulta para uma regra de alerta de **Número de resultados**, há requisitos específicos para a consulta para uma regra de alerta de Medição métrica.  Ela deve incluir um [comando Measure](log-analytics-search-reference.md#commands) para agrupar os resultados em um determinado campo. Os cabeçalhos devem incluir os elementos a seguir.
+Embora você possa usar qualquer consulta para uma regra de alerta de **Número de resultados**, há requisitos específicos para a consulta para uma regra de alerta de Medição métrica.  Ela deve incluir um `measure`comando para agrupar os resultados em um determinado campo. Os cabeçalhos devem incluir os elementos a seguir.
 
 - **Função de agregação**.  Determina o cálculo que será realizado e, potencialmente, um campo numérico a agregar.  Por exemplo, **count()** retornará o número de registros na consulta e **avg(CounterValue)** retornará a média do campo CounterValue durante o intervalo.
 - **Campo Grupo**.  Um registro com um valor agregado será criado para cada instância do campo e um alerta pode ser gerado para cada um deles.  Por exemplo, se você quisesse gerar um alerta para cada computador, você usaria **by Computer**.   

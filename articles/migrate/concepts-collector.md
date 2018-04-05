@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="collector-appliance"></a>Dispositivo Coletor
 
@@ -172,6 +172,15 @@ A tabela a seguir lista os contadores de desempenho que são coletados e também
 O Coletor somente descobre os dados do computador e os envia para o projeto. O projeto pode levar mais tempo antes de os dados descobertos serem exibidos no portal e você poder começar a criar uma avaliação.
 
 Com base no número de máquinas virtuais no escopo selecionado, levará até 15 minutos para enviar os metadados estáticos para o projeto. Depois que os metadados estáticos estiverem disponíveis no portal, você poderá ver a lista de máquinas no portal e iniciar a criação de grupos. Não é possível criar uma avaliação até que o trabalho de coleta seja concluído e o projeto tenha processado os dados. Uma vez que o trabalho de coleta tenha sido concluído no Coletor, poderá levar até uma hora para os dados de desempenho estarem disponíveis no portal, com base no número de máquinas virtuais no escopo selecionado.
+
+## <a name="locking-down-the-collector-appliance"></a>Bloquear o dispositivo coletor
+Recomenda-se executar atualizações contínuas do Windows no dispositivo coletor. Se um coletor não for atualizado por 45 dias, ele iniciará o desligamento automático do computador. Se uma descoberta estiver em execução, o computador não será desligado, mesmo após o período de 45 dias. Após o trabalho de descoberta ser concluído, o computador será desligado. Se você estiver usando o coletor por mais de 45 dias, é recomendável manter o computador sempre atualizado executando o Windows Update.
+
+Também recomendamos as seguintes etapas para proteger seu dispositivo
+1. Não compartilhe nem deixe as senhas de administrador com partes não autorizadas.
+2. Desligue o dispositivo quando não estiver em uso.
+3. Coloque o dispositivo em uma rede segura.
+4. Quando o trabalho de migração for concluído, exclua a instância do dispositivo. Certifique-se de também excluir os arquivos de backup em disco (VMDKs), pois os discos podem ter credenciais de vCenter armazenadas em cache.
 
 ## <a name="how-to-upgrade-collector"></a>Como atualizar o Coletor
 

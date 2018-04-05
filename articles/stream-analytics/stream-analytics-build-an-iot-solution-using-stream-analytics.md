@@ -1,8 +1,8 @@
 ---
-title: "Criar uma solução de IoT usando o Stream Analytics | Microsoft Docs"
-description: "Tutorial de introdução da solução de IoT Stream Analytics de um cenário de pedágio"
-keywords: "solução de iot, funções da janela"
-documentationcenter: 
+title: Criar uma solução de IoT usando o Stream Analytics | Microsoft Docs
+description: Tutorial de introdução da solução de IoT Stream Analytics de um cenário de pedágio
+keywords: solução de iot, funções da janela
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 6ee2c1c4b1255b462f2974c111e626d62608de5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 
@@ -41,8 +41,7 @@ Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 * Visual Studio 2017, 2015 ou o [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) gratuito
 * Uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilégios administrativos no computador
-* Baixar [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) do Centro de Download da Microsoft
-* Opcional: código-fonte do gerador de evento TollApp no [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* Faça o download do código-fonte para análise de dados do sensor TollApp do [Repositório GitHub azure-stream-analytics](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). Esse repositório contém dados de exemplo e consultas que você usará nas próximas seções. 
 
 ## <a name="scenario-introduction-hello-toll"></a>Introdução ao cenário: “Olá, pedágio!”
 Uma praça de pedágio é um fenômeno comum. Você se depara com elas em várias estradas, pontes e túneis em todo o mundo. Cada praça de pedágio tem várias cabines do pedágio. Em cabines manuais, você para e paga o pedágio para um atendente. Em cabines automatizadas, um sensor sobre cada uma das cabines lê um cartão RFID fixado ao para-brisa do veículo conforme você passa pela cabine. É fácil visualizar a passagem dos veículos por essas estações de pedágio como uma transmissão de eventos sobre quais operações interessantes podem ser executadas.
@@ -173,7 +172,7 @@ Você também verá outra janela semelhante à captura de tela a seguir. Este ap
 
 ![Captura de tela de "Enviando dados de hub de evento"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
-Agora, você deverá ver todos os recursos no portal do Azure. Vá para <https://portal.azure.com> e entre com as credenciais de sua conta. Observe que, no momento, algumas funcionalidades utilizam o portal clássico. Essas etapas serão indicadas claramente.
+Agora, você deverá ver todos os recursos no portal do Azure. Vá para <https://portal.azure.com> e conecte-se com as credenciais de conta. Observe que, no momento, algumas funcionalidades utilizam o portal clássico. Essas etapas serão indicadas claramente.
 
 ### <a name="azure-event-hubs"></a>Hubs de eventos do Azure
 

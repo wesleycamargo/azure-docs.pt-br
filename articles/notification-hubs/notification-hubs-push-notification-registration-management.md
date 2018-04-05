@@ -1,11 +1,11 @@
 ---
 title: Gerenciamento de registros
-description: "Este tópico explica como registrar dispositivos em hubs de notificação para receber notificações por push."
+description: Este tópico explica como registrar dispositivos em hubs de notificação para receber notificações por push.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af5738ac96bd2afacee493765453567f7f13c9e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="registration-management"></a>Gerenciamento de registros
 ## <a name="overview"></a>Visão geral
@@ -39,7 +39,7 @@ A seguir, algumas vantagens importantes do uso de instalações:
 * O modelo de instalação facilita a realização de envios individuais por push - direcionando a um dispositivo específico. Uma marca de sistema **"$InstallationId: [installationId]"** é adicionada automaticamente com cada registro com base em instalação. Portanto, você pode chamar um envio para essa marca a fim de direcionar a um dispositivo específico sem precisar fazer qualquer codificação adicional.
 * O uso de instalações também permite que você faça atualizações parciais no registro. A atualização parcial de uma instalação é solicitada com um método PATCH usando o [padrão JSON-Patch](https://tools.ietf.org/html/rfc6902). Isso é particularmente útil quando você deseja atualizar marcas no registro. Não é necessário obter todo o registro e reenviar todas as marcas anteriores novamente.
 
-Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa de propriedades de instalação, veja [Criar ou Sobrescrever uma Instalação com REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriedades da Instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) para o .
+Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa de propriedades de instalação, veja [Criar ou Sobrescrever uma Instalação com REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriedades da Instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
     // Example installation format to show some supported properties
     {
@@ -293,7 +293,7 @@ Você também pode usar o método PATCH com o [padrão JSON-Patch](https://tools
 
 
 #### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Exemplo de código para registrar com um hub de notificação de um dispositivo usando uma ID de registro
-No back-end do aplicativo, você pode executar operações básicas de CRUDS nos registros. Por exemplo:
+No back-end do aplicativo, você pode executar operações básicas de CRUDS nos registros. Por exemplo: 
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 

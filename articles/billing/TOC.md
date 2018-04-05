@@ -1,3 +1,4 @@
+
 # [Documentação de Cobrança do Azure](index.md)
 
 # Introdução
@@ -41,6 +42,7 @@
 ### [Editar perfil](billing-how-to-change-azure-account-profile.md)
 ### [Atualizar as informações de pagamento](billing-how-to-change-credit-card.md)
 ### [Pagar pelas assinaturas por fatura](billing-how-to-pay-by-invoice.md)
+### [Link do ID do parceiro](billing-partner-admin-link-started.md)
 ## [Gerenciar Instâncias da VM Reservadas](billing-manage-reserved-vm-instance.md)
 ## Solucionar problemas
 ### [Problemas de inscrição](https://support.microsoft.com/en-us/help/4042959)

@@ -1,13 +1,13 @@
 ---
 title: Fazer backup de VMs do Azure no Azure em escala | Microsoft Docs
-description: "Este tutorial oferece detalhes de como fazer backups de várias máquinas virtuais do Azure para um Cofre dos Serviços de Recuperação."
+description: Este tutorial oferece detalhes de como fazer backups de várias máquinas virtuais do Azure para um Cofre dos Serviços de Recuperação.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "backup de máquina virtual, fazer backup de máquina virtual, backup e recuperação de desastre"
-ms.assetid: 
+editor: ''
+keywords: backup de máquina virtual, fazer backup de máquina virtual, backup e recuperação de desastre
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 01609c00c6f0585eff4843932b9eb7a090a59c19
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Fazer backup de máquinas virtuais do Azure no Azure em escala
 
@@ -46,7 +46,7 @@ Crie um Cofre de Serviços de Recuperação com **New-AzureRmRecoveryServicesVau
 New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável. Em seguida, use **Set-AzureRmRecoveryServicesBackupProperties** para definir a opção **-BackupStorageRedundancy** como [GRS (Armazenamento com Redundância Geográfica)](../storage/common/storage-redundancy.md#geo-redundant-storage). 
+Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável. Em seguida, use **Set-AzureRmRecoveryServicesBackupProperties** para definir a opção **-BackupStorageRedundancy** como [GRS (Armazenamento com Redundância Geográfica)](../storage/common/storage-redundancy-grs.md). 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault

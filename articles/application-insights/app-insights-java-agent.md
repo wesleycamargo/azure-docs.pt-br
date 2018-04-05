@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: ecfcf7a3b3698435f98b74474d0ca7223ab2b46c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b327e7f062cdf3e6b1b34a9540461dcb18caf21c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e métodos de tempos de execução em aplicativos Web em Java
 
 
 Se você [instrumentou seu aplicativo Web em Java com o Application Insights][java], será possível usar o Agente Java para obter uma visão mais aprofundada, sem nenhuma alteração de código:
 
 * **Dependências:** dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
-  * **Chamadas REST** feitas por meio de HttpClient, OkHttp e RestTemplate (Spring).
-  * **Redis** feitas por meio do cliente Jedis. Se a chamada demorar mais de 10 segundos, o agente também buscará os argumentos da chamada.
-  * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** – MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby DB. Há suporte para chamadas “executeBatch”. Para MySQL e PostgreSQL, se a chamada levar mais de 10 segundos, o agente relatará o plano de consulta.
-* **Exceções capturadas:** dados sobre exceções que são manipuladas pelo código.
-* **Tempo de execução do método:** dados sobre o tempo necessário para executar métodos específicos.
+  * **Chamadas REST** feitas por meio de HttpClient, OkHttp e RestTemplate (Spring) são capturadas.
+  * **Redis** feitas por meio do cliente Jedis são capturadas.
+  * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  - comandos MySQL, SQL Server e Oracle DB são automaticamente capturados. Para MySQL, se a chamada levar mais de 10 segundos, o agente relatará o plano de consulta.
+* **Exceções capturadas:** informações sobre exceções que são manipuladas pelo seu código.
+* **Tempo de execução do método:** informações sobre o tempo necessário para executar métodos específicos.
 
 Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java do Application Insights][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente do Application Insights para Java
-1. No computador que está executando o servidor Java, [baixe o agente](https://aka.ms/aijavasdk).
+1. No computador que está executando o servidor Java, [baixe o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Certifique-se de realizar o download para a mesma versão do Agente Java como o núcleo do Application Insights Java SDK e pacotes da web. 
 2. Edite o script de inicialização do servidor de aplicativos e adicione a seguinte JVM:
    
     `javaagent:`*caminho completo para o arquivo JAR do agente*

@@ -1,6 +1,6 @@
 ---
-title: "Limitações no Banco de Dados do Azure para PostgreSQL"
-description: "Este artigo descreve limitações no Banco de Dados do Azure para PostgreSQL, como número de opções de mecanismo de armazenamento e conexão."
+title: Limitações no Banco de Dados do Azure para PostgreSQL
+description: Este artigo descreve limitações no Banco de Dados do Azure para PostgreSQL, como número de opções de mecanismo de armazenamento e conexão.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -8,15 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
-O Banco de Dados do Azure para o serviço PostgreSQL está em visualização pública. As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.
+As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.
 
 ## <a name="pricing-tier-maximums"></a>Tipos de preço máximos
 O Banco de Dados do Azure para PostgreSQL possui vários tipos de preço que você pode escolher ao criar um servidor. Para obter mais informações, consulte [Tipos de preço no Banco de Dados do Azure para PostgreSQL](concepts-pricing-tiers.md).  
@@ -43,7 +43,6 @@ Há um número máximo de conexões, unidades de computação e armazenamento em
 |Otimizado para memória| Gen 5| 4| 250|
 |Otimizado para memória| Gen 5| 8| 480|
 |Otimizado para memória| Gen 5| 16| 950|
-|Otimizado para memória| Gen 5| 32| 1900|
 
 Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > FATAL: já existem muitos clientes
@@ -68,4 +67,4 @@ O sistema do Azure exige cinco conexões para monitorar o Banco de Dados do Azur
 ## <a name="next-steps"></a>Próximas etapas
 - Entenda [o que está disponível em cada tipo de preço](concepts-pricing-tiers.md)
 - Saiba mais sobre [Versões de Banco de Dados PostgreSQL com suporte](concepts-supported-versions.md)
-- Revise [como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o Portal do Azure](howto-restore-server-portal.md)
+- Veja [Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o Portal do Azure](howto-restore-server-portal.md)

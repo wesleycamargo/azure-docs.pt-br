@@ -2,22 +2,22 @@
 title: Fazer backup dos Arquivos de Azure para o Azure
 description: Este artigo fornece detalhes sobre como fazer backup e restaurar seus compartilhamentos de Arquivos do Azure e explica as tarefas de gerenciamento.
 services: backup
-keywords: "Não adicione ou edite palavras-chave sem consultar seu especialista em SEO."
+keywords: Não adicione ou edite palavras-chave sem consultar seu especialista em SEO.
 author: markgalioto
 ms.author: markgal
-ms.date: 2/21/2018
+ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: b9bf1582aa1c1b8878b8426f60a18282598eb2b9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ba457daca030d3219fe32177b0b5f8b5565ff544
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="back-up-azure-file-shares"></a>Backup de compartilhamentos de Arquivos do Azure
+# <a name="back-up-azure-file-shares-preview"></a>Backup de compartilhamentos de Arquivos do Azure (versão prévia)
 
-Este artigo fornece detalhes sobre como fazer backup de [compartilhamentos de Arquivos do Azure](../storage/files/storage-files-introduction.md).
+Este artigo explica como usar o Portal do Azure para fazer backup e restaurar [compartilhamentos de Arquivos do Azure](../storage/files/storage-files-introduction.md) no Azure.
 
 Neste guia, você aprenderá a:
 > [!div class="checklist"]
@@ -30,6 +30,16 @@ Neste guia, você aprenderá a:
 
 ## <a name="prerequisites"></a>pré-requisitos
 Antes de fazer backup de um compartilhamento de Arquivos do Azure, verifique se ele está presente em um dos [tipos de Conta de Armazenamento com suporte](troubleshoot-azure-files.md#preview-boundaries). Depois fazer essa verificação, é possível proteger o compartilhamento dos arquivos.
+
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações do backup do compartilhamento de Arquivos do Azure durante a versão prévia
+O backup de Arquivos do Azure está em versão prévia. Esteja ciente das limitações a seguir durante a versão prévia:
+- Não é possível proteger compartilhamentos de arquivos nas contas de armazenamento com [armazenamento com redundância de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) ou replicação de [armazenamento com redundância geográfica com acesso de leitura (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
+- Não é possível proteger compartilhamentos de arquivos em contas de armazenamento que têm redes virtuais habilitadas.
+- Não há nenhum PowerShell ou CLI disponível para a proteção de Arquivos do Azure.
+- A quantidade máxima de backups agendados por dia é de um.
+- A quantidade máxima de backups sob demanda por dia é de quatro.
+- Use [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) na Conta de armazenamento para impedir a exclusão acidental de backups em seu cofre dos Serviços de Recuperação.
+- Não exclua os instantâneos criados pelo Backup do Azure. A exclusão de instantâneos pode resultar na perda de pontos de recuperação e/ou em falhas de restauração. 
 
 ## <a name="configuring-azure-file-shares-backup"></a>Configurar o backup de compartilhamento de Arquivos do Azure
 

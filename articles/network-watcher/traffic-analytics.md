@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: 9fc44fdd6ce01452ffc2506c599e3d05aa0803e1
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="traffic-analytics"></a>Análise de Tráfego
+# <a name="traffic-analytics"></a>Análise de tráfego
 
 Análise de Tráfego é uma solução baseada em nuvem, que oferece visibilidade sobre atividade de usuário e aplicativo nas redes em nuvem. Análise de Tráfego analisa os logs de fluxo de grupo de segurança da rede (NSG) do Observador de Rede para fornecer informações sobre o fluxo de tráfego em sua nuvem do Azure. Com a Análise de Tráfego, você pode:
 
@@ -58,7 +58,7 @@ A Análise de Tráfego está disponível em versão prévia. Os recursos da vers
 
 ### <a name="enable-network-watcher"></a>Habilitar o Observador de Rede 
 
-Para analisar o tráfego, você precisa ter um Observador de Rede existente, ou [habilitar um Observador de Rede do Azure](network-watcher-create.md) em cada região cujos NSGs você deseja analisar o tráfego. A Análise de Tráfego pode ser habilitada para os NSGs hospedados em qualquer uma das [regiões com suporte](#supported-regions).
+Para analisar o tráfego, você precisa ter um observador de rede existente, ou [habilitar um observador de rede](network-watcher-create.md) em cada região cujos NSGs você deseja analisar o tráfego. A Análise de Tráfego pode ser habilitada para os NSGs hospedados em qualquer uma das [regiões com suporte](#supported-regions).
 
 ### <a name="re-register-the-network-resource-provider"></a>Registre novamente o provedor de recursos de rede 
 
@@ -107,7 +107,7 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 4. Selecione *Ativado* para **Status de Análise de Tráfego**.
 5. Selecione um espaço de trabalho do Log Analytics (OMS) existente ou selecione **Criar novo espaço de trabalho** para criar um novo. Um espaço de trabalho do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um espaço de trabalho existente, ele deve existir em uma das [regiões com suporte](#traffic-analytics-supported-regions) e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um espaço de trabalho existente ou não tem um espaço de trabalho em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    O espaço de trabalho do Log Analytics (OMS) que hospeda a solução de Análise de Tráfego e os NSGs não precisa estar na mesma região. Por exemplo, você pode ter Análise de Tráfego em um espaço de trabalho na região Europa Ocidental e ter os NSGs no Leste dos EUA e Oeste dos EUA. Podem ser configurados vários NSGs no mesmo espaço de trabalho.
+    O espaço de trabalho do log analytics que hospeda a solução de Análise de Tráfego e os NSGs não precisa estar na mesma região. Por exemplo, você pode ter Análise de Tráfego em um espaço de trabalho na região Europa Ocidental e ter os NSGs no Leste dos EUA e Oeste dos EUA. Podem ser configurados vários NSGs no mesmo espaço de trabalho.
 6. Selecione **Salvar**.
 
     ![Seleção de conta de armazenamento, espaço de trabalho do Log Analytics e habilitação da Análise de Tráfego](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
@@ -116,7 +116,7 @@ Repita as etapas anteriores para quaisquer outros NSGs para os quais você desej
 
 ## <a name="view-traffic-analytics"></a>Exibir Análise de Tráfego
 
-No lado esquerdo do portal, selecione **Todos os serviços**, em seguida, digite *Monitorar* na caixa **Filtro**. Selecione **Monitorar** quando aparecer nos resultados da pesquisa. Para começar a explorar a Análise de Tráfego e seus recursos, selecione **Observador de Rede**, em seguida, **Análise de Tráfego (versão prévia)**.
+No lado esquerdo do portal, selecione **Todos os serviços**, em seguida, digite *Monitorar* na caixa **Filtro**. Selecione **Monitorar** quando aparecer nos resultados da pesquisa. Para começar a explorar a análise de tráfego e seus recursos, selecione **Observador de Rede**, em seguida, **Análise de Tráfego (versão prévia)**.
 
 ![Acessar o painel de Análise de Tráfego](media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 

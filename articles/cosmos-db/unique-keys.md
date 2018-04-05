@@ -2,24 +2,24 @@
 title: Chaves exclusivas no Azure Cosmos DB | Microsoft Docs
 description: Saiba como usar chaves exclusivas em seu Banco de dados do Azure Cosmos DB.
 services: cosmos-db
-keywords: "restrição de chave exclusiva, violação de restrição de chave exclusiva"
+keywords: restrição de chave exclusiva, violação de restrição de chave exclusiva
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chaves exclusivas no Azure Cosmos DB
 
@@ -58,7 +58,7 @@ Depois que um contêiner é criado com uma política de chave exclusiva, a polí
 
 Pode ser incluído um máximo de 16 valores de caminho (por exemplo, /firstName, /lastName, /address/zipCode etc.) em cada chave exclusiva. 
 
-Cada política de chave exclusiva pode ter um máximo de 10 restrições ou combinações de chave exclusiva. Assim, o exemplo anterior que usa nome, sobrenome e endereço de email é apenas uma restrição e usa três dos 16 possíveis caminhos disponíveis. 
+Cada política de chave exclusiva pode ter no máximo 10 combinações ou restrições de chaves exclusivas e os caminhos combinados para todas as propriedades de índice exclusivo não devem exceder 60 caracteres. Assim, o exemplo anterior que usa nome, sobrenome e endereço de email é apenas uma restrição e usa três dos 16 possíveis caminhos disponíveis. 
 
 Encargos de solicitação de unidade para criar, atualizar e excluir um item são um pouco mais altos quando há uma política de chave exclusiva no contêiner. 
 

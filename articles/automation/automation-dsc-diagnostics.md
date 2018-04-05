@@ -8,17 +8,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Encaminhar dados de relatório DSC de Automação do Azure para o OMS Log Analytics
+# <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Encaminhar dados de relatório DSC de Automação do Azure para o Log Analytics
 
-A Automação pode enviar os dados do status do nó DSC para seu espaço de trabalho de Log Analytics do Microsoft Operations Management Suite (OMS).  
+A Automação pode enviar dados de status do nó DSC para o espaço de trabalho do Log Analytics.  
 O status de conformidade é visível no Portal do Azure, ou com o PowerShell, para nós e recursos individuais de DSC em configurações de nó. Com o Log Analytics, você pode:
 
 * Obter informações de conformidade para nós gerenciados e recursos individuais
@@ -34,7 +32,7 @@ Para começar a enviar seus relatórios de DSC de Automação para Log Analytics
 * Versão de novembro 2016 ou posterior do [Azure PowerShell](/powershell/azure/overview) ( versão 2.3.0).
 * Uma conta de Automação do Azure. Para saber mais, veja [Introdução à Automação do Azure](automation-offering-get-started.md)
 * Um espaço de trabalho de Log Analytics com uma oferta de serviço **Automação e Controle**. Para saber mais, confira [Introdução ao Log Analytics](../log-analytics/log-analytics-get-started.md).
-* Pelo menos um nó DSC de Automação do Azure. Para saber mais, veja [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md) 
+* Pelo menos um nó DSC de Automação do Azure. Para saber mais, veja [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
 ## <a name="set-up-integration-with-log-analytics"></a>Configurar a integração com o Log Analytics
 
@@ -191,5 +189,5 @@ O Log Analytics oferece maior visibilidade operacional para os dados do DSC de A
 
 * Para saber mais sobre como construir consultas de pesquisa diferentes e examinar os logs de DSC de Automação com o Log Analytics, confira [Efetuar pesquisas no Log Analytics](../log-analytics/log-analytics-log-searches.md)
 * Para saber mais sobre como usar a DSC de Automação do Azure, veja [Introdução à DSC de Automação do Azure](automation-dsc-getting-started.md)
-* Para saber mais sobre o Log Analytics do OMS e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* Para saber mais sobre o Log Analytics e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

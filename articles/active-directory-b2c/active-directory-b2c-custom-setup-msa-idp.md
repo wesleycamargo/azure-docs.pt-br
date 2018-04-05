@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Adicionar MSA (Conta da Microsoft) como um provedor de identidade usando Políticas personalizadas"
+title: 'Azure Active Directory B2C: Adicionar MSA (Conta da Microsoft) como um provedor de identidade usando Políticas personalizadas'
 description: Exemplo usando Microsoft como provedor de identidade usando o protocolo OIDC (OpenID Connect)
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: cdc77d093358fa15bb1acbc9ba6b1867bae062f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Adicionar MSA (Conta da Microsoft) como um provedor de identidade usando políticas personalizadas
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 Este artigo mostra como habilitar a entrada para usuários da MSA (conta da Microsoft) por meio de [políticas personalizadas](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
 As etapas incluem:
@@ -84,7 +81,7 @@ A federação com contas da Microsoft exige um segredo do cliente para a conta d
 4.  Para as **Opções**, use **Manual**.
 5.  Para o **Nome**, use `MSASecret`.  
     O prefixo `B2C_1A_` pode ser adicionado automaticamente.
-6.  Na caixa **Segredo**, insira o segredo de aplicativo da Microsoft de https://apps.dev.microsoft.com
+6.  Na caixa **Segredo**, insira o segredo do aplicativo da Microsoft em https://apps.dev.microsoft.com
 7.  Para o **Uso da chave**, use **Assinatura**.
 8.  Clique em **Criar**
 9.  Confirme que você criou a chave `B2C_1A_MSASecret`.

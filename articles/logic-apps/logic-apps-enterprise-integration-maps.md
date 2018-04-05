@@ -1,6 +1,6 @@
 ---
-title: "Transformar XML com mapas XSLT – Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Adicionar mapas XSLT para transformar dados XML com o Aplicativo Lógico do Azure e o Enterprise Integration Pack"
+title: Transformar XML com mapas XSLT – Aplicativo Lógico do Azure | Microsoft Docs
+description: Adicionar mapas XSLT para transformar dados XML com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4445a84a6c6425110e7d705019a28b5cc5447046
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b4d626028eed09e9ce6a45fa8fa69859c082da7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="add-maps-for-xml-data-transform"></a>Adicionar mapas para a transformação de dados XML
 
@@ -28,9 +28,13 @@ A integração do Enterprise usa mapas para transformar dados XML entre formatos
 
 Vamos supor que você receba regularmente pedidos ou faturas B2B de clientes que usam o formato AAAAMMDD para datas. No entanto, em sua organização, você armazena datas no formato MMDDAAAA. Você pode usar um mapa para *transformar* o formato de data AAAAMMDD em MMDDAAAA antes de armazenar os detalhes do pedido ou da fatura em seu banco de dados de atividade do cliente.
 
+
 ## <a name="how-do-i-create-a-map"></a>Como faço para criar um mapa?
 
 É possível criar projetos do BizTalk Integration com o [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") para o Visual Studio 2015. Então, será possível criar um arquivo de mapa de integração que permitirá visualizar itens de mapa entre dois arquivos de esquema XML. Após criar esse projeto, você terá um documento XSLT.
+
+Se o mapa tiver uma referência a um assembly externo, ambos deverão ser carregados para a conta de integração. Eles deverão ser carregados em uma ordem específica, primeiro o assembly e, em seguida, o mapa que faz referência ao assembly.
+
 
 ## <a name="how-do-i-add-a-map"></a>Como adicionar um mapa?
 
@@ -50,7 +54,7 @@ Vamos supor que você receba regularmente pedidos ou faturas B2B de clientes que
 
     ![](./media/logic-apps-enterprise-integration-maps/map-1.png)
 
-5. Após a folha Mapas se abrir, escolha **Adicionar**.
+5. Após a página Mapas ser aberta, escolha **Adicionar**.
 
     ![](./media/logic-apps-enterprise-integration-maps/map-2.png)  
 
@@ -62,6 +66,19 @@ Vamos supor que você receba regularmente pedidos ou faturas B2B de clientes que
 
     ![](./media/logic-apps-enterprise-integration-maps/map-4.png)
 
+
+## <a name="how-do-i-add-an-assembly"></a>Como adiciono um assembly?
+Escolha a conta de integração à qual você deseja carregar o assembly.
+
+1. Escolha o bloco **Assemblies**.
+
+    ![integrationaccount-assembly-tile](./media/logic-apps-enterprise-integration-maps/assemblytile.png)
+
+2. Após a página Assemblies ser aberta, escolha **Adicionar**. Digite um **Nome** para o seu assembly. Para carregar o arquivo de assembly, clique no ícone de pasta à direita da caixa de texto **Assembly**. Após a conclusão do processo de upload, clique em **OK**.
+
+    ![add-assembly](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
+
+
 ## <a name="how-do-i-edit-a-map"></a>Como editar um mapa?
 
 É necessário carregar um novo arquivo de mapa com as alterações desejadas. Primeiro, você pode baixar o mapa e editá-lo.
@@ -70,9 +87,9 @@ Para carregar um novo mapa que substitui um mapa existente, siga estas etapas.
 
 1. Escolha o bloco **Mapas**.
 
-2. Após a folha Mapas se abrir, selecione o mapa que deseja editar.
+2. Após a página Mapas ser aberta, selecione o mapa que deseja editar.
 
-3. Na folha **Mapas**, clique em **Atualizar**.
+3. Na página **Mapas**, clique em **Atualizar**.
 
     ![](./media/logic-apps-enterprise-integration-maps/edit-1.png)
 
@@ -84,7 +101,7 @@ Para carregar um novo mapa que substitui um mapa existente, siga estas etapas.
 
 1. Escolha o bloco **Mapas**.
 
-2. Após a folha Mapas se abrir, selecione o mapa que deseja excluir.
+2. Após a página Mapas ser aberta, selecione o mapa que deseja excluir.
 
 3. Clique em **Excluir**.
 

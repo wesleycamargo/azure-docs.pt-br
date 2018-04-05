@@ -1,11 +1,11 @@
 ---
-title: "Interface do usuário do Azure Mobile Engagement - Monitor"
+title: Interface do usuário do Azure Mobile Engagement - Monitor
 description: Saiba como monitorar dados em tempo real sobre seu aplicativo usando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 5f8a02e35db93585e0fe46d77b3ad18b94c99597
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b370a5db1acee37ce234f5ec3f004be20719cfea
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-monitor-real-time-data-about-your-application"></a>Como monitorar dados em tempo real sobre o seu aplicativo
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Este artigo descreve a guia **MONITORAR** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement** . 
 
-A seção Monitorar da interface do usuário fornece informações de análise em tempo real e permite que você defina alertas quando os limites são atingidos para a maior parte das mesmas informações que estão disponíveis historicamente na seção [ANÁLISE](mobile-engagement-user-interface-analytics.md) da interface do usuário. Veja a seção **Glossário** no tópico [Conceitos](http://go.microsoft.com/fwlink/?LinkId=525555) para ver as definições de termos e abreviaturas na Análise e no Monitoramento (como os seguintes: Usuário Ativo, Novo Usuário, Usuário Retido, Sessão, Gráfico de Trajetória do Usuário, Mapa de Usuários, URLs de Acompanhamento, Tendências, Atividade, Eventos, Trabalho, Erro, Informações Adicionais, Falha e Informações do Aplicativo).
+A seção Monitorar da interface do usuário fornece informações de análise em tempo real e permite que você defina alertas quando os limites são atingidos para a maior parte das mesmas informações que estão disponíveis historicamente na seção [ANÁLISE](mobile-engagement-user-interface-analytics.md) da interface do usuário. Veja a seção **Glossário** no tópico [Conceitos](http://go.microsoft.com/fwlink/?LinkId=525555) para ver as definições de termos e abreviaturas na Análise e no Monitoramento (como os seguintes: Usuário Ativo, Novo Usuário, Usuário Retido, Sessão, Grafo de Trajetória do Usuário, Mapa de Usuários, URLs de Acompanhamento, Tendências, Atividade, Eventos, Trabalho, Erro, Informações Adicionais, Falha e Informações do Aplicativo).
 
 > [!NOTE]
 > Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.

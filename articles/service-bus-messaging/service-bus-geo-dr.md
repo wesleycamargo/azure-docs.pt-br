@@ -1,11 +1,11 @@
 ---
-title: "Recuperação de desastre em área geográfica do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Como usar regiões geográficas para fazer failover e executar a recuperação de desastre no Barramento de Serviço do Azure"
+title: Recuperação de desastre em área geográfica do Barramento de Serviço do Azure | Microsoft Docs
+description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre no Barramento de Serviço do Azure
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: christianwolf42
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
@@ -86,12 +86,13 @@ Caso tenha um cenário no qual você não pode alterar as conexões de produtore
 
 ## <a name="samples"></a>Exemplos
 
-Os [exemplos no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) mostram como configurar e iniciar um failover. Esses exemplos demonstram os conceitos a seguir:
+Os [exemplos no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) mostram como configurar e iniciar um failover. Esses exemplos demonstram os conceitos a seguir:
 
-- Configurações necessárias no Azure Active Directory para usar o Azure Resource Manager com o Barramento de Serviço. 
-- Etapas necessárias para executar o código de exemplo. 
-- Envio e recebimento do namespace primário atual. 
+- Um modelo .NET e configurações necessárias no Azure Active Directory para usar o Azure Resource Manager com o Barramento de Serviço para configurar e habilitar a recuperação de desastre geográfico.
+- Etapas necessárias para executar o exemplo de código.
 - Como usar um namespace existente como alias.
+- Etapas para habilitar a recuperação de desastres de geográficos por meio do PowerShell ou CLI como alternativa.
+- [Envie e receba](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) do namespace primário ou secundário atual usando o alias.
 
 ## <a name="considerations"></a>Considerações
 

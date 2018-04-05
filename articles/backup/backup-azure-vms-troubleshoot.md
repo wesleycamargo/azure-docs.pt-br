@@ -1,11 +1,11 @@
 ---
-title: "Solucionar problemas de erros de backup com máquinas virtuais do Azure | Microsoft Docs"
-description: "Solucionar problemas de backup e restauração de máquinas virtuais do Azure"
+title: Solucionar problemas de erros de backup com máquinas virtuais do Azure | Microsoft Docs
+description: Solucionar problemas de backup e restauração de máquinas virtuais do Azure
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -13,38 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.author: trinadhk;markgal;jpallavi;sogup
+ms.openlocfilehash: 89535fc22faccfb184d9b56a6138337877957829
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
 Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as informações listadas na tabela a seguir.
 
-## <a name="backup"></a>Backup
-
-### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Erro: Não há suporte para a Configuração de Disco especificada
-
-> [!NOTE]
-> Temos uma versão prévia privada para dar suporte a backups para VMs com discos > 1 TB. Para obter detalhes, consulte [Versão prévia privada para suporte de backup de VM de discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
->
->
-
-Atualmente, o Backup do Azure não dá suporte a tamanhos de disco [maiores que 1.023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Se você tiver discos maiores que 1 TB, [conecte novos discos](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) que sejam inferiores a 1 TB <br>
-- Em seguida, copie os dados do disco maior que 1 TB para o(s) disco(s) recém-criado(s) de tamanho menor que 1 TB. <br>
-- Certifique-se de que todos os dados foram copiados e remova os discos maiores que 1 TB
-- Inicie o backup.
-
 | Detalhes do erro | Solução alternativa |
 | --- | --- |
 | Não foi possível executar a operação, pois a VM não existe mais. - Pare a proteção da máquina virtual sem excluir os dados de backup. Mais detalhes em http://go.microsoft.com/fwlink/?LinkId=808124 |Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro:  <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem],<br>(OU)</li><li> Pare a proteção da máquina virtual excluindo ou não os dados de backup. [Mais detalhes:](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
-| Houve falha na operação de instantâneo por falta de conectividade à rede na máquina virtual – verifique se a VM tem acesso à rede. Para que o instantâneo seja bem-sucedido, coloque os intervalos de IP do data center do Azure na lista de permissões ou configure um servidor proxy para acesso à rede. Para obter mais detalhes, consulte http://go.microsoft.com/fwlink/?LinkId=800034. Se já estiver usando um servidor proxy, verifique se as configurações dele foram definidas corretamente | Este erro é gerado quando você nega a conectividade com a Internet de saída na máquina virtual. A conectividade com a Internet é necessária para que a extensão de instantâneo da VM faça um instantâneo dos discos subjacentes da máquina virtual. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) sobre como resolver falhas de instantâneo decorrentes do acesso à rede bloqueado. |
-| O agente de VM não consegue se comunicar com o Serviço de Backup do Azure. - Verifique se a VM tem conectividade com a rede e se o agente da VM está em execução e é o mais recente. Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkId=800034 |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sobre depuração de problemas de instantâneo de VM.<br> Se o agente de VM não está causando problemas, reinicie a máquina virtual. Às vezes, um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado defeituoso". |
+| Houve falha na operação de instantâneo por falta de conectividade à rede na máquina virtual – verifique se a VM tem acesso à rede. Para que o instantâneo seja bem-sucedido, coloque os intervalos de IP do data center do Azure na lista de permissões ou configure um servidor proxy para acesso à rede. Para obter mais detalhes, consulte  http://go.microsoft.com/fwlink/?LinkId=800034. Se já estiver usando um servidor proxy, verifique se as configurações dele foram definidas corretamente | Este erro é gerado quando você nega a conectividade com a Internet de saída na máquina virtual. A conectividade com a Internet é necessária para que a extensão de instantâneo da VM faça um instantâneo dos discos subjacentes da máquina virtual. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) sobre como resolver falhas de instantâneo decorrentes do acesso à rede bloqueado. |
+| O agente de VM não consegue se comunicar com o Serviço de Backup do Azure. - Verifique se a VM tem conectividade com a rede e se o agente da VM está em execução e é o mais recente. Para obter mais informações, consulte  http://go.microsoft.com/fwlink/?LinkId=800034 |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sobre depuração de problemas de instantâneo de VM.<br> Se o agente de VM não está causando problemas, reinicie a máquina virtual. Às vezes, um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado defeituoso". |
 | A VM está em Estado de Falha no Provisionamento – reinicie a VM e verifique se a VM está no estado Em execução ou Desligado para backup | Isso ocorre quando uma das falhas de extensão faz com que a VM fique no estado de falha no provisionamento. Vá até a lista de extensões e veja se há uma extensão com falha, remova essa extensão e tente reiniciar a máquina virtual. Se todas as extensões estiverem em estado de execução, verifique se o serviço de agente da VM está em execução. Caso contrário, reinicie o serviço de agente da VM. | 
-| Falha na operação de extensão VMSnapshot para os discos gerenciados – tente novamente a operação de backup. Se o problema se repetir, siga as instruções em “http://go.microsoft.com/fwlink/?LinkId=800034”. Se ocorrer uma nova falha, entre em contato com o suporte da Microsoft | Esse erro ocorre quando o serviço de Backup do Azure falha ao disparar um instantâneo. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) sobre como depurar problemas de instantâneo de VM. |
+| Falha na operação de extensão VMSnapshot para os discos gerenciados – tente novamente a operação de backup. Se o problema repetir, siga as instruções em 'http://go.microsoft.com/fwlink/?LinkId=800034'. Se ocorrer uma nova falha, entre em contato com o suporte da Microsoft | Esse erro ocorre quando o serviço de Backup do Azure falha ao disparar um instantâneo. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) sobre como depurar problemas de instantâneo de VM. |
 | Não foi possível copiar o instantâneo da máquina virtual, porque o espaço livre na conta de armazenamento é insuficiente – verifique se a conta de armazenamento tem espaço livre equivalente aos dados existentes nos discos de armazenamento premium anexados à máquina virtual | No caso de VMs premium, copiamos o instantâneo para a conta de armazenamento. Isso é feito para garantir que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponível para o aplicativo usando discos premium. A Microsoft recomenda que você aloque apenas 50% do espaço de conta de armazenamento total, para que o serviço de Backup do Azure possa copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre. | 
 | Não é possível executar a operação porque o agente de VM não está respondendo |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. Para VMs Windows, verifique o status do serviço do agente de VM em serviços e se o agente é exibido em programas no painel de controle. Tente remover o programa do painel de controle e reinstalar o agente, conforme mencionado [abaixo](#vm-agent). Depois de reinstalar o agente, dispare um backup ad hoc para confirmar. |
 | Falha na operação de extensão dos serviços de recuperação. -Certifique-se de que o agente de máquina virtual mais recente esteja presente na máquina virtual e o serviço do agente esteja em execução. Tente novamente a operação de backup e, se ele falhar, entre em contato com o suporte da Microsoft. |Esse erro é disparado quando o agente da VM está desatualizado. Consulte a seção "Atualização do agente da VM" logo abaixo para atualizar o agente da VM. |
@@ -158,8 +143,8 @@ A necessidade de resolução de endereços de Internet pública foi articulada [
 
 Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure também deve ser fornecido. Para desbloquear o acesso à infraestrutura do Azure, siga uma destas etapas:
 
-1. Realizar a lista de permissões de intervalos de IP do datacenter do Azure.
-   * Obter a lista de [IPs do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) a colocar na lista de permissões.
+1. Realizar a lista branca de intervalos de IP do datacenter do Azure.
+   * Obter a lista de [IPs do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) a colocar na lista branca.
    * Desbloquear os IPs usando o cmdlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) . Execute este cmdlet na VM do Azure em uma janela do PowerShell com privilégios elevados (executar como Administrador).
    * Adicione regras ao NSG (se você tiver uma em vigor) para permitir o acesso aos IPs.
 2. Criar um caminho para a transmissão do tráfego HTTP

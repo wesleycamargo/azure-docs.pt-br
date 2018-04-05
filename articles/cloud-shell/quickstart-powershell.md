@@ -1,12 +1,12 @@
 ---
-title: "Início rápido do PowerShell no Azure Cloud Shell (versão prévia) | Microsoft Docs"
-description: "Início rápido do PowerShell no Cloud Shell"
+title: Início rápido do PowerShell no Azure Cloud Shell (versão prévia) | Microsoft Docs
+description: Início rápido do PowerShell no Cloud Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Início rápido do PowerShell no Azure Cloud Shell (Versão prévia)
 
@@ -118,7 +118,7 @@ No entanto, você sempre pode usar `dir -Force` para obter dados atualizados.
 
 ### <a name="navigate-storage-resources"></a>Navegar por recursos de armazenamento
     
-Ao entrar na pasta `StorageAccounts`, você pode navegar facilmente por seus recursos de armazenamento
+Ao entrar no diretório `StorageAccounts`, você pode navegar facilmente por seus recursos de armazenamento
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -182,7 +182,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 #### <a name="invoke-powershell-script-across-remote-vms"></a>Invocar o script do PowerShell entre VMs remotas
 
  > [!WARNING]
- > Consulte [Solucionando problemas de gerenciamento remoto de máquinas virtuais do Azure](troubleshooting.md#powershell-resolutions).
+ > Consulte [Solucionando problemas de gerenciamento remoto de máquinas virtuais do Azure](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
   Supondo que você tenha uma VM, MyVM1, vamos usar `Invoke-AzureRmVMCommand` para invocar um bloco de script do PowerShell no computador remoto.
 
@@ -227,7 +227,7 @@ Você também pode primeiro navegar até o diretório `VirtualMachines` e execut
 
 ### <a name="discover-webapps"></a>Descobrir WebApps
 
-Ao entrar na pasta `WebApps`, você pode navegar facilmente por seus recursos de aplicativo Web
+Ao entrar no diretório `WebApps`, você pode navegar facilmente por seus recursos de aplicativos Web
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -274,11 +274,11 @@ Para autenticar servidores ou VMs usando o SSH, gere o par de chaves privadas/p�
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Usando um perfil personalizado para persistir as configurações GIT e SSH
 
-Quando as sessões não persistem após a assinatura, salve sua pasta `$env:USERPROFILE\.ssh` para `CloudDrive` ou crie um quando o Cloud Shell for inicializado.
+Quando as sessões não persistem após a assinatura, salve seu diretório `$env:USERPROFILE\.ssh` para `CloudDrive` ou crie um quando o Cloud Shell for inicializado.
 Adicione o seguinte trecho de código no seu perfil.ps1 para criar um symlink no CloudDrive.
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
@@ -357,7 +357,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Na próxima vez que utilizar o PowerShell no Cloud Shell, o arquivo `helloworld.ps1` estará na pasta `CloudDrive` que monta o compartilhamento de arquivos do Azure.
+Na próxima vez que utilizar o PowerShell no Cloud Shell, o arquivo `helloworld.ps1` estará no diretório `CloudDrive` que monta o compartilhamento de arquivos do Azure.
 
 ## <a name="use-custom-profile"></a>Usar perfil personalizado
 

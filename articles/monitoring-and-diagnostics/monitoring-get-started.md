@@ -1,9 +1,9 @@
 ---
-title: "Introdução ao Azure Monitor | Microsoft Docs"
-description: "Começar a usar o Azure Monitor para obter informações sobre a operação de seus recursos e tomada de ação com base nos dados."
+title: Introdução ao Azure Monitor | Microsoft Docs
+description: Começar a usar o Azure Monitor para obter informações sobre a operação de seus recursos e tomada de ação com base nos dados.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 9c352c67aa0e9392c9e9d68822abeb27344bd8b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 69ec5392f034ffe94315c17366a9242d86c69d6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Introdução ao Azure Monitor
-O Azure Monitor é o serviço de plataforma que fornece uma única fonte para monitorar os recursos do Azure. Com o Azure Monitor, você pode visualizar, consultar, rotear, arquivar e tomar medidas relacionadas às métricas e aos logs provenientes dos recursos do Azure. É possível trabalhar com esses dados, usando o Portal do Azure, [Cmdlets do PowerShell do Monitor](insights-powershell-samples.md), [CLI de Plataforma Cruzada](insights-cli-samples.md) ou [APIs REST do Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Neste artigo, veremos alguns dos principais componentes do Azure Monitor usando o portal para demonstração.
+O Azure Monitor é o serviço de plataforma que fornece uma única fonte para monitorar os recursos do Azure. Com o Azure Monitor, você pode visualizar, consultar, rotear, arquivar e também tomar medidas relacionadas às métricas e aos logs provenientes dos recursos do Azure. É possível trabalhar com esses dados, usando o Portal do Azure, [Cmdlets do PowerShell do Monitor](insights-powershell-samples.md), [CLI de Plataforma Cruzada](insights-cli-samples.md) ou [APIs REST do Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Neste artigo, veremos alguns dos principais componentes do Azure Monitor usando o portal para demonstração.
 
 ## <a name="walkthrough"></a>Passo a passo
 1. No portal, navegue até **Todos os serviços** e localize a opção **Monitor**. Clique no ícone de estrela para adicionar essa opção à lista de favoritos para que fique sempre facilmente acessível na barra de navegação à esquerda.
@@ -39,7 +39,7 @@ O Azure Monitor é o serviço de plataforma que fornece uma única fonte para mo
     O [**log de atividades**](monitoring-overview-activity-logs.md)descreve todas as operações executadas nos recursos em sua assinatura. Usando o Log de Atividades, você pode determinar 'o que, quem e quando' para quaisquer operações de criação, atualização ou exclusão nos recursos em sua assinatura. Por exemplo, o Log de Atividades informa quando um aplicativo Web foi interrompido e quem o interrompeu. Os eventos do Log de Atividades são armazenados na plataforma e ficam disponíveis para consulta por 90 dias.
 
     Você pode criar e salvar consultas para os filtros comuns e fixar as consultas mais importantes em um painel do portal para que sempre saiba se ocorreram eventos que atendem aos seus critérios.
-4. Filtre a exibição para um determinado grupo de recursos na última semana, então, clique no botão **Salvar** .
+4. Filtre a exibição para um determinado grupo de recursos na última semana, então, clique no botão **Salvar** . Dê um nome à consulta. 
 
     ![Salvar consulta do log de atividades](./media/monitoring-get-started/monitor-act-log-save.png)
 5. Agora, clique no **Fixar** .

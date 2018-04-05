@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Criptografia do Serviço de Armazenamento do Azure para dados em repouso
 
@@ -52,7 +52,7 @@ R: A Criptografia do Serviço de Armazenamento está habilitada por padrão em t
 
 **P: Como fazer para criptografar os dados em uma conta de armazenamento do Resource Manager?**
 
-R: A Criptografia do Serviço de Armazenamento está habilitada por padrão para todas as contas de armazenamento – clássico e Resource Manager. No entanto, os dados existentes não são criptografados. Para criptografar os dados existentes, copie-os para outro nome ou outro contêiner e, em seguida, remova as versões não criptografadas. 
+R: a criptografia de serviço de armazenamento é habilitada por padrão para todas as contas de armazenamento – clássicas e o Gerenciador de Recursos, os arquivos existentes na conta de armazenamento criada antes da habilitação da criptografia serão retroativamente criptografados por um processo de criptografia de plano de fundo.
 
 **P: Posso criar contas de armazenamento com a Criptografia do Serviço de Armazenamento habilitada usando o Azure PowerShell e a CLI do Azure?**
 

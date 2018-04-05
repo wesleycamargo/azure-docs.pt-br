@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault
 
@@ -111,11 +111,11 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Etapa 5: Copiar dados para a conta de armazenamento
 
-Para transferir dados para sua nova conta de armazenamento, de forma que ela seja criptografada, veja a Etapa 3 da [Introdução à Criptografia do Serviço de Armazenamento para dados em repouso](storage-service-encryption.md#step-3-copy-data-to-storage-account).
+Para transferir dados para sua nova conta de armazenamento de forma que seja criptografado. Para saber mais, consulte [Perguntas Frequentes sobre a Criptografia do Serviço de Armazenamento](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Etapa 6: Consultar o status dos dados criptografados
 
-Para consultar o status dos dados criptografados, veja a Etapa 4 da [Introdução à Criptografia do Serviço de Armazenamento para dados em repouso](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
+Consultar o status dos dados criptografados.
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>Perguntas frequentes sobre a SSE com chaves gerenciadas pelo cliente
 

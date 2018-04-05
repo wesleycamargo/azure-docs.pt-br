@@ -1,8 +1,8 @@
 ---
-title: "Uma introdução ao Apache Kafka no HDInsight - Azure | Microsoft Docs"
-description: "Saiba mais sobre o Apache Kafka no HDInsight: o que é o que ele faz e onde encontrar exemplos e informações de introdução."
+title: Uma introdução ao Apache Kafka no HDInsight - Azure | Microsoft Docs
+description: 'Saiba mais sobre o Apache Kafka no HDInsight: o que é o que ele faz e onde encontrar exemplos e informações de introdução.'
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Introdução ao Apache Kafka no HDInsight
 
@@ -31,7 +31,7 @@ O Kafka no HDInsight oferece os seguintes recursos:
 
 * __Contrato de Nível de Serviço (SLA) 99,9% no tempo de atividade do Kafka__: para obter mais informações, consulte o documento [Informações de SLA para HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* __Reconhecimento de tolerância a falhas e rack__: O Kafka foi desenvolvido com uma exibição dimensional única de um rack que funciona bem em alguns ambientes. No entanto, em ambientes como o Azure, um rack é separado em duas dimensões: domínios de atualização (UDs) e domínios de falha (FDs). A Microsoft fornece ferramentas que garantem a redistribuição de partições e réplicas Kafka por UDs e FDs. 
+* __Tolerância a falhas__: o Kafka foi desenvolvido com uma exibição dimensional única de um rack que funciona bem em alguns ambientes. No entanto, em ambientes como o Azure, um rack é separado em duas dimensões: domínios de atualização (UDs) e domínios de falha (FDs). A Microsoft fornece ferramentas que podem redistribuir partições e réplicas do Kafka entre UDs e FDs. 
 
     Para obter mais informações, consulte [Alta disponibilidade com Kafka no HDInsight](apache-kafka-high-availability.md).
 

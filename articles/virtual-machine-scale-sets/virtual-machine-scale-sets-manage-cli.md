@@ -1,13 +1,13 @@
 ---
-title: "Gerenciar Conjuntos de dimensionamento de máquina virtual com a CLI do Azure 2.0 | Microsoft Docs"
-description: "Comandos comuns da CLI do Azure 2.0 para gerenciar Conjuntos de dimensionamento de máquina virtual, por exemplo: como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento."
+title: Gerenciar Conjuntos de dimensionamento de máquina virtual com a CLI do Azure 2.0 | Microsoft Docs
+description: 'Comandos comuns da CLI do Azure 2.0 para gerenciar Conjuntos de dimensionamento de máquina virtual, por exemplo: como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.'
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1afb43b65203406a7d49b0e3f641bc22d164a4a9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gerenciar um conjunto de dimensionamento de máquina virtual com a CLI do Azure 2.0
 Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Além disso, talvez você deseje criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos comuns do CLI do Azure 2.0 que permitem executar essas tarefas.
 
-Para concluir essas tarefas de gerenciamento, é necessário o build mais recente da CLI do Azure 2.0. Para obter informações sobre como instalar e usar a versão mais recente, consulte [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli). Se for preciso criar um conjunto de dimensionamento de máquinas virtuais, você pode [criar um conjunto de dimensionamento no portal do Azure](virtual-machine-scale-sets-create-portal.md).
+Para concluir essas tarefas de gerenciamento, é necessário a CLI do Azure 2.0 mais recente. Para obter informações, consulte [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli). Se for preciso criar um conjunto de dimensionamento de máquinas virtuais, você pode [criar um conjunto de dimensionamento com a CLI do Azure 2.0](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Exibir informações sobre um conjunto de dimensionamento

@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
-ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para replicação de VMware e servidor físico no Azure
 
@@ -175,7 +175,7 @@ Arquitetura do sistema operacional convidado | 64 bits. | A verificação falha 
 Tamanho do disco do sistema operacional | Até 2.048 GB. | A verificação falha se não tiver suporte. 
 Contagem do disco do sistema operacional | 1 | A verificação falha se não tiver suporte.  
 Contagem de disco de dados | 64 ou menos. | A verificação falha se não tiver suporte.  
-Tamanho do VHD do disco de dados | Até 4.095 GB | A verificação falha se não tiver suporte. 
+Tamanho do disco de dados | Até 4.095 GB | A verificação falha se não tiver suporte. 
 Adaptadores de rede | Há suporte para vários adaptadores. | 
 VHD compartilhado | Sem suporte. | A verificação falha se não tiver suporte. 
 Disco FC | Sem suporte. | A verificação falha se não tiver suporte. 

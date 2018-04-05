@@ -1,12 +1,12 @@
 ---
-title: "Planejador de implantação do Azure Site Recovery para VMware ao Azure | Microsoft Docs"
-description: "Este é o guia do usuário do planejador de implantação do Azure Site Recovery."
+title: Planejador de implantação do Azure Site Recovery para VMware ao Azure | Microsoft Docs
+description: Este é o guia do usuário do planejador de implantação do Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 63963804b81aa57e914e18fa474963a3830d04d5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custo do Planejador de Implantações do Azure Site Recovery  
 
@@ -110,7 +110,7 @@ Para adicionar manualmente as máquinas virtuais:
 * Duração de cada detalhamento de recuperação de desastre (Dias) 
 * Tipo de sistema operacional
 * Redundância de dados 
-* Benefício de Uso do Azure Híbrido
+* Benefício Híbrido do Azure
 
 3.  Você pode aplicar o mesmo valor a todas as VMs na tabela clicando no botão 'Aplicar a todos' para Número de Análises de Recuperação de Desastre em um ano, Duração da Análise de cada Recuperação de Desastre (Dias), Redundância de dados e Benefício Híbrido do Azure.
 
@@ -136,7 +136,7 @@ Para adicionar manualmente as máquinas virtuais:
 
 **Redundância de dados**: pode ser um destes itens - Armazenamento localmente redundante (LRS), Armazenamento com redundância geográfica (GRS) ou Armazenamento com redundância geográfica com acesso de leitura (RA-GRS). O padrão é LRS. Você pode alterar o tipo com base em sua conta de armazenamento para máquinas virtuais específicas ou pode aplicar o novo tipo a todas as VMs alterando o tipo da linha superior e clicando no botão 'Aplicar a todos'.  O custo de armazenamento para a replicação é calculado com base no preço de redundância de dados que você selecionou. 
 
-**Benefício Híbrido do Azure**: você pode aplicar o Benefício Híbrido do Azure a máquinas virtuais do Windows, se aplicável.  O padrão é Sim. Você pode alterar a configuração de máquinas virtuais específicas ou atualizar todas as máquinas virtuais clicando no botão 'Aplicar a todos'.
+**Benefício Híbrido do Azure**: é possível aplicar o Benefício Híbrido do Azure a VMs do Windows, se aplicável.  O padrão é Sim. Você pode alterar a configuração de máquinas virtuais específicas ou atualizar todas as máquinas virtuais clicando no botão 'Aplicar a todos'.
 
 **Consumo total do Azure**: inclui o custo de computação, armazenamento e licença do Azure Site Recovery para a recuperação de desastre. Com base em sua seleção, mostra o custo mensal ou anual.
 

@@ -1,11 +1,11 @@
 ---
-title: "Referência do Transact-SQL do SQL Data Warehouse | Microsoft Docs"
-description: "Links para conteúdo de referência dos tópicos do Transact-SQL usados pelo SQL Data Warehouse."
+title: Referência do Transact-SQL do SQL Data Warehouse | Microsoft Docs
+description: Links para conteúdo de referência dos tópicos do Transact-SQL usados pelo SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 0abc5934-1e67-491a-b7d7-8b520d1ae98e
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 03/22/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: d6ad9db8eae0dc35580194f2ffbf02eeab6b70d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f2148f6087a43f9cec252df4ef2b97b4a7afcb3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="transact-sql-topics"></a>Tópicos do Transact-SQL
 ## <a name="data-definition-language-ddl-statements"></a>Instruções de DDL (Linguagem de Definição de Dados)
@@ -113,12 +113,12 @@ ms.lasthandoff: 10/11/2017
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais exemplos de TSQL, consulte [Visão geral de referência do SQL Data Warehouse][SQL Data Warehouse reference overview].
+Para obter mais referência TSQL, consulte [Elementos de linguagem T-SQL do SQL Data Warehouse do Azure](sql-data-warehouse-reference-tsql-language-elements.md).
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 

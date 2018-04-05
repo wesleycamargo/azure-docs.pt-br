@@ -1,33 +1,32 @@
 ---
-title: Criar alertas do log de atividades | Microsoft Docs
+title: Criar alertas clássicos do log de atividades | Microsoft Docs
 description: Seja notificado por SMS, webhook e email quando ocorrerem determinados eventos no log de atividades.
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>Criar alertas do log de atividades
+# <a name="create-activity-log-alerts-classic"></a>Criar alertas do log de atividades (clássicos)
 
 ## <a name="overview"></a>Visão geral
 Os alertas de log de atividades são alertas ativados quando ocorre um novo evento de log de atividades que corresponde às condições especificadas no alerta. Eles são recursos do Azure e, portanto, podem ser criados usando um modelo do Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás de alertas de log de atividades. Ele então mostra como usar o portal do Azure para configurar um alerta em eventos do log de atividades.
 
 > [!NOTE]
 
->  [Alertas (Visualização)](monitoring-overview-unified-alerts.md) atualmente oferece uma experiência aprimorada na criação e gerenciamento de log de atividades.  [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
+>  A nova experiência de [Alertas](monitoring-overview-unified-alerts.md) substituiu esse procedimento. Este artigo é fornecido como referência para a experiência anterior. [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
 
 Normalmente, você cria alertas de log de atividade para receber notificações quando:
 
@@ -59,11 +58,11 @@ Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de açõ
 
 Para saber mais sobre as notificações de integridade do serviço, veja [Receber alertas do log de atividades sobre as notificações de integridade do serviço](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Criar um alerta em um evento do log de atividades com um novo grupo de ações usando o portal do Azure
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Criar um alerta (clássico) em um evento do log de atividades com um novo grupo de ações usando o portal do Azure
 1. No [portal](https://portal.azure.com), selecione **Monitor**.
 
     ![O serviço “Monitor”](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. Na seção **Log de atividades**, selecione **Alertas**.
+2. Na seção **Log de atividades**, selecione **Alertas (clássicos)**.
 
     ![A guia “Alertas”](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. Selecione **Adicionar alerta do log de atividades** e preencha os campos.

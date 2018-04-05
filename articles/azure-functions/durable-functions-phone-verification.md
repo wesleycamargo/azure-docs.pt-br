@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana nas Funções Duráveis – exemplo de verificação por telefone
 
@@ -28,8 +28,8 @@ Este exemplo implementa um sistema de verificação por telefone baseado em SMS.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* Siga as instruções em [Instalar Funções Duráveis](durable-functions-install.md) para configurar o exemplo.
-* Este artigo pressupõe que você já tenha passado pelo passo a passo do exemplo [Sequência Hello](durable-functions-sequence.md).
+* [Instalar Funções Duráveis](durable-functions-install.md).
+* Complete a [Sequência Hello](durable-functions-sequence.md) passo a passo.
 
 ## <a name="scenario-overview"></a>Visão geral do cenário
 
@@ -50,7 +50,7 @@ Este artigo aborda as seguintes funções no aplicativo de exemplo:
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-As seções a seguir explicam a configuração e o código que são usados para desenvolvimento no portal do Azure. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
+As seções a seguir explicam a configuração e o código utilizados para o script C#. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>A orquestração de verificação de SMS (código de exemplo do Visual Studio Code e do portal do Azure) 
 

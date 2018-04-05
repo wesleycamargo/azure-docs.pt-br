@@ -1,21 +1,21 @@
 ---
-title: "Solucionar problemas de VHDs anexados em máquinas virtuais Linux do Azure | Microsoft Docs"
-description: "Como solucionar problemas, como reinicializações inesperadas de VMs Linux ou problemas ao excluir uma conta de armazenamento que contém VHDs anexos."
-keywords: "conexão ssh recusada, erro de ssh, ssh do azure, falha de conexão SSH"
+title: Solucionar problemas de VHDs anexados em máquinas virtuais Linux do Azure | Microsoft Docs
+description: Como solucionar problemas, como reinicializações inesperadas de VMs Linux ou problemas ao excluir uma conta de armazenamento que contém VHDs anexos.
+keywords: conexão ssh recusada, erro de ssh, ssh do azure, falha de conexão SSH
 services: virtual-machines-linux
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: iainfou
-ms.openlocfilehash: 10f5e2f4a48d335c6b7d05b5eb5b577765675c0e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: rogarana
+ms.openlocfilehash: 3e1bac226a75ace3efdbc9886d152da055075920
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-linux-virtual-machines"></a>Solucionar problemas de VHDs anexados em máquinas virtuais Linux do Azure
 
@@ -24,7 +24,7 @@ As Máquinas Virtuais do Azure dependem de Discos Rígidos virtuais (VHDs) para 
   * [Reinicializações inesperadas de VMs com VHDs anexados]
   * [Erros de exclusão de armazenamento na implantação do Gerenciador de Recursos]
 
-## <a name="you-are-experiencing-unexpected-reboots"></a>Reinicializações inesperadas de VMs com VHDs anexados
+## <a name="you-are-experiencing-unexpected-reboots">Reinicializações inesperadas de VMs com VHDs anexados</a>
 
 Se uma Máquina Virtual (VM) do Azure tiver um grande número de VHDs anexados que estão na mesma conta de armazenamento, você poderá exceder os alvos de escalabilidade de uma conta de armazenamento individual, causando uma falha na VM. Verifique as métricas de minuto da conta de armazenamento (**TotalRequests**/**TotalIngress**/**TotalEgress**) para ver se há picos que excedem as metas de escalabilidade de uma conta de armazenamento. Consulte a seção "[As métricas mostram um aumento em PercentThrottlingError]" para ajudar a determinar se a limitação ocorreu na sua conta de armazenamento.
 

@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure 
 
@@ -24,15 +24,13 @@ Se sua organização tiver muitas assinaturas, talvez seja necessária uma manei
 
 O recurso do grupo de gerenciamento está disponível em uma visualização pública. Para começar a usar os grupos de gerenciamento, faça logo no [Portal do Azure](https://portal.azure.com) e procure **Grupos de Gerenciamento** na seção **Todos os serviços**. 
 
-O suporte ao Azure Policy para grupos de gerenciamento ainda não está disponível na Visualização Pública, porém, a disponibilidade está prevista para as próximas semanas.  
-
 Como exemplo, é possível aplicar políticas a um grupo de gerenciamento que limita as regiões disponíveis para a criação de VM (máquina virtual). Essa política seria aplicada a todos os grupos de gerenciamento, assinaturas e recursos nesse grupo de gerenciamento, permitindo que as VMs fossem criadas nessa região.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hierarquia de grupos de gerenciamento e assinaturas 
 
 É possível compilar uma estrutura flexível de grupos de gerenciamento e assinaturas para organizar seus recursos em uma hierarquia para políticas unificadas e gerenciamento de acesso. O diagrama a seguir mostra uma hierarquia de exemplo que consiste em grupos de gerenciamento e assinaturas organizados por departamentos.    
 
-![hierarquia](media/management-groups/MG_overview.png)
+![árvore](media/management-groups/MG_overview.png)
 
 Ao criar uma hierarquia agrupada por departamentos, é possível atribuir funções de [RBAC (Controle de Acesso Baseado em Função do Azure)](../active-directory/role-based-access-control-what-is.md) que *herdam* dos departamentos sob esse grupo de gerenciamento. Ao usar grupos de gerenciamento, você pode reduzir sua carga de trabalho e reduzir o risco de erro, apenas tendo que atribuir a função uma vez. 
 
@@ -42,6 +40,14 @@ Ao criar uma hierarquia agrupada por departamentos, é possível atribuir funç�
     - Esse limite não inclui o nível Raiz ou o nível de assinatura.
 - Cada grupo de gerenciamento somente pode dar suporte a um pai.
 - Cada grupo de gerenciamento pode ter vários elementos filhos. 
+
+### <a name="preview-subscription-visibility-limitation"></a>Limitação de visibilidade de assinatura na versão prévia 
+Atualmente, há uma limitação na versão prévia em que não é possível visualizar assinaturas às quais você tenha acesso herdado. O acesso é herdado para a assinatura, mas o Azure Resource Manager ainda não é capaz de reconhecer o acesso de herança.  
+
+Usar a API REST para obter informações sobre a assinatura retorna detalhes como você tem acesso, mas no Portal do Azure e no Azure Powershell as assinaturas não são exibidas. 
+
+Este item está sendo trabalhado e será resolvido antes dos Grupos de Gerenciamento serem anunciados como "Disponibilidade Geral."  
+
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gerenciamento raiz para cada diretório
 

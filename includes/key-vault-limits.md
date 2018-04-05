@@ -5,6 +5,10 @@ Transações principais (Máximo de transações permitidas em 10 segundos, por 
 |RSA de 2048 bits|5|1000|10|2000|
 |RSA de 3072 bits|5|250|10|500|
 |RSA de 4096 bits|5|125|10|250|
+|ECC P-256|5|1000|10|2000|
+|ECC P-384|5|1000|10|2000|
+|ECC P-521|5|1000|10|2000|
+|ECC SECP256K1|5|1000|10|2000|
 |
 
 Transações de cofre, Segredos e Chaves de Conta de Armazenamento Gerenciadas:

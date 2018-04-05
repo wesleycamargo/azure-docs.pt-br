@@ -1,12 +1,12 @@
 ---
 title: Solucionar problemas do Storm usando o Azure HDInsight | Microsoft Docs
 description: Obtenha respostas para perguntas comuns sobre o uso do Apache Storm com o Azure HDInsight.
-keywords: "Azure HDInsight, Storm, perguntas frequentes, guia de solução de problemas, problemas comuns"
+keywords: Azure HDInsight, Storm, perguntas frequentes, guia de solução de problemas, problemas comuns
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Solucionar problemas do Storm usando o Azure HDInsight
 
@@ -71,7 +71,7 @@ O comando de exportação grava os metadados em um caminho de HDFS (Sistema de A
     ```
 
 #### <a name="import-offset-metadata"></a>Importar metadados de deslocamento
-1. Use SSH para ir até o cluster do ZooKeeper no cluster do qual o deslocamento do ponto de verificação precisa ser exportado.
+1. Use SSH para ir até o cluster do ZooKeeper no cluster do qual o deslocamento do ponto de verificação precisa ser importado.
 2. Execute o seguinte comando (depois de atualizar a cadeia de caracteres de versão do HDP) para importar dados de deslocamento do ZooKeeper do caminho do HDFS /stormmetadata/zkdata para o servidor do ZooKeeper no cluster de destino:
 
     ```apache
@@ -79,7 +79,7 @@ O comando de exportação grava os metadados em um caminho de HDFS (Sistema de A
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Exclua metadados de deslocamento para que as topologias possam começar a processar dados desde o início ou desde um carimbo de data/hora escolhido pelo usuário
-1. Use SSH para ir até o cluster do ZooKeeper no cluster do qual o deslocamento do ponto de verificação precisa ser exportado.
+1. Use SSH para ir até o cluster do ZooKeeper no cluster do qual o deslocamento do ponto de verificação precisa ser excluído.
 2. Execute o comando a seguir (depois de atualizar a cadeia de caracteres de versão do HDP) para excluir todos os dados de deslocamento do ZooKeeper no cluster atual:
 
     ```apache
@@ -152,5 +152,5 @@ O arquivo de configuração de Log4J de trabalho é lido de /usr/hdp/\<versão d
  
 Exemplos: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Veja também
 [Solucionar problemas usando o Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

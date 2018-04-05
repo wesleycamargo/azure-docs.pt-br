@@ -1,6 +1,6 @@
 ---
-title: "Projeto de análise de Integridade do Azure"
-description: "Diretrizes para implantação de um projeto de análise de integridade de HIPAA/HITRUST"
+title: Projeto de análise de Integridade do Azure
+description: Diretrizes para implantação de um projeto de análise de integridade de HIPAA/HITRUST
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 2bca630bb98b3d9c2be566fbd23ae3313c6a5a47
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Projeto de Segurança e Conformidade do Azure: dados de integridade de HIPAA/HITRUST e IA
 
@@ -202,7 +202,7 @@ Esta seção detalha as configurações padrão e as medidas de segurança inter
 - **INGERIR** fontes de dados brutos, incluindo fonte de dados FHIR
 - **ARMAZENAR**  informações confidenciais
 - **ANALISAR** e prever resultados
-- **INTERAGIR** com resultados e previsões
+- **INTERAGIR** com os resultados e previsões
 - Gerenciamento de **IDENTIDADES** da solução
 - Recursos habilitados para **SEGURANÇA**
 

@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 2947fc6da0c4559e81cf97255b8375b020e0b657
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar o Azure Functions para conectar a um banco de dados SQL do Azure
-Este tópico mostra como usar o Azure Functions para criar um trabalho agendado que limpa linhas em uma tabela em um banco de dados SQL do Azure. A nova função C# é criada com base em um gatilho de temporizador predefinido no Portal do Azure. Para dar suporte a esse cenário, você também precisa definir uma cadeia de conexão de banco de dados como uma configuração de aplicativo no aplicativo de funções. Esse cenário usa uma operação em massa no banco de dados. 
+Este tópico mostra como usar o Azure Functions para criar um trabalho agendado que limpa linhas em uma tabela em um banco de dados SQL do Azure. A nova função de script C# é criada com base em um gatilho de temporizador predefinido no Portal do Azure. Para dar suporte a esse cenário, você também precisa definir uma cadeia de conexão de banco de dados como uma configuração de aplicativo no aplicativo de funções. Esse cenário usa uma operação em massa no banco de dados. 
 
 Para que sua função processe operações criar, ler, atualizar e excluir (CRUD) individuais em uma tabela dos Aplicativos Móveis, você deve usar as [Associações de aplicativos móveis](functions-bindings-mobile-apps.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 + Este tópico usa uma função disparada por temporizador. Conclua as etapas no tópico [Criar uma função no Azure que seja disparada por um temporizador](functions-create-scheduled-function.md) para criar uma versão C# dessa função.   
 
@@ -40,13 +40,13 @@ Você precisa obter a cadeia de conexão para o banco de dados que você criou q
  
 3. Selecione **Bancos de Dados SQL** no menu à esquerda e selecione seu banco de dados na página **Bancos de Dados SQL**.
 
-4. Selecione **Mostrar cadeias de conexão do banco de dados** e copie a cadeia de conexão completa do **ADO.NET**.
+4. Selecione **Mostrar cadeias de conexão do banco de dados** e copie a cadeia de conexão completa do **ADO.NET**. 
 
     ![Copie a cadeia de conexão ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
 ## <a name="set-the-connection-string"></a>Definir a cadeia de conexão 
 
-Um aplicativo de função hospeda a execução de suas funções no Azure. É uma prática recomendada armazenar cadeias de conexão e outros segredos nas configurações do seu aplicativo de funções. Usar as configurações do aplicativo impede a divulgação acidental da cadeia de conexão com seu código. 
+Um aplicativo de funções hospeda a execução de suas funções no Azure. É uma prática recomendada armazenar cadeias de conexão e outros segredos nas configurações do seu aplicativo de funções. Usar as configurações do aplicativo impede a divulgação acidental da cadeia de conexão com seu código. 
 
 1. Navegue até seu aplicativo de funções criado em [Criar uma função no Azure que é disparada por um temporizador](functions-create-scheduled-function.md).
 
@@ -62,7 +62,7 @@ Um aplicativo de função hospeda a execução de suas funções no Azure. É um
     | ------------ | ------------------ | --------------------- | 
     | **Nome**  |  sqldb_connection  | Usado para acessar a cadeia de conexão armazenada no seu código de função.    |
     | **Valor** | Cadeia de caracteres copiada  | Cole a cadeia de caracteres de conexão que você copiou na seção anterior e substitua os espaços reservados `{your_username}` e `{your_password}` por valores reais. |
-    | **Tipo** | Banco de Dados SQL | Use a conexão do Banco de Dados SQL. |   
+    | **Tipo** | Banco de dados SQL | Use a conexão do Banco de Dados SQL. |   
 
 3. Clique em **Salvar**.
 
@@ -70,14 +70,16 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
 
 ## <a name="update-your-function-code"></a>Atualizar o código de função
 
-1. Em seu aplicativo de funções, selecione a Função disparada por temporizador.
+1. Em seu aplicativo de funções no portal, selecione a Função disparada por temporizador.
  
-3. Adicione as seguintes referências de assembly na parte superior do código de função existente:
+3. Adicione as seguintes referências de assembly na parte superior do código de função de script C# existente:
 
     ```cs
     #r "System.Configuration"
     #r "System.Data"
     ```
+    >[!NOTE]
+    >O código desses exemplos são script C# a partir do portal. Quando estiver desenvolvendo uma função C# pré-compilada localmente, você deverá adicionar as referências a essas montagens no seu projeto local.  
 
 3. Adicione as instruções `using` a seguir à função:
     ```cs

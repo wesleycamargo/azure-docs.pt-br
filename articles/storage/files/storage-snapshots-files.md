@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do instantâneo de compartilhamento dos Arquivos do Azure (versão prévia) | Microsoft Docs"
-description: "Um instantâneo de compartilhamento é uma versão somente leitura de um compartilhamento dos Arquivos do Azure feito em determinado momento, como uma maneira de fazer backup do compartilhamento."
+title: Visão geral do instantâneo de compartilhamento dos Arquivos do Azure (versão prévia) | Microsoft Docs
+description: Um instantâneo de compartilhamento é uma versão somente leitura de um compartilhamento dos Arquivos do Azure feito em determinado momento, como uma maneira de fazer backup do compartilhamento.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Visão geral de instantâneos de compartilhamento para Arquivos do Azure (versão prévia)
-Os Arquivos do Azure fornecem a funcionalidade de tirar instantâneos de compartilhamentos de arquivos. Os instantâneos de compartilhamento (versão prévia) capturam o estado de compartilhamento no momento. Neste artigo, descreveremos quais recursos os instantâneos de compartilhamento fornecem e como você pode aproveitá-los no seu caso de uso personalizado.
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Visão geral de instantâneos de compartilhamento para Arquivos do Azure 
+Os Arquivos do Azure fornecem a funcionalidade de tirar instantâneos de compartilhamentos de arquivos. Os instantâneos de compartilhamento capturam o estado de compartilhamento no momento. Neste artigo, descreveremos quais recursos os instantâneos de compartilhamento fornecem e como você pode aproveitá-los no seu caso de uso personalizado.
 
 
 ## <a name="when-to-use-share-snapshots"></a>Quando usar os instantâneos de compartilhamento
@@ -48,7 +48,7 @@ Quando um instantâneo de compartilhamento é criado, ele pode ser lido, copiado
 
 A capacidade de instantâneo de compartilhamento é fornecida no nível de compartilhamento de arquivo. A recuperação é fornecida no nível de arquivo individual, para permitir a restauração de arquivos individuais. Você pode restaurar um compartilhamento de arquivo completo usando o SMB, a API REST, o portal, a biblioteca de cliente ou ferramentas de PowerShell/CLI.
 
-Um instantâneo de compartilhamento de um compartilhamento de arquivos é idêntico ao seu compartilhamento de arquivo de base. A única diferença é que um valor de **DateTime** é acrescentado ao URI do compartilhamento para indicar o horário em que o compartilhamento de instantâneo foi tirado. Por exemplo, se um URI de compartilhamento de arquivos for http://storagesample.core.file.windows.net/myshare, o URI do instantâneo de compartilhamento será semelhante a:
+Um instantâneo de compartilhamento de um compartilhamento de arquivos é idêntico ao seu compartilhamento de arquivo de base. A única diferença é que um valor de **DateTime** é acrescentado ao URI do compartilhamento para indicar o horário em que o compartilhamento de instantâneo foi tirado. Por exemplo, se um URI de compartilhamento de arquivo for http://storagesample.core.file.windows.net/myshare, o URI do instantâneo será semelhante a:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -98,5 +98,5 @@ Compartilhamentos de instantâneos fornecem apenas a proteção no nível de arq
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Trabalhar com instantâneos de compartilhamento](storage-how-to-use-files-snapshots.md)
-* [Perguntas frequentes sobre instantâneo de compartilhamento](storage-files-faq.md)
+* [Perguntas frequentes sobre instantâneo de compartilhamento](storage-files-faq.md#share-snapshots)
 

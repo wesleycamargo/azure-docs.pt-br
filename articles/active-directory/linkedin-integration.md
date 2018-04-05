@@ -9,15 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Conexões de conta do LinkedIn para serviços e aplicativos da Microsoft
 Neste artigo, você pode aprender como gerenciar as conexões de conta do LinkedIn para o locatário no centro de administração do Microsoft Azure AD (Azure Active Directory). 
@@ -56,9 +56,9 @@ A funcionalidade de conexões da conta do LinkedIn está ativada por padrão par
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Habilitar ou desabilitar as conexões de conta do LinkedIn para aplicativos do Office 2016 da organização utilizando a Política de Grupo
 
 1. Baixe os [arquivos de modelo administrativo do Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
-2. Extraia os arquivos **ADMX** arquivos e copie-os para seu **repositório central**.
+2. Extraia os arquivos **ADMX** e copie-os para o repositório central.
 3. Gerenciamento de política de grupo aberto.
-4. Crie um objeto de política de grupo com a seguinte configuração: **Configuração do usuário** > **Modelos administrativos** > **Microsoft Office 2016** > **Diversos** > **Permitir integração do LinkedIn**.
+4. Crie um Objeto de Política de Grupo com a configuração a seguir: **Configuração de Usuário** > **Modelos Administrativos** > **Microsoft Office 2016** > **Diversos** > **Mostrar recursos do LinkedIn em aplicativos do Office**.
 5. Selecione **Habilitado** ou **Desabilitado**.
   * Quando a política for **Habilitado**, a configuração **Mostrar recursos do LinkedIn nos aplicativos do Office** que pode ser encontrada na caixa de diálogo Opções do Office 2016 está habilitada. Isso também significa que os usuários em sua organização podem usar os recursos do LinkedIn em seus aplicativos do Office.
   * Quando a política está **Desabilitado**, a configuração **Mostrar recursos do LinkedIn nos aplicativos do Office** que pode ser encontrada na caixa de diálogo de opções do Office 2016 está definida para o estado desabilitado e os usuários finais não podem alterar essa configuração. Os usuários em sua organização não podem usar recursos do LinkedIn nos seus aplicativos do Office 2016. 

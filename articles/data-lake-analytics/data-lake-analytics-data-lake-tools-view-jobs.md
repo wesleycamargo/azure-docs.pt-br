@@ -1,8 +1,8 @@
 ---
-title: "Usar o Navegador de Trabalhos e Exibição de Trabalho para trabalhos do Azure Data Lake Analytics | Microsoft Docs"
-description: "Saiba como usar o Navegador de Trabalhos e a Exibição de Trabalho para trabalhos do Azure Data Lake Analytics. "
+title: Usar o Navegador de Trabalhos e Exibição de Trabalho para trabalhos do Azure Data Lake Analytics | Microsoft Docs
+description: 'Saiba como usar o Navegador de Trabalhos e a Exibição de Trabalho para trabalhos do Azure Data Lake Analytics. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Usar o Navegador de Trabalhos e a Exibição de Trabalho para trabalhos do Azure Data Lake Analytics
 O serviço Azure Data Lake Analytics arquiva os trabalhos enviados em um [repositório de consultas](#query-store). Neste artigo, você aprende como usar o Navegador de Trabalhos e Exibição de Trabalho nas Ferramentas do Azure Data Lake para Visual Studio para localizar as informações de histórico do trabalho. 
 
 Por padrão, o serviço Data Lake Analytics arquiva os trabalhos por 30 dias. O período de validade pode ser configurado do Portal do Azure, configurando a política de expiração personalizada. Você não poderá acessar as informações sobre o trabalho após a expiração. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Veja [Pré-requisitos das Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Abrir o Navegador de Trabalhos
@@ -42,7 +42,7 @@ A Exibição de Trabalho contém:
   
     Atualize a Exibição de Trabalho para ver as informações mais recentes sobre trabalhos em execução.
   
-  * Status do Trabalho (gráfico):
+  * Status do Trabalho (grafo):
     
       Status do Trabalho descreve as fases do trabalho:
     
@@ -73,13 +73,13 @@ A Exibição de Trabalho contém:
     * Bytes lidos/gravados: bytes que foram lidos/gravados desde o início da execução do trabalho.
     * Total de vértices: o trabalho é dividido em várias partes de trabalho, cada uma delas é chamada de um vértice. Esse valor descreve de quantas partes de trabalho o trabalho consiste. Você pode considerar um vértice como uma unidade de processo básico, também conhecido como ADLAU (Unidade do Azure Data Lake Analytics), sendo que vértices podem ser executados em paralelismo. 
     * Concluído/Em execução/Com falha: a contagem de vértices concluídos/em execução/com falha. Vértices podem falhar devido tanto a falhas do sistema quanto ao código do usuário, o sistema volta a tentar usar vértices com falha automaticamente por algumas vezes. Se o vértice ainda falhar após as novas tentativas, todo o trabalho falhará.
-* Gráfico do Trabalho
+* Grafo do Trabalho
   
-    Um script U-SQL representa a lógica de transformação de dados de entrada em dados de saída. O script é compilado e otimizado para um plano de execução física na fase de Preparação. O Gráfico do Trabalho mostra o plano de execução física.  O diagrama a seguir ilustra o processo:
+    Um script U-SQL representa a lógica de transformação de dados de entrada em dados de saída. O script é compilado e otimizado para um plano de execução física na fase de Preparação. O Grafo do Trabalho mostra o plano de execução física.  O diagrama a seguir ilustra o processo:
   
     ![Status das fases do trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    Um trabalho é dividido em várias partes de trabalho. Cada parte de trabalho é chamada de um vértice. Os vértices são agrupados como um Supervértice (também conhecido como estágio) e visualizados como Gráfico do Trabalho. Os letreiros de estágio verdes no gráfico de trabalho mostram os estágios.
+    Um trabalho é dividido em várias partes de trabalho. Cada parte de trabalho é chamada de um vértice. Os vértices são agrupados como um Supervértice (também conhecido como estágio) e visualizados como Grafo do Trabalho. Os letreiros de estágio verdes no grafo de trabalho mostram os estágios.
   
     Cada vértice em um estágio está fazendo o mesmo tipo de trabalho com partes diferentes dos mesmos dados. Por exemplo, se você tiver um arquivo com 1 TB de dados e houver centenas de vértices lendo tal arquivo, cada um deles estará lendo uma parte. Esses vértices são agrupados no mesmo estágio e fazem o mesmo trabalho em diferentes partes do mesmo arquivo de entrada.
   
@@ -87,7 +87,7 @@ A Exibição de Trabalho contém:
     
       Em um estágio específico, alguns números são mostrados no letreiro.
     
-      ![Estágio no gráfico de trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage.png)
+      ![Estágio no grafo de trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage.png)
     
     * SV1 Extract: o nome de um estágio, nomeado com um número e o método da operação.
     * 84 vértices: A contagem total de vértices neste estágio. O número indica em quantas partes o trabalho está dividido nesse estágio.
@@ -104,7 +104,7 @@ A Exibição de Trabalho contém:
       
       Você pode encontrar mais detalhes para o estágio passando o cursor do mouse sobre um estado:
       
-      ![Detalhes do gráfico de trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
+      ![Detalhes do grafo de trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
   * Vértices: descreve os detalhes de vértices, por exemplo, quantos vértices no total, quantos vértices foram concluídos, se eles falharam ou ainda estão em execução/aguardando, etc.
   * Dados lidos entre pods/dentro de um pod: arquivos e dados são armazenados em vários pods no sistema de arquivos distribuído. O valor aqui descreve a quantidade de dados lidos no mesmo pod ou em vários pods.
   * Tempo total de computação: a soma do tempo de execução de cada vértice no estágio, você pode considerá-lo como o tempo que levaria se todos os trabalhos no estágio fossem executados em apenas um vértice.
@@ -122,13 +122,13 @@ A Exibição de Trabalho contém:
       A Reprodução de Trabalho é uma visualização representativa do que aconteceu no cluster. Ela ajuda você a assistir ao andamento da execução do trabalho e detecte visualmente os gargalos e anomalias no desempenho em um tempo muito curto (geralmente menos de 30s).
   * Exibição de Mapa de Calor do Trabalho 
     
-      O Mapa de Calor de Trabalho pode ser selecionado por meio do menu suspenso Modo de Exibição no Gráfico do Trabalho. 
+      O Mapa de Calor de Trabalho pode ser selecionado por meio do menu suspenso Modo de Exibição no Grafo do Trabalho. 
     
-      ![Modo de exibição do mapa de heap do gráfico do trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-display.png)
+      ![Modo de exibição do mapa de heap do grafo do trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-display.png)
     
       Ele mostra a E/S, o tempo e o mapa de calor de taxa de transferência de um trabalho, por meio do qual você pode localizar onde o trabalho passa a maior parte do tempo ou se o seu trabalho é um trabalho de limite de E/S e assim por diante.
     
-      ![Exemplo de mapa de heap do gráfico do trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
+      ![Exemplo de mapa de heap do grafo do trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
     * Andamento: o andamento da execução do trabalho, veja as informações em [informações do estágio](#stage-information).
     * Dados lidos/gravados: o mapa de calor do total de dados lidos/gravados em cada estágio.
@@ -166,7 +166,7 @@ Detalhes do Trabalho mostra as informações detalhadas do trabalho, incluindo o
     O script U-SQL do trabalho é armazenado no repositório de consultas. Você pode exibir o script U-SQL original e reenviá-lo se necessário.
 * Recursos
   
-    Você pode encontrar as saídas de compilação de trabalho armazenadas no repositório de consultas por meio de Recursos. Por exemplo, você pode encontrar aqui o "algebra.xml", que é usado para mostrar o Gráfico do Trabalho, os assemblies que você registrou, etc.
+    Você pode encontrar as saídas de compilação de trabalho armazenadas no repositório de consultas por meio de Recursos. Por exemplo, você pode encontrar aqui o "algebra.xml", que é usado para mostrar o Grafo do Trabalho, os assemblies que você registrou, etc.
 * Modo de exibição de execução de vértice
   
     Mostra detalhes de execução de vértices. O Perfil de Trabalho arquiva o todos os logs de execução de vértices, como o total de dados lidos/gravados, tempo de execução, estado, etc. Por meio desse modo de exibição, você pode obter mais detalhes sobre como um trabalho foi executado. Para obter mais informações, veja [Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

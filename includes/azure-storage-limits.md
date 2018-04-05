@@ -4,9 +4,9 @@
 | Capacidade máxima da conta de armazenamento | 500 TiB<sup>2</sup> |
 | Número máximo de contêineres de blob, blobs, compartilhamentos de arquivo, tabelas, filas, entidades ou mensagens por conta de armazenamento | Sem limite |
 | Taxa máxima de solicitação por conta de armazenamento | 20.000 solicitações por segundo<sup>2</sup> |
-| Entrada máxima<sup>3</sup> por conta de armazenamento (Regiões dos EUA) | 10 Gbps se o GRS/ZRS<sup>4</sup> estiver habilitado, 20 Gbps para o LRS<sup>2</sup> |
+| Entrada máxima<sup>3</sup> por conta de armazenamento (Regiões dos EUA) | 10 Gbps se o RA-GRS/GRS/ZRS<sup>4</sup> estiver habilitado, 20 Gbps para o LRS<sup>2</sup> |
 | Saída máxima<sup>3</sup> por conta de armazenamento (Regiões dos EUA) | 20 Gbps se o RA-GRS/GRS/ZRS<sup>4</sup> estiver habilitado, 30 Gbps para o LRS<sup>2</sup> |
-| Entrada máxima<sup>3</sup> por conta de armazenamento (Regiões fora dos EUA) | 5 Gbps se o GRS/ZRS<sup>4</sup> estiver habilitado, 10 Gbps para o LRS<sup>2</sup> |
+| Entrada máxima<sup>3</sup> por conta de armazenamento (Regiões fora dos EUA) | 5 Gbps se o RA-GRS/GRS/ZRS<sup>4</sup> estiver habilitado, 10 Gbps para o LRS<sup>2</sup> |
 | Saída máxima<sup>3</sup> por conta de armazenamento (Regiões fora dos EUA) | 10 Gbps se o RA-GRS/GRS/ZRS<sup>4</sup> estiver habilitado, 15 Gbps para o LRS<sup>2</sup> |
 
 <sup>1</sup>Inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 200 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento. 

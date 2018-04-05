@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: f53a8641a50a6c968a6ba7b841e0e8f938b5d9f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 830f9c76d9d1bf11692fa9f2f5c49cbecdb69f25
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteger um servidor de arquivos usando o Azure Site Recovery 
 
@@ -48,7 +48,7 @@ No diagrama anterior, vários servidores de arquivos chamados de membros partici
 
     * Você pode usar essa abordagem se suas VMs têm configurações sem suporte no Site Recovery. Um exemplo é um disco de cluster compartilhado, que às vezes é comumente usado em ambientes de servidor de arquivos. A DFSR também funciona bem em ambientes de baixa largura de banda com taxa de cancelamento média. Você precisa considerar o custo adicional de ter uma VM do Azure em execução o tempo todo. 
 
-* **Usar a Sincronização de Arquivos do Azure para replicar seus arquivos**: se você planeja usar a nuvem ou já usa uma VM do Azure, você pode usar a Sincronização de Arquivos. A Sincronização de Arquivos oferece sincronização de compartilhamentos de arquivos totalmente gerenciados na nuvem acessíveis por meio do protocolo [SMB](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão no setor. Os compartilhamentos de arquivos do Azure podem então ser montados de maneira simultânea por implantações locais ou na nuvem do Windows, do Linux e do MacOS. 
+* **Use a Sincronização de Arquivos do Azure para replicar seus arquivos**: se você planeja usar a nuvem ou já usa uma VM do Azure, você pode usar a Sincronização de Arquivos do Azure. A Sincronização de Arquivos do Azure oferece sincronização de compartilhamentos de arquivos completamente gerenciados na nuvem que são acessíveis via o protocolo padrão da indústria [Bloquear Mensagem de Servidor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB). Os compartilhamentos de Arquivos do Azure podem ser montados de maneira simultânea por implantações locais ou na nuvem do Windows, do Linux e do MacOS. 
 
 O diagrama a seguir o ajudará a determinar qual estratégia deve ser usada para o seu ambiente de servidor de arquivos.
 

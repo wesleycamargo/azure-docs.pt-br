@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d353adcafed02832243277118da8480e54544ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d97afd2b5dccca64db2df7cb0d4f110987642cfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Linux
 
-Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam Linux, é necessário instalar os drivers gráficos NVIDIA com suporte. Este artigo apresenta etapas de instalação do driver depois que você implanta uma VM da série N. Também há informações de instalação de driver disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam Linux, instale os drivers gráficos NVIDIA. Este artigo apresenta etapas de instalação do driver depois que você implanta uma VM da série N. Também há informações de instalação de driver disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Para obter as especificações de VMs da série N, as capacidades de armazenamento e os detalhes de disco, consulte [Tamanhos de VM Linux para GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -32,15 +32,12 @@ Para obter as especificações de VMs da série N, as capacidades de armazenamen
 
 ## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Instalar drivers CUDA para VMs série NC, NCv2, NCv3 e ND
 
-Aqui estão as etapas para instalar os drivers NVIDIA a partir do NVIDIA CUDA Toolkit em VMs série N. 
+Aqui estão as etapas para instalar os drivers CUDA a partir do NVIDIA CUDA Toolkit em VMs série N. 
+
 
 Os desenvolvedores de C e C++ podem opcionalmente instalar o Kit de ferramentas completo para criar aplicativos com aceleração de GPU. Para obter mais informações, consulte o [Guia de instalação do CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
-> [!NOTE]
-> Os links de download do driver CUDA fornecidos aqui são atuais no momento da publicação. Para os drivers CUDA mais recentes, visite o site da [NVIDIA](https://developer.nvidia.com/cuda-zone).
->
-
-Para instalar o Kit de ferramentas de CUDA, realize uma conexão SSH para cada VM. Para verificar se o sistema tem uma GPU compatível com CUDA, execute o seguinte comando:
+Para instalar os drivers de CUDA, realize uma conexão SSH para cada VM. Para verificar se o sistema tem uma GPU compatível com CUDA, execute o seguinte comando:
 
 ```bash
 lspci | grep -i NVIDIA
@@ -162,16 +159,13 @@ A conectividade de rede RDMA pode ser habilitada em VMs da série N habilitadas 
 
 ### <a name="distributions"></a>Distribuições
 
-Implante VMs da série N habilitadas para RDMA com base em uma imagem do Azure Marketplace que seja compatível com a conectividade RDMA em VMs da série N:
+Implante VMs da série N habilitadas para RDMA de uma das imagens no Azure Marketplace que é compatível com a conectividade RDMA nas VMs da série N:
   
 * **Ubuntu 16.04 LTS** – Configure os drivers RDMA na VM e registre-se na Intel para baixar a MPI da Intel:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-> [!NOTE]
-> Atualmente, as imagens de HPC baseadas em CentOS não são recomendadas para a conectividade RDMA nas VMs da série N. O RDMA não é compatível com o kernel CentOS 7.4 mais recente, compatível com GPUs NVIDIA.
-> 
-
+* **CentOS-based 7.4 HPC** - Os drivers RDMA e o Intel MPI 5.1 são instalados na VM.
 
 ## <a name="install-grid-drivers-for-nv-series-vms"></a>Instalar drivers GRID para VMs série NV
 
@@ -321,10 +315,10 @@ EndSection
  
 Além disso, atualize sua seção `"Screen"` para usar este dispositivo.
  
-A BusID pode ser encontrada executando
+A BusID decimal pode ser encontrada executando
 
 ```bash
-/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
+echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
 ```
  
 A BusID pode mudar quando uma VM é realocada ou reinicializada. Portanto, convém usar um script para atualizar a BusID na configuração do X11 quando uma VM é reiniciada. Por exemplo: 

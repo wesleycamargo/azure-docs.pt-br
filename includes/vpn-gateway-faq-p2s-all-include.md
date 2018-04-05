@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 072c16a0e50a4922d44dd354b632f39b33d23cdd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/28/2018
+---
 ### <a name="supportedclientos"></a>Quais sistemas operacionais de cliente posso usar com ponto a site?
 
 Há suporte para os seguintes sistemas operacionais de cliente:
@@ -10,8 +26,8 @@ Há suporte para os seguintes sistemas operacionais de cliente:
 * Windows Server 2012 R2 (somente 64 bits)
 * Windows Server 2016 (somente 64 bits)
 * Windows 10
-* OSX versão 10.11 para Mac (El Capitan)
-* macOS versão 10.12 para Mac (Serra)
+* Versão do Mac OS X 10.11 (El Capitan)
+* Versão do Mac OS X 10.12 (Sierra)
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quantos pontos de extremidade de cliente VPN posso ter em minha configuração ponto a site?
 

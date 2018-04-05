@@ -1,22 +1,22 @@
 ---
 title: Conceitos de dispositivo no provisionamento do dispositivo do Azure | Microsoft Docs
-description: "Descreve conceitos de provisionamento de dispositivo específicos para dispositivos com o Serviço de Provisionamento de Dispositivos e o Hub IoT"
+description: Descreve conceitos de provisionamento de dispositivo específicos para dispositivos com o Serviço de Provisionamento de Dispositivos e o Hub IoT
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5297bc57729d9e983d63244c71eb21995cf73f0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5482801461e2afea33d65d559723116f37a35d1f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceitos de dispositivo do Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -33,7 +33,7 @@ O mecanismo de atestado é o método usado para confirmar a identidade de um dis
 
 O Serviço de Provisionamento de Dispositivos dá suporte a duas formas de atestado:
 * **Certificados X.509** com base no fluxo de autenticação do certificado X.509 padrão.
-* **Tokens SAS** com base em um desafio de nonce usando o padrão TPM para chaves. Isso não requer um TPM físico no dispositivo, mas o serviço espera atestar usando a chave de endosso de acordo com a [especificação TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Trusted Platform Module (TPM)** com base em um desafio nonce, usando o padrão TPM para chaves para apresentar um token de Assinatura de Acesso Compartilhado (SAS) assinado. Isso não requer um TPM físico no dispositivo, mas o serviço espera atestar usando a chave de endosso de acordo com a [especificação TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Módulo de segurança de hardware
 

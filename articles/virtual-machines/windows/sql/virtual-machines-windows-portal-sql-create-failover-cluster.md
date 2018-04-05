@@ -1,6 +1,6 @@
 ---
-title: "FCI do SQL Server - máquinas virtuais do Azure | Microsoft Docs"
-description: "Este artigo explica como criar a instância de Cluster de Failover do SQL Server em Máquinas Virtuais do Azure."
+title: FCI do SQL Server - máquinas virtuais do Azure | Microsoft Docs
+description: Este artigo explica como criar a instância de Cluster de Failover do SQL Server em Máquinas Virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2017
+ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de Failover do SQL Server em máquinas virtuais do Azure
 
@@ -46,6 +46,18 @@ O diagrama acima mostra:
 Para obter detalhes sobre S2D, confira [Espaços de Armazenamento Direto do Windows Server 2016 Datacenter Edition \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 O S2D dá suporte a dois tipos de arquiteturas: convergida e hiperconvergida. A arquitetura neste documento é hiperconvergida. Uma infraestrutura hiperconvergida coloca o armazenamento nos mesmos servidores que hospedam o aplicativo em cluster. Nessa arquitetura, o armazenamento está em cada nó de FCI do SQL Server.
+
+## <a name="licensing-and-pricing"></a>Licenciamento e preço
+
+Em Máquinas Virtuais do Microsoft Azure você pode licenciar o SQL Server usando imagens de VM pré-pagas (PAYG) ou Traga sua própria licença (BYOL). O tipo de imagem que você escolheu afeta como você é cobrado.
+
+Com licenciamento PAYG, uma instância de cluster de failover (FCI) do SQL Server em Máquinas Virtuais do Microsoft Azure, incorre em encargos de todos os nós de FCI, incluindo os nós passivos. Para mais informações, consulte [Preços de Máquinas Virtuais do SQL Server Enterprise](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+
+Os clientes com Contrato Enterprise com Software Assurance têm o direito de usar um nó FCI passivo livre para cada nó ativo. Para aproveitar esse benefício no Azure, use imagens de VM BYOL e, em seguida, use a mesma licença nos nós ativo e passivo da FCI. Para obter mais informações, consulte [Contrato Enterprise](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+
+Para comparar licenciamento PAYG e BYOL para SQL Server em Máquinas Virtuais do Microsoft Azure, consulte [Introdução às VMs do SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+
+Para obter informações completas sobre o licenciamento do SQL Server, consulte [Preços](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Exemplo de modelo do Azure
 
@@ -123,7 +135,7 @@ Com esses pré-requisitos em vigor, é possível continuar com a criação do cl
 
    Escolha a imagem correta de acordo com a maneira como deseja pagar a licença do SQL Server:
 
-   - **Pagamento por licenciamento de uso**: o custo por minuto dessas imagens inclui o licenciamento do SQL Server:
+   - **Pagamento por licenciamento de uso**: o custo por segundo dessas imagens inclui o licenciamento do SQL Server:
       - **SQL Server 2016 Enterprise no Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard no Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer no Windows Server Datacenter 2016**
@@ -266,7 +278,7 @@ A Testemunha de Nuvem é um novo tipo de testemunha de quorum de cluster armazen
 
 1. Salve as chaves de acesso e a URL do contêiner.
 
-1. Configure a testemunha de quorum do cluster de failover. Confira [Configurar a testemunha de quorum na interface do usuário].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) na interface do usuário.
+1. Configure a testemunha de quorum do cluster de failover. Consulte, [Configurar a testemunha de quorum na interface do usuário]. (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) na interface do usuário.
 
 ### <a name="add-storage"></a>Adicionar armazenamento
 

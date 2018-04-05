@@ -1,6 +1,6 @@
 ---
-title: "Receber uma notificação quando um valor de métrica atender a uma condição | Microsoft Docs"
-description: "Um guia de início rápido para ajudar os usuários a criar uma métrica para um Aplicativo Lógico"
+title: Receber uma notificação quando um valor de métrica atender a uma condição | Microsoft Docs
+description: Um guia de início rápido para ajudar os usuários a criar uma métrica para um Aplicativo Lógico
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Receber uma notificação quando um valor de métrica atender a uma condição
 
@@ -30,24 +30,24 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 
-1. Clique no botão **Criar um recurso** encontrado na parte superior esquerda do portal do Azure.
+1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
 
 2. Pesquise e selecione **Aplicativo Lógico**. Selecione o botão **Criar** .
 
-3. Insira as informações do aplicativo lógico mostradas na imagem a seguir.  Use o local padrão. Marque a opção **Fixar no Painel**.  Ao concluir, clique em **Criar**. 
+3. Insira o nome myLogicApp e o Grupo de recursos myResourceGroup. Use sua assinatura.  Use o local padrão. Marque a opção **Fixar no Painel**.  Ao concluir, clique em **Criar**. 
 
-    ![Inserir informações básicas sobre o aplicativo lógico no portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Inserir informações básicas sobre o aplicativo lógico no portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
 4. O aplicativo lógico deve estar fixado no painel. Navegue para o aplicativo lógico clicando nele.
 
 5. No painel Aplicativo Lógico, selecione **Designer de Aplicativo Lógico**
 
-     ![Criação de um gatilho de recorrência no designer de aplicativo lógico no painel do portal](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Criação de um gatilho de recorrência no designer de aplicativo lógico no painel do portal](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
 6. Configure os valores, conforme visto no diagrama a seguir.
 
-    ![Configurar o gatilho do aplicativo lógico no painel do portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configurar o gatilho do aplicativo lógico no painel do portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
 7. No designer, selecione o gatilho **Recorrência**.
 
@@ -75,7 +75,7 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 5. Agora você deverá ver um gráfico plotando o número total de execuções que o aplicativo lógico iniciou durante a última hora. Se você não vir nenhuma, verifique se aguardou pelo menos 5 minutos após a etapa anterior. Em seguida, atualize seu navegador. 
 
-    ![Plotar um gráfico de métrica para o recurso do aplicativo lógico](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Plotar um gráfico de métrica para o recurso do aplicativo lógico](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>Criar um alerta de métrica para o aplicativo lógico
 
@@ -87,7 +87,7 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 4. Por fim, em **Email(s) do administrador adicionais**, insira seu endereço de email. Esse alerta garante que você receberá um email no caso de o aplicativo lógico ter mais de 10 execuções com falha em um período de 5 minutos.
 
-    ![Configurar o alerta do aplicativo lógico no painel do portal](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![Configurar o alerta do aplicativo lógico no painel do portal](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Receber notificações de alerta de métrica para o aplicativo lógico
 1. Em alguns momentos, você deverá receber um email dos “Alertas do Microsoft Azure” para informar que o alerta foi “ativado”.
