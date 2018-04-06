@@ -119,7 +119,6 @@
 #### [Back-end do Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## Segurança
-### [Autenticação e autorização](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Autenticar com provedores de identidade
 #### [Autenticação do Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Autenticação do Facebook](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

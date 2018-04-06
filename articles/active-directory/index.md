@@ -1,22 +1,22 @@
 ---
 layout: LandingPage
-description: "Saiba mais sobre como sincronizar diretórios e habilitar o logon único. A documentação mostra como integrar um conjunto completo de recursos de gerenciamento de identidades."
-title: "Documentação do Azure Active Directory - Tutoriais, Referência de API | Microsoft Docs"
+description: Saiba mais sobre como sincronizar diretórios e habilitar o logon único. A documentação mostra como integrar um conjunto completo de recursos de gerenciamento de identidades.
+title: Documentação do Azure Active Directory - Tutoriais, Referência de API | Microsoft Docs
 services: active-directory
-author: czeumault
+author: rolyon
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ae0dfb7e6033a85cc32434bbbbde336fbc0903ea
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 39226c7ada2bf3672cb62b6a0def4191bee342c0
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-documentation"></a>Documentação do Azure Active Directory
 
