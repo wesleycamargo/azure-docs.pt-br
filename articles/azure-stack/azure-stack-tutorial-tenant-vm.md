@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Tornar as máquinas virtuais disponíveis para seus usuários de pilha do Azure
 Como um administrador de nuvem de pilha do Azure, você pode criar ofertas que seus usuários (às vezes chamados de locatários) podem se inscrever. Usando sua assinatura, os usuários podem consumir serviços da pilha do Azure.
@@ -113,7 +113,7 @@ Agora que você criou uma oferta, você pode testá-lo. Faça logon como um usu�
    Agora você pode fazer logon no portal do como um usuário para assinar uma oferta.
 
    a. Faça logon portal do usuário como um usuário e clique em **obter uma assinatura**.
-   - Para um sistema integrado, a URL varia com base na região do operador e o nome de domínio externo e será em https://portal o formato. &lt; *região*&gt;.&lt; *FQDN*&gt;.
+   - Para um sistema integrado, a URL varia com base na região do operador e o nome de domínio externo e será no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se você estiver usando o Kit de desenvolvimento de pilha do Azure, o endereço do portal é https://portal.local.azurestack.external.
 
    ![Obtenha uma assinatura](media/azure-stack-subscribe-plan-provision-vm/image01.png)
@@ -131,7 +131,7 @@ Agora que você criou uma oferta, você pode testá-lo. Faça logon como um usu�
    Agora você pode fazer logon no portal do como um usuário para provisionar uma máquina virtual usando a assinatura. 
 
    a. Faça logon portal do usuário como um usuário.
-      - Para um sistema integrado, a URL varia com base na região do operador e o nome de domínio externo e será em https://portal o formato. &lt; *região*&gt;.&lt; *FQDN*&gt;.
+      - Para um sistema integrado, a URL varia com base na região do operador e o nome de domínio externo e será no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se você estiver usando o Kit de desenvolvimento de pilha do Azure, o endereço do portal é https://portal.local.azurestack.external.
 
    b.  No painel, clique em **novo** > **de computação** > **Datacenter avaliação do Windows Server 2016**e, em seguida, clique em **criar**.
