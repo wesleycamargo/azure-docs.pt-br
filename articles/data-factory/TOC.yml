@@ -116,10 +116,12 @@
       href: concepts-integration-runtime.md
 - name: Guias de instruções
   items:
-    - name: Criar visualmente as fábricas de dados
-      href: author-visually.md
-    - name: Integração e implantação contínuas
-      href: continuous-integration-deployment.md
+    - name: Autor
+      items:
+        - name: Criar visualmente as fábricas de dados
+          href: author-visually.md
+        - name: Integração e implantação contínuas
+          href: continuous-integration-deployment.md
     - name: Copiar dados
       items:
         - name: Copiar dados usando Atividade de Cópia
