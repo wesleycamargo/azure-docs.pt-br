@@ -1,26 +1,26 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação do Banco de dados SQL do Azure"
+title: Documentação do Banco de dados SQL do Azure
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: "Documentação do Banco de Dados SQL do Azure - Tutoriais, Referência de API"
+  title: Documentação do Banco de Dados SQL do Azure - Tutoriais, Referência de API
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: czeumault
-  manager: carolz
+  author: CarlRabeler
+  manager: carigg
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: landing-page
-  ms.date: 05/03/2017
-  ms.author: carolz
-  ms.openlocfilehash: 4acc092e4c6006263dda31ab2a54038e60e57651
-  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+  ms.date: 04/01/2018
+  ms.author: carlrab
+  ms.openlocfilehash: b7888a2bece1a9b601c3629deb1c1dd1fc5cbbe3
+  ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/16/2018
+  ms.lasthandoff: 04/06/2018
 abstract:
-  description: "O Banco de Dados SQL do Azure é um banco de dados como serviço relacional usando o Mecanismo do Microsoft SQL Server. O Banco de dados SQL é um banco de dados seguro, confiável e de alto desempenho que você pode usar para criar aplicativos orientados a dados e sites na linguagem de programação de sua escolha, sem a necessidade de gerenciar a infra-estrutura. Saiba como usar o Banco de Dados SQL com nossos guias de início rápido, tutoriais e exemplos."
+  description: O Banco de Dados SQL do Azure é um banco de dados como serviço relacional usando o Mecanismo do Microsoft SQL Server. O Banco de dados SQL é um banco de dados seguro, confiável e de alto desempenho que você pode usar para criar aplicativos orientados a dados e sites na linguagem de programação de sua escolha, sem a necessidade de gerenciar a infra-estrutura. Saiba como usar o Banco de Dados SQL com nossos guias de início rápido, tutoriais e exemplos.
   aside:
     image:
       alt: 
@@ -31,10 +31,10 @@ abstract:
     href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
-- title: "Guia de início rápido de 5 minutos"
+- title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: "Saiba como criar um Banco de Dados SQL, gerenciá-lo usando o SQL Management Studio e desenvolver com ele em C#, Java, Python, Node.js e Ruby:"
+    text: 'Saiba como criar um Banco de Dados SQL, gerenciá-lo usando o SQL Management Studio e desenvolver com ele em C#, Java, Python, Node.js e Ruby:'
   - type: list
     style: icon48
     items:
@@ -60,8 +60,8 @@ sections:
     - html: Criar e projetar o esquema para um novo Banco de Dados SQL usando <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> ou <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migre um Banco de Dados do SQL Server existente para usar o Banco de Dados SQL do Azure</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteja seu banco de dados SQL</a>
-    - html: "<a href=\"/azure/sql-database/sql-database-implement-geo-distributed-database\">Implementar um banco de dados distribuído geograficamente</a>"
-- title: "Treinamento em Vídeo Pluralsight gratuito"
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implementar um banco de dados distribuído geograficamente</a>
+- title: Treinamento em Vídeo Pluralsight gratuito
   items:
   - type: list
     style: cards
@@ -82,18 +82,18 @@ sections:
     items:
     - html: <a href="/azure/sql-database/sql-database-powershell-samples">PowerShell do Azure</a>
     - html: <a href="/azure/sql-database/sql-database-cli-samples">CLI do Azure</a>
-- title: "Referência"
+- title: Referência
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: Linha de comando
-      html: "<p><a href=\"/powershell/module/azurerm.sql/#sql\">PowerShell do Azure</a></p><p><a href=\"/powershell/module/elasticdatabasejobs/#elasticdatabasejobs\">Azure PowerShell (Banco de dados Elástico)</a></p><p><a href=\"/cli/azure/sql\">CLI do Azure</a></p>"
+      html: <p><a href="/powershell/module/azurerm.sql/#sql">PowerShell do Azure</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (Banco de dados Elástico)</a></p><p><a href="/cli/azure/sql">CLI do Azure</a></p>
     - title: Linguagens
       html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/sql/\">referência da API REST (a página pode estar em inglês)</a></p>"
+      html: <p><a href="/rest/api/sql/">referência da API REST (a página pode estar em inglês)</a></p>
     - title: Ferramentas do SQL Server
       html: <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">Ferramentas do SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SSDT (Ferramentas de Dados do SQL Server)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Pacote de Biblioteca de Gerenciamento de Banco de Dados SQL</a></p>
     - title: Drivers do SQL Server
