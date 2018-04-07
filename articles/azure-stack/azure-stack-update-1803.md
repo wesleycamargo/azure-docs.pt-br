@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: cff6d780826164de6ef0122849e40d453192f81c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1803-update"></a>Atualização de pilha 1803 do Azure
 
@@ -44,7 +44,9 @@ Este artigo descreve as melhorias e correções no pacote de atualização de 18
 
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
-*Não há nenhuma etapa de pós-atualização para atualização 1803.*
+Após a instalação do 1803, instale os Hotfixes aplicáveis. Para mais informações, consulte os seguintes artigos da base de dados de Conhecimento, bem como nosso [política manutenção](azure-stack-servicing-policy.md).
+
+- [KB 4103348 - serviço de API do controlador de rede falha quando você tentar instalar uma atualização da pilha do Azure](https://support.microsoft.com/en-us/help/4103348)
 
 
 ### <a name="new-features"></a>Novos recursos 
@@ -90,7 +92,7 @@ Esta atualização inclui os seguintes aprimoramentos e correções para a pilha
 
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização    
-Durante a instalação da atualização 1803, pode haver tempo de inatividade do serviço de blob e serviços internos que usam o serviço blob. Isso inclui algumas operações de máquina virtual.  Esse tempo de inatividade pode causar falhas de locatário operações ou alertas de serviços que não é possível acessar os dados. Esse problema é resolvido em si quando a atualização for concluída a instalação. 
+<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
 
 
 ### <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
@@ -129,10 +131,6 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
 
 #### <a name="compute"></a>Computação
 - As configurações de escala para conjuntos de escala de máquinas virtuais não estão disponíveis no portal. Como alternativa, você pode usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Por causa das diferenças de versão do PowerShell, você deve usar o `-Name` parâmetro em vez de `-VMScaleSetName`.
-
-- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
-
-  Para resolver esse problema, entre em contato com o suporte para solicitar Hotfix **1.0.180302.4** de pilha do Azure. 
 
 - Quando você cria uma conjunto de disponibilidade no portal do indo para **novo** > **de computação** > **conjunto de disponibilidade**, você pode criar apenas um conjunto de disponibilidade com um domínio de falha e o domínio de atualização de 1. Como alternativa, ao criar uma nova máquina virtual, crie a disponibilidade definida usando o PowerShell, CLI, ou de dentro do portal.
 

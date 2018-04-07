@@ -1,22 +1,22 @@
 ---
-title: "Conjuntos de escala de máquinas virtuais de tornar disponível na pilha do Azure | Microsoft Docs"
-description: "Saiba como um operador de nuvem pode adicionar escala de máquinas virtuais para a pilha do Azure Marketplace"
+title: Conjuntos de escala de máquinas virtuais de tornar disponível na pilha do Azure | Microsoft Docs
+description: Saiba como um operador de nuvem pode adicionar escala de máquinas virtuais para a pilha do Azure Marketplace
 services: azure-stack
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: anajod
-keywords: 
-ms.openlocfilehash: a4c854bdd659a05f032f5ee232074bc38ff677ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+keywords: ''
+ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Disponibilizar conjuntos de escala de máquina virtual na pilha do Azure
 
@@ -30,7 +30,7 @@ Conjuntos de escala de máquina virtual na pilha do Azure são como conjuntos de
 * [Mark Russinovich fala sobre os conjuntos de dimensionamento do Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 * [Conjuntos de Dimensionamento de Máquina Virtual com Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-Na pilha do Azure, conjuntos de escala de máquina Virtual não dão suporte a dimensionamento automático. Você pode adicionar mais instâncias em uma escala definida usando o portal de pilha do Azure, o Gerenciador de recursos de modelos ou o PowerShell.
+Na pilha do Azure, os conjuntos de escala de máquinas virtuais não oferecem suporte a dimensionamento automático. Você pode adicionar mais instâncias em uma escala definida usando o portal de pilha do Azure, o Gerenciador de recursos de modelos ou o PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **PowerShell e ferramentas**
@@ -46,6 +46,7 @@ Na pilha do Azure, conjuntos de escala de máquina Virtual não dão suporte a d
    Se você não adicionou uma imagem do sistema operacional para a pilha do Azure Marketplace, consulte [adicionar a imagem de VM do Windows Server 2016 Marketplace do Azure pilha](azure-stack-add-default-image.md).
 
    Para obter suporte do Linux, baixe Ubuntu Server 16.04 e adicioná-lo usando ```Add-AzsVMImage``` com os seguintes parâmetros: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Adicionar o conjunto de escala de máquina virtual
 
@@ -72,6 +73,38 @@ Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
 ```
+
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>Atualizar as imagens em um conjunto de escala de máquinas virtuais 
+Depois de criar um conjunto de escala de máquina virtual, os usuários podem atualizar imagens em escala definida sem que a escala definida precisar ser recriado. O processo para atualizar uma imagem depende dos seguintes cenários:
+
+1. Conjunto de escala de máquina virtual de modelo de implantação **especifica mais recente** para *versão*:  
+
+   Quando o *versão* é definido como **mais recente** no *imageReference* seção do modelo para uma escala de conjunto, dimensionar as operações sobre o uso do conjunto de escala a versão disponível mais recente da imagem para a escala definida instâncias. Depois de uma escala de backup for concluída, você pode excluir instâncias de conjuntos de escala de máquina virtual mais antigas.  (Os valores para *publicador*, *oferecem*, e *sku* permanecem inalterados). 
+
+   A seguir está um exemplo da especificação *mais recente*:  
+
+          "imageReference": {
+             "publisher": "[parameters('osImagePublisher')]",
+             "offer": "[parameters('osImageOffer')]",
+             "sku": "[parameters('osImageSku')]",
+             "version": "latest"
+             }
+
+   Antes de usa uma nova imagem de expansão, você deve baixar essa nova imagem:  
+
+   - Quando a imagem no Marketplace é uma versão mais recente que a imagem no conjunto de escala: baixar a nova imagem que substitui a imagem anterior. Depois que a imagem for substituída, um usuário poderá aumentar. 
+
+   - Quando a versão da imagem no Marketplace é o mesmo que a imagem no conjunto de escala: excluir a imagem que está em uso no conjunto de escala e, em seguida, baixe a nova imagem. Durante o tempo entre a remoção da imagem original e o download da nova imagem, você não pode escalar verticalmente. 
+      
+     Esse processo é necessário para resyndicate imagens que tornam usam o formato de arquivo esparso, introduzido com a versão 1803. 
+ 
+
+2. Conjunto de escala de máquina virtual de modelo de implantação **não especifique mais recente** para *versão* e especifica um número de versão em vez disso:  
+
+     Se você baixar uma imagem com uma versão mais recente (que altera a versão disponível), o conjunto de escala não pode escalar verticalmente. Isso ocorre por design, como a versão da imagem especificada no modelo do conjunto de escala deve estar disponível.  
+
+Para obter mais informações, consulte [discos do sistema operacional e imagens](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Remover um conjunto de escala de máquinas virtuais
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 04/06/2018
 ms.author: brenduns
-ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1712-update"></a>Atualização de 1712 de pilha do Azure
 
@@ -43,11 +43,14 @@ Este artigo descreve as melhorias e correções neste pacote de atualização, p
 Você deve primeiro instalar a pilha do Azure [1711 atualizar](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) antes de aplicar essa atualização.
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
+- Após a instalação do 1712, instale os Hotfixes aplicáveis. Para mais informações, consulte os seguintes artigos da base de dados de Conhecimento, bem como nosso [política manutenção](azure-stack-servicing-policy.md).  
+  - [KB 4103348 - serviço de API do controlador de rede falha quando você tentar instalar uma atualização da pilha do Azure](https://support.microsoft.com/help/4103348)
 
-Essa atualização também requer que você instale as atualizações de firmware do parceiro OEM depois de concluir a instalação da atualização 1712 pilha do Azure.
 
-> [!NOTE]
-> Consulte o site de parceiros do OEM para baixar as atualizações.
+- Atualização 1712 também requer que você instale as atualizações de firmware do parceiro OEM depois de concluir a instalação da atualização 1712 pilha do Azure.
+
+  > [!NOTE]
+  > Consulte o site de parceiros do OEM para baixar as atualizações.
 
 ### <a name="new-features-and-fixes"></a>Novos recursos e correções
 
