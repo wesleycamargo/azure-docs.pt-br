@@ -72,8 +72,12 @@
       href: sql-database-managed-instance.md
     - name: Camadas de serviço
       href: sql-database-service-tiers.md
-    - name: Limites de recursos
-      href: sql-database-resource-limits.md
+    - name: Expansão de leitura
+      href: sql-database-read-scale-out.md
+    - name: Limites do recurso baseados em DTU
+      href: sql-database-dtu-resource-limits.md
+    - name: Limites do recurso baseados em vCore
+      href: sql-database-vcore-resource-limits.md
     - name: Bancos de dados únicos
       href: sql-database-single-database-resources.md
     - name: Pools elásticos
@@ -126,7 +130,7 @@
           href: sql-database-business-continuity.md
         - name: Backups de banco de dados
           href: sql-database-automated-backups.md
-        - name: Retenção de backup
+        - name: Retenção de backup de longo prazo
           href: sql-database-long-term-retention.md
         - name: Grupos de failover
           href: sql-database-geo-replication-overview.md
@@ -306,10 +310,12 @@
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Continuidade dos negócios
       items:
-        - name: Configurar o cofre - backups
-          href: sql-database-long-term-backup-retention-configure.md
         - name: Replicação geográfica - Portal
           href: sql-database-geo-replication-portal.md
+        - name: Configurar retenção de backup de longo prazo - Armazenamento do SQL
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Configurar retenção de backup de longo prazo - Cofre do Azure
+          href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Carregar e mover dados
       items:
         - name: Carregar dados com o BCP

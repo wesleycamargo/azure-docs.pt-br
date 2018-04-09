@@ -342,13 +342,20 @@
         - name: Extensão do coletor de Log do Azure
           href: log-collector-extension.md
         - name: Extensão de diagnóstico do Azure
-          href: ps-extensions-diagnostics.md
+          href: extensions-diagnostics.md
+          items:
+            - name: Esquema de extensão
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
+            - name: Habilitar uso do PowerShell
+              href: ps-extensions-diagnostics.md
+            - name: Habilitar com modelos
+              href: extensions-diagnostics-template.md
+            - name: solução de problemas
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
         - name: Exportando extensões de VM
           href: extensions-export-templates.md
         - name: Solucionar problemas de extensões
           href: extensions-troubleshoot.md
-        - name: Monitoramento e extensão de diagnósticos
-          href: extensions-diagnostics-template.md
         - name: Agente do observador de rede
           href: extensions-nwa.md
         - name: Instalação da extensão restrita

@@ -21,14 +21,16 @@
   items:
     - name: Níveis de zoom e grade lado a lado
       href: zoom-levels-and-tile-grid.md
-    - name: Cobertura da Geocodificação
+    - name: Cobertura da geocodificação
       href: geocoding-coverage.md
-    - name: Cobertura do Tráfego
+    - name: Cobertura do tráfego
       href: traffic-coverage.md
     - name: Renderizar cobertura
       href: render-coverage.md
     - name: Cobertura de roteamento
       href: routing-coverage.md
+    - name: Idiomas com suporte
+      href: supported-languages.md
 - name: Guias de instruções
   items:
     - name: Gerenciar contas e chaves
