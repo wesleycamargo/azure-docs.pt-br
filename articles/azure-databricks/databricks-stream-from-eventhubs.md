@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/23/2018
+ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 94b09b824becc8a67adf4edfd2d4b44496a6169c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c43edc6673c42a8b69bfa296e288e77adee4d0af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: transmitir dados ao Azure Databricks usando Hubs de Eventos
 
@@ -61,7 +61,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando o Portal do Azure.
 
-1. No portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
+1. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
 
     ![Databricks no portal do Azure](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
@@ -356,7 +356,7 @@ Agora a saída é semelhante ao seguinte trecho de código:
     ...
     ...
 
-É isso! Usando o Azure Databricks, você transmitiu dados em tempo quase real para Hubs de Eventos do Azure com êxito. Depois você consumiu os dados de transmissão usando o conector dos Hubs de Eventos do Apache Spark.
+É isso! Usando o Azure Databricks, você transmitiu dados em tempo quase real para Hubs de Eventos do Azure com êxito. Depois você consumiu os dados de transmissão usando o conector dos Hubs de Eventos do Apache Spark. Para obter mais informações sobre como usar o conector dos Hubs de Eventos para o Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/23/2018
+ms.date: 03/29/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d6e0637974d8076fc610d7154ad507f4e7af0cfa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e10d4046f543fbcc479421f4ca8f10221abc806f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
@@ -25,6 +25,10 @@ As Instâncias de Contêiner do Azure são uma ótima solução para qualquer ce
 
 Os contêineres oferecem vantagens significativas de inicialização em relação às máquinas virtuais. As Instâncias de Contêiner do Azure podem iniciar contêineres no Azure em segundos, sem a necessidade de provisionar nem gerenciar VMs.
 
+## <a name="public-ip-connectivity-and-dns-name"></a>Conectividade de IP público e nome DNS
+
+As Instâncias de Contêiner do Azure permitem expor seus contêineres diretamente à Internet com um endereço IP e um FQDN (nome de domínio totalmente qualificado). Quando você cria uma instância de contêiner, pode especificar uma etiqueta de nome de DNS personalizado para que o seu aplicativo seja acessível em *customlabel*.*azureregion*.azurecontainer.io.
+
 ## <a name="hypervisor-level-security"></a>Segurança em nível de hipervisor
 
 Historicamente, os contêineres ofereciam isolamento de dependência de aplicativo e governança de recursos, mas não eram considerados suficientemente protegidos para uso com vários locatários hostis. As Instâncias de Contêiner do Azure garantem que seu aplicativo fique tão isolado em um contêiner quanto ficaria em uma VM.
@@ -32,10 +36,6 @@ Historicamente, os contêineres ofereciam isolamento de dependência de aplicati
 ## <a name="custom-sizes"></a>Tamanhos personalizados
 
 Os contêineres normalmente são otimizados para executar apenas um único aplicativo, mas as necessidades exatas desses aplicativos podem variar significativamente. As Instâncias de Contêiner do Azure fornecem uma utilização ideal ao permitirem especificações exatas de núcleos e memória da CPU. Você paga com base no que precisar e é cobrado por segundo, assim, é possível ajustar seus gastos eficientemente com base em suas necessidades reais.
-
-## <a name="public-ip-connectivity"></a>Conectividade IP pública
-
-As Instâncias de Contêiner do Azure permitem expor seus contêineres diretamente à Internet com um endereço IP público e um rótulo de nome de DNS. No futuro, vamos expandir nossos recursos de rede para incluir a integração com redes virtuais, balanceadores de carga e outras partes principais da infraestrutura de rede do Azure.
 
 ## <a name="persistent-storage"></a>Armazenamento persistente
 
@@ -53,4 +53,7 @@ As Instâncias de Contêiner do Azure são compatíveis com a programação de [
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Tente implantar um contêiner no Azure com um único comando usando nosso [guia de início rápido](container-instances-quickstart.md).
+Tente implantar um contêiner no Azure com um único comando usando nosso guia de início rápido:
+
+> [!div class="nextstepaction"]
+> [Início Rápido de Instâncias de Contêiner do Azure](container-instances-quickstart.md)
