@@ -2,10 +2,10 @@
 title: Monitorar APIs publicadas no Gerenciamento de API do Azure | Microsoft Docs
 description: Siga as etapas deste tutorial para aprender a monitorar sua API no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 93cbcf91af4ecf9425ed43ade400a0c82cea72d8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -44,29 +44,6 @@ O vídeo a seguir mostra como monitorar o Gerenciamento de API usando o Azure Mo
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
-## <a name="diagnostic-logs"></a>Exibir logs de atividade
-
-Os logs de atividades fornecem informações sobre as operações que foram realizadas em seus serviços de Gerenciamento de API. Usando logs de atividades, é possível determinar “o que, quem e quando” para quaisquer operações de gravação (PUT, POST, DELETE) realizadas em seus serviços de Gerenciamento de API. 
-
-> [!NOTE]
-> Os logs de atividades não incluem operações de leitura (GET) ou operações realizadas no portal do Azure ou usando as APIs de gerenciamento original.
-
-É possível acessar os logs de atividades em seu serviço de Gerenciamento de API ou acessar logs de todos os seus recursos do Azure no Azure Monitor. 
-
-Para exibir logs de atividade:
-
-1. Selecione a instância de serviço do APIM.
-2. Clique em **Log de atividades**.
-
-## <a name="view-diagnostic-logs"></a>Exibir logs de diagnóstico
-
-Os logs de diagnóstico fornecem informações avançadas sobre operações e erros importantes para auditoria, bem como para fins de solução de problemas. Os logs de diagnóstico são diferentes dos logs de atividades. Os logs de atividades fornecem informações sobre as operações realizadas em seus recursos do Azure. Os Logs de Diagnóstico fornecem informações em operações que o recurso realizou por conta própria.
-
-Para acessar logs de diagnóstico:
-
-1. Selecione a instância de serviço do APIM.
-2. Clique em **Log de diagnóstico**.
 
 ## <a name="view-metrics-of-your-apis"></a>Exibir métricas das APIs
 
@@ -109,6 +86,118 @@ Para configurar alertas:
     > A regra de alerta também pode chamar um Webhook ou um Aplicativo Lógico do Azure quando acionado.
 
     ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+
+## <a name="activity-logs"></a>Logs de atividade
+
+Os logs de atividades fornecem informações sobre as operações que foram realizadas em seus serviços de Gerenciamento de API. Usando logs de atividades, é possível determinar “o que, quem e quando” para quaisquer operações de gravação (PUT, POST, DELETE) realizadas em seus serviços de Gerenciamento de API. 
+
+> [!NOTE]
+> Os logs de atividades não incluem operações de leitura (GET) ou operações realizadas no portal do Azure ou usando as APIs de gerenciamento original.
+
+É possível acessar os logs de atividades em seu serviço de Gerenciamento de API ou acessar logs de todos os seus recursos do Azure no Azure Monitor. 
+
+Para exibir logs de atividade:
+
+1. Selecione a instância de serviço do APIM.
+2. Clique em **Log de atividades**.
+
+## <a name="diagnostic-logs"></a>Logs de Diagnóstico
+
+Os logs de diagnóstico fornecem informações avançadas sobre operações e erros importantes para auditoria, bem como para fins de solução de problemas. Os logs de diagnóstico são diferentes dos logs de atividades. Os logs de atividades fornecem informações sobre as operações realizadas em seus recursos do Azure. Os Logs de Diagnóstico fornecem informações em operações que o recurso realizou por conta própria.
+
+Para configurar logs de diagnóstico:
+
+1. Selecione a instância de serviço do APIM.
+2. Clique em **Log de diagnóstico**.
+3. Clique em **Ativar diagnóstico**. Você pode arquivar os logs de diagnóstico junto com a métrica em uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para o Log Analytics. 
+
+No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por hora) sobre solicitações de API individuais em que cada entrada tem o seguinte esquema:
+
+```json
+{  
+    "isRequestSuccess" : "",
+    "time": "",   
+    "operationName": "",      
+    "category": "",   
+    "durationMs": ,   
+    "callerIpAddress": "",   
+    "correlationId": "",   
+    "location": "",      
+    "httpStatusCodeCategory": "",      
+    "resourceId": "",      
+    "properties": {   
+        "method": "", 
+        "url": "", 
+        "clientProtocol": "", 
+        "responseCode": , 
+        "backendMethod": "", 
+        "backendUrl": "", 
+        "backendResponseCode": ,
+        "backendProtocol": "",  
+        "requestSize": , 
+        "responseSize": , 
+        "cache": "", 
+        "cacheTime": "", 
+        "backendTime": , 
+        "clientTime": , 
+        "apiId": "",
+        "operationId": "", 
+        "productId": "", 
+        "userId": "", 
+        "apimSubscriptionId": "", 
+        "backendId": "",
+        "lastError": { 
+            "elapsed" : "", 
+            "source" : "", 
+            "scope" : "", 
+            "section" : "" ,
+            "reason" : "", 
+            "message" : ""
+        } 
+    }      
+}  
+```
+
+| Propriedade  | type | DESCRIÇÃO |
+| ------------- | ------------- | ------------- |
+| isRequestSuccess | booleano | True se a solicitação HTTP foi concluída com código de status de resposta dentro do intervalo 2xx a 3xx |
+| tempo real | date-time | Carimbo de data/hora de recebimento da solicitação HTTP pelo gateway |
+| operationName | string | Valor de constante 'Microsoft.ApiManagement/GatewayLogs' |
+| categoria | string | Valor da constante 'GatewayLogs' |
+| durationMs | inteiro | Número de milissegundos do momento em que o gateway recebeu a solicitação até o momento em que a resposta foi enviada por completo |
+| callerIpAddress | string | Endereço IP do chamador imediato do Gateway (pode ser um intermediário) |
+| correlationId | string | Identificador da solicitação HTTP exclusivo atribuído pelo Gerenciamento de API |
+| location | string | Nome da região do Azure em que o gateway que processou a solicitação está localizado |
+| httpStatusCodeCategory | string | Categoria do código de status de resposta HTTP: Bem-sucedida (301 ou menos ou 304 ou 307), Não autorizada (401, 403, 429), Com erro (400, entre 500 e 600), outros |
+| ResourceId | string | "ID do recurso Gerenciamento de API /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<grupo-de-recursos>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| propriedades | objeto | Propriedades da solicitação atual |
+| estático | string | Método HTTP da solicitação de entrada |
+| url | string | URL da solicitação de entrada |
+| clientProtocol | string | Versão do protocolo HTTP da solicitação de entrada |
+| responseCode | inteiro | Código de status de resposta HTTP enviada a um cliente |
+| backendMethod | string | Método HTTP da solicitação enviada a um back-end |
+| backendUrl | string | URL da solicitação enviada a um back-end |
+| backendResponseCode | inteiro | Código de resposta HTTP recebida de um back-end |
+| backendProtocol | string | Versão do protocolo HTTP da solicitação enviada a um back-end | 
+| requestSize | inteiro | Número de bytes recebidos de um cliente durante o processamento da solicitação | 
+| responseSize | inteiro | Número de bytes enviados a um cliente durante o processamento da solicitação | 
+| cache | string | Status de envolvimento do cache do Gerenciamento de API no processamento da solicitação (ou seja, ocorrências, ignorado, nenhum) | 
+| cacheTime | inteiro | Número de milissegundos gastos na E/S de cache do Gerenciamento de API no total (conectando, enviando e recebendo bytes) | 
+| backendTime | inteiro | Número de milissegundos gastos na E/S do back-end no total (conectando, enviando e recebendo bytes) | 
+| clientTime | inteiro | Número de milissegundos gastos na E/S do cliente no total (conectando, enviando e recebendo bytes) | 
+| apiId | string | Identificador da entidade de API para a solicitação atual | 
+| operationId | string | Identificador da entidade de operação para a solicitação atual | 
+| productId | string | Identificador da entidade de produto para a solicitação atual | 
+| userId | string | Identificador da entidade de usuário para a solicitação atual | 
+| apimSubscriptionId | string | Identificador da entidade de assinatura para a solicitação atual | 
+| backendId | string | Identificador da entidade de back-end para a solicitação atual | 
+| LastError | objeto | Erro de processamento da última solicitação | 
+| decorrido | inteiro | Número de milissegundos decorridos desde que o gateway recebeu a solicitação até o momento em que ocorreu o erro | 
+| fonte | string | Nome da política ou do manipulador interno de processamento que causou o erro | 
+| scope | string | Escopo do documento de política que contém a política que causou o erro | 
+| seção | string | Seção do documento de política que contém a política que causou o erro | 
+| reason | string | Motivo do erro | 
+| Message | string | Mensagem de erro | 
 
 ## <a name="next-steps"></a>Próximas etapas
 

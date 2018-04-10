@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 850d4d1e2ef6a13fcd8a072e6da210d558c7769b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8093275ec9e9cce6d9a765bf1bfc434fecdb6ea7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 Este artigo responde perguntas frequentes sobre como fazer backup de Arquivos do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,8 +29,14 @@ Durante a versão prévia, o backup de compartilhamentos de arquivos do Azure n�
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>Por que não vejo alguns dos meus compartilhamentos de arquivos do Azure na conta de armazenamento quando estou tentando configurar o backup? <br/>
 Verifique se o compartilhamento de arquivos do Azure já está protegido no mesmo cofre dos Serviços de Recuperação ou se foi excluído recentemente.
 
-### <a name="why-cant-i-protect-file-shares-connected-to-a-sync-group-in-azure-file-sync-br"></a>Por que não consigo proteger compartilhamentos de arquivos conectados a um grupo de sincronização na Sincronização de arquivos do Azure? <br/>
-A proteção de compartilhamentos de arquivos do Azure conectados a grupos de sincronização está em versão prévia limitada. Escreva para [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) com sua ID de assinatura para acesso solicitado. 
+### <a name="can-i-protect-file-shares-connected-to-a-sync-group-in-azure-files-sync-br"></a>Posso proteger compartilhamentos de arquivos conectados a um grupo de sincronização na Sincronização de arquivos do Azure? <br/>
+Sim. A proteção dos compartilhamentos de arquivos do Azure conectados a grupos de sincronização está habilitada e faz parte da versão prévia pública.
+
+### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Ao tentar fazer backup de compartilhamentos de arquivos, cliquei em uma Conta de Armazenamento para ver os compartilhamentos de arquivos que estão nela. No entanto, eu não os protegi. Como fazer para proteger esses compartilhamentos de arquivos com outro Cofre?
+Ao tentar fazer backup, a seleção de uma Conta de Armazenamento para ver os compartilhamentos de arquivos dentro dela gera o registro da Conta de Armazenamento no Cofre em que isso foi feito. Se você optar por proteger os compartilhamentos de arquivos com um cofre diferente, [Cancele o registro](troubleshoot-azure-files.md#configuring-backup) da Conta de Armazenamento escolhida no Cofre.
+
+### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>Posso alterar o Cofre onde faço o backup dos meus compartilhamentos de arquivos?
+Sim. No entanto, você precisará [Parar a proteção](backup-azure-files.md#stop-protecting-an-azure-file-share) do Cofre conectado, [Cancelar o registro](troubleshoot-azure-files.md#configuring-backup) da Conta de Armazenamento e protegê-la em um Cofre diferente.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Em quais áreas geográficas posso fazer backup de compartilhamentos de Arquivos do Azure <br/>
 O backup para compartilhamentos de arquivos do Azure está atualmente em versão prévia e está disponível apenas nas áreas geográficas abaixo: 
@@ -43,7 +49,11 @@ O backup para compartilhamentos de arquivos do Azure está atualmente em versão
 -   Leste da Austrália (AE) 
 -   Leste dos EUA (EUS)
 -   Leste dos EUA 2 (EUS2)
+- Leste do Japão (JPE)
+- Oeste do Japão (JPW)
 -   Índia Central (INC) 
+- Sul da Índia (INS)
+- Sul da Coreia (KRS)
 -   Centro-Norte dos EUA (NCUS) 
 -   Europa Setentrional (NE) 
 -   Centro-Sul dos EUA (SCUS) 
@@ -58,7 +68,10 @@ O backup para compartilhamentos de arquivos do Azure está atualmente em versão
 Escreva para [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) caso precise usá-lo em uma área geográfica específica que não esteja listada acima.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>Quantos compartilhamentos de arquivos do Azure posso proteger em um cofre?<br/>
-Durante a versão prévia, é possível proteger compartilhamentos de arquivos do Azure de até 25 contas de armazenamento por cofre. Também é possível proteger até 200 compartilhamentos de arquivos do Azure em um único cofre. 
+Durante a versão prévia, é possível proteger compartilhamentos de arquivos do Azure de até 25 contas de armazenamento por cofre. Também é possível proteger até 200 compartilhamentos de arquivos do Azure em um único cofre.
+
+### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Posso proteger dois compartilhamentos de arquivo diferentes da mesma conta de armazenamento em cofres diferentes?
+Não. Os compartilhamentos de arquivos em uma mesma Conta de Armazenamento só podem ser protegidos pelo mesmo Cofre.
 
 ## <a name="backup"></a>Backup
 
@@ -71,7 +84,7 @@ O backup de compartilhamentos de arquivos do Azure não dá suporte a contas de 
 ## <a name="restore"></a>Restore
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share-br"></a>Posso recuperar a partir de um compartilhamento de arquivos do Azure excluído? <br/>
-Quando um compartilhamento de arquivos do Azure é excluído, você vê a lista de backups que também serão excluídos e uma solicitação de confirmação. Um compartilhamento de arquivos do Azure excluído não pode ser restaurado.
+Quando um compartilhamento de arquivos do Azure é excluído, você vê a lista de backups que serão excluídos e uma solicitação de confirmação. Um compartilhamento de arquivos do Azure excluído não pode ser restaurado.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>Posso restaurar a partir de backups se parar a proteção em um compartilhamento de arquivos do Azure? <br/>
 Sim. Caso tenha escolhido **Reter Dados de Backup**, ao parar a proteção, você poderá restaurar a partir de todos os pontos de restauração existentes.
@@ -85,7 +98,7 @@ Todos os instantâneos tirados pelo Backup do Azure podem ser acessados pelas op
 O backup para compartilhamentos de arquivos do Azure oferece a capacidade de manter seus backups diários por até 120 dias.
 
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>O que acontece quando altero a política de backup de um compartilhamento de arquivos do Azure? <br/>
-Quando uma nova política for aplicada em compartilhamento de arquivos, a agenda e a retenção da nova política serão seguidas. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para mantê-los de acordo com a nova política. Se a retenção for reduzida, eles serão marcados para remoção no próximo trabalho de limpeza e subsequentemente excluídos.
+Quando uma nova política for aplicada em compartilhamento de arquivos, a agenda e a retenção da nova política serão seguidas. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para mantê-los de acordo com a nova política. Se a retenção for reduzida, eles são marcados para remoção no próximo trabalho de limpeza e excluídos.
 
 ## <a name="see-also"></a>Consulte também
 Essas informações são apenas sobre estar fazendo backup de Arquivos do Azure, para saber mais sobre outras áreas do Backup do Azure, consulte algumas dessas outras perguntas frequentes de backup:

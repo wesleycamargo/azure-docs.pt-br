@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9123519217e87494316c1dc6b7f90da1b30ba392
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar seu ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -28,17 +28,25 @@ ms.lasthandoff: 03/28/2018
 >
 >  
 
-Para implantar e executar os [aplicativos do Azure Service Fabric](service-fabric-application-model.md) em seu computador de desenvolvimento Linux, instale o tempo de execução e o SDK comum. Você também pode instalar os SDKs opcionais para desenvolvimento em Java e .NET Core.
+Para implantar e executar os [aplicativos do Azure Service Fabric](service-fabric-application-model.md) em seu computador de desenvolvimento Linux, instale o tempo de execução e o SDK comum. Você também pode instalar os SDKs opcionais para desenvolvimento em Java e .NET Core. 
 
-> [!NOTE]
-> Não há suporte para a instalação do tempo de execução do Service Fabric e do SDK no subsistema do Windows para Linux. No entanto, há suporte para a interface de linha de comando (CLI) do Azure Service Fabric, o que permite gerenciar entidades do Service Fabric hospedadas em outro lugar na nuvem ou no local. Para obter informações sobre como instalar a CLI, consulte [Configurar a CLI do Service Fabric](./service-fabric-cli.md).
->
+As etapas neste artigo presumem que você está instalando nativamente no Linux ou usando a imagem de contêiner do Service Fabric OneBox `microsoft/service-fabric-onebox`. 
+
+Não há suporte para a instalação do tempo de execução do Service Fabric e do SDK no subsistema do Windows para Linux. No entanto, há suporte para a interface de linha de comando (CLI) do Azure Service Fabric, o que permite gerenciar entidades do Service Fabric hospedadas em outro lugar na nuvem ou no local. Para obter informações sobre como instalar a CLI, consulte [Configurar a CLI do Service Fabric](./service-fabric-cli.md).
+
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Há suporte de desenvolvimento para as seguintes versões de sistema operacional:
+* Há suporte de desenvolvimento para as seguintes versões de sistema operacional:
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+    * Ubuntu 16.04 (`Xenial Xerus`)
+
+* Verifique se o pacote `apt-transport-https` está instalado:
+
+      ```bash
+      sudo apt-get install apt-transport-https
+      ```
+
 
 ## <a name="installation-methods"></a>Métodos de Instalação
 

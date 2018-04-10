@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 34fdf45094fae8e751d6b3e5c57d5b4df2e78200
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -130,9 +130,11 @@ Quando o tráfego de saída é enviado de uma sub-rede, o Azure seleciona uma ro
 Se várias rotas contêm o mesmo prefixo de endereço, o Azure seleciona o tipo de rota com base na seguinte ordem de prioridade:
 
 1. Rota definida pelo usuário
-2. Uma rota de sistema com tipo de salto de *Rede virtual*, *Emparelhamento de VNet* ou *VirtualNetworkServiceEndpoint*.
 2. Rota BGP
-3. Uma rota de sistema com um tipo de salto diferente de *Rede virtual*, *Emparelhamento de VNet* ou *VirtualNetworkServiceEndpoint*.
+3. Rota de sistema
+
+> [!NOTE]
+> As rotas de sistema para o tráfego relativas à rede virtual, aos emparelhamentos de rede virtual ou aos pontos de extremidade de serviço de rede virtual são rotas preferenciais, mesmo que as rotas BGP sejam mais específicas.
 
 Por exemplo, uma tabela de rotas contém as seguintes rotas:
 

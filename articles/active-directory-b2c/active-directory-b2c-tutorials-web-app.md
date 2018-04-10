@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: c2a52a387860de640e290746b25c164090819654
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Tutorial: Autenticar usuários com o Azure Active Directory B2C em um aplicativo Web ASP.NET
 
@@ -66,7 +66,7 @@ Anote a **ID do aplicativo cliente**. A ID identifica o aplicativo exclusivament
 
 ### <a name="create-a-client-password"></a>Criar uma senha de cliente
 
-O Azure AD B2C usa autorização OAuth2 para [aplicativos clientes](../active-directory/develop/active-directory-dev-glossary.md#client-application). Os aplicativos Web são [clientes confidenciais](../active-directory/develop/active-directory-dev-glossary.md#web-client) e exigem um segredo do cliente (senha). O segredo do cliente e a ID de cliente do aplicativo são usados quando o aplicativo Web autentica com o Azure Active Directory. 
+O Azure AD B2C usa autorização OAuth2 para [aplicativos clientes](../active-directory/develop/active-directory-dev-glossary.md#client-application). Os aplicativos Web são [clientes confidenciais](../active-directory/develop/active-directory-dev-glossary.md#web-client) e exigem uma ID de cliente ou ID do aplicativo e um segredo do cliente, uma senha do cliente ou uma chave de aplicativo.
 
 1. Selecione a página Chaves para o aplicativo Web registrado e clique em **Gerar chave**.
 
@@ -150,7 +150,7 @@ Há dois projetos na solução de exemplo:
 
 **O aplicativo de API Web de exemplo (TaskService):** API Web que dá suporte às funções criar, ler, atualizar e excluir a lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pelo aplicativo Web.
 
-Você precisa alterar o aplicativo para usar o registro do aplicativo em seu locatário. Você também precisa configurar as políticas criadas. O aplicativo Web de exemplo define os valores de configuração como configurações de aplicativo no arquivo Web.config. Para alterar as configurações do aplicativo:
+Você precisa alterar o aplicativo para usar o registro do aplicativo em seu locatário, o que inclui a ID do cliente ou a ID do aplicativo e a chave do aplicativo ou senha do cliente. Você também precisa configurar as políticas criadas. O aplicativo Web de exemplo define os valores de configuração como configurações de aplicativo no arquivo Web.config. Para alterar as configurações do aplicativo:
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 
@@ -161,7 +161,7 @@ Você precisa alterar o aplicativo para usar o registro do aplicativo em seu loc
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="Client password (client secret)" />
+    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
 3. Atualize as configurações de política com o nome gerado ao criar as políticas.
 
