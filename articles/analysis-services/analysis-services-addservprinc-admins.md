@@ -36,7 +36,7 @@ Para concluir essa tarefa, você deve ter permissões de [administrador do servi
 ## <a name="add-service-principle-to-server-administrators-role"></a>Adicionar entidade de serviço à função de administradores do servidor
 
 1. No SSMS, conecte o servidor do AS do Azure.
-2. Em **	Propriedades do Servidor** > **Segurança**, clique em **Adicionar**.
+2. Em **Propriedades do Servidor** > **Segurança**, clique em **Adicionar**.
 3. Em **Selecionar Usuário ou Grupo**, procure o aplicativo registrado pelo nome, selecione e clique em**Adicionar**.
 
     ![Pesquise a conta de entidade de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
