@@ -1,25 +1,20 @@
 ---
-title: "Início rápido: Criar um SQL Data Warehouse do Azure - Portal do Azure | Microsoft Docs"
-description: "Para o Azure SQL Data Warehouse, crie um servidor SQL, a regra de firewall no nível do servidor e um data warehouse no portal do Azure. Em seguida, faça a consulta."
-keywords: tutorial do sql data warehouse, criar um data warehouse SQL
-services: sql-database
-documentationcenter: 
-author: barbkess
+title: Criar e consultar um SQL Data Warehouse do Azure - Portal do Azure | Microsoft Docs
+description: Criar um SQL Data Warehouse do Azure no Portal do Azure e consultá-lo.
+services: sql-data-warehouse
+author: hirokib
 manager: jhubbard
-editor: 
-ms.service: sql-database
-ms.custom: mvc,DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.date: 11/20/2017
-ms.author: barbkess
-ms.openlocfilehash: a620da9dbe9823b9876fa80dc0200aa91fbf9920
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: implement
+ms.date: 03/28/2018
+ms.author: elbutter
+ms.reviewer: jrj
+ms.openlocfilehash: 97738b37f81cac3e7eef263fecc2095c9ef4b7ff
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início Rápido: Criar e consultar um SQL Data Warehouse do Azure no portal do Azure
 

@@ -5,21 +5,21 @@ services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/11/2018
+ms.date: 03/29/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: bc7c7ea1a01ad784ae53090f1ae0edb042b4f07f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2b42740c84b2f1591e1e155cdeb2f46c414e267f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>Coletar dados de computadores Linux hospedados no seu ambiente
 O [Azure Log Analytics](log-analytics-overview.md) pode coletar dados diretamente dos computadores Linux físicos ou virtuais e de outros recursos do ambiente em um único repositório para correlação e análise detalhadas.  Este guia de início rápido mostra como configurar e coletar dados do computador Linux com algumas etapas simples.  Para VMs Linux do Azure, consulte o tópico a seguir [Coletar dados sobre as Máquinas Virtuais do Azure](log-analytics-quick-collect-azurevm.md).  
@@ -29,19 +29,20 @@ Para entender os requisitos de sistema e de rede para implantar o agente do Linu
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="log-in-to-azure-portal"></a>Fazer logon no portal do Azure
-Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Criar um espaço de trabalho
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Clique em **Criar** e, em seguida, selecione opções para os seguintes itens:
 
   * Forneça um nome para o novo **Espaço de Trabalho do OMS**, como *DefaultLAWorkspace*. 
   * Selecione uma **Assinatura** a vincular escolhendo uma na lista suspensa, se a selecionada por padrão não é adequada.
   * Para **Grupo de Recursos**, selecione um grupo de recursos existente que contém uma ou mais máquinas virtuais do Azure.  
-  * Selecione o **Local** no qual as VMs serão implantadas.  Para obter mais informações, consulte em quais [regiões o Log Analytics está disponível](https://azure.microsoft.com/regions/services/).
-  * Você pode escolher um de três diferentes **tipos de preço** no Log Analytics, mas para este guia de início rápido, você vai selecionar o preço **gratuito**.  Para obter mais informações sobre os tipos específicos, consulte [Detalhes de preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Selecione o **Local** no qual as VMs serão implantadas.  Para obter mais informações, consulte em quais [regiões o Log Analytics está disponível](https://azure.microsoft.com/regions/services/).  
+  * Se você estiver criando um espaço de trabalho em uma nova assinatura feita depois de 2 de abril de 2018, ele usará o plano de preços *por GB* e a opção de selecionar um tipo de preço não estará disponível.  Se você estiver criando um espaço de trabalho para uma assinatura existente feita antes de 2 de abril ou para uma assinatura associada a um registro de EA existente, terá a opção de escolher entre três tipos de preços.  Neste guia de início rápido, você selecionará a camada gratuita.  Para obter mais informações sobre os tipos específicos, consulte [Detalhes de preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
+        ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
+
 3. Depois de fornecer as informações necessárias no painel **Espaço de Trabalho do OMS**, clique em **OK**.  
 
 Enquanto as informações são verificadas e o espaço de trabalho é criado, você pode acompanhar seu progresso no menu **Notificações**. 
@@ -49,7 +50,7 @@ Enquanto as informações são verificadas e o espaço de trabalho é criado, vo
 ## <a name="obtain-workspace-id-and-key"></a>Obter a ID e a chave do espaço de trabalho
 Antes de instalar o agente do OMS para Linux, você precisa da ID do espaço de trabalho e da chave para o espaço de trabalho do Log Analytics.  Essas informações são exigidas pelo script de wrapper de agente para configurar o agente corretamente e garantir que ele pode se comunicar com o Log Analytics com êxito.  
 
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 2. Na lista de espaços de trabalho do Log Analytics, selecione *DefaultLAWorkspace* criado anteriormente.
 3. Selecione **Configurações avançadas**.<br><br> ![Configurações avançadas do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecione **Fontes Conectadas** e, em seguida, selecione **Servidores Linux**.   

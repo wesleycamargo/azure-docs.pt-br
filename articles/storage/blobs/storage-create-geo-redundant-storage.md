@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ce72c1a68c1dbe5cede33dd42adc1b002a81326e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6226fea5001d19a6f0e1f6700d90ea2b9481d43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Torne os dados do aplicativo altamente disponíveis com o armazenamento do Azure
 
-Este tutorial é a parte um de uma série, a qual mostra como tornar os dados do aplicativo altamente disponíveis no Azure. Quando você terminar, terá um aplicativo de console que carrega e recupera um blob para uma conta de armazenamento RA-GRS ([redundância de área geográfica com acesso de leitura](../common/storage-redundancy.md#read-access-geo-redundant-storage)). RA-GRS funciona por meio da replicação de transações da região primária para a secundária. Esse processo de replicação garante que os dados na região secundária acabem sendo consistentes. O aplicativo usa o padrão de [Disjuntor](/azure/architecture/patterns/circuit-breaker) para determinar a qual ponto de extremidade se conectar. O aplicativo muda para um ponto de extremidade secundário quando uma falha é simulada.
+Este tutorial é a parte um de uma série, a qual mostra como tornar os dados do aplicativo altamente disponíveis no Azure. Quando você terminar, terá um aplicativo de console que carrega e recupera um blob para uma conta de armazenamento RA-GRS ([redundância de área geográfica com acesso de leitura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)). RA-GRS funciona por meio da replicação de transações da região primária para a secundária. Esse processo de replicação garante que os dados na região secundária acabem sendo consistentes. O aplicativo usa o padrão de [Disjuntor](/azure/architecture/patterns/circuit-breaker) para determinar a qual ponto de extremidade se conectar. O aplicativo muda para um ponto de extremidade secundário quando uma falha é simulada.
 
 Na primeira parte da série, você aprenderá a:
 

@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 14007bff572f5ecf71b4595dcab8f24d9cf2d17e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9b92e00f7082921586e8b8d8461ddf718ca30aeb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Início Rápido: criar um Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como criar um Banco de Dados do Azure para o servidor PostgreSQL em um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando a CLI do Azure.
@@ -58,11 +58,11 @@ O retorno JSON deve incluir o seguinte:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.4"
+    "version": "0.0.5"
 }
 ```
 
-Se a versão 0.0.4 não for retornada, execute as etapas a seguir para atualizar a extensão: 
+Se a versão 0.0.5 não for retornada, execute as etapas abaixo para atualizar a extensão: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```

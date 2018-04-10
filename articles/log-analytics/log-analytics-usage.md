@@ -1,27 +1,27 @@
 ---
 title: Analisar o uso de dados no Log Analytics | Microsoft Docs
-description: "Utilize o painel Uso no Log Analytics para exibir quantos dados estão sendo enviados para o serviço Log Analytics e solucionar problemas relativos ao envio de grandes quantidades de dados."
+description: Use o painel Uso e custo estimado no Log Analytics para avaliar a quantidade de dados que é enviada para o Log Analytics e identificar o que pode causar o aumento imprevisto.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2018
+ms.date: 03/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar o uso de dados no Log Analytics
-O Log Analytics inclui informações sobre a quantidade de dados coletados, quais sistemas enviaram os dados e os tipos diferentes de dados enviados.  Utilize o painel **Uso do Log Analytics** para ver a quantidade de dados enviados para o serviço Log Analytics. O painel mostra quantos dados são coletados por cada solução e quantos dados são enviados pelos seus computadores.
+O Log Analytics inclui informações sobre a quantidade de dados coletados, quais fontes enviaram os dados e os tipos diferentes de dados enviados.  Use o painel **Uso do Log Analytics** para revisar e analisar o uso dos dados. O painel mostra quantos dados são coletados por cada solução e quantos dados são enviados pelos seus computadores.
 
 ## <a name="understand-the-usage-dashboard"></a>Entender o painel Uso
 O painel **Uso de Log Analytics** exibe as seguintes informações:
@@ -41,20 +41,17 @@ O painel **Uso de Log Analytics** exibe as seguintes informações:
     - Tempo necessário para coletar e indexar dados  
 - Lista de consultas
 
-![painel de uso](./media/log-analytics-usage/usage-dashboard01.png)
+![Painel Uso e custo](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+)
 
 ### <a name="to-work-with-usage-data"></a>Para trabalhar com dados de uso
-1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com) usando a sua assinatura do Azure.
-2. Clique em **Todos os serviços** e, na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Log Analytics**.  
-    ![Hub do Azure](./media/log-analytics-usage/hub.png)
-3. O painel **Log Analytics** mostra uma lista dos espaços de trabalho. Selecione um espaço de trabalho.
-4. No painel *espaço de trabalho*, clique em **Uso do Log Analytics**.
-5. No painel **Uso do Log Analytics**, clique em **Tempo: últimas 24 horas** para alterar o intervalo de tempo.  
-    ![intervalo de tempo](./media/log-analytics-usage/time.png)
-6. Exiba as folhas de categoria de uso que mostram as áreas de seu interesse. Escolha uma folha e clique em um item para exibir mais detalhes em [Pesquisa de Log](log-analytics-log-searches.md).  
-    ![folha de uso de dados de exemplo](./media/log-analytics-usage/blade.png)
-7. No painel de Pesquisa de Log, examine os resultados que são retornados da pesquisa.  
-    ![pesquisa de log de uso de exemplo](./media/log-analytics-usage/usage-log-search.png)
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Na lista de espaços de trabalho do Log Analytics, selecione um espaço de trabalho.
+4. Selecione **Uso e custos estimados** na lista no painel esquerdo.
+5. No painel **Uso e custos estimados**, você pode modificar o intervalo de tempo selecionando **Tempo: últimas 24 horas** e alterando o intervalo de tempo.<br><br> ![intervalo de tempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
+6. Exiba as folhas de categoria de uso que mostram as áreas de seu interesse. Escolha uma folha e clique em um item para exibir mais detalhes em [Pesquisa de Log](log-analytics-log-searches.md).<br><br> ![KPI de uso de dados de exemplo](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+7. No painel de Pesquisa de Log, examine os resultados que são retornados da pesquisa.<br><br> ![pesquisa de log de uso de exemplo](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Criar um alerta quando a coleta de dados for maior que a esperada
 Este artigo descreve como criar um alerta quando:

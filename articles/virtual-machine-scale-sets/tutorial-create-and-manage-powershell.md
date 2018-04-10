@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f1b987d00fad4931f9ad39b39101cc474c2a1e3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 54f63ec4cddf64110eadf25fff60167238f9f9a6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento da máquinas virtuais usando o Azure PowerShell
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Neste tutorial, você aprenderá a:
@@ -45,7 +45,6 @@ Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Az
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
-
 O nome do grupo de recursos é especificado quando você cria ou modifica um conjunto de dimensionamento ao longo deste tutorial.
 
 
@@ -83,10 +82,10 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 A saída de exemplo abaixo mostra duas instâncias de VM no conjunto de dimensionamento:
 
 ```powershell
-ResourceGroupName         Name Location          Sku InstanceID ProvisioningState
------------------         ---- --------          --- ---------- -----------------
-MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS2          0         Succeeded
-MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS2          1         Succeeded
+ResourceGroupName         Name Location             Sku InstanceID ProvisioningState
+-----------------         ---- --------             --- ---------- -----------------
+MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
 Para exibir informações adicionais sobre uma instância específica de VM, adicione o parâmetro `-InstanceId` a [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). O exemplo abaixo exibe informações sobre a instância de VM *1*:
@@ -235,7 +234,7 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-Quando você criou um conjunto de dimensionamento no início do tutorial, um SKU de VM padrão *Standard_D1_v2* foi fornecido para as instâncias de VM. Você pode especificar um tamanho de instância de VM diferente com base na saída de [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). O exemplo a seguir cria um conjunto de dimensionamento com o parâmetro `-VmSize` para especificar um tamanho de instância de VM *Standard_F1*. Como demora alguns minutos para criar e configurar todos os recursos do conjunto de dimensionamento e as instâncias de VM, você não precisa implantar o seguinte conjunto de dimensionamento:
+Quando você criou um conjunto de dimensionamento no início do tutorial, um SKU de VM padrão *Standard_DS1_v2* foi fornecido para as instâncias de VM. Você pode especificar um tamanho de instância de VM diferente com base na saída de [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). O exemplo a seguir cria um conjunto de dimensionamento com o parâmetro `-VmSize` para especificar um tamanho de instância de VM *Standard_F1*. Como demora alguns minutos para criar e configurar todos os recursos do conjunto de dimensionamento e as instâncias de VM, você não precisa implantar o seguinte conjunto de dimensionamento:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `

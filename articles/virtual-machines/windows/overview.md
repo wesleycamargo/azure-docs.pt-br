@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6ab964760ea06c2e82d0c9f69f89fe62dec8ceac
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe4345f45013359fd77e5ddae3dc754b94af2696
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Visão geral das máquinas virtuais do Windows no Azure
 
@@ -70,7 +70,7 @@ O [tamanho](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) da VM
 O Azure cobra um [preço por hora](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) com base no tamanho da VM e do sistema operacional. Para horas parciais, o Azure cobrará somente os minutos usados. O armazenamento terá o preço e será cobrado separadamente.
 
 ### <a name="vm-limits"></a>Limites de VM
-Sua assinatura do Azure tem [limites de cota](../../azure-subscription-service-limits.md) padrão que podem afetar a implantação de muitas VMs para seu projeto. O limite atual por assinatura é de 20 VMs por região. Os limites podem ser aumentados preenchendo um tíquete de suporte para solicitar um aumento.
+Sua assinatura do Azure tem [limites de cota](../../azure-subscription-service-limits.md) padrão que podem afetar a implantação de muitas VMs para seu projeto. O limite atual por assinatura é de 20 VMs por região. Os limites podem ser aumentados [pelo preenchimento de um tíquete de suporte para solicitar um aumento](../../azure-supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Imagens e discos de sistema operacional
 As máquinas virtuais usam [VHDs (discos rígidos virtuais)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para armazenar seus dados e sistema operacional (SO). Os VHDs também são usados para as imagens que você pode optar por instalar um sistema operacional. 

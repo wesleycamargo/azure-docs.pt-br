@@ -1,12 +1,12 @@
 ---
 title: Criar um cluster do Service Fabric do Linux no Azure | Microsoft Docs
-description: "Neste tutorial, você aprende a implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure existente usando a CLI do Azure."
+description: Neste tutorial, você aprende a implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure existente usando a CLI do Azure.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e6cbc8c3c7e1a9ebe9684efb0fa6ffa0717240ea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 63d5ae371b4852be96f764b91ec44f1befbd469b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Tutorial: Implantar um cluster do Linux do Service Fabric em uma rede virtual do Azure
 Este tutorial é a primeira parte de uma série. Você aprenderá como implantar um cluster do Service Fabric do Linux em uma [rede virtual do Azure (VNET)](../virtual-network/virtual-networks-overview.md) e [grupo de segurança de rede (NSG)](../virtual-network/virtual-networks-nsg.md) usando o CLI do Azure e um modelo. Ao terminar, você terá um cluster em execução na nuvem no qual você poderá implantar aplicativos. Para criar um cluster do Windows usando o PowerShell, consulte [Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) (Criar um cluster seguro do Windows no Azure).

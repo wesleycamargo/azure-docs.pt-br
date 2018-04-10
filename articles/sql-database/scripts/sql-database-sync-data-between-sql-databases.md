@@ -1,13 +1,13 @@
 ---
-title: "Exemplo de PowerShell – Sincronização entre vários Bancos de Dados SQL do Azure | Microsoft Docs"
-description: "Script de exemplo do Azure PowerShell para sincronização entre vários banco de dados SQL do Azure"
+title: Exemplo de PowerShell – Sincronização entre vários Bancos de Dados SQL do Azure | Microsoft Docs
+description: Script de exemplo do Azure PowerShell para sincronização entre vários banco de dados SQL do Azure
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,17 +17,17 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 23446e4156daca3903f15e538e2c47e63fcbf673
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8a6dbf6e8cdd2fe066c11cc14ae587912873f7e4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Usar o PowerShell para sincronização entre vários bancos de dados SQL
  
-Este exemplo do PowerShell configura a Sincronização de Dados para sincronização entre vários bancos de dados SQL do Azure.
+Este exemplo do PowerShell configura a Sincronização de Dados (versão prévia) para sincronização entre vários bancos de dados SQL do Azure.
 
-Este exemplo exige o módulo do Azure PowerShell, versão 4.2 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Este exemplo exige o módulo do Azure PowerShell, versão 4.2 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
 Execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
 
@@ -332,7 +332,7 @@ else
 
 ```
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Após a execução do exemplo de script, execute o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
@@ -343,9 +343,9 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [New-AzureRmSqlSyncAgent](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  Cria um novo Agente de Sincronização |
 | [New-AzureRmSqlSyncAgentKey](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  Gera a chave do agente associada ao Agente de sincronização |

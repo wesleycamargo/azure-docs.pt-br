@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 3/14/2018
+ms.date: 3/30/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 45c5ccd0f891a5592eee7400de108c5097f75286
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19fbc76b5037543b822e0e353c7ce8b337eab8ed
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Início Rápido: crie uma atribuição de política para identificar recursos sem conformidade usando o módulo do PowerShell do Azure RM
 
@@ -26,7 +26,14 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 ## <a name="prerequisites"></a>pré-requisitos
 
 - Antes de começar, verifique se a versão mais recente do PowerShell está instalada. Para obter informações detalhadas, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
-- Atualize seu módulo do PowerShell do AzureRM para a versão mais recente. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- Atualize seu módulo do PowerShell do AzureRM para a versão mais recente. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- Registre o provedor de recursos Informações de Política usando o Azure PowerShell. O registro do provedor de recursos garante o funcionamento da assinatura com ele. Para registrar um provedor de recursos, você deve ter permissão para executar a operação de ação de registro para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Execute o seguinte comando para registrar o provedor de recursos:
+
+  ```
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  ```
+
+  Para saber mais sobre como registrar e exibir provedores de recursos, consulte [Provedores de recursos e tipos](../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 

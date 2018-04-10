@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: f9487067ae77fbb261fb683ddd15207670f9576f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: aab864696be7121be049ce4e907b10431a7b63cb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure-with-powershell"></a>Implantar pacotes do SQL Server Integration Services no Azure com o PowerShell
 Este tutorial fornece etapas para o provisionamento de um Integration Runtime (IR) do Azure-SSIS no Azure Data Factory. Em seguida, você pode usar o SSDT (SQL Server Data Tools) ou o SSMS (SQL Server Management Studio) para implantar pacotes do SSIS (SQL Server Integration Services) para esse tempo de execução no Azure. Neste tutorial, você executa as seguintes etapas:
@@ -83,7 +83,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 ```
@@ -246,7 +246,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 
@@ -300,7 +300,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-vnet"></a>Unir um IR do Azure-SSIS a uma VNet
-Se você usar uma Instância Gerenciada do SQL do Azure (visualização particular) para hospedar o catálogo do SQL Server Integration Services (SSIS) dentro de uma rede virtual (VNet), você também deve associar o tempo de execução de integração do Azure-SSIS à mesma rede virtual. O Azure Data Factory versão 2 (versão prévia) permite que você una o tempo de execução de integração do Azure-SSIS a uma VNet. Para obter mais informações, consulte [Ingressar o tempo de execução do Azure-SSIS em uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md).
+Se você usar uma Instância Gerenciada do SQL do Azure (versão prévia) para hospedar o catálogo do SQL Server Integration Services (SSIS) dentro de uma rede virtual (VNet), também deverá associar o tempo de execução de integração do Azure-SSIS à mesma rede virtual. O Azure Data Factory versão 2 (versão prévia) permite que você una o tempo de execução de integração do Azure-SSIS a uma VNet. Para obter mais informações, consulte [Ingressar o tempo de execução do Azure-SSIS em uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 
 Veja um script completo para criar um tempo de execução do SSIS do Azure que uma VNet em [criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md).
 

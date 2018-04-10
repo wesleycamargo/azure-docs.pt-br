@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 40abc884a898dc16ae4d785c13d3e926fb30e432
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1d477bfe42cebbc35db4fd40aa5bc3de4829c49b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Aprenda rapidamente a criar máquinas virtuais Linux com o PowerShell
 
@@ -28,9 +28,9 @@ O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Por fim, uma chave SSH pública com o nome *id_rsa.pub* precisa ser armazenada no diretório *.ssh* do seu perfil de usuário do Windows. Para obter informações detalhadas sobre a criação de chaves SSH para o Azure, consulte [Criar chaves SSH do Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Por fim, uma chave SSH pública com o nome *id_rsa.pub* precisa ser armazenada no diretório *.ssh* do seu perfil de usuário do Windows. Para obter informações detalhadas sobre como criar e usar chaves SSH, confira [Criar chaves SSH para o Azure](ssh-from-windows.md).
 
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure

@@ -1,4 +1,4 @@
-1. Clique em **Criar um recurso** no canto esquerdo superior do Portal do Azure e, em seguida, selecione **Computação** > **Aplicativo de funções**. 
+1. Selecione o botão **Novo** no canto superior esquerdo do portal do Azure, e selecione **Computação** > **Aplicativo de funções**. 
 
     ![Criar um aplicativo de funções no portal do Azure](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -16,8 +16,14 @@
     | **Localidade** | Europa Ocidental | Escolha uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam. |
     | **[Conta de armazenamento](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Nome globalmente exclusivo |  Nome da nova conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Você também pode usar uma conta existente. |
 
-1. Clique em **Criar** para provisionar e implantar o novo aplicativo de funções. É possível monitorar o status da implantação clicando no ícone da Notificação no canto superior direito do portal. 
+3. Selecione **Criar** para provisionar e implantar o aplicativo de funções. 
+
+4. Selecione o ícone da Notificação no canto superior direito do portal e veja se a mensagem **Implantação concluída com êxito** é exibida. 
 
     ![Definir novas configurações do aplicativo de funções](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-    Clicar em **Ir para o recurso** leva você para o novo aplicativo de funções.
+4. Selecione **Ir para recursos** para exibir o novo aplicativo de funções.
+
+>[!TIP]
+>Se tiver problemas para localizar seus aplicativos de funções no portal, tente [adicionar os Aplicativos de funções aos seus favoritos no portal do Azure](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite).   
+

@@ -1,37 +1,48 @@
 ---
-title: "Instruções do Azure - Como usar módulos de segurança de hardware diferentes com o SDK do cliente de serviço de provisionamento de dispositivos no Azure | Microsoft Docs"
-description: "Instruções do Azure - Como usar módulos de segurança de hardware diferentes com o SDK do cliente de serviço de provisionamento de dispositivos no Azure"
+title: Instruções do Azure - Como usar módulos de segurança de hardware diferentes com o SDK do cliente de serviço de provisionamento de dispositivos no Azure
+description: Instruções do Azure - Como usar módulos de segurança de hardware diferentes com o SDK do cliente de serviço de provisionamento de dispositivos no Azure
 services: iot-dps
-keywords: 
+keywords: ''
 author: yzhong94
 ms.author: yizhon
-ms.date: 08/28/2017
+ms.date: 03/28/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
-manager: 
+documentationcenter: ''
+manager: ''
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 184bbdc0a6bef74d0e5ac79afe3858354c6b1695
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0d392f4a8d935cb37b6f4cfcd69826de58b33880
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Como usar Módulos de Segurança de Hardware diferentes com o SDK do Cliente do Serviço de Provisionamento de Dispositivos
-Estas etapas mostram como usar [HSMs (Módulos de Segurança de Hardware)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)diferentes com o SDK do Cliente do Serviço de Provisionamento de Dispositivos em C usando dispositivo físico e simulador.  O serviço de provisionamento dá suporte a dois modos de autenticação: X**.**509 e TPM (Trusted Platform Module).
+# <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk-for-c"></a>Como usar Módulos de Segurança de Hardware diferentes com o SDK de Cliente do Serviço de Provisionamento de Dispositivos para C
 
-## <a name="prerequisites"></a>Pré-requisitos
+Este artigo mostra como usar diferentes [HSMs (Módulos de Segurança de Hardware)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) com o SDK de cliente do Serviço de Provisionamento de Dispositivos para C. Você também pode usar um dispositivo físico ou um simulador. O serviço de provisionamento oferece suporte à autenticação de dois tipos de mecanismos de atestado: X**.**509 e TPM (Trusted Platform Module).
 
-Prepare o ambiente de desenvolvimento de acordo com a seção "Preparar o ambiente de desenvolvimento" no guia [Criar e provisionar dispositivo simulado] (./quick-create-simulated-device.md).
+## <a name="prerequisites"></a>pré-requisitos
 
-## <a name="enable-authentication-with-different-hsms"></a>Habilitar autenticação com HSMs diferentes
+Prepare o ambiente de desenvolvimento de acordo com a seção "Preparar o ambiente de desenvolvimento" no guia [Criar e provisionar dispositivo simulado](./quick-create-simulated-device.md).
 
-O modo de autenticação (X**.** 509 ou TPM) deve estar habilitado para o simulador ou dispositivo físico antes de poderem ser registrados no Portal do Azure.  Navegue até a pasta raiz para azure-iot-sdk-c.  Execute o comando especificado, dependendo do modo de autenticação que você escolher.
+### <a name="choose-a-hardware-security-module"></a>Escolher um Módulo de Segurança de Hardware
+
+Como um fabricante de dispositivos, primeiro você precisa escolher os HSMs (ou Módulos de Segurança de Hardware) que se baseiam em um dos tipos com suporte. Atualmente, o [SDK de cliente do Serviço de Provisionamento de Dispositivos para C](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) oferece suporte aos seguintes HSMs: 
+
+- [TPM (Trusted Platform Module)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): o TPM é um padrão estabelecido para a maioria das plataformas de dispositivo baseadas em Windows, bem como alguns dispositivos baseados em Linux/Ubuntu. Como um fabricante de dispositivos, você pode escolher esse HSM caso tenha um desses sistemas operacionais em execução em seus dispositivos, e se estiver procurando um padrão estabelecido para HSMs. Com chips do TPM, você só pode registrar cada dispositivo individualmente para o Serviço de Provisionamento de Dispositivos. Para fins de desenvolvimento, você pode usar o simulador do TPM no seu computador de desenvolvimento do Windows ou Linux.
+
+- [X.509](https://cryptography.io/en/latest/x509/): HSMs baseados em X.509 são chips relativamente mais recentes. A Microsoft também está adiantada nisso, em chips RIoT ou DICE, que implementam os certificados X.509. Com chips X.509, você pode fazer registros em massa no portal. Ele também dá suporte a determinados OSes não Windows como embedOS. Para fins de desenvolvimento, o SDK do cliente do Serviço de Provisionamento de Dispositivos dá suporte a um simulador de dispositivo de X.509. 
+
+Para saber mais, confira os [Conceitos de segurança do Serviço de Provisionamento de Dispositivos no Hub IoT](concepts-security.md). 
+
+## <a name="enable-authentication-for-supported-hsms"></a>Habilitar a autenticação para HSMs com suporte
+
+O modo de autenticação (X**.**509 ou TPM) deve estar habilitado para o simulador ou dispositivo físico antes que eles possam ser registrados no portal do Azure. Primeiro, navegue até a pasta raiz de azure-iot-sdk-c. Execute o comando especificado, dependendo do modo de autenticação escolhido:
 
 ### <a name="use-x509-with-simulator"></a>Usar X**.**509 com simulador
 
-O serviço de provisionamento é fornecido com o emulador DICE (Device Identity Composition Engine), que gera um certificado X**.**509 para autenticar o dispositivo.  Execute o seguinte comando para habilitar a autenticação X**.**509:
+O serviço de provisionamento é fornecido com o emulador DICE (Device Identity Composition Engine), que gera um certificado X**.**509 para autenticar o dispositivo. Para habilitar a autenticação X**.**509, execute o comando a seguir: 
 
 ```
 cmake -Ddps_auth_type=x509 ..
@@ -41,11 +52,11 @@ Informações sobre hardware com DICE podem ser encontradas [aqui](https://azure
 
 ### <a name="use-x509-with-hardware"></a>Usar X**.** 509 com hardware
 
-O serviço de provisionamento pode ser usado com X**.** 509 em outro hardware.  Uma interface entre o hardware e o SDK é necessária para estabelecer conexão.  Fale com o fabricante do HSM para obter informações sobre a interface.
+O serviço de provisionamento pode ser usado com X**.** 509 em outro hardware. Uma interface entre o hardware e o SDK é necessária para estabelecer conexão. Fale com o fabricante do HSM para obter informações sobre a interface.
 
 ### <a name="use-tpm"></a>Usar TPM
 
-O serviço de provisionamento pode se conectar a chips de TPM de hardware Windows e Linux com token SAS.  Execute o comando a seguir para habilitar a autenticação do TPM:
+O serviço de provisionamento pode se conectar a chips de TPM de hardware Windows e Linux com token SAS. Para habilitar a autenticação do TPM, execute o comando a seguir:
 
 ```
 cmake -Ddps_auth_type=tpm ..
@@ -53,7 +64,7 @@ cmake -Ddps_auth_type=tpm ..
 
 ### <a name="use-tpm-with-simulator"></a>Usar o TPM com simulador
 
-Se você não tiver um dispositivo com chips TPM, poderá usar um simulador para fins de desenvolvimento no sistema operacional Windows.  Execute o seguinte comando para habilitar a autenticação de TPM e executar o simulador do TPM:
+Se você não tiver um dispositivo com chips TPM, poderá usar um simulador para fins de desenvolvimento no sistema operacional Windows. Para habilitar a autenticação do TPM e executar o simulador do TPM, execute o comando a seguir:
 
 ```
 cmake -Ddps_auth_type=tpm_simulator ..
@@ -128,19 +139,47 @@ Crie o SDK antes de criar o registro do dispositivo.
     - O serviço de provisionamento: dps_http_transport, dps_client, dps_security_client
     - Segurança do IoTHub: iothub_security_client
 
-## <a name="create-a-device-enrollment-entry-in-dps"></a>Criar uma entrada de registro de dispositivo no DPS
+## <a name="create-a-device-enrollment-entry-in-device-provisioning-services"></a>Criar uma entrada de registro de dispositivo no Serviço de Provisionamento de Dispositivos
 
 ### <a name="tpm"></a>TPM
-Se você estiver usando o TPM, siga as instruções em ["Criar e provisionar um dispositivo simulado usando o Serviço de Provisionamento de Dispositivos do Hub IoT"](./quick-create-simulated-device.md) para criar uma entrada de registro de dispositivo no DPS e simular a primeira inicialização.
+Se você estiver usando o TPM, siga as instruções em ["Criar e provisionar um dispositivo simulado usando o Serviço de Provisionamento de Dispositivos no Hub IoT"](./quick-create-simulated-device.md) para criar uma entrada de registro de dispositivo no Serviço de Provisionamento de Dispositivos e simular a primeira inicialização.
 
 ### <a name="x509"></a>X**.** 509
 1. Para registrar um dispositivo no serviço de provisionamento, você precisa anotar a Chave de Endosso e a ID de Registro para cada dispositivo, que são exibidas na Ferramenta de Provisionamento fornecida pelo SDK do Cliente. Execute o seguinte comando para imprimir o certificado de Autoridade de Certificação raiz (para grupos de registro) e o certificado do signatário (para registro individual):
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Faça logon no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o DPS.
+2. Entre no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço DPS.
    - Registro individual do X**.**509: na folha de provisionamento de dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. Selecione **X**. **509** como o *Mecanismo* de atestado de identidade e carregue o certificado do signatário conforme exigido pela folha. Uma vez concluído, clique no botão **Salvar**. 
    - Registro em grupo  X**.**509: na folha de provisionamento de dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros em grupo** e clique no botão **Adicionar** na parte superior. Selecione **X**. **509** como o *Mecanismo* de atestado de identidade, insira o nome do grupo e o nome da certificação e carregue o certificado de Autoridade de Certificação raiz conforme exigido pela folha. Uma vez concluído, clique no botão **Salvar**. 
+
+## <a name="enable-authentication-for-custom-tpm-and-x509-devices-optional"></a>Habilitar a autenticação de dispositivos personalizados TPM e X.509 (opcional)
+
+> [!NOTE]
+> Esta seção só se aplica a dispositivos que exigem suporte para uma plataforma personalizada ou para o HSM, o que não é compatível, atualmente, com o SDK de cliente do Serviço de Provisionamento de Dispositivos para C.
+
+Primeiro você precisa desenvolver o repositório e a biblioteca do HSM:
+
+1. Desenvolver uma biblioteca para acessar seu HSM. Este projeto deve produzir uma biblioteca estática para o SDK de provisionamento de dispositivos consumir.
+
+2. Implemente as funções definidas no arquivo de cabeçalho abaixo, na sua biblioteca: 
+
+    - Para um TPM personalizado: implemente as funções do HSM personalizadas definidas na [API HSM TPM](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).  
+    - Para um X.509 personalizado: implemente as funções do HSM personalizadas definidas na [API HSM X509](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
+
+Depois que a biblioteca se cria sozinha com êxito, você precisa integrá-la ao SDK de cliente do Serviço de Provisionamento de Dispositivos vinculando-a à sua biblioteca. :
+
+1. Forneça o repositório GitHub do HSM personalizado, o caminho da biblioteca e o nome dela no comando `cmake` abaixo:
+    ```cmd/sh
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
+    ```
+   
+2. Abra o arquivo de solução do Visual Studio criado pelo CMake (`\azure-iot-sdk-c\cmake\azure_iot_sdks.sln`) e compile-o. 
+
+    - O processo de compilação cria a biblioteca do SDK.
+    - O SDK tentará se vincular ao HSM personalizado definido no comando `cmake`.
+
+3. Execute o aplicativo de exemplo "prov_dev_client_ll_sample" em "Provision_Samples" (em `\azure-iot-sdk-c\cmake\provisioning_client\samples\prov_dev_client_ll_sample`), para verificar se o seu HSM foi implementado corretamente.
 
 ## <a name="connecting-to-iot-hub-after-provisioning"></a>Conectar-se ao Hub IoT após a configuração
 
@@ -148,3 +187,4 @@ Depois que o dispositivo foi configurado com o serviço de provisionamento, essa
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
+
