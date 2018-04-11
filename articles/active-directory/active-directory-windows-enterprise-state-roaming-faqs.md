@@ -1,9 +1,9 @@
 ---
-title: "Configurações e perguntas frequentes sobre o roaming de dados | Microsoft Docs"
-description: "Responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo."
+title: Configurações e perguntas frequentes sobre o roaming de dados | Microsoft Docs
+description: Responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo.
 services: active-directory
-keywords: "configurações do enterprise state roaming, nuvem do windows, perguntas frequentes sobre o enterprise state roaming"
-documentationcenter: 
+keywords: configurações do enterprise state roaming, nuvem do windows, perguntas frequentes sobre o enterprise state roaming
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -29,7 +29,7 @@ Este tópico responde a algumas dúvidas que os administradores de TI podem ter 
 
 * *Tema*, que inclui recursos como configurações de tema e barra de tarefas da área de trabalho.
 * *Configurações do Internet Explorer*, incluindo guias abertas recentemente e favoritos.
-* *Configurações do navegador Edge*, como favoritos e lista de leitura.
+* *Configurações do navegador Microsoft Edge*, como favoritos e lista de leitura.
 * *Senhas*, incluindo senhas da Internet, perfis de Wi-Fi e outros.
 * *Preferências de idioma*, que inclui configurações de layouts de teclado, idioma do sistema, data e hora e outros.
 * *Recursos de facilidade de acesso*, como tema de alto contraste, Narrador e Lupa.
