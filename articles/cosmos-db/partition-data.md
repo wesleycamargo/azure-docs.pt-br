@@ -1,33 +1,33 @@
 ---
 title: Particionamento e escala horizontal no BD Cosmos do Azure | Microsoft Docs
-description: "Saiba mais sobre como o particionamento funciona no DB Cosmos do Azure, como configurar o particionamento e as chaves de partição e como escolher a chave de partição correta para seu aplicativo."
+description: Saiba mais sobre como o particionamento funciona no DB Cosmos do Azure, como configurar o particionamento e as chaves de partição e como escolher a chave de partição correta para seu aplicativo.
 services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e escala no Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é um serviço de banco de dados globalmente distribuído, multi-modelo projetado para ajudá-lo a atingir um desempenho rápido e previsível. Ele pode ser dimensionado perfeitamente junto com o seu aplicativo à medida que cresce. Este artigo fornece uma visão geral de como modelos de particionamento funcionam para todos os modelos de dados no Azure Cosmos DB. Ele também descreve como você pode configurar contêineres do Azure Cosmos DB contêineres para dimensionar com eficiência seus aplicativos.
 
-Particionamento e chaves de partição são discutidas neste vídeo de sexta-feira do Azure com Scott Hanselman e o Gerente-Chefe de Engenharia do Azure Cosmos DB, Shireesh Thota:
+O particionamento e as chaves de partição são discutidos neste vídeo com o Gerente de Programa do Azure Cosmos DB, Andrew Liu:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Particionamento no BD Cosmos do Azure
@@ -53,7 +53,7 @@ De forma resumida, veja como o particionamento funciona no Azure Cosmos DB:
 * Nos bastidores, o Azure Cosmos DB provisiona as partições necessárias para atender as solicitações **T** por segundo. Se **T** for maior que a taxa de transferência máxima por partição **t**, o Azure Cosmos DB provisionará as partições **N = T/t**.
 * O Azure Cosmos DB aloca o espaço de chave dos hashes de chave de partição uniformemente entre as partições **N**. Sendo assim, cada partição (partição física) hospeda os valores de chave de partição (partições lógicas) **1/N**.
 * Quando uma partição física **p** atinge seu limite de armazenamento, o Azure Cosmos DB divide perfeitamente **p** em duas novas partições, **p1** e **p2**. Ele distribui valores correspondentes para cerca de metade das chaves para cada uma das partições. Essa operação de divisão é invisível para o aplicativo. Se uma partição física atingir seu limite de armazenamento e todos os dados na partição física pertencerem à mesma chave de partição lógica, a operação de divisão não ocorrerá. Isso ocorre porque todos os dados para uma chave única de partição lógica devem residir na mesma partição física e, portanto, a partição física não pode ser dividida em p1 e p2. Nesse caso, uma estratégia de chave de partição diferente deve ser empregada.
-* Quando você provisiona uma taxa de transferência superior a **t*N**, o Azure Cosmos DB divide uma ou mais de suas partições para dar suporte à taxa de transferência mais alta.
+* Quando você provisiona uma taxa de transferência maior que **t*N**, o Azure Cosmos DB divide uma ou mais de suas partições para dar suporte à taxa de transferência mais alta.
 
 A semântica das chaves de partição é ligeiramente diferente para corresponder à semântica de cada API, conforme mostrado na tabela a seguir:
 

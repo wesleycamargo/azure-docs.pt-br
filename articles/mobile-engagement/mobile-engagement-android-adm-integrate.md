@@ -1,11 +1,11 @@
 ---
-title: "Integração do SDK do Android do Azure Mobile Engagement"
-description: "Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
+title: Integração do SDK do Android do Azure Mobile Engagement
+description: Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3b8f60333e6096411aad8499bb4bfc36e53f3c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>Como integrar ADM ao Engagement
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 > [!IMPORTANT]
 > Você deve seguir o procedimento de integração descrito no documento Como Integrar o Engagement, antes de seguir este guia.
 > 
@@ -75,7 +79,7 @@ Edite seu arquivo `AndroidManifest.xml` :
 
 Siga as instruções das próximas seções.
 
-### <a name="communicate-registration-id-to-the-engagement-push-service-and-receive-notifications"></a>Comunicar a id de registro para o serviço de envio por push do Engagement e receber notificações
+### <a name="communicate-registration-id-to-the-engagement-push-service-and-receive-notifications"></a>Comunicar a ID de registro para o serviço de envio por push do Engagement e receber notificações
 Para comunicar a ID de registro do dispositivo para o serviço de Envio por Push do Engagement e receber notificações, adicione o seguinte ao seu arquivo `AndroidManifest.xml`  dentro da marca `<application/>` (mesmo que você use ADM sem Engagement):
 
         <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMEnabler"

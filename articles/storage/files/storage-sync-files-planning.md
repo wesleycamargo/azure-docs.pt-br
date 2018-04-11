@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planejando uma implantação de Sincronização de Arquivo do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -96,6 +96,19 @@ Versões futuras do Windows Server serão adicionadas à medida que forem libera
 
 > [!Note]  
 > Há suporte para apenas os volumes NTFS. ReFS, FAT, FAT32 e outros sistemas de arquivos não têm suporte.
+
+### <a name="files-skipped"></a>Arquivos ignorados
+| Arquivo/pasta | Observação |
+|-|-|
+| Desktop.ini | Arquivo específico do sistema |
+| ethumbs.db$ | Arquivo temporário para miniaturas |
+| ~$\*.\* | Arquivo temporário do Office |
+| \*.tmp | Arquivo temporário |
+| \*.laccdb | Arquivo de bloqueio do banco de dados do Access|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\Informações de Volume do Sistema | Pasta específica do volume |
+| $RECYCLE.BIN| Pasta |
+| \\SyncShareState | Pasta para sincronização |
 
 ### <a name="failover-clustering"></a>Clustering de failover
 O clustering de failover do Windows Server tem suporte pela Sincronização de Arquivo do Azure para a opção de implantação “Servidor de Arquivos de uso geral”. Não há suporte para o Clustering de Failover em “SOFS (Servidor de Arquivos de Escalabilidade Horizontal) para dados de aplicativos” ou CSVs (Volumes Compartilhados Clusterizados).

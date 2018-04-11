@@ -1,6 +1,6 @@
 ---
 title: 'Armazenamento de tabela do Azure: criar um aplicativo Web Node.js | Microsoft Docs'
-description: "Um tutorial que tem como base o tutorial Aplicativo Web com o Express adicionando os serviços de Armazenamento do Azure e o módulo Azure."
+description: Um tutorial que tem como base o tutorial Aplicativo Web com o Express adicionando os serviços de Armazenamento do Azure e o módulo Azure.
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Armazenamento de tabela do Azure: aplicativo Web Node.js
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="overview"></a>Visão geral
 Neste tutorial, o aplicativo criado no tutorial [Aplicativo Web do Node.js usando o Expresso] é ampliado usando as Bibliotecas de cliente do Microsoft Azure para o Node.js para trabalhar com serviços de gerenciamento de dados. Você amplia seu aplicativo ao criar um aplicativo de lista de tarefas com base na Web que pode ser implantado no Azure. A lista de tarefas permite que um usuário recupere tarefas, adicione novas tarefas e marque tarefas como concluídas.
 
-Os itens da tarefa são armazenados no Armazenamento do Azure. O Armazenamento do Azure fornece um armazenamento de dados não estruturado altamente disponível e tolerante a falhas. O Armazenamento do Azure inclui várias estruturas de dados nas quais você pode armazenar e acessar dados. Você pode usar os serviços de armazenamento das APIs incluídas no SDK do Azure para Node.js ou por meio de APIs REST. Para saber mais, veja [Armazenando e acessando dados no Azure].
+Os itens da tarefa são armazenados no Armazenamento do Microsoft Azure ou no Azure Cosmos DB. O Armazenamento do Microsoft Azure ou no Azure Cosmos DB fornecem armazenamento de dados não estruturados tolerante a falhas e altamente disponível. O Armazenamento do Microsoft Azure ou no Azure Cosmos DB incluem várias estruturas de dados nas quais você pode armazenar e acessar dados. É possível usar os serviços de armazenamento e o Azure Cosmos DB das APIs incluídas no SDK do Azure para Node.js ou por meio de APIs REST. Para saber mais, veja [Armazenando e acessando dados no Azure].
 
 Este tutorial presume que você tenha concluído os tutoriais [Aplicativo Web do Node.js] e [Node.js com Express][Aplicativo Web do Node.js usando o Expresso].
 
@@ -40,7 +40,7 @@ A captura de tela a seguir mostra o aplicativo concluído:
 ![A página da Web completa no Internet Explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Definindo credenciais de armazenamento em Web.Config
-Você deve transmitir as credenciais de armazenamento para acessar o Armazenamento do Azure. Isso é feito usando as configurações de aplicativo web.config.
+É necessário transmitir as credenciais de armazenamento para acessar o Armazenamento do Microsoft Azure ou o Azure Cosmos DB. Isso é feito usando as configurações de aplicativo web.config.
 As configurações web.config são transmitidas como variáveis de ambiente para o Nó as quais, em seguida, são lidas pelo SDK do Azure.
 
 > [!NOTE]
@@ -144,7 +144,7 @@ Nesta seção, o aplicativo básico criado pelo comando **express** é ampliado,
     Task.prototype = {
       find: function(query, callback) {
         self = this;
-        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+        self.storageClient.queryEntities(this.tablename, query, null, null, function entitiesQueried(error, result) {
           if(error) {
             callback(error);
           } else {
@@ -181,7 +181,7 @@ Nesta seção, o aplicativo básico criado pelo comando **express** é ampliado,
             callback(error);
           }
           entity.completed._ = true;
-          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+          self.storageClient.replaceEntity(self.tableName, entity, function entityUpdated(error) {
             if(error) {
               callback(error);
             }
@@ -215,7 +215,7 @@ Nesta seção, o aplicativo básico criado pelo comando **express** é ampliado,
     TaskList.prototype = {
       showTasks: function(req, res) {
         self = this;
-        var query = azure.TableQuery()
+        var query = new azure.TableQuery()
           .where('completed eq ?', false);
         self.task.find(query, function itemsFound(error, items) {
           res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -224,7 +224,10 @@ Nesta seção, o aplicativo básico criado pelo comando **express** é ampliado,
 
       addTask: function(req,res) {
         var self = this
-        var item = req.body.item;
+        var item = {
+            name: req.body.name, 
+            category: req.body.category
+        };
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
             throw error;
@@ -307,7 +310,7 @@ Nesta seção, o aplicativo básico criado pelo comando **express** é ampliado,
             td Category
             td Date
             td Complete
-          if tasks != []
+          if tasks == []
             tr
               td
           else
@@ -325,9 +328,9 @@ Nesta seção, o aplicativo básico criado pelo comando **express** é ampliado,
       hr
       form.well(action="/addtask", method="post")
         label Item Name:
-        input(name="item[name]", type="textbox")
+        input(name="name", type="textbox")
         label Item Category:
-        input(name="item[category]", type="textbox")
+        input(name="category", type="textbox")
         br
         button.btn(type="submit") Add item
     ```
@@ -414,7 +417,7 @@ As etapas a seguir mostram como parar e excluir o aplicativo.
    Excluir o serviço pode levar alguns minutos. Depois que o serviço for excluído, você receberá uma mensagem indicando que o serviço foi excluído.
 
 [Aplicativo Web do Node.js usando o Expresso]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-[Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Armazenando e acessando dados no Azure]: https://docs.microsoft.com/azure/storage/
 [Aplicativo Web do Node.js]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configurar a Sincronização de Dados SQL (Versão prévia)
 Neste tutorial, você aprenderá a configurar a Sincronização de Dados SQL do Azure criando um grupo de sincronização híbrido que contém as instâncias de Banco de Dados SQL do Azure e do SQL Server. O novo grupo de sincronização ficará totalmente configurado e sincronizado no agendamento que você definir.
@@ -38,6 +38,8 @@ Para obter exemplos completos do PowerShell que mostrem como configurar a Sincro
     ![Lista de bancos de dados SQL do Azure](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
 3.  Na página **Bancos de dados SQL**, selecione o banco de dados SQL existente que você deseja usar como o banco de dados hub para a Sincronização de Dados. A página do banco de dados SQL é aberta.
+
+    O banco de dados hub é o ponto de extremidade central da topologia de sincronização, no qual um grupo de sincronização tem vários pontos de extremidade do banco de dados. Todos os outros pontos de extremidade do banco de dados em que o grupo de sincronização, ou seja, todos os bancos de dados membros, sincronizam com mesmo o banco de dados hub.
 
 4.  Na página do banco de dados SQL do banco de dados selecionado, selecione **Sincronizar para outros bancos de dados**. A página da Sincronização de Dados é aberta.
 
@@ -67,6 +69,8 @@ Para obter exemplos completos do PowerShell que mostrem como configurar a Sincro
         ![Especificar frequência de sincronização](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  Na seção **Resolução de Conflitos**, selecione "Hub ganha" ou "Membro ganha".
+
+        "Hub ganha" significa que, quando ocorre um conflito, os dados no banco de dados hub substituem os dados conflitantes no banco de dados de membro. "Membro ganha" significa que, quando ocorre um conflito, os dados no banco de dados de membro substituem os dados conflitantes no banco de dados hub. 
 
         ![Especificar como os conflitos são resolvidos](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do Armazenamento do Azure
 
@@ -357,7 +357,7 @@ Esse recurso garante que todos os dados nos discos da máquina virtual sejam cri
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>VMs IaaS e seus arquivos VHD
 
-Para discos de dados usados por VMs IaaS, recomenda-se a Azure Disk Encryption. Se você criar uma VM usando uma imagem do Azure Marketplace, o Azure executará uma [cópia superficial](https://en.wikipedia.org/wiki/Object_copying) da imagem na sua conta de armazenamento no Armazenamento do Azure, e ela não será criptografada mesmo que você tenha habilitado a SSE. Depois de criar a VM e iniciar a atualização da imagem, a SSE começará a criptografia dos dados. Por esse motivo, é melhor usar o Azure Disk Encryption em VMs criadas das imagens no Azure Marketplace, caso você queira usá-las totalmente criptografadas.
+Para discos de dados usados por VMs IaaS, recomenda-se a Azure Disk Encryption. Se você criar uma VM com discos não gerenciados usando uma imagem do Azure Marketplace, o Azure realizara uma [cópia superficial](https://en.wikipedia.org/wiki/Object_copying) da imagem na sua conta de armazenamento no Armazenamento do Microsoft Azure e ela não será criptografada mesmo que você tenha habilitado a SSE. Depois de criar a VM e iniciar a atualização da imagem, a SSE começará a criptografia dos dados. Por esse motivo, é recomendável utilizar o Azure Disk Encryption em VMs com discos não gerenciados criados a partir de imagens no Azure Marketplace, caso queira que sejam totalmente criptografadas. Se você criar uma VM com discos gerenciados, a SSE criptografará todos os dados por padrão usando as chaves gerenciadas por plataforma. 
 
 Ao transferir uma VM local previamente criptografada para o Azure, você pode carregar as chaves de criptografia no Cofre de Chaves do Azure e continuar usando a criptografia que estava usando no local para essa VM. O Azure Disk Encryption está habilitado para lidar com esse cenário.
 

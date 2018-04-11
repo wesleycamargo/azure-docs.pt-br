@@ -1,12 +1,12 @@
 ---
-title: "Diagnóstico nas Funções Duráveis – Azure"
-description: "Saiba como diagnosticar problemas com a extensão de Funções Duráveis do Azure Functions."
+title: Diagnóstico nas Funções Duráveis – Azure
+description: Saiba como diagnosticar problemas com a extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ebab8660dfe21984e1a7f9a1cb925aea60de213
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnóstico nas Funções Duráveis (Azure Functions)
 
@@ -50,6 +50,7 @@ Cada evento de ciclo de vida de uma instância de orquestração faz com que um 
 * **reason**: dados adicionais associados ao evento de acompanhamento. Por exemplo, se uma instância estiver aguardando uma notificação de evento externo, esse campo indica o nome do evento que ela está aguardando. Se uma função tiver falhado, ele conterá detalhes do erro.
 * **isReplay**: valor booliano que indica se o evento de acompanhamento deve ter a execução reproduzida.
 * **extensionVersion**: a versão da extensão da Tarefa Durável. Esse dado é especialmente importante ao relatar possíveis bugs na extensão. Instâncias de execução longa podem relatar várias versões se uma atualização ocorrer durante sua execução. 
+* **sequenceNumber**: número de sequência de execução para um evento. Combinado com o carimbo de data/hora ajuda a ordenar os eventos por tempo de execução. *Observe que esse número será redefinido para zero se o host for reiniciado enquanto a instância estiver em execução, portanto, primeiro é importante sempre classificar pelo carimbo de data/hora e, depois, sequenceNumber.*
 
 O detalhamento dos dados de acompanhamento emitidos para o Application Insights pode ser configurado na seção `logger` do arquivo `host.json`.
 
@@ -72,11 +73,11 @@ Por padrão, todos os eventos de acompanhamento são emitidos. O volume dos dado
 
 ### <a name="single-instance-query"></a>Consulta de instância única
 
-A consulta a seguir mostra dados de acompanhamento históricos de uma única instância de orquestração da função [Sequência Hello](durable-functions-sequence.md). Ela é escrita usando a [AIQL (Linguagem de Consulta do Application Insights)](https://docs.loganalytics.io/docs/Language-Reference). Ela filtra a execução de reproduções para que somente o caminho de execução *lógico* seja mostrado.
+A consulta a seguir mostra dados de acompanhamento históricos de uma única instância de orquestração da função [Sequência Hello](durable-functions-sequence.md). Ela é escrita usando a [AIQL (Linguagem de Consulta do Application Insights)](https://docs.loganalytics.io/docs/Language-Reference). Ela filtra a execução de reproduções para que somente o caminho de execução *lógico* seja mostrado. Os eventos podem ser ordenados classificando por `timestamp` e `sequenceNumber`, conforme mostrado na consulta abaixo: 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -84,16 +85,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay == false
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-O resultado é uma lista de eventos de acompanhamento que mostram o caminho de execução da orquestração, incluindo funções de atividade.
 
-![Consulta do Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+O resultado é uma lista de eventos de rastreamento que mostra o caminho de execução da orquestração, incluindo quaisquer funções de atividade ordenadas pelo tempo de execução em ordem crescente.
 
-> [!NOTE]
-> Alguns desses eventos de acompanhamento podem estar fora de ordem devido à falta de precisão na coluna `timestamp`. Isso está sendo acompanhado no GitHub como o [problema #71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
+![Consulta do Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### <a name="instance-summary-query"></a>Consulta de resumo da instância
 

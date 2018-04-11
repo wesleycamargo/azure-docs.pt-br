@@ -1,32 +1,32 @@
 ---
 title: Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
-description: "Como listar um aplicativo que oferece suporte a logon único na galeria de aplicativos do Azure Active Directory"
+description: Como listar um aplicativo que oferece suporte a logon único na galeria de aplicativos do Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/09/2018
+ms.date: 03/20/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 502fb555bd3b381c9be0ff04e210cc07f9bf6cd8
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: e02c60d46fe709c8d418ea4743ba383147e9ddac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
 
 
 ##  <a name="what-is-the-azure-ad-application-gallery"></a>O que é a galeria de aplicativos do Azure Active Directory?
 
-O Azure Active Directory é um serviço de identidade baseado em nuvem. A [galeria de aplicativos do Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/) está na loja de aplicativos do Azure Marketplace, onde todos os conectores de aplicativos são publicados para logon único e provisionamento de usuário. Os clientes que usam o Azure Active Directory como provedor de identidade localizam diferentes conectores de aplicativos SaaS publicados aqui. Os administradores de TI adicionam conectores da galeria de aplicativos e, em seguida, configuram e usam os conectores para logon único e provisionamento. O Azure Active Directory fornece suporte a todos os principais protocolos de federação para logon único, incluindo SAML 2.0, OpenID Connect, OAuth e WS-Fed. 
+O Azure Active Directory é um serviço de identidade baseado em nuvem. A [galeria de aplicativos do Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/) está na loja de aplicativos do Azure Marketplace, onde todos os conectores de aplicativos são publicados para logon único e provisionamento de usuário. Os clientes que usam o Azure Active Directory como provedor de identidade localizam diferentes conectores de aplicativos SaaS publicados aqui. Os administradores de TI adicionam conectores da galeria de aplicativos e, em seguida, configuram e usam os conectores para logon único e provisionamento. O Azure Active Directory fornece suporte a todos os principais protocolos de federação para logon único, incluindo SAML 2.0, OpenID Connect, OAuth e WS-Fed.
 
 ## <a name="what-are-the-benefits-of-listing-an-application-in-the-gallery"></a>Quais são os benefícios de listar um aplicativo na galeria?
 
@@ -51,7 +51,21 @@ Para listar um aplicativo na galeria de aplicativos do Azure Active Directory, p
 
 *   **SAML 2.0** ou **WS-Fed**: seu aplicativo deve ter a capacidade de fazer a integração de SSO do SAML/WS-Fed no modo IDP ou SP. Se o aplicativo fornecer suporte para SAML 2.0, você poderá integrá-lo diretamente com um locatário do Azure Active Directory, usando as [instruções para adicionar uma aplicativo personalizado](../active-directory-saas-custom-apps.md).
 
-*   **SSO de senha**: crie um aplicativo Web que tem uma página de entrada HTML para configurar o [logon único baseado em senha](../active-directory-appssoaccess-whatis.md). O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários, nos quais vários usuários precisam compartilhar uma única conta, como contas de aplicativo de mídia social da sua organização. 
+*   **SSO de senha**: crie um aplicativo Web que tem uma página de entrada HTML para configurar o [logon único baseado em senha](../active-directory-appssoaccess-whatis.md). O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários, nos quais vários usuários precisam compartilhar uma única conta, como contas de aplicativo de mídia social da sua organização.
+
+##  <a name="updateremove-existing-listing"></a>Atualizar/remover listagem existente
+
+Para atualizar ou remover um aplicativo existente na galeria de aplicativos do Microsoft Azure AD, primeiro você precisa enviar a solicitação no [Portal de Aplicativos de Rede ](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se você tiver uma conta do Office 365, use-a para entrar nesse portal. Caso contrário, use sua conta da Microsoft (como Outlook ou Hotmail) para entrar.
+
+* Selecione a opção apropriada na imagem abaixo
+
+    ![TimeLine de listagem de aplicativos SAML na galeria](./media/active-directory-app-gallery-listing/updateorremove.png)
+
+    * Se você deseja atualizar um aplicativo existente, selecione **Atualizar listagem de aplicativo existente**.
+
+    * Se você quiser remover um aplicativo existente da galeria do Microsoft Azure AD, selecione **Remover a listagem de aplicativo existente**
+
+    * Se você tiver algum problema relacionado ao acesso, contate a [Equipe de Integração de SSO do Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
 ## <a name="submit-the-request-in-the-portal"></a>Enviar a solicitação no portal
 
@@ -75,5 +89,4 @@ A linha do tempo para o processo de listagem de um aplicativo OpenID Connect na 
 
 ## <a name="escalations"></a>Escalonamentos
 
-Para quaisquer escalonamentos, envie email para a [Equipe de Integração de SSO do Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) e responderemos o mais rápido possível.
-
+Para quaisquer escalonamentos, envie email para [Equipe de Integração de SSO do Microsoft Azure AD](mailto:SaaSApplicationIntegrations@service.microsoft.com)  que é SaaSApplicationIntegrations@service.microsoft.com e responderemos o mais breve possível.

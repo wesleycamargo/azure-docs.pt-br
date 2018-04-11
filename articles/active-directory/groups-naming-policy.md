@@ -1,32 +1,32 @@
 ---
-title: "Agrupar configurações de política de nomes para grupos do Office 365 no Azure Active Directory (versão prévia) | Microsoft Docs"
-description: "Como configurar o vencimento de grupos do Office 365 no Azure Active Directory (visualização)"
+title: Agrupar configurações de política de nomes para grupos do Office 365 no Azure Active Directory (versão prévia) | Microsoft Docs
+description: Como configurar o vencimento de grupos do Office 365 no Azure Active Directory (visualização)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: michael.tillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de nomenclatura para o Office 365 no Azure Active Directory (versão prévia)
 
 Para impor as convenções de nomenclatura consistentes para grupos do Office 365 criados ou editados pelos usuários, defina uma política de nomenclatura de grupos para seus locatários no Azure Active Directory (AD do Azure). Por exemplo, você pode usar a política de nomenclatura para comunicar a função de um grupo, associação, região geográfica ou quem criou o grupo. Você também pode usar a política de nomenclatura para ajudar a categorizar grupos no catálogo de endereços. Você pode usar a política para bloquear palavras específicas de serem usadas em nomes de grupo e alias.
 
 > [!IMPORTANT]
-> Usar a versão prévia da Política de Nomenclatura de Grupos do Office 365 requer licenças Premium P1 do Azure Active Directory para cada usuário exclusivo que seja um membro de um ou mais grupos do Office 365.
+> Usar a versão prévia da Política de Nomenclatura de Grupos do Office 365 requer licenças Premium P1 do Azure Active Directory ou licenças Azure Active Directory Basic para cada usuário exclusivo que seja um membro de um ou mais grupos do Office 365.
 
 A política de nomenclatura é aplicada para criar ou editar grupos criados em cargas de trabalho (por exemplo, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner). Ela é aplicada para o nome do grupo e o alias de grupo. Se você definir a política de nomenclatura no Azure AD e tiver uma política de nomenclatura de grupos do Exchange existente, a política de nomenclatura do Azure AD será aplicada.
 

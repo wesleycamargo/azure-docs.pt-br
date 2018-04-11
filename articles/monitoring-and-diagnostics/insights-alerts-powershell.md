@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Criar alertas de métrica clássicos no Azure Monitor para serviços do Azure – PowerShell
 > [!div class="op_single_selector"]
@@ -31,18 +31,18 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Visão geral
 
 > [!NOTE]
-> Este artigo descreve como criar alertas de métrica antigos. O Azure Monitor agora dá suporte a [alertas de métrica mais novos e melhores](monitoring-near-real-time-metric-alerts.md). Esses alertas podem monitorar várias métricas e permitir alertas em métricas dimensionais. O suporte ao PowerShell para alertas de métrica mais novos estará disponível em breve.
+> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte a [alertas de métrica mais novos e melhores](monitoring-near-real-time-metric-alerts.md). Esses alertas podem monitorar várias métricas e permitir alertas em métricas dimensionais. O suporte ao PowerShell para alertas de métrica mais novos estará disponível em breve.
 >
 >
 
-Este artigo mostra como configurar alertas de métrica do Azure usando PowerShell.  
+Este artigo mostra como configurar alertas de métrica clássico do Azure usando PowerShell.  
 
 Você pode receber um alerta com base em métricas de monitoramento ou em eventos nos serviços do Azure.
 
 * **Valores da métrica** - o alerta dispara quando o valor de uma métrica especificada ultrapassa um limite que você atribui em qualquer direção. Ou seja, ele dispara quando a condição é atendida pela primeira vez e posteriormente, quando essa condição não está sendo mais atendida.    
 * **Eventos do log de atividades** – um alerta pode disparar em *cada* evento ou somente quando determinado evento ocorre. Para saber mais sobre alertas de log de atividades, [clique aqui](monitoring-activity-log-alerts.md)
 
-Você pode configurar um alerta de métrica para fazer o seguinte quando ele dispara:
+Você pode configurar um alerta de métrica clássico para fazer o seguinte quando ele disparar:
 
 * enviar um email para o administrador de serviços e os coadministradores
 * enviar email para outros emails que você especificar.
@@ -135,8 +135,8 @@ Para saber mais, digite ```Get-Help``` e depois o comando do PowerShell sobre o 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Obter uma visão geral do monitoramento do Azure](monitoring-overview.md) , incluindo os tipos de informações que você pode coletar e monitorar.
-* Saiba mais sobre como [configurar webhooks em alertas](insights-webhooks-alerts.md).
-* Saiba mais sobre [Configurar alertas em eventos de Log de Atividades](monitoring-activity-log-alerts.md).
+* Saiba como [configurar webhooks em alertas](insights-webhooks-alerts.md).
+* Saiba como [configurar alertas nos eventos do Log de Atividades](monitoring-activity-log-alerts.md).
 * Saiba mais sobre [Runbooks da Automação do Azure](../automation/automation-starting-a-runbook.md).
 * Tenha uma [visão geral da coleta de logs de diagnóstico](monitoring-overview-of-diagnostic-logs.md) para coletar métricas detalhadas de alta frequência em seu serviço.
 * Tenha uma [visão geral da coleção de métricas](insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.

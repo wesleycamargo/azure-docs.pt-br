@@ -1,30 +1,30 @@
 ---
-title: "Visão geral do recurso de RBAC do Azure PIM | Microsoft Docs"
-description: "Tenha uma visão geral do recurso de RBAC no PIM incluindo terminologia e notificações"
+title: Visão geral do recurso de RBAC do Azure PIM | Microsoft Docs
+description: Tenha uma visão geral do recurso de RBAC no PIM incluindo terminologia e notificações
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
-ms.author: barclayn
-ms.openlocfilehash: 19715f800e7d8d40336d8e9fa3bf8073795dce5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 03/30/2018
+ms.author: billmath
+ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="pim-for-azure-resources-preview"></a>PIM recursos do Azure (Visualização)
+# <a name="pim-for-azure-resources"></a>PIM para Recursos do Azure
 
-Com o Azure Active Directory Privileged Identity Management (PIM), você pode gerenciar, controlar e monitorar aos Recursos do Azure (Visualização) em sua organização. Isso inclui assinaturas, grupos de recursos e até mesmo máquinas virtuais. Qualquer recurso dentro do portal do Azure que aproveita a funcionalidade de RBAC do Azure pode tirar proveito de todos as excelentes capacidades de segurança e gerenciamento do ciclo de vida que o Azure AD PIM tem a oferecer e alguns excelentes novos recursos que estamos planejando lançar em breve para as funções do Azure AD. 
+Com o PIM (Azure Active Directory Privileged Identity Management) você pode gerenciar, controlar e monitorar aos Recursos do Azure em sua organização. Isso inclui assinaturas, grupos de recursos e até mesmo máquinas virtuais. Qualquer recurso dentro do portal do Azure que aproveita a funcionalidade de RBAC do Azure pode tirar proveito de todos as excelentes capacidades de segurança e gerenciamento do ciclo de vida que o Azure AD PIM tem a oferecer e alguns excelentes novos recursos que estamos planejando lançar em breve para as funções do Azure AD. 
 
-## <a name="pim-for-azure-resources-preview-helps-resource-administrators"></a>O PIM para o Azure Resources (Visualização) ajuda os administradores de recursos
+## <a name="pim-for-azure-resources-helps-resource-administrators"></a>O PIM para o Azure Resources ajuda os administradores de recursos
 
 - Veja quais usuários e grupos são atribuídos a funções para os recursos do Azure que você administra
 - Habilite acesso Just in Time para gerenciar recursos, como assinaturas, grupos de recursos e muito mais
@@ -49,15 +49,15 @@ Os usuários ou membros de um grupo atribuído às funções de Administrador de
 
 O PIM fornece acesso conveniente para ativar funções, exibir ativações/solicitações pendentes, aprovações pendentes (para [funções de diretório do Azure AD](azure-ad-pim-approval-workflow.md)), e às revisões com resposta pendente na seção Tarefas do menu de navegação esquerdo.
 
-Ao acessar qualquer um dos itens do menu Tarefas no ponto de entrada Visão Geral, a exibição resultante contém os resultados de funções de diretório do Azure AD e de funções dos Recursos do Azure (versão prévia). 
+Ao acessar qualquer um dos itens do menu Tarefas no ponto de entrada Visão Geral, a exibição resultante contém os resultados de funções de diretório do Microsoft Azure AD e de funções dos Recursos do Azure. 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
 
-Minhas funções contêm uma lista das suas atribuições de função ativas e qualificadas para funções de diretório do Azure AD, e funções do Azure Resources (Visualização).
+Minhas funções contêm uma lista das suas atribuições de função ativas e qualificadas para funções de diretório do Microsoft Azure AD, e funções dos Recursos do Azure.
 
 ## <a name="activate-roles"></a>Ativar funções
 
-A ativação de funções para o Azure Resources (Visualização) apresenta uma nova experiência que permite aos membros qualificados de uma função agendar a ativação para uma data/hora futura e selecionar uma duração de ativação específica dentro do limite máximo (configurado pelos administradores). Saiba como [ativar funções do Azure AD aqui](../active-directory-privileged-identity-management-how-to-activate-role.md).
+A ativação de funções para o Azure Resources apresenta uma nova experiência que permite aos membros qualificados de uma função agendar a ativação para uma data/hora futura e selecionar uma duração de ativação específica dentro do limite máximo (configurado pelos administradores). Saiba como [ativar funções do Azure AD aqui](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -73,7 +73,7 @@ Se a ativação for agendada para uma data e hora futuras, a solicitação pende
 
 ## <a name="discover-and-manage-azure-resources"></a>Descobrir e gerenciar os recursos do Azure
 
-Para localizar e gerenciar funções para um recurso do Azure, selecione Azure Resources (Visualização) na guia Gerenciar no menu de navegação esquerdo. Use os filtros ou a barra de pesquisa na parte superior da página para encontrar um recurso.
+Para localizar e gerenciar funções para um Recurso do Azure, selecione Recursos do Azure na guia Gerenciar no menu de navegação esquerdo. Use os filtros ou a barra de pesquisa na parte superior da página para encontrar um recurso.
 
 ![](media/azure-pim-resource-rbac/azure-resources.png)
 

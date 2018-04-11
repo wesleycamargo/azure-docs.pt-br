@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar logs de fluxo de Grupo de Segurança de Rede com o Observador de Rede do Azure | Microsoft Docs"
-description: "Esta página explica como gerenciar logs de fluxo de Grupo de Segurança de Rede no Observador de Rede do Azure"
+title: Gerenciar logs de fluxo de Grupo de Segurança de Rede com o Observador de Rede do Azure | Microsoft Docs
+description: Esta página explica como gerenciar logs de fluxo de Grupo de Segurança de Rede no Observador de Rede do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Gerenciar logs do fluxo do Grupo de Segurança de Rede no Portal do Azure
 
@@ -38,9 +38,12 @@ Logs de fluxo do Grupo de Segurança de Rede são um recurso do Observador de Re
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você já seguiu as etapas em [Criar uma instância de Observador de Rede](network-watcher-create.md). O cenário também pressupõe que você tem um grupo de recursos com uma máquina virtual válida.
+Para concluir as etapas neste artigo, é necessário ter os recursos a seguir:
 
-## <a name="register-insights-provider"></a>Provedor de informações de registro
+- Um Observador de Rede existente. Para criar um Observador de Rede, consulte [Criar uma instância do Observador de Rede](network-watcher-create.md).
+- Um grupo de recursos existente com uma máquina virtual válida. Se você não tiver uma máquina virtual, consulte Criar uma máquina virtual do [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ou do [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+
+## <a name="register-insights-provider"></a>Registrar o provedor Insights
 
 Para o registro de fluxo em log funcionar, o provedor **Microsoft.Insights** deve ser registrado. Para registrar o provedor, siga as seguintes etapas: 
 
@@ -68,7 +71,7 @@ Selecione um Grupo de Segurança de Rede na lista.
 
 ### <a name="step-3"></a>Etapa 3 
 
-Na folha **Configurações dos logs do fluxo**, defina o status como **Ligado** e configure uma conta de armazenamento.  Quando terminar, selecione **OK**. Em seguida, selecione **Salvar**.
+Na folha **Configurações dos logs do fluxo**, defina o status como **Ligado** e configure uma conta de armazenamento. Selecione uma conta de armazenamento existente que tenha **Todas as redes** (padrão) selecionadas em **Firewalls e redes virtuais** nas **CONFIGURAÇÕES** para a conta de armazenamento. Após selecionar uma conta de armazenamento, selecione **OK** e, em seguida, selecione **Salvar**.
 
 ![Visão geral dos logs de fluxo][3]
 

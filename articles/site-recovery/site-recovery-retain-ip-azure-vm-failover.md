@@ -1,12 +1,12 @@
 ---
-title: "Manter endereços IP durante o failover de máquinas virtuais do Azure para outra região do Azure | Microsoft Docs"
-description: "Descreve como manter os endereços IP para cenários de failover de Azure para Azure com o Azure Site Recovery"
+title: Manter endereços IP durante o failover de máquinas virtuais do Azure para outra região do Azure | Microsoft Docs
+description: Descreve como manter os endereços IP para cenários de failover de Azure para Azure com o Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Retenção de endereço IP para failover de máquina virtual do Azure
 
@@ -84,11 +84,7 @@ O exemplo de failover isolado acima pode ser expandido para incluir mais aplicat
 
 ### <a name="further-considerations"></a>Outras considerações
 
-Gateways de VPN utilizam endereços IP públicos e saltos de gateway para estabelecer conexões. Se você não quiser usar IP público e/ou se quiser evitar saltos extras, pode usar o emparelhamento de VNet global para emparelhar redes virtuais em regiões do Azure.
-
-Esse recurso está atualmente em versão prévia pública e está sendo expandido para oferecer suporte a mais regiões — permitindo a conectividade direta entre VMs sem qualquer envolvimento da internet pública ou saltos extras.
-
-Para obter mais informações, consulte a [documentação de emparelhamento](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) e os [preços](https://azure.microsoft.com/pricing/details/virtual-network/).
+Gateways de VPN utilizam endereços IP públicos e saltos de gateway para estabelecer conexões. Se você não quiser usar IP público e/ou se quiser evitar saltos extras, pode usar o [Emparelhamento de rede virtual](../virtual-network/virtual-network-peering-overview.md) para emparelhar redes virtuais em [regiões do Azure com suporte](../virtual-network/virtual-network-manage-peering.md#cross-region).
 
 ## <a name="on-premises-to-azure-connectivity"></a>Conectividade local para Azure
 

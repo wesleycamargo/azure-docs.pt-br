@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure 
 
@@ -42,11 +42,15 @@ Ao criar uma hierarquia agrupada por departamentos, é possível atribuir funç�
 - Cada grupo de gerenciamento pode ter vários elementos filhos. 
 
 ### <a name="preview-subscription-visibility-limitation"></a>Limitação de visibilidade de assinatura na versão prévia 
-Atualmente, há uma limitação na versão prévia em que não é possível visualizar assinaturas às quais você tenha acesso herdado. O acesso é herdado para a assinatura, mas o Azure Resource Manager ainda não é capaz de reconhecer o acesso de herança.  
+Atualmente, há uma limitação na versão prévia em que não é possível visualizar as assinaturas às quais você tenha acesso herdado. O acesso é herdado para a assinatura, mas o Azure Resource Manager ainda não é capaz de reconhecer o acesso de herança.  
 
-Usar a API REST para obter informações sobre a assinatura retorna detalhes como você tem acesso, mas no Portal do Azure e no Azure Powershell as assinaturas não são exibidas. 
+O uso da API REST para obter informações sobre a assinatura retorna detalhes do acesso que você tem, mas no Portal do Azure e no Azure Powershell as assinaturas não são exibidas. 
 
-Este item está sendo trabalhado e será resolvido antes dos Grupos de Gerenciamento serem anunciados como "Disponibilidade Geral."  
+Esse item está sendo trabalhado e será resolvido antes que os Grupos de Gerenciamento sejam anunciados como "Disponibilidade Geral."  
+
+### <a name="cloud-solution-providercsp-limitation-during-preview"></a>Limitação do CSP (Provedor de Soluções na Nuvem) durante a versão prévia 
+Há uma limitação atual para Parceiros do CSP (Provedor de Soluções na Nuvem), em que não é possível criar ou gerenciar os grupos de gerenciamento de seus clientes no diretório do cliente.  
+Esse item está sendo trabalhado e será resolvido antes que os Grupos de Gerenciamento sejam anunciados como "Disponibilidade Geral."
 
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gerenciamento raiz para cada diretório

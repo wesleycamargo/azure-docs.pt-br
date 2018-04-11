@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Visão geral do Azure Load Balancer Standard
 
@@ -30,7 +30,7 @@ Este artigo discute o Load Balancer Standard.  Para obter uma visão mais geral 
 
 O Load Balancer Standard é um novo produto Balanceador de Carga para aplicativos de todos os TCP e UDP com um recurso expandido e conjunto de recursos com relação ao Load Balancer Base.  Embora haja muitas semelhanças, é importante estar familiarizado com as diferenças, conforme descrito neste artigo.
 
-É possível usar o padrão o Load Balancer Standard como Balanceador de Carga público ou interno. E uma máquina virtual pode ser conectada a um recurso de Balanceador de Carga público e um interno.
+É possível usar o Load Balancer Standard como um Load Balancer interno ou público. E uma máquina virtual pode ser conectada a um recurso de Balanceador de Carga público e um interno.
 
 As funções de recurso do Balanceador de Carga são expressas como um front-end, uma regra, uma investigação de integridade e uma definição de pool de back-end.  Um recurso pode conter várias regras. Você pode colocar as máquinas virtuais no pool de back-end, especificando o pool de back-end do recurso NIC da máquina virtual.  No caso de um conjunto de dimensionamento de máquina virtual, este parâmetros é passado por meio do perfil de rede e expandido.
 
@@ -55,10 +55,10 @@ Revise a tabela abaixo para obter uma visão geral das diferenças entre o Load 
 | Tamanho do pool de back-end | até 1000 instâncias | até 100 instâncias |
 | Pontos de extremidade de pool de back-end | qualquer máquina virtual em uma rede virtual única, incluindo a mistura de máquinas virtuais, conjuntos de disponibilidade, conjuntos de dimensionamento de máquina virtual. | máquinas virtuais em um conjunto de disponibilidade ou conjunto de dimensionamento da máquina virtual |
 | Zonas de Disponibilidades | front-ends com redundância de zona e por zona para entrada e saída, o mapeamento de fluxos de saída sobrevivem à falha de zona, balanceamento de carga entre zonas | / |
-| Diagnostics | Azure Monitor, métricas multidimensionais incluindo contadores byte e pacote, status de investigação de integridade, tentativas de conexão (TCP SYN), integridade de conexão de saída (SNAT bem sucedido e fluxos com falha), medidas de plano de dados ativo | Log Analytics do Azure apenas para Balanceador de Carga, alerta de exaustão SNAT, conta de integridade de pool back-end  |
-| Portas de alta disponibilidade | Balanceador Interno de carga | / |
-| Segurança por padrão | padrão fechado para IP público e pontos de extremidade de Balanceador de Carga e um grupo de segurança de rede deve ser usado para indicar explicitamente a permissão para o tráfego fluir | padrão aberto, grupo de segurança de rede opcional |
-| Conexões de saída | Vários front-ends com regra recusar. Um cenário de saída _deve_ ser explicitamente criado para a máquina virtual poder usar a conectividade de saída.  [Pontos de Extremidade de Serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) podem ser acessados sem conectividade de saída e não são considerados dados processados.  Quaisquer endereços de IP públicos, incluindo serviços de PaaS do Azure não estão disponíveis como pontos de extremidade de VNet, devem ser acessados por meio de conectividade de saída e contam para dados processados. Quando apenas um Balanceador de Carga interno estiver atendendo uma máquina virtual, as conexões de saída via SNAT padrão não estão disponíveis. A programação de saída SNAT é o protocolo de transporte específicos com base no protocolo da regra de balanceamento de carga de entrada. | Único front-end, selecionado aleatoriamente quando vários front-ends estiverem presentes.  Quando apenas o Balanceador de Carga interno estiver atendendo a uma máquina virtual, o padrão SNAT é usado. |
+| Diagnostics | Azure Monitor, métricas multidimensionais incluindo contadores byte e pacote, status de investigação de integridade, tentativas de conexão (TCP SYN), integridade de conexão de saída (SNAT bem sucedido e fluxos com falha), medidas de plano de dados ativo | Log Analytics do Azure apenas para o Azure Load Balancer público, alerta de exaustão SNAT, conta de integridade de pool back-end |
+| Portas de alta disponibilidade | Azure Load Balancer interno | / |
+| Segurança por padrão | padrão fechado para IP público e pontos de extremidade de Azure Load Balancer e um grupo de segurança de rede deve ser usado para indicar explicitamente a permissão para o tráfego fluir | padrão aberto, grupo de segurança de rede opcional |
+| Conexões de saída | Vários front-ends com regra recusar. Um cenário de saída _deve_ ser explicitamente criado para a máquina virtual poder usar a conectividade de saída.  [Pontos de Extremidade de Serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) podem ser acessados sem conectividade de saída e não são considerados dados processados.  Quaisquer endereços de IP públicos, incluindo serviços de PaaS do Azure não estão disponíveis como pontos de extremidade de VNet, devem ser acessados por meio de conectividade de saída e contam para dados processados. Quando apenas um Azure Load Balancer interno estiver atendendo uma máquina virtual, as conexões de saída via SNAT padrão não estão disponíveis. A programação de saída SNAT é o protocolo de transporte específicos com base no protocolo da regra de balanceamento de carga de entrada. | Único front-end, selecionado aleatoriamente quando vários front-ends estiverem presentes.  Quando apenas o Azure Load Balancer interno estiver atendendo a uma máquina virtual, o padrão SNAT é usado. |
 | Vários front-ends | Entrada e saída | Somente entrada |
 | Operações de Gerenciamento | Maioria das operações < 30 segundos | 60-90+ segundos típicos |
 | Contrato de Nível de Serviço | 99,99% para o caminho de dados com duas máquinas virtuais íntegras | Implícito no SLA de VM | 
@@ -76,9 +76,6 @@ O pool de back-end pode conter as máquinas virtuais autônomas, conjuntos de di
 Ao considerar como projetar seu pool de back-end, você pode projetar o menor número de recursos do pool de back-end individuais para otimizar ainda mais a duração de operações de gerenciamento.  Não há nenhuma diferença no desempenho do plano de dados ou escala.
 
 ## <a name="az"></a> Zonas de Disponibilidades
-
->[!NOTE]
-> Para usar a [Visualização das Zonas de Disponibilidade](https://aka.ms/availabilityzones) com o Load Balancer Standard é necessário [registrar as Zonas de Disponibilidade](https://aka.ms/availabilityzones).
 
 O Load Balancer Standard oferece suporte a recursos adicionais em regiões em que as Zonas de Disponibilidade estão disponíveis.  Esses recursos são incrementais aos fornecimentos do Load Balancer Standard.  As configurações de Zonas de Disponibilidade estão disponíveis para o Load Balancer Standard interno.
 
@@ -176,6 +173,9 @@ Você pode modificar os recursos de Load Balancer Standard e mover um endereço 
 
 Os SKUs não são mutáveis. Siga as etapas nesta seção para mover de um SKU de recurso para outro.
 
+>[!IMPORTANT]
+>Revise este documento na íntegra para reconhecer as diferenças entre as SKUs e analise cuidadosamente o seu cenário.  Talvez seja necessário fazer alterações adicionais para alinhar ao seu cenário.
+
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migrar do SKU Básico para Standard
 
 1. Crie um novo recurso Standard (Load Balancer e IPs Públicos, conforme necessário). Recrie suas regras e definições de investigação.
@@ -237,4 +237,4 @@ O Load Balancer Standard é um produto cobrado com base no número de regras de 
 - Saiba mais sobre [Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md).
 - Saiba mais sobre [Pontos de Extremidade de Serviço de VNET](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) no Azure.
-- Saiba mais sobre o [Balanceador de Carga](load-balancer-overview.md).
+- Saiba mais sobre o [Azure Load Balancer](load-balancer-overview.md).

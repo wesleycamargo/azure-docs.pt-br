@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -30,7 +30,7 @@ A amostragem reduz os custos de tráfego e de dados e ajuda a evitar a limitaç�
 ## <a name="in-brief"></a>Em resumo:
 * A amostragem retém 1 em registros *n* e descarta o resto. Por exemplo, ela pode reter 1 em 5 eventos, com uma taxa de amostragem de 20%. 
 * A amostragem acontece automaticamente se o seu aplicativo enviar muita telemetria em aplicativos de servidor Web do ASP.NET.
-* Você também pode definir a amostragem manualmente, no portal na página de preços; ou no SDK do ASP.NET no arquivo .config ou no Java SDK no arquivo ApplicationInsights.xml para também reduzir o tráfego de rede.
+* Também é possível definir a amostragem manualmente, no portal, na página Uso e custos estimados, no SDK do ASP.NET no arquivo .config ou, no SDK do Java no arquivo ApplicationInsights.xml para reduzir também o tráfego.
 * Se você registrar eventos personalizados e desejar certificar-se de que um conjunto de eventos é retido ou descartado em conjunto, certifique-se de que eles têm o mesmo valor de OperationID.
 * O divisor de amostragem *n`itemCount` é relatado em cada registro na propriedade* , que, na Pesquisa, aparece sob o nome amigável "contagem de solicitação" ou "contagem de eventos". Quando a amostragem não estiver em operação, `itemCount==1`.
 * Se você escrever consultas de Análise, deverá [levar em conta a amostragem](app-insights-analytics-tour.md#counting-sampled-data). Em particular, em vez de simplesmente contar registros, você deve usar `summarize sum(itemCount)`.
@@ -49,7 +49,7 @@ Essa forma de amostragem opera no ponto em que a telemetria de seu servidor Web,
 
 Use esse tipo de amostragem se seu aplicativo geralmente ultrapassar a cota mensal e se você não tiver a opção de usar os tipos de amostragem baseados em SDK. 
 
-Defina a taxa de amostragem na folha Cotas e Preços:
+Defina a taxa de amostragem na página Uso e custos estimados:
 
 ![Na folha Visão Geral do aplicativo, clique em Configurações, Cota, Amostras, escolha uma taxa de amostragem e clique em Atualizar.](./media/app-insights-sampling/04.png)
 

@@ -1,25 +1,22 @@
 ---
-title: Monitorar logs de acesso, logs de desempenho, integridade do back-end e métricas do Gateway de Aplicativo | Microsoft Docs
+title: Monitorar logs de acesso, logs de desempenho, integridade de back-end e métricas do Gateway de Aplicativo
 description: Saiba como habilitar e gerenciar logs de acesso e de desempenho do Gateway de Aplicativo
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
-ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integridade do back-end, logs de diagnóstico e métricas do Gateway de Aplicativo
 
@@ -29,7 +26,7 @@ Com o Gateway de Aplicativo do Azure, você pode monitorar os recursos das segui
 
 * [Logs](#diagnostic-logging): os logs permitem que o desempenho, o acesso e outros dados sejam salvos ou consumidos de um recurso para fins de monitoramento.
 
-* [Métricas](#metrics): atualmente, o Gateway de Aplicativo tem uma métrica. Essa métrica mede a vazão de dados do gateway de aplicativo em bytes por segundo.
+* [Métrica](#metrics): O Gateway de Aplicativo atualmente tem sete métricas para exibir os contadores de desempenho.
 
 ## <a name="back-end-health"></a>Integridade do back-end
 
@@ -318,13 +315,22 @@ Você também pode se conectar à sua conta de armazenamento e recuperar as entr
 
 Métricas são um recurso para alguns recursos do Azure, nas quais você pode exibir os contadores de desempenho no portal. Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
-- Conexões atuais
-- Solicitações com falha
-- Contagem de hosts íntegros
-- Status da Resposta
-- Throughput
-- Total de Solicitações
-- Contagem de Hosts Não Íntegros
+- **Conexões atuais**
+- **Solicitações com falha**
+- **Contagem de hosts íntegros**
+
+   É possível filtrar por pool de back-end para mostrar hosts íntegros/não íntegros em um pool de back-end específico.
+
+
+- **Status da resposta**
+
+   A distribuição do código de status de resposta pode ser adicionalmente categorizada para mostrar as respostas nas categorias 2xx, 3xx, 4xx e 5xx.
+
+- **Taxa de transferência**
+- **Total de solicitações**
+- **Contagem de hosts não íntegros**
+
+   É possível filtrar por pool de back-end para mostrar hosts íntegros/não íntegros em um pool de back-end específico.
 
 Procure um gateway de aplicativo, e em **Monitoramento**, clique em **Métricas**. Para exibir os valores disponíveis, selecione a lista suspensa **MÉTRICA**.
 

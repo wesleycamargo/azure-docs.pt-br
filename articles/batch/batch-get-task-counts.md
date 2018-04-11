@@ -1,18 +1,18 @@
 ---
-title: "Monitorar o andamento de um trabalho pela contagem de tarefas por estado – Lote do Azure | Microsoft Docs"
-description: "Monitorar o andamento de um trabalho chamando a operação Obter Contagens de Tarefas para contar as tarefas de um trabalho. Você pode obter uma contagem de tarefas ativas, em execução e concluídas e das tarefas que tiveram êxito ou falharam."
+title: Monitorar o andamento de um trabalho pela contagem de tarefas por estado – Lote do Azure | Microsoft Docs
+description: Monitorar o andamento de um trabalho chamando a operação Obter Contagens de Tarefas para contar as tarefas de um trabalho. Você pode obter uma contagem de tarefas ativas, em execução e concluídas e das tarefas que tiveram êxito ou falharam.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: tamram
-ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bc112ed5b481560362962d6b550d336de6b3d9b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>Contagem de tarefas por estado para monitorar o andamento de um trabalho (versão prévia)
 
@@ -31,7 +31,7 @@ A operação Obter Contagens de Tarefas conta tarefas por estado, da seguinte ma
 - Uma tarefa é contabilizada como **executando** quando foi atribuída a um nó de computação, mas ainda não foi concluída. Uma tarefa é contabilizada como **executando** quando seu estado é `preparing` ou `running`, conforme indicado pela operação [Obter informações sobre uma tarefa][rest_get_task].
 - Uma tarefa é contabilizada como **concluída** quando não está mais qualificada para executar. Uma tarefa contabilizada como **concluída** normalmente foi concluída com êxito ou foi concluída sem êxito e também esgotou o seu limite de repetições. 
 
-A operação Obter Contagens de Tarefas também informa quantas tarefas tiveram êxito ou falharam. O Lote determina se uma tarefa teve êxito ou falhou ao verificar a propriedade **result** da propriedade [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo]:
+A operação Obter Contagens de Tarefas também informa quantas tarefas tiveram êxito ou falharam. O lote determina se uma tarefa teve êxito ou não, verificando a propriedade  **resultado** da propriedade [executionInfo][https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo]:
 
     - Uma tarefa será contabilizada como **bem-sucedida** se o resultado da execução da tarefa for `success`.
     - Uma tarefa será contabilizada como **com falha** se o resultado da execução da tarefa for `failure`.

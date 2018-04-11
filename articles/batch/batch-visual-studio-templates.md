@@ -1,25 +1,25 @@
 ---
-title: "Começar a criar soluções em lote com modelos de projeto do Visual Studio - Azure | Microsoft Docs"
-description: "Saiba como os modelos de projeto do Visual Studio podem ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote do Azure."
+title: Compilar soluções do Lote com modelos do Visual Studio - Azure | Microsoft Docs
+description: Saiba como os modelos de projeto do Visual Studio podem ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote do Azure.
 services: batch
 documentationcenter: .net
-author: fayora
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar rapidamente soluções em lote
 
@@ -51,7 +51,7 @@ Conforme mostrado no diagrama a seguir, um trabalho de computação que usa esse
 
 ![Diagrama mostrando como o código do cliente interage com o serviço do Lote][diagram01]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para usar os modelos do Lote, você precisará do seguinte:
 
 * Um computador com o Visual Studio 2015 instalado. Modelos de lote atualmente só têm suporte para o Visual Studio 2015.
@@ -190,7 +190,7 @@ Os códigos de saída e exceções fornecem um mecanismo para determinar o resul
 
 Uma tarefa do Gerenciador de trabalho implementada com o modelo do Gerenciador de trabalho pode retornar três códigos de saída possíveis:
 
-| Código | Descrição |
+| Código | DESCRIÇÃO |
 | --- | --- |
 | 0 |O Gerenciador de trabalho foi concluído com sucesso. O código do divisor de trabalho executou até a conclusão, e todas as tarefas foram adicionadas ao trabalho. |
 | 1 |A tarefa do Gerenciador de trabalho falhou com uma exceção em uma parte “esperada” do programa. A exceção foi convertida para um JobManagerException com informações de diagnóstico e, quando possível, sugestões para resolver a falha. |
@@ -368,7 +368,7 @@ Os códigos de saída e exceções fornecem um mecanismo para determinar o resul
 
 Uma tarefa do Processador de tarefas implementada com o modelo do Processador de tarefas pode retornar três códigos de saída possíveis:
 
-| Código | Descrição |
+| Código | DESCRIÇÃO |
 | --- | --- |
 | [Process.ExitCode][process_exitcode] |O Processador de tarefas foi executado até a conclusão. Observe que isso não significa que o programa invocado foi bem-sucedida, apenas que o Processador de tarefas o invocou e executou com êxito qualquer pós-processamento sem exceções. O significado do código de saída depende do programa invocado, normalmente o código de saída 0 significa que o programa foi bem-sucedido e qualquer outro código de saída significa que o programa falhou. |
 | 1 |A tarefa do Processador de tarefas falhou com uma exceção em uma parte “esperada” do programa. A exceção foi convertida para um `TaskProcessorException` com informações de diagnóstico e, quando possível, sugestões para resolver a falha. |

@@ -1,8 +1,8 @@
 ---
-title: "Salvar pesquisas e alertas em soluções OMS | Microsoft Docs"
-description: "As soluções no OMS normalmente incluem pesquisas salvas no Log Analytics para analisar os dados coletados pela solução.  Elas podem também definir alertas para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir pesquisas salvas e alertas do Log Analytics em um modelo do Resource Manager para que eles possam ser incluídos em soluções de gerenciamento."
+title: Salvar pesquisas e alertas em soluções de gerenciamento | Microsoft Docs
+description: As soluções de gerenciamento geralmente incluem pesquisas salvas no Log Analytics para analisar dados coletados pela solução.  Elas podem também definir alertas para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir pesquisas salvas e alertas do Log Analytics em um modelo do Resource Manager para que eles possam ser incluídos em soluções de gerenciamento.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,29 +14,29 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Adicionando alertas e pesquisas salvas do Log Analytics à solução de gerenciamento do OMS (Versão prévia)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar alertas e pesquisas salvas do Log Analytics à solução de gerenciamento (versão prévia)
 
 > [!NOTE]
-> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.   
+> Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.   
 
 
-As [soluções de gerenciamento no OMS](operations-management-suite-solutions.md) geralmente incluirão [pesquisas salvas](../log-analytics/log-analytics-log-searches.md) no Log Analytics para analisar os dados coletados pela solução.  Elas também podem definir [alertas](../log-analytics/log-analytics-alerts.md) para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir a Log Analytics pesquisas salvas e alertas em um [modelo do Resource Manager](../resource-manager-template-walkthrough.md) para que eles possam ser incluídos em [soluções de gerenciamento de](operations-management-suite-solutions-creating.md).
+As [Soluções de gerenciamento](operations-management-suite-solutions.md) geralmente incluirão [pesquisas salvas](../log-analytics/log-analytics-log-searches.md) no Log Analytics para analisar os dados coletados pela solução.  Elas também podem definir [alertas](../log-analytics/log-analytics-alerts.md) para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir a Log Analytics pesquisas salvas e alertas em um [modelo do Resource Manager](../resource-manager-template-walkthrough.md) para que eles possam ser incluídos em [soluções de gerenciamento de](operations-management-suite-solutions-creating.md).
 
 > [!NOTE]
-> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para as soluções de gerenciamento e estão descritos em [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) (Criando soluções de gerenciamento no OMS (Operations Management Suite))  
+> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns a soluções de gerenciamento e descritos em [Projetar e compilar uma solução de gerenciamento no Azure](operations-management-suite-solutions-creating.md)  
 
 ## <a name="prerequisites"></a>pré-requisitos
 Este artigo pressupõe que você já está familiarizado com o modo para [criar uma solução de gerenciamento](operations-management-suite-solutions-creating.md) e com a estrutura de um [modelo do Resource Manager](../resource-group-authoring-templates.md) e de um arquivo de solução.
 
 
 ## <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
-Todos os recursos de Log Analytics estão contidos em um [espaço](../log-analytics/log-analytics-manage-access.md).  Como descrito no [espaço de trabalho OMS e conta de automação](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), o espaço de trabalho não está incluído na solução de gerenciamento, mas deve existir antes que a solução seja instalada.  Se ela não estiver disponível, a instalação da solução falhará.
+Todos os recursos de Log Analytics estão contidos em um [espaço](../log-analytics/log-analytics-manage-access.md).  Como descrito no [espaço de trabalho do Log Analytics e conta de Automação](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), o espaço de trabalho não está incluído na solução de gerenciamento, mas deverá existir antes que a solução seja instalada.  Se ela não estiver disponível, a instalação da solução falhará.
 
 O nome do espaço de trabalho é no nome de cada recurso de Log Analytics.  Isso é feito na solução com o parâmetro **workspace**, conforme descrito no exemplo a seguir de um recurso savedsearch.
 

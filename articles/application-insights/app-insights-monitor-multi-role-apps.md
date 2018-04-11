@@ -1,8 +1,8 @@
 ---
-title: "Suporte do Application Insights do Azure para vários componentes, microsserviços e contêineres | Microsoft Docs"
-description: "Monitoramento de aplicativos que consistem em vários componentes ou funções para desempenho e uso."
+title: Suporte do Application Insights do Azure para vários componentes, microsserviços e contêineres | Microsoft Docs
+description: Monitoramento de aplicativos que consistem em vários componentes ou funções para desempenho e uso.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Monitore aplicativos de vários componentes com o Application Insights (visualização)
 
@@ -42,7 +42,7 @@ Para obter um mapa de aplicativo de vários componentes, você cumprir os seguin
 
 * **Instalar a versão de pré-lançamento mais recente** do pacote Application Insights em cada componente do aplicativo. 
 * **Compartilhar um único recurso do Application Insights** para todas as funções do aplicativo.
-* **Habilitar o mapa de aplicativo de várias funções** na folha de visualizações.
+* **Habilitar o Mapa do Aplicativo Composto** na folha Versões Prévias.
 
 Configurar cada componente do aplicativo usando o método apropriado para seu tipo. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
 
@@ -73,9 +73,9 @@ Atualize ou instale os pacotes do Application Insights no projeto para cada comp
 ![Copie a chave de instrumentação para o arquivo .config](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### <a name="3-enable-multi-role-application-map"></a>3. Habilitação do mapa de aplicativo de várias funções
+### <a name="3-enable-composite-application-map"></a>3. Habilitar o Mapa do Aplicativo Composto
 
-No portal do Azure, abra o recurso do seu aplicativo. Na folha de visualizações, habilite o *Mapa de Aplicativo de Várias Funções*.
+No portal do Azure, abra o recurso do seu aplicativo. Sob o subtítulo CONFIGURAR, clique em Versões Prévias para abrir a folha Versões Prévias. Na folha Versões Prévias, habilite *Mapa do Aplicativo Composto*.
 
 ### <a name="4-enable-docker-metrics-optional"></a>4. Habilitação das métricas de Docker (opcional) 
 

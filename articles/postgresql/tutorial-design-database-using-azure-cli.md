@@ -1,5 +1,5 @@
 -- título: 'Tutorial: criar um banco de dados do Azure para PostgreSQL usando a CLI do Azure' descrição: Este tutorial mostra como criar, configurar e consultar seu primeiro banco de dados do Azure para o servidor PostgreSQL usando a CLI do Azure.
-serviços: postgresql autor: rachel-msft ms.author: raagyema gerenciador: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure-cli ms.topic: tutorial ms.date: 20/03/2018
+serviços: postgresql autor: rachel-msft ms.author: raagyema gerenciador: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure-cli ms.topic: tutorial ms.date: 01/04/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL usando a CLI do Azure 
 Neste tutorial, você usará a CLI (interface de linha de comando) do Azure e outros utilitários para aprender a:
@@ -45,11 +45,11 @@ O retorno JSON deve incluir o seguinte:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.4"
+    "version": "0.0.5"
 }
 ```
 
-Se a versão 0.0.4 não for retornada, execute as etapas a seguir para atualizar a extensão: 
+Se a versão 0.0.5 não for retornada, execute as etapas abaixo para atualizar a extensão: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```

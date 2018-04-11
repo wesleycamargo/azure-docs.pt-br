@@ -1,23 +1,23 @@
 ---
-title: "Habilitar o backup de VM do Azure durante a criação | Microsoft Docs"
-description: "Veja as etapas para habilitar o backup de máquina virtual do Azure durante o processo de criação."
+title: Habilitar o backup de VM do Azure durante a criação | Microsoft Docs
+description: Veja as etapas para habilitar o backup de máquina virtual do Azure durante o processo de criação.
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4041fc555fe4b61d10f84236dcae5156c6282fd3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16714eee697d9dc8102b5f29d9639d650517562
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Habilitar o backup durante a criação da máquina virtual do Azure 
 
@@ -57,6 +57,10 @@ Se você não ainda tiver entrado em sua conta, entre no [portal do Azure](http:
 ## <a name="initiate-a-backup-after-creating-the-vm"></a>Iniciar um backup após a criação da VM 
 
 Embora a política de Backup tenha sido criada, é recomendável criar um backup inicial. Para exibir os detalhes do backup da máquina virtual após a conclusão do modelo de criação de VM, nas configurações de **Operações** no menu esquerdo, clique em **Backup**. Use isso para disparar um backup sob demanda, restaurar uma VM inteira ou todos os discos, restaurar arquivos do backup da VM ou alterar a política de backup associada à máquina virtual.  
+
+## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Usando um modelo do Resource Manager para implantar uma VM protegida
+
+As etapas anteriores explicam como usar o Portal do Azure para criar uma máquina virtual e protegê-la em um cofre dos Serviços de Recuperação. Se você deseja implantar rapidamente uma ou mais máquinas virtuais e protegê-las em uma área segura dos Serviços de Recuperação, consulte o modelo [Implantar uma VM do Windows e habilitar o backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes 
 

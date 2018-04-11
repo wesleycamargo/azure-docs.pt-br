@@ -9,18 +9,18 @@
 
 ## <a name="introduction"></a>Introdução
 
-Em [Introdução a dispositivos gêmeos do Hub IoT][lnk-twin-tutorial], você aprendeu a definir metadados de dispositivo do back-end de solução usando *marcas*, relatar as condições de dispositivo de um aplicativo de dispositivo usando *propriedades relatadas* e consultar essas informações usando uma linguagem semelhante a SQL.
+Em [Introdução aos dispositivos gêmeos do Hub IoT][lnk-twin-tutorial], você aprendeu como definir metadados de dispositivo usando *marcações*. Você recebeu condições de dispositivo de um aplicativo de dispositivo usando *propriedades relatadas* e consultou em seguida essas informações usando uma linguagem semelhante a SQL.
 
-Neste tutorial, você aprende a usar as *propriedades desejadas* do dispositivo gêmeo juntamente com as *propriedades relatadas*, para configurar os remotamente os aplicativos de dispositivo. Mais especificamente, este tutorial mostra como as propriedades relatadas e desejadas de um dispositivo gêmeo habilitam uma configuração de várias etapas de um aplicativo de dispositivo e fornecem a visibilidade para o back-end de solução do status da operação em todos os dispositivos. Você pode encontrar mais informações sobre a função das configurações do dispositivo em [Visão geral do gerenciamento de dispositivos com o Hub IoT][lnk-dm-overview].
+Este tutorial descreve como usar as *propriedades desejadas* do dispositivo gêmeo e as *propriedades relatadas*, para configurar os remotamente os aplicativos de dispositivo. As propriedades relatadas e desejadas em um dispositivo gêmeo habilitam uma configuração de várias etapas de um aplicativo de dispositivo e fornecem a visibilidade do status da operação em todos os dispositivos. Você pode encontrar mais informações sobre a função das configurações do dispositivo em [Visão geral do gerenciamento de dispositivos com o Hub IoT][lnk-dm-overview].
 
-Em um nível elevado, usar dispositivos gêmeos permite que o back-end de solução especifique as configurações desejadas para os dispositivos gerenciados, em vez de enviar comandos específicos. Isso faz com que o dispositivo seja responsável por definir a melhor maneira de atualizar sua configuração (importante em cenários de IoT em que condições específicas de dispositivo afetam a capacidade de executar imediatamente comandos específicos), enquanto relata continuamente para o back-end da solução o estado atual e possíveis condições de erro do processo de atualização. Esse padrão é fundamental para o gerenciamento de grandes conjuntos de dispositivos, pois ele permite que o back-end da solução tenha visibilidade total do estado do processo de configuração em todos os dispositivos.
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
-> [!NOTE]
-> Em cenários em que os dispositivos são controlados de forma mais interativa (ativar um ventilador por meio de um aplicativo controlado pelo usuário), considere usar [métodos diretos][lnk-methods].
-> 
-> 
+Em um nível elevado, usar dispositivos gêmeos permite que o back-end de solução especifique as configurações desejadas para os dispositivos gerenciados, em vez de enviar comandos específicos. O dispositivo é responsável por definir a melhor maneira de atualizar sua configuração (importante em cenários de IoT em que condições específicas de dispositivo afetam a capacidade de executar imediatamente comandos específicos), enquanto relata continuamente da solução o estado atual e possíveis condições de erro do processo de atualização. Esse padrão é fundamental para o gerenciamento de grandes conjuntos de dispositivos, pois ele oferece visibilidade total ao back-end da solução ao estado do processo de configuração em todos os dispositivos.
 
-Neste tutorial, o back-end de solução altera a configuração de telemetria de um dispositivo de destino e, como resultado disso, o aplicativo do dispositivo segue um processo de várias etapas para aplicar uma atualização de configuração (por exemplo, exigir a reinicialização de um módulo de software, que este tutorial simula com um atraso simples).
+> [!TIP]
+> Em cenários em que os dispositivos são controlados de forma mais interativa (por exemplo, ativar um ventilador por meio de um aplicativo controlado pelo usuário), considere usar [métodos diretos][lnk-methods].
+
+Neste tutorial, o back-end da solução altera a configuração de telemetria de um dispositivo de destino para que o aplicativo de dispositivo aplique uma atualização de configuração. Por exemplo, uma atualização de configuração exigindo uma reinicialização de módulo de software, que este tutorial simula com um atraso simples.
 
 O back-end de solução armazena a configuração nas propriedades desejadas do gêmeo do dispositivo da seguinte maneira:
 
@@ -39,10 +39,8 @@ O back-end de solução armazena a configuração nas propriedades desejadas do 
             ...
         }
 
-> [!NOTE]
-> Como as configurações podem ser objetos complexos, são atribuídas IDs exclusivas (hashes ou [GUIDs][lnk-guid]) para simplificar suas comparações.
-> 
-> 
+Como as configurações podem ser objetos complexos, são atribuídas IDs exclusivas (hashes ou [GUIDs][lnk-guid]).
+
 
 O aplicativo do dispositivo relata sua configuração atual espelhando a propriedade desejada **telemetryConfig** nas propriedades relatadas:
 
@@ -62,7 +60,7 @@ O aplicativo do dispositivo relata sua configuração atual espelhando a proprie
 
 Observe como o relatório **telemetryConfig** tem uma propriedade adicional **status**, usada para relatar o estado do processo de atualização de configuração.
 
-Quando uma nova configuração desejada é recebida, o aplicativo de dispositivo relata uma configuração pendente alterando as informações:
+Quando uma nova configuração desejada é recebida, o aplicativo de dispositivo relata uma configuração pendente alterando os status:
 
         {
             "properties": {
@@ -82,8 +80,7 @@ Quando uma nova configuração desejada é recebida, o aplicativo de dispositivo
             }
         }
 
-Em seguida, posteriormente, o aplicativo do dispositivo relata o sucesso ou a falha dessa operação atualizando a propriedade acima.
-Observe como o back-end da solução é capaz de, a qualquer momento, consultar o status do processo de configuração em todos os dispositivos.
+Em seguida, posteriormente, o aplicativo do dispositivo relata o sucesso ou a falha dessa operação atualizando a propriedade. O back-end da solução pode consultar o status do processo de configuração em todos os dispositivos a qualquer momento.
 
 Este tutorial mostra como:
 

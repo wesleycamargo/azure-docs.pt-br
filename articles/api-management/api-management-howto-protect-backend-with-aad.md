@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 3caa3d2b8640c83f1001aeac3b0a5e9ada143183
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c05407d761a8848f9e032aa219960cd7ea6fa93
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-protect-an-api-using-oauth-20-with-azure-active-directory-and-api-management"></a>Como proteger uma API usando OAuth 2.0 com o Azure Active Directory e o Gerenciamento de API
 
@@ -181,9 +181,9 @@ Clique em **Enviar** e você poderá chamar a API com êxito.
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configurar uma diretiva de validação de JWT para pré-autorizar solicitações
 
-Neste ponto, quando um usuário tentar fazer uma chamada por meio do Console do Desenvolvedor, o usuário será solicitado a entrar, e o Console do Desenvolvedor obterá um Token de Acesso em nome do usuário. Tudo está funcionando conforme o esperado. No entanto, e se alguém chamar a API sem um token ou com um token inválido? Por exemplo, você pode tentar excluir o cabeçalho `Authorization` e verá que ainda consegue chamar a API. O motivo é que o APIM não valida o Token de Acesso nesse momento. Ele passa o cabeçalho `Auhtorization` para a API de back-end.
+Neste ponto, quando um usuário tentar fazer uma chamada por meio do Console do Desenvolvedor, o usuário será solicitado a entrar, e o Console do Desenvolvedor obterá um Token de Acesso em nome do usuário. Tudo está funcionando conforme o esperado. No entanto, e se alguém chamar a API sem um token ou com um token inválido? Por exemplo, você pode tentar excluir o cabeçalho `Authorization` e verá que ainda consegue chamar a API. O motivo é que o APIM não valida o Token de Acesso nesse momento. Ele simplesmente passa o cabeçalho `Auhtorization` para a API de back-end.
 
-Podemos usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar solicitações no APIM, validando tokens de acesso de cada solicitação recebida. Se uma solicitação não tiver um token válido, será bloqueada pelo Gerenciamento de API e não será passada para o back-end. É possível adicionar a política abaixo a `Echo API`. 
+Podemos usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar solicitações no APIM, validando tokens de acesso de cada solicitação recebida. Se uma solicitação não tiver um token válido, será bloqueada pelo Gerenciamento de API e não será passada para o back-end. Por exemplo, podemos adicionar a política abaixo à seção de política `<inbound>` do `Echo API`. Ele verifica a declaração de público em um token de acesso e retorna uma mensagem de erro se o token não for válido. Para obter informações sobre como configurar as políticas, consulte [Definir ou editar políticas](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -196,7 +196,12 @@ Podemos usar a política [Validar JWT](api-management-access-restriction-policie
 </validate-jwt>
 ```
 
+## <a name="build-an-application-to-call-the-api"></a>Criar um aplicativo para chamar a API
+
+Neste guia, usamos o Console do desenvolvedor no APIM como o aplicativo cliente de exemplo para chamar o `Echo API` protegido pelo OAuth 2.0. Para saber mais sobre como criar um aplicativo e implementar o fluxo do OAuth 2.0, consulte [Exemplos de código do Active Directory do Azure](../active-directory/develop/active-directory-code-samples.md).
+
 ## <a name="next-steps"></a>Próximas etapas
+* Saiba mais sobre o [Azure Active Directory e o OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)
 * Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre o Gerenciamento de API.
 * Para outras maneiras de proteger seu serviço de back-end, confira [Autenticação de certificado mútuo](api-management-howto-mutual-certificates.md).
 
