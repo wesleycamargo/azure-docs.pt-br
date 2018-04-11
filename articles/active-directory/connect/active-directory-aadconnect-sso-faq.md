@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: c34293796860e0ab72eecedab9cd8b023237050d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 819d8ce9793f785726f55a89d49d08d818401b33
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: perguntas frequentes
 
@@ -26,7 +26,7 @@ Neste artigo abordamos perguntas frequentes sobre o Logon Único Contínuo do Az
 
 ## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>Com quais métodos de entrada o SSO Contínuo funcionam?
 
-O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-synchronization.md) ou de [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md). No entanto esse recurso não pode ser usado com os Serviços de Federação do Active Directory (ADFS).
+O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou de [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md). No entanto esse recurso não pode ser usado com os Serviços de Federação do Active Directory (ADFS).
 
 ## <a name="is-seamless-sso-a-free-feature"></a>O SSO Contínuo é um recurso gratuito?
 
@@ -62,7 +62,7 @@ Sim. O SSO Contínuo dá suporte ao `Alternate ID` como o nome de usuário quand
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Qual é a diferença entre a experiência de logon único fornecida pelo [Ingresso no Azure AD](../active-directory-azureadjoin-overview.md) e o SSO Contínuo?
 
-O [Ingresso no Azure AD](../active-directory-azureadjoin-overview.md) fornece o SSO aos usuários se os dispositivos deles estiverem registrados no Azure AD. Esses dispositivos não precisam, necessariamente, ser ingressados no domínio. O SSO é fornecido com o uso de *tokens de atualização primários* ou *PRTs* e não Kerberos. A experiência do usuário é melhor em dispositivos Windows 10. O SSO acontece automaticamente no navegador Edge. Ele também funciona no Chrome com o uso de uma extensão de navegador.
+O [Ingresso no Azure AD](../active-directory-azureadjoin-overview.md) fornece o SSO aos usuários se os dispositivos deles estiverem registrados no Azure AD. Esses dispositivos não precisam, necessariamente, ser ingressados no domínio. O SSO é fornecido com o uso de *tokens de atualização primários* ou *PRTs* e não Kerberos. A experiência do usuário é melhor em dispositivos Windows 10. O SSO acontece automaticamente no navegador Microsoft Edge. Ele também funciona no Chrome com o uso de uma extensão de navegador.
 
 Você pode usar tanto o Ingresso no Azure AD quanto o SSO Contínuo em seu locatário. Esses dois recursos são complementares. Se os dois recursos forem ativados, o SSO do Ingresso no Azure AD terá precedência sobre o SSO Contínuo.
 

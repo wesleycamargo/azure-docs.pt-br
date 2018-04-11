@@ -1,10 +1,10 @@
 ---
 title: Usar a Grade de Eventos do Azure para automatizar o redimensionamento de imagens carregadas | Microsoft Docs
-description: "A Grade de Eventos do Azure pode ser disparada em carregamentos de blob no Armazenamento do Azure. Você pode usar isso para enviar os arquivos de imagem carregados no Armazenamento do Azure para outros serviços, como o Azure Functions, para redimensionamento e outras melhorias."
+description: A Grade de Eventos do Azure pode ser disparada em carregamentos de blob no Armazenamento do Azure. Você pode usar isso para enviar os arquivos de imagem carregados no Armazenamento do Azure para outros serviços, como o Azure Functions, para redimensionamento e outras melhorias.
 services: event-grid, functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -26,7 +26,7 @@ Este tutorial é a segunda parte de uma série de tutoriais sobre o Armazenament
 
 Use a CLI do Azure e o portal do Azure para adicionar a funcionalidade de redimensionamento a um aplicativo de upload de imagens existente.
 
-![Aplicativo Web publicado no navegador Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Aplicativo Web publicado no navegador Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 Neste tutorial, você aprenderá como:
 
@@ -157,7 +157,7 @@ Clique na região **Carregar fotos** para selecionar e carregar um arquivo. Tamb
 
 Observe que, depois que a imagem carregada desaparece, uma cópia da imagem carregada é exibida no carrossel **Miniaturas geradas**. Essa imagem foi redimensionada pela função, adicionada ao contêiner de *thumbs* e baixada pelo cliente Web.
 
-![Aplicativo Web publicado no navegador Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Aplicativo Web publicado no navegador Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Próximas etapas
 

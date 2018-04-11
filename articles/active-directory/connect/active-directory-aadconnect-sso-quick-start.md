@@ -148,7 +148,7 @@ O uso de extensões de Política de Grupo do Active Directory de terceiros para 
 
 #### <a name="known-browser-limitations"></a>Limitações conhecidas do navegador
 
-O SSO Contínuo não funciona no modo de navegação particular em navegadores Firefox e Edge. Também não funciona no Internet Explorer se o navegador estiver em execução no modo de proteção aprimorada.
+O SSO Contínuo não funciona no modo de navegação particular em navegadores Firefox e Microsoft Edge. Também não funciona no Internet Explorer se o navegador estiver em execução no modo de proteção aprimorada.
 
 ## <a name="step-4-test-the-feature"></a>Etapa 4: testar o recurso
 

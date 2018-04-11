@@ -58,7 +58,7 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 - Essa é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 - Há suporte para ele em clientes baseados em navegador da Web e clientes do Office que dão suporte à [autenticação moderna](https://aka.ms/modernauthga) em plataformas e navegadores que sejam compatíveis com a autenticação Kerberos:
 
-| Sistema operacional\Navegador |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
+| Sistema operacional\Navegador |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|sim|Não|sim|Sim\*|N/D
 |Windows 8.1|sim|N/D|sim|Sim\*|N/D

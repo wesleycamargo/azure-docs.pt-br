@@ -1,11 +1,11 @@
 ---
-title: "Instalar a extensão do navegador do painel de acesso do aplicativo - Azure | Microsoft Docs"
-description: "Corrija os erros comuns encontrados quando você instala a extensão do navegador do painel de acesso."
+title: Instalar a extensão do navegador do painel de acesso do aplicativo - Azure | Microsoft Docs
+description: Corrija os erros comuns encontrados quando você instala a extensão do navegador do painel de acesso.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -58,10 +58,10 @@ Para instalar a extensão do navegador do painel de acesso, faça o seguinte:
 
 7.  Entre no painel de acesso e verifique para ver se é possível iniciar os aplicativos de SSO baseados em senha.
 
-Você também pode baixar a extensão para o Chrome e para o Edge diretamente dos seguintes sites:
+Você também pode baixar a extensão para o Chrome e para o Microsoft Edge diretamente dos seguintes sites:
 
 - [Extensão do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Extensão do Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Extensão do Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Use a extensão Conexão segura do Meus aplicativos
 * Se você estiver usando uma URL de Meus aplicativos diferente de `https://myapps.microsoft.com`, configure a URL padrão fazendo o seguinte:
@@ -86,7 +86,7 @@ Você também pode baixar a extensão para o Chrome e para o Edge diretamente do
        Os três aplicativos que você usou são exibidos na lista de atalho **Usados recentemente**.
 
 > [!NOTE]
-> As opções acima estão disponíveis apenas para Edge, Chrome e Firefox.
+> As opções acima estão disponíveis apenas para Microsoft Edge, Chrome e Firefox.
 
 ## <a name="set-up-a-group-policy-for-internet-explorer"></a>Configurar uma política de grupo para o Internet Explorer
 
@@ -105,7 +105,7 @@ Para obter instruções passo a passo sobre como configurar a política de grupo
 Para acessar uma ferramenta de diagnóstico e informações sobre como configurar a extensão para o Internet Explorer, consulte [Solucionar problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
 > [!NOTE]
-> O Internet Explorer está com suporte limitado e já não recebe mais atualizações de software. O Edge é o navegador recomendado.
+> O Internet Explorer está com suporte limitado e já não recebe mais atualizações de software. O Microsoft Edge é o navegador recomendado.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Se as etapas anteriores não resolverem o problema
 
