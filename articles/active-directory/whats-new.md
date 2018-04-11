@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d356535bf1a7daf45108bc790a19578108a50bb7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9a947de3ad821d4cd65e579357e3c779e8623435
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -73,6 +73,32 @@ Agora você pode adicionar o Twitter ou o GitHub como um provedor de identidade 
 
 Para saber mais, confira [O que é a colaboração B2B do Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
  
+---
+
+
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Restringir o acesso do navegador usando Intune Managed Browser com acesso condicional com base no aplicativo do Microsoft Azure AD para iOS e Android
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** acesso condicional  
+**Funcionalidade do produto:** segurança e proteção da identidade
+ 
+
+**Agora, em visualização pública!**
+
+**SSO do Intune Managed Browser:** seus funcionários podem usar o logon único em clientes nativos (como o Microsoft Outlook) e o Intune Managed Browser para todos os aplicativos conectados ao Microsoft Azure AD.
+
+**Suporte para o acesso condicional do Intune Managed Browser:** agora é possível exigir que os funcionários utilizem o Intune Managed browser usando políticas de acesso condicional com base no aplicativo.
+
+Leia mais sobre isso em nossa [postagem no blog](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/).
+
+Para obter mais informações, consulte:
+
+- [Configurar acesso condicional com base no aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+- [Configurar políticas do navegador gerenciado](https://aka.ms/managedbrowser)  
+
+
+
 ---
  
 
@@ -327,7 +353,7 @@ Para obter mais informações, consulte [Personalizando declarações emitidas n
 ---
 
 
-### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Gerenciamento de aplicativo simplificado usando caracteres curingas no proxy de aplicativo Azure AD
+### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Gerenciamento de aplicativo simplificado usando caracteres curingas no Proxy de Aplicativo do AD
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** proxy de aplicativo  
@@ -414,7 +440,7 @@ O Azure AD Connect é a ferramenta preferencial para sincronizar dados entre o A
 
 **Importante**
  
-Esse build apresenta alterações de regras de sincronização e esquema. O Serviço de Sincronização do Azure AD Connect dispara as etapas de Importação Completa e Sincronização Completa após uma atualização. Para obter informações sobre como alterar esse comportamento, consulte [Como adiar a sincronização completa após a atualização](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade).
+Essa compilação apresenta alterações de regras de sincronização e esquema. O Serviço de Sincronização do Azure AD Connect dispara as etapas de Importação Completa e Sincronização Completa após uma atualização. Para obter informações sobre como alterar esse comportamento, consulte [Como adiar a sincronização completa após a atualização](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade).
 
 Essa versão contém as alterações e atualizações a seguir:
 
@@ -464,7 +490,7 @@ Essa versão contém as alterações e atualizações a seguir:
 ---
  
 
-### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Aplicativos com suporte a políticas de Proteção de Aplicativo do Intune adicionadas para uso com o acesso condicional baseado em aplicativos Azure Active Directory
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Aplicativos com suporte a políticas de Proteção de Aplicativo do Intune adicionadas para uso com o acesso condicional baseado em aplicativo do Azure Active Directory
 
 **Tipo:** recurso alterado  
 **Categoria de serviço:** acesso condicional  
@@ -484,7 +510,7 @@ Os aplicativos a seguir serão adicionados até o final de fevereiro
 Para obter mais informações, consulte:
 
 - [Requisito de aplicativo cliente aprovado](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Acesso condicional com base em aplicativos Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Acesso condicional com base no aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
  
 
@@ -568,7 +594,7 @@ A extensão do navegador Meus Aplicativos agora está disponível por meio de um
 - A capacidade de entrar diretamente em aplicativos baseados em SSO de senha na página de logon do aplicativo
 - Iniciar um aplicativo usando o recurso de pesquisa rápida
 - Atalhos para os aplicativos usados recentemente da extensão
-- A extensão está disponível para o Edge, Chrome e Firefox.
+- A extensão está disponível para o Microsoft Edge, Chrome e Firefox.
  
 Para obter mais informações, consulte [Extensão de Entrada Segura dos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 
@@ -808,7 +834,7 @@ Para obter mais informações, consulte [Acesso condicional no Azure AD](https:/
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Novos aplicativos de cliente aprovados para acesso condicional com base em aplicativos Azure AD
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Novos aplicativos de cliente aprovados para acesso condicional com base em aplicativos do Microsoft Azure Active Directory
 
  
 **Tipo:** plano de alteração  
@@ -827,7 +853,7 @@ Os aplicativos a seguir foram planejados para serem adicionados à lista de [apl
 Para obter mais informações, consulte:
 
 - [Requisito de aplicativo cliente aprovado](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Acesso condicional com base em aplicativos Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Acesso condicional com base no aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -875,7 +901,7 @@ Para obter mais informações, consulte [Integração local](https://docs.micros
 ---
 
 
-### <a name="azure-ad-app-based-conditional-access"></a>Acesso condicional com base em aplicativos Azure AD 
+### <a name="azure-ad-app-based-conditional-access"></a>Acesso condicional com base no aplicativo do Microsoft Azure Active Directory 
 
 
 
@@ -888,7 +914,7 @@ Para obter mais informações, consulte [Integração local](https://docs.micros
 
 
 
-Agora você pode restringir o acesso ao Office 365 e a outros aplicativos de nuvem conectados ao Azure AD aos [aplicativos cliente aprovados](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) que dão suporte a políticas de proteção de aplicativo do Intune usando o [acesso condicional baseado em aplicativos Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Políticas da Proteção de Aplicativo do Intune são usadas para configurar e proteger os dados da empresa nesses aplicativos cliente.
+Agora você pode restringir o acesso ao Office 365 e a outros aplicativos de nuvem conectados ao Azure AD aos [aplicativos cliente aprovados](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) que dão suporte a políticas de proteção de aplicativo do Intune usando o [acesso condicional baseado no aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Políticas da Proteção de Aplicativo do Intune são usadas para configurar e proteger os dados da empresa nesses aplicativos cliente.
 
 Ao combinar as políticas de acesso condicional [baseado em aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) com [baseado em dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications), você tem a flexibilidade para proteger dados pessoais e dispositivos da empresa.
 
@@ -908,7 +934,7 @@ As condições e os controles a seguir agora estão disponíveis para uso com ac
 - Exigir um aplicativo cliente aprovado
 
 
-Para obter mais informações, consulte [Acesso condicional baseado em aplicativos Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
+Para obter mais informações, consulte [Acesso condicional baseado em aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
 
  
 ---
@@ -1009,7 +1035,7 @@ No centro de administração do Azure AD, agora você pode:
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Novos aplicativos de cliente aprovados para acesso condicional com base em aplicativos Azure AD
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Novos aplicativos de cliente aprovados para acesso condicional com base em aplicativos do Microsoft Azure Active Directory
 
  
 **Tipo:** recurso alterado  
@@ -1026,7 +1052,7 @@ Os seguintes aplicativos foram adicionados à lista de [aplicativos cliente apro
 Para obter mais informações, consulte:
 
 - [Requisito de aplicativo cliente aprovado](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Acesso condicional com base em aplicativos Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Acesso condicional com base no aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---

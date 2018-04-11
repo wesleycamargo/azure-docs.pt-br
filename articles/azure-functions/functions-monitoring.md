@@ -1,12 +1,12 @@
 ---
 title: Monitorar Azure Functions
-description: "Saiba como usar o Azure Application Insights com o Azure Functions para monitorar a execução da função."
+description: Saiba como usar o Azure Application Insights com o Azure Functions para monitorar a execução da função.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -493,7 +493,7 @@ Recomendamos o Application Insights para monitorar funções porque ele oferece 
 
 ### <a name="logging-to-storage"></a>Registro em log no armazenamento
 
-O registro em log interno usa a conta de armazenamento especificada pela cadeia de conexão na configuração `AzureWebJobsDashboard` do aplicativo. Se essa configuração do aplicativo estiver definida, você poderá ver os dados de registro em log no portal do Azure. Em uma página do aplicativo de funções, selecione uma função e selecione a guia **Monitor** para obter uma lista de execuções de função. Selecione uma execução de função para examinar a duração, os dados de entrada, os erros e os arquivos de log associados.
+O registro em log interno usa a conta de armazenamento especificada pela cadeia de conexão na configuração `AzureWebJobsDashboard` do aplicativo. Se essa configuração do aplicativo estiver definida, você poderá ver os dados de registro em log no portal do Azure. No recurso de Armazenamento, vá para Arquivos, selecione o serviço de arquivo para a função e, em seguida, vá para `LogFiles > Application > Functions > Function > your_function` para ver o arquivo de log. Em uma página do aplicativo de funções, selecione uma função e selecione a guia **Monitor** para obter uma lista de execuções de função. Selecione uma execução de função para examinar a duração, os dados de entrada, os erros e os arquivos de log associados.
 
 Se você usar o Application Insights e tiver o [registro em log interno desabilitado](#disable-built-in-logging), a guia **Monitor** o levará para o Application Insights.
 

@@ -1,8 +1,8 @@
 ---
-title: "Exibições nas soluções de gerenciamento do OMS (Operations Management Suite) | Microsoft Docs"
-description: "As soluções de gerenciamento no OMS (Operations Management Suite) normalmente incluirão uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar uma exibição criada pelo Designer de Exibição e incluí-la em uma solução de gerenciamento. "
+title: Exibições em soluções de gerenciamento | Microsoft Docs
+description: 'As soluções de gerenciamento normalmente incluem uma ou mais exibições para visualizar dados.  Este artigo descreve como exportar uma exibição criada pelo Designer de Exibição e incluí-la em uma solução de gerenciamento. '
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b44763fe67b1c70c0b6ecdff73c32d8bb4fab3a4
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Exibições nas soluções de gerenciamento do OMS (Operations Management Suite) (Preview)
+# <a name="views-in-management-solutions-preview"></a>Exibições em soluções de gerenciamento (versão prévia)
 > [!NOTE]
-> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.    
->
->
+> Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.    
 
-As [soluções de gerenciamento no OMS (Operations Management Suite)](operations-management-suite-solutions.md) normalmente incluirão uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar uma exibição criada pelo [Designer de Exibição](../log-analytics/log-analytics-view-designer.md) e incluí-la em uma solução de gerenciamento.  
+
+As [Soluções de gerenciamento](operations-management-suite-solutions.md) normalmente incluem uma ou mais exibições para visualizar dados.  Este artigo descreve como exportar uma exibição criada pelo [Designer de Exibição](../log-analytics/log-analytics-view-designer.md) e incluí-la em uma solução de gerenciamento.  
 
 > [!NOTE]
-> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para as soluções de gerenciamento e estão descritos em [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) (Criando soluções de gerenciamento no OMS (Operations Management Suite))
+> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns a soluções de gerenciamento e descritos em [Projetar e compilar uma solução de gerenciamento no Azure](operations-management-suite-solutions-creating.md)
 >
 >
 
@@ -48,7 +47,7 @@ As etapas básicas para adicionar uma exibição a uma solução são da seguint
 ## <a name="export-the-view-to-a-file"></a>Exportar a exibição para um arquivo
 Siga as instruções em [Log Analytics View Designer](../log-analytics/log-analytics-view-designer.md) (Designer de exibição do Log Analytics) para exportar uma exibição para um arquivo.  O arquivo exportado será no formato JSON com os mesmos [elementos do arquivo de solução](operations-management-suite-solutions-solution-file.md).  
 
-O elemento **resources** do arquivo de exibição terá um recurso com um tipo de **Microsoft.OperationalInsights/workspaces**, que representa o espaço de trabalho do OMS.  Esse elemento terá um subelemento com um tipo de **views**, que representa a exibição e contém a configuração detalhada.  Você copiará os detalhes desse elemento e, em seguida, vai copiá-lo em sua solução.
+O elemento **resources** do arquivo de exibição terá um recurso com um tipo de **Microsoft.OperationalInsights/workspaces**, que representa o espaço de trabalho do Log Analytics.  Esse elemento terá um subelemento com um tipo de **views**, que representa a exibição e contém a configuração detalhada.  Você copiará os detalhes desse elemento e, em seguida, vai copiá-lo em sua solução.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>Criar o recurso de exibição na solução
 Adicione o seguinte recurso de exibição ao elemento **resources** do seu arquivo de solução.  Ele usa as variáveis descritas abaixo, que você também deverá adicionar.  Observe que as propriedades **Dashboard** e **OverviewTile** são espaços reservados que serão substituídos pelas propriedades correspondentes do arquivo de exibição exportado.

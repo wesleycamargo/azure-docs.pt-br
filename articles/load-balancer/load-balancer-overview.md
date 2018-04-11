@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f4410932f00f8505ae5a894caa002e1223196d95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Visão geral do Balanceador de Carga do Azure
 
@@ -142,7 +142,7 @@ A figura a seguir mostra um ponto de extremidade de balanceamento de carga para 
 
 ![exemplo de balanceador de carga público](./media/load-balancer-overview/IC727496.png)
 
-**Figura 1: tráfego web de balanceamento de carga usando um Azure Load Balancer público**
+*Figura: tráfego web de balanceamento de carga usando um Azure Load Balancer público*
 
 Quando os clientes da Internet enviam solicitações de página da Web para o endereço IP público do aplicativo web na porta TCP 80, o Azure Load Balancer distribui as solicitações entre as três máquinas virtuais no conjunto de balanceamento de carga. Para obter mais informações sobre os algoritmos do balanceador de carga, consulte a [load balancer overview page (página de visão geral do balanceador de carga)](load-balancer-overview.md#load-balancer-features).
 
@@ -161,7 +161,7 @@ O Azure Load Balancer interno habilita os seguintes tipos de balanceamento de ca
 
 ![exemplo do Azure Load Balancer Interno](./media/load-balancer-overview/IC744147.png)
 
-**Figura 2 – aplicativos de várias camadas do balanceamento de carga usando Azure Load Balancer interno e público**
+*Figura - aplicativos de várias camadas do balanceamento de carga usando Azure Load Balancer interno e público*
 
 ## <a name="pricing"></a>Preços
 O Load Balancer Standard é um produto cobrado com base no número de regras de balanceamento de carga configurados e todos os dados de entrada e saída processados. Para obter informações de preço do Load Balancer Standard, visite a página [Preços do Balanceador de carga](https://azure.microsoft.com/pricing/details/load-balancer/).

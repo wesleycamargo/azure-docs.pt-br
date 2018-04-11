@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4259715fbb062bfb170509c928b5a1ad898ea394
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -228,11 +228,7 @@ Independentemente se o recurso IPs Confiáveis estiver habilitado, a verificaç�
 
 Alguns aplicativos, como o Office 2010 ou anterior e o Apple Mail, não são compatíveis com a verificação em duas etapas. Os aplicativos não estão configurados para aceitar uma segunda verificação. Para usar esses aplicativos, use o recurso _senhas de aplicativo_. Você pode usar uma senha de aplicativo em vez da sua senha tradicional para permitir que um aplicativo ignore a verificação em duas etapas e continue funcionando.
 
->[!NOTE]
->Autenticação moderna para os clientes do Microsoft Office 2013 e posterior
-> 
->Os clientes do Office 2013 e posterior (incluindo o Outlook), são compatíveis com protocolos de autenticação modernos e podem ser habilitados para funcionar com a verificação em duas etapas. Assim que o cliente estiver habilitado, as senhas de aplicativo não serão necessárias para o cliente. Para saber mais, confira [Office 2013 modern authentication public preview announcement (Anúncio da visualização pública da autenticação moderna do Office 2013)](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
->
+Autenticação moderna fornece suporte ao clientes do Microsoft Office 2013 e posteriores. Os clientes do Office 2013, incluindo o Outlook, dão suporte a protocolos de autenticação moderna e podem ser habilitados para trabalhar com verificação em duas etapas. Assim que o cliente estiver habilitado, as senhas de aplicativo não serão necessárias para o cliente.
 
 ### <a name="considerations-about-app-passwords"></a>Considerações sobre senhas de aplicativo
 

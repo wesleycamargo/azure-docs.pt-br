@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Observador de Rede do Azure | Microsoft Docs"
-description: "Esta página fornece uma visão geral do serviço Observador de Rede para monitorar e visualizar os recursos conectados em rede no Azure"
+title: Introdução ao Observador de Rede do Azure | Microsoft Docs
+description: Esta página fornece uma visão geral do serviço Observador de Rede para monitorar e visualizar os recursos conectados em rede no Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Visão geral do monitoramento da rede do Azure
 
@@ -47,6 +47,7 @@ O Observador de Rede tem atualmente os seguintes recursos:
 * **[Limites de assinatura da rede](#network-subscription-limits)** - permite exibir o uso de recursos da rede em relação aos limites.
 * **[Configurar o Log de Diagnóstico](#diagnostic-logs)** – fornece um painel único para habilitar ou desabilitar os logs de Diagnóstico para os recursos de rede em um grupo de recursos.
 * **[Solução de Problemas de Conectividade](network-watcher-connectivity-overview.md)** – confirma a possibilidade de estabelecer uma conexão TCP direta de uma máquina virtual com determinado ponto de extremidade enriquecido com contexto do Azure.
+* **[Monitor de ligação](connection-monitor.md)** - Monitora problemas de latência e configuração entre uma máquina virtual do Azure e um endereço IP, usando o endereço IP e a porta de origem e de destino.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controle de Acesso baseado em Funções (RBAC) no Observador de Rede
 

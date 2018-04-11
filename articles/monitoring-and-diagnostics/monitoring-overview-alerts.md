@@ -1,5 +1,5 @@
 ---
-title: Visão geral dos Alertas no Microsoft Azure e no Azure Monitor | Microsoft Docs
+title: Visão geral dos alertas clássicos no Microsoft Azure e no Azure Monitor | Microsoft Docs
 description: Alerta para permitir que você monitore as métricas dos recursos do Azure, eventos ou logs, e seja notificado quando uma condição especificada for atendida.
 author: rboucher
 manager: carmonm
@@ -12,55 +12,46 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 03/28/2018
 ms.author: robb
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c64ca224705b7da57846e53bdc28d6d03eb28b06
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 06ba05f71cf1f696033099c04448526a0421ad42
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="what-are-alerts-in-microsoft-azure"></a>O que são os alertas no Microsoft Azure?
-Este artigo descreve as várias fontes de alertas no Microsoft Azure, as finalidades desses alertas, seus benefícios e como começar a usá-los. Ele se aplica especificamente ao Azure Monitor, mas fornece indicações de outros serviços com alertas. Os alertas oferecem um método de monitoramento no Azure que permite a configuração de condições sobre os dados e o recebimento de notificações quando as condições correspondem aos últimos dados de monitoramento.
+# <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
+
+> [!NOTE]
+> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte a [alertas de métrica quase em tempo real mais recentes](monitoring-overview-unified-alerts.md)
+>
+
+Este artigo descreve as várias fontes de alertas no Microsoft Azure, as finalidades desses alertas, seus benefícios e como começar a usá-los. Aplica-se especificamente aos alertas clássicos do Azure Monitor. Os alertas oferecem um método de monitoramento no Azure que permite a configuração de condições sobre os dados e o recebimento de notificações quando as condições correspondem aos últimos dados de monitoramento.
 
 
-## <a name="taxonomy-of-azure-alerts"></a>Taxonomia de alertas do Azure
-O Azure usa os seguintes termos para descrever os alertas e suas funções:
+## <a name="taxonomy-of-azure-monitor-classic-alerts"></a>Taxonomia de alertas clássicos do Azure Monitor
+O Azure usa os termos a seguir para descrever alertas clássicos e suas funções:
 * **Alerta** – uma definição de critérios (uma ou mais regras ou condições) que são ativados quando atendidos.
-* **Ativo** – o estado quando os critérios definidos por um alerta são atendidos.
-* **Resolvido** – o estado quando os critérios definidos por um alerta não forem mais atendidos após terem sido atendidos anteriormente.
-* **Notificação** – a ação realizada após a ativação de um alerta.
+* **Ativo** – o estado quando os critérios definidos por um alerta clássico são atendidos.
+* **Resolvido** – o estado quando os critérios definidos por um alerta clássico não forem mais atendidos após terem sido atendidos anteriormente.
+* **Notificação** – a ação realizada após a ativação de um alerta clássico.
 * **Ação** – uma chamada específica enviada a um destinatário de uma notificação (por exemplo, enviando por email um endereço ou publicando em uma URL de webhook). As notificações normalmente podem disparar várias ações.
 
-
-## <a name="alerts-in-different-azure-services"></a>Alertas nos diferentes serviços do Azure
-Os alertas estão disponíveis em vários serviços de monitoramento do Azure. Para saber mais sobre como e quando usar esses serviços, [confira este artigo](./monitoring-overview.md). Confira uma divisão dos tipos de alerta disponíveis no Azure:
-
-
-| Serviço | Tipo de alerta | Serviços com suporte | DESCRIÇÃO |
-|---|---|---|---|
-| Azure Monitor | [Alertas de métricas](./insights-alerts-portal.md) | [Métricas com suporte do Azure Monitor](./monitoring-supported-metrics.md) | Receba uma notificação quando qualquer métrica no nível da plataforma atender a uma condição específica (por exemplo, a % de CPU em uma VM for maior do que 90 nos últimos cinco minutos). |
-|Azure Monitor | [Alertas de métrica quase em tempo real](./monitoring-near-real-time-metric-alerts.md)| [Recursos com suporte no Azure Monitor](./monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) | Receba uma notificação mais rapidamente do que os alertas de métrica quando uma ou mais métricas no nível da plataforma atender às condições especificadas (por exemplo, o % de CPU em uma VM é maior que 90 e a Entrada de Rede é maior que 500 MB nos últimos 5 minutos). |
-| Azure Monitor | [Alertas do log de atividades](./monitoring-activity-log-alerts.md) | Todos os tipos de recursos disponíveis no Azure Resource Manager | Receba uma notificação quando qualquer evento novo no [Log de Atividades do Azure](./monitoring-overview-activity-logs.md) corresponder a condições específicas (por exemplo, quando uma operação "Excluir VM" ocorrer em myProductionResourceGroup ou quando um novo evento de Integridade do Serviço com status "Ativo" for exibido). |
-| Application Insights | [Alertas de métricas](../application-insights/app-insights-alerts.md) | Qualquer aplicativo instrumentado para enviar dados ao Application Insights | Receba uma notificação quando qualquer métrica no nível do aplicativo atender a uma condição específica (por exemplo, tempo de resposta do servidor superior a dois segundos). |
-| Application Insights | [Alertas de teste da Web](../application-insights/app-insights-monitor-web-app-availability.md) | Qualquer site instrumentado para enviar dados ao Application Insights | Receba uma notificação quando a disponibilidade ou capacidade de resposta de um site estiver abaixo das expectativas. |
-| Log Analytics | [Alertas do Log Analytics](../log-analytics/log-analytics-alerts.md) | Qualquer serviço configurado para enviar dados ao Log Analytics | Receba uma notificação quando uma consulta de pesquisa do Log Analytics sobre métricas e/ou dados de evento atender a certos critérios. |
 
 ## <a name="alerts-on-azure-monitor-data"></a>Alertas sobre dados do Azure Monitor
 Há três tipos de alertas de dados disponíveis no Azure Monitor – alertas de métrica, alertas de métrica quase em tempo real e alertas do Log de Atividades.
 
-* **Alertas de métrica**: este alerta é disparado quando o valor de uma métrica especificada ultrapassa um limite que você atribui. O alerta gera uma notificação quando o alerta é "Ativado" (quando o limite for ultrapassado, e a condição do alerta for atendida), e também quando for "Resolvido" (quando o limite for ultrapassado novamente e a condição não for mais atendida). Esses são alertas de métrica mais antigos. Para alertas de métrica mais novos, consulte abaixo.
+* **Alertas de métrica clássicos**: este alerta é disparado quando o valor de uma métrica especificada ultrapassa um limite que você atribui. O alerta gera uma notificação quando o alerta é "Ativado" (quando o limite for ultrapassado, e a condição do alerta for atendida), e também quando for "Resolvido" (quando o limite for ultrapassado novamente e a condição não for mais atendida). Esses são alertas de métrica mais antigos. Para alertas de métrica mais novos, consulte abaixo.
 
-* **Alertas de métrica quase em tempo real** - Esses são a nova geração de alertas de métrica com recursos aprimorados quando comparados aos alertas de métrica anteriores. Esses alertas podem ser executados em uma frequência de 1 minuto. Eles também dão suporte ao monitoramento de várias métricas (atualmente duas).  O alerta gera uma notificação quando é “Ativado” (quando os limites de cada métrica são ultrapassados ao mesmo tempo e a condição do alerta é atendida) e também quando é “Resolvido” (quando, pelo menos, uma métrica ultrapassa o limite novamente e a condição não é mais atendida).
+* **Alertas de métrica quase em tempo real** (nova experiência de alerta) - Esses são a nova geração de alertas de métrica com recursos aprimorados quando comparados aos alertas de métrica anteriores. Esses alertas podem ser executados em uma frequência de 1 minuto. Eles também dão suporte ao monitoramento de várias métricas (atualmente duas).  O alerta gera uma notificação quando é “Ativado” (quando os limites de cada métrica são ultrapassados ao mesmo tempo e a condição do alerta é atendida) e também quando é “Resolvido” (quando, pelo menos, uma métrica ultrapassa o limite novamente e a condição não é mais atendida).
 
-* **Alertas do log de atividade** – um alerta do log de streaming que dispara quando um evento do Log de Atividades for gerado correspondendo aos critérios do filtro que você atribuiu. Esses alertas têm apenas um estado, "Ativado", pois o mecanismo de alerta simplesmente aplica os critérios do filtro a qualquer evento novo. Esses alertas podem ser usados para receber uma notificação quando um novo incidente de Integridade do Serviço ocorrer, ou quando um usuário ou aplicativo executar uma operação em sua assinatura, por exemplo, "Excluir a máquina virtual".
+* **Alertas do log de atividade clássicos** – um alerta do log de streaming que dispara quando um evento do Log de Atividades for gerado correspondendo aos critérios do filtro que você atribuiu. Esses alertas têm apenas um estado, "Ativado", pois o mecanismo de alerta simplesmente aplica os critérios do filtro a qualquer evento novo. Esses alertas podem ser usados para receber uma notificação quando um novo incidente de Integridade do Serviço ocorrer, ou quando um usuário ou aplicativo executar uma operação em sua assinatura, por exemplo, "Excluir a máquina virtual".
 
 Para dados de Log de Diagnóstico disponíveis por meio do Azure Monitor, sugerimos rotear os dados para o Log Analytics e usando um alerta do Log Analytics. O diagrama a seguir resume as fontes de dados no Azure Monitor e, conceitualmente, como emitir um alerta com base nesses dados.
 
 ![Alertas explicados](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
 
-## <a name="how-do-i-receive-a-notification-on-an-azure-monitor-alert"></a>Como fazer para receber uma notificação em um alerta do Azure Monitor?
+## <a name="how-do-i-receive-a-notification-on-an-azure-monitor-classic-alert"></a>Como fazer para receber uma notificação em um alerta clássico do Azure Monitor?
 Historicamente, os alertas do Azure de serviços diferentes usavam seus próprios métodos de notificação internos. De agora em diante, o Azure Monitor oferece um agrupamento de notificação reutilizável chamado de Grupos de Ações. Os Grupos de Ação especificam um conjunto de destinatários para uma notificação – qualquer quantidade de endereços de email, números de telefone (para SMS) ou URLs de webhook – e sempre que um alerta for ativado fazendo referência ao Grupo de Ações, todos os destinatários receberão essa notificação. Isso permite que você reutilize um agrupamento de destinatários (por exemplo, sua lista de engenheiros em serviço) em vários objetos de alerta. Atualmente, apenas os alertas do Log de Atividades usam os Grupos de Ação, mas vários outros tipos de alerta do Azure também estão trabalhando para usar os Grupos de Ação.
 
 Grupos de Ação dão suporte à notificação postando uma URL de webhook além dos endereços de email e números SMS. Isso permite a automação e a correção, por exemplo, usando:

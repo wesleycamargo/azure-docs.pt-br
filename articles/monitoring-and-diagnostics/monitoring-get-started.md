@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/25/2018
 ms.author: johnkem
-ms.openlocfilehash: 69ec5392f034ffe94315c17366a9242d86c69d6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e09fe4fd48d1806e2194ed3065e7c2edbe2d1aa5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Introdução ao Azure Monitor
 O Azure Monitor é o serviço de plataforma que fornece uma única fonte para monitorar os recursos do Azure. Com o Azure Monitor, você pode visualizar, consultar, rotear, arquivar e também tomar medidas relacionadas às métricas e aos logs provenientes dos recursos do Azure. É possível trabalhar com esses dados, usando o Portal do Azure, [Cmdlets do PowerShell do Monitor](insights-powershell-samples.md), [CLI de Plataforma Cruzada](insights-cli-samples.md) ou [APIs REST do Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Neste artigo, veremos alguns dos principais componentes do Azure Monitor usando o portal para demonstração.
@@ -27,17 +27,17 @@ O Azure Monitor é o serviço de plataforma que fornece uma única fonte para mo
 1. No portal, navegue até **Todos os serviços** e localize a opção **Monitor**. Clique no ícone de estrela para adicionar essa opção à lista de favoritos para que fique sempre facilmente acessível na barra de navegação à esquerda.
 
     ![Monitor na lista de serviços](./media/monitoring-get-started/monitor-more-services.png)
-2. Clique na opção **Monitor** para abrir a página **Monitor**. Essa página reúne todas as configurações de monitoramento e dados em uma exibição consolidada. Ela abre primeiro na seção **Log de atividades** .
+2. Clique na opção **Monitor** para abrir a página **Monitor**. Essa página reúne todas as configurações de monitoramento e dados em uma exibição consolidada. Primeiramente, abre na seção **Visão Geral**. A Visão Geral mostra um conjunto de todos os alertas de monitoramento, erros e avisos de integridade de serviço relacionados aos recursos da assinatura.  
 
     ![Navegação do Monitor](./media/monitoring-get-started/monitor-blade-nav.png)
 
     O Azure Monitor tem três categorias básicas de monitoramento: **log de atividades**, **métricas** e **logs de diagnóstico**.
 3. Clique em **Log de atividades** para garantir que a seção do log de atividades seja exibida.
 
-    ![Log de Atividade](./media/monitoring-get-started/monitor-act-log-blade.png)
-
     O [**log de atividades**](monitoring-overview-activity-logs.md)descreve todas as operações executadas nos recursos em sua assinatura. Usando o Log de Atividades, você pode determinar 'o que, quem e quando' para quaisquer operações de criação, atualização ou exclusão nos recursos em sua assinatura. Por exemplo, o Log de Atividades informa quando um aplicativo Web foi interrompido e quem o interrompeu. Os eventos do Log de Atividades são armazenados na plataforma e ficam disponíveis para consulta por 90 dias.
 
+    ![Log de Atividade](./media/monitoring-get-started/monitor-act-log-blade.png)
+    
     Você pode criar e salvar consultas para os filtros comuns e fixar as consultas mais importantes em um painel do portal para que sempre saiba se ocorreram eventos que atendem aos seus critérios.
 4. Filtre a exibição para um determinado grupo de recursos na última semana, então, clique no botão **Salvar** . Dê um nome à consulta. 
 
@@ -60,7 +60,7 @@ O Azure Monitor é o serviço de plataforma que fornece uma única fonte para mo
     ![Lâmina Métrica](./media/monitoring-get-started/monitor-metric-blade.png)
 
    > [!NOTE]
-   > Algumas métricas só estão disponíveis habilitando o [Application Insights](../application-insights/app-insights-overview.md) e/ou o Windows ou o Linus Azure Diagnostics em seu recurso.
+   > Algumas métricas somente estarão disponíveis, habilitando o [Application Insights](../application-insights/app-insights-overview.md) e/ou Windows ou a extensão de Diagnóstico do Microsoft Azure para Linux no recurso.
    >
    >
 9. Quando você estiver satisfeito com seu gráfico, poderá usar o botão **Fixar** para fixar em seu painel.
@@ -80,18 +80,19 @@ O Azure Monitor é o serviço de plataforma que fornece uma única fonte para mo
     ![Habilitar logs de diagnóstico](./media/monitoring-get-started/monitor-diaglogs-enable.png)
 
     Se você configurou os logs de diagnóstico para o Log Analytics, poderá pesquisá-los na seção **Pesquisar Log** do portal.
-12. Navegue até a seção **Alertas** da página Monitor.
+12. Navegue até a seção **Alertas (Clássico)** da página do Monitor.
 
     ![folha de alertas para o público](./media/monitoring-get-started/monitor-alerts-nopp.png)
 
-    Aqui, você pode gerenciar todos os [**alertas**](monitoring-overview-alerts.md) nos recursos do Azure. Isso inclui alertas sobre as métricas, eventos do log de atividades, testes da Web do Application Insights (Locais) e diagnóstico proativo do Application Insights. Os alertas podem disparar um envio de email ou um HTTP POST para uma URL de webhook.
+    Aqui, você pode gerenciar todos os [**alertas clássicos**](monitoring-overview-alerts.md) nos recursos do Azure. Isso inclui alertas sobre as métricas, eventos do log de atividades, testes da Web do Application Insights (Locais) e diagnóstico proativo do Application Insights. Alertas conectam-se a grupos de ações. [Grupos de ações](monitoring-action-groups.md) fornecem uma maneira de notificar as pessoas ou realizar ações específicas quando um alerta é acionado. 
+    
 13. Clique em **Adicionar alerta da métrica** para criar um alerta.
 
     ![Adicionar alerta da métrica](./media/monitoring-get-started/monitor-alerts-add.png)
 
     Em seguida, você pode fixar um alerta no painel para ver facilmente seu estado a qualquer momento.
 
-    O Azure Monitor também tem [**alertas de métrica quase em tempo real**](https://aka.ms/azuremonitor/near-real-time-alerts) (versão prévia) que podem ser avaliados em uma frequência que chega a um minuto!
+    O Azure Monitor agora também tem [**alertas mais recentes**](https://aka.ms/azuremonitor/near-real-time-alerts) que podem ser avaliados com uma frequência mínima a cada minuto.
     
 14. A seção Monitor também inclui links para os aplicativos [Application Insights](../application-insights/app-insights-overview.md) e as soluções de gerenciamento do [Log Analytics](../log-analytics/log-analytics-overview.md). Esses outros produtos da Microsoft têm uma profunda integração com o Azure Monitor.
 15. Se você não estiver usando o Application Insights nem o Log Analytics, as chances são de que o Azure Monitor tem uma parceria com o monitoramento, log e alerta de produtos atuais. Consulte nossa [página de parceiros](monitoring-partners.md) para ver uma lista completa e ter instruções sobre como integrar.
@@ -101,4 +102,6 @@ Seguindo essas etapas e fixando todos os blocos relevantes em um painel, você p
 ![Painel do Azure Monitor](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Leia a [Visão Geral do Azure Monitor](monitoring-overview.md)
+* Leia a [Visão geral de todas as ferramentas de monitoramento do Azure](monitoring-overview.md) para reconhecer como o Azure Monitor funciona com essas ferramentas. 
+
+

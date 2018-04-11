@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Arquivos de Configuração do Serviço de Experimentação do Azure Machine Learning
 
@@ -149,6 +149,8 @@ O arquivo _\<compute target name>.compute_ especifica informações de conexão 
 **nativeSharedDirectory**: essa propriedade especifica o diretório base (por exemplo: _~/.azureml/share/_) em que os arquivos podem ser salvos para serem compartilhados entre execuções no mesmo destino de computação. Se essa configuração for usada durante a execução em um contêiner do Docker, _sharedVolumes_ deverá ser definido como true. Caso contrário, a execução falhará.
 
 **userManagedEnvironment**: essa propriedade especifica se esse destino de computação é gerenciado pelo usuário diretamente ou gerenciado por meio do serviço de experimentação.  
+
+**pythonLocation**: essa propriedade especifica o local do tempo de execução do Python a ser usado no destino de computação para executar o programa do usuário. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<nome de configuração de execução>. runconfig
 _\<run configuration name>.runconfig_ especifica o comportamento de execução do experimento Azure ML. Você pode configurar os comportamentos de execução como acompanhar o histórico de execução ou qual destino de computação usar junto com muitos outros. Os nomes dos arquivos de configuração de execução são usados para preencher o menu suspenso do contexto de execução no aplicativo de área de trabalho do Azure ML Workbench.

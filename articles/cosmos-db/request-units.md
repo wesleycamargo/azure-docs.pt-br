@@ -12,25 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/30/2018
 ms.author: mimig
-ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5f733e9cbd90829eded80b1401093e2331a1eb16
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Solicitação no Azure Cosmos DB
-Agora disponível: [calculadora de unidades de solicitação](https://www.documentdb.com/capacityplanner) do Azure Cosmos DB. Saiba mais em [Estimativa das necessidades de produção](request-units.md#estimating-throughput-needs).
 
-![Calculadora de produtividade][5]
-
-## <a name="introduction"></a>Introdução
 O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é o multimodelo de banco de dados distribuído globalmente da Microsoft. Com o Azure Cosmos DB, você não precisa alugar máquinas virtuais, implantar softwares ou monitorar bancos de dados. O Azure Cosmos DB é operado e continuamente monitorado pelos melhores engenheiros da Microsoft para fornecer disponibilidade, desempenho e proteção de dados da mais alta qualidade. Você pode acessar seus dados usando as APIs de sua escolha, como [ API do SQL](documentdb-introduction.md), [API do MongoDB](mongodb-introduction.md), [API de Tabela](table-introduction.md) e Gremlin por meio da [API do Graph](graph-introduction.md) – todos têm suporte nativo. A moeda do Azure Cosmos DB é a RU (Unidade de Solicitação). Com RUs, você não precisa reservar capacidades de leitura/gravação nem provisionar CPU, memória e IOPS.
 
 O Azure Cosmos DB dá suporte a uma série de APIs com operações diferentes que variam de leituras e gravações simples a consultas de grafo complexas. Como nem todas as solicitações são iguais, elas são atribuídas a uma quantidade normalizada de **unidades de solicitação** com base na quantidade de computação necessária para atender à solicitação. O número de unidades de solicitação de uma operação é determinístico e você pode acompanhar o número de unidades de solicitação consumidas por uma operação no Azure Cosmos DB por meio de um cabeçalho de resposta. 
 
-Para fornecer um desempenho previsível, você precisa reservar a produtividade em unidades de 100 RUs/segundo. 
+Para fornecer um desempenho previsível, você precisa reservar a produtividade em unidades de 100 RUs/segundo. É possível [estimar suas necessidades de taxa de transferência](request-units.md#estimating-throughput-needs) usando a calculadora da unidade de solicitação do [Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
+
+![Calculadora de produtividade][5]
 
 Após ler este artigo, você poderá responder as perguntas a seguir:  
 
@@ -46,9 +44,9 @@ O Azure Cosmos DB fornece desempenho rápido e previsível *reservando* recursos
 
 Com o Azure Cosmos DB, a produtividade reservada é especificada em termos de processamento de unidades de solicitação por segundo. Você pode considerar as unidades de solicitação como a moeda de produtividade, com as quais você *reserva* uma quantidade de unidades de solicitação garantidas disponíveis para o aplicativo por segundo.  Cada operação do Azure Cosmos DB – gravar um documento, realizar uma consulta, atualizar um documento – consome CPU, memória e IOPS.  Ou seja, cada operação resulta em um *encargo de solicitação*, que é expressa em *unidades de solicitação*.  Ao entender os fatores que afetam os encargos de unidade de solicitação e os requisitos de taxa de transferência do aplicativo, você pode executar o aplicativo da maneira mais econômica possível. O Data Explorer no portal do Azure também é uma ferramenta excelente para testar o núcleo de uma consulta.
 
-Recomendamos que você comece assistindo ao vídeo a seguir, no qual Aravind Ramachandran explica as unidades de solicitação e o desempenho previsível com o Azure Cosmos DB.
+É recomendável que você assista ao vídeo a seguir, no qual o Gerente de Programa do Azure Cosmos DB, Andrew Liu, discute as unidades de solicitação.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
 

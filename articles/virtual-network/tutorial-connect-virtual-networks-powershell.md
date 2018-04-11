@@ -1,26 +1,27 @@
 ---
 title: Conectar redes virtuais com o emparelhamento de rede virtual – PowerShell | Microsoft Docs
-description: Saiba como conectar redes virtuais com o emparelhamento de rede virtual.
+description: Neste artigo, você aprende a conectar redes virtuais com o emparelhamento de rede virtual, usando o Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b067dfd6d50b61614c2f3de2fa0e159cd645f9eb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 445baa36f33cbe02b68bdb37406f842932089183
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conectar redes virtuais com o emparelhamento de rede virtual usando PowerShell
 
@@ -157,7 +158,7 @@ A VM demora alguns minutos para criar. Não continue com as etapas posteriores a
 
 ## <a name="communicate-between-vms"></a>Comunicação entre VMs
 
-É possível conectar ao endereço IP público de uma VM a partir da Internet. Use [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para retornar o endereço IP público de uma VM. O exemplo a seguir retorna o endereço IP público da VM *myVm1*:
+É possível conectar ao endereço IP público de uma VM a partir da internet. Use [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para retornar o endereço IP público de uma VM. O exemplo a seguir retorna o endereço IP público da VM *myVm1*:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -203,35 +204,8 @@ Quando não for mais necessário, utilize [Remove-AzureRmResourcegroup](/powersh
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-**<a name="register"></a>Registrar-se para a versão prévia de emparelhamento de rede virtual global**
-
-O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. Emparelhar redes virtuais em diferentes regiões está em versão prévia no momento. Consulte [Atualizações de rede virtual](https://azure.microsoft.com/updates/?product=virtual-network) para as regiões disponíveis. Para emparelhar redes virtuais entre regiões, primeiro registre-se para versão prévia concluindo as seguintes etapas (na assinatura de cada rede virtual que você deseja emparelhar):
-
-1. Registre a assinatura na qual cada rede virtual que você deseja emparelhar está para a versão prévia inserindo os seguintes comandos:
-
-    ```powershell-interactive
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-2. Digite o seguinte comando para confirmar que você está registrado para a versão prévia:
-
-    ```powershell-interactive    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-
-    Caso você tente emparelhar redes virtuais em regiões diferentes antes que a saída de **RegistrationState** recebida após a inserção do comando anterior seja **Registrado** para ambas as assinaturas, o emparelhamento falhará.
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a conectar duas redes com o emparelhamento de rede virtual. Neste artigo, você aprendeu a conectar duas redes, no mesmo local do Azure, com o emparelhamento de rede virtual. Você também pode emparelhar redes virtuais em [diferentes regiões](#register), em [diferentes assinaturas do Azure](create-peering-different-subscriptions.md#portal) e criar [designs de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com emparelhamento. Antes de emparelhar redes virtuais de produção, é recomendável que você esteja totalmente familiarizado com a [visão geral do emparelhamento](virtual-network-peering-overview.md), em [gerenciar emparelhamento](virtual-network-manage-peering.md) e com os [limites da rede virtual](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Neste artigo, você aprendeu a conectar duas redes, na mesma região do Azure, com o emparelhamento de rede virtual. Você também pode emparelhar redes virtuais em diferentes [regiões com suporte](virtual-network-manage-peering.md#cross-region), em [diferentes assinaturas do Azure](create-peering-different-subscriptions.md#powershell) e também criar [designs de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com emparelhamento. Para saber mais sobre o emparelhamento de rede virtual, consulte [Visão geral de emparelhamento de rede virtual](virtual-network-peering-overview.md) e [Gerenciamento de emparelhamentos de rede virtual](virtual-network-manage-peering.md).
 
-Você pode [conectar seu próprio computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) por meio de uma VPN e interagir com os recursos de uma rede virtual ou de redes virtuais emparelhadas. Continue lendo para obter amostras de scripts reutilizáveis para concluir muitas das tarefas abordadas nos artigos sobre redes virtuais.
-
-> [!div class="nextstepaction"]
-> [Amostras de script de rede virtual](../networking/powershell-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Você pode [conectar seu próprio computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) por meio de uma VPN e interagir com os recursos de uma rede virtual ou de redes virtuais emparelhadas. Para obter amostras de scripts reutilizáveis para concluir muitas das tarefas abordadas nos artigos sobre redes virtuais, consulte [amostras de script](powershell-samples.md).

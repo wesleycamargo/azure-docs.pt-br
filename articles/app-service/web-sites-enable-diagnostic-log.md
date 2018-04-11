@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 8dc955b3556477e04e6ef3e92b1c7dbe82ac7f35
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 27c4a169a906f8e53a5548a38e3f680fd38155b3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -84,7 +84,7 @@ Enquanto todos os três locais de armazenamento fornecem as mesmas informações
 > As informações armazenadas em **armazenamento de tabelas** ou **armazenamento de blobs** podem ser acessadas apenas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com esses sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar armazenamentos de tabela ou de blob e o HDInsight pode acessar dados gravados no armazenamento de blob. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](/downloads/#).
 >
 > [!NOTE]
-> O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite** . Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite** . Se você não instalou o Azure PowerShell ou não o configurou para usar sua Assinatura do Azure, consulte [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -113,7 +113,7 @@ Para baixar os arquivos de log, inicie uma nova instância do PowerShell do Azur
 Esse comando salva os logs do aplicativo Web especificado pelo parâmetro **-Name** em um arquivo chamado **logs.zip** no diretório atual.
 
 > [!NOTE]
-> Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Se você não instalou o Azure PowerShell ou não o configurou para usar sua Assinatura do Azure, consulte [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -125,7 +125,7 @@ Para baixar os arquivos de log usando a Interface da Linha de Comando do Azure, 
 Esse comando salva os logs para o aplicativo Web chamado 'webappname' em um arquivo chamado **diagnostics.zip** no diretório atual.
 
 > [!NOTE]
-> Se você não instalou a interface de linha de comando do Azure (CLI do Azure) ou não configurou para usar sua assinatura do Azure, consulte [Como usar a CLI do Azure](../cli-install-nodejs.md).
+> Se você não instalou a interface de linha de comando do Azure (CLI do Azure) ou não configurou para usar sua assinatura do Azure, consulte [Como usar a CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 

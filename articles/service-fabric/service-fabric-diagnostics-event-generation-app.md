@@ -14,17 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 258aac722aa1c94ecf2cbf0524a3e4b53b8a788c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-and-service-level-logging"></a>Registro em log em nível de aplicativo e de serviço
 
 Instrumentar o código é a base para a maioria dos outros aspectos do monitoramento de seus serviços. A instrumentação é a única maneira que você possa saber que algo está errado e para diagnosticar o que precisa ser corrigido. Embora tecnicamente é possível conectar um depurador a um serviço de produção, ele não é uma prática comum. Portanto, é importante ter dados de instrumentação detalhados.
 
 Alguns produtos instrumentam automaticamente seu código. Embora essas soluções podem funcionar bem, quase sempre a instrumentação manual é necessária. No fim das contas, você deve ter informações suficientes para depurar legalmente o aplicativo. Este documento descreve as diferentes abordagens para instrumentar seu código quando for necessário escolher uma abordagem em vez de outra.
+
+Para exemplos de como usar essas sugestões, consulte [Adicionar registro em log ao aplicativo do Service Fabric](service-fabric-how-to-diagnostics-log.md).
 
 ## <a name="eventsource"></a>EventSource
 

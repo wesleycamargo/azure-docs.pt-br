@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupos de disponibilidade Sempre ativo na VM do Azure manualmente
 
@@ -374,22 +374,14 @@ Para configurar o balanceador de carga, você precisará criar um pool de back-e
 
    ![Encontrar o Balanceador de Carga no Grupo de Recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Clique no balanceador de carga, clique em **Pools de back-end**e clique em **+Adicionar**. Configure o pool de back-end da seguinte maneira:
+1. Clique no balanceador de carga, clique em **Pools de back-end**e clique em **+Adicionar**. 
 
-   | Configuração | DESCRIÇÃO | Exemplo
-   | --- | --- |---
-   | **Nome** | Digite um nome de texto | SQLLBBE
-   | **Associado a** | Selecione uma opção na lista | Conjunto de disponibilidade
-   | **Conjunto de disponibilidade** | Use um nome do conjunto de disponibilidade em que suas VMs do SQL Server estão | sqlAvailabilitySet |
-   | **Máquinas virtuais** |Os dois nomes de VM do Azure SQL Server | sqlserver-0, sqlserver-1
+1. Associe o pool de back-end com o conjunto de disponibilidade que contém as VMs.
 
-1. Digite o nome do pool de back-end.
+1. Em **Configurações de IP de rede de destino**, marque **MÁQUINA VIRTUAL** e escolha ambas as máquinas virtuais que hospedarão réplicas do grupo de disponibilidade. Não inclua o servidor de testemunha de compartilhamento de arquivos.
 
-1. Clique em **+ Adicionar uma máquina virtual**.
-
-1. Para o conjunto de disponibilidade, escolha o conjunto de disponibilidade em que os SQL Servers estão.
-
-1. No caso das máquinas virtuais, inclua ambos os SQL Servers. Não inclua o servidor de testemunha de compartilhamento de arquivos.
+   >[!NOTE]
+   >Se ambas as máquinas virtuais não forem especificadas, as conexões terão êxito apenas para a réplica primária.
 
 1. Clique em **OK** para criar o pool de back-end.
 

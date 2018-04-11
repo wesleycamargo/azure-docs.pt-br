@@ -2,29 +2,29 @@
 title: Controles de acesso no acesso condicional do Azure Active Directory | Microsoft Docs
 description: Saiba como os controles de acesso no acesso condicional do Azure Active Directory funcionam.
 services: active-directory
-keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controles de acesso no acesso condicional do Azure Active Directory 
 
-Com o [acesso condicional do Azure AD (Azure Active Directory)](active-directory-conditional-access-azure-portal.md), você pode controlar como os usuários autorizados acessam seus aplicativos de nuvem. Em uma política de acesso condicional, você define a resposta ("faça isso") para a razão ao disparar sua política ("quando isso acontece"). 
+Com o [acesso condicional do Azure AD (Azure Active Directory)](active-directory-conditional-access-azure-portal.md), você pode controlar como os usuários autorizados acessam seus aplicativos de nuvem. Em uma política de acesso condicional, você define a resposta ("faça isso") para o motivo do acionamento de sua política ("quando isso acontecer"). 
 
 ![Controle](./media/active-directory-conditional-access-controls/10.png)
 
@@ -75,11 +75,15 @@ Usar a autenticação multifator ajuda a proteger recursos para impedir que seja
 
 ### <a name="compliant-device"></a>Dispositivo em conformidade
 
-Você pode configurar políticas de acesso condicional com base no dispositivo. O objetivo de uma política de acesso condicional baseada em dispositivo é conceder acesso aos recursos configurados somente de dispositivos confiáveis. Exigir um dispositivo compatível é uma opção para a qual você precisa definir, o que é um dispositivo confiável. Para saber mais, confira [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+Você pode configurar políticas de acesso condicional com base no dispositivo. O objetivo de uma política de acesso condicional baseada em dispositivo é conceder acesso aos recursos configurados somente de dispositivos confiáveis. Exigir um dispositivo compatível é uma opção para a qual você precisa definir, o que é um dispositivo confiável. Se essa opção for selecionada, sua política de acesso condicional concederá acesso a tentativas de acesso feitas com dispositivos que ingressaram no Azure Active Directory e são marcados como compatíveis pela sua solução MDM.
+
+Para saber mais, confira [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 ### <a name="domain-joined-device"></a>Dispositivo ingressado no domínio
 
-Exigir um dispositivo ingressado no domínio é outra opção para a qual você precisa configurar políticas de acesso condicional com base no dispositivo. Esse requisito se refere a desktops, laptops e tablets corporativos com Windows que ingressaram em um Active Directory local. Para saber mais, confira [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+Exigir um dispositivo ingressado no domínio é outra opção para a qual você precisa configurar políticas de acesso condicional com base no dispositivo. Esse requisito se refere a desktops, laptops e tablets corporativos com Windows que ingressaram em um Active Directory local. Se essa opção for selecionada, sua política de acesso condicional concederá acesso a tentativas de acesso feitas com dispositivos que ingressaram no seu Active Directory local e no Azure Active Directory.  
+
+Para saber mais, confira [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 
 

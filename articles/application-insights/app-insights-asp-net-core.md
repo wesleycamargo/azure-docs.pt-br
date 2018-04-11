@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
 
@@ -95,7 +95,7 @@ Iniciar seu aplicativo e, em seguida, clicar em links manualmente podem ser usad
 
 1. Executar seu aplicativo clicando em IIS Express ![Captura de tela do ícone IIS Express do Visual Studio](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. Copie a URL da barra de endereços do navegador. Ele está no formato http://localhost:{número da porta aleatória}
+2. Copie a URL da barra de endereços do navegador. Está no formato http://localhost:{random número da porta}
 
    ![Captura de tela da barra de endereço da URL do navegador](./media/app-insights-asp-net-core/0013-copy-url.png)
 
@@ -159,7 +159,7 @@ Vários prompts de confirmação ocorrerão, leia e aceite se concordar com as a
    ```
      ![Captura de tela de alteração de código _ViewImports.cshtml](./media/app-insights-asp-net-core/00018-view-imports.png)
 
-3. Em **Layout.cshtml** adicione a linha abaixo antes da marca ``</head>``, mas antes de quaisquer outros scripts.
+3. Em **_Layout.cshtml** adicione a linha abaixo antes da marca ``</head>``, mas antes de quaisquer outros scripts.
 
     ```C#
     @Html.Raw(snippet.FullScript)

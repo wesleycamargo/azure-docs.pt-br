@@ -35,21 +35,21 @@ Aqui estão alguns dos recursos de Armazenamento Premium:
 
 * **Discos de Armazenamento Premium**
 
-    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS, Ls, Fs e Esv3. Você tem sete opções de tamanho de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Tamanhos de disco P4 e P6 no momento têm suporte somente para o Managed Disks. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#scalability-and-performance-targets).
+    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS, Ls, Fs e Esv3. Você tem a opção de sete tamanhos de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Tamanhos de disco P4 e P6 no momento têm suporte somente para o Managed Disks. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#scalability-and-performance-targets).
 
 * **Blobs de página Premium**
 
-    O Armazenamento Premium dá suporte a blobs de página. Use blobs de página para armazenar discos persistentes não gerenciados para máquinas virtuais no Armazenamento Premium. Ao contrário do Armazenamento do Azure padrão, o Armazenamento Premium não oferece suporte a blobs de bloco, blobs de acréscimo, arquivos, tabelas ou filas. Os blobs da página Premium dá suporte a seis tamanhos, de P10 a P50 e P60 (8191GiB). O blob de páginas Premium P60 não tem suporte para ser anexado como disco de VM. 
+    O Armazenamento Premium dá suporte a blobs de página. Use blobs de página para armazenar discos persistentes não gerenciados para máquinas virtuais no Armazenamento Premium. Ao contrário do Armazenamento do Azure padrão, o Armazenamento Premium não oferece suporte a blobs de bloco, blobs de acréscimo, arquivos, tabelas ou filas. Os blobs da página Premium dão suporte a seis tamanhos, de P10 a P50 e P60 (8191GiB). O blob de páginas Premium P60 não tem suporte para ser anexado como disco de VM. 
 
     Qualquer objeto colocado em uma conta de armazenamento premium será um blob de páginas. O blob de páginas se encaixa em um dos tamanhos provisionados com suporte. É por isso que uma conta de armazenamento premium não se destina a ser usada para armazenar blobs pequenos.
 
 * **Conta de Armazenamento Premium**
 
-    Para começar a usar o Armazenamento Premium, crie uma conta de armazenamento premium para discos não gerenciados. No [portal do Azure](https://portal.azure.com), para criar uma conta de armazenamento premium, escolha o nível de desempenho **Premium**. Selecione a opção de replicação **Armazenamento localmente redundante (LRS)**. Você também pode criar uma conta de armazenamento premium, definindo o tipo como **Premium_LRS** em um dos seguintes locais:
-    * [API REST de armazenamento](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (versão 2014-02-14 ou posterior)
-    * [API REST do Gerenciamento de Serviço](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versão 2014-10-01 ou posterior; para implantações de clássicas do Azure)
-    * [API REST do Azure do provedor de recursos de armazenamento](https://docs.microsoft.com/rest/api/storagerp) (para implantações do Azure Resource Manager)
-    * [Azure PowerShell](/powershell/azureps-cmdlets-docs.md) (versão 0.8.10 ou posterior)
+    Para começar a usar o Armazenamento Premium, crie uma conta de armazenamento premium para discos não gerenciados. No [portal do Azure](https://portal.azure.com), para criar uma conta de armazenamento premium, escolha o nível de desempenho **Premium**. Selecione a opção de replicação **Armazenamento localmente redundante (LRS)**. Você também pode criar uma conta de armazenamento premium, definindo o nível de desempenho como **Premium_LRS**. Para alterar o nível de desempenho, use uma das seguintes abordagens:
+     
+    - [PowerShell para Armazenamento do Azure](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+    - [CLI do Azure para Armazenamento do Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+    - [API REST do Provedor de Recursos do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storagerp) (para implantações do Azure Resource Manager) ou uma das bibliotecas de cliente do provedor de recursos do Armazenamento do Azure
 
     Para obter informações sobre limites de conta de armazenamento premium, confira [Metas de desempenho e escalabilidade do Armazenamento Premium](#premium-storage-scalability-and-performance-targets).
 
@@ -103,7 +103,7 @@ Estes são alguns dos recursos das VMs das séries DS, DSv2, GS, Ls e Fs:
 
     Atualmente, a maior VM da série DS é o Standard_DS15_v2. O Standard_DS15_v2 pode fornecer até 960 MB/s em todos os discos. A maior VM da série GS é Standard_GS5. O Standard_GS5 pode fornecer até 2.000 MB/s em todos os discos.
 
-    Observe que esses limites são apenas para o tráfego de disco. Esses limites não incluem acertos de cache e tráfego de rede. Uma largura de banda separada está disponível para o tráfego de rede de VM. A largura de banda para o tráfego de rede é diferente da largura de banda dedicada usada pelos discos de armazenamento premium.
+    Esses limites são apenas para o tráfego de disco. Esses limites não incluem acertos de cache e tráfego de rede. Uma largura de banda separada está disponível para o tráfego de rede de VM. A largura de banda para o tráfego de rede é diferente da largura de banda dedicada usada pelos discos de armazenamento premium.
 
     Para obter informações mais atualizadas sobre IOPS e produtividade (largura de banda) máximos para as VMs com suporte do Armazenamento Premium, confira [Tamanhos de VMs Windows](../articles/virtual-machines/windows/sizes.md) ou [Tamanhos de VMs Linux](../articles/virtual-machines/linux/sizes.md).
 
@@ -129,11 +129,11 @@ Se você estiver usando contas de Armazenamento Premium para discos não gerenci
 ### <a name="premium-storage-disk-limits"></a>Limites do disco de Armazenamento Premium
 Quando você provisiona um disco de Armazenamento Premium, o tamanho do disco determina os valores máximos de IOPS e taxa de transferência (largura de banda). O Azure oferece sete tipos de disco de armazenamento Premium: P4 (somente Managed Disks), P6 (somente Managed Disks), P10, P20, P30, P40 e P50. Cada tipo de disco de armazenamento premium tem limites específicos de IOPS e taxa de transferência. Os limites para os tipos de disco são descritos na tabela a seguir:
 
-| Tipo de discos premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS por disco       | 120   | 240   | 500   | 2.300              | 5.000              | 7500              | 7500              | 
-| Taxa de transferência por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
+| Tipo de discos premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Tamanho do disco           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS por disco       | 120   | 240   | 500   | 1100   | 2.300              | 5.000              | 7500              | 7500              | 
+| Taxa de transferência por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
 
 > [!NOTE]
 > Verifique se largura de banda suficiente está disponível na sua VM para direcionar o tráfego de disco, conforme descrito em [Suporte para Armazenamento Premium VMs](#premium-storage-supported-vms). Caso contrário, sua taxa de transferência do disco e o IOPS é restrita a valores mais baixos. A taxa de transferência máxima e IOPS se baseiam nos limites de VM, não nos limites de disco descritos na tabela anterior.  
@@ -297,14 +297,3 @@ Para criar um trabalho de backup com backups baseados em tempo, fácil restaura�
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o Armazenamento Premium, confira os artigos a seguir.
-
-### <a name="design-and-implement-with-premium-storage"></a>Criar e implementar com o Armazenamento Premium
-* [Design para desempenho com o Armazenamento Premium](../articles/virtual-machines/windows/premium-storage-performance.md)
-* [Operações de armazenamento de blobs com o Armazenamento Premium](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-### <a name="operational-guidance"></a>Diretrizes operacionais
-* [Migrar para o Armazenamento Premium do Azure](../articles/storage/common/storage-migration-to-premium-storage.md)
-
-### <a name="blog-posts"></a>Postagens no blog
-* [Armazenamento Premium do Azure com disponibilidade geral](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [Anúncio da série GS: como adicionar suporte ao Armazenamento Premium para as maiores VMs na nuvem pública](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

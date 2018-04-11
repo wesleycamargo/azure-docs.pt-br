@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a83ed5f7dba3e4d68204a2c9dffb4459cadfef9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Instalar a extensão de Funções Duráveis e exemplos (Azure Functions)
 
 A extensão [Funções Duráveis](durable-functions-overview.md) do Azure Functions é fornecida no pacote de NuGet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Este artigo mostra como instalar o pacote, bem como um conjunto de exemplos para os ambientes de desenvolvimento a seguir:
 
 * Visual Studio 2017 (recomendado) 
-
+* Visual Studio Code
 * Portal do Azure
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -48,11 +48,7 @@ Atualmente, o Visual Studio fornece a melhor experiência para desenvolver aplic
 Siga as mesmas instruções para começar com o exemplo, mas execute as etapas a seguir em vez de baixar o arquivo *.zip*:
 
 1. Crie um projeto de Aplicativo de Funções.
-2. Adicione a seguinte referência de pacote do NuGet ao seu arquivo *.csproj*:
-
-   ```xml
-   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
-   ```
+2. Pesquise a seguinte referência de pacote NuGet usando *Gerenciar Pacotes do NuGet* e adicione-o ao projeto: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (selecione *Incluir pré-lançamento* para pesquisar esse pacote)
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -129,6 +125,8 @@ Se preferir, você poderá usar o portal do Azure para o desenvolvimento de Fun�
 1. Crie um novo aplicativo de funções em [functions.azure.com](https://functions.azure.com/signin).
 
 2. Configure o aplicativo de funções para [usar a versão de tempo de execução 2.0](set-runtime-version.md).
+
+   A extensão Funções Duráveis funciona no tempo de execução 1.X e no tempo de execução 2.0, mas os modelos do Portal do Azure somente estarão disponíveis ao segmentar o tempo de execução 2.0.
 
 3. Crie uma nova função selecionando **"criar sua própria função personalizada".** .
 

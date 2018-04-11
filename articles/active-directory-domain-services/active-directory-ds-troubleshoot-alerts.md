@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 436fa31b9fd1231b38b39d911d9b6c2d4829461d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5a9f1bfee1df41d25309e84fe9958ff19a368943
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services – Alertas de solução de problemas
 Este artigo fornece guias de solução de problemas para quaisquer alertas que podem ocorrer em seu domínio gerenciado.
@@ -34,7 +34,7 @@ Escolha as etapas de solução de problemas que correspondem à ID ou mensagem d
 | AADDS102 | *Uma Entidade de Serviço necessária para o funcionamento correto do Azure AD Domain Services foi excluída do seu diretório do Azure AD. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.* | [Entidade de Serviço ausente](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *O intervalo de endereços IP para a rede virtual na qual você habilitou os serviços de domínio do Azure AD está em um intervalo de IP público. Serviços de domínio do Azure AD devem ser habilitados em uma rede virtual com um intervalo de endereços IP privados. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.* | [Endereço está em um intervalo de IP público](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *A Microsoft não consegue alcançar os controladores de domínio para este domínio gerenciado. Isso pode ocorrer se um grupo de segurança de rede (NSG) configurado na sua rede virtual bloquear o acesso ao domínio gerenciado. Outro motivo possível é a existência de uma rota definida pelo usuário que bloqueia o tráfego de entrada da internet.* | [Erro de Rede](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS105 | *A entidade de serviço com a ID do aplicativo “d87dcbc6-a371-462e-88e3-28ad15ec4e64” foi excluída e depois recriada. Essa entidade de serviço gerencia outra entidade de serviço e um aplicativo que são usados para sincronização de senha. O aplicativo e/ou entidade de serviço gerenciado não foram autorizados sob a entidade de serviço criada recentemente, portanto, não podem ser gerenciados pelo nosso serviço. Isso significa que a entidade de serviço criada recentemente não poderá atualizar os aplicativos gerenciados antigos e a sincronização de senhas será afetada.* | [O aplicativo de sincronização de senha está desatualizado](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS105 | *A entidade de serviço com a ID do aplicativo “d87dcbc6-a371-462e-88e3-28ad15ec4e64” foi excluída e depois recriada. A recriação ignora permissões divergentes nos recursos do Azure AD Domain Services necessários para atender o domínio gerenciado. A sincronização de senhas no domínio gerenciado pode ser afetada.* | [O aplicativo de sincronização de senha está desatualizado](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *O domínio gerenciado foi sincronizado pela última vez com o Azure AD em [data]. Os usuários poderão não conseguir entrar no domínio gerenciado ou as associações de grupo poderão não ser sincronizadas com o Microsoft Azure Active Directory.* | [A sincronização não é realizada há algum tempo](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *O backup do domínio gerenciado foi feito pela última vez em [data].* | [O backup não é realizado há algum tempo](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *O certificado LDAP seguro para o domínio gerenciado expira em XX.* | [Certificado LDAP seguro perto de expirar](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |

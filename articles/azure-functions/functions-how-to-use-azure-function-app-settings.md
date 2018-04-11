@@ -1,24 +1,25 @@
 ---
-title: "Definir configurações de Aplicativo de funções do Azure | Microsoft Docs"
-description: "Saiba como definir configurações de aplicativos do Azure Functions."
-services: 
+title: Definir configurações de Aplicativo de funções do Azure | Microsoft Docs
+description: Saiba como definir configurações de aplicativos do Azure Functions.
+services: ''
 documentationcenter: .net
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerenciar um aplicativo de funções no portal do Azure 
 
@@ -27,6 +28,24 @@ No Azure Functions, um aplicativo de funções fornece o contexto de execução 
 Acesse o [portal do Azure](http://portal.azure.com) e entre usando sua conta do Azure. Na barra de pesquisa na parte superior do portal, digite o nome de seu aplicativo de funções e selecione-o na lista. Depois de selecionar o aplicativo de funções, você deverá ver esta página:
 
 ![Visão geral do aplicativo de funções no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+
+## <a name="favorite"></a>Funções favoritas no portal 
+
+Às vezes, poderá ser difícil localizar os recursos no [Portal do Azure]. Para facilitar a localização dos aplicativos de funções que você criou, adicione Aplicativos de Funções aos seus favoritos no portal. 
+
+1. Faça logon no [Portal do Azure].
+
+2. Clique na seta no canto inferior esquerdo para expandir todos os serviços, digite `Functions` no campo **Filtro** e, em seguida, clique na estrela ao lado de **Aplicativos de Funções**.  
+ 
+    ![Criar um aplicativo de funções no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+
+    Isso adiciona o ícone do Functions ao menu à esquerda do portal.
+
+3. Feche o menu e role para baixo até a parte inferior para ver o ícone do Functions. Clique nesse ícone para ver uma lista de todos os seus aplicativos de funções. Clique em seu aplicativo de funções para trabalhar com funções neste aplicativo. 
+ 
+    ![Aplicativos de funções nos Favoritos](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
+ 
+[Portal do Azure]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Guia Configurações do aplicativo de funções
 

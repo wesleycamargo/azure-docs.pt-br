@@ -1,6 +1,6 @@
 ---
-title: "Elemento de interface do usuário StorageAccountSelector de aplicativo gerenciado do Azure | Microsoft Docs"
-description: "Descreve o elemento Microsoft.Storage.StorageAccountSelector da interface do usuário para aplicativos gerenciados do Azure"
+title: Elemento de interface do usuário StorageAccountSelector do Azure | Microsoft Docs
+description: Descreve o elemento de interface do usuário Microsoft.Storage.StorageAccountSelector para o Portal do Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 366a862acc15decf6a8e19f875d5d052695f373c
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: ca66b788af68699b4750e1e2826b6a6b104c72c7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Elemento de interface do usuário Microsoft.Storage.StorageAccountSelector
-Um controle para selecionar uma conta de armazenamento nova ou existente. Use esse elemento ao [criar um Aplicativo Gerenciado do Azure](publish-service-catalog-app.md).
+Um controle para selecionar uma conta de armazenamento nova ou existente.
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
@@ -66,6 +66,5 @@ Um controle para selecionar uma conta de armazenamento nova ou existente. Use es
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](overview.md).
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](create-uidefinition-elements.md).

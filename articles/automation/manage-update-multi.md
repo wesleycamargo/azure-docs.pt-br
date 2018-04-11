@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c227af1afa95243390152918a6b81015dbaceaeb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -61,7 +61,7 @@ Os agentes do Windows devem ser configurados para se comunicar com um servidor W
 
 Os agentes do Linux devem ter acesso a um repositório de atualização.
 
-Essa solução não dá suporte a um Agente do OMS para Linux configurado para reportar a vários espaços de trabalho do Operations Management Suite.
+Esta solução não fornece suporte a um Agente do Operations Management Suite para Linux configurado para gerar relatórios em vários espaços de trabalho do Log Analytics.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Habilitar o Gerenciamento de Atualizações para máquinas virtuais do Azure
 
@@ -176,5 +176,5 @@ Para ver informações detalhadas sobre quaisquer erros da implantação, seleci
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre o gerenciamento de atualização – incluindo logs, saída e erros – consulte [Solução Gerenciamento de Atualizações no OMS](../operations-management-suite/oms-solution-update-management.md).
+* Para saber mais sobre o gerenciamento de atualização – incluindo logs, saída e erros – consulte [Solução Gerenciamento de Atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).
 

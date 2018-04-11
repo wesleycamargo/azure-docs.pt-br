@@ -1,24 +1,19 @@
 ---
-title: Perguntas frequentes sobre o Gateway de Aplicativo do Azure | Microsoft Docs
+title: Perguntas frequentes sobre o Gateway de Aplicativo do Azure
 description: Esta página fornece respostas às perguntas frequentes sobre o Gateway de Aplicativo do Azure
-documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 3/29/2018
+ms.author: victorh
+ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -38,7 +33,19 @@ O Gateway de Aplicativo é um balanceador de carga de camada 7, o que significa 
 
 **P. Quais protocolos recebem suporte do Gateway de Aplicativo?**
 
-O Gateway de Aplicativo oferece suporte a WebSocket, HTTP e HTTPS.
+O Gateway de Aplicativo fornece suporte HTTP, HTTPS, HTTP/2 e WebSocket.
+
+**P. Como o Gateway de Aplicativo fornece suporte para HTTP/2?**
+
+O suporte ao protocolo HTTP/2 está disponível para os clientes que conectam apenas os ouvintes do Gateway de Aplicativo. A comunicação para pools de servidores back-end é sobre HTTP/1.1. 
+
+Por padrão, o suporte HTTP/2 está desabilitado. O trecho de código do Azure PowerShell a seguir mostra como é possível habilitá-lo:
+
+```
+$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw.EnableHttp2 = $true
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
+```
 
 **P. Quais recursos têm suporte atualmente como parte do pool de back-end?**
 
@@ -314,7 +321,7 @@ Os logs de auditoria estão disponíveis para o Gateway de Aplicativo. No portal
 
 **P. Posso configurar alertas com o Gateway de Aplicativo?**
 
-Sim, o Gateway de Aplicativo oferece suporte a alertas, e os alertas são configurados com base em métricas.  No momento, o Gateway de Aplicativo tem uma métrica de "taxa de transferência", que pode ser configurada para o alerta. Para saber mais sobre alertas, visite [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Sim, o Gateway de Aplicativo oferece suporte a alertas, e os alertas são configurados com base em métricas. No momento, o Gateway de Aplicativo tem uma métrica de "taxa de transferência", que pode ser configurada para o alerta. Para saber mais sobre alertas, visite [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 **P. A integridade do back-end retorna um status desconhecido, o que pode estar causando esse status?**
 

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: da2d95bc100a6160282c93682ad76f7ee881e105
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial (versão prévia) na Automação do Azure
 
@@ -55,7 +55,7 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
 
 1. A página **Adicionar Solução** é exibida. Você será solicitado a configurar a solução antes de importá-la na sua assinatura da Automação.
    ![Página Adicionar Solução de Gerenciamento de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
-1. Na página **Adicionar Solução**, selecione **Espaço de Trabalho**. Selecione um espaço de trabalho do OMS que esteja vinculado à mesma assinatura do Azure em que a conta da Automação está. Se você não tiver um espaço de trabalho, selecione **Criar Novo Espaço de Trabalho**. Na página **Espaço de Trabalho do OMS**, faça o seguinte:
+1. Na página **Adicionar Solução**, selecione **Espaço de Trabalho**. Selecione um espaço de trabalho do Log Analytics que esteja vinculada à mesma assinatura do Azure na qual a conta de Automação está. Se você não tiver um espaço de trabalho, selecione **Criar Novo Espaço de Trabalho**. Na página **Espaço de Trabalho do OMS**, faça o seguinte:
    * Especifique um nome para o novo **Espaço de Trabalho do OMS**.
    * Selecione uma **Assinatura** à qual se vincular, escolhendo na lista suspensa, caso a assinatura selecionada por padrão não seja adequada.
    * Em **Grupo de Recursos**, você pode criar um novo grupo de recursos ou selecionar um existente.
@@ -63,13 +63,13 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
    * Selecione um **tipo de preço**. A solução oferece duas camadas: **Gratuito** e **Por Nó (OMS)**. A camada Gratuito tem um limite na quantidade de dados coletados diariamente, no período de retenção e nos minutos de tempo de execução do trabalho de runbook. A camada Por Nó tem um limite de quantidade de dados coletados diariamente.
 
         > [!NOTE]
-        > Embora a camada paga Por GB (Autônoma) seja exibida como uma opção, ela não se aplica. Se você a selecionar e prosseguir com a criação dessa solução em sua assinatura, ocorrerá uma falha. Essa questão será abordada quando a solução for lançada oficialmente. Essa solução só usa minutos de trabalho de automação e ingestão de log. Ela não adiciona outros nós do OMS ao seu ambiente.
+        > Embora a camada paga Por GB (Autônoma) seja exibida como uma opção, ela não se aplica. Se você a selecionar e prosseguir com a criação dessa solução em sua assinatura, ocorrerá uma falha. Essa questão será abordada quando a solução for lançada oficialmente. Essa solução só usa minutos de trabalho de automação e ingestão de log. Ela não adiciona nós adicionais ao ambiente.
 
 1. Depois de fornecer as informações necessárias na página **Espaço de Trabalho do OMS**, clique em **Criar**. Você pode acompanhar o progresso em **Notificações** no menu, que retornará a página **Adicionar Solução** ao terminar.
-1. Na página **Adicionar Solução**, selecione **Conta de automação**. Se você estiver criando um novo espaço de trabalho do OMS, também será necessário criar uma nova conta da Automação para ser associada com ele. Selecione **Criar uma conta de Automação** e, na página **Adicionar conta de Automação**, forneça o seguinte:
+1. Na página **Adicionar Solução**, selecione **Conta de automação**. Se você estiver criando um novo espaço de trabalho do Log Analytics, também será necessário criar uma nova conta da Automação para ser associada com ele. Selecione **Criar uma conta de Automação** e, na página **Adicionar conta de Automação**, forneça o seguinte:
    * No campo **Nome**, digite o nome da conta de Automação.
 
-    Todas as outras opções são preenchidas automaticamente com base no espaço de trabalho do OMS selecionado. Essas opções não podem ser modificadas. Uma conta Executar como do Azure é o método de autenticação padrão para os runbooks incluídos nesta solução. Depois de clicar em **OK**, as opções de configuração serão validadas e a conta de Automação será criada. Você pode acompanhar o progresso em **Notificações** no menu.
+    Todas as outras opções são preenchidas automaticamente com base no espaço de trabalho do Log Analytics selecionado. Essas opções não podem ser modificadas. Uma conta Executar como do Azure é o método de autenticação padrão para os runbooks incluídos nesta solução. Depois de clicar em **OK**, as opções de configuração serão validadas e a conta de Automação será criada. Você pode acompanhar o progresso em **Notificações** no menu.
 
 1. Por fim, na página **Adicionar Solução**, selecione **Configuração**. A página **Parâmetros** é exibida.
 
@@ -230,7 +230,7 @@ Você não deve habilitar todas os agendamentos, porque isso poderá criar açõ
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
 
-A Automação cria dois tipos de registros no repositório do OMS: logs de trabalho e fluxos de trabalho.
+A Automação cria dois tipos de registros no espaço de trabalho do Log Analytics: logs de trabalho e fluxos de trabalho.
 
 ### <a name="job-logs"></a>Logs de trabalho
 

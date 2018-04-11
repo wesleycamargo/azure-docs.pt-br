@@ -3,9 +3,9 @@ title: Usando scripts do Windows PowerShell para publicar em ambientes de desenv
 description: Saiba como usar scripts do Windows PowerShell do Visual Studio para publicar em ambientes de teste e desenvolvimento.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 5fff1301-5469-4d97-be88-c85c30f837c1
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 4e9409aac836a60e7ea01261840c084ff09e954e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: 58d1c8398e626544a7b02198ec0431203aedcc81
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste
 
@@ -26,7 +26,7 @@ Quando você cria um aplicativo Web no Visual Studio, pode gerar um script do Wi
 
 Usando esses scripts, você pode provisionar versões personalizadas (também conhecidas como ambientes de desenvolvimento e teste) do seu site para uso temporário. Por exemplo, você pode configurar uma versão específica do seu site em uma máquina virtual do Azure ou no slot de preparo em um site para executar um conjunto de testes, reproduzir um bug, testar uma correção de bug, avaliar uma alteração de proposta ou configurar um ambiente personalizado para uma demonstração ou apresentação. Depois de criar um script que publica seu projeto, você pode recriar ambientes idênticos ao executar novamente o script conforme necessário ou executar o script com seu próprio build do aplicativo Web para criar um ambiente personalizado de teste.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * SDK 2.3 do Azure ou posterior. Veja [Downloads do Visual Studio](http://go.microsoft.com/fwlink/?LinkID=624384). (Você não precisa do SDK do Azure para gerar scripts para projetos Web. Esse recurso é para projetos Web, e não para as funções Web nos serviços de nuvem).
 * Azure PowerShell 0.7.4 ou posterior. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
@@ -251,7 +251,7 @@ Para automatizar a criação de seu projeto, adicione o código que chama o MSBu
         #Write a function to build and package your web application
     ```
 
-    Para criar seu aplicativo Web, use o MsBuild.exe. Para obter ajuda, consulte a Referência de linha de comando de MSBuild em: [http://go.microsoft.com/fwlink/?LinkId=391339](http://go.microsoft.com/fwlink/?LinkId=391339)
+    Para criar seu aplicativo Web, use o MsBuild.exe. Para obter ajuda, consulte Referência de linha de comando do MSBuild em: [http://go.microsoft.com/fwlink/?LinkId=391339](http://go.microsoft.com/fwlink/?LinkId=391339)
 
     ```powershell
     Write-VerboseWithTime 'Build-WebDeployPackage: Start'
@@ -311,7 +311,7 @@ Para obter ajuda para as funções que você pode usar no prompt de comando do W
 
 **AzureWebAppPublishModule**
 
-| Nome da função | Descrição |
+| Nome da função | DESCRIÇÃO |
 | --- | --- |
 | Add-AzureSQLDatabase |Cria um novo banco de dados SQL do Azure. |
 | Add-AzureSQLDatabases |Cria os bancos de dados de SQL do Azure com base nos valores no arquivo de configuração JSON que o Visual Studio gera. |
@@ -340,7 +340,7 @@ Para obter ajuda para as funções que você pode usar no prompt de comando do W
 
 **Publish-WebApplication**
 
-| Nome da função | Descrição |
+| Nome da função | DESCRIÇÃO |
 | --- | --- |
 | New-AzureWebApplicationEnvironment |Cria recursos do Azure, como um site ou uma máquina virtual. |
 | New-WebDeployPackage |Essa função não está implementada. Você pode adicionar comandos nessa função para compilar o projeto. |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações de rede para Serviços de Domínio do Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma rede virtual do Azure
@@ -73,7 +73,7 @@ As portas a seguir são obrigatórias para os Serviços de Domínio do Azure AD 
 **Porta 443 (sincronização com o Azure AD)**
 * Ela é usada para sincronizar seu diretório do Azure AD com o domínio gerenciado.
 * É obrigatório permitir o acesso a essa porta no seu NSG. Sem acesso a essa porta, o domínio gerenciado não é sincronizado com o diretório do Azure AD. Os usuários não podem entrar, já que as alterações em suas senhas não são sincronizadas com o domínio gerenciado.
-* Você pode restringir o acesso de entrada a essa porta para os endereços IP que pertencem ao intervalo de endereços IP do Azure.
+* Você pode restringir o acesso de entrada a essa porta para os endereços IP que pertencem ao intervalo de endereços IP do Azure. Observe que o intervalo de endereços IP do Azure é um intervalo diferente do intervalo do PowerShell mostrado na regra abaixo.
 
 **Porta 5986 (comunicação remota do PowerShell)**
 * Ela é usada para executar tarefas de gerenciamento usando a comunicação remota do PowerShell no seu domínio gerenciado.

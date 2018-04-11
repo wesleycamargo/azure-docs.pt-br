@@ -1,12 +1,12 @@
 ---
-title: "Controlar o comportamento de cache da Rede de Distribuição de Conteúdo com regras de cache | Microsoft Docs"
-description: "É possível utilizar as regras de cache da CDN para definir ou modificar o comportamento padrão de expiração do cache globalmente e com condições, como um caminho de URL e extensões de arquivo."
+title: Controlar o comportamento de cache da CDN do Azure com regras de cache | Microsoft Docs
+description: É possível utilizar as regras de cache da CDN para definir ou modificar o comportamento padrão de expiração do cache globalmente e com condições, como um caminho de URL e extensões de arquivo.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Controlar o comportamento de cache da Rede de Distribuição de Conteúdo com regras de cache
+# <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controlar o comportamento de cache da CDN do Azure com regras de cache
 
 > [!NOTE] 
 > As regras de cache estão disponíveis apenas para **CDN do Azure da Verizon Standard** e **CDN do Azure do Akamai padrão**. Para **CDN do Azure da Verizon Premium**, é possível usar o [mecanismo de regras da CDN do Azure](cdn-rules-engine.md) no portal **Gerenciar** para uma funcionalidade semelhante.
  
-A Rede de Distribuição de Conteúdo do Microsoft Azure oferece duas maneiras de controlar como seus arquivos são armazenados em cache: 
+A CDN (Rede de Distribuição de Conteúdo do Microsoft Azure) oferece duas maneiras de controlar como seus arquivos são armazenados em cache: 
 
 - Regras de cache: esse artigo descreve como é possível utilizar as regras de cache da CDN (rede de distribuição de conteúdo) para definir ou modificar o comportamento de expiração do cache padrão globalmente e com condições personalizadas, como um caminho de URL e extensão de arquivo. CDN do Azure fornece dois tipos de regras de cache:
    - Regras de cache globais: é possível definir uma regra de cache global para cada ponto de extremidade em seu perfil, que afeta todas as solicitações para o ponto de extremidade. A regra de cache global substitui todos os cabeçalhos de diretiva de cache HTTP, se configurado.
@@ -40,11 +40,11 @@ Para obter informações sobre o comportamento de cache padrão e os cabeçalhos
 Como configurar as regras de cache da CDN:
 
 1. Abra o Portal do Azure, selecione um perfil da CDN e selecione um ponto de extremidade.
-2. No painel esquerdo em Configurações, clique em **Regras de cache**.
+2. No painel esquerdo em Configurações, selecione **Regras de cache**.
 
    ![Botão de regras de cache da CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-1. Crie uma regra de cache global da seguinte maneira:
+3. Crie uma regra de cache global da seguinte maneira:
    1. Em **Regras de cache globais**, defina **Comportamento de cache de cadeia de caracteres de consulta** para **Ignorar cadeias de caracteres**.
    2. Definir **Comportamento do cache** para **Definir se ausente**.
        
@@ -62,6 +62,7 @@ Como configurar as regras de cache da CDN:
 
     ![Personalizar regras de cache](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
+    
 > [!NOTE] 
 > Os arquivos que são armazenados em cache antes de uma alteração de regra mantêm a configuração da duração do cache de origem. Para reiniciar as durações de cache, será necessário [limpar o arquivo](cdn-purge-endpoint.md). Para pontos de extremidade da **CDN do Azure da Verizon**, poderá demorar até 90 minutos para que as regras de cache entrem em vigor.
 

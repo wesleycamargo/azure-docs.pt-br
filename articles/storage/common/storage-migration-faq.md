@@ -1,6 +1,6 @@
 ---
-title: "Perguntas frequentes sobre a migração do Armazenamento do Microsoft Azure | Microsoft Docs"
-description: "Respostas para perguntas comuns sobre a migração do Armazenamento do Azure"
+title: Perguntas frequentes sobre a migração do Armazenamento do Microsoft Azure | Microsoft Docs
+description: Respostas para perguntas comuns sobre a migração do Armazenamento do Azure
 services: storage
 documentationcenter: na
 author: genlin
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89d1a4767c240c7e4fedb9d7ac47d6d4fb0aa737
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração do Armazenamento do Azure
 
@@ -168,7 +168,7 @@ Use o AzCopy para baixar os dados. Para saber mais, confira [Transferir dados co
 
 **Como alterar o local secundário de uma conta de armazenamento para a região da Europa?**
 
-Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A seleção da região secundária se baseia na região primária e não pode ser alterada. Para obter mais informações, consulte [Replicação do Armazenamento do Azure](storage-redundancy.md).
+Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A seleção da região secundária se baseia na região primária e não pode ser alterada. Para obter mais informações, consulte [GRS (armazenamento com redundância geográfica): replicação inter-regional para Armazenamento do Microsoft Azure](storage-redundancy.md).
 
 **Onde posso saber mais sobre o SSE (Criptografia do Serviço de Armazenamento) do Azure?**  
   
