@@ -57,10 +57,10 @@ Verifique se você está cumprindo os seguintes requisitos de navegador:
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
 - **Internet Explorer 8, 9, 10 ou 11**: no Windows 7 ou posterior (suporte limitado).
 
-Também é possível baixar a extensão para Chrome e Edge diretamente nos sites a seguir:
+Também é possível baixar a extensão para Chrome e Microsoft Edge diretamente nos sites a seguir:
 
 - [Extensão para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Extensão para Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Extensão para Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 Se você instalou a extensão e ainda está enfrentando problemas, tente o seguinte:
 
@@ -92,7 +92,7 @@ Se você instalou a extensão e ainda está enfrentando problemas, tente o segui
        Os três últimos aplicativos usados são exibidos na lista de atalhos **Usados Recentemente**.
 
 > [!NOTE]
-> Essas opções estão disponíveis apenas para Edge, Chrome e Firefox.
+> Essas opções estão disponíveis apenas para Microsoft Edge, Chrome e Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Como fazer para adicionar um novo aplicativo?
 

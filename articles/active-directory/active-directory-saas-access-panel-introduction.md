@@ -85,7 +85,7 @@ Para entrar com logon único baseado em senha, você deve usar a extensão. Depo
 - A extensão mostra os três últimos aplicativos iniciados na seção **Usados Recentemente**.
 
 > [!NOTE]
-> Recursos adicionais estão disponíveis apenas para Edge, Chrome e Firefox.
+> Recursos adicionais estão disponíveis apenas para Microsoft Edge, Chrome e Firefox.
 >
 
 Caso esteja usando uma URL dos Meus Aplicativos diferente de `https://myapps.microsoft.com`, configure sua URL padrão fazendo o seguinte:

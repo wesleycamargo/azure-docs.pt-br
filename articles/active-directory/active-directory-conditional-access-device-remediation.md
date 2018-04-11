@@ -1,9 +1,9 @@
 ---
-title: "Você não consegue chegar lá a partir daqui no portal do Azure em um dispositivo do Windows | Microsoft Docs"
-description: "Saiba onde não é possível chegar lá a partir daqui e o que você pode verificar o para evitar essa caixa de diálogo."
+title: Você não consegue chegar lá a partir daqui no portal do Azure em um dispositivo do Windows | Microsoft Docs
+description: Saiba onde não é possível chegar lá a partir daqui e o que você pode verificar o para evitar essa caixa de diálogo.
 services: active-directory
 keywords: acesso condicional baseado em dispositivo, registro de dispositivo, habilitar registro de dispositivo, registro de dispositivo e MDM
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
@@ -40,7 +40,7 @@ Se você estiver usando um dispositivo com **Windows**, verifique o seguinte:
 
 ## <a name="supported-browser"></a>Navegador com suporte
 
-Se o administrador tiver configurado uma política de acesso condicional, você só poderá acessar os recursos de sua organização usando um navegador com suporte. Em um dispositivo com Windows, há suporte apenas para o **Internet Explorer** e o **Edge**.
+Se o administrador tiver configurado uma política de acesso condicional, você só poderá acessar os recursos de sua organização usando um navegador com suporte. Em um dispositivo com Windows, há suporte apenas para o **Internet Explorer** e o **Microsoft Edge**.
 
 Basta olhar a seção de detalhes da página de erro para identificar facilmente se a falha no acesso a um recurso ocorreu devido à falta de suporte no navegador:
 

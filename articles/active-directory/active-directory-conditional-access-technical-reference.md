@@ -123,13 +123,13 @@ Essa configuração funciona com todos os navegadores. No entanto, para satisfaz
 
 | SO                     | Navegadores                            | Suporte     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Edge, Chrome     | ![Verificação][1] |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Verificação][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Verificação][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![Verificação][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Verificação][1] |
 | Android                | Chrome, Intune Managed Browser      | ![Verificação][1] |
-| Windows Phone          | Internet Explorer, Edge             | ![Verificação][1] |
-| Windows Server 2016    | Internet Explorer, Edge             | ![Verificação][1] |
+| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Verificação][1] |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Verificação][1] |
 | Windows Server 2016    | Chrome                              | Em breve |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Verificação][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Verificação][1] |
