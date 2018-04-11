@@ -1,11 +1,11 @@
 ---
-title: "CENC com DRM múltiplo e controle de acesso: um design e implementação de referência no Azure e nos Serviços de Mídia do Azure | Microsoft Docs"
+title: 'CENC com DRM múltiplo e controle de acesso: um design e implementação de referência no Azure e nos Serviços de Mídia do Azure | Microsoft Docs'
 description: Saiba mais sobre como licenciar o Kit de Portabilidade de Cliente do Smooth Streaming da Microsoft.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: willzhan
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
 ms.service: media-services
 ms.workload: media
@@ -58,7 +58,7 @@ A tabela a seguir resume os aplicativos nativos/plataformas nativas e navegadore
 | **Plataforma cliente** | **Compatibilidade com o DRM nativo** | **Navegador/aplicativo** | **Formatos de streaming** |
 | --- | --- | --- | --- |
 | **Smart TVs, STBs de operador, STBs OTT** |Basicamente PlayReady e/ou Widevine e/ou outros |Linux, Opera, WebKit, outros |Vários formatos |
-| **Dispositivos Windows 10 (computador Windows, tablets Windows, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Plataforma Universal do Windows |DASH (para HLS, o PlayReady não é compatível)<br/><br/>DASH, Smooth Streaming (para HLS, o PlayReady não é compatível) |
+| **Dispositivos Windows 10 (computador Windows, tablets Windows, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>Plataforma Universal do Windows |DASH (para HLS, o PlayReady não é compatível)<br/><br/>DASH, Smooth Streaming (para HLS, o PlayReady não é compatível) |
 | **Dispositivos Android (telefone, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), clientes OS X e Apple TV** |FairPlay |Safari 8+/EME |HLS |
 

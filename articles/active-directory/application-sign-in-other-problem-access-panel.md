@@ -2,10 +2,10 @@
 title: Problemas para entrar em um aplicativo a partir do Painel de Acesso| Microsoft Docs
 description: Como solucionar problemas de acesso a um aplicativo a partir do Painel de Acesso do Microsoft Azure AD em myapps.microsoft.com
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -90,7 +90,7 @@ Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seg
 
 7.  Entrar no Painel de Acesso e verificar se é possível **iniciar** os aplicativos de SSO de senha
 
-Também é possível baixar a extensão para Chrome e Edge diretamente pelos links abaixo:
+Também é possível baixar a extensão para Chrome e Microsoft Edge diretamente pelos links abaixo:
 
 -   [Extensão do Painel de Acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 

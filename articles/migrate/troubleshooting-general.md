@@ -115,14 +115,14 @@ Para coletar Rastreamento de Eventos para Windows, faça o seguinte:
 2. Pressione F12 para iniciar as Ferramentas para Desenvolvedores. Se necessário, desmarque a configuração **Limpar entradas na navegação**.
 3. Clique na guia **Rede** e inicie a captura do tráfego de rede:
  - No Chrome, selecione **Preservar log**. A gravação deve ser iniciada automaticamente. Um círculo vermelho indica que o tráfego está sendo capturado. Se não for exibido, clique no círculo preto para iniciar
- - No Edge/IE, a gravação deve ser iniciada automaticamente. Se não estiver, clique no botão verde para executar.
+ - No Microsoft Edge/IE, a gravação deve ser iniciada automaticamente. Se não estiver, clique no botão verde para executar.
 4. Tente reproduzir o erro.
 5. Depois que você tiver encontrado o erro durante a gravação, interrompa a gravação e salve uma cópia da atividade registrada:
  - No Chrome, clique com o botão direito e clique em **Salvar como HAR com conteúdo**. Isso compacta e exporta os logs como um arquivo .har.
- - No IE/Edge, clique no ícone **Exportar tráfego capturado**. Isso compacta e exporta o log.
+ - No IE/Microsoft Edge, clique no ícone **Exportar tráfego capturado**. Isso compacta e exporta o log.
 6. Navegue até a guia **Console** para verificar se há avisos ou erros. Para salvar o log do console:
  - No Chrome, clique com o botão direito em qualquer lugar no log do console. Selecione **Salvar como**, para exportar e compactar o log.
- - No Edge/IE, clique com o botão direito nos erros e selecione **Copiar tudo**.
+ - No Microsoft Edge/IE, clique com o botão direito nos erros e selecione **Copiar tudo**.
 7. Fechar as Ferramentas para Desenvolvedores.
 
 

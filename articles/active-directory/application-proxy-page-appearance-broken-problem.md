@@ -26,7 +26,7 @@ Este artigo irá ajudá-lo a solucionar problemas com aplicativos de Proxy de Ap
 ## <a name="overview"></a>Visão geral
 Quando você publica um aplicativo de Proxy de aplicativo, apenas as páginas em sua raiz são acessíveis ao acessar o aplicativo. Se a página não estiver exibindo corretamente, a URL interna raiz usada para o aplicativo pode estar em falta de alguns recursos de página. Para resolver, certifique-se de ter publicado *todos* os recursos da página como parte do seu aplicativo.
 
-Você pode verificar se esse é o problema, abrindo o rastreador de rede (como o Fiddler ou ferramentas F12 no Internet Explorer/Edge), carregando a página e procurando por erros 404. Esses indicam as páginas que atualmente não podem ser encontradas e ainda podem ser publicadas.
+Você pode verificar se esse é o problema, abrindo o rastreador de rede (como o Fiddler ou ferramentas F12 no Internet Explorer/Microsoft Edge), carregando a página e procurando por erros 404. Esses indicam as páginas que atualmente não podem ser encontradas e ainda podem ser publicadas.
 
 Como um exemplo desse caso, suponha que você tenha publicado um aplicativo de despesas usando uma URL interna de <http://myapps/expenses>, mas o aplicativo usa a folha de estilos <http://myapps/style.css>. Nesse caso, a folha de estilo não é publicada em seu aplicativo, portanto, carregar o aplicativo de despesas gera um erro 404 ao tentar carregar style.css. Nesse exemplo, o problema é resolvido ao publicar o aplicativo com uma URL interna de <http://myapp/>.
 

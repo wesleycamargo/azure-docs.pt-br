@@ -1,11 +1,11 @@
 ---
-title: "Problemas ao entrar em um aplicativo na Galeria do Azure AD configurado para logon único com senha | Microsoft Docs"
-description: "Discute as áreas problemáticas que fornecem diretrizes para solucionar problemas relacionados à entrada em aplicativos da Galeria do Azure AD configurados para login único com senha"
+title: Problemas ao entrar em um aplicativo na Galeria do Azure AD configurado para logon único com senha | Microsoft Docs
+description: Discute as áreas problemáticas que fornecem diretrizes para solucionar problemas relacionados à entrada em aplicativos da Galeria do Azure AD configurados para login único com senha
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -38,7 +38,7 @@ Para SSO baseado em senha, os navegadores do usuário final podem ser:
 -   Firefox 26.0 ou posterior, no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
 >[!NOTE]
->A extensão de SSO baseada em senha será disponibilizada para o Edge no Windows 10 quando as extensões de navegador tiverem suporte no Edge.
+>A extensão de SSO baseada em senha será disponibilizada para o Microsoft Edge no Windows 10 quando as extensões de navegador tiverem suporte no Microsoft Edge.
 >
 >
 

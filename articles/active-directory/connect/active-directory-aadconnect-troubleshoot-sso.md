@@ -28,7 +28,7 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 
 - Em alguns casos, habilitar o SSO contínuo pode levar até 30 minutos.
 - Se você desabilitar e habilitar novamente o SSO Contínuo em seu locatário, os usuários não obterão a experiência de logon único até que seus tíquetes de Kerberos armazenados em cache, normalmente válidos por 10 horas, tenham se expirado.
-- O suporte ao navegador Edge não está disponível.
+- O suporte ao navegador Microsoft Edge não está disponível.
 - Se o SSO Contínuo for bem-sucedido, o usuário não terá a oportunidade de selecionar **Manter-me conectado**. Devido a esse comportamento, os cenários de mapeamento do SharePoint e do OneDrive não funcionam.
 - Os clientes do Office abaixo da versão 16.0.8730.xxxx não têm suporte para a entrada não interativa com o SSO Contínuo. Nos clientes, os usuários devem digitar seus nomes de usuário, mas não senhas, para entrar.
 - O SSO Contínuo não funciona no modo de navegação particular no Firefox.

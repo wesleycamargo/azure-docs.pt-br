@@ -188,7 +188,7 @@ As Funções e os trabalhos da Web são suportados em um ILB ASE, mas para que o
 
 Quando você usa o Azure Functions em um ASE ILB, você pode receber uma mensagem de erro informando: "Não é possível recuperar as funções no momento. Tente novamente mais tarde.” Esse erro ocorre porque a interface do usuário de Funções aproveita o site SCM por HTTPS e o certificado raiz não está na cadeia de navegadores de confiança. Os trabalhos da Web têm um problema semelhante. Para evitar esse problema, você pode executar uma destas ações:
 
-- Adicionar o certificado ao seu repositório de certificados confiáveis. Isso desbloqueia o Edge e o Internet Explorer.
+- Adicionar o certificado ao seu repositório de certificados confiáveis. Isso desbloqueia o Microsoft Edge e o Internet Explorer.
 - Use o Chrome e acesse o site SCM primeiro, aceite o certificado não confiável e vá para o portal.
 - Use um certificado comercial que esteja na sua cadeia de navegadores confiáveis.  Essa é a melhor opção.  
 

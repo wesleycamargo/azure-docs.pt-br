@@ -341,7 +341,7 @@ Se você estiver planejando usar o recurso de personalização de interface do u
 * Não copie o conteúdo padrão do Azure AD B2C nem tente modificá-lo. É melhor criar seu conteúdo HTML5 do zero e usar o conteúdo padrão como referência.
 * Por motivos de segurança, não permitimos incluir nenhum JavaScript em seu conteúdo. A maior parte do que você precisa já deve estar disponível imediatamente. Caso contrário, use a [Voz do Usuário](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) para solicitar novas funcionalidades.
 * Versões do navegador para as quais há suporte:
-  * Internet Explorer 11, 10, Edge
+  * Internet Explorer 11, 10, Microsoft Edge
   * Suporte limitado para o Internet Explorer 9, 8
   * Google Chrome 42.0 e superior
   * Mozilla Firefox 38.0 e superior

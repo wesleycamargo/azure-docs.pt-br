@@ -37,7 +37,7 @@ Para SSO baseado em senha, os navegadores do usuário final podem ser:
 -   Firefox 26.0 ou posterior, no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
 >[!NOTE]
->A extensão de SSO baseada em senha será disponibilizada para o Edge no Windows 10 quando as extensões de navegador tiverem suporte no Edge.
+>A extensão de SSO baseada em senha será disponibilizada para o Microsoft Edge no Windows 10 quando as extensões de navegador tiverem suporte no Microsoft Edge.
 >
 >
 

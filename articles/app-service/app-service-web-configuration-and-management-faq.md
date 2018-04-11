@@ -185,7 +185,7 @@ Você tem duas opções para capturar um rastreamento F12:
 3. Verifique se a guia **Rede** está selecionada e, em seguida, selecione o botão verde **Reproduzir**.
 4. Siga as etapas que reproduza o problema.
 5. Selecione o botão vermelho **Parar**.
-6. Selecione o botão **Salvar** (ícone de disco) e, em seguida, salve o arquivo HAR (no Internet Explorer e Edge) *ou* clique com o botão direito no arquivo HAR e, em seguida, selecione **Salvar como HAR com conteúdo** (no Chrome).
+6. Selecione o botão **Salvar** (ícone de disco) e, em seguida, salve o arquivo HAR (no Internet Explorer e Microsoft Edge) *ou* clique com o botão direito no arquivo HAR e, em seguida, selecione **Salvar como HAR com conteúdo** (no Chrome).
 
 ### <a name="f12-console-output"></a>Saída do console F12
 

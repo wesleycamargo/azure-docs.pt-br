@@ -1,9 +1,9 @@
 ---
-title: "Referência de configurações de roaming do Windows 10 | Microsoft Docs"
-description: "Uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10."
+title: Referência de configurações de roaming do Windows 10 | Microsoft Docs
+description: Uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10.
 services: active-directory
 keywords: enterprise state roaming, nuvem do window
-documentationcenter: 
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -86,21 +86,21 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Personalização da área de trabalho**: configurações da barra de tarefas (posição, ocultar automaticamente etc.) |sync |X |Tema |
 | **Personalização da área de trabalho**: iniciar o layout da tela |X |backup | |
 | **Dispositivos**: impressoras compartilhadas às quais você se conectou |X |X |Outros |
-| **Navegador Edge**: lista de leitura |sync |sync |interno |
-| **Navegador Edge**: favoritos |sync |sync |interno |
-| **Navegador Edge**: principais sites <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: URLs digitadas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: configurações da barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: mostrar o botão home <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: bloquear pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: perguntar-me o que fazer com cada download <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: oferecer para salvar senhas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: enviar solicitações para não rastrear <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: salvar entradas de formulário <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: mostrar sugestões de pesquisa e de site conforme eu digitar <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: preferência de cookies <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: permitir que sites salvem licenças de mídia protegida em meu dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: configuração de leitor de tela <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: lista de leitura |sync |sync |interno |
+| **Navegador Microsoft Edge**: favoritos |sync |sync |interno |
+| **Navegador Microsoft Edge**: principais sites <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: URLs digitadas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: configurações da barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: mostrar o botão home <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: bloquear pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: perguntar-me o que fazer com cada download <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: oferecer para salvar senhas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: enviar solicitações para não rastrear <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: salvar entradas de formulário <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: mostrar sugestões de pesquisa e de site conforme eu digitar <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: preferência de cookies <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: permitir que sites salvem licenças de mídia protegida em meu dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: configuração de leitor de tela <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Alto Contraste**: ativado ou desativado |sync |X |facilidade de acesso |
 | **Alto Contraste**: configurações do Tema |sync |X |facilidade de acesso |
 | **Internet Explorer**: abrir guias (URL e título) |sync |sync |Internet Explorer |

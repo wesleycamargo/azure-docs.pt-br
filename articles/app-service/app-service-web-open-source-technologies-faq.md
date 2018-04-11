@@ -1,11 +1,11 @@
 ---
-title: "Perguntas frequentes sobre tecnologias de código aberto para aplicativos web do Azure | Microsoft Docs"
-description: "Obtenha respostas para perguntas frequentes sobre tecnologias de código aberto na funcionalidade Aplicativos Web do Serviço de Aplicativo do Azure."
+title: Perguntas frequentes sobre tecnologias de código aberto para aplicativos web do Azure | Microsoft Docs
+description: Obtenha respostas para perguntas frequentes sobre tecnologias de código aberto na funcionalidade Aplicativos Web do Serviço de Aplicativo do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -49,7 +49,7 @@ Para ativar o registro em log de PHP:
 2. No menu superior, selecione **Console de Depuração** > **CMD**.
 3. Selecione a pasta **Site**.
 4. Selecione a pasta **wwwroot**.
-5. Selecione o  **+**  ícone e, em seguida, selecione **Novo arquivo**.
+5. Selecione o **+** ícone e, em seguida, selecione **Novo arquivo**.
 6. Defina o nome de arquivo para **.user.ini**.
 7. Selecione o ícone de lápis ao lado de **.user.ini**.
 8. No arquivo, adicione este código:`log_errors=on`
@@ -240,4 +240,4 @@ Depois de garantir que MySQL no aplicativo está em execução, tente usar PHPMy
 
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>Recebo um erro de HTTP 403 ao tentar importar ou exportar meu banco de dados MySQL no aplicativo usando PHPMyadmin. Como resolver isso?
 
-Se você estiver usando uma versão mais antiga do Chrome, talvez você esteja tendo um bug conhecido. Para resolver o problema, atualize para uma versão mais recente do Chrome. Além disso, tente usar um navegador diferente, como o Internet Explorer ou Edge, onde o problema não ocorre.
+Se você estiver usando uma versão mais antiga do Chrome, talvez você esteja tendo um bug conhecido. Para resolver o problema, atualize para uma versão mais recente do Chrome. Além disso, tente usar um navegador diferente, como o Internet Explorer ou Microsoft Edge, onde o problema não ocorre.

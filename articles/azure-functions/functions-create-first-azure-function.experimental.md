@@ -62,7 +62,7 @@ Agora você pode executar a nova função enviando uma solicitação HTTP.
 
 2. Cole a URL de função na barra de endereços do navegador. Adicione o valor da cadeia de caracteres de consulta `&name=<yourname>` ao final desta URL e pressione `Enter` em seu teclado para executar a solicitação. Você deverá ver a resposta retornada pela função exibida no navegador.  
 
-    O exemplo a seguir mostra a resposta no navegador Edge (outros navegadores podem incluir XML exibido):
+    O exemplo a seguir mostra a resposta no navegador Microsoft Edge (outros navegadores podem incluir XML exibido):
 
     ![Resposta da função no navegador.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Considerações de rede com um ambiente do Serviço de Aplicativo do Azure"
-description: "Explica o tráfego de rede do ASE e como definir NSGs e UDRs com seu ASE"
+title: Considerações de rede com um ambiente do Serviço de Aplicativo do Azure
+description: Explica o tráfego de rede do ASE e como definir NSGs e UDRs com seu ASE
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -128,7 +128,7 @@ Se seu ASE ILB for o nome de domínio *contoso.net* e o nome do aplicativo for *
 
 ## <a name="functions-and-web-jobs"></a>Funções e trabalhos Web ##
 
-As Funções e os trabalhos Web dependem do site do SCM, mas há suporte para eles para uso no portal, mesmo que os aplicativos estiverem em um ILB ASE, desde que o navegador possa acessar o site do SCM.  Se você estiver usando um certificado autoassinado com o ILB ASE, precisará habilitar o navegador para que ele confie no certificado.  Para o IE e o Edge, isso significa que o certificado deve estar no repositório de confiança do computador.  Se você estiver usando o Chrome, isso significa que você aceitou o certificado no navegador anteriormente supostamente visitando o site do SCM diretamente.  A melhor solução é usar um certificado comercial que está na cadeia de confiança do navegador.  
+As Funções e os trabalhos Web dependem do site do SCM, mas há suporte para eles para uso no portal, mesmo que os aplicativos estiverem em um ILB ASE, desde que o navegador possa acessar o site do SCM.  Se você estiver usando um certificado autoassinado com o ILB ASE, precisará habilitar o navegador para que ele confie no certificado.  Para o IE e o Microsoft Edge, isso significa que o certificado deve estar no repositório de confiança do computador.  Se você estiver usando o Chrome, isso significa que você aceitou o certificado no navegador anteriormente supostamente visitando o site do SCM diretamente.  A melhor solução é usar um certificado comercial que está na cadeia de confiança do navegador.  
 
 ## <a name="ase-ip-addresses"></a>Endereços IP do ASE ##
 
