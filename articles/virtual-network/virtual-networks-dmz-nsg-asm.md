@@ -1,11 +1,11 @@
 ---
-title: "Exemplo de DMZ do Azure ‑ Criar um DMZ simples com NSGs | Microsoft Docs"
-description: "Criar uma DMZ com grupos de segurança de rede (NSG)"
+title: Exemplo de DMZ do Azure ‑ Criar um DMZ simples com NSGs | Microsoft Docs
+description: Criar uma DMZ com grupos de segurança de rede (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: f8622b1d-c07d-4ea6-b41c-4ae98d998fff
 ms.service: virtual-network
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Exemplo 1 – Criar uma DMZ simples usando NSGs com o PowerShell clássico
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
@@ -131,7 +131,7 @@ Cada regra é discutida em mais detalhes da seguinte maneira (**Observação**: 
          -Protocol *
     ```
 
-5. Essa regra permite que o tráfego passe do servidor IIS01 para o servidor AppVM01; uma regra posterior bloqueia todo o tráfego de Frontend para Backend. Para melhorar essa regra, se a porta for conhecida, ela deve ser adicionada. Por exemplo, se o servidor IIS está atingindo somente o SQL Server no AppVM01, o intervalo de porta de destino deve ser alterado de " \* " (qualquer) para 1433 (a porta do SQL), permitindo uma menor superfície de ataque de entrada em AppVM01 se o aplicativo Web for comprometido.
+5. Essa regra permite que o tráfego passe do servidor IIS01 para o servidor AppVM01; uma regra posterior bloqueia todo o tráfego de Frontend para Backend. Para melhorar essa regra, se a porta for conhecida, ela deve ser adicionada. Por exemplo, se o servidor IIS está atingindo somente o SQL Server no AppVM01, o intervalo de porta de destino deve ser alterado de "*" (qualquer) para 1433 (a porta do SQL), permitindo uma menor superfície de ataque de entrada em AppVM01 se o aplicativo Web for comprometido.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `

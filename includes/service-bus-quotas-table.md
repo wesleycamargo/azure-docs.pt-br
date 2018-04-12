@@ -1,6 +1,6 @@
 ---
-title: "Arquivo de inclusão"
-description: "Arquivo de inclusão"
+title: Arquivo de inclusão
+description: Arquivo de inclusão
 services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
@@ -9,10 +9,10 @@ ms.date: 02/12/2018
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 74732008b336dc1b95ec96e8550d218105973ca4
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 A tabela a seguir lista as informações de cota específicas às mensagens do Barramento de Serviço. Para obter informações sobre preços e outras cotas do Barramento de Serviço, consulte a visão geral [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/) .
 

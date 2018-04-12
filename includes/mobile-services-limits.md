@@ -1,5 +1,5 @@
 
-| CAMADA: | GRATUITO | BASIC | PADRÃO |
+| CAMADA: | GRATUITO | BASIC | STANDARD |
 | --- | --- | --- | --- |
 | Chamadas à API |500 K |1,5 M/unidade |15 M/unidade |
 | Dispositivos ativos |500 |Ilimitado |Ilimitado |

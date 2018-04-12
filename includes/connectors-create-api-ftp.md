@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 * Uma conta [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol)  
 
 Antes de usar a conta FTP em um aplicativo lógico, você deve autorizá-lo a se conectar à sua conta FTP. Felizmente, é possível fazer isso facilmente dentro do seu aplicativo lógico no Portal do Azure.  

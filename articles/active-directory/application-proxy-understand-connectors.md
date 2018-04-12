@@ -1,11 +1,11 @@
 ---
-title: "Noções básicas sobre conectores do Proxy de Aplicativo Azure AD | Microsoft Docs"
-description: "Cobre as noções básicas sobre os conectores do Proxy de Aplicativo Azure AD."
+title: Noções básicas sobre conectores do Proxy de Aplicativo Azure AD | Microsoft Docs
+description: Cobre as noções básicas sobre os conectores do Proxy de Aplicativo Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
