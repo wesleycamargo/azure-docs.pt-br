@@ -1,11 +1,10 @@
 ---
-title: "Várias arquiteturas de banco de dados mestre com o Azure Cosmos DB | Microsoft Docs"
-description: "Saiba mais sobre como projetar arquiteturas de aplicativos com leituras e gravações locais em várias regiões geográficas com o Azure Cosmos DB."
+title: Várias arquiteturas de banco de dados mestre com o Azure Cosmos DB | Microsoft Docs
+description: Saiba mais sobre como projetar arquiteturas de aplicativos com leituras e gravações locais em várias regiões geográficas com o Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +14,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 941af42561afbdf91cb3529fd51971ee88fafdbc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Arquiteturas de banco de dados replicadas globalmente de vários mestres com o Azure Cosmos DB
 O Azure Cosmos DB dá suporte turnkey à [replicação global](distribute-data-globally.md), que permite que você distribua dados para várias regiões com acesso de baixa latência em qualquer lugar na carga de trabalho. Esse modelo é usado para cargas de trabalho do publisher/consumidor onde há um gravador em uma única região geográfica e leitores distribuídos globalmente em outras regiões (leitura). 

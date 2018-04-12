@@ -1,11 +1,11 @@
 ---
-title: "Restringir o conteúdo da CDN do Azure por país | Microsoft Docs"
-description: "Aprenda a restringir o acesso ao seu conteúdo da CDN do Azure usando o recurso Filtragem geográfica."
+title: Restringir o conteúdo da CDN do Azure por país | Microsoft Docs
+description: Aprenda a restringir o acesso ao seu conteúdo da CDN do Azure usando o recurso Filtragem geográfica.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
 ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Restringir conteúdo da CDN do Azure por país
 

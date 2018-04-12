@@ -13,8 +13,8 @@
 
 | Valor | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| Parâmetros |256 |256 |
-| Variáveis |256 |256 |
+| parâmetros |256 |256 |
+| variáveis |256 |256 |
 | Recursos (incluindo a contagem de cópias) |800 |800 |
 | outputs |64 |64 |
 | Expressão de modelo |24.576 caracteres |24.576 caracteres |

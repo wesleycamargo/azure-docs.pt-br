@@ -54,9 +54,9 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Regras por configuração de IP | 299 |299 |
 | Configurações de IP de front-end, Básico | 10 | 200 |
 | Configurações de IP de front-end, Standard | 10 | 600 |
-| Pool de back-end, Básico | 100, um único conjunto de disponibilidade | - |
-| Pool de back-end, Standard | 1000, única VNet | - |
-| Portas de alta disponibilidade, Standard | 1 por front-end interno | - |
+| Pool de back-end, Básico | 100, um único conjunto de disponibilidade | 100, um único conjunto de disponibilidade |
+| Pool de back-end, Standard | 1000, única VNet | 1000, única VNet |
+| Portas de alta disponibilidade, Standard | 1 por front-end interno | 1 por front-end interno |
 
 [Entre em contato com o suporte](../articles/azure-supportability/resource-manager-core-quotas-request.md ) caso precise aumentar esses limites.
 
