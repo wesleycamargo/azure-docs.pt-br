@@ -1,12 +1,12 @@
 ---
-title: "Escalar a execução e o teste locais do U-SQL com o SDK do U-SQL do Azure Data Lake | Microsoft Docs"
-description: "Saiba como usar o SDK do U-SQL do Azure Data Lake para escalar a execução e o teste locais de trabalhos do U-SQL com a linha de comando e interfaces de programação na estação de trabalho local."
+title: Escalar a execução e o teste locais do U-SQL com o SDK do U-SQL do Azure Data Lake | Microsoft Docs
+description: Saiba como usar o SDK do U-SQL do Azure Data Lake para escalar a execução e o teste locais de trabalhos do U-SQL com a linha de comando e interfaces de programação na estação de trabalho local.
 services: data-lake-analytics
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Escalar a execução e o teste locais do U-SQL com o SDK do U-SQL do Azure Data Lake
 
@@ -68,7 +68,7 @@ Você pode usar um caminho relativo e um caminho absoluto local em scripts U-SQL
 
 Ao executar o script U-SQL localmente, um diretório de trabalho é criado durante a compilação no diretório de execução atual. Além das saídas de compilação, os arquivos de tempo de execução necessários para execução local são copiados em sombra para esse diretório de trabalho. A pasta raiz do diretório de trabalho é chamada “ScopeWorkDir” e os arquivos no diretório de trabalho são os seguintes:
 
-|Diretório/arquivo|Diretório/arquivo|Diretório/arquivo|Definição|Descrição|
+|Diretório/arquivo|Diretório/arquivo|Diretório/arquivo|Definição|DESCRIÇÃO|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Cadeia de caracteres de hash da versão do tempo de execução|Cópia de sombra dos arquivos de tempo de execução necessários para execução local|
 | |Script_66AE4909AA0ED06C| |Nome do script + cadeia de caracteres de hash do caminho do script|Saídas da compilação e log das etapas de execução|
@@ -142,7 +142,7 @@ O comando **run** é usado para compilar o script e executar resultados compilad
 Estes são os argumentos opcionais para **run**:
 
 
-|Argumento|Valor padrão|Descrição|
+|Argumento|Valor padrão|DESCRIÇÃO|
 |--------|-------------|-----------|
 |-CodeBehind|Falso|O script tem o code-behind .cs|
 |-CppSDK| |Diretório do CppSDK|
@@ -174,7 +174,7 @@ O comando **compile** é usado para compilar um script U-SQL para executáveis.
 Estes são os argumentos opcionais para **compile**:
 
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 |--------|-----------|
 | -CodeBehind [valor padrão 'False']|O script tem o code-behind .cs|
 | -CppSDK [valor padrão '']|Diretório do CppSDK|
@@ -212,7 +212,7 @@ O comando **execute** é usado para executar os resultados compilados.
 
 Estes são os argumentos opcionais para **execute**:
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 |--------|-----------|
 |-DataRoot [valor padrão '']|Raiz de dados para a execução de metadados. A variável de ambiente **LOCALRUN_DATAROOT** passa a ser o padrão.|
 |-MessageOut [valor padrão '']|Despeje as mensagens do console em um arquivo.|
@@ -337,13 +337,13 @@ O LocalRunHelper.exe fornece as interfaces de programação para a compilação 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|.|Tipo|Descrição|
+|Parâmetro|type|DESCRIÇÃO|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para mensagens de saída, definido como nulo para usar o Console|
 
 **Propriedades**
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|type|DESCRIÇÃO|
 |--------|----|-----------|
 |AlgebraPath|string|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
 |CodeBehindReferences|string|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|
@@ -369,7 +369,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 **Método**
 
-|Método|Descrição|Retorno|.|
+|Método|DESCRIÇÃO|Retorno|Parâmetro|
 |------|-----------|------|---------|
 |public bool DoCompile()|Compilar o script U-SQL|Verdadeiro se tiver êxito| |
 |public bool DoExec()|Executar o resultado compilado|Verdadeiro se tiver êxito| |

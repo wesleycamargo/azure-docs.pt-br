@@ -4,9 +4,8 @@ description: Saiba como usar mongoimport e mongorestore para importar dados para
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,11 +15,11 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Importar dados do MongoDB 
 
@@ -38,7 +37,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Importar dados do MongoDB utilizando mongoimport
 > * Importar dados do MongoDB utilizando mongorestore
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Aumentar a taxa de transferência: a duração da sua migração de dados depende da taxa de transferência que você configurar para suas coleções. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para obter mais informações sobre como aumentar a produtividade no [portal do Azure](https://portal.azure.com), consulte [Níveis de desempenho e tipos de preço no Azure Cosmos DB](performance-levels.md).
 
@@ -122,7 +121,7 @@ Exemplo:
 
 5. Calcule os valores aproximados de *batchSize* e *numInsertionWorkers*:
 
-    * Para  *batchSize* , divida as RUs provisionadas totais pelas RUs consumidas a partir do seu documento único, gravado na etapa 3.
+    * Para *batchSize*, divida as RUs provisionadas totais pelas RUs consumidas a partir do seu documento único, gravado na etapa 3.
     
     * Se o *batchSize* calculado for <= 24, utilize esse número como seu valor de *batchSize*.
     
@@ -134,7 +133,7 @@ Exemplo:
     |--------|-----|
     |batchSize| 24 |
     |RUs provisionadas | 10000 |
-    |Latência | 0,100 s |
+    |Latency | 0,100 s |
     |RU cobrada por 1 doc gravado | 10 RUs |
     |numInsertionWorkers | ? |
     

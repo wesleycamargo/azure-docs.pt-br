@@ -1,13 +1,13 @@
 ---
-title: "Usando o cloud-init para personalizar uma VM Linux durante a criação no Azure | Microsoft Docs"
-description: "Como usar cloud-init para personalizar uma VM Linux durante a criação com a CLI do Azure 1.0"
+title: Usando o cloud-init para personalizar uma VM Linux durante a criação no Azure | Microsoft Docs
+description: Como usar cloud-init para personalizar uma VM Linux durante a criação com a CLI do Azure 1.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: v-livech
-ms.openlocfilehash: 0b6150bca333188666935b3c9aa02c4b33690db9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e9182a18a2827ed7f54f5fd042e5934b3b1fd5c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>Use cloud-init para personalizar uma VM Linux durante a criação com a CLI do Azure 1.0
 Este artigo mostra como criar um script de inicialização de nuvem para definir o nome do host, atualizar os pacotes instalados e gerenciar contas de usuário.  Os scripts de inicialização de nuvem são chamados durante a criação da VM na CLI do Azure.  O artigo exige:
@@ -97,14 +97,14 @@ Para inserir scripts a qualquer momento após a inicialização:
 > 
 
 ## <a name="cloud-init-availability-on-azure-vm-quick-create-image-aliases"></a>Disponibilidade de inicialização de nuvem em aliases de imagem de criação rápida de uma VM do Azure:
-| Alias | Editor | Oferta | SKU | Versão | inicialização de nuvem |
+| Alias | Publicador | Oferta | SKU | Versão | inicialização de nuvem |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |Centos |7,2 |mais recente |não |
-| CoreOS |CoreOS |CoreOS |Estável |mais recente |sim |
+| CoreOS |CoreOS |CoreOS |Estável |mais recente |Sim |
 | Debian |credativ |Debian |8 |mais recente |não |
 | openSUSE |SUSE |openSUSE |13.2 |mais recente |não |
 | RHEL |Redhat |RHEL |7,2 |mais recente |não |
-| UbuntuLTS |Canônico |UbuntuServer |14.04.4-LTS |mais recente |sim |
+| UbuntuLTS |Canônico |UbuntuServer |14.04.4-LTS |mais recente |Sim |
 
 A Microsoft está trabalhando com parceiros para incluir a inicialização de nuvem e trabalhar nas imagens que eles fornecem para o Azure.
 

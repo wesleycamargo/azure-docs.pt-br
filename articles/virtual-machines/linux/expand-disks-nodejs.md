@@ -1,12 +1,12 @@
 ---
 title: Expandir o disco do sistema operacional em uma VM Linux com a CLI do Azure 1.0 | Microsoft Docs
-description: "Saiba como expandir o disco virtual do sistema operacional em uma VM Linux usando a CLI do Azure 1.0 e o modelo de implantação do Resource Manager"
+description: Saiba como expandir o disco virtual do sistema operacional em uma VM Linux usando a CLI do Azure 1.0 e o modelo de implantação do Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f81054727bb1f0e8ffa752783e866a72d573589d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Expandir o disco do sistema operacional em uma VM Linux usando a CLI do Azure 1.0
 Normalmente, o tamanho do disco rígido virtual padrão do sistema operacional é de 30 GB em uma VM (máquina virtual) do Linux no Azure. É possível [adicionar discos de dados](add-disk.md) para fornecer espaço de armazenamento adicional, mas você também pode desejar expandir o disco do sistema operacional. Este artigo fornece detalhes sobre como expandir o disco do sistema operacional de uma VM Linux usando discos não gerenciados com a CLI do Azure 1.0.
@@ -29,7 +29,7 @@ Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 - [CLI 1.0 do Azure](#prerequisites) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
 - [CLI 2.0 do Azure](expand-disks.md) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Você precisa da [última CLI do Azure 1.0](../../cli-install-nodejs.md) instalada e conectada a uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) usando o modo do Resource Manager, da seguinte maneira:
 
 ```azurecli

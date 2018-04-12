@@ -1,6 +1,6 @@
 ---
-title: "Como usar o serviço de tabela de armazenamento do Azure ou API da tabela do Azure Cosmos DB do PHP | Microsoft Docs"
-description: "Saiba como usar a API do serviço Tabela do PHP para criar e excluir tabelas e inserir, excluir e consultar a tabela."
+title: Como usar o serviço de tabela de armazenamento do Azure ou API da tabela do Azure Cosmos DB do PHP | Microsoft Docs
+description: Saiba como usar a API do serviço Tabela do PHP para criar e excluir tabelas e inserir, excluir e consultar a tabela.
 services: cosmos-db
 documentationcenter: php
 author: mimig1
@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Como usar o serviço de tabela de armazenamento do Azure ou API da tabela do Cosmos DB do PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -435,9 +435,6 @@ O método **TableRestProxy->lote** permite que você execute várias operações
 * **addDeleteEntity** (adiciona uma operação deleteEntity)
 
 O exemplo a seguir mostra como executar as operações **insertEntity** e **deleteEntity** em uma única solicitação. 
-
-> [!NOTE]
-> Azure Cosmos DB ainda não dá suporte para operações em lote para tabelas. 
 
 ```php
 require_once 'vendor/autoload.php';

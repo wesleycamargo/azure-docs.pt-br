@@ -3,18 +3,17 @@ title: 'BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB 
 description: Apresenta um exemplo de código Golang que pode ser usado para conectar e consultar o BD Cosmos do Azure
 services: cosmos-db
 author: Durgaprasad-Budhwani
-manager: jhubbard
-editor: mimig1
+manager: kfile
 ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 07/21/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 49bf6aed5a8daa482be9d22ecd97b6ab43cae5fe
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5e8a85af7bfb3245f766b932397999726746dfa7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB com Golang e o portal do Azure
 

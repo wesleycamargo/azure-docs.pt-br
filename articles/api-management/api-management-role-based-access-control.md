@@ -1,11 +1,11 @@
 ---
-title: "Como usar o Controle de Acesso Baseado em Função no Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba como usar as funções internas e criar funções personalizadas no Gerenciamento de API do Azure"
+title: Como usar o Controle de Acesso Baseado em Função no Gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como usar as funções internas e criar funções personalizadas no Gerenciamento de API do Azure
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Como usar o Controle de Acesso Baseado em Função no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure depende do RBAC (Controle de Acesso Baseado em Função) do Azure para habilitar o gerenciamento de acesso refinado de serviços e entidades de Gerenciamento de API (por exemplo, APIs e políticas). Este artigo fornece uma visão geral das funções internas e personalizadas no Gerenciamento de API. Para obter mais informações sobre gerenciamento de acesso no Portal do Azure, confira [Introdução ao gerenciamento de acesso no portal do Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -28,9 +28,9 @@ No momento, o Gerenciamento de API oferece três funções internas e adicionar�
 
 A tabela a seguir fornece breves descrições das funções internas. Atribua essas funções usando o portal do Azure ou outras ferramentas, incluindo o Azure [PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), [CLI do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli) e [API REST](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Para obter detalhes sobre como atribuir funções internas, confira [Usar atribuições de função para gerenciar o acesso aos recursos de sua assinatura do Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
 
-| Função          | Acesso de leitura<sup>[1]</sup> | Acesso de gravação<sup>[2]</sup> | Criação de serviço, exclusão, colocação em escala, VPN e configuração de domínio personalizado | Acesso ao portal do editor herdado | Descrição
+| Função          | Acesso de leitura<sup>[1]</sup> | Acesso de gravação<sup>[2]</sup> | Criação de serviço, exclusão, colocação em escala, VPN e configuração de domínio personalizado | Acesso ao portal do editor herdado | DESCRIÇÃO
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
-| Colaborador do serviço de Gerenciamento de API do Azure | ✓ | ✓  | ✓  | ✓ | Superusuário. Tem acesso total de CRUD aos serviços e entidades do Gerenciamento de API (por exemplo, APIs e políticas). Tem acesso ao portal do publicador herdado. |
+| Colaborador do serviço de Gerenciamento de API do Azure | ✓ | ✓ | ✓ | ✓ | Superusuário. Tem acesso total de CRUD aos serviços e entidades do Gerenciamento de API (por exemplo, APIs e políticas). Tem acesso ao portal do publicador herdado. |
 | Leitor do serviço de Gerenciamento de API do Azure | ✓ | | || Tem acesso somente leitura aos serviços e entidades do Gerenciamento de API. |
 | Operador do serviço de Gerenciamento de API do Azure | ✓ | | ✓ | | Pode gerenciar os serviços de Gerenciamento de API, mas não entidades.|
 | Editor do serviço de Gerenciamento de API do Azure<sup>*</sup> | ✓ | ✓ | |  | Pode gerenciar as entidades de Gerenciamento de API, mas não os serviços.|

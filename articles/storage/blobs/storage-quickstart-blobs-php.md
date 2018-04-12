@@ -10,11 +10,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: a1d0232f093ab99bfbeba3012d78c35d6476496e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: be8e58cd998abf0105c3ef17bd3e192605f15ecd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando PHP
 Neste guia de início rápido, você aprenderá a usar PHP para carregar, baixar e listar blobs de blocos em um contêiner no Armazenamento de Blobs do Azure. 
@@ -40,6 +40,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 ```
 
 Este comando clona o repositório para sua pasta do git local. Para abrir o aplicativo PHP de exemplo, procure a pasta storage-blobs-php-quickstart e abra o arquivo phpqs.php.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de conexão de armazenamento
 No aplicativo, você deve fornecer o nome da conta de armazenamento e a chave de conta para criar a instância **BlobRestProxy** do seu aplicativo. É recomendável armazenar esses identificadores dentro de uma variável de ambiente no computador local que está executando o aplicativo. Use um dos exemplos a seguir, dependendo do seu sistema operacional, para criar a variável de ambiente. Substitua os valores **youraccountname** e **youraccountkey** pelo nome e chave da conta.

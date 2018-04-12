@@ -2,7 +2,6 @@
 title: Perguntas frequentes sobre fazer backup de Arquivos do Azure
 description: Este artigo fornece detalhes sobre como proteger seus compartilhamentos de arquivo do Azure.
 services: backup
-keywords: Não adicione ou edite palavras-chave sem consultar seu especialista em SEO.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
@@ -10,11 +9,11 @@ ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 8093275ec9e9cce6d9a765bf1bfc434fecdb6ea7
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fb455fe6f1b481ad2dc855d147860cb2c7898779
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 Este artigo responde perguntas frequentes sobre como fazer backup de Arquivos do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -71,7 +70,7 @@ Escreva para [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microso
 Durante a versão prévia, é possível proteger compartilhamentos de arquivos do Azure de até 25 contas de armazenamento por cofre. Também é possível proteger até 200 compartilhamentos de arquivos do Azure em um único cofre.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Posso proteger dois compartilhamentos de arquivo diferentes da mesma conta de armazenamento em cofres diferentes?
-Não. Os compartilhamentos de arquivos em uma mesma Conta de Armazenamento só podem ser protegidos pelo mesmo Cofre.
+Nº Os compartilhamentos de arquivos em uma mesma Conta de Armazenamento só podem ser protegidos pelo mesmo Cofre.
 
 ## <a name="backup"></a>Backup
 

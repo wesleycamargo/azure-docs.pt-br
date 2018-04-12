@@ -1,11 +1,11 @@
 ---
-title: "Usar a Automação do Azure para escalar verticalmente as máquinas virtuais do Windows | Microsoft Docs"
-description: "Escalar verticalmente uma máquina virtual do Windows em resposta aos alertas de monitoramento com a Automação do Azure"
+title: Usar a Automação do Azure para escalar verticalmente as máquinas virtuais do Windows | Microsoft Docs
+description: Escalar verticalmente uma máquina virtual do Windows em resposta aos alertas de monitoramento com a Automação do Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4f964713-fb67-4bcc-8246-3431452ddf7d
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/29/2016
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea5169c1a95f00e78ae3f5f177812466eb7a0deb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abbbcce2ae72ac77ba6f6c21e626b34bcded7909
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Escalar verticalmente as VMs do Windows com a Automação do Azure
 
@@ -60,7 +60,7 @@ Veja abaixo a descrição das etapas para fazer isso
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configurar a Automação do Azure para acessar suas máquinas virtuais
 A primeira coisa que você precisa fazer é criar uma conta de Automação do Azure que hospedará os runbooks usados para dimensionar uma Máquina Virtual. O serviço de Automação introduziu recentemente o recurso "Executar como conta" que facilita a configuração da Entidade de Serviço para execução automática de Runbooks em nome do usuário. Leia mais sobre isso no artigo abaixo:
 
-* [Autenticar runbooks com uma conta Executar como do Azure](../../automation/automation-sec-configure-azure-runas-account.md)
+* [Autenticar Runbooks com uma conta Executar como do Azure](../../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-the-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importar os runbooks de Escala Vertical da Automação do Azure para sua assinatura
 Os Runbooks necessários para dimensionar verticalmente a sua máquina virtual já estão publicados na Galeria de Runbook da Automação do Azure. Você precisará importá-los para sua assinatura. Saiba como importar Runbooks lendo o seguinte artigo:

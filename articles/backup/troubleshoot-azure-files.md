@@ -3,25 +3,24 @@ title: Solucionar problemas do backup de Arquivos do Azure
 description: Este artigo tem informações sobre a solução de problemas que ocorrem ao proteger seus compartilhamentos de arquivos no Azure.
 services: backup
 ms.service: backup
-keywords: Não adicione ou edite palavras-chave sem consultar seu especialista em SEO.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Solucionar problemas do backup de Arquivos do Azure
 É possível solucionar os problemas e os erros encontrados durante a utilização do backup de Arquivos do Azure com as informações listadas nas tabelas a seguir.
 
 ## <a name="preview-boundaries"></a>Limites da versão prévia
 O backup de Arquivos do Azure está em versão prévia. Não há suporte para os seguintes cenários de backup para compartilhamentos de arquivos do Azure:
-- Protegendo compartilhamentos de arquivos do Azure em Contas de armazenamento com [armazenamento com redundância de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) ou replicação [armazenamento com redundância geográfica com acesso de leitura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
+- Protegendo compartilhamentos de arquivos do Azure em Contas de armazenamento com [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) ou replicação [armazenamento com redundância geográfica com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
 - Protegendo compartilhamentos de arquivos no Azure em contas de armazenamento que têm redes virtuais habilitadas.
 - Fazendo backup de compartilhamento de arquivos do Azure usando o PowerShell ou a CLI.
 

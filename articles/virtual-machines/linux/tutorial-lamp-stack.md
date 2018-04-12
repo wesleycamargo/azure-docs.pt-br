@@ -1,11 +1,11 @@
 ---
-title: "Implantar LAMP em uma máquina virtual do Linux no Azure | Microsoft Docs"
-description: "Tutorial – instalar a pilha LAMP em uma VM do Linux no Azure"
+title: Implantar LAMP em uma máquina virtual do Linux no Azure | Microsoft Docs
+description: Tutorial – instalar a pilha LAMP em uma VM do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 6c12603a-e391-4d3e-acce-442dd7ebb2fe
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 8fcf411db844e227e0c4db0e690a1832f98b42f1
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 21790a44ff60bd11202814efd5c0f32e8b614ec4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Instalar um servidor Web LAMP em uma VM do Azure
 Este artigo explica como implantar um servidor Web Apache, MySQL e PHP (a pilha LAMP) em uma VM do Ubuntu no Azure. Se você prefere o servidor Web NGINX, consulte o tutorial da [Pilha LEMP](tutorial-lemp-stack.md). Para ver o servidor LAMP em ação, opcionalmente, você pode instalar e configurar um site de WordPress. Neste tutorial, você aprenderá a:
@@ -32,7 +32,7 @@ Este artigo explica como implantar um servidor Web Apache, MySQL e PHP (a pilha 
 > * Instalar o WordPress no servidor LAMP
 
 
-Essa configuração destina-se a testes rápidos ou prova de conceito. Para saber mais sobre a pilha LAMP, incluindo recomendações para um ambiente de produção, consulte a [Documentação do Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
+Essa configuração destina-se a testes rápidos ou provas de conceito. Para saber mais sobre a pilha LAMP, incluindo recomendações para um ambiente de produção, consulte a [Documentação do Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -77,7 +77,7 @@ Verifique a versão do MySQL com o seguinte comando (observe o parâmetro `V` em
 mysql -V
 ```
 
-Para ajudar a proteger a instalação do MySQL, execute o script `mysql_secure_installation`. Se você só estiver configurando um servidor temporário, poderá ignorar essa etapa.
+Para proteger a instalação do MySQL, execute o script `mysql_secure_installation`. Se estiver configurando um servidor temporário, você poderá ignorar essa etapa.
 
 ```bash
 mysql_secure_installation
@@ -85,7 +85,7 @@ mysql_secure_installation
 
 Digite a senha raiz do MySQL e defina as configurações de segurança do seu ambiente.
 
-Se você quiser experimentar os recursos MySQL (criar um banco de dados MySQL, adicionar usuários ou alterar as definições de configuração), faça logon no MySQL. Esta etapa não é necessária para se concluir este tutorial.
+Se você quiser experimentar os recursos MySQL (criar um banco de dados MySQL, adicionar usuários ou alterar as definições de configuração), faça logon no MySQL. Esta etapa não é necessária para concluir este tutorial.
 
 ```bash
 mysql -u root -p

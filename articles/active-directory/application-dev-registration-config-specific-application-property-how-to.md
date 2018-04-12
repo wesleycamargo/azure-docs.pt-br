@@ -1,11 +1,11 @@
 ---
-title: "Como preencher campos específicos para um aplicativo personalizado | Microsoft Docs"
-description: "Orientações sobre como preencher campos específicos ao registrar um aplicativo personalizado com o Azure AD"
+title: Como preencher campos específicos para um aplicativo personalizado | Microsoft Docs
+description: Orientações sobre como preencher campos específicos ao registrar um aplicativo personalizado com o Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Como preencher campos específicos para um aplicativo personalizado
 
@@ -36,16 +36,16 @@ Este artigo oferece uma breve descrição de todos os campos disponíveis no for
 ## <a name="fields-in-the-application-registration-form"></a>Campos do formulário de registro do aplicativo
 
 
-| Campo            | Descrição                                                                              |
+| Campo            | DESCRIÇÃO                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Nome             | O nome do aplicativo. Ele deve ter um mínimo de quatro caracteres.                |
+| NOME             | O nome do aplicativo. Ele deve ter um mínimo de quatro caracteres.                |
 | Tipo de aplicativo | **Aplicativo Web/API Web**: um aplicativo que representa um aplicativo Web, uma API Web ou ambos 
 | |**Nativo**: um aplicativo que pode ser instalado no dispositivo ou no computador de um usuário           |
 | URL de logon      | A URL em que os usuários podem entrar para usar o aplicativo                                  |
 
 Após você preencher os campos acima, o aplicativo será registrado no portal do Azure e você será redirecionado para a página do aplicativo. O botão **Configurações** no painel do aplicativo abre a página Configurações, que tem mais campos para você personalizar seu aplicativo. A tabela a seguir descreve todos os campos na página Configurações. Observe que você verá apenas um subconjunto desses campos, dependendo tipo de aplicativo que você criou, um aplicativo Web ou um aplicativo nativo.
 
-| Campo           | Descrição                                                                                                                                                                                                                                                                                                     |
+| Campo           | DESCRIÇÃO                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID do aplicativo  | Quando você registra um aplicativo, o Azure AD atribui a seu aplicativo uma ID de aplicativo. A ID do aplicativo pode ser usada para identificar exclusivamente o aplicativo nas solicitações de autenticação no Azure AD, além de acessar recursos, como a API do Graph.                                                          |
 | URI de ID do aplicativo      | Deve ser um URI exclusivo, geralmente com o formato **https://&lt;locatário\_nome&gt;/&lt;aplicativo\_nome&gt;.** Ele é usado durante o fluxo de concessão de autorização como um identificador exclusivo para especificar o recurso para o qual o token deve ser emitido. Ele também se torna a declaração "aud" no token de acesso emitido. |

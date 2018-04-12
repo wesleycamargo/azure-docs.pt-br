@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 994b8946078ed9b4c8aa965a3bc0e117ba3185c0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Esquema de linguagem de definição de fluxo de trabalho para Aplicativo Lógico do Azure
 
@@ -70,7 +70,7 @@ O exemplo a seguir mostra a estrutura de uma definição de parâmetro:
 
 |Nome do elemento|Obrigatório|DESCRIÇÃO|  
 |------------------|--------------|-----------------|  
-|Tipo|sim|**Tipo**: string <p> **Declaração**: `"parameters": {"parameter1": {"type": "string"}` <p> **Especificação**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: securestring <p> **Declaração**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: int <p> **Declaração**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Tipo**: bool <p> **Declaração**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": true }}` <p> **Tipo**: array <p> **Declaração**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Tipo**: object <p> **Declaração**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Tipo**: secureobject <p> **Declaração**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Observação:** Os tipos `securestring` e `secureobject` não são retornados em operações `GET`. Todas as senhas, chaves e segredos devem usar esse tipo.|  
+|Tipo|sim|**Tipo**: string <p> **Declaração**: `"parameters": {"parameter1": {"type": "string"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: securestring <p> **Declaração**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: int <p> **Declaração**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Tipo**: bool <p> **Declaração**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": true }}` <p> **Tipo**: array <p> **Declaração**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Tipo**: object <p> **Declaração**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Tipo**: secureobject <p> **Declaração**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Observação:** Os tipos `securestring` e `secureobject` não são retornados em operações `GET`. Todas as senhas, chaves e segredos devem usar esse tipo.|  
 |defaultValue|Não |Especifica o valor padrão para o parâmetro quando nenhum valor for especificado no momento que o recurso é criado.|  
 |allowedValues|Não |Especifica uma matriz de valores permitidos para o parâmetro.|  
 |metadata|Não |Especifica informações adicionais sobre o parâmetro, como uma descrição legível ou dados de tempo de design usados pelo Visual Studio ou outras ferramentas.|  
@@ -126,14 +126,14 @@ Os valores JSON na definição podem ser literais ou podem ser expressões que s
 > [!NOTE]
 > Algumas expressões obtêm seus valores de ações de tempo de execução que podem não existir no início da execução. Você pode usar **funções** para ajudar a recuperar alguns desses valores.  
   
-As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Quando um valor JSON tiver sido determinado como uma expressão, o corpo da expressão é extraído, removendo a arroba \(\@). Se for necessária uma cadeia de caracteres literal que comece com \@, essa cadeia de caracteres deve ser substituída usando \@@. Os exemplos a seguir mostram como as expressões são avaliadas.  
+As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Quando um valor JSON tiver sido determinado como uma expressão, o corpo da expressão é extraído, removendo a arroba (@). Se for necessária uma cadeia de caracteres literal que comece com @, essa cadeia de caracteres deve ser substituída usando @@. Os exemplos a seguir mostram como as expressões são avaliadas.  
   
 |Valor JSON|Result|  
 |----------------|------------|  
 |"parameters"|Os “parâmetros” dos caracteres são retornados.|  
 |"parameters[1]"|Os “parâmetros[1]” dos caracteres são retornados.|  
-|\"\@\@\"|Uma cadeia de caracteres de 1 caractere que contém \'\@\' será retornada.|  
-|\" \@\"|Uma cadeia de caracteres de 2 caracteres que contém \' \@\' será retornada.|  
+|"@@"|Uma cadeia de caracteres de 1 caractere que contém \'\@\' será retornada.|  
+|\" \@\"|Uma cadeia de caracteres de 2 caracteres que contém ' @' será retornada.|  
   
 Com *interpolação de cadeia de caracteres*, as expressões também podem aparecer dentro de cadeias de caracteres onde as expressões são encapsuladas em `@{ ... }`. Por exemplo:  <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
@@ -142,12 +142,12 @@ O resultado é sempre uma cadeia de caracteres, o que torna esse recurso semelha
 |Valor JSON|Result|  
 |----------------|------------|  
 |"@parameters('myString')"|Retorna `sampleString` como uma cadeia de caracteres.|  
-|\"\@{parameters('myString')}"|Retorna `sampleString` como uma cadeia de caracteres.|  
+|"@{parameters('myString')}"|Retorna `sampleString` como uma cadeia de caracteres.|  
 |"@parameters('myNumber')"|Retorna `42` como um *número*.|  
-|\"\@{parameters('myNumber')}"|Retorna `42` como uma *cadeia de caracteres*.|  
-|"A resposta é: \@{parameters('myNumber')}"|Retorna a cadeia de caracteres `Answer is: 42`.|  
+|"@{parameters('myNumber')}"|Retorna `42` como uma *cadeia de caracteres*.|  
+|"A resposta é: @{parameters('myNumber')}"|Retorna a cadeia de caracteres `Answer is: 42`.|  
 |"@concat('A resposta é: ', string(parameters('myNumber')))"|Retorna a cadeia de caracteres `Answer is: 42`|  
-|"A resposta é: \@\@{parameters('myNumber')}"|Retorna a cadeia de caracteres `Answer is: @{parameters('myNumber')}`.|  
+|"A resposta é: @@{parameters('myNumber')}"|Retorna a cadeia de caracteres `Answer is: @{parameters('myNumber')}`.|  
   
 ## <a name="operators"></a>Operadores  
 
