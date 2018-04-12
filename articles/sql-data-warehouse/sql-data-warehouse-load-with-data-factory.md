@@ -1,11 +1,11 @@
 ---
-title: "Carregar dados no SQL Data Warehouse do Azure – Data Factory | Microsoft Docs"
+title: Carregar dados no SQL Data Warehouse do Azure – Data Factory | Microsoft Docs
 description: Este tutorial carrega dados no SQL Data Warehouse do Azure usando o Azure Data Factory e usa um banco de dados SQL Server como a fonte de dados.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-sql-data-warehouse;azure-data-factory
 ms.service: sql-data-warehouse
 ms.workload: data-management
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Carregar dados no SQL Data Warehouse com o Data Factory
 
@@ -27,7 +27,7 @@ Você pode usar o Azure Data Factory para carregar dados no SQL Data Warehouse d
 
 **Tempo estimado**: este tutorial levará cerca de 10 a 15 minutos para ser concluído depois que os pré-requisitos forem atendidos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Você precisa de um **Banco de Dados do SQL Server** com tabelas que contêm os dados a serem copiados para o SQL Data Warehouse.  
 
@@ -109,7 +109,7 @@ Agora você informa ao Data Factory sobre as informações de destino.
 
     ![Mapear esquema](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
-4. Clique em **Avançar**.
+4. Clique em **Próximo**.
 
 ## <a name="configure-the-performance-settings"></a>Definir as configurações de desempenho
 Nas configurações de Desempenho, configure uma conta de armazenamento do Azure usada para preparar os dados antes de carregá-los no de forma definitiva no SQL Data Warehouse usando o [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). Depois que a cópia for concluída, os dados provisórios no armazenamento serão limpos automaticamente.
