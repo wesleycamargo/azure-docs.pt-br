@@ -1,11 +1,11 @@
 ---
 title: Tutorial do PolyBase no SQL Data Warehouse | Microsoft Docs
-description: "Saiba o que é o PolyBase e como usá-lo em cenários de data warehouse."
+description: Saiba o que é o PolyBase e como usá-lo em cenários de data warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 03/01/2017
 ms.author: barbkess
 ms.openlocfilehash: 47a2f48a1eef0c138875fbc079724b8d631abc54
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Carregar dados com o PolyBase no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Este tutorial mostra como carregar dados no SQL Data Warehouse usando o AzCopy e
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para acompanhar este tutorial, você precisará de
 
 * Um banco de dados do SQL Data Warehouse.
@@ -52,7 +52,7 @@ Para acompanhar este tutorial, você precisará de
 ## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Etapa 1: Adicionar dados de exemplo ao armazenamento de blobs do Azure
 Para carregar dados, precisamos colocar alguns dados de exemplo em um armazenamento de blobs do Azure. Nesta etapa, preencheremos um blob do Armazenamento do Azure com dados de exemplo. Posteriormente, usaremos o PolyBase para carregar esses dados de exemplo no seu banco de dados do SQL Data Warehouse.
 
-### <a name="a-prepare-a-sample-text-file"></a>R. Preparar um arquivo de texto de exemplo
+### <a name="a-prepare-a-sample-text-file"></a>a. Preparar um arquivo de texto de exemplo
 Para preparar um arquivo de texto de exemplo:
 
 1. Abra o Bloco de Notas e copie as linhas de dados a seguir em um novo arquivo. Salve-o no diretório temporário local como %temp%\DimDate2.txt.

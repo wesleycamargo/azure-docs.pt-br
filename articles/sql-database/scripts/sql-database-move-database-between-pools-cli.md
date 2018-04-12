@@ -1,26 +1,26 @@
 ---
-title: "Exemplo de CLI para mover um pool elástico do banco de dados SQL do Azure | Microsoft Docs"
-description: "Script de exemplo da CLI do Azure para mover um banco de dados SQL em um pool elástico do SQL"
+title: Exemplo de CLI para mover um pool elástico do banco de dados SQL do Azure | Microsoft Docs
+description: Script de exemplo da CLI do Azure para mover um banco de dados SQL em um pool elástico do SQL
 services: sql-database
 documentationcenter: sql-database
 author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune, mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 07/05/2017
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 162617caae751d027deac0a2e2710d425b5a7101
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 37b083a2da74ba2f097dd49eb877f606b9a9cfc8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Usar a CLI para mover um banco de dados SQL do Azure em um pool elástico do SQL
 
@@ -36,9 +36,9 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
 
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh "Move database between pools")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
-Após executar o exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Após a execução do script de exemplo, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -46,9 +46,9 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Cria um servidor lógico que hospeda um banco de dados ou pool elástico. |

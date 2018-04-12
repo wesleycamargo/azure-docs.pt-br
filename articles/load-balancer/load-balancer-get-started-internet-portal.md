@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1b7901542a699e74f65527bf734133f73acb0bea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c646b0b1ab0ec62cffb4f7cf7474b48c68dfabb4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-public-basic-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Criar um Load Balancer Básico público para balancear cargas de VMs usando o Portal do Azure
 
@@ -38,8 +38,8 @@ Nesta seção, você cria um Load Balancer Básico público usando o portal. O e
 1. No canto superior esquerdo da tela, clique em **Criar um recurso** > **Rede** > **Load Balancer**.
 2. Na página **Criar um balanceador de carga**, insira estes valores para o balanceador de carga:
     - *myLoadBalancer* – para o nome do balanceador de carga.
-    - **Public** – para o tipo da frente do balanceador de carga. 
-     - *myPublicIP* – para o IP público que você deve criar com o SKU como **Básico** e **Atribuição** definida como **Dinâmico**.
+    - **Public** – para o tipo do balanceador de carga.
+    - *myPublicIP* – para o IP público que você deve criar com o SKU como **Básico** e **Atribuição** definida como **Dinâmico**.
     - *myResourceGroupLB* - para o nome do novo grupo de recursos que você criar.
 3. Clique em **Criar** para criar o balanceador de carga.
    
@@ -84,11 +84,11 @@ Nesta seção, você criará regras NSG para permitir conexões de entrada usand
 1. Clique em **Todos os recursos** no menu da esquerda e, depois, na lista de recursos, clique em **myNetworkSecurityGroup**, que está localizado no grupo de recursos **myResourceGroupLB**.
 2. Em **Configurações**, clique em **Regras de segurança de entrada** e clique em **Adicionar**.
 3. Insira esses valores para a regra de segurança de entrada denominada *myHTTPRule* para permitir conexões de entrada HTTP usando a porta 80:
-    - *Marca de serviço* - para **Fonte**.
-    - *Internet* - para **Marca de serviço de fonte**
+    - *Service Tag* – para **Fonte**.
+    - *Internet* – para **Marca de serviço de fonte**
     - *80* - para os **Intervalos de porta de destino**
-    - *TCP* - para **Protocolo**
-    - *Permitir* - para **Ação**
+    - *TCP* – para **Protocolo**
+    - *Allow* – para **Ação**
     - *100* - para **Prioridade**
     - *myHTTPRule* - para nome
     - *Allow HTTP* - para descrição
@@ -96,11 +96,11 @@ Nesta seção, você criará regras NSG para permitir conexões de entrada usand
  
  ![Criar uma rede virtual](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
 5. Repita as etapas 2 a 4 para criar outra regra denominada *myRDPRule* para permitir uma conexão de RDP de entrada usando a porta 3389 com os seguintes valores:
-    - *Marca de serviço* - para **Fonte**.
-    - *Internet* - para **Marca de serviço de fonte**
+    - *Service Tag* – para **Fonte**.
+    - *Internet* – para **Marca de serviço de fonte**
     - *3389* - para os **Intervalos de porta de destino**
-    - *TCP* - para **Protocolo**
-    - *Permitir* - para **Ação**
+    - *TCP* – para **Protocolo**
+    - *Allow* – para **Ação**
     - *200* - para **Prioridade**
     - *myRDPRule* - para nome
     - *Allow RDP* - para descrição
@@ -148,12 +148,12 @@ Para distribuir o tráfego para as máquinas virtuais, um pool de endereços de 
 
 Para permitir que o Load Balancer Básico monitore o status de seu aplicativo, use uma investigação de integridade. A investigação de integridade adiciona ou remove dinamicamente VMs da rotação do balanceador de carga com base na resposta às verificações de integridade. Crie uma investigação de integridade *myHealthProbe* para monitorar a integridade das VMs.
 
-1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** da lista de recursos.
+1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** na lista de recursos.
 2. Em **Configurações**, clique em **Investigação de integridade** e clique em **Adicionar**.
 3. Use estes valores para criar a investigação de integridade:
-    - *myHealthProbe* - para o nome da investigação de integridade.
+    - *myHealthProbe* – para o nome da investigação de integridade.
     - **HTTP** – para o tipo de protocolo.
-    - *80* - para o número da porta.
+    - *80* – para o número da porta.
     - *15* – para o número de **Intervalo** em segundos entre tentativas de investigação.
     - *2* – para o número de **Limite não íntegro** ou falhas de investigação consecutivas que devem ocorrer antes que uma VM seja considerada não íntegra.
 4. Clique em **OK**.
@@ -169,10 +169,10 @@ Uma regra do Load Balancer é usada para definir como o tráfego é distribuído
 3. Use estes valores para configurar a regra do balanceamento de carga:
     - *myHTTPRule* – para o nome da regra de balanceamento de carga.
     - **TCP** – para o tipo de protocolo.
-    - *80* - para o número da porta.
+    - *80* – para o número da porta.
     - *80* – para a porta de back-end.
     - *myBackendPool* – para o nome do pool de back-end.
-    - *myHealthProbe* - para o nome da investigação de integridade.
+    - *myHealthProbe* – para o nome da investigação de integridade.
 4. Clique em **OK**.
     
     ![Adicionando uma regra de balanceamento de carga](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)

@@ -1,26 +1,26 @@
 ---
-title: "Exemplo do PowerShell para monitorar e dimensionar um pool elástico do SQL do Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Script de exemplo do Azure PowerShell para monitorar e dimensionar um pool elástico do SQL no Banco de Dados SQL do Azure"
+title: Exemplo do PowerShell para monitorar e dimensionar um pool elástico do SQL do Banco de Dados SQL do Azure | Microsoft Docs
+description: Script de exemplo do Azure PowerShell para monitorar e dimensionar um pool elástico do SQL no Banco de Dados SQL do Azure
 services: sql-database
 documentationcenter: sql-database
 author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 3c7d655ba8893cdd427b2b77cd57608fcb275b59
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: a66aca8420e5512eb139325f9f1b9603540f1fa7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Use o PowerShell para monitorar e dimensionar um pool elástico do SQL no Banco de Dados SQL do Azure
 
@@ -32,9 +32,9 @@ Este exemplo de script do PowerShell monitora as métricas de desempenho de um p
 
 [!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=16-17 "Monitor and scale single SQL Database")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
-Após executar o exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Após a execução do script de exemplo, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
@@ -42,9 +42,9 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Command | Observações |
+| Comando | Observações |
 |---|---|
  [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Cria um servidor lógico que hospeda um banco de dados ou pool elástico. |
@@ -61,4 +61,4 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 
 Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Os exemplos de script do PowerShell do Banco de Dados SQL adicionais podem ser encontrados nos [scripts do PowerShell do Banco de Dados SQL do Azure](../sql-database-powershell-samples.md).
+Outros exemplos de script do PowerShell para Banco de Dados SQL podem ser encontrados nos [scripts do PowerShell para Banco de Dados SQL do Azure](../sql-database-powershell-samples.md).
