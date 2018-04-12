@@ -4,7 +4,7 @@ description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: b06144e6ad3df1626022edd856e14d6c47494336
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d08c752af23845a31428b16ee3de594044b4129
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para as distribuições não endossadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -50,7 +50,7 @@ O restante deste artigo traz orientações gerais para execução da sua distrib
 * É necessário suporte a kernel para montar sistemas de arquivos UDF. Na primeira inicialização no Azure, a configuração de provisionamento é transmitida à VM do Linux por meio de mídia formatada para UDF, a qual é anexada ao convidado. O agente de Linux do Azure deve ser capaz de montar o sistema de arquivos UDF para ler sua configuração e provisionar a VM.
 * Versões de kernel do Linux abaixo de 2.6.37 não dão suporte ao NUMA no Hyper-V com tamanhos maiores de VM. Esse problema afeta principalmente distribuições mais antigas usando kernel Red Hat 2.6.32 upstream e foi corrigido no RHEL 6.6 (kernel-2.6.32-504). Sistemas que executam kernels personalizados anteriores a 2.6.37 ou com base em RHEL anteriores a 2.6.32-504 devem definir o parâmetro de inicialização `numa=off` na linha de comando do kernel em grub.conf. Para obter mais informações, confira o [KB 436883](https://access.redhat.com/solutions/436883) do Red Hat.
 * Não configure uma partição de permuta no disco do SO. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporários.  Verifique as etapas a seguir para obter mais informações a esse respeito.
-* Todas as imagens de VHD no Azure devem ter um tamanho virtual alinhado para 1MB. Ao converter de um disco bruto para VHD, certifique-se de que o tamanho do disco seja um múltiplo de 1MB antes da conversão. Verifique as etapas a seguir para obter mais informações.
+* Todos os VHDs no Azure devem ter um tamanho virtual alinhado a 1 MB. Ao converter de um disco bruto para VHD, certifique-se de que o tamanho do disco seja um múltiplo de 1MB antes da conversão. Verifique as etapas a seguir para obter mais informações.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Instalação dos módulos de kernel sem Hyper-V
 O Azure é executado no hipervisor Hyper-V, de modo que o Linux requer que determinados módulos de kernel estejam instalados para executar no Azure. Se você tem uma VM que foi criada fora do Hyper-V, os instaladores do Linux não incluem os drivers Hyper-V no ramdisk inicial (initrd ou initramfs), a menos que ele detecte que está executando um ambiente Hyper-V. Ao usar um sistema de virtualização diferente (ou seja, Virtualbox, KVM, etc.) para preparar a imagem do Linux, talvez seja necessário recompilar o initrd para garantir que pelo menos os módulos kernel `hv_vmbus` e `hv_storvsc` estejam disponíveis no ramdisk inicial.  Isso é um problema conhecido pelo menos em sistemas com base na distribuição Red Hat upstream.

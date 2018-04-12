@@ -1,11 +1,11 @@
 ---
-title: "Visão geral da solução StorSimple série 8000 | Microsoft Docs"
-description: "Descreve o processo de camadas do StorSimple, o gerenciamento de dispositivos, de dispositivos virtuais, de serviços e de armazenamento, e também apresenta os principais termos usados no StorSimple."
+title: Visão geral da solução StorSimple série 8000 | Microsoft Docs
+description: Descreve o processo de camadas do StorSimple, o gerenciamento de dispositivos, de dispositivos virtuais, de serviços e de armazenamento, e também apresenta os principais termos usados no StorSimple.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série 8000 StorSimple: uma solução de armazenamento em nuvem híbrida
 ## <a name="overview"></a>Visão geral
@@ -186,7 +186,7 @@ Os dados são excluídos da nuvem somente quando não há referências a eles. P
 
 
 ### <a name="thin-provisioning"></a>Provisionamento dinâmico
-Provisionamento dinâmico é uma tecnologia de virtualização em que o armazenamento disponível parece exceder os recursos físicos. Em vez de reservar armazenamento suficiente com antecedência, o StorSimple usa o provisionamento dinâmico para alocar espaço suficiente para atender às necessidades atuais. A natureza elástica do armazenamento em nuvem facilita essa abordagem porque o StorSimple pode aumentar ou diminuir o armazenamento em nuvem para atender às demandas em mudança.
+Provisionamento dinâmico é uma tecnologia de virtualização no qual o armazenamento disponível parece exceder os recursos físicos. Em vez de reservar armazenamento suficiente com antecedência, o StorSimple usa o provisionamento dinâmico para alocar espaço suficiente para atender às necessidades atuais. A natureza elástica do armazenamento em nuvem facilita essa abordagem porque o StorSimple pode aumentar ou diminuir o armazenamento em nuvem para atender às demandas em mudança.
 
 > [!NOTE]
 > Os volumes fixados localmente não são provisionados de modo dinâmico. O armazenamento alocado para um volume somente local é provisionado em sua totalidade durante a criação do volume.
@@ -204,12 +204,12 @@ A eliminação de duplicação reduz a quantidade geral de dados armazenados, el
 ## <a name="storsimple-workload-summary"></a>Resumo de carga de trabalho do StorSimple
 Confira na tabela abaixo um resumo das cargas de trabalho do StorSimple com suporte.
 
-| Cenário | Carga de trabalho | Suportado | Restrições | Versão |
+| Cenário | Carga de trabalho | Com suporte | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Colaboração |Compartilhamento de arquivos |Sim | |Todas as versões |
-| Colaboração |Compartilhamento de arquivos distribuído |Sim | |Todas as versões |
+| Colaboração |Compartilhamento de arquivos |sim | |Todas as versões |
+| Colaboração |Compartilhamento de arquivos distribuído |sim | |Todas as versões |
 | Colaboração |SharePoint |Sim* |Com suporte somente com volumes afixados localmente |Atualização 2 e posterior |
-| Arquivamento |Arquivamento de arquivos simples |Sim | |Todas as versões |
+| Arquivamento |Arquivamento de arquivos simples |sim | |Todas as versões |
 | Virtualização |Máquinas virtuais |Sim* |Com suporte somente com volumes afixados localmente |Atualização 2 e posterior |
 | Banco de dados |SQL |Sim* |Com suporte somente com volumes afixados localmente |Atualização 2 e posterior |
 | Vigilância em vídeo |Vigilância em vídeo |Sim* |Há suporte quando o dispositivo StorSimple é dedicado somente a essa carga de trabalho |Atualização 2 e posterior |
@@ -231,9 +231,9 @@ As cargas de trabalho a seguir não têm suporte de dispositivos da série StorS
 
 Veja a seguir uma lista dos componentes da infraestrutura com suporte do StorSimple.
 
-| Cenário | Carga de trabalho | Suportado | Restrições | Versão |
+| Cenário | Carga de trabalho | Com suporte | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Geral |Rota Expressa |Sim | |Todas as versões |
+| Geral |ExpressRoute |sim | |Todas as versões |
 | Geral |DataCore FC |Sim* |Suporte com DataCore SANsymphony |Todas as versões |
 | Geral |DFSR |Sim* |Com suporte somente com volumes afixados localmente |Todas as versões |
 | Geral |Indexação |Sim* |Para volumes em camadas, somente a indexação de metadados tem suporte (sem dados).<br>Para volumes afixados localmente, a indexação completa tem suporte. |Todas as versões |
@@ -254,7 +254,7 @@ A seguir está uma lista de outros aplicativos de software usados com o StorSimp
 Antes de implantar sua solução de Microsoft Azure StorSimple, recomendamos que você revise os seguintes termos e definições.
 
 ### <a name="key-terms-and-definitions"></a>Principais termos e definições
-| Termo (sigla ou abreviação) | Descrição |
+| Termo (sigla ou abreviação) | DESCRIÇÃO |
 | --- | --- |
 | Registro de controle de acesso (ACR) |Um registro associado a um volume no dispositivo Microsoft Azure StorSimple que determina quais hosts podem se conectar a ele. A determinação se baseia no iSCSI IQN (nome qualificado) dos hosts (contidos no ACR) que estão se conectando ao dispositivo StorSimple. |
 | AES-256 |Um algoritmo de AES (padrão de criptografia avançado) de 256 bits para criptografar dados enquanto eles se movem de e para a nuvem. |
@@ -299,7 +299,7 @@ Antes de implantar sua solução de Microsoft Azure StorSimple, recomendamos que
 | do Azure |Conjunto de credenciais de acesso vinculadas à sua conta de armazenamento para determinado provedor de serviço de nuvem. |
 | StorSimple Adapter for SharePoint |Componente do Microsoft Azure StorSimple que estende transparentemente a proteção de dados e o armazenamento do StorSimple para farms de servidores do SharePoint. |
 | Serviço do Gerenciador de Dispositivos StorSimple |Uma extensão do portal do Azure que permite que você gerencie seus dispositivos locais e virtuais do Azure StorSimple. |
-| Gerenciador de instantâneos do StorSimple |Snap-in do console de gerenciamento Microsoft (MMC)  para gerenciar operações de backup e restauração no Microsoft Azure StorSimple. |
+| StorSimple Snapshot Manager |Snap-in do console de gerenciamento Microsoft (MMC)  para gerenciar operações de backup e restauração no Microsoft Azure StorSimple. |
 | fazer backup |Recurso que permite ao usuário fazer um backup interativo de um volume. É uma maneira alternativa de fazer o backup manual de um volume em vez de fazer um backup automatizado por meio de uma política definida. |
 | Provisionamento dinâmico |Método de otimizar a eficiência com a qual o espaço de armazenamento disponível é usado em sistemas de armazenamento. No provisionamento dinâmico, o armazenamento é alocado entre vários usuários com base no espaço mínimo exigido por cada usuário em determinado momento. Veja também *provisionamento estático*. |
 | disposição em camadas |Organização de dados em agrupamentos lógicos com base no uso atual, idade e relação com outros dados. O StorSimple organiza automaticamente os dados em camadas. |

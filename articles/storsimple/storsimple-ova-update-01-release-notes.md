@@ -1,11 +1,11 @@
 ---
-title: "Notas de versão das Atualizações do StorSimple Virtual Array | Microsoft Docs"
-description: "Descreve os problemas em aberto críticos e resoluções para o StorSimple Virtual Array que executa as Atualizações 0.1 e 0.2."
+title: Notas de versão das Atualizações do StorSimple Virtual Array | Microsoft Docs
+description: Descreve os problemas em aberto críticos e resoluções para o StorSimple Virtual Array que executa as Atualizações 0.1 e 0.2.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 3993864d-2ddd-4302-a2f1-8d737fba6eab
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral

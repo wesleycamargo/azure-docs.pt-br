@@ -1,6 +1,6 @@
 ---
-title: "Usar o PowerShell para criar uma VM com um servidor de relatório no modo nativo | Microsoft Docs"
-description: "Este tópico descreve e fornece orientação para a implantação e a configuração de um servidor de relatório em modo nativo do SQL Server Reporting Services em uma Máquina Virtual do Azure. "
+title: Usar o PowerShell para criar uma VM com um servidor de relatório no modo nativo | Microsoft Docs
+description: 'Este tópico descreve e fornece orientação para a implantação e a configuração de um servidor de relatório em modo nativo do SQL Server Reporting Services em uma Máquina Virtual do Azure. '
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
 > [!IMPORTANT] 
@@ -66,7 +66,7 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
    * **Tamanho:A3** é o tamanho recomendado da VM para as cargas de trabalho do SQL Server. Se uma VM for usada apenas como um servidor de relatório, o tamanho de VM A2 será suficiente, a menos que o servidor de relatório enfrente uma grande carga de trabalho. Para saber mais sobre preços da VM, consulte [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Novo Nome de Usuário**: o nome fornecido é criado como um administrador na VM.
    * **Nova Senha** e **Confirmar**. Essa senha será usada para a nova conta de administrador, portanto, recomendamos o uso de uma senha forte.
-   * Clique em **Avançar**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Clique em **Próximo**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. Na próxima página edite os campos a seguir:
    
    * **Serviço de Nuvem**: selecione **Criar um novo Serviço de Nuvem**.
@@ -511,7 +511,7 @@ Se você não quiser executar o script do PowerShell para configurar o servidor 
    
    1. Clique em **Alterar Banco de Dado**s.
    2. Clique em **Criar um novo banco de dados do servidor de relatório** e clique em **Próximo**.
-   3. Mantenha o **Nome do Servidor** padrão: como o nome da VM e mantenha o **Tipo de Autenticação** padrão como **Usuário Atual** – **Segurança Integrada**. Clique em **Avançar**.
+   3. Mantenha o **Nome do Servidor** padrão: como o nome da VM e mantenha o **Tipo de Autenticação** padrão como **Usuário Atual** – **Segurança Integrada**. Clique em **Próximo**.
    4. Mantenha o **Nome do Banco de Dados** padrão como **ReportServer** e clique em **Próximo**.
    5. Mantenha o **Tipo de Autenticação** padrão como **Credenciais do Serviço** e clique em **Próximo**.
    6. Clique em **Próximo** on the **Resumo** .
@@ -563,7 +563,7 @@ Para verificar se a funcionalidade básica do servidor de relatório está funci
         https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## <a name="create-users-and-assign-roles"></a>Criar usuários e atribuir funções
-Após a configuração e verificação do servidor de relatório, uma tarefa administrativa comum é criar um ou mais usuários e atribuir usuários às funções do Reporting Services. Para saber mais, confira o seguinte:
+Após a configuração e verificação do servidor de relatório, uma tarefa administrativa comum é criar um ou mais usuários e atribuir usuários às funções do Reporting Services. Para saber mais, consulte o seguinte: 
 
 * [Criar uma conta de usuário local](https://technet.microsoft.com/library/cc770642.aspx)
 * [Conceder ao Usuário Acesso a um Servidor de Relatório (Gerenciador de Relatórios)](https://msdn.microsoft.com/library/ms156034.aspx))
@@ -581,7 +581,7 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
      Para saber mais, consulte [Instalando, Desinstalando e Dando Suporte ao Construtor de Relatórios](https://technet.microsoft.com/library/dd207038.aspx).
 * **SQL Server Data Tools: VM**: se você criou a VM com o SQL Server 2012, o SQL Server Data Tools estará instalado na máquina virtual e poderá ser usado para criar **Projetos do Servidor de Relatório** e relatórios na máquina virtual. O SQL Server Data Tools pode publicar os relatórios no servidor de relatório na máquina virtual.
   
-    Se você tiver criado a VM com o SQL Server 2014, instale o SQL Server Data Tools - BI para Visual Studio. Para saber mais, confira o seguinte:
+    Se você tiver criado a VM com o SQL Server 2014, instale o SQL Server Data Tools - BI para Visual Studio. Para saber mais, consulte o seguinte: 
   
   * [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)

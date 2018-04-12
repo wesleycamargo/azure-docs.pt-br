@@ -1,11 +1,11 @@
 ---
 title: NAMD com Microsoft HPC Pack em VMs do Linux | Microsoft Docs
-description: "Implante um cluster do Microsoft HPC Pack no Azure e executar uma simulação do NAMD com charmrun em vários nós de computação do Linux."
+description: Implante um cluster do Microsoft HPC Pack no Azure e executar uma simulação do NAMD com charmrun em vários nós de computação do Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 76072c6b-ac35-4729-ba67-0d16f9443bd7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61dd49d4bd3183b6b9a78036d6d7d01798e4dc89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Executar o NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure
 Este artigo mostra uma maneira de executar uma carga de trabalho de computação de alto desempenho (HPC) do Linux em máquinas virtuais do Azure. Aqui, você configura um cluster do [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) no Azure com nós de computação Linux e executa uma simulação do [NAMD](http://www.ks.uiuc.edu/Research/namd/) para calcular e visualizar a estrutura de um sistema biomolecular grande.  

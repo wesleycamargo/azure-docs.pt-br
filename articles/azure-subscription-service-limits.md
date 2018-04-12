@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
 ms.openlocfilehash: f8b97aeb4c37578b884c924bd1919a59fa0f1cf8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Com o passar do tempo, a lista será expandida e atualizada para uma maior cobertura da plataforma.
@@ -48,8 +48,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Active Directory](#active-directory-limits)
 * [Gerenciamento da API](#api-management-limits)
 * [Serviço de Aplicativo](#app-service-limits)
-* [Gateway de Aplicativo
-](#application-gateway-limits)
+* [Gateway de Aplicativo](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automação](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)

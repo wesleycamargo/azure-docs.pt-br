@@ -1,6 +1,6 @@
 ---
 title: Criptografia de dados em repouso no Microsoft Azure | Microsoft Docs
-description: "Este artigo fornece uma visão geral da criptografia de dados em repouso no Microsoft Azure, os recursos gerais e as considerações gerais."
+description: Este artigo fornece uma visão geral da criptografia de dados em repouso no Microsoft Azure, os recursos gerais e as considerações gerais.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
 ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
 Há várias ferramentas no Microsoft Azure para proteger os dados de acordo com as necessidades de segurança e a conformidade de sua empresa. Este documento se concentra em:
@@ -255,28 +255,28 @@ A criptografia do lado do cliente dos dados do SQL Azure possui suporte através
 |                                  |                |                     |                              |                              | **Cliente** |
 |                                  | **Gerenciamento de Chaves** | **Chaves de serviço gerenciado** | **Cliente gerenciado no Key Vault** | **Cliente gerenciado no local** |        |
 | **Armazenamento e banco de dados**            |                |                     |                              |                              |        |
-| Disco (IaaS)                      |                | -                   | Sim                          | Sim*                         | -      |
-| SQL Server (IaaS)                |                | Sim                 | Sim                          | Sim                          | Sim    |
-| SQL Azure (PaaS)                 |                | Sim                 | Visualização                      | -                            | Sim    |
-| Armazenamento do Microsoft Azure (Blobs de páginas e Bloco) |                | Sim                 | Visualização                      | -                            | Sim    |
-| Armazenamento do Microsoft Azure (Arquivos)            |                | Sim                 | -                            | -                            | -      |
-| Armazenamento do Microsoft Azure (Tabelas, Consultas)   |                | -                   | -                            | -                            | Sim    |
-| Cosmos DB (DocumentDB)          |                | Sim                 | -                            | -                            | -      |
-| StorSimple                       |                | Sim                 | -                            | -                            | Sim    |
-| Backup                           |                | -                   | -                            | -                            | Sim    |
+| Disco (IaaS)                      |                | -                   | sim                          | Sim*                         | -      |
+| SQL Server (IaaS)                |                | sim                 | sim                          | sim                          | sim    |
+| SQL Azure (PaaS)                 |                | sim                 | Visualização                      | -                            | sim    |
+| Armazenamento do Microsoft Azure (Blobs de páginas e Bloco) |                | sim                 | Visualização                      | -                            | sim    |
+| Armazenamento do Microsoft Azure (Arquivos)            |                | sim                 | -                            | -                            | -      |
+| Armazenamento do Microsoft Azure (Tabelas, Consultas)   |                | -                   | -                            | -                            | sim    |
+| Cosmos DB (DocumentDB)          |                | sim                 | -                            | -                            | -      |
+| StorSimple                       |                | sim                 | -                            | -                            | sim    |
+| Backup                           |                | -                   | -                            | -                            | sim    |
 | **Inteligência e Análise**       |                |                     |                              |                              |        |
-| Fábrica de dados do Azure               |                | Sim                 | -                            | -                            | -      |
+| Fábrica de dados do Azure               |                | sim                 | -                            | -                            | -      |
 | Azure Machine Learning           |                | -                   | Visualização                      | -                            | -      |
-| Stream Analytics do Azure           |                | Sim                 | -                            | -                            | -      |
-| HDInsights (Armazenamento de Blobs)  |                | Sim                 | -                            | -                            | -      |
-| HDInsights (Armazenamento de Data Lake)   |                | Sim                 | -                            | -                            | -      |
-| Repositório Azure Data Lake            |                | Sim                 | Sim                          | -                            | -      |
-| Catálogo de Dados do Azure               |                | Sim                 | -                            | -                            | -      |
-| Power BI                         |                | Sim                 | -                            | -                            | -      |
+| Stream Analytics do Azure           |                | sim                 | -                            | -                            | -      |
+| HDInsights (Armazenamento de Blobs)  |                | sim                 | -                            | -                            | -      |
+| HDInsights (Armazenamento de Data Lake)   |                | sim                 | -                            | -                            | -      |
+| Repositório Azure Data Lake            |                | sim                 | sim                          | -                            | -      |
+| Catálogo de Dados do Azure               |                | sim                 | -                            | -                            | -      |
+| Power BI                         |                | sim                 | -                            | -                            | -      |
 | **Serviços de IoT**                     |                |                     |                              |                              |        |
-| Hub IoT                          |                | -                   | -                            | -                            | Sim    |
-| Barramento de Serviço                      |                | Sim (camada Premium)              | -                            | -                            | Sim    |
-| Hubs de Eventos                       |                | Sim             | -                            | -                            | -      |
+| Hub IoT                          |                | -                   | -                            | -                            | sim    |
+| Barramento de Serviço                      |                | Sim (camada Premium)              | -                            | -                            | sim    |
+| Hubs de evento                       |                | sim             | -                            | -                            | -      |
 
 
 ## <a name="conclusion"></a>Conclusão

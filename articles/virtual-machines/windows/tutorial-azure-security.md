@@ -1,13 +1,13 @@
 ---
-title: "Central de Segurança do Azure e máquinas virtuais do Windows no Azure | Microsoft Docs"
-description: "Saiba mais sobre a segurança de sua máquina virtual do Microsoft Azure com a Central de Segurança do Azure."
+title: Central de Segurança do Azure e máquinas virtuais do Windows no Azure | Microsoft Docs
+description: Saiba mais sobre a segurança de sua máquina virtual do Microsoft Azure com a Central de Segurança do Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: adb00e28b0b204858a763f83836ee2ac96f8f9e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4597de035e352387c22e92412ee6361f9c38a8ca
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Monitorar a segurança da máquina virtual usando a Central de Segurança do Azure
 
@@ -34,7 +34,7 @@ A Central de Segurança do Azure pode ajudá-lo a ganhar visibilidade em suas pr
 
 ## <a name="security-center-overview"></a>Visão geral da Central de Segurança
 
-A Central de Segurança do Azure identifica possíveis problemas de configuração da VM (máquina virtual) e ameaças de segurança direcionadas. Elas podem incluir VMs que não tenham grupos de segurança de rede, discos não criptografados e ataques de protocolo RDP de força bruta. Essas informações são exibidas no painel da Central de Segurança em gráficos fáceis de ler.
+A Central de Segurança do Azure identifica possíveis problemas de configuração da VM (máquina virtual) e ameaças de segurança direcionadas. Elas podem incluir VMs que não tenham grupos de segurança de rede, discos não criptografados e ataques de protocolo RDP de força bruta. Essas informações são exibidas no painel da Central de Segurança em grafos fáceis de ler.
 
 Para acessar o painel da Central de segurança, no portal do Azure, no menu, selecione **Central de Segurança**. No painel, é possível visualizar a integridade da segurança de seu ambiente do Azure, encontrar uma lista das recomendações atuais e exibir o estado atual dos alertas de ameaça. Você pode expandir cada gráfico de alto nível para exibir mais detalhes.
 
@@ -127,7 +127,7 @@ Para alterar o tipo de preço:
 3. Selecione o novo tipo e selecione **Selecionar**.
 4. Na folha **Política de segurança**, selecione **Salvar**. 
 
-Após alterar o tipo de preço, o gráfico de alertas de segurança começará a ser preenchido conforme forem detectadas ameaças de segurança.
+Após alterar o tipo de preço, o grafo de alertas de segurança começará a ser preenchido conforme forem detectadas ameaças de segurança.
 
 ![Alertas de segurança](./media/tutorial-azure-security/security-alerts.png)
 

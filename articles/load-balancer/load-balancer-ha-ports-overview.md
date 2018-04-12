@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: 09c51441d393de5d801e7a4c259b711a527349d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6e9dd09558a3485629d5b70dd8b68b292427b18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-availability-ports-overview"></a>Visão geral de portas de alta disponibilidade
 
@@ -72,20 +72,20 @@ Essa configuração não permite nenhuma outra configuração de regra de balanc
 
 No entanto, você pode configurar um Load Balancer Standard para as instâncias de back-end além dessa regra de porta de alta disponibilidade.
 
-## <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Uma única configuração de portas de alta disponibilidade de IP flutuante (retorno de servidor direto) no Load Balancer Standard interno
+### <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Uma única configuração de portas de alta disponibilidade de IP flutuante (retorno de servidor direto) no Load Balancer Standard interno
 
 Você pode configurar o balanceador de carga de forma similar para usar uma regra de balanceamento de carga com **Porta de alta disponibilidade** com um único front-end e o **IP flutuante** definido como **Habilitado**. 
 
 Essa configuração permite que você adicione mais regras de balanceamento de carga de IP flutuante e/ou um Load Balancer público. No entanto, você não pode usar uma configuração de balanceamento de carga de portas de alta disponibilidade de IP não flutuante com essa configuração.
 
-## <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Várias configurações de portas de alta disponibilidade no Load Balancer Standard interno
+### <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Várias configurações de portas de alta disponibilidade no Load Balancer Standard interno
 
 Se seu cenário exigir que você configure mais de um front-end de porta de alta disponibilidade para o mesmo pool de back-end, você pode fazer isso da seguinte maneira: 
 - configurar mais de um endereço IP privado de front-end para um único recurso do Load Balancer Standard interno.
 - configurar várias regras de balanceamento de carga, em que cada regra tem um único endereço IP de front-end selecionado.
 - Selecione a opção **Portas de alta disponibilidade** e defina **IP flutuante** para **Habilitado** em todas as regras de balanceamento de carga.
 
-## <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Load Balancer interno com portas de alta disponibilidade e Load Balancer público nas mesmas instâncias de back-end
+### <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Load Balancer interno com portas de alta disponibilidade e Load Balancer público nas mesmas instâncias de back-end
 
 Você pode configurar **um** recurso de Load Balancer Standard público para os recursos de back-end junto com um único padrão Load Balancer Standard interno com porta de alta disponibilidade.
 

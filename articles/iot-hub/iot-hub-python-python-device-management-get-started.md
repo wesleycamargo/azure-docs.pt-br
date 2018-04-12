@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao gerenciamento de dispositivo do Hub IoT do Azure (Python) | Microsoft Docs"
-description: "Como usar o gerenciamento de dispositivos do Hub IoT para iniciar uma reinicialização do dispositivo remoto. Use o SDK do IoT do Azure para Python para implementar um aplicativo de dispositivo simulado que inclui um método direto e um aplicativo de serviço que invoca o método direto."
+title: Introdução ao gerenciamento de dispositivo do Hub IoT do Azure (Python) | Microsoft Docs
+description: Como usar o gerenciamento de dispositivos do Hub IoT para iniciar uma reinicialização do dispositivo remoto. Use o SDK do IoT do Azure para Python para implementar um aplicativo de dispositivo simulado que inclui um método direto e um aplicativo de serviço que invoca o método direto.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
-ms.author: v-masebo
-ms.openlocfilehash: b9dfbd775de3bb54e405e4054bca4e2b878305a3
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: 001a5d180e2b97894174ba7c63ec3947c9968364
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-management-python"></a>Introdução ao gerenciamento de dispositivos (Python)
 

@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 189a3029449a3161da2a20f940b77a5bb63bd1ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>Como usar o API Engagement no iOS
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Este documento é um complemento para o documento Como integrar o Engagement no iOS: ele fornece detalhes aprofundados sobre como usar a API Engagement para relatar as estatísticas do aplicativo.
 
 Tenha em mente que caso queira o Engagement apenas para relatar as sessões, atividades, falhas e informações técnicas do seu aplicativo, então a maneira mais simples é fazer todos os seus objetos personalizados `UIViewController` herdados da classe `EngagementViewController` correspondente.
@@ -224,7 +228,7 @@ Observe que os extras podem conter `arrays(NSArray, NSMutableArray)`, `numbers(N
     [extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
     [[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
 
-### <a name="limits"></a>Limites
+### <a name="limits"></a>limites
 #### <a name="keys"></a>simétricas
 Cada chave no `NSDictionary` deve corresponder a seguinte expressão regular:
 
@@ -253,7 +257,7 @@ Como os adicionais de evento, a classe `NSDictionary` é usada para abstrair as 
     [appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
     [[EngagementAgent shared] sendAppInfo:appInfo];
 
-### <a name="limits"></a>Limites
+### <a name="limits"></a>limites
 #### <a name="keys"></a>simétricas
 Cada chave no `NSDictionary` deve corresponder a seguinte expressão regular:
 

@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: b380d3a8a35750602a4a0d20d595f71b125fc118
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5ce83198e1d2afb713044879724df88ad2696548
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Use o log de diagnóstico de desempenho do Banco de Dados SQL do Azure com Intelligent Insights
 
@@ -77,7 +77,7 @@ Dependendo do problema de desempenho detectado, os detalhes gerados no arquivo d
 
 | Padrões de desempenho detectáveis | Detalhes da saída |
 | :------------------- | ------------------- |
-| Atingindo os Limites do Recurso | <li>Recursos afetados</li><li>Hashes de consulta</li><li>Percentual do consumo de recurso</li> |
+| Atingindo os limites do recurso | <li>Recursos afetados</li><li>Hashes de consulta</li><li>Percentual do consumo de recurso</li> |
 | Aumento da Carga de Trabalho | <li>Número de consultas cuja execução aumentou</li><li>Hashes de consulta das consultas com a maior contribuição para o aumento da carga de trabalho</li> |
 | Demanda de Memória | <li>Administrador de memória</li> |
 | Bloqueio | <li>Hashes de consulta afetados</li><li>Bloqueio de hashes de consulta</li> |

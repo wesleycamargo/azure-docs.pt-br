@@ -1,11 +1,11 @@
 ---
-title: "Analisar o desempenho de nó de borda na CDN do Azure | Microsoft Docs"
-description: "Analisar o desempenho do nó de borda no CDN do Microsoft Azure A análise de desempenho de borda fornece informações detalhadas de uso de tráfego e largura de banda para o CDN."
+title: Analisar o desempenho de nó de borda na CDN do Azure | Microsoft Docs
+description: Analisar o desempenho do nó de borda no CDN do Microsoft Azure A análise de desempenho de borda fornece informações detalhadas de uso de tráfego e largura de banda para o CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de borda no CDN do Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -39,7 +39,7 @@ Os dados de atividade CDN devem ser coletados pelo módulo de análise de desemp
 > 
 > 
 
-## <a name="dashboard"></a>Painel
+## <a name="dashboard"></a>painel
 O painel de análise de desempenho de borda controla o tráfego CDN atual e o histórico por meio de um gráfico e de estatísticas. Use este painel para detectar tendências de longo prazo e recentes sobre o desempenho do tráfego CDN para sua conta.
 
 Este painel consiste em:
@@ -59,14 +59,14 @@ Este painel consiste em:
     O painel de análise de nó de borda é exibido.
 
 ### <a name="chart"></a>Gráfico
-O painel contém um gráfico que rastreia uma métrica ao longo do período selecionado na linha do tempo que aparece diretamente abaixo dele.  Uma linha do tempo com um gráfico que inclui até os últimos dois anos de atividade CDN é exibida diretamente abaixo do gráfico.
+O painel contém um gráfico que rastreia uma métrica ao longo do período selecionado na linha do tempo que aparece diretamente abaixo dele.  Uma linha do tempo com um grafo que inclui até os últimos dois anos de atividade CDN é exibida diretamente abaixo do gráfico.
 
 #### <a name="using-the-chart"></a>Usando o gráfico
 * Por padrão, a taxa de eficiência de cache para os últimos 30 dias será representada.
 * Este gráfico é gerado diariamente a partir de dados agrupados.
-* Passar a seta do mouse sobre um dia no gráfico de linha indicará uma data e o valor da métrica nessa data.
+* Passar a seta do mouse sobre um dia no grafo de linha indicará uma data e o valor da métrica nessa data.
 * Clique em Realçar finais de semana para ativar ou desativar uma sobreposição de luz barras verticais cinzas que representam os finais de semana para o gráfico. Esse tipo de sobreposição é útil para identificar padrões de tráfego nos finais de semana.
-* Clique em Exibir o ano anterior para ativar ou desativar uma sobreposição de atividade do ano anterior no mesmo período de tempo para o gráfico. Esse tipo de comparação fornece informações sobre padrões de uso CDN a longo prazo. O canto superior direito do gráfico contém uma legenda que indica o código de cor para cada gráfico de linha.
+* Clique em Exibir o ano anterior para ativar ou desativar uma sobreposição de atividade do ano anterior no mesmo período de tempo para o gráfico. Esse tipo de comparação fornece informações sobre padrões de uso CDN a longo prazo. O canto superior direito do grafo contém uma legenda que indica o código de cor para cada grafo de linha.
 
 #### <a name="updating-the-chart"></a>Atualizando o gráfico
 * Intervalo de tempo: Execute um destes procedimentos:
@@ -83,7 +83,7 @@ A finalidade dessas métricas é verificar se é possível melhorar a eficiênci
   * Redução dos custos operacionais.
 * Uma melhor aceleração de entrega de dados, pois mais solicitações serão servidas diretamente a partir do CDN.
 
-| Campo | Descrição |
+| Campo | DESCRIÇÃO |
 | --- | --- |
 | Eficiência de cache |Indica a porcentagem dos dados transferidos que foram servidos a partir do cache. Essa métrica mede quando uma versão em cache do conteúdo solicitado foi fornecida diretamente do CDN (servidores de borda) para os solicitantes (por exemplo, o navegador da web) |
 | Taxa de acertos |Indica a porcentagem de solicitações que foram atendidas no cache. Essa métrica mede quando uma versão armazenada em cache do conteúdo solicitado foi fornecida diretamente do CDN (servidores de borda) para os solicitantes (por exemplo, o navegador da web) |
@@ -101,7 +101,7 @@ O objetivo dessas métricas é fornecer informações sobre as seguintes medidas
 > 
 > 
 
-| Campo | Descrição |
+| Campo | DESCRIÇÃO |
 | --- | --- |
 | Média de bytes enviados |Indica o número médio de bytes transferidos para cada solicitação atendida do CDN (servidores de borda) ao solicitante (por exemplo, o navegador da web). |
 | Nenhuma taxa de byte de configuração de cache |Indica a porcentagem de tráfego atendido a partir do CDN (servidores de borda) ao solicitante (por exemplo, o navegador da web) que não será armazenado em cache devido ao recurso de Ignorar cache. |
@@ -113,10 +113,10 @@ O objetivo dessas métricas é fornecer informações sobre as seguintes medidas
 #### <a name="performance-metrics"></a>Métricas de desempenho
 O objetivo dessas métricas é acompanhar o desempenho geral do CDN para o tráfego.
 
-| Campo | Descrição |
+| Campo | DESCRIÇÃO |
 | --- | --- |
 | Taxa de transferência |Indica a taxa média, em que o conteúdo foi transferido do CDN para um solicitante. |
-| Duração |Indica o tempo médio, em milissegundos, gasto para fornecer um ativo para um solicitante (por exemplo, o navegador da web). |
+| Duration |Indica o tempo médio, em milissegundos, gasto para fornecer um ativo para um solicitante (por exemplo, o navegador da web). |
 | Taxa de solicitação compactada |Indica a porcentagem de acertos enviada do CDN (servidores de borda) para os solicitantes (por exemplo, o navegador da web) em um formato compactado. |
 | Taxa de erros 4xx |Indica a porcentagem de acertos que gerou um código de status 4xx. |
 | Taxa de erros 5xx |Indica a porcentagem de acertos que gerou um código de status 5xx. |
@@ -125,7 +125,7 @@ O objetivo dessas métricas é acompanhar o desempenho geral do CDN para o tráf
 #### <a name="secure-traffic-metrics"></a>Métricas de tráfego de segurança
 O objetivo dessas métricas é acompanhar o desempenho do CDN para o tráfego de HTTPS.
 
-| Campo | Descrição |
+| Campo | DESCRIÇÃO |
 | --- | --- |
 | Eficiência de cache seguro |Indica a porcentagem de dados transferidos para solicitações de HTTPS que foram atendidas a partir do cache. Essa métrica mede quando uma versão em cache do conteúdo solicitado foi fornecida diretamente do CDN (servidores de borda) para os solicitantes (por exemplo, o navegador da web) por HTTPS. |
 | Taxa de transferência segura |Indica a taxa média, em que o conteúdo foi transferido do CDN (servidores de borda) para os solicitantes (por exemplo, servidores web) por HTTPS. |
@@ -146,41 +146,41 @@ Cada relatório neste módulo contém um gráfico e as estatísticas de uso de l
    
     A tela de relatórios de análise de nó de borda é exibido.
 
-| Relatório | Descrição |
+| Relatório | DESCRIÇÃO |
 | --- | --- |
-| Resumo diário |Permite que você veja tendências diárias de tráfego em um período de tempo especificado. Cada barra no gráfico representa uma data específica. O tamanho da barra indica o número total de ocorrências que ocorreram nessa data. |
-| Resumo por hora |Permite que você veja tendências de tráfego por hora em um período de tempo especificado. Cada barra no gráfico representa uma única hora em uma determinada data. O tamanho da barra indica o número total de ocorrências que ocorreu durante essa hora. |
+| Resumo diário |Permite que você veja tendências diárias de tráfego em um período de tempo especificado. Cada barra no grafo representa uma data específica. O tamanho da barra indica o número total de ocorrências que ocorreram nessa data. |
+| Resumo por hora |Permite que você veja tendências de tráfego por hora em um período de tempo especificado. Cada barra no grafo representa uma única hora em uma determinada data. O tamanho da barra indica o número total de ocorrências que ocorreu durante essa hora. |
 | Protocolos |Exibe a análise de tráfego entre os protocolos HTTP e HTTPS. Um gráfico de rosca indica a porcentagem de acertos que ocorreu para cada tipo de protocolo. |
 | Métodos HTTP |Permite que você obtenha uma ideia de quais métodos HTTP estão sendo usados para solicitar seus dados. Normalmente, os métodos de solicitação HTTP mais comuns são GET, HEAD e POST. Um gráfico de rosca indica a porcentagem de acertos que ocorreu para cada tipo de método de solicitação de HTTP. |
-| URLs |Contém um gráfico que exibe as 10 principais URLs solicitadas. É exibida uma barra para cada URL. A altura da barra indica quantas ocorrências aquela URL específica gerou ao longo do tempo coberto pelo relatório. As estatísticas das 100 URLs mais solicitadas são exibidas diretamente abaixo desse gráfico. |
-| CNAMEs |Contém um gráfico que exibe os 10 principais CNAMEs usados para solicitar ativos ao longo do tempo de um relatório. As estatísticas dos 100 CNAMEs mais solicitados são exibidos diretamente abaixo desse gráfico. |
-| Origens |Contém um gráfico que exibe os 10 principais ou servidores de origem do cliente ou CDN dos quais os ativos foram solicitados por um período de tempo especificado. As estatísticas dos 100 servidores de origem do cliente ou CDN mais solicitados são exibidos diretamente abaixo desse gráfico. Os servidores de origem do cliente são identificados pelo nome definido na opção de Nome de diretório. |
+| URLs |Contém um grafo que exibe as 10 principais URLs solicitadas. É exibida uma barra para cada URL. A altura da barra indica quantas ocorrências aquela URL específica gerou ao longo do tempo coberto pelo relatório. As estatísticas das 100 URLs mais solicitadas são exibidas diretamente abaixo desse grafo. |
+| CNAMEs |Contém um grafo que exibe os 10 principais CNAMEs usados para solicitar ativos ao longo do tempo de um relatório. As estatísticas dos 100 CNAMEs mais solicitados são exibidos diretamente abaixo desse grafo. |
+| Origens |Contém um grafo que exibe os 10 principais ou servidores de origem do cliente ou CDN dos quais os ativos foram solicitados por um período de tempo especificado. As estatísticas dos 100 servidores de origem do cliente ou CDN mais solicitados são exibidos diretamente abaixo desse grafo. Os servidores de origem do cliente são identificados pelo nome definido na opção de Nome de diretório. |
 | POPs geográficos |Mostra a quantidade do tráfego que está sendo roteado por meio de um determinado ponto-de-presença (POP). A abreviação de três letras representa um POP em nossa rede CDN. |
-| Clientes |Contém um gráfico que exibe os 10 principais clientes que solicitaram ativos durante um período de tempo especificado. Para os fins deste relatório, todas as solicitações originadas do mesmo endereço IP são consideradas como sendo do mesmo cliente. As estatísticas dos 100 clientes mais solicitados são exibidas diretamente abaixo desse gráfico. Este relatório é útil para determinar os padrões de atividade de download para os principais clientes. |
+| Clientes |Contém um grafo que exibe os 10 principais clientes que solicitaram ativos durante um período de tempo especificado. Para os fins deste relatório, todas as solicitações originadas do mesmo endereço IP são consideradas como sendo do mesmo cliente. As estatísticas dos 100 clientes mais solicitados são exibidas diretamente abaixo desse grafo. Este relatório é útil para determinar os padrões de atividade de download para os principais clientes. |
 | Status do Cache |Fornece uma análise detalhada do comportamento de cache, que pode revelar abordagens para aprimorar a experiência geral do usuário final. Uma vez que o desempenho mais rápido provêm de acertos do cache, você pode otimizar velocidades de entrega de dados minimizando erros de cache e acertos de cache expirados. |
-| Detalhes NONE |Contém um gráfico que exibe as 10 principais URLs para ativos para os quais a atualização de conteúdo de cache não foi verificada durante um período de tempo especificado. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse gráfico. |
-| Detalhes CONFIG_NOCACHE |Contém um gráfico que exibe as 10 principais URLs para ativos que não foram armazenados em cache devido à configuração de CDN do cliente. Esses tipos de ativos foram atendidos diretamente a partir do servidor de origem. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse gráfico. |
-| Detalhes UNCACHEABLE |Contém um gráfico que exibe as 10 principais URLs para ativos que não puderam ser armazenados em cache devido a dados de cabeçalho de solicitação. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse gráfico. |
-| Detalhes TCP_HIT |Contém um gráfico que exibe as 10 principais URLs para ativos que são atendidas imediatamente a partir do cache. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse gráfico. |
-| Detalhes TCP_MISS |Contém um gráfico que exibe as 10 principais URLs para ativos com um status de cache de TCP_MISS. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse gráfico. |
-| Detalhes TCP_EXPIRED_HIT |Contém um gráfico que exibe as 10 principais URLs para ativos obsoletos que foram atendidos imediatamente a partir do POP. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse gráfico. |
-| Detalhes TCP_EXPIRED_MISS |Contém um gráfico que exibe as 10 principais URLs para ativos obsoletos para o qual uma nova versão precisava ser recuperada do servidor de origem. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse gráfico. |
+| Detalhes NONE |Contém um grafo que exibe as 10 principais URLs para ativos para os quais a atualização de conteúdo de cache não foi verificada durante um período de tempo especificado. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse grafo. |
+| Detalhes CONFIG_NOCACHE |Contém um grafo que exibe as 10 principais URLs para ativos que não foram armazenados em cache devido à configuração de CDN do cliente. Esses tipos de ativos foram atendidos diretamente a partir do servidor de origem. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse grafo. |
+| Detalhes UNCACHEABLE |Contém um grafo que exibe as 10 principais URLs para ativos que não puderam ser armazenados em cache devido a dados de cabeçalho de solicitação. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse grafo. |
+| Detalhes TCP_HIT |Contém um grafo que exibe as 10 principais URLs para ativos que são atendidas imediatamente a partir do cache. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse grafo. |
+| Detalhes TCP_MISS |Contém um grafo que exibe as 10 principais URLs para ativos com um status de cache de TCP_MISS. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse grafo. |
+| Detalhes TCP_EXPIRED_HIT |Contém um grafo que exibe as 10 principais URLs para ativos obsoletos que foram atendidos imediatamente a partir do POP. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse grafo. |
+| Detalhes TCP_EXPIRED_MISS |Contém um grafo que exibe as 10 principais URLs para ativos obsoletos para o qual uma nova versão precisava ser recuperada do servidor de origem. As estatísticas das 100 principais URLs para estes tipos de ativos são exibidas diretamente abaixo desse grafo. |
 | Detalhes TCP_CLIENT_REFRESH_MISS |Contém um gráfico de barras que mostra as 10 principais URLs para ativos que foram recuperados de um servidor de origem devido a uma solicitação sem cache do cliente. As estatísticas das 100 principais URLs para estes tipos de solicitações são exibidas diretamente abaixo desse gráfico. |
 | Tipos de solicitação do cliente |Indica o tipo de solicitações feitas pelos clientes HTTP (por exemplo, navegadores). Este relatório inclui um gráfico de rosca que fornece uma ideia sobre como as solicitações estão sendo tratadas. As informações de largura de banda e o tráfego para cada tipo de solicitação são exibidas abaixo do gráfico. |
-| Agente do usuário |Contém um gráfico de barras exibindo os 10 principais agentes do usuário para solicitar seu conteúdo por meio de nosso CDN. Normalmente, um agente de usuário é um navegador da web, media player ou um navegador do celular. As estatísticas para os 100 principais agentes do usuário são exibidas diretamente abaixo desse gráfico. |
-| Referenciadores |Contém um gráfico de barras exibindo os 10 principais referenciadores ao conteúdo acessado por meio do nosso CDN. Normalmente, um referenciador é a URL da página da web ou do recurso que está vinculado ao seu conteúdo. Informações detalhadas são fornecidas abaixo do gráfico para os 100 principais referenciadores. |
-| Tipos de compressão |Contém um gráfico de rosca que divide os ativos solicitados entre os que foram e os que não foram compactados nos nossos servidores de borda. A porcentagem de ativos compactados é dividida pelo tipo de compactação usado. Informações detalhadas são fornecidas abaixo do gráfico para cada tipo e status de compressão. |
-| Tipos de arquivo |Contém um gráfico de barras que exibe os 10 tipos de arquivo que foram solicitados por meio do nosso CDN para sua conta. Para os fins deste relatório, um tipo de arquivo é definido pela extensão de nome de arquivo do ativo e o tipo de mídia da Internet (por exemplo, .html \[text/html\], .htm \[text/html\], .aspx \[text/html\], etc.). Informações detalhadas são fornecidas abaixo do gráfico para os 100 tipos de arquivo. |
-| Arquivos exclusivos |Contém um gráfico que plota o número total de ativos exclusivos que foram solicitados em um determinado dia durante um período de tempo especificado. |
+| Agente do usuário |Contém um grafo de barras exibindo os 10 principais agentes do usuário para solicitar seu conteúdo por meio de nosso CDN. Normalmente, um agente de usuário é um navegador da web, media player ou um navegador do celular. As estatísticas para os 100 principais agentes do usuário são exibidas diretamente abaixo desse gráfico. |
+| Referenciadores |Contém um grafo de barras exibindo os 10 principais referenciadores ao conteúdo acessado por meio do nosso CDN. Normalmente, um referenciador é a URL da página da web ou do recurso que está vinculado ao seu conteúdo. Informações detalhadas são fornecidas abaixo do grafo para os 100 principais referenciadores. |
+| Tipos de compressão |Contém um gráfico de rosca que divide os ativos solicitados entre os que foram e os que não foram compactados nos nossos servidores de borda. A porcentagem de ativos compactados é dividida pelo tipo de compactação usado. Informações detalhadas são fornecidas abaixo do grafo para cada tipo e status de compressão. |
+| Tipos de arquivo |Contém um grafo de barras que exibe os 10 tipos de arquivo que foram solicitados por meio do nosso CDN para sua conta. Para os fins deste relatório, um tipo de arquivo é definido pela extensão de nome de arquivo do ativo e o tipo de mídia da Internet (por exemplo, .html \[text/html\], .htm \[text/html\], .aspx \[text/html\], etc.). Informações detalhadas são fornecidas abaixo do grafo para os 100 tipos de arquivo. |
+| Arquivos exclusivos |Contém um grafo que plota o número total de ativos exclusivos que foram solicitados em um determinado dia durante um período de tempo especificado. |
 | Resumo de autenticação de token |Contém um gráfico de pizza que fornece uma visão geral sobre se ativos solicitados foram protegidos pela autenticação baseada em Token. Ativos protegidos são exibidos no gráfico de acordo com os resultados da sua tentativa de autenticação. |
-| Detalhes da autenticação de token negada |Contém um gráfico de barras que permite que você veja os 10 principais pedidos que foram negados devido à autenticação baseada em token. |
-| Códigos de resposta HTTP |Fornece uma análise dos códigos de status HTTP (por exemplo, 200 OK, 403 Forbidden, 404 Not Found, etc.) que foram entregues aos clientes HTTP por nossos servidores de borda. Um gráfico de pizza permite avaliar rapidamente como seus ativos foram atendidos. Dados estatísticos detalhados são fornecidos para cada código de resposta abaixo do gráfico. |
-| Erros 404 |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 404 Not Found. |
-| Erros 403 |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 403 Forbidden. Um código de resposta 403 Forbidden ocorre quando uma solicitação for negada por um servidor de origem do cliente ou um servidor de borda em nosso POP. |
-| Erros 4xx |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta no intervalo de 400. Os códigos de resposta 403 Not Found e 404 Forbidden não estão incluídos neste relatório. Normalmente, um código de resposta 4xx ocorre quando uma solicitação for negada devido a um erro do cliente. |
-| Erros 504 |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 504 Gateway Timeout. Um código de resposta 504 Gateway Timeout ocorre quando um tempo limite ocorre quando um proxy HTTP está tentando se comunicar com outro servidor. No caso do nosso CDN, um código de resposta 504 Gateway Timeout normalmente ocorre quando um servidor de borda não consegue estabelecer comunicação com um servidor de origem do cliente. |
-| Erros 502 |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 502 Bad Gateway. Um código de resposta 502 Bad Gateway ocorre quando ocorre uma falha de protocolo HTTP entre um servidor e um proxy HTTP. No caso do nosso CDN, um código de resposta 502 Bad Gateway normalmente ocorre quando um servidor de origem do cliente retorna uma resposta inválida para um servidor de borda. Uma resposta é inválida, se ela não pode ser analisada ou se está incompleta. |
-| Erros 5xx |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta no intervalo de 500.  Os códigos de resposta 502 Bad Gateway e 504 Gateway Timeout não estão incluídos no relatório. |
+| Detalhes da autenticação de token negada |Contém um grafo de barras que permite que você veja os 10 principais pedidos que foram negados devido à autenticação baseada em token. |
+| Códigos de resposta HTTP |Fornece uma análise dos códigos de status HTTP (por exemplo, 200 OK, 403 Forbidden, 404 Not Found, etc.) que foram entregues aos clientes HTTP por nossos servidores de borda. Um gráfico de pizza permite avaliar rapidamente como seus ativos foram atendidos. Dados estatísticos detalhados são fornecidos para cada código de resposta abaixo do grafo. |
+| Erros 404 |Contém um grafo de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 404 Not Found. |
+| Erros 403 |Contém um grafo de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 403 Forbidden. Um código de resposta 403 Forbidden ocorre quando uma solicitação for negada por um servidor de origem do cliente ou um servidor de borda em nosso POP. |
+| Erros 4xx |Contém um grafo de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta no intervalo de 400. Os códigos de resposta 403 Not Found e 404 Forbidden não estão incluídos neste relatório. Normalmente, um código de resposta 4xx ocorre quando uma solicitação for negada devido a um erro do cliente. |
+| Erros 504 |Contém um grafo de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 504 Gateway Timeout. Um código de resposta 504 Gateway Timeout ocorre quando um tempo limite ocorre quando um proxy HTTP está tentando se comunicar com outro servidor. No caso do nosso CDN, um código de resposta 504 Gateway Timeout normalmente ocorre quando um servidor de borda não consegue estabelecer comunicação com um servidor de origem do cliente. |
+| Erros 502 |Contém um grafo de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 502 Bad Gateway. Um código de resposta 502 Bad Gateway ocorre quando ocorre uma falha de protocolo HTTP entre um servidor e um proxy HTTP. No caso do nosso CDN, um código de resposta 502 Bad Gateway normalmente ocorre quando um servidor de origem do cliente retorna uma resposta inválida para um servidor de borda. Uma resposta é inválida, se ela não pode ser analisada ou se está incompleta. |
+| Erros 5xx |Contém um grafo de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta no intervalo de 500.  Os códigos de resposta 502 Bad Gateway e 504 Gateway Timeout não estão incluídos no relatório. |
 
 ## <a name="see-also"></a>Consulte também
 * [Visão geral da CDN do Azure](cdn-overview.md)

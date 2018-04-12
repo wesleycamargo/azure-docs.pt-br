@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 167a72ae55052b8ac1dfe8f032f136a9bf8bcedf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 87cd4c565a7429ffb7096034823a1f5ff49df195
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gerenciar recursos para um banco de dados individual no Banco de Dados SQL do Azure
 
@@ -34,7 +34,7 @@ Clique em **visão geral** para monitorar e/ou cancelar uma operação em andame
 ![Cancelar operação](./media/sql-database-single-database-resources/cancel-operation.png)
 
 > [!IMPORTANT]
-> Revise [Limitações atuais de bancos de dados P11 e P15 com tamanho máximo de 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) ao selecionar um nível de serviço P11 ou P15.
+> Revise [Limitações atuais de bancos de dados P11 e P15 com tamanho máximo de 4 TB](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) ao selecionar um nível de serviço P11 ou P15.
 >
 
 ## <a name="manage-single-database-resources-using-powershell"></a>Gerenciar recursos de um banco de dados individual usando o PowerShell
@@ -75,7 +75,7 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 
 Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento dos Bancos de Dados SQL do Azure com Transact-SQL, use estes comando T-SQL. Você pode emitir esses comandos usando o Portal do Azure, o [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), o [Visual Studio Code](https://code.visualstudio.com/docs) ou qualquer outro programa que pode se conectar a um servidor de Banco de Dados SQL e passar comandos Transact-SQL. 
 
-| Get-Help | DESCRIÇÃO |
+| Comando | DESCRIÇÃO |
 | --- | --- |
 |[CREATE DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria um novo banco de dados. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
 | [ALTER DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica um Banco de Dados SQL do Azure. |
@@ -93,7 +93,7 @@ ALTER DATABASE <myDatabaseName>
 
 Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento dos Bancos de Dados SQL do Azure, use estas solicitações da API REST.
 
-| Get-Help | DESCRIÇÃO |
+| Comando | DESCRIÇÃO |
 | --- | --- |
 |[Banco de Dados – Criar ou Atualizar](/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
 |[Bancos de Dados – Obter](/rest/api/sql/databases/get)|Obtém um banco de dados.|

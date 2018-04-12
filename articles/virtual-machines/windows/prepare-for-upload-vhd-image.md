@@ -2,10 +2,10 @@
 title: Preparar um VHD do Windows para carregar no Azure | Microsoft Docs
 description: Como preparar um VHD ou VHDX do Windows antes de carregar no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: glimoli
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 67832fd20b758af6fd7a31c0099ce8019bb2442d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 74c47907698e3365d093f0e17dba87b690406443
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 Antes de carregar uma VM (máquina virtual) Windows do local para o Microsoft Azure, você deve preparar o VHD (disco rígido virtual) ou VHDX. O Azure dá suporte apenas a VMs de geração 1 no formato de arquivo VHD e que têm um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1.023 GB. Você pode converter uma VM de geração 1 do sistema de arquivos VHD para VHDX e de um disco de expansão dinâmica para um disco de tamanho fixo. No entanto, não é possível alterar a geração de uma VM. Para obter mais informações, consulte [Devo criar uma VM de geração 1 ou 2 no Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -297,7 +297,7 @@ Verifique se as seguintes configurações estão configuradas corretamente para 
 
 5. Se o VHD do Windows que você deseja carregar for um controlador de domínio, siga estas etapas:
 
-    R. Siga [estas etapas extras](https://support.microsoft.com/kb/2904015) para preparar o disco.
+    a. Siga [estas etapas extras](https://support.microsoft.com/kb/2904015) para preparar o disco.
 
     B. Verifique se você sabe a senha do DSRM, caso precise iniciar a VM no DSRM em algum momento. Talvez você deseje consultar este link para definir a [senha do DSRM](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
 

@@ -1,13 +1,13 @@
 ---
 title: Criptografar discos em uma VM Linux com a CLI 1.0 do Azure | Microsoft Docs
-description: "Como criptografar discos em uma VM Linux usando a CLI 1.0 do Azure e o modelo de implantação do Resource Manager"
+description: Como criptografar discos em uma VM Linux usando a CLI 1.0 do Azure e o modelo de implantação do Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/06/2017
 ms.author: iainfou
-ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1704ba37b1d2acc595cb0c354b22bfcf1c57036
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10"></a>Criptografar discos em uma VM Linux usando a CLI 1.0 do Azure
 Para conformidade e segurança aprimorados da máquina virtual (VM), os discos virtuais no Azure podem ser criptografados em repouso. Discos são criptografados usando chaves criptográficas que são protegidas em um Cofre de chaves do Azure. Você controla essas chaves criptográficas e pode auditar seu uso. Este artigo fornece detalhes sobre como criptografar discos virtuais em uma VM Linux usando a CLI 1.0 do Azure e o modelo de implantação do Resource Manager.

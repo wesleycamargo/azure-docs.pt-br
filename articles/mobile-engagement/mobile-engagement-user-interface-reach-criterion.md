@@ -1,11 +1,11 @@
 ---
-title: "Interface do usuário do Azure Mobile Engagement - Alcance - Critério"
-description: "Saiba como usar critérios de direcionamento para campanhas de envio por push para selecionar um subconjunto de seus usuários usando o Azure Mobile Engagement"
+title: Interface do usuário do Azure Mobile Engagement - Alcance - Critério
+description: Saiba como usar critérios de direcionamento para campanhas de envio por push para selecionar um subconjunto de seus usuários usando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a4ed03a0-55b1-4dd8-b0bd-c475005afb66
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 803b44721d0ab1ac7b5a8074e18857fc57adb724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2adf473c6acea0f128eb14e2616748ff29d5d762
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Como usar critérios de direcionamento para enviar por push campanhas para selecionar um subconjunto de seus usuários
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Direcionar seu público-alvo por critérios específicos com o botão "Novos Critérios" é um dos conceitos mais poderosos no Azure Mobile Engagement que ajuda a enviar importantes notificações por push que os clientes responderão em vez de enviar spam a todos. Você pode limitar seu público-alvo com base em critérios padrão e simular envios por push para determinar quantas pessoas receberão a notificação.
 
 **Consulte também:**

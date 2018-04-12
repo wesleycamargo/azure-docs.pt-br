@@ -1,10 +1,10 @@
 ---
 title: Criar e carregar um VHD Linux para o Azure | Microsoft Docs
-description: "Crie e carregue um VHD (disco rígido virtual) do Azure que contém o sistema operacional Linux usando o modelo de implantação Clássico"
+description: Crie e carregue um VHD (disco rígido virtual) do Azure que contém o sistema operacional Linux usando o modelo de implantação Clássico
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-ms.openlocfilehash: 49cf4f1718e4dce1e86aa3c8921eaa8af5f16192
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 1ba568eeaf3bbc3d786cc48e54404aa65a00fecc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Criando e carregando um disco rígido virtual que contém o sistema operacional Linux
 > [!IMPORTANT] 
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/08/2018
 Esse artigo mostra como carregar um disco rígido virtual (VHD) para que você o use como sua própria imagem para criar outras máquinas virtuais no Azure. Saiba como preparar o sistema operacional para que você o use para criar outras máquinas virtuais com base nessa imagem. 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este artigo pressupõe que você tenha os seguintes itens:
 
 * **Sistema operacional Linux instalado em um arquivo .vhd**: você instalou uma [distribuição Linux endossada pelo Azure](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consulte as [informações para distribuições não endossadas](../create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) em um disco virtual no formato VHD. Existem várias ferramentas para criar uma VM e o VHD:

@@ -1,13 +1,13 @@
 ---
 title: Etapas detalhadas para criar um par de chaves SSH para VMs Linux no Azure | Microsoft Docs
-description: "Aprenda as etapas adicionais para criar um par de chaves SSH pública e privada para VMs Linux no Azure, junto com certificados específicos para diversos casos de uso."
+description: Aprenda as etapas adicionais para criar um par de chaves SSH pública e privada para VMs Linux no Azure, junto com certificados específicos para diversos casos de uso.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.openlocfilehash: 1308812287fa4484e244c47497a7aef7aa994b14
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 20d36f5e377f2d5af588319cee2be1808571f905
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Passo a passo detalhado para criar um par de chaves SSH e certificados adicionais para uma VM Linux no Azure
 Com um par de chaves SSH, você pode criar máquinas virtuais no Azure que tenham como padrão o uso de chaves SSH para autenticação, eliminando a necessidade de senhas para fazer logon. As senhas podem ser adivinhadas e podem abrir suas VMs para tentativas de uso contínuo de força bruta para adivinhá-las. As VMs criadas com a CLI do Azure ou com modelos do Resource Manager podem incluir sua chave pública SSH como parte da implantação, removendo uma etapa de configuração pós-implantação que consiste na desabilitação de logons com senha para SSH. Este artigo fornece etapas detalhadas e exemplos adicionais de geração de certificados, por exemplo, para uso com máquinas virtuais Linux. Se você quiser criar e usar rapidamente um par de chaves SSH, confira [Como criar um par de chaves SSH pública e privada para VMs Linux no Azure](mac-create-ssh-keys.md).
