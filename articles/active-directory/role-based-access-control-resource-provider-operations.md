@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: rolyon
 ms.openlocfilehash: 0b8c8823c6d21df96dcfd926db1855169f1570e4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 

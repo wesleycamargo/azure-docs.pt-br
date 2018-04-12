@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 241f872b3069a58a35df7104f3335964298c7a20
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2ad995c4b48c2c298edd7c6b4da92ea8f3c4a060
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autorizar o acesso aos aplicativos Web usando o OAuth 2.0 e o Azure Active Directory
 O Azure AD (Azure Active Directory) usa o OAuth 2.0 para permitir que você autorize o acesso a aplicativos Web e APIs da Web em seu locatário do Azure AD. Este guia independe do idioma e descreve como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
@@ -59,7 +59,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | prompt |opcional |Indique o tipo de interação do usuário necessária.<p> Os valores válidos são: <p> *logon*: o usuário deve ser solicitado a autenticar novamente. <p> *consentimento*: consentimento do usuário foi concedido, mas precisa ser atualizado. O usuário deve ser solicitado a consentir. <p> *admin_consent*: o administrador deve ser solicitado a consentir em nome de todos os usuários em sua organização |
 | login_hint |opcional |Pode ser usado para preencher previamente o campo de nome de usuário/endereço de email da página de entrada do usuário, se você souber o nome de usuário com antecedência.  Geralmente, os aplicativos usam esse parâmetro durante a reautenticação, após já terem extraído o nome de usuário de uma entrada anterior usando a declaração `preferred_username`. |
 | domain_hint |opcional |Fornece uma dica sobre o locatário ou domínio que o usuário deve usar para entrar. O valor de domain_hint é um domínio registrado para o locatário. Se o locatário for federado para um diretório local, o AAD redirecionará para o servidor de federação do locatário especificado. |
-| code_challenge_method | opcional    | O método utilizado para codificar o `code_verifier` para o parâmetro `code_challenge`. Pode ser `plain` ou `S256`.  Se excluído, `code_challenge` será considerado texto não criptografado se `code_challenge` estiver incluído.  Azure AAD v2.0 fornece suporte para ambos `plain` e `S256`. Para mais informações, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | opcional    | O método utilizado para codificar o `code_verifier` para o parâmetro `code_challenge`. Pode ser `plain` ou `S256`.  Se excluído, `code_challenge` será considerado texto não criptografado se `code_challenge` estiver incluído.  O Azure AAD v1.0 dá suporte para `plain` e `S256`. Para mais informações, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 | code_challenge        | opcional    | Usado para proteger as concessões de código de autorização por meio da chave de prova para código de câmbio (PKCE) de um cliente nativo. Necessário se `code_challenge_method` estiver incluído.  Para mais informações, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]

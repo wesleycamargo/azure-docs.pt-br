@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -181,7 +181,7 @@ O <i>Get-MsolDirSyncProvisioningError</i> só retornará erros de provisionament
 
 **P: Por que minhas auditorias do ADFS não estão sendo geradas?**
 
-Use o cmdlet do PowerShell <i>Get-AdfsProperties -AuditLevel</i> para garantir que os logs de auditoria não estejam no estado desabilitado. Leia mais sobre [Logs de auditoria do ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
+Use o cmdlet do PowerShell <i>Get-AdfsProperties -AuditLevel</i> para garantir que os logs de auditoria não estejam no estado desabilitado. Leia mais sobre [Logs de auditoria do ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observe que, se houver configurações de auditoria avançadas enviadas por push para o servidor do ADFS, todas as alterações com auditpol.exe serão substituídas (evento se o Aplicativo Gerado não estiver configurado). Nesse caso, defina a política de segurança local para registrar falhas e êxitos do Aplicativo Gerado. 
 
 
 ## <a name="related-links"></a>Links relacionados
