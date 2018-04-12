@@ -1,11 +1,11 @@
 ---
 title: Cluster HPC Pack para Excel e SOA | Microsoft Docs
-description: "Introdução à execução de cargas de trabalho SOA e Excel em larga escala em um cluster HPC Pack no Azure"
+description: Introdução à execução de cargas de trabalho SOA e Excel em larga escala em um cluster HPC Pack no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,hpc-pack
 ms.assetid: cb6a9abe-caf3-44da-b911-849a50f6cfb3
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 63babd94fdab15217cfb0757e4cd6efe458a628d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Introdução à execução de cargas de trabalho do Excel e SOA em um cluster HPC Pack no Azure
 Este artigo mostra como implantar um cluster do Microsoft HPC Pack 2012 R2 em máquinas virtuais do Azure usando um modelo de início rápido do Azure ou, opcionalmente, um script de implantação do Azure PowerShell. O cluster usa as imagens de VM do Azure Marketplace projetadas para executar cargas de trabalho da arquitetura SOA ou do Microsoft Excel com o HPC Pack. Você pode usar o cluster para executar serviços de SOA e HPC do Excel de um computador cliente local. Os serviços do Excel HPC incluem descarregamento de pasta de trabalho do Excel e funções definidas pelo usuário do Excel ou UDFs.
@@ -34,9 +34,9 @@ Em um alto nível, o diagrama a seguir mostra o cluster HPC Pack criado.
 
 ![Cluster HPC com nós que executam cargas de trabalho do Excel][scenario]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * **Computador cliente** – você precisa de um computador cliente baseado no Windows para enviar trabalhos de exemplo do Excel e SOA ao cluster. Você também precisa de um computador Windows para executar o script de implantação de cluster do Azure PowerShell (caso escolha esse método de implantação).
-* **Assinatura do Azure** – Se não tiver uma, você poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* **Assinatura do Azure** - Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 * **Cota para núcleos** : talvez seja necessário aumentar a cota de núcleos, especialmente se você implantar vários nós de cluster com tamanhos de VM de vários núcleos. Se você estiver usando um modelo de início rápido do Azure, a cota de núcleos no Resource Manager será calculada por região do Azure. Nesse caso, talvez você precise aumentar a cota em uma região específica. Consulte [Assinatura do Azure e limite de serviços, cotas e restrições](../../azure-subscription-service-limits.md). Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 * **Licença do Microsoft Office** – se você implantar nós de computação usando uma imagem de VM do Marketplace HPC Pack 2012 R2 com Microsoft Excel, uma versão de avaliação de 30 dias do Microsoft Excel Professional Plus 2013 será instalada. Após o período de avaliação, você precisa fornecer uma licença válida do Microsoft Office para ativar o Excel e continuar executando cargas de trabalho. Confira [Ativação do Excel](#excel-activation) mais adiante neste artigo. 
 
