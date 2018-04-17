@@ -1,24 +1,19 @@
 ---
-title: Simulação de transação de alta frequência com o Stream Analytics | Microsoft Docs
-description: Como criar um treinamento e uma pontuação do modelo de regressão linear no mesmo trabalho do Stream Analytics
-keywords: aprendizado de máquina, análise avançada, regressão linear, simulação, UDA, função definida pelo usuário
-documentationcenter: ''
+title: Simulação de negociação de alta frequência usando o Azure Stream Analytics
+description: Como fazer um treinamento e pontuação do modelo de regressão linear em um trabalho do Azure Stream Analytics.
 services: stream-analytics
 author: zhongc
-manager: ryanw
-ms.assetid: 997ccfc1-abaf-4c12-bef2-632481140f05
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: 349dc5c5277260b664d7214979ef15d1689b2716
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: get-started-article
+ms.date: 11/05/2017
+ms.openlocfilehash: cf04cf92f204b89c0641a23ba38b05dbcad409b2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulação de transação de alta frequência com o Stream Analytics
 A combinação da linguagem SQL e das funções UDFs (funções definidas pelo usuário) e UDAs (agregações definidas pelo usuário) de JavaScript no Azure Stream Analytics permite aos usuários a execução de análises avançadas. As análises avançadas podem incluir treinamento de aprendizado de máquina online e pontuação, bem como a simulação de processo com estado. Este artigo descreve como executar regressão linear em um trabalho do Azure Stream Analytics que faz classificação e pontuação contínuas em um cenário de transação de alta frequência.

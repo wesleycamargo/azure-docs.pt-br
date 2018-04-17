@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/12/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 890237ff40f9c9893c57f49c96e6ddc99849c2bd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b09799fe102522e1ad91f4983cf4f5fa8122b2c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Use perfis de versão de API do PowerShell na pilha do Azure
 
@@ -34,15 +34,10 @@ O **AzureRM.Bootstrapper** módulo que está disponível por meio da Galeria do 
 ```PowerShell
 Install-Module -Name AzureRm.BootStrapper
 ```
-O módulo AzureRM.Bootstrapper está em visualização. detalhes e funcionalidades estão sujeitos a alterações. Para baixar e instalar a versão mais recente deste módulo na Galeria do PowerShell, execute o seguinte cmdlet:
-
-```PowerShell
-Update-Module -Name "AzureRm.BootStrapper"
-```
 
 ## <a name="install-a-profile"></a>Instalar um perfil
 
-Use o **instalar AzureRmProfile** cmdlet com o **2017-03-09-perfil** perfil da versão de API para instalar os módulos de AzureRM necessários pela pilha do Azure. Observe que os módulos de operador de pilha do Azure não são instalados com este perfil de versão de API e devem ser instaladas separadamente, conforme especificado na etapa 3 do [instalar o PowerShell para Azure pilha](azure-stack-powershell-install.md) artigo.
+Use o **instalar AzureRmProfile** cmdlet com o **2017-03-09-perfil** perfil da versão de API para instalar os módulos de AzureRM necessários pela pilha do Azure. Os módulos de operador de pilha do Azure não são instalados com este perfil de versão de API. Elas devem ser instaladas separadamente, conforme especificado na etapa 3 do [instalar o PowerShell para Azure pilha](azure-stack-powershell-install.md) artigo.
 
 ```PowerShell 
 Install-AzureRMProfile -Profile 2017-03-09-profile

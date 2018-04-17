@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: febe055348efb49ea1e6bc670333f435de654cfc
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: bd2b65c31e7736346957dde4edfb7c32894c833e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrar seus diretórios locais no Azure Active Directory
 O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory.  Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure. Este tópico guiará você nas etapas de planejamento, implantação e operação. É uma coleção de links para os tópicos relacionados a essa área.
@@ -73,7 +73,7 @@ Você pode encontrar o download para o Azure AD Connect no [Centro de Download d
 |Após a instalação | [Verifique a instalação e atribua licenças ](active-directory-aadconnect-whats-next.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Saiba mais sobre como instalar o Azure AD Connect
-Você também deve se preparar para questões [operacionais](active-directory-aadconnectsync-operations.md) . Talvez você queira ter um servidor em espera para que possa recorrer a ele facilmente em caso de [desastre](active-directory-aadconnectsync-operations.md#disaster-recovery). Se você pretende fazer alterações de configuração frequentes, deve planejar um servidor no [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode) .
+Você também deve se preparar para questões [operacionais](active-directory-aadconnectsync-operations.md) . Talvez você queira ter um servidor em espera para que possa fazer failover facilmente em caso de [desastre](active-directory-aadconnectsync-operations.md#disaster-recovery). Se você pretende fazer alterações de configuração frequentes, deve planejar um servidor no [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode) .
 
 |Tópico |Link|  
 | --- | --- |

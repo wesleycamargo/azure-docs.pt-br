@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 04/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8a5d05342a1db5f27d115364798885a278d09fc0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cd17826afece44eff9f4a4c403b077dc78fd1c9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 1. No portal, do lado esquerdo, clique em **+Criar um recurso** e digite "Gateway de Rede Virtual" na pesquisa. Localize **Gateway de rede virtual** na pesquisa, retorne e clique na entrada. Na página **Gateway da rede virtual**, clique em **Criar** na parte inferior da página para abrir a página **Criar gateway da rede virtual**.
 2. Na página **Criar gateway de rede virtual**, preencha os valores para seu gateway de rede virtual.
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/23/2018
     - Primeiro, clique em **Criar configuração de IP de gateway** para abrir a página ‘Escolher endereço IP público’, depois clique em **+Criar novo** para abrir a página ‘Criar endereço IP público’.
     - A seguir, dê um **Nome** para o seu endereço IP público. Deixe o SKU como **Básico** a menos que haja um motivo específico para alterá-lo para algo diferente, depois clique em **OK** na parte inferior dessa página para salvar suas alterações.
 
-      ![Criar o IP público](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "Criar PIP")
+      ![Solicitar o endereço IP público](./media/vpn-gateway-add-gateway-portal-include/public-ip-address-name.png "Solicitar o endereço IP público")
 
 4. Verifique as configurações. Você pode selecionar **Fixar no painel** na parte inferior da página se quiser que seu gateway apareça no painel. 
 5. Clique em **Criar** para começar a criar o gateway de VPN. As configurações são validadas, e você verá o bloco "Implantar gateway de rede virtual" no painel. A criação de um gateway pode levar até 45 minutos. Talvez seja necessário atualizar a página do portal para ver o status concluído.

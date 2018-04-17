@@ -1,6 +1,6 @@
 ---
-title: "Adicionar uma CDN a um Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Adicione uma rede de distribuição de conteúdo (CDN) para um serviço de aplicativo do Azure para armazenar em cache e entregar os arquivos estáticos de servidores perto de seus clientes em todo o mundo."
+title: Adicionar uma CDN a um Serviço de Aplicativo do Azure | Microsoft Docs
+description: Adicione uma rede de distribuição de conteúdo (CDN) para um serviço de aplicativo do Azure para armazenar em cache e entregar os arquivos estáticos de servidores perto de seus clientes em todo o mundo.
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
@@ -10,13 +10,13 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 257b75d01f3904661c1a188a2d53ffcb74f48f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Como adicionar uma Rede de distribuição de conteúdo (CDN) em um Serviço de Aplicativo do Azure
+# <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Tutorial: adicionar uma Rede de Distribuição de Conteúdo (CDN) a um Serviço de Aplicativo do Azure
 
 [A Rede de distribuição de conteúdo (CDN) do Azure](../cdn/cdn-overview.md) armazena em cache conteúdo Web estático em locais estrategicamente posicionados para fornecer uma taxa de transferência máxima para a distribuição de conteúdo aos usuários. O CDN também reduz a carga do servidor no seu aplicativo web. Este tutorial mostra como adicionar o CDN do Azure para um [aplicativo web no serviço de aplicativo do Azure](app-service-web-overview.md). 
 
@@ -32,7 +32,7 @@ O que você aprenderá:
 > * Usar cadeias de caracteres de consulta para controlar versões armazenadas em cache.
 > * Usar um domínio personalizado para o ponto de extremidade do CDN.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -69,7 +69,7 @@ Na página da **Rede de distribuição de conteúdo do Azure**, forneça as conf
 
 ![Como criar perfil e o ponto de extremidade no portal](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
 
-| Configuração | Valor sugerido | Descrição |
+| Configuração | Valor sugerido | DESCRIÇÃO |
 | ------- | --------------- | ----------- |
 | **Perfil do CDN** | myCDNProfile | Selecione **Criar novo** para criar um perfil de CDN. Um perfil do CDN é uma coleção de pontos de extremidade do CDN com o mesmo tipo de preços. |
 | **Tipo de preços** | Akamai Standard | O [tipo de preços](../cdn/cdn-overview.md#azure-cdn-features) especifica o provedor e os recursos disponíveis. Neste tutorial, estamos usando o Akamai padrão. |

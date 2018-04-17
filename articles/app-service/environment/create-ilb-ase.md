@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo #
 
- O Ambiente do Serviço de Aplicativo do Azure é uma implantação do Serviço de Aplicativo do Azure em uma sub-rede de uma VNet (rede virtual) do Azure. Há duas maneiras de implantar um ASE (Ambiente do Serviço de Aplicativo): 
+ O Ambiente do Serviço de Aplicativo do Azure é uma implantação do Serviço de Aplicativo do Azure em uma sub-rede de uma VNet (rede virtual) do Azure. Há duas maneiras de implantar um ASE (ambiente do serviço de aplicativo): 
 
 - Com um VIP em um endereço IP externo, geralmente chamado de ASE externo.
 - Com um VIP em um endereço IP interno, geralmente chamado de ASE ILB devido ao ponto de extremidade interno ser um balanceador de carga interno (ILB). 
@@ -63,7 +63,7 @@ Para criar um ASE ILB:
 
 4. Selecione ou crie uma VNet.
 
-5. Ao selecionar uma VNet existente, você precisa criar uma sub-rede para manter o ASE. Lembre-se de definir um tamanho de sub-rede grande o suficiente para acomodar qualquer crescimento futuro do ASE. O tamanho recomendado é `/25`, que tem 128 endereços e é compatível com um ASE com tamanho máximo. E o tamanho mínimo que você pode selecionar é `/28`. Dependendo da necessidade da infraestrutura, esse tamanho pode ser dimensionado para um máximo de 11 instâncias.
+5. Ao selecionar uma VNet existente, você precisa criar uma sub-rede para manter o ASE. Lembre-se de definir um tamanho de sub-rede grande o suficiente para acomodar qualquer crescimento futuro do ASE. O tamanho recomendado é `/25`, que tem 128 endereços e é compatível com um ASE com tamanho máximo. E o tamanho mínimo que você pode selecionar é `/28`. Dependendo da necessidade da infraestrutura, esse tamanho só pode ser dimensionado para um máximo de três instâncias.
 
     * Vá além do padrão máximo de 100 instâncias nos planos do serviço de aplicativo.
 
@@ -81,7 +81,7 @@ Para criar um ASE ILB:
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   O nome de domínio personalizado usado para aplicativos e o nome de domínio usado pelo seu ASE não podem ser os mesmos. Em um ASE ILB com o nome de domínio _contoso.com_, não é possível usar nomes de domínio personalizados para seus aplicativos, como:
+   Há um recurso chamado nomes de domínio personalizado que permite que você mapeie um nome DNS existente para seu aplicativo Web. Você pode ler mais sobre esse recurso no documento [Mapear um nome DNS existente para seu aplicativo Web][customdomain]. O nome de domínio personalizado usado para aplicativos e o nome de domínio usado pelo seu ASE não podem ser os mesmos. Em um ASE ILB com o nome de domínio _contoso.com_, não é possível usar nomes de domínio personalizados para seus aplicativos, como:
 
     * www.contoso.com
 
@@ -250,3 +250,4 @@ Para saber mais sobre como configurar o ASE ILB com um dispositivo WAF, confira 
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md

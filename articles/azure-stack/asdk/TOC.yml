@@ -19,7 +19,7 @@
           href: asdk-redeploy.md
     - name: 2. Adicionar um item do marketplace
       items:
-        - name: Fazer o download do Azure
+        - name: Baixar pelo Azure
           href: asdk-marketplace-item.md
         - name: Adicionar a partir de um local de origem
           href: asdk-marketplace-item-offline.md
@@ -57,7 +57,9 @@
       href: asdk-register.md
     - name: Configurar as configurações de telemetria de pilha do Azure
       href: asdk-telemetry.md
-    - name: solução de problemas
+    - name: Iniciar e parar o ASDK
+      href: asdk-start-stop.md
+    - name: Solução de Problemas
       href: asdk-troubleshooting.md
 - name: Referência
   items:
@@ -65,7 +67,7 @@
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: CLI do Azure Stack
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
-- name: Relacionados
+- name: Relacionado
   items:
     - name: Documentação do Operador do Azure Stack
       href: /azure/azure-stack/
@@ -79,7 +81,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Comentários de documentação de pilha do Azure
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
-    - name: Informações sobre preço
+    - name: Informações sobre preços
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'

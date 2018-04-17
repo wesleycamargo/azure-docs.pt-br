@@ -1,6 +1,6 @@
 ---
-title: "Introdução aos ambientes do Serviço de Aplicativo do Azure"
-description: "Uma breve visão geral sobre os ambientes do Serviço de Aplicativo do Azure"
+title: Introdução aos Ambientes de Serviço de Aplicativo do Azure
+description: Uma breve visão geral dos Ambientes de Serviço de Aplicativo do Azure
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="introduction-to-app-service-environments"></a>Introdução aos ambientes do Serviço de Aplicativo #
+# <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicativo #
  
 ## <a name="overview"></a>Visão geral ##
 
-Um Ambiente do Serviço de Aplicativo do Azure é um recurso do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo em grande escala. Esse recurso pode hospedar os aplicativos Web, [aplicativos móveis][mobileapps], aplicativos de API e [funções][Functions].
+O Ambiente de Serviço de Aplicativo do Azure é um recurso do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo em grande escala. Esse recurso pode hospedar os aplicativos Web, [aplicativos móveis][mobileapps], aplicativos de API e [funções][Functions].
 
 Os ASEs (Ambientes do Serviço de Aplicativo) são apropriados para cargas de trabalho de aplicativos que exijam:
 
@@ -43,7 +43,7 @@ Os ASEs são isolados para executar somente aplicativos de um único cliente e s
 
 ## <a name="dedicated-environment"></a>Ambiente dedicado ##
 
-Um ASE é dedicado exclusivamente a uma única assinatura e pode hospedar 100 instâncias. O intervalo pode abranger 100 instâncias em um único plano do Serviço de Aplicativo para a 100 planos do Serviço de Aplicativo de instância única e tudo que houver entre essas duas opções.
+Um ASE é dedicado exclusivamente a uma única assinatura e pode hospedar 100 instâncias do Plano do Serviço de Aplicativo. O intervalo pode abranger 100 instâncias em um único plano do Serviço de Aplicativo para a 100 planos do Serviço de Aplicativo de instância única e tudo que houver entre essas duas opções.
 
 Um ASE é composto de funções de trabalho e front-ends. Os front-ends são responsáveis pela terminação HTTP/HTTPS, bem como pelo balanceamento de cargas automático de solicitações do aplicativo em um ASE. Os front-ends são automaticamente adicionados já que os planos de Serviço de Aplicativo no ASE são escalados horizontalmente.
 

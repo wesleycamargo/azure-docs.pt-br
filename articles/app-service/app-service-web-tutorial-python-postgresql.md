@@ -1,6 +1,6 @@
 ---
 title: Compilar um aplicativo Web Python e PostgreSQL no Azure | Microsoft Docs
-description: "Saiba como fazer com que um aplicativo Python funcione no Azure com conexão a um banco de dados PostgreSQL."
+description: Saiba como fazer com que um aplicativo Python funcione no Azure com conexão a um banco de dados PostgreSQL.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9694dcfec7b3297e925bb45bee5e74b69609063d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Criar um aplicativo Web Python e PostgreSQL no Azure
+# <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Tutorial: criar um aplicativo Web Python e PostgreSQL no Azure
 
 > [!NOTE]
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar o serviço de aplicativo em _Linux_, consulte [Compilar um aplicativo Web Docker Python e PostgreSQL no Azure](./containers/tutorial-docker-python-postgresql-app.md).
@@ -226,7 +226,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Navegue para http://localhost:5000 em um navegador. Clique em **Registrar!** e crie um registro de teste. Agora, você está gravando dados no banco de dados no Azure.
+Navegue até http://localhost:5000 em um navegador. Clique em **Registrar!** e crie um registro de teste. Agora, você está gravando dados no banco de dados no Azure.
 
 ![Aplicativo Python Flask em execução localmente](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 
@@ -345,7 +345,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Navegue até http://localhost:5000 no navegador para ver as alterações. Crie um registro de teste.
+Navegue até http://localhost:5000 no navegador para exibir as alterações. Crie um registro de teste.
 
 ![Aplicativo Python Flask em execução localmente](./media/app-service-web-tutorial-python-postgresql/local-app-v2.png)
 

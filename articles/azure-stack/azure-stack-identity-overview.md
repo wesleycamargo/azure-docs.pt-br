@@ -1,12 +1,12 @@
 ---
-title: "Visão geral da identidade para a pilha do Azure | Microsoft Docs"
-description: "Saiba mais sobre os sistemas de identidade que você pode usar com a pilha do Azure."
+title: Visão geral da identidade para a pilha do Azure | Microsoft Docs
+description: Saiba mais sobre os sistemas de identidade que você pode usar com a pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: deebe5d8ff4c35c4507d2daf5c15025a1810d865
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.reviewer: ''
+ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Visão geral da identidade para a pilha do Azure
 
@@ -52,12 +52,12 @@ Contas de usuário (identidades) são as contas padrão que pessoas se autentica
 Como criar e gerenciar usuários e grupos depende da solução de identidade que você usar. 
 
 Na pilha do Azure, as contas de usuário: 
-- São criados no  *username@domain*  formato. Embora o AD FS mapeia as contas de usuário a uma instância do Active Directory, o AD FS não suporta o uso do  *\<domínio >\<alias >* formato. 
+- São criados no *username@domain* formato. Embora o AD FS mapeia as contas de usuário a uma instância do Active Directory, o AD FS não suporta o uso do  *\<domínio >\<alias >* formato. 
 - Pode ser configurado para usar a autenticação multifator. 
 - São restritos para o diretório onde primeiro registro, que é o diretório da organização.
 - Podem ser importados de seus diretórios locais. Para obter mais informações, consulte [integrar seus diretórios locais com o Active Directory do Azure](/azure/active-directory/connect/active-directory-aadconnect). 
 
-Quando você entrar no portal do locatário da sua organização, você usar o  *https://portal.local.azurestack.external*  URL. 
+Quando você entrar no portal do locatário da sua organização, você usar o *https://portal.local.azurestack.external* URL. 
 
 ### <a name="guest-users"></a>Usuários convidados
 Usuários convidados são contas de usuário de outros locatários de diretório que receberam acesso a recursos em seu diretório. Para dar suporte a usuários convidados, você usa o AD do Azure e habilita o suporte para multilocação. Quando o suporte está habilitado, você pode convidar usuários de convidado para acessar recursos em seu locatário de diretório, que por sua vez, permite sua colaboração com organizações externas. 
@@ -66,7 +66,7 @@ Para convidar usuários convidados, operadores de nuvem e os usuários podem usa
 
 Como um usuário convidado, você pode entrar locatário de diretório da outra organização. Para fazer isso, você acrescentar o nome de diretório da organização para o portal de URL. Por exemplo, se você pertence à organização Contoso e para entrar no diretório da Fabrikam, use https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-### <a name="applications"></a>APLICATIVOS
+### <a name="applications"></a>Aplicativos
 Você pode registrar aplicativos para o Azure AD ou AD FS e, em seguida, oferecem aplicativos para usuários em sua organização. 
 
 Os aplicativos incluem:
@@ -137,7 +137,7 @@ Para usuários e aplicativos, a arquitetura da pilha do Azure é descrita por qu
 |---------|---------|
 |Ferramentas e clientes, como o portal de administração     | Para acessar ou modificar um recurso na pilha do Azure, ferramentas e os clientes usam um [JSON Web Token](/azure/active-directory/develop/active-directory-token-and-claims) para fazer uma chamada para o Gerenciador de recursos do Azure. <br>Gerenciador de recursos do Azure valida o JSON Web Token e exibe o *declarações* no token emitido para estimar o nível de autorização de usuário ou entidade de serviço tem na pilha do Azure. |
 |Gerenciador de recursos do Azure e seus serviços de núcleo     |Gerenciador de recursos do Azure se comunica com os provedores de recursos para transferir a comunicação de usuários. <br> Transfere use *imperativo direto* chamadas ou *declarativa* chama via [modelos do Azure Resource Manager](/azure/azure-stack/user/azure-stack-arm-templates.md).|
-|Provedores de recursos     |Chamadas que são passadas para provedores de recursos são protegidas com autenticação baseada em certificado. <br>Gerenciador de recursos do Azure e o provedor de recursos permanecem na comunicação com a API. Para cada chamada é recebida do Gerenciador de recursos do Azure, o provedor de recursos valida a chamada com esse certificado.|
+|Provedores de recurso     |Chamadas que são passadas para provedores de recursos são protegidas com autenticação baseada em certificado. <br>Gerenciador de recursos do Azure e o provedor de recursos permanecem na comunicação com a API. Para cada chamada é recebida do Gerenciador de recursos do Azure, o provedor de recursos valida a chamada com esse certificado.|
 |Lógica de negócios e infraestrutura     |Provedores de recursos se comunicam com lógica de negócios e infraestrutura usando um modo de autenticação de sua escolha. Os provedores de recursos padrão que acompanham a pilha do Azure usam autenticação do Windows para proteger essa comunicação.|
 
 ![Informações necessárias para autenticação](media/azure-stack-identity-overview/authentication.png)
@@ -148,7 +148,7 @@ Para autenticar com o provedor de identidade e receber um JSON Web Token, você 
 1.  **URL para o sistema de identidade (autoridade)**: A URL na qual o seu provedor de identidade pode ser acessado. Por exemplo, *https://login.windows.net*. 
 2.  **URI de ID de aplicativo do Azure Resource Manager**: O identificador exclusivo para o Gerenciador de recursos do Azure que está registrado com seu provedor de identidade. Também é exclusiva para cada instalação de pilha do Azure.
 3.  **Credenciais**: A credencial que você pode usar para autenticar com o provedor de identidade. 
-4.  **URL do Gerenciador de recursos do Azure**: A URL é o local do serviço Gerenciador de recursos do Azure. Por exemplo,  *https://management.azure.com*  ou  *https://management.local.azurestack.external* .
+4.  **URL do Gerenciador de recursos do Azure**: A URL é o local do serviço Gerenciador de recursos do Azure. Por exemplo, *https://management.azure.com* ou *https://management.local.azurestack.external*.
 
 Quando uma entidade de segurança (um cliente, aplicativo ou usuário) faz uma solicitação de autenticação para acessar um recurso, a solicitação deve incluir:
 - Credenciais do servidor principal.
@@ -169,9 +169,9 @@ Quando todas as validações forem concluídas, o Gerenciador de recursos do Azu
 
 ### <a name="use-role-based-access-control"></a>Usar o controle de acesso baseado em função  
 Controle de acesso baseado em função (RBAC) na pilha do Azure é consistente com a implementação no Microsoft Azure. Você pode gerenciar o acesso aos recursos por meio da atribuição de função apropriada de RBAC aos usuários, grupos e aplicativos. Para obter informações sobre como usar o RBAC com pilha do Azure, consulte os seguintes artigos:
-- [Introdução ao controle de acesso baseado em função no portal do Azure](/azure/active-directory/role-based-access-control-what-is).
-- [Use o controle de acesso baseado em função para gerenciar o acesso aos recursos da sua assinatura do Azure](/azure/active-directory/role-based-access-control-configure).
-- [Criar funções personalizadas para o controle de acesso](/azure/active-directory/role-based-access-control-custom-roles).
+- [Introdução ao Controle de Acesso Baseado em Função no Portal do Azure](/azure/role-based-access-control/overview).
+- [Use o controle de acesso baseado em função para gerenciar o acesso aos recursos da sua assinatura do Azure](/azure/role-based-access-control/role-assignments-portal).
+- [Criar funções personalizadas para o controle de acesso](/azure/role-based-access-control/custom-roles).
 - [Gerenciar o controle de acesso baseado em função](azure-stack-manage-permissions.md) na pilha do Azure.
 
 

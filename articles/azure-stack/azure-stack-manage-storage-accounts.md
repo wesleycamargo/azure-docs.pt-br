@@ -2,10 +2,10 @@
 title: Gerenciar contas de armazenamento do Azure pilha | Microsoft Docs
 description: Saiba como localizar, gerenciar, recuperar e recuperar as contas de armazenamento do Azure pilha
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce61dec785d6207e2d2df21884525f76a6778f4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gerenciar contas de armazenamento na pilha do Azure
 Saiba como gerenciar contas de armazenamento na pilha do Azure para localizar, recuperar e recuperar a capacidade de armazenamento com base nas necessidades de negócios.
@@ -90,7 +90,7 @@ Na pilha do Azure, há uma maneira simples de fazer isso:
    
    Depois que a conta recuperada é sincronizada com êxito, ele pode ser usado novamente.
 
-### <a name="some-gotchas"></a>Some Gotchas
+### <a name="some-gotchas"></a>Algumas armadilhas
 * Sua conta excluída mostra estado como **fora de retenção**.
   
   Fora da retenção significa que a conta excluída excedeu o período de retenção e não pode ser recuperada.
@@ -99,7 +99,7 @@ Na pilha do Azure, há uma maneira simples de fazer isso:
   Sua conta pode não aparecer na lista de contas quando a conta excluída já foi coletado como lixo. Nesse caso, ele não pode ser recuperado. Consulte [recuperar a capacidade](#reclaim) neste tópico.
 
 ## <a name="set-the-retention-period"></a>Definir o período de retenção
-A configuração do período de retenção permite que um operador de nuvem especificar um período de tempo em dias (entre 0 e 9999 dias) durante o qual qualquer conta excluída potencialmente pode ser recuperada. O período de retenção padrão é definido como 15 dias. Definir o valor como "0" significa que qualquer conta excluída imediatamente está fora de retenção e marcado para coleta de lixo periódica.
+A configuração do período de retenção permite que um operador de nuvem especificar um período de tempo em dias (entre 0 e 9999 dias) durante o qual qualquer conta excluída potencialmente pode ser recuperada. O período de retenção padrão é definido como 0 dias. Definir o valor como "0" significa que qualquer conta excluída imediatamente está fora de retenção e marcado para coleta de lixo periódica.
 
 **Para alterar o período de retenção:**
 

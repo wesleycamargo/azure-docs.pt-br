@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública da pilha do Azure
+# <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública de pilha do Azure
 
 A pilha do Azure tem uma rede de infraestrutura pública usando externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, máquinas virtuais do locatário. Certificados PKI com os nomes DNS apropriados para esses pontos de extremidade do Azure pilha infraestrutura pública são necessários durante a implantação da pilha do Azure. Este artigo fornece informações sobre:
 
@@ -67,13 +67,13 @@ Para sua implantação, [Região] e [externalfqdn] valores devem corresponder a 
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
 | Portal público | portal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
 | Portal de administração | adminportal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
-| Público do Gerenciador de recursos do Azure | management.&lt;region>.&lt;fqdn> | Gerenciador de Recursos do Azure | &lt;region>.&lt;fqdn> |
-| Administração do Gerenciador de recursos do Azure | adminmanagement.&lt;region>.&lt;fqdn> | Gerenciador de Recursos do Azure | &lt;region>.&lt;fqdn> |
-| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Blob | blob.&lt;region>.&lt;fqdn> |
-| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de tabela | table.&lt;region>.&lt;fqdn> |
+| Público do Gerenciador de recursos do Azure | gerenciamento. &lt;região >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Administração do Gerenciador de recursos do Azure | adminmanagement. &lt;região >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Blobs | blob.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de tabela | tabela. &lt;região >. &lt;fqdn > |
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Filas | queue.&lt;region>.&lt;fqdn> |
-| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Cofre da Chave | vault.&lt;region>.&lt;fqdn> |
-| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) |  Keyvault interno |  adminvault.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Key Vault | cofre. &lt;região >. &lt;fqdn > |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) |  Keyvault interno |  adminvault. &lt;região >. &lt;fqdn > |
 
 ### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Para o ambiente de pilha do Azure em versões anteriores 1803
 
@@ -81,10 +81,10 @@ Para sua implantação, [Região] e [externalfqdn] valores devem corresponder a 
 |-----|-----|-----|-----|
 |Portal público|portal.*&lt;region>.&lt;fqdn>*|Portais|*&lt;region>.&lt;fqdn>*|
 |Portal de administração|adminportal.*&lt;region>.&lt;fqdn>*|Portais|*&lt;region>.&lt;fqdn>*|
-|Público do Gerenciador de recursos do Azure|management.*&lt;region>.&lt;fqdn>*|Gerenciador de Recursos do Azure|*&lt;region>.&lt;fqdn>*|
-|Administração do Gerenciador de recursos do Azure|adminmanagement.*&lt;region>.&lt;fqdn>*|Gerenciador de Recursos do Azure|*&lt;region>.&lt;fqdn>*|
+|Público do Gerenciador de recursos do Azure|gerenciamento.  *&lt;região >.&lt; FQDN >*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
+|Administração do Gerenciador de recursos do Azure|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
 |ACS<sup>1</sup>|Um certificado curinga do subdomínio de várias com nomes alternativos da entidade para:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Armazenamento|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL curinga)|Cofre da Chave|vault.*&lt;region>.&lt;fqdn>*|
+|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL curinga)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
 |KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL curinga)|Keyvault interno|adminvault.*&lt;region>.&lt;fqdn>*|
 |
 <sup>1</sup> certificado o ACS requer três SANs curinga em um único certificado. Curinga várias SANs em um único certificado pode não oferecer suporte para todas as autoridades de certificação pública. 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bd3618367f91fe043cc8412481b38a9c996a5275
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados SQL na pilha do Microsoft Azure
 
@@ -81,7 +81,7 @@ Você deve criar uma (ou mais) de instâncias do SQL Server e/ou fornecer acesso
 
     - Somente um arquivo de certificado único pode existir no diretório apontado pelo parâmetro DependencyFilesLocalPath.
 
-    - O nome do arquivo não deve conter caracteres especiais.
+    - O nome do arquivo não deve conter todos os caracteres especiais ou espaços.
 
 
 5. Abra um **novo** console do PowerShell (administrativo) com privilégios elevados e vá para o diretório onde você extraiu os arquivos. Use uma nova janela para evitar problemas que possam surgir incorretos módulos do PowerShell que já estão carregados no sistema.
@@ -144,10 +144,10 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert
  ```
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parameters
+### <a name="deploysqlproviderps1-parameters"></a>Parâmetros de DeploySqlProvider.ps1
 Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou se qualquer parâmetro de validação falhar, você precisará fornecer os parâmetros necessários.
 
-| Nome do parâmetro | DESCRIÇÃO | Comentário ou o valor padrão |
+| Nome do parâmetro | Descrição | Comentário ou o valor padrão |
 | --- | --- | --- |
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _Obrigatório_ |
 | **AzCredential** | As credenciais para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure. | _Obrigatório_ |
@@ -157,8 +157,8 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ |
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 |
 | **RetryDuration** | O intervalo de tempo limite entre as repetições, em segundos. | 120 |
-| **Desinstalar** | Remove o provedor de recursos e todos os respectivos recursos (consulte as observações a seguir). | Não  |
-| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
+| **Desinstalar** | Remove o provedor de recursos e todos os respectivos recursos (consulte as observações a seguir). | Não |
+| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não |
 
 
 ## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verifique se a implantação usando o portal de pilha do Azure
@@ -234,7 +234,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="updatesqlproviderps1-parameters"></a>Parâmetros de UpdateSQLProvider.ps1
 Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou se qualquer parâmetro de validação falhar, você precisará fornecer os parâmetros necessários.
 
-| Nome do parâmetro | DESCRIÇÃO | Comentário ou o valor padrão |
+| Nome do parâmetro | Descrição | Comentário ou o valor padrão |
 | --- | --- | --- |
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _Obrigatório_ |
 | **AzCredential** | As credenciais para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure. | _Obrigatório_ |
@@ -244,8 +244,8 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _obrigatório_ |
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 |
 | **RetryDuration** |O intervalo de tempo limite entre as repetições, em segundos. | 120 |
-| **Desinstalar** | Remove o provedor de recursos e todos os respectivos recursos (consulte as observações a seguir). | Não  |
-| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
+| **Desinstalar** | Remove o provedor de recursos e todos os respectivos recursos (consulte as observações a seguir). | Não |
+| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não |
 
 
 ## <a name="collect-diagnostic-logs"></a>Coletar logs de diagnóstico

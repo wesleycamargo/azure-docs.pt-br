@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2018
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: ff610c4efa9db16ca8a1e151b36e0e08dfe30d69
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3b21a3ae5940cd736fe23b76e7ede9dc0061b711
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Coletar dados sobre as Máquinas Virtuais do Azure
 O [Azure Log Analytics](log-analytics-overview.md) pode coletar dados diretamente das máquinas virtuais do Azure e de outros recursos do ambiente em um único repositório para correlação e análise detalhada.  Este guia de início rápido mostra como configurar e coletar dados de VMs Linux ou Windows do Azure com algumas etapas simples.  
@@ -37,7 +37,7 @@ Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azur
   * Selecione uma **Assinatura** a vincular escolhendo uma na lista suspensa, se a selecionada por padrão não é adequada.
   * Para **Grupo de Recursos**, selecione um grupo de recursos existente que contém uma ou mais máquinas virtuais do Azure.  
   * Selecione o **Local** no qual as VMs serão implantadas.  Para obter mais informações, consulte em quais [regiões o Log Analytics está disponível](https://azure.microsoft.com/regions/services/).
-  * Se você estiver criando um espaço de trabalho em uma nova assinatura feita depois de 2 de abril de 2018, ele usará o plano de preços *por GB* e a opção de selecionar um tipo de preço não estará disponível.  Se você estiver criando um espaço de trabalho para uma assinatura existente feita antes de 2 de abril ou para uma assinatura associada a um registro de EA existente, terá a opção de escolher entre três tipos de preços.  Neste guia de início rápido, você selecionará a camada gratuita.  Para obter mais informações sobre os tipos específicos, consulte [Detalhes de preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Se você estiver criando um espaço de trabalho em uma nova assinatura feita depois de 2 de abril de 2018, ele usará o plano de preços *por GB* e a opção de selecionar um tipo de preço não estará disponível.  Se você estiver criando um espaço de trabalho para uma assinatura existente feita antes de 2 de abril ou uma assinatura associada a uma inscrição de EA existente, selecione seu tipo de preço preferido.  Para obter mais informações sobre os tipos específicos, consulte [Detalhes de preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
@@ -45,20 +45,13 @@ Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azur
 
 Enquanto as informações são verificadas e o espaço de trabalho é criado, você pode acompanhar seu progresso no menu **Notificações**. 
 
->[!NOTE]
->Quando você cria um novo espaço de trabalho vinculado a uma nova assinatura criada depois de 2 de abril de 2018, ele usará o plano de preços *PerGB2018* automaticamente.  Esse plano inclui 5 GB de dados por mês gratuitos em todos os recursos do Application Insights e do Log Analytics. Para saber mais sobre o modelo de preços, confira [Detalhes de preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
->
-
 ## <a name="enable-the-log-analytics-vm-extension"></a>Habilitar a Extensão de VM do Log Analytics
 Para máquinas virtuais Windows e Linux já implantadas no Azure, instale o agente do Log Analytics com a Extensão de VM do Log Analytics.  Usar a extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para o espaço de trabalho do Log Analytics que você especificar. O agente também será automaticamente atualizado, garantindo que você disponha dos recursos e correções mais recentes.
 
 >[!NOTE]
 >O agente do OMS para Linux não pode ser configurado para se reportar a mais de um espaço de trabalho do Log Analytics. 
 
-Caso tenha criado um espaço de trabalho na nuvem do Azure Governamental, pode aparecer uma faixa na parte superior da página de recursos do Log Analytics no portal convidando você a fazer a atualização.  A atualização não é necessária para fins deste guia de início rápido.<br>
-
-![Aviso de atualização do Log Analytics no portal do Azure](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
-1. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+1. No Portal do Azure, clique em **Todos os serviços**, localizado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 2. Na lista de espaços de trabalho do Log Analytics, selecione *DefaultLAWorkspace* criado anteriormente.
 3. No menu à esquerda, em Fontes de Dados do Espaço de Trabalho, clique em **Máquinas virtuais**.  
 4. Na lista de **Máquinas virtuais**, selecione uma máquina virtual em que deseja instalar o agente. Observe que o **status de conexão do OMS** da VM indica que ela **Não está conectada**.
@@ -93,10 +86,6 @@ Agora que você habilitou a coleta de dados, vamos executar um exemplo simples d
 
 1. No portal do Azure, navegue para Log Analytics e selecione o espaço de trabalho criado anteriormente.
 2. Clique no bloco **Pesquisa de Logs** e, no painel da Pesquisa de Logs, no campo de consulta, digite `Perf` e, em seguida, pressione Enter ou clique no botão de pesquisa à direita do campo de consulta.<br> ![Exemplo de consulta da pesquisa de logs do Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
-
-   >[!NOTE]
-   >Se o seu espaço de trabalho for criado na nuvem do Azure Governamental, você usará a consulta `Type=Perf`.  
-   >
 
 Por exemplo, a consulta na imagem a seguir retornou 78.000 registros de Desempenho.  Os resultados serão significativamente menores.<br> ![Resultado da pesquisa de logs do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 

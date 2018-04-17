@@ -1,30 +1,31 @@
 ---
-title: Restringir o acesso de rede a recursos de PaaS ‒ portal do Azure | Microsoft Docs
-description: Saiba como limitar e restringir o acesso à rede para os recursos do Azure, como Armazenamento do Microsoft Azure e Banco de Dados SQL do Azure, com pontos de extremidade de serviço de rede virtual usando o portal do Azure.
+title: Restringir o acesso à rede de recursos de PaaS – tutorial – Portal do Azure | Microsoft Docs
+description: Neste tutorial, você aprende a limitar e restringir o acesso à rede de recursos do Azure, como Armazenamento do Azure e Banco de Dados SQL do Azure, com pontos de extremidade de serviço de rede virtual usando o Portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: ''
-ms.tgt_pltfrm: virtual-network
+ms.topic: tutorial
+ms.tgt_pltfrm: virtual-networ
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: 9a64a5c1f63dc05cba6fdfa310b694e34bdba7d1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.custom: mvc
+ms.openlocfilehash: f53544e756bde623a604513f17f9cc92c8efe42b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Restringir o acesso à rede a recursos de PaaS com pontos de extremidade de serviço de rede virtual usando o portal do Azure
+# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: restringir o acesso à rede de recursos de PaaS com pontos de extremidade de serviço de rede virtual usando o Portal do Azure
 
-Os pontos de extremidade de serviço de rede virtual permitem limitar o acesso à rede a alguns recursos de serviço do Azure para uma sub-rede da rede virtual. Você também pode remover o acesso à Internet para os recursos. Os pontos de extremidade de serviço fornecerão conexão direta de sua rede virtual a um serviço do Azure, permitindo que você use o espaço de endereço privado da sua rede virtual para acessar os serviços do Azure compatíveis. O tráfego destinado aos recursos do Azure por meio de pontos de extremidade de serviço sempre fica na rede de backbone do Microsoft Azure. Neste artigo, você aprenderá a:
+Os pontos de extremidade de serviço de rede virtual permitem limitar o acesso à rede a alguns recursos de serviço do Azure para uma sub-rede da rede virtual. Você também pode remover o acesso à Internet para os recursos. Os pontos de extremidade de serviço fornecerão conexão direta de sua rede virtual a um serviço do Azure, permitindo que você use o espaço de endereço privado da sua rede virtual para acessar os serviços do Azure compatíveis. O tráfego destinado aos recursos do Azure por meio de pontos de extremidade de serviço sempre fica na rede de backbone do Microsoft Azure. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar uma rede virtual com uma sub-rede
@@ -33,6 +34,8 @@ Os pontos de extremidade de serviço de rede virtual permitem limitar o acesso �
 > * Implantar uma VM (máquina virtual) para cada sub-rede
 > * Confirmar o acesso a um recurso por meio de uma sub-rede
 > * Confirmar se o acesso é negado para um recurso por meio de uma sub-rede e da Internet
+
+Se preferir, você pode concluir este tutorial usando a [CLI do Azure](tutorial-restrict-network-access-to-resources-cli.md) ou o [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -75,7 +78,7 @@ Faça logon no Portal do Azure em http://portal.azure.com.
     |Intervalo de endereços| 10.0.1.0/24|
     |Pontos de extremidade de serviço| Selecione **Microsoft.Storage** em **Serviços**|
 
-## <a name="restrict-network-access-to-and-from-a-subnet"></a>Restringir o acesso à rede para e de uma sub-rede
+## <a name="restrict-network-access-for-a-subnet"></a>Restringir o acesso à rede de uma sub-rede
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do Portal do Azure.
 2. Selecione **Rede** e **Grupo de segurança de rede**.
@@ -141,7 +144,7 @@ Em **Criar um grupo de segurança de rede**, insira ou selecione as seguintes in
 
 ## <a name="restrict-network-access-to-a-resource"></a>Restringir o acesso à rede para um recurso
 
-As etapas necessárias para restringir o acesso de rede a recursos criados por meio de serviços do Azure habilitados para pontos de extremidade do serviço variam de acordo com os serviços. Confira a documentação de serviços individuais para obter as etapas específicas para cada serviço. O restante deste artigo inclui etapas para restringir o acesso de rede para uma conta de Armazenamento do Microsoft Azure, como exemplo.
+As etapas necessárias para restringir o acesso de rede a recursos criados por meio de serviços do Azure habilitados para pontos de extremidade do serviço variam de acordo com os serviços. Confira a documentação de serviços individuais para obter as etapas específicas para cada serviço. O restante deste tutorial inclui etapas para restringir o acesso de rede para uma conta de Armazenamento do Microsoft Azure como exemplo.
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -160,7 +163,7 @@ As etapas necessárias para restringir o acesso de rede a recursos criados por m
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Criar um compartilhamento de arquivos na conta de armazenamento
 
-1. Depois que a conta de armazenamento for criada, insira o nome da conta de armazenamento na caixa **Pesquisar recursos, serviços e documentos**, na parte superior do portal. Quando o nome da conta de armazenamento for exibido nos resultados da pesquisa, selecione-o.
+1. Depois que a conta de armazenamento for criada, insira o nome dela na caixa **Pesquisar recursos, serviços e documentos**, na parte superior do portal. Quando o nome da conta de armazenamento for exibido nos resultados da pesquisa, selecione-o.
 2. Selecione **Arquivos**, conforme mostrado na seguinte figura:
 
     ![Conta de armazenamento](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
@@ -292,9 +295,9 @@ Quando não for mais necessário, exclua o grupo de recursos e todos os recursos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você habilitou um ponto de extremidade de serviço para uma sub-rede de rede virtual. Você aprendeu que pontos de extremidade de serviço podem ser habilitados para os recursos implantados com vários serviços do Azure. Você criou uma conta de Armazenamento do Microsoft Azure e acesso limitado à rede para a conta de armazenamento apenas para os recursos em uma sub-rede de rede virtual. Antes de criar pontos de extremidade de serviço em produção redes virtuais, é recomendável que você se familiarize cuidadosamente com os [pontos de extremidade de serviço](virtual-network-service-endpoints-overview.md).
+Neste tutorial, você habilitou um ponto de extremidade de serviço para uma sub-rede de rede virtual. Você aprendeu que pontos de extremidade de serviço podem ser habilitados para os recursos implantados com vários serviços do Azure. Você criou uma conta de Armazenamento do Microsoft Azure e acesso limitado à rede para a conta de armazenamento apenas para os recursos em uma sub-rede de rede virtual. Para saber mais sobre pontos de extremidade de serviços, consulte [Visão geral de pontos de extremidade de serviço](virtual-network-service-endpoints-overview.md) e [Gerenciar sub-redes](virtual-network-manage-subnet.md).
 
-Se você tem várias redes virtuais na conta, convém conectar duas redes virtuais em conjunto para que os recursos de cada rede virtual possam se comunicar uns com os outros. Vá para o próximo tutorial para aprender a conectar redes virtuais.
+Se você tem várias redes virtuais na conta, convém conectar duas redes virtuais em conjunto para que os recursos de cada rede virtual possam se comunicar uns com os outros. Para saber mais sobre como conectar redes virtuais, siga para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Conectar redes virtuais](./tutorial-connect-virtual-networks-portal.md)

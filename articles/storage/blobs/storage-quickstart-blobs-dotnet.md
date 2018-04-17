@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: b84a56996a335f8a137c4219c55b9878e39b5a3b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a34a94a9421c65a2b1d4ce5c390732e0adbb69d6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Início rápido: Carregar, baixar e listar blobs usando .NET
 
@@ -56,26 +56,15 @@ Use o [git](https://git-scm.com/) para baixar uma cópia do aplicativo para seu 
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-Este comando clona o repositório para sua pasta do git local. Para abrir a solução do Visual Studio, procure a pasta storage-blobs-dotnet-quickstart, abra-a e clique duas vezes em storage-blobs-dotnet-quickstart.sln. 
+Este comando clona o repositório para sua pasta do git local. Para abrir a solução do Visual Studio, procure a pasta *storage-blobs-dotnet-quickstart*, abra-a e clique duas vezes em *storage-blobs-dotnet-quickstart.sln*. 
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de conexão de armazenamento
 
-Para executar o aplicativo, você deve fornecer a cadeia de conexão para sua conta de armazenamento. Copie a cadeia de conexão do portal do Azure e grave-a em uma nova variável de ambiente. O exemplo lê a cadeia de conexão da variável de ambiente e o utiliza para autenticar suas solicitações para o Armazenamento do Azure.
+Para executar o aplicativo, você deve fornecer a cadeia de conexão para sua conta de armazenamento. O aplicativo de exemplo lê a cadeia de conexão em uma variável de ambiente e utiliza-a para autenticar solicitações no Armazenamento do Azure.
 
-### <a name="copy-your-connection-string-from-the-azure-portal"></a>Copie sua cadeia de conexão do portal do Azure
-
-Para copiar sua cadeia de conexão:
-
-1. Navegue até o [Portal do Azure](https://portal.azure.com).
-2. Localize sua cadeia de conexão.
-3. Na seção **Configurações** da visão geral da conta de armazenamento, selecione **Chaves de acesso**.
-4. Encontre o valor da **Cadeia de conexão** em **key1** e clique no botão **Copiar** para copiar a cadeia de conexão.  
-
-    ![Captura de tela mostrando como copiar uma cadeia de conexão do portal do Azure](media/storage-quickstart-blobs-dotnet/portal-connection-string.png)
-
-## <a name="write-your-connection-string-to-an-environment-variable"></a>Gravar sua cadeia de conexão em uma variável de ambiente
-
-Em seguida, grave a nova variável de ambiente no computador local executando o aplicativo. Para definir a variável de ambiente, abra uma janela de console e siga as instruções do seu sistema operacional. Substitua `<yourconnectionstring>` pela sua cadeia de conexão atual:
+Depois de copiar a cadeia de conexão, grave-a em uma nova variável de ambiente no computador local que executa o aplicativo. Para definir a variável de ambiente, abra uma janela de console e siga as instruções do seu sistema operacional. Substitua `<yourconnectionstring>` pela sua cadeia de conexão atual:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
