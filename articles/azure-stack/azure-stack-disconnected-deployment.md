@@ -1,25 +1,25 @@
 ---
-title: "Sistemas integrados de decisões de implantação desconectado do Azure para a pilha do Azure | Microsoft Docs"
-description: "Determine as decisões de vários nós do Azure de pilha do Azure conectada implantações de planejamento de implantação."
+title: Sistemas integrados de decisões de implantação desconectado do Azure para a pilha do Azure | Microsoft Docs
+description: Determine as decisões de vários nós do Azure de pilha do Azure conectada implantações de planejamento de implantação.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados de decisões de pilha do Azure de planejamento de implantação desconectada do Azure
 Depois que você decidir [como integrará pilha do Azure em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, finalizar suas decisões de implantação da pilha do Azure.
@@ -45,7 +45,7 @@ Pilha do Azure foi projetada para funcionar melhor quando conectado ao Azure, po
 |Implantação da VM com a extensão de Docker para executar comandos do Docker|Usuários portadores de deficiência – Docker verificará na Internet para a versão mais recente e essa verificação falhará.|
 |Links de documentação no Portal de pilha do Azure|Indisponível – Links como fornecer comentários, ajuda, Quickstart, etc. que usam um URL da Internet não funcionará.|
 |Alerta correção/atenuação que faz referência a um guia de correção online|Disponível – nenhuma correção de alerta links que usam que um URL da Internet não funcionará.|
-|Distribuição de mercado – a capacidade de selecionar e adicionar pacotes de galeria diretamente no Azure Marketplace|Disponível – Este recurso requer conectividade com o Azure e uma conta do Active Directory do Azure.|
+|Distribuição de mercado – a capacidade de selecionar e adicionar pacotes de galeria diretamente no Azure Marketplace|Usuários portadores de deficiência – quando você implanta a pilha do Azure em modo desconectado (sem qualquer conectividade com a internet), não é possível baixar itens do marketplace usando o portal de pilha do Azure. No entanto, você pode usar o [ferramenta de distribuição do marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) para baixar os itens do marketplace para um computador que tenha conectividade com a internet e, em seguida, transferi-los para seu ambiente de pilha do Azure.|
 |Usando contas de Federação do Active Directory do Azure para gerenciar uma implantação de pilha do Azure|Disponível – Este recurso requer conectividade com o Azure. O AD FS com uma instância local do Active Directory deve ser usado em vez disso.|
 |Provedores de recursos como WebApps e SQL|Não disponível - provedores de recursos, como SQL e WebApps requer acesso à Internet para o conteúdo.|
 |Interface de Linha de Comando (CLI)|Usuários portadores de deficiência – CLI tem funcionalidade reduzida em termos de autenticação e o provisionamento de princípios de serviço.|
@@ -53,7 +53,7 @@ Pilha do Azure foi projetada para funcionar melhor quando conectado ao Azure, po
 |O Visual Studio – do AD FS|Prejudicada – somente o Visual Studio Enterprise dá suporte ao AD FS.
 Telemetria|Não disponível-dados de telemetria para a pilha do Azure, bem como quaisquer pacotes de galeria de terceiros que dependem de dados de telemetria.|
 |Certificados|Não disponível-conectividade com a Internet é necessário para serviços de lista de revogação de certificados (CRL) e protocolo de Status de certificado Online (OSCP) no contexto de HTTPS.|
-|Key-Vault|Prejudicada – um caso de uso comum para o Cofre de chaves é ter um aplicativo ler segredos em tempo de execução. Para este aplicativo precisa de uma entidade de serviço no diretório. No Active Directory do Azure, usuários regulares (não administradores) por padrão são permitidas para adicionar entidades de serviço. No AD (usando o AD FS) não estiverem. Isso coloca uma barreira na experiência de ponta a ponta porque um sempre deve passar por um administrador de diretório para adicionar qualquer aplicativo.| 
+|Cofre de chaves|Prejudicada – um caso de uso comum para o Cofre de chaves é ter um aplicativo ler segredos em tempo de execução. Para este aplicativo precisa de uma entidade de serviço no diretório. No Active Directory do Azure, usuários regulares (não administradores) por padrão são permitidas para adicionar entidades de serviço. No AD (usando o AD FS) não estiverem. Isso coloca uma barreira na experiência de ponta a ponta porque um sempre deve passar por um administrador de diretório para adicionar qualquer aplicativo.| 
 
 ## <a name="learn-more"></a>Saiba mais
 - Para obter informações sobre os casos de uso, compra, parceiros e fornecedores de hardware de OEM, consulte o [Azure pilha](https://azure.microsoft.com/overview/azure-stack/) página do produto.

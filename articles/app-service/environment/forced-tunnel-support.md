@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 3/6/2018
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurar seu Ambiente de Serviço de Aplicativo com tunelamento forçado
 
@@ -49,6 +49,8 @@ Para habilitar o ASE para ir diretamente para a Internet, mesmo se sua rede virt
 
 Se você fizer essas duas alterações, o tráfego destinado à Internet proveniente da sub-rede do Ambiente do Serviço de Aplicativo não será forçado a ir para a conexão ExpressRoute.
 
+Se a rede já está roteando tráfego no local, você precisa criar uma sub-rede para hospedar seu ASE e configurar o UDR para ele antes de tentar implantar o ASE.  
+
 > [!IMPORTANT]
 > As rotas definidas em uma UDR devem ser específicas o suficiente para ter precedência sobre todas as rotas anunciadas pela configuração do ExpressRoute. O exemplo anterior usa o intervalo de endereços amplo 0.0.0.0/0. É possível que ele seja acidentalmente substituído pelos anúncios de rota que usam intervalos de endereços mais específicos.
 >
@@ -56,13 +58,16 @@ Se você fizer essas duas alterações, o tráfego destinado à Internet proveni
 
 ![Acesso direto à Internet][1]
 
-## <a name="configure-your-ase-with-service-endpoints"></a>Configure seu ASE com Pontos de Extremidade de Serviço
+
+## <a name="configure-your-ase-with-service-endpoints"></a>Configure seu ASE com Pontos de Extremidade de Serviço ##
 
 Para encaminhar todo o tráfego de saída de seu ASE, exceto o que vai para o SQL Azure e o Armazenamento do Azure, execute as etapas a seguir:
 
 1. Crie uma tabela de rota e atribua-a à sua sub-rede do ASE. Encontre os endereços que correspondem à sua região aqui: [Endereços de gerenciamento de Ambiente do Serviço de Aplicativo][management]. Crie rotas para esses endereços com um próximo salto da Internet. Isso é necessário porque o tráfego do gerenciamento de entrada do Ambiente do Serviço de Aplicativo deve responder do mesmo endereço do qual ele foi enviado.   
 
-2. Habilite os Pontos de Extremidade de Serviço com o SQL do Azure e o Armazenamento do Azure com sua sub-rede do ASE
+2. Habilite os Pontos de Extremidade de Serviço com o SQL do Azure e o Armazenamento do Azure com sua sub-rede do ASE.  Após essa etapa estar concluída, você pode configurar sua rede virtual com o túnel forçado.
+
+Para criar seu ASE em uma rede virtual que já está configurada para rotear todo o tráfego no local, você precisa criar seu ASE usando um modelo do gerenciador de recursos.  Não é possível criar um ASE com o portal em uma sub-rede já existente.  Ao implantar seu ASE em uma rede virtual que já está configurada para rotear o tráfego de saída no local, você precisa criar seu ASE usando um modelo de gerenciador de recursos, que permitem que você especifique uma sub-rede já existente. Para obter detalhes sobre como implantar um ASE com um modelo de leitura [Criando um Ambiente de Serviço de Aplicativo usando um modelo][template].
 
 Os Pontos de Extremidade de Serviço permitem restringir o acesso aos serviços de vários locatários para um conjunto de sub-redes e redes virtuais do Azure. Você pode saber mais sobre os Pontos de Extremidade de Serviço na documentação [Pontos de Extremidade de Serviço de Rede Virtual][serviceendpoints]. 
 
@@ -70,7 +75,7 @@ Quando você habilita Pontos de Extremidade de Serviço em um recurso, existem r
 
 Quando os Pontos de Extremidade de Serviço estão habilitados em uma sub-rede com uma instância do SQL do Azure, todas as instâncias do SQL do Azure conectadas à sub-rede devem ter os Pontos de Extremidade de Serviço habilitados. Se quiser acessar várias instâncias do SQL do Azure da mesma sub-rede, você não pode habilitar os Pontos de Extremidade de Serviço em uma instância do SQL do Azure e não em outra.  O Armazenamento do Azure não possuem o mesmo comportamento do SQL do Azure.  Ao habilitar os Pontos de Extremidade de Serviço com o Armazenamento do Azure, você bloqueia o acesso a esse recurso de sua sub-rede, mas ainda pode acessar outras contas de Armazenamento do Azure, mesmo se elas não tiverem os Pontos de Extremidade de Serviço habilitados.  
 
-Se você configurar o túnel forçado com um dispositivo de filtro de rede, lembre-se de que o ASE tem um número de dependências, além do SQL do Azure e do Armazenamento do Azure. Você deve permitir esse tráfego senão o ASE não funcionará corretamente.
+Se você configurar o túnel forçado com um dispositivo de filtro de rede, lembre-se de que o ASE tem dependências, além do SQL do Azure e do Armazenamento do Azure. Você deve permitir o tráfego para essas dependências senão o ASE não funcionará corretamente.
 
 ![Túnel forçado com pontos de extremidade de serviço][2]
 
@@ -122,7 +127,7 @@ Essas alterações enviam tráfego para o Armazenamento do Azure diretamente a p
 
 Se a comunicação entre o ASE e suas dependências for interrompida, o ASE ficará não íntegro.  Se ele permanecer não íntegro por muito tempo, o ASE ficará suspenso. Para cancelar a suspensão do ASE, siga as instruções em seu portal do ASE.
 
-Além de simplesmente interromper a comunicação, você pode afetar adversamente o ASE introduzindo muita latência. Muito latência pode ocorrer se o ASE estiver muito longe de sua rede local.  Exemplos de muito longe incluiriam atravessar um oceano ou continente para acessar sua rede local. A latência também pode ser apresentada devido a congestionamento da intranet ou restrições de largura de banda de saída.
+Além de simplesmente interromper a comunicação, você pode afetar adversamente o ASE introduzindo muita latência. Muito latência pode ocorrer se o ASE estiver muito longe de sua rede local.  Exemplos de muito longe incluiriam atravessar um oceano ou continente para acessar a rede local. A latência também pode ser apresentada devido a congestionamento da intranet ou restrições de largura de banda de saída.
 
 
 <!--IMAGES-->

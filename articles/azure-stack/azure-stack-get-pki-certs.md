@@ -1,6 +1,6 @@
 ---
 title: Gerar certificados de infraestrutura de chave pública do Azure pilha para implantação de sistemas de pilha do Azure integradas | Microsoft Docs
-description: Descreve os sistemas de pilha do Azure integradas processfor implantação do Azure pilha PKI certificado.
+description: Descreve o processo de implantação de certificado PKI de pilha do Azure para sistemas de pilha do Azure integradas.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,67 +12,104 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/11/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: fc2ec96113310f54d32a67ea5fa31725600046c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fbf3c66979730a9162c56e8583f0a32977a0310d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Gerar certificados PKI para implantação de pilha do Azure
-Agora que você sabe [os requisitos de certificado PKI](azure-stack-pki-certs.md) para implantações de pilha do Azure, você precisa obter os certificados da autoridade de certificação (CA) de sua escolha. 
+# <a name="azure-stack-certificates-signing-request-generation"></a>Geração de solicitação de assinatura de certificados de pilha do Azure
 
-## <a name="request-certificates-using-an-inf-file"></a>Solicitar certificados usando um arquivo INF
-Uma maneira para solicitar certificados de uma autoridade de certificação pública ou de uma CA interna é usando um arquivo INF. O utilitário de certreq.exe interno do Windows pode usar um arquivo INF especificando os detalhes do certificado, para gerar um arquivo de solicitação, conforme descrito nesta seção. 
+A ferramenta do verificador de preparação do Azure pilha descrita neste artigo está disponível [da Galeria do PowerShell](https://aka.ms/AzsReadinessChecker). A ferramenta cria solicitações de assinatura de certificado (SAC) adequada para uma implantação de pilha do Azure. Certificados devem ser solicitados, gerados e validados com tempo suficiente para testar antes da implantação. 
 
-### <a name="sample-inf-file"></a>Exemplo de arquivo INF 
-O arquivo INF de solicitação de certificado de exemplo pode ser usado para criar um arquivo de solicitação de certificado offline para envio a uma autoridade de certificação (interno ou público). O arquivo INF abrange todos os pontos de extremidade necessários (inclusive os serviços de PaaS opcionais) um certificado curinga. 
+A ferramenta do verificador de preparação de pilha do Azure (AzsReadinessChecker) executa as solicitações de certificado a seguir:
 
-O exemplo de arquivo INF assume essa região é igual a **sea** e o valor FQDN externo é **sea&#46;contoso&#46;com**. Alterar esses valores para coincidir com seu ambiente antes de gerar um. Arquivo INF para sua implantação. 
+ - **Solicitações de certificado padrão**  
+    Solicitação de acordo com a [gerar certificados PKI para implantação de pilha do Azure](azure-stack-get-pki-certs.md). 
+ - **Tipo de solicitação**  
+    Solicite vários curinga SAN, vários certificados de domínio, solicitações de certificado curinga.
+ - **Plataforma como serviço**  
+    Se desejar solicitar nomes do plataforma como serviço (PaaS) a certificados como especificado na [requisitos de certificado da infraestrutura de chave pública do Azure pilha - certificados opcionais de PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
 
-    
-    [Version] 
-    Signature="$Windows NT$"
+## <a name="prerequisites"></a>Pré-requisitos
 
-    [NewRequest] 
-    Subject = "C=US, O=Microsoft, L=Redmond, ST=Washington, CN=portal.sea.contoso.com"
+O sistema deve atender aos seguintes pré-requisitos antes de gerar o CSR(s) para certificados PKI para uma implantação de pilha do Azure:
 
-    Exportable = TRUE                   ; Private key is not exportable 
-    KeyLength = 2048                    ; Common key sizes: 512, 1024, 2048, 4096, 8192, 16384 
-    KeySpec = 1                         ; AT_KEYEXCHANGE 
-    KeyUsage = 0xA0                     ; Digital Signature, Key Encipherment 
-    MachineKeySet = True                ; The key belongs to the local computer account 
-    ProviderName = "Microsoft RSA SChannel Cryptographic Provider" 
-    ProviderType = 12 
-    SMIME = FALSE 
-    RequestType = PKCS10
-    HashAlgorithm = SHA256
+ - Verificador de preparação de pilha do Microsoft Azure
+ - Atributos de certificado:
+    - Nome de região
+    - Nome de domínio totalmente qualificado (FQDN) externo
+    - Assunto
+ - Windows 10 ou Windows Server 2016
 
-    ; At least certreq.exe shipping with Windows Vista/Server 2008 is required to interpret the [Strings] and [Extensions] sections below
+## <a name="generate-certificate-signing-requests"></a>Gerar solicitações de assinatura de certificado
 
-    [Strings] 
-    szOID_SUBJECT_ALT_NAME2 = "2.5.29.17" 
-    szOID_ENHANCED_KEY_USAGE = "2.5.29.37" 
-    szOID_PKIX_KP_SERVER_AUTH = "1.3.6.1.5.5.7.3.1" 
-    szOID_PKIX_KP_CLIENT_AUTH = "1.3.6.1.5.5.7.3.2"
+Siga estas etapas para preparar e validar os certificados PKI de pilha do Azure: 
 
-    [Extensions] 
-    %szOID_SUBJECT_ALT_NAME2% = "{text}dns=*.sea.contoso.com&dns=*.blob.sea.contoso.com&dns=*.queue.sea.contoso.com&dns=*.table.sea.contoso.com&dns=*.vault.sea.contoso.com&dns=*.adminvault.sea.contoso.com&dns=*.dbadapter.sea.contoso.com&dns=*.appservice.sea.contoso.com&dns=*.scm.appservice.sea.contoso.com&dns=api.appservice.sea.contoso.com&dns=ftp.appservice.sea.contoso.com&dns=sso.appservice.sea.contoso.com&dns=adminportal.sea.contoso.com&dns=management.sea.contoso.com&dns=adminmanagement.sea.contoso.com" 
-    %szOID_ENHANCED_KEY_USAGE% = "{text}%szOID_PKIX_KP_SERVER_AUTH%,%szOID_PKIX_KP_CLIENT_AUTH%"
+1.  Instale AzsReadinessChecker em um prompt do PowerShell (5.1 ou superior), executando o seguinte cmdlet:
 
-    [RequestAttributes]
-    
+    ````PowerShell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker
+    ````
 
-## <a name="generate-and-submit-request-to-the-ca"></a>Gerar e enviar a solicitação para a autoridade de certificação
-O fluxo de trabalho a seguir descreve como você pode personalizar e usar o arquivo INF de exemplo gerado anteriormente para solicitar um certificado de uma autoridade de certificação:
+2.  Declare o **assunto** como um dicionário ordenado. Por exemplo: 
 
-1. **Editar e salvar o arquivo INF**. Copie o exemplo fornecido e salvá-lo em um novo arquivo de texto. Substitua o nome da entidade e o FQDN externo com os valores que correspondem a sua implantação e salve o arquivo como um. Arquivo INF.
-2. **Gerar uma solicitação usando certreq**. Usando um computador com Windows, inicie um prompt de comando como administrador e execute o seguinte comando para gerar um arquivo de solicitação (. req): `certreq -new <yourinffile>.inf <yourreqfilename>.req`.
-3. **Enviar à autoridade de certificação**. Enviar o. Arquivo de sol gerado para a autoridade de certificação (pode ser público ou interno).
-4. **Importe. CER**. A autoridade de certificação retornará um. Arquivo CER. Usando o mesmo computador do Windows do qual você gerou o arquivo de solicitação, importar o. Arquivo CER retornado para o computador/repositório pessoal. 
-5. **Exportar e copiar. PFX para pastas de implantação**. Exportar o certificado (incluindo a chave privada) como um. PFX do arquivo e, em seguida, copie o. O arquivo PFX para as pastas de implantação descrito no [requisitos de PKI de implantação do Azure pilha](azure-stack-pki-certs.md).
+    ````PowerShell  
+    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
+    ````
+    > [!note]  
+    > Se for fornecido um nome comum (CN) será substituído pelo primeiro nome DNS da solicitação de certificado.
+
+3.  Declare um diretório de saída que já existe:
+
+    ````PowerShell  
+    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    ````
+
+4. Declarar **nome da região** e um **FQDN externo** destinado para a implantação de pilha do Azure.
+
+    ```PowerShell  
+    $regionName = 'east'
+    $externalFQDN = 'azurestack.contoso.com'
+    ````
+
+    > [!note]  
+    > `<regionName>.<externalFQDN>` constitui a base na qual todos os nomes DNS externos na pilha do Azure são criados, neste exemplo, o portal seria `portal.east.azurestack.contoso.com`.
+
+5. Para gerar uma solicitação de certificado único com vários Subject Alternative Names incluindo aqueles necessários para os serviços de PaaS:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleSAN -OutputRequestPath $OutputDirectory -IncludePaaS
+    ````
+
+6. Para gerar solicitações para cada nome DNS sem os serviços de PaaS de assinatura de certificado individual:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleSAN -OutputRequestPath $OutputDirectory
+    ````
+
+7. Analise a saída:
+
+    ````PowerShell  
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Request Generation
+
+    CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
+    oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
+    nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
+    Certreq.exe output: CertReq: Request Created
+
+    Finished Certificate Request Generation
+
+    AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
+
+8.  Enviar o **. SOL** arquivo gerado para sua autoridade de certificação (interna ou pública).  O diretório de saída de **AzsReadinessChecker início** contém o CSR(s) necessárias ao envio de uma autoridade de certificação.  Ele também contém um diretório filho que contém o arquivo INF (s) usado durante a geração de solicitação de certificado, como uma referência. Certifique-se de que a autoridade de certificação gera certificados usando a solicitação gerada que atendem a [requisitos de PKI de pilha do Azure](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Preparar certificados PKI de pilha do Azure](azure-stack-prepare-pki-certs.md)

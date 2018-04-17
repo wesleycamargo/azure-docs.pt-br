@@ -1,11 +1,11 @@
 ---
-title: "Habilitar um provedor de serviços de nuvem gerenciar sua assinatura do Azure pilha | Microsoft Docs"
-description: "Habilite o provedor de serviço para acessar uma assinatura na pilha do Azure."
+title: Habilitar um provedor de serviços de nuvem gerenciar sua assinatura do Azure pilha | Microsoft Docs
+description: Habilite o provedor de serviço para acessar uma assinatura na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 4bc5644425aa11fb210d81095e4166baefc6432e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 26ba68be6d4932da77befaf7c968525393c0a033
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>Habilitar um provedor de serviços de nuvem gerenciar sua assinatura do Azure pilha
 
@@ -41,7 +41,7 @@ Se você estiver usando a pilha do Azure com um provedor de serviços de nuvem (
 Adicione o CSP como proprietário à sua assinatura. 
 
 1. Adicione o CSP como usuário convidado. com a função de proprietário para o diretório de locatário.  Para obter etapas sobre como adicionar um usuário, consulte [adicionar novos usuários ao Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)
-2. Adicione função de proprietário para o usuário convidado do CSP. Para obter etapas sobre como adicionar o usuário do CSP à sua assinatura, consulte [Use Role-Based o controle de acesso para gerenciar o acesso aos recursos da sua assinatura do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)
+2. Adicione função de proprietário para o usuário convidado do CSP. Para obter etapas sobre como adicionar o usuário do CSP à sua assinatura, consulte [Use Role-Based o controle de acesso para gerenciar o acesso aos recursos da sua assinatura do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 3. O CSP irá criar a assinatura do Azure pilha local para você.
 4. Você está pronto para começar a usar a pilha do Azure.
 5. O CSP deve, em seguida, crie um recurso em sua assinatura para verificar que eles podem gerenciar seus recursos. 

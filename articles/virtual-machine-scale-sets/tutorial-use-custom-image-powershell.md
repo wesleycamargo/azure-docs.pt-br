@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a6ff5ebdf678972c686c972fd03041b362c1ff81
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6fa1deb8e7a1a7ddd28583b6df7bad9df57738ed
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: criar e usar discos uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
 Ao criar um conjunto de dimensionamento, você especifica uma imagem a ser usada quando as instâncias de VM forem implantadas. Para reduzir a quantidade de tarefas depois que as instâncias de VM forem implantadas, é possível usar uma imagem de VM personalizada. Esta imagem de VM personalizada inclui todas as instalações ou configurações de aplicativo necessárias. Todas as instâncias de VM criadas no conjunto de dimensionamento usam a imagem de VM personalizada e estão prontas para atender ao tráfego do aplicativo. Neste tutorial, você aprenderá a:
@@ -39,6 +39,10 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 
 ## <a name="create-and-configure-a-source-vm"></a>Criar e configurar uma VM de origem
+
+>[!NOTE]
+> Este tutorial analisa o processo de criação e uso de uma imagem de VM generalizada. Não há suporte para criar um conjunto de dimensionamento a partir de uma imagem de VM especializada.
+
 Primeiro, crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup), depois crie uma VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Depois essa VM é usada como a origem para uma imagem de VM personalizada. O exemplo a seguir cria uma VM chamada *myCustomVM* no grupo de recursos chamado *myResourceGroup*. Quando solicitado, insira um nome de usuário e senha a serem usados como credenciais de logon para a VM:
 
 ```azurepowershell-interactive
@@ -161,4 +165,4 @@ Neste tutorial, você aprendeu a criar e usar uma imagem de VM personalizada par
 Siga para o próximo tutorial para saber como implantar aplicativo ao seu conjunto de dimensionamento.
 
 > [!div class="nextstepaction"]
-> [Implantar aplicativos para seus conjuntos de dimensionamento](tutorial-install-apps-powershell.md)
+> [Implantar aplicativos em seus conjuntos de dimensionamento](tutorial-install-apps-powershell.md)

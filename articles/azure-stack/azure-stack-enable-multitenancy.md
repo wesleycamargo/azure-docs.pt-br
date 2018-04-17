@@ -1,11 +1,11 @@
 ---
-title: "Habilitar multilocação na pilha do Azure | Microsoft Docs"
-description: "Saiba como dar suporte a vários diretórios do Active Directory do Azure na pilha do Azure"
+title: Habilitar multilocação na pilha do Azure | Microsoft Docs
+description: Saiba como dar suporte a vários diretórios do Active Directory do Azure na pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9ee54827ae9e8a803a5e3d7464559aec62c67119
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Habilitar multilocação na pilha do Azure
 
@@ -91,9 +91,9 @@ Register-AzSWithMyDirectoryTenant `
 ## <a name="direct-users-to-sign-in"></a>Direcionar os usuários para entrar
 Agora que você e Mary concluiu as etapas para o diretório de Mary integrado, Mary pode direcionar usuários Fabrikam para entrar.  Usuários da Fabrikam (ou seja, os usuários com o sufixo fabrikam.onmicrosoft.com) de entrada visitando https://portal.local.azurestack.external.  
 
-Mary direcionará qualquer [entidades externas](../active-directory/active-directory-understanding-resource-access.md) no diretório Fabrikam (ou seja, os usuários no diretório Fabrikam sem o sufixo do fabrikam.onmicrosoft.com) para entrar usando https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se eles não usam essa URL, eles são enviados ao seu diretório padrão (Fabrikam) e receber um erro informando que seu administrador não consentiu.
+Mary direcionará qualquer [entidades externas](../role-based-access-control/rbac-and-directory-admin-roles.md) no diretório Fabrikam (ou seja, os usuários no diretório Fabrikam sem o sufixo do fabrikam.onmicrosoft.com) para entrar usando https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se eles não usam essa URL, eles são enviados ao seu diretório padrão (Fabrikam) e receber um erro informando que seu administrador não consentiu.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 - [Gerenciar provedores delegados](azure-stack-delegated-provider.md)
 - [Conceitos principais de pilha do Azure](azure-stack-key-features.md)

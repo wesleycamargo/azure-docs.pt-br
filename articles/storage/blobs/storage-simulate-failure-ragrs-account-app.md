@@ -10,11 +10,11 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a86f54d580db6e577b878cb1701c7b969d23c129
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simular uma falha ao acessar o armazenamento com acesso de leitura
 
@@ -179,9 +179,9 @@ Na parte dois da série, você aprendeu a simular uma falha para testar o armaze
 > * Simular uma falha com o [Fiddler](#simulate-a-failure-with-fiddler) ou [uma rota estática inválida](#simulate-a-failure-with-an-invalid-static-route) 
 > * Simular a restauração do ponto de extremidade primário
 
-Siga este link para ver amostras de armazenamento pré-compiladas.
+Leia o seguinte artigo para saber mais sobre como funciona o armazenamento RA-GRS (e os riscos associados).
 
 > [!div class="nextstepaction"]
-> [Amostras de script do Armazenamento do Azure](storage-samples-blobs-cli.md)
+> [Criando aplicativos de alta disponibilidade com o RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

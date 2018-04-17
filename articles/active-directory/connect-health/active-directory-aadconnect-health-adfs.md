@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 630a633cf8657d43d6416d316928830634c9bf48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
 A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para saber mais sobre como monitorar o Azure AD Connect (Sincronização) com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health para Sincronização](active-directory-aadconnect-health-sync.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
@@ -109,7 +109,7 @@ O relatório fornece as seguintes informações:
 | Id de Usuário |Mostra a ID de usuário que foi usada. Esse valor é o que o usuário digitou, que, em alguns casos, é o uso da ID de usuário errada. |
 | Tentativas com falha |Mostra o número total de tentativas com falha para essa ID de usuário específica. A tabela é classificada com o maior número de tentativas com falha em ordem decrescente. |
 | Última falha |Mostra o carimbo de data/hora quando a última falha ocorreu. |
-| IP da última falha |Mostra o endereço IP do cliente da solicitação incorreta mais recente. |
+| IP da última falha |Mostra o endereço IP do cliente da solicitação incorreta mais recente. Se houver mais de um endereço IP nesse valor, ele pode incluir o encaminhamento de IP do cliente junto com a última tentativa de solicitação de IP do usuário.  |
 
 > [!NOTE]
 > Esse relatório é atualizado automaticamente a cada 12 horas com as novas informações coletadas no momento. Como resultado, as tentativas de logon nas últimas 12 horas podem não ser incluídas no relatório.
@@ -191,11 +191,14 @@ O limite de alerta pode ser atualizado com as Configurações de Limite. Para co
 1. Por que estou vendo intervalos de endereços IP privados no relatório?  <br />
 Endereços IP privados (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) e endereços IP do Exchange são filtrados e marcados como Verdadeiros na lista de permissões IP. Se você está vendo intervalos de endereços IP privados, é muito provável que o balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web.
 
-2. O que fazer para bloquear o endereço IP?  <br />
+2. Por que estou vendo endereços IP do balanceador de carga no relatório?  <br />
+Se você está vendo endereços IP do balanceador de carga, é muito provável que o seu balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web. Configure o balanceador de carga corretamente para encaminhar o endereço IP do cliente. 
+
+3. O que fazer para bloquear o endereço IP?  <br />
 Você deve adicionar o endereço IP mal-intencionado ao firewall ou bloqueá-lo no Exchange.   <br />
 Para o AD FS 2016 + 1803.C+ QFE, você pode bloquear o endereço IP diretamente no AD FS. 
 
-3. Por que não vejo todos os itens no relatório? <br />
+4. Por que não vejo todos os itens no relatório? <br />
    - Atividades de entrada com falha não excedem as configurações de limite. 
    - Verifique se nenhum alerta “Serviço Health desatualizado” está ativo na sua lista de servidores AD FS.  Leia mais sobre [como solucionar esse alerta](active-directory-aadconnect-health-data-freshness.md).
    - As auditorias não estão habilitadas em farms de servidores do AD FS.

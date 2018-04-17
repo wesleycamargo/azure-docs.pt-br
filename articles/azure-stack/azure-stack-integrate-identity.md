@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do data center do Azure pilha - identidade
 Você pode implantar a pilha do Azure usando o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Antes de implantar a pilha do Azure, você deve fazer a escolha. Implantação usando o AD FS também é chamada de como implantar o Azure pilha no modo desconectado.
@@ -63,7 +63,7 @@ Requisitos:
 As informações a seguir são necessárias como entradas para os parâmetros de automação:
 
 
-|Parâmetro|DESCRIÇÃO|Exemplo|
+|Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN do destino da floresta do Active Directory<br>Se você deseja integrar com|Contoso.com|
 |CustomADAdminCredentials|Um usuário com permissão de leitura de LDAP|YOURDOMAIN\graphservice|
@@ -104,18 +104,18 @@ Para esse procedimento, use um computador em sua rede de datacenter que pode se 
 
 Serviço de gráfico na pilha do Azure usa os seguintes protocolos e portas para se comunicar com o destino do Active Directory:
 
-|type|Porta|Protocolo|
+|Digite|Porta|Protocolo|
 |---------|---------|---------|
 |LDAP|389|TCP E UDP|
 |LDAP SSL|636|TCP|
 |LDAP GC|3268|TCP|
-|LDAP GC SSL|3269|TCP|
+|LDAP SSL DE GC|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Configurar a integração do AD FS baixando metadados de Federação
 
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
-|Parâmetro|DESCRIÇÃO|Exemplo|
+|Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nome do provedor de declarações. <cr>Parece dessa forma na página de aterrissagem do AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Link de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -154,7 +154,7 @@ Use este método se alguma das seguintes condições for verdadeira:
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
 
-|Parâmetro|DESCRIÇÃO|Exemplo|
+|Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nome do provedor de declarações. Parece que forma na página de aterrissagem do AD FS.|Contoso|
 |CustomADFSFederationMetadataFile|Arquivo de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -263,6 +263,9 @@ Se você optar por executar manualmente os comandos, siga estas etapas:
 
 4. Quando você usa o Internet Explorer ou o navegador Microsoft Edge para acessar a pilha do Azure, você deve ignorar associações de token. Caso contrário, as tentativas de logon falharem. Em sua instância do AD FS ou um membro do farm, execute o seguinte comando:
 
+   > [!note]  
+   > Esta etapa não é aplicável ao usar o Windows Server 2012 ou 2012 R2 AD FS. É seguro ignorar esse comando e continuar com a integração.
+
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
@@ -286,7 +289,7 @@ Há muitos cenários que exigem o uso de um nome principal de serviço (SPN) par
 Para obter mais informações sobre como criar um SPN, consulte [criar entidade de serviço do AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 ### <a name="configuration-rollback"></a>Reversão de configuração
 

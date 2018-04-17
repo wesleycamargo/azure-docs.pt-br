@@ -1,11 +1,11 @@
 ---
-title: "API RESTful com CORS no Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como o Serviço de Aplicativo do Azure ajuda a hospedar suas APIs RESTful com suporte a CORS."
+title: API RESTful com CORS no Serviço de Aplicativo do Azure | Microsoft Docs
+description: Saiba como o Serviço de Aplicativo do Azure ajuda a hospedar suas APIs RESTful com suporte a CORS.
 services: app-service\api
 documentationcenter: dotnet
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7420e92bc929808f074e9be00dfbcb7d8476654a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4b5e432a9c553f5221f138b19a180f92420e6058
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>Hospedar uma API RESTful com CORS no Serviço de Aplicativo do Azure
+# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: hospedar uma API RESTful com CORS no Serviço de Aplicativo do Azure
 
 O [Serviço de Aplicativo do Azure](app-service-web-overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Além disso, o Serviço de Aplicativo tem suporte interno a [CORS (Compartilhamento de Recursos entre Origens)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) para APIs RESTful. Este tutorial mostra como implantar um aplicativo de API do ASP.NET Core no Serviço de Aplicativo com suporte a CORS. Configure o aplicativo usando as ferramentas de linha de comando e implante o aplicativo usando o Git. 
 
@@ -204,7 +204,7 @@ O que você aprendeu:
 > * Implantar uma API RESTful no Azure usando o Git
 > * Habilitar o suporte de CORS do Serviço de Aplicativo
 
-Vá para o próximo tutorial para saber como mapear um nome DNS personalizado para o seu aplicativo Web.
+Vá para o próximo tutorial e aprenda a autenticar e autorizar os usuários.
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md)
+> [Tutorial: autenticar e autorizar usuários de ponta a ponta](app-service-web-tutorial-auth-aad.md)
