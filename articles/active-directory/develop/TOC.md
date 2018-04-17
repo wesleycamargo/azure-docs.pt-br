@@ -7,9 +7,9 @@
 ### [Visão geral](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
-### [Windows](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
+### [.NET (Windows Desktop)](active-directory-devquickstarts-dotnet.md)
+### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
+### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Aplicativos Web
@@ -96,11 +96,16 @@
 ### Aplicativos móveis e de desktop
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET da Área de trabalho do Windows](guidedsetups/active-directory-windesktop.md)
+#### [.NET (Windows Desktop)](guidedsetups/active-directory-windesktop.md)
 ### Aplicativos Web
-#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
-#### [Servidor Web do ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
-#### [Aplicativo Web NodeJS](active-directory-v2-devquickstarts-node-web.md)
+#### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### Aplicativos de página única
+#### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
+### APIs da Web
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
+### Serviço a serviço
+#### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guias
 ### [Registrar um aplicativo](active-directory-v2-app-registration.md)
 ## Referência
@@ -109,11 +114,11 @@
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [Concessão de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 #### [Concessão implícita do Oauth 2.0](active-directory-v2-protocols-implicit.md)
-#### [Concessão de credenciais do cliente do OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Concessão de credenciais de cliente do OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Fluxo em-nome-de do OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [Referência do token](active-directory-v2-tokens.md)
 #### [Credenciais de certificado](active-directory-certificate-credentials.md)
-### [Escopos](active-directory-v2-scopes.md)
+### [Tokens](active-directory-v2-tokens.md)
+### [Escopos e autorização](active-directory-v2-scopes.md)
 # Recursos
 ## [Obtendo ajuda](active-directory-develop-help-support.md)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

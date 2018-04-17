@@ -364,6 +364,10 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Executar pacotes SSIS no Azure
       items:
+        - name: Instalação personalizada do tempo de execução de integração do Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Provisionar a Enterprise Edition para o tempo de execução de integração do Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Ingressar o tempo de execução de integração do Azure-SSIS a uma Rede virtual
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Gerenciar tempo de execução de integração do Azure-SSIS
@@ -374,6 +378,8 @@
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Agendar execução de integração do Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Desenvolver componentes licenciados para o tempo de execução de integração do Azure-SSIS
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Criar gatilhos
       items:
         - name: Criar um gatilho de agenda

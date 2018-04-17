@@ -89,28 +89,30 @@
       href: concepts-service.md
 - name: Guias de instruções
   items:
-    - name: Gerenciar registros do dispositivo
-      items:
-        - name: Gerenciar registros de dispositivo com o portal do Azure
-          href: how-to-manage-enrollments.md
-        - name: Gerenciar registros de dispositivo com os SDKs de Serviço
-          href: how-to-manage-enrollments-sdks.md
-    - name: Revogar o acesso do dispositivo
-      href: how-to-revoke-device-access-portal.md
-    - name: Remover provisionamento dos dispositivos
-      href: how-to-unprovision-devices.md
-    - name: Executar verificação de posse nos certificados de site x.509
-      href: how-to-verify-certificates.md
-    - name: Usar um HSM com SDK
-      href: use-hsm-with-sdk.md
-    - name: Controlar o acesso ao Serviço de Provisionamento
-      href: how-to-control-access.md
-    - name: Use a CLI do Azure para gerenciar o serviço de configuração de dispositivos
-      href: how-to-manage-dps-with-cli.md
-    - name: Use as ferramentas do SDK para desenvolver
-      href: how-to-use-sdk-tools.md
-    - name: Conectar Kit de Desenvolvimento da IoT do MXChip
+    - name: Conectar o MXChip IoT DevKit ao Hub IoT
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Gerenciar a configuração do provisionamento de dispositivos
+      items:
+        - name: Configurar Certificados de Autoridade de Certificação verificados
+          href: how-to-verify-certificates.md
+        - name: Gerenciar o desprovisionamento
+          href: how-to-unprovision-devices.md
+        - name: Gerenciar o cancelamento de registro
+          href: how-to-revoke-device-access-portal.md
+        - name: Gerenciar registros – Portal
+          href: how-to-manage-enrollments.md
+        - name: Gerenciar registros – SDKs de serviço
+          href: how-to-manage-enrollments-sdks.md
+    - name: Gerenciar o serviço de provisionamento de dispositivos
+      items:
+        - name: Configurar o serviço de provisionamento de dispositivos usando a CLI do Azure
+          href: how-to-manage-dps-with-cli.md
+        - name: Controlar o acesso às APIs do serviço de provisionamento
+          href: how-to-control-access.md
+    - name: Usar os mecanismos de atestado com o SDK
+      href: use-hsm-with-sdk.md
+    - name: Usar as ferramentas do SDK para desenvolvimento
+      href: how-to-use-sdk-tools.md
 - name: Referência
   items:
     - name: REST

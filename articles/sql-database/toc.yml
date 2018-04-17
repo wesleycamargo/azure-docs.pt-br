@@ -48,14 +48,18 @@
       href: sql-database-design-first-database.md
     - name: 1 - Criar banco de dados usando .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - Migrar para o Banco de dados do SQL Server
+    - name: 2 - Migrar para o banco de dados do SQL Server usando o DMS
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Proteja o seu Banco de Dados SQL
       href: sql-database-security-tutorial.md
     - name: 4 - implementar um banco de dados distribuído geograficamente
       href: sql-database-implement-geo-distributed-database.md
     - name: 5 - Criar Instância Gerenciada
-      href: sql-database-managed-instance-tutorial-portal.md
+      href: sql-database-managed-instance-create-tutorial-portal.md
+    - name: 6 - Restaurar um backup para uma instância gerenciada
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: 7 - Migrar para uma instância gerenciada usando o DMS
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -410,6 +414,10 @@
               href: saas-tenancy-cross-tenant-reporting.md
             - name: ETL para análise
               href: saas-tenancy-tenant-analytics.md
+            - name: Recuperação de desastre usando a restauração geográfica
+              href: saas-dbpertenant-dr-geo-restore.md
+            - name: Recuperação de desastre usando a replicação geográfica do banco de dados
+              href: saas-dbpertenant-dr-geo-replication.md
         - name: Banco de dados multilocatário
           items:
             - name: Implantação do aplicativo de exemplo

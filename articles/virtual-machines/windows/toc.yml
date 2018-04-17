@@ -83,6 +83,8 @@
           href: sizes-hpc.md
         - name: ACU (Unidades de computação do Azure)
           href: acu.md
+        - name: Pontuações de parâmetro de comparação
+          href: compute-benchmark-scores.md
     - name: Manutenção e atualizações
       href: maintenance-and-updates.md
     - name: Armazenamento em disco
@@ -157,7 +159,7 @@
         - name: Como usar o WinRM
           href: winrm.md
         - name: Como usar controles de acesso
-          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Como usar políticas
           href: policy.md
         - name: Criar um cofre de chaves

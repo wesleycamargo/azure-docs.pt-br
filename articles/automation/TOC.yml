@@ -21,7 +21,7 @@
       href: automation-tutorial-update-management.md
     - name: Atualização integrada e controle de alterações pelo runbook
       href: automation-onboard-solutions.md
-    - name: Identificar o software em uma VM
+    - name: Identificar o software em seu ambiente
       href: automation-tutorial-installed-software.md
     - name: Solucionar problemas de alterações em uma VM
       href: automation-tutorial-troubleshoot-changes.md
