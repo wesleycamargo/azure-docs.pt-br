@@ -89,6 +89,8 @@
           href: sizes-hpc.md
         - name: ACU (Unidades de computação do Azure)
           href: acu.md
+        - name: Pontuações de parâmetro de comparação
+          href: compute-benchmark-scores.md
     - name: Distribuições endossadas
       href: endorsed-distros.md
     - name: Manutenção e atualizações
@@ -145,7 +147,7 @@
         - name: Criptografar
           href: encrypt-disks.md
         - name: Como usar controles de acesso
-          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Como usar políticas
           href: policy.md
         - name: Criar um cofre de chaves
@@ -400,6 +402,8 @@
           href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Como atribuir o nome DNS público
           href: portal-create-fqdn.md
+        - name: Localizar e excluir NICs desconectados
+          href: find-unattached-nics.md
         - name: Resolução DNS
           href: azure-dns.md
           items:

@@ -85,8 +85,6 @@
           href: backup-azure-files.md
         - name: Perguntas frequentes sobre backup de compartilhamentos de Arquivos do Azure
           href: backup-azure-files-faq.md
-        - name: Solucionar problemas de Backup de compartilhamento de Arquivos do Azure
-          href: troubleshoot-azure-files.md
     - name: VMs do Azure
       items:
         - name: Preparar a VM
@@ -181,18 +179,20 @@
           href: backup-azure-delete-vault.md
     - name: Solucionar problemas
       items:
-        - name: Problemas de backup de VM do Azure no portal do Azure
+        - name: Mensagens de erro de backup de VM da IaaS
           href: backup-azure-vms-troubleshoot.md
-        - name: 'Falha no backup de VM do Azure: não foi possível se comunicar com o agente de VM para o status do instantâneo - a subtarefa da VM atingiu o tempo limite'
+        - name: Agente de Backup do Azure (MARS) ou extensão de VM atingiu o tempo limite
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Lentidão de backup de arquivos e pastas no Backup do Azure
+        - name: O backup de pastas e arquivos está lento
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Solucionar problemas de Servidor de Backup do Azure
+        - name: Servidor de Backup do Azure
           href: backup-azure-mabs-troubleshoot.md
-        - name: Solucionar Problemas do System Center Data Protection Manager
+        - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Solucionar problemas do Agente de Backup do Azure
+        - name: Agente de Backup do Azure (MARS)
           href: backup-azure-mars-troubleshoot.md
+        - name: Backup de compartilhamentos de Arquivos do Azure
+          href: troubleshoot-azure-files.md
 - name: Referência
   items:
     - name: Azure PowerShell

@@ -183,7 +183,7 @@ items:
                 href: sql-api-sql-query-metrics.md
               - name: Espaço de consulta
                 href: 'https://aka.ms/cosmos-db-playground'
-              - name: Particionamento
+              - name: Particionamento de dados SQL
                 href: sql-api-partition-data.md
               - name: 'procedimentos armazenados, gatilhos e UDFs'
                 href: programming.md
@@ -286,6 +286,8 @@ items:
             items:
               - name: Suporte do Gremlin
                 href: gremlin-support.md
+              - name: Particionamento do Graph
+                href: graph-partitioning.md
           - name: API de Tabela
             items:
               - name: Desenvolvimento de tabelas
@@ -328,8 +330,6 @@ items:
             href: geospatial.md
           - name: Indexação
             href: indexing-policies.md
-          - name: Serviço conectado no Visual Studio
-            href: connected-service.md
       - name: Gerenciar
         items:
           - name: Gravações e leituras econômicas
@@ -394,7 +394,7 @@ items:
           - name: Aproveitar o driver ODBC para visualização de dados
             href: odbc-driver.md
           - name: Usar Inicialização do Spring Boot com APIs do SQL
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
   - name: Referência
     items:
       - name: Exemplos de código

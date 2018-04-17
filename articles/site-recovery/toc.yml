@@ -293,8 +293,8 @@
               href: delete-vault.md
         - name: Monitorar e solucionar problemas
           items:
-            - name: Solucionar problemas de failover no Azure
-              href: site-recovery-failover-to-azure-troubleshoot.md
+            - name: Solucionar problemas de replicação do Hyper-V
+              href: hyper-v-azure-troubleshoot.md
             - name: Monitorar o Azure Site Recovery
               href: site-recovery-monitor-and-troubleshoot.md
     - name: Hyper-V para secundário
