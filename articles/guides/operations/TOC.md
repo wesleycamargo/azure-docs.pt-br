@@ -24,7 +24,7 @@
 ###[Implantar modelos usando a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Segurança (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Use as atribuições de função para gerenciar recursos](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[Use as atribuições de função para gerenciar recursos](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Máquinas virtuais](azure-operations-guide.md#azure-virtual-machines)
 ### [Tamanhos de VM do Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 

@@ -3,7 +3,7 @@
 # Tutoriais
 ## [DevOps com o portal do Azure](tutorial-azureportal-devops.md)
 # Conceitos
-## [Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md)
+## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Atalhos do teclado](azure-portal-keyboard-shortcuts.md)
 ## [Dispositivos e navegadores com suporte](../azure-preview-portal-supported-browsers-devices.md)
 ## [Estrutura de Painéis do Azure](azure-portal-dashboards-structure.md)
@@ -16,7 +16,7 @@
 ## Gerenciar
 ### [Ativar alto contraste ou alterar tema](azure-portal-change-theme-high-contrast.md)
 ### [Use o portal para gerenciar recursos](../azure-resource-manager/resource-group-portal.md)
-### [Gerenciar o acesso com o Controle de Acesso Baseado em Função](../active-directory/role-based-access-control-configure.md)
+### [Gerenciar o acesso com o Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md)
 ### [Compartilhar painéis com o Controle de Acesso Baseado em Função](azure-portal-dashboard-share-access.md)
 ### [Usar marcações para organizar recursos](../azure-resource-manager/resource-group-using-tags.md)
 ### [Dimensionar seus recursos](../monitoring-and-diagnostics/insights-how-to-scale.md)
