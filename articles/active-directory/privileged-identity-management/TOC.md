@@ -55,7 +55,7 @@
 
 # Relacionados
 ## [Active Directory do Azure](/azure/active-directory/)
-## [Controle de acesso baseado em função](../role-based-access-control-what-is.md)
+## [Controle de acesso baseado em função](../../role-based-access-control/overview.md)
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)

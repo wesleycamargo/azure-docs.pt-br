@@ -1,37 +1,37 @@
 - name: Gerenciar visão geral do acesso
-  href: manage-access-to-azure-resources.md
+  href: ../role-based-access-control/manage-access-to-azure-resources.md
 - name: Acesso a recursos no Azure
-  href: active-directory-understanding-resource-access.md
+  href: ../role-based-access-control/rbac-and-directory-admin-roles.md
 - name: RBAC (Controle de Acesso Baseado em Função)
-  href: role-based-access-control-what-is.md
+  href: ../role-based-access-control/overview.md
   items:
     - name: Gerenciar atribuições de função
       items:
         - name: Por usuário
-          href: role-based-access-control-manage-assignments.md
+          href: ../role-based-access-control/role-assignments-users.md
         - name: Por recurso
-          href: role-based-access-control-configure.md
+          href: ../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
         - name: Com a CLI do Azure
-          href: role-based-access-control-manage-access-azure-cli.md
+          href: ../role-based-access-control/role-assignments-cli.md
         - name: Com o PowerShell
-          href: role-based-access-control-manage-access-powershell.md
+          href: ../role-based-access-control/role-assignments-powershell.md
         - name: Com REST
-          href: role-based-access-control-manage-access-rest.md
+          href: ../role-based-access-control/role-assignments-rest.md
     - name: Funções internas
-      href: role-based-access-built-in-roles.md
+      href: ../role-based-access-control/built-in-roles.md
     - name: Funções personalizadas
-      href: role-based-access-control-custom-roles.md
+      href: ../role-based-access-control/custom-roles.md
     - name: Atribuir funções personalizadas para usuários internos e externos
-      href: role-based-access-control-create-custom-roles-for-internal-external-users.md
+      href: ../role-based-access-control/role-assignments-external-users.md
     - name: Relatórios
-      href: role-based-access-control-access-change-history-report.md
+      href: ../role-based-access-control/change-history-report.md
     - name: Elevar o acesso de administrador de locatário
-      href: role-based-access-control-tenant-admin-access.md
+      href: ../role-based-access-control/elevate-access-global-admin.md
     - name: Solucionar problemas
-      href: role-based-access-control-troubleshooting.md
+      href: ../role-based-access-control/troubleshooting.md
     - name: Operações de provedor de recursos
-      href: role-based-access-control-resource-provider-operations.md
+      href: ../role-based-access-control/resource-provider-operations.md
 - name: PIM (Privileged Identity Management) para RBAC
-  href: pim-azure-resource.md
+  href: ../role-based-access-control/pim-azure-resource.md
 - name: Acesso condicional para o gerenciamento do Azure
-  href: conditional-access-azure-management.md
+  href: ../role-based-access-control/conditional-access-azure-management.md

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação do Serviço de Contêiner do Azure com Kubernetes"
+title: Documentação do Serviço de Contêiner do Azure com Kubernetes
 metadata:
   document_id: 
-  title: "Documentação do Serviço de Contêiner do Azure com Kubernetes - Tutoriais, Referência de API | Microsoft Docs"
+  title: Documentação do Serviço de Contêiner do Azure com Kubernetes - Tutoriais, Referência de API | Microsoft Docs
   meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
@@ -14,18 +14,18 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: ed019936961b2dbec616c867a9752c096da9d2ed
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.openlocfilehash: 93abd74e649577abff9ce27f68c6b8456258d9b9
+  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 04/16/2018
 abstract:
-  description: "O Serviço de Contêiner do Azure permite implantar rapidamente um cluster Kubernetes pronto para produção. Saiba como usar o Serviço de Contêiner do Azure em conjunto com o Kubernetes com esses guias de início rápido, tutoriais e exemplos."
+  description: O Serviço de Contêiner do Azure permite implantar rapidamente um cluster Kubernetes pronto para produção. Saiba como usar o Serviço de Contêiner do Azure em conjunto com o Kubernetes com esses guias de início rápido, tutoriais e exemplos.
 sections:
-- title: "Guia de início rápido de 5 minutos"
+- title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: "Saiba como implantar um cluster Kubernetes usando o Serviço de Contêiner do Azure:"
+    text: 'Saiba como implantar um cluster Kubernetes usando o Serviço de Contêiner do Azure:'
   - type: list
     style: icon48
     items:
@@ -36,17 +36,17 @@ sections:
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: "Saiba como implantar, gerenciar e atualizar aplicativos em um cluster Kubernetes do Serviço de Contêiner do Azure."
+    text: Saiba como implantar, gerenciar e atualizar aplicativos em um cluster Kubernetes do Serviço de Contêiner do Azure.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app\">Criar imagens de contêiner a partir de um aplicativo</a>"
-    - html: "<a href=\"/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr\">Carregar imagens de contêiner para o Registro de Contêiner do Azure</a>"
-    - html: "<a href=\"/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster\">Implantar um cluster Kubernetes no Serviço de Contêiner do Azure</a>"
-    - html: "<a href=\"/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application\">Executar as imagens de contêiner no Kubernetes</a>"
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Criar imagens de contêiner a partir de um aplicativo</a>
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Carregar imagens de contêiner para o Registro de Contêiner do Azure</a>
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Implantar um cluster Kubernetes no Serviço de Contêiner do Azure</a>
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Executar as imagens de contêiner no Kubernetes</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Dimensionar um aplicativo e a infraestrutura do Kubernetes</a>
-    - html: "<a href=\"/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update\">Atualizar um aplicativo em execução no Kubernetes</a>"
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitor Kubernetes com o OMS</a>
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Atualizar um aplicativo em execução no Kubernetes</a>
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitorar Kubernetes com o Log Analytics</a>
 - title: Exemplos
   items:
   - type: list
@@ -54,7 +54,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/container-service/cli-samples">CLI do Azure</a>
-- title: "Referência"
+- title: Referência
   items:
   - type: list
     style: cards
