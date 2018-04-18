@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Eventos de log para avaliação de diagnóstico e monitoramento de soluções do Lote
 
@@ -97,7 +97,7 @@ Além de armazenar os eventos do log de diagnóstico em uma conta de Armazenamen
   Transmita os eventos de diagnóstico do Lote para o serviço de entrada de dados altamente dimensionável, Hubs de Eventos. Os Hubs de Eventos podem incluir milhões de eventos por segundo, os quais você pode transformar e armazenar usando qualquer provedor de análise em tempo real.
 * [Analisar logs de diagnóstico do Azure usando o Log Analytics](../log-analytics/log-analytics-azure-storage.md)
   
-  Envie seus logs de diagnóstico para o Log Analytics, onde você pode analisá-los no portal do OMS (Operations Management Suite) ou exportá-los para análise no Power BI ou Excel.
+  Envie os logs de diagnóstico para o Log Analytics, onde é possível analisá-los no Portal do Azure ou exporte-os para análise no Power BI ou Excel.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

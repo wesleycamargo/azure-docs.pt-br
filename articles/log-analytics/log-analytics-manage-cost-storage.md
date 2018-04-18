@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o custo dos dados no Azure Log Analytics | Microsoft Docs
-description: Saiba como alterar o plano de preços e gerenciar o volume de dados e a política de retenção para o espaço de trabalho do Log Analytics no Portal do Azure.
+description: Saiba como alterar o plano de preços e gerenciar o volume de dados e a política de retenção para o espaço de trabalho do Log Analytics no Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 629031310eba21bc3308754706bd7ba227009ac6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="manage-cost-by-controlling-data-volume-and-retention-with-your-log-analytics-workspace"></a>Gerencie o custo controlando o volume de dados e a retenção com o espaço de trabalho do Log Analytics
+# <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerenciar o custo controlando a retenção e o volume de dados no Log Analytics
 O Log Analytics foi projetado para dimensionar e fornecer suporte à coleta, indexação e armazenamento de grandes quantidades de dados por dia, a partir de qualquer fonte em sua empresa ou implantado no Azure.  Embora isso possa ser um driver primário para a organização, a eficiência de custo é, em última instância, o driver subjacente. Para isso, é importante reconhecer que o custo de um espaço de trabalho do Log Analytisc não baseia-se apenas no volume de dados coletados, mas também depende do plano selecionado e de quanto tempo você escolheu armazenar os dados gerados a partir de suas fontes conectadas.  
 
 Neste artigo, analisamos como você pode monitorar proativamente o volume de dados e o aumento do armazenamento e definir limites para controlar esses custos associados. 

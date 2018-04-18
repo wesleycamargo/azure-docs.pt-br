@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Data center virtual no Microsoft Azure: uma perspectiva de rede
 **Microsoft Azure**: avance mais rapidamente, economize dinheiro, integre aplicativos e dados locais
@@ -259,9 +259,9 @@ Em um vDC, é extremamente importante controlar os logs de NSGs, particularmente
 
 Todos os logs podem ser armazenados nas Contas de Armazenamento do Azure para fins de auditoria, análise estática ou backup. Quando os logs são armazenados em uma conta de armazenamento do Azure, os clientes podem usar diferentes tipos de estruturas para recuperar, preparar, analisar e visualizar esses dados para relatar o status e a integridade dos recursos de nuvem.
 
-Grandes empresas já devem ter adquirido uma estrutura padrão para monitorar sistemas locais e podem estender essa estrutura para integrar logs gerados por implantações de nuvem. Para organizações que desejam manter todo o registro em log na nuvem, o [OMS (Microsoft Operations Management Suite)][OMS] é uma ótima opção. Como o OMS é implementado como um serviço baseado em nuvem, é possível colocá-lo em funcionamento com investimentos mínimos em serviços de infraestrutura. O OMS também pode integrar-se a componentes do System Center, como System Center Operations Manager, para estender seus investimentos atuais em gerenciamento para a nuvem.
+Grandes empresas já devem ter adquirido uma estrutura padrão para monitorar sistemas locais e podem estender essa estrutura para integrar logs gerados por implantações de nuvem. Para organizações que desejam manter todo o registro em log na nuvem, o [Log Analytics][LogAnalytics] é uma ótima opção. Como o Log Analytics é implementado como um serviço baseado em nuvem, é possível colocá-lo em funcionamento com investimentos mínimos em serviços de infraestrutura. O Log Analytics também pode integrar-se a componentes do System Center, como System Center Operations Manager, para estender seus investimentos atuais em gerenciamento para a nuvem.
 
-A Log Analytics do OMS é um componente da estrutura do OMS para ajudar a coletar, correlacionar, pesquisar e agir quanto a dados de desempenho e log gerados por sistemas operacionais, aplicativos e componentes de infraestrutura de nuvem. Ele dá aos clientes informações operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar todos os registros em todas as suas cargas de trabalho em um vDC.
+O Log Analytics é um serviço no Azure que ajuda a coletar, correlacionar, pesquisar e agir quanto a dados de desempenho e log gerados por sistemas operacionais, aplicativos e componentes de infraestrutura de nuvem. Ele dá aos clientes informações operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar todos os registros em todas as suas cargas de trabalho em um vDC.
 
 #### <a name="component-type-workloads"></a>Tipo de componente: cargas de trabalho
 Componentes de carga de trabalho são o local em que seus aplicativos reais e serviços residem. Também é o ponto em que as equipes de desenvolvimento de aplicativo passam a maior parte do tempo.
@@ -332,7 +332,7 @@ Os seguintes recursos foram discutidos neste documento. Clique nos links para sa
 |Recursos de rede|Balanceamento de Carga|Conectividade|
 |[Redes Virtuais do Azure][VNet]</br>[Grupos de segurança de rede][NSG]</br>[Logs do NSG][NSGLog]</br>[Roteamento Definido pelo Usuário][UDR]</br>[Soluções de Virtualização de Rede][NVA]</br>[Endereços IP Públicos][PIP]|[Azure Load Balancer (L3) ][ALB]</br>[Gateway de Aplicativo (L7) ][AppGW]</br>[Firewall do Aplicativo Web][WAF]</br>[Gerenciador de Tráfego do Azure][TM] |[Emparelhamento VNet][VNetPeering]</br>[Rede Privada Virtual][VPN]</br>[ExpressRoute][ExR]
 |Identidade</br>|Monitoramento</br>|Práticas Recomendadas</br>|
-|[Azure Active Directory][AAD]</br>[Autenticação Multifator][MFA]</br>[Controles de Acesso Baseados em Função][RBAC]</br>[Funções Padrão do AAD][Roles] |[Logs de Atividade][ActLog]</br>[Logs de Diagnóstico][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Práticas Recomendadas de Redes de Perímetro][DMZ]</br>[Gerenciamento de Assinaturas][SubMgmt]</br>[Gerenciamento de Grupo de Recursos][RGMgmt]</br>[Limites de Assinatura do Azure][Limits] |
+|[Azure Active Directory][AAD]</br>[Autenticação Multifator][MFA]</br>[Controles de Acesso Baseados em Função][RBAC]</br>[Funções Padrão do AAD][Roles] |[Logs de Atividade][ActLog]</br>[Logs de Diagnóstico][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[Práticas Recomendadas de Redes de Perímetro][DMZ]</br>[Gerenciamento de Assinaturas][SubMgmt]</br>[Gerenciamento de Grupo de Recursos][RGMgmt]</br>[Limites de Assinatura do Azure][Limits] |
 |Outros serviços do Azure|
 |[Aplicativos Web do Azure][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Hubs de Eventos][EventHubs]</br>[Barramento de Serviço][ServiceBus]|
 
@@ -379,7 +379,7 @@ Os seguintes recursos foram discutidos neste documento. Clique nos links para sa
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

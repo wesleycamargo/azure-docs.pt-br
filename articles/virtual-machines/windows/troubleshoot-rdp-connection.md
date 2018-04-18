@@ -5,7 +5,7 @@ keywords: Erro de área de trabalho remota, erro de conexão de área de trabalh
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: danis
-ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 60c54850c1ca5de0e9bda4b48688ba297874e48e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solucionar problemas de conexões de Área de Trabalho Remota a uma máquina virtual do Azure
 A conexão do protocolo RDP à sua VM (máquina virtual) do Azure baseada no Windows pode falhar por vários motivos, impedindo o seu acesso à VM. O problema pode ser com o serviço de Área de Trabalho Remota na VM, a conexão de rede ou o cliente de Área de Trabalho Remota no computador host. Este artigo explica alguns dos métodos mais comuns para resolver problemas de conexão de RDP. 
@@ -94,6 +94,10 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
     ![Reimplantar a VM no Portal do Azure](./media/troubleshoot-rdp-connection/redeploy-vm.png)
    
     Após a conclusão dessa operação, os dados de disco efêmeros são perdidos e os endereços IP dinâmicos associados à VM são atualizados.
+
+9. **Verificar o roteamento**. Use a funcionalidade [Próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) do Observador de Rede para confirmar que uma rota não está impedindo que o tráfego seja roteado de ou para uma máquina virtual. Você também pode examinar as rotas efetivas para ver todas as rotas efetivas para uma interface de rede. Para saber mais, confira [Usar regras efetivas para solucionar problemas de fluxo de tráfego de VM](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+
+10. Certifique-se de que qualquer firewall local, ou firewall em seu computador, permita o tráfego de saída TCP 3389 no Azure.
 
 Caso ainda esteja tendo problemas de RDP, você poderá [abrir uma solicitação](https://azure.microsoft.com/support/options/) de suporte ou ler [conceitos e etapas de solução de problemas de RDP mais detalhados](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -180,6 +184,10 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
+6. **Verificar o roteamento**. Use a funcionalidade [Próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) do Observador de Rede para confirmar que uma rota não está impedindo que o tráfego seja roteado de ou para uma máquina virtual. Você também pode examinar as rotas efetivas para ver todas as rotas efetivas para uma interface de rede. Para saber mais, confira [Usar regras efetivas para solucionar problemas de fluxo de tráfego de VM](../../virtual-network/virtual-network-routes-troubleshoot-powershell.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+
+7. Certifique-se de que qualquer firewall local, ou firewall em seu computador, permita o tráfego de saída TCP 3389 no Azure.
+
 Caso ainda esteja tendo problemas de RDP, você poderá [abrir uma solicitação](https://azure.microsoft.com/support/options/) de suporte ou ler [conceitos e etapas de solução de problemas de RDP mais detalhados](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-vms-created-using-the-classic-deployment-model"></a>Solucionar problemas de VMs criadas com o modelo de implantação Clássico
@@ -217,6 +225,8 @@ Após cada etapa de solução de problemas, tente se reconectar à VM.
     Selecione sua VM no Portal do Azure e clique na guia **Visão Geral**. Clique no botão **Reiniciar**:
    
     ![Reiniciar a VM no Portal do Azure](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
+
+7. Certifique-se de que qualquer firewall local, ou firewall em seu computador, permita o tráfego de saída TCP 3389 no Azure.
 
 Caso ainda esteja tendo problemas de RDP, você poderá [abrir uma solicitação](https://azure.microsoft.com/support/options/) de suporte ou ler [conceitos e etapas de solução de problemas de RDP mais detalhados](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

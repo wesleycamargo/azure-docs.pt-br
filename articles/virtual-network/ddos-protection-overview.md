@@ -1,13 +1,13 @@
 ---
-title: "Visão geral de Proteção contra DDoS do Azure Standard | Microsoft Docs"
-description: "Saiba mais sobre o serviço de Proteção contra DDoS do Azure."
+title: Visão geral de Proteção contra DDoS do Azure Standard | Microsoft Docs
+description: Saiba mais sobre o serviço de Proteção contra DDoS do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb19baae1bc03633b7646fd2255ca910532595c5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Visão geral de Proteção contra DDoS do Azure Standard
 
@@ -65,7 +65,7 @@ Os recursos da Proteção contra DDoS do Azure Standard:
 - **Proteção da camada 3 a 7:** fornece proteção completa contra DDoS de pilha, quando usado com um gateway de aplicativo.
 - **Escala de mitigação ampla:** mais de 60 tipos de ataques diferentes podem ser atenuados, com capacidade global, para proteger contra os maiores ataques de DDoS conhecidos. 
 - **Métricas de ataque:** métricas resumidas de cada ataque são acessíveis por meio do Azure Monitor.
-- **Alerta de ataque:** alertas podem ser configurados no início, durante e após a interrupção de um ataque, usando métricas de ataque internas. Os alertas são integrados em seu software operacional como o Microsoft Operations Management Suite, Splunk, Armazenamento do Azure, Email e o portal do Azure.
+- **Alerta de ataque:** alertas podem ser configurados no início, durante e após a interrupção de um ataque, usando métricas de ataque internas. Os alertas integram-se ao software operacional, como o Microsoft Azure Log Analytics, Splunk, Armazenamento do Microsoft Azure, Email e o Portal do Azure.
 - **Garantia de custo:** créditos de serviço de expansão de aplicativo para ataques de DDoS documentados.
 
 ## <a name="ddos-protection-standard-mitigation"></a>Mitigação da Proteção contra DDoS do Azure Standard

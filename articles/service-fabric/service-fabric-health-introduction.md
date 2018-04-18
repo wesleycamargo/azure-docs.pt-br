@@ -1,11 +1,11 @@
 ---
 title: Monitoramento de integridade do Service Fabric | Microsoft Docs
-description: "Uma introdução ao modelo de Monitoramento de integridade do Service Fabric do Azure, que fornece monitoramento do cluster e seus aplicativos e serviços."
+description: Uma introdução ao modelo de Monitoramento de integridade do Service Fabric do Azure, que fornece monitoramento do cluster e seus aplicativos e serviços.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c5ce0a765451171f7cbd6d875d4302d1e406b4f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
 
 Os componentes do Service Fabric usam esse modelo de integridade avançado para reportar o respectivo estado atual. É possível usar o mesmo mecanismo para reportar a integridade de seus aplicativos. Se investir em relatórios de integridade de alta qualidade que capturam suas condições personalizadas, você poderá detectar e corrigir problemas do seu aplicativo em execução com muito mais facilidade.
 
-O vídeo do Microsoft Virtual Academy a seguir também descreve o modelo de integridade do Service Fabric e seu uso: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+O vídeo da Microsoft Virtual Academy a seguir também descreve o modelo de integridade do Service Fabric e como é utilizado: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -211,7 +211,7 @@ Os [relatórios de integridade](https://docs.microsoft.com/dotnet/api/system.fab
 * **Description**. Uma cadeia de caracteres que permite ao relator fornecer informações detalhadas sobre o evento de integridade. **SourceId**, **Property** e **HealthState** devem descrever o relatório por completo. A descrição adiciona informações legíveis sobre o relatório. O texto facilita para que os administradores e os usuários entendam o relatório de integridade.
 * **HealthState**. Uma [enumeração](service-fabric-health-introduction.md#health-states) que descreve o estado de integridade do relatório. Os valores aceitáveis são OK, Aviso e Erro.
 * **TimeToLive**. Um período de tempo que indica por quanto tempo o relatório de integridade é válido. Em conjunto com **RemoveWhenExpired**, permite que o repositório de integridade saiba como avaliar eventos expirados. Por padrão, o valor é infinito e o relatório é válido indefinidamente.
-* **RemoveWhenExpired**. Um valor booleano. Se definido como verdadeiro, o relatório de integridade expirado será removido automaticamente do Repositório de Integridade e o relatório não afetará a avaliação da integridade da entidade. Usado quando o relatório for válido apenas por um período especificado de tempo e o relator não precisar removê-lo explicitamente. Ele também é usado para excluir relatórios do repositório de integridade (por exemplo, um watchdog é alterado e interrompe o envio de relatórios com propriedade e origem anteriores). Portanto, ele pode enviar um relatório com TimeToLive curto e RemoveWhenExpired para eliminar qualquer estado anterior do Repositório de Integridade. Se o valor for definido como false, o relatório expirado será tratado como erro na avaliação de integridade. O valor false indica ao repositório de integridade que a origem deve relatar periodicamente essa propriedade. Caso contrário, deve haver algo errado com o watchdog. A integridade do watchdog é capturada ao considerar o evento como um erro.
+* **RemoveWhenExpired**. Um booliano. Se definido como verdadeiro, o relatório de integridade expirado será removido automaticamente do Repositório de Integridade e o relatório não afetará a avaliação da integridade da entidade. Usado quando o relatório for válido apenas por um período especificado de tempo e o relator não precisar removê-lo explicitamente. Ele também é usado para excluir relatórios do repositório de integridade (por exemplo, um watchdog é alterado e interrompe o envio de relatórios com propriedade e origem anteriores). Portanto, ele pode enviar um relatório com TimeToLive curto e RemoveWhenExpired para eliminar qualquer estado anterior do Repositório de Integridade. Se o valor for definido como false, o relatório expirado será tratado como erro na avaliação de integridade. O valor false indica ao repositório de integridade que a origem deve relatar periodicamente essa propriedade. Caso contrário, deve haver algo errado com o watchdog. A integridade do watchdog é capturada ao considerar o evento como um erro.
 * **SequenceNumber**. Um inteiro positivo que sempre precisa ser aumentado, pois ele representa a ordem dos relatórios. Ele é usado pelo Repositório de Integridade para detectar relatórios obsoletos que são recebidos em atraso devido a atrasos na rede ou outros problemas. Um relatório é rejeitado se o número da sequência for menor ou igual ao aplicado mais recentemente para a mesma entidade, origem e propriedade. Se não for especificado, o número de sequência é gerado automaticamente. É necessário colocar o número de sequência apenas ao relatar transições de estado. Nessa situação, a origem precisa lembrar quais relatórios enviou e manter as informações de recuperação no failover.
 
 Essas quatro informações: SourceId, identificador da entidade, Propriedade e HealthState são obrigatórios para cada relatório de integridade. A cadeia de caracteres SourceId não pode iniciar com o prefixo "**System.**", que é reservado para relatórios do sistema. Para a mesma entidade, há apenas um relatório para a mesma origem e propriedade. Vários relatórios para a mesma fonte e propriedade substituirão uns aos outros, seja no lado do cliente de integridade (se estiverem divididos em lotes), seja no lado do Repositório de Integridade. A substituição é baseada nos números da sequência: relatórios mais recentes (com número de sequência mais alto) substituem os relatórios mais antigos.

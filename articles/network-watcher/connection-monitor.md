@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: 0d550d3bda119cfcb9ecc6f852006d5e325fdfa3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Monitorar conexões de rede com o Observador de Rede do Azure usando o portal do Azure
 
@@ -29,7 +29,7 @@ Você deve atender aos seguintes pré-requisitos antes de completar as etapas ne
 
 * Uma instância do Observador de Rede na região onde você deseja monitorar uma conexão. Se você já não tiver criado uma instância do Observador de Rede, pode criar uma completando as etapas em [Criar uma instância do Observador de Rede](network-watcher-create.md).
 * Uma VM para monitorar. Para saber como criar uma VM, consulte Criar uma VM para [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-* Instale o `AzureNetworkWatcherExtension` na VM da qual você deseja monitorar uma conexão. Para instalar a extensão em uma VM do Windows, consulte [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para instalar a extensão em uma VM do Linux, consulte [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+* Instale o `AzureNetworkWatcherExtension` na VM da qual você deseja monitorar uma conexão. Para instalar a extensão em uma VM do Windows, consulte [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para instalar a extensão em uma VM do Linux, consulte [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessária no ponto de extremidade de destino que você deseja monitorar.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure 
 

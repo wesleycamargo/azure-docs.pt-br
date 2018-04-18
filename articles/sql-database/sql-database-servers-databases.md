@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Criar e gerenciar servidores e bancos de dados do Banco de Dados SQL
 
@@ -53,7 +53,7 @@ Um servidor lógico do Banco de Dados do Azure:
 - Fornece acesso aos metadados sobre os recursos independentes por meio de DMVs, conectando-se ao banco de dados mestre 
 - Fornece o escopo para políticas de gerenciamento que se aplicam a seus bancos de dados: logons, firewall, auditoria, detecção de ameaças, etc. 
 - É restrito por uma cota na assinatura pai (seis servidores por assinatura por padrão; [consulte os Limites da assinatura aqui](../azure-subscription-service-limits.md))
-- Fornece o escopo da cota de banco de dados e da cota de DTU para os recursos que ele contém (como 45.000 DTUs)
+- Fornece o escopo da cota de banco de dados e da cota de DTU ou vCore para os recursos que ele contém (como 45.000 DTUs)
 - É o escopo de controle de versão para as funcionalidades habilitadas em recursos contidos 
 - Os logons de entidade de segurança no nível do servidor podem gerenciar todos os bancos de dados em um servidor
 - Pode conter logons semelhantes aos das instâncias do SQL Server locais que têm permissão para acessar um ou mais bancos de dados no servidor, além de poder receber direitos administrativos limitados. Para obter mais informações, consulte [Logons](sql-database-manage-logins.md).
@@ -162,7 +162,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do Azure SQL com 
 > Não é possível criar ou excluir um servidor usando o Transact-SQL.
 >
 
-| Get-Help | DESCRIÇÃO |
+| Comando | DESCRIÇÃO |
 | --- | --- |
 |[CREATE DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria um novo banco de dados. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
 | [ALTER DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica um Banco de Dados SQL do Azure. |
@@ -188,7 +188,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do Azure SQL com 
 
 Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Server do Azure, use estas solicitações de API REST.
 
-| Get-Help | DESCRIÇÃO |
+| Comando | DESCRIÇÃO |
 | --- | --- |
 |[Servidores - Criar ou Atualizar](/rest/api/sql/servers/createorupdate)|Cria ou atualiza um novo servidor.|
 |[Servidores - Excluir](/rest/api/sql/servers/delete)|Exclui um servidor SQL.|

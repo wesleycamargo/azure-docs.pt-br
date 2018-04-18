@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure
 Este artigo lista descrições detalhadas dos recursos disponíveis para o [Mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -28,7 +28,6 @@ A terceira parte de uma regra é o recurso. Um recurso define o tipo de ação q
 ## <a name="access-features"></a>Recursos de acesso
 
 Esses recursos são projetados para controlar o acesso ao conteúdo.
-
 
 NOME | Finalidade
 -----|--------
@@ -312,7 +311,7 @@ Remover| Essa opção garante que um cabeçalho `Cache-Control` não seja inclu�
 
 Informações de chave:
 
-- Especifique um ou mais nomes de parâmetro de cadeia de caracteres de consulta. Delimite cada nome de parâmetro com um único espaço.
+- Especifique um ou mais nomes de parâmetros de cadeia de caracteres de consulta e separe cada nome de parâmetro com um único espaço.
 - Este recurso determina se parâmetros de cadeia de caracteres de consulta são incluídos ou excluídos da chave de cache. Informações adicionais são fornecidas para cada opção na tabela a seguir.
 
 type|DESCRIÇÃO
@@ -325,6 +324,9 @@ type|DESCRIÇÃO
 O mecanismo de regras permite que você personalize a maneira como o cache da cadeia de caracteres de consulta seja implementado. Por exemplo, você pode especificar que o cache da cadeia de caracteres de consulta seja executado apenas em determinados locais ou tipos de arquivos.
 
 Para duplicar o comportamento de cache da cadeia de caracteres de consulta "sem cache" na página Cache da Cadeia de Caracteres de Consulta, crie uma regra que contenha uma condição de correspondência de Curinga de Consulta de URL e um recurso Ignorar cache. Defina a condição de correspondência de caracteres de Curinga de Consulta da URL para um asterisco (*).
+
+>[!IMPORTANT] 
+> Se a autorização de token estiver habilitada para qualquer caminho nesta conta, o modo de cache standard é o único modo que pode ser utilizado para o armazenamento em cache da cadeia de caracteres de consulta. Para obter mais informações, confira [controle do comportamento do armazenamento em cache do CDN do Azure com cadeias de caracteres de consulta](cdn-query-string-premium.md).
 
 #### <a name="sample-scenarios"></a>Cenários de Exemplo
 
@@ -1054,10 +1056,12 @@ Desabilitado| Restaura o comportamento padrão. O comportamento padrão é permi
 ### <a name="token-auth-denial-code"></a>Código de Negação de Autenticação de Token
 **Finalidade:** determina o tipo de resposta que será retornado a um usuário quando uma solicitação for negada devido a autenticação baseada em token.
 
-Os códigos de resposta disponíveis são listados abaixo.
+Código de Negação de Autenticação de Token não pode ser usado com uma condição de correspondência sempre. Em vez disso, use a seção **Tratamento de Negação Personalizada** na página **Autenticação de Token** do portal **Gerenciar**. Para obter mais informações, consulte [Proteger ativos da CDN do Azure com autenticação de token](cdn-token-auth.md).
+
+Os códigos de resposta disponíveis estão listados na tabela a seguir.
 
 Código de Resposta|Nome da Resposta|DESCRIÇÃO
-----------------|-----------|--------
+-------------|-------------|--------
 301|Movido Permanentemente|Esse código de status redireciona os usuários não autorizados para a URL especificada no cabeçalho de Local.
 302|Encontrado|Esse código de status redireciona os usuários não autorizados para a URL especificada no cabeçalho de Local. Esse código de status é o método padrão do setor para executar um redirecionamento.
 307|Redirecionamento Temporário|Esse código de status redireciona os usuários não autorizados para a URL especificada no cabeçalho de Local.

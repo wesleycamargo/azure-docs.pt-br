@@ -1,21 +1,21 @@
 ---
-title: "Implantar módulos para dispositivos IoT Edge usando a extensão de IoT da CLI do Azure 2.0 | Microsoft Docs"
-description: "Implantar módulos para dispositivos IoT Edge usando a extensão de IoT da CLI do Azure 2.0"
+title: Implantar módulos para dispositivos IoT Edge usando a extensão de IoT da CLI do Azure 2.0 | Microsoft Docs
+description: Implantar módulos para dispositivos IoT Edge usando a extensão de IoT da CLI do Azure 2.0
 services: iot-edge
-keywords: 
+keywords: ''
 author: chrissie926
 manager: timlt
 ms.author: menchi
 ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: ''
 ms.reviewer: kgremban
-ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1f71fdfb7090dce24ba73f1fa01e287c52b065f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Implantar módulos para dispositivos IoT Edge usando a extensão de IoT da CLI do Azure 2.0
 
@@ -23,7 +23,7 @@ A [CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-l
 
 A CLI do Azure 2.0 permite que você gerencie instantaneamente recursos, instâncias de serviço de provisionamento de dispositivos e hubs vinculados do Hub IoT do Azure. A nova extensão de IoT aprimora a CLI do Azure 2.0 com recursos como gerenciamento de dispositivos e todos os recursos do IoT Edge.
 
-Neste tutorial, você primeiro conclui as etapas para configurar a CLI do Azure 2.0 e a extensão de IoT. Em seguida, você aprende como implantar módulos em um dispositivo de IoT Edge usando os comandos disponíveis da CLI.
+Neste artigo, que você configura a CLI 2.0 do Azure e a extensão de IoT. Em seguida, você aprende como implantar módulos em um dispositivo de IoT Edge usando os comandos disponíveis da CLI.
 
 ## <a name="prerequisites"></a>pré-requisitos
 

@@ -1,5 +1,5 @@
 ---
-title: Visão geral do parâmetro de comparação do Banco de Dados SQL do Azure
+title: Visão geral do parâmetro de comparação da DTU do Banco de Dados SQL do Azure
 description: Este tópico descreve o Parâmetro de Comparação do Banco de Dados SQL do Azure usado para medir o desempenho do Banco de Dados SQL do Azure.
 services: sql-database
 author: jan-eng
@@ -7,17 +7,20 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 06/21/2016
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-sql-database-benchmark-overview"></a>Visão geral do parâmetro de comparação do Banco de Dados SQL do Azure
+# <a name="azure-sql-database-dtu-benchmark-overview"></a>Visão geral do parâmetro de comparação da DTU do Banco de Dados SQL do Azure
 ## <a name="overview"></a>Visão geral
-O Banco de Dados SQL do Microsoft Azure oferece três [camadas de serviço](sql-database-service-tiers.md) com vários níveis de desempenho. Cada nível de desempenho fornece um conjunto de recursos cada vez maior, ou ‘potência’, projetada para fornecer uma taxa de transferência crescente.
+No modelo de compra baseado em DTU, o Banco de Dados SQL do Microsoft Azure oferece três [camadas de serviço](sql-database-service-tiers.md) com vários níveis de desempenho. Cada nível de desempenho fornece um conjunto de recursos cada vez maior, ou ‘potência’, projetada para fornecer uma taxa de transferência crescente.
+
+> [!IMPORTANT]
+> O Banco de Dados SQL do Azure agora também oferece suporte a um modelo de compras baseado em vCore (versão prévia). Para obter mais informações, consulte [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 É importante ser capaz de quantificar como o aumento de capacidade de cada nível de desempenho resulta em um desempenho de banco de dados melhor. Para fazer isso, a Microsoft desenvolveu o Benchmark do Banco de Dados SQL do Azure (ASDB). O parâmetro de comparação exercita uma combinação de operações básicas encontradas em todas as cargas de trabalho OLTP. Nós medimos a taxa de transferência obtida para bancos de dados em execução em cada nível de desempenho.
 

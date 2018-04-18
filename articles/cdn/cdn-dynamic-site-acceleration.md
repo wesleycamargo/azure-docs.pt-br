@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
-ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração de site dinâmico via CDN do Azure
 
@@ -152,7 +152,7 @@ Com o DSA, o cache é desativado por padrão na CDN, mesmo quando a origem inclu
 
 Se você tiver um site com uma mistura de ativos estáticos e dinâmicos, é melhor usar uma abordagem híbrida para obter o melhor desempenho. 
 
-Para perfis **CDN do Verizon Standard** e **CDN do Azure da Akamai Standard**, é possível ativar o cache para pontos de extremidade da DSA específicos usando as [regras de cache](cdn-caching-rules.md).
+Para perfis **CDN Standard do Azure do Verizon** e **CDN Standard do Azure da Akamai**, é possível ativar o cache para pontos de extremidade da DSA específicos usando as [regras de cache](cdn-caching-rules.md).
 
 Para acessar as regras de cache:
 
@@ -164,7 +164,7 @@ Para acessar as regras de cache:
 
 2. Crie uma regra de cache global ou customizada para ativar o cache do ponto de extremidade da DSA. 
 
-Para os perfis **CDN do Azure do Verizon Premium** somente, você ativa o cache para pontos de extremidade da DSA específicos usando o [mecanismo de regras](cdn-rules-engine.md). Quaisquer regras criadas afetam apenas os pontos de extremidade do perfil otimizado para DSA. 
+Para os perfis **CDN Premium do Azure do Verizon** somente, você ativa o cache para pontos de extremidade da DSA específicos usando o [mecanismo de regras](cdn-rules-engine.md). Quaisquer regras criadas afetam apenas os pontos de extremidade do perfil otimizado para DSA. 
 
 Para acessar o mecanismo de regras:
     

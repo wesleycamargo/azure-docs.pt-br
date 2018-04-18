@@ -1,11 +1,11 @@
 ---
-title: "O que é o acesso a aplicativos e logon único com o Azure Active Directory? | Microsoft Docs"
-description: "Use o Active Directory do Azure para habilitar o logon único para todos os aplicativos SaaS e da Web que você precisa para a empresa."
+title: O que é o acesso a aplicativos e logon único com o Azure Active Directory? | Microsoft Docs
+description: Use o Active Directory do Azure para habilitar o logon único para todos os aplicativos SaaS e da Web que você precisa para a empresa.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 42a24654eb059894a855474c922a4dd2da185149
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicativos e logon único com o Azure Active Directory?
 Sign-on único significa poder acessar todos os aplicativos e recursos que você precisa para fazer negócios, inscrevendo-se apenas uma vez usando uma conta de usuário único. Depois de conectado, você pode acessar todos os aplicativos necessários sem a exigência de autenticação (por exemplo, digitar uma senha) uma segunda vez.
@@ -68,7 +68,7 @@ O logon único com base em senha permite aos usuários em sua organização entr
 O Azure AD pode dar suporte a logon único baseado em senha em qualquer aplicativo baseado em nuvem que tenha uma página de entrada baseada em HTML. Usando um plug-in de navegador personalizado, o AAD automatiza o processo de entrada do usuário recuperando com segurança credenciais do aplicativo, como o nome de usuário e a senha do diretório, e insere essas credenciais na página de entrada do aplicativo em nome do usuário. Há dois casos de uso:
 
 1. **Administrador gerencia credenciais** – os administradores podem criar e gerenciar credenciais de aplicativo e atribuir essas credenciais para usuários ou grupos que precisam de acesso ao aplicativo. Nesses casos, o usuário final não precisa saber as credenciais, mas ainda obtém acesso de logon único ao aplicativo simplesmente clicando no seu painel de acesso ou por meio de um link fornecido. Isso permite o gerenciamento de ciclo de vida das credenciais de administrador e a conveniência dos usuários finais por meio do qual não precisam se lembrar ou gerenciar senhas específicas de aplicativo. As credenciais são ofuscadas do usuário final durante o processo de logon automatizado; no entanto, elas são tecnicamente detectáveis pelo usuário usando ferramentas de depuração da Web e os usuários e administradores devem seguir as mesmas políticas de segurança que seguiriam se as credenciais tivessem sido apresentadas diretamente pelo usuário. As credenciais fornecidas pelo administrador são úteis ao fornecer acesso à conta que é compartilhado entre vários usuários, como no caso de aplicativos de mídia social ou de compartilhamento de documentos.
-2. **Usuário gerencia credenciais** – os administradores podem atribuir aplicativos a usuários finais ou grupos e permitir que os usuários finais digitem suas próprias credenciais diretamente ao acessar o aplicativo pela primeira vez no seu painel de acesso. Isso cria uma conveniência para os usuários finais por meio da qual não precisam inserir continuamente as senhas específicas do aplicativo sempre que acessarem o aplicativo. Esse caso de uso também pode ser usado como um ponto de partida para o gerenciamento de credenciais, no qual o administrador pode definir novas credenciais para o aplicativo no futuro sem alterar a experiência de acesso do aplicativo do usuário final.
+2. **Usuário gerencia credenciais** – os administradores podem atribuir aplicativos a usuários finais ou grupos e permitir que os usuários finais digitem suas próprias credenciais diretamente ao acessar o aplicativo pela primeira vez no seu painel de acesso. Isso cria uma conveniência para os usuários finais por meio da qual não precisam inserir continuamente as senhas específicas do aplicativo sempre que acessarem o aplicativo. Os usuários podem continuar gerenciando as senhas atualizando-as ou excluindo-as, conforme necessário. Esse caso de uso também pode ser usado como um ponto de partida para o gerenciamento de credenciais, no qual o administrador pode definir novas credenciais para o aplicativo no futuro sem alterar a experiência de acesso do aplicativo do usuário final.
 
 Em ambos os casos, as credenciais são armazenadas em um estado criptografado no diretório em somente são passadas via HTTPS durante o processo de logon automatizado. Usando o logon único baseado em senha, o Azure AD oferece uma solução de gerenciamento de acesso de identidade conveniente para aplicativos que não são capazes de dar suporte a protocolos de federação.
 
@@ -114,9 +114,9 @@ Se seu aplicativo não for encontrado na Galeria de aplicativos do AD do Azure, 
 * **Adicione seu próprio aplicativo que estiver desenvolvendo** - se você tiver desenvolvido o aplicativo, siga as orientações na documentação do desenvolvedor do AD do Azure para implementar o logon único federado ou provisionamento usando a API do Graph do AD do Azure. Para obter mais informações, consulte estes recursos:
   
   * [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md)
-  * [https://GitHub.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-dotnet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
-  * [https://GitHub.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-dotnet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
-  * [https://GitHub.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
+  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 * **Solicitar uma integração de aplicativo** -Solicite suporte para o aplicativo que você precisa usando o [Fórum de comentários do AD do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ### <a name="using-the-azure-portal"></a>Usando o portal do Azure
@@ -151,7 +151,7 @@ O Azure AD fornece várias maneiras personalizáveis de implantar aplicativos pa
 A escolha dos métodos para implantação de sua organização fica seu critério.
 
 ### <a name="azure-ad-access-panel"></a>Painel de acesso do AD do Azure
-O painel de acesso em https://myapps.microsoft.com é um portal baseado na web que permite que um usuário final, com uma conta organizacional no Azure Active Directory exiba e inicialize aplicativos baseados em nuvem para os quais tenham sido concedido acesso pelo administrador do AD do Azure. Se for um usuário final com o [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), você também poderá utilizar recursos de gerenciamento do grupo de autoatendimento por meio do Painel de acesso.
+O Painel de Acesso em https://myapps.microsoft.com é um portal baseado na Web que permite a um usuário final com conta organizacional no Azure Active Directory exibir e inicializar aplicativos baseados em nuvem aos quais tenham recebido acesso pelo administrador do Microsoft Azure AD. Se for um usuário final com o [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), você também poderá utilizar recursos de gerenciamento do grupo de autoatendimento por meio do Painel de acesso.
 
 ![Painel de acesso do Azure AD](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 
@@ -160,7 +160,7 @@ O Painel de acesso é separado do portal do Azure e não requer que os usuários
 Para obter mais informações sobre o painel de acesso do AD do Azure, consulte a [Introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 ### <a name="office-365-application-launcher"></a>Iniciador de aplicativos do Office 365
-Para organizações que implantaram o Office 365, os aplicativos atribuídos aos usuários por meio do AD do Azure também serão exibido no portal do Office 365 em https://portal.office.com/myapps. Isso torna simples e fácil para os usuários em uma organização para iniciar seus aplicativos sem precisar usar um segundo portal e é a solução de inicialização do aplicativo recomendada para organizações que usam o Office 365.
+Para organizações que implantaram o Office 365, os aplicativos atribuídos aos usuários por meio do Microsoft Azure AD também aparecerão no Portal do Office 365 em https://portal.office.com/myapps. Isso torna simples e fácil para os usuários em uma organização para iniciar seus aplicativos sem precisar usar um segundo portal e é a solução de inicialização do aplicativo recomendada para organizações que usam o Office 365.
 
 ![][4]
 

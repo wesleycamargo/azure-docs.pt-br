@@ -1,11 +1,11 @@
 ---
-title: "Gerencie expiração de armazenamento Blob do Azure na Rede de Distribuição de Conteúdo do Microsoft Azure | Microsoft Docs"
-description: "Aprenda sobre as opções para controlar a vida útil de blobs no cache do Azure CDN."
+title: Gerencie expiração de armazenamento Blob do Azure na Rede de Distribuição de Conteúdo do Microsoft Azure | Microsoft Docs
+description: Aprenda sobre as opções para controlar a vida útil de blobs no cache do Azure CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: bafb04a1a19c4436d8f6c1c21700e9463334b3de
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 72a823ef04ad69d1d3b40377c32a02bacb8328c2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gerencie expiração de armazenamento Blob do Azure na Rede de Distribuição de Conteúdo do Microsoft Azure
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Também é possível controlar as configurações de cache do portal do Azure, d
 O método preferido para configuração do cabeçalho `Cache-Control` do blob é usar regras de cache no Portal do Azure. Para obter mais informações sobre as regras de cache da CDN, consulte [Controlar o comportamento de cache da CDN do Azure com regras de cache](cdn-caching-rules.md).
 
 > [!NOTE] 
-> As regras de cache estão disponíveis apenas para perfis de **CDN do Azure da Verizon Standard** e **CDN do Azure da Akamai Standard**. Para perfis de **CDN do Azure da Verizon Premium**, é necessário usar o [mecanismo de regras da CDN do Azure](cdn-rules-engine.md) no portal **Gerenciar** para uma funcionalidade semelhante.
+> As regras de cache estão disponíveis apenas para perfis de **CDN Standard do Azure da Verizon** e **CDN Standard do Azure da Akamai**. Para perfis de **CDN Premium do Azure da Verizon**, é necessário usar o [mecanismo de regras da CDN do Azure](cdn-rules-engine.md) no portal **Gerenciar** para uma funcionalidade semelhante.
 
 **Para navegar até a página de regras de cache da CDN**:
 

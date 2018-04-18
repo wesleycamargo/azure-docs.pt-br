@@ -1,11 +1,11 @@
 ---
 title: Instalar o MongoDB em uma VM Linux usando a CLI do Azure 1.0 | Microsoft Docs
-description: "Aprenda a instalar e configurar o MongoDB em uma máquina virtual do Linux no Azure usando o modelo de implantação do Resource Manager."
+description: Aprenda a instalar e configurar o MongoDB em uma máquina virtual do Linux no Azure usando o modelo de implantação do Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: ff9e23de41245ea21ba6e9c3efe13ca13b0b0ae1
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: a334a0b7b3b638229c61eef086b1919b4c303338
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Como instalar e configurar o MongoDB em uma VM Linux usando a CLI do Azure 1.0
 [O MongoDB](http://www.mongodb.org) é um popular banco de dados NoSQL de código-fonte aberto e de alto desempenho. Este artigo mostra a você como instalar e configurar o MongoDB em uma VM do Linux no Azure usando o modelo de implantação do Resource Manager. São mostrados exemplos que explicam em detalhes como:
@@ -113,7 +113,7 @@ sudo chkconfig mongod on
 ## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Criar uma instância básica do MongoDB em CentOS usando um modelo
 Você pode criar uma instância básica do MongoDB em uma única VM CentOS usando o modelo de início rápido do Azure a seguir no GitHub. Este modelo usa a extensão de Script personalizado para Linux para adicionar um repositório `yum` para sua VM CentOS recém-criada e então instalar o MongoDB.
 
-* [Instância básica do MongoDB no CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) –https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
+* [Instância básica do MongoDB no CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
 O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na região `eastus`. Insira seus próprios valores da seguinte maneira:
 
@@ -160,7 +160,7 @@ test
 ## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Criar um Cluster Fragmentado MongoDB complexo no CentOS usando um modelo
 Você pode criar um cluster fragmentado complexo MongoDB usando o modelo de início rápido do Azure a seguir no GitHub. Esse modelo segue as [melhores práticas do cluster fragmentado MongoDB](https://docs.mongodb.com/manual/core/sharded-cluster-components/) para fornecer alta disponibilidade e redundância. O modelo cria dois fragmentos, com três nós em cada conjunto de réplicas. Um conjunto de réplicas de servidor de configuração com três nós também é criado, mais dois servidores do roteador **mongos** para fornecer consistência a aplicativos entre os fragmentos.
 
-* [Cluster Fragmentado MongoDB no CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) –https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
+* [Cluster de fragmentação do MongoDB no CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
 > Implantar este cluster fragmentado MongoDB complexo requer mais de 20 vCPUs, que é normalmente a contagem padrão de vCPU por região para uma assinatura. Abra uma solicitação de suporte do Azure para aumentar a contagem de vCPUs.

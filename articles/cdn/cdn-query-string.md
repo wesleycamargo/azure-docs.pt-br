@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 87f00575e0c2c4cd7a8525df96b2f5b13d470643
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed6f0b2c021fc4b31b85986c07df0502dba826f2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Controlar o comportamento de cache da CDN do Azure com cadeias de caracteres consulta - camada Standard
 > [!div class="op_single_selector"]
@@ -36,8 +36,13 @@ Com o cache da cadeia de caracteres de consulta, a CDN (Rede de Distribuição d
 Estão disponíveis três modos de cadeia de caracteres de consulta:
 
 - **Ignorar cadeias de caracteres de consulta**: modo padrão. Nesse modo, o nó POP (ponto de presença) da CDN transmite as cadeias de caracteres de consulta do solicitante para o servidor de origem na primeira solicitação e armazena em cache o ativo. Todas as solicitações subsequentes para esse ativo que forem atendidas a partir do POP ignoram a cadeia de caracteres de consulta até que o ativo em cache expire.
+
 - **Ignorar o cache para cadeias de consulta**: nesse modo, as solicitações com cadeias de caracteres de consulta não são armazenadas em cache no nó POP da CDN. O nó POP recupera o ativo diretamente da origem e passa-o para o solicitante com cada solicitação.
-- **Armazenar em cada cache URL exclusiva**: nesse modo, cada solicitação com um URL exclusiva, incluindo a cadeia de caracteres de consulta, é tratada como um ativo exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de origem para uma solicitação de `example.ashx?q=test1` é armazenada em cache no nó POP e retornada para caches subsequentes com a mesma cadeia de caracteres de consulta. Uma solicitação `example.ashx?q=test2` é armazenada em cache como um ativo separado com sua própria configuração de vida útil.
+
+- **Armazenar em cada cache URL exclusiva**: nesse modo, cada solicitação com um URL exclusiva, incluindo a cadeia de caracteres de consulta, é tratada como um ativo exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de origem para uma solicitação para example.ashx?q=test1 é armazenada em cache no nó POP e retornada para caches subsequentes com a mesma cadeia de caracteres de consulta. Uma solicitação para example.ashx?q=test2 é armazenada em cache como um ativo separado com sua própria configuração de vida útil.
+   
+    >[!IMPORTANT] 
+    > Não use este modo quando a cadeia de caracteres de consulta contiver parâmetros que serão alterados em cada solicitação, como uma ID da sessão ou um nome de usuário, porque isso resultará em baixo índice de ocorrências no cache.
 
 ## <a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Alterando configurações de cache de cadeia de consulta para perfis de CDN padrão
 1. Abra um perfil de CDN e, em seguida, selecione o ponto de extremidade da CDN que deseja gerenciar.

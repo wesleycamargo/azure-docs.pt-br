@@ -1,11 +1,11 @@
 ---
-title: "Como configurar o logon único com senha para um aplicativo que não seja da galeria | Microsoft Docs"
-description: "Compreender os problemas comuns que as pessoas enfrentam ao configurar o Logon Único com Senha para aplicativos personalizados que não estão listados na Galeria do Aplicativo Azure AD"
+title: Como configurar o logon único com senha para um aplicativo que não seja da galeria | Microsoft Docs
+description: Compreender os problemas comuns que as pessoas enfrentam ao configurar o Logon Único com Senha para aplicativos personalizados que não estão listados na Galeria do Aplicativo Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: e5c8562b89b70236d9d65a5f8765ae386d6831b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo que não seja da galeria
 
@@ -249,7 +249,7 @@ Abaixo, explicamos mais sobre o significado de cada item de notificação e forn
 
 -   **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
 
-    -   Exemplo – **A URL interna 'http://bing.com/' é inválida, uma vez que está sendo utilizada**
+    -   Exemplo – **URL interna 'http://bing.com/' é inválida porque já está em uso**
 
 -   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos
 

@@ -1,11 +1,11 @@
 ---
-title: "Criar fluxos de trabalho com modelos - Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Compilar fluxos de trabalho mais rápidos usando modelos de aplicativo lógico"
+title: Criar fluxos de trabalho com modelos - Aplicativo Lógico do Azure | Microsoft Docs
+description: Compilar fluxos de trabalho mais rápidos usando modelos de aplicativo lógico
 author: kevinlam1
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9145b9cb85cda9179f7ce46de017a0ab3a38924
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2e939143d7181722df17ea7837658d96272e3a3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Criar fluxos de trabalho de aplicativo lógico com modelos predefinidos
 
@@ -56,7 +56,7 @@ Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure
    | **Assinatura** | *seu-nome-da-assinatura-do-Azure* | Selecione a assinatura do Azure que você deseja usar. | 
    | **Grupo de recursos** | *seu-nome-do-grupo-de-recursos-do-Azure* | Crie ou selecione um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) para este aplicativo lógico e organize todos os recursos associados ao aplicativo. | 
    | **Localidade** | *sua-região-do-datacenter-do-Azure* | Selecione a região do datacenter para implantar seu aplicativo lógico, por exemplo, Oeste dos EUA. | 
-   | **Log Analytics** | **Off** (padrão) ou **On** | Ative o [log de diagnósticos](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) para seu aplicativo lógico por meio do [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Requer que você já tenha um espaço de trabalho do [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md). | 
+   | **Log Analytics** | **Off** (padrão) ou **On** | Ative o [log de diagnósticos](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) para seu aplicativo lógico por meio do [Azure Log Analytics](../log-analytics/log-analytics-overview.md). É necessário que você já tenha um espaço de trabalho do Log Analytics. | 
    |||| 
 
 4. Quando estiver pronto, selecione **Fixar no painel**. Dessa forma, seu aplicativo lógico aparece automaticamente no painel do Azure e é aberto após a implantação. Escolha **Criar**.

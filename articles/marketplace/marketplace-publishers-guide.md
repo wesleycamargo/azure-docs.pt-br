@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia do Azure Marketplace e do AppSource Publisher
 
@@ -121,7 +121,8 @@ Cada vitrine oferece suporte a várias opções de publicação e tipos de ofert
 Use Entre em Contato Comigo quando uma participação de nível de avaliação ou transação não for viável. O benefício dessa abordagem é permitir que os editores com uma solução no mercado comecem imediatamente a receber clientes potenciais que possam ser consolidados nas ofertas fundamentais para iniciar seu impulso comercial. No entanto, a desvantagem é que o engajamento do cliente é limitado, em comparação com outros tipos de ofertas.
 
 >[!IMPORTANT]
->Não recomendamos o tipo de listagem Entre em Contato Comigo. Você deve usá-lo somente em situações em que não é possível estabelecer uma experiência de avaliação. O envolvimento do cliente é melhor com ofertas de avaliação e transação. Se você tiver algum tipo de experiência de avaliação, nosso processo de integração vai guiá-lo a uma dessas opções, dependendo do cenário.
+<<<<<<< HEAD O envolvimento do cliente e melhor com ofertas de Avaliação e Transação. O valor de Contate-me é o cliente potencial que você recebe, então se você escolher esse tipo de lista, certifique-se de que o destino do cliente pontecial está configurado e você está pronto para maximizar o cliente potencial. ======= Não recomendamos o tipo de listagem Entre em Contato Comigo. Você deve usá-lo somente em situações em que não é possível estabelecer uma experiência de avaliação. O envolvimento do cliente é melhor com ofertas de avaliação e transação. Se você tiver algum tipo de experiência de avaliação, nosso processo de integração vai guiá-lo a uma dessas opções, dependendo do cenário.
+>>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
 
 Quando a oferta consistir principalmente de serviços profissionais (por exemplo, avaliações, implementações, workshops), use o tipo de oferta Serviços de Consultoria. O escopo, a duração e o preço da oferta devem ser fixados, devem ser para um único cliente e devem ser realizados no local.
 

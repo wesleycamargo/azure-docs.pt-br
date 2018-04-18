@@ -2,7 +2,7 @@
 title: Publicar aplicativos com o Proxy de Aplicativo do Azure AD | Microsoft Docs
 description: Publique aplicativos locais na nuvem com o Proxy de Aplicativo do Azure AD no Portal do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1bf72b450747e98e254db77514fc7a902bbe70cc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure
 
@@ -53,7 +53,7 @@ Siga estas etapas para publicar seus aplicativos com Proxy de Aplicativo. Se voc
    - **URL interna**: é a URL para acessar o aplicativo dentro da sua rede privada. Você pode fornecer um caminho específico no servidor back-end para publicar, enquanto o restante do servidor é não publicado. Assim, você pode publicar sites diferentes no mesmo servidor como diferentes aplicativos, e dar a cada um deles seu próprio nome e suas regras de acesso.
 
      > [!TIP]
-     > Se você publicar um caminho, verifique se ele inclui todas as imagens, scripts e folhas de estilo necessários para seu aplicativo. Por exemplo, se seu aplicativo está em https://seuaplicativo/app e usa imagens localizadas em https://seuaplicativo/media, você deve publicar https://seuaplicativo/ como o caminho. Essa URL interna não precisa ser a página de aterrissagem que os usuários veem. Para obter mais informações, consulte [Definir uma página inicial personalizada para aplicativos publicados](application-proxy-office365-app-launcher.md).
+     > Se você publicar um caminho, verifique se ele inclui todas as imagens, scripts e folhas de estilo necessários para seu aplicativo. Por exemplo, se o aplicativo estiver em https://yourapp/app e utilizar imagens localizadas em https://yourapp/media, você deverá publicar https://yourapp/ como o caminho. Essa URL interna não precisa ser a página de aterrissagem que os usuários veem. Para obter mais informações, consulte [Definir uma página inicial personalizada para aplicativos publicados](application-proxy-office365-app-launcher.md).
 
    - **URL externa**: o endereço que seus usuários usam para acessar o aplicativo de fora da sua rede. Se você não quiser usar o domínio padrão de Proxy de Aplicativo, leia sobre [domínios personalizados no Proxy de Aplicativo do Azure AD](active-directory-application-proxy-custom-domains.md).
    - **Pré-autenticação**: como o Proxy de Aplicativo verifica os usuários antes de lhes dar acesso ao aplicativo. 
@@ -61,6 +61,9 @@ Siga estas etapas para publicar seus aplicativos com Proxy de Aplicativo. Se voc
      - Azure Active Directory: o Proxy de Aplicativo redireciona os usuários para entrar com o Azure AD, que autentica as permissões para o diretório e o aplicativo. É recomendável manter essa opção como padrão, para que você possa tirar proveito dos recursos de segurança do Azure AD como acesso condicional e Autenticação Multifator.
      - Passagem: os usuários não precisam ser autenticados no Azure Active Directory para acessar o aplicativo. Você ainda pode configurar os requisitos de autenticação no back-end.
    - **Grupo de Conectores**: conectores processam o acesso remoto ao seu aplicativo e o ajudam a organizar conectores e aplicativos por região, rede ou finalidade. Se você ainda não tiver grupos de conectores criados, seu aplicativo é atribuído a **Padrão**.
+
+>[!NOTE]
+>Se o aplicativo usa WebSockets para conectar, certifique-se de ter o conector de versão 1.5.612.0 ou superior com suporte a WebSocket e que o Grupo de Conectores designado utiliza apenas esses conectores.
 
    ![Configurar seu aplicativo](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Se necessário, defina configurações adicionais. Para a maioria dos aplicativos, você deve manter essas configurações em seus estados padrão. 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2018
 ms.author: johnkem
-ms.openlocfilehash: e09fe4fd48d1806e2194ed3065e7c2edbe2d1aa5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05e9430dd8b7a14bc94869071cd145696f34567f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Introdução ao Azure Monitor
 O Azure Monitor é o serviço de plataforma que fornece uma única fonte para monitorar os recursos do Azure. Com o Azure Monitor, você pode visualizar, consultar, rotear, arquivar e também tomar medidas relacionadas às métricas e aos logs provenientes dos recursos do Azure. É possível trabalhar com esses dados, usando o Portal do Azure, [Cmdlets do PowerShell do Monitor](insights-powershell-samples.md), [CLI de Plataforma Cruzada](insights-cli-samples.md) ou [APIs REST do Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Neste artigo, veremos alguns dos principais componentes do Azure Monitor usando o portal para demonstração.
@@ -37,9 +37,9 @@ O Azure Monitor é o serviço de plataforma que fornece uma única fonte para mo
     O [**log de atividades**](monitoring-overview-activity-logs.md)descreve todas as operações executadas nos recursos em sua assinatura. Usando o Log de Atividades, você pode determinar 'o que, quem e quando' para quaisquer operações de criação, atualização ou exclusão nos recursos em sua assinatura. Por exemplo, o Log de Atividades informa quando um aplicativo Web foi interrompido e quem o interrompeu. Os eventos do Log de Atividades são armazenados na plataforma e ficam disponíveis para consulta por 90 dias.
 
     ![Log de Atividade](./media/monitoring-get-started/monitor-act-log-blade.png)
-    
+
     Você pode criar e salvar consultas para os filtros comuns e fixar as consultas mais importantes em um painel do portal para que sempre saiba se ocorreram eventos que atendem aos seus critérios.
-4. Filtre a exibição para um determinado grupo de recursos na última semana, então, clique no botão **Salvar** . Dê um nome à consulta. 
+4. Filtre a exibição para um determinado grupo de recursos na última semana, então, clique no botão **Salvar** . Dê um nome à consulta.
 
     ![Salvar consulta do log de atividades](./media/monitoring-get-started/monitor-act-log-save.png)
 5. Agora, clique no **Fixar** .
@@ -63,6 +63,7 @@ O Azure Monitor é o serviço de plataforma que fornece uma única fonte para mo
    > Algumas métricas somente estarão disponíveis, habilitando o [Application Insights](../application-insights/app-insights-overview.md) e/ou Windows ou a extensão de Diagnóstico do Microsoft Azure para Linux no recurso.
    >
    >
+
 9. Quando você estiver satisfeito com seu gráfico, poderá usar o botão **Fixar** para fixar em seu painel.
 10. Retorne para **Monitor** e clique em **Logs de diagnóstico**.
 
@@ -71,6 +72,13 @@ O Azure Monitor é o serviço de plataforma que fornece uma única fonte para mo
     Os [**logs de diagnóstico**](monitoring-overview-of-diagnostic-logs.md) são logs emitidos *por* um recurso, fornecendo dados sobre a operação desse determinado recurso. Por exemplo, os Contadores de Regras do Grupo de Segurança da Rede e os Logs do Fluxo de Trabalho do Aplicativo Lógico são dois tipos de logs de diagnóstico. Esses logs podem ser armazenados em uma conta de armazenamento, transmitidos para um Hub de eventos e/ou enviados para [Log Analytics](../log-analytics/log-analytics-overview.md). O Log Analytics é um produto de inteligência operacional da Microsoft para pesquisa avançada e alertas.
 
     No portal, você pode exibir e filtrar uma lista de todos os recursos em sua assinatura para identificar se eles tiverem os logs de diagnóstico habilitados.
+    > [!NOTE]
+    > Atualmente, não há suporte para o envio da métrica multidimensional por meio das configurações de diagnóstico. As métricas com dimensões são exportadas como métricas dimensionais simples, agregadas nos valores da dimensão.
+    >
+    > *Por exemplo*: a métrica “Mensagens de Entrada” em um Hub de Eventos pode ser explorada e mapeada por nível da fila. No entanto, quando exportada por meio das configurações de diagnóstico, a métrica será representada como todas as mensagens de entrada em todas as filas no Hub de Eventos.
+    >
+    >
+
 11. Clique em um recurso na página de logs de diagnóstico. Se os logs de diagnóstico estiverem sendo armazenados em uma conta de armazenamento, você verá uma lista dos registros por hora que podem ser baixados diretamente.
 
     ![Logs de diagnóstico para um recurso](./media/monitoring-get-started/monitor-diaglogs-detail.png)
@@ -84,8 +92,8 @@ O Azure Monitor é o serviço de plataforma que fornece uma única fonte para mo
 
     ![folha de alertas para o público](./media/monitoring-get-started/monitor-alerts-nopp.png)
 
-    Aqui, você pode gerenciar todos os [**alertas clássicos**](monitoring-overview-alerts.md) nos recursos do Azure. Isso inclui alertas sobre as métricas, eventos do log de atividades, testes da Web do Application Insights (Locais) e diagnóstico proativo do Application Insights. Alertas conectam-se a grupos de ações. [Grupos de ações](monitoring-action-groups.md) fornecem uma maneira de notificar as pessoas ou realizar ações específicas quando um alerta é acionado. 
-    
+    Aqui, você pode gerenciar todos os [**alertas clássicos**](monitoring-overview-alerts.md) nos recursos do Azure. Isso inclui alertas sobre as métricas, eventos do log de atividades, testes da Web do Application Insights (Locais) e diagnóstico proativo do Application Insights. Alertas conectam-se a grupos de ações. [Grupos de ações](monitoring-action-groups.md) fornecem uma maneira de notificar as pessoas ou realizar ações específicas quando um alerta é acionado.
+
 13. Clique em **Adicionar alerta da métrica** para criar um alerta.
 
     ![Adicionar alerta da métrica](./media/monitoring-get-started/monitor-alerts-add.png)
@@ -93,7 +101,7 @@ O Azure Monitor é o serviço de plataforma que fornece uma única fonte para mo
     Em seguida, você pode fixar um alerta no painel para ver facilmente seu estado a qualquer momento.
 
     O Azure Monitor agora também tem [**alertas mais recentes**](https://aka.ms/azuremonitor/near-real-time-alerts) que podem ser avaliados com uma frequência mínima a cada minuto.
-    
+
 14. A seção Monitor também inclui links para os aplicativos [Application Insights](../application-insights/app-insights-overview.md) e as soluções de gerenciamento do [Log Analytics](../log-analytics/log-analytics-overview.md). Esses outros produtos da Microsoft têm uma profunda integração com o Azure Monitor.
 15. Se você não estiver usando o Application Insights nem o Log Analytics, as chances são de que o Azure Monitor tem uma parceria com o monitoramento, log e alerta de produtos atuais. Consulte nossa [página de parceiros](monitoring-partners.md) para ver uma lista completa e ter instruções sobre como integrar.
 
@@ -102,6 +110,4 @@ Seguindo essas etapas e fixando todos os blocos relevantes em um painel, você p
 ![Painel do Azure Monitor](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Leia a [Visão geral de todas as ferramentas de monitoramento do Azure](monitoring-overview.md) para reconhecer como o Azure Monitor funciona com essas ferramentas. 
-
-
+* Leia a [Visão geral de todas as ferramentas de monitoramento do Azure](monitoring-overview.md) para reconhecer como o Azure Monitor funciona com essas ferramentas.

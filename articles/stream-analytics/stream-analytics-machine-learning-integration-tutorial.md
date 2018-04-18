@@ -1,25 +1,19 @@
 ---
-title: Integração do Azure Stream Analytics e do Machine Learning | Microsoft Docs
-description: Como usar uma função definida pelo usuário e o Machine Learning em um trabalho do Stream Analytics
-keywords: ''
-documentationcenter: ''
+title: Integração do Azure Stream Analytics com o Microsoft Azure Machine Learning
+description: Este artigo descreve como configurar rapidamente um trabalho simples do Azure Stream Analytics que integra o Microsoft Azure Machine Learning, usando uma função definida pelo usuário.
 services: stream-analytics
-author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
-ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/01/2018
-ms.author: sngun
-ms.openlocfilehash: 10d514aeb50dcd24f28ed879875b23b25578cebb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Como realizar uma análise de sentimento usando o Azure Stream Analytics e o Azure Machine Learning
 Este artigo descreve como configurar rapidamente um trabalho do Azure Stream Analytics simples que se integre ao Azure Machine Learning. Você usa um modelo de análise de sentimento de Machine Learning da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Usar o Cortana Intelligence Suite permite realizar essa tarefa sem se preocupar com as complexidades de criar um modelo de análise de sentimento.

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 586d78e29177dd4a627c94cd754c21cc2b6f37d4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute
 
-O Monitor de Desempenho de Rede (NPM) é uma solução de monitoramento de rede baseado em nuvem que monitora a conectividade entre implantações de nuvem do Azure e instalações locais (Filiais etc.). O NPM faz parte do Microsoft Operations Management Suite (OMS). O NPM agora oferece uma extensão para o ExpressRoute, que permite que você monitore o desempenho da rede sobre os circuitos do ExpressRoute, que são configurados para usar o Emparelhamento Privado. Ao configurar o NPM para ExpressRoute, você poderá detectar problemas de rede para identificar e eliminar.
+O Monitor de Desempenho de Rede (NPM) é uma solução de monitoramento de rede baseado em nuvem que monitora a conectividade entre implantações de nuvem do Azure e instalações locais (Filiais etc.). O NPM faz parte do Log Analytics. O NPM agora oferece uma extensão para o ExpressRoute, que permite que você monitore o desempenho da rede sobre os circuitos do ExpressRoute, que são configurados para usar o Emparelhamento Privado. Ao configurar o NPM para ExpressRoute, você poderá detectar problemas de rede para identificar e eliminar.
 
 Você pode:
 
@@ -72,11 +72,11 @@ Criar um espaço de trabalho na assinatura que tem o link das VNETs ao(s) circui
 
 1. No [Portal do Azure](https://portal.azure.com), selecione a Assinatura que tem as VNETs emparelhadas com o seu circuito do ExpressRoute. Depois, pesquise o "Monitor de Desempenho de Rede" na lista de serviços do **Marketplace**. Na volta, clique para abrir a página **Monitor de Desempenho de Rede**.
 
->[!NOTE]
->Você pode criar um novo espaço de trabalho ou usar um existente.  Se você quiser usar um espaço de trabalho existente, certifique-se de que o espaço de trabalho tenha sido migrado para a nova linguagem de consulta. [Mais informações...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
->
+   >[!NOTE]
+   >Você pode criar um novo espaço de trabalho ou usar um existente.  Se você quiser usar um espaço de trabalho existente, certifique-se de que o espaço de trabalho tenha sido migrado para a nova linguagem de consulta. [Mais informações...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >
 
-  ![portal](.\media\how-to-npm\3.png)<br><br>
+   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Na parte inferior da página principal **Monitor de Desempenho de Rede**, clique em **Criar** para abrir a página **Monitor de Desempenho de Rede – Criar nova solução**. Clique em **Espaço de Trabalho do OMS – Selecionar um espaço de trabalho** para abrir a página de Espaços de Trabalho. Clique em **+ Criar Novo Espaço de Trabalho** para abrir a página de Espaço de Trabalho.
 3. Na página **Espaço de Trabalho do OMS**, selecione **Criar Novo** e defina as seguintes configurações:
 
@@ -86,15 +86,15 @@ Criar um espaço de trabalho na assinatura que tem o link das VNETs ao(s) circui
   * Local – você deve selecionar uma [região com suporte](#regions).
   * Tipo de preço: selecione ‘Gratuito’
   
-  >[!NOTE]
-  >O circuito ExpressRoute poderia estar em qualquer lugar no mundo e não precisa estar na mesma região que o Espaço de trabalho.
-  >
+    >[!NOTE]
+    >O circuito ExpressRoute poderia estar em qualquer lugar no mundo e não precisa estar na mesma região que o Espaço de trabalho.
+    >
   
-  ![espaço de trabalho](.\media\how-to-npm\4.png)<br><br>
+    ![espaço de trabalho](.\media\how-to-npm\4.png)<br><br>
 4. Clique em **OK** para salvar e implantar o modelo de configurações. Depois que o modelo for validado, clique em **Criar** para implantar o Espaço de Trabalho.
 5. Depois que o Espaço de Trabalho for implantado, navegue até o recurso **NetworkMonitoring(name)** que você criou. Valide as configurações e clique em **Solução requer configuração adicional**.
 
-  ![configuração adicional](.\media\how-to-npm\5.png)
+   ![configuração adicional](.\media\how-to-npm\5.png)
 
 ## <a name="agents"></a>Etapa 2: instalar e configurar agentes
 
@@ -126,9 +126,9 @@ Criar um espaço de trabalho na assinatura que tem o link das VNETs ao(s) circui
 2. Na página de **Boas-vindas**, clique em **Avançar**.
 3. Na página **Termos de Licença**, leia a licença e clique em **Aceito**.
 4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação padrão e clique em **Avançar**.
-5. Na página **Opções de Instalação do Agente**, é possível escolher a opção de conectar o agente ao Azure Log Analytics (OMS) ou ao Operations Manager. Ou, você poderá deixar as opções em branco se quiser configurar o agente mais tarde. Após fazer suas seleções, clique em **Avançar**.
+5. Na página **Opções de Instalação do Agente**, é possível escolher a opção de conectar o agente ao Azure Log Analytics ou ao Operations Manager. Ou, você poderá deixar as opções em branco se quiser configurar o agente mais tarde. Após fazer suas seleções, clique em **Avançar**.
 
-  * Se você optar por conectar-se ao **Azure Log Analytics (OMS)**, cole a **ID do Espaço de Trabalho** e a **Chave do Espaço de Trabalho** (Chave Primária) que você copiou para o Bloco de Notas na seção anterior. Em seguida, clique em **Avançar**.
+  * Se você optar por conectar-se ao **Azure Log Analytics**, cole a **ID do Espaço de Trabalho** e a **Chave do Espaço de Trabalho** (Chave Primária) que você copiou para o Bloco de Notas na seção anterior. Em seguida, clique em **Avançar**.
 
     ![ID e a Chave](.\media\how-to-npm\8.png)
   * Se você optar por conectar-se ao **Operations Manager**, na página **Configuração de Grupo de Gerenciamento**, digite o **Nome do Grupo de Gerenciamento**, **Servidor de Gerenciamento** e **Porta do Servidor de Gerenciamento**. Em seguida, clique em **Avançar**.
@@ -139,7 +139,7 @@ Criar um espaço de trabalho na assinatura que tem o link das VNETs ao(s) circui
     ![Conta](.\media\how-to-npm\10.png)
 6. Na página **Pronto para Instalar**, examine suas escolhas e clique em **Instalar**.
 7. Na página **Configuração concluída com êxito**, clique em **Concluir**.
-8. Após concluir, o Microsoft Monitoring Agent aparecerá no Painel de Controle. É possível examinar sua configuração e verificar se o agente está conectado ao OMS (Operational Insights). Quando conectado ao OMS, o agente exibe uma mensagem dizendo: **o Microsoft Monitoring Agent conectou-se com êxito ao serviço do Microsoft Operations Management Suite**.
+8. Após concluir, o Microsoft Monitoring Agent aparecerá no Painel de Controle. Você pode revisar sua configuração e verificar se o agente está conectado ao Azure Log Analytics (OMS). Quando conectado, o agente exibe uma mensagem dizendo: **o Microsoft Monitoring Agent conectou-se com êxito ao serviço do Microsoft Operations Management Suite**.
 
 9. Repita isso para cada VNET que precisa ser monitorada.
 
@@ -162,8 +162,8 @@ Para definir configurações de proxy para o Microsoft Monitoring Agent usando o
 
 1. Em um servidor com o agente de monitoramento, abra o **Painel de Controle**.
 2. Abra o **Microsoft Monitoring Agent**.
-3. Clique na guia **Azure Log Analytics (OMS)**.
-4. Na coluna de **Status**, você verá que o agente se conectou com êxito ao serviço do Operations Management Suite.
+3. Clique na guia **Azure Log Analytics**.
+4. Na coluna**Status** você deve ver que o agente conectou com êxito ao Log Analytics.
 
   ![status](.\media\how-to-npm\12.png)
 

@@ -1,26 +1,21 @@
 ---
-title: 'Saídas do Stream Analytics: opções de armazenamento e análise | Microsoft Docs'
+title: Tipos de saídas de trabalhos do Azure Stream Analytics
 description: Saiba mais sobre opções de saídas de dados do Stream Analytics, incluindo Power BI para resultados da análise.
-keywords: transformação de dados, resultados da análise, opções de armazenamento de dados
-services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: ''
-author: SnehaGunda
+services: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 02/18/2017
-ms.author: sngun
-ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Saídas do Stream Analytics: opções de armazenamento, análise
+# <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Saídas do Stream Analytics: opções para armazenamento e análise
 Ao criar um trabalho do Stream Analytics, considere como os dados resultantes são consumidos. Como você pode exibir os resultados do trabalho do Stream Analytics e onde é possível armazená-los?
 
 Para poder habilitar vários padrões de aplicativo, o Stream Analytics do Azure disponibiliza opções diferentes de armazenamento de saída e de exibição dos resultados da análise. Isso facilita a exibição da saída do trabalho e proporciona flexibilidade no consumo e armazenamento da saída do trabalho para data warehouse e outras finalidades. Qualquer saída configurada no trabalho deve existir antes do trabalho ser iniciado e dos eventos começarem a fluir. Por exemplo, se você usar o Armazenamento Blobs como saída, o trabalho não cria uma conta de armazenamento automaticamente. Crie uma conta de armazenamento antes que o trabalho do Stream Analytics seja iniciado.
@@ -342,7 +337,7 @@ Além disso, em uma situação em que não há nenhum evento caindo em uma janel
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise de streaming em dados da Internet das coisas. Para saber mais sobre esse serviço, consulte:

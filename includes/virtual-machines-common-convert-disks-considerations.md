@@ -3,6 +3,8 @@
 
 * A conversão não é reversível. 
 
+* Lembre-se de que quaisquer usuários com a função [Colaborador da Máquina Virtual](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) não poderá alterar o tamanho da VM (como podiam antes da conversão). Isso ocorre porque as VMs com discos gerenciados requerem que o usuário tenha a permissão Microsoft.Compute/disks/write nos discos do SO.
+
 * Não deixe de testar a conversão. Migre uma máquina virtual de teste antes de executar a migração na produção.
 
 * Durante a conversão, você pode desalocar a VM. A VM recebe um endereço IP novo quando é iniciada após a conversão. Se necessário, você pode [atribuir um endereço IP estático](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) à VM.

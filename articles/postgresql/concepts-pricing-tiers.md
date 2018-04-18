@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 8c8a2f6076c14dabe70f90538ca8c8b97fb93de0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Tipos de preço do Banco de Dados do Azure para PostgreSQL
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/03/2018
 | Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memória por vCore | Linha de base | 2 x Básico | 2x Uso Geral |
-| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 1 TB | 5 GB a 1 TB |
+| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 2 TB | 5 GB a 2 TB |
 | Tipo de armazenamento | Armazenamento Standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Período de retenção do backup de banco de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 
@@ -46,9 +46,9 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 |:---|:----------:|:--------------------:|
 | Centro dos EUA |  | X |
 | Leste dos EUA | X | X |
-| Leste dos EUA 2 | X |  |
+| Leste dos EUA 2 | X | X |
 | Centro-Norte dos EUA | X |  |
-| Centro-Sul dos Estados Unidos | X |  |
+| Centro-Sul dos Estados Unidos | X | X |
 | Oeste dos EUA | X | X |
 | Oeste dos EUA 2 |  | X |
 | Canadá Central | X | X |
@@ -63,8 +63,8 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 | Leste da Austrália |  | X |
 | Índia Central | X |  |
 | Índia Ocidental | X |  |
-| Leste do Japão | X |  |
-| Oeste do Japão | X |  |
+| Leste do Japão | X | X |
+| Oeste do Japão | X | X |
 | Sul da Coreia |  | X |
 
 Dependendo do tipo de preço, cada vCore é configurado com uma quantidade específica de memória. Quando você aumenta ou reduz o número de vCores para o servidor, a memória aumenta ou diminui proporcionalmente. A camada de uso geral fornece o dobro da quantidade de memória por vCore comparada com a camada Básico. O nível de otimização de memória fornece o dobro da quantidade de memória comparado com a camada de uso geral.
@@ -76,7 +76,7 @@ O armazenamento provisionado é a quantidade de capacidade de armazenamento disp
 |    | **Básico** | **Uso geral** | **Otimizado para memória** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento Standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
-| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 1 TB | 5 GB a 1 TB |
+| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 2 TB | 5 GB a 2 TB |
 | Tamanho do incremento de armazenamento | 1 GB | 1 GB | 1 GB |
 | IOPS | Variável |3 IOPS/GB<br/>Mín 100 IOPS | 3 IOPS/GB<br/>Mín 100 IOPS |
 

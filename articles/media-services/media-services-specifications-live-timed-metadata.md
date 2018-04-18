@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2018
 ms.author: johndeu;
-ms.openlocfilehash: ae726b141f5f44b1eb0887cbd988881e41e163c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cf4541aebe0c735d66f42532c74e97bf9bbc4a5f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>A sinalização atingiu o tempo de metadados na transmissão ao vivo
 
@@ -134,7 +134,7 @@ A caixa ‘stsd’ DEVE conter uma caixa MetaDataSampleEntry com um nome de codi
 
 Fragmentos de faixa esparsa consistem em uma Caixa de Fragmentos de Filme (‘moof’) e uma Data Box de Mídia (‘mdat’).
 
-A caixa MovieFragmentBox (‘moof’) DEVE conter uma caixa **TrackFragmentExtendedHeaderBox (‘uuid’)** conforme definido em [FMP4] com os seguintes campos:
+A caixa MovieFragmentBox (‘moof’) DEVE conter uma caixa **TrackFragmentExtendedHeaderBox (‘uuid’)** conforme definido em [MS-SSTR] com os seguintes campos:
 
 | **Nome do Campo**         | **Tipo de campo**          | **Obrigatório?** | **Descrição**                                                                               |
 |------------------------|-------------------------|---------------|-----------------------------------------------------------------------------------------------|
@@ -177,7 +177,7 @@ Dados de fluxo de evento são opacos para Serviços de Mídia. Serviços de Míd
 
 ## <a name="31-smooth-streaming-delivery"></a>3.1 Entrega do Smooth Streaming
 
-Consulte os detalhes de manipulação de faixa esparsa nas especificações [FMP4] e [MS-SSTR].
+Consulte a faixa esparsa que manipula detalhes em [MS-SSTR].
 
 #### <a name="smooth-client-manifest-example"></a>Exemplo de manifesto do cliente Smooth
 ~~~ xml
@@ -407,13 +407,11 @@ A ingestão Smooth Streaming requer que a Data Box de Mídia (‘mdat’) deve c
 
 **[AMF0]** [“Formato de mensagem de ação AMF0”](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
-**[FMP4]** [Especificação de formato de arquivo/cabo IIS Smooth Streaming](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7bAC5A31A4-E455-4000-96E1-AB17BD083144%7d&file=IIS%20Smooth%20Streaming%20File%20Format%20Specification%20-%20v%202%203%2001%20latest%20draft.docx&action=default)
-
-**[LIVE-FMP4]** [Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7b5CEE1122-AA28-4368-BC8E-9C0048BF1529%7d&file=AMS%20F-MP4%20Live%20Ingest%20Specification.docx&action=default)
+**[LIVE-FMP4]** [Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure](https://docs.microsoft.com/en-us/azure/media-services/media-services-fmp4-live-ingest-overview)
 
 **[ISO-14496-12]** ISO/IEC 14496-12: Parte 12, formato de arquivo de mídia base ISO, quarta edição 2012-07-15.
 
-**[RTMP**  [“Protocolo de mensagens em tempo real da Adobe”, 21 de dezembro de 2012](http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/rtmp/pdf/rtmp_specification_1.0.pdf) 
+**[RTMP**  [“Protocolo de mensagens em tempo real da Adobe”, 21 de dezembro de 2012](https://www.adobe.com/devnet/rtmp.html) 
 
 ------------------------------------------
 

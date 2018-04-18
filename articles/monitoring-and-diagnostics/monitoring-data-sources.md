@@ -1,12 +1,12 @@
 ---
 title: Consumir dados de monitoramento do Azure | Microsoft Docs
-description: "Saiba mais sobre todas as fontes de dados de monitoramento disponíveis no Azure hoje."
+description: Saiba mais sobre todas as fontes de dados de monitoramento disponíveis no Azure hoje.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: c7075c2e1a2500eca1d0aa9b3a797e8a0e903ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b10e95cd6b335468201b4cd123b3a29fb5d1bcdb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consumir dados de monitoramento do Azure
 
@@ -45,7 +45,7 @@ Em toda a plataforma do Azure, estamos reunindo dados de monitoramento em um ún
 | Alertas de métricas do Azure Monitor | Notificações | [Consulte a lista aqui](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [alertas de métricas do Azure](insights-webhooks-alerts.md)</li></ul> |
 | Alertas do Log de Atividades do Azure Monitor | Notificações | Todos os serviços do Azure | <ul><li>**Webhook:** alertas do Log de Atividades do Azure</li></ul> |
 | Notificações de escala automática | Notificações | [Consulte a lista aqui](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Escala automática do esquema de conteúdo do webhook de notificação](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Alertas de Consulta da Pesquisa de Logs do OMS | Notificações | Log Analytics do OMS | <ul><li>**Webhook:** [Alertas do Log Analytics](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| Alertas de consulta de pesquisa de logs | Notificações | Log Analytics | <ul><li>**Webhook:** [Alertas do Log Analytics](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
 | Alertas de métricas do Application Insights | Notificações | Application Insights | <ul><li>**Webhook:** [Alertas do Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 | Testes na Web do Application Insights | Notificações | Application Insights | <ul><li>**Webhook:** [Alertas do Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 

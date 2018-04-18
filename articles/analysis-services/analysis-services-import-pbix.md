@@ -2,33 +2,32 @@
 title: Importar um arquivo do Power BI Desktop no Azure Analysis Services | Microsoft Docs
 description: Descreve como importar um arquivo do Power BI Desktop (pbix) usando o portal do Azure.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/26/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2ba9bc0e4b9a55312875fe120ee179800aeefb23
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importar um arquivo do Power BI Desktop
 
 Você pode criar um novo modelo no Azure AS importando um arquivo do Power BI Desktop (pbix). Metadados de modelo, dados armazenados em cache e conexões de fonte de dados são importados. Relatórios e visualizações não serão importadas.
 
 **Restrições**   
-- O modelo pbix deve se conectar somente às [fontes de dados compatíveis com o Analysis Services](analysis-services-datasource.md). 
+- O modelo pbix pode se conectar somente a fontes de dados em Banco de Dados SQL do Azure e SQL Data Warehouse do Azure. 
 - O modelo pbix não pode ter conexões dinâmica ou DirectQuery. 
-- Se o modelo pbix se conecta a fontes de dados local, um [Gateway de dados local](analysis-services-gateway.md) deve ser configurado para o servidor do Analysis Services.
 - A importação pode falhar se o modelo de dados pbix contiver metadados que incompatíveis com o Analysis Services.
 
 ## <a name="to-import-from-pbix"></a>Para importar do pbix

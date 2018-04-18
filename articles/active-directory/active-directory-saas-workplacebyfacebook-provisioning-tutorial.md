@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: configurar o Workplace by Facebook para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Workplace by Facebook."
+title: 'Tutorial: configurar o Workplace by Facebook para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Workplace by Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para provisionamento automático de usuários
 
@@ -75,7 +75,7 @@ O Azure AD dá suporte à capacidade de sincronizar automaticamente os detalhes 
 
     ![provisionamento](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Na seção **Credenciais de administrador**, insira o Token Secreto do local de trabalho pelo administrador do Facebook e defina o valor da URL do locatário para `https://www.facebook.com/scim/v1/` .
+5. Na seção **Credenciais de Administrador**, insira o Token de Acesso do administrador do Workplace by Facebook e defina o valor da URL de locatário como `https://www.facebook.com/scim/v1/` . Consulte essas [instruções](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) sobre como criar um Token de Acesso para o Workplace. 
 
 6. No Portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD possa se conectar ao aplicativo Workplace by Facebook. Se a conexão falhar, verifique se sua conta do Workplace by Facebook tem permissões de Administrador de Equipe.
 

@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de dados SQL do Azure
 
@@ -57,7 +57,7 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 Nas etapas desta seção, você fornece um valor *user* que é usado para garantir que os nomes de recursos fiquem globalmente exclusivos, e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implantação do aplicativo. Para uma pessoa denominada *Aline Faria*, sugerimos:
 - *Usuário:*  **af1** *(Suas iniciais, mais um dígito. Use um valor diferente (por exemplo, af2) se você implantar o aplicativo novamente.)*
-- *Grupo de recursos:* **wingtip-dpt-af1** *(wingtip-dpt indica que esse é o aplicativo de banco de dados por locatário. A anexação do nome de usuário af1 correlaciona o nome do grupo de recursos com os nomes dos recursos que ele contém.)*
+- *Grupo de recursos:* **wingtip-mt-af1** *(wingtip-mt indica que esse é o aplicativo multilocatário fragmentado. A anexação do nome de usuário af1 correlaciona o nome do grupo de recursos com os nomes dos recursos que ele contém.)*
 
 Escolha seus nomes agora e os escreva. 
 
@@ -123,7 +123,7 @@ Cada local obtém um aplicativo Web personalizado para listar seus eventos e ven
 Uma página da Web central do **Hub de Eventos** fornece uma lista de links para os locatários em sua implantação particular. Use as seguintes etapas para vivenciar a página da Web do **Hub de Eventos** e um aplicativo Web individual:
 
 1. Abra o **Hub de eventos** no navegador da web:
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Substitua &lt;user&gt; pelo valor de usuário da implantação.)*
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Substitua  &lt;user&gt; pelo valor de usuário da implantação.)*
 
     ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 

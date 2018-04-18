@@ -12,16 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: c42986e4cdae1d5156863d92eb946220805f7b48
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5631fb8df6453cf7a1806947f0e29ab7fff7093e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## <a name="march-guest-os"></a>SO convidado de março
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| Rel 18-03 | [4088787], [4088776] |Segurança do Windows 10 |5.17 |13 de março de 2018 |
+| Rel 18-03 | [4088878], [4088880], [4088879] |Somente Segurança do Windows |2.72, 3.59, 4.52 |13 de março de 2018 |
+| Rel 18-03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |13 de março de 2018 |
+| Rel 18-03 | [4074595] |Piscando |3.59, 4.52, 5.17 |13 de março de 2018 |
+| N/D | [4074598] |Pacote cumulativo de atualizações não relacionado à segurança de fevereiro |2.72 |13 de fevereiro de 2018 |
+| N/D | [4074593] |Pacote cumulativo de atualizações não relacionado à segurança de fevereiro |3.59 |13 de fevereiro de 2018 |
+| N/D | [4074594] |Pacote cumulativo de atualizações não relacionado à segurança de fevereiro |4.52 |13 de fevereiro de 2018 |
+| N/D | [4074837] |Atualização de fuso horário |2.72, 3.59, 4.52 |13 de fevereiro de 2018 |
+
 
 ## <a name="february-guest-os"></a>SO convidado de fevereiro
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -601,6 +614,17 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[2999802] |Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2896881] |Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 
+[4088787]: http://support.microsoft.com/kb/4088787
+[4088776]: http://support.microsoft.com/kb/4088776 
+[4088878]: http://support.microsoft.com/kb/4088878
+[4088880]: http://support.microsoft.com/kb/4088880
+[4088879]: http://support.microsoft.com/kb/4088879
+[4089187]: http://support.microsoft.com/kb/4089187
+[4088785]: http://support.microsoft.com/kb/4088785
+[4074598]: http://support.microsoft.com/kb/4074598
+[4074593]: http://support.microsoft.com/kb/4074593
+[4074594]: http://support.microsoft.com/kb/4074594
+[4074837]: http://support.microsoft.com/kb/4074837
 
 [4074590]: http://support.microsoft.com/kb/4074590
 [4074588]: http://support.microsoft.com/kb/4074588 

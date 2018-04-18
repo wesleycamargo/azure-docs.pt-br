@@ -1,24 +1,19 @@
 ---
-title: Testes de consulta do Stream Analytics do Azure | Microsoft Docs
-description: Como testar as consultas em trabalhos do Stream Analytics.
-keywords: testar consulta, solucionar problemas da consulta
-documentation center: ''
+title: Testar consultas no Azure Stream Analytics
+description: Este artigo descreve como testar consultas usando arquivos de dados de exemplo em trabalhos do Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 50bfce426bf48ba986887f8a2e2873fe04ea2507
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: fb7d936dfdc543c208ce98c588f5ad83704ff5dc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Testar as consultas do Stream Analytics do Azure no portal do Azure
 
@@ -44,7 +39,7 @@ Quando estiver satisfeito com os resultados mostrados no navegador, você poder�
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 

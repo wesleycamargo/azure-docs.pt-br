@@ -1,10 +1,10 @@
 ---
-title: "Comandos comuns do PowerShell para Máquinas Virtuais do Azure | Microsoft Docs"
-description: "Comandos comuns do PowerShell para você começar a criar e gerenciar as VMs Windows no Azure."
+title: Comandos comuns do PowerShell para Máquinas Virtuais do Azure | Microsoft Docs
+description: Comandos comuns do PowerShell para você começar a criar e gerenciar as VMs Windows no Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ba3839a2-f3d5-4e19-a5de-95bfb1c0e61e
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 7744f0bef5969a41130c09635d608df1a2952993
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f84473e73a32da43cc6cc80b21deb49ab4f3ceb9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Comandos comuns do PowerShell para criar e gerenciar Máquinas Virtuais do Azure
 
@@ -48,14 +48,14 @@ Essas variáveis poderão ser úteis para você se estiver executando mais de um
 
 ## <a name="get-information-about-vms"></a>Obter informações sobre VMs
 
-| Tarefa | Command |
+| Tarefa | Comando |
 | ---- | ------- |
 | Listar VMs em uma assinatura |[Get-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) |
 | Listar VMs em um grupo de recursos |Get-AzureRmVM -ResourceGroupName $myResourceGroup<BR></BR><BR></BR>Para obter uma lista de grupos de recursos em sua assinatura, use [Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourcegroup). |
 | Obter informações sobre uma VM |Get-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM |
 
 ## <a name="manage-vms"></a>Gerenciar VMs
-| Tarefa | Command |
+| Tarefa | Comando |
 | --- | --- |
 | Iniciar uma VM |[Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 | Parar uma VM |[Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |

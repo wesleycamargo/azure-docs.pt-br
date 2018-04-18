@@ -1,23 +1,23 @@
 ---
-title: "Como configurar a atribuição de aplicativo de autoatendimento | Microsoft Docs"
-description: "Habilite o acesso do aplicativo de autoatendimento para permitir que os usuários encontrem seus próprios aplicativos"
+title: Como configurar a atribuição de aplicativo de autoatendimento | Microsoft Docs
+description: Habilite o acesso do aplicativo de autoatendimento para permitir que os usuários encontrem seus próprios aplicativos
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 04/02/2018
 ms.author: asteen
-ms.openlocfilehash: 8aeda498847759debab18ddf4b44a75cd739a56c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cf70da4933f5513b75f84aef01dec1ef902eab85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicativo de autoatendimento
 
@@ -64,7 +64,10 @@ Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga 
 8.  Para habilitar o acesso de aplicativos de autoatendimento a este aplicativo, coloque o controle de alternância **Permitir aos usuários solicitar acesso a esse aplicativo?** na posição **Sim.**
 
 9.  Em seguida, para selecionar o grupo ao qual os usuários que solicitam acesso a esse aplicativo devem ser adicionados, clique no seletor ao lado do rótulo **A qual grupo os usuários atribuídos devem ser adicionados?** e selecione um grupo.
-
+  
+  > [!NOTE]
+  > Grupos sincronizados do local não têm suporte para serem utilizados no grupo ao qual os usuários que solicitam acesso a esse aplicativo devem ser adicionados.
+  
 10. **Opcional:** se quiser exigir uma aprovação de negócios antes que os usuários tenham permissão de acesso, coloque o controle de alternância **Exigir aprovação antes de conceder acesso a esse aplicativo?** na posição **Sim**.
 
 11. **Opcional: somente para aplicativos que usam logon único com senha,** se quiser permitir que os aprovadores de negócios especifiquem as senhas que são enviadas para esse aplicativo aos usuários aprovados, coloque o controle de alternância **Permitir que os aprovadores definam senhas do usuário para este aplicativo?** na posição **Sim**.

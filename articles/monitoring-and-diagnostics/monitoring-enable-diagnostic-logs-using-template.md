@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 80f427d5acb884be1752f470e2a9d9d04eee5518
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f1e1c2aa447e35ea483665cc33e4eb6af7a41f51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitar automaticamente as Configurações de Diagnóstico na criação do recurso usando um modelo do Resource Manager
 Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para definir as Configurações de Diagnóstico em um recurso quando ele é criado. Isso permite iniciar automaticamente o streaming de seus Logs de Diagnóstico e métricas para os Hubs de Eventos, arquivando-os em uma Conta de Armazenamento ou enviando-os para o Log Analytics quando um recurso é criado.
@@ -40,7 +40,7 @@ Abaixo, damos um exemplo de arquivo JSON do modelo que você precisa gerar para 
 ## <a name="non-compute-resource-template"></a>Modelo de recursos de Não Computação
 Para os recursos de Não Computação, você precisará fazer duas coisas:
 
-1. Adicione parâmetros ao blob de parâmetros para o nome da conta de armazenamento, ID da regra de autorização do hub de eventos e/ou ID do espaço de trabalho do Log Analytics do OMS (permitindo o arquivamento dos Logs de Diagnóstico em uma conta de armazenamento, streaming de logs para os Hubs de Eventos e/ou envio de logs para o Log Analytics).
+1. Adicione parâmetros ao blob de parâmetros para o nome da conta de armazenamento, ID da regra de autorização do hub de eventos e/ou ID do espaço de trabalho do Log Analytics (permitindo o arquivamento dos Logs de Diagnóstico em uma conta de armazenamento, streaming de logs para os Hubs de Eventos e/ou envio de logs para o Log Analytics).
    
     ```json
     "settingName": {

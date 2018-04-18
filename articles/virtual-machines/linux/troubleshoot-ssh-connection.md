@@ -1,12 +1,12 @@
 ---
-title: "Solucionar problemas de conexão SSH com uma VM do Azure | Microsoft Docs"
-description: "Como solucionar problemas como 'conexão SSH com falha' ou 'conexão SSH recusada' para uma VM do Azure executando Linux."
-keywords: "conexão ssh recusada, erro de ssh, ssh do azure, falha de conexão SSH"
+title: Solucionar problemas de conexão SSH com uma VM do Azure | Microsoft Docs
+description: Como solucionar problemas como 'conexão SSH com falha' ou 'conexão SSH recusada' para uma VM do Azure executando Linux.
+keywords: conexão ssh recusada, erro de ssh, ssh do azure, falha de conexão SSH
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 176477105e1f660b0bd22d95142b744ef17044ee
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solucionar problemas em conexões SSH com uma VM Linux do Azure que falha, apresenta erro ou é recusada
 Há vários motivos pelos quais você pode encontrar erros de SSH (Secure Shell), falhas na conexão SSH ou então o SSH é recusado ao tentar se conectar a uma VM (máquina virtual) Linux. Este artigo ajuda você a localizar e corrigir os problemas. Você pode usar o portal do Azure, a CLI do Azure ou a Extensão de Acesso da VM para Linux para solucionar problemas de conexão.
@@ -68,6 +68,14 @@ Como uma primeira etapa, selecione `Reset configuration only` do menu suspenso *
 Para redefinir as credenciais de um usuário existente, selecione `Reset SSH public key` ou `Reset password` do menu suspenso **Modo** como na captura de tela anterior. Especifique o nome de usuário e uma chave SSH ou a nova senha, depois clique no botão **Redefinir**.
 
 Você também pode criar um usuário com privilégios sudo na VM nesse menu. Insira um novo nome de usuário e senha associada ou chave SSH e, em seguida, clique no botão **Redefinir**.
+
+### <a name="check-security-rules"></a>Verificar regras de segurança
+
+Use a [verificação de fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar se uma regra em um grupo de segurança de rede está bloqueando o tráfego de ou para uma máquina virtual. Você também pode examinar as regras de grupo de segurança efetivas para garantir que a regra "Permitir" NSG existe e é priorizada para a porta SSH (padrão 22). Para saber mais, confira [Usar regras de segurança efetivas para solucionar problemas de fluxo de tráfego de VM](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+
+### <a name="check-routing"></a>Verificar o roteamento
+
+Use a funcionalidade [Próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) do Observador de Rede para confirmar que uma rota não está impedindo que o tráfego seja roteado de ou para uma máquina virtual. Você também pode examinar as rotas efetivas para ver todas as rotas efetivas para uma interface de rede. Para saber mais, confira [Usar regras efetivas para solucionar problemas de fluxo de tráfego de VM](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="use-the-azure-cli-20"></a>Usar a CLI 2.0 do Azure
 Se você ainda não fez isso, instale a versão mais recente da [CLI 2.0 do Azure](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/reference-index#az_login).

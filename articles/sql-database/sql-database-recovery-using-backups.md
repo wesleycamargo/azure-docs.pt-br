@@ -2,18 +2,19 @@
 title: Restaurar um banco de dados SQL do Azure de um backup | Microsoft Docs
 description: Saiba mais sobre a Restauração Pontual, que permite que você reverta um Banco de Dados SQL do Azure para um ponto anterior no tempo (até 35 dias).
 services: sql-database
-author: CarlRabeler
+author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 02/13/2018
-ms.author: carlrab
-ms.openlocfilehash: d2cc2e44c13750b654e2d6acf39d4f6a80cac98a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 O Banco de Dados SQL fornece essas opções para recuperação de banco de dados usando [backups automáticos de banco de dados](sql-database-automated-backups.md) e [backups de retenção de longo prazo](sql-database-long-term-retention.md). Você pode restaurar de um backup de banco de dados para:
@@ -30,7 +31,7 @@ Um banco de dados restaurado incorre em um custo de armazenamento extra nas segu
 - Restauração de P11 – P15 para S4 ou S12 ou P1– P6 se o tamanho máximo do banco de dados for superior a 500 GB.
 - Restauração de P1–P6 para S4-S12 se o tamanho máximo do banco de dados for superior a 250 GB.
 
-O custo extra ocorre porque o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída para o nível de desempenho, e qualquer armazenamento extra provisionado acima da quantidade incluída recebe uma cobrança extra.  Para obter detalhes de preço do armazenamento extra, confira a página [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluída, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída. Para saber mais sobre tamanhos de armazenamento de banco de dados e alterar o tamanho máximo do banco de dados, consulte [limites de recursos de banco de dados individual](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+O custo extra ocorre porque o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída para o nível de desempenho, e qualquer armazenamento extra provisionado acima da quantidade incluída recebe uma cobrança extra.  Para obter detalhes de preço do armazenamento extra, confira a página [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluída, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída. Para obter mais informações sobre tamanhos de armazenamento de banco de dados e alterar o tamanho máximo do banco de dados, consulte [limites de recursos baseados em DTU de banco de dados individuais](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) e [Limites de recursos baseados em vCore do banco de dados individuais](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 
 > [!NOTE]
 > [Backups de banco de dados automatizados](sql-database-automated-backups.md) são usadas quando você cria uma [cópia de banco de dados](sql-database-copy.md). 
@@ -117,7 +118,7 @@ A restauração geográfica é a opção de recuperação padrão quando seu ban
 Atualmente, não há suporte para a restauração pontual em uma área geográfica secundária. A restauração pontual pode ser feita somente em um banco de dados primário. Para obter informações detalhadas sobre como usar a restauração geográfica para se recuperar de uma interrupção, consulte [Recuperação de uma interrupção](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> A recuperação de backups é a mais básica das soluções de recuperação de desastre disponíveis no Banco de Dados SQL com o RPO (Objetivo de Ponto de Recuperação) e ERT (Tempo de Recuperação Estimado) mais longos. Para soluções que usam os bancos de dados básicos, a restauração geográfica é uma solução frequentemente razoável de recuperação de desastres com um ERT de 12 horas. Para soluções que usam bancos de dados Standard ou Premium maiores que exigem tempos de recuperação menores, você deve considerar o uso da [replicação geográfica ativa](sql-database-geo-replication-overview.md). A replicação geográfica ativa oferece um RPO e um ERT muito menores, pois exige somente que você inicie um failover para um secundário replicado continuamente. Para obter mais informações sobre as opções de continuidade dos negócios, consulte [Visão geral de continuidade de negócios](sql-database-business-continuity.md).
+> A recuperação de backups é a mais básica das soluções de recuperação de desastre disponíveis no Banco de Dados SQL com o RPO (Objetivo de Ponto de Recuperação) e ERT (Tempo de Recuperação Estimado) mais longos. Para soluções que usam bancos de dados pequenos (por exemplo, camada de serviço Básico ou bancos de dados de locatário pequeno em pools elásticos), a restauração geográfica frequentemente é uma solução DR razoável com um ERT de 12 horas. Para soluções que usam bancos de dados grandes e exigem tempos de recuperação mais curtos, considere usar [Grupos de failover e replicação geográfica ativa](sql-database-geo-replication-overview.md). A replicação geográfica ativa oferece um RPO e um ERT muito menores, pois exige somente que você inicie um failover para um secundário replicado continuamente. Para obter mais informações sobre as opções de continuidade dos negócios, consulte [Visão geral de continuidade de negócios](sql-database-business-continuity.md).
 > 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -149,6 +150,5 @@ Backups automáticos protegem seus bancos de dados contra erros de usuário e de
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma visão geral e os cenários de continuidade dos negócios, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 * Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md).
-* Para saber mais sobre a retenção de backup de longo prazo, consulte [Retenção de backup de longo prazo](sql-database-long-term-retention.md).
-* Para configurar, gerenciar e restaurar da retenção de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o Portal do Azure, consulte [Configurar e usar a retenção de backup de longo prazo](sql-database-long-term-backup-retention-configure.md). 
+* Para saber mais sobre retenção de longo prazo, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 * Para saber mais sobre as opções de recuperação mais rápida, consulte [Grupos de failover e replicação geográfica ativa](sql-database-geo-replication-overview.md).  

@@ -7,13 +7,13 @@ manager: drasumic
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: cfee95f5978073277a5351b976156cafefb87c16
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f29a7c883450cbc0f1f2b5a230a6c6e081222906
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="enable-automatic-tuning"></a>Habilitar o ajuste automático
 
@@ -22,7 +22,7 @@ O Banco de Dados SQL do Azure é um serviço de dados gerenciados automaticament
 ## <a name="enable-automatic-tuning-on-server"></a>Habilitar o ajuste automático no servidor
 No nível do servidor, você pode escolher entre herdar ou não a configuração de ajuste automático de "Padrões do Azure". Os Padrões do Azure são: FORCE_LAST_GOOD_PLAN habilitado, CREATE_INDEX habilitado e DROP_INDEX desabilitado.
 
-## <a name="configure-automiatic-tuning-e-mail-notifications"></a>Configurar o ajuste automático das notificações por email
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurar o ajuste automático das notificações por email
 
 Consulte [Ajuste automático das notificações por email](sql-database-automatic-tuning-email-notifications.md)
 

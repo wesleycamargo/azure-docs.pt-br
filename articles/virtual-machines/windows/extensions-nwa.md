@@ -1,11 +1,11 @@
 ---
-title: "Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows | Microsoft Docs"
-description: "Implante o Agente do Observador de Rede na máquina virtual Windows usando uma extensão da máquina virtual."
+title: Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows | Microsoft Docs
+description: Implante o Agente do Observador de Rede na máquina virtual Windows usando uma extensão da máquina virtual.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dennisg
 manager: amku
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 68855e0070916dc672914fbc8ca3587a5d3c25f6
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 84ac50ea555df538cc6347be58537e31b0f14611
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Agente do Observador de Rede para Windows
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/20/2017
 O [Observador de Rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço de monitoramento de desempenho, diagnóstico e análise de rede que permite o monitoramento de redes do Azure. A extensão de máquina virtual do Agente do Observador de Rede é um requisito para capturar o tráfego de rede sob demanda e outras funcionalidades avançadas em máquinas virtuais do Azure.
 
 
-Este documento detalha as opções com suporte de plataformas e implantação para a extensão da máquina virtual do Agente do Observador de Rede para Windows.
+Este documento detalha as opções com suporte de plataformas e implantação para a extensão da máquina virtual do Agente do Observador de Rede para Windows. A instalação do agente não interrompe nem requer um reinício da máquina virtual.
 
 ## <a name="prerequisites"></a>pré-requisitos
 

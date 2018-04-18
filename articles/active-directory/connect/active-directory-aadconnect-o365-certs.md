@@ -1,8 +1,8 @@
 ---
-title: "Renovação de certificado para usuários do Office 365 e do Azure AD | Microsoft Azure"
-description: "Este artigo explica aos usuários do Office 365 como resolver problemas com emails que notificam sobre a renovação de um certificado."
+title: Renovação de certificado para usuários do Office 365 e do Azure AD | Microsoft Azure
+description: Este artigo explica aos usuários do Office 365 como resolver problemas com emails que notificam sobre a renovação de um certificado.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: a0e3b65c108f8d839b8107e98a5cd59df78e1ab0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0435f1c5aae9381c76441b1233a47799af94768
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovar certificados de federação para o Office 365 e o Azure Active Directory
 ## <a name="overview"></a>Visão geral
@@ -89,9 +89,9 @@ Na saída de Get-MsolFederationProperty ou de Get-AdfsCertificate, verifique a d
 
 | AutoCertificateRollover | Certificados em sincronia com o Azure AD | Os metadados de federação do AD FS estão acessíveis publicamente | Validade | Ação |
 |:---:|:---:|:---:|:---:|:---:|
-| Sim |Sim |Sim |- |Nenhuma ação necessária. Confira [Renovar o certificado de assinatura de token automaticamente](#autorenew). |
-| Sim |Não |- |Menos de 15 dias |Renovar imediatamente. Confira [Renovar manualmente o certificado de assinatura de token ](#manualrenew). |
-| Não |- |- |Menos de 30 dias |Renovar imediatamente. Confira [Renovar manualmente o certificado de assinatura de token ](#manualrenew). |
+| sim |sim |sim |- |Nenhuma ação necessária. Confira [Renovar o certificado de assinatura de token automaticamente](#autorenew). |
+| sim |Não  |- |Menos de 15 dias |Renovar imediatamente. Confira [Renovar manualmente o certificado de assinatura de token ](#manualrenew). |
+| Não  |- |- |Menos de 30 dias |Renovar imediatamente. Confira [Renovar manualmente o certificado de assinatura de token ](#manualrenew). |
 
 \[-] Não importa
 
@@ -112,7 +112,6 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 em que `(your_FS_name) `é substituído pelo nome de host de serviço de federação que sua organização usa, por exemplo, fs.contoso.com.  Se você puder verificar ambas as configurações com êxito, não terá de fazer mais nada.  
 
 Exemplo: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
-
 ## Renovar manualmente o certificado de assinatura de token <a name="manualrenew"></a>
 Você pode optar por renovar os certificados de assinatura de token manualmente. Por exemplo, os seguintes cenários podem funcionar melhor para a renovação manual:
 
@@ -152,8 +151,8 @@ Atualize o Office 365 com os novos certificados de assinatura de token a serem u
 1. Abra o Módulo Microsoft Azure Active Directory para Windows PowerShell.
 2. Execute $cred = Get-Credential. Quando este cmdlet solicitar credenciais, digite as credenciais da conta de administrador de serviços de nuvem.
 3. Execute Connect-MsolService –Credential $cred. Esse cmdlet conecta você ao serviço de nuvem. A criação de um contexto que conecta você ao serviço de nuvem é necessária antes de executar qualquer um dos cmdlets adicionais instalados pela ferramenta.
-4. Se você estiver executando esses comandos em um computador que não seja o servidor de federação primário do AD FS, execute Set-MSOLAdfscontext -Computer <AD FS primary server>, em que <AD FS primary server> é o nome FQDN interno do servidor primário do AD FS. Esse cmdlet cria um contexto que conecta você ao AD FS.
-5. Execute Update-MSOLFederatedDomain –DomainName <domain>. Esse cmdlet atualiza as configurações do AD FS no serviço de nuvem e configura a relação de confiança entre os dois.
+4. Se estiver executando esses comandos em um computador que não seja o servidor de federação AD FS primário, execute o &lt;servidor AD FS primário&gt; Set-MSOLAdfscontext -Computer, onde &lt;servidor AD FS primário&gt; é o nome FQDN interno do servidor AD FS primário. Esse cmdlet cria um contexto que conecta você ao AD FS.
+5. Execute o &lt;domínio&gt; Update-MSOLFederatedDomain –DomainName. Esse cmdlet atualiza as configurações do AD FS no serviço de nuvem e configura a relação de confiança entre os dois.
 
 > [!NOTE]
 > Se você precisar oferecer suporte a vários domínios de nível superior, como contoso.com e fabrikam.com, deve usar a opção **SupportMultipleDomain** com todos os cmdlets. Para obter mais informações, veja [Suporte para vários domínios de nível superior](active-directory-aadconnect-multiple-domains.md).

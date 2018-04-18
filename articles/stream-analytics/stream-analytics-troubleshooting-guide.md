@@ -1,24 +1,19 @@
 ---
-title: Guia de solução de problemas do Stream Analytics do Azure | Microsoft Docs
-description: Como resolver problemas do trabalho do Stream Analytics
-keywords: guia de solução de problemas
-documentationcenter: ''
+title: Guia de solução de problemas do Stream Analytics do Azure
+description: Este artigo descreve técnicas para solucionar problemas de trabalhos, conexões, entradas, saídas, consultas e dados do Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 87e8b99cb2774966ce22c76e1afed6a754749e9d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 44777946fdc829da222ffdd67dfecfa3bf240be7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Guia de solução de problemas do Stream Analytics do Azure
 
@@ -87,7 +82,7 @@ Para obter melhores resultados na solução de problemas do trabalho do Stream A
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 

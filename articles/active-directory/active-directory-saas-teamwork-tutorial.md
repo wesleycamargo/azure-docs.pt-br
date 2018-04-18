@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Teamwork.com | Microsoft Docs"
-description: "Saiba como configurar logon único entre o Azure Active Directory e o Teamwork.com."
+title: 'Tutorial: Integração do Azure Active Directory com o Teamwork.com | Microsoft Docs'
+description: Saiba como configurar logon único entre o Azure Active Directory e o Teamwork.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b4be1256b77ac35efab9c6b2d593b4763cdf86
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Tutorial: Integração do Azure Active Directory com o [Teamwork.com](https://www.teamwork.com/projects)
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: Integração do Azure Active Directory com o Teamwork.com
 
 Neste tutorial, você aprende como integrar o Teamwork.com com o Azure Active Directory (Azure AD).
 
@@ -32,12 +32,12 @@ A integração do Teamwork.com com o Azure Active Directory fornece os seguintes
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure Active Directory ao Teamwork.com, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura do [Teamwork.com](https://www.teamwork.com/projects) plano Pro ou superior
+- Uma assinatura do Teamwork.com habilitada para logon único
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Teamwork.com da Galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-teamworkcom-from-the-gallery"></a>Adicionando Teamwork.com da Galeria
 Para configurar a integração do Teamwork.com ao Azure Active Directory, você precisa adicionar o Teamwork.com por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -108,10 +108,17 @@ Nesta seção, você habilita o logon único do Azure Active Directory no Portal
 
     ![Informações de logon único de Domínio e URLs do Teamwork.com](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.teamwork.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.teamwork.com`
+
+    b. Na caixa de texto **Identificador**, digite a URL:
+
+    |||
+    |-|-|
+    | `https://teamwork.com/saml`|
+    | `https://eu.teamwork.com/saml`|
 
     > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com a URL de Logon real. Para obter esse valor, entre em contato com a [equipe de suporte do Teamwork.com](mailto:support@teamwork.com). 
+    > Esse valor de URL de Entrada não é real. Atualize esse valor com a URL de Logon real. Para obter esse valor, entre em contato com a [equipe de suporte do Teamwork.com](mailto:support@teamwork.com). 
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -122,10 +129,6 @@ Nesta seção, você habilita o logon único do Azure Active Directory no Portal
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
 6. Para configurar o logon único no lado do **Teamwork.com**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte Teamwork.com](mailto:support@teamwork.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -204,8 +207,6 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

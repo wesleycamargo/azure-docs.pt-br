@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6ec202237a0b3fb1b7f0b7158c0aa454b4d65770
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f2f0819f987bf389ff4b2816ad422fdd8a81f82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastres para aplicativos que usam o Pool Elástico do banco de dados SQL
 Ao longo dos anos, aprendemos que os serviços em nuvem não são à prova de falhas e que incidentes catastróficos acontecem. O banco de dados SQL fornece uma série de recursos para permitir a continuidade dos negócios do seu aplicativo quando esses incidentes ocorrerem. [Pools elásticos](sql-database-elastic-pool.md) e bancos de dados únicos são compatíveis com o mesmo tipo de recursos de recuperação de desastre. Este artigo descreve diversas estratégias de recuperação de desastres para pools elásticos que aproveitam esses recursos de continuidade de negócios do Banco de Dados SQL.
@@ -26,7 +26,7 @@ Este artigo usa o seguinte padrão de aplicativo de SaaS ISV canônico:
 Este artigo discute estratégias de DR que abrangem uma variedade de cenários de aplicativos de inicialização sensíveis ao custo para aqueles com requisitos rígidos de disponibilidade.
 
 > [!NOTE]
-> Se você estiver usando grupos e bancos de dados Premium, poderá torná-los resistentes a interrupções regionais, convertendo-os para a configuração de implantação de redundância de zona (atualmente em versão prévia). Veja [Bancos de dados com redundância de zona](sql-database-high-availability.md).
+> Se estiver utilizando bancos de dados Premium ou Comercialmente Crítico (versão prévia) e pools elásticos, será possível torná-los resilientes a interrupções regionais convertendo-os para configuração de implantação com redundância de zona (atualmente em versão prévia). Veja [Bancos de dados com redundância de zona](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Cenário 1. Inicialização econômica
 <i>Sou uma startup e dependo muito do custo das coisas.  Quero simplificar a implantação e o gerenciamento do aplicativo e desejo ter um SLA limitado para clientes individuais. No entanto, quero garantir que o aplicativo como um todo nunca fique offline.</i>
@@ -65,7 +65,7 @@ A principal **vantagem** dessa estratégia é o baixo custo da redundância da c
 ## <a name="scenario-2-mature-application-with-tiered-service"></a>Cenário 2: Aplicativo maduro com o serviço em camadas
 <i>Tenho um aplicativo SaaS evoluído com ofertas de serviço em camadas e diferentes SLAs para clientes de avaliação e para clientes pagantes. Para clientes de avaliação, preciso reduzir o custo tanto quanto possível. Os clientes de teste podem ter um tempo de inatividade, mas quero reduzir sua probabilidade. Para clientes pagantes, qualquer tempo de inatividade é um risco. Portanto, quero garantir que os clientes pagantes possam sempre acessar seus dados.</i> 
 
-Para dar suporte a esse cenário, você deve separar os locatários de avaliação dos locatários pagos colocando-os em pools elásticos separados. Os clientes de avaliação teriam um eDTU menor por locatário e SLA inferior com tempo de recuperação mais longo. Os clientes pagantes estariam em um pool com maior eDTU por locatário e um SLA mais alto. Para garantir o menor tempo de recuperação, os bancos de dados de locatário dos clientes pagantes devem ser replicados geograficamente. Essa configuração está ilustrada no diagrama a seguir. 
+Para dar suporte a esse cenário, você deve separar os locatários de avaliação dos locatários pagos colocando-os em pools elásticos separados. Os clientes de avaliação têm menor eDTU ou vCores por locatário e menor SLA com um tempo de recuperação mais longo. Os clientes pagantes estão em um pool com maior eDTU ou vCores por locatário e um SLA maior. Para garantir o menor tempo de recuperação, os bancos de dados de locatário dos clientes pagantes devem ser replicados geograficamente. Essa configuração está ilustrada no diagrama a seguir. 
 
 ![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
@@ -80,7 +80,7 @@ Se uma interrupção na região primária ocorre, as etapas de recuperação par
 * Faça o failover imediato dos bancos de dados de gerenciamento para a região de DR (3).
 * Altere a cadeia de conexão do aplicativo para apontar para a região da recuperação de desastres. Agora, todas as novas contas e bancos de dados de locatário são criados na região de DR. Os clientes de avaliação existentes verão seus dados como temporariamente indisponíveis.
 * Faça o failover dos bancos de dados de locatários pagantes para o pool na região de DR para restaurar sua disponibilidade imediatamente (4). Como o failover é uma alteração rápida no nível dos metadados, você pode considerar uma otimização em que os failovers individuais são disparados sob demanda pelas conexões do usuário final. 
-* Se o tamanho eDTU do pool secundário era menor do que o primário porque os bancos de dados secundários precisavam apenas da capacidade de processar os logs de alteração enquanto eram secundários, aumente imediatamente a capacidade do pool para acomodar a carga de trabalho completa de todos os locatários (5). 
+* Se o tamanho de eDTU do pool secundário ou vCore era menor que o primário porque os bancos de dados secundários precisavam apenas da capacidade de processar os logs de alterações enquanto eram secundários, aumente imediatamente a capacidade do pool agora para acomodar a carga de trabalho completa de todos os locatários (5). 
 * Crie um novo pool elástico com o mesmo nome e a mesma configuração na região da recuperação de desastres para os bancos de dados dos clientes de avaliação (6). 
 * Depois de criar o pool dos clientes de avaliação, use a restauração geográfica para restaurar os bancos de dados de locatário de avaliação individuais no novo pool (7). Você pode cogitar disparar as restaurações individuais pelas conexões do usuário final ou usar outro esquema de prioridade específica do aplicativo.
 
@@ -108,7 +108,7 @@ A principal **vantagem** dessa estratégia é que ela fornece o SLA mais alto pa
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Cenário 3: Aplicativo distribuído geograficamente com o serviço em camadas
 <i>Eu tenho um aplicativo SaaS evoluído com ofertas de serviço em camadas. Quero oferecer um SLA muito agressivo para meus clientes pagos e minimizar o risco do impacto quando ocorrerem paralisações porque mesmo uma breve interrupção pode causar a insatisfação do cliente. É essencial que os clientes pagantes sempre possam acessar seus dados. As avaliações são gratuitas e não há oferta de SLA durante o período de avaliação. </i> 
 
-Para oferecer suporte a esse cenário, use três pools elásticos separados. Dois pools de tamanhos iguais com eDTUs altos por banco de dados devem ser provisionados em duas regiões diferentes para conter os bancos de dados de locatário dos clientes pagantes. O terceiro pool que contém os locatários de avaliação teria eDTUs menores por banco de dados e seria provisionado em uma das duas regiões.
+Para oferecer suporte a esse cenário, use três pools elásticos separados. Forneça dois pools de tamanho igual com eDTUs ou vCores altos por banco de dados em duas regiões diferentes para conter os bancos de dados de locatário dos clientes pagos. O terceiro pool contendo os locatários de avaliação pode ter menores eDTUs ou vCores por banco de dados e ser provisionado em uma das duas regiões.
 
 Para garantir o menor tempo de recuperação durante as interrupções, os bancos de dados de locatário de clientes pagantes deverão ser replicados geograficamente com 50% dos bancos de dados primários em cada uma das duas regiões. Da mesma forma, cada região tem 50% dos bancos de dados secundários. Dessa forma, se uma região estivesse offline, apenas 50% dos bancos de dados dos clientes pagantes serão afetados e teriam de fazer failover. Os outros bancos de dados permanecem intactos. Essa configuração é ilustrada no diagrama abaixo:
 
@@ -125,7 +125,7 @@ O diagrama a seguir ilustra as etapas de recuperação em caso de falha na regi�
 * Faça imediatamente o failover dos bancos de dados de gerenciamento para a região B (3).
 * Altere a cadeia de conexão do aplicativo para apontar para os bancos de dados de gerenciamento na região B. Modifique os bancos de dados de gerenciamento para garantir que as novas contas e bancos de dados de locatário sejam criados na região B e que os bancos de dados existentes do inquilino estejam lá também. Os clientes de avaliação existentes verão seus dados como temporariamente indisponíveis.
 * Faça o failover dos bancos de dados de locatários pagantes para o pool 2 na região B para restaurar imediatamente sua disponibilidade (4). Como o failover é uma alteração rápida no nível dos metadados, você pode considerar uma otimização em que os failovers individuais são disparados sob demanda pelas conexões do usuário final. 
-* A partir de agora, o pool 2 conterá apenas bancos de dados primários. A carga de trabalho total no pool aumentará e, portanto, você deverá aumentar seu tamanho do eDTU (5). 
+* Como agora o pool 2 contém apenas bancos de dados primários, a carga de trabalho total no pool aumenta e pode aumentar imediatamente o tamanho de eDTU (5) ou o número de vCores. 
 * Crie um novo pool elástico com o mesmo nome e a mesma configuração na região B para bancos de dados dos clientes de avaliação (6). 
 * Depois de criar o pool, use a restauração geográfica para restaurar os bancos de dados de locatário de avaliação individuais no pool (7). Você pode cogitar disparar as restaurações individuais pelas conexões do usuário final ou usar outro esquema de prioridade específica do aplicativo.
 
@@ -142,7 +142,7 @@ Quando a região A for recuperada, você precisará decidir se deseja usar a reg
 * Cancele todas as solicitações de restauração geográfica pendentes para o pool da recuperação de desastres de avaliação.   
 * Faça o failover do banco de dados de gerenciamento (8). Após a recuperação da região, o antigo primário se torna secundário automaticamente. Agora, ele se tornará primário novamente.  
 * Escolha quais bancos de dados de locatário pagantes farão failback para o pool 1 e iniciarão o failover para seus secundários (9). Após a recuperação da região, todos os bancos de dados no pool 1 se tornam secundários automaticamente. Agora, 50% deles se tornarão primários novamente. 
-* Reduza o tamanho do pool 2 para o eDTU original (10).
+* Reduza o tamanho do pool 2 para a eDTU original (10) ou o número de vCores.
 * Defina todos os bancos de dados de avaliação na região B como somente leitura (11).
 * Para cada banco de dados no pool da DR de avaliação que foi alterado desde a recuperação, renomeie ou exclua os bancos de dados correspondentes no pool primário de avaliação (12). 
 * Copie os bancos de dados atualizados do pool da recuperação de desastres para o pool primário (13). 

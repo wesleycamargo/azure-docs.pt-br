@@ -1,11 +1,11 @@
 ---
 title: Conectar o Operations Manager ao Log Analytics | Microsoft Docs
-description: "Para manter seu investimento existente no System Center Operations Manager e usar funcionalidades estendidas com o Log Analytics, você pode integrar o Operations Manager ao seu espaço de trabalho do OMS."
+description: Para manter seu investimento existente no System Center Operations Manager e usar funcionalidades estendidas com o Log Analytics, você pode integrar o Operations Manager ao seu espaço de trabalho do OMS.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: magoedte
 ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Conectar o Operations Manager ao Log Analytics
 Para manter seu investimento existente no System Center Operations Manager e usar funcionalidades estendidas com o Log Analytics, você pode integrar o Operations Manager ao seu espaço de trabalho do OMS.  Isso permite aproveitar as oportunidades do OMS e continuar a usar o Operations Manager para:
@@ -50,15 +50,15 @@ As informações abaixo listam as informações de configuração de proxy e fir
 |Recurso | Número da porta| Ignorar a Inspeção de HTTP|  
 |---------|------|-----------------------|  
 |**Agente**|||  
-|\*.ods.opinsights.azure.com| 443 |Sim|  
-|\*.oms.opinsights.azure.com| 443|Sim|  
-|\*.blob.core.windows.net| 443|Sim|  
-|\*.azure-automation.net| 443|Sim|  
+|\*.ods.opinsights.azure.com| 443 |sim|  
+|\*.oms.opinsights.azure.com| 443|sim|  
+|\*.blob.core.windows.net| 443|sim|  
+|\*.azure-automation.net| 443|sim|  
 |**Servidor de gerenciamento**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| Sim|  
-|\*.ods.opinsights.azure.com| 443| Sim|  
-|*.azure-automation.net | 443| Sim|  
+|\*.blob.core.windows.net| 443| sim|  
+|\*.ods.opinsights.azure.com| 443| sim|  
+|*.azure-automation.net | 443| sim|  
 |**Console do Operations Manager para o OMS**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -101,7 +101,7 @@ Execute as etapas a seguir se um servidor proxy interno estiver entre o grupo de
 1. Abra o console do Operations Manager e selecione o espaço de trabalho **Administração** .
 2. Expanda Operations Management Suite e clique em **Conexões**.
 3. Na exibição Conexão do OMS, clique em **Configurar Servidor Proxy**.
-4. Na página **Assistente do Operations Management Suite: servidor proxy**, selecione **Usar um servidor proxy para acessar o Operations Management Suite** e digite a URL com o número da porta, por exemplo, http://corpproxy:80, e clique em **Concluir**.
+4. Na página **Assistente do Operations Management Suite: servidor proxy**, selecione **Usar um servidor proxy para acessar o Operations Management Suite**, digite a URL com o número da porta, por exemplo, http://corpproxy:80 e, em seguida, clique em **Concluir**.
 
 Se o servidor proxy exigir autenticação, execute as etapas a seguir para configurar as credenciais e as configurações que precisam ser propagadas para computadores gerenciados que relatam para o OMS no grupo de gerenciamento.
 
