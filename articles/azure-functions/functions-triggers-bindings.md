@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d008e94186dd3c5a18c92617ebddfffa966358d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -49,7 +49,7 @@ Na versão 2.x do tempo de execução do Azure Functions, você deve registrar e
 
 As extensões são entregues como pacotes do NuGet, onde o nome do pacote normalmente começa com [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Como instalar e registrar as extensões de associação depende de como você desenvolve suas funções: 
 
-+ [Localmente em C# usando o Visual Studio ou o VS Code](#precompiled-functions-c)
++ [Localmente em C# usando o Visual Studio ou o VS Code](#local-c-development-using-visual-studio-or-vs-code)
 + [Localmente usando as ferramentas básicas do Azure Functions](#local-development-azure-functions-core-tools)
 + No [portal do Azure](#azure-portal-development) 
 
@@ -635,7 +635,7 @@ No C#, e em outras linguagens .NET, você pode usar um padrão de associação o
 
 ## <a name="functionjson-file-schema"></a>Esquema de arquivo function.json
 
-O esquema de arquivo *function.json* está disponível em [http://json.schemastore.org/function](http://json.schemastore.org/function).
+O esquema de arquivos *function.json* está disponível em [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## <a name="handling-binding-errors"></a>Tratamento de erros de associação
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc859f3aa34531133b7a21e36591b011c63d511c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentar a proteção de dados pessoais com ferramentas de relatório do Azure
 
@@ -95,13 +95,13 @@ Ferramentas de análise no Log Analytics, como pesquisas de logs, exibições e 
 
 #### <a name="how-do-i-use-log-analytics"></a>Como fazer para usar o Log Analytics?
 
-Acesse o Log Analytics por meio do portal do OMS ou do portal do Azure, em qualquer navegador da Web. O Log Analytics inclui uma linguagem de consulta para recuperar e consolidar dados no repositório rapidamente. Crie e salve Pesquisas de Logs para analisar diretamente os dados no portal.
+Acesse o Log Analytics por meio do portal do OMS ou do portal do Azure, em qualquer navegador da Web. O Log Analytics inclui uma linguagem de consulta para recuperar e consolidar dados no espaço de trabalho do Log Analytics rapidamente. Crie e salve Pesquisas de Logs para analisar diretamente os dados no portal.
 
 Para criar um espaço de trabalho do Log Analytics no portal do Azure, faça o seguinte:
 
 1. Selecione **Log Analytics** na lista de serviços no Marketplace.
 
-2. Selecione **Criar** e, em seguida, especifique o nome do espaço de trabalho do OMS, selecione sua assinatura, o grupo de recursos, o local e o tipo de preço.
+2. Selecione **Criar** e, em seguida, especifique o nome do espaço de trabalho do Log Analytics, selecione sua assinatura, o grupo de recursos, o local e o tipo de preço.
 
 3. Clique em **OK** para exibir uma lista dos espaços de trabalho.
 

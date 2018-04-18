@@ -1,10 +1,10 @@
 ---
-title: "Monitorando uma VM Linux com uma extensão de VM | Microsoft Docs"
-description: "Saiba como usar a Extensão de Diagnóstico do Linux para monitorar os dados de desempenho e diagnóstico de uma VM do Linux no Azure."
+title: Monitorando uma VM Linux com uma extensão de VM | Microsoft Docs
+description: Saiba como usar a Extensão de Diagnóstico do Linux para monitorar os dados de desempenho e diagnóstico de uma VM do Linux no Azure.
 services: virtual-machines-linux
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Usar a Extensão de Diagnóstico do Linux para monitorar os dados de desempenho e diagnóstico da VM do Linux
 
@@ -88,7 +88,7 @@ Etapa 1. Crie um arquivo chamado PrivateConfig.json com o conteúdo a seguir:
         "storageAccountKey" : "the key of the account"
     }
 
-Etapa 2. Execute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Etapa 2. Executar **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Cenário 2: Personalizar a métrica do monitor de desempenho
 
@@ -111,7 +111,7 @@ Por padrão, os dados de Rsyslog sempre são coletados.
     }
 
 
-Etapa 2. Execute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
+Etapa 2. Executar **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 ### <a name="scenario-3-upload-your-own-log-files"></a>Cenário 3: Carregar os próprios arquivos de log
 
@@ -147,7 +147,7 @@ Etapa 1. Crie um arquivo chamado PrivateConfig.json com o conteúdo descrito no 
     }
 
 
-Etapa 2. Execute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
+Etapa 2. Executar **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 ## <a name="review-your-data"></a>Examinar os dados
 

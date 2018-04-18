@@ -1,16 +1,16 @@
 ---
-title: "Dimensionar descoberta e avaliação usando o Migrações para Azure | Microsoft Docs"
-description: "Descreve como avaliar grandes números de computadores locais usando o serviço Migrações para Azure."
+title: Dimensionar descoberta e avaliação usando o Migrações para Azure | Microsoft Docs
+description: Descreve como avaliar grandes números de computadores locais usando o serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
@@ -29,9 +29,9 @@ Planeje suas descobertas e avaliações com base nos limites a seguir:
 
 | **Entidade** | **Limite de máquinas** |
 | ---------- | ----------------- |
-| Project    | 1.500              | 
-| Descoberta  | 1.500              |
-| Avaliação | 1.500               |
+| Project    | 1.500             |
+| Descoberta  | 1.500             |
+| Avaliação | 1.500             |
 
 <!-- 
 - If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
@@ -40,12 +40,12 @@ Planeje suas descobertas e avaliações com base nos limites a seguir:
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
     - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
--->
+      -->
 
 ## <a name="plan-multiple-discoveries"></a>Planejar várias descobertas
 
 Você pode usar o mesmo Coletor de Migrações para Azure para fazer várias descobertas para um ou mais projetos. Lembre-se dessas considerações de planejamento:
- 
+
 - Quando você faz uma descoberta usando o Coletor de Migrações para Azure, você pode definir o escopo de descoberta para um datacenter, cluster, host ou pasta do vCenter Server.
 - Para fazer mais de uma descoberta, verifique no vCenter Server se as VMs que você deseja descobrir estão em pastas, datacenters, clusters ou hosts com suporte para limite de 1.500 máquinas.
 - Recomendamos que, para fins de avaliação, você mantenha máquinas com interdependências dentro dos mesmos projeto e avaliação. No vCenter Server, verifique se as máquinas dependentes estão na mesma pasta, datacenter ou cluster para a avaliação.
@@ -73,18 +73,28 @@ Se você tiver vários projetos, você precisará baixar o dispositivo coletor s
 2. Em **Descobrir máquinas**, selecione **Baixar** para baixar o arquivo OVA.
 3. Em **Copiar credenciais do projeto**, copie a ID e a chave do projeto. Você precisará delas quando configurar o coletor.
 
-   
+
 ### <a name="verify-the-collector-appliance"></a>Verificar o dispositivo coletor
 
 Verifique se o arquivo OVA é seguro antes de implantá-lo:
 
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
+
 2. Execute o seguinte comando para gerar o hash para o arquivo OVA:
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
    Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+
 3. Verifique se o hash gerado corresponde às configurações a seguir.
+
+    Para a versão OVA 1.0.9.7
+
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
     Para a versão OVA 1.0.9.5
 
@@ -109,7 +119,7 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
     MD5 | 71139e24a532ca67669260b3062c3dad
     SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
     SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
- 
+
     Para a versão OVA 1.0.8.49
 
     **Algoritmo** | **Valor de hash**
@@ -136,11 +146,11 @@ Importe o arquivo baixado para o vCenter Server:
 
 2. No Assistente do Modelo de Implantação de OVF > **Origem**, especifique o local do arquivo OVA.
 3. Em **Nome** e **Local**, especifique um nome amigável para a VM do coletor e o objeto do inventário no qual a VM será hospedada.
-5. Em **Host/Cluster**, especifique o host ou cluster no qual a VM do coletor será executada.
-7. No armazenamento, especifique o destino de armazenamento para a VM do coletor.
-8. Em **Formato de Disco**, especifique o tipo e o tamanho do disco.
-9. Em **Mapeamento de rede**, especifique a rede à qual a VM do coletor se conectará. A rede precisa de conectividade com a Internet para poder enviar metadados para o Azure. 
-10. Examine e confirme as configurações e selecione **Concluir**.
+4. Em **Host/Cluster**, especifique o host ou cluster no qual a VM do coletor será executada.
+5. No armazenamento, especifique o destino de armazenamento para a VM do coletor.
+6. Em **Formato de Disco**, especifique o tipo e o tamanho do disco.
+7. Em **Mapeamento de rede**, especifique a rede à qual a VM do coletor se conectará. A rede precisa de conectividade com a Internet para poder enviar metadados para o Azure. 
+8. Examine e confirme as configurações e selecione **Concluir**.
 
 ## <a name="identify-the-id-and-key-for-each-project"></a>Identificar a chave e a ID para cada projeto
 
@@ -157,16 +167,16 @@ Recomendamos que você defina o nível mais alto comum (3) como o nível de esta
 
 A tabela a seguir também lista os resultados da avaliação que serão afetados se um determinado contador não for coletado.
 
-|Contador                                  |Nível    |Nível por dispositivo  |Impacto de avaliação                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |ND                |Tamanho de VM recomendado e custo                    |
-|mem.usage.average                        | 1       |ND                |Tamanho de VM recomendado e custo                    |
-|virtualDisk.read.average                 | 2       |2                 |Tamanho do disco, custo de armazenamento e tamanho da VM         |
-|virtualDisk.write.average                | 2       |2                 |Tamanho do disco, custo de armazenamento e tamanho da VM         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Tamanho do disco, custo de armazenamento e tamanho da VM         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Tamanho do disco, custo de armazenamento e tamanho da VM         |
-|net.received.average                     | 2       |3                 |Tamanho da VM e custo da rede                        |
-|net.transmitted.average                  | 2       |3                 |Tamanho da VM e custo da rede                        |
+| Contador                                 | Nível | Nível por dispositivo | Impacto de avaliação                    |
+| --------------------------------------- | ----- | ---------------- | ------------------------------------ |
+| cpu.usage.average                       | 1     | ND               | Tamanho de VM recomendado e custo         |
+| mem.usage.average                       | 1     | ND               | Tamanho de VM recomendado e custo         |
+| virtualDisk.read.average                | 2     | 2                | Tamanho do disco, custo de armazenamento e tamanho da VM |
+| virtualDisk.write.average               | 2     | 2                | Tamanho do disco, custo de armazenamento e tamanho da VM |
+| virtualDisk.numberReadAveraged.average  | 1     | 3                | Tamanho do disco, custo de armazenamento e tamanho da VM |
+| virtualDisk.numberWriteAveraged.average | 1     | 3                | Tamanho do disco, custo de armazenamento e tamanho da VM |
+| net.received.average                    | 2     | 3                | Tamanho da VM e custo da rede             |
+| net.transmitted.average                 | 2     | 3                | Tamanho da VM e custo da rede             |
 
 > [!WARNING]
 > Se você configurou apenas um nível mais alto de estatísticas, levará até um dia para gerar os contadores de desempenho. Portanto, é recomendável que você execute a descoberta no dia seguinte.
@@ -175,28 +185,28 @@ A tabela a seguir também lista os resultados da avaliação que serão afetados
 
 Para cada descoberta que você precisa executar, execute o coletor para descobrir VMs no escopo necessário. Execute as descobertas uma após a outra. Não há suporte para descobertas simultâneas e cada descoberta deve ter um escopo diferente.
 
-1. No console do cliente do vSphere, clique com botão direito do mouse na VM > **Abrir console**.
-2. Forneça o idioma, fuso horário e preferências de senha para o dispositivo.
-3. Na área de trabalho, selecione o atalho **Executar coletor**.
-4. No Coletor de Migrações para Azure, abra **Configurar pré-requisitos** e:
+1.  No console do cliente do vSphere, clique com botão direito do mouse na VM > **Abrir console**.
+2.  Forneça o idioma, fuso horário e preferências de senha para o dispositivo.
+3.  Na área de trabalho, selecione o atalho **Executar coletor**.
+4.  No Coletor de Migrações para Azure, abra **Configurar pré-requisitos** e:
 
-   a. Aceite os termos de licença e leia as informações de terceiros.
+    a. Aceite os termos de licença e leia as informações de terceiros.
 
-   O coletor verifica se a VM tem acesso à Internet.
-   
-   b. Se a VM acessa a Internet através de um proxy, selecione **Configurações de proxy** e especifique o endereço de proxy e a porta de escuta. Especifique as credenciais caso o proxy exija autenticação.
+    O coletor verifica se a VM tem acesso à Internet.
 
-   O coletor verifica se o serviço coletor está em execução. O serviço é instalado por padrão na VM do coletor.
+    b. Se a VM acessa a Internet através de um proxy, selecione **Configurações de proxy** e especifique o endereço de proxy e a porta de escuta. Especifique as credenciais caso o proxy exija autenticação.
 
-   c. Baixe e instale o VMware PowerCLI.
+    O coletor verifica se o serviço coletor está em execução. O serviço é instalado por padrão na VM do coletor.
 
-5. Em **Especificar detalhes do vCenter Server**, faça o seguinte:
+    c. Baixe e instale o VMware PowerCLI.
+
+5.  Em **Especificar detalhes do vCenter Server**, faça o seguinte:
     - Especifique o nome (FQDN) ou endereço IP do vCenter Server.
     - Em **Nome de usuário** e **Senha**, especifique as credenciais de conta de somente leitura que o coletor usará para descobrir VMs no vCenter Server.
     - Em **Escopo de seleção**, selecione um escopo de descoberta de VM. O coletor só pode descobrir VMs dentro do escopo especificado. O escopo pode ser definido para uma pasta, datacenter ou cluster específicos. Ele não deve conter mais de 1.000 VMs. 
 
-6. Em **Especificar projeto de migração**, especifique a ID e a chave do projeto. Se você não as copiou, abra o Portal do Azure da VM do coletor. Na página de **Visão geral** do projeto, selecione **Descobrir Máquinas** e copie os valores.  
-7. Em **Visualizar progresso de coleção**, monitore o processo de descoberta e verifique se os metadados coletados das VMs estão no escopo. O coletor fornece um tempo aproximado de descoberta.
+6.  Em **Especificar projeto de migração**, especifique a ID e a chave do projeto. Se você não as copiou, abra o Portal do Azure da VM do coletor. Na página de **Visão geral** do projeto, selecione **Descobrir Máquinas** e copie os valores.  
+7.  Em **Visualizar progresso de coleção**, monitore o processo de descoberta e verifique se os metadados coletados das VMs estão no escopo. O coletor fornece um tempo aproximado de descoberta.
 
 
 ### <a name="verify-vms-in-the-portal"></a>Verifique as VMs no portal

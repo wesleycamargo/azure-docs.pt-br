@@ -1,12 +1,12 @@
 ---
 title: Migrar suas VMs Windows para o Armazenamento Premium do Azure com o Azure Site Recovery | Microsoft Docs
-description: "Migre máquinas virtuais existentes para o Armazenamento Premium do Azure usando o Site Recovery. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure."
+description: Migre máquinas virtuais existentes para o Armazenamento Premium do Azure usando o Site Recovery. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure.
 services: virtual-machines-windows
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 15c9a6608421b3eeebe6fbe91a10a849bf36ed85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 171b0f938e44218d11cfb001e3f58ebd0feb35fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Armazenamento Premium usando o Azure Site Recovery
 
@@ -80,7 +80,7 @@ Você pode usar o Site Recovery para migrar VMs IaaS do Azure entre regiões ou 
 ### <a name="step-1-create-a-recovery-services-vault"></a>Etapa 1: criar um cofre dos Serviços de Recuperação
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
-2. Selecione **Criar um recurso** > **Gerenciamento** > **Backup** e **Site Recovery (OMS)**. Como alternativa, você pode selecionar **Procurar** > **Cofre dos Serviços de Recuperação** > **Adicionar**. 
+2. Selecione **Criar um recurso** > **Gerenciamento** > **Backup e Site Recovery (OMS)**. Como alternativa, você pode selecionar **Procurar** > **Cofre dos Serviços de Recuperação** > **Adicionar**. 
 3. Especifique uma região para a qual as VMs serão replicadas. Para fins de migração na mesma região, selecione a região em que estão as VMs e as contas de armazenamento de origem. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Etapa 2: escolher as metas de proteção 

@@ -9,23 +9,20 @@ ms.author: xshi
 ms.date: 3/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 8da16ffe72ad265f0201c2fe7e00e585dfa255e8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8c266a01375bf74fd4df9290255e84bc28e6089c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>Usar o Visual Studio Code para depurar Azure Functions com o Azure IoT Edge
 
 Este artigo fornece instruções detalhadas de como usar o [Visual Studio Code](https://code.visualstudio.com/) como a ferramenta de desenvolvimento principal para depurar o Azure Functions no IoT Edge.
 
 ## <a name="prerequisites"></a>pré-requisitos
-Este tutorial assume que você está usando um computador ou uma máquina virtual que executa Windows ou Linux como seu computador de desenvolvimento. O dispositivo do IoT Edge pode ser outro dispositivo físico ou você pode simular o dispositivo do IoT Edge em seu computador de desenvolvimento.
+Este artigo assume que você está usando um computador ou uma máquina virtual que executa Windows ou Linux como seu computador de desenvolvimento. O dispositivo do IoT Edge pode ser outro dispositivo físico ou você pode simular o dispositivo do IoT Edge em seu computador de desenvolvimento.
 
-Conclua os tutoriais a seguir antes de iniciar estas diretrizes.
-- [Desenvolver uma solução IoT Edge com vários módulos no Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
-
-Depois de concluir o tutorial anterior, os seguintes itens deverão estar estão prontos,
+Antes de seguir as diretrizes neste artigo, conclua as etapas em [Desenvolver uma solução de IoT Edge com vários módulos no Visual Studio Code](tutorial-multiple-modules-in-vscode.md). Depois disso, você deve ter os seguintes itens prontos:
 - Um registro do Docker local em execução no computador de desenvolvimento. É recomendável usar um registro do Docker local para fins de protótipo e teste. Você pode atualizar o registro de contêiner no arquivo `module.json` em cada pasta de módulo.
 - O espaço de trabalho do projeto da solução IoT Edge com uma subpasta do módulo Azure Function nele.
 - O arquivo `run.csx` com o código de função.
@@ -59,8 +56,6 @@ Depois de concluir o tutorial anterior, os seguintes itens deverão estar estão
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou uma Função do Azure, implantou-a no IoT Edge para fins de depuração e começou a depurá-la no VS Code. Você pode prosseguir para um dos tutoriais a seguir para saber mais sobre outros cenários de desenvolvimento do Azure IoT Edge no VS Code. 
 
-> [!div class="nextstepaction"]
-> [Desenvolver uma solução IoT Edge com vários módulos no Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
+[Usar o Visual Studio Code para depurar um módulo C# com o Azure IoT Edge](how-to-vscode-debug-csharp-module.md)
 

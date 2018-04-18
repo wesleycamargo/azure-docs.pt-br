@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 269b65662796c092190cd2622c240756f6bd1cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Políticas personalizadas
 
@@ -48,7 +48,7 @@ Recomendamos o uso de três tipos de arquivos de política:
 - **um arquivo RP (Terceira Parte Confiável)** que é o único arquivo centrado na tarefa que é invocado diretamente pelo aplicativo ou serviço (também conhecido como Terceira Parte Confiável).  Leia o artigo sobre definições do arquivo de Política para obter mais informações.  Cada tarefa exclusiva exige seu próprio RP e, dependendo dos requisitos de identidade visual, o número pode ser “total de aplicativos x número total de casos de uso”.
 
 
-As políticas internas do Azure AD B2C seguem o padrão de 3 arquivos descrito acima, mas o desenvolvedor vê apenas o arquivo RP (Terceira Parte Confiável), enquanto o portal faz alterações em segundo plano no arquivo de EXTensões.
+As políticas internas do Azure AD B2C seguem o padrão de 3 arquivos descrito acima, mas o desenvolvedor vê apenas o arquivo RP (Terceira Parte Confiável), enquanto o portal faz alterações em segundo plano no arquivo EXTensions.
 
 ## <a name="core-concepts-you-should-know-when-using-custom-policies"></a>Conceitos fundamentais que você deve saber ao usar políticas personalizadas
 

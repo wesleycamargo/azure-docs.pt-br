@@ -1,18 +1,18 @@
 ---
-title: "Matriz de módulo e versão Ansible do Azure"
-description: "Matriz de módulo e versão Ansible do Azure"
+title: Matriz de módulo e versão Ansible do Azure
+description: Matriz de módulo e versão Ansible do Azure
 ms.service: ansible
-keywords: "ansible, funções, matriz, versão, azure, devops"
+keywords: ansible, funções, matriz, versão, azure, devops
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 03/25/2018
 ms.topic: article
-ms.openlocfilehash: f62cc2df9e4ce815c4427b80e271ddc672748e4f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011cb173ffdecc7a22c2e470209719ccaf6bda58
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matriz de módulo e versão Ansible do Azure
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 02/01/2018
 O Ansible vem com vários módulos que podem ser executados diretamente em hosts remotos ou por meio de manuais.
 Este artigo lista os módulos do Ansible do Azure que pode provisionar recursos de nuvem do Azure, como a máquina virtual, rede e serviços de contêiner. Você pode obter esses módulos com a versão oficial do Ansible ou a partir das seguintes funções de manuais publicadas pela Microsoft.
 
-| Módulo Ansible do Azure                   |  Ansible 2.4 |  Função de manual [azure_module](#introduction-to-azuremodule) |  Função de manual [azure_preview_module](#introduction-to-azurepreviewmodule) | 
+| Módulo Ansible do Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Função de manual [azure_preview_module](#introduction-to-azurepreviewmodule) | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
 | **Computação**                    |           |                          |                                  | 
 | azure_rm_availabilityset                    | sim          | sim                         | sim                                 | 
@@ -54,7 +54,7 @@ Este artigo lista os módulos do Ansible do Azure que pode provisionar recursos 
 | azure_rm_appgwroute_facts                   | -            | -                           | sim                                 |
 | azure_rm_appgwroutetable                    | -            | -                           | sim                                 |
 | azure_rm_securitygroup                      | sim          | sim                         | sim                                 | 
-| azure_rm_appgwroutetable_facts              | sim          | sim                         | sim                                 | 
+| azure_rm_appgwroutetable_facts              | -            | -                           | sim                                 | 
 | **Armazenamento**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | sim          | sim                         | sim                                 | 
 | azure_rm_storageaccount_facts               | sim          | sim                         | sim                                 | 
@@ -76,7 +76,7 @@ Este artigo lista os módulos do Ansible do Azure que pode provisionar recursos 
 | azure_rm_functionapp_facts                  | sim          | sim                         | sim                                 | 
 | **Bancos de dados**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | sim                         | sim                                 | 
-| azure_rm_sqlserver_facts                    | -            | -                           | sim                                 | 
+| azure_rm_sqlserver_facts                    | -            | sim                         | sim                                 | 
 | azure_rm_sqldatabase                        | -            | sim                         | sim                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | sim                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | sim                                 | 
@@ -99,18 +99,14 @@ Este artigo lista os módulos do Ansible do Azure que pode provisionar recursos 
 | azure_rm_postgresqlfirewallrule_facts       | -            | -                           | sim                                 | 
 | azure_rm_postgresqlconfiguration            | -            | -                           | sim                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | sim                                 | 
-| **Cofre de Chaves**                    |           |                          |                                  | 
-| azure_rm_keyvault                           | -            | -                           | sim                                 |
+| **Key Vault**                    |           |                          |                                  | 
+| azure_rm_keyvault                           | -            | sim                         | sim                                 |
 | azure_rm_keyvault_facts                     | -            | -                           | sim                                 |
-| azure_rm_keyvaultkey                        | -            | -                           | sim                                 |
-| azure_rm_keyvaultsecret                     | -            | -                           | sim                                 |
+| azure_rm_keyvaultkey                        | -            | sim                         | sim                                 |
+| azure_rm_keyvaultsecret                     | -            | sim                         | sim                                 |
 
-## <a name="introduction-to-azuremodule"></a>Introdução ao azure_module
-A [função de manual azure_module](https://galaxy.ansible.com/Azure/azure_modules/) inclui as mais recentes alterações e correções de bug para módulos do Azure da [ramificação do desenvolvedor do repositório do Ansible](https://github.com/ansible/ansible/tree/devel). Se você não puder esperar pela próxima versão do Ansible, instalar a função azure_module é uma boa opção.
 
-A função de manual do azure_module é liberada a cada três semanas.
-
-## <a name="introduction-to-azurepreviewmodule"></a>Introdução ao azure_preview_module
+## <a name="introduction-to-playbook-role-for-azure"></a>Introdução à função de guia estratégico do Azure
 A [função do manual do azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) é a função mais completa e inclui todos os módulos do Azure mais recentes. As atualizações e correções de bug são feitas de forma mais rápida que na versão oficial do Ansible. Se você usar o Ansible para fins de provisionamento de recursos do Azure, será recomendável instalar a função azure_preview_module.
 
 A função de manual azure_preview_module é liberada a cada três semanas.

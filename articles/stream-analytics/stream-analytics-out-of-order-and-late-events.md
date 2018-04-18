@@ -1,24 +1,19 @@
 ---
-title: Manipulando a ordem e o atraso dos eventos com o Azure Stream Analytics | Microsoft Docs
-description: Saiba como o Stream Analytics funciona com eventos fora de ordem ou atrasados nos fluxos de dados.
-keywords: fora de ordem, atraso, eventos
-documentationcenter: ''
+title: Manipulando a ordem e o atraso dos eventos no Azure Stream Analytics
+description: Este artigo descreve como o Stream Analytics lida com eventos fora de ordem ou atrasados nos fluxos de dados.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 3c1924ad87715f7a44c3666991e792adc3a20af9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considerações sobre a ordem dos eventos do Azure Stream Analytics
 
@@ -132,7 +127,7 @@ O Azure Stream Analytics implementa essa funcionalidade usando a cláusula [TIME
 * Ao combinar várias linhas do tempo, a falta de dados em uma das fontes ou partições pode atrasar a saída em uma janela de tolerância da chegada tardia adicional.
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter assistência adicional, teste o [Fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obter assistência adicional, teste o [Fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)

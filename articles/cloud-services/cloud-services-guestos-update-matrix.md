@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1f24db331b3d59eaad54c5c2488e56913261cff2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -42,6 +42,9 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Não está certo quanto ao que é o SO convidado ou como as versões do SO convidado funcionam? Leia [esta](#how-it-works) seção.
 
 ## <a name="news-updates"></a>Notícias atualizadas
+###### <a name="april-6-2018"></a>**6 de abril de 2018**
+O SO convidado de março foi lançado.
+
 ###### <a name="march-19-2018"></a>**19 de março de 2018**
 O SO convidado de fevereiro foi lançado.
 
@@ -90,8 +93,9 @@ A distribuição do SO convidado de julho começa em 19 de julho e está projeta
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.17_201803-01 |6 de abril de 2018 |Post 5.19 |TBD |
 | WA-GUEST-OS-5.16_201802-01 |12 de março de 2018 |Post 5.18 |TBD |
-| WA-GUEST-OS-5.15_201801-01 |4 de janeiro de 2018 |Post 5.17 |TBD |
+|~~WA-GUEST-OS-5.15_201801-01~~ |4 de janeiro de 2018 |6 de abril de 2018 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 de janeiro de 2018 |12 de março de 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 de dezembro de 2017 |4 de janeiro de 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
@@ -116,8 +120,9 @@ A distribuição do SO convidado de julho começa em 19 de julho e está projeta
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.52_201803-01 |6 de abril de 2018 |Post 4.54 |TBD |
 | WA-GUEST-OS-4.51_201802-01 |12 de março de 2018 |Post 4.53 |TBD |
-| WA-GUEST-OS-4.50_201801-01 |4 de janeiro de 2018 |Post 4.52 |TBD |
+|~~WA-GUEST-OS-4.50_201801-01~~ |4 de janeiro de 2018 |6 de abril de 2018 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 de janeiro de 2018 |12 de março de 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 de dezembro de 2017 |4 de janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
@@ -142,8 +147,9 @@ A distribuição do SO convidado de julho começa em 19 de julho e está projeta
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.59_201803-01 |6 de abril de 2018 |Post 3.61 |TBD |
 | WA-GUEST-OS-3.58_201802-01 |19 de março de 2018 |Post 3.60 |TBD |
-| WA-GUEST-OS-3.57_201801-01 |29 de janeiro de 2018 |Pós 3.59 |TBD |
+|~~WA-GUEST-OS-3.57_201801-01~~ |29 de janeiro de 2018 |6 de abril de 2018 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 de janeiro de 2018 |19 de março de 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 de dezembro de 2017 |29 de janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
@@ -168,8 +174,9 @@ A distribuição do SO convidado de julho começa em 19 de julho e está projeta
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.72_201803-01 |6 de abril de 2018 |Post 2.74 |TBD |
 | WA-GUEST-OS-2.71_201802-01 |12 de março de 2018 |Post 2.73 |TBD |
-| WA-GUEST-OS-2.70_201801-01 |29 de janeiro de 2018 |Pós 2.72 |TBD |
+|~~WA-GUEST-OS-2.70_201801-01~~ |29 de janeiro de 2018 |6 de abril de 2018 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |4 de janeiro de 2018 |12 de março de 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 de dezembro de 2017 |29 de janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |

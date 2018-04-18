@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d1ca15028590824cef95e3e9c2d957f9883a0e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Acelerador de Gravação do Azure para implantações do SAP
 O Acelerador de Gravação do Azure é uma funcionalidade que está sendo implementada exclusivamente para as VMs da Série M. O Acelerador de Gravação do Azure não está disponível com nenhuma outra Série de VM no Azure, exceto a Série M. Como o nome indica, o objetivo da funcionalidade é melhorar a latência de E/S das gravações no Armazenamento Premium do Azure. 
@@ -28,10 +28,11 @@ O Acelerador de Gravação do Azure é uma funcionalidade que está sendo implem
 >[!NOTE]
 > Nesse momento, o Acelerador de Gravação do Azure está em visualização pública e exige uma lista de permissões da sua ID de assinatura do Azure
 
-A funcionalidade do Acelerador de Gravação do Azure está disponível como visualização pública em:
+A funcionalidade do Acelerador de Gravação do Azure está disponível para implantação de série M como visualização pública em:
 
 - Oeste dos EUA 2
 - Europa Ocidental
+- Sudeste Asiático
 
 ## <a name="planning-for-using-azure-write-accelerator"></a>Planejar a utilização do Acelerador de Gravação do Azure
 O Acelerador de Gravação do Azure deve ser utilizado para os volumes, os quais contêm o log de transações ou logs de recuperação de um DBMS. Não é recomendável utilizar o Acelerador de Gravação do Azure para os volumes de dados de um DBMS. O motivo para essa restrição é que o Acelerador de Gravação do Azure requer que os VHDs do Armazenamento Premium do Azure sejam montados sem o armazenamento em cache de leitura adicional que está disponível para o Armazenamento Premium. Vantagens maiores com esse tipo de cache podem ser observadas com bancos de dados tradicionais. Como o Acelerador de Gravação afeta apenas as atividades de gravação e não acelera as leituras, o design com suporte para SAP é utilizar o Acelerador de Gravação no log de transações ou nas unidades de log de recuperação dos bancos de dados com suporte para SAP. 
@@ -54,15 +55,16 @@ Há limites de VHDs de Armazenamento Premium do Azure por VM que podem ter supor
 > Para habilitar o Acelerador de Gravação do Azure para um disco do Azure existente que NÃO faça parte de um volume compilado de vários discos com gerenciadores de volume ou discos do Windows, Espaços de Armazenamento do Windows, SOFS (Servidor de Arquivos de Escalabilidade Horizontal do Windows), LVM do Linux ou MDADM, a carga de trabalho que acessa o disco do Azure precisa ser desligada. Os aplicativos de banco de dados utilizando o disco do Azure devem ser desligados.
 
 > [!IMPORTANT]
-> Habilitar o Acelerador de Gravação para disco do sistema operacional do Azure da VM reiniciará a VM. 
+> Habilitar o Acelerador de Gravação para disco do sistema operacional da VM do Azure da VM reiniciará a VM. 
 
 Habilitar o Acelerador e Gravação do Azure para discos operacionais não deve ser necessária para configurações de VM relacionadas ao SAP
 
 ### <a name="restrictions-when-using-azure-write-accelerator"></a>Restrições ao utilizar o Acelerador e Gravação do Azure
 Ao utilizar o Acelerador de Gravação do Azure para um VHD/disco do Azure, estas restrições são aplicáveis:
 
-- O armazenamento em cache do disco Premium precisa ser definido como 'Nenhum'. Todos os outros modos de armazenamento em cache não têm suporte.
+- O armazenamento em cache do disco Premium precisa ser definido como 'Nenhum' ou ‘Somente leitura’. Todos os outros modos de armazenamento em cache não têm suporte.
 - O instantâneo no disco habilitado do Accelerator de Gravação ainda não tem suporte. Essa restrição bloqueia a capacidade do Serviço de Backup do Azure de executar um instantâneo consistente de todos os discos da máquina virtual.
+- Somente E/S menores estão fazendo o caminho mais rápido. Em situações de carga de trabalho em que os dados estão sendo carregados em massa ou quando buffers de log de transação dos diferentes DBMS são preenchidos a um maior grau antes de serem retidos no armazenamento, é provável que a E/S gravada em disco não esteja fazendo o caminho mais rápido.
 
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Habilitar o Acelerador de Gravação em um disco específico
@@ -289,7 +291,7 @@ A saída pode ser semelhante a:
 
 ```
 
-A próxima etapa é atualizar o arquivo JSON e habilitar o Acelerador de Gravação no disco chamado 'log1'. Isso pode ser feito, adicionando esse atributo no arquivo JSON após a entrada do cache do disco. 
+A próxima etapa é atualizar o arquivo JSON e habilitar o Acelerador de Gravação no disco chamado 'log1'. Essa etapa pode ser realizada adicionando esse atributo no arquivo JSON após a entrada do cache do disco. 
 
 ```
         {

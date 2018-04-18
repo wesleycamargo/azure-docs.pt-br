@@ -2,7 +2,7 @@
 title: Coletar o desempenho de aplicativos do Linux no OMS Log Analytics | Microsoft Docs
 description: Este artigo fornece detalhes para configurar o Agente do OMS para Linux para coletar contadores de desempenho do MySQL e Apache HTTP Server.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Coletar contadores de desempenho para aplicativos Linux no Log Analytics 
 Este artigo fornece detalhes para configurar o [Agente do OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para coletar contadores de desempenho para aplicativos específicos.  Os aplicativos incluídos neste artigo são:  
@@ -47,7 +47,7 @@ A seguir, temos o formato para o arquivo de autenticação de OMI do MySQL
 
 As entradas no arquivo de autenticação são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--|:--|
 | Porta | Representa a porta atual em que a instância do MySQL está escutando. A porta 0 significa que as propriedades a seguir são usadas para a instância padrão. |
 | Endereço de Ligação| Endereço de associação atual de MySQL. |
@@ -60,7 +60,7 @@ O arquivo de autenticação de OMI do MySQL pode definir um número da porta e u
 
 A tabela a seguir tem configurações de instância de exemplo 
 
-| Descrição | Arquivo |
+| DESCRIÇÃO | Arquivo |
 |:--|:--|
 | Instância padrão e instância com porta 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
 | Instância padrão e instância com porta 3308 e nome de usuário e senha diferentes. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
@@ -76,7 +76,7 @@ Incluído com a instalação do provedor de OMI do MySQL temos um programa de ar
 
 A tabela a seguir fornece detalhes sobre a sintaxe para usar mycimprovauth.
 
-| Operação | Exemplo | Descrição
+| Operação | Exemplo | DESCRIÇÃO
 |:--|:--|:--|
 | autoupdate *false\|true* | mycimprovauth autoupdate false | Define se o arquivo de autenticação será atualizado automaticamente ao reiniciar ou atualizar. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | Define a instância padrão no arquivo de autenticação de OMI do MySQL.<br>O campo de senha deve ser inserido em texto sem formatação – a senha no arquivo de autenticação de OMI do MySQL será codificada em Base 64. |

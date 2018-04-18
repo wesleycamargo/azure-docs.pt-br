@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: johnkem
-ms.openlocfilehash: 4b2d9866839f943f65beb271d44bc691441b0fb3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8a599558fc35ca2bf48ce2a5f11ec4978bf10277
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmissão do Log de Atividades do Azure para os Hubs de Eventos
 Você pode transmitir o [Log de Atividades do Azure](monitoring-overview-activity-logs.md) quase em tempo real para qualquer aplicativo das seguintes formas:
@@ -56,38 +56,48 @@ Para atualizar o perfil de registro do Log de Atividades a fim de incluir o stre
 
    > [!WARNING]  
    > Se você selecionar qualquer coisa diferente de **Todas as regiões**, perderá eventos importantes que espera receber. O Log de atividades é um registro global (não regional), por isso a maioria dos eventos não tem uma região associado a eles. 
-   > 
+   >
 
 4. Selecione **Salvar** para salvar as configurações. As configurações são aplicadas imediatamente à sua assinatura.
 5. Se você tiver várias assinaturas, repita essa ação e envie todos os dados para o mesmo hub de eventos.
 
 ### <a name="via-powershell-cmdlets"></a>Via cmdlets do PowerShell
-Se já existir um perfil de log, primeiro remova esse perfil.
+Se um perfil de log já existir, primeiro será necessário remover o perfil de log existente e criar um novo.
 
-1. Use `Get-AzureRmLogProfile` para identificar se já existe um perfil de log.
-2. Se existir, use `Remove-AzureRmLogProfile` para removê-lo.
-3. Use `Set-AzureRmLogProfile` para criar um perfil:
+1. Use `Get-AzureRmLogProfile` para identificar se já existe um perfil de log.  Se um perfil de log existir, localize a propriedade *nome*.
+2. Use `Remove-AzureRmLogProfile` para remover o perfil de log usando o valor da propriedade *nome*.
+
+    ```powershell
+    # For example, if the log profile name is 'default'
+    Remove-AzureRmLogProfile -Name "default"
+    ```
+3. Use `Add-AzureRmLogProfile` para criar um novo perfil de log:
 
    ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your event hub belongs to>"
+   $eventHubNamespace = "<event hub namespace>"
 
-   Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+   # Build the service bus rule Id from the settings above
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
 
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
-
-A ID da regra do Barramento de Serviço é uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. 
 
 ### <a name="via-azure-cli"></a>Via CLI do Azure
-Se já existir um perfil de log, primeiro remova esse perfil.
+Se um perfil de log já existir, primeiro será necessário remover o perfil de log existente e criar um novo.
 
-1. Use `azure insights logprofile list` para identificar se já existe um perfil de log.
-2. Se existir, use `azure insights logprofile delete` para removê-lo.
-3. Use `azure insights logprofile add` para criar um perfil:
+1. Use `az monitor log-profiles list` para identificar se já existe um perfil de log.
+2. Use `az monitor log-profiles delete --name "<log profile name>` para remover o perfil de log usando o valor da propriedade *nome*.
+3. Use `az monitor log-profiles create` para criar um novo perfil de log:
 
    ```azurecli-interactive
-   azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
-
-A ID da regra do Barramento de Serviço é uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`.
 
 ## <a name="consume-the-log-data-from-event-hubs"></a>Consumir os dados de log dos Hubs de Eventos
 O esquema para o Log de atividades está disponível em [Monitorar a atividade de assinatura com o Log de atividades do Azure](monitoring-overview-activity-logs.md). Cada evento está em uma matriz de blobs JSON chamada *registros*.

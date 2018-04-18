@@ -1,6 +1,6 @@
 ---
 title: Criptografia - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: "atenuações de ameaças expostas na Ferramenta de Modelagem de Ameaças"
+description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Estrutura de segurança: Criptografia | Atenuações 
-| Produto/serviço | Artigo |
+| Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicativo Web** | <ul><li>[Usar somente codificações de bloco simétricas e comprimentos de chave aprovados](#cipher-length)</li><li>[Usar modos de codificação de bloco aprovados e vetores de inicialização para codificações simétricas](#vector-ciphers)</li><li>[Usar algoritmos assimétricos, comprimentos de chave e preenchimentos aprovados](#padding)</li><li>[Usar um número aleatório de geradores aprovados](#numgen)</li><li>[Não usar codificações de fluxo simétricas](#stream-ciphers)</li><li>[Usar algoritmos MAC, HMAC e de hash com chave](#mac-hash)</li><li>[Usar apenas as funções aprovadas do hash criptográfico](#hash-functions)</li></ul> |
 | **Banco de dados** | <ul><li>[Usar algoritmos de criptografia forte para criptografar dados no banco de dados](#strong-db)</li><li>[Os pacotes do SSIS devem ser criptografados e assinados digitalmente](#ssis-signed)</li><li>[Adicionar assinatura digital a protegíveis de banco de dados críticos](#securables-db)</li><li>[Usar EKM do SQL Server para proteger chaves de criptografia](#ekm-keys)</li><li>[Usar o recurso AlwaysEncrypted para não revelar as chaves de criptografia ao mecanismo de banco de dados](#keys-engine)</li></ul> |
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | <p>Os produtos devem usar um número aleatório de geradores aprovados. Funções pseudoaleatórias, como o aleatório da função de tempo de execução C, a classe System.Random do .NET Framework ou funções de sistema, como GetTickCount, nunca devem ser usadas em um código como esse. O uso do algoritmo do gerador de número aleatório de curva elíptica dupla (DUAL_EC_DRBG) é proibido.</p><ul><li>**CNG-** BCryptGenRandom (é recomendável usar o sinalizador BCRYPT_USE_SYSTEM_PREFERRED_RNG, exceto se o chamador executar um IRQL maior que 0 [PASSIVE_LEVEL])</li><li>**CAPI-** cryptGenRandom</li><li>**Win32/64-** RtlGenRandom (as novas implementações devem usar BCryptGenRandom ou CryptGenRandom) * rand_s * SystemPrng (para o modo kernel)</li><li>**.NET-** RNGCryptoServiceProvider ou RNGCng</li><li>**Aplicativos da Windows Store-** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom ou .GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+)-** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t *bytes )</li><li>**Apple OS X (<10.7)-** Usar /dev/random para recuperar números aleatórios</li><li>**Java(including Google Android Java Code) –** java.security.SecureRandom class. (observe que para o Android 4.3 (Jelly Bean), os desenvolvedores devem seguir a solução alternativa recomendada para o Android e atualizar os aplicativos para inicializar explicitamente a PRNG com entropia de /dev/urandom ou /dev/random)</li></ul>|
+| **Etapas** | <p>Os produtos devem usar um número aleatório de geradores aprovados. Funções pseudoaleatórias, como o aleatório da função de tempo de execução C, a classe System.Random do .NET Framework ou funções de sistema, como GetTickCount, nunca devem ser usadas em um código como esse. O uso do algoritmo do gerador de número aleatório de curva elíptica dupla (DUAL_EC_DRBG) é proibido.</p><ul><li>**CNG-** BCryptGenRandom (é recomendável usar o sinalizador BCRYPT_USE_SYSTEM_PREFERRED_RNG, exceto se o chamador executar um IRQL maior que 0 [PASSIVE_LEVEL])</li><li>**CAPI-** cryptGenRandom</li><li>**Win32/64-** RtlGenRandom (as novas implementações devem usar BCryptGenRandom ou CryptGenRandom) * rand_s * SystemPrng (para o modo kernel)</li><li>**.NET-** RNGCryptoServiceProvider ou RNGCng</li><li>**Aplicativos da Windows Store-** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom ou .GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+)-** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t \*bytes )</li><li>**Apple OS X (<10.7)-** Use /dev/random para recuperar números aleatórios</li><li>**Java(including Google Android Java Code) –** java.security.SecureRandom class. (observe que para o Android 4.3 (Jelly Bean), os desenvolvedores devem seguir a solução alternativa recomendada para o Android e atualizar os aplicativos para inicializar explicitamente a PRNG com entropia de /dev/urandom ou /dev/random)</li></ul>|
 
 ## <a id="stream-ciphers"></a>Não usar codificações de fluxo simétricas
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | <p>Os produtos devem usar a família SHA-2 de algoritmos de hash (SHA256, SHA384 e SHA512). Se for necessário usar um hash mais curto, com um comprimento de saída de 128 bits para ajustá-lo a uma estrutura de dados criada com o hash MD5 menor em mente, as equipes de produtos podem truncar um dos hashes SHA2 (normalmente o SHA256). Observe que o SHA384 é uma versão truncada do SHA512. Por motivos de segurança, não é permitido truncar hashes criptográficos para menos de 128 bits. O novo código não deve usar os algoritmos de hash MD2, MD4, MD5, SHA-0, SHA-1 ou RIPEMD. É possível realizar colisões de hash computacionalmente para esses algoritmos, o que efetivamente os quebrará.</p><p>Algoritmos de hash do .NET permitidos para agilidade criptográfica gerenciada (em ordem de preferência)</p><ul><li>SHA512Cng (em conformidade com FIPS)</li><li>SHA384Cng (em conformidade com FIPS)</li><li>SHA256Cng (em conformidade com FIPS)</li><li>SHA512Managed (sem conformidade com FIPS) (usar SHA512 como nome de algoritmo em chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA384Managed (sem conformidade com FIPS) (usar SHA384 como nome de algoritmo em chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA256Managed (sem conformidade com FIPS) (usar SHA256 como nome de algoritmo em chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA256CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA384CryptoServiceProvider (em conformidade com FIPS)</li></ul>| 
+| **Etapas** | <p>Os produtos devem usar a família SHA-2 de algoritmos de hash (SHA256, SHA384 e SHA512). Se for necessário usar um hash mais curto, com um comprimento de saída de 128 bits para ajustá-lo a uma estrutura de dados criada com o hash MD5 menor em mente, as equipes de produtos podem truncar um dos hashes SHA2 (normalmente o SHA256). Observe que o SHA384 é uma versão truncada do SHA512. Por motivos de segurança, não é permitido truncar hashes criptográficos para menos de 128 bits. O novo código não deve usar os algoritmos de hash MD2, MD4, MD5, SHA-0, SHA-1 ou RIPEMD. É possível realizar colisões de hash computacionalmente para esses algoritmos, o que efetivamente os quebrará.</p><p>Algoritmos de hash do .NET permitidos para agilidade criptográfica gerenciada (em ordem de preferência)</p><ul><li>SHA512Cng (em conformidade com FIPS)</li><li>SHA384Cng (em conformidade com FIPS)</li><li>SHA256Cng (em conformidade com FIPS)</li><li>SHA512Managed (sem conformidade com FIPS) (use SHA512 como nome do algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA384Managed (sem conformidade com FIPS) (use SHA384 como nome do algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA256Managed (sem conformidade com FIPS) (use SHA256 como nome do algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA256CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA384CryptoServiceProvider (em conformidade com FIPS)</li></ul>| 
 
 ## <a id="strong-db"></a>Usar algoritmos de criptografia forte para criptografar dados no banco de dados
 
@@ -172,7 +172,7 @@ ms.lasthandoff: 10/11/2017
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Sistema operacional do dispositivo - Windows IoT Core, Conectividade do dispositivo - SDKs do dispositivo IoT do Azure |
 | **Referências**              | [TPM no Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [Configurar TPM no Windows IoT Core](https://developer.microsoft.com/windows/iot/win10/setuptpm), [TPM do SDK do dispositivo IoT do Azure](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **Etapas** | Armazene chaves privadas simétricas ou de certificado com segurança em um armazenamento de hardware protegido, um TPM ou chips de cartão inteligente. O Windows 10 IoT Core dá suporte ao usuário de um TPM e há vários TPMs compatíveis que podem ser usados: https://developer.microsoft.com/windows/iot/win10/tpm. É recomendável usar um TPM Discreto ou de Firmware. Um TPM de Software deve ser usado apenas para fins de testes e desenvolvimento. Depois que um TPM estiver disponível e as chaves forem provisionadas nele, o código que gera o token deve ser escrito sem conter informações confidenciais. | 
+| **Etapas** | Armazene chaves privadas simétricas ou de certificado com segurança em um armazenamento de hardware protegido, um TPM ou chips de cartão inteligente. O Windows 10 IoT Core dá suporte para usuário de um TPM e há vários TPMs compatíveis que podem ser usados: https://developer.microsoft.com/windows/iot/win10/tpm. É recomendável usar um TPM Discreto ou de Firmware. Um TPM de Software deve ser usado apenas para fins de testes e desenvolvimento. Depois que um TPM estiver disponível e as chaves forem provisionadas nele, o código que gera o token deve ser escrito sem conter informações confidenciais. | 
 
 ### <a name="example"></a>Exemplo
 ```

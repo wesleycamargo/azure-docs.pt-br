@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Mapeamento de declarações no Azure Active Directory (visualização pública)
 
@@ -234,7 +234,7 @@ Declarações restritas não podem ser modificadas usando políticas. A fonte de
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Propriedades da política de mapeamento de declarações
-Use as propriedades de uma política de mapeamento de declarações para controlar quais declarações são emitidas e de onde os dados são originados. Se nenhuma política estiver definida, o sistema emitirá tokens contendo o conjunto de declarações de núcleo, o conjunto de declarações básicas e as declarações opcionais que o aplicativo tiver optado por receber.
+Use as propriedades de uma política de mapeamento de declarações para controlar quais declarações são emitidas e de onde os dados são originados. Se nenhuma política for definida, o sistema emitirá tokens contendo o conjunto de declarações principais, o conjunto de declarações básicas e quaisquer [declarações adicionais](develop/active-directory-optional-claims.md) que o aplicativo optou por receber.
 
 ### <a name="include-basic-claim-set"></a>Incluir um conjunto de declarações básicas
 

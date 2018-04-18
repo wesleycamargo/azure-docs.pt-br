@@ -1,24 +1,19 @@
 ---
-title: Solucionar problemas do Stream Analytics do Azure com logs de diagnóstico | Microsoft Docs
-description: Saiba como analisar logs de diagnóstico de trabalhos do Stream Analytics no Microsoft Azure.
-keywords: ''
-documentationcenter: ''
+title: Solucionar problemas do Stream Analytics do Azure usando logs de diagnóstico
+description: Este artigo descreve como analisar logs de diagnóstico no Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 164d522d7beaea222dbc408765877fa67a34c203
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 9001a2962806ee3e691fa448dde162d12c6ecdd2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solucionar problemas do Stream Analytics do Azure usando logs de diagnóstico
 

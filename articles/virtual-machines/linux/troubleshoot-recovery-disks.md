@@ -1,11 +1,11 @@
 ---
-title: "Usar uma VM de solução de problemas Linux com a CLI 2.0 do Azure | Microsoft Docs"
-description: "Saiba como solucionar problemas de VM Linux conectando o disco do SO a uma VM de recuperação usando a CLI 2.0 do Azure"
+title: Usar uma VM de solução de problemas Linux com a CLI 2.0 do Azure | Microsoft Docs
+description: Saiba como solucionar problemas de VM Linux conectando o disco do SO a uma VM de recuperação usando a CLI 2.0 do Azure
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f1ac319e87f321306a2239b2e17725d281fbf59
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e96f31b3e91066bfc04af62c2bf82db200f35002
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Solucionar problemas de uma VM Linux anexando o disco do SO a uma VM de recuperação com a CLI 2.0 do Azure
 Se a VM (máquina virtual) do Linux tiver um erro de disco ou de inicialização, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida em `/etc/fstab` que impede que a VM possa ser inicializada corretamente. Este artigo fornece detalhes sobre como usar a CLI 2.0 do Azure para conectar o disco rígido virtual a outra VM Linux para corrigir erros e recriar a VM original. Você também pode executar essas etapas com a [CLI do Azure 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -151,7 +151,7 @@ Depois de resolver os erros, desmonte e desanexe o disco rígido virtual existen
         --query '[].{Disk:vhd.uri}' --output table
     ```
 
-    Observe o nome do disco rígido virtual existente. Por exemplo, o nome de um disco com o URI **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** é **myVHD**. 
+    Observe o nome do disco rígido virtual existente. Por exemplo, o nome de um disco com o URI de **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** é **myVHD**. 
 
     Desanexe o disco de dados da sua VM com [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_detach). O exemplo a seguir desanexa o disco chamado `myVHD` da VM chamada `myVMRecovery` no grupo de recursos chamado `myResourceGroup`:
 

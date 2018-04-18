@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -70,7 +70,7 @@ O **modo** determina quais tipos de recursos serão avaliados para uma política
 * `all`: avaliar grupos de recursos e todos os tipos de recursos 
 * `indexed`: avaliar apenas os tipos de recursos que oferecem suporte a marcas e local
 
-É recomendável definir o **modo** como `all` na maioria dos casos. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o parâmetro **mode** manualmente.
+É recomendável definir o **modo** como `all` na maioria dos casos. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o parâmetro **mode** manualmente. Se a definição de política não contiver um valor **modo** o padrão será `indexed` para compatibilidade com versões anteriores.
 
 `indexed` deve ser usado ao criar políticas que irão impor marcas ou locais. Isso não é obrigatório, mas impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A única exceção a isso são **grupos de recursos**. As políticas que estão tentando impor local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroup`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](scripts/enforce-tag-rg.md).
 
@@ -102,6 +102,8 @@ Dentro da propriedade de metadados, você pode usar **strongType** para fornecer
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 Na regra de política, você fazer referência a parâmetros com a seguinte sintaxe:
 

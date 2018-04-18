@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/03/2018
 ms.author: bonova
-ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma Instância Gerenciada (versão prévia)?
 
@@ -69,6 +69,23 @@ A tabela a seguir mostra várias propriedades, acessíveis por meio do Transact-
 
 ![logon único](./media/sql-database-managed-instance/sso.png) 
 
+## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
+
+O modelo de compra baseado em vCore proporciona flexibilidade, controle e transparência, além de ser uma maneira simples de mover os requisitos das cargas de trabalho locais para a nuvem. Esse modelo permite escalar computação, memória e armazenamento com base nas necessidades de carga de trabalho. O modelo vCore também pode ser usado para economias de até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware.
+- As CPUs Lógicas de 4ª geração são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4 GHz.
+- As CPUs Lógicas de 5ª geração são baseadas em processadores E5-2673 v4 (Broadwell) 2,3 GHz.
+
+A tabela a seguir o ajudará a entender como selecionar a configuração ideal de seus recursos de computação, memória, armazenamento e E/S.
+
+||Gen 4|Gen 5|
+|----|------|-----|
+|Hardware|Processadores Intel E5-2673 v3 (Haswell) 2,4 GHz, SSD anexado vCore = 1 PP (núcleo físico)|Processadores V4 Intel E5-2673 (Broadwell) 2,3 GHz, SSD eNVM rápido, vCore = 1 LP (hyper-thread)|
+|Níveis de desempenho|8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
+|Memória|7 GB por vCore|5,5 GB por vCore|
+||||
+
 ## <a name="managed-instance-service-tier"></a>Camada de serviço de Instância Gerenciada
 
 Inicialmente, a Instância Gerenciada está disponível em uma única camada de serviço - Uso Geral - projetada para aplicativos com disponibilidade típica e requisitos de latência de E/S comuns.
@@ -89,11 +106,11 @@ A seguir, são descritos os principais recursos da camada de serviço de Uso Ger
 
 |Recurso | DESCRIÇÃO|
 |---|---|
-| Número de vCores* | 8, 16, 24|
+| Número de vCores* | 8, 16, 24 (Geração 4)<br>8, 16, 24, 32, 40 (Geração 5)|
 | Compilação/versão do SQL Server | SQL Server (mais recente disponível) |
 | Tamanho mínimo de armazenamento | 32 GB |
 | Tamanho máximo de armazenamento | 8 TB |
-| Armazenamento máximo por banco de dados | 4 TB |
+| Armazenamento máximo por banco de dados | 8 TB |
 | IOPS de armazenamento esperado | 500-7500 IOPS por arquivo de dados (depende do arquivo de dados). Consulte [Armazenamento Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Número de arquivos de dados (LINHAS) por banco de dados | Vários | 
 | Número de arquivos de log (LOG) por banco de dados | 1 | 
@@ -106,7 +123,7 @@ A seguir, são descritos os principais recursos da camada de serviço de Uso Ger
 | Suporte do Portal | sim|
 |||
 
-\* Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware. As CPUs Lógicas Geração 4 são baseadas em processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz e as CPUs Lógicas Geração 5 são baseadas em processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz.  
+\* Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware. As CPUs Lógicas Geração 4 são baseadas em processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz e as CPUs Lógicas Geração 5 são baseadas em processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz. 
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas 
 
@@ -152,7 +169,7 @@ O Banco de Dados SQL permite gerenciar centralmente as identidades de usuário d
 A autenticação do Banco de Dados SQL refere-se a como os usuários comprovam a identidade ao conectarem-se ao banco de dados. O Banco de Dados SQL dá suporte a dois tipos de autenticação:  
 
 - Autenticação do SQL, que usa um nome de usuário e senha.
-- Autenticação do Azure Active Directory, que usa identidades gerenciadas pelo Azure Active Directory e que tem suporte para domínios gerenciados e integrados.  
+- Autenticação do Azure Active Directory, que usa identidades gerenciadas pelo Azure Active Directory e que tem suporte para domínios gerenciados e integrados. 
 
 ### <a name="authorization"></a>Autorização
 
@@ -160,11 +177,11 @@ Autorização refere-se ao que um usuário pode fazer em um Banco de Dados SQL d
 
 ## <a name="database-migration"></a>Migração de banco de dados 
 
-A Instância Gerenciada direciona cenários de usuários com migração de banco de dados em massa de implementações de bancos de dados locais ou IaaS.  A Instância Gerenciada oferece suporte a várias opções de migração de banco de dados: 
+A Instância Gerenciada direciona cenários de usuários com migração de banco de dados em massa de implementações de bancos de dados locais ou IaaS. A Instância Gerenciada oferece suporte a várias opções de migração de banco de dados: 
 
 ### <a name="data-migration-service"></a>Serviço de Migração de Dados
 
-O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente gerenciado projetado para permitir migrações perfeitas de várias fontes de banco de dados para plataformas de dados do Azure com um tempo de inatividade mínimo.   Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e SQL Server existentes para o Azure. As opções de implantação incluem Banco de Dados SQL do Azure, Instance Gerenciada e SQL Server na VM do Azure em Visualização Pública. Consulte [Como migrar o banco de dados local para a Instância Gerenciada usando DMS](https://aka.ms/migratetoMIusingDMS).  
+O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente gerenciado projetado para permitir migrações perfeitas de várias fontes de banco de dados para plataformas de dados do Azure com um tempo de inatividade mínimo. Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e SQL Server existentes para o Azure. As opções de implantação incluem Banco de Dados SQL do Azure, Instance Gerenciada e SQL Server na VM do Azure em Visualização Pública. Consulte [Como migrar o banco de dados local para a Instância Gerenciada usando DMS](https://aka.ms/migratetoMIusingDMS). 
 
 ### <a name="backup-and-restore"></a>Backup e restauração  
 
@@ -174,7 +191,7 @@ A abordagem de migração aproveita backups do SQL para Azure Storage Blob. Back
 
 A Instância Gerenciada visa entregar aproximadamente 100% de compatibilidade de área de superfície com o SQL Server local em etapas, até a disponibilidade geral do serviço. Para um recurso e lista de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
  
-A Instância Gerenciada tem suporte para compatibilidade com versões anteriores para Bancos de Dados do SQL 2008.  A migração direta dos servidores do Banco de Dados do SQL 2005 tem suporte, o nível de compatibilidade para Bancos de Dados do SQL 2005 migrados é atualizado para o SQL 2008. 
+A Instância Gerenciada tem suporte para compatibilidade com versões anteriores para Bancos de Dados do SQL 2008. A migração direta dos servidores do Banco de Dados do SQL 2005 tem suporte, o nível de compatibilidade para Bancos de Dados do SQL 2005 migrados é atualizado para o SQL 2008. 
  
 O diagrama a seguir apresenta a compatibilidade da área de superfície na Instância Gerenciada:  
 
@@ -182,7 +199,7 @@ O diagrama a seguir apresenta a compatibilidade da área de superfície na Inst�
 
 ### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Principais diferenças entre SQL Server local e Instância Gerenciada 
 
-A Instância Gerenciada se beneficia de estar sempre atualizada na nuvem, o que significa que alguns recursos no SQL Server local podem estar obsoletos, desativados ou ter alternativas.  Há casos específicos em que as ferramentas precisam reconhecer que um recurso particular funciona de forma ligeiramente diferente ou que o serviço não está executando em um ambiente que não totalmente controlado: 
+A Instância Gerenciada se beneficia de estar sempre atualizada na nuvem, o que significa que alguns recursos no SQL Server local podem estar obsoletos, desativados ou ter alternativas. Há casos específicos em que as ferramentas precisam reconhecer que um recurso particular funciona de forma ligeiramente diferente ou que o serviço não está executando em um ambiente que não totalmente controlado: 
 
 - Alta disponibilidade é compilada e pré-configurada. Alta disponibilidade Always On não são expostos da mesma forma que nas implementações SQL IaaS 
 - Backups automatizados e restauração pontual. O cliente pode iniciar backups `copy-only` que não interferem na cadeia de backup automático. 
@@ -192,7 +209,7 @@ A Instância Gerenciada se beneficia de estar sempre atualizada na nuvem, o que 
  
 ### <a name="managed-instance-administration-features"></a>Recursos de administração de Instância Gerenciada do Banco de Dados SQL do Azure  
 
-A Instância Gerenciada permite que o administrador do sistema concentre-se no que é mais importante para os negócios. Muitas atividades DBA/administrador do sistema não são necessárias ou são simples. Por exemplo, instalação do RDBMS/SO e aplicação de patch, redimensionamento de instância dinâmica e configuração, backups, replicação de banco de dados (incluindo bancos de dados do sistema), configuração de alta disponibilidade e configuração de fluxos de dados de monitoramento de desempenho e integridade.  
+A Instância Gerenciada permite que o administrador do sistema concentre-se no que é mais importante para os negócios. Muitas atividades DBA/administrador do sistema não são necessárias ou são simples. Por exemplo, instalação do RDBMS/SO e aplicação de patch, redimensionamento de instância dinâmica e configuração, backups, replicação de banco de dados (incluindo bancos de dados do sistema), configuração de alta disponibilidade e configuração de fluxos de dados de monitoramento de desempenho e integridade. 
 
 > [!IMPORTANT]
 > Para obter uma lista de recursos com suporte, suporte parcial e sem suporte, consulte [Recursos do Banco de Dados SQL](sql-database-features.md). Para obter uma lista de diferenças T-SQL em Instâncias Gerenciadas em comparação com SQL Server, consulte [Diferenças T-SQL de Instância Gerenciada do SQL Server](sql-database-managed-instance-transact-sql-information.md)

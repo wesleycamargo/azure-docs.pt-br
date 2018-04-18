@@ -1,11 +1,11 @@
 ---
-title: "Configurar Apache Tomcat em uma máquina virtual Linux | Microsoft Docs"
-description: "Saiba como configurar o Apache Tomcat7 usando Máquinas Virtuais do Azure que executam o Linux."
+title: Configurar Apache Tomcat em uma máquina virtual Linux | Microsoft Docs
+description: Saiba como configurar o Apache Tomcat7 usando Máquinas Virtuais do Azure que executam o Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 45ecc89c-1cb0-4e80-8944-bd0d0bbedfdc
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurar o Tomcat7 em uma máquina virtual Linux com o Azure
 O Apache Tomcat (ou simplesmente Tomcat, também chamado anteriormente de Jacarta Tomcat) é um servidor Web de software livre e um contêiner de servlet desenvolvidos pela Apache Software Foundation (ASF). O Tomcat implementa o Java Servlet e especificações de JSP (JavaServer Pages) da Sun Microsystems. O Tomcat fornece um ambiente de servidor Web puramente Java HTTP no qual o código Java será executado. Na configuração mais simples, o Tomcat é executado em um único processo do sistema operacional. Esse processo é executado em uma máquina virtual Java (JVM). Todas as solicitações HTTP de um navegador para o Tomcat são processadas como um thread separado do processo do Tomcat.  
@@ -54,7 +54,7 @@ Outra vantagem desse método é que você não precisa de senhas diferentes para
 
 Siga estas etapas para gerar a chave de autenticação SSH.
 
-1. Baixe e instale o PuTTYgen do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.htm](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Baixe e instale o PuTTYgen no local a seguir: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2. Execute o Puttygen.exe.
 3. Clique em **Gerar** para gerar as chaves. No processo, você pode aumentar a aleatoriedade movendo o mouse sobre a área em branco na janela.  
    ![Captura de tela do PuTTY Key Generator que mostra o novo botão para gerar chave][1]
@@ -92,7 +92,7 @@ A porta 8080 TCP é o número da porta padrão que o Tomcat escuta. Se esta port
 
       Se você defini-la para 80, não será necessário incluir o número da porta na URL usada para acessar o Tomcat. Por exemplo, http://tomcatdemo.cloudapp.net.    
 
-      Se você defini-la para outro valor, tal como 81, será necessário adicionar o número da porta à URL para acessar o Tomcat. Por exemplo, http://tomcatdemo.cloudapp.net:81/.
+      Se você defini-la para outro valor, tal como 81, será necessário adicionar o número da porta à URL para acessar o Tomcat. Por exemplo,  http://tomcatdemo.cloudapp.net:81/.
    2. Digite 8080 em **Porta Privada**. Por padrão, o Tomcat escuta a porta 8080 TCP. Se você alterou a porta de escuta padrão do Tomcat, deverá atualizar a **Porta Privada** para a mesma que a porta de escuta do Tomcat.  
       ![Captura de tela da interface do usuário que mostra o comando Adicionar, a Porta Pública e a Porta Privada][7]
 4. Clique em **OK** para adicionar o ponto de extremidade à máquina virtual.

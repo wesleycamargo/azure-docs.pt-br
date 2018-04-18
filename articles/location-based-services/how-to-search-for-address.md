@@ -1,18 +1,17 @@
 ---
-title: "Como procurar um endereço usando o serviço de pesquisa Serviços do Azure Baseados na Localização (versão prévia) | Microsoft Docs"
-description: "Saiba como procurar um endereço usando o serviço de pesquisa Serviços do Azure Baseados na Localização (versão prévia)"
+title: Como procurar um endereço usando o serviço de pesquisa Serviços do Azure Baseados na Localização (versão prévia) | Microsoft Docs
+description: Saiba como procurar um endereço usando o serviço de pesquisa Serviços do Azure Baseados na Localização (versão prévia)
 services: location-based-services
-keywords: "Não adicione ou edite palavras-chave sem consultar seu especialista em SEO."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8b886607fe0915396a659593cd5910a271fca93
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Como encontrar um endereço usando o serviço de pesquisa Serviços do Azure Baseados na Localização (versão prévia)
 O serviço de pesquisa é um conjunto RESTful de APIs projetado para desenvolvedores procurarem endereços, locais, pontos de interesse, anúncios de empresas e outras informações geográficas. O Serviço de Pesquisa atribui um valor de latitude/longitude para um endereço específico, cruzamento, recurso geográfico ou POI (ponto de interesse). Os valores de latitude e longitude retornados pelas APIs do Serviço de Pesquisa podem ser usados como parâmetros em outros Serviços do Azure Baseados na Localização, como as APIs de Rota e de Fluxo de Tráfego.
@@ -44,7 +43,7 @@ A maioria das consultas de pesquisa usa o padrão 'maxFuzzyLevel=1' para ter mel
     | URL de Solicitação | https://atlas.microsoft.com/search/fuzzy/json? |
     | Autorização | Sem autenticação |
 
-    O atributo **json** no caminho da URL determina o formato da resposta. Você está usando json neste artigo pela facilidade de uso e leitura. Você pode encontrar os formatos de resposta disponíveis na definição **Obter Pesquisa Difusa** da [referência da API Funcional dos Serviços Com Base na Localização] (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
+    O atributo **json** no caminho da URL determina o formato da resposta. Você está usando json neste artigo pela facilidade de uso e leitura. É possível localizar os formatos de resposta disponíveis na definição **Obter Pesquisa Difusa** da [Referência de API Funcional dos Serviços Baseados na Localização] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Clique em **Params** e digite os seguinte pares Chave/Valor para uso como parâmetros de consulta ou de caminho na URL da solicitação:
 

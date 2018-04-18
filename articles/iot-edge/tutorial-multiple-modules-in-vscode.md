@@ -9,20 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea2dc723c674e7119b6ef38771a73ff4c11e98d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6c94701507f86f6ecab2875f952215cc3e4cc719
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code---preview"></a>Desenvolver uma solução IoT Edge com vários módulos no Visual Studio Code - visualização
-Você pode usar o Visual Studio Code para desenvolver uma solução do Azure IoT Edge com vários módulos Este tutorial orienta você através da criação, atualização e implantação de uma solução de borda IoT Edge simplesmente redireciona os dados do sensor do dispositivo de borda IoT simulada no Visual Studio Code. Neste tutorial, você aprenderá como:
+Você pode usar o Visual Studio Code para desenvolver uma solução do Azure IoT Edge com vários módulos Este artigo orienta na criação, atualização e implantação de uma solução IoT Edge que redireciona os dados do sensor do dispositivo IoT Edge simulada no Visual Studio Code. Neste artigo, você aprenderá a:
 
-> [!div class="checklist"]
-> * Use o Visual Studio Code para criar uma solução de Borda IoT Edge
-> * Use o código VS para adicionar um novo módulo à sua solução do Azure IoT Edge em funcionamento. 
-> * Implante a solução do Azure IoT Edge (vários módulos) em seu dispositivo do Azure IoT Edge
-> * Exibir os dados gerados
+* Use o Visual Studio Code para criar uma solução de Borda IoT Edge
+* Use o código VS para adicionar um novo módulo à sua solução do Azure IoT Edge em funcionamento. 
+* Implante a solução do Azure IoT Edge (vários módulos) em seu dispositivo do Azure IoT Edge
+* Exibir os dados gerados
 
 ## <a name="prerequisites"></a>pré-requisitos
 * Conclua os tutoriais abaixo
@@ -67,8 +66,7 @@ Você pode usar o Visual Studio Code para desenvolver uma solução do Azure IoT
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou uma solução de borda IoT com um módulo C#, depois você adicionou a um módulo de função, atualizou as rotas para a solução, criou e implantou em seu dispositivo de borda IoT simulado. Você pode prosseguir para um dos tutoriais a seguir para saber mais sobre outros cenários de desenvolvimento do Azure IoT Edge no VS Code.
+Você pode prosseguir para um dos artigos a seguir para saber mais sobre outros cenários de desenvolvimento do Azure IoT Edge no Visual Studio Code:
 
-> [!div class="nextstepaction"]
-> [Depurar um módulo C# no código VS](how-to-vscode-debug-csharp-module.md)
-> [depurar uma função C# no código VS](how-to-vscode-debug-azure-function.md)
+* [Depurar um módulo C# no VS Code](how-to-vscode-debug-csharp-module.md)
+* [Depurar uma função C# no VS Code](how-to-vscode-debug-azure-function.md)

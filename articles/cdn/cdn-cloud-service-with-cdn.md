@@ -1,6 +1,6 @@
 ---
-title: "Integrar um serviço de nuvem do Azure com a CDN do Azure | Microsoft Docs"
-description: "Aprenda como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado"
+title: Integrar um serviço de nuvem do Azure com a CDN do Azure | Microsoft Docs
+description: Aprenda como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado
 services: cdn, cloud-services
 documentationcenter: .net
 author: zhangmanling
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="intro"></a> Integrar um serviço de nuvem à CDN do Azure
 Um serviço de nuvem pode ser integrado com o CDN do Azure, fornecendo qualquer conteúdo do local do serviço de nuvem. Esta abordagem lhe dá as seguintes vantagens:
@@ -138,7 +138,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN.  Cada perfil contém 
    > 
 
 ## <a name="test-the-cdn-endpoint"></a>Testar o ponto de extremidade CDN
-Quando o status da publicação for **Concluído**, abra uma janela do navegador e vá para **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
+Quando o status de publicação for **Concluído**, abra uma janela do navegador e navegue para **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
 
     http://camservice.azureedge.net/Content/bootstrap.css
 
@@ -146,18 +146,18 @@ Que corresponde à seguinte URL de origem no ponto de extremidade da CDN:
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-Quando você navega para **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, dependendo do navegador, receberá uma solicitação para baixar ou abrir o bootstrap.css proveniente de seu aplicativo Web publicado.
+Ao navegar para **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, dependendo do navegador, você será solicitado a baixar ou abrir o bootstrap.css originado do seu aplicativo Web publicado.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-De maneira semelhante, você pode acessar qualquer URL acessível publicamente em **http://*&lt;nomedoServiço>*.cloudapp.net/**, diretamente de seu ponto de extremidade CDN. Por exemplo: 
+De forma semelhante, é possível acessar qualquer URL acessível publicamente em **http://*&lt;serviceName>*.cloudapp.net/**, diretamente do ponto de extremidade da CDN. Por exemplo: 
 
 * Um arquivo .js do caminho /Script
 * Qualquer arquivo de conteúdo do caminho /Content
 * Qualquer controller/action
 * Se cadeias de consulta estiverem habilitadas em seu ponto de extremidade da CDN, qualquer URL com cadeias de consulta
 
-Na verdade, com a configuração acima, você pode hospedar todo o serviço de nuvem por meio de **http://*&lt;nome_da_CDN>*.azureedge.net/**. Se navegar até **http://camservice.azureedge.net/**, eu obtenho o resultado da ação de Home/Index.
+Na verdade, com a configuração acima, é possível hospedar todo o serviço de nuvem de **http://*&lt;cdnName>*.azureedge.net/**. Se navegar até **http://camservice.azureedge.net/**, eu obtenho o resultado da ação de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -325,7 +325,7 @@ Siga as etapas acima para configurar esta ação do controlador:
             <br />
             <input class="btn" type="submit" value="Generate meme" />
         </form>
-5. Publique o serviço de nuvem novamente e navegue até **http://*&lt;NomedoServiço>*.cloudapp.net/MemeGenerator/Index** em seu navegador.
+5. Publique o serviço de nuvem novamente e navegue até **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** em seu navegador.
 
 Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método de ação `Index_Post` retorna um link para o método de ação `Show` com o respectivo identificador de entrada. Quando clicar em senha, você chegará ao seguinte código:  
 

@@ -1,26 +1,21 @@
 ---
-title: Usar as ferramentas Stream Analytics do Visual Studio para configurar o processo de implantação e integração contínua | Microsoft Docs
-description: Tutorial para desenvolver ferramentas do Stream Analytics para o Visual Studio criar, depurar e criar trabalhos de Borda do Stream Analytics.
-keywords: visual studio, NuGet, DevOps, trabalhos de Borda, Stream analytics
-documentationcenter: ''
+title: Trabalhos do Edge nas ferramentas do Azure Stream Analytics para Visual Studio
+description: Este artigo descreve como criar, depurar e criar trabalhos de Borda do Stream Analytics usando as ferramentas do Stream Analytics para Visual Studio.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/13/2018
 ms.author: sujie
-ms.openlocfilehash: c6e1d0693035ef343e20cee4b09f0669e089afee
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/13/2018
+ms.openlocfilehash: ec916ea2104df9d694aad2462df7ca5a487017f2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="develop-stream-analytics-edge-jobs-by-using-visual-studio-tools"></a>Desenvolver trabalhos de Borda do Stream Analytics utilizando ferramentas do Visual Studio
+# <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desenvolver trabalhos de Borda do Stream Analytics utilizando ferramentas do Visual Studio
 
 Neste tutorial, você aprenderá a utilizar as ferramentas do Stream Analytics para o Visual Studio criar, depurar e criar trabalhos de Borda do Stream Analytics. Após criar e testar o trabalho, você poderá acessar o Portal do Azure para implantá-lo nos dispositivos. 
 

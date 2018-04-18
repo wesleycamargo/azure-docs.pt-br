@@ -4,7 +4,7 @@ description: O cache é o processo de armazenamento de dados localmente para que
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: rli; v-deasim
+ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-caching-works"></a>Como funciona o cache
 
@@ -64,7 +64,7 @@ Dois cabeçalhos podem ser utilizados para definir a atualização de cache: `Ca
 ## <a name="cache-directive-headers"></a>Cabeçalhos de diretiva de cache
 
 > [!IMPORTANT]
-> Por padrão, um ponto de extremidade CDN do Azure que é otimizado para DSA ignora os cabeçalhos de diretiva de cache e ignora o cache. Para perfis **CDN do Azure da Verizon Standard** e **CDN do Azure da Akamai Standard**, é possível ajustar como um ponto de extremidade de CDN do Azure trata esses cabeçalhos, usando as [Regras de cache de CDN](cdn-caching-rules.md) para habilitar cache. Somente para **CDN do Azure da Verizon Premium** você usa o [mecanismo de regras](cdn-rules-engine.md) para habilitar cache.
+> Por padrão, um ponto de extremidade CDN do Azure que é otimizado para DSA ignora os cabeçalhos de diretiva de cache e ignora o cache. Para perfis **CDN Standard do Azure da Verizon**  e **CDN Standard do Azure da Akamai**, é possível ajustar como um ponto de extremidade de CDN do Azure trata esses cabeçalhos, usando as [Regras de cache de CDN](cdn-caching-rules.md) para habilitar cache. Somente para **CDN Premium do Azure da Verizon** você usa o [mecanismo de regras](cdn-rules-engine.md) para habilitar cache.
 
 A CDN do Azure fornece suporte aos seguintes cabeçalhos de diretiva de cache HTTP, que definem a duração do cache e o compartilhamento de cache.
 
@@ -122,7 +122,7 @@ A tabela a seguir descreve o comportamento de cache padrão para os produtos da 
 
 |                    | Verizon: entrega Web geral | Verizon: DSA | Akamai: entrega Web geral | Akamai: DSA | Akamai: download de arquivo grande | Akamai: streaming de mídia geral ou VoD |
 |--------------------|--------|------|-----|----|-----|-----|
-| **Aceitar a origem**    | sim    | Não   | Sim | Não | sim | sim |
+| **Aceitar a origem**    | sim    | Não    | sim | Não  | sim | sim |
 | **Duração do cache da CDN** | 7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
 **Aceitar a origem**: especifica se deve aceitar os [cabeçalhos de diretiva de cache com suporte](#http-cache-directive-headers), se eles existirem na resposta HTTP do servidor de origem.

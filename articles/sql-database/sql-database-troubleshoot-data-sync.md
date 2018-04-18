@@ -2,18 +2,18 @@
 title: Solução de problemas da Sincronização de Dados SQL do Azure (versão prévia) | Microsoft Docs
 description: Saiba como solucionar problemas comuns com a Sincronização de Dados SQL do Azure (versão prévia).
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: a24e16abd78a89d6143c00fc08a3ef91d7dd8202
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Solucionar problemas com a Sincronização de Dados SQL do Azure (versão prévia)
 
@@ -442,7 +442,7 @@ Para obter mais informações sobre a Sincronização de Dados SQL (versão pré
 -   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-sync-data.md)  
 -   [Configurar a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-get-started-sql-data-sync.md)  
 -   [Práticas recomendadas para a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-best-practices-data-sync.md)  
--   [Monitorar a Sincronização de Dados SQL do Azure (versão prévia) com o Log Analytics do OMS](sql-database-sync-monitor-oms.md)  
+-   [Monitorar a Sincronização de Dados SQL do Azure (versão prévia) com o Log Analytics](sql-database-sync-monitor-oms.md)  
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL (versão prévia):  
     -   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  

@@ -1,18 +1,18 @@
 ---
 title: Conceitos da Grade de Eventos do Azure
-description: "Descreve a Grade de Eventos do Azure e seus conceitos. Define vários componentes importantes da Grade de Eventos."
+description: Descreve a Grade de Eventos do Azure e seus conceitos. Define vários componentes importantes da Grade de Eventos.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: babanisa
-ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
 
@@ -32,9 +32,11 @@ Os fornecedores categorizam eventos em tópicos. O tópico inclui um ponto de ex
 
 Os tópicos do sistema são tópicos internos fornecidos pelos serviços do Azure. Os tópicos personalizados são tópicos de aplicativo e de terceiros.
 
+Ao projetar o aplicativo, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuários e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Ao assinar o tópico personalizado, o manipulador de eventos pode filtrar por tipo de evento.
+
 ## <a name="event-subscriptions"></a>Assinaturas de evento
 
-Uma assinatura orienta a Grade de Eventos sobre quais eventos em um tópico um assinante está interessado em receber.  Uma assinatura também contém informações sobre como os eventos devem ser fornecidos ao assinante.
+Uma assinatura orienta a Grade de Eventos sobre quais eventos em um tópico um assinante está interessado em receber. Uma assinatura também contém informações sobre como os eventos devem ser fornecidos ao assinante.
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 

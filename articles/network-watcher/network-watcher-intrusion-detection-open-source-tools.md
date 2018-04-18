@@ -1,11 +1,11 @@
 ---
-title: "Executar a detecção de invasão de rede com o Observador de Rede do Azure e ferramentas de software livre | Microsoft Docs"
-description: "Este artigo descreve como usar o Observador de Rede do Azure e ferramentas de software livre para executar a detecção de invasão de rede"
+title: Executar a detecção de invasão de rede com o Observador de Rede do Azure e ferramentas de software livre | Microsoft Docs
+description: Este artigo descreve como usar o Observador de Rede do Azure e ferramentas de software livre para executar a detecção de invasão de rede
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Executar a detecção de invasão de rede com o Observador de Rede e ferramentas de software livre
 
@@ -76,7 +76,7 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="set-up-the-elastic-stack"></a>Configurar o Elastic Stack
 
-Enquanto os logs que produz Suricata contêm informações importantes sobre o que está acontecendo em nossa rede, esses arquivos de log não são mais fáceis de ler e entender. Conectando Suricata com a pilha elástica, podemos criar um painel Kibana o que nos permite pesquisar, gráfico, analisar e derivar informações de nossos logs.
+Enquanto os logs que produz Suricata contêm informações importantes sobre o que está acontecendo em nossa rede, esses arquivos de log não são mais fáceis de ler e entender. Conectando Suricata com a pilha elástica, podemos criar um painel Kibana o que nos permite pesquisar, grafo, analisar e derivar informações de nossos logs.
 
 #### <a name="install-elasticsearch"></a>Instalar Elasticsearch
 

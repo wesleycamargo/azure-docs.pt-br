@@ -12,15 +12,15 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 4e50a1be3437ab1b027c1ca0f160402239e13e92
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de banco de dados no Banco de Dados SQL do Azure
 
-Mover do ambiente autogerenciado autocontrolado tradicional para um ambiente PaaS pode parecer um pouco difícil primeiro. Como desenvolvedor de aplicativos ou um DBA, você deseja saber os principais recursos da plataforma que ajudam a manter seu aplicativo disponível, com bom desempenho, seguro e flexível – sempre. Este artigo visa fazer exatamente isso. O artigo organiza sucintamente os recursos e fornece algumas orientações sobre como usar melhor os principais recursos do Banco de Dados SQL para gerenciar e fazer a manutenção de seu aplicativo em execução com eficiência e obter os melhores resultados na nuvem. O público-alvo típico para este artigo seria aqueles que: –
+Mover do ambiente autogerenciado autocontrolado tradicional para um ambiente PaaS pode parecer um pouco difícil primeiro. Como desenvolvedor de aplicativos ou um DBA, você deseja saber os principais recursos da plataforma que ajudam a manter seu aplicativo disponível, com bom desempenho, seguro e flexível – sempre. Este artigo visa fazer exatamente isso. O artigo organiza sucintamente os recursos e fornece algumas orientações sobre como usar melhor os principais recursos do Banco de Dados SQL para gerenciar e fazer a manutenção de seu aplicativo em execução com eficiência e obter os melhores resultados na nuvem. O público-alvo típico para este artigo seria aqueles que: 
 - Estão avaliando a migração de seus aplicativos do Azure SQL DB – modernizando seus aplicativos.
 - Estão no processo de migração de seus aplicativos – cenário de migração em andamento.
 - Recentemente concluiram a migração para o Azure SQL DB – DBA novo na nuvem.

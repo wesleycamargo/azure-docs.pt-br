@@ -1,10 +1,10 @@
 ---
 title: Arquitetura do mecanismo de pesquisa de texto completo (Lucene) no Azure Search | Microsoft Docs
-description: "Explicação dos conceitos de recuperação de documento e processamento de consulta do Lucene para pesquisa de texto completo, relacionada ao Azure Search."
+description: Explicação dos conceitos de recuperação de documento e processamento de consulta do Lucene para pesquisa de texto completo, relacionada ao Azure Search.
 services: search
 manager: jhubbard
 author: yahnoosh
-documentationcenter: 
+documentationcenter: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Como funciona a pesquisa de texto completo no Azure Search
 
@@ -363,7 +363,7 @@ Um exemplo ilustra por que isso é importante. Pesquisas com caractere curinga, 
 Existem duas maneiras de ajustar as pontuações de relevância no Azure Search:
 
 1. **Perfis de pontuação** melhoram a classificação dos documentos na lista classificada de resultados com base em um conjunto de regras. Em nosso exemplo, podemos considerar a possibilidade de que os documentos correspondentes no campo de título são mais relevante do que os documentos correspondentes no campo descrição. Além disso, se o índice tiver um campo preço para cada hotel, poderíamos promover documentos com preços mais baixos. Saiba mais sobre como [adicionar perfis de pontuação a um índice de pesquisa.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Incremento de termo** (disponível apenas na sintaxe da consulta Lucene completo) fornece um operador de incremento `^` que pode ser aplicado a qualquer parte da árvore de consulta. Em nosso exemplo, em vez de procurar no prefixo *ar-condicio*\*, um usuário poderia pesquisar o termo exato *ar-condicio* ou o prefixo, mas os documentos que correspondem ao termo exato apresentam uma classificação superior quando é aplicado o incremento à consulta do termo: *ar-condicio^2||ar-condicio**. Saiba mais sobre [incremento do termo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+2. **Incremento de termo** (disponível apenas na sintaxe da consulta Lucene completo) fornece um operador de incremento `^` que pode ser aplicado a qualquer parte da árvore de consulta. Em nosso exemplo, em vez de pesquisar no prefixo *air-condition*\*, um usuário poderia pesquisar o termo exato *air-condition* ou o prefixo, mas os documentos que correspondem ao termo exato são classificados mais elevados aplicando incremento à consulta do termo: *air-condition^2||air-condition**. Saiba mais sobre [incremento do termo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Pontuação em um índice distribuído
