@@ -874,7 +874,7 @@ Ao usar o Portal do Azure, você poderá editar seus arquivos de script de back-
 [Início rápido do Cliente Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
 [Início rápido do Cliente Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Início rápido do Cliente Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
-[Início rápido do Cliente Microsoft Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
+[Início rápido do cliente Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
 [sincronização de dados offline]: app-service-mobile-offline-data-sync.md
 [Configurar a autenticação do Microsoft Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [Configurar a autenticação do Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
