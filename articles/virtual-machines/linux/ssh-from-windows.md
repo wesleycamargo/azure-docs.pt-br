@@ -1,11 +1,11 @@
 ---
 title: Usar chaves SSH com Windows para VMs Linux | Microsoft Docs
-description: "Saiba como gerar e usar chaves SSH em um computador Windows para se conectar a uma máquina virtual Linux no Azure."
+description: Saiba como gerar e usar chaves SSH em um computador Windows para se conectar a uma máquina virtual Linux no Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
-ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fcc2365c3b41fb69492aa68bf7c48c2d3b8ee5f3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como usar chaves SSH com o Windows no Azure
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ Estes são os cenários de implantação e os tipos de arquivo que você usa em 
 ## <a name="install-git-for-windows"></a>Instalar o Git for Windows
 A seção anterior lista vários pacotes que incluem a ferramenta `openssl` para Windows. Essa ferramenta é necessária para criar chaves públicas e privadas. Os exemplos a seguir detalham como instalar e usar o **Git para Windows**, embora você possa escolher qualquer pacote de sua preferência. O **Git para Windows** fornece acesso a alguns utilitários e ferramentas [OSS](https://en.wikipedia.org/wiki/Open-source_software) (software livre) adicionais que podem ser úteis enquanto trabalha com VMs Linux.
 
-1. Baixe e instale o **Git for Windows** do seguinte local: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
+1. Faça o download de e instale o **Git for Windows** do seguinte local: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
 2. Aceite as opções padrão durante o processo de instalação, a menos que, especificamente, tenha que alterá-las.
 3. Execute **Git Bash** no **Menu Iniciar** > **Git** > **Git Bash**. O console é semelhante ao seguinte exemplo:
 
@@ -137,7 +137,7 @@ O exemplo a seguir cria essa chave privada adicional especialmente para uso de P
     ```bash
     chmod 0600 myPrivateKey_rsa
     ```
-2. Baixe e execute PuTTYgen do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+2. Faça o download de e execute o PuTTYgen do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 3. Clique no menu: **Arquivo** > **Carregar Chave Privada**
 4. Localize sua chave privada (`myPrivateKey_rsa`, no exemplo anterior). O diretório padrão ao iniciar **Git Bash** é `C:\Users\%username%`. Altere o filtro de arquivo para mostrar **Todos os Arquivos (\*.\*)**:
 
@@ -168,7 +168,7 @@ O exemplo a seguir cria essa chave privada adicional especialmente para uso de P
 ## <a name="use-putty-to-ssh-to-a-linux-machine"></a>Usar Putty para SSH em um computador Linux
 Repetindo, PuTTY é um cliente de SSH comum do Windows. Você pode usar qualquer cliente SSH que quiser. As etapas a seguir detalham como usar a chave privada para autenticação com sua VM do Azure usando o SSH. As etapas são semelhantes em outros clientes de chave SSH em termos de precisar carregar a chave privada para autenticar a conexão SSH.
 
-1. Baixe e execute o putty do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Faça o download de e execute o putty do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2. Preencha o nome do host ou o endereço IP da sua VM no portal do Azure:
 
     ![Abrir nova conexão PuTTY](./media/ssh-from-windows/putty-new-connection.png)

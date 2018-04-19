@@ -8,16 +8,16 @@ ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 04/01/2018
 ms.author: jodebrui
-ms.openlocfilehash: 77e73ec1004babb5fce1e293acfade9264cd6945
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cd76f475f330c49dec737d2c4a25aa75a18b41a7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Usar o OLTP in-memory para melhorar o desempenho do aplicativo no Banco de Dados SQL
-O [OLTP in-memory](sql-database-in-memory.md) pode ser usado para melhorar o desempenho do processamento de transações, a ingestão de dados e os cenários de dados transitórios, em Bancos de Dados SQL [Premium](sql-database-service-tiers.md) do Azure sem aumentar o tipo de preço. 
+O [OLTP in-memory](sql-database-in-memory.md) pode ser usado para melhorar o desempenho do processamento de transações, a ingestão de dados e os cenários de dados transitórios, em bancos de dados das [camadas Premium e Comercialmente Crítico](sql-database-service-tiers.md) sem aumentar o tipo de preço. 
 
 > [!NOTE] 
 > Saiba como o [Quorum dobra a principal carga de trabalho do banco de dados, enquanto reduz a DTU em 70% com o Banco de Dados SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
@@ -25,8 +25,8 @@ O [OLTP in-memory](sql-database-in-memory.md) pode ser usado para melhorar o des
 
 Siga estas etapas para adotar o in-memory OLTP no banco de dados existente.
 
-## <a name="step-1-ensure-you-are-using-a-premium-database"></a>Etapa 1: Garantir que você está usando um banco de dados Premium
-Há suporte para o OLTP in-memory apenas em bancos de dados Premium. Na Memória terá suporte se o resultado retornado for 1 (e não 0):
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Etapa 1: Verifique se que você estivá usando um banco de dados de camada Premium e Comercialmente Crítico
+Há suporte para o OLTP in-memory apenas em bancos de dados de camada Premium e Comercialmente Crítico. Na Memória terá suporte se o resultado retornado for 1 (e não 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');

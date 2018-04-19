@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: kumud
-ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Visão geral do Azure Load Balancer Standard
 
@@ -43,7 +43,7 @@ Os recursos do Load Balancer são objetos nos quais é possível expressar como 
 
 ## <a name="why-use-standard-load-balancer"></a>Por que usar o Load Balancer Standard?
 
-Você pode usar o Load Balancer Standard para contar com a gama completa de data centers virtuais, desde implantações de pequena escala até arquiteturas grandes, complexas e com várias zonas.
+O Load Balancer Standard permite que você dimensione os aplicativos e crie alta disponibilidade para implantações em escala pequena para arquiteturas de várias zonas complexas e grandes.
 
 Revise a tabela abaixo para obter uma visão geral das diferenças entre o Load Balancer Standard e Load Balancer Load:
 

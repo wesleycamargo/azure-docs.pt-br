@@ -1,12 +1,12 @@
 ---
-title: "Governança no Azure | Microsoft Docs"
-description: "Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa."
+title: Governança no Azure | Microsoft Docs
+description: Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="governance-in-azure"></a>Governança no Azure
 
@@ -263,7 +263,7 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcações co
 
 Atualmente, os Bloqueios de recursos aceitam dois valores: CanNotDelete e ReadOnly. CanNotDelete significa que os usuários (com os direitos apropriados) ainda podem ler ou modificar um recurso, mas não podem excluí-lo. ReadOnly significa que usuários autorizados não podem excluir nem modificar um recurso.
 
-Bloqueios do Gerenciador de Recursos se aplicam apenas às operações que ocorrem no plano de gerenciamento, que consiste em operações enviadas para <https://management.azure.com>. Os bloqueios não restringem a maneira como os recursos executam suas próprias funções. Alterações de recursos são restritas, mas as operações de recursos não são restritas. Por exemplo, um bloqueio ReadOnly em um Banco de Dados SQL impede que você exclua ou modifique o banco de dados, mas ele não impede que você crie, atualize ou exclua dados no banco de dados.
+Bloqueios do Gerenciador de Recursos se aplicam apenas às operações que ocorrem no plano de gerenciamento, que consistem em operações enviadas para <https://management.azure.com>. Os bloqueios não restringem a maneira como os recursos executam suas próprias funções. Alterações de recursos são restritas, mas as operações de recursos não são restritas. Por exemplo, um bloqueio ReadOnly em um Banco de Dados SQL impede que você exclua ou modifique o banco de dados, mas ele não impede que você crie, atualize ou exclua dados no banco de dados.
 
 A aplicação de **ReadOnly** pode gerar resultados inesperados, pois algumas operações que parecem operações de leitura exigem ações adicionais. Por exemplo, aplicar um bloqueio **ReadOnly** em uma conta de armazenamento impedirá que todos os usuários listem as chaves. A operação de lista de chaves é tratada por meio de uma solicitação POST, pois as chaves retornadas estão disponíveis para operações de gravação.
 
@@ -410,33 +410,33 @@ A Central de Segurança do Azure monitora os seguintes recursos do Azure:
 
 - Soluções de parceiros integradas com sua assinatura do Azure, como um firewall de aplicativo Web em VMs e no [Ambiente do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
 
-### <a name="operations-management-suite"></a>Operations Management Suite
+### <a name="log-analytics"></a>Log Analytics
 
-O desenvolvimento de software OMS e o serviço de segurança da informação da equipe e o [programa de governança](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) dão suporte aos requisitos do negócio e aderem a leis e regulamentos como descrito em [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) e [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Como o OMS estabelece os requisitos de segurança, identifica os controles de segurança, gerencia e monitora os riscos também são descritos lá. Anualmente, revisamos as políticas, padrões, procedimentos e diretrizes.
+O desenvolvimento do software Log Analytics e o serviço de segurança da informação da equipe e o [programa de governança](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) dão suporte aos requisitos do negócio e aderem a leis e regulamentos como descrito na [Central de Confiabilidade do Azure](https://azure.microsoft.com/support/trust-center/) e na [Central de Conformidade da Microsoft](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Como o Log Analytics estabelece os requisitos de segurança, identifica os controles de segurança, gerencia e monitora os riscos também são descritos lá. Anualmente, revisamos as políticas, padrões, procedimentos e diretrizes.
 
-Cada membro de equipe de desenvolvimento do OMS recebe treinamento formal sobre a segurança de aplicativo. Internamente, usamos um sistema de controle de versão para o desenvolvimento de software. Cada projeto de software é protegido pelo sistema de controle de versão.
+Cada membro de equipe de desenvolvimento do Log Analytics recebe treinamento formal sobre a segurança de aplicativo. Internamente, usamos um sistema de controle de versão para o desenvolvimento de software. Cada projeto de software é protegido pelo sistema de controle de versão.
 
-A Microsoft tem uma equipe de segurança e conformidade que monitora e analisa todos os serviços na Microsoft. Os responsáveis pela segurança de informações compõem a equipe e eles não são associados aos departamentos de engenharia que desenvolvem o OMS. Os responsáveis pela segurança têm sua própria cadeia de gerenciamento e realizaram avaliações independentes dos produtos e serviços para garantir a segurança e a conformidade.
+A Microsoft tem uma equipe de segurança e conformidade que monitora e analisa todos os serviços na Microsoft. Os responsáveis pela segurança de informações compõem a equipe e eles não são associados aos departamentos de engenharia que desenvolvem o Log Analytics. Os responsáveis pela segurança têm sua própria cadeia de gerenciamento e realizaram avaliações independentes dos produtos e serviços para garantir a segurança e a conformidade.
 
-O OMS (Operations Management Suite) é um conjunto de serviços de gerenciamento que foram criados na nuvem desde o início. Em vez de implantar e gerenciar recursos locais, os componentes do OMS estão totalmente hospedados no Azure. A configuração é mínima e você pode ter tudo funcionando literalmente em questão de minutos.
+O Azure fornece um conjunto de serviços de gerenciamento que foram criados na nuvem desde o início. Em vez de implantar e gerenciar recursos locais, esses componentes estão totalmente hospedados no Azure. A configuração é mínima e você pode ter tudo funcionando literalmente em questão de minutos.
 
 ![Pacote do Operations Manager](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-Só porque os serviços do OMS são executados na nuvem não significa que eles não possam gerenciar efetivamente seu ambiente local.
+Só porque os serviços do Log Analytics são executados na nuvem não significa que eles não possam gerenciar efetivamente seu ambiente local.
 
 Coloque um agente em qualquer computador Windows ou Linux no seu data center e ele enviará dados para o Log Analytics, onde poderão ser analisados junto com todos os outros dados coletados de serviços na nuvem ou locais. Use o Backup do Azure e o Azure Site Recovery para aproveitar a nuvem como backup e alta disponibilidade de recursos locais.
 
 Os runbooks na nuvem normalmente não podem acessar os recursos locais, mas você pode instalar um agente em um ou mais computadores para hospedar runbooks em seu data center. Quando você inicia um runbook, basta simplesmente especificar se deseja que ele seja executado na nuvem ou em um local de trabalho.
 
-A principal funcionalidade do OMS é oferecida por um conjunto de serviços que são executados no Azure. Cada serviço fornece uma função de gerenciamento específico, e você pode combinar serviços para obter cenários de gerenciamento diferentes.
+A principal funcionalidade do Log Analytics é oferecida por um conjunto de serviços que são executados no Azure. Cada serviço fornece uma função de gerenciamento específico, e você pode combinar serviços para obter cenários de gerenciamento diferentes.
 
 ![Pacote do Operations Manager](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Gerenciador de operação do Azure estende suas funcionalidades fornecendo soluções de gerenciamento. [Soluções de gerenciamento](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) são conjuntos de lógica pré-empacotados que implementam um cenário de gerenciamento específico utilizando um ou mais serviços do OMS.
+Gerenciador de operação do Azure estende suas funcionalidades fornecendo soluções de gerenciamento. [Soluções de gerenciamento](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) são conjuntos de lógica pré-empacotados que implementam um cenário de gerenciamento específico utilizando um ou mais serviços de gerenciamento.
 
 ![Gerenciamento de operação do Azure](./media/governance-in-azure/security-governance-in-azure-fig10.png)
 
-Existem soluções diferentes disponibilizadas pela Microsoft e por parceiros que você pode adicionar facilmente à assinatura do Azure para aumentar o valor de seu investimento no OMS.
+Existem soluções diferentes disponibilizadas pela Microsoft e por parceiros que você pode adicionar facilmente à assinatura do Azure para aumentar o valor de seu investimento no Log Analytics.
 
 Como parceiro, você pode criar suas próprias soluções para dar suporte a seus aplicativos e serviços e oferecê-las aos usuários por meio do Azure Marketplace ou como Modelos de Início Rápido.
 
@@ -455,7 +455,7 @@ Os alertas estão disponíveis em diferentes serviços, incluindo:
 >[!Note]
 > Consulte [Definir Alertas no Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) e [Monitorar a disponibilidade e a capacidade de resposta de qualquer site](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Log Analytics (Conjunto de Gerenciamento de Operação): Habilita o roteamento de Atividade e Logs de Diagnóstico para o Log Analytics. O Operations Management Suite permite métricas, logs e outros tipos de alerta.
+- Log Analytics: Habilita o roteamento de Atividade e Logs de Diagnóstico para o Log Analytics e permite alertas como de métrica, log e outros tipos.
 
 >[!Note]
 > Para obter mais informações, consulte Alertas no [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
