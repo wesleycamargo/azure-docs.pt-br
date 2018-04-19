@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collector-appliance"></a>Dispositivo Coletor
 
@@ -126,7 +126,7 @@ Após a conexão com o vCenter, você poderá selecionar um escopo de descoberta
 
 1. O escopo pode ser um datacenter, uma pasta ou um host ESXi. 
 2. Você só pode selecionar um escopo de cada vez. Para selecionar mais máquinas virtuais, você pode concluir uma descoberta e reiniciar o processo de descoberta com um novo escopo.
-3. Você só pode selecionar um escopo que tenha *menos de 1000 máquinas virtuais*. Se você selecionar um escopo que tenha mais de 1000 máquinas virtuais, será preciso dividir o escopo em unidades menores criando pastas. Em seguida, você precisa executar as descobertas independentes das pastas menores.
+3. Você só pode selecionar um escopo que tenha *menos de 1500 máquinas virtuais*.
 
 ## <a name="specify-migration-project"></a>Especificar projeto de migração
 
@@ -197,6 +197,16 @@ Também recomendamos as seguintes etapas para proteger seu dispositivo
 5. Clique com o botão direito do mouse em Setup.ps1, selecione Executar com o PowerShell e siga as instruções na tela para instalar a atualização.
 
 ### <a name="list-of-updates"></a>Lista de atualizações
+
+#### <a name="upgrade-to-version-1097"></a>Upgrade para versão 1.0.9.7
+
+Para fazer upgrade da versão 1.0.9.7, faça o download do [pacote](https://aka.ms/migrate/col/upgrade_9_7)
+
+**Algoritmo** | **Valor de hash**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### <a name="upgrade-to-version-1095"></a>Upgrade para versão 1.0.9.5
 

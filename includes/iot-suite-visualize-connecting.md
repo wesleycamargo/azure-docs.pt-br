@@ -26,7 +26,7 @@ Para invocar métodos em seus dispositivos, use a página **Dispositivos** na so
 
 1. Para exibir uma lista dos métodos que você pode chamar em seu dispositivo, escolha **Agendar**. Para agendar um método a ser executado em vários dispositivos, você pode selecionar vários dispositivos na lista. O painel **Agendar** mostra os tipos de método comuns a todos os dispositivos selecionados.
 
-1. Escolha **FirmwareUpdate**, defina o nome do trabalho para **UpdatePhysicalChiller**. Defina **Firmware Version** para **2.0.0**, defina **Firmware URI** para **http://contoso.com/updates/firmware.bin** e, em seguida, escolha **Aplicar**:
+1. Escolha **FirmwareUpdate**, defina o nome do trabalho para **UpdatePhysicalChiller**. Defina a **Versão do Firmware** para **2.0.0**, defina **URI do Firmware** para **http://contoso.com/updates/firmware.bin**e, em seguida, escolha **Aplicar**:
 
     ![Agendar a atualização do firmware](media/iot-suite-visualize-connecting/deviceschedule.png)
 

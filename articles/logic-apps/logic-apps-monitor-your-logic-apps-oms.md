@@ -1,12 +1,12 @@
 ---
-title: "Monitorar e obter informações sobre as execuções de seu aplicativo lógico usando o OMS – Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Monitorar as execuções de seu aplicativo lógico com o Log Analytics e o OMS (Operations Management Suite) para obter informações ideias e detalhes de depuração mais avançados para solução de problemas e diagnóstico"
+title: Monitorar e obter informações sobre as execuções de seu aplicativo lógico usando o Log Analytics – Aplicativo Lógico do Azure | Microsoft Docs
+description: Monitore seu aplicativo lógico executado com o Log Analytics para obter informações e detalhes de depuração mais avançados para solução de problemas e diagnósticos
 author: divyaswarnkar
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2f9f27dc74348909b89941c2bb17ccdf610dba33
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d484aaf7d7582bd474d7437a7a62f41880690dbc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Monitorar e obter informações sobre execuções de aplicativo lógico com o OMS (Operations Management Suite) e o Log Analytics
+# <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Monitore e obtenha informações sobre o aplicativo lógico executado com Log Analytics
 
-Para obter informações monitoramento e depuração mais detalhadas, ative o Log Analytics durante a criação de um aplicativo lógico. O Log Analytics fornece o registro em log de diagnóstico e o monitoramento de suas execuções de aplicativo lógico por meio do portal do OMS (Operations Management Suite). Quando você adiciona a solução de Gerenciamento de Aplicativos Lógicos ao OMS, você obtém o status agregado das execuções de seu aplicativo lógico e detalhes específicos, como status, tempo de execução, status de reenvio e IDs de correlação.
+Para obter informações monitoramento e depuração mais detalhadas, ative o Log Analytics durante a criação de um aplicativo lógico. O Log Analytics fornece monitoramento e log de diagnósticos para as execuções do aplicativo lógico por meio do Portal do Azure. Ao adicionar a solução de Gerenciamento de Aplicativos Lógicos, você obtém o status agregado das execuções do aplicativo lógico e os detalhes específicos como status, tempo de execução, status de reenvio e IDs de correlação.
 
-Este tópico mostra como ativar o Log Analytics ou instalar a solução de Gerenciamento de Aplicativos Lógicos no OMS, para que você possa exibir eventos de tempo de execução e dados para a execução de seu aplicativo lógico.
+Esse tópico mostra como ativar o Log Analytics para que seja possível exibir eventos e dados de tempo de execução para a execução do aplicativo lógico.
 
  > [!TIP]
- > Para monitorar seus aplicativos lógicos existentes, execute estas etapas para [ativar o registro em log de diagnóstico e enviar dados de tempo de execução do aplicativo lógica para o OMS](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+ > Para monitorar os aplicativos lógicos existentes, siga essa etapas para [ativar o log de diagnósticos e enviar dados de tempo de execução de aplicativo lógico para o Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 ## <a name="requirements"></a>Requisitos
 
-Antes de começar, você precisa ter um espaço de trabalho do OMS. Saiba [como criar um espaço de trabalho do OMS](../log-analytics/log-analytics-get-started.md). 
+Antes de iniciar, é necessário ter um espaço de trabalho do Log Analytics. Saiba [como criar um espaço de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Ativar o registro em log de diagnóstico durante a criação de aplicativos lógicos
 
@@ -44,56 +44,47 @@ Antes de começar, você precisa ter um espaço de trabalho do OMS. Saiba [como 
    1. Dê um nome para seu aplicativo lógico e selecione sua assinatura do Azure. 
    2. Crie ou selecione um grupo de recursos do Azure.
    3. Defina **Log Analytics** como **Ativado**. 
-   Selecione o espaço de trabalho do OMS para o qual você deseja enviar dados para suas execuções de aplicativo lógico. 
+   Selecione o espaço de trabalho do Log Analytics para o qual você deseja enviar dados para suas execuções de aplicativo lógico. 
    4. Quando você estiver pronto, escolha **Fixar no painel** > **Criar**.
 
       ![Criar aplicativo lógico](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
 
-      Após a conclusão dessa etapa, o Azure criará seu aplicativo lógico, que agora está associado ao seu espaço de trabalho do OMS. 
-      Além disso, essa etapa também instala automaticamente a solução de Gerenciamento de Aplicativos Lógicos em seu espaço de trabalho do OMS.
+      Após a conclusão dessa etapa, o Azure criará o aplicativo lógico, que agora está associado ao espaço de trabalho do Log Analytics. 
+      Além disso, essa etapa também instala automaticamente a solução de Gerenciamento de Aplicativos Lógicos no espaço de trabalho.
 
-3. Para exibir as execuções de seu aplicativo lógico no OMS, [continue com estas etapas](#view-logic-app-runs-oms).
+3. Para exibir as execuções do aplicativo lógico, [continue com essas etapas](#view-logic-app-runs-oms).
 
-## <a name="install-the-logic-apps-management-solution-in-oms"></a>Instalar a solução de Gerenciamento de Aplicativos Lógicos no OMS
+## <a name="install-the-logic-apps-management-solution"></a>Instalar a solução de Gerenciamento de Aplicativos Lógicos
 
-Se você já ativou o Log Analytics durante a criação de seu aplicativo lógico, ignore esta etapa. Você já tem a solução de Gerenciamento de Aplicativos Lógicos instalada no OMS.
+Se você já ativou o Log Analytics durante a criação de seu aplicativo lógico, ignore esta etapa. Você já tem a solução de Gerenciamento de Aplicativos Lógicos instalada.
 
 1. No [portal do Azure](https://portal.azure.com), escolha **Mais serviços**. Pesquise por "log analytics" enquanto filtra e, em seguida, escolha **Log Analytics**, conforme exibido:
 
    ![Escolher “Log Analytics”](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-2. Em **Log Analytics**, encontre e selecione o espaço de trabalho do OMS. 
+2. Em **Log Analytics**, localize e selecione o espaço de trabalho do Log Analytics. 
 
-   ![Selecionar o espaço de trabalho do OMS](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
+   ![Selecionar o espaço de trabalho do Log Analytics](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
 3. Em **Gerenciamento**, escolha **Portal do OMS**.
 
    ![Escolher “Portal do OMS”](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. Na home page do OMS, se a faixa de atualização for exibida, escolha a faixa para que você atualizar seu espaço de trabalho do OMS primeiro. Então escolha **Galeria de Soluções**.
-
-   ![Escolha "Galeria de Soluções"](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
-
-5. Em **Todas as soluções**, localize e escolha o bloco para a solução **Gerenciamento de Aplicativos Lógicos**.
+4. Em **Todas as soluções**, localize e escolha o bloco para a solução **Gerenciamento de Aplicativos Lógicos**.
 
    ![Escolha "Gerenciamento de Aplicativos Lógicos"](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
 
-6. Para instalar a solução em seu espaço de trabalho do OMS, escolha **Adicionar**.
+5. Para instalar a solução no espaço de trabalho do Log Analytics, escolha **Adicionar**.
 
    ![Escolha "Adicionar" para "Gerenciamento de Aplicativos Lógicos"](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-your-logic-app-runs-in-your-oms-workspace"></a>Exibir as execuções de seu aplicativo lógico em seu espaço de trabalho do OMS
+## <a name="view-your-logic-app-runs-in-your-log-analytics-workspace"></a>Exibir as execuções do aplicativo lógico no espaço de trabalho do Log Analytics
 
-1. Para exibir a contagem e o status das execuções de seu aplicativo lógico, acesse a página de visão geral de seu espaço de trabalho do OMS. Examine os detalhes no bloco **Gerenciamento de Aplicativos Lógicos**.
+1. Para exibir a contagem e o status das execuções do aplicativo lógico, acesse a página de visão geral do espaço de trabalho do Log Analytics. Examine os detalhes no bloco **Gerenciamento de Aplicativos Lógicos**.
 
    ![Bloco de visão geral mostrando a contagem e o status da execução do aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
-
-   > [!Note]
-   > Se esse cabeçalho de atualização é exibida em vez do bloco de lógica de gerenciamento de aplicativos, escolha a faixa para que você atualizar seu espaço de trabalho do OMS primeiro.
-  
-   > ![Atualizar "Espaço de Trabalho do OMS"](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. Para exibir um resumo com mais detalhes sobre as execuções de seu aplicativo lógico, escolha o bloco **Gerenciamento de Aplicativos Lógicos**.
 

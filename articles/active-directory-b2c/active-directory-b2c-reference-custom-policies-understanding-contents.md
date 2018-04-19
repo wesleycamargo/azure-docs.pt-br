@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Noções básicas sobre as políticas personalizadas do pacote starter de política personalizada do Azure AD B2C
 
@@ -39,7 +39,7 @@ Esses esquemas de declarações são divididos em três seções:
 3.  E finalmente uma terceira seção que lista todas as declarações adicionais e opcionais que podem ser coletadas do usuário, armazenadas no diretório e enviadas em tokens durante a entrada. Novo tipo de declarações a serem coletadas do usuário e/ou enviadas no token podem ser adicionadas nesta seção.
 
 > [!IMPORTANT]
-> O esquema de declarações contém restrições em determinadas declarações, como senhas e nomes de usuário. A política da estrutura confiável (TF) trata do Azure AD como qualquer outro provedor de declarações e todas as suas restrições são modeladas na política premium. Uma política pode ser modificada para adicionar mais restrições ou usar outro provedor de declarações para o armazenamento de credenciais, que terá suas próprias restrições.
+> O esquema de declarações contém restrições em determinadas declarações, como senhas e nomes de usuário. A política de TF (Estrutura Confiável) trata o Microsoft Azure AD como qualquer outro provedor de declarações e todas as suas restrições são modeladas na política personalizada. Uma política pode ser modificada para adicionar mais restrições ou usar outro provedor de declarações para o armazenamento de credenciais, que terá suas próprias restrições.
 
 Os tipos de declaração disponíveis estão listados abaixo.
 
@@ -51,12 +51,12 @@ As declarações a seguir são necessárias para que os percursos do usuário fu
 |-------------|-------------|
 | *UserId* | Nome de Usuário |
 | *signInName* | Nome de entrada |
-| *tenantId* | Identificador (ID) do locatário do objeto de usuário no Azure AD B2C Premium |
-| *objectId* | Identificador (ID) do objeto do objeto de usuário no Azure AD B2C Premium |
+| *tenantId* | ID (Identificador de Locatário) do objeto de usuário no Microsoft Azure Active Directory B2C |
+| *objectId* | ID (Identificador de objeto) do objeto de usuário no Microsoft Azure Active Directory B2C |
 | *password* | Senha |
 | *newPassword* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Políticas de senha usadas pelo Azure AD B2C Premium para determinar a força da senha, expiração etc. |
+| *passwordPolicies* | Políticas de senha usadas pelo Microsoft Azure Active Directory B2C para determinar o nível de segurança da senha, expiração e etc. |
 | *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
@@ -66,9 +66,9 @@ As declarações a seguir são necessárias para que os percursos do usuário fu
 | *email* | Endereço de email que pode ser usado para contatar o usuário |
 | *signInNamesInfo.emailAddress* | Endereço de email que o usuário pode usar para a entrada |
 | *otherMails* | Endereços de email que podem ser usados para contatar o usuário |
-| *userPrincipalName* | Nome do usuário conforme armazenado no Azure AD B2C Premium |
+| *userPrincipalName* | Nome de usuário conforme armazenado no Microsoft Azure Active Directory B2C |
 | *upnUserName* | Nome de usuário para criar o nome principal do usuário |
-| *mailNickName* | Nome do usuário conforme armazenado no Azure AD B2C Premium |
+| *mailNickName* | Apelido de email do usuário conforme armazenado no Microsoft Azure Active Directory B2C |
 | *newUser* | |
 | *executed-SelfAsserted-Input* | Declaração que especifica se os atributos foram coletados do usuário |
 | *executed-PhoneFactor-Input* | Declaração que especifica se um novo número de telefone foi coletado do usuário |

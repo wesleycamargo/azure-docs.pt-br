@@ -1,6 +1,6 @@
 ---
-title: "Práticas recomendadas para empresas que estão migrando para o Azure | Microsoft Docs"
-description: "Descreve um andaime que as empresas podem usar para garantir um ambiente seguro e gerenciável."
+title: Práticas recomendadas para empresas que estão migrando para o Azure | Microsoft Docs
+description: Descreve um andaime que as empresas podem usar para garantir um ambiente seguro e gerenciável.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02553bb59cb37bab21d53adafc42fddcf08795a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Andaime empresarial do Azure — governança de assinatura prescritiva
 As empresas estão adotando cada vez mais a nuvem pública em busca de agilidade e flexibilidade. Elas estão usando os pontos fortes da nuvem para gerar receita ou otimizar recursos para os negócios. O Microsoft Azure fornece uma variedade de serviços que as empresas podem montar como blocos de construção para atender a uma ampla gama de aplicativos e cargas de trabalho. 
@@ -135,7 +135,7 @@ Ambiente "Ágil" para uma unidade de negócios que cria aplicativos de nuvem
 > 
 
 ### <a name="audit---what-happened"></a>Auditoria — o que aconteceu?
-Para exibir o funcionamento do seu ambiente, você precisa auditar a atividade do usuário. A maioria dos tipos de recurso no Azure cria logs de diagnóstico que você pode analisar por meio de uma ferramenta de log ou no Azure Operations Management Suite. É possível coletar logs de atividades em várias assinaturas para fornecer uma visão departamental ou empresarial. Os registros de auditoria são uma ferramenta importante de diagnóstico e um mecanismo crucial para disparar eventos no ambiente do Azure.
+Para exibir o funcionamento do seu ambiente, você precisa auditar a atividade do usuário. A maioria dos tipos de recursos no Azure cria logs de diagnóstico que você pode analisar por meio de uma ferramenta de log ou no Azure Log Analytics. É possível coletar logs de atividades em várias assinaturas para fornecer uma visão departamental ou empresarial. Os registros de auditoria são uma ferramenta importante de diagnóstico e um mecanismo crucial para disparar eventos no ambiente do Azure.
 
 Os logs de atividades das implantações do Resource Manager permitem determinar as **operações** que ocorreram e quem as executou. Os logs de atividades podem ser coletados e agregados usando ferramentas como o Log Analytics.
 
@@ -190,7 +190,7 @@ Essa proliferação de assinaturas não é mais necessária. Com o controle de a
 > * Conecte seu repositório de identidades corporativo (mais frequentemente, o Active Directory) ao Azure Active Directory usando a ferramenta AD Connect.
 > * Controle o Administrador/Coadministrador de uma assinatura usando uma identidade gerenciada. **Não** atribua Administrador/Coadministrador a um novo proprietário da assinatura. Em vez disso, use funções RBAC para fornecer direitos de **Proprietário** a um grupo ou indivíduo.
 > * Adicione usuários do Azure a um grupo (por exemplo, Proprietários do Aplicativo X) no Active Directory. Use o grupo sincronizado para fornecer aos membros do grupo os direitos apropriados para gerenciar o grupo de recursos que contém o aplicativo.
-> * Siga o princípio de conceder o **privilégio mínimo** exigido para realizar o trabalho esperado. Por exemplo:
+> * Siga o princípio de conceder o **privilégio mínimo** exigido para realizar o trabalho esperado. Por exemplo: 
 >   * Grupo de Implantação: um grupo que só é capaz de implantar recursos.
 >   * Gerenciamento de Máquinas Virtuais: um grupo que é capaz de reiniciar VMs (para operações)
 > 

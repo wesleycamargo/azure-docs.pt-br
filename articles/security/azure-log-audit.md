@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Log e auditoria do Azure
 ## <a name="introduction"></a>Introdução
@@ -74,7 +74,7 @@ A tabela a seguir lista os tipos mais importantes de logs disponíveis no Azure.
 |[Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Log de armazenamento; fornece dados de métrica de uma conta de armazenamento|Fornece informações das solicitações de rastreamento, analisa tendências de uso e diagnostica problemas com a conta de armazenamento.|    API REST ou [biblioteca de cliente](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Logs de fluxo do NSG (Grupo de Segurança de Rede)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON; mostra os fluxos de entrada e saída por regra|Exibe informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança de Rede|[Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logs, exceções e diagnóstico personalizado|    Serviço APM (Gerenciamento de Desempenho de Aplicativos) para desenvolvedores da Web em várias plataformas.| API REST, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Dados do processo/alerta de segurança| Alerta da Central de Segurança do Azure, alerta do OMS| Informações de segurança e alertas.|   APIs REST, JSON|
+|Dados do processo/alerta de segurança| Alerta da Central de Segurança do Azure, alerta do Log Analytics|   Informações de segurança e alertas.|   APIs REST, JSON|
 
 ### <a name="activity-log"></a>Log de Atividade
 O [Log de Atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornece informações sobre as operações executadas em recursos de sua assinatura. O Log de Atividades era conhecido como “Logs de Auditoria” ou “Logs Operacionais”, pois relata [eventos de plano de controle](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) de suas assinaturas. Com o Log de Atividades, você pode determinar dados básicos como “o que, quem e quando” em operações de gravação (PUT, POST, DELETE) executadas nos recursos de sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de Atividades não inclui operações de leitura (GET).
@@ -114,7 +114,7 @@ Os Logs de Diagnóstico do Azure oferecem várias opções de configuração, ou
 
 -   [Transmiti-los para os Hubs de Eventos](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) para ingestão por um serviço de terceiros ou uma solução de análise personalizada, como o [Power BI.](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
--   Analisá-los com o [Log Analytics do OMS.](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+-   Analise-os com o [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 
 **Serviços com suporte, esquema dos Logs de Diagnóstico e categorias de logs com suporte por tipo de recurso**
 
@@ -333,11 +333,11 @@ Muitas operações de segurança e equipes de resposta a incidentes contam com u
 
 ## <a name="log-analytics"></a>Log Analytics
 
-O Log Analytics é um serviço do [OMS (Operations Management Suite)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) que ajuda a coletar e analisar dados gerados pelos recursos em seus ambientes local e de nuvem. Ele fornece informações em tempo real usando a pesquisa integrada e painéis personalizados para analisar prontamente milhões de registros em todas as suas cargas de trabalho e todos os seus servidores, independentemente de sua localização física.
+O Log Analytics é um serviço no Azure que ajuda a coletar e analisar dados gerados pelos recursos nos seus ambientes local e de nuvem. Ele fornece informações em tempo real usando a pesquisa integrada e painéis personalizados para analisar prontamente milhões de registros em todas as suas cargas de trabalho e todos os seus servidores, independentemente de sua localização física.
 
 ![Log Analytics](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-No centro no Log Analytics está o repositório do OMS, que está hospedado na nuvem do Azure. Os dados são coletados para o repositório de fontes conectadas configurando fontes de dados e adicionando soluções à sua assinatura. Fontes de dados e soluções criarão diferentes tipos de registro que têm seus próprios conjuntos de propriedades, mas ainda podem ser analisados juntos em consultas no repositório. Isso permite usar as mesmas ferramentas e métodos para trabalhar com diferentes tipos de dados coletados por fontes diferentes.
+No centro no Log Analytics está o espaço de trabalho do Log Analytics, que está hospedado na nuvem do Azure. Os dados são coletados para o espaço de trabalho de fontes conectadas configurando fontes de dados e adicionando soluções à sua assinatura. Fontes de dados e soluções criarão diferentes tipos de registro que têm seus próprios conjuntos de propriedades, mas ainda podem ser analisados juntos em consultas no espaço de trabalho. Isso permite usar as mesmas ferramentas e métodos para trabalhar com diferentes tipos de dados coletados por fontes diferentes.
 
 Fontes conectadas são os computadores e outros recursos que geram dados coletados pelo Log Analytics. Isso pode incluir os agentes instalados em computadores [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) e [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) que se conectam diretamente ou agentes em um [grupo de gerenciamento conectado do System Center Operations Manager.](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents) O Log Analytics também pode coletar dados do [armazenamento do Azure.](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)
 

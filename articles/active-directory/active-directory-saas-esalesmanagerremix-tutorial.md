@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
 ms.openlocfilehash: 200d87b950ac76c85513bc11da2798562e48bec3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
 
@@ -155,7 +155,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
     
     b. Na seção **item Colaboração**, na lista suspensa, selecione **email**.
 
-    c. Na caixa **item Colaboração**, cole o valor de declaração que você copiou anteriormente no portal do Azure (ou seja, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. Na caixa do item Colaboração, cole o **valor de declaração** copiado anteriormente do Portal do Azure (ou seja, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
     d. Na caixa **Emissor (ID da entidade)**, cole o valor do identificador que você copiou do portal do Azure na seção **Domínio e URLs do E Sales Manager Remix**.
 
