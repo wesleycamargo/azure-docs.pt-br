@@ -1,12 +1,12 @@
 ---
-title: "Operações assíncronas do Azure | Microsoft Docs"
-description: "Descreve como rastrear operações assíncronas no Azure."
+title: Operações assíncronas do Azure | Microsoft Docs
+description: Descreve como rastrear operações assíncronas no Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article

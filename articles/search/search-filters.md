@@ -1,24 +1,18 @@
 ---
 title: Filtros no Azure Search | Microsoft Docs
-description: "Filtre por identidade de segurança do usuário, idioma, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Search, um serviço de pesquisa de nuvem hospedado no Microsoft Azure."
-services: search
-documentationcenter: 
+description: Filtre por identidade de segurança do usuário, idioma, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Search, um serviço de pesquisa de nuvem hospedado no Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/19/2017
 ms.author: heidist
-ms.openlocfilehash: 2e8721684b1d4ed0e7392d85ea1df0f595860a05
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 82da742e6512e0acc8278a255c7e4e0516eaa8cb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="filters-in-azure-search"></a>Filtros no Azure Search 
 
@@ -159,7 +153,7 @@ Para filtros de texto compostos por cadeias de caracteres, não há nenhuma sepa
 Cadeias de caracteres de texto diferenciam minúsculas e maiúsculas. Não há nenhuma conversão para minúscula de palavras com letras maiúsculas: `$filter=f eq 'Sunny day'` não localizará “dia ensolarado”.
 
 
-| Abordagem | Descrição | 
+| Abordagem | DESCRIÇÃO | 
 |----------|-------------|
 | [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função que fornece uma lista delimitada por vírgulas de cadeias de caracteres para um determinado campo. As cadeias de caracteres compõem os critérios de filtro, que são aplicados a todos os campos no escopo da consulta. <br/><br/>`search.in(f, ‘a, b, c’)` é semanticamente equivalente a `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, exceto que é executado com mais rapidez quando a lista de valores for grande.<br/><br/>Recomendamos a função **search.in** para [filtros de segurança](search-security-trimming-for-azure-search.md) e para todos os filtros compostos por um texto bruto a ser correspondido nos valores em um determinado campo. Essa abordagem é projetada para velocidade. Você pode esperar o tempo de resposta de subsegundos para centenas ou milhares de valores. Embora não haja nenhum limite explícito no número de itens que você pode passar para a função, a latência aumenta proporcionalmente ao número de cadeias de caracteres que você fornecer. | 
 | [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função que permite a combinação de operações de pesquisa de texto completo com operações de filtro estritamente booliano na mesma expressão de filtro. Ela permite várias combinações de filtro e consulta em uma solicitação. Você também pode usá-la para um filtro de *contém* para filtrar em uma cadeia de caracteres parcial dentro de uma cadeia de caracteres maior. |  

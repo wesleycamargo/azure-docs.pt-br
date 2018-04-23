@@ -1,11 +1,11 @@
 ---
 title: Planejamento de capacidade para aplicativos Service Fabric | Microsoft Docs
-description: "Descreve como identificar o número de nós de computação necessários para um aplicativo do Service Fabric"
+description: Descreve como identificar o número de nós de computação necessários para um aplicativo do Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: markfuss
-editor: 
+editor: ''
 ms.assetid: 9fa47be0-50a2-4a51-84a5-20992af94bea
 ms.service: service-fabric
 ms.devlang: dotnet

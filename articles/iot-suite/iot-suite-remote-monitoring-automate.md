@@ -1,7 +1,7 @@
 ---
-title: "Detectar problemas de dispositivos na solução de monitoramento remoto – Azure | Microsoft Docs"
-description: "Este tutorial mostra como usar regras e ações para detectar automaticamente os problemas do dispositivo relacionados ao limite na solução de monitoramento remoto."
-services: 
+title: Detectar problemas de dispositivos na solução de monitoramento remoto – Azure | Microsoft Docs
+description: Este tutorial mostra como usar regras e ações para detectar automaticamente os problemas do dispositivo relacionados ao limite na solução de monitoramento remoto.
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt

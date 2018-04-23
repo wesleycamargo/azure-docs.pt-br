@@ -1,24 +1,18 @@
 ---
 title: Adicionar uma entidade de serviço à função de administrador do servidor do Azure Analysis Services | Microsoft Docs
 description: Saiba como adicionar uma entidade de serviço de automação à função de administrador do servidor
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 8e51b80e184b2b1ff24b1051b55088fbc54c271c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: minewiskan
+ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-a-service-principle-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
 
@@ -47,7 +41,7 @@ Para concluir essa tarefa, você deve ter permissões de [administrador do servi
 
 
 > [!NOTE]
-> Para operações do servidor utilizando cmdlets do AzureRm, o agendador executando a entidade de serviço também deverá pertencer à função **Proprietário** do recurso no [RBAC (Controle de Acesso Baseado em Função do Azure)](../active-directory/role-based-access-control-what-is.md). 
+> Para operações do servidor utilizando cmdlets do AzureRm, o agendador executando a entidade de serviço também deverá pertencer à função **Proprietário** do recurso no [RBAC (Controle de Acesso Baseado em Função do Azure)](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>Informações relacionadas
 

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação do Lote"
+title: Documentação do Lote
 metadata:
-  title: "Documentação do Lote - Tutoriais, Referência de API | Microsoft Docs"
-  description: "Use o Lote para executar com eficiência aplicativos HPC (computação de alto desempenho) e paralelos em grande escala na nuvem. Defina os recursos de computação do Azure para executar seus aplicativos em paralelo ou em escala sem configurar manualmente ou gerenciar a infraestrutura. Agende as tarefas que requerem muita computação e adicione ou remova dinamicamente os recursos de computação com base em seus requisitos. Saiba como usar o Lote do Azure com nossos guias de início rápido, tutoriais e exemplos."
+  title: Documentação do Lote - Tutoriais, Referência de API | Microsoft Docs
+  description: Use o Lote para executar com eficiência aplicativos HPC (computação de alto desempenho) e paralelos em grande escala na nuvem. Defina os recursos de computação do Azure para executar seus aplicativos em paralelo ou em escala sem configurar manualmente ou gerenciar a infraestrutura. Agende as tarefas que requerem muita computação e adicione ou remova dinamicamente os recursos de computação com base em seus requisitos. Saiba como usar o Lote do Azure com nossos guias de início rápido, tutoriais e exemplos.
   services: batch
   author: czeumault
   manager: carolz
@@ -19,9 +19,9 @@ metadata:
   ms.contentlocale: pt-BR
   ms.lasthandoff: 02/28/2018
 abstract:
-  description: "Use o Lote para executar com eficiência aplicativos HPC (computação de alto desempenho) e paralelos em grande escala na nuvem. Defina os recursos de computação do Azure para executar seus aplicativos em paralelo ou em escala sem configurar manualmente ou gerenciar a infraestrutura. Agende as tarefas que requerem muita computação e adicione ou remova dinamicamente os recursos de computação com base em seus requisitos. Saiba como usar o Lote do Azure com nossos guias de início rápido, tutoriais e exemplos."
+  description: Use o Lote para executar com eficiência aplicativos HPC (computação de alto desempenho) e paralelos em grande escala na nuvem. Defina os recursos de computação do Azure para executar seus aplicativos em paralelo ou em escala sem configurar manualmente ou gerenciar a infraestrutura. Agende as tarefas que requerem muita computação e adicione ou remova dinamicamente os recursos de computação com base em seus requisitos. Saiba como usar o Lote do Azure com nossos guias de início rápido, tutoriais e exemplos.
 sections:
-- title: "Guia de início rápido de 5 minutos"
+- title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
     text: Saiba como executar seu primeiro trabalho em lotes no Azure.
@@ -47,14 +47,14 @@ sections:
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: "Saiba como executar as cargas de trabalho que requerem muita computação no Lote."
+    text: Saiba como executar as cargas de trabalho que requerem muita computação no Lote.
   - type: list
     style: ordered
     items:
     - html: <a href="tutorial-parallel-dotnet">Processamento de arquivo paralelo com SDK do .NET </a>
     - html: <a href="tutorial-parallel-python">Processamento de arquivo paralelo com SDK do Python</a>
-    - html: "<a href=\"tutorial-rendering-cli\">Renderização de cena com Arnold</a>"
-    - html: "<a href=\"tutorial-r-doazureparallel\">Simulação R paralela</a>"
+    - html: <a href="tutorial-rendering-cli">Renderização de cena com Arnold</a>
+    - html: <a href="tutorial-r-doazureparallel">Simulação R paralela</a>
 - title: Exemplos
   items:
   - type: list
@@ -62,7 +62,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="cli-samples">CLI do Azure</a>
-- title: "Referência"
+- title: Referência
   items:
   - type: list
     style: cards
@@ -73,4 +73,4 @@ sections:
     - title: Linguagens
       html: <p><a href="/dotnet/api/overview/azure/batch">.NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/batchservice\">API REST do Serviço em Lotes</a></p><p><a href=\"/rest/api/batchmanagement/\">API REST do Gerenciamento em Lotes</a></p>"
+      html: <p><a href="/rest/api/batchservice">API REST do Serviço em Lotes</a></p><p><a href="/rest/api/batchmanagement/">API REST do Gerenciamento em Lotes</a></p>

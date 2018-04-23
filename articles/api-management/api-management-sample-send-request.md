@@ -1,11 +1,11 @@
 ---
-title: "Usando o serviço Gerenciamento de API para gerar solicitações HTTP"
-description: "Saiba como usar políticas de solicitação e de resposta no Gerenciamento de API para chamar serviços externos de sua API"
+title: Usando o serviço Gerenciamento de API para gerar solicitações HTTP
+description: Saiba como usar políticas de solicitação e de resposta no Gerenciamento de API para chamar serviços externos de sua API
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
 ms.devlang: dotnet

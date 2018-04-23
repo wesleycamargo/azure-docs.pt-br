@@ -1,11 +1,11 @@
 ---
-title: "Segurança de cluster do Service Fabric: funções de cliente | Microsoft Docs"
-description: "Este artigo descreve as duas funções de clientes e as permissões fornecidas para as funções."
+title: 'Segurança de cluster do Service Fabric: funções de cliente | Microsoft Docs'
+description: Este artigo descreve as duas funções de clientes e as permissões fornecidas para as funções.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: coreysa
-editor: 
+editor: ''
 ms.assetid: 7bc808d9-3609-46a1-ac12-b4f53bff98dd
 ms.service: service-fabric
 ms.devlang: dotnet

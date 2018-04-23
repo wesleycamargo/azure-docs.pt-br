@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Serviço de Contêiner do Azure – preparar o aplicativo"
-description: "Tutorial do Serviço de Contêiner do Azure – preparar o aplicativo"
+title: Tutorial do Serviço de Contêiner do Azure – preparar o aplicativo
+description: Tutorial do Serviço de Contêiner do Azure – preparar o aplicativo
 services: container-service
 author: neilpeterson
 manager: timlt

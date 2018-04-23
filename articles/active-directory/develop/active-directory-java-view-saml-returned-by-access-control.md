@@ -1,25 +1,24 @@
 ---
-title: "Exibir o SAML retornado pelo Serviço de Controle de Acesso (Java)"
-description: "Saiba como exibir o SAML retornado pelo serviço de controle de acesso em aplicativos Java hospedados no Azure."
+title: Exibir o SAML retornado pelo Serviço de Controle de Acesso (Java)
+description: Saiba como exibir o SAML retornado pelo serviço de controle de acesso em aplicativos Java hospedados no Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: 
+manager: mbaldwin
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 28c43b27d58d78036dd832fb4f95f2bc9958441c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Como exibir o SAML retornado pelo Access Control Service do Azure
 Este guia mostrará como exibir o SAML adjacente retornado a seu aplicativo pelo ACS (Serviço de Controle de Acesso) do Azure. O guia baseia-se no tópico [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md), fornecendo um código que exibe as informações de SAML. O aplicativo concluído será semelhante ao seguinte.
@@ -33,7 +32,7 @@ Para obter mais informações sobre o ACS, consulte a seção [Próximas etapas]
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para executar as tarefas deste guia, conclua o exemplo em [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) e use-o como ponto de partida deste tutorial.
 
 ## <a name="add-the-jspwriter-library-to-your-build-path-and-deployment-assembly"></a>Adicionar a biblioteca JspWriter a seu caminho de compilação e assembly de implantação

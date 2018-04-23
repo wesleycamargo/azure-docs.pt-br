@@ -1,6 +1,6 @@
 ---
-title: "Habilitar o acesso de leitura público para contêineres e blobs no Armazenamento de Blobs do Azure | Microsoft Docs"
-description: "Saiba como disponibilizar os contêineres e blobs para acesso anônimo e como acessá-los programaticamente."
+title: Habilitar o acesso de leitura público para contêineres e blobs no Armazenamento de Blobs do Azure | Microsoft Docs
+description: Saiba como disponibilizar os contêineres e blobs para acesso anônimo e como acessá-los programaticamente.
 services: storage
 author: tamram
 manager: jeconnoc

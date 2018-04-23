@@ -1,6 +1,6 @@
 ---
-title: "Camadas de preço no Banco de Dados do Azure para MySQL | Microsoft Docs"
-description: "Camadas de preço no Banco de Dados do Azure para MySQL"
+title: Camadas de preço no Banco de Dados do Azure para MySQL | Microsoft Docs
+description: Camadas de preço no Banco de Dados do Azure para MySQL
 services: mysql
 author: jasonwhowell
 ms.author: jasonh

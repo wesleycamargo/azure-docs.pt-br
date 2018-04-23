@@ -1,11 +1,11 @@
 ---
 title: APIs REST do Gerenciador de Recursos| Microsoft Docs
-description: "Uma visão geral dos exemplos de autenticação e de uso de APIs REST do Gerenciador de Recursos"
+description: Uma visão geral dos exemplos de autenticação e de uso de APIs REST do Gerenciador de Recursos
 services: azure-resource-manager
 documentationcenter: na
 author: navalev
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e8d7a1d2-1e82-4212-8288-8697341408c5
 ms.service: azure-resource-manager
 ms.devlang: na

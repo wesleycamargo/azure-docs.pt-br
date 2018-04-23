@@ -1,11 +1,11 @@
 ---
-title: "Solução de problemas do Diagnóstico do Azure | Microsoft Docs"
-description: "Solucionar problemas ao usar o diagnóstico do Azure no Service Fabric, Serviços de Nuvem e Máquinas Virtuais do Azure."
+title: Solução de problemas do Diagnóstico do Azure | Microsoft Docs
+description: Solucionar problemas ao usar o diagnóstico do Azure no Service Fabric, Serviços de Nuvem e Máquinas Virtuais do Azure.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
 ms.service: monitoring-and-diagnostics
 ms.workload: na

@@ -1,6 +1,6 @@
 ---
-title: "Exemplos de Script do Serviço de Contêiner do Azure"
-description: "Exemplos de Script do Serviço de Contêiner do Azure"
+title: Exemplos de Script do Serviço de Contêiner do Azure
+description: Exemplos de Script do Serviço de Contêiner do Azure
 services: container-service
 author: neilpeterson
 manager: timlt

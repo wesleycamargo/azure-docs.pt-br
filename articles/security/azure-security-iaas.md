@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 501364f24e61c29ac0d5909a7dff1df9e93fe6a5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Práticas recomendadas de segurança para as cargas de trabalho IaaS no Azure
 
@@ -52,7 +52,7 @@ No passado, o perímetro da rede era usado para controlar o acesso aos dados cor
 
 Uma das etapas mais vantajosas que podem ser tomadas para proteger uma conta é habilitar a autenticação de dois fatores. A autenticação de dois fatores é uma maneira de autenticar usando algo além de uma senha. Isso ajuda a minimizar o risco do acesso por uma pessoa que consegue obter a senha de outra pessoa.
 
-A [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md) ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda dos usuários para um processo de logon simples. Ele fornece autenticação forte por meio de uma variedade de opções de fácil verificação: chamada telefônica, mensagem de texto ou notificação de aplicativo móvel. Os usuários escolhem o método preferido.
+A [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md) ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda dos usuários para um processo de logon simples. Ele fornece autenticação forte por meio de uma variedade de opções de fácil verificação: chamada telefônica, mensagem de texto ou notificação de aplicativo móvel. Os usuários escolhem o método preferido.
 
 A maneira mais fácil de usar a Autenticação Multifator do Azure é o aplicativo móvel do Microsoft Authenticator, que pode ser usado em dispositivos móveis que executam o Windows, IOS e Android. Com a versão mais recente do Windows 10 e a integração do Active Directory local com o Azure AD (Azure Active Directory), o [Windows Hello para Empresas](../active-directory/active-directory-azureadjoin-passport-deployment.md) pode ser usado para fazer um logon único e perfeito nos recursos do Azure. Neste caso, o dispositivo do Windows 10 é usado como o segundo fator para a autenticação.
 
@@ -118,7 +118,7 @@ Como alternativa, você pode usar a opção [ponto a site](../vpn-gateway/vpn-ga
 >[!NOTE]
 >Você pode usar a opção VPN para reconfigurar as ACLs nos NSGs a fim de impedir o acesso aos pontos de extremidade de gerenciamento pela Internet.
 
-Outra opção que vale a pena considerar é uma implantação do [Gateway da Área de Trabalho Remota](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md). Você pode usar essa implantação para se conectar com segurança a servidores de área de trabalho remota via HTTPS ao mesmo tempo em que aplica controles mais detalhados a essas conexões.
+Outra opção que vale a pena considerar é uma implantação do [Gateway da Área de Trabalho Remota](../active-directory/authentication/howto-mfaserver-nps-rdg.md). Você pode usar essa implantação para se conectar com segurança a servidores de área de trabalho remota via HTTPS ao mesmo tempo em que aplica controles mais detalhados a essas conexões.
 
 Os recursos que você acessaria incluem:
 

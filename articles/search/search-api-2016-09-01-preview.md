@@ -1,24 +1,19 @@
 ---
-title: "Versão da API REST do Serviço Azure Search 2016-09-01-Preview | Microsoft Docs"
-description: "A Versão da API REST do Serviço Azure Search 2016-09-01-Preview inclui recursos experimentais como pesquisas de sinônimos e do tipo moreLikeThis."
-services: search
-documentationcenter: na
+title: Versão da API REST do Serviço Azure Search 2016-09-01-Preview | Microsoft Docs
+description: A Versão da API REST do Serviço Azure Search 2016-09-01-Preview inclui recursos experimentais como pesquisas de sinônimos e do tipo moreLikeThis.
 author: mhko
 manager: jlembicz
-editor: 
-ms.assetid: 3dba3bf8-9c83-42f6-82bc-04727bd11037
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: search
+ms.topic: reference
 ms.date: 10/25/2017
 ms.author: nateko
-ms.openlocfilehash: 082c207f892fcc277d30d66c6165dd9920d3ab27
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 034c7c9c6e97ebb128860b6041089b311ffaf528
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-service-rest-api-version-2016-09-01-preview"></a>API REST do Serviço Azure Search: versão 2016-09-01-Preview
 Este artigo é a documentação de referência para a `api-version=2016-09-01-Preview`. Essa versão prévia estende a versão atual disponibilizada para o público geral, [api-version=2016-09-01](https://msdn.microsoft.com/library/dn798935.aspx), fornecendo os seguintes recursos experimentais:

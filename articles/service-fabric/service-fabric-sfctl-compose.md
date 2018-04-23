@@ -1,12 +1,12 @@
 ---
-title: "CLI do Azure Service Fabric - composição sfctl | Microsoft Docs"
-description: "Descreve os comandos de composição do sfctl da CLI do Service Fabric."
+title: CLI do Azure Service Fabric - composição sfctl | Microsoft Docs
+description: Descreve os comandos de composição do sfctl da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference

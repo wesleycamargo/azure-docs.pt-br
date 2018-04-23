@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c06e69dd9d1997500589659e936dc25ee01ed145
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 Para as SKUs atuais (VpnGw1, VpnGw2 e VPNGW3) para o qual você deseja redimensionar sua SKU de gateway para atualizar para uma mais avançada, você pode usar o `Resize-AzureRmVirtualNetworkGateway` cmdlet do PowerShell. Você também pode fazer o downgrade do tamanho do SKU de gateway usando esse cmdlet. Se você estiver usando a SKU de gateway básica [use estas instruções](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) para redimensionar o gateway.
 

@@ -1,11 +1,11 @@
 ---
-title: "Conceitos principais e visão geral do Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre APIs, produtos, funções, grupos e outros conceitos principais do Gerenciamento de API."
+title: Conceitos principais e visão geral do Gerenciamento de API do Azure | Microsoft Docs
+description: Saiba mais sobre APIs, produtos, funções, grupos e outros conceitos principais do Gerenciamento de API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

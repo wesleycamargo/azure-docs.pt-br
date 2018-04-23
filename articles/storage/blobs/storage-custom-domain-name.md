@@ -1,6 +1,6 @@
 ---
-title: "Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs do Azure| Microsoft Docs"
-description: "Use o Portal do Azure para mapear seu próprio nome canônico (CNAME) para o ponto de extremidade do Armazenamento de Blobs em uma conta de Armazenamento do Azure."
+title: Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs do Azure| Microsoft Docs
+description: Use o Portal do Azure para mapear seu próprio nome canônico (CNAME) para o ponto de extremidade do Armazenamento de Blobs em uma conta de Armazenamento do Azure.
 services: storage
 author: tamram
 manager: jeconnoc

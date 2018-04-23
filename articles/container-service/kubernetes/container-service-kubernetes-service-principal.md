@@ -1,6 +1,6 @@
 ---
-title: "Entidade de serviço para cluster Kubernetes do Azure"
-description: "Criar e gerenciar uma entidade de serviço do Azure Active Directory para um cluster Kubernetes no Serviço de Contêiner do Azure"
+title: Entidade de serviço para cluster Kubernetes do Azure
+description: Criar e gerenciar uma entidade de serviço do Azure Active Directory para um cluster Kubernetes no Serviço de Contêiner do Azure
 services: container-service
 author: neilpeterson
 manager: timlt

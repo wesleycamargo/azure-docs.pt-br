@@ -1,25 +1,17 @@
 ---
-title: "Importação de dados no Azure Search | Microsoft Docs"
-description: "Aprenda a carregar dados em um índice no Azure Search."
-services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: aa8d47c1-4ae6-4209-a8ce-48d5a9474707
+title: Importação de dados no Azure Search | Microsoft Docs
+description: Aprenda a carregar dados em um índice no Azure Search.
+author: HeidiSteen
+manager: cgronlun
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/05/2018
-ms.author: ashmaka
-ms.openlocfilehash: 8394475572502df9d57256dc5123fcdfa72765a6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.author: heidist
+ms.openlocfilehash: 3f5f6c4ea8ba45d0fefb84e7338ffdc44f852246
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="indexing-in-azure-search"></a>Indexação no Azure Search
 > [!div class="op_single_selector"]
@@ -53,7 +45,7 @@ O modelo de pull rastreia uma fonte de dados com suporte e carrega automaticamen
 
 + [Armazenamento de Blobs](search-howto-indexing-azure-blob-storage.md)
 + [Armazenamento de tabelas](search-howto-indexing-azure-tables.md)
-+ [Banco de dados do Azure Cosmos](http://aka.ms/documentdb-search-indexer)
++ [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer)
 + [Banco de Dados SQL do Azure e SQL Server em VMs do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Indexadores conectam um índice a uma fonte de dados (geralmente uma tabela, exibição ou estrutura equivalente) e mapeiam campos de origem para os campos equivalentes no índice. Durante a execução, o conjunto de linhas é automaticamente transformado em JSON e carregado no índice especificado. Todos os indexadores dão suporte à programação. Assim, você pode especificar com que frequência os dados devem ser atualizados. A maioria dos indexadores fornece controle de alterações se a fonte de dados oferecer suporte a isso. Rastreando as alterações e as exclusões para os documentos existentes, além de reconhecer novos documentos, os indexadores dispensam a necessidade de gerenciar ativamente os dados no índice. 
