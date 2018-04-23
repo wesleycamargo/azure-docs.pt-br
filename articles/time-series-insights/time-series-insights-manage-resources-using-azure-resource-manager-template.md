@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 12/08/2017
-ms.openlocfilehash: b09d4a1aea56a4e306f80a1b43d519d313fd73ab
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos do Time Series Insights usando modelos do Azure Resource Manager
 
@@ -153,7 +153,7 @@ Para saber mais, consulte o tópico [Parâmetros](../azure-resource-manager/reso
 Em um prompt do PowerShell, execute o seguinte comando:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Você precisará entrar em sua conta do Azure. Após o logon, execute o comando a seguir para exibir as assinaturas disponíveis:
@@ -266,7 +266,8 @@ Outputs                 :
 
 A página inicial do modelo de início rápido no GitHub também inclui um botão **Implantar no Azure**. Clique nele para abrir uma página Implantação Personalizada no portal do Azure. Nessa página, você pode inserir ou selecionar valores para cada parâmetro nas tabelas de [parâmetros obrigatórios](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) ou [parâmetros opcionais](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters). Depois de preencher as configurações, clique no botão **Comprar** para iniciar a implantação de modelo.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Próximas etapas

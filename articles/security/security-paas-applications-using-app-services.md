@@ -1,12 +1,12 @@
 ---
-title: "Proteção dos aplicativos Web e móveis de PaaS usando o Serviço de Aplicativo do Azure | Microsoft Docs"
+title: Proteção dos aplicativos Web e móveis de PaaS usando o Serviço de Aplicativo do Azure | Microsoft Docs
 description: " Saiba mais sobre o Serviço de Aplicativo do Azure e as melhores práticas de segurança para proteger aplicativos Web e móveis de PaaS. "
 services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dec45d91ad1a73306b3e2656dd9bf7fdbe456720
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d2e606fe23a3a6eb9d2310b0932ccec8fcfc518c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Proteção dos aplicativos Web e móveis de PaaS usando o Serviço de Aplicativo do Azure
 
@@ -32,7 +32,7 @@ O [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md) 
 Ao usar o Serviço de Aplicativo, siga estas melhores práticas:
 
 - [Autenticar por meio do Azure Active Directory (AD)](../app-service/app-service-authentication-overview.md). O Serviço de Aplicativo fornece um serviço OAuth 2.0 para seu provedor de identidade. O OAuth 2.0 se concentra na simplicidade de desenvolvedor do cliente, fornecendo fluxos de autorização específicos para aplicativos Web, aplicativos da área de trabalho e telefones celulares. O Azure AD usa o OAuth 2.0 para que você possa autorizar o acesso a aplicativos móveis e da Web.
-- Restringir o acesso com base nos princípios de segurança de divulgação restrita àqueles diretamente interessados e privilégios mínimos. A restrição do acesso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. O RBAC (Controle de Acesso baseado em função) pode ser usado para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. Para saber mais sobre a concessão de acesso aos aplicativos aos usuários, consulte [introdução ao gerenciamento de acesso](../active-directory/role-based-access-control-what-is.md).
+- Restringir o acesso com base nos princípios de segurança de divulgação restrita àqueles diretamente interessados e privilégios mínimos. A restrição do acesso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. O RBAC (Controle de Acesso baseado em função) pode ser usado para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. Para saber mais sobre a concessão de acesso aos aplicativos aos usuários, consulte [introdução ao gerenciamento de acesso](../role-based-access-control/overview.md).
 - Proteja seus dados. Não importa a qualidade de sua segurança se você perder suas chaves de assinatura. O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Usando o Cofre de Chaves, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). Para garantia extra, você pode importar ou gerar chaves em HSMs. Confira [Azure Key Vault](../key-vault/key-vault-whatis.md) para saber mais. Também é possível usar o Key Vault para gerenciar seus certificados TLS com renovação automática.
 - Restrinja os endereços IP de origem de entrada. O [Ambiente de Serviço de Aplicativo](../app-service/environment/intro.md) tem um recurso de integração de rede virtual que ajuda a restringir endereços IP de origem de entrada por meio dos NSGs (grupos de segurança de rede). Se você não estiver familiarizado com VNETs (Redes Virtuais do Azure), isso é um recurso que permite colocar muitos dos recursos do Azure em uma rede que não pode ser roteada pela Internet, cujo acesso você pode controlar. Para saber mais, confira [Integrar seu aplicativo com uma Rede Virtual do Azure](../app-service/web-sites-integrate-with-vnet.md).
 

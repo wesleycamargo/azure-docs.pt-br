@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e41dae2f4e93fe2e3cef689596612a6a192c844
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planejar e projetar redes virtuais do Azure
 Criar uma rede virtual para fazer experiências com ela é bastante simples, mas as chances são: você implantará múltiplas redes virtuais ao longo do tempo para dar suporte às necessidades de produção da sua organização. Com algum planejamento e design, você poderá implantar redes virtuais e conectar-se aos recursos de que precisa com mais eficiência. Se você não estiver familiarizado com redes virtuais, recomenda-se que você [saiba mais sobre redes virtuais](virtual-networks-overview.md) e [como implantar](quick-create-portal.md) uma antes de continuar.
@@ -87,12 +87,12 @@ Por padrão, sua VNet usa a [Resolução de nomes fornecida pelo Azure](virtual-
 Analise os limites de rede no artigo dos [limites do Azure](../azure-subscription-service-limits.md#networking-limits) para garantir que seu design não entre em conflito com qualquer um dos limites. Alguns limites podem ser aumentados abrindo um tíquete de suporte.
 
 ### <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
-Você pode usar o [RBAC do Azure](../active-directory/role-based-access-built-in-roles.md) para controlar o nível de acesso que usuários diferentes podem ter a recursos diferentes no Azure. Dessa forma, você pode separar o trabalho realizado pela equipe de acordo com suas necessidades.
+Você pode usar o [RBAC do Azure](../role-based-access-control/built-in-roles.md) para controlar o nível de acesso que usuários diferentes podem ter a recursos diferentes no Azure. Dessa forma, você pode separar o trabalho realizado pela equipe de acordo com suas necessidades.
 
 Conforme as redes virtuais são compreendidas, os usuários na função **Colaborador de Rede** têm controle total sobre os recursos de rede virtual do Azure Resource Manager. Da mesma forma, os usuários na função **Colaborador de Rede Clássico** têm controle total sobre os recursos de rede virtual clássica.
 
 > [!NOTE]
-> Você também pode [criar suas próprias funções](../active-directory/role-based-access-control-configure.md) para separar suas necessidades administrativas.
+> Você também pode [criar suas próprias funções](../role-based-access-control/role-assignments-portal.md) para separar suas necessidades administrativas.
 >
 >
 

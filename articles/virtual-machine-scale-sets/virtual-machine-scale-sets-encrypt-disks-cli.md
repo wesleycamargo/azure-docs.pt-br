@@ -1,13 +1,13 @@
 ---
-title: "Discos de criptografia de Conjuntos de Dimensionamento de Máquinas Virtuais do Azure | Microsoft Docs"
-description: "Saiba como criptografar discos anexados em conjuntos de dimensionamento de máquinas virtuais."
+title: Discos de criptografia de Conjuntos de Dimensionamento de Máquinas Virtuais do Azure | Microsoft Docs
+description: Saiba como criptografar discos anexados em conjuntos de dimensionamento de máquinas virtuais.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3263ed4d6325207f38656d741fa4a1f091d4fdea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570764ad5d657a8b1efa2425423a89ddc518451c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>Criptografar os discos de sistema operacional e de dados anexados em um conjunto de dimensionamento de máquinas virtuais
 Os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure dão suporte ao ADE (Azure Disk Encryption).  O Azure Disk Encryption pode ser habilitado para conjuntos de dimensionamento de máquinas virtuais Windows e Linux a fim de proteger os dados dos conjuntos de dimensionamento em repouso usando tecnologia de criptografia padrão da indústria. For more information, read Azure Disk Encryption para máquinas virtuais Windows e Linux.
@@ -42,7 +42,7 @@ Instalar as versões mais recentes do [Azure Powershell](https://github.com/Azur
 A Azure Disk Encryption para a versão prévia de conjuntos de dimensionamento de máquinas virtuais requer que você faça o registro da sua própria assinatura usando os seguintes comandos do PowerShell: 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

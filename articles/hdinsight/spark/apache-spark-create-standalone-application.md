@@ -1,8 +1,8 @@
 ---
-title: "Criar aplicativos do Scala para execução em clusters do Spark – Azure HDInsight | Microsoft Docs"
-description: "Crie um aplicativo do Spark escrito no Scala com o Apache Maven como o sistema de build e um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA."
+title: Criar aplicativos do Scala para execução em clusters do Spark – Azure HDInsight | Microsoft Docs
+description: Crie um aplicativo do Spark escrito no Scala com o Apache Maven como o sistema de build e um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: b2467a40-a340-4b80-bb00-f2c3339db57b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 24becbf5f539ac031d6f5b217a4c5a6b59f572f8
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d64d60112641992a5a56ee5d129e7cbe754bde9d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Criar um aplicativo Maven Scala para execução no cluster do Apache Spark no HDInsight
 
@@ -37,9 +35,9 @@ Saiba como criar um aplicativo Spark escrito em Scala usando o Maven com Intelli
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-* Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * Kit de desenvolvimento Oracle Java. Você pode instalá-lo clicando [aqui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Um Java IDE. Este artigo usa IntelliJ IDEA 15.0.1. Você pode instalá-lo clicando [aqui](https://www.jetbrains.com/idea/download/).
@@ -64,7 +62,7 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
    * Especifique um **SDK do projeto**. Clique em Novo e navegue até o diretório de instalação do Java, normalmente `C:\Program Files\Java\jdk1.8.0_66`.
    * Selecione a opção **Criar do Arquétipo** .
    * Na lista de arquétipos, selecione **org.scala-tools.archetypes:scala-archetype-simple**. Isso criará a estrutura de diretório certa e baixará as dependências padrão necessárias para gravar o programa Scala.
-2. Forneça os valores relevantes para **GroupId**, **ArtifactId** e **versão**. Clique em **Avançar**.
+2. Forneça os valores relevantes para **GroupId**, **ArtifactId** e **versão**. Clique em **Próximo**.
 3. Na caixa de diálogo seguinte, na qual você especificará o diretório inicial do Maven e outras configurações do usuário, aceite os padrões e clique em **Avançar**.
 4. Na última caixa de diálogo, especifique um nome de projeto e local e, em seguida, clique em **Concluir**.
 5. Exclua o arquivo **MySpec.Scala** em **src\test\scala\com\microsoft\spark\example**. Você não precisa disso para o aplicativo.
@@ -121,7 +119,7 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
 10. Crie o arquivo .jar. O IntelliJ IDEA permite a criação de JAR como um artefato de um projeto. Execute as seguintes etapas:
     
     1. No menu **Arquivo**, clique em **Estrutura do Projeto**.
-    2. Na caixa de diálogo **Estrutura do Projeto**, clique em **Artefatos** e, em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e, em seguida, clique em **Dos módulos com dependências**.
+    2. Na caixa de diálogo **Estrutura do Projeto**, clique em **Artefatos** e, em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e em seguida, clique em **Dos módulos com dependências**.
        
         ![Criar JAR](./media/apache-spark-create-standalone-application/create-jar-1.png)
     3. Na caixa de diálogo **Criar JAR de Módulos![, clique no botão de reticências (**reticências](./media/apache-spark-create-standalone-application/ellipsis.png)) em relação à **Classe Principal**.

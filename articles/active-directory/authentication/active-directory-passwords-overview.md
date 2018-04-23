@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 810c585e104f6b7bc63222594375527c45c6082d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Redefinição de senha de autoatendimento no Azure AD para o profissional de TI
 
@@ -42,7 +42,7 @@ O Azure AD SSPR ajuda a:
 * **Gerar mobilidade**, pois os usuários podem redefinir suas senhas onde quer que estejam.
 * **Manter o controle** da política de segurança. Os administradores podem continuar a aplicar as políticas que têm hoje.
 
-Se você estiver pronto, poderá começar com o Azure AD SSPR usando nosso [guia de início rápido](../active-directory-passwords-getting-started.md). Você pode dar a seus usuários rapidamente a capacidade de redefinir suas próprias senhas.
+Se você estiver pronto, poderá começar com o Azure AD SSPR usando nosso [guia de início rápido](quickstart-sspr.md). Você pode dar a seus usuários rapidamente a capacidade de redefinir suas próprias senhas.
 
 ## <a name="azure-ad-sspr-availability"></a>Disponibilidade do Azure AD SSPR
 
@@ -65,7 +65,7 @@ Mais detalhes sobre preços, licenciamento e planos futuros podem ser encontrado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Você está pronto para começar a usar a SSPR? [Redefinição da senha de autoatendimento do Azure AD](../active-directory-passwords-getting-started.md).
+* Você está pronto para começar a usar a SSPR? [Redefinição da senha de autoatendimento do Azure AD](quickstart-sspr.md).
 * Planeje uma implantação de SSPR bem-sucedida para seus usuários usando as diretrizes encontradas em nosso [guia distribuição](howto-sspr-deployment.md).
 * [Redefinir ou alterar sua senha](../active-directory-passwords-update-your-own-password.md).
 * [Registro para redefinição de senha de autoatendimento](../active-directory-passwords-reset-register.md).

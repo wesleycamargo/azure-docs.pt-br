@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: 730a59aab76140159536c3d564d8bd66e0466899
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a7c86ab78704baf4048bc0415d89c1ab826e16bc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de grafo usando o Java e o portal do Azure
 
@@ -47,24 +47,7 @@ Antes de criar um banco de dados de grafo, você precisa criar uma conta do banc
 
 ## <a name="add-a-graph"></a>Adicionar um grafo
 
-Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados de grafo. 
-
-1. Clique em **Data Explorer** > **Novo Grafo**.
-
-    A área **Adicionar Grafo** é exibida à direita, talvez seja necessário rolar para a direita para vê-la.
-
-    ![O Data Explorer do Portal do Azure, página Adicionar Grafo](./media/create-graph-java/azure-cosmosdb-data-explorer-graph.png)
-
-2. Na página **Adicionar Grafo**, insira as configurações do novo grafo.
-
-    Configuração|Valor sugerido|DESCRIÇÃO
-    ---|---|---
-    ID do banco de dados|banco de dados de exemplo|Digite *banco de dados de exemplo* como o nome do novo banco de dados. Os nomes de banco de dados devem ter entre um e 255 caracteres e não podem conter `/ \ # ?` nem espaços à direita.
-    ID do Grafo|grafo de exemplo|Digite *grafo de exemplo* como o nome da nova coleção. Os nomes de grafo têm os mesmos requisitos de caractere do que as IDs de banco de dados.
-    Capacidade de Armazenamento|Fixo (10 GB)|Deixe o valor padrão de **Fixo (10 GB)**. Esse valor é a capacidade de armazenamento do banco de dados.
-    Throughput|400 RUs|Altere a taxa de transferência para 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.
-
-3. Quando o formulário estiver preenchido, clique em **OK**.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 

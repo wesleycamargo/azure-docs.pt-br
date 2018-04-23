@@ -1,11 +1,11 @@
 ---
-title: "Limitações e restrições de ponto de extremidade v2.0 do Azure Active Directory | Microsoft Docs"
-description: "Uma lista de limitações e restrições para o ponto de extremidade v2.0 do Azure AD."
+title: Limitações e restrições de ponto de extremidade v2.0 do Azure Active Directory | Microsoft Docs
+description: Uma lista de limitações e restrições para o ponto de extremidade v2.0 do Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Devo usar o ponto de extremidade da v2.0?
 Ao criar aplicativos que se integram ao Azure Active Directory, você precisa decidir se os protocolos de autenticação e o ponto de extremidade v2.0 atendem às suas necessidades. O ponto de extremidade original do Azure Active Directory ainda tem suporte completo e, em alguns aspectos, tem mais recursos do que o v2.0. No entanto, o ponto de extremidade v2.0 [apresenta vantagens consideráveis](active-directory-v2-compare.md) para desenvolvedores.
@@ -84,15 +84,6 @@ Os dois últimos podem ser adicionados porque eles são subdomínios do primeiro
 Observe também que você pode ter apenas 20 URLs de resposta para um aplicativo específico.
 
 Para saber como registrar um aplicativo no Portal de Registro de Aplicativo, veja [Como registrar um aplicativo no ponto de extremidade v2.0](active-directory-v2-app-registration.md).
-
-## <a name="restrictions-on-services-and-apis"></a>Restrições de serviços e APIs
-Atualmente, o ponto de extremidade v2.0 dá suporte à entrada para qualquer aplicativo registrado no Portal de Registro de Aplicativo e que se enquadre na lista de [fluxos de autenticação com suporte](active-directory-v2-flows.md). No entanto, esses aplicativos podem adquirir tokens de acesso do OAuth 2.0 para um conjunto muito limitado de recursos. O ponto de extremidade v2.0 só emite tokens de acesso para:
-
-* O aplicativo que solicitou o token. Um aplicativo pode adquirir um token de acesso para si mesmo, se o aplicativo lógico é constituído de várias camadas ou componentes diferentes. Para ver esse cenário em ação, confira nossos tutoriais de [Introdução](active-directory-appmodel-v2-overview.md#getting-started) .
-* As APIs REST de Email, Calendário e Contatos do Outlook, que estão localizadas em https://outlook.office.com. Para saber como escrever um aplicativo que acessa essas APIs, veja os tutoriais de [Introdução ao Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
-* APIs do Microsoft Graph. Você pode saber mais sobre o [Microsoft Graph](https://graph.microsoft.io) e os dados que estão disponíveis para você.
-
-Nenhum outro serviço tem suporte no momento. Mais Microsoft Online Services serão adicionados no futuro, bem como suporte para seus próprios serviços e APIs Web personalizados.
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Restrição de bibliotecas e SDKs
 Atualmente, o suporte de biblioteca para o ponto de extremidade v2.0 é limitado. Se deseja usar o ponto de extremidade v2.0 em um aplicativo de produção, você tem estas opções:

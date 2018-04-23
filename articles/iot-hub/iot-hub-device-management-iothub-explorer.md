@@ -3,7 +3,7 @@ title: Gerenciamento de dispositivos IoT do Azure com o iothub-explorer | Micros
 description: Use a ferramenta da CLI iothub-explorer para o gerenciamento de dispositivos Hub IoT do Azure, que contam com métodos Diretos e as opções de gerenciamento de propriedades desejadas do Gêmeo.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: gerenciamento de dispositivos iot do azure, gerenciamento de dispositivos hub iot do azure, iot de gerenciamento de dispositivos, gerenciamento de dispositivos hub iot
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
-ms.author: xshi
-ms.openlocfilehash: e22c321e896abe8d5eb659866256942099cac2d9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 26e08c3d6b1c96e2d508c87f188118aec02bab6a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Usar o iothub-explorer para o gerenciamento de dispositivos Hub IoT do Azure
 

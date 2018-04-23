@@ -1,25 +1,19 @@
 ---
-title: "Criar um índice (API REST - Azure Search) | Microsoft Docs"
-description: "Crie um índice no código usando a API REST HTTP do Azure Search."
-services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
+title: Criar um índice (API REST - Azure Search) | Microsoft Docs
+description: Crie um índice no código usando a API REST HTTP do Azure Search.
+author: chaosrealm
+manager: jlembicz
+ms.author: eugenesh
 tags: azure-portal
-ms.assetid: ac6c5fba-ad59-492d-b715-d25a7a7ae051
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 12/08/2016
-ms.author: ashmaka
-ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c03f3130dcdb2393d684b22b7ff728ae55f04e67
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Criar um índice de Azure Search usando a API REST
 > [!div class="op_single_selector"]
@@ -47,7 +41,7 @@ Agora que provisionou um serviço de Azure Search, você pode emitir solicitaç�
 O serviço terá *chaves de administração* e *chaves de consulta*.
 
 * Suas *chaves de administração* principal e secundária concedem direitos totais para todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar a usar a chave secundária se decidir regenerar a chave primária e vice-versa.
-* As *chaves de consulta* concedem acesso somente leitura a índices e documentos e normalmente são distribuídas a aplicativos cliente que emitem solicitações de pesquisa.
+* As *chaves de consulta* concedem acesso somente leitura a índices e documentos e normalmente são distribuídas para aplicativos cliente que emitem solicitações de pesquisa.
 
 Para criar um índice, você pode usar a chave de administração principal ou secundária.
 

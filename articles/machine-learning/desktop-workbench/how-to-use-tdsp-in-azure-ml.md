@@ -1,12 +1,12 @@
 ---
-title: "Estruturar projetos com o modelo de Processo de Ciência de Dados da Equipe | Microsoft Docs"
-description: "Como criar uma instância de modelos de Processo de Ciência de Dados da Equipe (TDSP) no Azure Machine Learning que estruture projetos para colaboração"
+title: Estruturar projetos com o modelo de Processo de Ciência de Dados da Equipe | Microsoft Docs
+description: Como criar uma instância de modelos de Processo de Ciência de Dados da Equipe (TDSP) no Azure Machine Learning que estruture projetos para colaboração
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
 ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Estruturar projetos com modelo de Processo de Ciência de Dados da Equipe
 

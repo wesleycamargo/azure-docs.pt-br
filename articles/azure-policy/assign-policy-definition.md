@@ -1,19 +1,19 @@
 ---
-title: "Criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure | Microsoft Docs"
-description: "Este artigo orienta você quanto às etapas para criar uma definição de política para identificar recursos sem conformidade."
+title: Criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure | Microsoft Docs
+description: Este artigo orienta você quanto às etapas para criar uma definição de política para identificar recursos sem conformidade.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/10/2018
+ms.date: 04/18/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e5b27bdc2aef15b619022d1c08fa3e6dccaa5736
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure
 A primeira etapa para compreender a conformidade no Azure é identificar o status de seus recursos. Este guia de início rápido orienta você no processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados.
@@ -71,15 +71,14 @@ Se houver recursos sem conformidade com essa nova atribuição, aparecem em **Re
 
 Quando uma condição é avaliada em relação a seus recursos existentes e resulta ser verdadeira, então esses recursos são marcados como em não conformidade com a política. A imagem do exemplo anterior exibe os recursos não compatíveis. A tabela a seguir mostra como as diferentes ações da política funcionam com a avaliação da condição para o estado de conformidade resultante. Embora você não veja a lógica de avaliação no portal do Azure, os resultados do estado de conformidade são mostrados. O resultado do estado de conformidade pode ser ou compatível ou incompatível.
 
-|Recurso  |Se a condição na política for avaliada como  |Ação na política   |Estado de conformidade  |
-|-----------|---------|---------|---------|
-|Exists     |True     |Negar     |Sem conformidade |
-|Exists     |Falso    |Negar     |Em conformidade     |
-|Exists     |True     |Acrescentar   |Sem conformidade |
-|Exists     |Falso    |Acrescentar   |Em conformidade     |
-|Exists     |True     |Audit    |Sem conformidade |
-|Exists     |Falso    |Audit    |Sem conformidade |
+| **Estado do recurso** | **Ação** | **Avaliação da política** | **Estado de conformidade** |
+| --- | --- | --- | --- |
+| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Sem conformidade |
+| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Em conformidade |
+| Novo | Auditoria, AuditIfNotExist\* | True | Sem conformidade |
+| Novo | Auditoria, AuditIfNotExist\* | Falso | Em conformidade |
 
+\* As ações de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE. As ações também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Outros guias desta coleção dão continuidade a este guia de início rápido. Se você planeja continuar trabalhando com os tutoriais subsequentes, não limpe os recursos criados neste guia de início rápido. Caso contrário, siga estas etapas para excluir todos os recursos criados por esse início rápido no Portal do Azure.

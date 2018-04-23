@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop no HDInsight Usando o portal do Azure
 
@@ -63,7 +61,7 @@ Você deve especificar uma assinatura do Azure, quando você cria um cluster HDI
     1. Entre no [Portal do Azure](https://portal.azure.com).
     2. Clique em **Assinatura** no menu à esquerda. Ele tem um ícone amarelo de chave. Você verá uma lista de assinaturas.
     3. Clique na assinatura que você usa para criar clusters. 
-    4. Clique em **Minhas permissões**.  Isso mostra a [função](../active-directory/role-based-access-control-what-is.md#built-in-roles) na assinatura. Você precisa de pelo menos acesso de Colaborador para criar o cluster do HDInsight.
+    4. Clique em **Minhas permissões**.  Isso mostra a [função](../role-based-access-control/overview.md#built-in-roles) na assinatura. Você precisa de pelo menos acesso de Colaborador para criar o cluster do HDInsight.
 
 - Para usar um grupo de recursos existente:
 
@@ -89,7 +87,7 @@ Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionR
 
     **Menu à esquerda:**
     * **Logs de Atividade**: mostrar e consultar logs de atividade.
-    * **Controle de Acesso (IAM)**: usar atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../active-directory/role-based-access-control-configure.md).
+    * **Controle de Acesso (IAM)**: usar atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
     * **Marcas**: permitem estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto**e usar um valor comum para todos os serviços associados a um projeto específico.
     * **Diagnosticar e resolver problemas**: exibir informações de solução de problemas.
     * **Bloqueios**: adicione um bloqueio para impedir que o cluster seja modificado ou excluído.

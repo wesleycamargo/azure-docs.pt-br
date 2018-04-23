@@ -1,8 +1,8 @@
 ---
-title: "Usar o Hive do Hadoop com o PowerShell no HDInsight – Azure | Microsoft Docs"
+title: Usar o Hive do Hadoop com o PowerShell no HDInsight – Azure | Microsoft Docs
 description: Usar o PowerShell para executar consultas Hive com Hadoop no HDInsight
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: cb795b7c-bcd0-497a-a7f0-8ed18ef49195
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: fbd5ad2aedf0c3022e702a63f8e3d12735b41313
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 20ae2c93a231051d3802e8b2329d218d207204e3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="run-hive-queries-using-powershell"></a>Executar consultas Hive usando o PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -47,7 +45,7 @@ O PowerShell do Azure fornece *cmdlets* que lhe permitem executar remotamente as
 
 Os cmdlets a seguir são usados ao executar consultas do Hive em um cluster HDInsight remoto:
 
-* `Add-AzureRmAccount`: autentica o Azure PowerShell para a sua assinatura do Azure.
+* `Connect-AzureRmAccount`: autentica o Azure PowerShell para a sua assinatura do Azure.
 * `New-AzureRmHDInsightHiveJobDefinition`: cria uma *definição de trabalho* usando as instruções HiveQL especificadas.
 * `Start-AzureRmHDInsightJob`: envia a definição do trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
 * `Wait-AzureRmHDInsightJob`: usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou o tempo de espera seja excedido.

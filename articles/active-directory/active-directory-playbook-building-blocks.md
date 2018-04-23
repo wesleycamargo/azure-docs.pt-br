@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d78b6934e276c53b65f3c171ed980f86458c3a93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
 
@@ -457,7 +457,7 @@ Tempo estimado para Conclusão: 10 minutos
 
 ### <a name="considerations"></a>Considerações
 
-Se você estiver usando a federação, você pode usar o Provedor de Identidade (IdP) local para comunicar o estado de rede corporativa interna/externa com declarações. É possível usar essa técnica sem a necessidade de gerenciar a lista de endereços IP que pode ser complexa para avaliar e gerenciar em grandes organizações. Nessa configuração é necessário considerar o cenário de "roaming de rede" (um usuário registrando na rede interna e, enquanto estiver registrado em locais como um café) e certificar-se de que compreende as implicações. Saiba mais em: [Protegendo os recursos da nuvem com Autenticação Multifator do Azure e AD FS: IPs confiáveis para usuários federados](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+Se você estiver usando a federação, você pode usar o Provedor de Identidade (IdP) local para comunicar o estado de rede corporativa interna/externa com declarações. É possível usar essa técnica sem a necessidade de gerenciar a lista de endereços IP que pode ser complexa para avaliar e gerenciar em grandes organizações. Nessa configuração é necessário considerar o cenário de "roaming de rede" (um usuário registrando na rede interna e, enquanto estiver registrado em locais como um café) e certificar-se de que compreende as implicações. Saiba mais em: [Protegendo os recursos da nuvem com Autenticação Multifator do Azure e AD FS: IPs confiáveis para usuários federados](authentication/howto-mfa-adfs.md#trusted-ips-for-federated-users)
 
 ## <a name="privileged-identity-management-pim"></a>PIM (Privileged Identity Management)
 

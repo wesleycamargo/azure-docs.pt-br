@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 0f560a02a51239cff0a7d4057ec7beb2f0f5c5c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f439c65d9b4fbeb78623312c426767f89dfd9fab
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: habilitar a Autenticação Multifator nos seus aplicativos voltados para o consumidor
-O Azure AD (Azure Active Directory) B2C integra-se diretamente ao [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md) para facilitar a adição de uma segunda camada de segurança para as experiências de inscrição e entrada nos seus aplicativos voltados para o consumidor. E você pode fazer isso sem escrever uma única linha de código. No momentos damos suporte à verificação por ligação telefônica e mensagem de texto. Se você já tiver criado as políticas de credenciais e de entrada, ainda poderá habilitar a Autenticação Multifator.
+O Azure AD (Azure Active Directory) B2C integra-se diretamente ao [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md) para facilitar a adição de uma segunda camada de segurança para as experiências de inscrição e entrada nos seus aplicativos voltados para o consumidor. E você pode fazer isso sem escrever uma única linha de código. No momentos damos suporte à verificação por ligação telefônica e mensagem de texto. Se você já tiver criado as políticas de credenciais e de entrada, ainda poderá habilitar a Autenticação Multifator.
 
 > [!NOTE]
 > A Autenticação Multifator também pode ser habilitada durante a criação de políticas de credenciais e de entrada, não apenas na edição de políticas existentes.
