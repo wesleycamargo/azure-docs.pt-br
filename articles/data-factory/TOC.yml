@@ -374,7 +374,9 @@
           href: manage-azure-ssis-integration-runtime.md
         - name: Configurar definições do desempenho na execução de integração do Azure e SSIS
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Chamar pacotes SSIS usando a atividade de procedimento armazenado
+        - name: Executar pacotes SSIS usando a atividade do SSIS
+          href: how-to-invoke-ssis-package-ssis-activity.md
+        - name: Executar pacotes SSIS usando a atividade de procedimento armazenado
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Agendar execução de integração do Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md

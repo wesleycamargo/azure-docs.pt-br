@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia do Azure Marketplace e do AppSource Publisher
 
@@ -121,8 +121,7 @@ Cada vitrine oferece suporte a várias opções de publicação e tipos de ofert
 Use Entre em Contato Comigo quando uma participação de nível de avaliação ou transação não for viável. O benefício dessa abordagem é permitir que os editores com uma solução no mercado comecem imediatamente a receber clientes potenciais que possam ser consolidados nas ofertas fundamentais para iniciar seu impulso comercial. No entanto, a desvantagem é que o engajamento do cliente é limitado, em comparação com outros tipos de ofertas.
 
 >[!IMPORTANT]
-<<<<<<< HEAD O envolvimento do cliente e melhor com ofertas de Avaliação e Transação. O valor de Contate-me é o cliente potencial que você recebe, então se você escolher esse tipo de lista, certifique-se de que o destino do cliente pontecial está configurado e você está pronto para maximizar o cliente potencial. ======= Não recomendamos o tipo de listagem Entre em Contato Comigo. Você deve usá-lo somente em situações em que não é possível estabelecer uma experiência de avaliação. O envolvimento do cliente é melhor com ofertas de avaliação e transação. Se você tiver algum tipo de experiência de avaliação, nosso processo de integração vai guiá-lo a uma dessas opções, dependendo do cenário.
->>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
+>O envolvimento do cliente e melhor com ofertas de Avaliação e Transação. O valor de Contate-me é o cliente potencial que você recebe, então se você escolher esse tipo de lista, certifique-se de que o destino do cliente pontecial está configurado e você está pronto para maximizar o cliente potencial. 
 
 Quando a oferta consistir principalmente de serviços profissionais (por exemplo, avaliações, implementações, workshops), use o tipo de oferta Serviços de Consultoria. O escopo, a duração e o preço da oferta devem ser fixados, devem ser para um único cliente e devem ser realizados no local.
 
@@ -413,7 +412,7 @@ Nesta seção, vamos explicar as etapas para:
 
 |Etapa de registro do Marketplace  |Hora  |DESCRIÇÃO  |
 |---------|---------|---------|
-| Registrar-se no Microoft Partner Network | 15 min | Editores precisam ser registrados no Microsoft Partner Network (MPN) para ter o primeiro nível de validação da conta e receber benefícios adicionais e suporte por ser um publicador do Azure Marketplace |
+| Registrar-se no Microsoft Partner Network | 15 min | Editores precisam ser registrados no Microsoft Partner Network (MPN) para ter o primeiro nível de validação da conta e receber benefícios adicionais e suporte por ser um publicador do Azure Marketplace |
 |Criar uma ID da Microsoft     |   15 minutos      |   Os parceiros devem ter uma ID da Microsoft. Essa ID da Microsoft será usada para acessar o Portal do Cloud Partner.       |
 |Enviar o formulário de nominação do Marketplace     |  1 a 3 dias       |  Os parceiros precisam enviar o formulário de nominação para iniciar o processo de aprovação Marketplace. Após o envio do formulário, a equipe de integração do Marketplace analisará o aplicativo e validará a solicitação.       |
 |Registrar-se no Centro de Desenvolvimento     |    5 a 10 dias     | O registro no Centro de Desenvolvedor da Microsoft é necessário para a Microsoft validar se o parceiro é uma entidade legal válida com uma ID de imposto válida para o país em que está registrado. O Centro de Desenvolvimento habilitará o Parceiro a ser um Desenvolvedor Microsoft registrado e fornecerá o acesso ao programa de desenvolvimento do Azure. <br><br>Nota: se você não completou o formulário de nominação do Marketplace, será solicitado a vocês pagar um valor de registro de US $99. Para que esse valor seja cancelado, complete o formulário de nominação do Marketplace e você receberá um código promocional por email.  |
@@ -493,7 +492,6 @@ Essa é a lista das opções de suporte para o Azure Marketplace:
 
 |Canal de suporte  |DESCRIÇÃO  |
 |---------|---------|
-|Slack: [Ingressar no Slack do Marketplace](https://join.marketplace.azure.com)    |   Ambiente Slack para dar suporte aos parceiros com problemas técnicos. Há mais de 350 parceiros atualmente trabalhando nesse ambiente.        |
 |Fóruns MSDN: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Fórum Microsoft Developer Network.         |
 |Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Ambiente do Stack Overflow para obter soluções e fazer perguntas sobre tudo relacionado ao Azure e ao Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Máquinas Virtuais do Azure](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 

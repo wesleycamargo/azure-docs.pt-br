@@ -170,6 +170,8 @@
               href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Habilitar e exibir métricas
               href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Migrar para novas Métricas de Armazenamento
+              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Como
   items:
     - name: Criar uma conta de armazenamento
