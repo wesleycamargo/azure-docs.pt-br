@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9ed679c555d9bb363ffb4d896e791dcbd1b90f8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 07d720db85a152f08cfeb278b91cce3b10d73800
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
 > [!NOTE]
@@ -346,7 +346,7 @@ No Portal do Azure, você pode exibir o instantâneo quase em tempo real de util
 
 1. No Portal do Azure, navegue até a home page do data factory e clique no bloco **Serviços vinculados**. 
 
-    ![Página inicial da data factory](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
+    ![Página inicial do data factory](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
 2. Selecione o **gateway** na página **Serviços vinculados**.
 
     ![Página Serviços vinculados](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
@@ -484,7 +484,7 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 2. Faça logon na sua conta do Azure executando o seguinte comando e digitando suas credenciais do Azure.
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Use o cmdlet **New-AzureRmDataFactoryGateway** para criar um gateway lógico da seguinte maneira:
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb305986982432d7a432204e3fae8a1dff6a5d74
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurar a alta disponibilidade de portas para o balanceador de carga interno
 
@@ -39,12 +39,6 @@ A ilustração mostra a configuração a seguir do exemplo de implantação desc
 ![Implantação de exemplo de Portas de Alta Disponibilidade](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-## <a name="preview-sign-up"></a>Inscrição na versão prévia
-
-Para participar da versão prévia do recurso das Portas de Alta Disponibilidade no Azure Load Balancer Standard, registre a sua assinatura para obter acesso usando a CLI do Azure 2.0 ou o PowerShell. Registre a sua assinatura da [Versão prévia do Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up).
-
->[!NOTE]
->O registro das versões prévias do Load Balancer Standard pode levar até uma hora.
 
 ## <a name="configure-high-availability-ports"></a>Configurar as Portas de Alta Disponibilidade
 

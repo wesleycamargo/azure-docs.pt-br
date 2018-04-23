@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 1fec2604dc2aee412e73f5ca332d2852bf7e58bd
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ca6780f9cec478cf9ed756aaefc7f6c059b6316a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: compilar um aplicativo de tarefas pendentes com o Xamarin
 
@@ -50,40 +50,29 @@ Se estiver usando um Mac, você pode baixar o [Visual Studio para Mac](https://w
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
-Agora você pode adicionar dados à sua nova coleção usando o Data Explorer.
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
-1. No Data Explorer > expanda o banco de dados **Tarefas** > expanda a coleção **Itens** > clique em **Documentos** > e clique em **Novos Documentos**.
+## <a name="query-your-data"></a>Consultar seus dados
 
-   ![Criar novos documentos no Data Explorer no portal do Azure](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-
-2. Agora, adicione um documento à coleção com a seguinte estrutura.
-
-     ```json
-     {
-         "id": "1",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "completed": false
-     }
-     ```
-
-3. Depois de ter adicionado o json à guia **Documentos**, clique em **Salvar**.
-
-    ![Copie nos dados json e clique em Salvar no Data Explorer no portal do Azure](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-save-document.png)
-
-4. Crie e salve mais um documento onde você insere um valor exclusivo para a propriedade `id` e altere as outras propriedades quando achar adequado. Os novos documentos podem ter qualquer estrutura que você deseje, pois o Azure Cosmos DB não impõe nenhum esquema para seus dados.
-
-     Agora você pode usar consultas no Data Explorer para recuperar os dados. Por padrão, o Data Explorer usa `SELECT * FROM c` para recuperar todos os documentos na coleção, mas você pode alterar isso para uma [consulta SQL ](sql-api-sql-query.md) diferente, como `SELECT * FROM c ORDER BY c._ts DESC`, para retornar todos os documentos em ordem descendente com base no carimbo de data/hora.
-
-     Você também pode usar o Data Explorer para criar procedimentos armazenados, UDFs e gatilhos para executar a lógica de negócios do servidor, além de dimensionar a taxa de transferência. O Data Explorer expõe todo o acesso a dados interno via programação disponível nas APIs, mas oferece acesso fácil aos dados no Portal do Azure.
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
 Agora vamos clonar o aplicativo de API do SQL Xamarin no github: revise o código, obtenha as chaves de API e execute-o. Você verá como é fácil trabalhar usando dados de forma programática.
 
-1. Abra uma janela de terminal do Git, como git bash, e `cd` para um diretório de trabalho.
+1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
 
-2. Execute o comando a seguir para clonar o repositório de exemplo.
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Abra uma janela de terminal de git, como git bash, e use o comando `cd` para alterar para a nova pasta para instalar o aplicativo de exemplo.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador.
 
     ```bash
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
@@ -246,10 +235,7 @@ As etapas a seguir demonstram como executar o aplicativo usando o depurador do V
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não continuar usando este aplicativo, exclua todos os recursos criados por esse início rápido no portal do Azure com as seguintes etapas:
-
-1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado.
-2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

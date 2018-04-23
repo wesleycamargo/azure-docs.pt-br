@@ -51,10 +51,10 @@
         - name: Classificação de sentimento
           href: predict-twitter-sentiment.md
         - name: Classificação de renda dos EUA
-          href: ../preview/scenario-tdsp-classifying-us-incomes.md
+          href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: Reconhecimento de entidade biomédica
-          href: ../preview/scenario-tdsp-biomedical-recognition.md
+          href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
     - name: Spark com PySpark e Scala
       href: walkthroughs-spark.md
@@ -82,7 +82,7 @@
 - name: Como
   items:
     - name: Usar TDSP no Azure ML
-      href: ../preview/how-to-use-tdsp-in-azure-ml.md
+      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
       maintainContext: true
     - name: Configurar um ambiente de ciência de dados
       href: environment-setup.md

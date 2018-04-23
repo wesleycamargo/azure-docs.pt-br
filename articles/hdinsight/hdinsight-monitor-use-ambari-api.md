@@ -1,26 +1,24 @@
 ---
-title: "Monitorar clusters Hadoop no HDInsight usando a API do Ambari – Azure | Microsoft Docs"
+title: Monitorar clusters Hadoop no HDInsight usando a API do Ambari – Azure | Microsoft Docs
 description: Use as APIs do Apache Ambari para criar, gerenciar e monitorar clusters do Hadoop. As APIs e ferramentas intuitivas do operador do ocultam a complexidade do Hadoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 editor: cgronlun
 manager: jhubbard
 ms.assetid: 052135b3-d497-4acc-92ff-71cee49356ff
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 57b63490037760c9150fd4b8fdb66267739f20ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 3c8b1af3ad151a7a901150352202ab0b85aa6ec8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Monitorar clusters Hadoop no HDInsight usando a API da Ambari
 Saiba como monitorar os clusters HDInsight por meio de APIs do Ambari.
@@ -39,7 +37,7 @@ Atualmente, o HDInsight dá suporte apenas ao recurso de monitoramento da Ambari
 
 Antes de começar este tutorial, você deve ter os seguintes itens:
 
-* **Uma estação de trabalho com o PowerShell do Azure**.
+* **Uma estação de trabalho com o PowerShell do Azure.**
 * (Opcional) [cURL][curl]. Para instalá-lo, consulte [Downloads e versões de cURL][curl-download].
   
   > [!NOTE]
@@ -48,7 +46,7 @@ Antes de começar este tutorial, você deve ter os seguintes itens:
   > 
 * **Um cluster Azure HDInsight**. Para obter informações sobre como provisionar um cluster, consulte [Introdução ao HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight][hdinsight-provision]. Você precisará dos seguintes dados para percorrer o tutorial:
   
-  | Propriedade do cluster | Nome de variável do PowerShell do Azure | Valor | Descrição |
+  | Propriedade do cluster | Nome de variável do PowerShell do Azure | Valor | DESCRIÇÃO |
   | --- | --- | --- | --- |
   |   Nome do cluster HDInsight |$clusterName | |O nome do seu cluster HDInsight. |
   |   Nome de usuário do cluster |$clusterUsername | |Nome de usuário do cluster especificado quando o cluster foi criado. |
@@ -128,7 +126,7 @@ Ao usar o ponto de extremidade da Ambari, "https://{clusterDns}.azurehdinsight.n
 ## <a name="ambari-monitoring-apis"></a>APIs de monitoramento da Ambari
 A tabela a seguir lista algumas das chamadas de API para monitoramento da Ambari. Para obter mais informações sobre a API, consulte [Referência de API da Ambari][ambari-api-reference].
 
-| Monitorar a chamada de API | URI | Descrição |
+| Monitorar a chamada de API | URI | DESCRIÇÃO |
 | --- | --- | --- |
 | Obter clusters |`/api/v1/clusters` | |
 | Obter informações do cluster. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net` |clusters, serviços, hosts |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cc64ef8d820db6a072b708323eb110d62ed0a83c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -75,7 +75,7 @@ Neste documento, abordaremos os seguintes recursos corporativos de rede do Azure
 
 ### <a name="basic-network-connectivity"></a>Conectividade de rede básica
 
-O serviço de [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permite que você conecte com segurança os recursos do Azure usando redes virtuais (VNets). Uma VNet é uma representação da sua própria rede na nuvem. Uma VNet é um isolamento lógico da infraestrutura de rede do Azure dedicada à sua assinatura. Você também pode conectar VNets entre si e às suas redes locais usando VPNs site a site e [links WAN ](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+O serviço de [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permite que você conecte com segurança os recursos do Azure usando redes virtuais (VNets). Uma VNet é uma representação da sua própria rede na nuvem. Uma VNet é um isolamento lógico da infraestrutura de rede do Azure dedicada à sua assinatura. Você também pode conectar VNets entre si e às suas redes locais usando VPNs site a site e [links WAN](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) dedicados.
 
 ![Conectividade de rede básica](media/azure-network-security/azure-network-security-fig-2.png)
 

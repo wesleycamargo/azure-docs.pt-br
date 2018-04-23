@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: a9b9bec4fd48c44ece9d762b539cd3d6e10c1858
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
@@ -21,7 +21,7 @@ Você pode usar o Portal do Azure para encontrar recomendações de desempenho q
 
 ## <a name="viewing-recommendations"></a>Exibindo recomendações
 
-Para exibir e aplicar as recomendações de desempenho, você precisa das permissões corretas ao [controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) no Azure. As permissões de **Leitor**, **Contribuidor do DB SQL** são necessárias para exibir as recomendações, enquanto as permissões de **Proprietário**, **Contribuidor do DB SQL** são necessárias para executar todas as ações: criar ou remover índices e cancelar a criação de índices.
+Para exibir e aplicar as recomendações de desempenho, você precisa das permissões corretas ao [controle de acesso baseado em função](../role-based-access-control/overview.md) no Azure. As permissões de **Leitor**, **Contribuidor do DB SQL** são necessárias para exibir as recomendações, enquanto as permissões de **Proprietário**, **Contribuidor do DB SQL** são necessárias para executar todas as ações: criar ou remover índices e cancelar a criação de índices.
 
 Use as etapas a seguir para localizar as recomendações de desempenho no Portal do Azure:
 
@@ -154,5 +154,5 @@ Monitore suas recomendações e continue a aplicá-las para refinar o desempenho
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md)
+* [Controle de acesso baseado em função](../role-based-access-control/overview.md)
 

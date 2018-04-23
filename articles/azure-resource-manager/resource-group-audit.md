@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bd11ec7c8a32792853e60b4bb14d4ed52f53f4a3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Exibir logs de atividade para auditar ações em recursos
 
@@ -30,7 +30,7 @@ Com os logs de atividade, você pode determinar:
 * o status da operação
 * os valores de outras propriedades que podem ajudar você a pesquisar a operação
 
-O log de atividade contém todas as operações de gravação (PUT, POST, DELETE) executadas nos recursos. Ele não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [Operações do provedor de recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md). É possível usar os logs de auditoria para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso.
+O log de atividade contém todas as operações de gravação (PUT, POST, DELETE) executadas nos recursos. Ele não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [Operações do provedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). É possível usar os logs de auditoria para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso.
 
 Os logs de atividade são retidos por 90 dias. Você pode consultar qualquer intervalo de datas, desde que a data inicial não seja anterior a 90 dias no passado.
 
@@ -154,8 +154,8 @@ As operações de REST para trabalhar com o log de atividade fazem parte da [API
 ## <a name="next-steps"></a>Próximas etapas
 
 * Os logs de atividade do Azure podem ser usados com o Power BI para obter mais informações sobre as ações em sua assinatura. Confira [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)(Exibir e analisar logs de atividade do Azure no Power BI e muito mais).
-* Para aprender sobre como definir políticas de segurança, confira [Controle de acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md).
+* Para aprender sobre como definir políticas de segurança, confira [Controle de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md).
 * Para saber mais sobre os comandos para exibir as operações de implantação, consulte [Exibir operações de implantação](resource-manager-deployment-operations.md).
 * Para saber como impedir exclusões em um recurso para todos os usuários, confira [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
-* Para ver a lista de operações disponíveis para cada provedor do Microsoft Azure Resource Manager, consulte [operações do provedor de recursos do Azure Resource Manager](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
+* Para ver a lista de operações disponíveis para cada provedor do Microsoft Azure Resource Manager, consulte [operações do provedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md)
 

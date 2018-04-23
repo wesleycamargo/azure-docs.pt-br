@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: bd2b65c31e7736346957dde4edfb7c32894c833e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 02849fb63a8d696fa4296f5ec885a2d24f9adca1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrar seus diretórios locais no Azure Active Directory
 O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory.  Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure. Este tópico guiará você nas etapas de planejamento, implantação e operação. É uma coleção de links para os tópicos relacionados a essa área.
 
 > [!IMPORTANT]
 > [O Azure AD Connect é a melhor maneira de conectar seu diretório local ao Azure AD e ao Office 365. Esse é um ótimo momento para atualizar para o Azure Active Directory Connect do Windows Azure Active Directory Sync (DirSync) ou do Azure Active Directory Sync, pois essas ferramentas foram preteridas e não terão mais suporte a partir de 13 de abril de 2017.](active-directory-aadconnect-dirsync-deprecated.md)  Além disso:
+
+
+
 > 
 > - Sincronizar usuários ao Azure Active Directory é um **recurso gratuito** e não requer que os clientes possuam uma assinatura paga.
 >- **Não é concedida automaticamente** *nenhuma* licença aos usuários sincronizados. Os administradores ainda têm controle total sobre a atribuição de licenças. 
@@ -51,6 +54,10 @@ O Azure Active Directory Connect possui três componentes principais: serviços 
 * Monitoramento de Integridade - o Azure AD Connect Health pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. Para obter informações adicionais, consulte [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## <a name="install-azure-ad-connect"></a>Instalar o Azure AD Connect
+
+> [!IMPORTANT]
+> A Microsoft não oferece suporte à modificação ou à operação da sincronização do Azure AD Connect fora das ações formalmente documentadas. Qualquer uma dessas ações pode resultar em um estado inconsistente ou sem suporte da sincronização do Azure AD Connect. Consequentemente, a Microsoft não pode fornecer suporte técnico para essas implantações.
+
 Você pode encontrar o download para o Azure AD Connect no [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Solução | Cenário |

@@ -1,24 +1,17 @@
 ---
 title: Proteger dados e operações no Azure Search | Microsoft Docs
 description: A segurança do Azure Search baseia-se em conformidade com SOC 2, criptografia, autenticação e identidade de acesso por meio de identificadores de usuário e de grupo de segurança nos filtros do Azure Search.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
-ms.assetid: ''
 ms.service: search
-ms.devlang: ''
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3985e4fff5eb1eb0c80b267dd8983488d10cb4e5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Segurança e acesso controlado no Azure Search
 
@@ -51,7 +44,7 @@ A criptografia em repouso foi divulgada em 24 de janeiro de 2018 e se aplica a t
 Vários mecanismos de segurança estão disponíveis no Azure Stack e, portanto, estão automaticamente disponíveis para os recursos do Azure Search que você criar.
 
 + [Bloqueios no nível de recurso ou da assinatura para impedir a exclusão](../azure-resource-manager/resource-group-lock-resources.md)
-+ [RBAC (controle de acesso baseado em função) para controlar o acesso a informações e operações administrativas](../active-directory/role-based-access-control-what-is.md)
++ [RBAC (controle de acesso baseado em função) para controlar o acesso a informações e operações administrativas](../role-based-access-control/overview.md)
 
 Todos os serviços do Azure oferecem suporte a RBAC para definir níveis de acesso consistentes em todos os serviços. Por exemplo, a exibição de dados confidenciais, como a chave do administrador, é restrita às funções de Proprietário e Colaborador, enquanto a exibição do status do serviço fica disponível para os membros de qualquer função. O RBAC fornece funções de Leitor, Colaborador e Proprietário. Por padrão, todos os administradores de serviço são membros da função Proprietário.
 

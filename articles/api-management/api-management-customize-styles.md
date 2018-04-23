@@ -1,11 +1,11 @@
 ---
-title: "Personalizar o estilo de página no portal do desenvolvedor do Gerenciamento de API do Azure | Microsoft Docs"
-description: "Siga as etapas neste guia de início rápido para personalizar o estilo dos elementos no portal do desenvolvedor do Gerenciamento de API do Azure."
+title: Personalizar o estilo de página no portal do desenvolvedor do Gerenciamento de API do Azure | Microsoft Docs
+description: Siga as etapas neste guia de início rápido para personalizar o estilo dos elementos no portal do desenvolvedor do Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f427663ba1c437785c8c521925d9f733c45cb40d
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 15012317d3d0a4d3e50d56966bf8d26b0ef48118
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizar o estilo das páginas do Portal do Desenvolvedor
 
@@ -36,12 +36,10 @@ Neste tutorial, você aprenderá como:
 
 ![personalizar estilo](./media/modify-developer-portal-style/developer_portal.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 + Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="customize-the-developer-portal"></a>Personalizar o Portal do Desenvolvedor
 
@@ -55,11 +53,11 @@ Neste tutorial, você aprenderá como:
     Todos os elementos que você pode personalizar usando **Estilos** aparecem na página
 5. Insira "headings-color" no campo **Alterar valores de variáveis para personalizar a aparência do portal do desenvolvedor:**.
 
-    O elemento  **@headings-color**  aparece na página. Essa variável controla a cor do texto.
+    O elemento **@headings-color** aparece na página. Essa variável controla a cor do texto.
 
     ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Clique no campo da variável  **@headings-color** . 
+6. Clique no campo da variável **@headings-color**. 
     
     A lista suspensa do seletor de cores é aberta.
 7. Selecione uma nova cor na lista suspensa do seletor de cores.

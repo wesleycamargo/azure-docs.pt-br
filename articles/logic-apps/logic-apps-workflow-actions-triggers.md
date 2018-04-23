@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: klam; LADocs
 ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Gatilhos e ações para fluxos de trabalho de aplicativos lógicos
 
@@ -1121,7 +1121,7 @@ Estes são alguns exemplos que mostram como você pode usar expressões em condi
 | `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | Dá suporte a funções de comparação. Por exemplo aqui, a ação é executada somente quando a saída de action1 é maior que o valor limite. | 
 | `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | Oferece suporte a funções lógicas para a criação de expressões boolianas aninhadas. Neste exemplo, a ação é executada somente quando a saída de action1 é maior que o limite ou menor que 100. | 
 | `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | Você pode usar as funções de matriz para verificar se uma matriz tem algum item. Neste exemplo, a ação é executada quando a matriz de erros está vazia. | 
-| `"expression": "parameters('hasSpecialAction')"` | Esta expressão causa um erro e não é uma condição válida. As condições devem usar o símbolo \"\@\". | 
+| `"expression": "parameters('hasSpecialAction')"` | Esta expressão causa um erro e não é uma condição válida. As condições devem usar o símbolo "@". | 
 ||| 
 
 ## <a name="switch-action"></a>Ação Switch

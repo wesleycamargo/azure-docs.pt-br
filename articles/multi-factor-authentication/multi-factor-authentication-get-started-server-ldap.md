@@ -1,8 +1,8 @@
 ---
-title: "Autenticação LDAP e Servidor Azure MFA | Microsoft Docs"
-description: "Essa é a página Autenticação Multifator do Azure que auxiliará na implantação de autenticação LDAP e do Servidor de Autenticação Multifator do Azure."
+title: Autenticação LDAP e Servidor Azure MFA | Microsoft Docs
+description: Essa é a página Autenticação Multifator do Azure que auxiliará na implantação de autenticação LDAP e do Servidor de Autenticação Multifator do Azure.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
 ms.openlocfilehash: 37f96afab67680b3140a6f4da6bff0c23a1f328f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação LDAP e Servidor de Autenticação Multifator do Azure
 Por padrão, o Servidor de Autenticação Multifator do Azure é configurado para importar ou sincronizar usuários do Active Directory. No entanto, ele pode ser configurado para associar a diferentes diretórios LDAP, como um diretório ADAM ou controlador de domínio específico do Active Directory. Quando conectado a um diretório via LDAP, o Servidor de Autenticação Multifator do Azure pode atuar como um proxy LDAP e realizar autenticações. Ele também permite o uso da associação LDAP como um destino RADIUS para pré-autenticação dos usuários com a Autenticação do IIS ou autenticação principal no portal de usuário do Azure MFA.
@@ -39,7 +39,7 @@ Para configurar a autenticação LDAP, instale o Servidor de Autenticação Mult
 4. Se você planejar usar LDAPS do cliente para o Servidor de Autenticação Multifator do Azure, um certificado SSL deverá ser instalado no mesmo servidor que o Servidor de MFA. Clique em **Procurar** ao lado da caixa de certificado SSL e selecione um certificado a ser usado para a conexão segura.
 5. Clique em **Adicionar**.
 6. Na caixa de diálogo Adicionar Cliente LDAP, digite o endereço IP do dispositivo, do servidor ou do aplicativo que fará a autenticação para o Servidor e um nome de Aplicativo (opcional). O nome do aplicativo aparece nos relatórios da Autenticação Multifator do Azure e pode ser exibido nas mensagens de autenticação por SMS ou Aplicativo Móvel.
-7. Marque a caixa correspondente a **Exigir correspondência de usuário de Autenticação Multifator do Microsoft Azure**  se todos os usuários tiverem sido ou forem importados para o servidor e estiverem sujeitos à verificação em duas etapas. Se um número significativo de usuários ainda não tiver sido importado para o Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada. Consulte o arquivo de ajuda Servidor de MFA para obter informações adicionais sobre esse recurso.
+7. Marque a caixa correspondente a **Exigir correspondência de usuário de Autenticação Multifator do Microsoft Azure** se todos os usuários tiverem sido ou forem importados para o servidor e estiverem sujeitos à verificação em duas etapas. Se um número significativo de usuários ainda não tiver sido importado para o Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada. Consulte o arquivo de ajuda Servidor de MFA para obter informações adicionais sobre esse recurso.
 
 Repita estas etapas para adicionar outros clientes LDAP.
 

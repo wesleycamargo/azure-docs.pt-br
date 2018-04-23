@@ -1,12 +1,12 @@
 ---
-title: "Visão geral de segurança operacional do Azure | Microsoft Docs"
-description: "Este artigo fornece uma visão geral da segurança operacional do Azure."
+title: Visão geral de segurança operacional do Azure | Microsoft Docs
+description: Este artigo fornece uma visão geral da segurança operacional do Azure.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ca42e0cc76bc385f04cb2e010ff91dbb27bd627a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral de segurança operacional do Azure
 A Segurança Operacional do Azure refere-se a serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros recursos no Microsoft Azure. A [Segurança Operacional do Azure](https://docs.microsoft.com/azure/security/azure-operational-security) é uma estrutura que incorpora o conhecimento adquirido por meio de várias funcionalidades que são exclusivas à Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e uma conscientização profunda do cenário de ameaças à segurança cibernética.
@@ -65,7 +65,7 @@ O [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/act
 -   Fornece gerenciamento de acesso central, logon único (SSO) e relatórios
 -   Oferece suporte ao gerenciamento de acesso integrado para [milhares de aplicativos](https://azure.microsoft.com/marketplace/active-directory/) na galeria de aplicativos, incluindo Salesforce, Google Apps, Box, Concur e outros.
 
-O Azure AD também inclui um pacote completo de [funcionalidades de gerenciamento de identidade](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), incluindo [autenticação multifator](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), [registro de dispositivos]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), [gerenciamento de senhas de autoatendimento](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), [gerenciamento de grupos de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), [gerenciamento de contas com privilégios](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), [controle de acesso baseado em função](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is), [monitoramento de uso de aplicativos](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), [auditoria avançada](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs) e [alertas e monitoramento de segurança](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+O Azure AD também inclui um pacote completo de [funcionalidades de gerenciamento de identidade](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), incluindo [autenticação multifator](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), [registro de dispositivos]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), [gerenciamento de senhas de autoatendimento](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), [gerenciamento de grupos de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), [gerenciamento de contas com privilégios](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview), [monitoramento de uso de aplicativos](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), [auditoria avançada](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs) e [alertas e monitoramento de segurança](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
 
 Com o Azure Active Directory, os aplicativos que você publica para seus parceiros e clientes (comerciais ou consumidores) têm os mesmos recursos de gerenciamento de identidades e de acesso. Isso permite que você reduza significativamente os custos operacionais.
 
@@ -80,7 +80,7 @@ A [Central de Segurança](https://docs.microsoft.com/azure/security-center/secur
 -   Validação de criptografia de disco
 -   Ataques de rede
 
-A Central de Segurança do Azure usa o [RBAC (Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure), que fornece [funções internas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) que podem ser atribuídas a usuários, grupos e serviços no Azure.
+A Central de Segurança do Azure usa o [RBAC (Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), que fornece [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) que podem ser atribuídas a usuários, grupos e serviços no Azure.
 
 A Central de Segurança avalia a configuração de seus recursos para identificar problemas de segurança e vulnerabilidades. Na Central de Segurança, você vê apenas as informações relacionadas a um recurso quando for atribuído à função de Proprietário, Colaborador ou Leitor da assinatura ou do grupo de recursos ao qual o recurso pertence.
 

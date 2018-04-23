@@ -1,26 +1,24 @@
 ---
-title: "Criar aplicativos .NET de autenticação não interativa no Azure HDInsight | Microsoft Docs"
-description: "Saiba como criar aplicativos Microsoft .NET de autenticação não interativa no Azure HDInsight."
+title: Criar aplicativos .NET de autenticação não interativa no Azure HDInsight | Microsoft Docs
+description: Saiba como criar aplicativos Microsoft .NET de autenticação não interativa no Azure HDInsight.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b2b24747ce4ea8499c999c693f00fb09178d52b0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5672dae5600634b53cfbc8d677f6e1b8e3fa327d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar um aplicativo .NET HDInsight de autenticação não interativa
 É possível executar seu aplicativo Microsoft .NET do Azure HDInsight na própria identidade do aplicativo (não interativo) ou na identidade do usuário conectado do aplicativo (interativo). Este artigo mostra como criar um aplicativo .NET de autenticação não interativa para se conectar ao Azure e gerenciar o HDInsight. Para obter um exemplo de um aplicativo interativo, consulte [Conectar-se ao Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -35,7 +33,7 @@ Em seu aplicativo .NET não interativo, você precisa:
 * Um cluster HDInsight. Consulte o [tutorial de introdução](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Atribuir uma função ao aplicativo do Azure AD
-Atribua a seu aplicativo do Azure AD uma [função](../active-directory/role-based-access-built-in-roles.md), para lhe conceder permissões para executar ações. Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. (Por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos significa que o aplicativo pode ler o grupo de recursos e todos os recursos nele.) Neste tutorial, você definirá o escopo no nível de grupo de recursos. Para obter mais informações, consulte [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../active-directory/role-based-access-control-configure.md).
+Atribua a seu aplicativo do Azure AD uma [função](../role-based-access-control/built-in-roles.md), para lhe conceder permissões para executar ações. Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. (Por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos significa que o aplicativo pode ler o grupo de recursos e todos os recursos nele.) Neste tutorial, você definirá o escopo no nível de grupo de recursos. Para obter mais informações, consulte [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
 
 **Adicionar a função de Proprietário ao aplicativo do Azure AD**
 
@@ -127,4 +125,4 @@ Atribua a seu aplicativo do Azure AD uma [função](../active-directory/role-bas
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar uma entidade de serviço e um aplicativo do Azure Active Directory no Portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 * Saiba como [autenticar uma entidade de serviço com o Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
-* Saiba mais sobre o [Azure RBAC (Controle de Acesso Baseado em Função)](../active-directory/role-based-access-control-configure.md).
+* Saiba mais sobre o [Azure RBAC (Controle de Acesso Baseado em Função)](../role-based-access-control/role-assignments-portal.md).

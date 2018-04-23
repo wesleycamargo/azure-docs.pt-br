@@ -1,11 +1,11 @@
 ---
-title: "Solucionar problemas de rotas – Portal | Microsoft Docs"
-description: "Saiba como solucionar problemas de rotas no modelo de implantação do Azure Resource Manager usando o Portal do Azure."
+title: Solucionar problemas de rotas – Portal | Microsoft Docs
+description: Saiba como solucionar problemas de rotas no modelo de implantação do Azure Resource Manager usando o Portal do Azure.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bdd8b6dc-02fb-4057-bb23-8289caa9de89
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 67da2eae5ea04962cd5adeff8edd070c1a3cf95a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Solucionar problemas de rotas usando o Portal do Azure
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Embora o exemplo use somente rotas de sistema, as mesmas etapas podem ser usadas
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Exibir rotas em vigor para uma máquina virtual
 Para ver as rotas agregadas aplicadas a uma VM, siga as etapas a seguir:
 
-1. Faça logon no portal do Azure em https://portal.azure.com. Sua conta deve ter a operação *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* atribuída a ela para o adaptador de rede. Para saber como atribuir operações a contas, consulte [Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Faça logon no portal do Azure em https://portal.azure.com. Sua conta deve ter a operação *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* atribuída a ela para o adaptador de rede. Para saber como atribuir operações a contas, consulte [Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Clique em **Todos os serviços** e, em seguida, clique em **Máquinas virtuais** na lista exibida.
 3. Selecione uma VM para solucionar problemas na lista, e uma folha da VM com opções é exibida.
 4. Clique em **Diagnosticar e resolver problemas** e selecione um problema comum. Neste exemplo, **Não é possível me conectar à minha VM do Windows** está selecionado.

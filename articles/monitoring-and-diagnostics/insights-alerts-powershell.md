@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ca9df36c642334d9323736abb51a931a6610fd3e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Criar alertas de métrica clássicos no Azure Monitor para serviços do Azure – PowerShell
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Para saber mais, digite ```Get-Help``` e depois o comando do PowerShell sobre o 
 1. Fazer logon no Azure.   
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     ```
 2. Obter uma lista das inscrições disponíveis. Verifique se você está trabalhando com a assinatura correta. Se não estiver, defina a correta usando a saída de `Get-AzureRmSubscription`.

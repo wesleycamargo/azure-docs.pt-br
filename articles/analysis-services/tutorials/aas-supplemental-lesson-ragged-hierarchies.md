@@ -1,25 +1,18 @@
 ---
-title: "Lição suplementar de tutorial do Azure Analysis Services: hierarquias desbalanceadas | Microsoft Docs"
+title: 'Lição suplementar de tutorial do Azure Analysis Services: hierarquias desbalanceadas | Microsoft Docs'
 description: Descreve como corrigir hierarquias desbalanceadas no tutorial do Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 955bc57bbf5f8bc3f0d91350f885d5dc77db93a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lição suplementar – hierarquias desbalanceadas
 
@@ -31,7 +24,7 @@ Modelos tabulares no nível de compatibilidade 1400 têm uma propriedade **Ocult
   
 Tempo estimado para conclusão desta lição: **20 minutos**  
   
-## <a name="prerequisites"></a>Pré-requisitos  
+## <a name="prerequisites"></a>pré-requisitos  
 Este tópico de lição suplementar faz parte de um tutorial de modelagem Tabular. Antes de executar as tarefas desta lição suplementar, você deve ter concluído todas as lições anteriores ou ter um projeto de modelo de amostra de Vendas pela Internet da Adventure Works concluído. 
 
 Se você criou o projeto de vendas pela Internet da AW como parte do tutorial, o modelo ainda não contém nenhum dado ou hierarquias desbalanceadas. Para concluir esta lição suplementar, você precisa primeiro criar o problema adicionando algumas tabelas adicionais, criar relações, colunas calculadas, uma medida e uma nova hierarquia de Organização. Essa parte leva cerca de 15 minutos. Em seguida, você pode resolvê-la em apenas alguns minutos.  
@@ -50,11 +43,11 @@ Se você criou o projeto de vendas pela Internet da AW como parte do tutorial, o
 
     | Tabela 1           | Coluna       | Direção do Filtro   | Tabela 2     | Coluna      | Ativo |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | Padrão            | DimDate     | Data        | Sim    |
+    | FactResellerSales | OrderDateKey | Padrão            | DimDate     | Data        | sim    |
     | FactResellerSales | DueDate      | Padrão            | DimDate     | Data        | Não      |
     | FactResellerSales | ShipDateKey  | Padrão            | DimDate     | Data        | Não      |
-    | FactResellerSales | ProductKey   | Padrão            | DimProduct  | ProductKey  | Sim    |
-    | FactResellerSales | EmployeeKey  | Para Ambas as Tabelas | DimEmployee | EmployeeKey | Sim    |
+    | FactResellerSales | ProductKey   | Padrão            | DimProduct  | ProductKey  | sim    |
+    | FactResellerSales | EmployeeKey  | Para Ambas as Tabelas | DimEmployee | EmployeeKey | sim    |
 
 5. Na tabela **DimEmployee**, crie as seguintes [colunas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md): 
 

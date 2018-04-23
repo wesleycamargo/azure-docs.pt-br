@@ -1,12 +1,12 @@
 ---
 title: Passo a passo do HDInsight Spark usando PySpark e Scala no Azure | Microsoft Docs
-description: "Exemplos do Processo de Ciência de Dados de Equipe que fornecem orientação sobre o uso de PySpark e Scala em um Azure HDInsight Spark para fazer análise preditiva."
+description: Exemplos do Processo de Ciência de Dados de Equipe que fornecem orientação sobre o uso de PySpark e Scala em um Azure HDInsight Spark para fazer análise preditiva.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 13e681ec8893aa2cbd97f6c4e2ca66be634c9cb9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 30204d1859cd72e5fb821d2f027b82c4eacaa5fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Projetos estruturados de Ciência de dados de equipe no Azure Machine Learning Workbench
 
@@ -28,12 +28,12 @@ Outras instruções passo a passo de ciência de dados que executam o Processo d
 
 ## <a name="classify-uci-incomes-in-azure-machine-learning-workbench"></a>Classificar rendimentos da UCI no Azure Machine Learning Workbench
 
-Para obter um tutorial mostrando como criar um projeto TDSP no Azure Machine Learning Workbench, veja [Tutorial de Processo de ciência de dados de equipe: classificar rendimentos da UCI no Azure Machine Learning Workbench](../preview/scenario-tdsp-classifying-us-incomes.md) 
+Para obter um tutorial mostrando como criar um projeto TDSP no Azure Machine Learning Workbench, veja [Tutorial de Processo de ciência de dados de equipe: classificar rendimentos da UCI no Azure Machine Learning Workbench](../desktop-workbench/scenario-tdsp-classifying-us-incomes.md) 
 
 
 ## <a name="biomedical-entity-recognition-using-natural-language-processing-with-deep-learning"></a>Reconhecimento de entidade biomédica usando Processamento de idioma natural com Deep Learning
 
-Para obter um exemplo que use um projeto instanciado por TDSP no Azure Machine Learning Workbench, consulte [Reconhecimento de entidade biomédica usando Processamento de idioma natural com Deep Learning](../preview/scenario-tdsp-biomedical-recognition.md)
+Para obter um exemplo que use um projeto instanciado por TDSP no Azure Machine Learning Workbench, consulte [Reconhecimento de entidade biomédica usando Processamento de idioma natural com Deep Learning](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

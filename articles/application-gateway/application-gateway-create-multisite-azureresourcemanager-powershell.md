@@ -1,6 +1,6 @@
 ---
-title: "Criar um gateway de aplicativo com hospedagem de vários sites – Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicativo que hospeda vários sites usando o Azure PowerShell."
+title: Criar um gateway de aplicativo com hospedagem de vários sites – Azure PowerShell | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo que hospeda vários sites usando o Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: ed385eac624f5c59981c01ee70ba2a1700a78653
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be3ecf1d1ce292df47cbe117390e863f4bd4d5b1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Criar um gateway de aplicativo com hospedagem de vários sites usando o Azure PowerShell
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá a:
 > * Criar um Gateway de Aplicativo
 > * Criar ouvintes e regras de roteamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
-> * Criar um registro CNAME em seu domínio
+> * Criar um registro CNAME no seu domínio
 
 ![Exemplo de roteamento de vários sites](./media/application-gateway-create-multisite-azureresourcemanager-powershell/scenario.png)
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Para saber qual é a versão, execute ` Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Para saber qual é a versão, execute ` Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -257,9 +257,9 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Digite seu nome de domínio na barra de endereços do navegador. Por exemplo, http://www.contoso.com.
+Digite seu nome de domínio na barra de endereços do navegador. Como http://www.contoso.com.
 
-![Testar o site do contoso no gateway do aplicativo](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
+![Testar o site contoso no gateway do aplicativo](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
 
 Altere o endereço para seu outro domínio e você verá algo parecido com o exemplo a seguir:
 
@@ -274,7 +274,7 @@ Neste artigo, você aprendeu a:
 > * Criar um Gateway de Aplicativo
 > * Criar ouvintes e regras de roteamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
-> * Criar um registro CNAME em seu domínio
+> * Criar um registro CNAME no seu domínio
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o que você pode fazer com o gateway de aplicativo](application-gateway-introduction.md)

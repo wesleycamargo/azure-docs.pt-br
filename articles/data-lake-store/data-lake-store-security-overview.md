@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 65319df8db339b1c124be47f27a841bbd7141921
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d3387812e064d3ce8a293db7d2c942a34cd5b364
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Segurança no Armazenamento do Azure Data Lake
 Muitas empresas estão tirando vantagem da análise de big data para ter ideias de negócios e ajudá-los a tomar decisões inteligentes. Uma organização pode ter um ambiente regulamentado e complexo, com um número crescente de usuários diferentes. É fundamental para uma empresa ter certeza de que os dados essenciais aos negócios são armazenados com mais segurança, com o nível correto de acesso concedido a usuários individuais. O Azure Data Lake Store foi criado para ajudar a atender a esses requisitos de segurança. Neste artigo, saiba mais sobre os recursos de segurança do Data Lake Store, incluindo:
@@ -42,7 +42,7 @@ Toda assinatura do Azure pode ser associada a uma instância do Azure Active Dir
 ## <a name="authorization-and-access-control"></a>Autenticação e controle de acessos
 Depois que o Azure Active Directory autentica um usuário para que ele possa acessar o Azure Data Lake Store, controles de autorização acessam permissões para o Data Lake Store. O Data Lake Store separa autorização das atividades relacionadas à conta e relacionadas a dados da seguinte forma:
 
-* [Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) ) fornecido pelo Azure para gerenciamento de contas
+* [Controle de acesso baseado em função](../role-based-access-control/overview.md) ) fornecido pelo Azure para gerenciamento de contas
 * ACL POSIX para acessar dados no repositório
 
 ### <a name="rbac-for-account-management"></a>RBAC para o gerenciamento da conta

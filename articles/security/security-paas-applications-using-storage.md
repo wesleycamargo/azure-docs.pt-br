@@ -5,8 +5,8 @@ services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Proteger aplicativos móveis e Web de PaaS usando o Armazenamento do Azure
 Neste artigo, discutiremos um conjunto de práticas recomendadas de segurança do Armazenamento do Azure para proteger seus aplicativos móveis e Web de PaaS. Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
@@ -75,7 +75,7 @@ Para obter mais informações, consulte [Perguntas frequentes sobre discos premi
 
 Anteriormente, discutimos o uso de SAS (Assinatura de Acesso Compartilhado) para conceder acesso limitado a objetos em sua conta de armazenamento a outros clientes sem expor a chave de conta de armazenamento da conta. Às vezes, os riscos associados a uma determinada operação em relação à sua conta de armazenamento superam os benefícios da SAS. Às vezes, é mais simples gerenciar o acesso de outras maneiras.
 
-Outra maneira de gerenciar o acesso é usar o [RBAC do Azure](../active-directory/role-based-access-control-what-is.md) (controle de acesso baseado em função). Com o RBAC, você se concentra em fornecer aos funcionários as permissões exatas de que eles precisam, com base nos princípios de segurança de privilégio mínimo e do que os usuários precisam saber. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC ajuda a resolver esse problema oferecendo gerenciamento de acesso refinado ao Azure. Isso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados.
+Outra maneira de gerenciar o acesso é usar o [RBAC do Azure](../role-based-access-control/overview.md) (controle de acesso baseado em função). Com o RBAC, você se concentra em fornecer aos funcionários as permissões exatas de que eles precisam, com base nos princípios de segurança de privilégio mínimo e do que os usuários precisam saber. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC ajuda a resolver esse problema oferecendo gerenciamento de acesso refinado ao Azure. Isso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados.
 
 Você pode aproveitar as funções internas de RBAC do Azure para atribuir privilégios aos usuários. Considere usar o Colaborador da Conta de Armazenamento para operadores de nuvem que precisarem gerenciar contas de armazenamento e a função de Colaborador de Conta de Armazenamento Clássica para gerenciar contas de armazenamento clássicas. Para operadores de nuvem que precisam gerenciar VMs, mas não a rede virtual ou a conta de armazenamento a que estão conectados, considere adicioná-los à função de Colaborador de Máquina Virtual.
 
@@ -83,8 +83,8 @@ As organizações que não impõem o controle de acesso de dados utilizando recu
 
 Para saber mais sobre o RBAC, consulte:
 
-- [Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-configure.md)
-- [Funções internas para controle de acesso baseado em função do Azure](../active-directory/role-based-access-built-in-roles.md)
+- [Controle de Acesso Baseado em Função do Azure](../role-based-access-control/role-assignments-portal.md)
+- [Funções internas para controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md)
 - [Guia de Segurança do Armazenamento do Azure](../storage/common/storage-security-guide.md) para obter detalhes de como proteger sua conta de armazenamento com RBAC
 
 ## <a name="storage-encryption"></a>Criptografia do armazenamento

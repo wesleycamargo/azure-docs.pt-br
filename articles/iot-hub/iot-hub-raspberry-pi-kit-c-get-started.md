@@ -1,11 +1,11 @@
 ---
-title: "Raspberry Pi à nuvem (C) – conectar o Raspberry Pi ao Hub IoT do Azure | Microsoft Docs"
-description: "Neste tutorial, aprenda a configurar e conectar o Raspberry Pi ao Hub IoT do Azure para o Raspberry Pi enviar dados à plataforma de nuvem do Azure."
+title: Raspberry Pi à nuvem (C) – conectar o Raspberry Pi ao Hub IoT do Azure | Microsoft Docs
+description: Neste tutorial, aprenda a configurar e conectar o Raspberry Pi ao Hub IoT do Azure para o Raspberry Pi enviar dados à plataforma de nuvem do Azure.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: raspberry pi azure iot, hub iot raspberry pi, raspberry pi enviar dados para a nuvem, raspberry pi para nuvem
 ms.assetid: 68c0e730-1dc8-4e26-ac6b-573b217b302d
 ms.service: iot-hub
@@ -13,14 +13,14 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/12/2017
-ms.author: xshi
+ms.date: 4/11/2018
+ms.author: rangv
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d643647d4103acd511ed270132c844da12f2ac9b
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: ea4a7b4084faf702cf303036b414a9bc9e153840
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (C)
 
@@ -112,7 +112,7 @@ Use a placa universal e os cabos de jumper para conectar um LED e um BME280 ao P
 
 O sensor BME280 pode coletar dados de temperatura e umidade. E o LED piscará se houver uma comunicação entre o dispositivo e a nuvem. 
 
-Use a seguinte fiação para os pinos do sensor:
+Para os pinos do sensor, use a seguinte fiação:
 
 | Início (Sensor e LED)     | End (quadro)            | Cor de cabo   |
 | -----------------------  | ---------------------- | ------------: |

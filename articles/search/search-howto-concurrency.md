@@ -1,25 +1,17 @@
 ---
-title: "Como gerenciar gravações simultâneas aos recursos no Azure Search"
-description: "Use a simultaneidade otimista para evitar colisões de ar intermediário em atualizações ou exclusões para os índices do Azure Search, indexadores e fontes de dados."
-services: search
-documentationcenter: 
+title: Como gerenciar gravações simultâneas aos recursos no Azure Search
+description: Use a simultaneidade otimista para evitar colisões de ar intermediário em atualizações ou exclusões para os índices do Azure Search, indexadores e fontes de dados.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 
+manager: cgronlun
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-ms.openlocfilehash: aee1b7376d4829e3e2f5a232525e3c3cb4df9d8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26c285a016443bd67eb8dca008510debe82bcc32
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Como gerenciar a simultaneidade no Azure Search
 

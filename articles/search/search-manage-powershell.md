@@ -1,25 +1,19 @@
 ---
 title: Gerenciar o Azure Search com scripts do PowerShell | Microsoft Docs
-description: "Gerencie o serviço de Azure Search com scripts do PowerShell. Criar ou atualizar um serviço do Azure Search e gerenciar chaves de administração do Azure Search"
-services: search
-documentationcenter: 
-author: seansaleh
-manager: mblythe
-editor: 
+description: Gerencie o serviço de Azure Search com scripts do PowerShell. Criar ou atualizar um serviço do Azure Search e gerenciar chaves de administração do Azure Search
+author: HeidiSteen
+manager: cgronlun
 tags: azure-resource-manager
-ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: powershell
+ms.devlang: powershell
+ms.topic: conceptual
 ms.date: 08/15/2016
-ms.author: seasa
-ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: heidist
+ms.openlocfilehash: fc9d23b0c11484c7fec575c411f32522b6e46e28
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gerencie o serviço de Azure Search com o PowerShell
 > [!div class="op_single_selector"]
@@ -31,13 +25,13 @@ ms.lasthandoff: 12/21/2017
 Este tópico descreve os comandos do PowerShell para executar muitas das tarefas de gerenciamento dos serviços do Azure Search. Vamos apresentar a criação de um serviço de pesquisa, como escaloná-lo e como gerenciar suas chaves de API.
 Esses comandos são paralelos às opções de gerenciamento disponíveis na [API REST de Gerenciamento do Azure Search](http://msdn.microsoft.com/library/dn832684.aspx).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * É necessário ter o Azure PowerShell 1.0 ou superior. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 * É necessário estar conectado à sua assinatura do Azure no PowerShell, conforme descrito abaixo.
 
 Primeiro, faça logon no Azure com este comando:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Especifique o endereço de email de sua conta do Azure e sua senha no diálogo de logon do Microsoft Azure.
 

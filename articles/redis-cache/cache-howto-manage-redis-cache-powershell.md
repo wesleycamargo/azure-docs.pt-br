@@ -2,10 +2,10 @@
 title: Gerenciar o Cache Redis do Azure com o Azure PowerShell | Microsoft Docs
 description: Saiba como executar tarefas administrativas para o Cache Redis do Azure usando o PowerShell do Azure.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gerenciar o Cache Redis do Azure com o PowerShell do Azure
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Se você já instalou o Azure PowerShell, você deve ter o Azure PowerShell vers
 
 Primeiro, faça logon no Azure com este comando.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Especifique o endereço de email de sua conta do Azure e sua senha na caixa de diálogo de logon do Microsoft Azure.
 
@@ -66,18 +66,18 @@ Por exemplo, para obter ajuda para o cmdlet `New-AzureRmRedisCache` , digite:
     Get-Help New-AzureRmRedisCache -Detailed
 
 ### <a name="how-to-connect-to-other-clouds"></a>Como se conectar a outras nuvens
-Por padrão, o ambiente do Azure é `AzureCloud`, que representa a instância de nuvem global do Azure. Para se conectar a uma instância diferente, use o comando `Add-AzureRmAccount` com a opção de linha de comando `-Environment` ou -`EnvironmentName` com o ambiente desejado ou o nome do ambiente.
+Por padrão, o ambiente do Azure é `AzureCloud`, que representa a instância de nuvem global do Azure. Para se conectar a uma instância diferente, use o comando `Connect-AzureRmAccount` com a opção de linha de comando `-Environment` ou -`EnvironmentName` com o ambiente desejado ou o nome do ambiente.
 
 Para ver a lista de ambientes disponíveis, execute o cmdlet `Get-AzureRmEnvironment` .
 
 ### <a name="to-connect-to-the-azure-government-cloud"></a>Para se conectar à Nuvem do Azure Government
 Para se conectar à Nuvem do Azure Government, use um dos comandos a seguir.
 
-    Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+    Connect-AzureRmAccount -EnvironmentName AzureUSGovernment
 
 ou o
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
 Para criar um cache na Nuvem do Azure Government, use um dos locais a seguir.
 
@@ -89,11 +89,11 @@ Para saber mais sobre a Nuvem do Azure Government, confira [Microsoft Azure Gove
 ### <a name="to-connect-to-the-azure-china-cloud"></a>Para se conectar à Nuvem do Azure na China
 Para se conectar à Nuvem do Azure na China, use um dos comandos a seguir.
 
-    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 ou o
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 Para criar um cache na Nuvem do Azure na China, use um dos locais a seguir.
 
@@ -105,12 +105,12 @@ Para obter mais informações sobre a Nuvem do Azure na China, confira [AzureChi
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Para se conectar ao Microsoft Azure Alemanha
 Para se conectar ao Microsoft Azure Alemanha, use um dos comandos a seguir.
 
-    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+    Connect-AzureRmAccount -EnvironmentName AzureGermanCloud
 
 
 ou o
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
 
 Para criar um cache no Microsoft Azure Alemanha, use uma das localizações a seguir.
 

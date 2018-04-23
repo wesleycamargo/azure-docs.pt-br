@@ -1,26 +1,24 @@
 ---
 title: Executar consultas interativas em um cluster HDInsight Spark do Azure | Microsoft Docs
-description: "Guia de início rápido sobre como criar um cluster do Apache Spark no HDInsight."
-keywords: "início rápido do spark,spark interativo,consulta interativa,hdinsight spark,azure spark"
+description: Guia de início rápido sobre como criar um cluster do Apache Spark no HDInsight.
+keywords: início rápido do spark,spark interativo,consulta interativa,hdinsight spark,azure spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 177fb47c72e9abbafcda69416643fbd3848373bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Executar consultas interativas em clusters do Spark no HDInsight
 
@@ -32,7 +30,7 @@ Os Notebooks Jupyter nos clusters do HDInsight dão suporte a três kernels – 
 
 Neste tutorial, você consultará dados em um arquivo CSV. Primeiro você deve carregar esses dados no Spark como um dataframe. Em seguida, você poderá executar consultas no dataframe usando o Notebook Jupyter. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Um cluster HDInsight Spark do Azure**. Para obter instruções, consulte [Criar um cluster do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Um notebook Jupyter usando PySpark**. Para obter instruções, consulte [Criar um Notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).

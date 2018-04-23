@@ -1,8 +1,8 @@
 ---
-title: "Integração de diretórios entre a Autenticação Multifator do Azure e o Active Directory"
-description: "Esta é a página de autenticação multifator do Azure que descreve como integrar o Servidor de Autenticação Multifator do Azure ao Active Directory para sincronizar os diretórios."
+title: Integração de diretórios entre a Autenticação Multifator do Azure e o Active Directory
+description: Esta é a página de autenticação multifator do Azure que descreve como integrar o Servidor de Autenticação Multifator do Azure ao Active Directory para sincronizar os diretórios.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 9d06da0d15bfeffb17da81e4b5ae4423d01ed770
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Azure MFA Server e o Active Directory
 Use a seção Integração de Diretórios do Servidor do Azure MFA para se integrar com o Active Directory ou com outro diretório LDAP. Você pode configurar atributos para corresponder ao esquema de diretório e configurar a sincronização automática de usuários.
@@ -29,7 +29,7 @@ Por padrão, o Servidor de Autenticação Multifator do Azure (MFA) é configura
 
 ![Configurações](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | Usar o Active Directory |Selecione a opção Usar o Active Directory para usar o Active Directory na importação e na sincronização.  Esta é a configuração padrão. <br>Observação: para que a integração do Active Directory funcione corretamente, ingresse o computador em um domínio e entre com uma conta de domínio. |
 | Incluir domínios confiáveis |Marque a caixa de seleção **Incluir Domínios Confiáveis** para que o agente tente se conectar a domínios confiáveis pelo domínio atual, a outro domínio na floresta ou a domínios envolvidos em uma relação de confiança de floresta.  Quando não estiver importando ou sincronizando usuários de qualquer um dos domínios confiáveis, desmarque a caixa de seleção para melhorar o desempenho.  O padrão é verificado. |
@@ -39,7 +39,7 @@ Por padrão, o Servidor de Autenticação Multifator do Azure (MFA) é configura
 
 A tabela a seguir descreve as definições de configuração de LDAP.
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | Servidor |Insira o nome do host ou o endereço IP do servidor que está executando o diretório LDAP.  Um servidor de backup também pode ser especificado separado por ponto-e-vírgula. <br>Observação: quando o Tipo de Associação for SSL, é necessário um nome de host totalmente qualificado. |
 | DN base |Insira o nome diferenciado do objeto de diretório base do qual todas as consultas de diretório são iniciadas.  Por exemplo, d=abc,dc=com. |
@@ -68,7 +68,7 @@ Os atributos podem ser inseridos manualmente e não precisam coincidir com um at
 
 ![Atributos](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | Identificador exclusivo |Digite o nome do atributo que serve como o identificador exclusivo do contêiner, do grupo de segurança e dos registros de usuário.  No Active Directory, isso geralmente é objectGUID. Outras implementações LDAP podem usar entryUUID ou algo semelhante.  O padrão é objectGUID. |
 | Tipo de identificador exclusivo |Selecione o tipo de atributo de identificador exclusivo.  No Active Directory, o atributo objectGUID é do tipo GUID. Outras implementações LDAP podem usar o tipo Cadeia de Caracteres ou Matriz de Bytes ASCII.  O padrão é GUID. <br><br>É importante definir esse tipo corretamente, já que os itens de sincronização são referenciados por seu identificador exclusivo. O tipo de identificador exclusivo é usado para localizar o objeto diretamente no diretório.  Definir esse tipo como Cadeia de Caracteres quando o diretório realmente armazena o valor como uma matriz de bytes de caracteres ASCII e impede que a sincronização funcione corretamente. |
@@ -80,7 +80,7 @@ Os atributos podem ser inseridos manualmente e não precisam coincidir com um at
 | Sobrenome |Insira o nome do atributo que contém o sobrenome em um registro de usuário.  O padrão é sn. |
 | Endereço de email |Insira o nome do atributo que contém o endereço de email em um registro de usuário.  O endereço de email é usado para enviar boas-vindas e emails de atualização para o usuário.  O padrão é email. |
 | Grupo de usuários |Insira o nome do atributo que contém o grupo de usuários em um registro de usuário.  O grupo de usuários pode ser usado para filtrar usuários no agente e em relatórios no Portal de Gerenciamento do servidor Multi-Factor Authentication. |
-| Descrição |Insira o nome do atributo que contém a descrição em um registro de usuário.  A descrição é usada somente para pesquisa.  O padrão é descrição. |
+| DESCRIÇÃO |Insira o nome do atributo que contém a descrição em um registro de usuário.  A descrição é usada somente para pesquisa.  O padrão é descrição. |
 | Idioma to telefonema |Insira o nome do atributo que contém o nome curto do idioma a ser usado para chamadas de voz para o usuário. |
 | Idioma da mensagem de texto |Insira o nome do atributo que contém o nome curto do idioma a ser usado para mensagens de texto SMS para o usuário. |
 | Idioma do aplicativo móvel |Insira o nome do atributo que contém o nome curto do idioma a ser usado para mensagens de texto do aplicativo Telefone do usuário. |
@@ -112,7 +112,7 @@ Se o diretório LDAP der suporte e se estiver configurado para DirSync, a sondag
 
 A tabela a seguir contém informações adicionais sobre cada uma das configurações de sincronização do guia.
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | Habilitar a sincronização com o Active Directory |Quando marcado, o serviço do servidor de Autenticação Multifator sonda periodicamente o Active Directory quanto a alterações. <br><br>Observação: pelo menos um Item de sincronização deve ser adicionado e Sincronizar agora deve ser executado antes que o serviço do servidor Multi-Factor Auth inicie o processamento das alterações. |
 | Sincronizar cada |Especifique o intervalo de tempo que o serviço de servidor Multi-Factor Authentication aguardará entre a sondagem e o processamento de alterações. <br><br> Observação: o intervalo especificado é o tempo entre o início de cada ciclo.  Se o tempo de processamento das alterações exceder o intervalo, o serviço fará a sondagem novamente imediatamente. |

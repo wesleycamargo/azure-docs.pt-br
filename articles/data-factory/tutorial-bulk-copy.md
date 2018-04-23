@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 65c40885a8dde2e07deb2a4f94a3dc6a05ef78d0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 28128e07b4beb03b1a8ecdd8546d54c19145689f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
@@ -28,11 +28,11 @@ Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQ
 De forma mais abrangente, este tutorial envolve as seguintes etapas:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Criar serviços vinculados do Banco de Dados SQL do Azure, do SQL Data Warehouse do Azure e do Armazenamento do Azure.
 > * Criar conjuntos de dados do Banco de Dados SQL do Azure e do SQL Data Warehouse do Azure.
 > * Crie um pipeline para consultar as tabelas a serem copiadas e outro pipeline para executar a operação de cópia propriamente dita. 
-> * Inicie uma execução de pipeline.
+> * Iniciar uma execução de pipeline.
 > * Monitorar as execuções de pipeline e de atividade.
 
 Este tutorial usa o Azure PowerShell. Para obter informações sobre como usar outras ferramentas/SDKs para criar um data factory, consulte os [Guias de início rápido](quickstart-create-data-factory-dot-net.md). 
@@ -81,7 +81,7 @@ Para o Banco de Dados SQL e o SQL Data Warehouse, permita que os serviços do Az
     Execute o comando a seguir e insira o nome de usuário e senha usados para entrar no portal do Azure:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
     Execute o comando abaixo para exibir todas as assinaturas dessa conta:
 
@@ -587,11 +587,11 @@ Esse pipeline realiza duas etapas:
 Neste tutorial, você realizará os seguintes procedimentos: 
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Criar serviços vinculados do Banco de Dados SQL do Azure, do SQL Data Warehouse do Azure e do Armazenamento do Azure.
 > * Criar conjuntos de dados do Banco de Dados SQL do Azure e do SQL Data Warehouse do Azure.
 > * Crie um pipeline para consultar as tabelas a serem copiadas e outro pipeline para executar a operação de cópia propriamente dita. 
-> * Inicie uma execução de pipeline.
+> * Iniciar uma execução de pipeline.
 > * Monitore as execuções de pipeline e de atividade.
 
 Avance para o tutorial a seguir para saber mais sobre como copiar dados incrementalmente de uma origem para um destino:

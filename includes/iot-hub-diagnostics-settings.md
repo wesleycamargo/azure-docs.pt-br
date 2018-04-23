@@ -12,7 +12,7 @@
    * Transmitir para um hub de eventos
    * Enviar para o Log Analytics
 1. Escolha as operações que você deseja monitorar e habilite os logs para essas operações. As operações que podem ser informadas em configurações de diagnóstico são:
-   * Conexões
+   * conexões
    * Telemetria de dispositivo
    * Mensagens da nuvem para o dispositivo
    * Operações de identidade do dispositivo
@@ -28,7 +28,7 @@
 Se você deseja ativar as configurações de diagnóstico com o PowerShell, use o seguinte código:
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```

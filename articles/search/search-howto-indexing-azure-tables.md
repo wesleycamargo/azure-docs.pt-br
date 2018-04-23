@@ -1,27 +1,21 @@
 ---
-title: "Indexação do Armazenamento de Tabelas do Azure com a Pesquisa do Azure | Microsoft Docs"
-description: Aprenda a indexar dados armazenados no armazenamento de Tabelas do Azure com a Pesquisa do Azure
-services: search
-documentationcenter: 
+title: Indexação do Armazenamento de Tabelas do Azure com o Azure Search | Microsoft Docs
+description: Aprenda a indexar dados armazenados no armazenamento de Tabelas do Azure com o Azure Search
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: 1cc27411-d0cc-40ed-8aed-c7cb9ab402b9
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 317b76809bb7dc47f607687efe2311727859214a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="index-azure-table-storage-with-azure-search"></a>Indexação do Armazenamento de Tabelas do Azure com a Pesquisa do Azure
-Este artigo mostra como usar a Pesquisa do Azure para indexar dados armazenados no Armazenamento de Tabelas do Azure.
+# <a name="index-azure-table-storage-with-azure-search"></a>Indexação do Armazenamento de Tabelas do Azure com o Azure Search
+Este artigo mostra como usar o Azure Search para indexar dados armazenados no Armazenamento de Tabelas do Azure.
 
 ## <a name="set-up-azure-table-storage-indexing"></a>Indexador do Armazenamento de Tabelas do Azure
 
@@ -119,12 +113,12 @@ Esse indexador é executado a cada duas horas. (O intervalo de agendamento é de
 Para obter mais informações sobre Criar a API do Indexador, consulte [Criar Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 ## <a name="deal-with-different-field-names"></a>Lidar com nomes de campos diferentes
-Algumas vezes, os nomes de campos no índice existente são diferentes dos nomes de propriedades na sua tabela. Você pode usar os mapeamentos de campo para mapear os nomes de propriedade da tabela para os nomes de campo em seu índice de pesquisa. Para saber mais sobre os mapeamentos de campo, consulte [Os mapeamentos de campo do Indexador da Pesquisa do Azure reduzem as diferenças entre fontes de dados e índices de pesquisa](search-indexer-field-mappings.md).
+Algumas vezes, os nomes de campos no índice existente são diferentes dos nomes de propriedades na sua tabela. Você pode usar os mapeamentos de campo para mapear os nomes de propriedade da tabela para os nomes de campo em seu índice de pesquisa. Para saber mais sobre os mapeamentos de campo, consulte [Os mapeamentos de campo do Indexador do Azure Search reduzem as diferenças entre fontes de dados e índices de pesquisa](search-indexer-field-mappings.md).
 
 ## <a name="handle-document-keys"></a>Manipular chaves de documento
-Na Pesquisa do Azure, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo `Edm.String`. O campo de chave é necessário para cada documento adicionado ao índice. (Na verdade, ele é o único campo obrigatório.)
+No Azure Search, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo `Edm.String`. O campo de chave é necessário para cada documento adicionado ao índice. (Na verdade, ele é o único campo obrigatório.)
 
-Como as linhas de tabela têm uma chave composta, a Pesquisa do Azure gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave de linha e de chave de partição. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, o valor do campo `Key` será `PK1RK1`.
+Como as linhas de tabela têm uma chave composta, o Azure Search gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave de linha e de chave de partição. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, o valor do campo `Key` será `PK1RK1`.
 
 > [!NOTE]
 > O valor `Key` pode conter caracteres inválidos em chaves de documento, como traços. É possível lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se você fizer isso, lembre-se também de usar a codificação de Base 64 protegida por URL ao transmitir as chaves de documento nas chamadas à API como Pesquisa.
@@ -167,5 +161,5 @@ Aqui estão duas abordagens possíveis para melhorar o desempenho de indexação
     - Com essa abordagem, se você precisar disparar uma reindexação completa, você precisará redefinir a consulta de fonte de dados, além de redefinir o indexador. 
 
 
-## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar a Pesquisa do Azure
+## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar o Azure Search
 Se você tiver solicitações de recursos ou ideias para aperfeiçoamentos, envie-os por meio do nosso [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

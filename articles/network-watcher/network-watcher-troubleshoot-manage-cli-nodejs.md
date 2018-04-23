@@ -1,11 +1,11 @@
 ---
-title: "Solução de problemas de Conexões e do Gateway de Rede Virtual do Azure – CLI do Azure 1.0 | Microsoft Docs"
-description: "Esta página explica como usar a solução de problemas da CLI do Azure 1.0 do Observador de Rede do Azure"
+title: Solução de problemas de Conexões e do Gateway de Rede Virtual do Azure – CLI do Azure 1.0 | Microsoft Docs
+description: Esta página explica como usar a solução de problemas da CLI do Azure 1.0 do Observador de Rede do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 2acbc47970acf0eb2aa1aea8535d7157bc73cbb6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ac5ce43d5ec992d8ec1bc5d7c787b1ca071eda98
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-10"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando a CLI do Azure 1.0 do Observador de Rede do Azure
 
@@ -35,7 +35,7 @@ Este artigo usa a CLI 1.0 do Azure para plataforma cruzada, que está disponíve
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede.
 
 Para obter uma lista de tipos de gateway com suporte, visite [Tipos de Gateway com suporte](/network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
@@ -87,7 +87,7 @@ A solução de problemas de recursos produz relatório de dados sobre a integrid
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Como executar a solução de problemas de recursos do Observador de rede
 
-Você usa o cmdlet `network watcher troubleshoot` para solucionar problemas de recursos. Aprovamos o cmdlet no grupo de recursos, no nome do Observador de rede, no ID da conexão, no ID da conta de armazenamento e no caminho para o blob para armazenar o resultado da solução de problemas.
+Utilize o cmdlet `network watcher troubleshoot` para solucionar os problemas dos recursos. Aprovamos o cmdlet no grupo de recursos, no nome do Observador de rede, no ID da conexão, no ID da conta de armazenamento e no caminho para o blob para armazenar o resultado da solução de problemas.
 
 ```azurecli
 azure network watcher troubleshoot -g resourceGroupName -n networkWatcherName -t connectionId -i storageId -p storagePath
@@ -103,4 +103,4 @@ Para obter instruções sobre como baixar os arquivos de contas de armazenamento
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se as configurações para a conectividade VPN foram alteradas, confira [Gerenciamento de grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para acompanhar quais são as regras de segurança e o grupo de segurança de rede envolvidos na questão.
+Se as configurações para a conectividade VPN foram alteradas, confira [Gerenciamento de grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para acompanhar quais são as regras de segurança e o grupo de segurança de rede envolvidos na questão.

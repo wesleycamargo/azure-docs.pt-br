@@ -12,15 +12,15 @@
 ## [Diagnóstico e métricas padrão do balanceador de carga](load-balancer-standard-diagnostics.md)
 
 # Introdução
-## [Criar o balanceador de carga básico](load-balancer-get-started-internet-portal.md)
-### [Criar o balanceador de carga básico (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [Criar o balanceador de carga básico (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-## [Criar o balanceador de carga padrão](load-balancer-standard-public-portal.md)
-### [Criar o balanceador de carga padrão (CLI)](load-balancer-standard-public-cli.md)
+## [Criar o balanceador de carga básico](quickstart-create-basic-load-balancer-portal.md)
+### [Criar o balanceador de carga básico (CLI)](quickstart-create-basic-load-balancer-cli.md)
+### [Criar o balanceador de carga básico (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
+## [Criar o balanceador de carga padrão](quickstart-load-balancer-standard-public-portal.md)
+### [Criar o balanceador de carga padrão (CLI)](quickstart-load-balancer-standard-public-cli.md)
 
 # Como
 
-## [Criar um Balanceador de Carga Padrão público e redundante da zona](load-balancer-get-started-internet-az-portal.md)
+## [Criar um Balanceador de Carga Padrão público e redundante da zona](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 ### [Criar um Balanceador de Carga Padrão público e redundante da zona (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Criar um Balanceador de Carga Padrão público e redundante da zona (CLI)](load-balancer-get-started-internet-az-cli.md)
 ## [Criar um Balanceador de Carga Padrão público e da zona](load-balancer-get-started-internet-availability-zones-zonal-portal.md)

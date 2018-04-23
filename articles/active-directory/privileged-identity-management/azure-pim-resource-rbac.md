@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="pim-for-azure-resources"></a>PIM para Recursos do Azure
 
@@ -43,7 +43,7 @@ O Azure AD PIM pode gerenciar as funções internas do Azure Resource, bem como 
 - Gerenciador de Segurança e muito mais
 
 >[!NOTE]
-Os usuários ou membros de um grupo atribuído às funções de Administrador de Acesso de Usuário ou Proprietário e Administradores Globais que permitem o gerenciamento de assinatura no Azure AD são Administradores de Recursos. Esses administradores podem atribuir funções, definir configurações de função e revisar o acesso ao usar o PIM para recursos do Azure. Exiba a lista de [funções internas para recursos do Azure](../role-based-access-built-in-roles.md).
+Os usuários ou membros de um grupo atribuído às funções de Administrador de Acesso de Usuário ou Proprietário e Administradores Globais que permitem o gerenciamento de assinatura no Azure AD são Administradores de Recursos. Esses administradores podem atribuir funções, definir configurações de função e revisar o acesso ao usar o PIM para recursos do Azure. Exiba a lista de [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="tasks"></a>Tarefas
 
@@ -193,6 +193,6 @@ Selecione Minhas funções no menu de navegação esquerdo e escolha a função 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Funções internas para recursos do Azure](../role-based-access-built-in-roles.md)
+- [Funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md)
 - Saiba mais sobre como [ativar funções do Azure AD aqui](../active-directory-privileged-identity-management-how-to-activate-role.md)
 - [Fluxos de trabalho de aprovação do PIM](azure-ad-pim-approval-workflow.md)

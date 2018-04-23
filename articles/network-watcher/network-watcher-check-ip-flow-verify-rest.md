@@ -1,11 +1,11 @@
 ---
-title: "Verifique o tráfego com a verificação de fluxo de IP do Observador de Rede do Azure – REST | Microsoft Docs"
-description: "Esse artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado"
+title: Verifique o tráfego com a verificação de fluxo de IP do Observador de Rede do Azure – REST | Microsoft Docs
+description: Esse artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3307a79f-03be-46a0-aaaf-b2079cb5f3b2
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3ccef9ef521b86ffc1eb6047174f4f9e5d9e4296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c3d38f776db63e777174b7dca8b09a0d19c387e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Verifique se o tráfego é permitido ou negado com a verificação de fluxo de IP, um componente do Observador de Rede do Azure
 
@@ -36,7 +36,7 @@ Fluxo de IP Verifique se é um recurso do Observador de Rede que permite verific
 
 O ARMclient é usado para chamar a API REST usando o PowerShell. O ARMClient é encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede.
 
 ## <a name="scenario"></a>Cenário
 
@@ -165,7 +165,7 @@ A resposta retornada informa se o tráfego é permitido ou negado. A resposta é
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se o tráfego estiver sendo bloqueado, mas não devesse estar, consulte [Gerenciar Grupos de Segurança de Rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para saber mais sobre Grupos de Segurança de Rede.
+Se o tráfego estiver sendo bloqueado, mas não devesse estar, consulte [Gerenciar Grupos de Segurança de Rede](../virtual-network/manage-network-security-group.md) para saber mais sobre Grupos de Segurança de Rede.
 
 
 

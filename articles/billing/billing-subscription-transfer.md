@@ -1,12 +1,12 @@
 ---
 title: Transferir a propriedade de assinatura do Azure para outra conta | Microsoft Docs
-description: "Descreve como transferir uma assinatura do Azure para outro usuário e algumas perguntas frequentes sobre o processo"
-keywords: "transferir assinatura do Azure, assinatura de transferência do Azure, mover assinatura do Azure para outra conta, alterar proprietário da assinatura do Azure, transferir assinatura do Azure para outra conta"
-services: 
-documentationcenter: 
+description: Descreve como transferir uma assinatura do Azure para outro usuário e algumas perguntas frequentes sobre o processo
+keywords: transferir assinatura do Azure, assinatura de transferência do Azure, mover assinatura do Azure para outra conta, alterar proprietário da assinatura do Azure, transferir assinatura do Azure para outra conta
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e81037aeb3a8aee4f70eaf33280b1dc0d483332
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma assinatura do Azure para outra conta
 
@@ -29,7 +29,7 @@ Transfira sua assinatura para outro usuário no Centro de Contas para alterar o 
 
 > [!IMPORTANT]
 > 
-> Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../active-directory/role-based-access-control-what-is.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino.
+> Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma assinatura do Azure
 
@@ -51,7 +51,7 @@ Transfira sua assinatura para outro usuário no Centro de Contas para alterar o 
 
    > [!IMPORTANT]
    > 
-   > Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../active-directory/role-based-access-control-what-is.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino.
+   > Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino.
 
    ![Caixa de diálogo de assinatura de transferência](./media/billing-subscription-transfer/image2.PNG)
 
@@ -115,7 +115,7 @@ O Administrador da Conta é a pessoa que se inscreveu ou comprou a assinatura do
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Tudo é transferido? Incluindo grupos de recursos, VMs, discos e outros serviços em execução?
 
-Todos os recursos, como VMs, discos e sites, são transferidos para o novo proprietário. No entanto, todas as [funções de administrador](billing-add-change-azure-subscription-administrator.md) e políticas [RBAC (Controle de Acesso Baseado em Função)](../active-directory/role-based-access-control-configure.md) configuradas não são transferidas entre diretórios diferentes. Além disso, os [registros de aplicativo](../active-directory//develop/active-directory-integrating-applications.md) e outros serviços específicos de locatário também não são transferidos.
+Todos os recursos, como VMs, discos e sites, são transferidos para o novo proprietário. No entanto, todas as [funções de administrador](billing-add-change-azure-subscription-administrator.md) e políticas [RBAC (Controle de Acesso Baseado em Função)](../role-based-access-control/role-assignments-portal.md) configuradas não são transferidas entre diretórios diferentes. Além disso, os [registros de aplicativo](../active-directory//develop/active-directory-integrating-applications.md) e outros serviços específicos de locatário também não são transferidos.
 
 ### <a id="no-button"></a> Por que não vejo o botão “Transferir Assinatura”?
 

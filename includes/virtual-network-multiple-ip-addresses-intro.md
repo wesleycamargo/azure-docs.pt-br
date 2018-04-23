@@ -1,8 +1,23 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-network
+author: jimdial
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: f1dc43b6fea4ebfb47439ec64b573cc471614d98
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/18/2018
+---
 > [!div class="op_single_selector"]
 > * [Portal do Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
 > * [CLI do Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
-> * [Modelo](../articles/virtual-network/virtual-network-multiple-ip-addresses-template.md)
 >
 
 Uma VM (máquina virtual) do Azure tem uma ou mais NICs (adaptadores de rede) conectadas a ele. Qualquer NIC pode ter um ou mais endereços IP públicos e privados estáticos ou dinâmicos atribuídos a ele. A atribuição de vários endereços IP a uma VM permite as seguintes capacidades:

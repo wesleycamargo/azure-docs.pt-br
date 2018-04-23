@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 377a8255961a4c7fa55f8bbc5cb98ae4deff3205
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Entrada do usuário com autenticação de passagem do Azure Active Directory
 
@@ -39,7 +39,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 - *Ótima experiência do usuário*
   - Os usuários usam as mesmas senhas para entrar em aplicativos locais e aplicativos baseados na nuvem.
   - Os usuários perdem menos tempo se comunicando com o suporte técnico de TI para resolver problemas de senha.
-  - Os usuários podem concluir tarefas de [gerenciamento de senha por autoatendimento](../active-directory-passwords-overview.md) na nuvem.
+  - Os usuários podem concluir tarefas de [gerenciamento de senha por autoatendimento](../authentication/active-directory-passwords-overview.md) na nuvem.
 - *Fácil de implantar e administrar*
   - Não são necessárias implantações locais ou configurações de rede complexas.
   - É necessário apenas que um agente leve seja instalado localmente.
@@ -56,7 +56,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 - Dá suporte à entrada do usuário em todos os aplicativos baseados em navegador da Web e em aplicativos de cliente do Microsoft Office que usam [autenticação moderna](https://aka.ms/modernauthga).
 - Os nomes de usuário de entrada podem ser o nome de usuário local padrão (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (conhecido como `Alternate ID`).
 - O recurso funciona diretamente com recursos de [acesso condicional](../active-directory-conditional-access-azure-portal.md), como a MFA (Autenticação Multifator), para ajudar a proteger seus usuários.
-- Integrado com [gerenciamento de senha de autoatendimento](../active-directory-passwords-overview.md) baseado em nuvem, incluindo write-back de senha para o Active Directory local e a proteção de senha por proibição de senhas usadas normalmente.
+- Integrado com [gerenciamento de senha de autoatendimento](../authentication/active-directory-passwords-overview.md) baseado em nuvem, incluindo write-back de senha para o Active Directory local e a proteção de senha por proibição de senhas usadas normalmente.
 - Ambientes de várias florestas têm suporte se houver relações de confiança entre suas florestas do AD e se o encaminhamento de sufixo de nome estiver configurado corretamente.
 - Essa é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 - Ele pode ser habilitado por meio do [Azure AD Connect](active-directory-aadconnect.md).

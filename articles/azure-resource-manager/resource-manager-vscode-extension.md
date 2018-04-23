@@ -1,8 +1,8 @@
 ---
-title: "Modelo do Azure Resource Manager com a extensão do VS Code | Microsoft Docs"
-description: "Use a extensão de ferramentas do Azure Resource Manager para trabalhar em modelos do Resource Manager."
+title: Modelo do Azure Resource Manager com a extensão do VS Code | Microsoft Docs
+description: Use a extensão de ferramentas do Azure Resource Manager para trabalhar em modelos do Resource Manager.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 0dd48146624052fbd00093066d79067b75e33c92
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 9d15d3e48f7e952e1454718759f4770be0d8d135
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Usar a extensão do Visual Studio Code para criar modelos do Azure Resource Manager
 Este artigo mostra os benefícios de instalar e usar a extensão de ferramentas do Azure Resource Manager no Visual Studio Code. Você pode criar modelos do Resource Manager no VS Code sem a extensão, mas a extensão fornece opções de preenchimento automático que simplificam o desenvolvimento do modelo. Ele sugere as funções, parâmetros e variáveis de modelo que estão disponíveis no modelo.
@@ -261,7 +261,7 @@ Você está pronto para implantar o modelo. Use o PowerShell ou a CLI do Azure p
 * No caso do PowerShell, use os seguintes comandos na pasta que contém o modelo:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    
    New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json

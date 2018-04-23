@@ -1,10 +1,10 @@
 ---
-title: "Dimensionar automaticamente nós de cluster do HPC Pack | Microsoft Docs"
-description: "Aumentar e reduzir automaticamente o número de nós de computação de cluster do HPC Pack no Azure"
+title: Dimensionar automaticamente nós de cluster do HPC Pack | Microsoft Docs
+description: Aumentar e reduzir automaticamente o número de nós de computação de cluster do HPC Pack no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: 
+manager: ''
 editor: tysonn
 ms.assetid: 38762cd1-f917-464c-ae5d-b02b1eb21e3f
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 4a2350183bc0cb9360e9315cd8a351be20b66584
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Aumentar e reduzir automaticamente os recursos de cluster do HPC Pack no Azure conforme a carga de trabalho de cluster
 Se você implantar nós de "intermitência" no seu cluster do HPC Pack ou criar um cluster HPC Pack em VMs do Azure, poderá ser conveniente encontrar uma maneira de aumentar ou reduzir automaticamente os recursos do cluster, como nós ou núcleos, de acordo com a carga de trabalho no cluster. Dimensionar os recursos de cluster dessa maneira permite que você use os recursos do Azure com mais eficiência e controle seus custos.
@@ -35,7 +35,7 @@ No momento somente é possível aumentar ou reduzir automaticamente nós de comp
 
 
 ## <a name="set-the-autogrowshrink-cluster-property"></a>Definir a propriedade de cluster AutoGrowShrink
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 * **Cluster do HPC Pack 2012 R2 Atualização 2 ou posterior** : o nó de cabeçalho do cluster pode ser implantado localmente ou em uma VM do Azure. Veja [Configurar um cluster híbrido com o HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) para começar com um nó de cabeçalho local e os nós de “disparo contínuo” do Azure. Consulte o [script de implantação de IaaS do HPC Pack](hpcpack-cluster-powershell-script.md) para implantar rapidamente um cluster HPC Pack em VMs do Azure.
 
@@ -50,13 +50,13 @@ No momento somente é possível aumentar ou reduzir automaticamente nós de comp
     ```powershell
         cd $env:CCP_HOME\bin
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     ```
         
     Se sua conta estiver em mais de um locatário do Azure Active Directory ou em mais de uma assinatura do Azure, execute o seguinte comando para selecionar o locatário e a assinatura corretos:
   
     ```powershell
-        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+        Connect-AzureRmAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
        
     Execute o seguinte comando para exibir o locatário e a assinatura atualmente selecionados:
@@ -181,17 +181,17 @@ Por padrão, o HPC Pack aumenta 1% de nós extras para trabalhos MPI (**ExtraNod
 Por padrão, **SoaJobGrowThreshold** é definido como 50000 e **SoaRequestsPerCore** é definido como 20000. Se você enviar um trabalho SOA com 70000 solicitações, há uma tarefa na fila e as solicitações de entrada serão 70000. Nesse caso, o HPC Pack aumenta 1 núcleo para a tarefa em fila e para solicitações de entrada aumenta (70000 - 50000)/20000 = 1 núcleo, portanto o total aumenta em 2 núcleos para este trabalho SOA.
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>Executar o script AzureAutoGrowShrink.ps1
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 * **Cluster HPC Pack 2012 R2 Atualização 1 ou cluster posterior** – O script **AzureAutoGrowShrink.ps1** está instalado na pasta %CCP_HOME%bin. O nó de cabeçalho do cluster pode ser implantado localmente ou em uma VM do Azure. Veja [Configurar um cluster híbrido com o HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) para começar com um nó de cabeçalho local e os nós de “disparo contínuo” do Azure. Consulte o [script de implantação IaaS do HPC Pack](hpcpack-cluster-powershell-script.md) para implantar rapidamente um cluster HPC Pack em VMs do Azure ou use um [modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 * **Azure PowerShell 1.4.0** – O script depende atualmente desta versão específica do Azure PowerShell.
 * **Para um cluster com nós de disparo contínuo do Azure** - Execute o script em um computador cliente em que o HPC Pack está instalado ou no nó de cabeçalho. Se executado em um computador cliente, certifique-se de que você defina a variável $env:CCP_SCHEDULER para apontar para o nó de cabeçalho. Os nós de "intermitência" do Azure devem ter sido adicionados ao cluster, mas podem estar no estado Não Implantado.
-* **Para um cluster implantado em VMs do Azure (modelo de implantação do Resource Manager)** – Para um cluster de VMs do Azure implantado no modelo de implantação do Resource Manager, o script oferece suporte a dois métodos de autenticação do Azure: entrar em sua conta do Azure para executar o script todas as vezes (executando `Login-AzureRmAccount`, ou configurar uma entidade de serviço para autenticar com um certificado. O HPC Pack fornece o script **ConfigARMAutoGrowShrinkCert.ps** para criar uma entidade de serviço com certificado. O script cria um aplicativo do Azure Active Directory (Azure AD) e uma entidade de serviço e atribui a função de Colaborador para a entidade de serviço. Para executar o script, inicie o Azure PowerShell como administrador e execute os seguintes comandos:
+* **Para um cluster implantado em VMs do Azure (modelo de implantação do Resource Manager)** – Para um cluster de VMs do Azure implantado no modelo de implantação do Resource Manager, o script oferece suporte a dois métodos de autenticação do Azure: entrar em sua conta do Azure para executar o script todas as vezes (executando `Connect-AzureRmAccount`, ou configurar uma entidade de serviço para autenticar com um certificado. O HPC Pack fornece o script **ConfigARMAutoGrowShrinkCert.ps** para criar uma entidade de serviço com certificado. O script cria um aplicativo do Azure Active Directory (Azure AD) e uma entidade de serviço e atribui a função de Colaborador para a entidade de serviço. Para executar o script, inicie o Azure PowerShell como administrador e execute os seguintes comandos:
 
     ```powershell
     cd $env:CCP_HOME\bin
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -PfxFile "d:\yourcertificate.pfx"
     ```
@@ -217,7 +217,7 @@ AzureAutoGrowShrink.ps1 [-NodeTemplates <String[]>] [-JobTemplates <String[]>] [
 
 AzureAutoGrowShrink.ps1 -UseLastConfigurations [-ArgFile <String>] [-LogFilePrefix <String>] [<CommonParameters>]
 ```
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 * **NodeTemplates** - Nomes dos modelos de nó para definir o escopo para que os nós sejam aumentados ou reduzidos. Se não for especificado (o valor padrão é @()), todos os nós no grupo de nós **AzureNodes** estarão no escopo quando **NodeType** tiver um valor de AzureNodes e todos os nós do grupo de nós **ComputeNodes** estarão no escopo quando **NodeType** tiver um valor de ComputeNodes.
 * **JobTemplates** - Nomes dos modelos de trabalho para definir o escopo para que os nós sejam aumentados.
 * **NodeType** - O tipo de nó para ser aumentado ou reduzido. Os valores para os quais há suporte são:

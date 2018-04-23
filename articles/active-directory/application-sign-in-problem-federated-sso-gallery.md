@@ -1,11 +1,11 @@
 ---
-title: "Problemas ao entrar em um aplicativo na galeria configurado para logon único federado | Microsoft Docs"
-description: "Diretrizes para os erros específicos ao entrar em um aplicativo configurado para o logon único federado baseado em SAML com Azure AD"
+title: Problemas ao entrar em um aplicativo na galeria configurado para logon único federado | Microsoft Docs
+description: Diretrizes para os erros específicos ao entrar em um aplicativo configurado para o logon único federado baseado em SAML com Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: fa1387c3eb11899bb74418b2ff1af4a5d22a73d9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao entrar em um aplicativo na galeria configurado para logon único federado
 
@@ -55,7 +55,7 @@ Certifique-se de que o atributo Emissor na solicitação SAML corresponde ao val
 
 6.  Selecione o aplicativo para o qual deseja configurar o logon único
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
 8.  Acesse a seção **Domínio e URLs**. Verifique se o valor na caixa de texto Identificador corresponde ao valor para o valor do identificador exibido no erro.
 
@@ -63,7 +63,7 @@ Após atualizar o valor do Identificador no Azure AD e correspondê-lo com o val
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo.
 
-*Erro AADSTS50011: O endereço de resposta 'https://contoso.com' não corresponde aos endereços de resposta configurados para o aplicativo*
+*Erro AADSTS50011: o endereço de resposta 'https://contoso.com' não corresponde aos endereços de resposta configurados para o aplicativo*
 
 **Possível causa**
 
@@ -87,7 +87,7 @@ Verifique se o valor de AssertionConsumerServiceURL na solicitação SAML corres
 
 6.  Selecione o aplicativo para o qual deseja configurar o logon único
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
 8.  Acesse a seção **Domínio e URLs**. Verifique ou atualize o valor na caixa de texto URL de Resposta para corresponder ao valor AssertionConsumerServiceURL na solicitação SAML.  
     * Se você não vir a caixa de texto URL de Resposta, selecione a caixa de seleção **Mostrar configurações de URL avançadas**.
@@ -249,7 +249,7 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 
 6.  Selecione o aplicativo para o qual deseja configurar o logon único
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
 8.  clique em **Criar novo certificado** na seção **Certificado de Autenticação SAML**.
 

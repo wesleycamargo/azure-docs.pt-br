@@ -3,7 +3,7 @@ title: Criar e gerenciar uma Máquina Virtual do Azure usando o Java | Microsoft
 description: Use o Java e o Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de suporte.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: davidmu
-ms.openlocfilehash: da8f8b0e84a51683bd4f631832e1f319f3a9bbb0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: e4c77514bb38b6c3c5766bdb4af22e5271c9bffa
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerenciar VMs Windows no Azure usando o Java
 

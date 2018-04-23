@@ -1,12 +1,12 @@
 ---
-title: "Melhores práticas de segurança do banco de dados do Azure | Microsoft Docs"
-description: "Este artigo fornece um conjunto de melhores práticas de segurança do banco de dados do Azure."
+title: Melhores práticas de segurança do banco de dados do Azure | Microsoft Docs
+description: Este artigo fornece um conjunto de melhores práticas de segurança do banco de dados do Azure.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3c019e8e1518c661eb75065f061ee681f0231efa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-security-best-practices"></a>Melhores práticas de segurança do banco de dados do Azure
 
@@ -112,7 +112,7 @@ Mesmo quando todo o armazenamento é criptografado, é muito importante também 
 Já que um usuário autorizado, como um administrador de segurança ou um administrador de banco de dados, pode acessar os dados mesmo se o banco de dados estiver criptografado com TDE, você também deve seguir as recomendações abaixo:
 
 -   Habilite a autenticação SQL no nível do banco de dados.
--   Use a autenticação do Azure AD com [funções RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+-   Use a autenticação do Azure AD com [funções RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 -   Os usuários e os aplicativos devem usar contas separadas para autenticar. Dessa forma, você pode limitar as permissões concedidas a usuários e aplicativos e reduzir os riscos de atividades mal-intencionadas.
 -   Implemente segurança no nível do banco de dados usando funções de banco de dados fixas (como db_datareader ou db_datawriter) ou crie funções personalizadas para seu aplicativo conceder permissões explícitas para objetos de banco de dados selecionados.
 

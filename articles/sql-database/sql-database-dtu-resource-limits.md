@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: c4c85395856756e8ec6a788aa958b479a297892d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a56ff1d70d56b742966c9980f01b4de03f7f30b2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Limites de recursos baseados em DTU do Banco de Dados SQL do Azure
 
@@ -39,7 +39,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 ### <a name="standard-service-tier"></a>Camada de serviço Standard
 | **Nível de desempenho** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| Número máximo de DTUs** | 10 | 20 | 50 | 100 |
+| Número máximo de DTUs | 10 | 20 | 50 | 100 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 |
 | Opções de espaço de armazenamento máximo (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |
@@ -51,7 +51,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 ### <a name="standard-service-tier-continued"></a>Camada de serviço Standard (continuação)
 | **Nível de desempenho** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| Número máximo de DTUs** | 200 | 400 | 800 | 1600 | 3000 |
+| Número máximo de DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opções de espaço de armazenamento máximo (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |N/D |
@@ -78,8 +78,6 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 >
 >\* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Central do Canadá, Leste do Canadá, Centro dos EUA, França Central, Centro da Alemanha, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
->\*\* O máx de DTUs por banco de dados, começando em 200 DTUs e acima em Standard, está na versão prévia.
->
 
 
 ## <a name="single-database-change-storage-size"></a>Banco de dados individual: alterar o tamanho do armazenamento
