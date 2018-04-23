@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure
 A resposta à pergunta "Qual algoritmo de aprendizado de máquina devo usar?" sempre será "Depende". Depende do tamanho, da qualidade e da natureza dos dados. Depende do que você deseja fazer com a resposta. Depende de como o cálculo do algoritmo foi traduzido em instruções para o computador que você está usando. E depende de quanto tempo você tem. Até mesmo os cientistas de dados mais experientes não podem determinar qual algoritmo terá o melhor desempenho antes de experimentá-lo.

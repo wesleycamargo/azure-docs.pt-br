@@ -12,11 +12,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: 7f78e54b16da024c233a7943e82fd50f41c5503a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d0956a4e7e6f9cd6a1b075efc2b87c27d3660233
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-using-azure-powershell"></a>Criar um gateway de aplicativo usando o Azure PowerShell
 
@@ -26,7 +26,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Para saber qual é a versão, execute `Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Para saber qual é a versão, execute `Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -198,7 +198,7 @@ Use [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermp
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![Testar gateway de aplicativo](./media/application-gateway-create-gateway-arm/application-gateway-iistest.png)
+![Teste o gateway de aplicativo](./media/application-gateway-create-gateway-arm/application-gateway-iistest.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -210,5 +210,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você criou um grupo de recursos, recursos de rede e servidores de back-end. Você usou, em seguida, esses recursos para criar um gateway de aplicativo. Para saber mais sobre os gateways de aplicativos e seus recursos associados, continue a ler os artigos de instrução.
+Neste guia de início rápido, você criou um grupo de recursos, recursos de rede e servidores de back-end. Você depois usou esses recursos para criar um gateway de aplicativo. Para saber mais sobre os gateways de aplicativo e seus recursos associados, continue para os artigos de instrução.
 

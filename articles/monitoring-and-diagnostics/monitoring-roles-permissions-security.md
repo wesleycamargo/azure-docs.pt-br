@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução às funções, permissões e segurança com o Azure Monitor
 Muitas equipes precisam regular estritamente o acesso aos dados e configurações de monitoramento. Por exemplo, se você tiver os membros da equipe que trabalham exclusivamente no monitoramento (engenheiros de suporte, engenheiros de devops) ou se você usar um provedor de serviços gerenciados, você talvez queira conceder-lhes acesso aos dados de monitoramento apenas enquanto restringe a capacidade de criar, modificar ou excluir recursos. Este artigo mostra como aplicar uma função interna de RBAC de monitoramento a um usuário no Azure rapidamente ou criar sua própria função personalizada para um usuário que precise de permissões limitadas de monitoramento. Em seguida, ele aborda considerações de segurança para os recursos relacionados ao Azure Monitor e como você pode limitar o acesso aos dados contidos nos mesmos.
@@ -71,7 +71,7 @@ Pessoas atribuídas à função de Colaborador de monitoramento podem exibir tod
 > 
 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Monitoramento de permissões e funções RBAC personalizadas
-Se as funções internas acima não atenderem às necessidades exatas de sua equipe, você poderá [criar uma função personalizada de RBAC](../active-directory/role-based-access-control-custom-roles.md) com permissões mais granulares. A seguir estão as operações RBAC do Azure Monitor e suas descrições.
+Se as funções internas acima não atenderem às necessidades exatas de sua equipe, você poderá [criar uma função personalizada de RBAC](../role-based-access-control/custom-roles.md) com permissões mais granulares. A seguir estão as operações RBAC do Azure Monitor e suas descrições.
 
 | Operação | DESCRIÇÃO |
 | --- | --- |
@@ -125,7 +125,7 @@ Todos esses três tipos de dados podem ser armazenados em uma conta de armazenam
 
 * Use uma conta de armazenamento única e dedicada para os dados de monitoramento. Se você precisar separar dados de monitoramento em várias contas de armazenamento, nunca compartilhe o uso de uma conta de armazenamento entre dados de monitoramento e não de monitoramento, pois isso pode, inadvertidamente, dar a quem precisa apenas de acesso aos dados de monitoramento (por exemplo, uma solução SIEM de terceiros) acesso aos dados que não são de monitoramento.
 * Use um namespace único e dedicado de Barramento de Serviço ou Hub de Eventos em todas as configurações de diagnóstico pelo mesmo motivo que o citado acima.
-* Limite o acesso às contas de armazenamento ou hubs de eventos relacionados ao monitoramento mantendo os mesmos em um grupo de recursos separado e [use o escopo](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) nas suas funções de monitoramento para limitar o acesso somente ao grupo de recursos.
+* Limite o acesso às contas de armazenamento ou hubs de eventos relacionados ao monitoramento mantendo os mesmos em um grupo de recursos separado e [use o escopo](../role-based-access-control/overview.md#basics-of-access-management-in-azure) nas suas funções de monitoramento para limitar o acesso somente ao grupo de recursos.
 * Não conceda a permissão de ListKeys para contas de armazenamento ou hubs de eventos no escopo de assinatura quando um usuário precisa apenas de acesso aos dados de monitoramento. Em vez disso, conceda essas permissões ao usuário a um escopo de recurso ou grupo de recursos (se você tiver um grupo de recursos de monitoramento dedicado).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Limitando o acesso a contas de armazenamento relacionados ao monitoramento
@@ -178,6 +178,6 @@ Um padrão semelhante pode ser seguido com hubs de eventos, mas primeiro você p
    ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Leia sobre RBAC e permissões no Gerenciador de Recursos](../active-directory/role-based-access-control-what-is.md)
+* [Leia sobre RBAC e permissões no Gerenciador de Recursos](../role-based-access-control/overview.md)
 * [Leia a visão geral do monitoramento no Azure](monitoring-overview.md)
 

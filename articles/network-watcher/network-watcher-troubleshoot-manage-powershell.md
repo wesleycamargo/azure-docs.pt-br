@@ -1,11 +1,11 @@
 ---
-title: "Solução de problemas de conexões e do gateway de rede virtual do Azure - PowerShell | Microsoft Docs"
-description: "Esta página explica como usar o cmdlet do PowerShell para solucionar problemas do Observador de rede do Azure"
+title: Solução de problemas de conexões e do gateway de rede virtual do Azure - PowerShell | Microsoft Docs
+description: Esta página explica como usar o cmdlet do PowerShell para solucionar problemas do Observador de rede do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f6f0a813-38b6-4a1f-8cfc-1dfdf979f595
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: d7ae5599b3fa1876e2b5af79f56548cd17c1c8ed
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d0ee73ebb05999eed18e555a9b7a928e73c284e7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando o PowerShell do Observador de rede do Azure
 
@@ -33,7 +33,7 @@ O observador de rede oferece muitos recursos que dizem respeito às noções bá
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede.
 
 Para obter uma lista de tipos de gateway com suporte, visite [Tipos de Gateway com suporte](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
@@ -89,4 +89,4 @@ Para obter instruções sobre como baixar os arquivos de contas de armazenamento
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se as configurações para a conectividade VPN foram alteradas, confira [Gerenciamento de grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para acompanhar quais são as regras de segurança e o grupo de segurança de rede envolvidos na questão.
+Se as configurações para a conectividade VPN foram alteradas, confira [Gerenciamento de grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para acompanhar quais são as regras de segurança e o grupo de segurança de rede envolvidos na questão.

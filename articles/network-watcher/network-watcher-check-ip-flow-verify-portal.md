@@ -1,11 +1,11 @@
 ---
-title: "Verificar o tráfego com a verificação de fluxo de IP do Observador de Rede do Azure - Portal do Azure | Microsoft Docs"
-description: "Esse artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado"
+title: Verificar o tráfego com a verificação de fluxo de IP do Observador de Rede do Azure - Portal do Azure | Microsoft Docs
+description: Esse artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e0e3e9a8-70eb-409a-a744-0ce9deb27148
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 8333ccfd1e4cc917c8af4b3006292e43b77ecc7f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b6d929f025c8b95709b7c0eb28ee78310e5f12a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Verifique se o tráfego é permitido ou negado para ou de uma VM com IP fluxo verificar um componente do Observador de Rede do Azure
 
@@ -59,7 +59,7 @@ Conforme a imagem a seguir mostra, o tráfego é alterado para entrada e a porta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se o tráfego está sendo bloqueado e não deve ser, consulte [gerenciar grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para rastrear as rede segurança e grupo de regras de segurança que são definidas.
+Se o tráfego está sendo bloqueado e não deve ser, consulte [gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para rastrear as rede segurança e grupo de regras de segurança que são definidas.
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png

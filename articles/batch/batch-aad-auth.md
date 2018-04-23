@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 2479701174086ddf680e0ecb1da4a9d13b32b76e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e67ae32902c989f74cee0c1d223dacc770c0d387
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -139,7 +139,7 @@ Para autenticar com uma entidade de serviço, você precisa atribuir uma funçã
 1. No portal do Azure, navegue para a conta do Lote usada pelo aplicativo.
 2. Na folha **Configurações** da conta do Lote, selecione **Controle de Acesso (IAM)**.
 3. Clique no botão **Adicionar** . 
-4. Na lista suspensa **Função**, escolha a função _Colaborador_ ou _Leitor_ para o aplicativo. Para obter mais informações sobre essas funções, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../active-directory/role-based-access-control-what-is.md).  
+4. Na lista suspensa **Função**, escolha a função _Colaborador_ ou _Leitor_ para o aplicativo. Para obter mais informações sobre essas funções, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../role-based-access-control/overview.md).  
 5. No campo **Selecionar**, insira o nome de seu aplicativo. Selecione o aplicativo na lista e clique em **Salvar**.
 
 O aplicativo agora deverá ser exibido nas configurações de controle de acesso com uma função RBAC atribuída. 

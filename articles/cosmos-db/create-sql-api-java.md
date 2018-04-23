@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 99b400d17164881f75cb8313c939d713610c221e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5be05ebd201796707934eac665793dd2c1dc8f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de documentos usando o Java e o portal do Azure
 
@@ -54,43 +54,11 @@ Antes de criar um banco de dados de documentos, você precisa criar uma conta de
 <a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
-Agora você pode adicionar dados à sua nova coleção usando o Data Explorer.
-
-1. Expanda a coleção **Itens**, clique em **Documentos** > **Novo Documento**.
-
-   ![Criar novos documentos no Data Explorer no portal do Azure](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
-  
-2. Agora, adicione um documento à coleção com a seguinte estrutura e clique em **Salvar**. Use o botão **Copiar** na caixa de código para copiar o json para sua área de transferência.
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-    ![Copie nos dados json e clique em Salvar no Data Explorer no portal do Azure](./media/create-sql-api-java/azure-cosmosdb-data-explorer-save-document.png)
-
-3.  Crie e salve mais um documento em que você altera `id` para 2 e altere as outras propriedades quando achar adequado. Os novos documentos podem ter qualquer estrutura que você deseje, pois o Azure Cosmos DB não impõe nenhum esquema para seus dados.
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## <a name="query-your-data"></a>Consultar seus dados
 
-Agora você pode usar consultas no Data Explorer para recuperar e filtrar os dados.
-
-1. Veja que por padrão, a consulta está definida como `SELECT * FROM c`. Essa consulta padrão recupera e exibe todos os documentos na coleção. 
-
-    ![A consulta padrão no Data Explorer é `SELECT * FROM c`](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
-
-2. Permaneça na guia **Documentos** e altere a consulta clicando no botão **Editar Filtro**, adicionando `ORDER BY c._ts DESC` à caixa de predicado de consulta e depois clicando em **Aplicar Filtro**.
-
-    ![Altere a consulta padrão adicionando ORDER BY c._ts DESC e clicando Aplicar Filtro](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
-
-Essa consulta modificada lista os documentos em ordem decrescente com base em seu carimbo de data/hora, portanto, agora o segundo documento é listado primeiro. Se você estiver familiarizado com a sintaxe do SQL, poderá inserir quaisquer [consultas SQL](sql-api-sql-query.md) nesta caixa. 
-
-Isso conclui nosso trabalho no Data Explorer. Antes de prosseguirmos para trabalhar com código, observe que você também pode usar o Data Explorer para criar procedimentos armazenados, UDFs e gatilhos para executar a lógica de negócios do servidor, além de dimensionar a taxa de transferência. O Data Explorer expõe todo o acesso a dados interno via programação disponível nas APIs, mas oferece acesso fácil aos dados no Portal do Azure.
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 

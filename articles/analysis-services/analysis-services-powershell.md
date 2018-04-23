@@ -1,24 +1,18 @@
 ---
 title: Gerenciar o Azure Analysis Services com o PowerShell | Microsoft Docs
 description: O gerenciamento do Azure Analysis Services com o PowerShell.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: reference
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 0e154c7789b38843cd3784daa8cf60d078bdc546
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: c7315835bca446c4cae592f4bdd58a733b203655
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerenciar o Azure Analysis Services com PowerShell
 
@@ -29,7 +23,7 @@ As tarefas de gerenciamento de servidor, como criar ou excluir um servidor, susp
 ## <a name="permissions"></a>Permissões
 A maioria das tarefas do PowerShell exige privilégios de administrador no servidor do Analysis Services que está sendo gerenciado. As tarefas agendadas do PowerShell são operações autônomas. A conta que executa o agendador deve ter privilégios de administrador no servidor do Analysis Services. 
 
-Para operações de servidor usando os cmdlets AzureRm, sua conta ou a conta executando o Agendador também deve pertencer à função de Proprietário do recurso no [Controle de Acesso Baseado em Função do Azure (RBAC)](../active-directory/role-based-access-control-what-is.md). 
+Para operações de servidor usando os cmdlets AzureRm, sua conta ou a conta executando o Agendador também deve pertencer à função de Proprietário do recurso no [Controle de Acesso Baseado em Função do Azure (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="server-operations"></a>Operações do servidor 
 Os cmdlets do Azure Analysis Services são incluídos no módulo de componente [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices). Para instalar os módulos de cmdlet do AzureRM, confira [Cmdlets do Azure Resource Manager](/powershell/azure/overview) na Galeria do PowerShell.

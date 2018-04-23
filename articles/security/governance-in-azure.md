@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: af011cb3eea27498107cdfd650518552cd63bdf3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="governance-in-azure"></a>Governança no Azure
 
@@ -147,7 +147,7 @@ Quando o Azure foi inicialmente lançado, os controles de acesso para uma assina
 
 Essa proliferação de assinaturas não é mais necessária. Com o controle de acesso baseado em função, você pode atribuir usuários às funções padrão (como tipos de função comuns "leitor" e "gravador"). Você também pode definir funções personalizadas.
 
-O [Controle De Acesso Baseado Em Função do Azure (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode conceder apenas a quantidade de acesso que os usuários precisam para realizar seus trabalhos. As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões expõem uma conta a ataques. Permissões insuficientes fazem com que os funcionários não consigam trabalhar com eficiência. O RBAC (controle de acesso baseado em função) do Azure ajuda a resolver esse problema ao oferecer o gerenciamento de acesso refinado para o Azure. O RBAC te ajuda a separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Em vez de apresentar todos irrestrito permissões em sua assinatura do Azure ou recursos, você pode permitir apenas determinadas ações.
+O [Controle De Acesso Baseado Em Função do Azure (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode conceder apenas a quantidade de acesso que os usuários precisam para realizar seus trabalhos. As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões expõem uma conta a ataques. Permissões insuficientes fazem com que os funcionários não consigam trabalhar com eficiência. O RBAC (controle de acesso baseado em função) do Azure ajuda a resolver esse problema ao oferecer o gerenciamento de acesso refinado para o Azure. O RBAC te ajuda a separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Em vez de apresentar todos irrestrito permissões em sua assinatura do Azure ou recursos, você pode permitir apenas determinadas ações.
 
 Por exemplo, use o RBAC para permitir que um funcionário gerencie máquinas virtuais em uma assinatura, enquanto outro pode gerenciar bancos de dados SQL dentro da mesma assinatura.
 
@@ -161,7 +161,7 @@ O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de 
 
 As demais funções RBAC no Azure permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função Colaborador de Máquina Virtual permite que o usuário crie e gerencie máquinas virtuais. Ela não lhes concede acesso à rede virtual ou à sub-rede com qual a máquina virtual se conecta.
 
-[Funções internas RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) lista as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários.
+[Funções internas RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) lista as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários.
 
 Conceda acesso ao atribuir a função RBAC apropriada a usuários, grupos e aplicativos em determinado escopo. O escopo de uma atribuição de função pode ser uma assinatura, um grupo de recursos ou um único recurso. Uma função atribuída a um escopo pai também concede acesso aos filhos contidos nele.
 
@@ -169,9 +169,9 @@ Por exemplo, um usuário com acesso a um grupo de recursos pode gerenciar todos 
 
 O RBAC do Azure tem suporte somente para as operações de gerenciamento dos recursos do Azure no Portal do Azure e nas APIs do Azure Resource Manager. Ele não pode autorizar todas as operações no nível de dados para os recursos do Azure. Por exemplo, você pode autorizar alguém para gerenciar Contas de Armazenamento, mas não para blobs ou tabelas em uma Conta de Armazenamento. Da mesma forma, um banco de dados SQL pode ser gerenciado, mas não as tabelas dentro dele.
 
-Se você quiser saber mais sobre como o RBAC ajuda você a gerenciar o acesso, confira [O que é Controle de Acesso Baseado em Função](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+Se você quiser saber mais sobre como o RBAC ajuda você a gerenciar o acesso, confira [O que é Controle de Acesso Baseado em Função](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-Você pode também [criar uma função personalizada](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) no Controle de Acesso Baseado em Função do Azure (RBAC) se nenhuma das funções internas atender às suas necessidades de acesso específicas. É possível criar funções personalizadas usando o [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), a [interface de linha de comando (CLI) do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli) e a [API REST](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Assim como as funções internas, as funções personalizadas podem ser atribuídas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso.
+Você pode também [criar uma função personalizada](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) no Controle de Acesso Baseado em Função do Azure (RBAC) se nenhuma das funções internas atender às suas necessidades de acesso específicas. É possível criar funções personalizadas usando o [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), a [interface de linha de comando (CLI) do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) e a [API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Assim como as funções internas, as funções personalizadas podem ser atribuídas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso.
 
 Dentro de cada assinatura, você pode conceder até 2000 atribuições de função.
 
@@ -271,7 +271,7 @@ A aplicação de **ReadOnly** pode gerar resultados inesperados, pois algumas op
 
 Em outro exemplo, a aplicação de um bloqueio ReadOnly em um recurso do Serviço de Aplicativo impedirá o Visual Studio Server Explorer de exibir os arquivos para o recurso, pois essa interação exige acesso de gravação.
 
-Ao contrário do controle de acesso baseado em função, é possível usar bloqueios de gerenciamento para aplicar uma restrição a todos os usuários e a todas as funções. Para saber mais sobre como configurar permissões para usuários e funções, veja [Controle de Acesso Baseado em Função do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+Ao contrário do controle de acesso baseado em função, é possível usar bloqueios de gerenciamento para aplicar uma restrição a todos os usuários e a todas as funções. Para saber mais sobre como configurar permissões para usuários e funções, veja [Controle de Acesso Baseado em Função do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Quando você aplica um bloqueio a um escopo pai, todos os recursos filho herdam o mesmo bloqueio. Até mesmo os recursos que você adiciona posteriormente herdam o bloqueio do pai. O bloqueio mais restritivo na herança terá precedência.
 

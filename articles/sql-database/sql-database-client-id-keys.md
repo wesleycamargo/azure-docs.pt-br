@@ -9,11 +9,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 9127362ec806b7b3cbf3971488bb5393eb170eff
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 31dd476244d578acf1ced3881fac94d5262bcb82
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obtenha os valores necessários para autenticar um aplicativo para acessar o Banco de Dados SQL do código
 Para criar e gerenciar o Banco de Dados SQL do código, você deve registrar seu aplicativo no domínio do AAD (Azure Active Directory) na assinatura em que os recursos do Azure foram criados.
@@ -24,7 +24,7 @@ Você precisa ter o [Azure PowerShell](https://msdn.microsoft.com/library/mt6192
 O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a entidade de serviço necessária para autenticar nosso aplicativo C#. O script gera os valores necessários para o exemplo anterior do C#. Para obter informações detalhadas, consulte [usar o Azure PowerShell para criar uma entidade de serviço para acessar os recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 
     # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
     #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"

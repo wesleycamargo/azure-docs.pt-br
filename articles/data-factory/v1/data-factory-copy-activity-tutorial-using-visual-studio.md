@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c25bd85c362e7055109e0a2a178a417ef110899a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e82c73c1d2984631e8d2dd2eb0f93c9751a1cf1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 
 ## <a name="prerequisites"></a>pré-requisitos
 1. Leia o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e concluir as etapas de **pré-requisito** .       
-2. Para criar instâncias de Data Factory, você deve ser um membro da função [Colaborador de Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
+2. Para criar instâncias de Data Factory, você deve ser um membro da função [Colaborador de Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
 3. Você deve ter os seguintes itens instalados no seu computador: 
    * Visual Studio 2013 ou Visual Studio 2015
    * Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
@@ -357,7 +357,7 @@ Navegue até a home page do seu data factory:
     ![Nome do data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/enter-data-factory-name.png) 
 4. Clique no data factory na lista de resultados para ver a home page dele.
 
-    ![Página inicial da data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
+    ![Página inicial do data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
 5. Siga as instruções de [Monitorar conjuntos de dados e pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) para monitorar o pipeline e os conjuntos de dados criados neste tutorial. Atualmente, o Visual Studio não dá suporte a monitoramento de pipelines do Data Factory. 
 
 ## <a name="summary"></a>Resumo

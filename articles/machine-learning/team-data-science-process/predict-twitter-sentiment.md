@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev
-ms.openlocfilehash: f22da892868a10ac18fdcd703249eaa172f8bf65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47c8b9c9d364a7959066132a873b93c2bb001e26
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Prever o sentimento do Twitter com incorporações de palavras usando o Processo de Ciência de Dados de Equipe
 
-Este artigo mostra como colaborar com eficiência usando o algoritmo de incorporação de palavras _Word2Vec_ e o algoritmo _SSWE (Incorporação de Palavras Específicas de Sentimento)_ para prever o sentimento do Twitter com o [Azure Machine Learning](../preview/index.yml). Para obter mais informações em relação à previsão de polaridade de sentimento do Twitter, consulte o [repositório MachineLearningSamples-TwitterSentimentPrediction](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) no GitHub. A chave para promover a colaboração efetiva da equipe em projetos de ciência de dados é a padronização da estrutura e documentação dos projetos com um ciclo de vida de ciência de dados já estabelecido. O [TDSP (Processo de Ciência de Dados de Equipe)](overview.md) fornece esse tipo de [ciclo de vida](lifecycle.md) estruturado. 
+Este artigo mostra como colaborar com eficiência usando o algoritmo de incorporação de palavras _Word2Vec_ e o algoritmo _SSWE (Incorporação de Palavras Específicas de Sentimento)_ para prever o sentimento do Twitter com o [Azure Machine Learning](../service/index.yml). Para obter mais informações em relação à previsão de polaridade de sentimento do Twitter, consulte o [repositório MachineLearningSamples-TwitterSentimentPrediction](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) no GitHub. A chave para promover a colaboração efetiva da equipe em projetos de ciência de dados é a padronização da estrutura e documentação dos projetos com um ciclo de vida de ciência de dados já estabelecido. O [TDSP (Processo de Ciência de Dados de Equipe)](overview.md) fornece esse tipo de [ciclo de vida](lifecycle.md) estruturado. 
 
-A criação de projetos de ciência de dados com o _modelo do TDSP_ fornece a estrutura padronizada para projetos do Azure Machine Learning. Antes, a equipe do TDSP liberava um [repositório do GitHub para os modelos e a estrutura de projeto do TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Agora os projetos de Machine Learning que são instanciados com [modelos do TDSP para o Azure Machine Learning](https://github.com/amlsamples/tdsp) estão habilitados. Para obter instruções, consulte como usar [projetos de estrutura do TDSP com o modelo do TDSP](../preview/how-to-use-tdsp-in-azure-ml.md) no Azure Machine Learning. 
+A criação de projetos de ciência de dados com o _modelo do TDSP_ fornece a estrutura padronizada para projetos do Azure Machine Learning. Antes, a equipe do TDSP liberava um [repositório do GitHub para os modelos e a estrutura de projeto do TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Agora os projetos de Machine Learning que são instanciados com [modelos do TDSP para o Azure Machine Learning](https://github.com/amlsamples/tdsp) estão habilitados. Para obter instruções, consulte como usar [projetos de estrutura do TDSP com o modelo do TDSP](../desktop-workbench/how-to-use-tdsp-in-azure-ml.md) no Azure Machine Learning. 
 
 
 ## <a name="twitter-sentiment-polarity-sample"></a>Exemplo de polaridade de sentimento do Twitter
@@ -131,7 +131,7 @@ A etapa final é a implantação do modelo de previsão de sentimento treinado p
 
 ![Painel do Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Para obter mais informações sobre o processo de operacionalização, consulte [Implantando um modelo do Azure Machine Learning como serviço Web](../preview/model-management-service-deploy.md).
+Para obter mais informações sobre o processo de operacionalização, consulte [Implantando um modelo do Azure Machine Learning como serviço Web](../desktop-workbench/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Conclusão
 
@@ -143,8 +143,8 @@ Neste artigo, você aprendeu a treinar um modelo de incorporação de palavras u
 * [Processo de Ciência de Dados de Equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Como usar o TDSP (Processo de Ciência de Dados de Equipe) no Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Modelos do projeto de TDSP para o Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](../preview/index.yml)
+* [Azure Machine Learning Workbench](../service/index.yml)
 * [Conjunto de dados de Renda dos EUA do repositório de ML do UCI](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Reconhecimento de entidade biomédica usando o Modelos TDSP](../preview/scenario-tdsp-biomedical-recognition.md)
+* [Reconhecimento de entidade biomédica usando o Modelos TDSP](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas, et al. "Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems" (Representações distribuídas de palavras e frases e sua composição. Avanços em sistemas de processo de informações neurais). 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification" (Aprendendo a incorporação de palavras específicas de sentimento para a classificação de sentimento do Twitter). ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

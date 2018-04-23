@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressão e funções no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,8 +51,8 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
 |----------------|------------|  
 |"parameters"|Os “parâmetros” dos caracteres são retornados.|  
 |"parameters[1]"|Os “parâmetros[1]” dos caracteres são retornados.|  
-|\"\@\@\"|Uma cadeia de caracteres de 1 caractere que contém \'\@\' será retornada.|  
-|\" \@\"|Uma cadeia de caracteres de 2 caracteres que contém \' \@\' será retornada.|  
+|"@@"|Uma cadeia de caracteres de 1 caractere que contém \'\@\' será retornada.|  
+|\" \@\"|Uma cadeia de caracteres de 2 caracteres que contém ' \@\' será retornada.|  
   
  As expressões também podem aparecer dentro de cadeias de caracteres usando um recurso chamado *interpolação de cadeia de caracteres* em que as expressões estão encapsuladas em `@{ ... }`. Por exemplo: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   

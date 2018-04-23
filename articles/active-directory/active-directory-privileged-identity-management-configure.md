@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f91ebe0f94c57c9ad217ffe280f9aa0a9aa6acb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -72,7 +72,7 @@ Para funções de RBAC do Azure, somente um administrador de assinatura, um prop
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Visão geral do Privileged Identity Management (ponto de entrada)
 
-O Azure AD Privileged Identity Management dá suporte à administração de funções de diretório do Azure AD e funções para Recursos do Azure (versão prévia). A atribuição das funções para recursos do Azure difere das funções administrativas no Azure AD. As funções de recurso do Azure fornecem permissões granulares para o recurso no qual serão atribuídas, e a todos os recursos subordinados na hierarquia de recursos (conhecido como herança). [Saiba mais sobre RBAC, hierarquia de recursos e herança](role-based-access-control-configure.md). O PIM para as funções de diretório do Azure AD e os Recursos do Azure (versão prévia) podem ser administrados acessando o link apropriado na seção Gerenciar do menu de navegação à esquerda, ponto de entrada Visão Geral de PIM.
+O Azure AD Privileged Identity Management dá suporte à administração de funções de diretório do Azure AD e funções para Recursos do Azure (versão prévia). A atribuição das funções para recursos do Azure difere das funções administrativas no Azure AD. As funções de recurso do Azure fornecem permissões granulares para o recurso no qual serão atribuídas, e a todos os recursos subordinados na hierarquia de recursos (conhecido como herança). [Saiba mais sobre RBAC, hierarquia de recursos e herança](../role-based-access-control/role-assignments-portal.md). O PIM para as funções de diretório do Azure AD e os Recursos do Azure (versão prévia) podem ser administrados acessando o link apropriado na seção Gerenciar do menu de navegação à esquerda, ponto de entrada Visão Geral de PIM.
 
 O PIM fornece acesso conveniente para ativar funções, exibir ativações/solicitações pendentes, aprovações pendentes (para funções de diretório do Azure AD), e às revisões com resposta pendente na seção Tarefas do menu de navegação esquerdo.
 

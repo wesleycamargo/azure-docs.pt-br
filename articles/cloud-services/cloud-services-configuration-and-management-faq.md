@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -192,7 +192,7 @@ Essas etapas poderiam ser automatizadas por meio de uma tarefa de inicializaçã
 Quando isso tiver sido feito, será possível verificar se o HTTP/2 foi habilitado ou não usando um dos métodos a seguir:
 
 - Habilite a versão do protocolo nos logs do IIS e examine os logs do IIS. Ela mostrará HTTP/2 nos logs. 
-- Habilite a Ferramenta do desenvolvedor F12 no Internet Explorer/Microsoft Edge e mude para a guia Rede para verificar o protocolo. 
+- Habilite a Ferramenta do desenvolvedor F12 no Internet Explorer/Edge e mude para a guia Rede para verificar o protocolo. 
 
 Para obter mais informações, consulte [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 no IIS).
 
@@ -201,7 +201,7 @@ Para obter mais informações, consulte [HTTP/2 on IIS](https://blogs.iis.net/da
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Como implementar Acesso Baseado em Função para Serviços de Nuvem?
 Serviços de Nuvem não dão suporte ao modelo RBAC (Controle de Acesso Baseado em Função), uma vez que ele não é um serviço do baseado no Azure Resource Manager.
 
-Consulte [RBAC do Azure versus administradores de assinatura clássica](../active-directory/role-based-access-control-what-is.md#azure-rbac-vs-classic-subscription-administrators).
+Consulte [RBAC do Azure versus administradores de assinatura clássica](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
 
 ## <a name="remote-desktop"></a>Área de trabalho remota
 

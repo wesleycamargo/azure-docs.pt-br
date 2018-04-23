@@ -1,25 +1,18 @@
 ---
 title: Log de diagnósticos para o Azure Analysis Services | Microsoft Docs
 description: Saiba mais sobre como configurar o log de diagnósticos do Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: ''
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 20e2e76e8df9421ee97671000f9557f5db34f1b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: minewiskan
+ms.openlocfilehash: 396ee2fc132abb5fbfd29bf5fffe9b1388b9a964
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar o log de diagnósticos
 
@@ -210,7 +203,7 @@ Para concluir este tutorial, você deve ter os seguintes recursos:
 Inicie uma sessão do PowerShell do Azure e entre em sua conta do Azure com o seguinte comando:  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta do Azure. O Azure PowerShell obtém todas as assinaturas que estão associadas a essa conta e, por padrão, usa a primeira.

@@ -1,25 +1,18 @@
 ---
 title: Carregar dados (API REST - Azure Search) | Microsoft Docs
-description: "Aprenda a carregar dados em um índice no Azure Search usando a API REST."
-services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 8d0749fb-6e08-4a17-8cd3-1a215138abc6
+description: Aprenda a carregar dados em um índice no Azure Search usando a API REST.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 12/08/2016
-ms.author: ashmaka
-ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5322faf04d29643bba2d1371cef23ab224675adb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Carregar dados para o Azure Search usando a API REST
 > [!div class="op_single_selector"]
@@ -55,7 +48,7 @@ Ao usar a API REST, você emitirá solicitações HTTP POST com corpos de solici
 
 Cada objeto JSON da matriz "value" representa um documento a ser indexado. Cada um desses objetos contém a chave do documento e especifica a ação de indexação desejada (carregar, mesclar, excluir, etc.). Dependendo de qual das ações abaixo você escolher, apenas determinados campos deverão ser incluídos em cada documento:
 
-| @search.action | Descrição | Campos necessários para cada documento | Observações |
+| @search.action | DESCRIÇÃO | Campos necessários para cada documento | Observações |
 | --- | --- | --- | --- |
 | `upload` |Uma ação `upload` é semelhante a um "upsert", em que o documento será inserido se for novo e atualizado/substituído se existir. |chave, além de quaisquer outros campos que você quiser definir |Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido para `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo. |
 | `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. |chave, além de quaisquer outros campos que você quiser definir |Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`. |

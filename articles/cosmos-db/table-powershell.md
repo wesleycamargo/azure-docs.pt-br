@@ -1,12 +1,12 @@
 ---
-title: "Executar operações da API de Tabela do Azure Cosmos DB com o PowerShell | Microsoft Docs"
-description: "Como executar operações da API de Tabela do Azure Cosmos DB com o PowerShell"
+title: Executar operações da API de Tabela do Azure Cosmos DB com o PowerShell | Microsoft Docs
+description: Como executar operações da API de Tabela do Azure Cosmos DB com o PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Executar operações da API de Tabela do Azure Cosmos DB com o Azure PowerShell 
 
@@ -37,7 +37,7 @@ Este artigo de instruções abrange operações comuns da API de Tabela. Você a
 > * Consultar uma tabela
 > * Excluir entidades de tabela
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Estes exemplos exigem a versão 4.4.0 ou posterior do módulo do Azure PowerShell. Em uma janela do PowerShell, execute `Get-Module -ListAvailable AzureRM` para localizar a versão. Se nada for exibido ou você precisar fazer atualização, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
@@ -55,10 +55,10 @@ Obtenha o nome da conta do banco de dados e o grupo de recursos no portal; você
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça logon na sua assinatura do Azure com o comando `Login-AzureRmAccount` e siga as instruções na tela.
+Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-a-table-or-reference-a-table"></a>Criar uma tabela ou referenciar uma tabela

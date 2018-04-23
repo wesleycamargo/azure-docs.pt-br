@@ -1,6 +1,6 @@
 ---
-title: "Referência da API de registro em log do Azure ML | Microsoft Docs"
-description: "Referência da API de registro em log."
+title: Referência da API de registro em log do Azure ML | Microsoft Docs
+description: Referência da API de registro em log.
 services: machine-learning
 author: akshaya-a
 ms.author: akannava
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
 ms.openlocfilehash: 1906425c6657fb6232a9dc306b05f9171c9c7bef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="logging-api-reference"></a>Referência da API de registro em log
 
@@ -39,7 +39,7 @@ logger.log("simple string value", "this is a string metric")
 logger.log("chart data points", [1, 3, 5, 10, 6, 4])
 ```
 
-Por padrão, todas as métricas são enviadas de forma assíncrona para que o envio não impessa a execução do programa. Isso pode causar problemas de ordenação quando várias métricas são enviadas em casos extremos. Um exemplo disso seria duas métricas registradas ao mesmo tempo, mas que por algum motivo o usuário prefere preservar a ordenação exata. Outro caso é quando a métrica deve ser controlada antes da execução de algum código conhecido por potencialmente falhar no modo rápido. Em ambos os casos, a solução é _esperar_ até que a métrica seja totalmente registrada antes de continuar:
+Por padrão, todas as métricas são enviadas de forma assíncrona para que o envio não impessa a execução do programa. Isso pode causar problemas de ordenação quando várias métricas são enviadas em casos extremos. Um exemplo disso seria duas métricas registradas ao mesmo tempo, mas que por algum motivo o usuário prefere preservar a ordenação exata. Outro caso é quando a métrica deve ser controlada antes da execução de algum código conhecido por potencialmente falhar rapidamente. Em ambos os casos, a solução é _esperar_ até que a métrica seja totalmente registrada antes de continuar:
 
 ```python
 # blocking call

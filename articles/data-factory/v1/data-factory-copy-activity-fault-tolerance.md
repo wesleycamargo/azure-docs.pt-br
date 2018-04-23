@@ -13,13 +13,18 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b91b76d049d1a7f299b7890665dd9281e08321e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 04cab032995731b4e473793eff4b1a3fcd46496a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicionar tolerância a falhas na Atividade de Cópia ignorando linhas incompatíveis
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Versão 1 – já disponível](data-factory-copy-activity-fault-tolerance.md)
+> * [Versão 2 – Versão prévia](../copy-activity-fault-tolerance.md)
+
 > [!NOTE]
 > Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço de Data Factory, que está na versão prévia, consulte [tolerância a falhas na atividade de cópia na versão 2 do Data Factory](../copy-activity-fault-tolerance.md).
 

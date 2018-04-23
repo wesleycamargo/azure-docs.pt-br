@@ -2,10 +2,10 @@
 title: Criar seu primeiro data factory (portal do Azure) | Microsoft Docs
 description: Neste tutorial, crie um pipeline de exemplo do Azure Data Factory usando o Data Factory Editor no portal do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +15,16 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c4fe0e01936ebc131b10f011b98e9d0c1782179b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 75139e39c3391a7662e3d02ee8d56463ac9fcc7a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: como compilar seu primeiro data factory usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -80,7 +80,7 @@ Para criar um data factory, siga estas etapas:
 8. Selecione **Criar**.
 
    > [!IMPORTANT]
-   > Para criar instâncias do Data Factory, você deve ser um membro da função [Colaborador do Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
+   > Para criar instâncias do Data Factory, você deve ser um membro da função [Colaborador do Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
    >
    >
 9. No painel, o bloco com o seguinte status é exibido: **Implantando o Data Factory**:    
@@ -259,7 +259,7 @@ Você cria o conjunto de dados de saída para representar os dados de saída arm
 
     ![Modo de exibição de árvore com serviços vinculados](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
-## <a name="create-a-pipeline"></a>Criar uma pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 Nesta etapa, você cria seu primeiro pipeline com a atividade de Hive do HDInsight. A fatia de entrada está disponível mensalmente (frequência é o mês e o intervalo é 1). A fatia de saída é produzida mensalmente. A propriedade scheduler para a atividade também é definida como mensal. As configurações para o conjunto de dados de saída e o agendador de atividades devem corresponder. Atualmente, o conjunto de dados de saída é o que aciona a agenda. Assim, você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. As propriedades usadas no JSON a seguir são explicadas no final desta seção.
 
 1. No Data Factory Editor, selecione **Mais** > **Novo pipeline**.
@@ -425,7 +425,7 @@ Você também pode usar o aplicativo Monitorar e Gerenciar para monitorar os pip
 ## <a name="summary"></a>Resumo
 Neste tutorial, você criou um data factory para processar dados executando um script de Hive em um cluster hadoop do HDInsight. Você usou o Data Factory Editor no portal do Azure para executar as seguintes etapas:  
 
-* Criar uma fábrica de dados.
+* Criar um data factory.
 * Criar dois serviços vinculados:
    * Um serviço de armazenamento vinculado para vincular seu armazenamento de blobs que contém os arquivos de entrada/saída para o data factory.
    * Um serviço vinculado do HDInsight sob demanda para vincular um cluster Hadoop do HDInsight sob demanda ao data factory. O Data Factory cria um cluster Hadoop do HDInsight no momento de processar dados de entrada e gerar dados de saída.

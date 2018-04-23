@@ -1,24 +1,17 @@
 ---
 title: Filtros de faceta no Azure Search | Microsoft Docs
-description: "Critérios de filtro por identidade de segurança do usuário, idioma, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Search, um serviço de pesquisa de nuvem hospedado no Microsoft Azure."
-services: search
-documentationcenter: 
+description: Critérios de filtro por identidade de segurança do usuário, idioma, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Search, um serviço de pesquisa de nuvem hospedado no Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c520cf8a72ed99e3e737e01f3083d903a349e59f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Como criar um filtro de faceta no Azure Search 
 

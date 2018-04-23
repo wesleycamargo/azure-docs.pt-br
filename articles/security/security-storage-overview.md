@@ -1,5 +1,5 @@
 ---
-title: "Recursos de segurança que podem ser usados com o Armazenamento do Azure | Microsoft Docs"
+title: Recursos de segurança que podem ser usados com o Armazenamento do Azure | Microsoft Docs
 description: " Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com o Armazenamento do Azure. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: a118bde2290e68c9a741e40cda210d47db918047
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8160ede71930bf4c15969044deb3fced855f03e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-overview"></a>Visão geral da segurança do armazenamento do Azure
 O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade para atender às necessidades dos clientes. O Armazenamento do Azure fornece um conjunto abrangente de funcionalidades de segurança:
@@ -44,11 +44,11 @@ Aqui estão os principais recursos que serão abordados neste artigo:
 * Cofre da Chave do Azure
 
 ## <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
-Você pode proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função). Restringir o acesso com base nos princípios de segurança de [divulgação restrita àqueles diretamente interessados](https://en.wikipedia.org/wiki/Need_to_know) e no [privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função de RBAC apropriada a grupos e aplicativos em determinado escopo. Você pode usar [funções RBAC internas](../active-directory/role-based-access-built-in-roles.md), como Colaborador da Conta de Armazenamento, para atribuir privilégios aos usuários.
+Você pode proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função). Restringir o acesso com base nos princípios de segurança de [divulgação restrita àqueles diretamente interessados](https://en.wikipedia.org/wiki/Need_to_know) e no [privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função de RBAC apropriada a grupos e aplicativos em determinado escopo. Você pode usar [funções RBAC internas](../role-based-access-control/built-in-roles.md), como Colaborador da Conta de Armazenamento, para atribuir privilégios aos usuários.
 
 Saiba mais:
 
-* [Controle de acesso baseado em função do Active Directory do Azure](../active-directory/role-based-access-control-configure.md)
+* [Controle de acesso baseado em função do Active Directory do Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="delegated-access-to-storage-objects"></a>Acesso delegado aos objetos de armazenamento
 Uma SAS (Assinatura de Acesso Compartilhado) fornece acesso delegado aos recursos da sua conta de armazenamento. A SAS significa que você pode conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado período de tempo e com um conjunto específico de permissões. Você pode conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta. A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa fornecer a SAS ao construtor apropriado ou ao método apropriado.

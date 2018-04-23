@@ -1,11 +1,11 @@
 ---
-title: "Criar e compartilhar painéis de dados do Azure Log Analytics | Microsoft Docs"
-description: "Este tutorial ajuda a entender como os painéis do Log Analytics podem visualizar todas as pesquisas de logs salvas, fornecendo a você uma lente única para exibir seu ambiente."
+title: Criar e compartilhar painéis de dados do Azure Log Analytics | Microsoft Docs
+description: Este tutorial ajuda a entender como os painéis do Log Analytics podem visualizar todas as pesquisas de logs salvas, fornecendo a você uma lente única para exibir seu ambiente.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 272945134b534a5ded794379ce5e96b0902a4227
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f6a70f33b143a5b9354411af9717d2a21e24af0c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e compartilhar painéis de dados do Log Analytics
 
@@ -34,7 +34,7 @@ Os painéis do Log Analytics podem visualizar todas as pesquisas de logs salvas,
 Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao espaço de trabalho do Log Analytics](log-analytics-quick-collect-azurevm.md).  
  
 ## <a name="log-in-to-azure-portal"></a>Fazer logon no portal do Azure
-Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-shared-dashboard"></a>Criar um painel compartilhado
 
@@ -48,7 +48,7 @@ Essa ação cria um painel novo, vazio, privado e coloca você no modo de person
 
 Quando você cria um painel, ele será privado por padrão, o que significa que você é a única pessoa que pode vê-lo. Para torná-lo visível para outras pessoas, use o botão **Compartilhar** exibido juntamente com os outros comandos do painel.<br> ![Compartilhar um novo painel no portal do Azure](media/log-analytics-tutorial-dashboards/log-analytics-share-dashboard.png) 
 
-Será solicitado que você escolha uma assinatura e o grupo de recursos para que seu painel seja publicado. Para sua conveniência, a experiência de publicação do portal guia você por um padrão onde você coloca painéis em um grupo de recursos chamado **painéis**.  Confirme a assinatura selecionada e, em seguida, clique em **Publicar**.  O acesso às informações exibidas no painel é controlado com o [Controle de Acesso Baseado em Recursos do Azure](../active-directory/role-based-access-control-configure.md).   
+Será solicitado que você escolha uma assinatura e o grupo de recursos para que seu painel seja publicado. Para sua conveniência, a experiência de publicação do portal guia você por um padrão onde você coloca painéis em um grupo de recursos chamado **painéis**.  Confirme a assinatura selecionada e, em seguida, clique em **Publicar**.  O acesso às informações exibidas no painel é controlado com o [Controle de Acesso Baseado em Recursos do Azure](../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-search"></a>Visualizar uma pesquisa de logs
 

@@ -1,25 +1,18 @@
 ---
-title: "Lição 11 do tutorial do Azure Analysis Services: criar funções | Microsoft Docs"
-description: "Descreve como criar funções no projeto de tutorial do Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lição 11 do tutorial do Azure Analysis Services: criar funções | Microsoft Docs'
+description: Descreve como criar funções no projeto de tutorial do Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5fb0e2dd56e373ecf723a3672d9538bcc6dc68e3
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 7a34884482a53a9b96dac87dc30803be08fdc806
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-roles"></a>Criar funções
 
@@ -40,7 +33,7 @@ Já que as contas de usuário e de grupo do Windows em sua organização são ex
   
 Tempo estimado para conclusão desta lição: **15 minutos**  
   
-## <a name="prerequisites"></a>Pré-requisitos  
+## <a name="prerequisites"></a>pré-requisitos  
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 10: criar partições](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Criar funções  

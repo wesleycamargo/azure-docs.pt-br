@@ -1,12 +1,12 @@
 ---
-title: "Isolamento na nuvem pública do Azure | Microsoft Docs"
-description: "Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa."
+title: Isolamento na nuvem pública do Azure | Microsoft Docs
+description: Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -52,7 +52,7 @@ No local de trabalho habilitado pela nuvem, um locatário pode ser definido como
 Cada diretório do Azure AD é distinto e separado de outros diretórios do Azure AD. Assim como um prédio de escritórios corporativos é um ativo seguro específico somente a sua organização, um diretório do Azure AD também foi projetado para ser um ativo seguro para ser usado somente por sua organização. A arquitetura do Azure AD isola os dados as informações de identidade do cliente, evitando que sejam misturados a outros. Isso significa que os usuários e administradores de um diretório do Azure AD não podem acessar acidentalmente ou maliciosamente dados em outro diretório.
 
 ### <a name="azure-tenancy"></a>Locação do Azure
-A locação do Azure (Assinatura do Azure) refere-se a uma relação de "cliente/cobrança" e um único [locatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) no [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). O isolamento no nível do locatário no Microsoft Azure é obtido usando o Azure Active Directory e [controles com base em função](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) oferecidos por ele. Cada assinatura do Azure está associada com um diretório do Azure Active Directory (AD).
+A locação do Azure (Assinatura do Azure) refere-se a uma relação de "cliente/cobrança" e um único [locatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) no [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). O isolamento no nível do locatário no Microsoft Azure é obtido usando o Azure Active Directory e [controles com base em função](https://docs.microsoft.com/azure/role-based-access-control/overview) oferecidos por ele. Cada assinatura do Azure está associada com um diretório do Azure Active Directory (AD).
 
 Usuários, grupos e aplicativos do diretório podem gerenciar recursos na assinatura do Azure. Você pode atribuir esses direitos de acesso usando o Portal do Azure, ferramentas de linha de comando do Azure e APIs de Gerenciamento do Azure. Um locatário do Azure AD é logicamente isolado usando limites de segurança, para que nenhum cliente possa acessar ou comprometer colocatários, de forma maliciosa ou acidental. O Azure AD é executado em servidores "bare metal" isolados em um segmento de rede segregado, onde a filtragem de pacotes no nível do host e o Firewall do Windows bloqueiam o tráfego e conexões indesejadas.
 
@@ -80,7 +80,7 @@ O conceito de contêineres de locatário está profundamente arraigado no servi�
 Mesmo quando os metadados de vários locatários do Azure Active Directory são armazenados no mesmo disco físico, não há nenhuma relação entre os contêineres além do que é definido pelo serviço de diretório, que por sua vez é determinado pelo administrador do locatário.
 
 ### <a name="azure-role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função) do Azure
-[O RBAC (Controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) ajuda você a compartilhar vários componentes disponíveis dentro de uma assinatura do Azure fornecendo gerenciamento de acesso refinado para o Azure. O RBAC do Azure permite a separação de tarefas dentro de sua organização e a concessão de acesso com base no que os usuários precisam para realizar seus trabalhos. Em vez de dar a todos permissões irrestritas na assinatura ou recursos do Azure, você pode permitir apenas certas ações.
+[O RBAC (Controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) ajuda você a compartilhar vários componentes disponíveis dentro de uma assinatura do Azure fornecendo gerenciamento de acesso refinado para o Azure. O RBAC do Azure permite a separação de tarefas dentro de sua organização e a concessão de acesso com base no que os usuários precisam para realizar seus trabalhos. Em vez de dar a todos permissões irrestritas na assinatura ou recursos do Azure, você pode permitir apenas certas ações.
 
 O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de recurso:
 
@@ -94,7 +94,7 @@ O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de 
 
 As demais funções RBAC no Azure permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função Colaborador de Máquina Virtual permite que o usuário crie e gerencie máquinas virtuais. Ela não concede acesso à Rede Virtual ou à sub-rede do Azure com a qual a máquina virtual se conecta.
 
-[Funções internas de RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) lista as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários. Se você pretende definir suas próprias funções para ter ainda mais controle, confira como criar [Funções personalizadas no RBAC do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+[Funções internas de RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) lista as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários. Se você pretende definir suas próprias funções para ter ainda mais controle, confira como criar [Funções personalizadas no RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Entre os outros recursos para o Azure Active Directory estão:
 - O Azure AD habilita o SSO para aplicativos SaaS, independentemente de onde estejam hospedados. Alguns aplicativos são federados com o AD do Azure e outros usam SSO com senha. Os aplicativos federados também podem dar suporte ao provisionamento do usuário e ao [armazenamento de senha no cofre](https://www.techopedia.com/definition/31415/password-vault).

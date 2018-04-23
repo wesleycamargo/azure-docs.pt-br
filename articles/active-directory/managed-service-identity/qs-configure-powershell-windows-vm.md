@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 76ea24a658c728aebd15be55cc0c8dfca27f01ec
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a29af17c97b106860c3b4adbad5e8002d2a91651
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configurar o MSI (Identidade de Serviço Gerenciada) de um VM usando o PowerShell
 
@@ -60,10 +60,10 @@ Para criar uma VM habilitado MSI:
 
 Se você precisar habilitar o MSI em uma máquina virtual existente:
 
-1. Entre no Azure usando `Login-AzureRmAccount`. Use uma conta que esteja associada com uma assinatura do Azure que contenha uma VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual":
+1. Entre no Azure usando `Connect-AzureRmAccount`. Use uma conta que esteja associada com uma assinatura do Azure que contenha uma VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual":
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 2. Primeiro, recupere as propriedades da VM usando o cmdlet `Get-AzureRmVM`. Para habilitar o MSI, use a opção `-AssignIdentity` no cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm):
@@ -84,10 +84,10 @@ Se você precisar habilitar o MSI em uma máquina virtual existente:
 
 Se você tiver uma máquina virtual que não precisa mais de um MSI, use o cmdlet `RemoveAzureRmVMExtension` para remover o MSI da VM:
 
-1. Entre no Azure usando `Login-AzureRmAccount`. Use uma conta que esteja associada com uma assinatura do Azure que contenha uma VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual":
+1. Entre no Azure usando `Connect-AzureRmAccount`. Use uma conta que esteja associada com uma assinatura do Azure que contenha uma VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual":
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 2. Use o `-Name` alternar com o cmdlet [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension), especificando o mesmo nome usado quando você adicionou a extensão:

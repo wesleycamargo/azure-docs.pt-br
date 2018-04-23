@@ -1,24 +1,17 @@
 ---
-title: "Análise de tráfego de pesquisa para o Azure Search | Microsoft Docs"
-description: "Habilite a análise de tráfego de pesquisa para a pesquisa do Azure, um serviço de pesquisa hospedado na nuvem no Microsoft Azure, para ter ideias sobre os usuários e seus dados."
-services: search
-documentationcenter: 
-author: bernitorres
-manager: jlembicz
-editor: 
-ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
+title: Análise de tráfego de pesquisa para o Azure Search | Microsoft Docs
+description: Habilite a análise de tráfego de pesquisa para o Azure Search, um serviço de pesquisa hospedado na nuvem no Microsoft Azure, para ter ideias sobre os usuários e seus dados.
+author: HeidiSteen
+manager: cgronlun
 ms.service: search
-ms.devlang: multiple
-ms.workload: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/05/2017
-ms.author: betorres
-ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: heidist
+ms.openlocfilehash: 10963d1e022fc2aa574c88e994c4d8593b4d4de1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-search-traffic-analytics"></a>O que é análise de tráfego de pesquisa
 Análise de tráfego de pesquisa é um padrão de implementação de um loop de comentários para seu serviço de pesquisa. Esse padrão descreve os dados necessários e como coletá-los usando o Application Insights, líder no setor de serviços de monitoramento em várias plataformas.

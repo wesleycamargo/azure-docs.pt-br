@@ -1,31 +1,25 @@
 ---
 title: Indexando blobs JSON com o indexador de blobs do Azure Search
 description: Indexando blobs JSON com o indexador de blobs do Azure Search
-services: search
-documentationcenter: 
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: 57e32e51-9286-46da-9d59-31884650ba99
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2dac2c5980970946a6b9c26ee6ee8ac0f0344144
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: eea20deddb91642db62855c743c0f6e31a9960ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexando blobs JSON com o indexador de blobs do Azure Search
 Este artigo te mostra como configurar o indexador de blob do Azure Search para extrair o conteúdo estruturado de blobs que contêm JSON no armazenamento de Blob do Azure.
 
 Blobs JSON no armazenamento de BLOBs do Azure são normalmente um único documento JSON ou uma matriz JSON. O indexador de blob no Azure Search pode analisar a construção, dependendo de como você definir o parâmetro **parsingMode** na solicitação.
 
-| Documento JSON | parsingMode | Descrição | Disponibilidade |
+| Documento JSON | parsingMode | DESCRIÇÃO | Disponibilidade |
 |--------------|-------------|--------------|--------------|
 | Um por blob | `json` | Analisa blobs JSON como um único bloco de texto. Cada blob JSON torna-se um único documento do Azure Search. | Disponível em ambos os [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) APIs. |
 | Múltiplos por blob | `jsonArray` | Analisa uma matriz JSON no blob, onde cada elemento da matriz se torna um documento do Azure Search separado.  | Na versão prévia, em [REST api-version =`2016-09-01-Preview`](search-api-2016-09-01-preview.md) e [.NET SDK visualização](https://aka.ms/search-sdk-preview). |

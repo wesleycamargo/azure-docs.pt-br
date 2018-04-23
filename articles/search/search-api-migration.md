@@ -1,26 +1,20 @@
 ---
-title: "Atualização para a API REST do Serviço Azure Search versão 2016-09-01 | Microsoft Docs"
-description: "Atualização para a API de REST do serviço de Pesquisa do Azure versão 2016-09-01"
-services: search
-documentationcenter: 
+title: Atualização para a API REST do Serviço Azure Search versão 2016-09-01 | Microsoft Docs
+description: Atualização para a API de REST do serviço de Azure Search versão 2016-09-01
 author: brjohnstmsft
-manager: pablocas
-editor: 
-ms.assetid: 6183fa6c-48bb-4af7-adae-4be3bc43c3ed
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: brjohnst
-ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2e8d5dd7f54e3435d1d94f34a5d4556690bfba8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Atualização para a API de REST do serviço de Pesquisa do Azure versão 2016-09-01
+# <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Atualização para a API de REST do serviço de Azure Search versão 2016-09-01
 Se você estiver usando a versão 2015-02-28 ou 2015-02-28-Preview da [API REST do serviço Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx), este artigo o ajudará a atualizar o aplicativo para usar a próxima versão da API disponível, 2016-09-01.
 
 A versão 2016-09-01 da API REST contém algumas alterações em relação a versões anteriores. Elas são principalmente compatíveis com versões anteriores. Portanto, a alteração do código deve exigir apenas um mínimo de esforço, dependendo da versão que você estava usando antes. Confira [Etapas da atualização](#UpgradeSteps) para obter instruções sobre como alterar o código para usar a nova versão da API.
@@ -64,7 +58,7 @@ Se o código usar esses recursos, você não poderá atualizar para a versão 20
 ## <a name="conclusion"></a>Conclusão
 Se precisar de mais detalhes sobre como usar a API REST do Serviço Azure Search, confira a [Referência da API](https://msdn.microsoft.com/library/azure/dn798935.aspx) recém-atualizada no MSDN.
 
-Apreciamos seus comentários sobre o Azure Search. Se tiver problemas, fique à vontade para solicitar ajuda no [Fórum do MSDN sobre a Pesquisa do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) ou o [StackOverflow](http://stackoverflow.com/). Se você estiver fazendo uma pergunta sobre o Azure Search no StackOverflow, marque-a com `azure-search`.
+Apreciamos seus comentários sobre o Azure Search. Se tiver problemas, fique à vontade para solicitar ajuda no [Fórum do MSDN sobre o Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) ou o [StackOverflow](http://stackoverflow.com/). Se você estiver fazendo uma pergunta sobre o Azure Search no StackOverflow, marque-a com `azure-search`.
 
-Obrigado por usar a Pesquisa do Azure!
+Obrigado por usar o Azure Search!
 

@@ -1,11 +1,11 @@
 ---
-title: "Solução de problemas: o item “Active Directory” está ausente ou não está disponível | Microsoft Docs"
-description: "O que fazer quando o item de menu do Active Directory não aparece no Portal de Gerenciamento do Azure."
+title: 'Solução de problemas: o item “Active Directory” está ausente ou não está disponível | Microsoft Docs'
+description: O que fazer quando o item de menu do Active Directory não aparece no Portal de Gerenciamento do Azure.
 services: active-directory
 documentationcenter: na
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: 27a884b89224ed5765e9fcef134e711e3952ff72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6e8557ec66db51df0bb463a9511b0cdc94811d4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Solução de problemas: o item “Active Directory” está ausente ou não está disponível
 Muitas das instruções para usar os recursos e serviços do Azure Active Directory começam com "Vá para o Portal de Gerenciamento do Azure e clique em **Active Directory**." Mas o que fazer se o item de menu ou extensão do Active Directory não for exibido ou se ele está marcado como **Não disponível**? Este tópico foi criado para ajudar. Ele descreve as condições sob as quais o **Active Directory** não é exibido ou não está disponível e explica como proceder.
@@ -39,7 +39,7 @@ O item Active Directory é exibido no menu de navegação à esquerda quando qua
 * O locatário do Azure tem pelo menos um namespace de Controle de Acesso do AD do Azure (ACS). Para obter mais informações, confira [Namespace de Controle de Acesso](https://msdn.microsoft.com/library/azure/gg185908.aspx).
   
     OU
-* O locatário do Azure tem pelo menos um provedor da Autenticação Multifator do Azure. Para obter mais informações, confira [Administrando Provedores da Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+* O locatário do Azure tem pelo menos um provedor da Autenticação Multifator do Azure. Para obter mais informações, confira [Administrando Provedores da Autenticação Multifator do Azure](authentication/howto-mfa-getstarted.md).
 
 Para criar um namespace de Controle de Acesso ou um provedor de Autenticação Multifator, clique em **+Novo** > **Serviços de Aplicativos** > **Active Directory**.
 

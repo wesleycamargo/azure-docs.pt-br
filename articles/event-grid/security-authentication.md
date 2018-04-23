@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f97de4e93c9330206ed22c071d8ade0821bf6691
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -154,7 +154,7 @@ A grade de eventos do Azure oferece suporte às seguintes ações:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-As últimas três operações retornam informações possivelmente secretas, as quais são filtradas dentre operações de leitura normais. É uma prática recomendada restringir o acesso a essas operações. É possível criar funções personalizadas usando o [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md), a [interface de linha de comando (CLI) do Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md) e a [API REST](../active-directory/role-based-access-control-manage-access-rest.md).
+As últimas três operações retornam informações possivelmente secretas, as quais são filtradas dentre operações de leitura normais. É uma prática recomendada restringir o acesso a essas operações. É possível criar funções personalizadas usando o [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), a [interface de linha de comando (CLI) do Azure](../role-based-access-control/role-assignments-cli.md) e a [API REST](../role-based-access-control/role-assignments-rest.md).
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>Aplicação da Verificação RBAC (Verificação de acesso com base em função)
 

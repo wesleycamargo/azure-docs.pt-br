@@ -1,30 +1,30 @@
 ---
-title: "Criar uma regra de autorização do Barramento de Serviço usando um modelo do Azure Resource Manager | Microsoft Docs"
-description: "Criar uma regra de autorização do Barramento de Serviço para namespace e fila usando um modelo do Azure Resource Manager"
+title: Criar uma regra de autorização do Barramento de Serviço usando um modelo do Azure Resource Manager | Microsoft Docs
+description: Criar uma regra de autorização do Barramento de Serviço para namespace e fila usando um modelo do Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7f1443a0-5fa8-4d90-8637-1a977ef0b1f0
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: sethm;shvija
-ms.openlocfilehash: 384a2fce4bf338ffc4ab6690980c12ad7ff34a6e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 04/11/2018
+ms.author: sethm
+ms.openlocfilehash: e29045f43f5b80ffc66d7b10bac39f3d8d03ae3c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Criar uma regra de autorização do Barramento de Serviço para namespace e fila usando um modelo do Azure Resource Manager
 
 Este artigo mostra como usar um modelo do Azure Resource Manager que cria uma [regra de autorização](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) para um namespace e uma fila do Barramento de Serviço. O artigo explica como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
-Para saber mais sobre a criação de modelos, veja [Criando modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
+Para saber mais sobre a criação de modelos, confira [Criando modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Para ver o modelo completo, consulte o [Modelo de regra de autorização do Barramento de Serviço][Service Bus auth rule template] no GitHub.
 
@@ -50,7 +50,7 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
 [![Implantar no Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada `Parameters` , que contém todos os valores de parâmetro. Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados.
 
@@ -107,8 +107,7 @@ Cria um namespace do Barramento de Serviço padrão do tipo **Mensagens**e uma r
             "location": "[variables('location')]",
             "kind": "Messaging",
             "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
+                "name": "Standard",
             },
             "resources": [
                 {

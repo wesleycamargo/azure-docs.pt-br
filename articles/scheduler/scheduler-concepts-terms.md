@@ -1,11 +1,11 @@
 ---
 title: Conceitos, termos e entidades do Agendador | Microsoft Docs
-description: "Conceitos, terminologia e hierarquia de entidades do Agendador do Azure, incluindo trabalhos e coleções de trabalhos.  Fornece um exemplo completo de um trabalho agendado."
+description: Conceitos, terminologia e hierarquia de entidades do Agendador do Azure, incluindo trabalhos e coleções de trabalhos.  Fornece um exemplo completo de um trabalho agendado.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Conceitos, terminologia e hierarquia de entidades do Agendador
 ## <a name="scheduler-entity-hierarchy"></a>Hierarquia de entidade do Agendador
 A tabela a seguir descreve os principais recursos expostos ou usados pela API do Agendador:
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | **Coleção de trabalhos** |Uma coleção de trabalhos contém um grupo de trabalhos e mantém as configurações, cotas e limites que são compartilhados pelos trabalhos dentro da coleção. Uma coleção de trabalhos é criada por um proprietário de assinatura e agrupa os trabalhos com base em limites de uso ou aplicativo. Ele é restrito a uma região. Ele também permite a imposição de cotas para restringir o uso de todos os trabalhos na coleção. As cotas incluem MaxJobs e MaxRecurrence. |
 | **Trabalho** |Um trabalho define uma única ação recorrente com estratégias simples ou complexas para execução. As ações podem incluir solicitações HTTP, de fila de armazenamento, de barramento de serviço ou de tópico do barramento de serviço. |
@@ -176,7 +176,7 @@ Se um trabalho do Agendador falhar, é possível especificar uma política de re
 
 Para definir uma política de nova tentativa, configurações adicionais de dois valores podem ser especificadas: um intervalo de nova tentativa (**retryInterval**) e o número de tentativas (**retryCount**).
 
-Intervalo de nova tentativa, especificado com o objeto **retryInterval** , que é o intervalo entre as tentativas. O valor padrão é de 30 segundos, seu valor configurável mínimo é de 15 segundos e o valor máximo é de 18 meses. Os trabalhos em coleções de trabalhos gratuitas têm um valor mínimo configurável de 1 hora.  Ele é definido no formato ISO 8601. Da mesma forma, o valor do número de tentativas é especificado com o objeto **retryCount** ; esse é o número de vezes que uma nova tentativa será feita. O valor padrão é 4 e o valor máximo é 20\. Ambos **retryInterval** e **retryCount** são opcionais. Eles receberão seus valores padrão se **retryType** for definido como **fixo** e nenhum valor for especificado explicitamente.
+Intervalo de nova tentativa, especificado com o objeto **retryInterval** , que é o intervalo entre as tentativas. O valor padrão é de 30 segundos, seu valor configurável mínimo é de 15 segundos e o valor máximo é de 18 meses. Ele é definido no formato ISO 8601. Da mesma forma, o valor do número de tentativas é especificado com o objeto **retryCount** ; esse é o número de vezes que uma nova tentativa será feita. O valor padrão é 4 e o valor máximo é 20\. Ambos **retryInterval** e **retryCount** são opcionais. Eles receberão seus valores padrão se **retryType** for definido como **fixo** e nenhum valor for especificado explicitamente.
 
 ## <a name="see-also"></a>Consulte também
  [O que é o Agendador?](scheduler-intro.md)

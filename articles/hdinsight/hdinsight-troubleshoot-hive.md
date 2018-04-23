@@ -1,25 +1,23 @@
 ---
 title: Solucionar problemas do Hive usando o Azure HDInsight | Microsoft Docs
 description: Obtenha respostas para perguntas comuns sobre como trabalhar com o Apache Hive e o Azure HDInsight.
-keywords: "Azure HDInsight, Hive, perguntas frequentes, guia de solução de problemas, perguntas comuns"
+keywords: Azure HDInsight, Hive, perguntas frequentes, guia de solução de problemas, perguntas comuns
 services: Azure HDInsight
 documentationcenter: na
 author: dharmeshkakadia
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 15B8D0F3-F2D3-4746-BDCB-C72944AA9252
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d397552285466dc038fe580a084e2d1d0d69bfe2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Solucionar problemas do Hive usando o Azure HDInsight
 
@@ -31,7 +29,7 @@ Saiba mais sobre as principais perguntas e suas resoluções ao trabalhar com ca
 
 ### <a name="resolution-steps"></a>Etapas de resolução
 
-1. Conecte-se ao cluster HDInsight com um cliente SSH (Secure Shell). Para obter mais informações, consulte [Leituras adicionais](#additional-reading-end).
+1. Conecte-se ao cluster HDInsight com um cliente SSH (Secure Shell). Para saber mais, veja [Leituras adicionais](#additional-reading-end).
 
 2. Execute o seguinte comando no cluster do HDInsight do qual você deseja exportar o metastore:
 
@@ -58,7 +56,7 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
 
 ### <a name="resolution-steps"></a>Etapas de resolução
 
-1. Conectar-se ao cluster HDInsight usando SSH. Para obter mais informações, consulte **Leituras adicionais**.
+1. Conectar-se ao cluster HDInsight usando SSH. Para saber mais, veja **Leituras adicionais**.
 
 2. Para exibir logs de cliente do Hive, use o seguinte comando:
 
@@ -115,7 +113,7 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
 
 ### <a name="resolution-steps"></a>Etapas de resolução
  
-1. Para analisar um DAG (gráfico acíclico direcionado) do Apache Tez em um gráfico crítico do cluster, conecte-se ao cluster do HDInsight usando SSH. Para saber mais, veja [Leituras adicionais](#additional-reading-end).
+1. Para analisar um DAG (Grafo Direcionado Acíclico) do Apache Tez em um grafo crítico do cluster, conecte-se ao cluster do HDInsight usando SSH. Para saber mais, veja [Leituras adicionais](#additional-reading-end).
 
 2. No prompt de comando, execute o comando a seguir:
    
@@ -177,7 +175,7 @@ Há duas maneiras de coletar os dados de DAG do Tez:
 [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Veja também
 [Solucionar problemas usando o Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 

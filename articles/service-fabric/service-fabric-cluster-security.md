@@ -1,11 +1,11 @@
 ---
 title: Proteger um cluster do Azure Service Fabric | Microsoft Docs
-description: "Saiba mais sobre cenários de segurança para um cluster do Azure Service Fabric e as diversas tecnologias que você pode usar para implementá-los."
+description: Saiba mais sobre cenários de segurança para um cluster do Azure Service Fabric e as diversas tecnologias que você pode usar para implementá-los.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2017
-ms.author: chackdan
-ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: aljo
+ms.openlocfilehash: f60b428ba7fe93713af68851a3e9d246a3b1641b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster do Service Fabric
 Um cluster do Azure Service Fabric é um recurso que pertence a você. É sua responsabilidade proteger os clusters para ajudar a impedir que usuários não autorizados se conectem a eles. Um cluster seguro é especialmente importante quando você está executando cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não seguro, se ele expuser pontos de extremidade de gerenciamento na Internet pública, usuários anônimos poderão se conectar a ele. Clusters desprotegidos não são compatíveis com cargas de trabalho de produção. 

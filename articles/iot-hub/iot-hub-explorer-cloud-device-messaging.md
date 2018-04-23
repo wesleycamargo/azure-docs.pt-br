@@ -3,7 +3,7 @@ title: Gerenciar sistema de mensagens de dispositivos de nuvem do Hub IoT do Azu
 description: Saiba como usar a ferramenta iothub-explorer da CLI para monitorar mensagens do dispositivo para a nuvem (D2C) e enviar mensagens da nuvem para o dispositivo (C2D) no Hub IoT do Azure.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: iothub explorer, sistema de mensagens de dispositivo de nuvem, nuvem ao dispositivo do Hub IoT, sistema de mensagens da nuvem para o dispositivo
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
-ms.author: xshi
-ms.openlocfilehash: 7e74c08849ae2f98d3189c0cd3d340874ea085ff
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: ed15f7749676d8a7f0c2ef8b23e238f7bc90e341
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Use o iothub-explorer para enviar e receber mensagens entre o dispositivo e o Hub IoT
 

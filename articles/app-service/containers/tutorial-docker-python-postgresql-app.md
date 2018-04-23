@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 70cdbaa10d5e4ba39d4f378e05ae606a577ade99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 673564ef7b5ff02a3809154a4dcf1669c2ed798b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilar um aplicativo Web Docker Python e PostgreSQL no Azure
 
@@ -170,19 +170,19 @@ Quando o servidor PostgreSQL do Banco de Dados do Azure for criado, a CLI do Azu
 
 ### <a name="create-a-firewall-rule-for-the-azure-database-for-postgresql-server"></a>Criando uma regra de firewall para o Banco de Dados do Azure para o servidor PostgreSQL
 
-Execute o seguinte comando da CLI do Azure para permitir o acesso ao banco de dados a partir de todos os endereços IP.
+Execute o seguinte comando da CLI do Azure para permitir o acesso ao banco de dados a partir de todos os endereços IP. Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
 ```
 
 A CLI do Azure confirma a criação da regra de firewall com saída semelhante ao exemplo a seguir:
 
 ```json
 {
-  "endIpAddress": "255.255.255.255",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAllIPs",
-  "name": "AllowAllIPs",
+  "endIpAddress": "0.0.0.0",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAzureIPs",
+  "name": "AllowAzureIPs",
   "resourceGroup": "myResourceGroup",
   "startIpAddress": "0.0.0.0",
   "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
@@ -232,7 +232,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Navegue para http://localhost:5000 em um navegador. Clique em **Registrar!** e crie um registro de teste. Agora, você está gravando dados no banco de dados no Azure.
+Navegue até http://localhost:5000 em um navegador. Clique em **Registrar!** e crie um registro de teste. Agora, você está gravando dados no banco de dados no Azure.
 
 ![Aplicativo Python Flask em execução localmente](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -462,7 +462,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Navegue até http://localhost:5000 no navegador para ver as alterações. Crie um registro de teste.
+Navegue até http://localhost:5000 no navegador para exibir as alterações. Crie um registro de teste.
 
 ![Aplicativo Python Flask baseado em contêiner do Docker em execução localmente](./media/tutorial-docker-python-postgresql-app/local-app-v2.png)
 

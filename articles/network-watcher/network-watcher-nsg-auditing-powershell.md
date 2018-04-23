@@ -1,11 +1,11 @@
 ---
-title: "Automatizar a auditoria do NSG com a exibição de grupo de segurança do Observador de Rede do Azure | Microsoft Docs"
-description: "Esta página fornece instruções sobre como configurar a auditoria de um Grupo de Segurança de Rede"
+title: Automatizar a auditoria do NSG com a exibição de grupo de segurança do Observador de Rede do Azure | Microsoft Docs
+description: Esta página fornece instruções sobre como configurar a auditoria de um Grupo de Segurança de Rede
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 57f2200e541eeb629f72d60ffa0acb2d8233c018
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar a auditoria do NSG com a exibição de grupo de segurança do Observador de Rede do Azure
 
@@ -30,7 +30,7 @@ Se você estiver familiarizado com os Grupos de segurança de rede, visite [Vis�
 
 Nesse cenário, você compara uma linha de base válida com os resultados da exibição do grupo de segurança retornados para uma máquina virtual.
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
 
 ## <a name="scenario"></a>Cenário
 
@@ -187,7 +187,7 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se as configurações foram alteradas, confira [Gerenciar grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para rastrear as regras de segurança e o Grupo de Segurança de Rede que estão em questão.
+Se as configurações foram alteradas, confira [Gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para rastrear as regras de segurança e o Grupo de Segurança de Rede que estão em questão.
 
 
 

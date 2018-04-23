@@ -1,6 +1,6 @@
 ---
-title: "Autenticar com um Registro de contêiner do Azure"
-description: "Opções de autenticação para um Registro de Contêiner do Azure, incluindo o logon do registro e o logon direto de entidades de serviço do Azure Active Directory."
+title: Autenticar com um Registro de contêiner do Azure
+description: Opções de autenticação para um Registro de Contêiner do Azure, incluindo o logon do registro e o logon direto de entidades de serviço do Azure Active Directory.
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 349d4f8cba2967edcedb202979695d271283fa8b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um Registro de contêiner privado do Docker
 
@@ -31,11 +31,11 @@ Ao trabalhar com o registro diretamente, assim como ao extrair imagens para sua 
 az acr login --name <acrName>
 ```
 
-Ao fazer logon com `az acr login`, a CLI usa o token criado quando você executou `az login` para, sem interrupções, autenticar a sessão com o registro. Depois de você fazer logon dessa maneira, suas credenciais são armazenadas em cache e os comandos `docker` subsequentes não requerem um nome de usuário ou senha. Se o token expirar, você poderá atualizá-lo usando o comando `az acr login` novamente para se reautenticar. Usar `az acr login` com identidades do Azure fornece [acesso baseado em função](../active-directory/role-based-access-control-configure.md).
+Ao fazer logon com `az acr login`, a CLI usa o token criado quando você executou `az login` para, sem interrupções, autenticar a sessão com o registro. Depois de você fazer logon dessa maneira, suas credenciais são armazenadas em cache e os comandos `docker` subsequentes não requerem um nome de usuário ou senha. Se o token expirar, você poderá atualizá-lo usando o comando `az acr login` novamente para se reautenticar. Usar `az acr login` com identidades do Azure fornece [acesso baseado em função](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="service-principal"></a>Entidade de serviço
 
-Você pode atribuir uma [entidade de serviço](../active-directory/develop/active-directory-application-objects.md) ao registro e seu aplicativo ou serviço pode usá-lo para a autenticação remota. As entidades de serviço permitem [acesso baseado em função](../active-directory/role-based-access-control-configure.md) a um registro ao qual você pode atribuir várias entidades de serviço. Várias entidades de serviço permitem que você defina acesso diferente para diferentes aplicativos.
+Você pode atribuir uma [entidade de serviço](../active-directory/develop/active-directory-application-objects.md) ao registro e seu aplicativo ou serviço pode usá-lo para a autenticação remota. As entidades de serviço permitem [acesso baseado em função](../role-based-access-control/role-assignments-portal.md) a um registro ao qual você pode atribuir várias entidades de serviço. Várias entidades de serviço permitem que você defina acesso diferente para diferentes aplicativos.
 
 As funções disponíveis são:
 

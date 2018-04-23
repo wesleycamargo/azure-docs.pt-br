@@ -1,26 +1,24 @@
 ---
-title: "Streaming do Apache Spark com Kafka – Azure HDInsight | Microsoft Docs"
-description: "Saiba como usar o Apache Spark para transmitir dados dentro ou fora do Apache Kafka usando o DStreams. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight."
+title: Streaming do Apache Spark com Kafka – Azure HDInsight | Microsoft Docs
+description: Saiba como usar o Apache Spark para transmitir dados dentro ou fora do Apache Kafka usando o DStreams. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
 keywords: exemplo de kafka, zookeeper kafka, streaming do kafka para Spark, exemplo de streaming do spark com o kafka
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 8c9a901b8922bf349959438487c88e3df4f2ebea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a9463b5983b5f41683a5cfe416ca125bf2810062
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Exemplo de streaming do Apache Spark (DStream) com o Kafka no HDInsight
 
@@ -87,7 +85,7 @@ Depois que os recursos tiverem sido criados, uma página de resumo será exibida
 
 ## <a name="use-the-notebooks"></a>Usar os blocos de anotações
 
-O código de exemplo descrito neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
+O código do exemplo descrito neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
 
 Siga as etapas no arquivo `README.md` para concluir este exemplo.
 

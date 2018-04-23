@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3733531efb18a1fc14998af8bad2f61f22032048
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5d362d8167cdfb772c70b02cc57bb49d3c2eb01d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar os dados de um banco de dados de SQL Server local para um Armazenamento de Blobs do Azure
-Neste tutorial, você usa o Azure PowerShell para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual move dados entre locais e armazenamentos de dados da nuvem. 
+Neste tutorial, você usa o Azure PowerShell para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual movimenta os dados entre armazenamentos de dados locais e da nuvem. 
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -30,15 +30,15 @@ Neste tutorial, você usa o Azure PowerShell para criar um pipeline de data fact
 Neste tutorial, você executa as seguintes etapas:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
-> * Crie um Integration Runtime auto-hospedado.
+> * Criar um data factory.
+> * Criar um tempo de execução de integração auto-hospedado.
 > * Criar serviços vinculados do SQL Server e do Armazenamento do Azure. 
 > * Criar conjuntos de dados do SQL Server e de Blobs do Azure.
 > * Criar um pipeline com uma atividade de cópia para mover os dados.
-> * Inicie uma execução de pipeline.
-> * Monitore a execução de pipeline.
+> * Iniciar uma execução de pipeline.
+> * Monitorar a execução de pipeline.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="azure-subscription"></a>Assinatura do Azure
 Antes de começar, se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
@@ -54,7 +54,7 @@ Neste tutorial, você usa um banco de dados do SQL Server local como um armazena
 
 2. Conecte-se à sua instância do SQL Server usando suas credenciais. 
 
-3. Criar um banco de dados de exemplo. No modo de exibição de árvore, clique com o botão direito do mouse em **Bancos de Dados** e selecione **Novo Banco de Dados**. 
+3. Crie um banco de dados de exemplo. No modo de exibição de árvore, clique com o botão direito do mouse em **Bancos de Dados** e selecione **Novo Banco de Dados**. 
  
 4. Na janela **Novo Banco de Dados**, digite um nome para o banco de dados e selecione **OK**. 
 
@@ -107,7 +107,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
     ![Selecione o contêiner](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 
-5. Mantenha aberta a janela **contêiner** para **adftutorial**. Você o usa para verificar a saída no final do tutorial. O Data Factory cria automaticamente a pasta de saída nesse contêiner, portanto você não precisa criar uma.
+5. Mantenha aberta a janela **contêiner** para **adftutorial**. Use-a para verificar a saída no final do tutorial. O Data Factory cria automaticamente a pasta de saída nesse contêiner, portanto você não precisa criar uma.
 
     ![Janela Contêiner](media/tutorial-hybrid-copy-powershell/container-page.png)
 
@@ -133,7 +133,7 @@ Para saber mais, confira [Como instalar e configurar o Azure PowerShell](/powers
 2. Execute o comando a seguir e depois insira o nome de usuário e a senha do Azure que você usa para entrar no portal do Azure:
        
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
 
 3. Se você tiver várias assinaturas do Azure, execute o comando a seguir para selecionar as assinaturas com as quais quer trabalhar. Substitua **SubscriptionId** pela ID da assinatura do Azure:
@@ -200,7 +200,7 @@ Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um
    $integrationRuntimeName = "ADFTutorialIR"
     ```
 
-2. Crie um Integration Runtime auto-hospedado. 
+2. Criar um tempo de execução de integração auto-hospedado. 
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
@@ -535,7 +535,7 @@ O serviço vinculado tem as informações de conexão que o serviço do data fac
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset
     ```
 
-## <a name="create-a-pipeline"></a>Criar uma pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 Nesta tutorial, você cria um pipeline com uma atividade de cópia. A atividade de cópia usa o SqlServerDataset como o conjunto de dados de entrada e o AzureBlobDataset como o conjunto de dados de saída. O tipo de fonte está definido como *SqlSource*, e o tipo de coletor está definido como *BlobSink*.
 
 1. Crie um arquivo JSON denominado *SqlServerToBlobPipeline.json* na pasta *C:\ADFv2Tutorial* com o seguinte código:
@@ -673,13 +673,13 @@ O pipeline cria automaticamente a pasta de saída chamada *fromonprem* no contê
 O pipeline nesse exemplo copia dados de uma localização para outra no Armazenamento de Blobs do Azure. Você aprendeu como:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
-> * Crie um Integration Runtime auto-hospedado.
+> * Criar um data factory.
+> * Criar um tempo de execução de integração auto-hospedado.
 > * Criar serviços vinculados do SQL Server e do Armazenamento do Azure. 
 > * Criar conjuntos de dados do SQL Server e de Blobs do Azure.
 > * Criar um pipeline com uma atividade de cópia para mover os dados.
-> * Inicie uma execução de pipeline.
-> * Monitore a execução de pipeline.
+> * Iniciar uma execução de pipeline.
+> * Monitorar a execução de pipeline.
 
 Para obter uma lista dos armazenamentos de dados com suporte pelo Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 

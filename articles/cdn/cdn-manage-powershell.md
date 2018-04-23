@@ -2,10 +2,10 @@
 title: Gerenciar a CDN do Azure com o PowerShell | Microsoft Docs
 description: Saiba como usar os cmdlets do Azure PowerShell para gerenciar a CDN do Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
 ms.service: cdn
 ms.workload: tbd
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5bd2eed7b34cafa43e8f38279890405d4ae55568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5634ecdec04f023d9eb901c4ad0fb21b13bcfdc1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Gerenciar a CDN do Azure com o PowerShell
 O PowerShell fornece um dos métodos mais flexíveis para gerenciar os perfis e os pontos de extremidade de CDN do Azure.  Você pode usar o PowerShell interativamente ou escrevendo scripts para automatizar as tarefas de gerenciamento.  Este tutorial demonstra várias tarefas mais comuns que você pode fazer com o PowerShell para gerenciar os perfis e os pontos de extremidade de CDN do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
-Para usar o PowerShell para gerenciar os perfis e os pontos de extremidade de CDN do Azure, você deve ter o módulo do Azure PowerShell instalado.  Para aprender a instalar o Azure PowerShell e conectar o Azure usando o cmdlet `Login-AzureRmAccount` , consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+## <a name="prerequisites"></a>pré-requisitos
+Para usar o PowerShell para gerenciar os perfis e os pontos de extremidade de CDN do Azure, você deve ter o módulo do Azure PowerShell instalado.  Para aprender a instalar o Azure PowerShell e conectar o Azure usando o cmdlet `Connect-AzureRmAccount` , consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
-> Você deve fazer logon com `Login-AzureRmAccount` antes de executar os cmdlets do Azure PowerShell.
+> Você deve fazer logon com `Connect-AzureRmAccount` antes de executar os cmdlets do Azure PowerShell.
 > 
 > 
 

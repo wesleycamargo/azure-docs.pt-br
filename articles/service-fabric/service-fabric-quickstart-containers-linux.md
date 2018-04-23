@@ -12,14 +12,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 1b65f54547821654f35571c55f61074a0106a292
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 65f048d67ef5f250691700a382e781814c57e8a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Guia de Início Rápido: Implantar um aplicativo de contêiner Linux do Azure Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis. 
@@ -46,7 +46,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
 
 ## <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
-Para implantar o aplicativo no Azure, é necessário que um cluster do Service Fabric execute o aplicativo. Os party clusters facilitam a criação rápida de um cluster do Service Fabric. Party clusters são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure e executados pela equipe do Service Fabric. Você pode usar party clusters para implantar aplicativos e saber mais sobre a plataforma. O cluster usa um único certificado autoassinado para segurança entre nós e entre cliente e nó.
+Para implantar o aplicativo no Azure, é necessário que um cluster do Service Fabric execute o aplicativo. Os party clusters facilitam a criação rápida de um cluster do Service Fabric. Party clusters são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure e executados pela equipe do Service Fabric. Você pode usar party clusters para implantar aplicativos e saber mais sobre a plataforma. O cluster usa um certificado único e autoassinado para segurança entre nós e entre cliente e nó.
 
 Entre e ingresse em um [cluster Linux](http://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Clique no link **Leiame** para localizar a senha do certificado e as instruções sobre como configurar vários ambientes para usar o certificado. Mantenha ambas as páginas **Bem-vindo** e **Leiame** abertas. Você usará algumas das instruções nas etapas a seguir. 
 

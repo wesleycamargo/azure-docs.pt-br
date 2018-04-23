@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 9b92e00f7082921586e8b8d8461ddf718ca30aeb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: daa7ea345abb6228bee2d1ca5bfcc3850aaff9c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Início Rápido: criar um Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como criar um Banco de Dados do Azure para o servidor PostgreSQL em um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando a CLI do Azure.
@@ -41,30 +41,6 @@ az account set --subscription <subscription id>
 Crie um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usando o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. Você deve fornecer um nome exclusivo. O exemplo a seguir cria um grupo de recursos denominado `myresourcegroup` no local `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-## <a name="add-the-extension"></a>Adicionar a extensão
-Adicione a extensão de gerenciamento atualizada do Banco de Dados do Azure para PostgreSQL usando o seguinte comando:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Verifique se que você tem a versão de extensão correta instalada. 
-```azurecli-interactive
-az extension list
-```
-
-O retorno JSON deve incluir o seguinte: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Se a versão 0.0.5 não for retornada, execute as etapas abaixo para atualizar a extensão: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar um Banco de Dados do Azure para o servidor PostgreSQL

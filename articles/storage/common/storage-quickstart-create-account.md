@@ -1,5 +1,5 @@
 ---
-title: "Guia de início rápido do Azure – Criar uma conta de armazenamento | Microsoft Docs"
+title: Guia de início rápido do Azure – Criar uma conta de armazenamento | Microsoft Docs
 description: Aprenda rapidamente a criar uma nova conta de armazenamento usando o portal do Azure, o Azure PowerShell ou a CLI do Azure.
 services: storage
 author: tamram
@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 600689dfe2d572a83382522f6bea1ec5bf0f3883
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -32,7 +32,7 @@ Nenhuma.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão atual. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão atual. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -65,10 +65,10 @@ Faça logon no [Portal do Azure](https://portal.azure.com).
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Faça logon na sua assinatura do Azure com o comando `Login-AzureRmAccount` e siga as instruções na tela para fazer a autenticação.
+Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela para fazer a autenticação.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -222,7 +222,7 @@ Para criar uma conta de armazenamento de uso geral v2 com armazenamento com redu
 > [Armazenamento com redundância de zona](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) está atualmente em versão prévia e está disponível apenas nos seguintes locais:
 >    - Leste dos EUA 2
 >    - Centro dos EUA
->    - França Central (atualmente, essa região está em versão prévia. Consulte [A versão prévia do Microsoft Azure com zonas de disponibilidade do Azure agora está aberta na França](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) para solicitar o acesso.)
+>    - França Central (Atualmente, essa região está em versão prévia. Consulte [A versão prévia do Microsoft Azure com zonas de disponibilidade do Azure agora está aberta na França](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) para solicitar o acesso.)
     
 Para obter mais informações sobre os diferentes tipos de replicação disponíveis, consulte [Opções de replicação de armazenamento](storage-redundancy.md).
 

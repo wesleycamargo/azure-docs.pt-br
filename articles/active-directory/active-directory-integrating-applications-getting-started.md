@@ -1,11 +1,11 @@
 ---
-title: "Introdução à integração do Azure AD aos aplicativos | Microsoft Docs"
-description: "Este artigo é um guia de introdução para a integração do AD do Azure (Active Directory do Azure) com aplicativos locais e aplicativos em nuvem."
+title: Introdução à integração do Azure AD aos aplicativos | Microsoft Docs
+description: Este artigo é um guia de introdução para a integração do AD do Azure (Active Directory do Azure) com aplicativos locais e aplicativos em nuvem.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: bf8ef28b49a3a12772965e7ebc85539c1a86e10f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dd118dbda9b7b0bee27bf9c97627bb8269e2d9b4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução: integrando o Active Directory do Azure com aplicativos
 ## <a name="overview"></a>Visão geral
@@ -51,7 +51,7 @@ Antes de ir para a integração de aplicativos com o AD do Azure, é importante 
 * Você precisará limpar os bancos de dados de usuários/grupos antes da integração?  (Essa é uma pergunta muito importante. Entrada e saída de lixo.)
 
 ### <a name="access-management-inventory"></a>Inventário de gerenciamento de acesso
-* Atualmente, como você gerencia o acesso do usuário aos aplicativos? Isso precisa ser alterado?  Você considerou outras maneiras de gerenciar o acesso, como com o [RBAC](role-based-access-control-configure.md) , por exemplo?
+* Atualmente, como você gerencia o acesso do usuário aos aplicativos? Isso precisa ser alterado?  Você considerou outras maneiras de gerenciar o acesso, como com o [RBAC](../role-based-access-control/role-assignments-portal.md) , por exemplo?
 * Quem precisa de acesso ao quê?
 
 Talvez você não tenha as respostas a todas essas perguntas com antecedência, mas tudo bem.  Este guia pode ajudá-lo a responder a algumas dessas perguntas e tomar algumas decisões informadas.

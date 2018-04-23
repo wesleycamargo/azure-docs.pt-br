@@ -1,11 +1,11 @@
 ---
-title: "Melhores práticas de segurança de máquinas virtuais do Azure"
-description: "Este artigo fornece uma variedade de práticas recomendadas de segurança a serem usadas em máquinas virtuais localizadas no Azure."
+title: Melhores práticas de segurança de máquinas virtuais do Azure
+description: Este artigo fornece uma variedade de práticas recomendadas de segurança a serem usadas em máquinas virtuais localizadas no Azure.
 services: security
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5e757abe-16f6-41d5-b1be-e647100036d8
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ddddf72d1ded0fb7952a641c287a4a5696e3aaef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Práticas recomendadas para a segurança de VM do Azure
 
@@ -49,14 +49,14 @@ O artigo examina as seguintes práticas recomendadas de segurança da VM:
 
 A primeira etapa para proteger sua VM é garantir que somente usuários autorizados podem configurar novas VMs. É possível usar [políticas do Azure](../azure-policy/azure-policy-introduction.md) para estabelecer convenções para recursos na organização, criar políticas personalizadas e aplicá-las a recursos, como [grupo de recursos](../azure-resource-manager/resource-group-overview.md).
 
-Máquinas virtuais que pertencem a um grupo de recursos naturalmente herdam suas políticas. Apesar de recomendarmos essa abordagem para gerenciar VMs, você também pode controlar o acesso às políticas VM individuais usando [o controle de acesso baseado em função (RBAC)](../active-directory/role-based-access-control-configure.md).
+Máquinas virtuais que pertencem a um grupo de recursos naturalmente herdam suas políticas. Apesar de recomendarmos essa abordagem para gerenciar VMs, você também pode controlar o acesso às políticas VM individuais usando [o controle de acesso baseado em função (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 Quando você habilita as políticas do Gerenciador de recursos e o RBAC para controlar o acesso VM, você ajuda a melhorar a segurança geral de VM. É recomendável que você consolide VMs com o mesmo ciclo de vida no mesmo grupo de recursos. Usando grupos de recursos, você pode implantar, monitorar e acumular custos para os seus recursos de cobrança. Para habilitar os usuários acessar e configurar máquinas virtuais, use uma [abordagem de privilégios mínimos](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). E quando você atribuir privilégios a usuários, planeje usar as seguintes funções internas do Azure:
 
-- [Colaborador de Máquina Virtual](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): pode gerenciar VMs, mas não a rede virtual nem a conta de armazenamento à qual ele está conectado.
-- [Colaborador de Máquina Virtual Clássica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): pode gerenciar VMs criadas usando o modelo de implantação clássica, mas não a rede ou armazenamento de conta virtual para o qual as VMs estão conectadas.
-- [Gerente de Segurança](../active-directory/role-based-access-built-in-roles.md#security-manager): pode gerenciar componentes de segurança, políticas de segurança e VMs.
-- [Usuário do DevTest Labs](../active-directory/role-based-access-built-in-roles.md#devtest-labs-user): pode exibir tudo e se conectar a VMs, iniciá-las, reiniciá-las e desligá-las.
+- [Colaborador de Máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): pode gerenciar VMs, mas não a rede virtual nem a conta de armazenamento à qual ele está conectado.
+- [Colaborador de Máquina Virtual Clássica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): pode gerenciar VMs criadas usando o modelo de implantação clássica, mas não a rede ou armazenamento de conta virtual para o qual as VMs estão conectadas.
+- [Gerente de Segurança](../role-based-access-control/built-in-roles.md#security-manager): pode gerenciar componentes de segurança, políticas de segurança e VMs.
+- [Usuário do DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): pode exibir tudo e se conectar a VMs, iniciá-las, reiniciá-las e desligá-las.
 
 Não compartilhe contas e senhas entre administradores nem reutilize senhas em várias contas de usuário ou serviços, particularmente, as senhas destinadas à mídia social ou outras atividades não administrativas. O ideal é que você use modelos do [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar suas VMs com segurança. Ao usar essa abordagem, é possível fortalecer as opções de implantação e impor configurações de segurança em toda a implantação.
 

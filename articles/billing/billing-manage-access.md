@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar o acesso a cobrança usando funções do Azure | Documentos do Microsoft"
-description: 
-services: 
-documentationcenter: 
+title: Gerenciar o acesso a cobrança usando funções do Azure | Documentos do Microsoft
+description: ''
+services: ''
+documentationcenter: ''
 author: vikramdesai01
 manager: vikdesai
-editor: 
+editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
 ms.service: billing
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ded7904c6cb855994d92e68c4a1af64ccdb2c3a0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gerenciar o acesso a informações de cobrança do Azure usando o controle de acesso baseado em função
 
-Você pode conceder acesso a informações de cobrança do Azure para membros da equipe atribuindo uma das seguintes funções de usuário para sua assinatura: Conta de Administrador, Administrador de serviço, Coadministrador, Proprietário, Colaborador, Leitor e Leitor de cobrança. Elas podem ter acesso a informações de cobrança no [portal do Azure](https://portal.azure.com/), e eles podem usar o [APIs de cobrança](billing-usage-rate-card-overview.md) para obter programaticamente os detalhes de uso e notas fiscais (uma vez decidido). Para obter mais informações sobre quem pode conceder funções e o que as funções podem fazer, consulte [funções no Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
+Você pode conceder acesso a informações de cobrança do Azure para membros da equipe atribuindo uma das seguintes funções de usuário para sua assinatura: Conta de Administrador, Administrador de serviço, Coadministrador, Proprietário, Colaborador, Leitor e Leitor de cobrança. Elas podem ter acesso a informações de cobrança no [portal do Azure](https://portal.azure.com/), e eles podem usar o [APIs de cobrança](billing-usage-rate-card-overview.md) para obter programaticamente os detalhes de uso e notas fiscais (uma vez decidido). Para obter mais informações sobre quem pode conceder funções e o que as funções podem fazer, consulte [funções no Azure RBAC](../role-based-access-control/built-in-roles.md).
 
 ## <a name="opt-in"></a>Permitindo que usuários adicionais acessem notas fiscais
 

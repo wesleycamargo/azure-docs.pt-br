@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b13e31be58502d670b11dace1f646b0632a2f039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c3d80fcaa38d0f1d7fa1770879ca9b40642bb796
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do Azure Cosmos DB para grafo do Gremlin
 O Azure Cosmos DB dá suporte à linguagem de cruzamento de grafo [Gremlin](http://tinkerpop.apache.org) da [Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma API do Graph para criar entidades de grafo e executar operações de consulta de grafo. É possível usar a linguagem Gremlin para criar entidades de grafo (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
@@ -153,12 +153,6 @@ Cada propriedade pode armazenar diversos valores em uma matriz.
 | Propriedade | DESCRIÇÃO |
 | --- | --- |
 | value | O valor da propriedade
-
-## <a name="gremlin-partitioning"></a>Particionamento do Gremlin
-
-No Azure Cosmos DB, os grafos são armazenados dentro de contêineres que podem ser dimensionados de forma independente em termos de armazenamento e taxa de transferência (expressa em solicitações normalizadas por segundo). Cada contêiner deve definir uma propriedade de chave de partição opcional, mas recomendada, que determina um limite de partição lógico para dados relacionados. Cada vértice/borda deve ter uma propriedade `id` exclusiva para entidades dentro desse valor de chave de partição. Os detalhes são abrangidos em [Particionamento no BD Cosmos do Azure](partition-data.md).
-
-As operações de Gremlin funcionam perfeitamente em dados de grafo que abrangem várias partições no Azure Cosmos DB. No entanto, é recomendável escolher uma chave de partição para seus grafos que seja usada comumente como filtro em consultas, tenha muitos valores distintos e frequência semelhante de acesso a esses valores. 
 
 ## <a name="gremlin-steps"></a>Etapas do Gremlin
 Agora, vejamos as etapas do Gremlin com suporte do BD Cosmos do Azure. Para obter uma referência completa sobre o Gremlin, consulte [Referência do TinkerPop](http://tinkerpop.apache.org/docs/current/reference).

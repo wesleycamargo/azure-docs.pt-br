@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalar um trabalho do Azure Stream Analytics para aumentar a taxa de transferência
 Este artigo explica como você pode ajustar a consulta do Stream Analytics para aumentar a produtividade para os trabalhos do Streaming Analytics. Você pode usar o guia a seguir para dimensionar seu trabalho a fim de lidar com uma carga maior e aproveitar mais recursos do sistema (como maior largura de banda, mais recursos de CPU, mais memória).

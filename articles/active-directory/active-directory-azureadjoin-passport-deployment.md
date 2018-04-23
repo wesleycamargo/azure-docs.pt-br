@@ -1,9 +1,9 @@
 ---
-title: "Habilitar o Microsoft Windows Hello for Business em sua organização |Microsoft Docs"
-description: "Instruções de implantação para habilitar o Microsoft Passport na sua organização."
+title: Habilitar o Microsoft Windows Hello for Business em sua organização |Microsoft Docs
+description: Instruções de implantação para habilitar o Microsoft Passport na sua organização.
 services: active-directory
-documentationcenter: 
-keywords: "configurar o Microsoft Passport, implantação do Microsoft Windows Hello for Business"
+documentationcenter: ''
+keywords: configurar o Microsoft Passport, implantação do Microsoft Windows Hello for Business
 author: MarkusVi
 manager: mtillman
 tags: azure-classic-portal
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Habilitar o Microsoft Windows Hello for Business em sua organização
 Depois de [conectar os dispositivos integrados ao domínio do Windows 10 ao Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), faça o seguinte para habilitar o Microsoft Windows Hello para Empresas em sua organização:

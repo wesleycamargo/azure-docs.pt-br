@@ -1,25 +1,18 @@
 ---
-title: "Bibliotecas de cliente necessárias para conectar-se ao Azure Analysis Services | Microsoft Docs"
-description: "Descreve as bibliotecas de cliente necessárias às ferramentas e ao aplicativos cliente para conectar o Azure Analysis Services"
-services: analysis-services
-documentationcenter: 
+title: Bibliotecas de cliente necessárias para conectar-se ao Azure Analysis Services | Microsoft Docs
+description: Descreve as bibliotecas de cliente necessárias às ferramentas e ao aplicativos cliente para conectar o Azure Analysis Services
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5c847f5cd02503b708db8a0a0211b5d403df0943
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.reviewer: minewiskan
+ms.openlocfilehash: 66818fd0d6618abe83903df8723e3e17920a4a2e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conectar-se ao Azure Analysis Services
 
@@ -72,7 +65,7 @@ As bibliotecas de cliente para conexões de cliente são diferentes dos provedor
 
  O ADOMD.NET é uma biblioteca de clientes de dados gerenciada usada para consultar dados do Analysis Services. Ele é instalado e usado por aplicativos clientes e ferramentas. 
   
- Ao se conectar a um banco de dados, as propriedades de cadeia de conexão das três bibliotecas são semelhantes. Quase todas as cadeias de conexão que você define para o ADOMD.NET usando [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) também funcionam para o AMO e o MSOLAP (Provedor Analysis Services OLE DB). Para saber mais, confira [Propriedades de cadeia de Conexão &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
+ Ao se conectar a um banco de dados, as propriedades de cadeia de conexão das três bibliotecas são semelhantes. Quase todas as cadeias de conexão que você define para o ADOMD.NET usando [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) também funcionam para o AMO e o MSOLAP (Provedor Analysis Services OLE DB). Para saber mais, confira [Propriedades de cadeia de Conexão & #40;Analysis Services& #41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
 ##  <a name="bkmk_LibUpdate"></a>Como determinar a versão da biblioteca de clientes   

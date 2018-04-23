@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bdd7dbf4f39529ac76fb496f0d459577e6f929dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Projeto de Segurança e Conformidade do Azure: dados de integridade de HIPAA/HITRUST e IA
 
@@ -79,14 +79,14 @@ A arquitetura fundamental é composta pelos componentes a seguir:
 ## <a name="roles"></a>Funções
 
 
-O projeto define duas funções para usuários administrativos (operadores) e três funções para usuários em gerenciamento hospitalar e atendimento ao paciente. Uma sexta função é definida para um auditor avaliar a conformidade com HIPAA e outros regulamentos. O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso com mais precisão para cada usuário da solução através de funções personalizadas e internas. Consulte [Introdução ao Controle de Acesso Baseado em Função no Portal do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) e [Funções internas para controle de acesso baseado em função do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) para obter informações detalhadas sobre RBAC, funções e permissões.
+O projeto define duas funções para usuários administrativos (operadores) e três funções para usuários em gerenciamento hospitalar e atendimento ao paciente. Uma sexta função é definida para um auditor avaliar a conformidade com HIPAA e outros regulamentos. O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso com mais precisão para cada usuário da solução através de funções personalizadas e internas. Consulte [Introdução ao Controle de Acesso Baseado em Função no Portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) e [Funções internas para controle de acesso baseado em função do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) para obter informações detalhadas sobre RBAC, funções e permissões.
 
 ### <a name="site-administrator"></a>Administrador de site
 
 
 O administrador de site é responsável pela assinatura do Azure do cliente. Eles controlam a implantação geral, mas não têm acesso aos registros de pacientes.
 
--   Atribuições de função padrão: [Proprietário](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+-   Atribuições de função padrão: [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Atribuições de função personalizadas: N/A
 
@@ -97,7 +97,7 @@ O administrador de site é responsável pela assinatura do Azure do cliente. Ele
 O analista de banco de dados administra o banco de dados e a instância do SQL Server.
 Eles não têm acesso aos registros de pacientes.
 
--   Atribuições de função internas: [	Contribuidor do DB SQL](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor), [Contribuidor do SQL Server](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+-   Atribuições de função internas: [	Contribuidor do DB SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Contribuidor do SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Atribuições de função personalizadas: N/A
 
@@ -108,7 +108,7 @@ Eles não têm acesso aos registros de pacientes.
 
 O cientista de dados opera o serviço do Microsoft Azure Machine Learning. Eles podem importar, exportar e gerenciar dados e executar relatórios. O cientista de dados tem acesso aos dados do paciente, mas não tem privilégios administrativos.
 
--   Atribuições de função internas: [Colaborador da Conta de Armazenamento](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+-   Atribuições de função internas: [Colaborador da Conta de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Atribuições de função personalizadas: N/A
 
@@ -138,7 +138,7 @@ Essa função exige o monitoramento do status de cada paciente, bem como a certe
 
 O auditor avalia a conformidade da solução. Eles não têm acesso direto à rede.
 
--   Atribuições de função internas: [Leitor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+-   Atribuições de função internas: [Leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Atribuições de função personalizadas: N/A
 
@@ -222,7 +222,7 @@ Esta seção detalha as configurações padrão e as medidas de segurança inter
 
 -   O [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) detecta possíveis vulnerabilidades que afetam as identidades da organização, configura as respostas automatizadas para detectar ações suspeitas relacionadas a identidades de sua organização e investiga incidentes suspeitos e toma a medida apropriada para resolvê-los.
 
--   O [RBAC (Controle De Acesso Baseado Em Função) do Azure](/azure/active-directory/role-based-access-control-configure) permite o gerenciamento de acesso detalhado para o Azure. O acesso à assinatura é limitado ao administrador da assinatura e o acesso do Azure Key Vault é limitado ao administrador de site. São necessárias senhas fortes (mínimo de 12 caracteres com pelo menos uma letra maiúscula/minúscula, número e caractere especial).
+-   O [RBAC (Controle De Acesso Baseado Em Função) do Azure](/azure/role-based-access-control/role-assignments-portal) permite o gerenciamento de acesso detalhado para o Azure. O acesso à assinatura é limitado ao administrador da assinatura e o acesso do Azure Key Vault é limitado ao administrador de site. São necessárias senhas fortes (mínimo de 12 caracteres com pelo menos uma letra maiúscula/minúscula, número e caractere especial).
 
 -   A autenticação multifator terá suporte quando a opção -enableMFA estiver habilitada durante a implantação.
 
@@ -230,7 +230,7 @@ Esta seção detalha as configurações padrão e as medidas de segurança inter
 
 **Funções:**
 
--   A solução usa [funções internas](/azure/active-directory/role-based-access-built-in-roles) para gerenciar o acesso aos recursos.
+-   A solução usa [funções internas](/azure/role-based-access-control/built-in-roles) para gerenciar o acesso aos recursos.
 
 -   Todos os usuários são atribuídos a funções internas específicas por padrão.
 
@@ -356,7 +356,7 @@ A solução dá suporte para a Grade de Eventos do Azure, um único serviço par
 
 
 -   [Registro em log está habilitado](/azure/machine-learning/studio/web-services-logging) para serviços Web do Machine Learning.
-- usar [Machine Learning](/azure/machine-learning/preview/experimentation-service-configuration) Workbench requer o desenvolvimento de experimentos, o que fornece a capacidade de prever um conjunto de soluções. [Integrar o Workbench](/azure/machine-learning/preview/using-git-ml-project) pode ajudar a agilizar o gerenciamento de experimentos.
+- usar [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench requer o desenvolvimento de experimentos, o que fornece a capacidade de prever um conjunto de soluções. [Integrar o Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) pode ajudar a agilizar o gerenciamento de experimentos.
 
 ## <a name="security"></a>SEGURANÇA
 

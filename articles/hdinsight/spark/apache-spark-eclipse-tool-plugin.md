@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: f6c79550-5803-4e13-b541-e86c4abb420b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 4ff67ebcbac5b1b85345421b16036c96f8e807cc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4e3edc74350bb31e73e21455a221baf9c8b87015
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usar o Kit de ferramentas do Azure para Eclipse a fim de criar aplicativos Spark para cluster HDInsight
 
@@ -71,7 +69,7 @@ O usuário pode [entrar a assinatura do Azure](#Sign-in-to-your-Azure-subscripti
    
    ![Expandindo um nome de cluster para ver recursos](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
-## <a name="link-a-cluster"></a>Vincular um cluster
+<h2 id="linkcluster">Vincular um cluster</h2>
 É possível vincular um cluster normal usando o nome de usuário gerenciado Ambari, além de vincular um cluster hadoop de segurança usando o nome de usuário do domínio (como: user1@contoso.com).
 1. Clique em **Vincular um cluster** a partir do **Azure Explorer**.
 

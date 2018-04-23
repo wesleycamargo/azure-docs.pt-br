@@ -1,8 +1,8 @@
 ---
-title: "Gerar recomendações usando o HDInsight para Mahout do PowerShell – Azure | Microsoft Docs"
-description: "Saiba como usar a biblioteca de Machine Learning do Apache Mahout para gerar recomendações de vídeos com o HDInsight (Hadoop) usando o script de PowerShell em execução no seu cliente."
+title: Gerar recomendações usando o HDInsight para Mahout do PowerShell – Azure | Microsoft Docs
+description: Saiba como usar a biblioteca de Machine Learning do Apache Mahout para gerar recomendações de vídeos com o HDInsight (Hadoop) usando o script de PowerShell em execução no seu cliente.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 07b57208-32aa-4e59-900a-6c934fa1b7a7
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: a2477b0a7c9c76f8ce4a183f4d699ddf4c291023
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 0c35d1affe2499d44cb1810ae51f2fe6f06bc90f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Gerar recomendações de vídeo usando o Apache Mahout com o Hadoop no HDInsight (PowerShell)
 
@@ -150,7 +148,7 @@ Para evitar erros ao executar trabalhos do Mahout, exclua os arquivos temporári
 $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 # Get cluster info

@@ -10,11 +10,11 @@ ms.workload: identity
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: davidmu
-ms.openlocfilehash: 0d3c351ebe70a963db0453538108ae9b2fefef86
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8ba511464f8ce0bef2a14706a272f6c09dfe5d07
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: registrar seu aplicativo
 
@@ -131,7 +131,7 @@ Para excluir o aplicativo, vá para o [Portal de Registro de Aplicativo](https:/
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que já tem um aplicativo registrado com o Azure AD B2C, você pode concluir um dos [tutoriais de início rápido](active-directory-b2c-overview.md#get-started) para começar a trabalhar.
+Agora que já tem um aplicativo registrado com o Azure AD B2C, você pode concluir um dos [tutoriais de início rápido](active-directory-b2c-overview.md) para começar a trabalhar.
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web ASP.NET com inscrição, entrada e redefinição de senha](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

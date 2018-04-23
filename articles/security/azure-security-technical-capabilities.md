@@ -1,12 +1,12 @@
 ---
-title: "Funcionalidades técnicas de segurança do Azure | Microsoft Docs"
-description: "Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa."
+title: Funcionalidades técnicas de segurança do Azure | Microsoft Docs
+description: Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
 
@@ -160,13 +160,13 @@ O [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directo
 
 ## <a name="secured-resource-access-in-azure"></a>Acesso a recursos protegidos no Azure
 
-O controle de acesso no Azure parte de uma perspectiva de cobrança. O proprietário de uma conta do Azure, acessada ao visitar o [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions), é o AA (Administrador da Conta). As assinaturas são um contêiner para cobrança, mas também atuam como um limite de segurança: cada assinatura tem um Administrador de Serviços (SA) que pode adicionar, remover e modificar recursos do Azure nessa assinatura usando o Portal do Azure. O SA padrão de uma nova assinatura é o AA, mas o AA pode mudar a SA no Centro de Contas do Azure.
+O controle de acesso no Azure parte de uma perspectiva de cobrança. O proprietário de uma conta do Azure, acessada ao visitar o [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions), é o AA (Administrador da Conta). As assinaturas são um contêiner para cobrança, mas também atuam como um limite de segurança: cada assinatura tem um Administrador de Serviços (SA) que pode adicionar, remover e modificar recursos do Azure nessa assinatura usando o Portal do Azure. O SA padrão de uma nova assinatura é o AA, mas o AA pode alterar o SA no Centro de Contas do Azure.
 
 ![Acesso a recursos protegidos no Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
 As assinaturas também têm uma associação com um diretório. O diretório define um conjunto de usuários. Eles podem ser usuários corporativos ou de estudantes que criaram o diretório ou podem ser usuários externos (ou seja, Contas da Microsoft). As assinaturas são acessíveis por um subconjunto desses usuários do diretório que foram atribuídos como um serviço SA (Administrador) ou CA (Coadministrador); a única exceção é que, por motivos de herança, Contas da Microsoft (anteriormente chamadas de Windows Live ID) podem ser atribuídas como SA ou CA sem estarem presentes no diretório.
 
-As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes fazem com que os funcionários não consigam trabalhar com eficiência. O [RBAC (controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) ajuda a resolver esse problema oferecendo gerenciamento de acesso refinado para o Azure.
+As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes fazem com que os funcionários não consigam trabalhar com eficiência. O [RBAC (controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) ajuda a resolver esse problema oferecendo gerenciamento de acesso refinado para o Azure.
 
 ![Acesso a recursos protegidos ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Criar e gerenciar servidores e bancos de dados do Banco de Dados SQL
 
@@ -46,7 +46,7 @@ Um servidor lógico do Banco de Dados do Azure:
 - É o recurso pai de bancos de dados, pools elásticos e data warehouses
 - Fornece um namespace para bancos de dados, pools elásticos e data warehouses
 - É um contêiner lógico com semântica de tempo de vida forte – exclua um servidor e ele exclui os bancos de dados independentes, pools elásticos e data warehouses
-- Participa do [RBAC (controle de acesso baseado em função) do Azure](/active-directory/role-based-access-control-what-is): os bancos de dados, pools elásticos e data warehouses em um servidor herdam direitos de acesso do servidor
+- Participa do [RBAC (controle de acesso baseado em função) do Azure](/azure/role-based-access-control/overview): os bancos de dados, pools elásticos e data warehouses em um servidor herdam direitos de acesso do servidor
 - É um elemento de ordem superior da identidade de bancos de dados, pools elásticos e data warehouses para finalidades de gerenciamento de recursos do Azure (consulte o esquema de URL para pools e bancos de dados)
 - Coloca recursos em uma região
 - Fornece um ponto de extremidade de conexão para acesso ao banco de dados (<serverName>.database.windows.net)
@@ -79,9 +79,8 @@ Para criar um banco de dados SQL do Azure usando o [portal do Azure](https://por
 
 > [!IMPORTANT]
 > Para saber mais sobre como selecionar o tipo de preço do banco de dados, confira [Camadas de serviço](sql-database-service-tiers.md).
->
 
-Para criar uma Instância Gerenciada, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-tutorial-portal.md)
+Para criar uma Instância Gerenciada, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md)
 
 ### <a name="manage-an-existing-sql-server"></a>Gerenciar um SQL Server existente
 

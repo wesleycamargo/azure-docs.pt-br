@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Log e auditoria do Azure
 ## <a name="introduction"></a>Introdução
@@ -101,7 +101,7 @@ Cenários de integração
 
 -   Exportar o Log de Atividades com Perfis de Log para o [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
-É possível usar uma conta de armazenamento ou um [namespace de hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) que não está na mesma assinatura para emitir logs. O usuário que define a configuração deve ter o devido acesso [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) a ambas as assinaturas
+É possível usar uma conta de armazenamento ou um [namespace de hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) que não está na mesma assinatura para emitir logs. O usuário que define a configuração deve ter o devido acesso [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) a ambas as assinaturas
 ### <a name="azure-diagnostic-logs"></a>Logs de Diagnóstico do Azure
 Os Logs de Diagnóstico do Azure são emitidos por um recurso que fornece dados avançados e frequentes sobre a operação do recurso. O conteúdo desses logs varia por tipo de recurso (por exemplo, os [logs do sistema de eventos do Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) são uma categoria de Logs de Diagnóstico para VMs e [logs de blobs, tabelas e filas](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) são categorias de Logs de Diagnóstico para contas de armazenamento) e difere do Log de Atividades, que fornece informações sobre as operações executadas nos recursos de sua assinatura.
 

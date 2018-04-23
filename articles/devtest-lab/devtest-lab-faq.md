@@ -5,7 +5,7 @@ services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
 ms.service: devtest-lab
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: d8b9e48db9e75fb41ecad1958b3aa930a6bce3aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Perguntas frequentes sobre o Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -55,7 +55,7 @@ O DevTest Labs é um serviço gratuito. Criar e configurar políticas, modelos e
 
 **Segurança**
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quais são os diferentes níveis de segurança no DevTest Labs?
-O acesso de segurança é determinado pelo [RBAC (controle de acesso baseado em função)](../active-directory/role-based-access-built-in-roles.md). Para entender como o acesso funciona, é importante entender as diferenças entre um escopo, uma permissão e uma função, conforme definido pelo RBAC.
+O acesso de segurança é determinado pelo [RBAC (controle de acesso baseado em função)](../role-based-access-control/built-in-roles.md). Para entender como o acesso funciona, é importante entender as diferenças entre um escopo, uma permissão e uma função, conforme definido pelo RBAC.
 
 * **Permissão**: uma permissão é um acesso definido para uma ação específica. Por exemplo, uma permissão pode ser de acesso de leitura a todas as VMs.
 * **Função**: uma função é um conjunto de permissões que podem ser agrupadas e atribuídas a um usuário. Por exemplo, um usuário com uma função de proprietário da assinatura tem acesso a todos os recursos dentro de uma assinatura.
@@ -159,7 +159,7 @@ Você pode excluir as VMs do seu laboratório no Portal do Azure. Você também 
     $labName = "<Enter lab name here>"
 
     # Sign in to your Azure account.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that has the lab. This step is optional
     # if you have only one subscription.

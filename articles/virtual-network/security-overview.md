@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 3b935d3a3c37b63386dfb2cbd25ceba59d91a998
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f57a4b87c239126d248cba5106e005103d8372b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-security"></a>Segurança de rede
 
@@ -35,7 +35,7 @@ Abaixo mostramos como os grupos de segurança de rede são aplicados quando um g
 - **Tráfego de entrada**: o grupo de segurança de rede associado à sub-rede onde está o adaptador de rede é avaliado primeiro. O tráfego permitido pelo grupo de segurança de rede associado à sub-rede é avaliado pelo grupo de segurança de rede associado ao adaptador de rede. Por exemplo, você pode exigir acesso de entrada a uma máquina virtual pela porta 80 da Internet. Se você associar um grupo de segurança de rede ao adaptador de rede e à sub-rede onde está o adaptador de rede, o grupo de segurança de rede associado à sub-rede e o adaptador de rede devem permitir a porta 80. Se você apenas permitiu a porta 80 por meio do grupo de segurança de rede associado à sub-rede ou ao adaptador de rede em que está a sub-rede, a comunicação falhará devido a regras de segurança padrão. Confira as [regras de segurança padrão](#default-security-rules) para obter mais detalhes. Se você aplicou um grupo de segurança de rede apenas à sub-rede ou ao adaptador de rede, e o grupo de segurança e rede continha uma regra que permitia o tráfego de entrada da porta 80, por exemplo, a comunicação será bem-sucedida. 
 - **Tráfego de saída**: o grupo de segurança de rede associado ao adaptador de rede é avaliado primeiro. O tráfego permitido pelo grupo de segurança de rede associado ao adaptador de rede é avaliado pelo grupo de segurança de rede associado à sub-rede.
 
-Você pode não saber quando os grupos de segurança de rede são aplicados a um adaptador de rede e a uma sub-rede. É possível exibir facilmente as regras de agregação aplicadas a um adaptador de rede exibindo as [regras de segurança efetiva](virtual-network-nsg-troubleshoot-portal.md) para determinado adaptador de rede. Você também pode usar o recurso [Verificar o fluxo de IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) no Observador de Rede do Azure para determinar se a comunicação é permitida na entrada ou saída de um adaptador de rede. A ferramenta informa se a comunicação é permitida e qual regra de segurança de rede permite ou nega o tráfego.
+Você pode não saber quando os grupos de segurança de rede são aplicados a um adaptador de rede e a uma sub-rede. É possível exibir facilmente as regras de agregação aplicadas a um adaptador de rede exibindo as [regras de segurança efetiva](virtual-network-network-interface.md#view-effective-security-rules) para determinado adaptador de rede. Você também pode usar o recurso [Verificar o fluxo de IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) no Observador de Rede do Azure para determinar se a comunicação é permitida na entrada ou saída de um adaptador de rede. A ferramenta informa se a comunicação é permitida e qual regra de segurança de rede permite ou nega o tráfego.
  
 > [!NOTE]
 > Os grupos de segurança de rede estão associados a sub-redes ou a máquinas virtuais e serviços de nuvem com o modelo de implantação clássica, em vez de associados a adaptadores de rede no modelo de implantação do Gerenciador de Recursos. Para saber mais sobre os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

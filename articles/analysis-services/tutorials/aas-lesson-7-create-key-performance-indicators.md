@@ -1,25 +1,18 @@
 ---
-title: "Lição 7 do tutorial do Azure Analysis Services: criar indicadores chave de desempenho | Microsoft Docs"
+title: 'Lição 7 do tutorial do Azure Analysis Services: criar indicadores chave de desempenho | Microsoft Docs'
 description: Descreve como criar indicadores chave de desempenho no projeto de tutorial do Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 8f25773541deba2a94d3adc0c9b61c1b90a90aa6
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 8534640822030a7aa93c8eafe2a1b1a4a8bc5bc4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-key-performance-indicators"></a>Criar indicadores chave de desempenho
 
@@ -27,7 +20,7 @@ Nesta lição, você cria KPIs (indicadores chave de desempenho). Os KPIs são u
   
 Tempo estimado para conclusão desta lição: **15 minutos**  
   
-## <a name="prerequisites"></a>Pré-requisitos  
+## <a name="prerequisites"></a>pré-requisitos  
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 6: criar medidas](../tutorials/aas-lesson-6-create-measures.md).   
   
 ## <a name="create-key-performance-indicators"></a>Criar indicadores chave de desempenho  

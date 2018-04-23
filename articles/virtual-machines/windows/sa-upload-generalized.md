@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 28caca06dd756732314f758e6acb4629f857dd91
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: be2ec6df33f5756dc080195bfad32e0c9079453c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Upload de um VHD generalizado para o Azure para criar uma nova VM
 
@@ -74,7 +74,7 @@ Se você ainda não tiver a versão 1.4 ou superior do PowerShell instalada, lei
 1. Abra o Azure PowerShell e conecte-se à sua conta do Azure. Uma janela pop-up é aberta para inserir as credenciais da conta do Azure.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 2. Obtenha as IDs de assinatura das assinaturas disponíveis.
    

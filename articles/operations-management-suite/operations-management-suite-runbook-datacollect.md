@@ -1,11 +1,11 @@
 ---
-title: "Coletando dados de Log Analytics com um runbook na Automação do Azure | Microsoft Docs"
-description: "Tutorial passo a passo que orienta a criação de um runbook na Automação do Azure para coletar dados para o repositório do OMS que serão analisados pelo Log Analytics."
+title: Coletando dados de Log Analytics com um runbook na Automação do Azure | Microsoft Docs
+description: Tutorial passo a passo que orienta a criação de um runbook na Automação do Azure para coletar dados para o repositório do OMS que serão analisados pelo Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: operations-management-suite
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 59f674c9c6404da7f5384539189f41a4ba1a939a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0784e2317fbc98561b486547654ca27bb30e76c3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Coletar dados no Log Analytics com um runbook na Automação do Azure
 Você pode coletar uma quantidade significativa de dados no Log Analytics de uma variedade de fontes, inclusive [fontes de dados](../log-analytics/log-analytics-data-sources.md) nos agentes e também os [dados coletados do Azure](../log-analytics/log-analytics-azure-storage.md).  Porém, há cenários em que você precisa coletar dados que não estão acessíveis por meio dessas fontes padrão.  Nesses casos, você pode usar a [API do Coletor de Dados HTTP](../log-analytics/log-analytics-data-collector-api.md) para gravar dados ao Log Analytics de qualquer cliente de API REST.  Um método comum para realizar essa coleta de dados é usar um runbook na Automação do Azure.   
@@ -26,7 +26,7 @@ Você pode coletar uma quantidade significativa de dados no Log Analytics de uma
 Este tutorial explica o processo para criar e agendar um runbook na Automação do Azure para gravar os dados no Log Analytics.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Esse cenário exige os seguintes recursos configurados na sua assinatura do Azure.  Ambos podem ser uma conta gratuita.
 
 - [Espaço de trabalho do Log Analytics](../log-analytics/log-analytics-get-started.md).
@@ -57,7 +57,7 @@ No entanto, a Galeria do PowerShell oferece uma opção rápida para implantar u
 ## <a name="2-create-automation-variables"></a>2. Criar variáveis de Automação
 As [variáveis de Automação](..\automation\automation-variables.md) contêm valores que podem ser usados por todos os runbooks na sua conta de Automação.  Eles tornam os runbooks mais flexíveis permitindo que você altere esses valores sem editar o runbook real. Todas as solicitações da API do Coletor de Dados HTTP exige a identificação e a chave do espaço de trabalho do OMS e os ativos de variável são ideais para armazenar essas informações.  
 
-![Variáveis](media/operations-management-suite-runbook-datacollect/variables.png)
+![variáveis](media/operations-management-suite-runbook-datacollect/variables.png)
 
 1. No portal do Azure, abra sua Conta de Automação.
 2. Selecione **Variáveis** em **Recursos Compartilhados**.
@@ -65,10 +65,10 @@ As [variáveis de Automação](..\automation\automation-variables.md) contêm va
 
 | Propriedade | Valor da ID do Espaço de Trabalho | Valor da Chave do Espaço de Trabalho |
 |:--|:--|:--|
-| Nome | WorkspaceId | WorkspaceKey |
-| Tipo | Cadeia de caracteres | Cadeia de caracteres |
+| NOME | WorkspaceId | WorkspaceKey |
+| type | Cadeia de caracteres | Cadeia de caracteres |
 | Valor | Cole a ID do espaço de trabalho do seu espaço de trabalho do Log Analytics. | Cole com a chave primária ou secundária do seu espaço de trabalho do Log Analytics. |
-| Criptografado | Não | Sim |
+| Criptografado | Não  | sim |
 
 
 
@@ -97,7 +97,7 @@ A Automação do Azure tem um editor no portal onde você pode editar e testar s
         # Code copied from the runbook AzureAutomationTutorial.
         $connectionName = "AzureRunAsConnection"
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -184,11 +184,11 @@ A maneira mais comum para iniciar um runbook que coleta dados de monitoramento �
 
 | Propriedade | Valor |
 |:--|:--|
-| Nome | AutomationJobs-Hourly |
+| NOME | AutomationJobs-Hourly |
 | Inicia | Selecione qualquer horário pelo menos 5 minutos após a hora atual. |
 | Recorrência | Recorrente |
 | Repetir a cada | 1 hora |
-| Definir a validade | Não |
+| Definir a validade | Não  |
 
 Depois de criar a agenda, você precisará definir os valores de parâmetro que serão usados sempre que essa agenda iniciar o runbook.
 

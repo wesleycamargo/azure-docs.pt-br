@@ -2,10 +2,10 @@
 title: Criar um Hub IoT do Azure usando um modelo (PowerShell) | Microsoft Docs
 description: Como usar um modelo do Azure Resource Manager para criar um Hub IoT com o PowerShell.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7eade855-c289-4ffb-b5ef-02be8c5f670f
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 242c50b61b00bbf71b26e2aea1a66e2b2c55dbd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0e5f95d98f772b226e162f601939bc94bf8fb78b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Criar um Hub IoT usando um modelo do Azure Resource Manager (PowerShell)
 
@@ -31,7 +31,7 @@ Você pode usar o Gerenciador de Recursos do Azure para criar e gerenciar hubs I
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. <br/>Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
+* Uma conta ativa do Azure. <br/>Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
 * [Azure PowerShell 1.0][lnk-powershell-install] ou posterior.
 
 > [!TIP]
@@ -42,7 +42,7 @@ Para concluir este tutorial, você precisará do seguinte:
 Em um prompt de comando do PowerShell, digite o seguinte comando para entrar em sua assinatura do Azure:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Caso tenha várias assinaturas do Azure, entrar no Azure concede a você acesso a todas as assinaturas do Azure associadas às suas credenciais. Use o comando a seguir para listar as assinaturas do Azure disponíveis para você:
@@ -157,7 +157,7 @@ Para saber mais sobre como desenvolver para o Hub IoT, veja os seguintes artigos
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Implantação de IA em dispositivos de borda com o Azure IoT Edge][lnk-iotedge]
+* [Implantação do IA em dispositivos de borda com o Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

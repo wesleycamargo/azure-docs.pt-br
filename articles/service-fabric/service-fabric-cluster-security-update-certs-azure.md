@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 65ade0f2526bf444c2205c74cce0e20be540998d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e2d9732dca7b0506a3307fc8aa1674d0d379c67f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 É recomendável que você se familiarize com o modo como o Service Fabric usa certificados X.509 e com os [Cenários de segurança do cluster do cluster](service-fabric-cluster-security.md). Você deve entender o que é um certificado de cluster e qual sua finalidade, antes de continuar.
@@ -197,7 +197,7 @@ Editar seu parâmetro de modelo do Resource Manager de arquivo, adicione dois no
 - Faça logon em sua Conta do Azure e selecione a assinatura do Azure específica. Essa é uma etapa importante para pessoas que têm acesso a mais de uma assinatura do Azure.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId <Subcription ID> 
 
 ```

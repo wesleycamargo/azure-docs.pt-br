@@ -1,25 +1,18 @@
 ---
 title: Como modelar os tipos de dados complexos no Azure Search | Microsoft Docs
-description: "As estruturas de dados aninhadas e hierárquicas podem ser modeladas em um índice do Azure Search usando o conjunto de linhas nivelado e o tipo de dados Coleções."
-services: search
-documentationcenter: 
-author: LiamCa
-manager: pablocas
-editor: 
+description: As estruturas de dados aninhadas e hierárquicas podem ser modeladas em um índice do Azure Search usando o conjunto de linhas nivelado e o tipo de dados Coleções.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-ms.assetid: e4bf86b4-497a-4179-b09f-c1b56c3c0bb2
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
-ms.author: liamca
-ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bc7deddc73139e587114c2d58c3fd176df47225c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Como modelar os tipos de dados complexos no Azure Search
 Os conjuntos de dados externos usados para preencher um índice do Azure Search, às vezes, incluem subestruturas hierárquicas ou aninhadas que não se dividem de modo organizado em um conjunto de linhas da tabela. Os exemplos dessas estruturas podem incluir vários locais e números de telefone para um único cliente, vários tamanhos e cores para um único SKU, vários autores de um único livro e assim por diante. Em termos de modelagem, você pode ver essas estruturas referidas como *tipos de dados complexos*, *tipos de dados compostos*, *tipos de dados combinados* ou *tipos de dados de agregação*, para citar alguns.
@@ -102,7 +95,7 @@ Supondo que você criou o índice e carregou os dados, agora você pode testar a
 * Obtenha uma contagem do número de pessoas que trabalham em um ‘Escritório Central’.  
 * Das pessoas que trabalham em um ‘Escritório Central', mostre em quais outros escritórios elas trabalham, junto com uma contagem de pessoas em cada local.  
 
-Onde essa técnica falha é quando você precisa fazer uma pesquisa que combina a identificação do local, bem como a descrição do local. Por exemplo:
+Onde essa técnica falha é quando você precisa fazer uma pesquisa que combina a identificação do local, bem como a descrição do local. Por exemplo: 
 
 * Localize todas as pessoas onde elas têm um Escritório Central E uma Identificação de local 4.  
 
@@ -117,7 +110,7 @@ Se você se lembra, o conteúdo original era assim:
 
 No entanto, agora que dividimos os dados em campos separados, não temos nenhuma maneira de saber se o Escritório Central para Jen Campbell relaciona-se a `locationsID 3` ou `locationsID 4`.  
 
-Para lidar com isso, defina outro campo no índice que combina todos os dados em uma única coleção.  Para nosso exemplo, chamaremos esse campo de `locationsCombined` e iremos separar o conteúdo com `||`, embora seja possível escolher qualquer separador que você acha que seria um conjunto exclusivo de caracteres para seu conteúdo. Por exemplo: 
+Para lidar com isso, defina outro campo no índice que combina todos os dados em uma única coleção.  Para nosso exemplo, chamaremos esse campo de `locationsCombined` e iremos separar o conteúdo com `||`, embora seja possível escolher qualquer separador que você acha que seria um conjunto exclusivo de caracteres para seu conteúdo. Por exemplo:  
 
 ![dados de exemplo, 2 linhas com separador](./media/search-howto-complex-data-types/sample-data-2.png)
 
@@ -127,7 +120,7 @@ Usando esse campo `locationsCombined` , agora podemos aceitar ainda mais consult
 * Procure as pessoas que trabalham em um ‘Escritório Central' com uma Id de local '4'. 
 
 ## <a name="limitations"></a>Limitações
-Essa técnica é útil para vários cenários, mas ela não é aplicável em todos os casos.  Por exemplo:
+Essa técnica é útil para vários cenários, mas ela não é aplicável em todos os casos.  Por exemplo: 
 
 1. Se você não tem um conjunto estático de campos em seu tipo de dados complexos e não foi possível mapear todos os tipos possíveis para um único campo. 
 2. Atualizar os objetos aninhados requer um trabalho extra para determinar exatamente o que precisa ser atualizado no índice do Azure Search

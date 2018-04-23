@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 94a066c43d1b04161a46dac15e5b373d97cc063d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Função administrativa diferente no PIM do Azure Active Directory
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -67,7 +67,7 @@ Se você desejar conceder acesso para gerenciar no próprio PIM a outro usuário
 ## <a name="roles-not-managed-in-pim"></a>Funções não gerenciadas no PIM
 Funções no Exchange Online ou SharePoint Online, exceto por aquelas mencionadas acima, não são representadas no Azure AD e, portanto, não são visíveis no PIM. Para obter mais informações sobre como alterar as atribuições de função refinadas nesses serviços do Office 365, consulte [Permissões no Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-As assinaturas e grupos de recursos do Azure também não são representados no Azure AD. Para gerenciar as assinaturas do Azure, consulte [Como adicionar ou alterar as funções de administrador do Azure](../billing/billing-add-change-azure-subscription-administrator.md) e para obter mais informações sobre o RBAC do Azure, consulte [Controle de Acesso Baseado em Funções do Azure](role-based-access-control-configure.md).
+As assinaturas e grupos de recursos do Azure também não são representados no Azure AD. Para gerenciar as assinaturas do Azure, consulte [Como adicionar ou alterar as funções de administrador do Azure](../billing/billing-add-change-azure-subscription-administrator.md) e para obter mais informações sobre o RBAC do Azure, consulte [Controle de Acesso Baseado em Funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

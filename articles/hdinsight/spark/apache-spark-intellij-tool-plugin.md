@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 2ebf87b0436dbc5ee12a1c41d33ff3d17af1f043
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 726b062aecc11db738926586cdede045eae3a61e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usar o Kit de Ferramentas do Azure para IntelliJ a fim de criar aplicativos Spark para um cluster HDInsight
 
@@ -46,7 +44,7 @@ Para criar seu projeto, veja o vídeo [Create Spark Applications with the Azure 
 Para obter instruções de instalação, confira [Instalação do Kit de Ferramentas do Azure para IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
 
 ## <a name="get-started"></a>Introdução
-O ssuário pode [entrar a assinatura do Azure](#sign-in-to-your-azure-subscription), ou [vincular um cluster HDInsight](#link-a-cluster) usando a credencial de usuário/senha ou domínio unido do Ambari para iniciar.
+O usuário pode [entrar a assinatura do Azure](#sign-in-to-your-azure-subscription), ou [vincular um cluster HDInsight](#link-a-cluster) usando a credencial de usuário/senha ou domínio unido do Ambari para iniciar.
 
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Entre em sua assinatura do Azure
@@ -73,7 +71,7 @@ O ssuário pode [entrar a assinatura do Azure](#sign-in-to-your-azure-subscripti
    
     ![Um nó de nome de cluster expandido](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
-## <a name="link-a-cluster"></a>Vincular um cluster
+<h2 id="linkcluster">Vincular um cluster</h2>
 É possível vincular um cluster normal usando o nome de usuário gerenciado Ambari, além de vincular um cluster hadoop de segurança usando o nome de usuário do domínio (como: user1@contoso.com). 
 1. Clique em **Vincular um cluster** a partir do **Azure Explorer**.
 

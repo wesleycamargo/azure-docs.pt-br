@@ -1,31 +1,31 @@
 ---
-title: "Noções básicas sobre o uso de máquina virtual do Azure | Microsoft Docs"
-description: "Compreender os detalhes de uso da máquina virtual"
+title: Noções básicas sobre o uso de máquina virtual do Azure | Microsoft Docs
+description: Noções básicas dos detalhes de uso da máquina virtual
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-virtual-machine
-ms.assetid: 
-ms.service: 
-ms.devlang: 
+ms.assetid: ''
+ms.service: ''
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: c87c4256aa193a4971b75c3230d1996c2efdc352
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 9980650008e2d2c2f768dcb3256ea5344119fa13
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Noções básicas sobre o uso de máquina virtual do Azure
-Ao analisar os dados de uso do Azure, podem ser obtidas informações poderosas sobre o consumo - insights que podem permitir um melhor gerenciamento e alocação de custos em toda a sua organização. Este documento fornece um aprofundamento em seus detalhes de consumo de Computação do Azure. Para obter mais detalhes sobre o uso geral do Azure, navegue até [Entendendo sua fatura](/billing/billing-understand-your-bill.md).
+Ao analisar os dados de uso do Azure, podem ser obtidas informações poderosas sobre o consumo - insights que podem permitir um melhor gerenciamento e alocação de custos em toda a sua organização. Este documento fornece um aprofundamento em seus detalhes de consumo de Computação do Azure. Para obter mais detalhes sobre o uso geral do Azure, navegue até [Entendendo sua fatura](../../billing/billing-understand-your-bill.md).
 
 ## <a name="download-your-usage-details"></a>Faça o download dos seus detalhes de uso
-Para começar, [faça o download dos seus detalhes de uso](/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv.md). A tabela a seguir fornece os valores de definição e exemplo de uso para Máquinas Virtuais implantadas através do Azure Resource Manager. Este documento não contém informações detalhadas para VMs implantadas através do nosso modelo clássico.
+Para começar, [faça o download dos seus detalhes de uso](../../billing/billing-download-azure-invoice-daily-usage-date.md). A tabela a seguir fornece os valores de definição e exemplo de uso para Máquinas Virtuais implantadas através do Azure Resource Manager. Este documento não contém informações detalhadas para VMs implantadas através do nosso modelo clássico.
 
 
 | Campos             | Significado                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Valores de exemplo                                                                                                                                                                                                                                                                                                                                                   |
@@ -39,10 +39,10 @@ Para começar, [faça o download dos seus detalhes de uso](/billing/billing-down
 | Consumido           | A quantidade do recurso que foi consumida naquele dia. Para Computação, contamos por cada minuto que a VM correu por uma hora determinada (até 6 decimais de precisão).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    “1”, “0.5”                                                                                                                                                                                                                                                                                                                                                    |
 | Local do recurso  | Identifica o datacenter onde o recurso está sendo executado.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | “Leste do Japão”                                                                                                                                                                                                                                                                                                                                                        |
 | Serviço consumido   | O serviço da plataforma do Azure que você usou.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft.Compute"                                                                                                                                                                                                                                                                                                                                              |
-| Grupo de recursos     | O grupo de recursos no qual o recurso implantado está sendo executado. Para obter mais informações, consulte [Visão geral do Azure Resource Manager.](/azure-resource-manager/resource-group-overview.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
+| Grupo de recursos     | O grupo de recursos no qual o recurso implantado está sendo executado. Para obter mais informações, consulte [Visão geral do Azure Resource Manager.](../../azure-resource-manager/resource-group-overview.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
 | ID da instância        | O identificador do recurso. O identificador contém o nome especificado para o recurso quando ele foi criado. Para as VMs, a ID da Instância conterá o SubscriptionId, ResourceGroupName e VMName (ou o nome do conjunto de dimensionamento para o uso do conjunto de dimensionamento).                                                                                                                                                                                                                                                                                                                                                                                                                    | "/assinaturas/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1”<br><br>ou o<br><br>"/assinaturas/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1”                                                                                           |
 | Marcas               | Marca atribuída ao recurso. Use marcas para agrupar registros de cobrança. Saiba como [marcar suas Máquinas Virtuais.](tag.md) Isso está disponível somente para VMs do Gerenciador de Recursos.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
-| Informações Adicionais    | Metadados específicos ao serviço. Para VMs, preenchemos o seguinte no campo de informações adicionais: <ul><li>Tipo de Imagem - especifica a imagem que foi executada. Localiza a lista completa de cadeias de caracteres com suporte abaixo em Tipos de Imagem.</li><li>Tipo de Serviço: o tamanho que você implantou.</li><li>VMName: nome da sua VM. Isso é preenchido somente para VMs de conjunto de dimensionamento. Se for necessário o Nome da VM para VMs de conjunto de dimensionamento, será possível localizá-lo na cadeia de caracteres da ID da Instância acima.</li><li>UsageType: Especifica o tipo de uso que isso representa.<ul><li>ComputeHR é o uso de Hora de Computação para a VM subjacente, como Standard_D1_v2.</li><li>ComputeHR_SW é a carga de software Premium se a VM estiver utilizando o software Premium, como o Microsoft R Server.</li></ul></li></ul>    | Máquinas Virtuais {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Conjuntos de dimensionamento de Máquinas Virtuais {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>Software Premium {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
+| Informações Adicionais    | Metadados específicos ao serviço. Para VMs, preenchemos o seguinte no campo de informações adicionais: <ul><li>Tipo de Imagem - especifica a imagem que foi executada. Localize a lista completa de cadeias de caracteres suportadas abaixo em Tipos de Imagem.</li><li>Tipo de Serviço: o tamanho que você implantou.</li><li>VMName: nome da sua VM. Isso é preenchido somente para VMs de conjunto de dimensionamento. Se for necessário o Nome da VM para VMs de conjunto de dimensionamento, será possível localizá-lo na cadeia de caracteres da ID da Instância acima.</li><li>UsageType: Especifica o tipo de uso que isso representa.<ul><li>ComputeHR é o uso de Hora de Computação para a VM subjacente, como Standard_D1_v2.</li><li>ComputeHR_SW é a carga de software Premium se a VM estiver utilizando o software Premium, como o Microsoft R Server.</li></ul></li></ul>    | Máquinas Virtuais {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Conjuntos de dimensionamento de Máquinas Virtuais {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>Software Premium {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
 
 ## <a name="image-type"></a>Tipo de Imagem
 Para algumas imagens na galeria do Azure, o tipo de imagem é preenchido no campo Informações Adicionais. Isso permite aos usuários entender e rastrear o que implantaram em sua Máquina Virtual. Os valores que são preenchidos nesse campo baseado na imagem implantada são os seguintes:
@@ -57,8 +57,8 @@ Para algumas imagens na galeria do Azure, o tipo de imagem é preenchido no camp
   - SUSE Premium
   - Dispositivo de Nuvem StorSimple 
   - Red Hat
-  - Red Hat for SAP Business Applications     
-  - Red Hat for SAP HANA 
+  - Red Hat para aplicativos de negócios SAP     
+  - Red Hat para SAP HANA 
   - Windows Client BYOL 
   - Windows Server BYOL 
   - Versão prévia do Windows Server 
@@ -74,7 +74,7 @@ O nome da região preenchido no campo Local do Recurso nos detalhes de uso varia
 |    australiaeast         |    Leste da Austrália                               |
 |    australiasoutheast    |    Sudeste da Austrália                          |
 |    brazilsouth           |    Sul do Brasil                              |
-|    CanadaCentral         |    Canadá Central                            |
+|    Canadá Central         |    CA Central                            |
 |    CanadaEast            |    Leste do Canadá                               |
 |    CentralIndia          |    Índia Central                            |
 |    centralus             |    Centro dos EUA                            |
@@ -84,7 +84,7 @@ O nome da região preenchido no campo Local do Recurso nos detalhes de uso varia
 |    eastus                |    Leste dos EUA                               |
 |    eastus2               |    Leste dos EUA 2                             |
 |    GermanyCentral        |    Alemanha Central                            |
-|    GermanyNortheast      |    Alemanha Central                          |
+|    GermanyNortheast      |    Nordeste da Alemanha                          |
 |    japaneast             |    Leste do Japão                               |
 |    japanwest             |    Oeste do Japão                               |
 |    KoreaCentral          |    Coreia Central                            |
@@ -100,11 +100,11 @@ O nome da região preenchido no campo Local do Recurso nos detalhes de uso varia
 |    ukwest                |    Oeste do Reino Unido                               |
 |    USDoDCentral          |    DoD Central dos EUA                        |
 |    USDoDEast             |    DoD do Leste dos EUA                           |
-|    USGovArizona          |    USGov Arizona                         |
-|    usgoviowa             |    Gov. dos EUA – Iowa                            |
-|    USGovTexas            |    USGov Texas                           |
-|    usgovvirginia         |    Gov. dos EUA – Virgínia                        |
-|    westcentralus         |    Centro-oeste dos EUA                       |
+|    USGovArizona          |    Gov. dos EUA – Arizona                         |
+|    usgoviowa             |    USGov Iowa                            |
+|    USGovTexas            |    Gov. dos EUA – Texas                           |
+|    usgovvirginia         |    USGov Virginia                        |
+|    westcentralus         |    Centro-Oeste dos EUA                       |
 |    westeurope            |    Europa Ocidental                           |
 |    WestIndia             |    Índia Ocidental                               |
 |    westus                |    Oeste dos EUA                               |
@@ -115,9 +115,9 @@ O nome da região preenchido no campo Local do Recurso nos detalhes de uso varia
 ### <a name="what-resources-are-charged-when-deploying-a-vm"></a>Quais recursos são cobrados ao implantar uma VM?    
 As VMs adquirem custos para a própria VM, qualquer software Premium em execução na VM, a conta de armazenamento\disco gerenciado associado à VM e as transferências de largura de banda de rede da VM.
 ### <a name="how-can-i-tell-if-a-vm-is-using-azure-hybrid-benefit-in-the-usage-csv"></a>Como posso saber se uma VM está utilizando o Benefício Híbrido do Azure no CSV de Uso?
-Se você implantar utilizando o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/), será cobrado pela taxa de VM não Windows, já que está trazendo sua própria licença para a nuvem. Na sua fatura, você pode distinguir as VMs do Gerenciador de Recursos que estão executando em Benefício Híbrido do Azure porque possuem ou o “Windows\_Server BYOL” ou o “Windows\_Client BYOL” na coluna ImageType.
+Se você implantar utilizando o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/), será cobrado pela taxa de VM não-Windows, já que está trazendo sua própria licença para a nuvem. Na sua fatura, você pode distinguir as VMs do Gerenciador de Recursos que estão executando em Benefício Híbrido do Azure porque possuem ou o “Windows\_Server BYOL” ou o “Windows\_Client BYOL” na coluna ImageType.
 ### <a name="how-are-basic-vs-standard-vm-types-differentiated-in-the-usage-csv"></a>Como é o plano Básico. Há tipos Standard para VM diferenciados no CSV de uso?
-São oferecidas VMs básicas e Standard de Série A. Se você implantar um básico para VM, na Subcategoria do Medidor, que possui uma cadeia de caracteres “Basic.” Se você implantar uma VM Standard de Série A, então, o tamanho da VM aparecerá como “A1 VM” já que Standard é o padrão. Para saber mais sobre as diferenças entre Basic e Standard, consulte a[Página de Preços](https://azure.microsoft.com/pricing/details/virtual-machines/).
+São oferecidas VMs dos planos Básico e Standard da série A. Se você implantar uma VM do plano Básico, na subcategoria do medidor ela terá uma cadeia de caracteres “Básica”. Se você implantar uma VM do plano Standard de série A, o tamanho da VM aparecerá como “A1 VM”, já que o plano Standard é o padrão. Para saber mais sobre as diferenças entre os planos Básico e Standard, consulte a[Página de Preços](https://azure.microsoft.com/pricing/details/virtual-machines/).
 ### <a name="what-are-extrasmall-small-medium-large-and-extralarge-sizes"></a>Quais são os tamanhos ExtraSmall, Small, Medium, Large e ExtraLarge?
 ExtraSmall - ExtraLarge são os nomes herdados para Standard \_A0 – Standard\_A4. Nos registros de uso de VM clássica, você poderá visualizar essa convenção utilizada, caso tenha implantado esses tamanhos.
 ### <a name="what-is-the-difference-between-meter-region-and-resource-location"></a>Qual é a diferença entre a Região do Medidor e o Local do Recurso?
@@ -131,7 +131,7 @@ O ComputeR significa Hora de Computação que representa o evento de uso para o 
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Como saber se sou cobrado pelo software Premium?
 Ao explorar qual melhor Imagem de VM se adapta às suas necessidades, certifique-se de verificar o [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). A imagem possui a taxa do plano de software. Se você visualizar "Gratuito" para a taxa, não há custo adicional para o software. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Qual a diferença entre Microsoft.ClassicCompute e Microsoft.Compute no serviço Consumido?
-O Microsoft.ClassicCompute representa os recursos clássicos implantados através do Azure Service Manager. Se você implantar através do Gerenciador de Recursos, o Microsoft.Compute será preenchido no serviço consumido. Saiba mais sobre os [modelos de Implantação do Azure](/azure-resource-manager/resource-manager-deployment-model.md).
+O Microsoft.ClassicCompute representa os recursos clássicos implantados através do Azure Service Manager. Se você implantar através do Gerenciador de Recursos, o Microsoft.Compute será preenchido no serviço consumido. Saiba mais sobre os [modelos de Implantação do Azure](../../azure-resource-manager/resource-manager-deployment-model.md).
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>Por que o campo InstanceID está em branco para o uso da minha Máquina Virtual?
 Se você implantar através do modelo de implantação clássico, a cadeia de caracteres da InstanceID não estará disponível.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>Por que as marcas para as minhas VMs não estão fluindo para os detalhes de uso?
@@ -142,5 +142,5 @@ No modelo Clássico, a cobrança para recursos é agregada no nível de Serviço
 As VMs com capacidade de armazenamento Premium são cobradas na mesma taxa que as VMs com capacidade de armazenamento não Premium. Apenas os custos de armazenamento diferem. Visite a [página de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre seus detalhes de uso, consulte [Entenda sua cobrança do Microsoft Azure.](/billing/billing-understand-your-bill.md)
+Para saber mais sobre seus detalhes de uso, consulte [Entenda sua cobrança do Microsoft Azure.](../../billing/billing-understand-your-bill.md)
 

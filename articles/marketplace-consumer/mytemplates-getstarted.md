@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mbaldwin
-ms.openlocfilehash: e3a0bbe75177ac25a0aeff89d171dfe88bd0880f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c716f54a1361d41dbad00e2e45562d5fbf8fd6ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Introdução aos modelos privados no portal do Azure
 Um modelo do [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) é um modelo declarativo usado para definir a sua implantação. Você define os recursos a serem implantados em uma solução e especifica os parâmetros e variáveis que lhe permitem inserir valores para diferentes ambientes. O modelo consiste em JSON e expressões, que podem ser usados na construção de valores para sua implantação.
@@ -103,7 +103,7 @@ Você pode implantar qualquer **Modelo** para o qual tiver permissões de **Leit
 ![Implantar o modelo](media/deploy-template-portal1b.png)
 
 ## <a name="share-a-template-resource"></a>Compartilhar um recurso de modelo
-Um recurso de **modelo** pode ser compartilhados com seus colegas. O compartilhamento se comporta da mesma forma que a [atribuição de função de qualquer recurso no Azure](../active-directory/role-based-access-control-configure.md). O proprietário do **modelo** fornece permissões para outros usuários que podem interagir com um recurso de modelo. A pessoa ou o grupo de pessoas com quem você compartilhar o **Modelo** será capaz de ver o modelo do Resource Manager e suas propriedades de galeria.
+Um recurso de **modelo** pode ser compartilhados com seus colegas. O compartilhamento se comporta da mesma forma que a [atribuição de função de qualquer recurso no Azure](../role-based-access-control/role-assignments-portal.md). O proprietário do **modelo** fornece permissões para outros usuários que podem interagir com um recurso de modelo. A pessoa ou o grupo de pessoas com quem você compartilhar o **Modelo** será capaz de ver o modelo do Resource Manager e suas propriedades de galeria.
 
 ### <a name="access-control-for-the-microsoftgallery-resources"></a>Controle de acesso aos recursos da Microsoft.Gallery
 | Função | Permissões |

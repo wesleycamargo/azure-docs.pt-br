@@ -1,12 +1,12 @@
 ---
-title: "Guia de introdução para desenvolvedores no Azure | Microsoft Docs"
-description: "Este tópico fornece informações essenciais aos desenvolvedores que desejam começar a usar a plataforma Microsoft Azure para suas necessidades de desenvolvimento."
-services: 
-cloud: 
-documentationcenter: 
+title: Guia de introdução para desenvolvedores no Azure | Microsoft Docs
+description: Este tópico fornece informações essenciais aos desenvolvedores que desejam começar a usar a plataforma Microsoft Azure para suas necessidades de desenvolvimento.
+services: ''
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: erikre
-ms.assetid: 
+ms.assetid: ''
 ms.service: na
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b1cda302636d8bd4d0f14536f186c7b4951c09c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para desenvolvedores do Azure
 
@@ -295,7 +295,7 @@ Ao permitir acesso aos recursos do Azure, a melhor prática sempre será fornece
 
     >**Quando utilizar**: quando for necessário o gerenciamento de acesso refinado para usuários e grupos.
 
-    >**Introdução**: Para saber mais, consulte [Introdução ao gerenciamento de acesso no portal do Azure](../../active-directory/role-based-access-control-what-is.md).
+    >**Introdução**: Para saber mais, consulte [Introdução ao gerenciamento de acesso no portal do Azure](../../role-based-access-control/overview.md).
 
 -   **Objetos de entidade de serviço**: além de fornecer acesso a entidades de usuários e grupos, é possível conceder o mesmo acesso a uma entidade de serviço.
 

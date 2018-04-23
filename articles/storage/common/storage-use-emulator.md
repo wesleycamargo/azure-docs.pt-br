@@ -1,8 +1,8 @@
 ---
 title: Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste | Microsoft Docs
-description: "O Emulador de Armazenamento do Azure fornece um ambiente de desenvolvimento local gratuito para desenvolvimento e teste de seus aplicativos de Armazenamento do Azure. Saiba como as solicitações são autenticadas, como se conectar ao emulador por meio do seu aplicativo e como usar a ferramenta de linha de comando."
+description: O Emulador de Armazenamento do Azure fornece um ambiente de desenvolvimento local gratuito para desenvolvimento e teste de seus aplicativos de Armazenamento do Azure. Saiba como as solicitações são autenticadas, como se conectar ao emulador por meio do seu aplicativo e como usar a ferramenta de linha de comando.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
 
@@ -27,7 +27,7 @@ O emulador de armazenamento do Microsoft Azure fornece um ambiente local que emu
 ## <a name="get-the-storage-emulator"></a>Obter o emulador de armazenamento
 O emulador de armazenamento está disponível como parte do [SDK do Microsoft Azure](https://azure.microsoft.com/downloads/). Você também pode instalar o emulador de armazenamento usando o [instalador autônomo](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (download direto). Para instalar o emulador de armazenamento, você deve ter privilégios administrativos em seu computador.
 
-O emulador de armazenamento atualmente é executado apenas no Windows. Para aqueles que consideram um emulador de armazenamento para Linux, uma opção é a comunidade mantida, o emulador de armazenamento de código aberto [Azurite](https://github.com/arafato/azurite).
+O emulador de armazenamento atualmente é executado apenas no Windows. Para aqueles que consideram um emulador de armazenamento para Linux, uma opção é a comunidade mantida, o emulador de armazenamento de código aberto [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Os dados criados em uma versão do emulador de armazenamento não têm a garantia de estarem acessíveis ao usar outra versão. Se você precisar persistir seus dados a longo prazo, recomendamos que você armazene esses dados em uma conta de armazenamento do Azure e não no emulador de armazenamento.
@@ -176,7 +176,7 @@ A partir da versão 3.0, uma janela do console é exibida quando você inicia o 
 ### <a name="options"></a>Opções
 Para exibir a lista de opções, digite `/help` no prompt de comando.
 
-| Opção | DESCRIÇÃO | Get-Help | Argumentos |
+| Opção | DESCRIÇÃO | Comando | Argumentos |
 | --- | --- | --- | --- |
 | **Iniciar** |Inicia o emulador de armazenamento. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: inicia o emulador no processo atual em vez de criar um novo processo. |
 | **Parar** |Para o emulador de armazenamento. |`AzureStorageEmulator.exe stop` | |

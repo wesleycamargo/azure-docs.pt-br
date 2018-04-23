@@ -1,11 +1,11 @@
 ---
-title: "Solucionar problemas de grupos de segurança de rede – PowerShell | Microsoft Docs"
-description: "Saiba como solucionar problemas de Grupos de Segurança de Rede no modelo de implantação do Azure Resource Manager usando o Azure PowerShell."
+title: Solucionar problemas de grupos de segurança de rede – PowerShell | Microsoft Docs
+description: Saiba como solucionar problemas de Grupos de Segurança de Rede no modelo de implantação do Azure Resource Manager usando o Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4c732bb7-5cb1-40af-9e6d-a2a307c2a9c4
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6beaeb4b7e5c9e393427d575f1cf8bc48599dbd5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Solucionar problemas de grupos de segurança de rede usando o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Embora este exemplo use a porta TCP 3389, as etapas a seguir podem ser seguidas 
 ## <a name="detailed-troubleshooting-steps"></a>Etapas de solução de problemas detalhadas
 Siga as etapas a seguir para solucionar problemas de NSGs em uma VM:
 
-1. Inicie uma sessão do Azure PowerShell e faça logon no Azure. Se você não estiver familiarizado com o uso do Azure PowerShell, leia o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) . Sua conta deve ter a operação *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* atribuída a ela para o adaptador de rede. Para saber como atribuir operações a contas, consulte [Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Inicie uma sessão do Azure PowerShell e faça logon no Azure. Se você não estiver familiarizado com o uso do Azure PowerShell, leia o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) . Sua conta deve ter a operação *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* atribuída a ela para o adaptador de rede. Para saber como atribuir operações a contas, consulte [Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Digite o seguinte comando para retornar todas as regras do NSG aplicadas a uma NIC denominada *VM1-NIC1* no grupo de recursos *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

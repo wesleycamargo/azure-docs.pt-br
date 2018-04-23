@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2216a2d5c30e95fcd02b4df56305153335511e0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fb3b78cd91a1554e278230cd85e5f4da8d43a26a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure
 
@@ -420,7 +420,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -1052,7 +1052,7 @@ Para adicionar entradas de Registro em ambos os nós de cluster da instância SA
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Vincular à documentação |[https://technet.microsoft.com/pt-BR/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Vincular à documentação |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
 
 _**Tabela 3:** alterar o primeiro parâmetro de TCP/IP_
 
@@ -1063,7 +1063,7 @@ Em seguida, adicione as seguintes entradas de Registro em nós de cluster do Win
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Vincular à documentação |[https://technet.microsoft.com/pt-BR/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Vincular à documentação |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
 
 _**Tabela 4:** alterar o segundo parâmetro de TCP/IP_
 
@@ -1233,7 +1233,7 @@ Configurar a testemunha de compartilhamento de arquivos do cluster envolve as se
 
   _**Figura 38:** confirmação de que você reconfigurou o cluster_
 
-Depois de instalar com êxito o Cluster de Failover do Windows, é necessário alterar alguns limites para adaptar a detecção de failover às condições no Azure. Os parâmetros a alterar estão documentados neste blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Supondo que as duas VMs que criam a configuração de Cluster do Windows para ASCS/SCS estejam na mesma sub-rede, os parâmetros a seguir precisam ser alterados para estes valores:
+Depois de instalar com êxito o Cluster de Failover do Windows, é necessário alterar alguns limites para adaptar a detecção de failover às condições no Azure. Os parâmetros a serem alterados estão documentados neste blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Supondo que as duas VMs que criam a configuração de Cluster do Windows para ASCS/SCS estejam na mesma sub-rede, os parâmetros a seguir precisam ser alterados para estes valores:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 

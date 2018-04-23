@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: acdd829785c44f6683c356c135587be183cce392
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d394c856b2f27446ab28c44fe4fed2dfd59ae62f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparar o Azure Data Lake Store e o Armazenamento de Blobs do Azure
 A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Armazenamento de Blobs do Azure em alguns aspectos fundamentais do processamento de big data. O Armazenamento de Blobs do Azure é um repositório de objetos escalonável de finalidade geral que foi criado para uma ampla variedade de cenários de armazenamento. O Azure Data Lake Store é um repositório de grande escala otimizado para cargas de trabalho de análise de big data.
@@ -37,7 +37,7 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Ar
 | Operações de dados – autorização |ACLs (Listas de Controle de Acesso) POSIX.  ACLs baseadas em identidades do Azure Active Directory podem ser definidas no arquivo e nível de pasta. |Para autorização no nível de conta — use [Chaves de Acesso da Conta](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Para autorização de conta, contêiner ou blob — use [Chaves de Assinatura de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Operações de dados – auditoria |Disponível. Veja mais informações [aqui](data-lake-store-diagnostic-logs.md) . |Disponível |
 | Dados de criptografia em repouso |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciados pelo cliente no Cofre de Chaves do Azure</li></ul></ul> |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciadas pelo cliente no Azure KeyVault (versão prévia)</li></ul><li>Criptografia do cliente</li></ul> |
-| Operações de gerenciamento (por exemplo, Criar Conta) |[Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) ) fornecido pelo Azure para gerenciamento de contas |[Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) ) fornecido pelo Azure para gerenciamento de contas |
+| Operações de gerenciamento (por exemplo, Criar Conta) |[Controle de acesso baseado em função](../role-based-access-control/overview.md) ) fornecido pelo Azure para gerenciamento de contas |[Controle de acesso baseado em função](../role-based-access-control/overview.md) ) fornecido pelo Azure para gerenciamento de contas |
 | SDKs de desenvolvedor |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
 | Desempenho de Carga de Trabalho de Análise |Desempenho otimizado para cargas de trabalho de análise paralela. Alta taxa de transferência e IOPS. |Desempenho otimizado para cargas de trabalho de análise paralela. |
 | Limites de tamanho |Sem limites para tamanhos de conta, tamanhos de arquivo ou número de arquivos |Limites específicos documentados [aqui](../storage/common/storage-scalability-targets.md). Limites de contas maiores disponíveis contactando [Suporte do Azure](https://azure.microsoft.com/support/faq/) |

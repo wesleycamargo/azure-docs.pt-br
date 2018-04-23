@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 5979ded9afaa31054f835b5f16fe525809f5730d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 52843c926248627e4e530612cfe9326d4302eb95
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Autenticar com APIs REST do Mobile Engagement
 > [!IMPORTANT]
@@ -67,7 +67,7 @@ Opcionalmente, você também pode seguir as instruções da [configuração manu
         Import-Module Azure
 3. Entre no Azure Resource Manager por meio do PowerShell executando o comando a seguir. Forneça o nome de usuário e a senha de sua conta do Azure: 
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 4. Se você tem várias assinaturas, execute as seguintes etapas:
 
     a. Obtenha uma lista de todas as suas assinaturas. Em seguida, copie a **SubscriptionId** da assinatura que você deseja usar. Verifique se essa assinatura tem o aplicativo Mobile Engagement. Você usará esse aplicativo para interagir com as APIs. 

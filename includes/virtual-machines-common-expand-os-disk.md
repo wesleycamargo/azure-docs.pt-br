@@ -22,7 +22,7 @@ Abra o ISE do PowerShell ou a janela do PowerShell no modo administrativo e siga
 1. Entre em sua conta do Microsoft Azure no modo de gerenciamento de recursos e escolha a sua assinatura como se segue:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Defina o nome do grupo de recursos e o nome da VM como se segue:
@@ -65,7 +65,7 @@ Abra o ISE do PowerShell ou a janela do PowerShell no modo administrativo e siga
 1. Entre em sua conta do Microsoft Azure no modo de gerenciamento de recursos e escolha a sua assinatura como se segue:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Defina o nome do grupo de recursos e o nome da VM como se segue:
@@ -109,7 +109,7 @@ Neste artigo, usamos os módulos do Azure Resource Manager do PowerShell para ex
 Discos Não Gerenciados:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -122,7 +122,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 Managed Disks:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'

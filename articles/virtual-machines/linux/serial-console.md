@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: b7d6e48a6f34472bc38947fd70e850b1c3bf6f8a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console serial da máquina virtual (visualização) 
 
@@ -32,7 +32,7 @@ O console serial da máquina virtual no Azure fornece acesso a um console basead
 ## <a name="prerequisites"></a>pré-requisitos 
 
 * A máquina virtual deve ter os [diagnósticos de inicialização](boot-diagnostics.md) habilitados 
-* A conta que usa o console serial deve ter a [função de Colaborador](../../active-directory/role-based-access-built-in-roles.md) para a VM e a conta de armazenamento [diagnósticos de inicialização](boot-diagnostics.md). 
+* A conta que usa o console serial deve ter a [função de Colaborador](../../role-based-access-control/built-in-roles.md) para a VM e a conta de armazenamento [diagnósticos de inicialização](boot-diagnostics.md). 
 * Para obter configurações específicas de distribuição do Linux, confira [Acesso ao console serial para Linux](#accessing-serial-console-for-linux)
 
 
@@ -56,7 +56,7 @@ A funcionalidade do console serial pode ser desativada para VMs específicas des
 ## <a name="serial-console-security"></a>Segurança de console serial 
 
 ### <a name="access-security"></a>Segurança de acesso 
-O acesso ao console serial é limitado aos usuários que têm acesso de [Colaboradores de VM](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) ou superior para a máquina virtual. Se o locatário do AAD exigir a Autenticação Multifator, o acesso ao console serial também exigirá MFA, pois seu acesso é por meio do [portal do Azure](https://portal.azure.com).
+O acesso ao console serial é limitado aos usuários que têm acesso de [Colaboradores de VM](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ou superior para a máquina virtual. Se o locatário do AAD exigir a Autenticação Multifator, o acesso ao console serial também exigirá MFA, pois seu acesso é por meio do [portal do Azure](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Segurança de canal
 Todos os dados são enviados criptografados durante a transmissão.

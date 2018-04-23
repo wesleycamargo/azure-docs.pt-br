@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 28c50aea9aaad1b9b18fb6b3034617d10beea7ec
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ecf83dd21b0803a6ceb4139d117a8b989b070403
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: compilar um aplicativo Web PHP e MySQL no Azure
 
@@ -192,16 +192,11 @@ Quando o servidor MySQL for criado, a CLI do Azure mostrará informações semel
 
 ### <a name="configure-server-firewall"></a>Configurar o firewall do servidor
 
-No Cloud Shell, crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create).
+No Cloud Shell, crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
-
-> [!NOTE]
-> Atualmente, o Banco de Dados do Azure para MySQL não limita as conexões somente aos serviços do Azure. Como os endereços IP no Azure são atribuídos dinamicamente, é melhor habilitar todos os endereços IP. Estamos planejando melhores métodos para proteger o banco de dados.
->
->
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Conectar-se ao servidor MySQL de produção localmente
 

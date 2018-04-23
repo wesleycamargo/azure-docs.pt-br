@@ -1,12 +1,12 @@
 ---
-title: "Interagir com relatórios usando a API JavaScript | Microsoft Docs"
-description: "A API JavaScript do Power BI permite que você insira relatórios do Power BI com facilidade em seus aplicativos."
+title: Interagir com relatórios usando a API JavaScript | Microsoft Docs
+description: A API JavaScript do Power BI permite que você insira relatórios do Power BI com facilidade em seus aplicativos.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
@@ -15,19 +15,19 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 62a95807c35fcba15a8e5ffdf340a307dd22a642
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 0b10f0fc39382e1944f11eef925733cbe5733c32
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagir com relatórios do Power BI usando a API JavaScript
 
 A API JavaScript do Power BI permite que você insira relatórios do Power BI com facilidade em seus aplicativos. Com a API, seus aplicativos podem interagir programaticamente com diferentes elementos do relatório, como páginas e filtros. Essa interatividade faz com que os relatórios do Power BI sejam uma parte mais integrada do seu aplicativo.
 
 > [!IMPORTANT]
-> As Coleções do Espaço de Trabalho do Power BI foram preteridas e só estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções do Espaço de Trabalho do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> As Coleções do Espaço de Trabalho do Power BI foram preteridas e estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções do Espaço de Trabalho do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Você pode inserir um relatório do Power BI em seu aplicativo usando um iframe hospedado como parte do aplicativo. O iframe age como um limite entre seu aplicativo e o relatório, como você pode ver na imagem a seguir:
 

@@ -1,6 +1,6 @@
 ---
-title: "Criar um gateway de aplicativo com redirecionamento externo – Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicativo que redirecione o tráfego da Web para um site externo usando o Azure PowerShell."
+title: Criar um gateway de aplicativo com redirecionamento externo – Azure PowerShell | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo que redirecione o tráfego da Web para um site externo usando o Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: davidmu
-ms.openlocfilehash: b3639e1aecc2e78e8b107d7af12ca77118f55651
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 430c8b64a9e9bafb655357f4ceadd8980c1de3bd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com redirecionamento externo usando o Azure PowerShell
 
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Para saber qual é a versão, execute ` Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Para saber qual é a versão, execute ` Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

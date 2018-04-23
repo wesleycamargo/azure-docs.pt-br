@@ -1,6 +1,6 @@
 ---
-title: "Aprimore a segurança de gerenciamento remoto no Azure | Microsoft Docs"
-description: "Este artigo discute medidas para melhorar a segurança do gerenciamento remoto durante a administração dos ambientes do Microsoft Azure, incluindo serviços de nuvem, Máquinas Virtuais e aplicativos personalizados."
+title: Aprimore a segurança de gerenciamento remoto no Azure | Microsoft Docs
+description: Este artigo discute medidas para melhorar a segurança do gerenciamento remoto durante a administração dos ambientes do Microsoft Azure, incluindo serviços de nuvem, Máquinas Virtuais e aplicativos personalizados.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
 Os assinantes do Azure podem gerenciar ambientes de nuvem de vários dispositivos, incluindo estações de trabalho, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que têm permissões de tarefas específicas. Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Em outros casos, pode haver conexões diretas ao Azure de sistemas locais por meio de VPNs (Redes Virtuais Privadas), Serviços de Terminal, protocolos de aplicativos de cliente ou (programaticamente) a SMAPI (API de Gerenciamento de Serviços do Azure). Além disso, os pontos de extremidade do cliente podem ser unidos ao domínio ou isolados e não gerenciados, como tablets ou smartphones.
@@ -64,7 +64,7 @@ Consolidar recursos de acesso e eliminar pontos de extremidade não gerenciados 
 ### <a name="providing-security-for-azure-remote-management"></a>Fornecer segurança para o gerenciamento remoto do Azure
 O Azure fornece mecanismos de segurança para ajudar os administradores que gerenciam serviços de nuvem e máquinas virtuais do Azure. Esses mecanismos incluem:
 
-* Autenticação e [controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md).
+* Autenticação e [controle de acesso baseado em função](../role-based-access-control/role-assignments-portal.md).
 * Monitoramento, registro em log e auditoria.
 * Certificados e comunicações criptografadas.
 * Um portal de gerenciamento da Web.

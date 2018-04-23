@@ -1,11 +1,11 @@
 ---
 title: Configurar o acesso condicional local no Azure Active Directory | Microsoft Docs
-description: "Um guia passo a passo para habilitar o acesso condicional a aplicativos locais usando o AD FS (Serviços de Federação do Active Directory) no Windows Server 2012 R2."
+description: Um guia passo a passo para habilitar o acesso condicional a aplicativos locais usando o AD FS (Serviços de Federação do Active Directory) no Windows Server 2012 R2.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurando o acesso condicional local usando o registro de dispositivo do Azure Active Directory
 Quando você exige que os usuários usem o ingresso no local de trabalho para seus dispositivos pessoais no serviço de registro de dispositivo do Azure AD (Azure Active Directory), seus dispositivos poderão ser marcados como conhecidos para sua organização. Veja abaixo um guia passo a passo para habilitar o acesso condicional em aplicativos locais usando o AD FS (Serviços de Federação do Active Directory) no Windows Server 2012 R2.
@@ -89,7 +89,7 @@ Siga as etapas na lista de verificação para habilitar e configurar o serviço 
 | Conclua a parte dois de “Habilitando o write-back de dispositivo no Azure AD Connect”. Depois de concluir, retorne a este guia. |[Habilitando write-back de dispositivo no Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Opcional] Parte 4: Habilitar a Autenticação Multifator
-É altamente recomendável que você configure uma das várias opções para a Autenticação Multifator. Se você desejar exigir a Autenticação Multifator, consulte [Escolher a solução de segurança de Autenticação Multifator ideal para você](../multi-factor-authentication/multi-factor-authentication-get-started.md). Ele inclui uma descrição de cada solução e links para ajudá-lo a configurar a solução de sua escolha.
+É altamente recomendável que você configure uma das várias opções para a Autenticação Multifator. Se você desejar exigir a Autenticação Multifator, consulte [Escolher a solução de segurança de Autenticação Multifator ideal para você](authentication/concept-mfa-whichversion.md). Ele inclui uma descrição de cada solução e links para ajudá-lo a configurar a solução de sua escolha.
 
 ## <a name="part-5-verification"></a>Parte 5: verificação
 A implantação agora foi concluída e você pode experimentar alguns cenários. Use os links a seguir para experimentar o serviço e se familiarizar com seus recursos.

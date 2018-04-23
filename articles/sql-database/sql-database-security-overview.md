@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6a66c9fe3716935a717dca984d1995ca371d9499
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-your-sql-database"></a>Protegendo o Banco de Dados SQL
 
@@ -48,7 +48,7 @@ Para obter mais informações, consulte [Introdução à Descoberta e Classifica
 O Banco de Dados SQL protege seus dados limitando o acesso ao banco de dados usando regras de firewall, mecanismos de autenticação que exigem que os usuários comprovem sua identidade e autorização para dados por meio de permissões e associações de função, bem como por meio de segurança em nível de linha e mascaramento de dados dinâmicos. Para uma discussão sobre o uso de recursos de controle de acesso no Banco de Dados SQL, veja [Controlar o acesso](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> O gerenciamento de bancos de dados e de servidores lógicos no Azure é controlado por atribuições de função da sua conta de usuário do portal. Para saber mais sobre esse artigo, confira [Controle de acesso baseado em função no Portal do Azure](../active-directory/role-based-access-control-what-is.md).
+> O gerenciamento de bancos de dados e de servidores lógicos no Azure é controlado por atribuições de função da sua conta de usuário do portal. Para saber mais sobre esse artigo, confira [Controle de acesso baseado em função no Portal do Azure](../role-based-access-control/overview.md).
 >
 
 ### <a name="firewall-and-firewall-rules"></a>Firewall e regras de firewall

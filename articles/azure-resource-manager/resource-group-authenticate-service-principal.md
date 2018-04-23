@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 175d95c16484b90b13936c3be39b67749f0c3238
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70255ead4a556204689e9918b9c89e396f8122c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Usar o Azure PowerShell para criar uma entidade de serviço com um certificado
 
@@ -40,7 +40,7 @@ A maneira mais fácil de verificar se a sua conta tem as permissões adequadas �
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Criar a entidade de serviço com um certificado autoassinado
 
-O exemplo a seguir aborda um cenário simples. Ele usa [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) para criar uma entidade de serviço com um certificado autoassinado e usa [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para atribuir a função [Colaborador](../active-directory/role-based-access-built-in-roles.md#contributor) para a entidade de serviço. A atribuição de função está abrangida na sua assinatura do Azure selecionada no momento. Para selecionar uma assinatura diferente, use [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+O exemplo a seguir aborda um cenário simples. Ele usa [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) para criar uma entidade de serviço com um certificado autoassinado e usa [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para atribuir a função [Colaborador](../role-based-access-control/built-in-roles.md#contributor) para a entidade de serviço. A atribuição de função está abrangida na sua assinatura do Azure selecionada no momento. Para selecionar uma assinatura diferente, use [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -75,7 +75,7 @@ Param (
  [String] $ApplicationDisplayName
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
 
  if ($SubscriptionId -eq "") 
@@ -150,7 +150,7 @@ Param (
  )
 
  $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
- Login-AzureRmAccount -ServicePrincipal `
+ Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
@@ -170,7 +170,7 @@ Se precisar recuperar a ID do aplicativo, use:
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Criar a entidade de serviço com um certificado da Autoridade de Certificação
 
-O exemplo a seguir usa um certificado emitido por uma Autoridade de Certificação para criar a entidade de serviço. A atribuição é abrangida pela assinatura do Azure especificada. Ela adiciona a entidade de serviço à função [Colaborador](../active-directory/role-based-access-built-in-roles.md#contributor). Se ocorrer um erro durante a atribuição de função, ele tentará novamente a atribuição.
+O exemplo a seguir usa um certificado emitido por uma Autoridade de Certificação para criar a entidade de serviço. A atribuição é abrangida pela assinatura do Azure especificada. Ela adiciona a entidade de serviço à função [Colaborador](../role-based-access-control/built-in-roles.md#contributor). Se ocorrer um erro durante a atribuição de função, ele tentará novamente a atribuição.
 
 ```powershell
 Param (
@@ -187,7 +187,7 @@ Param (
  [String] $CertPlainPassword
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
  Set-AzureRmContext -Subscription $SubscriptionId
  
@@ -239,7 +239,7 @@ Param (
   -ArgumentList @($CertPath, $CertPassword)
  $Thumbprint = $PFXCert.Thumbprint
 
- Login-AzureRmAccount -ServicePrincipal `
+ Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId

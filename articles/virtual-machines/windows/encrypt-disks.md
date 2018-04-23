@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 4f21e457b266fdd0106992dad29578eef6e89144
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 442ff942150af8a8dec89164fbc017a9e6f360e8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Como criptografar discos virtuais em uma VM do Windows
 Para conformidade e segurança aprimorados da VM (máquina virtual), os discos virtuais no Azure podem ser criptografados. Discos são criptografados usando chaves criptográficas que são protegidas em um Cofre de chaves do Azure. Você controla essas chaves criptográficas e pode auditar seu uso. Este artigo detalha como criptografar discos virtuais em uma VM do Windows usando o Azure PowerShell. Também é possível [Criptografar uma VM do Linux usando a CLI 2.0 do Azure](../linux/encrypt-disks.md).
@@ -102,7 +102,7 @@ Add-AzureKeyVaultKey -VaultName $keyVaultName `
 ## <a name="create-the-azure-active-directory-service-principal"></a>Criar a entidade de serviço do Azure Active Directory
 Quando os discos virtuais são criptografados ou descriptografados, especifique uma conta para lidar com a autenticação e a troca de chaves de criptografia do Key Vault. Essa conta, uma entidade de serviço do Azure Active Directory, permite que a plataforma do Azure solicite as chaves de criptografia apropriadas em nome da VM. Uma instância do Azure Active Directory padrão está disponível em sua assinatura, embora muitas organizações tenham diretórios do Azure Active Directory dedicados.
 
-Crie uma entidade de serviço no Azure Active Directory com [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). Para especificar uma senha segura, siga as [Políticas e restrições de senha do Azure Active Directory](../../active-directory/active-directory-passwords-policy.md):
+Crie uma entidade de serviço no Azure Active Directory com [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). Para especificar uma senha segura, siga as [Políticas e restrições de senha do Azure Active Directory](../../active-directory/authentication/concept-sspr-policy.md):
 
 ```powershell
 $appName = "My App"

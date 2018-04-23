@@ -1,12 +1,12 @@
 ---
-title: "Glossário do Azure - dicionário do Azure | Microsoft Docs"
-description: "Use o glossário do Azure para entender a terminologia de nuvem na plataforma do Azure Este pequeno dicionário do Azure oferece definições para termos comuns de nuvem do Azure."
-keywords: "Dicionário do Azure, terminologia de nuvem, Glossário do Azure, definições de terminologia, termos de nuvem"
+title: Glossário do Azure - dicionário do Azure | Microsoft Docs
+description: Use o glossário do Azure para entender a terminologia de nuvem na plataforma do Azure Este pequeno dicionário do Azure oferece definições para termos comuns de nuvem do Azure.
+keywords: Dicionário do Azure, terminologia de nuvem, Glossário do Azure, definições de terminologia, termos de nuvem
 services: na
 documentationcenter: na
 author: MonicaRush
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 953320734c1601c411144bd7a6496716a65e452e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -111,7 +111,7 @@ Veja [Visão geral do Azure Resource Manager](azure-resource-manager/resource-gr
 
 ## <a name="role"></a>função
 Um meio para controlar o acesso que pode ser atribuído a usuários, grupos e serviços. As funções são capazes de executar ações, por exemplo, criar, gerenciar e ler recursos do Azure.  
-Veja [RBAC: funções internas](active-directory/role-based-access-built-in-roles.md)
+Veja [RBAC: funções internas](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>SLA (contrato de nível de serviço)
 O contrato que descreve os compromissos da Microsoft em relação ao tempo de atividade e à conectividade. Cada serviço do Azure tem um SLA específico.  

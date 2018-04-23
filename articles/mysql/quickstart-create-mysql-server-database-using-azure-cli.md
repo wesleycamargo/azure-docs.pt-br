@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 96cf7409d4fbaa7c9c633ebd5aabbb15f30c9a5c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: afab8eb981f59a4ab2ba5528e0518e370d8e05fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure
 Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure em aproximadamente cinco minutos. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts.
@@ -38,31 +38,6 @@ O exemplo a seguir cria um grupo de recursos denominado `myresourcegroup` no loc
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-
-## <a name="add-the-extension"></a>Adicionar a extensão
-Adicione a extensão de gerenciamento atualizada do Banco de Dados do Azure para MySQL usando o seguinte comando:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Verifique se que você tem a versão de extensão correta instalada. 
-```azurecli-interactive
-az extension list
-```
-
-O retorno JSON deve incluir o seguinte: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Se a versão 0.0.5 não for retornada, execute as etapas abaixo para atualizar a extensão: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar um Banco de Dados do Azure para o servidor MySQL

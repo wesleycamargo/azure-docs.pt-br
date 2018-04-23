@@ -1,22 +1,22 @@
 ---
-title: "Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos do Azure usando C# | Microsoft Docs"
-description: "Guia de Início Rápido do Azure – Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do serviço C#"
+title: Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos do Azure usando C# | Microsoft Docs
+description: Guia de Início Rápido do Azure – Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do serviço C#
 services: iot-dps
-keywords: 
-author: JimacoMS2
+keywords: ''
+author: bryanla
 ms.author: v-jamebr
 ms.date: 01/21/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 62b699e3f41fbb6fdaa0f07d7c9e0a18acd0dfc7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 51fd3e12344fb20056012c00d6b38edf0355b0a4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço C#
 
@@ -45,7 +45,7 @@ Para o exemplo deste Guia de início rápido, é preciso ter a cadeia de conexã
 
 ## <a name="create-the-enrollment-group-sample"></a>Criar exemplo de grupo de registros 
 
-As etapas nesta seção mostram como criar um aplicativo de console .NET Core que adiciona um grupo de registro ao serviço de provisionamento. Com algumas modificações, você também pode seguir estas etapas para criar um aplicativo de console do [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para adicionar o grupo de registros. Para saber mais sobre como desenvolver com o IoT Core, confira a [Documentação do desenvolvedor do Windows IoT Core](https://docs.microsoft.com/en-us/windows/iot-core/).
+As etapas nesta seção mostram como criar um aplicativo de console do .NET Core que adiciona um grupo de registro ao serviço de provisionamento. Com algumas modificações, você também pode seguir estas etapas para criar um aplicativo de console do [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para adicionar o grupo de registros. Para saber mais sobre como desenvolver com o IoT Core, confira a [Documentação do desenvolvedor do Windows IoT Core](https://docs.microsoft.com/en-us/windows/iot-core/).
 1. No Visual Studio, adicione um projeto de Aplicativo de Console do Visual C# .NET Core a uma nova solução usando o modelo de projeto **Aplicativo de Console (.NET Core)**. Verifique se a versão do .NET Framework é 4.5.1 ou posterior. Nomeie o projeto como **CreateEnrollmentGroup**.
 
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#](media//quick-enroll-device-x509-csharp/create-app.png)
@@ -64,7 +64,7 @@ As etapas nesta seção mostram como criar um aplicativo de console .NET Core qu
    ```
     
 5. Adicione os seguintes campos à classe **Program** .  
-   - Substitua o valor do espaço reservado **ProvisioningConnectionString** pela cadeia de conexão do serviço de provisionamento para a qual você deseja criar o registro.
+   - Substitua o valor do espaço reservado **ProvisioningConnectionString** pela cadeia de conexão do serviço de provisionamento para o qual você deseja criar o registro.
    - Substitua o valor do espaço reservado de **X509RootCertPath** pelo caminho para um arquivo .pem ou .cer que representa a parte pública de um certificado de Autoridade de Certificação X.509 intermediário ou raiz que tenha sido carregado anteriormente e verificado com o serviço de provisionamento.
    - Outra opção é alterar o valor **EnrollmentGroupId**. A cadeia de caracteres pode conter apenas letras minúsculas e hifens. 
 
