@@ -1,12 +1,12 @@
 ---
-title: "Falhas na solução de problemas durante o failback para locais do Azure e posterior nova proteção para o Azure | Microsoft Docs"
-description: "Este artigo descreve maneiras de solucionar erros comuns em failback para locais do Azure e durante a nova proteção"
+title: Falhas na solução de problemas durante o failback para locais do Azure e posterior nova proteção para o Azure | Microsoft Docs
+description: Este artigo descreve maneiras de solucionar erros comuns em failback para locais do Azure e durante a nova proteção
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rajani-janaki-ram
 manager: gauravd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article

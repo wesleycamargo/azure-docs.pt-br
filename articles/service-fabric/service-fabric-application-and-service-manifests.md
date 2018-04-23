@@ -1,6 +1,6 @@
 ---
-title: "Descrevendo os serviços e aplicativos do Azure Service Fabric | Microsoft Docs"
-description: "Descreve como os manifestos são usados para descrever serviços e aplicativos do Service Fabric."
+title: Descrevendo os serviços e aplicativos do Azure Service Fabric | Microsoft Docs
+description: Descreve como os manifestos são usados para descrever serviços e aplicativos do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1f52079e00c7c5f4e70acf8c86f648ed9281744e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Governança de máquina virtual com a CLI do Azure
 
@@ -43,15 +43,15 @@ Atualmente, o grupo de recursos está vazio.
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-Você deseja certificar-se de que os usuários em sua organização têm o nível certo de acesso a esses recursos. Você não deseja conceder acesso ilimitado a usuários, mas também precisa certificar-se de que eles podem fazer o trabalho deles. O [controle de acesso baseado em função](../../active-directory/role-based-access-control-what-is.md) permite que você gerencie quais usuários têm permissão para executar ações específicas em um escopo.
+Você deseja certificar-se de que os usuários em sua organização têm o nível certo de acesso a esses recursos. Você não deseja conceder acesso ilimitado a usuários, mas também precisa certificar-se de que eles podem fazer o trabalho deles. O [controle de acesso baseado em função](../../role-based-access-control/overview.md) permite que você gerencie quais usuários têm permissão para executar ações específicas em um escopo.
 
 Para criar e remover as atribuições de função, os usuários devem ter `Microsoft.Authorization/roleAssignments/*` acesso. Esse acesso deve ser concedido pelas funções Proprietário ou Administrador de Acesso do Usuário.
 
 Para gerenciar soluções de máquinas virtuais, há três funções específicas do recurso que fornecem acesso comum:
 
-* [Colaborador de Máquina Virtual](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Colaborador de rede](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Colaborador da Conta de Armazenamento](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Colaborador de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Colaborador de rede](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Colaborador da Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Em vez de atribuir funções a usuários individuais, muitas vezes é mais fácil [criar um grupo do Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) para usuários que precisam tomar ações semelhantes. E, em seguida, atribuir esse grupo à função apropriada. Para simplificar este artigo, você cria um grupo do Azure Active Directory sem membros. Além disso, é possível atribuir esse grupo a uma função para um escopo. 
 

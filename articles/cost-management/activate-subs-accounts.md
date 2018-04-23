@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Ativar assinaturas e contas do Azure com o Gerenciamento de Custos do Azure
 
@@ -29,7 +29,7 @@ Permissões específicas são necessárias para concluir os procedimentos neste 
 - Permissão para registrar o aplicativo CloudynCollector com seu locatário do Azure AD.
 - A capacidade de atribuir o aplicativo em uma função em suas assinaturas do Azure.
 
-Em suas assinaturas do Azure, as contas devem ter `Microsoft.Authorization/*/Write` acesso para atribuir o aplicativo CloudynCollector. Esta ação deve ser concedida pela função [Proprietário](../active-directory/role-based-access-built-in-roles.md#owner) ou pela função [Administrador de Acesso do Usuário](../active-directory/role-based-access-built-in-roles.md#user-access-administrator).
+Em suas assinaturas do Azure, as contas devem ter `Microsoft.Authorization/*/Write` acesso para atribuir o aplicativo CloudynCollector. Esta ação deve ser concedida pela função [Proprietário](../role-based-access-control/built-in-roles.md#owner) ou pela função [Administrador de Acesso do Usuário](../role-based-access-control/built-in-roles.md#user-access-administrator).
 
 Se sua conta tiver a função **Colaborador**, você não tem a permissão adequada para atribuir o aplicativo. Você recebe um erro durante ao tentar atribuir o aplicativo CloudynCollector à sua assinatura do Azure.
 

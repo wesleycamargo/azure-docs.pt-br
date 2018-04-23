@@ -1,22 +1,17 @@
 ---
-title: "Índices na Azure Search | Microsoft Docs"
-description: "Saiba mais sobre conceitos de índice no Azure Search e como os índices são usados."
-services: search
-documentationcenter: 
-author: ashmaka
-ms.assetid: a395e166-bf2e-4fca-8bfc-116a46c5f7b1
+title: Índices na Azure Search | Microsoft Docs
+description: Saiba mais sobre conceitos de índice no Azure Search e como os índices são usados.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/08/2017
-ms.author: ashmaka
-ms.openlocfilehash: 87f1121594d8577b5dacac4026aa7d86b2921d10
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 933db5a9790088c38d4db8c3fffb1eed3c42c225
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="indexes-in-azure-search"></a>Índices no Azure Search
 > [!div class="op_single_selector"]
@@ -35,7 +30,7 @@ Quando você adiciona/carrega documentos e envia consultas de pesquisa para o Az
 Quando você define o esquema, deve especificar o nome, tipo e atributos de cada campo no índice. O tipo de campo classifica os dados armazenados nesse campo. Os atributos são definidos em campos individuais para especificar como o campo será usado. A tabela a seguir enumera os tipos e atributos que você pode especificar.
 
 ### <a name="field-types"></a>Tipos de campo
-| Tipo | Descrição |
+| type | DESCRIÇÃO |
 | --- | --- |
 | *Edm.String* |O texto que opcionalmente pode ser indexado para a pesquisa de texto completo (separação de palavras, derivação etc). |
 | *Collection(Edm.String)* |Uma lista de cadeias de caracteres que opcionalmente podem ser indexadas para a pesquisa de texto completo. Não há nenhum limite teórico superior no número de itens em uma coleção, mas o limite superior de 16 MB no tamanho da carga se aplica às coleções. |
@@ -49,7 +44,7 @@ Quando você define o esquema, deve especificar o nome, tipo e atributos de cada
 Você pode encontrar informações mais detalhadas sobre os [tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) do Azure Search.
 
 ### <a name="field-attributes"></a>Atributos do campo
-| Atributo | Descrição |
+| Atributo | DESCRIÇÃO |
 | --- | --- |
 | *Chave* |Uma cadeia de caracteres que fornece a ID exclusiva de cada documento, usada para pesquisar documentos. Todos os índices devem ter uma chave. Somente um campo pode ser a chave e seu tipo deve ser definido para Edm.String. |
 | *Recuperável* |Especifica se um campo pode ser retornado em um resultado da pesquisa. |

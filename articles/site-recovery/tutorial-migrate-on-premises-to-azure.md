@@ -1,6 +1,6 @@
 ---
-title: "Migrar máquinas locais para o Azure com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como migrar máquinas locais para o Azure, usando o Azure Site Recovery."
+title: Migrar máquinas locais para o Azure com o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como migrar máquinas locais para o Azure, usando o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery

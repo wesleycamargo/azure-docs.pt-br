@@ -1,11 +1,11 @@
 ---
-title: "Recursos de segurança para ajudar a proteger backups híbridos usando o Backup do Azure | Microsoft Docs"
-description: "Saiba como usar os recursos de segurança no Backup do Azure para tornar os backups mais seguros"
+title: Recursos de segurança para ajudar a proteger backups híbridos usando o Backup do Azure | Microsoft Docs
+description: Saiba como usar os recursos de segurança no Backup do Azure para tornar os backups mais seguros
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: f856303d4abf05178eb11a242b87390ff1484e1b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger backups híbridos usando o Backup do Azure
 Preocupações sobre problemas de segurança, como malware, ransomware e invasão, estão aumentando. Esses problemas de segurança podem ser dispendiosos em termos de dinheiro e dados. Para se proteger contra esses ataques, o Backup do Azure agora fornece recursos de segurança para ajudar a proteger os backups híbridos. Este artigo aborda como habilitar e usar esses recursos, usando um agente dos Serviços de Recuperação do Azure e o Servidor de Backup do Azure. Esses recursos incluem:
@@ -55,7 +55,7 @@ Se você estiver criando um cofre dos Serviços de Recuperação, você pode usa
     ![Captura de tela das propriedades do cofre dos Serviços de Recuperação](./media/backup-azure-security-feature/security-settings-update.png)
 
     O link de atualização abre a folha **Configurações de Segurança**, que fornece um resumo dos recursos e permite que você os habilite.
-5. Na lista suspensa **Você configurou a Autenticação Multifator do Azure?**, selecione um valor para confirmar se você habilitou a [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md). Se estiver habilitada, você deverá autenticar de outro dispositivo (por exemplo, telefone celular) ao fazer logon no portal do Azure.
+5. Na lista suspensa **Você configurou a Autenticação Multifator do Azure?**, selecione um valor para confirmar se você habilitou a [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md). Se estiver habilitada, você deverá autenticar de outro dispositivo (por exemplo, telefone celular) ao fazer logon no portal do Azure.
 
    Ao realizar operações críticas no Backup, você poderá inserir um PIN de segurança, disponível no portal do Azure. A habilitação da Autenticação Multifator do Azure adiciona uma camada de segurança. Apenas usuários autorizados com credenciais válidas do Azure, e autenticados de um segundo dispositivo, podem acessar o portal do Azure.
 6. Para salvar as configurações de segurança, selecione **Habilitar** e clique em **Salvar**. Você só poderá selecionar **Habilitar** depois de selecionar um valor da lista **Você configurou a Autenticação Multifator do Azure** na etapa anterior.

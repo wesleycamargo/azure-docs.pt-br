@@ -1,11 +1,11 @@
 ---
-title: "Solucionando problemas de atualizações de aplicativo | Microsoft Docs"
-description: "Este artigo aborda alguns problemas comuns em torno da atualização de um aplicativo Service Fabric e como resolvê-los."
+title: Solucionando problemas de atualizações de aplicativo | Microsoft Docs
+description: Este artigo aborda alguns problemas comuns em torno da atualização de um aplicativo Service Fabric e como resolvê-los.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
 ms.service: service-fabric
 ms.devlang: dotnet

@@ -1,11 +1,11 @@
 ---
-title: "Mova os circuitos de ExpressRoute do clássico para o Resource Manager | Microsoft Docs"
-description: "Esta página descreve como mover um circuito clássico para o modelo de implantação do Resource Manager usando o PowerShell."
+title: Mova os circuitos de ExpressRoute do clássico para o Resource Manager | Microsoft Docs
+description: Esta página descreve como mover um circuito clássico para o modelo de implantação do Resource Manager usando o PowerShell.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: c407e01e6d881cb8adcfe55faa246468669be883
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37db218010288912bf75d00fd5868aab171aef71
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Mover os circuitos de ExpressRoute do modelo de implantação clássico para o do Resource Manager usando o PowerShell
 
@@ -27,8 +27,8 @@ Para usar um circuito do ExpressRoute para os modelos de implantação clássico
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Verifique se você tem a versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0). Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview):
-* Certifique-se de que você leu os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+* Verifique se você tem a versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0). Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+* Leia os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 * Examine as informações fornecidas em [Como mover um circuito de ExpressRoute do clássico para o Resource Manager](expressroute-move.md). Certifique-se de entender completamente os limites e limitações.
 * Verifique se o circuito está totalmente operacional no modelo de implantação clássico.
 * Verifique se você tem um grupo de recursos que foi criado no modelo de implantação do Gerenciador de Recursos.
@@ -71,7 +71,7 @@ Entre no ambiente do Resource Manager e crie um novo grupo de recursos.
 1. Entre no ambiente do Azure Resource Manager.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 2. Selecione a assinatura do Azure apropriada.

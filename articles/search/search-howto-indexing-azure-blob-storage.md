@@ -3,16 +3,17 @@ title: Indexação do Armazenamento de Blobs do Azure com o Azure Search
 description: Saiba como indexar o Armazenamento de Blobs do Azure e extrair texto de documentos com o Azure Search
 author: chaosrealm
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: c997982868213bc1e0315a8d19c95b7c97f81de3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 77fac23286d536903e32140b554304e72c16097f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexação de documentos no Armazenamento de Blobs do Azure com o Azure Search
 Este artigo mostra como usar o Azure Search para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar.

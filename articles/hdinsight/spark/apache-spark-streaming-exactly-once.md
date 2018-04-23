@@ -2,25 +2,23 @@
 title: Criar trabalhos de streaming do Spark com processamento de eventos exatamente uma vez - HDInsight do Azure | Microsoft Docs
 description: Como configurar o streaming do Spark para processar um evento uma vez e apenas uma vez.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ramoha
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: ramoha
-ms.openlocfilehash: ebab9ebc92ae1dff8902d618d0a474ce2b2a0af3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 61162a845f6620d7c6e5662baedfdbfae9b9653a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Criar trabalhos de streaming do Spark com o processamento de eventos exatamente uma vez
 

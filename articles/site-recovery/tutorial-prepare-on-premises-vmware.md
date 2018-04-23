@@ -1,6 +1,6 @@
 ---
-title: "Preparar os servidores VMware locais para recuperação de desastre das VMs VMware para o Azure | Microsoft Docs"
-description: "Saiba como preparar os servidores VMware locais para recuperação de desastre para o Azure usando o serviço Azure Site Recovery."
+title: Preparar os servidores VMware locais para recuperação de desastre das VMs VMware para o Azure | Microsoft Docs
+description: Saiba como preparar os servidores VMware locais para recuperação de desastre para o Azure usando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
 Os assinantes do Azure podem gerenciar ambientes de nuvem de vários dispositivos, incluindo estações de trabalho, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que têm permissões de tarefas específicas. Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Em outros casos, pode haver conexões diretas ao Azure de sistemas locais por meio de VPNs (Redes Virtuais Privadas), Serviços de Terminal, protocolos de aplicativos de cliente ou (programaticamente) a SMAPI (API de Gerenciamento de Serviços do Azure). Além disso, os pontos de extremidade do cliente podem ser unidos ao domínio ou isolados e não gerenciados, como tablets ou smartphones.
@@ -99,7 +99,7 @@ A configuração de serviços de nuvem do Azure é executada por meio do portal 
 
 Os aplicativos implantados na Máquina Virtual fornecem suas próprias interfaces e ferramentas de clientes, conforme necessário, como o MMC (Console de Gerenciamento Microsoft), um console de gerenciamento empresarial (como o Microsoft System Center ou o Windows Intune) ou outro aplicativo de gerenciamento (o Microsoft SQL Server Management Studio, por exemplo). Essas ferramentas geralmente residem em uma rede de cliente ou ambiente empresarial. Elas podem depender de protocolos de rede específicos, como o protocolo RDP, que exigem conexões diretas com estado. Algumas delas podem ter interfaces habilitadas para a Web que não devem ser publicadas abertamente nem acessíveis pela Internet.
 
-Você pode restringir o acesso ao gerenciamento de serviços de plataforma e infraestrutura no Azure usando a [autenticação multifator](../multi-factor-authentication/multi-factor-authentication.md), os [certificados de gerenciamento X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) e as regras de firewall. O portal do Azure e a SMAPI exigem o protocolo TLS. No entanto, os serviços e aplicativos que você implanta no Azure exigem que tome medidas de proteção que são apropriadas com base no aplicativo. Esses mecanismos muitas vezes podem ser habilitados mais facilmente por meio de uma configuração de estação de trabalho protegida padronizada.
+Você pode restringir o acesso ao gerenciamento de serviços de plataforma e infraestrutura no Azure usando a [autenticação multifator](../active-directory/authentication/multi-factor-authentication.md), os [certificados de gerenciamento X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) e as regras de firewall. O portal do Azure e a SMAPI exigem o protocolo TLS. No entanto, os serviços e aplicativos que você implanta no Azure exigem que tome medidas de proteção que são apropriadas com base no aplicativo. Esses mecanismos muitas vezes podem ser habilitados mais facilmente por meio de uma configuração de estação de trabalho protegida padronizada.
 
 ### <a name="management-gateway"></a>Gateway de gerenciamento
 Para centralizar todo o acesso administrativo e simplificar o monitoramento e o registro em log, você pode implantar um servidor de [Gateway de Área de Trabalho Remota](https://technet.microsoft.com/library/dd560672) dedicado na rede local, conectado ao ambiente do Azure.
@@ -110,7 +110,7 @@ Um Gateway de Área de Trabalho Remota é um serviço de proxy RDP com base em p
 * Una o Gateway de Área de Trabalho Remota ao mesmo [domínio de gerenciamento](http://technet.microsoft.com/library/bb727085.aspx) que as estações de trabalho do administrador. Isso é necessário quando você usa uma VPN IPsec de site a site ou o ExpressRoute em um domínio que tem uma relação de confiança unidirecional para com o Azure AD ou se está associando credenciais entre a instância local do AD DS e o Azure AD.
 * Configure uma [política de autorização de conexão de cliente](http://technet.microsoft.com/library/cc753324.aspx) para permitir que o Gateway de Área de Trabalho Remota verifique se o nome do computador cliente é válido (ingressado no domínio) e tem permissão para acessar o portal do Azure.
 * Use IPsec para a [VPN do Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) para proteger ainda mais o tráfego de gerenciamento contra interceptação e roubo de tokens ou considere um link da Internet isolado por meio do [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Habilite a autenticação multifator (via [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md)) ou a autenticação de cartão inteligente para administradores que fazem logon por meio do Gateway de Área de Trabalho Remota.
+* Habilite a autenticação multifator (via [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md)) ou a autenticação de cartão inteligente para administradores que fazem logon por meio do Gateway de Área de Trabalho Remota.
 * Configure [restrições de endereço IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) de origem ou [Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md) no Azure para minimizar o número de pontos de extremidade de gerenciamento permitidos.
 
 ## <a name="security-guidelines"></a>Diretrizes de segurança

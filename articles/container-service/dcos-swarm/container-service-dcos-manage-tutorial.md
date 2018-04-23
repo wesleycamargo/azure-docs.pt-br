@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO"
-description: "Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO"
+title: Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO
+description: Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO
 services: container-service
 author: neilpeterson
 manager: timlt

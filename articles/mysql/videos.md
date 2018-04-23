@@ -1,6 +1,6 @@
 ---
-title: "Vídeos sobre o Banco de Dados do Azure para MySQL"
-description: "Esta página lista o conteúdo de vídeo relevante para saber mais sobre o Banco de Dados do Azure para MySQL, a oferta de MySQL gerenciado da Microsoft no Azure."
+title: Vídeos sobre o Banco de Dados do Azure para MySQL
+description: Esta página lista o conteúdo de vídeo relevante para saber mais sobre o Banco de Dados do Azure para MySQL, a oferta de MySQL gerenciado da Microsoft no Azure.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh

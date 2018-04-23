@@ -1,6 +1,6 @@
 ---
-title: "Guia de início rápido - cluster do Docker CE para Linux"
-description: "Aprenda rapidamente a criar um cluster do Docker CE para os contêineres do Linux no Serviço de Contêiner do Azure com a CLI do Azure."
+title: Guia de início rápido - cluster do Docker CE para Linux
+description: Aprenda rapidamente a criar um cluster do Docker CE para os contêineres do Linux no Serviço de Contêiner do Azure com a CLI do Azure.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -8,7 +8,7 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: nepeters
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: 3c06aaa09366df89ad73cb60780511d2087d5994
 ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT

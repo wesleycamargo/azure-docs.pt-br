@@ -1,12 +1,12 @@
 ---
-title: "Criar fluxos de trabalho de aprovação para processar solicitações de lista de endereçamento - Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Este tutorial mostra como criar fluxos de trabalho de aprovação automáticos para o processamento de assinaturas de listas de endereçamento com os Aplicativos Lógicos do Azure"
+title: Criar fluxos de trabalho de aprovação para processar solicitações de lista de endereçamento - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Este tutorial mostra como criar fluxos de trabalho de aprovação automáticos para o processamento de assinaturas de listas de endereçamento com os Aplicativos Lógicos do Azure
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na

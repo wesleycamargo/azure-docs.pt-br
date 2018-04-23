@@ -1,6 +1,6 @@
 ---
-title: "Guia de início rápido - cluster Kubernetes do Azure para Linux"
-description: "Aprenda a criar um cluster Kubernetes para contêineres do Linux no Serviço de Contêiner do Azure rapidamente com a CLI do Azure."
+title: Guia de início rápido - cluster Kubernetes do Azure para Linux
+description: Aprenda a criar um cluster Kubernetes para contêineres do Linux no Serviço de Contêiner do Azure rapidamente com a CLI do Azure.
 services: container-service
 author: neilpeterson
 manager: timlt

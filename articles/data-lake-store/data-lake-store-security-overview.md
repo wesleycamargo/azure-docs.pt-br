@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: d3387812e064d3ce8a293db7d2c942a34cd5b364
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4dc1b070f7933f23ee615501dfbc68551068210c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Segurança no Armazenamento do Azure Data Lake
 Muitas empresas estão tirando vantagem da análise de big data para ter ideias de negócios e ajudá-los a tomar decisões inteligentes. Uma organização pode ter um ambiente regulamentado e complexo, com um número crescente de usuários diferentes. É fundamental para uma empresa ter certeza de que os dados essenciais aos negócios são armazenados com mais segurança, com o nível correto de acesso concedido a usuários individuais. O Azure Data Lake Store foi criado para ajudar a atender a esses requisitos de segurança. Neste artigo, saiba mais sobre os recursos de segurança do Data Lake Store, incluindo:
@@ -35,7 +35,7 @@ Autenticação é o processo pelo qual a identidade do usuário é verificada qu
 Toda assinatura do Azure pode ser associada a uma instância do Azure Active Directory. Somente os usuários e identidades de serviço que estão definidos no serviço Azure Active Directory podem acessar sua conta do Data Lake Store, usando o portal do Azure, as ferramentas de linha de comando, ou aplicativos de cliente criados pela sua organização usando o SDK do Azure Data Lake Store. As principais vantagens de usar o Azure Active Directory como um mecanismo de controle de acesso centralizado são:
 
 * Gerenciamento de ciclo de vida de identidade simplificado. A identidade de um usuário ou um serviço (uma entidade principal do serviço) pode ser criada rapidamente e revogada simplesmente excluindo ou desabilitando a conta no diretório.
-* Multi-Factor Authentication. [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) fornece uma camada adicional de segurança para os logons e as transações dos usuários.
+* Multi-Factor Authentication. [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) fornece uma camada adicional de segurança para os logons e as transações dos usuários.
 * A autenticação de clientes por meio de um protocolo aberto padrão, como OAuth ou OpenID.
 * Federação com serviços de diretório da empresa e provedores de identidade da nuvem.
 

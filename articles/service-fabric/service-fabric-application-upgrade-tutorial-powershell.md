@@ -1,11 +1,11 @@
 ---
-title: "Atualização de aplicativo do Service Fabric usando o PowerShell | Microsoft Docs"
-description: "Este artigo descreve a experiência de implantação de um aplicativo do Service Fabric, de alteração do código e de distribuição de uma atualização usando o PowerShell."
+title: Atualização de aplicativo do Service Fabric usando o PowerShell | Microsoft Docs
+description: Este artigo descreve a experiência de implantação de um aplicativo do Service Fabric, de alteração do código e de distribuição de uma atualização usando o PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
 ms.service: service-fabric
 ms.devlang: dotnet

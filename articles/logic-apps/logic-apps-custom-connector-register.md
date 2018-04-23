@@ -1,12 +1,12 @@
 ---
-title: "Registrar conectores personalizados – Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Configurar conectores personalizados para uso em Aplicativos Lógicos do Azure"
+title: Registrar conectores personalizados – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Configurar conectores personalizados para uso em Aplicativos Lógicos do Azure
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na

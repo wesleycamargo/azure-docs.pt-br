@@ -3,15 +3,16 @@ title: Planejamento de capacidade para Azure Search | Microsoft Docs
 description: Ajusta os recursos de computador de partição e réplica no Azure Search, onde o preço de cada recurso é definido em unidades de pesquisa faturáveis.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: caca793b529d8025f3c6a994ea8598068ee1b053
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 08ae64aa92d7262b462ad105aa8e776bdaef15c0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Dimensionar os níveis de recursos para cargas de trabalho de consulta e indexação no Azure Search
 Depois que você [escolhe um tipo de preço](search-sku-tier.md) e [provisiona um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é, como opção, aumentar o número de réplicas ou partições usadas pelo serviço. Cada camada oferece um número fixo de unidades de cobrança. Este artigo explica como alocar essas unidades para obter uma configuração ideal que equilibra os requisitos para execução da consulta, indexação e armazenamento.

@@ -5,8 +5,8 @@ services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ed15ff750e73179f6979d13e45ab27aeee5c82ab
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 3e7dc4dfba001228a4d11e2b21cdeed8e7af45ac
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-databases-in-azure"></a>Protegendo bancos de dados de PaaS no Azure
 
@@ -51,7 +51,7 @@ Os benefícios de usar a autenticação do Azure AD em vez da autenticação do 
 - Usa usuários de banco de dados independente para autenticar identidades no nível de banco de dados.
 - Dá suporte à autenticação baseada em token em aplicativos que se conectam ao Banco de Dados SQL.
 - Dá suporte ao ADFS (federação de domínio) ou à autenticação nativa de senha/usuário para um Azure AD local sem a sincronização de domínio.
-- Dá suporte a conexões do SQL Server Management Studio que usam a Autenticação Universal do Active Directory, que inclui o [MFA (Autenticação Multifator)](../multi-factor-authentication/multi-factor-authentication.md). A MFA inclui autenticação eficiente com uma variedade de opções de verificação fáceis como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis. Para saber mais, confira [Suporte do SSMS para MFA do Azure AD com o Banco de Dados SQL e o SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Dá suporte a conexões do SQL Server Management Studio que usam a Autenticação Universal do Active Directory, que inclui o [MFA (Autenticação Multifator)](../active-directory/authentication/multi-factor-authentication.md). A MFA inclui autenticação eficiente com uma variedade de opções de verificação fáceis como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis. Para saber mais, confira [Suporte do SSMS para MFA do Azure AD com o Banco de Dados SQL e o SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 Para saber mais sobre a autenticação do Azure AD, consulte:
 

@@ -1,6 +1,6 @@
 ---
-title: "Explicando Unidades de Computação no Banco de Dados do Azure para PostgreSQL | Microsoft Docs"
-description: "Banco de dados do Azure para PostgreSQL: este artigo explica o conceito de Unidades de Computação e o que acontece quando sua carga de trabalho atinge o máximo de Unidades de Computação."
+title: Explicando Unidades de Computação no Banco de Dados do Azure para PostgreSQL | Microsoft Docs
+description: 'Banco de dados do Azure para PostgreSQL: este artigo explica o conceito de Unidades de Computação e o que acontece quando sua carga de trabalho atinge o máximo de Unidades de Computação.'
 services: postgresql
 author: kamathsun
 ms.author: sukamat

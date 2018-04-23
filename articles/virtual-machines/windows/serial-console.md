@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 2ff0dcba0912461d8528fc76c7c67d90febc0324
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console serial da máquina virtual (visualização) 
 
@@ -26,14 +26,14 @@ ms.lasthandoff: 03/30/2018
 O console serial da máquina virtual no Azure fornece acesso a um console baseado em texto para máquinas virtuais Linux e Windows. Essa conexão serial é para a porta serial COM1 da máquina virtual, fornece acesso à máquina virtual e não está relacionada à rede da máquina virtual/estado do sistema operacional. No momento, o acesso ao console serial para uma máquina virtual pode ser obtido somente por meio do portal do Azure e é permitido apenas para os usuários que têm acesso de Colaborador de VM ou superior à máquina virtual. 
 
 > [!Note] 
-> As visualizações são disponibilizadas a você se concordar com os termos de uso. Para saber mais, confira [Termos de Uso do Microsoft Azure para Visualizações do Microsoft Azure.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Atualmente, este serviço está em **visualização pública**, e o acesso ao console serial para máquinas virtuais está disponível para regiões globais do Azure. Neste ponto, o console serial não está disponível por meio de Azure Government, Azure Germany e Azure China cloud.
+> As visualizações são disponibilizadas a você se concordar com os termos de uso. Para saber mais, confira [Termos de Uso do Microsoft Azure para Visualizações do Microsoft Azure.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Atualmente, este serviço está em **visualização pública**, e o acesso ao console serial para máquinas virtuais está disponível para regiões globais do Azure. Neste ponto, o console serial não está disponível por meio de Azure Governamental, Azure Alemanha e Azure China cloud.
 
  
 
 ## <a name="prerequisites"></a>pré-requisitos 
 
 * A máquina virtual deve ter os [diagnósticos de inicialização](boot-diagnostics.md) habilitados 
-* A conta que usa o console serial deve ter a [função de Colaborador](../../active-directory/role-based-access-built-in-roles.md) para a VM e a conta de armazenamento [diagnósticos de inicialização](boot-diagnostics.md). 
+* A conta que usa o console serial deve ter a [função de Colaborador](../../role-based-access-control/built-in-roles.md) para a VM e a conta de armazenamento [diagnósticos de inicialização](boot-diagnostics.md). 
 
 ## <a name="open-the-serial-console"></a>Abra o console serial
 o console serial de máquinas virtuais só pode ser acessado por meio do [portal do Azure](https://portal.azure.com). A seguir, as etapas para acessar o console serial para máquinas virtuais por meio do portal 
@@ -51,7 +51,7 @@ A funcionalidade do console serial pode ser desativada para VMs específicas des
 ## <a name="serial-console-security"></a>Segurança de console serial 
 
 ### <a name="access-security"></a>Segurança de acesso 
-O acesso ao console serial é limitado aos usuários que têm acesso de [Colaboradores de VM](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) ou superior para a máquina virtual. Se o locatário do AAD exigir a Autenticação Multifator, o acesso ao console serial também exigirá MFA, pois seu acesso é por meio do [portal do Azure](https://portal.azure.com).
+O acesso ao console serial é limitado aos usuários que têm acesso de [Colaboradores de VM](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ou superior para a máquina virtual. Se o locatário do AAD exigir a Autenticação Multifator, o acesso ao console serial também exigirá MFA, pois seu acesso é por meio do [portal do Azure](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Segurança de canal
 Todos os dados são enviados criptografados durante a transmissão.
@@ -584,7 +584,7 @@ a. Forneça comentários sobre um problema acessando https://aka.ms/serialconsol
 
 **P. Recebo um erro "Console existente tem um tipo de sistema operacional conflitante"Windows"com o tipo solicitado do sistema operacional do Linux?**
 
-a. Esse é um problema conhecido. Para corrigi-lo, basta abrir o [Shell de Nuvem do Azure](https://docs.microsoft.com/azure/cloud-shell/overview) no modo de bash e tentar novamente.
+a. Esse é um problema conhecido. Para corrigi-lo, basta abrir o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) no modo de bash e tentar novamente.
 
 **P. Não consigo acessar o console serial. Onde posso registrar um caso de suporte?**
 

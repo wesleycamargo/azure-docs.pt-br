@@ -3,16 +3,17 @@ title: Modelagem multilocação no Azure Search | Microsoft Docs
 description: Saiba mais sobre padrões de design comuns para aplicativos SaaS multilocatários ao usar o Azure Search.
 manager: jlembicz
 author: ashmaka
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 99be323b72326a9d912fa28cd63999ecd98a671b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 765f9c4600f762efdd7d57681529751e99c13894
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Padrões de design para aplicativos SaaS multilocatários e Azure Search
 Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcionalidades para qualquer número de locatários que não conseguem ver nem compartilhar os dados de qualquer outro locatário. Este documento discute estratégias de isolamento de locatário para aplicativos multilocatários criados com o Azure Search.

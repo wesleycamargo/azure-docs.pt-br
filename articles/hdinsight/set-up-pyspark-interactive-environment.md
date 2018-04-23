@@ -3,24 +3,22 @@ title: Ferramentas do Azure HDInsight - Configurar o ambiente interativo do PySp
 description: Saiba como usar as Ferramentas do Azure HDInsight para Visual Studio Code para criar e enviar consultas e scripts.
 Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 5a64023df813262c461b9d772b722ebd613369ed
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 4ab7b95861fcd1ff75f8ac84e4f00aedb6e526f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo do PySpark para o Visual Studio Code
 
@@ -97,7 +95,7 @@ Se você estiver usando o **python 3.x**, precisará usar o comando **pip3** par
 ## <a name="next-steps"></a>Próximas etapas
 
 ### <a name="demo"></a>Demonstração
-* HDInsight para VS Code: [Vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight para VS Code: [vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Usar a Ferramenta do Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md)

@@ -1,6 +1,6 @@
 ---
-title: "Tipo de preço no Banco de Dados do Azure para PostgreSQL"
-description: "Tipo de preço no Banco de Dados do Azure para PostgreSQL"
+title: Tipo de preço no Banco de Dados do Azure para PostgreSQL
+description: Tipo de preço no Banco de Dados do Azure para PostgreSQL
 services: postgresql
 author: kamathsun
 ms.author: sukamat

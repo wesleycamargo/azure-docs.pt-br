@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d1d098f45c391363523b6a56ec0c6fdb40e64d68
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 599c016763fde6f1dc8221fffa554cf68e8c498f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Usando o suporte do Azure Resource Manager com o Azure Load Balancer
 
@@ -46,7 +46,7 @@ Modelos podem incluir definições para máquinas virtuais, redes virtuais, conj
 
 [Saiba mais sobre modelos](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
-[Saiba mais sobre recursos de rede](../virtual-network/resource-groups-networking.md)
+[Saiba mais sobre recursos de rede](../networking/networking-overview.md)
 
 Para modelos de início rápido que usam o Azure Load Balancer, veja o [repositório GitHub](https://github.com/Azure/azure-quickstart-templates) que hospeda um conjunto de modelos gerados pela comunidade.
 

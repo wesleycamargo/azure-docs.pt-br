@@ -1,24 +1,22 @@
 ---
 title: Gerenciar o cluster do R Server no HDInsight - Azure| Microsoft Docs
 description: Saiba como gerenciar um cluster do Microsoft R Server no Azure HDInsight.
-services: HDInsight
+services: hdinsight
 documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
-ms.service: HDInsight
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: nitinme
-ms.openlocfilehash: c0a996555e35a99a6025e92bcb41fa192b18eece
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 827bcb7bb20f1def9acec8cb2043ea295801583a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-r-server-cluster-on-azure-hdinsight"></a>Gerenciar o cluster do Microsoft R Server no Azure HDInsight
 
@@ -26,7 +24,7 @@ Neste artigo, você aprenderá como gerenciar um cluster existente do Microsoft 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* **Um cluser do Microsoft R Server cluster no HDInsight**: para obter instruções, consulte [ Iniciar com o R Server no HDInsight](r-server-get-started.md).
+* **Um cluser do Microsoft R Server no HDInsight**: para obter instruções, consulte [ Iniciar com o R Server no HDInsight](r-server-get-started.md).
 
 * **Um cliente Secure Shell (SSH)**: um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -344,4 +342,4 @@ Para instalar pacotes R em nós de trabalho do cluster, você deverá usar uma a
 
 * [Operar o cluster do Microsoft R Server no HDInsight](r-server-operationalize.md)
 * [Opções de contexto de computação para cluster do Microsoft R Server no HDInsight](r-server-compute-contexts.md)
-* [Opções de Armazenamento do Azure para cluster do R Server no HDInsight](r-server-storage.md)
+* [Opções de Armazenamento do Microsoft Azure para cluster do Microsoft R Server no HDInsight](r-server-storage.md)

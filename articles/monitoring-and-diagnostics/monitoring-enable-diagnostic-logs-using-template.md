@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: f1e1c2aa447e35ea483665cc33e4eb6af7a41f51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1963c4d7b2e895032862fae896c6d9ff7cf80806
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitar automaticamente as Configurações de Diagnóstico na criação do recurso usando um modelo do Resource Manager
 Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para definir as Configurações de Diagnóstico em um recurso quando ele é criado. Isso permite iniciar automaticamente o streaming de seus Logs de Diagnóstico e métricas para os Hubs de Eventos, arquivando-os em uma Conta de Armazenamento ou enviando-os para o Log Analytics quando um recurso é criado.
@@ -116,7 +116,7 @@ Para os recursos de Não Computação, você precisará fazer duas coisas:
     ]
     ```
 
-O blob de propriedades da Configuração de Diagnóstico segue [o formato descrito neste artigo](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). A adição da propriedade `metrics` permitirá também o envio de métricas de recurso para essas mesmas saídas, desde que [o recurso ofereça suporte para as métricas do Azure Monitor](monitoring-supported-metrics.md).
+O blob de propriedades da Configuração de Diagnóstico segue [o formato descrito neste artigo](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate). A adição da propriedade `metrics` permitirá também o envio de métricas de recurso para essas mesmas saídas, desde que [o recurso ofereça suporte para as métricas do Azure Monitor](monitoring-supported-metrics.md).
 
 Aqui temos um exemplo completo que cria um aplicativo lógico e ativa o streaming para Hubs de eventos e o armazenamento em uma conta de armazenamento.
 

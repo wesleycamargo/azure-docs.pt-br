@@ -1,11 +1,11 @@
 ---
-title: "Redes virtuais de mapas entre duas regiões do Azure no Azure Site Recovery | Microsoft Docs"
-description: "O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre o failover no Azure ou em um datacenter secundário."
+title: Redes virtuais de mapas entre duas regiões do Azure no Azure Site Recovery | Microsoft Docs
+description: O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre o failover no Azure ou em um datacenter secundário.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
+editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na

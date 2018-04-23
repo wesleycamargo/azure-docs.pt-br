@@ -1,11 +1,11 @@
 ---
-title: "Versão prévia da implantação do Docker Compose no Azure Service Fabric"
-description: "O Azure Service Fabric aceita o formato do Docker Compose para facilitar a orquestração dos contêineres existentes usando o Service Fabric. No momento, esse suporte está na versão prévia."
+title: Versão prévia da implantação do Docker Compose no Azure Service Fabric
+description: O Azure Service Fabric aceita o formato do Docker Compose para facilitar a orquestração dos contêineres existentes usando o Service Fabric. No momento, esse suporte está na versão prévia.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet

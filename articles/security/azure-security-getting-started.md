@@ -1,6 +1,6 @@
 ---
-title: "Introdução à segurança do Microsoft Azure | Microsoft Docs"
-description: "Este artigo fornece uma visão geral dos recursos de segurança do Microsoft Azure e considerações gerais para organizações que estejam migrando seus ativos para um provedor de nuvem."
+title: Introdução à segurança do Microsoft Azure | Microsoft Docs
+description: Este artigo fornece uma visão geral dos recursos de segurança do Microsoft Azure e considerações gerais para organizações que estejam migrando seus ativos para um provedor de nuvem.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: e1ee07f2284df925b8bbd9050de7ae40fa66bf65
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7d3fab20ec238bff0664fc98c2067c919e97a7c2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Introdução à segurança do Microsoft Azure
 Ao criar ou migrar ativos de TI para um provedor de nuvem, você está confiando na capacidade dessa organização de proteger seus aplicativos e dados com os serviços e mecanismos de controle que ela oferece para gerenciar a segurança de seus ativos baseados em nuvem.
@@ -45,7 +45,7 @@ Alguns outros recursos para gerenciamento de identidade e acesso incluem:
 * O AD do Azure habilita o [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) para aplicativos SaaS, independentemente de onde estejam hospedados. Alguns aplicativos são federados com o AD do Azure e outros usam SSO com senha. Os aplicativos federados também podem dar suporte ao provisionamento do usuário e o armazenamento de senha no cofre.
 * O acesso aos dados no [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é controlado por meio de autenticação. Cada conta de armazenamento tem uma chave primária ([chave de conta de armazenamento](https://msdn.microsoft.com/library/azure/ee460785.aspx) ou SAK) e uma chave secreta secundária (a assinatura de acesso compartilhado ou SAS).
 * O Azure AD fornece identidade como um serviço de federação usando [Serviços de Federação do Active Directory](../active-directory/fundamentals-identity.md), sincronização e replicação com diretórios locais.
-* A [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md) é um serviço de autenticação multifator que exige que os usuários verifiquem seus acessos usando um aplicativo móvel, uma chamada telefônica ou uma mensagem de texto. Ela pode ser usada com o Azure AD para proteger os recursos locais com o servidor de Autenticação Multifator do Azure e com diretórios e aplicativos personalizados que usam o SDK.
+* A [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md) é um serviço de autenticação multifator que exige que os usuários verifiquem seus acessos usando um aplicativo móvel, uma chamada telefônica ou uma mensagem de texto. Ela pode ser usada com o Azure AD para proteger os recursos locais com o servidor de Autenticação Multifator do Azure e com diretórios e aplicativos personalizados que usam o SDK.
 * Os [Serviços de Domínio do Azure AD](https://azure.microsoft.com/services/active-directory-ds/) permitem adicionar máquinas virtuais do Azure a um domínio sem a necessidade de implantar controladores de domínio. Você pode acessar essas máquinas virtuais usando suas credenciais corporativas do Active Directory e administrar as máquinas virtuais associadas ao domínio usando uma Política de Grupo para impor linhas de base de segurança em todas as suas máquinas virtuais do Azure.
 * O [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) fornece um serviço de gerenciamento de identidade global, altamente disponível para aplicativos voltados para o consumidor, que pode ser dimensionado para centenas de milhões de identidades. Ele pode ser integrado a plataformas móveis e da Web. Seus clientes podem fazer logon em todos os seus aplicativos por meio de experiências personalizáveis usando suas contas sociais existentes ou criando novas credenciais.
 
@@ -154,7 +154,7 @@ Para estender com segurança seu datacenter local para a nuvem, o Azure fornece 
 ### <a name="how-azure-implements-secure-remote-access"></a>Como o Azure implementa o acesso remoto seguro
 As conexões com o portal do Azure sempre devem ser autenticadas e exigem SSL/TLS. Você pode configurar certificados de gerenciamento para habilitar o gerenciamento seguro. Os protocolos de segurança padrão do setor, como [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) e [IPsec](https://en.wikipedia.org/wiki/IPsec), têm suporte completo.
 
-O [Azure ExpressRoute](../expressroute/expressroute-introduction.md) permite criar conexões privadas entre os datacenters do Azure e a infraestrutura no seu local ou em um ambiente de colocalização. As conexões do ExpressRoute não passam pela Internet pública. Eles oferecem mais confiabilidade, velocidades mais rápidas, latências menores e maior segurança que os links típicos baseados na Internet. Em alguns casos, transferir dados entre armazenamentos locais e o Azure usando conexões do ExpressRoute pode proporcionar um custo/benefício significativo.
+O [Azure ExpressRoute](../expressroute/expressroute-introduction.md) permite criar conexões privadas entre os datacenters do Azure e a infraestrutura no seu local ou em um ambiente de colocalização. As conexões de ExpressRoute não passam pela Internet pública. Eles oferecem mais confiabilidade, velocidades mais rápidas, latências menores e maior segurança que os links típicos baseados na Internet. Em alguns casos, transferir dados entre armazenamentos locais e o Azure usando conexões do ExpressRoute pode proporcionar um custo/benefício significativo.
 
 ## <a name="logging-and-monitoring"></a>Log e monitoramento
 O Azure fornece logs autenticados de eventos de segurança relevantes que geram uma trilha de auditoria e foram criados para serem resistentes à falsificação. inclui informações do sistema, como logs de eventos de segurança em VMs de infraestrutura do Azure e o AD do Azure. O monitoramento de eventos de segurança inclui a coleta de eventos, como alterações em endereços IP de servidor do DHCP ou do DNS, tentativas de acesso a portas, protocolos ou endereços IP que são bloqueados por design, alterações em configurações de firewall ou política de segurança, criação de conta ou grupo e instalação de driver ou processos inesperados.

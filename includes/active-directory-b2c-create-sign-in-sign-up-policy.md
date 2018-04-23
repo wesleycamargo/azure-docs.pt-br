@@ -1,5 +1,3 @@
-Para habilitar a entrada no aplicativo, você precisará criar uma política de entrada. Essa política descreve as experiências pelas quais os consumidores passarão durante a entrada e o conteúdo de tokens que o aplicativo receberá de entradas bem-sucedidas.
-
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 Na seção de políticas das configurações, selecione **Políticas de inscrição ou entrada** e clique em **+ Adicionar**.

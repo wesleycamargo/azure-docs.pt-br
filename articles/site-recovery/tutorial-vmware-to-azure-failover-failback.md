@@ -1,6 +1,6 @@
 ---
-title: "Executar failover e failback de VMs VMware e de servidores físicos replicados para Azure com o Site Recovery | Microsoft Docs"
-description: "Saiba como executar failover de VMs VMware e de servidores físicos para o Azure e o failback para o site local, com o Azure Site Recovery"
+title: Executar failover e failback de VMs VMware e de servidores físicos replicados para Azure com o Site Recovery | Microsoft Docs
+description: Saiba como executar failover de VMs VMware e de servidores físicos para o Azure e o failback para o site local, com o Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm

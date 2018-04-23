@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar o cluster Kubernetes do Azure com a interface do usuário da Web"
+title: Gerenciar o cluster Kubernetes do Azure com a interface do usuário da Web
 description: Usar o painel do Kubernetes no AKS
 services: container-service
 author: neilpeterson

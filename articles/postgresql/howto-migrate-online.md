@@ -1,6 +1,6 @@
 ---
-title: "Migração com tempo de inatividade mínimo para o Banco de Dados do Azure para PostgreSQL"
-description: "Este artigo descreve como executar uma migração com tempo de inatividade mínimo extraindo um banco de dados PostgreSQL para um arquivo de despejo, restaurando o banco de dados PostgreSQL de um arquivo criado por pg_dump no Banco de Dados do Azure para PostgreSQL e configurando a carga inicial e a sincronização de dados contínua do banco de dados de origem para o banco de dados de destino usando o Attunity Replicate para Microsoft Migrations."
+title: Migração com tempo de inatividade mínimo para o Banco de Dados do Azure para PostgreSQL
+description: Este artigo descreve como executar uma migração com tempo de inatividade mínimo extraindo um banco de dados PostgreSQL para um arquivo de despejo, restaurando o banco de dados PostgreSQL de um arquivo criado por pg_dump no Banco de Dados do Azure para PostgreSQL e configurando a carga inicial e a sincronização de dados contínua do banco de dados de origem para o banco de dados de destino usando o Attunity Replicate para Microsoft Migrations.
 services: postgresql
 author: HJToland3
 ms.author: jtoland

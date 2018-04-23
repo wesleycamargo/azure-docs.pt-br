@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Serviço de Contêiner do Azure – preparar o ACR"
-description: "Tutorial do Serviço de Contêiner do Azure – preparar o ACR"
+title: Tutorial do Serviço de Contêiner do Azure – preparar o ACR
+description: Tutorial do Serviço de Contêiner do Azure – preparar o ACR
 services: container-service
 author: neilpeterson
 manager: timlt

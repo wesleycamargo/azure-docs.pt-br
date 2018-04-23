@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;ayolubek
 ms.author: dmalik
-ms.openlocfilehash: c2a2bce3b385bd5700bf327f283289cf4d94b057
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1793f44026db55d17fabde5fb92bc46795109418
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias do DNS para Banco de Dados SQL do Azure
 
@@ -63,7 +63,7 @@ As propriedades a seguir se aplicam a cada alias de DNS do seu servidor de Banco
 - *Não associado a nenhuma região:* aliases de DNS não são associados a uma região. Todos os alias de DNS podem ser atualizados para fazer referência a um servidor de Banco de Dados SQL do Azure que resida em qualquer região geográfica.
     - No entanto, ao atualizar um alias para se referir a outro servidor, ambos os servidores devem existir na mesma *assinatura* do Azure.
 
-- *Permissões:* para gerenciar um alias de DNS, o usuário deve ter permissões de *Colaborador do Server* ou superior. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../active-directory/role-based-access-control-what-is.md).
+- *Permissões:* para gerenciar um alias de DNS, o usuário deve ter permissões de *Colaborador do Server* ou superior. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../role-based-access-control/overview.md).
 
 
 

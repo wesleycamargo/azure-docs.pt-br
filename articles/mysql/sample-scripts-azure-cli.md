@@ -1,6 +1,6 @@
 ---
 title: Exemplos da CLI do Azure para o Banco de Dados do Azure para MySQL
-description: "Este artigo lista os exemplos de código da CLI do Azure disponíveis para interagir com o Banco de Dados do Azure para MySQL."
+description: Este artigo lista os exemplos de código da CLI do Azure disponíveis para interagir com o Banco de Dados do Azure para MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh

@@ -1,12 +1,12 @@
 ---
-title: "Introdução ao acesso condicional no Azure Active Directory | Microsoft Docs"
-description: "Teste o acesso condicional usando uma condição de local."
+title: Introdução ao acesso condicional no Azure Active Directory | Microsoft Docs
+description: Teste o acesso condicional usando uma condição de local.
 services: active-directory
-keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 04a7736e85c0b149cb627411f61fc147220769ad
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Introdução ao acesso condicional no Azure Active Directory
 
@@ -30,7 +30,7 @@ Este tópico fornece instruções para testar um acesso condicional com base em 
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-É um requisito comum em muitas organizações só exigir autenticação multifator para acesso a aplicativos que não é executado desde a intranet corporativa. Com o Azure Active Directory, você pode facilmente atingir essa meta, configurando uma política de acesso condicional com base no local. Este tópico fornece instruções detalhadas sobre como configurar uma política relacionada. A política aproveita os [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) para distinguir entre tentativas de acesso de rede da intranet e todos os outros locais.
+É um requisito comum em muitas organizações só exigir autenticação multifator para acesso a aplicativos que não é executado desde a intranet corporativa. Com o Azure Active Directory, você pode facilmente atingir essa meta, configurando uma política de acesso condicional com base no local. Este tópico fornece instruções detalhadas sobre como configurar uma política relacionada. A política aproveita os [IPs confiáveis](authentication/howto-mfa-mfasettings.md#trusted-ips) para distinguir entre tentativas de acesso de rede da intranet e todos os outros locais.
 
 
 ## <a name="prerequisites"></a>pré-requisitos
@@ -47,7 +47,7 @@ Para testar este cenário, você precisa:
 
 - Configurar IPs confiáveis
 
-Se você precisar de mais detalhes sobre IPs confiáveis, veja [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+Se você precisar de mais detalhes sobre IPs confiáveis, veja [IPs confiáveis](authentication/howto-mfa-mfasettings.md#trusted-ips).
 
 
 ## <a name="policy-configuration-steps"></a>Etapas de configuração de política

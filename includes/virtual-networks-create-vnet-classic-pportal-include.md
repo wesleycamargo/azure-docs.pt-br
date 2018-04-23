@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-network
+author: genli
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: genli
+ms.custom: include file
+ms.openlocfilehash: edfcd4d59eceada9e1c6014dad9afa7fe8ab3c8f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Como criar uma rede virtual clássica no portal do Azure
 Para criar uma VNet clássica com base no cenário anterior, siga estas etapas.
 
