@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: c43edc6673c42a8b69bfa296e288e77adee4d0af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e4c424bb26a3b268ec893ca40dcdce7d7469217
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: transmitir dados ao Azure Databricks usando Hubs de Eventos
 
@@ -173,6 +173,7 @@ Nesta seção, você criará dois blocos de notas no espaço de trabalho do Data
 
 No bloco de notas de **SendTweetsToEventHub**, cole o código a seguir e substitua os espaços reservados por valores do namespace de Hubs de Eventos e do aplicativo do Twitter que você criou anteriormente. Esse bloco de anotações transmite tweets com a palavra-chave “Azure” para os Hubs de Eventos em tempo real.
 
+```scala
     import java.util._
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
@@ -242,6 +243,7 @@ No bloco de notas de **SendTweetsToEventHub**, cole o código a seguir e substit
 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
+```
 
 Para executar o bloco de notas, pressione **SHIFT + ENTER**. Você verá uma saída como o trecho de código abaixo. Cada evento na saída é um tweet contendo o termo “Azure” sendo incluído nos Hubs de Eventos.
 
@@ -264,6 +266,7 @@ Para executar o bloco de notas, pressione **SHIFT + ENTER**. Você verá uma sa�
 
 No bloco de notas de **ReadTweetsFromEventHub**, cole o código a seguir e substitua os espaços reservados por valores dos Hubs de Eventos do Azure que você criou anteriormente. Este bloco de anotações lê os tweets transmitidos anteriormente aos Hubs de Eventos usando o bloco de anotações  **SendTweetsToEventHub**.
 
+```scala
     import org.apache.spark.eventhubs._
 
     // Build connection string with the above information
@@ -282,6 +285,7 @@ No bloco de notas de **ReadTweetsFromEventHub**, cole o código a seguir e subst
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 Você obterá a seguinte saída:
 
@@ -312,6 +316,7 @@ Você obterá a seguinte saída:
 
 Como a saída está em um modo binário, use o trecho de código a seguir para convertê-la em cadeia de caracteres.
 
+```scala
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
 
@@ -328,6 +333,7 @@ Como a saída está em um modo binário, use o trecho de código a seguir para c
     messages.printSchema
 
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 Agora a saída é semelhante ao seguinte trecho de código:
 

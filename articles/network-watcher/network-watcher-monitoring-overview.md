@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a546296749ba9373355cfe2b857b83d8af94d5a1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Visão geral do monitoramento da rede do Azure
 
@@ -51,7 +51,7 @@ O Observador de Rede tem atualmente os seguintes recursos:
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controle de Acesso baseado em Funções (RBAC) no Observador de Rede
 
-O Observador de Rede usa o [modelo RBAC (Controle de Acesso baseado em Funções) do Azure](../active-directory/role-based-access-control-what-is.md). As permissões a seguir são necessárias para o Observador de Rede. É importante verificar se a função usada para iniciar as APIs do Observador de Rede ou usar o Observador de Rede no portal tem o acesso necessário.
+O Observador de Rede usa o [modelo RBAC (Controle de Acesso baseado em Funções) do Azure](../role-based-access-control/overview.md). As permissões a seguir são necessárias para o Observador de Rede. É importante verificar se a função usada para iniciar as APIs do Observador de Rede ou usar o Observador de Rede no portal tem o acesso necessário.
 
 |Recurso| Permissão|
 |---|---| 

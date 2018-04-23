@@ -1,8 +1,8 @@
 ---
 title: Usar o coordenador do Oozie com o Hadoop baseado no tempo no HDInsight | Microsoft Docs
-description: "Usar o Coordenador do Oozie com o Hadoop baseado no tempo no HDInsight, um serviço de big data. Saiba como definir fluxos de trabalho e coordenadores do Oozie e enviar trabalhos."
+description: Usar o Coordenador do Oozie com o Hadoop baseado no tempo no HDInsight, um serviço de big data. Saiba como definir fluxos de trabalho e coordenadores do Oozie e enviar trabalhos.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -10,18 +10,16 @@ editor: cgronlun
 ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0fa8e3630610913d909a75bf76236d120c8f1a2b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: db7f1f85601cfcf4531bb11176a21126625ce7f0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Usar o coordenador do Oozie com base no tempo com o Hadoop no HDInsight para definir fluxos de trabalho e coordenar trabalhos
 Saiba como definir fluxos de trabalho e coordenadores e como disparar os trabalhos do coordenador baseado em tempo. É útil examinar o artigo [Usar o Oozie com o HDInsight][hdinsight-use-oozie] antes deste. Além do Oozie, você também pode agendar trabalhos usando o Azure Data Factory. Para conhecer a Azure Data Factory, confira [Usar o Pig e o Hive com o Data Factory](../data-factory/transform-data.md).
@@ -62,10 +60,10 @@ O fluxo de trabalho contém duas ações:
 >
 >
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
-* **Uma estação de trabalho com o PowerShell do Azure**.
+* **Uma estação de trabalho com o PowerShell do Azure.**
 
     > [!IMPORTANT]
     > O suporte do Azure PowerShell para gerenciar os recursos do HDInsight usando o Gerenciador de Serviços do Azure está **preterido** e será removido em 1º de janeiro de 2017. As etapas neste documento usam os novos cmdlets do HDInsight que funcionam com o Azure Resource Manager.
@@ -75,7 +73,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 * **Um cluster HDInsight**. Para saber mais sobre como criar um cluster HDInsight, confira [Criar cluster HDInsight][hdinsight-provision] ou [Introdução ao HDInsight][hdinsight-get-started]. Você precisará dos seguintes dados para percorrer o tutorial:
 
     <table border = "1">
-    <tr><th>Propriedade do cluster</th><th>Nome de variável do Windows PowerShell</th><th>Valor</th><th>Descrição</th></tr>
+    <tr><th>Propriedade do cluster</th><th>Nome de variável do Windows PowerShell</th><th>Valor</th><th>DESCRIÇÃO</th></tr>
     <tr><td>Nome do cluster HDInsight</td><td>$clusterName</td><td></td><td>O cluster HDInsight em que você executará este tutorial.</td></tr>
     <tr><td>Nome de usuário do cluster HDInsight</td><td>$clusterUsername</td><td></td><td>O nome do usuário do cluster HDInsight. </td></tr>
     <tr><td>Senha de usuário do cluster HDInsight </td><td>$clusterPassword</td><td></td><td>A senha de usuário do cluster HDInsight.</td></tr>
@@ -86,7 +84,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 * **Um banco de dados SQL do Azure**. Você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL para permitir o acesso a partir de sua estação de trabalho. Para obter instruções de como criar um Banco de Dados SQL do Azure e configurar o firewall, confira [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started]. Este artigo fornece um script do Windows PowerShell para criar a tabela do Banco de Dados SQL do Azure necessária para este tutorial.
 
     <table border = "1">
-    <tr><th>Propriedade de banco de dados SQL</th><th>Nome de variável do Windows PowerShell</th><th>Valor</th><th>Descrição</th></tr>
+    <tr><th>Propriedade de banco de dados SQL</th><th>Nome de variável do Windows PowerShell</th><th>Valor</th><th>DESCRIÇÃO</th></tr>
     <tr><td>Nome do servidor de banco de dados SQL</td><td>$sqlDatabaseServer</td><td></td><td>O servidor do Banco de Dados SQL para o qual o Sqoop exportará os dados. </td></tr>
     <tr><td>Nome de logon do banco de dados SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nome de logon do banco de dados SQL.</td></tr>
     <tr><td>Senha de logon do banco de dados SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Senha de logon do banco de dados SQL.</td></tr>
@@ -197,7 +195,7 @@ A ação do Hive no fluxo de trabalho chama um arquivo de script HiveQL. Esse ar
     Variáveis de fluxo de trabalho
 
     <table border = "1">
-    <tr><th>Variáveis de fluxo de trabalho</th><th>Descrição</th></tr>
+    <tr><th>Variáveis de fluxo de trabalho</th><th>DESCRIÇÃO</th></tr>
     <tr><td>${jobTracker}</td><td>Especifique a URL do controlador do trabalho do Hadoop. Use <strong>jobtrackerhost:9010</strong> no cluster HDInsight versões 3.0 e 2.0.</td></tr>
     <tr><td>${nameNode}</td><td>Especifique a URL do name node do Hadoop. Use o endereço wasb:// padrão do sistema de arquivos, por exemplo, <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
     <tr><td>${queueName}</td><td>Especifica o nome da fila para a qual o trabalho será enviado. Use <strong>padrão</strong>.</td></tr>
@@ -206,7 +204,7 @@ A ação do Hive no fluxo de trabalho chama um arquivo de script HiveQL. Esse ar
     Variáveis de ação do Hive
 
     <table border = "1">
-    <tr><th>Variável de ação do Hive</th><th>Descrição</th></tr>
+    <tr><th>Variável de ação do Hive</th><th>DESCRIÇÃO</th></tr>
     <tr><td>${hiveDataFolder}</td><td>O diretório de origem do comando Hive Create Table.</td></tr>
     <tr><td>${hiveOutputFolder}</td><td>A pasta de saída da instrução INSERT OVERWRITE.</td></tr>
     <tr><td>${hiveTableName}</td><td>O nome da tabela Hive que faz referência aos arquivos de dados log4j.</td></tr>
@@ -215,7 +213,7 @@ A ação do Hive no fluxo de trabalho chama um arquivo de script HiveQL. Esse ar
     Variáveis de ação do Sqoop
 
     <table border = "1">
-    <tr><th>Variável de ação do Sqoop</th><th>Descrição</th></tr>
+    <tr><th>Variável de ação do Sqoop</th><th>DESCRIÇÃO</th></tr>
     <tr><td>${sqlDatabaseConnectionString}</td><td>Cadeia de conexão do Banco de Dados SQL.</td></tr>
     <tr><td>${sqlDatabaseTableName}</td><td>A tabela do Banco de Dados SQL para onde os dados serão exportados.</td></tr>
     <tr><td>${hiveOutputFolder}</td><td>A pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para a exportação do Sqoop (export-dir).</td></tr>
@@ -241,7 +239,7 @@ A ação do Hive no fluxo de trabalho chama um arquivo de script HiveQL. Esse ar
 
     Há cinco variáveis usadas no arquivo de definição:
 
-   | Variável | Descrição |
+   | Variável | DESCRIÇÃO |
    | --- | --- |
    | ${coordFrequency} |Tempo de pausa do trabalho. A frequência sempre é expressa em minutos. |
    | ${coordStart} |Hora de início do trabalho. |

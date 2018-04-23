@@ -1,10 +1,10 @@
 ---
-title: "Tipos de endereços IP no Azure (Clássico) | Microsoft Docs"
-description: "Saiba mais sobre endereços IP (clássicos) públicos e privados no Azure."
+title: Tipos de endereços IP no Azure (Clássico) | Microsoft Docs
+description: Saiba mais sobre endereços IP (clássicos) públicos e privados no Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genli
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
-ms.author: jdial
-ms.openlocfilehash: d5eea5e4499b9de40002ce2fc6aac39239c41b19
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.author: genli
+ms.openlocfilehash: f9e36abd44c2012d96a6ead8659197dcf66c6032
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereço IP e métodos de alocação (clássico) no Azure
 Você pode atribuir endereços IP aos recursos do Azure para se comunicar com outros recursos do Azure, sua rede local e a Internet. Há dois tipos de endereços IP que você pode usar no Azure: público e privado.
@@ -91,10 +91,10 @@ A tabela a seguir mostra cada tipo de recurso com os métodos de alocação poss
 
 | Recurso | Dinâmico | estático | Vários endereços IP |
 | --- | --- | --- | --- |
-| serviço de nuvem |Sim |Sim |Sim |
-| Instância de função de PaaS ou VM de IaaS |Sim |Não |Não |
-| gateway de VPN |Sim |Não |Não |
-| Application Gateway |Sim |Não |Não |
+| serviço de nuvem |sim |sim |sim |
+| Instância de função de PaaS ou VM de IaaS |sim |Não |Não  |
+| gateway de VPN |sim |Não |Não  |
+| Gateway de Aplicativo |sim |Não |Não  |
 
 ## <a name="private-ip-addresses"></a>Endereços IP privados
 Endereços IP privados permitem que os recursos do Azure comuniquem-se com outros recursos em um serviço de nuvem ou em uma VNet ( [rede virtual](virtual-networks-overview.md)), ou na rede local (por meio de um gateway de VPN ou circuito de ExpressRoute), sem usar um endereço IP acessível pela Internet.
@@ -103,7 +103,7 @@ No modelo de implantação clássico do Azure, um endereço IP privado pode ser 
 
 * VMs de IaaS e instâncias de função PaaS
 * Balanceador de carga interno
-* Application Gateway
+* Gateway de Aplicativo
 
 ### <a name="iaas-vms-and-paas-role-instances"></a>VMs de IaaS e instâncias de função PaaS
 As VMs (máquinas virtuais) criadas com o modelo de implantação clássico sempre são colocadas em um serviço de nuvem, semelhante às instâncias de função de PaaS. O comportamento de endereços IP privados, portanto, é semelhante para esses recursos.
@@ -141,12 +141,12 @@ A tabela a seguir mostra cada tipo de recurso com os métodos de alocação poss
 
 | Recurso | Dinâmico | estático | Vários endereços IP |
 | --- | --- | --- | --- |
-| VM (em uma VNet ou um serviço de nuvem *autônomo*) |Sim |Sim |Sim |
-| Instância de função de PaaS (em uma VNet ou um serviço de nuvem *autônomo*) |Sim |Não |Não |
-| Front-end do balanceador de carga interno |Sim |Sim |Sim |
-| Front-end do Application Gateway |Sim |Sim |Sim |
+| VM (em uma VNet ou um serviço de nuvem *autônomo*) |sim |sim |sim |
+| Instância de função de PaaS (em uma VNet ou um serviço de nuvem *autônomo*) |sim |Não |Não  |
+| Front-end do balanceador de carga interno |sim |sim |sim |
+| Front-end do Application Gateway |sim |sim |sim |
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 A tabela abaixo mostra os limites impostos ao endereçamento IP no Azure por assinatura. Você pode [entrar em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.
 
 |  | Limite padrão | Limite máximo |

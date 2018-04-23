@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 02849fb63a8d696fa4296f5ec885a2d24f9adca1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrar seus diretórios locais no Azure Active Directory
 O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory.  Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure. Este tópico guiará você nas etapas de planejamento, implantação e operação. É uma coleção de links para os tópicos relacionados a essa área.
@@ -97,7 +97,7 @@ O Azure Connect AD vem com vários recursos que você pode ativar opcionalmente 
 
 [Sincronização de hash de senhas](active-directory-aadconnectsync-implement-password-hash-synchronization.md) sincroniza o hash de senhas no Active Directory para o Azure AD. O usuário final pode usar a mesma senha no local e na nuvem, mas apenas gerenciá-la em um único lugar. Como ele usa seu Active Directory local como a autoridade, você também poderá usar sua própria política de senha.
 
-[write-back de senha](../active-directory-passwords-getting-started.md) permitirá aos usuários alterar e redefinir suas senhas na nuvem e ter sua política de senha local aplicada.
+[write-back de senha](../authentication/quickstart-sspr.md) permitirá aos usuários alterar e redefinir suas senhas na nuvem e ter sua política de senha local aplicada.
 
 [write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md) permitirá que um dispositivo registrado no Azure AD seja gravado de volta no Active Directory local, para que possa ser usado para acesso condicional.
 
@@ -110,7 +110,7 @@ O recurso para [impedir exclusões acidentais](active-directory-aadconnectsync-f
 | --- | --- |
 |Configurar a filtragem | [Sincronização do Azure AD Connect: configurar a filtragem](active-directory-aadconnectsync-configure-filtering.md)|
 |Sincronização de hash de senha | [Azure AD Connect Sync: implementar a sincronização de hash de senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|write-back de senha | [Introdução ao gerenciamento de senhas](../active-directory-passwords-getting-started.md)|
+|write-back de senha | [Introdução ao gerenciamento de senhas](../authentication/quickstart-sspr.md)|
 |Write-back de dispositivo | [Habilitando write-back de dispositivo no Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |impedir exclusões acidentais | [Sincronização do Azure AD Connect: impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Atualização automática | [Azure AD Connect: Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md)|

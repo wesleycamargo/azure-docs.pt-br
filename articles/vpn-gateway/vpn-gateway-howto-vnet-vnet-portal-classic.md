@@ -1,13 +1,13 @@
 ---
-title: "Criar uma conexão entre redes virtuais: clássico: portal do Azure | Microsoft Docs"
+title: 'Criar uma conexão entre redes virtuais: clássico: portal do Azure | Microsoft Docs'
 description: Conecte redes virtuais do Azure entre si usando o PowerShell e o Portal do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d9766afefa793baf66ea5218843f06031b1b364c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão entre redes virtuais (clássico)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/21/2018
 Este artigo ajuda a criar uma conexão de gateway de VPN entre redes virtuais. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. As etapas neste artigo se aplicam ao modelo de implantação clássico e o portal do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -218,7 +218,7 @@ Nas etapas a seguir, você vai se conectar à sua conta do Azure, bem como baixa
 2. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Verificar as assinaturas da conta.

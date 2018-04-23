@@ -1,26 +1,24 @@
 ---
-title: "Monitorar o desempenho do cluster – Azure HDInsight | Microsoft Docs"
+title: Monitorar o desempenho do cluster – Azure HDInsight | Microsoft Docs
 description: Como monitorar um cluster HDInsight quanto a capacidade e desempenho.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: maxluk
-ms.openlocfilehash: f2333202cdccc82edea649ff1c295752a414c8b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9bf49631da58de86ffa1881bca976cab86677805
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-cluster-performance"></a>Monitorar o desempenho do cluster
 
@@ -34,7 +32,7 @@ Os clusters do Hadoop devem balancear o carregamento entre os nós do cluster. E
 
 Para obter uma visão de alto nível dos nós do cluster e os respectivos carregamentos, faça logon na [Interface do usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md) e, em seguida, selecione a guia **Hosts**. Os hosts são listados por seus nomes de domínio totalmente qualificados. O status operacional de cada host é mostrado por um indicador de integridade colorido:
 
-| Cor | Descrição |
+| Cor | DESCRIÇÃO |
 | --- | --- |
 | Vermelho | Pelo menos um componente mestre no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
 | Laranja | Pelo menos um componente subordinado no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
@@ -79,7 +77,7 @@ Na interface do usuário do ResourceManager, selecione **Agendador** no menu à 
 
 ## <a name="storage-throttling"></a>Limitação de armazenamento
 
-O afunilamento do desempenho de um cluster pode ocorrer no nível de armazenamento. Esse tipo de afunilamento geralmente é devido ao *bloqueio* de operações de E/S (entrada/saída), o que ocorre quando as tarefas em execução enviam mais E/S do que o serviço de armazenamento pode manipular. Esse bloqueio cria uma fila de solicitações de E/S aguardando para serem processadas até que as E/Ss atuais sejam processadas. Os bloqueios são devidos à *limitação de armazenamento*, que não é um limite físico, mas um limite imposto pelo serviço de armazenamento através de um SLA (Contrato de Nível de Serviço). Esse limite serve para garantir que um único cliente ou locatário não monopolize o serviço. O SLA limita o número de IOPS (E/S por segundo) para o Armazenamento do Azure – para mais detalhes, consulte [Escalabilidade e metas de desempenho do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+O gargalo do desempenho de um cluster pode ocorrer no nível de armazenamento. Esse tipo de gargalo geralmente é devido ao *bloqueio* de operações de E/S (entrada/saída), o que ocorre quando as tarefas em execução enviam mais E/S do que o serviço de armazenamento pode manipular. Esse bloqueio cria uma fila de solicitações de E/S aguardando para serem processadas até que as E/Ss atuais sejam processadas. Os bloqueios são devidos à *limitação de armazenamento*, que não é um limite físico, mas um limite imposto pelo serviço de armazenamento através de um SLA (Contrato de Nível de Serviço). Esse limite serve para garantir que um único cliente ou locatário não monopolize o serviço. O SLA limita o número de IOPS (E/S por segundo) para o Armazenamento do Azure – para mais detalhes, consulte [Escalabilidade e metas de desempenho do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
 
 Caso você esteja usando o Armazenamento do Azure, para obter informações sobre monitoramento de problemas relacionados ao armazenamento, incluindo a limitação, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 

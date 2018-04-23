@@ -1,13 +1,13 @@
 ---
-title: "Configurar endereços IP para um adaptador de rede do Azure | Microsoft Docs"
-description: "Saiba como adicionar, alterar e remover endereços IP públicos e privados para um adaptador de rede."
+title: Configurar endereços IP para um adaptador de rede do Azure | Microsoft Docs
+description: Saiba como adicionar, alterar e remover endereços IP públicos e privados para um adaptador de rede.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 478a2ebfa6a4cc504119734ac2f67b1f7c77dd5a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 79b84e3231886f62bf5978195562339d5c3275b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
 
@@ -34,14 +34,14 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
 - Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se estiver usando o Portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
-- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial requer o módulo do Azure PowerShell versão 5.2.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial requer o módulo do Azure PowerShell versão 5.2.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.26 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 ## <a name="add-ip-addresses"></a>Adicionar endereços IP
 
 Você pode adicionar quantos endereços [IPv4](#ipv4) [privados](#private) e [públicos](#public) forem necessários a um adaptador de rede, desde que respeite os limites listados no artigo [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Não é possível usar o portal para adicionar um endereço IPv6 a um adaptador de rede existente (embora seja possível usar o portal para adicionar um endereço IPv6 privado durante a criação do adaptador de rede). Use o PowerShell ou a CLI para adicionar um endereço IPv6 privado a uma [configuração de IP secundário](#secondary) (desde que não haja uma configuração de IP secundário) de um adaptador de rede não anexado a uma máquina virtual. Não é possível usar qualquer ferramenta para adicionar um endereço IPv6 público a um adaptador de rede. Confira [IPv6](#ipv6) para obter detalhes sobre como usar endereços IPv6. 
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
+1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o Controle de Acesso Baseado em Função do Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
 2. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.
 3. Na folha **Adaptadores de rede** exibida, clique no adaptador de rede ao qual deseja adicionar um endereço IPv4.
 4. Clique em **Configurações de IP** na seção **CONFIGURAÇÕES** da folha do adaptador de rede selecionado.
@@ -58,7 +58,7 @@ Você pode adicionar quantos endereços [IPv4](#ipv4) [privados](#private) e [p�
 
 **Comandos**
 
-|Ferramenta|Get-Help|
+|Ferramenta|Comando|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_create)|
 |PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -67,7 +67,7 @@ Você pode adicionar quantos endereços [IPv4](#ipv4) [privados](#private) e [p�
 
 Você pode precisar alterar o método de atribuição de endereço IPv4, alterar o endereço IPv4 estático ou alterar o endereço IP público atribuído a um adaptador de rede. Se você estiver alterando o endereço IPv4 privado de uma configuração de IP secundário associada a um adaptador de rede secundário em uma máquina virtual (saiba mais sobre [adaptadores de rede primário e secundário](virtual-network-network-interface-vm.md)), coloque a máquina virtual no estado interrompido (desalocado) antes de concluir as etapas a seguir: 
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
+1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o Controle de Acesso Baseado em Função do Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
 2. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.
 3. Na folha **Adaptadores de rede** que aparece, clique no adaptador de rede que você deseja exibir ou do qual deseja alterar as configurações de endereço IP.
 4. Clique em **Configurações de IP** na seção **CONFIGURAÇÕES** da folha do adaptador de rede selecionado.
@@ -79,7 +79,7 @@ Você pode precisar alterar o método de atribuição de endereço IPv4, alterar
 
 **Comandos**
 
-|Ferramenta|Get-Help|
+|Ferramenta|Comando|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -88,7 +88,7 @@ Você pode precisar alterar o método de atribuição de endereço IPv4, alterar
 
 Você pode remover endereços IP [privados](#private) e [públicos ](#public) de um adaptador de rede, mas um adaptador de rede deve sempre ter pelo menos um endereço IPv4 privado atribuído a ele.
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
+1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o Controle de Acesso Baseado em Função do Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
 2. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.
 3. Na folha **Adaptadores de rede** exibida, clique no adaptador de rede do qual você deseja remover endereços IP.
 4. Clique em **Configurações de IP** na seção **CONFIGURAÇÕES** da folha do adaptador de rede selecionado.
@@ -97,7 +97,7 @@ Você pode remover endereços IP [privados](#private) e [públicos ](#public) de
 
 **Comandos**
 
-|Ferramenta|Get-Help|
+|Ferramenta|Comando|
 |---|---|
 |CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 018893a2124f1ab9c98e0728bc90ad0a69cf471f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory com o AWS (Amazon Web Services)
 
@@ -202,9 +202,9 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     b. Na caixa de texto **Descrição da função**, insira a descrição.
 
-    a. Clique em **Criar função**.
+    c. Clique em **Criar função**.
 
-    b. Crie quantas funções forem necessárias e mapeie-as para o Provedor de Identidade.
+    d. Crie quantas funções forem necessárias e mapeie-as para o Provedor de Identidade.
 
 18. Use as credenciais de conta de serviço AWS para buscar as funções da conta AWS no Provisionamento de Usuário do Microsoft Azure AD. Para isso, abra a página inicial do console AWS.
 
@@ -270,16 +270,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     
     c. Clique no botão **"Criar política"**.
 
-24. Na caixa de diálogo **Examinar** , execute as seguintes etapas:   
-    
-    ![Configurar revisão de logon único][34] 
-
-    a. Clique em **Criar função**.
-
-    b. Crie quantas funções forem necessárias e mapeie-as para o Provedor de Identidade.
-
-
-25. Crie uma nova conta de usuário no serviço de IAM do AWS executando as etapas a seguir:
+24. Crie uma nova conta de usuário no serviço de IAM do AWS executando as etapas a seguir:
 
     a. Clique na navegação **Usuários** no console IAM do AWS.
 
@@ -299,7 +290,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     
     * Clique no botão **Próximas permissões** no canto inferior direito.
 
-26. Agora, crie uma nova política para esse usuário executando as etapas a seguir:
+25. Agora, crie uma nova política para esse usuário executando as etapas a seguir:
 
     ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
@@ -309,7 +300,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     
     c. Selecione a **política** e, em seguida, clique no botão **Próxima: Revisão**.
 
-27. Examine a política para o usuário conectado executando as etapas a seguir:
+26. Examine a política para o usuário conectado executando as etapas a seguir:
 
     ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
     
@@ -317,7 +308,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     
     b. Clique no botão **Criar usuário** no canto inferior direito para criar o usuário.
 
-28. Faça o download das credenciais do usuário de um usuário executando as etapas a seguir:
+27. Faça o download das credenciais do usuário de um usuário executando as etapas a seguir:
 
     ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
     
@@ -327,11 +318,11 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     
     c. Clique no botão **Editar** na parte inferior.
 
-29. Navegue até a seção **Provisionamento de usuário** do aplicativo do Amazon Web Services no Portal de Gerenciamento do Microsoft Azure AD.
+28. Navegue até a seção **Provisionamento de usuário** do aplicativo do Amazon Web Services no Portal de Gerenciamento do Microsoft Azure AD.
 
     ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-30. Insira a **Chave de Acesso** e o **Segredo** nos campos **Segredo do Cliente** e **Token do Segredo** respectivamente.
+29. Insira a **Chave de Acesso** e o **Segredo** nos campos **Segredo do Cliente** e **Token do Segredo** respectivamente.
 
     ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -343,7 +334,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     d. Salve a configuração clicando no botão **Salvar** na parte superior.
  
-31. Agora, certifique-se de habilitar o Status de Provisionamento **Ativo** na seção Configurações ativando o comutador e, em seguida, clicando no botão **Salvar** botão na parte superior.
+30. Agora, certifique-se de habilitar o Status de Provisionamento **Ativo** na seção Configurações ativando o comutador e, em seguida, clicando no botão **Salvar** botão na parte superior.
 
     ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
 

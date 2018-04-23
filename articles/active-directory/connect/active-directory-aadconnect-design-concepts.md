@@ -16,10 +16,10 @@ ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceitos de design
 O objetivo deste tópico é descrever as áreas que devem ser consideradas durante o design de implementação do Azure AD Connect. Este tópico é um aprofundamento em determinadas áreas e esses conceitos também são descritos brevemente em outros tópicos.
@@ -59,7 +59,7 @@ Se você tem várias florestas e não move usuários entre florestas e domínios
 
 Se você mover os usuários entre domínios e florestas, deve encontrar um atributo que não será alterado ou que não pode ser movido com os usuários durante a movimentação. Uma abordagem recomendada é apresentar um atributo sintético. Um atributo que contenha algo parecido com um GUID seria adequado. Durante a criação do objeto, um novo GUID é criado e carimbado no usuário. Uma regra de sincronização personalizada pode ser criada no servidor de mecanismo de sincronização para criar esse valor baseado no **objectGUID** e atualizar o atributo selecionado no ADDS. Ao mover o objeto, não se esqueça também de copiar o conteúdo do valor.
 
-Outra solução é escolher um atributo existente que você sabe que não será alterado. Os atributos usados normalmente incluem **employeeID**. Se você considerar um atributo que contenha letras, verifique se não há nenhuma possibilidade da letra (letras maiúsculas ou letras minúsculas) alterar o valor do atributo. Atributos inválidos que não devem ser usados incluem os atributos com o nome do usuário. Em um casamento ou divórcio, o nome deve ser alterado, o que não é permitido para esse atributo. Isso também é um dos motivos pelos quais os atributos como **userPrincipalName**, **mail** e **targetAddress** não são nem mesmo possíveis de se selecionar no assistente de instalação do Azure AD Connect. Esses atributos também contêm o caractere "\@\", que não é permitido no sourceAnchor.
+Outra solução é escolher um atributo existente que você sabe que não será alterado. Os atributos usados normalmente incluem **employeeID**. Se você considerar um atributo que contenha letras, verifique se não há nenhuma possibilidade da letra (letras maiúsculas ou letras minúsculas) alterar o valor do atributo. Atributos inválidos que não devem ser usados incluem os atributos com o nome do usuário. Em um casamento ou divórcio, o nome deve ser alterado, o que não é permitido para esse atributo. Isso também é um dos motivos pelos quais os atributos como **userPrincipalName**, **mail** e **targetAddress** não são nem mesmo possíveis de se selecionar no assistente de instalação do Azure AD Connect. Esses atributos também contêm o caractere "@", que não é permitido no sourceAnchor.
 
 ### <a name="changing-the-sourceanchor-attribute"></a>Alterando o atributo sourceAnchor
 O valor do atributo sourceAnchor não pode ser alterado após o objeto ser criado no AD do Azure e a identidade ser sincronizada.

@@ -2,10 +2,10 @@
 title: Exemplo de script do Azure PowerShell - Conectar um aplicativo Web a um Banco de Dados SQL | Microsoft Docs
 description: Exemplo de script do Azure PowerShell - Conectar um aplicativo Web a um Banco de Dados SQL
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
 ms.service: app-service
@@ -16,23 +16,23 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 5312bf6b81d1cc48490b71c3f77323cca23e1559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ffd907d14265a43fd769aaa751fb3678c3c30dea
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-a-web-app-to-a-sql-database"></a>Conectar um aplicativo Web a um Banco de Dados SQL
 
 Nesse cenário, você aprenderá como criar um Banco de Dados SQL do Azure e um aplicativo Web. Em seguida, você vinculará o Banco de Dados SQL ao aplicativo Web usando configurações do aplicativo.
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
 [!code-powershell[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect a web app to a SQL database")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Após a execução da amostra de script, o comando a seguir pode ser usado para remover o grupo de recursos, o aplicativo Web e todos os recursos relacionados.
 
@@ -42,9 +42,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Command | Observações |
+| Comando | Observações |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Cria um Plano do Serviço de Aplicativo. |

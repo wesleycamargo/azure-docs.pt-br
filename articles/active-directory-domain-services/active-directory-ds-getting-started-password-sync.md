@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 5d65ce4c199c9ddc54e0120fe1c456a95a34f649
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4122052e48e57a27492433d01ee93536a9bbcf35
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Habilitar a sincronização de hashes de senha para o Azure Active Directory Domain Services
 Nas tarefas anteriores, você habilitou o Azure Active Directory Domain Services para seu locatário do Azure AD (Azure Active Directory). A próxima tarefa é habilitar a sincronização de hashes de senha necessários para a autenticação Kerberos e NTLM (NT LAN Manager) para o Azure AD Domain Services. Depois que a sincronização de hashes de senha é configurada, os usuários podem entrar no domínio gerenciado com suas credenciais corporativas.
@@ -64,7 +64,7 @@ Aqui estão as instruções que você precisa fornecer aos usuários para que el
     ![Clique em "Alterar senha"](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
    > [!TIP]
-   > Se a opção **Alterar senha** não for exibida na janela Painel de Acesso, verifique se sua organização configurou [gerenciamento de senhas no Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+   > Se a opção **Alterar senha** não for exibida na janela Painel de Acesso, verifique se sua organização configurou [gerenciamento de senhas no Azure AD](../active-directory/authentication/quickstart-sspr.md).
    >
    >
 4. Na página **Alterar senha** , digite sua senha (antiga) existente, digite uma nova senha e confirme-a.
@@ -77,7 +77,7 @@ A nova senha poderá ser utilizada no Azure Active Directory Domain Services alg
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Como atualizar sua própria senha](../active-directory/active-directory-passwords-update-your-own-password.md)
-* [Introdução ao Gerenciamento de Senhas no Azure AD](../active-directory/active-directory-passwords-getting-started.md)
+* [Introdução ao Gerenciamento de Senhas no Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Habilitar a sincronização de hashes de senha para o Azure Active Directory Domain Services em um locatário do Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administrar um domínio gerenciado do Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)
 * [Ingressar em uma máquina virtual do Windows para um domínio gerenciado do Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)

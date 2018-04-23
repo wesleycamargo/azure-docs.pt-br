@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: fa6a994f30c301fd6c7b431467aebc9d3489c6bc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 O assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
@@ -90,7 +90,7 @@ As permissões de que você precisa dependem dos recursos opcionais que habilita
 | Sincronização de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
 | Implantação híbrida do Exchange |Permissões de gravação para os atributos documentados em [Write-back híbrido do Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
 | Pasta pública do Exchange Mail |Permissões de leitura para os atributos documentados na [Pasta pública do Exchange Mail](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
-| write-back de senha |Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../active-directory-passwords-writeback.md) para usuários. |
+| write-back de senha |Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../authentication/howto-sspr-writeback.md) para usuários. |
 | Write-back de dispositivo |Permissões concedidas com um script do PowerShell, conforme descrito em [Write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md). |
 | Write-back de grupo |Ler, criar, atualizar e excluir objetos de grupo para **grupos do Office 365** sincronizados.  Para saber mais, confira [Write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback).|
 

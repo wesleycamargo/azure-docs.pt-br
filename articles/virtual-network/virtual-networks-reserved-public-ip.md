@@ -1,10 +1,10 @@
 ---
-title: "Gerenciar endereços IP reservados do Azure (Clássico) – PowerShell | Microsoft Docs"
-description: "Entender os endereços IP reservados (Clássico) e como gerenciá-los usando o PowerShell."
+title: Gerenciar endereços IP reservados do Azure (Clássico) – PowerShell | Microsoft Docs
+description: Entender os endereços IP reservados (Clássico) e como gerenciá-los usando o PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
@@ -13,20 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: genli
+ms.openlocfilehash: fafb2566d1b58a37dd1d0e4bab129d7fb01a9f89
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="reserved-ip-addresses-classic"></a>Endereços IP reservados (Clássico)
 
 > [!div class="op_single_selector"]
-> * [portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Modelo](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
 
 Os endereços IP no Azure recaem em duas categorias: dinâmicos e reservados. Os endereços IP públicos gerenciados pelo Azure são dinâmicos por padrão. Isso significa que o endereço IP usado para um determinado serviço de nuvem (VIP) ou para acessar uma VM ou instância de função diretamente (ILPIP) pode mudar de tempos em tempos, quando recursos forem desligados ou interrompidos (desalocados).
@@ -45,7 +44,7 @@ Para saber mais sobre endereços IP no Azure, leia o artigo [Endereços IP](virt
 
 ## <a name="faq"></a>Perguntas frequentes
 1. Posso usar um IP reservado para todos os serviços do Azure? <br>
-    Não. Os IPs reservados só podem ser usados para VMs e funções de instância de serviço de nuvem exposto através de um VIP.
+    Nº Os IPs reservados só podem ser usados para VMs e funções de instância de serviço de nuvem exposto através de um VIP.
 2. Quantos IPs reservados eu posso ter? <br>
     Para obter detalhes, consulte o artigo [Limites do Azure](../azure-subscription-service-limits.md#networking-limits).
 3. Há uma cobrança para IPs reservados? <br>
@@ -53,7 +52,7 @@ Para saber mais sobre endereços IP no Azure, leia o artigo [Endereços IP](virt
 4. Como eu reservo um endereço IP? <br>
     É possível usar o PowerShell, a [API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) ou o [Portal do Azure](https://portal.azure.com) para reservar um endereço IP em uma região do Azure. Um endereço IP reservado é associado à sua assinatura.
 5. Posso usar um IP reservado com VNets baseadas em grupos de afinidades? <br>
-    Não. Os IPs reservados têm suporte apenas em redes virtuais regionais. VNets associadas a grupos de afinidades não dão suporte a IPs reservados. Para obter mais informações sobre a associação de uma VNet a uma região ou a um grupo de afinidades, veja o artigo [Sobre VNets regionais e grupos de afinidades](virtual-networks-migrate-to-regional-vnet.md).
+    Nº Os IPs reservados têm suporte apenas em redes virtuais regionais. VNets associadas a grupos de afinidades não dão suporte a IPs reservados. Para obter mais informações sobre a associação de uma VNet a uma região ou a um grupo de afinidades, veja o artigo [Sobre VNets regionais e grupos de afinidades](virtual-networks-migrate-to-regional-vnet.md).
 
 ## <a name="manage-reserved-vips"></a>Gerenciar VIPs reservados
 

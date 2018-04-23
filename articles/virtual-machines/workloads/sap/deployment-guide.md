@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: 2b3c93abcfe8f1f18719dd5ce79211deccef44db
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 730d0e582fe26810b973568b0638d2e12658c89c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -291,7 +291,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -895,7 +895,7 @@ Para instalar a Extensão de Monitoramento Avançado do Azure para SAP usando o 
 
     ```powershell
     $env = Get-AzureRmEnvironment -Name <name of the environment>
-    Login-AzureRmAccount -Environment $env
+    Connect-AzureRmAccount -Environment $env
     Set-AzureRmContext -SubscriptionName <subscription name>
 
     Set-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
@@ -1058,7 +1058,7 @@ Se parte do monitoramento de dados não for entregue corretamente, conforme indi
 2.  Execute o seguinte cmdlet do PowerShell. Para obter a lista de ambientes disponíveis, execute o cmdlet `Get-AzureRmEnvironment`. Para usar o Azure global, selecione o ambiente **AzureCloud**. Para o Azure na China, selecione **AzureChinaCloud**.
   ```powershell
   $env = Get-AzureRmEnvironment -Name <name of the environment>
-  Login-AzureRmAccount -Environment $env
+  Connect-AzureRmAccount -Environment $env
   Set-AzureRmContext -SubscriptionName <subscription name>
   Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
   ```

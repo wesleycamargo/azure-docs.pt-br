@@ -1,26 +1,24 @@
 ---
 title: Criar um aplicativo HBase Java para Azure HDInsight baseado no Windows | Microsoft Docs
-description: "Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no cluster HDInsight do Azure baseado no Windows."
+description: Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no cluster HDInsight do Azure baseado no Windows.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 7f4a4e02-45ab-40dd-842b-3ec034f256c9
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 59c9af5a91b107e68a676f02fe5a936f955b22fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 84facb99b2264b48ede7306ae87a79605e6e8bed
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Usar o Maven para compilar aplicativos Java que usam o HBase com o HDInsight baseado em Windows (Hadoop)
 Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.org/) em Java usando o Apache Maven. Então, use o aplicativo com o HDInsight do Azure (Hadoop).
@@ -524,7 +522,7 @@ Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descr
             $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
             if(-not($sub))
             {
-                throw "No active Azure subscription found! If you have a subscription, use the Login-AzureRmAccount cmdlet to login to your subscription."
+                throw "No active Azure subscription found! If you have a subscription, use the Connect-AzureRmAccount cmdlet to login to your subscription."
             }
         }
 
@@ -614,6 +612,6 @@ Após ter terminado o exemplo, use o comando a seguir na sessão do Azure PowerS
 
 Substitua **nomedoclusterhdinsight** pelo nome do seu cluster HDInsight.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Nenhum resultado ou resultados inesperados ao usar o Start-HBaseExample
 Utilize o parâmetro `-showErr` para exibir o erro padrão (STDERR) produzido durante a execução do trabalho.

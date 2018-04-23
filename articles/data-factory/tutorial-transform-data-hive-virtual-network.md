@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: fda9cab53290d7af69e243ce47df702b25d1de67
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e9f8ae08a98ecb192fefed310b2392f9a90c7363
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure usando a Atividade Hive no Azure Data Factory
 Neste tutorial, você pode usar o Azure PowerShell para criar um pipeline do Data Factory que transforma dados usando a atividade Hive em um cluster HDInsight que está em uma Rede Virtual (VNet) do Azure. Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados. 
+> * Criar um data factory. 
 > * Criar e configurar um Integration Runtime auto-hospedado
 > * Criar e implantar serviços vinculados.
 > * Criar e implantar um pipeline que contém uma atividade Hive.
-> * Inicie uma execução de pipeline.
+> * Iniciar uma execução de pipeline.
 > * Monitorar a execução de pipeline 
 > * Verificar a saída. 
 
@@ -97,7 +97,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
     Execute o comando a seguir e insira o nome de usuário e senha usados para entrar no portal do Azure:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     Execute o comando abaixo para exibir todas as assinaturas dessa conta:
 
@@ -293,7 +293,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 
 ## <a name="start-the-pipeline"></a>Iniciar o pipeline 
 
-1. Inicie uma execução de pipeline. Ele também captura a ID da execução de pipeline para monitoramento futuro.
+1. Iniciar uma execução de pipeline. Ele também captura a ID da execução de pipeline para monitoramento futuro.
 
     ```powershell
     $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
@@ -398,11 +398,11 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 Neste tutorial, você realizará os seguintes procedimentos: 
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados. 
+> * Criar um data factory. 
 > * Criar e configurar um Integration Runtime auto-hospedado
 > * Criar e implantar serviços vinculados.
 > * Criar e implantar um pipeline que contém uma atividade Hive.
-> * Inicie uma execução de pipeline.
+> * Iniciar uma execução de pipeline.
 > * Monitorar a execução de pipeline 
 > * Verificar a saída. 
 

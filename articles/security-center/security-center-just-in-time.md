@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando o just in time
 
@@ -41,7 +41,7 @@ Uma maneira de reduzir a exposição a um ataque de força bruta é limitar a qu
 
 Quando o just in time está habilitado, a Central de Segurança bloqueia o tráfego de entrada às suas VMs do Azure, criando uma regra de NSG. Você seleciona as portas na VM para as quais o tráfego de entrada será bloqueado. Essas portas são controladas pela solução just in time.
 
-Quando um usuário solicita acesso a uma VM, a Central de Segurança verifica se o usuário tem permissões de [RBAC (Controle de acesso baseado em função)](../active-directory/role-based-access-control-configure.md) que fornecem acesso de gravação para a VM. Se o usuário tem permissões de gravação, a solicitação é aprovada e a Central de Segurança configura automaticamente os NSGs (Grupos de Segurança de Rede) para permitir o tráfego de entrada às portas de gerenciamento pelo período de tempo que você especificou. Depois que o tempo expirar, a Central de Segurança restaura os NSGs aos seus estados anteriores.
+Quando um usuário solicita acesso a uma VM, a Central de Segurança verifica se o usuário tem permissões de [RBAC (Controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) que fornecem acesso de gravação para a VM. Se o usuário tem permissões de gravação, a solicitação é aprovada e a Central de Segurança configura automaticamente os NSGs (Grupos de Segurança de Rede) para permitir o tráfego de entrada às portas de gerenciamento pelo período de tempo que você especificou. Depois que o tempo expirar, a Central de Segurança restaura os NSGs aos seus estados anteriores.
 
 > [!NOTE]
 > O acesso just in time à VM da Central de Segurança atualmente dá suporte somente a VMs implantadas por meio do Azure Resource Manager. Para saber mais sobre os modelos de implantação clássica e do Resource Manager, consulte [Azure Resource Manager vs implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).

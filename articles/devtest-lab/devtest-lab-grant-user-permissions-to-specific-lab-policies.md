@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: v-craic
-ms.openlocfilehash: f92ad5e991bdb066bb9680b4865501076d43f450
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e42d371e1f5244b61dc30823db43fefe549b00d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de usuário para políticas específicas do laboratório
 ## <a name="overview"></a>Visão geral
 Este artigo ilustra como usar o PowerShell para conceder aos usuários permissões para uma determinada política de laboratório. Dessa forma, as permissões podem ser aplicadas com base nas necessidades de cada usuário. Por exemplo, talvez você queira conceder a um usuário específico a capacidade de alterar as configurações de política de VM, mas não as políticas de custo.
 
 ## <a name="policies-as-resources"></a>Políticas como recursos
-Como discutido no artigo [Controle de acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md) , o RBAC permite o gerenciamento de acesso refinado de recursos do Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
+Como discutido no artigo [Controle de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md) , o RBAC permite o gerenciamento de acesso refinado de recursos do Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
 
 Nos Laboratórios de Desenvolvimento/Teste, uma política é um tipo de recurso que habilita a ação de RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Cada política do laboratório é um recurso do tipo de recurso Política e pode ser atribuída como um escopo a uma função RBAC.
 
 Por exemplo, para conceder a permissão de leitura/gravação aos usuários para a política **Tamanhos de VM Permitidos**, você criaria uma função personalizada que funcionasse com a ação **Microsoft.DevTestLab/labs/policySets/policies/*** e, em seguida, atribuiria os usuários adequados a essa função personalizada no escopo de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-Para saber mais sobre as funções personalizadas no RBAC, consulte o [Controle de acesso das funções personalizadas](../active-directory/role-based-access-control-custom-roles.md).
+Para saber mais sobre as funções personalizadas no RBAC, consulte o [Controle de acesso das funções personalizadas](../role-based-access-control/custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>Criar uma função personalizada do laboratório usando o PowerShell
 Para começar, você precisará ler o seguinte artigo, que explica como instalar e configurar os cmdlets do Azure PowerShell: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).

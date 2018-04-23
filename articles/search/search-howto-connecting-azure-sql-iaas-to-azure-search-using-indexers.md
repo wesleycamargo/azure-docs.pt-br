@@ -1,24 +1,17 @@
 ---
-title: "Conexão da VM do SQL para o Azure Search | Microsoft Docs"
-description: "Habilite conexões criptografadas e configure o firewall para permitir conexões com o SQL Server em uma VM (máquina virtual) do Azure de um indexador no Azure Search."
-services: search
-documentationcenter: 
+title: Conexão da VM do SQL para o Azure Search | Microsoft Docs
+description: Habilite conexões criptografadas e configure o firewall para permitir conexões com o SQL Server em uma VM (máquina virtual) do Azure de um indexador no Azure Search.
 author: HeidiSteen
-manager: pablocas
-editor: 
-ms.assetid: 46e42e0e-c8de-4fec-b11a-ed132db7e7bc
+manager: cgronlun
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: bb61330ba5511955e0da16dcd5b8b19529d0e44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f9f429a8a18a6e0722e1cb5e190104665305e06
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador do Azure Search ao SQL Server em uma VM do Azure
 Conforme observado em [Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), é possível criar indexadores no **SQL Server em VMs do Azure** (ou **VMs do SQL Azure**) usando o Azure Search, mas há alguns pré-requisitos relacionados à segurança que precisam ser verificados primeiro. 

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: afb0b40ad23fa8ec5468f10027710294b5e67aab
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8c032cdbf3549cdce435c8179777083d653fb058
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Aprenda rapidamente a criar máquinas virtuais Linux com o PowerShell
 
@@ -35,10 +35,10 @@ Por fim, uma chave SSH pública com o nome *id_rsa.pub* precisa ser armazenada n
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon na sua assinatura do Azure com o comando `Login-AzureRmAccount` e siga as instruções na tela.
+Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos

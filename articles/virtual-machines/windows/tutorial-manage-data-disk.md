@@ -1,13 +1,13 @@
 ---
 title: Gerenciar discos do Azure com o Azure PowerShell | Microsoft Docs
-description: "Tutorial – Gerenciar discos do Azure com o Azure PowerShell"
+description: Tutorial – Gerenciar discos do Azure com o Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ea38fe599960db42c518603b59a60a920d1f1daf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4d84d1f5fbd0fcf5d4c6ba374b1fb5c3df2ba5c6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Gerenciar discos do Azure com o PowerShell
 
@@ -35,7 +35,7 @@ Máquinas virtuais do Azure usam discos para armazenar o sistema operacional de 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.3 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure. 
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.3 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure. 
 
 ## <a name="default-azure-disks"></a>Discos padrão do Azure
 

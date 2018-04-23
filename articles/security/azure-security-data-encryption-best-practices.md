@@ -1,6 +1,6 @@
 ---
-title: "Práticas Recomendadas de Segurança de Dados e Criptografia | Microsoft Docs"
-description: "Este artigo fornece um conjunto de práticas recomendadas de segurança de dados e criptografia usando recursos internos do Azure."
+title: Práticas Recomendadas de Segurança de Dados e Criptografia | Microsoft Docs
+description: Este artigo fornece um conjunto de práticas recomendadas de segurança de dados e criptografia usando recursos internos do Azure.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0cebc7ae5279b720e8fd0d6c986e1706d944476f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: dae93a622bad3ddfb1d9492d17b700d82e9969c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Práticas Recomendadas de Segurança de Dados e Criptografia do Azure
 Uma das chaves de proteção de dados na nuvem é responsável por possíveis estados em que os dados podem ocorrer e quais controles estão disponíveis para esse estado. Em relação às práticas recomendadas de segurança de dados e criptografia do Azure, as recomendações serão feitas para os seguintes estados de dados:
@@ -58,16 +58,16 @@ Por exemplo: ao impor o Azure MFA para seus usuários e configurá-lo para usar 
 
 Uma alternativa para as organizações que desejam manter o controle da autenticação localmente é usar o [Servidor de Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), também chamado de MFA local. Usando esse método você ainda poderá impor a autenticação multifator, mantendo o servidor MFA local.
 
-Para saber mais sobre a MFA do Azure, leia o artigo [Introdução à Autenticação Multifator do Azure na nuvem](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Para saber mais sobre a MFA do Azure, leia o artigo [Introdução à Autenticação Multifator do Azure na nuvem](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Usar RBAC (Controle de Acesso Baseado em Função)
 Restringir o acesso com base nos princípios de segurança de [divulgação restrita àqueles diretamente interessados](https://en.wikipedia.org/wiki/Need_to_know) e [privilégios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Isso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. O RBAC (Controle de Acesso Baseado em Função) pode ser usado para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. O escopo de uma atribuição de função pode ser uma assinatura, um grupo de recursos ou um único recurso.
 
-Você pode aproveitar funções [RBAC internas](../active-directory/role-based-access-built-in-roles.md) no Azure para atribuir privilégios aos usuários. Considere usar a função *Colaborador da Conta de Armazenamento* para operadores de nuvem que precisam gerenciar contas de armazenamento e a função *Colaborador da Conta de Armazenamento Clássica* para gerenciar contas de armazenamento clássico. Para operadores de nuvem que precisam gerenciar VMs e contas de armazenamento, considere adicioná-los à função *Colaborador da Máquina Virtual*.
+Você pode aproveitar funções [RBAC internas](../role-based-access-control/built-in-roles.md) no Azure para atribuir privilégios aos usuários. Considere usar a função *Colaborador da Conta de Armazenamento* para operadores de nuvem que precisam gerenciar contas de armazenamento e a função *Colaborador da Conta de Armazenamento Clássica* para gerenciar contas de armazenamento clássico. Para operadores de nuvem que precisam gerenciar VMs e contas de armazenamento, considere adicioná-los à função *Colaborador da Máquina Virtual*.
 
 As organizações que não impõem o controle de acesso de dados utilizando recursos como o RBAC podem estar dando mais privilégios do que o necessário para seus usuários. Isso pode levar ao comprometimento de dados, já que alguns usuários têm acesso a dados que não deveriam ter desde o início.
 
-Você pode aprender mais sobre o RBAC do Azure lendo o artigo [Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-configure.md).
+Você pode aprender mais sobre o RBAC do Azure lendo o artigo [Controle de Acesso Baseado em Função do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Criptografar Máquinas Virtuais do Azure
 Para muitas organizações, a [criptografia de dados em repouso](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. A Azure Disk Encryption permite que os administradores de TI criptografem discos de VM (Máquina Virtual) Iaas Windows e Linux. A Azure Disk Encryption aproveita o recurso padrão da indústria BitLocker do Windows e o recurso DM-Crypt do Linux para fornecer criptografia de volume para o SO e os discos de dados.

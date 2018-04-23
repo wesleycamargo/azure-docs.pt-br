@@ -1,23 +1,17 @@
 ---
 title: Consultas no Azure Search | Microsoft Docs
-description: "Crie uma consulta de pesquisa na Pesquisa do Azure e use parâmetros de pesquisa para filtrar e classificar os resultados da pesquisa."
-services: search
-manager: jhubbard
-documentationcenter: 
-author: ashmaka
-ms.assetid: 69205d7a-363f-4b92-a53f-6ca818a3d2c7
+description: Crie uma consulta de pesquisa na Pesquisa do Azure e use parâmetros de pesquisa para filtrar e classificar os resultados da pesquisa.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/13/2017
-ms.author: ashmaka
-ms.openlocfilehash: b1a96c2299e415db89f881fa72b150d50bb3c69c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7429f2b3c2a75e1864f78711ad6e374475a25275
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="queries-in-azure-search"></a>Consultas do Azure Search
 > [!div class="op_single_selector"]
@@ -42,7 +36,7 @@ A sintaxe das expressões de filtro é um subconjunto da [linguagem de filtro OD
 ### <a name="simple-query-syntax"></a>Sintaxe de consulta simples
 A [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) é a linguagem de consulta padrão usada no Azure Search. A sintaxe de consulta simples dá suporte a vários operadores de pesquisa comuns, incluindo o AND, OR, NOT, frase, sufixo e operadores de precedência.
 
-### <a name="lucene-query-syntax"></a>sintaxe de consulta Lucene
+### <a name="lucene-query-syntax"></a>Sintaxe de consulta Lucene
 A [sintaxe de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) permite que você use a linguagem de consulta amplamente adotada e expressiva desenvolvida como parte do [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
 Usar a sintaxe de consulta permite que você consiga facilmente os seguintes recursos: [Consultas com escopo de campo](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields), [pesquisa difusa](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy), [pesquisa por proximidade](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_proximity), [aumento de termos](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost), [pesquisa de expressão regular](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_regex), [pesquisa de curinga](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_wildcard), [conceitos básicos da sintaxe](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax) e [consultas usando operadores boolianos](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_boolean).

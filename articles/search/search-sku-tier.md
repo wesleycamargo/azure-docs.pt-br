@@ -1,25 +1,18 @@
 ---
-title: "Escolher um tipo de preço ou SKU para o Azure Search | Microsoft Docs"
-description: "O Azure Search pode ser provisionada nestes SKUs: Gratuito, Básico e Standard, sendo que o Standard está disponível em várias configurações de recursos e níveis de capacidade."
-services: search
-documentationcenter: 
+title: Escolher um tipo de preço ou SKU para o Azure Search | Microsoft Docs
+description: 'O Azure Search pode ser provisionada nestes SKUs: Gratuito, Básico e Standard, sendo que o Standard está disponível em várias configurações de recursos e níveis de capacidade.'
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 8d4b7bca-02a5-43ee-b3f8-03551dfb32fd
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 498ceb4a5d9e0bb9c8c5b5711c8c2687df3a3409
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Escolher um tipo de preço ou SKU para o Azure Search
 No Azure Search, um [serviço é provisionado](search-create-service-portal.md) em um tipo de preço específico ou SKU. As opções incluem: **Gratuito**, **Básico** ou **Standard**, sendo que **Standard** está disponível em várias configurações e capacidades.
@@ -75,7 +68,7 @@ O gráfico a seguir é um subconjunto dos limites do [Limites de serviço no Azu
 
 | Recurso | Grátis | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Contrato de nível de serviço (SLA) |Não <sup>1</sup> |Sim |Sim |Sim |Sim |Sim |
+| Contrato de nível de serviço (SLA) |Não <sup>1</sup> |sim |sim |sim |sim |sim |
 | Limites de índice |3 |5 |50 |200 |200 |1000 <sup>2</sup> |
 | Limites do documento |10.000 no total |1 milhão por serviço |15 milhões por partição |60 milhões por partição |120 milhões por partição |1 milhões por índice |
 | Máximo de partições |N/D |1 |12 |12 |12 |3 <sup>2</sup> |

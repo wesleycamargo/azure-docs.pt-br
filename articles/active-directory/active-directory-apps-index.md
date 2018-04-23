@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e9e5ad496362bf958dfe39b73ecd209f7b8aa284
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e5c99552b74861db6018093dccf736d08374204f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artigos sobre gerenciamento de aplicativos no Active Directory do Azure
 Esta página fornece uma lista abrangente com todos os documentos escritos sobre os vários recursos relacionados ao aplicativo no Active Directory do Azure (AD do Azure).
@@ -96,7 +96,7 @@ Se sua organização mantém um Active Directory do Windows Server no local junt
 | Uma visão geral sobre as opções de logon único oferecidas no Azure AD Connect, bem como informações sobre o gerenciamento de ambientes híbridos |[Opções de logon único do usuário no Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Diretrizes gerais para o gerenciamento de ambientes com o Active Directory local e o Active Directory do Azure |[Considerações de design da Identidade Híbrida Azure AD](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integração de suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md) |
 | Orientação sobre como usar a Sincronização de Senha para habilitar SSO |[Implementar a sincronização de senha com o Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Solucionar problemas de sincronização de senha](https://support.microsoft.com/en-us/kb/2855271) |
-| Orientação sobre como usar o Write-back de Senha para habilitar SSO |[Introdução ao Gerenciamento de Senhas no Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Solucionar problemas de Write-back de Senha](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Orientação sobre como usar o Write-back de Senha para habilitar SSO |[Introdução ao Gerenciamento de Senhas no Azure AD](authentication/quickstart-sspr.md)<br /><br />[Solucionar problemas de Write-back de Senha](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Orientação sobre como usar provedores de identidade de terceiros para habilitar SSO |[Lista de provedores de identidade de terceiros compatíveis que podem ser usados para habilitar o logon único](https://aka.ms/ssoproviders) |
 | Como os usuários do Windows 10 podem aproveitar os benefícios do logon único por meio do ingresso no AD do Azure |[Estendendo os recursos de nuvem para dispositivos com Windows 10 por meio do ingresso no Active Directory do Azure](active-directory-azureadjoin-overview.md) |
 

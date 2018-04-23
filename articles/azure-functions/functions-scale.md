@@ -1,13 +1,13 @@
 ---
 title: Escala e hospedagem no Azure Functions | Microsoft Docs
-description: "Saiba como escolher entre o plano de Consumo do Azure Functions e o plano do Serviço de Aplicativo."
+description: Saiba como escolher entre o plano de Consumo do Azure Functions e o plano do Serviço de Aplicativo.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, functions, plano de consumo, plano do serviço de aplicativo, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: azure functions, functions, plano de consumo, plano do serviço de aplicativo, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
@@ -86,7 +86,7 @@ Em um plano de Consumo ou plano do Serviço de Aplicativo, um aplicativo de fun�
 
 <!-- JH: Does using a PRemium Storage account improve perf? -->
 
-Para saber mais sobre os tipos de conta de armazenamento, consulte [Apresentando os serviços de armazenamento do Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
+Para saber mais sobre os tipos de conta de armazenamento, consulte [Apresentando os serviços de armazenamento do Azure](../storage/common/storage-introduction.md#azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Como funciona o plano de consumo
 

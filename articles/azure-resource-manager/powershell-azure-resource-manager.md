@@ -1,8 +1,8 @@
 ---
-title: "Gerenciar as soluções do Azure com o PowerShell | Microsoft Docs"
+title: Gerenciar as soluções do Azure com o PowerShell | Microsoft Docs
 description: Use o Azure PowerShell e o Resource Manager para gerenciar seus recursos.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a3dcbfe09d47388b80cee15ff0e46f8b75b474a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gerenciar recursos com o Azure PowerShell
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/08/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, consulte [Instalar o módulo Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, consulte [Instalar o módulo Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="understand-scope"></a>Compreender o escopo
 
@@ -51,9 +51,9 @@ Atualmente, o grupo de recursos está vazio.
 
 Neste artigo, você implanta uma máquina virtual e a rede virtual relacionada. Para gerenciar soluções de máquinas virtuais, há três funções específicas do recurso que fornecem acesso comum:
 
-* [Colaborador de Máquina Virtual](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Colaborador de rede](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Colaborador da Conta de Armazenamento](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Colaborador de Máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Colaborador de rede](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Colaborador da Conta de Armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Em vez de atribuir funções a usuários individuais, muitas vezes é mais fácil [criar um grupo do Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) para usuários que precisam tomar ações semelhantes. E, em seguida, atribuir esse grupo à função apropriada. Para simplificar este artigo, você cria um grupo do Azure Active Directory sem membros. Além disso, é possível atribuir esse grupo a uma função para um escopo. 
 
