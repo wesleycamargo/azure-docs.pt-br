@@ -9,6 +9,34 @@
               href: tutorial-windows-vm-access-arm.md
             - name: VM Linux
               href: tutorial-linux-vm-access-arm.md
+    - name: Tutoriais
+      items:
+        - name: VM/VMSS Windows
+          items:
+            - name: Acessar Azure Data Lake Store
+              href: tutorial-windows-vm-access-datalake.md
+            - name: Acessar Armazenamento do Azure usando chave de acesso
+              href: tutorial-windows-vm-access-storage.md
+            - name: Acessar Armazenamento do Azure usando SAS
+              href: tutorial-windows-vm-access-storage-sas.md
+            - name: Acessar SQL do Azure
+              href: tutorial-windows-vm-access-sql.md
+            - name: Acessar Azure Key Vault
+              href: tutorial-windows-vm-access-nonaad.md
+            - name: Acessar o Azure Cosmos DB
+              href: tutorial-windows-vm-access-cosmos-db.md
+        - name: VM Linux/VMSS
+          items:
+            - name: Acessar Azure Data Lake Store
+              href: tutorial-linux-vm-access-datalake.md
+            - name: Acessar Armazenamento do Azure usando chave de acesso
+              href: tutorial-linux-vm-access-storage-access-key.md
+            - name: Acessar Armazenamento do Azure usando SAS
+              href: tutorial-linux-vm-access-storage-sas.md
+            - name: Acessar Azure Key Vault
+              href: tutorial-linux-vm-access-nonaad.md
+            - name: Acessar o Azure Cosmos DB
+              href: tutorial-linux-vm-access-cosmos-db.md
     - name: Configurar o MSI para uma VM do Azure
       items:
         - name: Usando o Portal do Azure
@@ -45,30 +73,6 @@
           href: how-to-use-vm-sign-in.md
         - name: Usar com SDKs do Azure
           href: how-to-use-vm-sdk.md
-    - name: Usar uma Identidade Gerenciada de VM/VMSS do Windows
-      items:
-        - name: Acessar Azure Data Lake Store
-          href: tutorial-windows-vm-access-datalake.md
-        - name: Acessar SQL do Azure
-          href: tutorial-windows-vm-access-sql.md
-        - name: Acessar Armazenamento do Azure usando chave de acesso
-          href: tutorial-windows-vm-access-storage.md
-        - name: Acessar Armazenamento do Azure usando SAS
-          href: tutorial-windows-vm-access-storage-sas.md
-        - name: Acessar Azure Key Vault
-          href: tutorial-windows-vm-access-nonaad.md
-    - name: Usar uma Identidade Gerenciada de VM/VMSS do Linux
-      items:
-        - name: Acessar Azure Data Lake Store
-          href: tutorial-linux-vm-access-datalake.md
-        - name: Acessar Armazenamento do Azure usando chave de acesso
-          href: tutorial-linux-vm-access-storage.md
-        - name: Acessar Armazenamento do Azure usando SAS
-          href: tutorial-linux-vm-access-storage-sas.md
-        - name: Acessar Azure Key Vault
-          href: tutorial-linux-vm-access-nonaad.md
-        - name: Acessar o Azure Cosmos DB
-          href: tutorial-linux-vm-access-cosmos-db.md
     - name: Perguntas frequentes e problemas conhecidos
       href: known-issues.md
     - name: Referência

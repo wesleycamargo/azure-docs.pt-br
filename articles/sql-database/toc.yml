@@ -438,6 +438,8 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
+        - name: Usar o Conector do Spark
+          href: sql-database-spark-connector.md
 - name: Referência
   items:
     - name: Azure PowerShell

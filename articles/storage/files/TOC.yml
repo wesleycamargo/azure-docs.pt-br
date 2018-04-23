@@ -126,6 +126,8 @@
               href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Habilitar e exibir métricas
               href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Migrar para novas Métricas de Armazenamento
+              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Transferência de dados
       items:
         - name: Mover dados para e do Armazenamento
