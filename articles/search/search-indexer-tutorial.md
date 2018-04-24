@@ -1,25 +1,18 @@
 ---
-title: "Tutorial para indexação de bancos de dados SQL do Azure no Azure Search | Microsoft Docs"
-description: "Rastrear um banco de dados SQL do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search."
-services: search
-documentationcenter: 
+title: Tutorial para indexação de bancos de dados SQL do Azure no Azure Search | Microsoft Docs
+description: Rastrear um banco de dados SQL do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: cgronlun
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f123b4f5d0a51a4ab5015a2a0008a76fbfa0318e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Como rastrear um banco de dados SQL do Azure usando indexadores do Azure Search
 
@@ -95,7 +88,7 @@ Você pode encontrar o ponto de extremidade de serviço de pesquisa e a chave no
 4. Copie e cole-o como a primeira entrada em **appsettings.json** no Visual Studio.
 
   > [!Note]
-  > Um nome de serviço é parte do ponto de extremidade que inclui search.windows.net. Se você estiver curioso, é possível ver a URL completa em **Conceitos básicos** na página Visão geral. A URL é parecida com este exemplo: https://your-service-name.search.windows.net
+  > Um nome de serviço é parte do ponto de extremidade que inclui search.windows.net. Se você estiver curioso, é possível ver a URL completa em **Conceitos básicos** na página Visão geral. A URL se parece com este exemplo: https://your-service-name.search.windows.net
 
 5. À esquerda, em **Configurações** > **Chaves**, copie uma das chaves de administração e cole-a como a segunda entrada em **appsettings.json**. As chaves são cadeias de caracteres alfanuméricas geradas para o serviço durante o provisionamento e necessárias para acesso autorizado a operações de serviço. 
 

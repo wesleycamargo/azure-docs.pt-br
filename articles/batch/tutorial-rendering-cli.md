@@ -1,6 +1,6 @@
 ---
-title: Processar uma cena na nuvem - Lote do Azure
-description: "Tutorial: como renderizar uma cena do Autodesk 3ds Max com Arnold usando o Serviço de Renderização do Lote e a CLI do Azure"
+title: Renderizar uma cena na nuvem com o Lote do Azure
+description: 'Tutorial: como renderizar uma cena do Autodesk 3ds Max com Arnold usando o Serviço de Renderização do Lote e a CLI do Azure'
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 02/05/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0531406ce50cf8cb549965d1f30b327afe52b003
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f8a93e873f79e99777fe2d8675c9426f5fc5ecda
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: renderizar uma cena com o Lote do Azure 
 
 O Lote do Azure fornece recursos de renderização em escala de nuvem com pagamento baseado no uso. O Serviço de Renderização do Lote dá suporte a Autodesk Maya, 3ds Max, Arnold e V-Ray. Este tutorial mostra as etapas para renderizar uma cena pequena com o Lote usando a CLI do Azure. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Carregar uma cena para o armazenamento do Azure
+> * Carregar uma cena no armazenamento do Azure
 > * Criar um pool do Lote para renderização
 > * Renderizar uma cena de quadro único
 > * Dimensionar o pool e renderizar uma cena com vários quadros
@@ -42,7 +42,7 @@ Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você 
 
 Se você ainda não fez isso, crie um grupo de recursos, uma conta do Lote e uma conta de armazenamento vinculada em sua assinatura. 
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus2*.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -50,7 +50,7 @@ az group create \
     --location eastus2
 ```
 
-Crie uma conta de armazenamento de uso geral em seu grupo de recursos com o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). Para este tutorial, você pode usar a conta de armazenamento para armazenar uma cena do 3ds Max de entrada e a saída renderizada.
+Crie uma conta de Armazenamento do Azure em seu grupo de recursos com o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). Para este tutorial, você pode usar a conta de armazenamento para armazenar uma cena do 3ds Max de entrada e a saída renderizada.
 
 ```azurecli-interactive
 az storage account create \
@@ -250,7 +250,7 @@ az batch task create \
     --json-file myrendertask.json
 ```
 
-O Lote agenda tarefa e ela é executada assim que um nó no pool fica disponível.
+O Lote agenda a tarefa e ela é executada assim que um nó no pool fica disponível.
 
 
 ### <a name="view-task-output"></a>Exibir saída de tarefa
@@ -280,7 +280,7 @@ Abra *dragon.jpg* em seu computador. A imagem renderizada é semelhante à segui
 
 ## <a name="scale-the-pool"></a>Dimensionar o pool
 
-Agora, modifique o pool para se preparar para um trabalho de renderização maior, com vários quadros. O Lote fornece várias maneiras para dimensionar os recursos de computação, incluindo [dimensionamento automático](batch-automatic-scaling.md), que adiciona ou remove nós conforme a tarefa demanda alterações. Para este exemplo básico, use o comando [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) para aumentar o número de nós de baixa prioridade no pool para *6*:
+Agora, modifique o pool para se preparar para um trabalho de renderização maior, com vários quadros. O Lote fornece várias maneiras para dimensionar os recursos de computação, incluindo [dimensionamento automático](batch-automatic-scaling.md), que adiciona ou remove nós, de acordo com as alterações na demanda. Para este exemplo básico, use o comando [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) para aumentar o número de nós de baixa prioridade no pool para *6*:
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -331,7 +331,7 @@ Abra um dos arquivos em seu computador. O quadro renderizado 6 é semelhante ao 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, conta do Lote, pools e os recursos relacionados. Exclua os recursos da seguinte maneira:
+Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o pool e os recursos relacionados. Exclua os recursos da seguinte maneira:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

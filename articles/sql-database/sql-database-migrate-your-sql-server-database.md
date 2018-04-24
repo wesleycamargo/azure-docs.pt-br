@@ -1,23 +1,28 @@
 ---
-title: Migrar o banco de dados SQL Server para o Banco de Dados SQL do Azure | Microsoft Docs
-description: Saiba como migrar seu banco de dados do SQL Server para o banco de dados SQL do Azure.
+title: Migrar o Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMS | Microsoft Docs
+description: Saiba como migrar seu Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMS.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: c4b4354cb1090b9abc388da9d1d1b135f135144d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 14e9949fe0c292a366fa55e3f16d14d885606f6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrar seu banco de dados do SQL Server para o banco de dados SQL do Azure
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>Migrar seu Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMS
 
-Mover seu banco de dados do SQL Server para o Banco de dados SQL do Azure é tão simples quanto criar um banco de dados SQL vazio no Azure e usar o [DMA](https://www.microsoft.com/download/details.aspx?id=53595) (Assistente de Migração de Dados) para importar o banco de dados para o Azure. Neste tutorial, você aprenderá a:
+Mover seu banco de dados SQL Server para um banco de dados individual do Banco de Dados SQL do Azure é tão simples quanto criar um banco de dados SQL vazio no Azure e usar o [DMA](https://www.microsoft.com/download/details.aspx?id=53595) (Assistente de Migração de Dados) para importar o banco de dados para o Azure. Para obter mais opções de migração, consulte [Migrar seu banco de dados para o banco de dados SQL do Azure](sql-database-cloud-migrate.md).
+
+> [!IMPORTANT]
+> Para migrar para uma Instância Gerenciada do Banco de Dados SQL do Azure, consulte [Migrar do SQL Server para uma Instância Gerenciada](sql-database-managed-instance-migrate.md)
+
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Criar um banco de dados SQL do Azure vazio no Portal do Azure (usando um servidor novo ou existente do Banco de Dados SQL do Azure)

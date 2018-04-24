@@ -2,10 +2,10 @@
 title: Perguntas frequentes sobre o Azure Active Directory | Microsoft Docs
 description: As Perguntas Frequentes do Azure Active Directory respondem a perguntas sobre o Azure e o Azure Active Directory, o gerenciamento de senhas e o acesso ao aplicativo.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 83586cff59d5beb7c48bc6bb8b72fd09e4d37bf8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-faq"></a>Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
@@ -29,9 +29,9 @@ Para obter mais informações, confira [O que é Azure Active Directory?](active
 ## <a name="access-azure-and-azure-active-directory"></a>Acessar o Azure e o Azure Active Directory
 **P: por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Azure AD no Portal do Azure?**
 
-**R:** para acessar o Portal do Azure, cada usuário precisa de permissões com uma assinatura do Azure. Se você tiver uma assinatura paga do Office 365 ou Azure AD, acesse [https://aka.ms/accessAAD](https://aka.ms/accessAAD) para obter uma etapa de ativação única. Caso contrário, você precisará ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) grátis ou uma assinatura paga.
+**R:** para acessar o Portal do Azure, cada usuário precisa de permissões com uma assinatura do Azure. Se você tiver uma assinatura paga do Office 365 ou do Azure AD, acesse [https://aka.ms/accessAAD](https://aka.ms/accessAAD) para obter uma etapa de ativação única. Caso contrário, você precisará ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) grátis ou uma assinatura paga.
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 * [Como as assinaturas do Azure são associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gerenciar o diretório para sua assinatura do Office 365 no Azure](active-directory-manage-o365-subscription.md)
@@ -119,11 +119,11 @@ Para saber mais, confira [Introdução ao gerenciamento de senhas](active-direct
 
 **R:** sim, se você tiver o write-back de senha habilitado, as operações de senha executadas por um administrador serão gravadas de volta no ambiente local.  
 
-Para obter mais respostas a perguntas relacionadas a senhas, confira [Perguntas frequentes sobre gerenciamento de senhas](active-directory-passwords-faq.md).
+Para obter mais respostas a perguntas relacionadas a senhas, confira [Perguntas frequentes sobre gerenciamento de senhas](authentication/active-directory-passwords-faq.md).
 - - -
 **P: o que fazer se eu não lembrar de minha senha existente do Office 365/Azure AD ao tentar alterar a senha?**
 
-**R:** para esse tipo de situação, há algumas opções.  Use SSPR (redefinição de senha de autoatendimento), se estiver disponível.  O funcionamento de SSPR dependerá de como está configurado.  Para saber mais, veja [Como funciona o portal de redefinição de senhas](active-directory-passwords-best-practices.md).
+**R:** para esse tipo de situação, há algumas opções.  Use SSPR (redefinição de senha de autoatendimento), se estiver disponível.  O funcionamento de SSPR dependerá de como está configurado.  Para saber mais, veja [Como funciona o portal de redefinição de senhas](authentication/howto-sspr-deployment.md).
 
 Para usuários do Office 365, o administrador pode redefinir a senha usando as etapas descritas em [Redefinir senhas de usuário](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
@@ -160,7 +160,7 @@ Para obter uma lista completa dos aplicativos pré-integrados, confira o [Active
 
 **R:** com o Azure AD Premium, você pode adicionar e configurar qualquer aplicativo que desejar. Dependendo dos recursos do aplicativo e de suas preferências, você pode configurar o SSO e o provisionamento automatizado.  
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 * [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md)
@@ -182,7 +182,7 @@ Para saber mais, confira [Implantar os aplicativos integrados do Azure AD para u
 
 **R:** o Azure AD dá suporte a vários protocolos padronizados para autenticação e autorização, como SAML 2.0, OpenID Connect, OAuth 2.0 e WS-Federation. O Azure AD também dá suporte a cofres de senhas e recursos de entrada automatizada para aplicativos que dão suporte apenas à autenticação baseada em formulários.  
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 * [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md)
 * [Protocolos de autenticação do Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
