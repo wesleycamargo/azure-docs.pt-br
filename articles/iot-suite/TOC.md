@@ -48,6 +48,7 @@
 ### [Passo a passo da solução de manutenção preditiva](iot-suite-predictive-walkthrough.md)
 
 ## Fábrica conectada
+### [O que é Fábrica conectada?](iot-suite-connected-factory-features.md)
 ### [Visão geral da solução da fábrica conectada](iot-suite-connected-factory-overview.md)
 ### [Guia da solução da fábrica conectada](iot-suite-connected-factory-sample-walkthrough.md)
 
