@@ -16,19 +16,19 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 22086a0d9fc774b75e1b0873188b16fc548d0791
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como distribuir com sucesso a redefinição de senha de autoatendimento
 
 Para garantir uma distribuição uniforme da funcionalidade de autoatendimento de redefinição de senha (SSPR) do Azure Active Directory (Azure AD), a maioria dos clientes conclui as seguintes etapas:
 
-1. [Habilitar a redefinição de senha em seu diretório](../active-directory-passwords-getting-started.md).
-2. [Configurar permissões do Active Directory locais para write-back de senha](../active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Configurar o write-back de senha](../active-directory-passwords-writeback.md#configure-password-writeback) para gravar senhas do Azure AD de volta ao seu diretório local.
+1. [Habilitar a redefinição de senha em seu diretório](quickstart-sspr.md).
+2. [Configurar permissões do Active Directory locais para write-back de senha](howto-sspr-writeback.md#active-directory-permissions).
+3. [Configurar o write-back de senha](howto-sspr-writeback.md#configure-password-writeback) para gravar senhas do Azure AD de volta ao seu diretório local.
 4. [Atribuir e verificar as licenças necessárias](concept-sspr-licensing.md).
 5. Determine se deseja fazer uma distribuição gradual. Se deseja distribuir o SSPR gradualmente, você pode limitar o acesso a um grupo de usuários para que você possa fazer um teste do programa com um grupo específico. Para fazer a distribuição para um grupo específico, defina a opção **Autoatendimento de Redefinição de Senha Habilitado** como **Selecionado** e selecione o grupo de segurança que deseja que seja capaz de usar a redefinição de senha. 
 6. Preencha os [dados de autenticação](howto-sspr-authenticationdata.md) necessários para que seus usuários se registrem, como telefone comercial, telefone celular e endereço de email alternativo.
@@ -41,7 +41,7 @@ Para garantir uma distribuição uniforme da funcionalidade de autoatendimento d
    > [!NOTE]
    > Alterar essa opção de um grupo selecionado para qualquer pessoa não invalida os dados de autenticação existentes que um usuário registrou como parte de um grupo de teste. Usuários que estão configurados e têm dados de autenticação registrados válidos continuam a funcionar.
 
-12. [Permitir que os usuários do Windows 10 redefinam sua senha na tela de logon](../active-directory-passwords-login.md).
+12. [Permitir que os usuários do Windows 10 redefinam sua senha na tela de logon](tutorial-sspr-windows.md).
 
    > [!IMPORTANT]
    > Teste o SSPR com um usuário e não como um administrador, uma vez que a Microsoft impõe requisitos de autenticação fortes para contas de administrador do Azure. Para obter mais informações sobre a política de senha do administrador, confira o nosso artigo de [política de senha](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -90,7 +90,7 @@ Você deve [preencher os dados de autenticação de seus usuários](howto-sspr-a
 * [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais são as opções de política com SSPR?](concept-sspr-policy.md)
-* [O que é o write-back de senha e por que devo me importar com isso?](../active-directory-passwords-writeback.md)
+* [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
 * [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
 * [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
