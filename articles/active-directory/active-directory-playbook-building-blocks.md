@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: d78b6934e276c53b65f3c171ed980f86458c3a93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
 
@@ -380,8 +380,8 @@ Tempo estimado para Conclusão: 15 minutos
 | Pré-requisito | Recursos |
 | --- | --- |
 | Tipos de atividades de gerenciamento de senha de autoatendimento no seu locatáro. | [Redefinição de senhas do Azure Active Directory para administradores de TI](active-directory-passwords-update-your-own-password.md) |
-| Habilite write-back de senha para gerenciar senhas locais. Observe que isso exige versões do Azure AD Connect | [Pré-requisitos de Write-back de Senha](active-directory-passwords-writeback.md) |
-| Identificar os usuários de prova de conceito que usam essa funcionalidade e certifique-se de que eles são membros de um grupo de segurança. Os usuários devem ser não administradores para demonstração total do recurso | [Personalizar: Gerenciamento de Senha do Azure AD: Restringir o acesso à redefinição de senha](active-directory-passwords-writeback.md) |
+| Habilite write-back de senha para gerenciar senhas locais. Observe que isso exige versões do Azure AD Connect | [Pré-requisitos de Write-back de Senha](authentication/howto-sspr-writeback.md) |
+| Identificar os usuários de prova de conceito que usam essa funcionalidade e certifique-se de que eles são membros de um grupo de segurança. Os usuários devem ser não administradores para demonstração total do recurso | [Personalizar: Gerenciamento de Senha do Azure AD: Restringir o acesso à redefinição de senha](authentication/howto-sspr-writeback.md) |
 
 
 ### <a name="steps"></a>Etapas
@@ -412,7 +412,7 @@ Tempo estimado para Conclusão: 10 minutos
 | Pré-requisito | Recursos |
 | --- | --- |
 | Identificar os usuários de prova de conceito que usam MFA  |  |
-| Telefone com bom sinal para o desafio MFA  | [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md) |
+| Telefone com bom sinal para o desafio MFA  | [O que é a Autenticação Multifator do Azure?](authentication/multi-factor-authentication.md) |
 
 ### <a name="steps"></a>Etapas
 
@@ -421,7 +421,7 @@ Tempo estimado para Conclusão: 10 minutos
 | Navegue até a folha "Usuários e grupos" no Portal de Gerenciamento do Azure AD | [Portal de Gerenciamento do Azure AD: Usuários e grupos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Selecione a folha "Todos os usuários" |  |
 | Na barra superior selecione o botão "Autenticação Multifator" | URL direto para o portal do Azure MFA: https://aka.ms/mfaportal |
-| Nas configurações de "Usuário", selecione os usuários de prova de conceito e habilite-os para MFA | [Estados do usuário na Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| Nas configurações de "Usuário", selecione os usuários de prova de conceito e habilite-os para MFA | [Estados do usuário na Autenticação Multifator do Azure](authentication/howto-mfa-userstates.md) |
 | Faça logon como usuário de prova de conceito e percorra o processo de verificação  |  |
 
 ### <a name="considerations"></a>Considerações
