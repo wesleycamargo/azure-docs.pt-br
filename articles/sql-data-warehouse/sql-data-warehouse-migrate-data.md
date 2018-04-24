@@ -1,25 +1,20 @@
 ---
 title: Migrar seus dados para o SQL Data Warehouse | Microsoft Docs
-description: "Dicas para migrar seus dados para o SQL Data Warehouse do Azure para desenvolvimento de soluções."
+description: Dicas para migrar seus dados para o SQL Data Warehouse do Azure para desenvolvimento de soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 06/29/2017
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: ca467ae5fbe784399e4e046c47c920ff7dec638e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="migrate-your-data"></a>Migrar seus dados
 Os dados podem ser movidos de diferentes origens no SQL Data Warehouse com uma variedade de ferramentas.  A cópia do ADF, o SSIS e o bcp podem ser usados para cumprir essa meta. No entanto, à medida que o volume de dados aumenta, uma boa prática é dividir em etapas o processo de migração de dados. Isso possibilita a otimização de cada etapa quanto ao desempenho e à resiliência para garantir uma migração de dados tranquila.
@@ -190,10 +185,11 @@ Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimen
 [ADF samples]: ../data-factory/v1/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
 [development overview]: sql-data-warehouse-overview-develop.md
+[migrar seu esquema]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
+[Use bcp to load data into SQL Data Warehouse]: /sql/tools/bcp-utility
+[Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 
 <!--MSDN references-->

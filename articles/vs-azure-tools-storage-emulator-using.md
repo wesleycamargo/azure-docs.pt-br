@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: ecf9df0d94f34df69750a8baa7f5502764cf9b06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c4f4c89eccd1faa4c947048a6d634c4cf8483cb6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurando e usando o emulador de armazenamento com o Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -54,5 +54,5 @@ Na primeira vez que você executar ou depurar o serviço do Visual Studio, o emu
 O emulador de armazenamento fornece uma interface do usuário para exibir o status dos serviços de armazenamento local e para iniciá-los, pará-los e redefini-los. Depois que o serviço do emulador de armazenamento tiver sido iniciado, você poderá exibir a interface do usuário ou iniciar ou parar o serviço clicando no ícone da área de notificação para o Emulador do Microsoft Azure na barra de tarefas do Windows.
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Exibindo dados do emulador de armazenamento no Gerenciador de Servidores
-O nó de Armazenamento do Azure no Gerenciador de Servidores habilita você a exibir dados e alterar as configurações de dados de blob e de tabela em suas contas de armazenamento, incluindo o emulador de armazenamento. Consulte [Gerenciar recursos do Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento (Versão Prévia)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) para obter mais informações.
+O nó de Armazenamento do Azure no Gerenciador de Servidores habilita você a exibir dados e alterar as configurações de dados de blob e de tabela em suas contas de armazenamento, incluindo o emulador de armazenamento. Consulte [Gerenciar recursos do Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) para obter mais informações.
 

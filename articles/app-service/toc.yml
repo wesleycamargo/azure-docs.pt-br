@@ -29,7 +29,7 @@
       href: app-service-web-get-started-html.md
 - name: Tutoriais
   items:
-    - name: 1 - Aplicativo com banco de dados
+    - name: Aplicativo com BD
       items:
         - name: .NET Core com banco de dados SQL
           href: app-service-web-tutorial-dotnetcore-sqldb.md
@@ -43,15 +43,17 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python com PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - Alojar API RESTful
+    - name: Acessar BD SQL com segurança
+      href: app-service-web-tutorial-connect-msi.md
+    - name: Hospedar API RESTful
       href: app-service-web-tutorial-rest-api.md
-    - name: 2 - Mapear Domínio Personalizado
+    - name: Mapear Domínio Personalizado
       href: app-service-web-tutorial-custom-domain.md
-    - name: 3 - Associar Certificado SSL
+    - name: Associar Certificado SSL
       href: app-service-web-tutorial-custom-ssl.md
-    - name: 4 - Adicionar CDN
+    - name: Adicionar CDN
       href: app-service-web-tutorial-content-delivery-network.md
-    - name: 5 - Autenticar usuários
+    - name: Autenticar usuários
       href: app-service-web-tutorial-auth-aad.md
 - name: Exemplos
   items:
@@ -69,6 +71,8 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: Funcionalidade de SO
       href: web-sites-available-operating-system-functionality.md
+    - name: IPs de entrada e saída
+      href: app-service-ip-addresses.md
     - name: Autenticação e autorização
       href: app-service-authentication-overview.md
     - name: Conexões Híbridas
@@ -143,6 +147,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: Personalizar autenticação
           href: app-service-authentication-how-to.md
+        - name: Restringir IPs
+          href: app-service-ip-restrictions.md
         - name: Usar o Managed Service Identity
           href: app-service-managed-service-identity.md
         - name: Usar o certificado SSL no código do aplicativo

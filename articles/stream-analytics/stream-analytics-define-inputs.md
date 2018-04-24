@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.openlocfilehash: 0a90e97779416db7b7244cce9d6bdad740161051
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2db5398b7f252f723f342c1b978b27dd273321ec
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexão de dados: saiba mais sobre entradas de fluxo de dados de eventos para o Stream Analytics
 A conexão de dados para um trabalho do Stream Analytics é um fluxo de eventos de uma fonte de dados, que é conhecido como a *entrada* de um trabalho. O Stream Analytics tem integração de primeira classe com fontes de fluxo de dados do Azure, incluindo [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) e [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/). Essas fontes de entrada podem ser da mesma assinatura do Azure que o trabalho de análise ou de uma assinatura diferente.
@@ -129,6 +129,8 @@ Para cenários com grandes quantidades de dados não estruturados para repositó
 O carimbo de data/hora padrão de eventos de Armazenamento de Blobs no Stream Analytics é o carimbo de data/hora que o blob foi modificado pela última vez, que é `BlobLastModifiedUtcTime`. Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, você deve usar a palavra-chave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
 As entradas formatadas em CSV *exigem* uma linha de cabeçalho para definir os campos do conjunto de dados. Além disso, todos os campos de linha de cabeçalho adicionais devem ser exclusivos.
+
+Se a mensagem original (JSON, CSV ou AVRO) foi roteada do IoT ou Hub de Eventos para o Armazenamento de Blob no formato AVRO, o Stream Analytics falhará ao desserializar essas entradas do Armazenamento de Blob.
 
 > [!NOTE]
 > O Stream Analytics não dá suporte para a adição de conteúdo a um arquivo de blob existente. O Stream Analytics exibirá cada arquivo apenas uma vez e quaisquer alterações que ocorram no arquivo após o trabalho ter lido os dados não serão processados. A prática recomendada é carregar todos os dados para um arquivo de blob de uma vez e, em seguida, adicionar outros eventos mais recentes em um arquivo diferente, o novo arquivo de blob.
