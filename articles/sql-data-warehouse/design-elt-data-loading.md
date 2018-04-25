@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 3cea41a7c129ee5a691226097d087539f943bec6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Criação de Extrair, Carregar e Transformar (ELT) para o Azure SQL Data Warehouse
 
@@ -56,7 +56,7 @@ Para carregar dados com o PolyBase, você pode usar qualquer uma dessas opções
 O PolyBase carrega dados de arquivos de texto delimitados e codificados de UTF-8 e UTF-16. Além dos arquivos de texto delimitados, ele carrega os formatos de arquivo do Hadoop, o arquivo RC, ORC e Parquet. O PolyBase pode carregar dados de arquivos compactados Gzip e Snappy. Atualmente, o PolyBase não suporta ASCII estendido, formato de largura fixa, e formatos aninhados, como XML, JSON e WinZip.
 
 ### <a name="non-polybase-loading-options"></a>Opções de carregamento que não sejam PolyBase
-Se os seus dados não forem compatíveis com o PolyBase, você pode usar [bcp](sql-data-warehouse-load-with-bcp.md) ou a [API do SQLBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). O bcp carrega diretamente para o SQL Data Warehouse sem passar pelo armazenamento de Blobs do Azure e é destinado somente para pequenas cargas. Note que o desempenho do carregamento dessas opções é significativamente mais lento do que o PolyBase. 
+Se os seus dados não forem compatíveis com o PolyBase, você pode usar [bcp](/sql/tools/bcp-utility) ou a [API do SQLBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). O bcp carrega diretamente para o SQL Data Warehouse sem passar pelo armazenamento de Blobs do Azure e é destinado somente para pequenas cargas. Note que o desempenho do carregamento dessas opções é significativamente mais lento do que o PolyBase. 
 
 
 ## <a name="extract-source-data"></a>Extrair dados de origem

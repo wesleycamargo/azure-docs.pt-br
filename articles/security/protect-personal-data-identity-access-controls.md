@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: 08c26942294d7027ffdcd3fcaa0ff0831e95509f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c0e7f2060f81812cd69ed1af0246287757985243
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e Autenticação Multifator: proteger dados pessoais com controles de acesso e identidade
 
@@ -137,7 +137,7 @@ Se, atualmente, você não tem licenças, precisa seguir o processo de determina
 
 4. Clique em **Salvar**
 
-Nesta janela, você também tem a opção de Baixar o Servidor MFA. Obtenha detalhes adicionais sobre como dimensionar e planejar sua implantação examinando o artigo [Introdução ao servidor de Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
+Nesta janela, você também tem a opção de Baixar o Servidor MFA. Obtenha detalhes adicionais sobre como dimensionar e planejar sua implantação examinando o artigo [Introdução ao servidor de Autenticação Multifator do Azure](../active-directory/authentication/howto-mfaserver-deploy.md)
 
 Para obter mais instruções sobre como gerenciar o Provedor de Autenticação Multifator, consulte [Introdução a um Provedor de Autenticação Multifator do Azure.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 

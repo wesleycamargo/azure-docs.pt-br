@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 34f014c98d9333598c10e85d100251e62685c476
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7500b456296dc69c70cd1b5500d40f7e007569b1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -249,7 +249,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
 * **P: como funciona os bastidores do write-back de senha?**
 
-  > **R:** Consulte o artigo [Como funciona o write-back de senha](../active-directory-passwords-writeback.md) para obter uma explicação detalhada do que acontece quando você habilita o write-back de senha e como os dados fluem pelo sistema novamente ao seu ambiente local.
+  > **R:** Consulte o artigo [Como funciona o write-back de senha](howto-sspr-writeback.md) para obter uma explicação detalhada do que acontece quando você habilita o write-back de senha e como os dados fluem pelo sistema novamente ao seu ambiente local.
   >
   >
 * **P: quanto tempo demora para o write-back de senha funcionar? Há um atraso de sincronização como com a sincronização com hash de senha?**
@@ -279,7 +279,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: o write-back de senha é seguro?  Como posso ter certeza de que não serei invadido por um hacker?**
 
-  > **R:** Sim, o write-back de senha é seguro. Para ler mais sobre as quatro camadas de segurança implementadas pelo serviço de write-back de senha, confira a seção [Modelo de segurança do write-back de senha](../active-directory-passwords-writeback.md#password-writeback-security-model) no artigo [Visão geral do write-back de senha](../active-directory-passwords-writeback.md).
+  > **R:** Sim, o write-back de senha é seguro. Para ler mais sobre as quatro camadas de segurança implementadas pelo serviço de write-back de senha, confira a seção [Modelo de segurança do write-back de senha](howto-sspr-writeback.md#password-writeback-security-model) no artigo [Visão geral do write-back de senha](howto-sspr-writeback.md).
   >
   >
 
@@ -292,7 +292,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
-* [O que é o write-back de senha e por que devo me importar com isso?](../active-directory-passwords-writeback.md)
+* [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
 * [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
 * [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
