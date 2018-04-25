@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 08c26942294d7027ffdcd3fcaa0ff0831e95509f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e Autenticação Multifator: proteger dados pessoais com controles de acesso e identidade
 
@@ -39,7 +39,7 @@ A empresa deve proteger a privacidade dos dados pessoais de clientes e funcioná
 
 ## <a name="company-goal"></a>Meta da empresa
 
-A meta da empresa é garantir que o acesso a dados pessoais seja estritamente controlado. É essencial que as identidades de usuários com acesso a dados pessoais sejam protegidas pela autenticação forte. Uma política de [privilégio mínimo] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) deve ser imposta, de modo que os usuários legítimos tenham apenas o nível de acesso necessário e nada mais.
+A meta da empresa é garantir que o acesso a dados pessoais seja estritamente controlado. É essencial que as identidades de usuários com acesso a dados pessoais sejam protegidas pela autenticação forte. Uma política de [privilégio mínimo] (https://en.wikipedia.org/wiki/Principle_of_least_privilege)) deve ser imposta, de modo que os usuários legítimos tenham apenas o nível de acesso necessário e nada mais.
 
 ## <a name="solutions"></a>Soluções
 
@@ -83,11 +83,11 @@ Para obter mais informações e instruções sobre como começar a usar o AAD PI
 
 ### <a name="azure-role-based-access-control"></a>Controle de Acesso Baseado em Função do Azure
 
-O [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (Controle de Acesso Baseado em Função do Azure) ajuda os administradores do Azure a gerenciar o acesso aos recursos do Azure, permitindo a concessão de acesso de acordo com a função atribuída do usuário. Segregue as tarefas dentro de uma equipe e conceda somente a quantidade de acesso que os usuários, os grupos e os aplicativos precisam para realizar seus trabalhos.
+O [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (Controle de Acesso Baseado em Função do Azure) ajuda os administradores do Azure a gerenciar o acesso aos recursos do Azure, permitindo a concessão de acesso de acordo com a função atribuída do usuário. Segregue as tarefas dentro de uma equipe e conceda somente a quantidade de acesso que os usuários, os grupos e os aplicativos precisam para realizar seus trabalhos.
 
 O acesso baseado em função pode ser concedido aos usuários que usam o portal do Azure, as ferramentas de Linha de Comando do Azure ou as APIs de Gerenciamento do Azure.
 
-Para obter mais informações sobre os conceitos básicos do RBAC do Azure, consulte [Introdução ao Controle de Acesso Baseado em Função no Portal do Azure](https://docs.microsoft.com/active-directory/role-based-access-control-what-is).
+Para obter mais informações sobre os conceitos básicos do RBAC do Azure, consulte [Introdução ao Controle de Acesso Baseado em Função no Portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>Como fazer para gerenciar o RBAC do Azure com o PowerShell?
 
@@ -111,7 +111,7 @@ Use os cmdlets do PowerShell para gerenciar o RBAC do Azure, incluindo as seguin
 
 - Listar funções personalizadas
 
-Para obter instruções sobre como gerenciar o RBAC do Azure com o PowerShell, consulte [Gerenciar o Acesso Baseado em Função com o Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
+Para obter instruções sobre como gerenciar o RBAC do Azure com o PowerShell, consulte [Gerenciar o Acesso Baseado em Função com o Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 ### <a name="azure-multi-factor-authentication"></a>Autenticação Multifator do Azure
 
@@ -125,7 +125,7 @@ Caso os usuários tenham licenças que incluem a Autenticação Multifator do Az
 
 ![Usuários habilitados pelo MFA](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-Se, atualmente, você não tem licenças, precisa seguir o processo de determinar o tipo de implantação mais adequado para seu cenário. Comece observando o artigo intitulado [Escolher a solução de Autenticação Multifator do Azure ideal para você](../multi-factor-authentication/multi-factor-authentication-get-started.md). Se decidir que precisa criar um servidor de Autenticação Multifator. Comece seguindo estas etapas:
+Se, atualmente, você não tem licenças, precisa seguir o processo de determinar o tipo de implantação mais adequado para seu cenário. Comece observando o artigo intitulado [Escolher a solução de Autenticação Multifator do Azure ideal para você](../active-directory/authentication/concept-mfa-whichversion.md). Se decidir que precisa criar um servidor de Autenticação Multifator. Comece seguindo estas etapas:
 
 1. Selecione **Active Directory** no portal do Azure (conectado como administrador).
 
@@ -184,6 +184,6 @@ Para obter informações sobre como definir as configurações do MFA do Azure p
 
 - [Perguntas frequentes sobre a Autenticação Multifator do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [Solução de problemas do Controle de Acesso Baseado em Função](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [Solução de problemas do Controle de Acesso Baseado em Função](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

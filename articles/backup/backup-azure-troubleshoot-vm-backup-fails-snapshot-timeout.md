@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e2bd041bd5848ceb5f04f06601190fb0508aca1c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -29,7 +29,8 @@ Este artigo fornece etapas de solução de problemas que podem ajudar você a re
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Agente de VM não consegue se comunicar com o Backup do Azure
 
-Mensagem de erro: "Agente de VM não consegue se comunicar com o Backup do Azure"
+Mensagem de erro: "Agente de VM não consegue se comunicar com o Backup do Azure"<br>
+Código de erro: "UserErrorGuestAgentStatusUnavailable"
 
 Depois de registrar e agendar uma VM para o serviço de Backup, o Backup iniciará o trabalho comunicando-se com o agente de VM para obter um instantâneo pontual. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Quando um instantâneo não é disparado, o backup pode falhar. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:
 
@@ -41,7 +42,8 @@ Depois de registrar e agendar uma VM para o serviço de Backup, o Backup iniciar
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Falha na operação de instantâneo porque a máquina virtual não está conectada à rede
 
-Mensagem de erro: "Houve falha na operação de instantâneo por falta de conectividade à rede na máquina virtual"
+Mensagem de erro: "Houve falha na operação de instantâneo por falta de conectividade à rede na máquina virtual"<br>
+Código de erro: "ExtensionSnapshotFailedNoNetwork"
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:    
 **Causa 1: [a VM não tem acesso à Internet](#the-vm-has-no-internet-access)**  
@@ -50,7 +52,8 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>Falha na operação da extensão VMSnapshot
 
-Mensagem de erro: "Falha na operação da extensão VMSnapshot"
+Mensagem de erro: "Falha na operação da extensão VMSnapshot"<br>
+Código de erro: "ExtentionOperationFailed"
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:  
 **Causa 1: [não é possível recuperar o status do instantâneo ou não é possível obter o instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -60,7 +63,8 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Falha no backup porque o agente de VM está sem resposta
 
-Mensagem de erro: "Não é possível executar a operação porque o Agente de VM está sem reposta"
+Mensagem de erro: "Não é possível executar a operação porque o Agente de VM está sem reposta" <br>
+Código de erro: "GuestAgentSnapshotTaskStatusError"
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:  
 **Causa 1: [o agente está instalado na VM, mas sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -69,7 +73,8 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 
 ## <a name="backup-fails-with-an-internal-error"></a>Falha do backup, com um erro interno
 
-Mensagem de erro: "Falha no backup com um erro interno – tente novamente a operação dentro de alguns minutos"
+Mensagem de erro: "Falha no backup com um erro interno – tente novamente a operação dentro de alguns minutos" <br>
+Código de erro: "BackUpOperationFailed"/ "BackUpOperationFailedV2"
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:  
 **Causa 1: [a VM não tem acesso à Internet](#the-vm-has-no-internet-access)**  
@@ -177,6 +182,8 @@ Para desinstalar a extensão:
 3. Selecione **Extensões**.
 4. Selecione **Extensão Vmsnapshot**.
 5. Selecione **Desinstalar**.
+
+Para VM Linux, se a extensão VMSnapshot não for mostrada no Portal do Azure, [atualize o Agente Linux do Azure](../virtual-machines/linux/update-agent.md) e, em seguida, execute o backup. 
 
 A realização dessas etapas faz com que a extensão seja reinstalada durante o próximo backup.
 
