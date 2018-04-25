@@ -1,11 +1,11 @@
 ---
-title: "Localizar próximo salto com o Próximo Salto do Observador de Rede do Azure - REST | Microsoft Docs"
-description: "Este artigo descreve como você pode encontrar o que é o tipo do próximo salto e o endereço ip com o próximo salto usando a API REST do Azure"
+title: Localizar próximo salto com o Próximo Salto do Observador de Rede do Azure - REST | Microsoft Docs
+description: Este artigo descreve como você pode encontrar o que é o tipo do próximo salto e o endereço ip com o próximo salto usando a API REST do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2216c059-45ba-4214-8304-e56769b779a6
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: b541cd5cb7e49468af2c522b16c3a3b9fe75fd54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>Descubra qual o tipo do próximo salto é usando o recurso de próximo salto no Observador de Rede do Azure usando a API REST do Azure
 
@@ -35,7 +35,7 @@ Próximo salto é um recurso do Observador de Rede fornece o capacidade de obter
 
 O ARMclient é usado para chamar a API REST usando o PowerShell. O ARMClient é encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede.
 
 ## <a name="scenario"></a>Cenário
 
@@ -45,7 +45,7 @@ Neste cenário, você:
 
 * Recuperará o próximo salto de uma máquina virtual.
 
-## <a name="log-in-with-armclient"></a>Faça logon com o ARMClient
+## <a name="log-in-with-armclient"></a>Fazer logon com o ARMClient
 
 Faça logon no armclient com suas credenciais do Azure.
 

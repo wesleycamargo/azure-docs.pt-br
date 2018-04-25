@@ -1,11 +1,11 @@
 ---
-title: "Localizar próximo salto com o Próximo Salto do Observador de Rede do Azure - Portal do Azure | Microsoft Docs"
-description: "Este artigo descreve como você pode encontrar o que é o tipo do próximo salto e o endereço ip com o próximo salto usando o Portal do Azure"
+title: Localizar próximo salto com o Próximo Salto do Observador de Rede do Azure - Portal do Azure | Microsoft Docs
+description: Este artigo descreve como você pode encontrar o que é o tipo do próximo salto e o endereço ip com o próximo salto usando o Portal do Azure
 services: network-watcher
 documentationcenter: na
 author: georgewallace
 manager: jimdial
-editor: 
+editor: ''
 ms.assetid: 7b459dcf-4077-424e-a774-f7bfa34c5975
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 445ec8c7eeb8dd715d3778b44372d16666da7fb8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-the-portal"></a>Descubra qual o tipo do próximo salto é usando o recurso de próximo salto no Observador de Rede do Azure usando o portal
 
@@ -33,7 +33,7 @@ O Próximo salto é um recurso do Observador de Rede fornece o capacidade de obt
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
 
 ## <a name="scenario"></a>Cenário
 
