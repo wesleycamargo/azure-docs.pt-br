@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 1da2b6568125c61db2c4dda3bd81abb8f1a59ec7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fbea3d4b6bb82ac002550434d737f27c441d439e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
 
@@ -47,9 +47,9 @@ Hoje, o Barramento de Serviço envia eventos para dois cenários:
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Além disso, o Barramento de Serviço usa a segurança padrão da Grade de Eventos e [mecanismos de autenticação](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
+Além disso, o Barramento de Serviço usa a segurança padrão da Grade de Eventos e [mecanismos de autenticação](https://docs.microsoft.com/azure/event-grid/security-authentication).
 
-Para saber mais, confira [Esquemas de evento da Grade de Eventos do Azure](https://docs.microsoft.com/en-us/azure/event-grid/event-schema).
+Para saber mais, confira [Esquemas de evento da Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/event-schema).
 
 #### <a name="active-messages-available-event"></a>Evento Mensagens Ativas Disponíveis
 
@@ -138,7 +138,7 @@ Para criar uma nova assinatura da Grade de Eventos, faça o seguinte:
 
 ## <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
-Primeiro, certifique-se de que tenha a CLI do Azure versão 2.0 ou posterior instalada. [Baixe o instalador](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X** e abra um novo console do PowerShell com permissões de administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
+Primeiro, certifique-se de que tenha a CLI do Azure versão 2.0 ou posterior instalada. [Baixe o instalador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X** e abra um novo console do PowerShell com permissões de administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
 
 Execute o seguinte código:
 
@@ -154,7 +154,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Instruções do PowerShell
 
-Verifique se o Azure PowerShell está instalado. [Baixe o instalador](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Selecione **Windows + X** e abra um novo console do PowerShell com permissões de Administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
+Verifique se o Azure PowerShell está instalado. [Baixe o instalador](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Selecione **Windows + X** e abra um novo console do PowerShell com permissões de Administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount
@@ -175,10 +175,10 @@ A partir daqui, é possível explorar as outras opções de instalação ou [tes
 ## <a name="next-steps"></a>Próximas etapas
 
 * Obter [exemplos](service-bus-to-event-grid-integration-example.md) de Barramento de Serviço e da Grade de Eventos.
-* Saiba mais sobre a [Grade de Eventos](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Saiba mais sobre o [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Saiba mais sobre o [Aplicativos Lógicos](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Saiba mais sobre o [Barramento de Serviço](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Saiba mais sobre a [Grade de Eventos](https://docs.microsoft.com/azure/azure-functions/).
+* Saiba mais sobre o [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+* Saiba mais sobre o [Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/).
+* Saiba mais sobre o [Barramento de Serviço](https://docs.microsoft.com/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

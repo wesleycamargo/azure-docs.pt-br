@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf54c789d766c4bd3d353028e75e34c961470070
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introdução a um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o Banco de Dados SQL
 
@@ -24,7 +24,7 @@ O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis 
 
 ## <a name="application-architecture"></a>Arquitetura do aplicativo
 
-O aplicativo de SaaS Wingtip usa o modelo de banco de dados por locatário. Ele usa pools elásticos do SQL para maximizar a eficiência. Para provisionar e mapear locatários para os seus dados, é usado um banco de dados do catálogo. O aplicativo SaaS Wingtip principal, usa um pool com três locatários de exemplo, além do banco de dados do catálogo. A conclusão de muitos dos tutoriais de SaaS do Wingtip resulta em complementos para a implantação inicial. Complementos, como bancos de dados analíticos e gerenciamento de esquemas entre bancos de dados, são apresentados.
+O aplicativo de SaaS Wingtip usa o modelo de banco de dados por locatário. Ele usa pools elásticos do SQL para maximizar a eficiência. Para provisionar e mapear locatários para os seus dados, é usado um banco de dados do catálogo. O aplicativo SaaS Wingtip principal, usa um pool com três locatários de exemplo, além do banco de dados do catálogo. Os servidores de catálogo e locatário foram provisionados com aliases DNS. Esses aliases são usados para manter uma referência aos recursos ativos usados pelo aplicativo Wingtip. Esses aliases são atualizados para apontar para recursos de recuperação nos tutoriais de recuperação de desastre. A conclusão de muitos dos tutoriais de SaaS do Wingtip resulta em complementos para a implantação inicial. Complementos, como bancos de dados analíticos e gerenciamento de esquemas entre bancos de dados, são apresentados.
 
 
 ![Arquitetura de SaaS Wingtip](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)

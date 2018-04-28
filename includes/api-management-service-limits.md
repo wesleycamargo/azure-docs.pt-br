@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: bee289da3f18edd0cb425f3d9acde084567a3b13
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b40e2ba448236bcef72ffe501b4b14fa0dd64e1c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -21,6 +21,7 @@ ms.lasthandoff: 04/05/2018
 | Cache | 5 GB por unidade<sup>1</sup> |
 | Conexões simultâneas de back-end<sup>2</sup> por autoridade HTTP | 2048 por unidade<sup>3</sup> |
 | Tamanho máximo de resposta em cache | 10MB |
+| Tamanho máximo do documento da política | 256 KB |
 | Máximos domínios de gateway personalizados | 20 por instância de serviço<sup>4</sup> |
 
 

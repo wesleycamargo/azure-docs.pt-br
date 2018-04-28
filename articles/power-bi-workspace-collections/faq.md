@@ -1,12 +1,12 @@
 ---
-title: "Perguntas frequentes sobre as Coleções de Espaços de Trabalho do Power BI"
-description: "Perguntas frequentes relacionadas às Coleções de Espaços de Trabalho do Power BI."
+title: Perguntas frequentes sobre as Coleções de Espaços de Trabalho do Power BI
+description: Perguntas frequentes relacionadas às Coleções de Espaços de Trabalho do Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 6b33f497a5dbc889945e2147586f79edf1bd9aeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 6915538e47207ee9a45f2647a84924d79c7b2851
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Perguntas frequentes sobre as Coleções de Espaços de Trabalho do Power BI
 
@@ -43,7 +43,7 @@ Os aplicativos são significativamente mais poderosos quando você pode aproveit
 As Coleções de Espaços de Trabalho do Power BI destinam-se aos seus aplicativos fornecidos para uso por terceiros. Se você desejar usar o serviço de Coleções de Espaços de Trabalho do Power BI para criar um aplicativo de negócios interno, cada um dos seus usuários internos precisará de uma USL do Power BI Pro e o consumo do serviço de Coleções de Espaços de Trabalho do Power BI será cobrado da sua organização, além de taxas da USL do Power Pro BI. Para evitar a cobrança das taxas da USL do Power BI Pro e custos de consumo das Coleções de Espaços de Trabalho do Power BI para aplicativos internos, o serviço do Power BI oferece seu próprio conteúdo, inserindo funcionalidades fora das Coleções de Espaços de Trabalho do Power BI sem nenhum custo adicional para os titulares da USL do Power BI (dev.powerbi.com).
 
 ## <a name="can-power-bi-workspace-collections-be-used-to-create-internal-applications"></a>É possível usar as Coleções de Espaços de Trabalho do Power BI para criar aplicativos internos?
-Não, as Coleções de Espaços de Trabalho do Power BI são destinadas apenas para uso por usuários externos e não podem ser usadas em aplicativos de negócios internos. Para inserir conteúdo do Power BI para uso em aplicativos de negócios internos, é necessário usar o serviço do Power BI, e todos os usuários que consomem esse conteúdo devem ter uma licença de assinatura de usuário válida do Power BI Gratuito ou do Power BI Pro. Mais informações sobre como integrar aplicativos internos ao serviço do Power BI estão disponíveis em [https://dev.powerbi.com](https://dev.powerbi.com).
+Não, as Coleções de Espaços de Trabalho do Power BI são destinadas apenas para uso por usuários externos e não podem ser usadas em aplicativos de negócios internos. Para inserir conteúdo do Power BI para uso em aplicativos de negócios internos, é necessário usar o serviço do Power BI, e todos os usuários que consomem esse conteúdo devem ter uma licença de assinatura de usuário válida do Power BI Gratuito ou do Power BI Pro. Mais informações sobre como integrar aplicativos internos com o serviço do Power BI estão disponíveis em [https://dev.powerbi.com](https://dev.powerbi.com).
 
 ## <a name="is-this-service-available-globally"></a>Este serviço está disponível globalmente?
 O serviço de Coleções de Espaços de Trabalho do Power BI agora está disponível na maioria dos data centers. Você sempre pode verificar a disponibilidade mais recente [aqui](https://azure.microsoft.com/status/).
@@ -66,7 +66,7 @@ Consulte nossa documentação de serviço para obter detalhes sobre como usar o 
 Sim. Você pode usar sua assinatura do Azure existente para provisionar e usar o serviço de Coleções de Espaços de Trabalho do Microsoft Power BI.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>O usuário final do meu aplicativo precisa de uma licença do Power BI?
-Não. Os usuários finais do aplicativo não precisarão comprar uma assinatura do Power BI separada para acessar as visualizações de dados no aplicativo. No modelo de Coleções de Espaços de Trabalho do Power BI, você, como provedor do aplicativo, será cobrado pelo serviço por meio do medidor de consumo do Azure. Consulte a [página Preços e licenciamento](http://go.microsoft.com/fwlink/?LinkId=760527).
+Nº Os usuários finais do aplicativo não precisarão comprar uma assinatura do Power BI separada para acessar as visualizações de dados no aplicativo. No modelo de Coleções de Espaços de Trabalho do Power BI, você, como provedor do aplicativo, será cobrado pelo serviço por meio do medidor de consumo do Azure. Consulte a [página Preços e licenciamento](http://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Como a autenticação do usuário funciona com as Coleções de Espaços de Trabalho do Power BI?
 O serviço de Coleções de Espaços de Trabalho do Power BI usa Tokens de Aplicativo para autenticação e autorização em vez de usar a autenticação explícita de usuário final. No modelo de Token de Aplicativo, seu aplicativo gerencia a autenticação e autorização para os usuários finais. Em seguida, quando necessário, seu aplicativo cria

@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: douglasl
-ms.openlocfilehash: e021403cd5544f0570e8ea3c73a17a57b241a65f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração e implementação contínuas no Azure Data Factory
 
@@ -62,6 +62,8 @@ Este é todo o ciclo de vida de integração e implementação contínuas que vo
 
 Estas são as etapas para configurar uma versão do VSTS para que você possa automatizar a implantação de um data factory em vários ambientes.
 
+![Diagrama de integração contínua com o VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+
 ### <a name="requirements"></a>Requisitos
 
 -   Uma assinatura do Azure vinculada ao Team Foundation Server ou VSTS usando o [*Ponto de extremidade de serviço do Azure Resource Manager*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
@@ -90,7 +92,7 @@ Estas são as etapas para configurar uma versão do VSTS para que você possa au
 
     a.  Adicione os segredos ao arquivo de parâmetros:
 
-        -   Crie uma cópia do arquivo de parâmetros que é carregado para o branch de publicação e defina os valores dos parâmetros que você deseja obter do cofre de chaves com o seguinte formato:
+       -   Crie uma cópia do arquivo de parâmetros que é carregado para o branch de publicação e defina os valores dos parâmetros que você deseja obter do cofre de chaves com o seguinte formato:
 
         ```json
         {
@@ -100,24 +102,24 @@ Estas são as etapas para configurar uma versão do VSTS para que você possa au
                         "keyVault": {
                             "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
                         },
-                        "secretName": " &lt secret - name &gt "
+                        "secretName": " < secret - name > "
                     }
-                }        
+                }
             }
         }
         ```
 
-        -   Quando você usa esse método, o segredo é extraído do cofre de chaves automaticamente.
+       -   Quando você usa esse método, o segredo é extraído do cofre de chaves automaticamente.
 
-        -   O arquivo de parâmetros também deve estar no branch de publicação.
+       -   O arquivo de parâmetros também deve estar no branch de publicação.
 
     b.  Adicione uma [tarefa do Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
 
-        -   Selecione a guia **Tarefas** guia, crie uma nova tarefa, procure **Azure Key Vault** e adicione-o.
+       -   Selecione a guia **Tarefas** guia, crie uma nova tarefa, procure **Azure Key Vault** e adicione-o.
 
-        -   Na tarefa do Key Vault, escolha a assinatura na qual você criou o cofre de chaves, forneça as credenciais se necessário e, em seguida, escolha o cofre de chaves.
+       -   Na tarefa do Key Vault, escolha a assinatura na qual você criou o cofre de chaves, forneça as credenciais se necessário e, em seguida, escolha o cofre de chaves.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Adicione uma tarefa de Implantação do Azure Resource Manager:
 

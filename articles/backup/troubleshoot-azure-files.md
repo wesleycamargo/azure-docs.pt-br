@@ -9,11 +9,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Solucionar problemas do backup de Arquivos do Azure
 É possível solucionar os problemas e os erros encontrados durante a utilização do backup de Arquivos do Azure com as informações listadas nas tabelas a seguir.
@@ -59,6 +59,7 @@ A tabela abaixo serve para configurar o backup:
 | A restauração falhou porque um dos arquivos de origem não existe. | <ul><li> Os itens selecionados não estão presentes nos dados de ponto de recuperação. Para recuperar os arquivos, forneça a lista correta de arquivos. <li> O instantâneo de compartilhamento de arquivos que corresponde ao ponto de recuperação é excluído manualmente. Selecione um ponto de recuperação diferente e repita a operação de restauração. |
 | Um trabalho de recuperação está em andamento para o mesmo destino. | <ul><li>O backup do compartilhamento de arquivos não oferece suporte à recuperação paralela para o mesmo compartilhamento de arquivos de destino. <li>Aguarde até que recuperação existente seja concluída e tente novamente. Caso não encontre um trabalho de recuperação no cofre dos Serviços de Recuperação, verifique outros cofres dos Serviços de Recuperação na mesma assinatura. |
 | A operação de restauração falhou porque o compartilhamento de arquivos de destino está cheio. | Aumente a cota de tamanho do compartilhamento de arquivo de destino para acomodar os dados de restauração e repita a operação. |
+| A operação de restauração falhou porque ocorreu um erro ao executar operações de pré-restauração em recursos do Serviço de Sincronização de Arquivos associados ao compartilhamento de arquivos de destino. | Tente novamente dentro de instantes. Se o problema persistir, entre em contato com o suporte da Microsoft. |
 | Um ou mais arquivos não puderam ser recuperados. Para obter mais informações, verifique a lista de arquivos com falha no caminho fornecido acima. | <ul> <li> Os motivos para falha na recuperação estão listados no arquivo (caminho fornecido nos detalhes do trabalho). Aborde os motivos e repita a operação de restauração apenas para os arquivos com falha. <li> Alguns motivos comuns para falhas na restauração de arquivo incluem: <br/> – verifique se os arquivos com falha não estão em uso no momento. <br/> – existe um diretório com o mesmo nome que o arquivo com falha no diretório pai. |
 
 ## <a name="see-also"></a>Veja também

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6aa0c08fad98eeff7c937f817ca0a8fa20238c4a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -84,7 +84,7 @@ Para obter a lista de endereços IP de saída para seu aplicativo web:
 
 A lista de endereços IP de saída é exibida.
 
-Se seu site estiver hospedado em um ambiente de Serviço de Aplicativo para o PowerApps, para saber como obter seu endereço IP de saída, consulte [Endereços de rede de saída](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+Para saber como obter seu endereço IP de saída se seu site estiver hospedado em um ambiente de Serviço do Aplicativo, consulte [Endereços de rede de saída](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Como obter um endereço IP de entrada dedicado ou reservado para meu aplicativo Web?
 
@@ -185,7 +185,7 @@ Você tem duas opções para capturar um rastreamento F12:
 3. Verifique se a guia **Rede** está selecionada e, em seguida, selecione o botão verde **Reproduzir**.
 4. Siga as etapas que reproduza o problema.
 5. Selecione o botão vermelho **Parar**.
-6. Selecione o botão **Salvar** (ícone de disco) e, em seguida, salve o arquivo HAR (no Internet Explorer e Microsoft Edge) *ou* clique com o botão direito no arquivo HAR e, em seguida, selecione **Salvar como HAR com conteúdo** (no Chrome).
+6. Selecione o botão **Salvar** (ícone de disco) e, em seguida, salve o arquivo HAR (no Internet Explorer e Edge) *ou* clique com o botão direito no arquivo HAR e, em seguida, selecione **Salvar como HAR com conteúdo** (no Chrome).
 
 ### <a name="f12-console-output"></a>Saída do console F12
 
@@ -268,7 +268,7 @@ Como a mensagem indica, esse processo de verificação de fraude pode levar até
 Se seu certificado de Serviço de Aplicativo continua mostrando esta mensagem após 24 horas, execute o seguinte script do PowerShell. O script contata o [provedor de certificado](https://www.godaddy.com/) diretamente para resolver o problema.
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"

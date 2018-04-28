@@ -1,6 +1,6 @@
 ---
-title: "Como monitorar e reduzir a limitação e prevenir a latência no Azure Time Series Insights | Microsoft Docs"
-description: "Este artigo descreve como monitorar, diagnosticar e atenuar problemas de desempenho que causam latência e limitação no Azure Time Series Insights."
+title: Como monitorar e reduzir a limitação e prevenir a latência no Azure Time Series Insights | Microsoft Docs
+description: Este artigo descreve como monitorar, diagnosticar e atenuar problemas de desempenho que causam latência e limitação no Azure Time Series Insights.
 services: time-series-insights
 ms.service: time-series-insights
 author: jasonwhowell
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: ec16f20723e4a613c953363da6cf6b463de829a9
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ac59359eb6af268f311534d90e1529fc5e41094f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e melhorar a limitação para reduzir a latência no Azure Time Series Insights
 Quando a quantidade de dados de entrada excede a configuração do ambiente, você pode enfrentar latência ou limitação no Azure Time Series Insights.
@@ -45,17 +45,24 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar os problemas de latência ca
 
 Nessa opção, você pode configurar alertas usando as seguintes métricas:
 
-|Métrica  |Descrição  |
+|Métrica  |DESCRIÇÃO  |
 |---------|---------|
 |**Bytes de Entrada Recebidos**     | Contagem de bytes brutos lidos de origens de evento. A contagem bruta geralmente inclui o nome e o valor da propriedade.  |  
 |**Mensagens de Entrada Inválidas Recebidas**     | Contagem de mensagens inválidas lidas de todas as origens de evento dos Hubs de Eventos do Azure ou do Hub IoT do Azure.      |
 |**Mensagens de Entrada Recebidas**   | Contagem de mensagens lidas de todas as origens de evento dos Hubs de Eventos ou Hubs IoT.        |
 |**Bytes de Entrada Armazenados**     | Tamanho total de eventos armazenados e disponíveis para consulta. O tamanho é calculado apenas no valor da propriedade.        |
 |**Eventos de Entrada Armazenados**     |   Contagem de eventos nivelados armazenados e disponíveis para consulta.      |
+|**Retardo de tempo de mensagens recebidas de entrada**    |  Diferença entre a hora em que a mensagem é enfileirada na origem do evento e a hora em que ela é processada na entrada.      |
+|**Retardo de contagem de mensagens recebidas de entrada**    |  Diferença entre o número de sequência da última mensagem enfileirada na partição da origem do evento e número de sequência da mensagem que está sendo processada na entrada.      |
 
-![Latência](media/environment-mitigate-latency/latency.png)
 
-Uma técnica é definir um alerta **Eventos de Entrada Armazenados** >= um limite um pouco abaixo da capacidade total do ambiente por um período de 2 horas.  Esse alerta pode ajudá-lo a entender se você está constantemente na capacidade, o que indica uma alta probabilidade de latência.  
+![Latency](media/environment-mitigate-latency/latency.png)
+
+Se você está sendo limitado, verá um valor para o *Retardo de tempo de mensagens recebidas de entrada*, informando quantos minutos atrasados o TSI está em relação ao tempo real em que a mensagem alcança a origem do evento (excluindo o tempo de indexação de cerca de 30-60 segundos).  *Retardo de contagem de mensagens recebidas de entrada* também deve ter um valor, permitindo que você determine a quantas mensagens atrás você está.  A maneira mais fácil de alcançar é aumentar a capacidade do seu ambiente para um tamanho que permitirá superar a diferença.  
+
+Por exemplo, se você tiver um ambiente S1 de unidade única e vir que há um atraso de cinco milhões de mensagens, você pode aumentar o tamanho do seu ambiente para seis unidades por cerca de um dia para alcançar.  Você pode aumentar ainda mais para alcançar mais rapidamente.  Isso é uma ocorrência comum ao provisionar inicialmente um ambiente, especialmente ao se conectar a uma origem de evento que já tenha eventos nela ou quando você carrega em massa grandes quantidades de dados históricos.
+
+Outra técnica é definir um alerta **Eventos de Entrada Armazenados** >= um limite um pouco abaixo da capacidade total do ambiente por um período de 2 horas.  Esse alerta pode ajudá-lo a entender se você está constantemente na capacidade, o que indica uma alta probabilidade de latência.  
 
 Por exemplo, se você tiver três unidades S1 provisionadas (ou 2.100 eventos por capacidade de entrada por minuto), poderá definir um alerta **Eventos de Entrada Armazenados** para >= 1.900 eventos por 2 horas. Caso você esteja excedendo esse limite constantemente e, portanto, disparando o alerta, provavelmente, está com um provisionamento insuficiente.  
 

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial (versão prévia) na Automação do Azure
 
@@ -54,16 +54,15 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
    ![Portal do Azure](media/automation-solution-vm-management/azure-portal-01.png)
 
 1. A página **Adicionar Solução** é exibida. Você será solicitado a configurar a solução antes de importá-la na sua assinatura da Automação.
+
    ![Página Adicionar Solução de Gerenciamento de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+
 1. Na página **Adicionar Solução**, selecione **Espaço de Trabalho**. Selecione um espaço de trabalho do Log Analytics que esteja vinculada à mesma assinatura do Azure na qual a conta de Automação está. Se você não tiver um espaço de trabalho, selecione **Criar Novo Espaço de Trabalho**. Na página **Espaço de Trabalho do OMS**, faça o seguinte:
    * Especifique um nome para o novo **Espaço de Trabalho do OMS**.
    * Selecione uma **Assinatura** à qual se vincular, escolhendo na lista suspensa, caso a assinatura selecionada por padrão não seja adequada.
    * Em **Grupo de Recursos**, você pode criar um novo grupo de recursos ou selecionar um existente.
    * Selecione um **Local**. No momento, os únicos locais disponíveis são: **Sudeste da Austrália**, **Canadá Central**, **Índia Central**, **Leste dos EUA**, **Leste do Japão**, **Sudeste da Ásia**, **Sul do Reino Unido** e **Europa Ocidental**.
-   * Selecione um **tipo de preço**. A solução oferece duas camadas: **Gratuito** e **Por Nó (OMS)**. A camada Gratuito tem um limite na quantidade de dados coletados diariamente, no período de retenção e nos minutos de tempo de execução do trabalho de runbook. A camada Por Nó tem um limite de quantidade de dados coletados diariamente.
-
-        > [!NOTE]
-        > Embora a camada paga Por GB (Autônoma) seja exibida como uma opção, ela não se aplica. Se você a selecionar e prosseguir com a criação dessa solução em sua assinatura, ocorrerá uma falha. Essa questão será abordada quando a solução for lançada oficialmente. Essa solução só usa minutos de trabalho de automação e ingestão de log. Ela não adiciona nós adicionais ao ambiente.
+   * Selecione um **tipo de preço**. Escolha a opção **Por GB (autônomo)**. O Log Analytics atualizou o [preço](https://azure.microsoft.com/pricing/details/log-analytics/) e a camada Por GB é a única opção.
 
 1. Depois de fornecer as informações necessárias na página **Espaço de Trabalho do OMS**, clique em **Criar**. Você pode acompanhar o progresso em **Notificações** no menu, que retornará a página **Adicionar Solução** ao terminar.
 1. Na página **Adicionar Solução**, selecione **Conta de automação**. Se você estiver criando um novo espaço de trabalho do Log Analytics, também será necessário criar uma nova conta da Automação para ser associada com ele. Selecione **Criar uma conta de Automação** e, na página **Adicionar conta de Automação**, forneça o seguinte:
@@ -80,6 +79,9 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
    * Especifique a **Lista de exclusão de VM (cadeia de caracteres)**. Ela é o nome de uma ou mais máquinas virtuais do grupo de recursos de destino. Você pode inserir mais de um nome e separá-los por vírgula (os valores não diferenciam maiúsculas de minúsculas). O uso de caracteres curingas é aceito. Esse valor é armazenado na variável **External_ExcludeVMNames**.
    * Selecione um **Agendamento**. Este agendamento é uma data e hora recorrentes para iniciar e parar as VMs no grupo de recursos de destino. Por padrão, o agendamento está configurado de acordo com o fuso horário UTC. A seleção de uma região diferente não está disponível. Para configurar o agendamento de acordo com seu fuso horário específico após a configuração da solução, confira [Modificando o agendamento de inicialização e desligamento](#modify-the-startup-and-shutdown-schedule).
    * Para receber **Notificações por Email** do SendGrid, aceite o valor padrão de **Sim** e forneça um endereço de email válido. Se você selecionar **Não** mas decidir posteriormente que deseja receber notificações por email, poderá atualizar a variável **External_EmailToAddress** com endereços de email válidos separados por vírgula e, em seguida, modificar a variável **External_IsSendEmail** com o valor **Sim**.
+
+> [!IMPORTANT]
+> O valor padrão para **Nomes do ResourceGroup de destino** é um **&ast;**. Isso direciona todas as VMs em uma assinatura. Se você não quiser que a solução direcione todas as VMs em sua assinatura, esse valor precisará ser atualizado para uma lista de nomes de grupos de recursos antes de habilitar os agendamentos.
 
 1. Depois de configurar as definições iniciais necessárias para a solução, clique em **OK** para fechar a página **Parâmetros** e selecione **Criar**. Depois que todas as configurações forem validadas, a solução será implantada em sua assinatura. Esse processo pode levar vários segundos para ser finalizado e você pode acompanhar o progresso em **Notificações** no menu.
 

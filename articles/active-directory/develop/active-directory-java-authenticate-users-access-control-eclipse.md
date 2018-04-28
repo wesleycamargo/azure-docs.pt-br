@@ -1,25 +1,24 @@
 ---
-title: Como usar o Controle de Acesso (Java) | Microsoft Docs
+title: Como usar o Controle de Acesso (Java)
 description: Aprenda a desenvolver e usar o controle de acesso com Java no Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: ''
+manager: mbaldwin
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bd65da490bf3d7e17bf6ff36e76e306842d50653
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse
 Este guia mostrará como usar o ACS (Serviço de Controle de Acesso) do Azure dentro do Kit de Ferramentas do Azure para Eclipse. Para obter mais informações sobre o ACS, consulte a seção [Próximas etapas](#next_steps) .
@@ -118,12 +117,12 @@ Nesta tarefa, você configura o ACS para reconhecer seu aplicativo web Java como
    2. Em **Modo**, selecione **Inserir as configurações manualmente**.
    3. Em **Realm**, digite o URI ao qual o token de segurança emitido pelo ACS se aplica. Para esta tarefa, digite **http://localhost:8080/**.
       ![Realm de terceira parte confiável para uso no emulador de computação][relying_party_realm_emulator]
-   4. Em **URL de Retorno,** digite a URL para a qual o ACS retorna o token de segurança. Para esta tarefa, digite **http://localhost:8080/MyACSHelloWorld/index.jsp**
-      ![URL de retorno da terceira parte confiável para uso no emulador de computação][relying_party_return_url_emulator]
+   4. Em **URL de Retorno,** digite a URL para a qual o ACS retorna o token de segurança. Para esta tarefa, digite ** http://localhost:8080/MyACSHelloWorld/index.jsp ** 
+       ![URL de retorno de terceiros confiável para uso no emulador de computação][relying_party_return_url_emulator]
    5. Aceite os valores padrão no restante dos campos.
 4. Clique em **Salvar**.
 
-Você agora configurou com êxito seu aplicativo Web Java, quando executado no emulador de computação do Azure (em http://localhost:8080/), para ser um RP no namespace do ACS. Em seguida, crie as regras que o ACS usa para processar declarações para o RP.
+Você agora configurou com êxito seu aplicativo Web Java, quando executado no emulador de computação do Microsoft Azure (http://localhost:8080/) paa ser um RP no namespace do ACS. Em seguida, crie as regras que o ACS usa para processar declarações para o RP.
 
 ## <a name="create-rules"></a>Criar regras
 Nesta tarefa, você define as regras que orientam como as declarações são passadas dos IPs para seu RP. Para o objetivo deste guia, iremos configurar o ACS simplesmente para copiar os tipos e valores de declarações de entrada diretamente no token de saída, sem filtrá-los nem modificá-los.

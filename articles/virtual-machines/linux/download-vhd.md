@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: cynthn
-ms.openlocfilehash: d62fe702e42929fde2bb2a0dee4ea2cc8621ff99
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 93f165d08813506f9c4d4c0fbb885ddc958e8391
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Baixar um VHD do Linux por meio do Azure
 
@@ -35,7 +35,7 @@ Não é possível baixar um VHD por meio do Azure se ele estiver anexado a uma V
 
 Para usar o VHD como uma imagem para criar outras VMs, conclua estas etapas:
 
-1. Use o SSH, o nome da conta e o endereço IP público da VM para se conectar a ela e desprovisioná-la. É possível localizar o endereço IP público com [az network public-ip show](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). O parâmetro +user também remove a última conta de usuário provisionada. Se estiver trazendo as credenciais de conta para a VM, exclua esse parâmetro +user. O seguinte exemplo remove a última conta de usuário provisionada:
+1. Use o SSH, o nome da conta e o endereço IP público da VM para se conectar a ela e desprovisioná-la. É possível localizar o endereço IP público com [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). O parâmetro +user também remove a última conta de usuário provisionada. Se estiver trazendo as credenciais de conta para a VM, exclua esse parâmetro +user. O seguinte exemplo remove a última conta de usuário provisionada:
 
     ```bash
     ssh azureuser@<publicIpAddress>

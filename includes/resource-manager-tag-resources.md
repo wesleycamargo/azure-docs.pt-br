@@ -22,3 +22,10 @@
 7. Você pode selecionar a marca fixada do painel para ver os recursos com essa marca.
 
      ![Fixar marcas ao painel](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+
+Para atribuir marcas em massa para vários recursos:
+1. Em qualquer lista de recursos (por exemplo, a visão geral de Todos os recursos, Grupo de recursos);
+2. Marque a caixa de seleção para os recursos aos quais você deseja atribuir a marca;
+3. Selecione a opção Atribuir marcas;
+4. Adicione os nomes e valores e selecione Atribuir.

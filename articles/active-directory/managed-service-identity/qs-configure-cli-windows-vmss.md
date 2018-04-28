@@ -1,11 +1,11 @@
 ---
-title: "Configurar MSI em um conjunto de dimensionamento de máquinas virtuais do Azure usando CLI do Azure"
-description: "Instruções passo a passo para configurar uma MSI (Identidade de Serviço Gerenciada) em um conjunto de dimensionamento de máquinas virtuais do Azure, usando CLI do Azure."
+title: Configurar MSI em um conjunto de dimensionamento de máquinas virtuais do Azure usando CLI do Azure
+description: Instruções passo a passo para configurar uma MSI (Identidade de Serviço Gerenciada) em um conjunto de dimensionamento de máquinas virtuais do Azure, usando CLI do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: d7a7b0c8b3f9bf0279282dbf1fed4fc8163d9170
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9cdf5225f2d87fffa2290e3edd09d4ae829aee21
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Configurar uma MSI (Identidade de Serviço Gerenciada) do conjunto de dimensionamento de máquinas virtuais usando CLI do Azure
 
@@ -71,10 +71,10 @@ Se você precisa habilitar MSI em um conjunto de dimensionamento de máquinas vi
    az login
    ```
 
-2. Use [az vmss assign-identity](/cli/azure/vm/#az_vmss_assign_identity) com o parâmetro `--assign-identity` para adicionar uma MSI a uma VM existente:
+2. Use o comando [az vmss identity assign](/cli/azure/vmss/identity/#az_vmss_identity_assign) para adicionar um MSI para uma VM existente:
 
    ```azurecli-interactive
-   az vmss assign-identity -g myResourceGroup -n myVMSS
+   az vmss identity assign -g myResourceGroup -n myVMSS
    ```
 
 ## <a name="remove-msi-from-an-azure-virtual-machine-scale-set"></a>Remover MSI de um conjunto de dimensionamento de máquinas virtuais do Azure
@@ -87,10 +87,10 @@ Se você tiver um conjunto de dimensionamento de máquinas virtuais que não pre
    az login
    ```
 
-2. Use a opção `--identities` com [az vmss remove-identity](/cli/azure/vmss/#az_vmss_remove_identity) para remover a MSI:
+2. Use o comando [az vmss identity remove](/cli/azure/vmss/identity/#az_vmss_remove_identity) para remover o MSI:
 
    ```azurecli-interactive
-   az vmss remove-identity -g myResourceGroup -n myVMSS --identities readerID writerID
+   az vmss identity remove -g myResourceGroup -n myVMSS --identities readerID writerID
    ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,11 +1,11 @@
 ---
-title: "Notas de versão dos Serviços de Mídia | Microsoft Docs"
-description: "Notas de versão dos Serviços de Mídia"
+title: Notas de versão dos Serviços de Mídia | Microsoft Docs
+description: Notas de versão dos Serviços de Mídia
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20a24aa19989370c6ce82a738193a78f24b0eba9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 Estas notas de versão para os Serviços de Mídia do Azure resumem as alterações de versões anteriores e os problemas conhecidos.
@@ -47,7 +47,7 @@ Para obter informações sobre o histórico de versões da API REST dos Serviço
 
 ## <a name="october-2017-release"></a>Versão de outubro de 2017
 > [!IMPORTANT] 
-> O suporte dos Serviços de Mídia ao modelo de autenticação do Serviço de Controle de Acesso do Azure está sendo preterido. No dia 1 de junho de 2018, você não poderá mais autenticar com o back-end de Serviços de Mídia por meio de código usando chaves de Serviço de Controle de Acesso. Você deve atualizar seu código para usar o Azure AD (Azure Active Directory) de acordo com o artigo [Autenticação baseada no Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Fique atento a avisos sobre essa alteração no Portal do Azure.
+> O suporte dos Serviços de Mídia ao modelo de autenticação do Serviço de Controle de Acesso do Azure está sendo preterido. No dia 22 de junho de 2018, não será mais possível autenticar com o back-end de Serviços de Mídia por meio de código usando as chaves do Serviço de Controle de Acesso. Você deve atualizar seu código para usar o Azure AD (Azure Active Directory) de acordo com o artigo [Autenticação baseada no Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Fique atento a avisos sobre essa alteração no Portal do Azure.
 
 ### <a name="updates-for-october-2017"></a>Atualizações de outubro de 2017
 #### <a name="sdks"></a>SDKs
@@ -163,7 +163,7 @@ As unidades reservadas para codificação Básica, Standard e Premium foram reno
 ### <a name="azure-sdk-for-php"></a>SDK do Azure para PHP
 A equipe do SDK do Azure publicou uma nova versão do pacote [SDK do Azure para PHP](http://github.com/Azure/azure-sdk-for-php) que contém atualizações e novos recursos para os Serviços de Mídia. Em particular, o SDK dos Serviços de Mídia para PHP agora é compatível com os recursos de [proteção de conteúdo](media-services-content-protection-overview.md) mais recentes. Esses recursos são a criptografia dinâmica com AES e DRM (PlayReady e Widevine) com e sem restrições de token. Ele também é compatível com o dimensionamento de [unidades de codificação](media-services-dotnet-encoding-units.md).
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 * O blog do [SDK dos Serviços de Mídia para PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
 * As [amostras de código](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) a seguir ajudam você a começar rapidamente:
@@ -203,7 +203,7 @@ Você pode usar o [SDK do .NET dos Serviços de Mídia](https://www.nuget.org/pa
 Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a id="august_changes_15"></a>Versão de agosto de 2015
-* O SDK do Serviços de Mídia para Java versão 0.8.0 e novos exemplos estão agora disponíveis. Para obter mais informações, confira:
+* O SDK do Serviços de Mídia para Java versão 0.8.0 e novos exemplos estão agora disponíveis. Para obter mais informações, consulte:
   
   * [Esta postagem no blog](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
   * [O repositório de amostras de Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -399,7 +399,7 @@ Para saber mais sobre as alterações, confira: [Versões 3.0.0.1 e 3.0.0.2 do S
 As seguintes alterações foram feitas na versão 3.0.0.3:
 
 * As dependências de armazenamento do Azure foram atualizadas para usar a versão 3.0.3.0.
-* Um problema de compatibilidade reversa foi corrigido para versões 3.0*.* .
+* Um problema de compatibilidade reversa foi corrigido para versões 3.0 *.* .
 
 ## <a id="december_changes_13"></a>Versão de dezembro de 2013
 ### <a name="dec_13_donnet_changes"></a>SDK do .NET dos Serviços de Mídia 3.0.0.0

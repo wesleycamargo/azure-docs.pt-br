@@ -1,6 +1,6 @@
 ---
 title: Criar uma VM do Windows do SQL Server com o Azure PowerShell | Microsoft Docs
-description: "Este tutorial mostra como criar uma máquina virtual do Windows SQL Server 2017 com Azure PowerShell."
+description: Este tutorial mostra como criar uma máquina virtual do Windows SQL Server 2017 com Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: daa5043a948e660b6c3e685e933855afff8f7671
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 228d2852d9554d378dc663e74460da7ab80d4b24
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Início Rápido: criar uma máquina virtual do Windows do SQL Server com o Azure PowerShell
 
@@ -27,7 +27,7 @@ Esse início rápido percorre a criação de uma máquina virtual do SQL Server 
 > Este início rápido fornece um caminho para provisionar rapidamente e conectar-se a uma VM do SQL. Para obter mais informações sobre outras opções do Azure PowerShell para criar VMs do SQL, confira o [Guia de provisionamento para VMs do SQL Server com o Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
 > [!TIP]
-> Se você tiver dúvidas sobre máquinas virtuais do SQL Server, confira as [Perguntas frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
+> Em caso de dúvidas sobre máquinas virtuais do SQL Server, consulte as [Perguntas frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
 ## <a id="subscription"></a> Obter uma assinatura do Azure
 
@@ -36,14 +36,14 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a id="powershell"></a> Obter o Azure PowerShell
 
-Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="configure-powershell"></a>Configurar o PowerShell
 
-1. Abra o PowerShell e estabeleça o acesso à sua conta do Azure executando o comando **Add-AzureRmAccount**.
+1. Abra o PowerShell e estabeleça o acesso à sua conta do Azure executando o comando **Connect-AzureRmAccount**.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Você deve ver uma tela de entrada para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal do Azure.

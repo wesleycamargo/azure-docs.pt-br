@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 9a4489c575de9f63740c68bda8cbf921592402ec
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f783b08b25b7dd00351537f4dd404d9c8d02044d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gerenciar o Controle de Acesso baseado em função com a Interface de Linha de Comando do Azure
 
@@ -38,7 +38,7 @@ Para usar a CLI do Azure para gerenciar CLI do Azure, é necessário ter os segu
 
 ## <a name="list-role-definitions"></a>Lista de definições de função
 
-Para listar todas as definições de função disponíveis, use [lista de definições de função az](/cli/azure/role/definition#az_role_definition_list):
+Para listar todas as definições de função disponíveis, use [lista de definições de função az](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list
@@ -95,7 +95,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 
 ### <a name="list-actions-of-a-role-definition"></a>Relacionar ações de uma definição de função
 
-Para listar as ações de uma definição de função, use [lista de definições de função az](/cli/azure/role/definition#az_role_definition_list):
+Para listar as ações de uma definição de função, use [lista de definições de função az](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
@@ -185,7 +185,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 
 ### <a name="list-role-assignments-for-a-user"></a>Listar as atribuições de função de um usuário
 
-Para listar as atribuições de função para um usuário específico, use a [lista de atribuições de função az](/cli/azure/role/assignment#az_role_assignment_list):
+Para listar as atribuições de função para um usuário específico, use a [lista de atribuições de função az](/cli/azure/role/assignment#az-role-assignment-list):
 
 ```azurecli
 az role assignment list --assignee <assignee>
@@ -214,7 +214,7 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 
 ### <a name="list-role-assignments-for-a-resource-group"></a>Listar as atribuições para um grupo de recursos
 
-Para listar as atribuições de função que existem para um grupo de recursos, use a [lista de atribuições de função az](/cli/azure/role/assignment#az_role_assignment_list):
+Para listar as atribuições de função que existem para um grupo de recursos, use a [lista de atribuições de função az](/cli/azure/role/assignment#az-role-assignment-list):
 
 ```azurecli
 az role assignment list --resource-group <resource_group>
@@ -243,7 +243,7 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 
 ### <a name="create-a-role-assignment-for-a-user"></a>Criar uma atribuição de função para um usuário
 
-Para criar uma atribuição de função a um usuário no escopo do grupo de recursos, use [criar atribuição de função az](/cli/azure/role/assignment#az_role_assignment_create):
+Para criar uma atribuição de função a um usuário no escopo do grupo de recursos, use [criar atribuição de função az](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
@@ -257,13 +257,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee patlon
 
 ### <a name="create-a-role-assignment-for-a-group"></a>Criar uma atribuição de função para um grupo
 
-Para criar uma atribuição de função para um grupo, use [criar atribuição de função az](/cli/azure/role/assignment#az_role_assignment_create):
+Para criar uma atribuição de função para um grupo, use [criar atribuição de função az](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-O exemplo a seguir atribui a função *Leitor* ao grupo *Ann Mack Team* com ID 22222222-2222-2222-2222-222222222222 no escopo da assinatura. Para obter a ID do grupo, você pode usar [lista de grupos do ad az](/cli/azure/ad/group#az_ad_group_list) ou [mostrar de grupo do ad az](/cli/azure/ad/group#az_ad_group_show).
+O exemplo a seguir atribui a função *Leitor* ao grupo *Ann Mack Team* com ID 22222222-2222-2222-2222-222222222222 no escopo da assinatura. Para obter a ID do grupo, você pode usar [lista de grupos do ad az](/cli/azure/ad/group#az-ad-group-list) ou [mostrar de grupo do ad az](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
 az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -277,13 +277,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ### <a name="create-a-role-assignment-for-an-application"></a>Criar uma atribuição de função para um aplicativo
 
-Para criar uma função para um aplicativo, use [criar atribuição de função az](/cli/azure/role/assignment#az_role_assignment_create):
+Para criar uma função para um aplicativo, use [criar atribuição de função az](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-O exemplo a seguir atribui a função *Colaborador da Máquina Virtual* a um aplicativo com ID de objeto 44444444-4444-4444-4444-444444444444 no escopo do grupo de recursos *pharma-sales-projectforcast*. Para obter a ID de objeto do aplicativo, você pode usar [lista de aplicativos do ad az](/cli/azure/ad/app#az_ad_app_list) ou [mostrar de aplicativo do ad az](/cli/azure/ad/app#az_ad_app_show).
+O exemplo a seguir atribui a função *Colaborador da Máquina Virtual* a um aplicativo com ID de objeto 44444444-4444-4444-4444-444444444444 no escopo do grupo de recursos *pharma-sales-projectforcast*. Para obter a ID de objeto do aplicativo, você pode usar [lista de aplicativos do ad az](/cli/azure/ad/app#az-ad-app-list) ou [mostrar de aplicativo do ad az](/cli/azure/ad/app#az-ad-app-show).
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
@@ -291,7 +291,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## <a name="remove-a-role-assignment"></a>Excluir uma atribuição de função
 
-Para remover uma atribuição de função, use [excluir atribuição de função az](/cli/azure/role/assignment#az_role_assignment_delete):
+Para remover uma atribuição de função, use [excluir atribuição de função az](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
@@ -303,7 +303,7 @@ O exemplo a seguir remove a atribuição da função *Colaborador da Máquina Vi
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-O exemplo a seguir exclui a função *Leitor* do grupo *Ann Mack Team* com ID 22222222-2222-2222-2222-222222222222 no escopo da assinatura. Para obter a ID do grupo, você pode usar [lista de grupos do ad az](/cli/azure/ad/group#az_ad_group_list) ou [mostrar de grupo do ad az](/cli/azure/ad/group#az_ad_group_show).
+O exemplo a seguir exclui a função *Leitor* do grupo *Ann Mack Team* com ID 22222222-2222-2222-2222-222222222222 no escopo da assinatura. Para obter a ID do grupo, você pode usar [lista de grupos do ad az](/cli/azure/ad/group#az-ad-group-list) ou [mostrar de grupo do ad az](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -313,7 +313,7 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ### <a name="list-custom-roles"></a>Listar funções personalizadas
 
-Para listar as funções disponíveis para atribuição em um escopo, use a [lista de definições de função az](/cli/azure/role/definition#az_role_definition_list).
+Para listar as funções disponíveis para atribuição em um escopo, use a [lista de definições de função az](/cli/azure/role/definition#az-role-definition-list).
 
 Ambos os exemplos a seguir listam todas as funções personalizadas na assinatura atual:
 
@@ -344,7 +344,7 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 
 ### <a name="create-a-custom-role"></a>Criar uma função personalizada
 
-Para criar um arquivo personalizado, use [criar definição de função az](/cli/azure/role/definition#az_role_definition_create). A definição de função pode ser uma descrição de JSON ou um caminho para um arquivo que contém uma descrição de JSON.
+Para criar um arquivo personalizado, use [criar definição de função az](/cli/azure/role/definition#az-role-definition-create). A definição de função pode ser uma descrição de JSON ou um caminho para um arquivo que contém uma descrição de JSON.
 
 ```azurecli
 az role definition create --role-definition <role_definition>
@@ -386,7 +386,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ### <a name="update-a-custom-role"></a>Atualizar uma função personalizada
 
-Para atualizar uma função personalizada, primeiro use [lista de definições de função az](/cli/azure/role/definition#az_role_definition_list) para recuperar a definição de função. Depois, faça as alterações desejadas na definição da função. Por fim, use [atualizar definição de função az](/cli/azure/role/definition#az_role_definition_update) para salvar a definição de função atualizada.
+Para atualizar uma função personalizada, primeiro use [lista de definições de função az](/cli/azure/role/definition#az-role-definition-list) para recuperar a definição de função. Depois, faça as alterações desejadas na definição da função. Por fim, use [atualizar definição de função az](/cli/azure/role/definition#az-role-definition-update) para salvar a definição de função atualizada.
 
 ```azurecli
 az role definition update --role-definition <role_definition>
@@ -429,7 +429,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ### <a name="delete-a-custom-role"></a>Excluir uma função personalizada
 
-Para excluir um arquivo personalizado, use [excluir definição de função az](/cli/azure/role/definition#az_role_definition_delete). Para especificar a função a ser excluída, use o nome da função ou a ID de função. Para determinar a ID de função, use [lista de definições de função az](/cli/azure/role/definition#az_role_definition_list).
+Para excluir um arquivo personalizado, use [excluir definição de função az](/cli/azure/role/definition#az-role-definition-delete). Para especificar a função a ser excluída, use o nome da função ou a ID de função. Para determinar a ID de função, use [lista de definições de função az](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition delete --name <role_name or role_id>

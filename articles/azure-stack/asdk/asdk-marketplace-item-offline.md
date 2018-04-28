@@ -2,11 +2,11 @@
 title: Adicionar um item do marketplace do Azure pilha de local de origem | Microsoft Docs
 description: Descreve como adicionar uma imagem de sistema operacional local para a pilha do Azure Marketplace.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 296719ddd23fb9ee717455420906e9a634a71a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: MT
+ms.openlocfilehash: 815dc055e19a38a61cbb3e927c3d7e92393b17dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-add-an-azure-stack-marketplace-item-from-a-local-source"></a>Tutorial: adicionar um item do marketplace do Azure pilha do local de origem
 
@@ -84,7 +84,7 @@ Use esta opção se você tiver implantado pilha do Azure em um cenário de desc
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
@@ -112,7 +112,7 @@ Use esta opção se você tiver implantado pilha do Azure em um cenário de desc
       -ADFS `
       -EnvironmentName "AzureStackAdmin" 
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
@@ -148,9 +148,9 @@ Como um operador de pilha do Azure, você pode usar o [portal do administrador](
  ![Criar VM a partir da imagem do marketplace](media/asdk-marketplace-item/new-compute.png)
 
 3. No **Noções básicas de** folha, insira as informações a seguir e, em seguida, clique em **Okey**:
-  - **Name**: test-vm-1
+  - **Nome**: teste 1 de vm
   - **Nome de usuário**: AdminTestUser
-  - **Password**: AzS-TestVM01
+  - **Senha**: AzS TestVM01
   - **Assinatura**: aceitar a assinatura do provedor de padrão
   - **Grupo de recursos**: rg de vm de teste
   - **Local**: local

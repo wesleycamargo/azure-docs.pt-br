@@ -23,7 +23,7 @@
 ## [Serviço de Aplicativo](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # Recursos
-## [Vídeos do Azure Advisor](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
+## [Vídeos do Azure Advisor](https://azure.microsoft.com/resources/videos/index/?services=advisor)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 

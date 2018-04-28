@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 4eeff0d89fa8a73b8f7f4b73fb5bfb85cda26184
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5cb8dae7612ce188079b3a872fe2313ca8b7f623
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 Os tamanhos de VM para uso geral fornecem uma relação de CPU para memória equilibrada. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
@@ -77,6 +77,7 @@ O armazenamento do disco de dados é faturado separadamente das máquinas virtua
 
 <sup>1</sup> A tecnologia Intel® Hyper-Threading da VM série Dv3
 
+
 ## <a name="dsv2-series"></a>Série DSv2
 
 ACU: 210-250
@@ -95,15 +96,15 @@ ACU: 210-250
 
 ACU: 210-250
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3,5 |4 |50 |3000 / 46 / 23 |4 / 4 x 500 |2 / 750 |
-| Standard_D2_v2 |2 |7 |8 |100 |6000 / 93 / 46 |8 / 8 x 500 |2 / 1500 |
-| Standard_D3_v2 |4 |14 |16 |200 |12000 / 187 / 93 |16 / 16 x 500 |4 / 3000 |
-| Standard_D4_v2 |8 |28 |32 |400 |24000 / 375 / 187  |32 / 32 x 500 |8 / 6000 |
-| Standard_D5_v2 |16 |56 |64 |800 |48000 / 750 / 375 |64 / 64x500 |8 / 12000 |
+| Tamanho           | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos | Taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+|----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
+| Standard_D1_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 4              | 4x500            | 2 / 750                                      |
+| Standard_D2_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 8              | 8 x 500            | 2 / 1500                                     |
+| Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             | 16 x 500           | 4 / 3000                                       |
+| Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32 x 500           | 8 / 6000                                       |
+| Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             | 64x500           | 8 / 12000                                    |
 
-<br>
+
 
 ## <a name="ds-series"></a>Série DS
 
@@ -179,7 +180,7 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 
 ## <a name="basic-a"></a>A Básico
 
-|Tamanho – Tamanho\Nome | vCPU |Memória|NICs (Máx.)|Tamanho máximo do disco temporário |Máx. discos de dados (1.023 GB cada)|Máx. IOPS (300 por disco)|
+|Tamanho – Tamanho\Nome | vCPU |Memória|NICs (Máx.)|Tamanho máximo do disco temporário |Máx. de discos de dados (1023 GB cada)|Máx. IOPS (300 por disco)|
 |---|---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|2| 20 GB|1|1 x 300|
 |A1\Basic_A1|1|1,75 GB|2| 40 GB |2|2 x 300|

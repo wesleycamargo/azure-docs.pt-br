@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 713b830717cce7b4b2b0fb1171596659c2275b85
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 13c3c948fbe24d5536b32967c8394060ee898377
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Adicionar um fluxo de entrada ou dados de referência a um trabalho do Stream Analytics
 Saiba como conectar uma fonte de dados ao trabalho do Stream Analytics como fluxo de entrada de dados de Hubs de Eventos ou dados de referência do armazenamento de Blobs.
@@ -49,12 +49,12 @@ Para adicionar uma entrada ao trabalho do Stream Analytics:
     ![Adicionar a entrada de dados do streaming de dados](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)  
 4. Forneça um nome amigável para essa entrada na caixa Alias de Entrada.  Esse nome será usado na consulta do trabalho posteriormente para fazer referência à entrada.
    
-    Preencha o restante das propriedades de conexão necessárias para se conectar à fonte de dados. Esses campos variam de acordo com o tipo de entrada e de fonte e são definidos detalhadamente [aqui](stream-analytics-create-a-job.md).  
+    Preencha o restante das propriedades de conexão necessárias para se conectar à fonte de dados. 
    
     ![Adicionar entrada de dados do hub de eventos](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
 5. Especifique as configurações de serialização para os dados de entrada:
    
-   * Para garantir que suas consultas funcionem da maneira esperada, especifique o **formato de serialização de evento** de dados de entrada.  Os formatos de serialização com suporte são JSON, CSV e Avro.
+   * Para garantir que suas consultas funcionem da maneira esperada, especifique o **formato de serialização de evento** de dados de entrada.  Os formatos de serialização com suporte são JSON, CSV e Avro. Verifique se o formato JSON está alinhado com a especificação e não inclui um 0 à esquerda para números decimais.
    * Verifique a **Codificação** para os dados.  UTF-8 é o único formato de codificação com suporte no momento.
      
      ![Configurações de serialização de dados para entrada de dados](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  

@@ -1,11 +1,11 @@
 ---
 title: Excluir um cluster do Azure e seus recursos | Microsoft Docs
-description: "Saiba como excluir por completo um cluster do Service Fabric excluindo o grupo de recursos que contém o cluster ou excluindo os recursos seletivamente."
+description: Saiba como excluir por completo um cluster do Service Fabric excluindo o grupo de recursos que contém o cluster ou excluindo os recursos seletivamente.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de422950-2d22-4ddb-ac47-dd663a946a7e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
-ms.author: chackdan
-ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: aljo
+ms.openlocfilehash: 1255574e6aae930b0e349ec8f36cc66ac2b7e49f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Excluir um cluster do Service Fabric e os recursos que ele utiliza
 Um cluster do Service Fabric é composto por vários outros recursos do Azure, além do próprio recurso de cluster. Portanto, para excluir por completo um cluster do Service Fabric, também é necessário excluir todos os recursos que o compõem.
@@ -38,7 +38,7 @@ Também é possível excluir o grupo de recursos executando os seguintes cmdlets
 Abra uma janela do PowerShell e execute os seguintes cmdlets do PS:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
@@ -46,7 +46,7 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 Você receberá um aviso para confirmar a exclusão, caso não tenha usado a opção *-Force* . Após a confirmação, o RG e todos os recursos que ele contém são excluídos.
 
 ### <a name="delete-a-resource-group-in-the-azure-portal"></a>Excluir um grupo de recursos no portal do Azure
-1. Faça logon no [portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Navegue até o cluster do Service Fabric que você deseja excluir.
 3. Clique no nome do Grupo de Recursos na página de conceitos básicos do cluster.
 4. Isso abre a página **Princípios básicos do grupo de recursos** .
@@ -62,10 +62,10 @@ Caso você tenha implantado o cluster usando o portal ou um dos modelos do Resou
 
 ***Marcação nº 1:*** Chave = clusterName, Valor = 'nome do cluster'
 
-***Marcação n º 2:*** Chave = resourceName, Valor = ServiceFabric
+***Marcação nº 2:*** Chave = resourceName, Valor = ServiceFabric
 
 ### <a name="delete-specific-resources-in-the-azure-portal"></a>Excluir recursos específicos no Portal do Azure
-1. Faça logon no [portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Navegue até o cluster do Service Fabric que você deseja excluir.
 3. Vá para **Todas as configurações** na folha Conceitos básicos.
 4. Clique em **Marcações** em **Gerenciamento de Recursos** na folha Configurações.
@@ -82,15 +82,15 @@ Caso você tenha implantado o cluster usando o portal ou um dos modelos do Resou
 Abra uma janela do PowerShell e execute os seguintes cmdlets do PS:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
-Para cada um dos recursos que você deseja excluir, execute o seguinte:
+Para cada um dos recursos que você deseja excluir, execute o seguinte script:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-Para excluir o recurso de cluster, execute o seguinte:
+Para excluir o recurso de cluster, execute o seguinte script:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force

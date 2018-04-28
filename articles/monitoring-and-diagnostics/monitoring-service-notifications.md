@@ -1,8 +1,8 @@
 ---
 title: O que são as notificações de integridade do serviço do Azure? | Microsoft Docs
 description: As notificações de integridade do serviço permitem exibir mensagens de integridade do serviço publicadas pelo Microsoft Azure.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 4/12/2017
+ms.author: dukek
+ms.openlocfilehash: 6821828d3e39a87b8c93f74e7e0583bf9fe1fe4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Exibir as notificações de integridade do serviço usando o Portal do Azure
 
@@ -41,7 +41,7 @@ canais | Um dos seguintes valores: **Admin** ou **Operação**.
 correlationId | Geralmente, um GUID no formato de cadeia de caracteres. Eventos que pertencem à mesma ação geralmente compartilham a mesma correlationId.
 eventDataId | O identificador exclusivo de um evento.
 eventName | O título de um evento.
-level | O nível de um evento. Um dos seguintes valores: **Crítico**, **Erro**, **Aviso** ou **Informativo**.
+level | O nível de um evento
 resourceProviderName | O nome do provedor de recursos do recurso afetado.
 resourceType| O tipo de recurso do recurso afetado.
 subStatus | Geralmente, o código de status HTTP da chamada REST correspondente, mas também pode incluir outras cadeias de caracteres que descrevam um substatus. Por exemplo: OK (Código de Status HTTP: 200), Criado (Código de Status HTTP: 201), Aceito (Código de Status HTTP: 202), Sem Conteúdo (Código de Status HTTP: 204), Solicitação Incorreta (Código de Status HTTP: 400), Não Encontrado (Código de Status HTTP: 404), Conflito (Código de Status HTTP: 409), Erro Interno do Servidor (Código de Status HTTP: 500), Serviço Não Disponível (Código de Status HTTP: 503), Tempo Limite do Gateway (Código de Status HTTP: 504).
@@ -54,14 +54,52 @@ categoria | Esta propriedade é sempre **ServiceHealth**.
 ResourceId | ID do recurso afetado.
 Properties.title | O título localizado dessa comunicação. Inglês é o padrão.
 Properties.communication | Os detalhes localizados da comunicação com marcação HTML. Inglês é o padrão.
-Properties.incidentType | Um dos valores a seguir: **AssistedRecovery**, **ActionRequired**, **Information**, **Incident**, **Maintenance**, **Security**.
+Properties.incidentType | Um dos valores a seguir: **ActionRequired**, **Informações**, **Incidente**, **Manutenção**, ou **Segurança**.
 Properties.trackingId | O incidente ao qual esse evento está associado. Use-a para correlacionar os eventos relacionados a um incidente.
 Properties.impactedServices | Um blob JSON com escape que descreve as regiões e os serviços afetados pelo incidente. Uma lista de Services, que, individualmente, tem um **ServiceName** e uma lista de ImpactedRegions, que têm um **RegionName**.
 Properties.defaultLanguageTitle | A comunicação em inglês.
 Properties.defaultLanguageContent | A comunicação em inglês como marcação HTML ou texto sem formatação.
-Properties.stage | Os possíveis valores para **AssistedRecovery**, **ActionRequired**, **Information**, **Incident** e **Security** são **Active** ou **Resolved**. Para **Maintenance**, eles são: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved** ou **Complete**.
+Properties.stage | Os valores possíveis para **Incidente** e **Segurança** são **Ativo,** **Resolvido** ou **RCA**. Para **ActionRequired** ou **Informações** o único valor é **Ativo.** Para **Manutenção** são: **Ativo**, **Planejado**, **EmAndamento**, **Cancelado**, **Reagendado**, **Resolvido** ou **Concluído**.
 Properties.communicationId | A comunicação à qual esse evento está associado.
 
+### <a name="details-on-service-health-level-information"></a>Detalhes sobre informações de nível de integridade de serviço
+  <ul>
+    <li><b>Ação Necessária</b> (properties.incidentType == ActionRequired) <dl>
+            <dt>Informativo</dt>
+            <dd>Ação do administrador necessária para impedir o impacto nos serviços existentes</dd>
+        </dl>
+    </li>
+    <li><b>Manutenção</b> (properties.incidentType == Maintenance) <dl>
+            <dt>Aviso</dt>
+            <dd>manutenção de emergência<dd>
+            <dt>Informativo</dt>
+            <dd>manutenção planejada padrão</dd>
+        </dl>
+    </li>
+    <li><b>Informações</b> (properties.incidentType == Information) <dl>
+            <dt>Informativo</dt>
+            <dd>O administrador pode ser obrigado a impedir o impacto nos serviços existentes</dd>
+        </dl>
+    </li>
+    <li><b>Segurança</b> (properties.incidentType == Security) <dl>
+            <dt>Erro</dt>
+            <dd>Problemas amplamente difundidos ao acessar vários serviços em várias regiões estão impactando um amplo conjunto de clientes.</dd>
+            <dt>Aviso</dt>
+            <dd>Problemas ao acessar serviços específicos e/ou regiões específicas estão impactando um subconjunto de clientes.</dd>
+            <dt>Informativo</dt>
+            <dd>Problemas que afetam as operações de gerenciamento e/ou latência, não impactando a disponibilidade do serviço.</dd>
+        </dl>
+    </li>
+    <li><b>Problemas de Serviço</b> (properties.incidentType == Incident) <dl>
+            <dt>Erro</dt>
+            <dd>Problemas amplamente difundidos ao acessar vários serviços em várias regiões estão impactando um amplo conjunto de clientes.</dd>
+            <dt>Aviso</dt>
+            <dd>Problemas ao acessar serviços específicos e/ou regiões específicas estão impactando um subconjunto de clientes.</dd>
+            <dt>Informativo</dt>
+            <dd>Problemas que afetam as operações de gerenciamento e/ou latência, não impactando a disponibilidade do serviço.</dd>
+        </dl>
+    </li>
+  </ul>
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Exibindo as notificações de integridade do serviço no Portal do Azure
 1.  No [portal do Azure](https://portal.azure.com), selecione **Monitor**.

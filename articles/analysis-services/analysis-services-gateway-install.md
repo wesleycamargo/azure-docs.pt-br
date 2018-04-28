@@ -1,25 +1,18 @@
 ---
 title: Instalar Gateway de dados local | Microsoft Docs
 description: Saiba como instalar e configurar um Gateway de dados local.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5a923d3b5fbb5e7afe5f2a922ba083608ff35fd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados local
 Um gateway de dados local é necessário quando um ou mais servidores do Azure Analysis Services na mesma região se conectam a fontes de dados locais. Para saber mais sobre o gateway, consulte [Gateway de dados local](analysis-services-gateway.md).
@@ -44,7 +37,7 @@ Um gateway de dados local é necessário quando um ou mais servidores do Azure A
 * Instale o gateway em um computador que permanece ligado e não entra em suspensão.
 * Não instale o gateway em um computador sem fio conectado à rede. O desempenho pode ser prejudicado.
 * Entre no Azure com uma conta do Azure AD que seja do mesmo [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que a assinatura que você está usando para registrar o gateway. Contas B2B (de convidado) do Azure não têm suporte durante a instalação e registro do gateway.
-* O gateway (unificado) descrito aqui não tem suporte no Microsoft Azure Governamental (Fairfax). Use o gateway local dedicado para o Azure Analysis Services. O gateway dedicado não dá suporte a serviços adicionais, como Power BI e Power Apps. O gateway dedicado é instalado a partir do Início Rápido de servidores no portal.
+* O gateway (unificado) descrito aqui não tem suporte nas regiões soberanas do Azure China, Azure Alemanha e Azure Governamental. Use o **Gateway Local dedicado para o Azure Analysis Services**, instalado a partir do **Início Rápido** no portal. 
 
 
 ## <a name="download"></a>Baixar

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/03/2018
+ms.date: 04/17/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 34b03cf1fda29706936968ab93cb35a6a2510c65
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: af253525ce5a77ece72e810642abcaf7931e39d8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gerenciar a capacidade de memória física para a pilha do Azure
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/05/2018
 Para aumentar a capacidade de memória total disponível para a pilha do Azure, você pode adicionar mais memória. Na pilha do Azure seu servidor físico também é conhecido como um *nó de unidade de escala*. Todos os nós de unidade de escala que são membros de uma unidade de escala única devem ter a mesma quantidade de memória.
 
 > [!note]  
-> Antes de continuar, consulte a documentação do fabricante de hardware para ver se uma memória atualiza seu fabricante dá suporte a uma atualização de memória físico. Seu contrato de suporte do fornecedor de hardware OEM pode exigir que o fornecedor de executar o posicionamento de rack do servidor físico e a atualização de firmware do dispositivo.
+> Antes de continuar, consulte a documentação do fabricante de hardware para ver se o fornecedor oferece suporte a uma atualização de memória física. Seu contrato de suporte do fornecedor de hardware OEM pode exigir que eles executam o posicionamento de rack do servidor físico e a atualização de firmware do dispositivo.
 
 O diagrama de fluxo a seguir mostra o processo geral para adicionar memória para cada nó de unidade de escala.
 

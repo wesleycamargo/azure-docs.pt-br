@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: sujayt
-ms.openlocfilehash: 4ddad2d8e5c5323b632b65efaf87d3df7ce8d707
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicação de uma região do Azure para outra
 
@@ -168,6 +168,8 @@ Criptografia em repouso (SSE) | Com suporte | Para contas de armazenamento de ca
 ADE (Azure Disk Encryption) | Sem suporte |
 Adição/remoção de disco a quente | Sem suporte | Se você adicionar ou remover um disco de dados da VM, precisará desabilitar a replicação e habilitá-la novamente na VM.
 Exclusão de disco | Sem suporte|   O disco temporário é excluído por padrão.
+Espaços de armazenamento Diretos  | Sem suporte|
+Servidor de Arquivos de Expansão  | Sem suporte|
 LRS | Com suporte |
 GRS | Com suporte |
 RA-GRS | Com suporte |

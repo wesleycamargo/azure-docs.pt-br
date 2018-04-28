@@ -1,8 +1,8 @@
 ---
-title: "Migrar do HDInsight baseado em Windows para o HDInsight baseado em Linux – Azure | Microsoft Docs"
+title: Migrar do HDInsight baseado em Windows para o HDInsight baseado em Linux – Azure | Microsoft Docs
 description: Saiba como migrar de um cluster HDInsight baseado no Windows para um cluster HDInsight baseado no Linux.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6d4b537834b8a70f0015fc9c6316dae20af5dd5a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrar de um cluster HDInsight baseado no Windows para um cluster baseado em Linux
 
@@ -148,7 +146,7 @@ Para saber mais sobre os requisitos de configuração, confira [Estender recurso
 
 ## <a name="management-and-monitoring"></a>Gerenciamento e monitoramento
 
-Muitas das interfaces de usuário que você pode ter usado com HDInsight baseado em Windows, a interface de usuário do Yarn ou do Histórico de Trabalhos, estão disponíveis por meio do Ambari. Além disso, o Modo de Exibição do Hive do Ambari fornece uma maneira de executar consultas Hive usando o navegador da Web. A interface de usuário da Web do Ambari está disponível em clusters baseados em Linux em https://NOMEDOCLUSTER.azurehdinsight.net.
+Muitas das interfaces de usuário que você pode ter usado com HDInsight baseado em Windows, a interface de usuário do Yarn ou do Histórico de Trabalhos, estão disponíveis por meio do Ambari. Além disso, o Modo de Exibição do Hive do Ambari fornece uma maneira de executar consultas Hive usando o navegador da Web. A interface do usuário da Web do Ambari está disponível em clusters baseados em Linux em https://CLUSTERNAME.azurehdinsight.net.
 
 Para saber mais sobre como trabalhar com o Ambari, confira os seguintes documentos:
 
@@ -234,7 +232,7 @@ Se você tiver um fluxo de trabalho que usa um aplicativo C#, valide esses aplic
 | Com base no Windows, uso... | Com base no Linux... |
 | --- | --- |
 | Painel de Controle do Storm |O Painel Storm não está disponível. Confira [Deploy and Manage Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) (Implantar e gerenciar topologias Storm no HDInsight baseado em Linux) para saber como enviar topologias |
-| Interface do Usuário do Storm |A interface de usuário do Storm está disponível em https://NOMEDOCLUSTER.azurehdinsight.net/stormui |
+| Interface do Usuário do Storm |A interface do usuário do Storm está disponível em https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio para criar, implantar e gerenciar topologias híbridas ou do C# |O Visual Studio pode ser usado para criar, implantar e gerenciar topologias do C# (SCP.NET) ou híbridas em Storm no HDInsight baseado em Linux. Ele só pode ser usado com clusters criados após 28/10/2016. |
 
 ## <a name="hbase"></a>HBase

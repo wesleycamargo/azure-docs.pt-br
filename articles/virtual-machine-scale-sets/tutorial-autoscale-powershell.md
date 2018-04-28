@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 128f3d366dc7de0870bc6f52ae6d0bbaf3a0fcb3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f184c30f1f39563d6e029d506237e6b0e23ec482
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo. Neste tutorial, você aprenderá a:
@@ -29,13 +29,13 @@ Ao criar um conjunto de dimensionamento, o número de instâncias de VM que voc�
 > * Usar o dimensionamento automático com um conjunto de dimensionamento
 > * Criar e usar regras de dimensionamento automático
 > * Testar instâncias de VM sob estresse e disparar regras de dimensionamento automático
-> * Redimensionamento automático com a redução da demanda
+> * Redimensionar automaticamente conforme a demanda é reduzida
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.6.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.6.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de escala
@@ -73,7 +73,7 @@ Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjun
 ## <a name="create-a-rule-to-autoscale-out"></a>Criar uma regra de dimensionamento automático para aumento
 Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunto de dimensionamento também aumentará. Se esse aumento de carga for consistente, em vez de apenas uma demanda breve, configure as regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando essas instâncias de VM forem criadas e os aplicativos implantados, o conjunto de dimensionamento começará a distribuir o tráfego para eles por meio do balanceador de carga. Você controla quais métricas são monitoradas, como CPU ou disco, por quanto tempo a carga do aplicativo deve atender a determinado limite e quantas instâncias de VM devem ser adicionadas ao conjunto de dimensionamento.
 
-Vamos criar uma regra com [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) que aumenta o número de instâncias de VM em um conjunto de dimensionamento definido quando a carga da CPU média for maior que 70% por um período de 5 minutos. Quando a regra é disparada, o número de instâncias de VM aumenta em 20%.
+Vamos criar uma regra com [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) que aumenta o número de instâncias de VM em um conjunto de dimensionamento definido quando a carga da CPU média for maior que 70% por um período de 5 minutos. Quando a regra é disparada, a quantidade de instâncias de VM aumenta por três.
 
 Os seguintes parâmetros são usados para essa regra:
 
@@ -86,7 +86,7 @@ Os seguintes parâmetros são usados para essa regra:
 | *-Operator*             | Operador usado para comparar os dados da métrica com o limite.                                                     | Maior que   |
 | *-Threshold*            | O valor que faz com que a regra de autoescala dispare uma ação.                                                      | 70%            |
 | *-ScaleActionDirection* | Define se o conjunto de dimensionamento deve ser dimensionado expandido ou reduzido quando a regra se aplica.                                             | Aumento       |
-| *–ScaleActionScaleType* | Indica que o número de instâncias de VM deve ser modificado por um valor específico.                                    | Alterar contagem   |
+| *–ScaleActionScaleType* | Indica que a quantidade de instâncias de VM deve ser modificada por um valor específico.                                    | Alterar contagem   |
 | *-ScaleActionValue*     | O percentual de instâncias de VM que deve ser alterado quando a regra disparar.                                            | 3              |
 | *-ScaleActionCooldown*  | O tempo de espera antes da regra ser aplicada novamente para que as ações de autoescala tenham tempo para entrar em vigor. | 5 minutos      |
 
@@ -156,7 +156,7 @@ Add-AzureRmAutoscaleSetting `
 
 
 ## <a name="generate-cpu-load-on-scale-set"></a>Gerar carga de CPU no conjunto de dimensionamento
-Para testar as regras de dimensionamento automático, gere carga da CPU nas instâncias de VM no conjunto de dimensionamento. Essa carga de CPU simulada faz com que as regras de dimensionamento automático escalem horizontalmente e aumentem o número de instâncias de VM. Conforme a carga simulada de CPU vai sendo reduzida, as regras de dimensionamento automático para redução diminuem o número de instâncias de VM.
+Para testar as regras de dimensionamento automático, gere alguma carga de CPU nas instâncias de VM no conjunto de dimensionamento. Essa carga de CPU simulada faz com que as regras de dimensionamento automático escalem horizontalmente e aumentem o número de instâncias de VM. Conforme a carga simulada de CPU vai sendo reduzida, as regras de dimensionamento automático para redução diminuem o número de instâncias de VM.
 
 Para listar as portas NAT que devem se conectar a instâncias de VM em um conjunto de dimensionamento, primeiro obtenha o objeto do balanceador de carga com [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Em seguida, exiba as regras NAT de entrada com [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig):
 
@@ -179,7 +179,7 @@ myRDPRule.1 Tcp             50002        3389
 
 O *Nome* da regra está de acordo com o nome da instância de VM conforme mostrado em um comando [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) anterior. Por exemplo, para se conectar à instância de VM *0*, use *myRDPRule.0* e conecte-se à porta *50001*. Para se conectar à instância de VM *1*, use o valor de *myRDPRule.1* e conecte-se à porta *50002*.
 
-Exiba o endereço IP público do balanceador de carga com [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+Exiba o endereço IP público do balanceador de carga com [Get-AzureRmPublicIPAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIP | Select IpAddress
@@ -242,13 +242,13 @@ MYRESOURCEGROUP   myScaleSet_5   eastus Standard_DS2                   5        
 MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6          Creating
 ```
 
-Na sua sessão de conexão da área de trabalho remota para cada uma das instâncias de VM, feche a ferramenta **Estresse da CPU**. A carga da CPU média em todo o conjunto de dimensionamento volta ao normal. Após mais cinco minutos, as regras de dimensionamento automático reduzem o número de instâncias de VM. As ações de redução removem instâncias de VM começando pelas IDs mais altas. A saída de exemplo abaixo mostra uma instância de VM excluída pela redução do conjunto de dimensionamento:
+Na sua sessão de conexão da área de trabalho remota para cada uma das instâncias de VM, feche a ferramenta **Estresse da CPU**. A carga da CPU média em todo o conjunto de dimensionamento volta ao normal. Após mais cinco minutos, as regras de dimensionamento automático reduzem o número de instâncias de VM. As ações de redução horizontal removem instâncias de VM começando pelas IDs mais altas. Quando um conjunto de dimensionamento usa Conjuntos de Disponibilidade ou Zonas de Disponibilidade, as ações de reduzir horizontalmente são distribuídas uniformemente entre essas instâncias de VM. A saída de exemplo a seguir mostra uma instância de VM excluída conforme o conjunto de dimensionamento reduz horizontal e automaticamente:
 
 ```powershell
 MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6          Deleting
 ```
 
-Saia de *while* com `Ctrl-c`. O conjunto de dimensionamento continua a reduzir a cada cinco minutos e a remover uma instância de VM até que a contagem mínima de instâncias, duas, seja alcançada.
+Saia de *while* com `Ctrl-c`. O conjunto de dimensionamento continua a reduzir horizontalmente a cada 5 minutos e a remover uma instância de VM até que a contagem mínima de duas instâncias seja alcançada.
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

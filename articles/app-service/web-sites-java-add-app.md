@@ -1,24 +1,23 @@
 ---
-title: "Adicionar um aplicativo Java a Aplicativos Web do Serviço de Aplicativo do Azure"
-description: "Este tutorial mostra como adicionar uma página ou um aplicativo à sua instância de Aplicativos Web do Serviço de Aplicativo de Azure que já está configurada para usar o Java."
+title: Adicionar um aplicativo Java a Aplicativos Web do Serviço de Aplicativo do Azure
+description: Este tutorial mostra como adicionar uma página ou um aplicativo à sua instância de Aplicativos Web do Serviço de Aplicativo de Azure que já está configurada para usar o Java.
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 ms.assetid: 9b46528b-e2d0-4f26-b8d7-af94bd8c31ef
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: 1309985d7f1b93230b38ada2ee2687b1db10a791
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71009370282fcfbd71c00b30d4ea22802035714d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Adicionar um aplicativo Java a Aplicativos Web do Serviço de Aplicativo do Azure
 Após inicializar seu aplicativo Web do Java no [Serviço de Aplicativo do Azure][Azure App Service], conforme documentado em [Criar um aplicativo Web do Java no Serviço de Aplicativo do Azure](app-service-web-get-started-java.md), você poderá carregar o aplicativo colocando o WAR na pasta **webapps**.
@@ -34,7 +33,7 @@ Observação para aplicativos Web Tomcat: assim que você tiver carregado seu ar
 
 <a name="see-also"></a>
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
 
 [application-insights-app-insights-java-get-started](../application-insights/app-insights-java-get-started.md)

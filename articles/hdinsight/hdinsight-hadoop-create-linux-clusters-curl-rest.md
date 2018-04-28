@@ -1,8 +1,8 @@
 ---
-title: "Criar clusters Hadoop usando a API REST do Azure – Azure | Microsoft Docs"
+title: Criar clusters Hadoop usando a API REST do Azure – Azure | Microsoft Docs
 description: Saiba como criar clusters do HDInsight enviando os modelos do Azure Resource Manager para a API REST do Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 4fcdde200fa9d54c7eb5b0ffe151aff3fbd0ed85
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a71a73d8d54e6a24c9a491bd02c7270f56823003
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Hadoop usando a API REST do Azure
 
@@ -34,13 +32,13 @@ A API REST do Azure permite executar operações de gerenciamento de serviços h
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]
-> As etapas desse documento usam o utilitário [curl (https://curl.haxx.se/)](https://curl.haxx.se/) para se comunicar com a API REST do Azure.
+> As etapas neste documento usam o utilitário [curl (https://curl.haxx.se/)](https://curl.haxx.se/) para comunicar-se com a API REST do Azure.
 
 ## <a name="create-a-template"></a>Criar um modelo
 
 Os modelos do Azure Resource Manager são documentos JSON que descrevem um **grupo de recursos** e todos os recursos que ele contém (por exemplo, HDInsight). Essa abordagem baseada em modelo permite que você defina os recursos necessários para o HDInsight em um modelo.
 
-O seguinte documento JSON é uma fusão dos arquivos de modelo e parâmetros de [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), que cria um cluster baseado em Linux usando uma senha para proteger a conta de usuário do SSH.
+O documento JSON a seguir é uma mesclagem dos arquivos de parâmetros e modelo de [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), que cria um cluster baseado em Linux usando uma senha para proteger a conta de usuário SSH.
 
    ```json
    {

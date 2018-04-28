@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
@@ -468,7 +468,7 @@ Se o seu locatário do Azure Active Directory estiver localizado em um dos data 
 
 **Solucionar problemas do agente**
 
-O [Log de eventos do Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) na computador do Windows Server que hospeda o agente contém eventos para todas as operações executadas pelo agente. Para exibir esses eventos:
+O [Log de eventos do Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) na computador do Windows Server que hospeda o agente contém eventos para todas as operações executadas pelo agente. Para exibir esses eventos:
     
 1. Abra **Eventvwr.msc**.
 2. Selecione **Logs do Windows > Aplicativo**.
@@ -491,7 +491,7 @@ Após concluir as partes de 1 a 3, você poderá iniciar o serviço de provision
 
 4. A qualquer momento, verifique os **Logs de auditoria** no portal do Azure para ver as ações que o serviço de provisionamento executou. Os logs de auditoria listam todos os eventos de sincronização realizados pelo serviço de provisionamento, tais como aqueles em que os usuários estão sendo lidos do Workday e, posteriormente adicionados ou atualizados no Active Directory. **[Consulte o guia de relatórios de provisionamento para obter instruções detalhadas sobre como ler os logs de auditoria](active-directory-saas-provisioning-reporting.md)**
 
-5.  Verifique o [Log de eventos do Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) no computador do Windows Server que hospeda o agente para erros ou avisos. Esses eventos podem ser visualizados iniciando-se o **Eventvwr.msc** no servidor e selecionando **Logs do Windows > Aplicativo**. Todas as mensagens relacionadas ao provisionamento são registradas na fonte **AADSyncAgent**. 
+5.  Verifique o [Log de eventos do Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) no computador do Windows Server que hospeda o agente para erros ou avisos. Esses eventos podem ser visualizados iniciando-se o **Eventvwr.msc** no servidor e selecionando **Logs do Windows > Aplicativo**. Todas as mensagens relacionadas ao provisionamento são registradas na fonte **AADSyncAgent**. 
     
 
 6. Após a conclusão, um relatório de resumo de auditoria será gravado na guia **Provisionamento** conforme mostrado abaixo.
@@ -819,7 +819,7 @@ Há duas maneiras de permanecer compatível com GDPR:
 1. Mediante solicitação, extraia dados de uma pessoa e remova os dados dessa pessoa dos logs de Eventos do Windows. 
 2. Mantenha a retenção dos logs de Eventos do Windows provenientes do processo AADSyncAgent abaixo de 48 horas
 
-Para saber mais sobre como configurar a retenção de dados para os logs de Eventos do Windows, confira as [Configurações dos logs de eventos](https://technet.microsoft.com/en-us/library/cc952132.aspx). Para obter informações gerais sobre o log de Eventos do Windows, confira [este artigo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+Para saber mais sobre como configurar a retenção de dados para os logs de Eventos do Windows, confira as [Configurações dos logs de eventos](https://technet.microsoft.com/library/cc952132.aspx). Para obter informações gerais sobre o log de Eventos do Windows, confira [este artigo](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 
 ## <a name="next-steps"></a>Próximas etapas

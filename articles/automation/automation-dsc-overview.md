@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4282333fc8c6f0835c451b781f70dfaed0697d96
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Visão geral do DSC da Automação do Azure
 
@@ -25,7 +25,7 @@ O DSC de automação do Azure oferece várias vantagens a usar o DSC fora do Azu
 
 ### <a name="built-in-pull-server"></a>Servidor de pull interno
 
-A Automação do Azure oferece um [servidor de pull DSC](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver) para que os nós de destino recebam configurações automaticamente, estejam em conformidade com o estado desejado e relatem a respectiva conformidade.
+A Automação do Azure oferece um [servidor de pull DSC](https://msdn.microsoft.com/powershell/dsc/pullserver) para que os nós de destino recebam configurações automaticamente, estejam em conformidade com o estado desejado e relatem a respectiva conformidade.
 O servidor de pull interno na Automação do Azure elimina a necessidade de configurar e manter seu próprio servidor de pull.
 A Automação do Azure pode destinar computadores Windows ou Linux físicos ou virtuais, na nuvem ou localmente.
 

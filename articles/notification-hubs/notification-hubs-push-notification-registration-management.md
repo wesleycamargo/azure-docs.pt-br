@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: af5738ac96bd2afacee493765453567f7f13c9e5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 969f6b9654200b7f742b6405faa2cff2b13ba537
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="registration-management"></a>Gerenciamento de registros
 ## <a name="overview"></a>Visão geral
@@ -39,10 +39,10 @@ A seguir, algumas vantagens importantes do uso de instalações:
 * O modelo de instalação facilita a realização de envios individuais por push - direcionando a um dispositivo específico. Uma marca de sistema **"$InstallationId: [installationId]"** é adicionada automaticamente com cada registro com base em instalação. Portanto, você pode chamar um envio para essa marca a fim de direcionar a um dispositivo específico sem precisar fazer qualquer codificação adicional.
 * O uso de instalações também permite que você faça atualizações parciais no registro. A atualização parcial de uma instalação é solicitada com um método PATCH usando o [padrão JSON-Patch](https://tools.ietf.org/html/rfc6902). Isso é particularmente útil quando você deseja atualizar marcas no registro. Não é necessário obter todo o registro e reenviar todas as marcas anteriores novamente.
 
-Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa de propriedades de instalação, veja [Criar ou Sobrescrever uma Instalação com REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriedades da Instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Uma instalação pode conter as seguintes propriedades. Para obter uma listagem completa das propriedades da instalação, consulte [Criar ou substituir uma instalação com API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriedades da Instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
     // Example installation format to show some supported properties
-    {
+    {,
         installationId: "",
         expirationTime: "",
         tags: [],

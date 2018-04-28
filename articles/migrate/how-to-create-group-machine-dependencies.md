@@ -1,16 +1,16 @@
 ---
-title: "Agrupar máquinas usando dependências de máquina com as Migrações para Azure | Microsoft Docs"
-description: "Descreve como criar uma avaliação usando dependências de máquina com o serviço Migrações para Azure."
+title: Agrupar máquinas usando dependências de máquina com as Migrações para Azure | Microsoft Docs
+description: Descreve como criar uma avaliação usando dependências de máquina com o serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/25/2017
 ms.author: raynew
-ms.openlocfilehash: 720380fd14d9eaf4856ad75269a80f2b63a4725f
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9e8e1fb918d9cd35b12e71abdd23ca101239ae26
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas usando o mapeamento de dependências da máquina
 
@@ -33,8 +33,8 @@ Para instalar o agente em uma máquina com Windows:
 1. Clique duas vezes no agente baixado.
 2. Na página de **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
 3. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**. 
-4. Em **Opções de Instalação do Agente**, selecione **Azure Log Analytics (OMS)** > **Avançar**. 
-5. Clique em **Adicionar** para adicionar um novo espaço de trabalho OMS. Cole a ID do espaço de trabalho e a chave que você copiou do portal. Clique em **Próximo**.
+4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**. 
+5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do espaço de trabalho e a chave que você copiou do portal. Clique em **Próximo**.
 
 
 Para instalar o agente em uma máquina com Linux:

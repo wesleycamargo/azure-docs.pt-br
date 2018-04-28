@@ -2,11 +2,11 @@
 title: Sistemas operacionais convidados suportados para a pilha do Azure | Microsoft Docs
 description: Esses sistemas operacionais de convidado pode ser usados na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: Brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: 3eceb740b8115d2eaca517017f6158744d6e8e58
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ff3aea4e449e3d489b0c0f01345ecd9773c7d885
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operacionais de convidados com suporte na pilha do Azure
 
@@ -30,34 +30,40 @@ Pilha do Azure oferece suporte os sistemas operacionais convidados de Windows qu
 
 Durante a implantação, o Azure pilha injeta uma versão adequada do agente convidado na imagem.
 
-| Sistema operacional | DESCRIÇÃO | Publicador | Tipo de sistema operacional | Marketplace |
+| Sistema operacional | DESCRIÇÃO | Disponível no Marketplace |
 | --- | --- | --- | --- | --- | --- |
-| Windows Server 2008 R2 SP1 | 64 bits | Microsoft | Windows | Datacenter |
-| Windows Server 2012 | 64 bits | Microsoft | Windows | Datacenter |
-| Windows Server 2012 R2 | 64 bits | Microsoft | Windows | Datacenter |
-| Windows Server 2016 | 64 bits | Microsoft | Windows | Datacenter, Datacenter Core, Datacenter com contêineres |
-| Windows 10 *(veja a Observação 1)* | 64 bits, Pro e Enterprise | Microsoft | Windows | Não  |
+| Windows Server, versão 1709 | 64 bits | Core com contêineres |
+| Windows Server 2016 | 64 bits |  Datacenter, Datacenter Core, Datacenter com contêineres |
+| Windows Server 2012 R2 | 64 bits |  Datacenter |
+| Windows Server 2012 | 64 bits |  Datacenter |
+| Windows Server 2008 R2 SP1 | 64 bits |  Datacenter |
+| Windows Server 2008 SP2 | 64 bits |  Traga sua própria imagem |
+| Windows 10 *(veja a Observação 1)* | 64 bits, Pro e Enterprise | Traga sua própria imagem |
 
-***Observação 1:****para implantar sistemas de operacionais de cliente do Windows 10 na pilha do Azure, você deve ter [Windows licenciamento por usuário](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) ou de compra por meio de um Hoster multilocatário qualificado ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).* 
+***Observação 1:****para implantar sistemas de operacionais de cliente do Windows 10 na pilha do Azure, você deve ter [Windows licenciamento por usuário](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) ou de compra por meio de um Hoster multilocatário qualificado ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
 
+Imagens do Marketplace estão disponíveis para pagamento como você-uso ou BYOL (EA/SPLA) de licenciamento. Não há suporte para o uso de ambos em uma única instância de pilha do Azure. 
+
+Somente o Datacenter Edition está disponível no mercado; os clientes podem colocar suas próprias imagens de servidor, incluindo outras edições.
 
 ## <a name="linux"></a>Linux
 
 Distribuições do Linux listadas aqui incluem o necessário Windows Azure Linux Agent (WALA).
 
 > [!NOTE]   
-> Imagens criadas com as versões WALA mais antigas que o 2.2.3 *não* com suporte e provavelmente não implantar. Algumas versões do agente WALA são conhecidos não funcionar em VMs de pilha do Azure, incluindo versões 2.2.12 e 2.2.13.
+> Imagens personalizadas devem ser criadas com a versão mais recente de WALA pública. Versões anteriores à 2.2.18 podem não funcionar corretamente na pilha do Azure.  
 >
-> [nuvem init](https://cloud-init.io/) só tem suporte no Ubuntu distribuições na pilha do Azure.
+> [nuvem init](https://cloud-init.io/) não tem suporte na pilha do Azure no momento.
 
 | Distribuição | DESCRIÇÃO | Publicador | Marketplace |
 | --- | --- | --- | --- | --- | --- |
 | Contêiner Linux |  64 bits | CoreOS | Estável |
 | Com base em centOS 6,9 | 64 bits | Rogue Wave | Sim |
 | Com base em centOS 7.4 | 64 bits | Rogue Wave | Sim |
+| ClearLinux | 64 bits | ClearLinux.org | Sim |
 | Debian 8 "Jessie" | 64 bits | credativ |  Sim |
 | Debian 9 "estender" | 64 bits | credativ | Sim |
-| Red Hat Enterprise Linux 7. x (pendente) | 64 bits | Red Hat | Não  |
+| Red Hat Enterprise Linux 7. x (pendente) | 64 bits | Red Hat |Traga sua própria imagem |
 | SLES 11SP4 | 64 bits | SUSE | Sim |
 | SLES 12SP3 | 64 bits | SUSE | Sim |
 | Ubuntu 14.04-LTS | 64 bits | Canônico | Sim |

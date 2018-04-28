@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 8A336052-8520-41D2-AF6F-0CCE23F727B4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/23/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 452ed1de0588b380747edaa44dd0cc3805c51392
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1ea65c9c1f69c8eec77eb498a5963b0d77ce57f1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gerenciar perfis de versão de API na pilha do Azure
 
@@ -44,9 +42,22 @@ Este tópico ajuda você a:
     - **latest**  
         Versões de API mais recentes liberadas no Azure.
     - **yyyy-mm-dd-hybrid**  
-    Liberado em um ritmo inserir, nesta versão voltadas para estabilidade e a consistência entre várias nuvens.
+    Liberado em um ritmo inserir, nesta versão voltadas para estabilidade e a consistência entre várias nuvens. Esse perfil tem como alvo ideal compatibilidade de pilha do Azure. 
     - **yyyy-mm-dd-profile**  
     Fica entre melhor estabilidade e os recursos mais recentes.
+
+### <a name="api-profiles-and-azure-stack-compatibility"></a>Perfis de API e compatibilidade de pilha do Azure
+
+Os perfis de API mais recentes não são compatíveis com a pilha do Azure. As convenções de nomenclatura ajudará você a identificar os perfis para usar em suas soluções de pilha do Azure.
+
+**Mais recente**  
+Esse perfil é as versões de API mais atualizadas, encontradas no Azure global, o que não funcionará na pilha do Azure. Esse perfil tem o maior número de alterações significativas. O perfil coloca lado estabilidade e a compatibilidade com outras nuvens. Se você estiver tentando usar as versões de API mais atualizadas, este é o perfil que você deve usar.
+
+**Aaaa-mm-dd-híbrido**  
+Este perfil é lançado em março e setembro todo ano. Esse perfil tem ideal estabilidade e a compatibilidade com várias nuvens. Este perfil é projetado para global do Azure e Azure pilha de destino. As versões de API do Azure listadas neste perfil serão iguais às listadas na pilha do Azure. Você pode usar este perfil para desenvolver o código para soluções de nuvem híbrida.
+
+**yyyy-mm-dd-profile**  
+Este perfil é liberado para o Azure global em junho e dezembro. Esse perfil não funcionarão em relação a pilha do Azure; haverá muitas alterações de quebra. Enquanto está por trás de estabilidade ideal e recursos mais recentes, a diferença entre a versão mais recente e este perfil é que mais recente consistirá sempre as versões de API mais recentes, independentemente de quando a API foi liberada. Se uma nova versão de API é criada para a API de computação amanhã, essa versão de API será listado no perfil do mais recente, mas não no perfil de aaaa-mm-dd-perfil como este perfil é estabelecida com antecedência. Ele abrange as versões mais atualizadas lançadas antes de junho ou dezembro.
 
 ## <a name="azure-resource-manager-api-profiles"></a>Perfis de API do Gerenciador de recursos do Azure
 
@@ -67,14 +78,13 @@ Como desenvolvedor, você pode se concentrar em escrever sua solução. Em vez d
 Você pode encontrar exemplos de código para ajudá-lo a integrar a solução com o idioma de preferência com pilha do Azure usando os perfis. No momento, você encontrará diretrizes e exemplos para os seguintes idiomas:
 
 - **PowerShell**  
-Você pode usar o **AzureRM.Bootstrapper** disponíveis por meio da Galeria do PowerShell para obter os cmdlets do PowerShell necessários para trabalhar com perfis de versão de API do módulo.  
-Para obter informações, consulte [perfis de versão de API de uso do PowerShell](azure-stack-version-profiles-powershell.md).
+Você pode usar o **AzureRM.Bootstrapper** disponíveis por meio da Galeria do PowerShell para obter os cmdlets do PowerShell necessários para trabalhar com perfis de versão de API do módulo. Para obter informações, consulte [perfis de versão de API de uso do PowerShell](azure-stack-version-profiles-powershell.md).
 - **CLI 2.0 do Azure**  
-Você pode atualizar sua configuração de ambiente para usar o perfil de versão de API específico da pilha do Azure.  
-Para obter informações, consulte [perfis de versão de API de uso para Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+Você pode atualizar sua configuração de ambiente para usar o perfil de versão de API específico da pilha do Azure. Para obter informações, consulte [perfis de versão de API de uso para Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
 - **GO**  
-No SDK VÁ, um perfil é uma combinação de diferentes tipos de recursos com versões diferentes de serviços diferentes. os perfis estão disponíveis nos perfis / caminho, com a versão no **AAAA-MM-DD** formato.  
-Para obter informações, consulte [perfis de versão de API de uso para ir](azure-stack-version-profiles-go.md).
+No SDK VÁ, um perfil é uma combinação de diferentes tipos de recursos com versões diferentes de serviços diferentes. os perfis estão disponíveis nos perfis / caminho, com a versão no **AAAA-MM-DD** formato. Para obter informações, consulte [perfis de versão de API de uso para ir](azure-stack-version-profiles-go.md).
+- **Ruby**  
+O SDK do Ruby para o Gerenciador de recursos do Azure pilha fornece ferramentas para ajudá-lo a criar e gerenciar sua infra-estrutura. Provedores de recursos no SDK incluem computação, redes virtuais e armazenamento com a linguagem Ruby. Para obter informações, consulte [perfis de versão de API de uso com Ruby](azure-stack-version-profiles-ruby.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md)

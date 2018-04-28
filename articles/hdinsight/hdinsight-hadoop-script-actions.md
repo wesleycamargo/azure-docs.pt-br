@@ -9,18 +9,16 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ac2a087bb0a9d8cac15dfea2448a9c42cee4a1f4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 98040f10eb15245f36eb0b365dcdf0f5ba7f107a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Desenvolver scripts do Script de Ação para clusters baseados no Windows do HDInsight
 Aprenda a gravar scripts de Ação de Script para o HDInsight. Para obter informações sobre scripts de Ação de Script, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md). Para o mesmo artigo escrito para clusters HDInsight baseados em Linux, consulte [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -178,7 +176,7 @@ Ao desenvolver um script personalizado para um cluster HDInsight, há várias pr
 
     HDInsight tem uma arquitetura ativa-passiva para alta disponibilidade, na qual um nó principal está no modo ativo (onde os serviços do HDInsight estão em execução) e outro nó principal está em modo de espera (em que os serviços do HDInsight não estão em execução). Os nós alternam entre os modos ativo e passivo se serviços HDInsight são interrompidos. Se uma ação de script for usada para instalar os serviços em ambos os nós principais para alta disponibilidade, observe que o mecanismo de failover do HDInsight não poderá realizar automaticamente o failover desses serviços instalados pelo usuário. Portanto, os serviços instalados pelo usuário nos nós principais do HDInsight, dos quais se espera alta disponibilidade, devem ter seu próprio mecanismo de failover se estiverem em modo ativo-passivo, ou então devem estar no modo ativo-ativo.
 
-    Um comando de ação de script do HDInsight é executado nos dois nós de cabeça quando a função head-node é especificada como um valor no parâmetro *ClusterRoleCollection* . Então, quando você cria um script personalizado, verifique se o script está ciente dessa configuração. Você não deve encontrar problemas onde os mesmos serviços estiverem instalados e iniciados em ambos os nós principais, e esses serviços acabarem competindo entre si. Além disso, esteja ciente de que dados serão perdidos ao refazer a imagem, então o software instalado usando as Ações de Script deverá ser resiliente a tais eventos. Os aplicativos devem ser projetados para trabalhar com dados altamente disponíveis que são distribuídos através de vários nós. Observe que até 1/5 dos nós em um cluster podem ter sua imagem refeita simultaneamente.
+    Um comando de ação de script do HDInsight é executado nos dois nós de cabeça quando a função head-node é especificada como um valor no parâmetro *ClusterRoleCollection* . Então, quando você cria um script personalizado, verifique se o script está ciente dessa configuração. Você não deve encontrar problemas onde os mesmos serviços estiverem instalados e iniciados em ambos os nós principais, e esses serviços acabarem competindo entre si. Além disso, esteja ciente de que dados serão perdidos ao refazer a imagem, então o software instalado usando as Ações de Script deverá ser resiliente a tais eventos. Os aplicativos devem ser projetados para trabalhar com dados altamente disponíveis que são distribuídos através de vários nós. Até 1/5 dos nós em um cluster podem refazer imagem ao mesmo tempo.
 * Configurar os componentes personalizados para usar armazenamento de Blob do Azure
 
     Os componentes personalizados que você instala em nós de cluster podem ter uma configuração padrão para usar o armazenamento HDFS (Sistema de Arquivos Distribuído do Hadoop). Você deve alterar a configuração para usar, em vez disso, o armazenamento de Blob do Azure. Ao refazer uma imagem de cluster, o sistema de arquivos HDFS é formatado e você pode perder todos os dados armazenados ali. Usar o Armazenamento de Blobs do Azure em vez dela assegura que seus dados serão mantidos.
@@ -192,14 +190,14 @@ Com frequência no desenvolvimento de ação de script, você sente a necessidad
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Essa instrução define a variável de ambiente **MDS_RUNNER_CUSTOM_CLUSTER** para o valor ‘true’ e também define o escopo dessa variável como todo o computador. Às vezes é importante que as variáveis de ambiente sejam definidas no escopo apropriado – computador ou usuário. Consulte [aqui][1] para obter mais informações sobre como configurar variáveis de ambiente.
+Essa instrução define a variável de ambiente **MDS_RUNNER_CUSTOM_CLUSTER** para o valor ‘true’ e também define o escopo dessa variável como todo o computador. É importante que as variáveis de ambiente sejam definidas no escopo apropriado - máquina ou usuário. Consulte [aqui][1] para obter mais informações sobre como configurar variáveis de ambiente.
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Acesso a locais onde estão armazenados os scripts personalizados
-Scripts usados para personalizar um cluster precisam estar na conta de armazenamento padrão para o cluster ou então em um contêiner público somente leitura em qualquer outra conta de armazenamento. Se o seu script acessa recursos localizados em outro lugar, estes precisam acessíveis publicamente (pelo menos somente leitura público). Por exemplo, você pode desejar acessar um arquivo e salvá-lo usando o comando SaveFile-HDI.
+Scripts usados para personalizar um cluster precisam estar na conta de armazenamento padrão para o cluster ou então em um contêiner público somente leitura em qualquer outra conta de armazenamento. Se o script acessa recursos localizados em outro lugar, os recursos devem ser legíveis publicamente. Por exemplo, você pode desejar acessar um arquivo e salvá-lo usando o comando SaveFile-HDI.
 
     Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
-Neste exemplo, você deve garantir que o contêiner “somecontainer” na conta de armazenamento “somestorageaccount” seja acessível publicamente. Caso contrário, o script gera uma exceção “Não encontrado” e falha.
+Neste exemplo, você deve garantir que o contêiner `somecontainer` na conta de armazenamento `somestorageaccount` seja acessível publicamente. Caso contrário, o script gera uma exceção “Não encontrado” e falha.
 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Transmitir os parâmetros para o cmdlet Add-AzureRmHDInsightScriptAction
 Para transmitir vários parâmetros para o cmdlet Add-AzureRmHDInsightScriptAction, é necessário formatar o valor de cadeia de caracteres para conter todos os parâmetros do script. Por exemplo: 
@@ -238,9 +236,9 @@ Aqui estão as etapas que utilizamos ao se preparar para implantar esses scripts
 
 1. Coloque os arquivos que contêm os scripts personalizados em um local que seja acessível pelos nós de cluster durante a implantação. Esse local pode ser qualquer uma das contas de armazenamento padrão ou adicionais especificadas no momento da implantação de cluster, ou qualquer outro contêiner de armazenamento acessível publicamente.
 2. Adicione as verificações em scripts para certificar-se de que elas são executadas de forma idempotencial, para que o script possa ser executado várias vezes no mesmo nó.
-3. Use o cmdlet **Write-Output** do Azure PowerShell para gravar em STDOUT, bem como em STDERR. Não use **Write-Host**.
-4. Use uma pasta de arquivo temporário, como $env:TEMP, para manter o arquivo baixado usado pelos scripts e, em seguida, limpá-los depois dos scripts serem executados.
-5. Instale o software personalizado apenas em D:\ ou C:\apps. Outros locais na unidade C: não devem ser usados pois estão reservados. Observe que instalar os arquivos na unidade C: fora da pasta C:\apps pode resultar em falhas de instalação durante as recriações de imagem do nó.
+3. Use o cmdlet `Write-Output` do Microsoft Azure PowerShell para imprimir em STDOUT e em STDERR. Não use `Write-Host`.
+4. Use uma pasta de arquivos temporária como `$env:TEMP`, para manter o arquivo baixado usado pelos scripts e, em seguida, limpe-os após a execução dos scripts.
+5. Instale o software personalizado apenas em D:\ ou C:\apps. Outros locais na unidade C: não devem ser usados pois estão reservados. Instalar os arquivos na unidade C: fora da pasta C:\apps pode resultar em falhas de instalação ao refazer imagem do nó.
 6. Caso as configurações de nível de sistema operacional ou arquivos de configuração de serviço do Hadoop sejam alterados, talvez você deseje reiniciar os serviços do HDInsight para que eles possam pegar qualquer configuração de nível de sistema operacional, como as variáveis de ambiente definidas nos scripts.
 
 ## <a name="debug-custom-scripts"></a>Depurar scripts personalizados

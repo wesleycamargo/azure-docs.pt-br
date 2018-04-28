@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Instruções passo a passo de simulação de dispositivo
 
@@ -69,22 +69,22 @@ O modelo de dispositivo permite que você escolha o tipo de dispositivo a ser si
 
 A simulação de dispositivo fornece três modelos de dispositivos pré-configurados. Há modelos de dispositivos para resfriadores, elevadores e caminhões disponíveis.
 
-Os modelos de dispositivos pré-configurados incluem vários sensores com uma frequência de telemetria predeterminada. Você não pode personalizar a frequência de telemetria para esses dispositivos.
+Modelos de dispositivos pré-configurados incluem vários sensores com comportamentos avançados definidos em um arquivo JavaScript. Não há suporte para esses comportamentos personalizados na interface do usuário da web. 
 
 A tabela a seguir mostra uma lista de configurações para cada modelo de dispositivo pré-configurado:
 
-| Modelo do dispositivo | Sensor | Unidade | Frequência de telemetria
-| -------------| ------ | -----| --------------------|
-| Resfriador | umidade | % | 5 segundos |
-| | pressure | psig | 5 segundos |
-| | temperatura | F | 5 segundos |
-| Elevador | Piso | | 5 segundos |
-| | Vibração | MM | 5 segundos |
-| | Temperatura | F | 5 segundos |
-| Caminhão | Latitude | | 3 Segundos |
-| | Longitude | | 3 Segundos |
-| | velocidade | mph | 5 segundos |
-| | cargotemperature | F | 5 segundos |
+| Modelo do dispositivo | Sensor | Unidade | 
+| -------------| ------ | -----| 
+| Resfriador | umidade | % |
+| | pressure | psig | 
+| | temperatura | F | 
+| Elevador | Piso | 
+| | Vibração | MM | 
+| | Temperatura | F | 
+| Caminhão | Latitude | |
+| | Longitude | | 
+| | velocidade | mph | 
+| | cargotemperature | F | 
 
 #### <a name="custom-device-model"></a>Modelo de dispositivo personalizado
 
@@ -106,7 +106,7 @@ Os sensores personalizados têm as seguintes propriedades:
 
 ### <a name="number-of-devices"></a>Número de dispositivos
 
-A simulação de dispositivo permite atualmente que você simule até 1.000 dispositivos.
+A simulação de dispositivo permite atualmente que você simule até 20.000 dispositivos.
 
 ![Número de dispositivos](media/iot-suite-device-simulation-explore/numberofdevices.png)
 

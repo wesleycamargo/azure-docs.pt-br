@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0da6bd56a684657d8275ca8c781847f31f8e05c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure
 
@@ -31,7 +31,7 @@ O DSC de Automação do Azure pode ser usado para gerenciar uma variedade de má
 Além disso, se você não estiver pronto para gerenciar a configuração da máquina a partir da nuvem, o DSC da Automação do Azure também poderá ser usado como um ponto de extremidade apenas para relatório. Isso permite que você defina a configuração desejada (push) por meio do DSC local e exiba relatórios detalhados sobre a conformidade de nó com o estado desejado na Automação do Azure.
 
 > [!NOTE]
-> Gerenciar VMs do Azure com DSC está incluído sem custo adicional, se a extensão de DSC da máquina virtual instalada é maior que 2.70. Consulte a [**página de preços de Automação**](https://azure.microsoft.com/en-us/pricing/details/automation/) para obter mais detalhes.
+> Gerenciar VMs do Azure com DSC está incluído sem custo adicional, se a extensão de DSC da máquina virtual instalada é maior que 2.70. Consulte a [**página de preços de Automação**](https://azure.microsoft.com/pricing/details/automation/) para obter mais detalhes.
 
 
 As seções a seguir descrevem como você pode integrar cada tipo de máquina ao DSC de Automação do Azure.
@@ -53,7 +53,7 @@ Para encontrar a URL de registro e a chave da conta da Automação a ser integra
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -195,7 +195,7 @@ O computador no qual este comando é executado deve ter a versão mais recente d
 
 ## <a name="generating-dsc-metaconfigurations"></a>Gerando metaconfigurações DSC
 
-Para carregar genericamente qualquer computador ao DSC de Automação do Azure, uma [metaconfiguração de DSC](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig) pode ser gerada de modo que, quando aplicada, informa o agente do DSC no computador para efetuar pull de e/ou relatar para o DSC de Automação do Azure. As metaconfigurações de DSC para o DSC de Automação do Azure podem ser geradas usando uma configuração de DSC do PowerShell, ou os cmdlets do PowerShell de Automação do Azure.
+Para carregar genericamente qualquer computador ao DSC de Automação do Azure, uma [metaconfiguração de DSC](https://msdn.microsoft.com/powershell/dsc/metaconfig) pode ser gerada de modo que, quando aplicada, informa o agente do DSC no computador para efetuar pull de e/ou relatar para o DSC de Automação do Azure. As metaconfigurações de DSC para o DSC de Automação do Azure podem ser geradas usando uma configuração de DSC do PowerShell, ou os cmdlets do PowerShell de Automação do Azure.
 
 > [!NOTE]
 > Metaconfigurações DSC contêm os segredos necessários para carregar um computador em uma conta de Automação para gerenciamento. Certifique-se de proteger corretamente quaisquer metaconfigurações de DSC que criar, ou exclua-as imediatamente após o uso.
@@ -329,7 +329,7 @@ Para carregar genericamente qualquer computador ao DSC de Automação do Azure, 
 Se o padrões do Gerenciador de Configurações Local do DSC do PowerShell correspondem a seu caso de uso e você deseja integrar computadores de modo que eles ambos efetuem pull e gerem relatório para o DSC de Automação do Azure, os cmdlets de Automação do Azure fornecem um método simplificado para gerar as metaconfigurações de DSC necessárias:
 
 1. Abra o console do PowerShell ou o PowerShell ISE como administrador em uma máquina no seu ambiente local.
-2. Conecte-se ao Gerenciador de Recursos do Azure usando **Add-AzureRmAccount**
+2. Conecte o Azure Resource Manager usando **Connect-AzureRmAccount**
 3. Baixe, da conta de Automação da qual você deseja carregar nós, as metaconfigurações do DSC do PowerShell para as máquinas que você deseja carregar:
 
     ```powershell

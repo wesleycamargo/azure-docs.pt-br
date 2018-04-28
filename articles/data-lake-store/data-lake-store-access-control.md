@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Controle de acesso no Azure Data Lake Store
 
@@ -150,7 +150,7 @@ No Azure, uma conta do Data Lake Store tem diversas funções do Azure, incluind
 * Colaboradores
 * Leitores
 
-Todos na função **Proprietários** para uma conta do Data Lake Store se tornam automaticamente superusuários para essa conta. Para saber mais, confira [Controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md).
+Todos na função **Proprietários** para uma conta do Data Lake Store se tornam automaticamente superusuários para essa conta. Para saber mais, confira [Controle de acesso baseado em função](../role-based-access-control/role-assignments-portal.md).
 Se você quiser criar uma função personalizada de RBAC (controle de acesso baseado em função) com permissões de superusuário, ela precisará ter as seguintes permissões:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -184,7 +184,7 @@ O grupo proprietário pode ser alterado por:
 * O usuário proprietário, se o usuário proprietário também for membro do grupo de destino.
 
 > [!NOTE]
-> O usuário proprietário *não pode* alterar as ACLs de um arquivo ou uma pasta.
+> O usuário proprietário *não pode* alterar as ACLs de um arquivo ou uma pasta.  Embora o grupo proprietário esteja definido para o usuário que criou a conta no caso da pasta raiz, **Caso 1** acima, uma conta de usuário individual não é válida para fornecer permissões através do grupo proprietário.  Você pode atribuir essa permissão a um grupo de usuários válido, se for aplicável.
 
 ## <a name="access-check-algorithm"></a>Algoritmo de verificação de acesso
 

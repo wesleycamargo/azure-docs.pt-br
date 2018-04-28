@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 00bd606fc1b0d2c075789addd1b601becf7a011b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6b53e46253edc063b1b7ae94bf2fac2781a0613a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso de aplicativos a pilha do Azure
 
@@ -41,7 +41,7 @@ Dependendo de como você implantou pilha do Azure, comece criando um serviço pr
 
 Se você implantou o Azure pilha usando o Azure AD como repositório de identidades, você pode criar entidades de serviço, exatamente como faria para o Azure.  Esta seção mostra como executar as etapas no portal.  Verifique se você tiver o [necessárias permissões do AD do Azure](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de começar.
 
-### <a name="create-service-principal"></a>Criar entidade de serviço
+### <a name="create-service-principal"></a>Criar uma entidade de serviço
 Nesta seção, você criará um aplicativo (entidade de serviço) no AD do Azure que representarão seu aplicativo.
 
 1. Entre na sua conta do Azure por meio do [Portal do Azure](https://portal.azure.com).
@@ -105,7 +105,7 @@ Depois que a entidade de serviço é criada, você deve [atribuí-la a uma funç
 Depois que você tenha atribuído a uma função, você pode entrar pilha do Azure usando a entidade de serviço com o seguinte comando:
 
 ```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
+Connect-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
  -ApplicationId $servicePrincipal.ApplicationId ` 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: e8e9f9c0cbe044b2aa459898f2d3900db10d200a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5316013631670ab3612e441e64e2f330f01941b7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Métricas do Armazenamento do Azure no Azure Monitor (visualização)
 
@@ -28,17 +28,17 @@ O Azure Monitor fornece interfaces de usuário unificadas para monitoramento em 
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
-O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessá-los no [Portal do Azure](https://portal.azure.com), nas APIs do Azure Monitor (REST e .Net) e nas soluções de análise, como Log Analytics e Hub de Eventos. Para saber mais, consulte [Métricas do Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessá-las a partir do [portal do Azure](https://portal.azure.com), das APIs do Azure Monitor (REST e .NET) e de soluções de análise como o Operation Management Suite e Hubs de Eventos. Para saber mais, consulte [Métricas do Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-A métrica está habilitada por padrão, e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) no Azure Monitor.
+As métricas estão habilitadas por padrão e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) no Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Acessar as métricas no portal do Azure
 
-Você pode monitorar as métricas ao longo do tempo no portal do Azure. A seguir está um exemplo que mostra como exibir **UsedCapacity** no nível da conta.
+Você pode monitorar as métricas ao longo do tempo no portal do Azure. O exemplo a seguir mostra como exibir **UsedCapacity** no nível da conta.
 
 ![captura de tela de acesso às métricas no portal do Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-Para métricas com suporte para dimensões, você deve filtrar pelo valor da dimensão desejado. A seguir está um exemplo que mostra como exibir **Transações** no nível de conta com uma resposta de **Sucesso**.
+Para métricas com suporte para dimensões, você deve filtrar pelo valor da dimensão desejado. O exemplo a seguir que mostra como exibir **Transações** no nível de conta com uma resposta de **Sucesso**.
 
 ![captura de tela de acesso às métricas com dimensão no portal do Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -139,9 +139,151 @@ A resposta a seguir contém os valores da métrica no formato JSON:
 
 ```
 
-## <a name="billing-for-metrics"></a>Cobrança para métricas
+### <a name="access-metrics-with-the-net-sdk"></a>Acessar métricas com o SDK do .Net
 
-O uso de métricas no Azure Monitor atualmente é gratuito. No entanto, se você usar outras soluções de ingestão de dados de métricas, talvez você seja cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Ou você será cobrado pelo Log Analytics, se transmitir dados de métricas ao Log Analytics para análise avançada.
+O Azure Monitor fornece [SDK do .Net](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler valores e definição de métricas. O [código de exemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como usar o SDK com parâmetros diferentes. Você precisa usar `0.18.0-preview` ou versão posterior para métricas de armazenamento. A ID do recurso é usada no SDK do .Net. Para obter mais informações, leia [Noções básicas sobre o ID de recurso para serviços no Armazenamento](#understanding-resource-id-for-services-in-storage).
+
+O exemplo a seguir mostra como usar o SDK do .Net do Azure Monitor para ler a métrica de armazenamento.
+
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Listar a definição de métrica no nível conta com o SDK do .Net
+
+O exemplo a seguir mostra como listar a definição de métrica no nível da conta:
+
+```csharp
+    public static async Task ListStorageMetricDefinition()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
+
+        foreach (var metricDefinition in metricDefinitions)
+        {
+            //Enumrate metric definition:
+            //    Id
+            //    ResourceId
+            //    Name
+            //    Unit
+            //    MetricAvailabilities
+            //    PrimaryAggregationType
+            //    Dimensions
+            //    IsDimensionRequired
+        }
+    }
+
+```
+
+Se você deseja listar as definições de métrica para o blob, tabela, arquivo ou fila, você deve especificar IDs de recurso diferentes para cada serviço com a API.
+
+#### <a name="read-metric-values-with-the-net-sdk"></a>Ler os valores de métrica com o SDK do .Net
+
+O exemplo a seguir mostra como ler os dados `UsedCapacity` no nível da conta:
+
+```csharp
+    public static async Task ReadStorageMetricValue()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+
+        Response = await readOnlyClient.Metrics.ListAsync(
+            resourceUri: resourceId,
+            timespan: timeSpan,
+            interval: System.TimeSpan.FromHours(1),
+            metric: "UsedCapacity",
+
+            aggregation: "Average",
+            resultType: ResultType.Data,
+            cancellationToken: CancellationToken.None);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
+
+No exemplo acima, se você deseja ler os valores de métrica para o blob, tabela, arquivo ou fila, você deve especificar IDs de recurso diferentes para cada serviço com a API.
+
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Ler os valores da métrica multidimensionais com o SDK do .Net
+
+Para métricas multidimensionais, você precisa definir o filtro de metadados se você quiser ler dados da métrica no valor de dimensão específica.
+
+O exemplo a seguir mostra como ler dados da métrica na métrica que suportam várias dimensões:
+
+```csharp
+    public static async Task ReadStorageMetricValueTest()
+    {
+        // Resource ID for blob storage
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+        // It's applicable to define meta data filter when a metric support dimension
+        // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
+        ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
+            string.Format("BlobType eq '{0}'", "BlockBlob"));
+
+        Response = readOnlyClient.Metrics.List(
+                        resourceUri: resourceId,
+                        timespan: timeSpan,
+                        interval: System.TimeSpan.FromHours(1),
+                        metric: "BlobCapacity",
+                        odataQuery: odataFilterMetrics,
+                        aggregation: "Average",
+                        resultType: ResultType.Data);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Noções básicas sobre a ID de recurso para serviços no Armazenamento do Azure
 
@@ -187,8 +329,7 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 `
 
 ## <a name="capacity-metrics"></a>Métricas de capacidade
-
-Os valores de métricas de capacidade são enviados para o Azure Monitor a cada hora. O valor é atualizado diariamente. O intervalo de agregação define o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de agregação compatível com todas as métricas de capacidade é uma hora (PT1H).
+Os valores de métricas de capacidade são enviados para o Azure Monitor a cada hora. Os valores são atualizados diariamente. O intervalo de agregação define o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de agregação compatível com todas as métricas de capacidade é uma hora (PT1H).
 
 O Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Monitor.
 
@@ -245,14 +386,14 @@ O Armazenamento do Azure fornece as seguintes métricas de transação no Azure 
 | SuccessE2ELatency | A latência média de ponta a ponta das solicitações bem-sucedidas feitas a um serviço de armazenamento ou à operação de API especificada. Esse valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler a solicitação, enviar a resposta e receber a confirmação da resposta. <br/><br/> Unidade: Milissegundos <br/> Tipo de agregação: Média <br/> Dimensões aplicáveis: GeoType, ApiName ([Definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
 | Disponibilidade | O percentual de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada considerando o valor total de solicitações faturáveis e dividindo-o pelo número de solicitações aplicáveis, incluindo as que produziram erros inesperados. Todos os erros inesperados resultam na redução da disponibilidade para o serviço de armazenamento ou a operação de API especificada. <br/><br/> Unidade: Porcentagem <br/> Tipo de agregação: Média <br/> Dimensões aplicáveis: GeoType, ApiName ([Definição](#metrics-dimensions)) <br/> Exemplo de valor: 99.99 |
 
-## <a name="metrics-dimensions"></a>Dimensões de métricas
+## <a name="metrics-dimensions"></a>Dimensões das métricas
 
 O Armazenamento do Azure oferece suporte às seguintes dimensões para métricas no Azure Monitor.
 
 | Nome da dimensão | DESCRIÇÃO |
 | ------------------- | ----------------- |
 | BlobType | O tipo de blob somente para métricas de Blob. Os valores suportados são **BlockBlob** e **PageBlob**. Acrescentar Blob está incluído no BlockBlob. |
-| ResponseType | Tipo de resposta da transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: Todos os outros erros do lado do servidor, exceto aqueles descritos </li> <li> ServerBusyError: Solicitação autenticada que retornou um código de status HTTP 503. (Atualmente sem suporte) </li> <li> ServerTimeoutError: Solicitação autenticada que ultrapassou o tempo limite e retornou um código de status HTTP 500. O tempo limite foi ultrapassado devido a um erro no servidor. </li> <li> ThrottlingError: Soma de erro de limitação do lado do cliente e do servidor (ele será removido quando houver suporte para ServerBusyError e ClientThrottlingError) </li> <li> AuthorizationError: Solicitação autenticada que falhou devido a um acesso não autorizado de dados ou a uma falha de autorização. </li> <li> NetworkError: Solicitação autenticada que falhou devido a erros de rede. Geralmente ocorre quando um cliente fecha prematuramente uma conexão antes da expiração do tempo limite. </li> <li>  ClientThrottlingError: Erro de limitação do lado do cliente (atualmente sem suporte) </li> <li> ClientTimeoutError: Solicitação autenticada que ultrapassou o tempo limite e retornou um código de status HTTP 500. Se o tempo limite de rede do cliente ou o tempo limite da solicitação for definido como um valor menor do que o esperado pelo serviço de armazenamento, ele é considerado um tempo limite esperado. Caso contrário, ele será relatado como um ServerTimeoutError. </li> <li> ClientOtherError: Todos os outros erros do lado do cliente, exceto aqueles descritos. </li> <li> Success: Solicitação bem-sucedida|
+| ResponseType | Tipo de resposta da transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: Todos os outros erros do lado do servidor, exceto aqueles descritos </li> <li> ServerBusyError: Solicitação autenticada que retornou um código de status HTTP 503. </li> <li> ServerTimeoutError: Solicitação autenticada que ultrapassou o tempo limite e retornou um código de status HTTP 500. O tempo limite foi ultrapassado devido a um erro no servidor. </li> <li> AuthorizationError: Solicitação autenticada que falhou devido a um acesso não autorizado de dados ou a uma falha de autorização. </li> <li> NetworkError: Solicitação autenticada que falhou devido a erros de rede. Geralmente ocorre quando um cliente fecha prematuramente uma conexão antes da expiração do tempo limite. </li> <li>    ClientThrottlingError: Erro de limitação do lado do cliente. </li> <li> ClientTimeoutError: Solicitação autenticada que ultrapassou o tempo limite e retornou um código de status HTTP 500. Se o tempo limite de rede do cliente ou o tempo limite da solicitação for definido como um valor menor do que o esperado pelo serviço de armazenamento, ele é considerado um tempo limite esperado. Caso contrário, ele será relatado como um ServerTimeoutError. </li> <li> ClientOtherError: Todos os outros erros do lado do cliente, exceto aqueles descritos. </li> <li> Success: Solicitação bem-sucedida|
 | GeoType | Transação de cluster primário ou secundário. Os valores disponíveis incluem Primário e Secundário. Aplica-se ao acesso de leitura ao armazenamento com redundância geográfica (RA-GRS) ao ler objetos de um locatário secundário. |
 | ApiName | O nome da operação. Por exemplo:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para saber todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
@@ -260,8 +401,8 @@ Para saber as dimensões de métricas com suporte, você precisa especificar o v
 
 ## <a name="service-continuity-of-legacy-metrics"></a>Continuidade do serviço de métricas herdadas
 
-As métricas herdadas estão disponíveis paralelamente às métricas gerenciadas do Azure Monitor. O suporte é o mesmo até que o Armazenamento do Azure conclua o serviço nas métricas herdados. Anunciaremos o plano final após o lançamento oficial das métricas gerenciadas do Azure Monitor.
+As métricas herdadas estão disponíveis paralelamente às métricas gerenciadas do Azure Monitor. O suporte é o mesmo até que o Armazenamento do Azure conclua o serviço nas métricas herdados.
 
-## <a name="see-also"></a>Veja também
+## <a name="next-steps"></a>Próximas etapas
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)

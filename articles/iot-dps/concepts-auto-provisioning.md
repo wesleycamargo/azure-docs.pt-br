@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: ''
-ms.openlocfilehash: cd458b1f6d26fbd5f5821a04cd01be5c3a4e4514
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auto-provisioning-concepts"></a>Conceitos de provisionamento automático
 
@@ -31,7 +31,7 @@ O provisionamento automático do Azure IoT pode ser dividido em três fases:
    > [!NOTE]
    > Independentemente do tamanho da sua solução de IoT, mesmo se você planejar oferecer suporte a milhões de dispositivos, essa será uma **configuração única**.
 
-2. **Registro de dispositivo** – o processo de tornar a instância do Serviço de Provisionamento de Dispositivos ciente dos dispositivos que tentarão se registrar no futuro. O registro é realizado configurando as informações de identidade do dispositivo no serviço de provisionamento, como um "registro individual" para um único dispositivo ou um "registro do grupo" para vários dispositivos. A identidade baseia-se no [mecanismo de atestado](concepts-security.md#attestation-mechanism) que o dispositivo foi projetado para usar, que permite que o serviço de provisionamento confirme a autenticidade do dispositivo durante o registro:
+2. **Registro de dispositivo** – o processo de tornar a instância do Serviço de Provisionamento de Dispositivos ciente dos dispositivos que tentarão se registrar no futuro. O [Registro](concepts-service.md#enrollment) é realizado configurando as informações de identidade do dispositivo no serviço de provisionamento, como um "registro individual" para um único dispositivo ou um "registro de grupo" para vários dispositivos. A identidade baseia-se no [mecanismo de atestado](concepts-security.md#attestation-mechanism) que o dispositivo foi projetado para usar, que permite que o serviço de provisionamento confirme a autenticidade do dispositivo durante o registro:
 
    - **TPM**: configurado como um "registro individual", a identidade do dispositivo baseia-se na ID de registro de TPM e a chave de endosso público. Considerando que TPM é uma [especificação]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), o serviço só espera confirmar a especificação, independentemente da implementação do TPM (hardware ou software). Consulte [Provisionamento de dispositivo: atestado de identidade com TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) para obter detalhes sobre atestado baseado em TPM. 
 

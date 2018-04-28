@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento do Azure
 Neste artigo, apresentamos instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para transferir com segurança grandes quantidades de dados para o armazenamento de Blobs e do Azure e Arquivos do Azure enviando unidades de disco para um data center do Azure. Este serviço também pode ser usado para transferir dados do armazenamento do Azure para as discos rígidos e enviá-los aos seu site local. Os dados de uma única unidade de disco SATA interna podem ser importados para o armazenamento de Blobs do Azure ou para o os Arquivos do Azure. 
@@ -560,7 +560,7 @@ O tamanho máximo de Blob de Páginas é de 1 TB.
 
 Por padrão, o serviço de Importação/Exportação do Azure criptografa com a criptografia BitLocker AES 128, mas pode ser aumentado para AES 256 com a criptografia manual com o BitLocker antes da cópia dos dados. 
 
-Se estiver usando o [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), veja abaixo um comando de exemplo
+Se estiver usando [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), abaixo está um comando de exemplo
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```

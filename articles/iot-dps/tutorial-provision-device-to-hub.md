@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 03/28/2018
+ms.date: 04/12/2018
 ms.topic: tutorial
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4d98ce103bed7f9d14eb45422b70ceca1328afaa
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f151a8fbcdc20124467a1db290f6a05f574e4fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Provisionar o dispositivo para um Hub IoT usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 
-No tutorial anterior, você aprendeu como configurar um dispositivo para se conectar ao seu Serviço de Provisionamento de Dispositivos. Neste tutorial, você aprenderá a usar o serviço para provisionar seu dispositivo para um único Hub IoT usando **_listas de registro_**. Este tutorial mostra como:
+No tutorial anterior, você aprendeu como configurar um dispositivo para se conectar ao seu Serviço de Provisionamento de Dispositivos. Neste tutorial, você aprenderá a usar este serviço para provisionar seu dispositivo para um único Hub IoT usando **_listas de registro_** e provisionamento automático. Este tutorial mostra como:
 
 > [!div class="checklist"]
 > * Registrar o dispositivo
@@ -42,18 +42,18 @@ Esta etapa envolve adicionar os artefatos de segurança exclusivos do dispositiv
     - A *Chave de Endosso* que é exclusiva para cada chip ou simulação do TPM, obtida do fabricante do chip do TPM.  Leia [Compreender a chave de endosso do TPM](https://technet.microsoft.com/library/cc770443.aspx) para obter mais informações.
     - A *ID do registro* é usada para identificar exclusivamente um dispositivo no namespace/escopo. Essa ID pode ou não ser a mesmo ID do dispositivo. A ID é obrigatória para cada dispositivo. Para dispositivos baseados em TPM, a ID do registro pode ser derivada do TPM em si, por exemplo, um hash SHA-256 da chave de endosso do TPM.
 
-    ![Informações de registro do TPM no portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
+    [![Informações de registro do TPM no portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Para dispositivos baseados em X.509, você precisará do seguinte:
     - O [certificado emitido para o chip ou simulação X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), na forma de um arquivo *.pem* ou um *.cer*. Para o registro individual, você precisa usar o *certificado assinante* por dispositivo para seu sistema X.509; já para grupos de registro, você precisa usar o *certificado raiz*. 
 
-    ![Informações de registro de X.509 no portal](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
+    [![Adicionar um registro individual para atestado de X.509 no portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Há duas maneiras de registrar o dispositivo no Serviço de Provisionamento de Dispositivos:
 
 - **Grupos de registro** Isso representa um grupo de dispositivos que compartilham um mecanismo de atestado específico. É recomendável usar um grupo de registro para um grande número de dispositivos que compartilham uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário.
 
-    ![Grupos de registro de X.509 no portal](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
+    [![Adicionar um registro de grupo para atestado de X.509 no portal](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
 - **Registros individuais** isso representa uma entrada para um único dispositivo que pode ser registrado no Serviço de Provisionamento de Dispositivos. Registros individuais podem usar tokens de certificados x509 ou tokens SAS (em um TPM real ou virtual) como mecanismos de atestado. É recomendável usar inscrições individuais para dispositivos que exigem configurações iniciais exclusivas e para dispositivos que só podem usar tokens SAS por meio do TPM ou TPM virtual, como o mecanismo de atestado. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.
 

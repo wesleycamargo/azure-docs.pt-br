@@ -1,11 +1,11 @@
 ---
-title: "Criar uma VM com um endereço IP público estático - Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar uma VM com um endereço IP público estático usando o PowerShell."
+title: Criar uma VM com um endereço IP público estático - Azure PowerShell | Microsoft Docs
+description: Saiba como criar uma VM com um endereço IP público estático usando o PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c413d3cb5c242a16f3e534dafe322785a35141
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 68656db0b76a29e7ab36fd6fa9ad4647712233ee
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Criar uma VM com um endereço IP público estático usando o PowerShell
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/21/2017
 > * [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Modelo](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -40,7 +39,7 @@ ms.lasthandoff: 12/21/2017
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="step-1---start-your-script"></a>Etapa 1 – Iniciar o script
+## <a name="start-your-script"></a>Iniciar o script
 Baixe o script completo do PowerShell usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Realize os procedimentos abaixo para alterar o script para funcionar em seu ambiente.
 
 Altere os valores das variáveis a seguir de acordo com os valores que deseja usar para sua implantação. Os seguintes valores são mapeados para o cenário usado neste artigo:
@@ -74,10 +73,10 @@ $pipName               = "PIPWEB1"
 $dnsName               = "iaasstoryws1"
 ```
 
-## <a name="step-2---create-the-necessary-resources-for-your-vm"></a>Etapa 2: criar os recursos necessários para sua VM
+## <a name="create-the-necessary-resources-for-your-vm"></a>Criar os recursos necessários para sua VM
 Antes de criar uma máquina virtual, você precisa de um grupo de recursos, rede virtual, IP público e NIC a serem usados pela VM.
 
-1. Criar um novo grupo de recursos.
+1. Crie um novo grupo de recursos.
 
     ```powershell
     New-AzureRmResourceGroup -Name $rgName -Location $location
@@ -119,7 +118,7 @@ Antes de criar uma máquina virtual, você precisa de um grupo de recursos, rede
     -ResourceGroupName $rgName -Type Standard_LRS -Location $location
     ```
 
-## <a name="step-3---create-the-vm"></a>Etapa 3: criar a VM
+## <a name="create-the-vm"></a>Criar a VM
 Agora que todos os recursos necessários estão prontos, você pode criar uma nova VM.
 
 1. Crie o objeto de configuração para a VM.
@@ -169,81 +168,14 @@ Agora que todos os recursos necessários estão prontos, você pode criar uma no
 
 8. Salve o arquivo de script.
 
-## <a name="step-4---run-the-script"></a>Etapa 4 – Executar o script
-Depois de fazer quaisquer alterações necessárias e de compreender o script mostrado acima, execute o script. 
+## <a name="run-the-script"></a>Execute o script
 
-1. De um console do PowerShell ou ISE do PowerShell, execute o script acima.
-2. A saída a seguir deve ser exibida após alguns minutos:
-   
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              : 
-        ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory
-   
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {}
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ResourceGuid      : [Id]
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        Id                : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {
-                              "DnsServers": []
-                            }
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "Etag": [Id],
-                                "Id": "/subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24",
-                                "IpConfigurations": [],
-                                "ProvisioningState": "Succeeded"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ResourceGuid      : [Id]
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : [Id]
-        Id                : /subscriptions/[Subscription Id]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
-        TrackingOperationId : [Id]
-        RequestId           : [Id]
-        Status              : Succeeded
-        StatusCode          : OK
-        Output              : 
-        StartTime           : [Subscription Id]
-        EndTime             : [Subscription Id]
-        Error               : 
-        ErrorText           : 
+Depois de fazer as alterações necessárias, execute o script anterior. A máquina virtual é criada após alguns minutos.
 
+## <a name="set-ip-addresses-within-the-operating-system"></a>Definir endereços IP no sistema operacional
+
+Nunca atribua manualmente o endereço IP público atribuído a uma máquina virtual do Azure no sistema operacional da máquina virtual. É recomendável que você não atribua estaticamente o IP privado atribuído à máquina virtual do Azure no sistema operacional de uma VM, a menos que seja necessário, como quando [atribuímos vários endereços IP para uma VM do Windows](virtual-network-multiple-ip-addresses-powershell.md). Se você definir manualmente o endereço IP privado no sistema operacional, verifique se é o mesmo endereço que o endereço IP privado atribuído à [interface de rede](virtual-network-network-interface-addresses.md#change-ip-address-settings) do Azure ou se é possível perder a conectividade com a máquina virtual. Saiba mais sobre as configurações de [endereço IP privado](virtual-network-network-interface-addresses.md#private).
+
+## <a name="next-steps"></a>Próximas etapas
+
+Qualquer tráfego de rede pode fluir de e para a VM criada neste artigo. Você pode definir regras de segurança de entrada e saída de um grupo de segurança de rede que limitam o tráfego que pode fluir de e para o adaptador de rede, a sub-rede ou ambas. Para saber mais sobre grupos de segurança de rede, confira [Visão geral do grupo de segurança de rede](security-overview.md).

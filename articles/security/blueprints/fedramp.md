@@ -1,6 +1,6 @@
 ---
-title: "Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP"
-description: "Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP"
+title: Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP
+description: Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 10ed297180f68fcaf006f2778990879be02f994d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP
 
@@ -76,10 +76,9 @@ A solução usa os serviços do Azure a seguir. Os detalhes da arquitetura de im
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Azure Log Analytics**
+    - (1) Espaço de trabalho do Log Analytics
 * **Automação do Azure**
     - (1) conta de automação
-* **Operations Management Suite**
-    - (1) espaço de trabalho do OMS
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 
@@ -136,7 +135,7 @@ O Azure Disk Encryption é usado para criptografar discos de máquinas virtuais 
 
 ### <a name="logging-and-auditing"></a>Registro em log e auditoria
 
-O [OMS (Operations Management Suite)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fornece amplo registro em log de atividades do sistema e do usuário, bem como da integridade do sistema. 
+O [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fornece registro em log extensivo de atividades do sistema e de usuário, bem como integridade do sistema. 
 
 - **Logs de atividades:** os [logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas em recursos em sua assinatura.
 - **Logs de Diagnóstico: os** [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são todos os logs emitidos por cada recurso. Esses logs são logs de eventos do sistema Windows, logs de armazenamento do Azure, logs de auditoria do Key Vault e logs de acesso e firewall do Gateway de Aplicativo.
@@ -154,7 +153,7 @@ A solução usa o Azure Key Vault para gerenciar chaves e segredos.
 As tecnologias a seguir oferecem recursos de gerenciamento de identidade no ambiente do Azure.
 - O [Azure AD (Azure Active Directory)](https://azure.microsoft.com/services/active-directory/) é o serviço de gerenciamento de identidade e diretório multilocatário baseado em nuvem da Microsoft.
 - A autenticação para um aplicativo Web implantado pelo cliente pode ser executada usando o Azure AD. Para saber mais, confira [Integrando aplicativos com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- O [RBAC (Controle De Acesso Baseado Em Função) do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permite o gerenciamento de acesso detalhado para o Azure. O acesso à assinatura é limitado ao administrador da assinatura, e o acesso aos recursos pode ser limitado com base na função de usuário.
+- O [RBAC (Controle De Acesso Baseado Em Função) do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) permite o gerenciamento de acesso detalhado para o Azure. O acesso à assinatura é limitado ao administrador da assinatura, e o acesso aos recursos pode ser limitado com base na função de usuário.
 - Uma instância do Active Directory IaaS implantada fornece gerenciamento de identidade no nível do sistema operacional para máquinas virtuais IaaS implantadas.
    
 ### <a name="compute-resources"></a>Recursos de computação
@@ -182,17 +181,17 @@ O [antimalware da Microsoft](https://docs.microsoft.com/azure/security/azure-sec
 
 ### <a name="patch-management"></a>Gerenciamento de patch
 
-Máquinas virtuais do Windows implantadas por esta Automação de Segurança e Conformidade do Azure Blueprint são configuradas por padrão para receberem atualizações automáticas do serviço Windows Update. Essa solução também implanta a solução Automação do Azure OMS por meio da qual implantações de atualizações podem ser criadas para implantar patches em servidores Windows quando necessário.
+Máquinas virtuais do Windows implantadas por esta Automação de Segurança e Conformidade do Azure Blueprint são configuradas por padrão para receberem atualizações automáticas do serviço Windows Update. Essa solução também implanta a solução de Automação do Azure por meio da qual as implantações de atualização podem ser criadas para implantar patches nos servidores Windows, quando necessário.
 
 ### <a name="operations-management"></a>Gerenciamento de operações
 
 #### <a name="log-analytics"></a>Log Analytics
 
-O [Log Analytics](https://azure.microsoft.com/services/log-analytics/) é um serviço do OMS (Operations Management Suite) que permite a coleta e a análise dos dados gerados pelos recursos no Azure e em seus ambientes locais.
+O [Log Analytics](https://azure.microsoft.com/services/log-analytics/) é um serviço que permite a coleta e análise de dados gerados pelos recursos no Azure e em ambientes locais.
 
-#### <a name="oms-solutions"></a>Soluções do OMS
+#### <a name="management-solutions"></a>Soluções de gerenciamento
 
-As seguintes soluções OMS são instaladas previamente como parte da solução:
+As soluções de gerenciamento a seguir são pré-instaladas como parte dessa solução:
 - [Avaliação do AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [Avaliação antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Automação do Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)

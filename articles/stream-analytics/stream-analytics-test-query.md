@@ -1,44 +1,43 @@
 ---
-title: Testar consultas no Azure Stream Analytics
-description: Este artigo descreve como testar consultas usando arquivos de dados de exemplo em trabalhos do Stream Analytics.
+title: Testar o trabalho do Azure Stream Analytics com dados de exemplo | Microsoft Docs
+description: Como testar as consultas em trabalhos do Stream Analytics.
+keywords: testar um trabalho, amostragem de entrada, carregar dados de exemplo
+documentationcenter: ''
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: SnehaGunda
 manager: kfile
-ms.reviewer: jasonh
+ms.assetid: ''
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: fb7d936dfdc543c208ce98c588f5ad83704ff5dc
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.workload: data-services
+ms.date: 03/18/2018
+ms.author: sngun
+ms.openlocfilehash: c026a91fff5b8ef5774993b335f8d61877aa5d39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Testar as consultas do Stream Analytics do Azure no portal do Azure
+# <a name="test-your-stream-analytics-query-with-sample-data"></a>Testar a consulta do Stream Analytics com dados de exemplo
 
-Com o Stream Analytics do Azure, você pode testar consultas no portal do Azure sem a necessidade de iniciar ou interromper um trabalho.
+Usando o Azure Stream Analytics, é possível carregar dados de exemplo e testar consultas no portal sem iniciar ou interromper um trabalho.
 
-## <a name="test-the-input"></a>Testar a entrada
+## <a name="upload-sample-data-and-test-the-query"></a>Carregar dados de exemplo e testar a consulta
 
-1. Para testar com dados de entrada de exemplo, clique com o botão direito do mouse em qualquer uma de suas entradas e, em seguida, selecione **Carregar dados de exemplo do arquivo**. No momento, você pode carregar apenas os dados formatados em JSON. Se os dados estiverem em um formato diferente, como CSV, você deverá convertê-los em JSON antes de carregar. Você pode usar qualquer ferramenta de conversão de código-fonte aberto, como [conversor de CSV para JSON](http://www.convertcsv.com/csv-to-json.htm), para converter seus dados em JSON.
+1. Navegue para um dos trabalhos existentes do Stream Analytics > clique em **Consulta** para abrir a janela do editor de Consultas. 
+
+2. Para testar a consulta com dados de entrada de exemplo, clique com o botão direito do mouse em qualquer uma das entradas e, em seguida, selecione **Carregar dados de exemplo do arquivo**. No momento, você pode carregar apenas os dados formatados em JSON. Se os dados estiverem em um formato diferente, como CSV, você deverá convertê-los em JSON antes de carregar. Você pode usar qualquer ferramenta de conversão de código-fonte aberto, como [conversor de CSV para JSON](http://www.convertcsv.com/csv-to-json.htm), para converter seus dados em JSON.
 
     ![consulta de teste do editor de consultas do stream analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-2. Depois que o upload for concluído, clique em **Teste** para testar essa consulta em relação aos dados de exemplo que você forneceu.
+3. Depois que o upload for concluído, clique em **Teste** para testar essa consulta em relação aos dados de exemplo que você forneceu.
 
     ![dados de exemplo de teste do editor de consultas do stream analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-A saída da consulta é exibida no navegador com um link Baixar resultados, caso você queira salvar a saída do teste para uso posterior. Agora você pode modificar fácil e iterativamente sua consulta e testá-la repetidamente para ver como a saída muda.
+4. Se você deseja salvar a saída do teste para uso posterior, a saída da consulta é exibida no navegador com um link para os resultados do download. Agora você pode modificar fácil e iterativamente sua consulta e testá-la repetidamente para ver como a saída muda.
 
-![A saída do exemplo do editor de consultas do Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
+   ![A saída do exemplo do editor de consultas do Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
-Com várias saídas usadas em uma consulta, você pode ver os resultados de ambas as saídas separadamente e alterná-los facilmente.
-
-Quando estiver satisfeito com os resultados mostrados no navegador, você poderá salvar sua consulta, iniciar seu trabalho e deixá-lo processar os eventos sem erro.
-
-## <a name="get-help"></a>Obter ajuda
-
+Ao usar várias saídas em uma consulta, você pode ver os resultados de cada saída separadamente e alterná-los facilmente. Após verificar os resultados mostrados no navegador, será possível salvar a consulta, iniciar o trabalho e permitir que ele processe eventos sem erros.
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas

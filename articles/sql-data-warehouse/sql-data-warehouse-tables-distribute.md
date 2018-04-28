@@ -1,42 +1,38 @@
 ---
-title: "Diretrizes de design para tabelas distribuídas – SQL Data Warehouse do Azure | Microsoft Docs"
-description: "Recomendações para a criação de tabelas distribuídas por hash e round-robin no SQL Data Warehouse do Azure."
+title: Diretrizes de design para tabelas distribuídas – SQL Data Warehouse do Azure | Microsoft Docs
+description: Recomendações para a criação de tabelas distribuídas por hash e round-robin no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d65ca91fc4cffa53adf3a7c56c7919e46c5037d9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Diretrizes de design para tabelas distribuídas no SQL Data Warehouse do Azure
+Recomendações para a criação de tabelas distribuídas por hash e round-robin no SQL Data Warehouse do Azure.
 
-Este artigo fornece recomendações para criar tabelas distribuídas no esquema do SQL Data Warehouse do Azure. Tabelas distribuídas por hash melhoram o desempenho de consulta em grandes tabelas de fatos e são o foco deste artigo. Tabelas de round-robin são úteis para melhorar a velocidade do carregamento. Essas opções de design têm um impacto significativo em melhorar o desempenho de carregamento e consulta.
+Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no SQL Data Warehouse.  Para obter mais informações, consulte [SQL Data Warehouse do Azure – Arquitetura MPP (processamento paralelo massivo)](massively-parallel-processing-mpp-architecture.md). 
 
-## <a name="prerequisites"></a>pré-requisitos
-Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no SQL Data Warehouse.  Para saber mais, consulte o artigo sobre [arquitetura](massively-parallel-processing-mpp-architecture.md). 
+## <a name="what-is-a-distributed-table"></a>O que é uma tabela distribuída?
+Uma tabela distribuída é exibida como uma única tabela, mas as linhas são armazenadas em 60 distribuições. As linhas são distribuídas com um algoritmo round-robin ou hash.  
+
+**Tabelas distribuídas por hash** melhoram o desempenho de consulta em grandes tabelas de fatos e são o foco deste artigo. **Tabelas de round-robin** são úteis para melhorar a velocidade do carregamento. Essas opções de design têm um impacto significativo em melhorar o desempenho de carregamento e consulta.
+
+Outra opção de armazenamento de tabela é replicar uma pequena tabela em todos os nós de computação. Para obter mais informações, confira [Criação de diretrizes para tabelas replicadas](design-guidance-for-replicated-tables.md). Para escolher rapidamente entre as três opções, consulte tabelas distribuídas na [visão geral de tabelas](sql-data-warehouse-tables-overview.md). 
 
 Como parte do design de tabela, compreenda seus dados o tanto quanto possível e a maneira como eles são consultados.  Por exemplo, considere estas perguntas:
 
 - Qual é o tamanho da tabela?   
 - Com que frequência a tabela é atualizada?   
 - Há tabelas de dimensões e fatos no data warehouse?   
-
-## <a name="what-is-a-distributed-table"></a>O que é uma tabela distribuída?
-Uma tabela distribuída é exibida como uma única tabela, mas as linhas são armazenadas em 60 distribuições. As linhas são distribuídas com um algoritmo round-robin ou hash. 
-
-Outra opção de armazenamento de tabela é replicar uma pequena tabela em todos os nós de computação. Para obter mais informações, confira [Criação de diretrizes para tabelas replicadas](design-guidance-for-replicated-tables.md). Para escolher rapidamente entre as três opções, consulte tabelas distribuídas na [visão geral de tabelas](sql-data-warehouse-tables-overview.md). 
 
 
 ### <a name="hash-distributed"></a>Tabelas distribuídas por hash
@@ -67,7 +63,7 @@ Considere usar a distribuição round robin para a sua tabela nos seguintes cen�
 - Se a junção for menos significativa do que outras junções na consulta
 - Quando a tabela é uma tabela temporária de preparo
 
-O tutorial [Carregando dados do blob de armazenamento do Azure](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) fornece um exemplo de carregamento de dados em uma tabela de preparo de round-robin.
+O tutorial [Carregar dados do New York taxicab para o SQL Data Warehouse do Azure](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) fornece um exemplo de carregamento de dados em uma tabela de preparo de round-robin.
 
 
 ## <a name="choosing-a-distribution-column"></a>Escolher uma coluna de distribuição
@@ -91,7 +87,7 @@ WITH
 ;
 ``` 
 
-Escolher uma coluna de distribuição é uma decisão de design importante como os valores nesta coluna determinam como as linhas são distribuídas. A melhor escolha depende de vários fatores e geralmente envolve as vantagens e desvantagens. No entanto, se você não escolher a melhor coluna na primeira vez, você pode usar [Criar tabela como selecionar (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para recriar a tabela com uma coluna de distribuição diferente. 
+Escolher uma coluna de distribuição é uma decisão de design importante como os valores nesta coluna determinam como as linhas são distribuídas. A melhor escolha depende de vários fatores e geralmente envolve as vantagens e desvantagens. No entanto, se você não escolher a melhor coluna na primeira vez, você pode usar [Criar tabela como selecionar (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para recriar a tabela com uma coluna de distribuição diferente. 
 
 ### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Escolha uma coluna de distribuição que não necessita de atualizações
 Você não pode atualizar uma coluna de distribuição, a menos que você exclua a linha e insira uma nova linha com os valores atualizados. Portanto, selecione uma coluna com valores estáticos. 
@@ -129,7 +125,7 @@ Quando você cria uma tabela distribuída por hash, a próxima etapa é carregar
 Depois que os dados são carregados em uma tabela distribuída por hash, verifique para ver como as linhas são distribuídas uniformemente entre as distribuições de 60. As linhas por distribuição podem variar até 10% sem um impacto significativo no desempenho. 
 
 ### <a name="determine-if-the-table-has-data-skew"></a>Determinar se a tabela tem distorção de dados
-Uma maneira rápida de verificar a distorção de dados é usar [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). O código SQL a seguir retorna o número de linhas da tabela que são armazenados em cada uma das 60 distribuições. Para um desempenho mais equilibrado, as linhas na tabela distribuída devem ser divididas uniformemente entre todas as distribuições.
+Uma maneira rápida de verificar a distorção de dados é usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). O código SQL a seguir retorna o número de linhas da tabela que são armazenados em cada uma das 60 distribuições. Para um desempenho mais equilibrado, as linhas na tabela distribuída devem ser divididas uniformemente entre todas as distribuições.
 
 ```sql
 -- Find data skew for a distributed table

@@ -1,6 +1,6 @@
 ---
 title: Migrar as VMs do AWS para o Azure com o Azure Site Recovery | Microsoft Docs
-description: "Este artigo descreve como migrar VMs Windows em execução no AWS (Amazon Web Services) para o Azure usando o Azure Site Recovery."
+description: Este artigo descreve como migrar VMs Windows em execução no AWS (Amazon Web Services) para o Azure usando o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,17 +9,18 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59a09b5d67391f2b48d338d721369f14ed6b4ede
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3ad4f46585be9cf61e3ef8343b5cb05308c972d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 
 Este tutorial ensina como migrar VMs (máquinas virtuais) do AWS (Amazon Web Services) para VMs do Azure usando o Site Recovery. Ao migrar as instâncias EC2 para o Azure, as VMs são tratadas como se fossem computadores locais físicos. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
+> * Verificar pré-requisitos
 > * Preparar os recursos do Azure
 > * Preparar as instâncias EC2 do AWS para migração
 > * Implante um servidor de configuração
@@ -29,6 +30,22 @@ Este tutorial ensina como migrar VMs (máquinas virtuais) do AWS (Amazon Web Ser
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
+## <a name="prerequisites"></a>pré-requisitos
+- Certifique-se de que as VMs que você quer migrar estão executando uma versão de sistema operacional com suporte, o que inclui 
+    - Versão de 64 bits do Windows Server 2008 R2 SP1 ou posterior, 
+    - Windows Server 2012,
+    - Windows Server 2012 R2, 
+    - Windows Server 2016
+    - Red Hat Enterprise Linux 6.7 (somente instâncias virtualizadas de HVM) e deve ter apenas drivers Citrix PV ou AWS PV. **Não** há suporte para executar os drivers RedHat PV.
+
+- O serviço de Mobilidade deve ser instalado em cada VM que você deseja replicar. 
+
+> [!IMPORTANT]
+> O Site Recovery instala esse serviço automaticamente quando você habilita a replicação para a VM. Para instalação automática, você precisa preparar uma conta na instância EC2 que o Site Recovery usará para acessar a VM. Você pode usar uma conta local ou de domínio. 
+> - Para VMs do Linux, a conta deve ser a raiz no servidor Linux de origem. 
+> - Para VMs Windows, se você não estiver usando uma conta de domínio, desabilite o controle de Acesso de Usuário Remoto na máquina local: no registro, em **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy** e defina o valor como 1.
+
+- Você precisa de uma instância de EC2 separada que pode usar como o servidor de configuração do Site Recovery. Essa instância deve estar em execução no Windows Server 2012 R2.
 
 ## <a name="prepare-azure-resources"></a>Preparar os recursos do Azure
 
@@ -74,19 +91,6 @@ Quando as VMs do Azure são criadas após a migração (failover), elas são ing
 8. Mantenha os padrões para a **Sub-rede**, tanto o **Nome** quanto o **Intervalo IP**.
 9. Deixe os **Pontos de Extremidade de Serviço** desabilitados.
 10. Quando terminar, clique em **Criar**.
-
-
-## <a name="prepare-the-ec2-instances"></a>Preparar as instâncias de EC2
-
-Você precisará de uma ou mais VMs que deseja migrar. Essas instância EC2 devem estar executando a versão de 64 bits do Windows Server 2008 R2 SP1 ou posterior, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 ou Red Hat Enterprise Linux 6.7 (somente instâncias virtualizadas de HVM). O servidor deve ter somente os drivers Citrix PV ou AWS PV. Não há suporte para executar os drivers RedHat PV.
-
-O serviço de Mobilidade deve ser instalado em cada VM que você deseja replicar. O Site Recovery instala esse serviço automaticamente quando você habilita a replicação para a VM. Para instalação automática, você precisa preparar uma conta na instância EC2 que o Site Recovery usará para acessar a VM.
-
-Você pode usar uma conta local ou de domínio. Para VMs do Linux, a conta deve ser a raiz no servidor Linux de origem. Para VMs do Windows, se você não estiver usando uma conta de domínio, desabilite o Controle de Acesso de Usuários Remotos no computador local:
-
-  - No registro, em **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy** e defina o valor para 1.
-
-Você também precisa de uma instância de EC2 separada que pode usar como o servidor de configuração do Site Recovery. Essa instância deve estar em execução no Windows Server 2012 R2.
 
 
 ## <a name="prepare-the-infrastructure"></a>Preparar a infraestrutura

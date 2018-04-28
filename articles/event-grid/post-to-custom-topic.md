@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f4323c4e68c639af9a5959af512c1cdd07cdf0c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicar para tópico personalizado para Grade de Eventos do Azure
 
@@ -73,7 +73,7 @@ Para tópicos personalizados, os dados de nível superior contêm os mesmos camp
 ]
 ```
 
-Para obter uma descrição dessas propriedades, consulte [esquema de evento de Grade de Eventos do Azure](event-schema.md).
+Para obter uma descrição dessas propriedades, consulte [esquema de evento de Grade de Eventos do Azure](event-schema.md). Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB.
 
 Por exemplo, um esquema de dados de evento válido é:
 
@@ -98,9 +98,10 @@ Após a postagem para o ponto de extremidade do tópico, você receberá uma res
 |Result  |Response  |
 |---------|---------|
 |Sucesso  | 200 OK  |
-|Ponto de extremidade incorreto | 404 Não Encontrado |
-|Chave de acesso inválida | 401 Não Autorizado |
 |Os dados de evento têm formato incorreto | 400 Solicitação Inválida |
+|Chave de acesso inválida | 401 Não Autorizado |
+|Ponto de extremidade incorreto | 404 Não Encontrado |
+|Matriz ou evento excede os limites de tamanho | O conteúdo 413 é muito grande |
 
 Para erros, o corpo da mensagem tem o seguinte formato:
 

@@ -1,11 +1,11 @@
 ---
-title: "Integrar a solução de monitoramento externa a pilha do Azure | Microsoft Docs"
-description: "Aprenda a integrar o Azure pilha com uma solução de monitoramento externa em seu data center."
+title: Integrar a solução de monitoramento externa a pilha do Azure | Microsoft Docs
+description: Aprenda a integrar o Azure pilha com uma solução de monitoramento externa em seu data center.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
-ms.translationtype: MT
+ms.openlocfilehash: e47141d31d3876264eaf2bcb7dc562a4711048cc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar a solução de monitoramento externa a pilha do Azure
 
@@ -83,7 +83,7 @@ Configure o arquivo de plug-in "Azurestack_plugin.py" com os seguintes parâmetr
 | *user_name* | O nome de usuário do operador assinatura | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Senha de assinatura do operador | MyPassWord |
 | *Client_id* | Cliente | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *region* |  Nome da região de pilha do Azure | local |
+| *Região* |  Nome da região de pilha do Azure | local |
 |  |  |
 
 * O GUID do PowerShell que é fornecido é universal. Você pode usá-lo para cada implantação.
@@ -99,7 +99,7 @@ Se você não estiver usando o Operations Manager, Nagios ou uma solução basea
    ```PowerShell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
-   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 3. Altere o diretório onde você instalou o [ferramentas do Azure pilha](https://github.com/Azure/AzureStack-Tools) como parte da instalação do PowerShell, por exemplo, c:\azurestack-tools-master. Em seguida, altere para o diretório de infraestrutura e execute o seguinte comando para importar o módulo de infraestrutura:
 
@@ -145,7 +145,7 @@ A solicitação obtém todos os alertas ativos e fechados para a assinatura do p
 
 |Argumento  |DESCRIÇÃO  |
 |---------|---------|
-|armendpoint     |  O Gerenciador de recursos do Azure ponto de extremidade de seu ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo *azurestack.external* e o nome da região é *local*, em seguida, o ponto de extremidade do Gerenciador de recursos https://adminmanagement.local.azurestack.external.       |
+|armendpoint     |  O ponto de extremidade do Gerenciador de recursos do Azure do seu ambiente de pilha do Azure, no formato https://adminmanagement.{RegionName}.{External FQDN}. Por exemplo, se o FQDN externo *azurestack.external* e o nome da região é *local*, em seguida, o ponto de extremidade do Gerenciador de recursos https://adminmanagement.local.azurestack.external.       |
 |subid     |   ID da assinatura do usuário que está fazendo a chamada. Você pode usar essa API para consultar somente com um usuário que tem permissão para a assinatura do provedor padrão.      |
 |RegionName     |    O nome da região da implantação da pilha do Azure.     |
 |api-version     |  Versão do protocolo usado para fazer essa solicitação. Você deve usar 2016-05-01.      |
@@ -226,7 +226,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceRegistrationid*    |     ID do recurso afetado registrado.    |
 |*resourceProviderRegistrationID*   |    ID do provedor de recursos registrados do componente afetado.  |
 |*serviceregistrationid*     |    ID do serviço registrado.   |
-|*severity*     |     Severidade do alerta.  |
+|*Severidade*     |     Severidade do alerta.  |
 |*state*     |    Estado de alerta.   |
 |*title*     |    Título do alerta.   |
 |*impactedresourceid*     |     ID do recurso afetado.    |
@@ -248,7 +248,7 @@ A solicitação fecha um alerta por sua ID exclusiva.
 
 |Argumento  |DESCRIÇÃO  |
 |---------|---------|
-|*armendpoint*     |   Ponto de extremidade do Gerenciador de recursos de seu ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo *azurestack.external* e o nome da região é *local*, em seguida, o ponto de extremidade do Gerenciador de recursos https://adminmanagement.local.azurestack.external.      |
+|*armendpoint*     |   Ponto de extremidade do Gerenciador de recursos de seu ambiente de pilha do Azure, no formato https://adminmanagement.{RegionName}.{External FQDN}. Por exemplo, se o FQDN externo *azurestack.external* e o nome da região é *local*, em seguida, o ponto de extremidade do Gerenciador de recursos https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    ID da assinatura do usuário que está fazendo a chamada. Você pode usar essa API para consultar somente com um usuário que tem permissão para a assinatura do provedor padrão.     |
 |*RegionName*     |   O nome da região da implantação da pilha do Azure.      |
 |*api-version*     |    Versão do protocolo usado para fazer essa solicitação. Você deve usar 2016-05-01.     |
@@ -369,7 +369,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*resourceRegistrationid*    |     ID do recurso afetado registrado.    |
 |*resourceProviderRegistrationID*   |    ID do provedor de recursos registrados do componente afetado.  |
 |*serviceregistrationid*     |    ID do serviço registrado.   |
-|*severity*     |     Severidade do alerta.  |
+|*Severidade*     |     Severidade do alerta.  |
 |*state*     |    Estado de alerta.   |
 |*title*     |    Título do alerta.   |
 |*impactedresourceid*     |     ID do recurso afetado.    |
@@ -393,7 +393,7 @@ A solicitação obtém status de integridade para todos os provedores de recurso
 
 |Argumentos  |DESCRIÇÃO  |
 |---------|---------|
-|*armendpoint*     |    O ponto de extremidade do Gerenciador de recursos de seu ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo é azurestack.external e o nome da região é local, em seguida, o ponto de extremidade do Gerenciador de recursos é https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    O ponto de extremidade do Gerenciador de recursos de seu ambiente de pilha do Azure, no formato https://adminmanagement.{RegionName}.{External FQDN}. Por exemplo, se o FQDN externo é azurestack.external e o nome da região é local, em seguida, o ponto de extremidade do Gerenciador de recursos é https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     ID da assinatura do usuário que está fazendo a chamada. Você pode usar essa API para consultar somente com um usuário que tem permissão para a assinatura do provedor padrão.    |
 |*RegionName*     |     O nome da região da implantação da pilha do Azure.    |
 |*api-version*     |   Versão do protocolo usado para fazer essa solicitação. Você deve usar 2016-05-01.      |
@@ -462,7 +462,7 @@ A solicitação obtém status de integridade para um provedor de recursos regist
 
 |Argumentos  |DESCRIÇÃO  |
 |---------|---------|
-|*armendpoint*     |    O ponto de extremidade do Gerenciador de recursos de seu ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo é azurestack.external e o nome da região é local, em seguida, o ponto de extremidade do Gerenciador de recursos é https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    O ponto de extremidade do Gerenciador de recursos de seu ambiente de pilha do Azure, no formato https://adminmanagement.{RegionName}.{External FQDN}. Por exemplo, se o FQDN externo é azurestack.external e o nome da região é local, em seguida, o ponto de extremidade do Gerenciador de recursos é https://adminmanagement.local.azurestack.external.     |
 |*subid*     |ID da assinatura do usuário que está fazendo a chamada. Você pode usar essa API para consultar somente com um usuário que tem permissão para a assinatura do provedor padrão.         |
 |*RegionName*     |  O nome da região da implantação da pilha do Azure.       |
 |*api-version*     |  Versão do protocolo usado para fazer essa solicitação. Você deve usar 2016-05-01.       |

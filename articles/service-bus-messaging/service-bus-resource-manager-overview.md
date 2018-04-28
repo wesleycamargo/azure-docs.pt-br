@@ -1,24 +1,24 @@
 ---
-title: "Criar recursos do Barramento de Serviço do Azure usando modelos do Gerenciador de Recursos | Microsoft Docs"
-description: "Usar modelos do Azure Resource Manager para automatizar a criação de recursos do Barramento de Serviço"
+title: Criar recursos do Barramento de Serviço do Azure usando modelos do Gerenciador de Recursos | Microsoft Docs
+description: Usar modelos do Azure Resource Manager para automatizar a criação de recursos do Barramento de Serviço
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 04/11/2018
 ms.author: sethm
-ms.openlocfilehash: 0ceeb138a7432e51cabe2597c680cb01ea9eac4a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8d84de608ccf3d9a9293c20c07c10a00b73da68
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager
 
@@ -61,7 +61,7 @@ Instale o Azure PowerShell seguindo as instruções em [Introdução ao Azure Po
 
 ### <a name="create-a-template"></a>Criar um modelo
 
-Clone ou copie o modelo [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) a partir do GitHub:
+Clone o repositório ou copie o modelo [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) do GitHub:
 
 ```json
 {
@@ -163,7 +163,7 @@ Para saber mais, consulte o tópico [Parâmetros](../azure-resource-manager/reso
 Em um prompt do PowerShell, execute o seguinte comando:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Você precisará entrar em sua conta do Azure. Após o logon, execute o comando a seguir para exibir as assinaturas disponíveis:
@@ -180,7 +180,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Definir o grupo de recursos
 
-Se você não tiver um grupo de recursos existente, crie um novo com o comando **New-AzureRmResourceGroup**. Forneça o nome do grupo de recursos e local que você deseja usar. Por exemplo:
+Se você não tiver um grupo de recursos existente, crie um novo com o comando **New-AzureRmResourceGroup**. Forneça o nome do grupo de recursos e local que você deseja usar. Por exemplo: 
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"

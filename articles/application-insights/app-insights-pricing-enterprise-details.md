@@ -13,43 +13,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e7591ccf0f21099474a08dda088422c377135f6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6df013506e4541fee7850850776d26e5c69a799d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enterprise-plan-details"></a>Detalhes do plano Enterprise
 
-Application Insights tem dois planos de preços. O plano padrão é chamado [Básico](app-insights-pricing.md), que inclui todos os mesmos recursos que o plano Enterprise sem nenhum custo adicional e com cobrança principalmente relacionada ao volume de dados ingeridos. Se você estiver usando o Operations Management Suite, deve optar pelo plano Enterprise, que tem cobrança por nó com permissões de dados diárias e cobrará pelos dados ingeridos acima da permissão inclusa.
+O Application Insights do Azure oferece dois planos de preços: Básico e Enterprise. O plano de preços [Básico](app-insights-pricing.md) é o plano padrão. Ele inclui todos os recursos do plano Enterprise, sem nenhum custo adicional. O plano Básico cobra principalmente o volume de dados ingeridos. 
 
-Consulte a [página de preços do Application Insights](http://azure.microsoft.com/pricing/details/application-insights/) para preços atuais em sua moeda e região.
+O plano Enterprise tem uma encargo por nó e cada nó recebe uma permissão diária de dados. No plano de preços Enterprise, você é cobrado pelos dados ingeridos acima da permissão incluída. Se você estiver usando o Operations Management Suite, deverá escolher o plano Enterprise. 
 
-## <a name="heres-how-the-enterprise-plan-works"></a>Assim funciona o plano Enterprise
+Para preços atuais em sua moeda e região, consulte [Preços do Application Insights](http://azure.microsoft.com/pricing/details/application-insights/).
 
-* Você paga por nó que está enviando telemetria para quaisquer aplicativos no plano Enterprise.
- * Um *nó* é um computador de servidor físico ou virtual ou então uma instância de função de Plataforma como Serviço que hospeda seu aplicativo.
- * Computadores de desenvolvimento, navegadores do cliente e dispositivos móveis não são contados como nós.
- * Se seu aplicativo tem vários componentes que enviam telemetria, assim como um serviço Web e um trabalho de back-end, eles são contadas separadamente.
- * Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contados para fins de preço.* Em uma assinatura, as cobranças são por nó, não por aplicativo. Se você tiver cinco nós enviando telemetria para 12 aplicativos, a cobrança será para cinco nós.
-* Embora as cobrança sejam cotadas por mês, você é cobrado apenas por aquelas horas em que um nó envia telemetria de um aplicativo. A cobrança por hora é a cobrança mensal cotada / 744 (o número de horas em um mês de 31 dias).
-* Uma alocação de volume de dados de 200 MB por dia é fornecida para cada nó detectado (com granularidade por hora). A alocação de dados não utilizados não é transferida de um dia para o seguinte.
- * Se você escolher a opção de preço Enterprise, cada assinatura receberá uma provisão diária de dados com base no número de nós enviando telemetria para os recursos do Application Insights nessa assinatura. Então, se você tiver 5 nós enviando dados todos os dias, uma provisão em pool de 1 GB será aplicada a todos os recursos do Application Insights nessa assinatura. Não importa se determinados nós estão enviando mais dados que outros, porque os dados incluídos são compartilhados entre todos os nós. Se em um determinado dia os recursos do Application Insights recebem mais dados do que está incluído na alocação de dados diária para esta assinatura, as cobranças por dados excedentes por GB se aplicam. 
- * A provisão diária de dados é calculada como o número de horas por dia (usando UTC) que cada nó envia telemetria, dividido por 24, vezes 200 MB. Então, se você tem quatro nós enviando telemetria durante 15 das 24 horas do dia, os dados incluídos para aquele dia seriam ((4 x 15) / 24) X 200 MB = 500 MB. Pelo preço de US$ 2,30 por GB de dados excedentes, o valor a cobrar seria de US$ 1,15 se os nós enviassem 1 GB de dados naquele dia.
- * A provisão diária do plano Enterprise não é compartilhado com aplicativos para os quais você escolheu a opção Básico e o subsídio bonificação não utilizado não é transferido de um dia para o outro. 
+## <a name="how-the-enterprise-plan-works"></a>Como o plano Enterprise funciona
 
-## <a name="here-are-some-examples-of-determining-distinct-node-count"></a>Aqui estão alguns exemplos de determinar a contagem de nós distintos
+* Você paga por cada nó que envia telemetria para qualquer aplicativo no plano Enterprise.
+ * Um *nó* é um computador de servidor físico ou virtual ou uma instância de função de plataforma como serviço que hospeda o aplicativo.
+ * Computadores de desenvolvimento, navegadores do cliente e dispositivos móveis não contam como nós.
+ * Se o aplicativo tiver vários componentes que enviam telemetria, como um serviço Web e um trabalhado de back-end, os componentes serão contados separadamente.
+ * Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contatos para fins de preços. Em uma assinatura, seus encargos são por nó, não por aplicativo. Se você tiver cinco nós que enviam telemetria para 12 aplicativos, o encargo será de cinco nós.
+* Embora as cobrança sejam cotadas por mês, você é cobrado apenas por aquelas horas em que um nó envia telemetria de um aplicativo. O encargo por hora é a cobrança mensal cotada dividida por 744 (o número de horas em um mês de 31 dias).
+* Uma alocação de volume de dados de 200 MB por dia é fornecida para cada nó detectado (com granularidade por hora). A alocação de dados não utilizada não é transportada de um dia para o outro.
+ * Se você escolher o plano de preços Enterprise, cada assinatura receberá uma permissão diária de dados com base no número de nós que envia a telemetria aos recursos do Application Insights nessa assinatura. Portanto, se você tiver cinco nós que enviam dados todos os dias, você terá uma permissão em pool de 1 GB aplicada a todos os recursos do Application Insights nessa assinatura. Não importa se determinados nós enviam mais dados que outros nós, porque os dados incluídos são compartilhados entre todos os nós. Se em um determinado dia os recursos do Application Insights recebem mais dados do que está incluído na alocação de dados diária para esta assinatura, as cobranças por dados excedentes por GB se aplicam. 
+ * A permissão de dados diária é calculada como o número de horas por dia (usando o UTC) que cada nó envia telemetria dividido por 24, multiplicado por 200 MB. Portanto, se você tiver quatro nós que enviam telemetria durante 15 das 24 horas do dia, os dados incluídos para esse dia serão ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Pelo preço de US$ 2,30 por GB de dados excedentes, o valor a cobrar seria de US$ 1,15 se os nós enviassem 1 GB de dados naquele dia.
+ * A permissão diária do plano Enterprise não é compartilhada com aplicativos para os quais você escolheu o plano Básico. A permissão não utilizada não é herdada do dia a dia. 
+
+## <a name="examples-of-how-to-determine-distinct-node-count"></a>Exemplos de como determinar a contagem de nós distinta
 
 | Cenário                               | Contagem de nós diária total |
 |:---------------------------------------|:----------------:|
-| Um aplicativo está usando três instâncias do Serviço de Aplicativo do Azure e um servidor virtual | 4 |
-| Três aplicativos em execução em duas VMs, sendo que os recursos do Application Insights para esses aplicativos estão na mesma assinatura e no plano Enterprise | 2 | 
-| Quatro aplicativos cujos recursos do Application Insights estão na mesma assinatura. Cada aplicativo executa duas instâncias durante 16 horas fora do horário de pico e quatro instâncias durante oito horas no horário de pico. | 13.33 | 
+| 1 aplicativo usando 3 instâncias do Serviço de Aplicativo do Azure e 1 servidor virtual | 4 |
+| 3 aplicativos em execução em 2 VMs; os recursos do Application Insights para esses aplicativos estão na mesma assinatura e no plano Enterprise | 2 | 
+| 4 aplicativos cujos recursos do Applications Insights estão na mesma assinatura; cada aplicativo executando 2 instâncias durante 16 horas fora de pico e 4 instâncias durante 8 horas de pico | 13.33 | 
 | Serviços de nuvem com uma função de trabalho e uma função web, cada uma executando duas instâncias | 4 | 
-| Cluster do Service Fabric de cinco nós executando 50 microsserviços, cada microsserviço executando três instâncias | 5|
+| Um cluster do Azure Service Fabric de 5 nós que executa 50 microsserviços; cada microsserviço executando 3 instâncias | 5|
 
-* O comportamento preciso da contagem de nós depende de qual SDK do Application Insights seu aplicativo está usando. 
-  * No SDK versões 2.2 e posteriores, tanto o Application Insights [SDK do Core](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) quanto o [SDK Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) relatarão cada host de aplicativo como um nó, por exemplo, o nome do computador para o servidor físico e hosts de VM ou o nome da instância no caso de serviços de nuvem.  A única exceção é o caso de aplicativos usando apenas o [.NET Core](https://dotnet.github.io/) e o SDK do Core do Application Insights; nesse caso, somente um nó será relatado para todos os hosts porque o nome do host não está disponível. 
-  * Para versões anteriores do SDK, o [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comportará exatamente como as versões mais recentes do SDK, no entanto, o [SDK do Core](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) reportará apenas um nó, independentemente do número de hosts de aplicativos reais. 
-  * Se seu aplicativo estiver usando o SDK para definir roleInstance para um valor personalizado, esse mesmo valor será, por padrão, usado para determinar a contagem de nós. 
-  * Se você está usando uma nova versão do SDK com um aplicativo que é executado em dispositivos móveis ou computadores cliente, é possível que a contagem de nós retorne um número muito grande (do grande número de dispositivos móveis ou computadores cliente). 
+* A contagem de nós exata depende de qual SDK do Application Insights seu aplicativo está usando. 
+  * No SDK versões 2.2 e posterior, o [SDK Core](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) do Application Insights e o [SDK Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) relatam cada host de aplicativo como um nó. Exemplos são o nome do computador para servidores físicos e hosts de VM ou o nome da instância para serviços de nuvem.  A única exceção é um aplicativo que usa apenas o [.NET Core](https://dotnet.github.io/) e o Application Insights o SDK Core. Nesse caso, apenas um nó é relatado para todos os hosts porque o nome do host não está disponível. 
+  * Para versões anteriores do SDK, o [SDK Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comporta como as versões do SDK mais recentes, mas o [SDK Core](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) relata apenas um nó, independentemente do número de hosts do aplicativo. 
+  * Se o aplicativo usar o SDK para definir **roleInstance** como um valor personalizado, por padrão, esse mesmo valor será usado para determinar a contagem de nós. 
+  * Se você estiver usando uma nova versão do SDK com um aplicativo que executa a partir de computadores clientes ou dispositivos móveis, a contagem de nós poderá retornar um número muito grande (devido ao grande número de computadores clientes ou dispositivos móveis). 

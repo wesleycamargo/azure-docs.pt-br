@@ -1,13 +1,13 @@
 ---
-title: "Como migrar de forma segura usuários entre licenças de produto usando o licenciamento baseado em grupo no Microsoft Azure Active Directory | Microsoft Docs"
-description: "Descreve o processo recomendado para a migrar usuários entre diferentes licenças de produto (Office 365 Enterprise E1 e E3) usando o licenciamento baseado em grupo"
+title: Como migrar de forma segura usuários entre licenças de produto usando o licenciamento baseado em grupo no Microsoft Azure Active Directory | Microsoft Docs
+description: Descreve o processo recomendado para a migrar usuários entre diferentes licenças de produto (Office 365 Enterprise E1 e E3) usando o licenciamento baseado em grupo
 services: active-directory
 keywords: Licenciamento do AD do Azure
-documentationcenter: 
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/07/2018
 ms.author: piotrci
-ms.openlocfilehash: bb27b3fb739bbcea56026733b41e6cadf21b8953
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 068457044af7af7a55bdbcc4043da3028a68b2d0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Como migrar de forma segura usuários entre licenças de produto usando o licenciamento baseado em grupo
 
@@ -27,7 +27,7 @@ Este artigo descreve o método recomendado para mover usuários entre as licenç
 
 -   Migração simples entre licenças de produto que não incluam planos de serviço conflitantes, como migrar entre o Office 365 Enterprise E3 e Office 365 Enterprise E5.
 
--   Migração mais complexa entre produtos que não incluam alguns planos de serviço conflitantes, como migrar entre o Office 365 Enterprise E1 e Office 365 Enterprise E3. Para obter mais informações sobre conflitos, consulte [Planos de serviço conflitante](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) e [Planos de serviço que não podem ser atribuídos ao mesmo tempo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+-   Migração mais complexa entre produtos que não incluam alguns planos de serviço conflitantes, como migrar entre o Office 365 Enterprise E1 e Office 365 Enterprise E3. Para obter mais informações sobre conflitos, consulte [Planos de serviço conflitante](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) e [Planos de serviço que não podem ser atribuídos ao mesmo tempo](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
 Este artigo inclui um código PowerShell de exemplo que pode ser usado para executar as etapas de migração e verificação. O código é especialmente útil para operações em grande escala, em que não é possível executar as etapas manualmente.
 
@@ -37,7 +37,7 @@ Antes de começar a migração, é importante verificar que algumas suposições
 -   Os usuários têm a *licença de origem* que é atribuída usando o licenciamento baseado em grupo. As licenças para o produto mover são herdadas de um único grupo de origem e não são atribuídas diretamente.
 
     >[!NOTE]
-    >Se as licenças também forem atribuídas diretamente, elas poderão impedir o aplicativo da *licença de origem*. Saiba mais sobre [atribuição de licença de grupo e direta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). Talvez você queira usar um [script do PowerShell](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) para verificar se os usuários possuem licenças diretas.
+    >Se as licenças também forem atribuídas diretamente, elas poderão impedir o aplicativo da *licença de origem*. Saiba mais sobre [atribuição de licença de grupo e direta](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). Talvez você queira usar um [script do PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) para verificar se os usuários possuem licenças diretas.
 
 -   É necessário ter licenças suficientes disponíveis para o produto de destino. Se você não tiver licenças suficientes, alguns usuários podem não obter a *licença de destino*. É possível [verificar o número de licenças disponíveis](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
@@ -54,7 +54,7 @@ A meta de migração é usar o licenciamento baseado em grupo para alterar licen
 
 3.  Adicione um lote de usuários ao grupo de destino. Licenciamento baseado em grupo pega a alteração e atribui o *licença de destino*. O processo pode levar um longo período de tempo, dependendo do tamanho do lote e outras atividades no locatário.
 
-4.  Verifique se o lote de usuários está totalmente processado pelo licenciamento baseado em grupo. Confirme se cada usuário tem a *licença de destino* atribuída. Verifique se os usuários não terminaram em um estado de erro, como conflitos com outros produtos ou falta de licenças suficientes. Para obter mais informações sobre erros, consulte [solução de problemas do grupo de licenciamento do Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+4.  Verifique se o lote de usuários está totalmente processado pelo licenciamento baseado em grupo. Confirme se cada usuário tem a *licença de destino* atribuída. Verifique se os usuários não terminaram em um estado de erro, como conflitos com outros produtos ou falta de licenças suficientes. Para obter mais informações sobre erros, consulte [solução de problemas do grupo de licenciamento do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
 
 5.  Neste ponto, os usuários têm a *licença de origem* e a *licença de destino* atribuídas.
 
@@ -175,7 +175,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Migrar usuários entre produtos que têm planos de serviço conflitantes
-A meta de migração é usar o licenciamento baseado em grupo para alterar licenças de usuário de uma *licença de origem* (neste exemplo: Office 365 Enterprise E1) para uma *licença de destino* (neste exemplo: Office 365 Enterprise E3). Os dois produtos neste cenário contêm planos de serviço conflitantes, desse modo, você precisará solucionar o conflito para migrar os usuários diretamente. Para obter mais informações sobre esses conflitos, consulte [solução de problemas do grupo de licenciamento do Active Directory: planos de serviço conflitantes](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Em nenhum momento durante a migração os usuários deverão perder o acesso aos dados ou serviços. A migração é executada em pequenos "lotes". Você pode validar o resultado para cada lote e minimizar o escopo de quaisquer problemas que podem ocorrer durante o processo. Em geral, o processo é o seguinte:
+A meta de migração é usar o licenciamento baseado em grupo para alterar licenças de usuário de uma *licença de origem* (neste exemplo: Office 365 Enterprise E1) para uma *licença de destino* (neste exemplo: Office 365 Enterprise E3). Os dois produtos neste cenário contêm planos de serviço conflitantes, desse modo, você precisará solucionar o conflito para migrar os usuários diretamente. Para obter mais informações sobre esses conflitos, consulte [solução de problemas do grupo de licenciamento do Active Directory: planos de serviço conflitantes](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Em nenhum momento durante a migração os usuários deverão perder o acesso aos dados ou serviços. A migração é executada em pequenos "lotes". Você pode validar o resultado para cada lote e minimizar o escopo de quaisquer problemas que podem ocorrer durante o processo. Em geral, o processo é o seguinte:
 
 1.  Os usuários são membros de um grupo de origem e herdam a *licença de origem* desse grupo.
 
@@ -183,7 +183,7 @@ A meta de migração é usar o licenciamento baseado em grupo para alterar licen
 
 3.  Adicione um lote de usuários ao grupo de destino. Licenciamento baseado em grupo recebe a alteração e tenta atribuir a *licença de destino*. A atribuição falha devido a conflitos entre os serviços em dois produtos. O licenciamento baseado em grupo registra a falha como um erro para cada usuário. O processo pode levar um longo período de tempo, dependendo do tamanho do lote e outras atividades no locatário.
 
-4.  Verifique se o lote de usuários está totalmente processado pelo licenciamento baseado em grupo. Confirme se cada usuário tem o erro de conflito registrado. Verifique se alguns usuários não terminaram em um estado de erro inesperado. Para obter mais informações sobre erros, consulte [solução de problemas do grupo de licenciamento do Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+4.  Verifique se o lote de usuários está totalmente processado pelo licenciamento baseado em grupo. Confirme se cada usuário tem o erro de conflito registrado. Verifique se alguns usuários não terminaram em um estado de erro inesperado. Para obter mais informações sobre erros, consulte [solução de problemas do grupo de licenciamento do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
 
 5.  Neste ponto, os usuários ainda têm a *licença de origem* e um erro de conflito para a *licença de destino*. Os usuários ainda não tem a *licença de destino* atribuída.
 
@@ -317,7 +317,7 @@ Esta seção contém o código do PowerShell que é necessário para executar os
 >[!WARNING]
 >Este código é fornecido como um exemplo para fins de demonstração. Se você pretende utilizá-lo em seu ambiente, primeiro considere testar o código em uma escala pequena ou em um locatário de teste separado. Talvez seja necessário ajustar o código para atender às necessidades específicas do seu ambiente.
 
-Para executar o código, use as instruções nas [bibliotecas do Azure AD PowerShell v1.0](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Antes de você executar o script, execute o cmdlet `connect-msolservice` para entrar no locatário.
+Para executar o código, use as instruções nas [bibliotecas do Azure AD PowerShell v1.0](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Antes de você executar o script, execute o cmdlet `connect-msolservice` para entrar no locatário.
 
 ```
 # BEGIN: Helper functions that are used in the scripts.

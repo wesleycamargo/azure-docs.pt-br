@@ -1,12 +1,12 @@
 ---
-title: "Notas de versão do Gerenciador de Armazenamento do Microsoft Azure (Visualização)"
-description: "Notas de versão do Gerenciador de Armazenamento do Microsoft Azure (Visualização)"
+title: Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
+description: Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure (Visualização)
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 
 Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Azure 0.9.6 (Versão Prévia), bem como notas de versão para versões anteriores.
 
-O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux.
+O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 
 ## <a name="version-096"></a>Versão 0.9.6
 28/02/2018

@@ -1,11 +1,11 @@
 ---
-title: "Aplicação de patch do sistema operacional e do tempo de execução no Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Descreve como o Serviço de Aplicativo do Azure atualiza o sistema operacional e os tempos de execução e como você pode obter comunicados sobre atualizações."
+title: Aplicação de patch do sistema operacional e do tempo de execução no Serviço de Aplicativo do Azure | Microsoft Docs
+description: Descreve como o Serviço de Aplicativo do Azure atualiza o sistema operacional e os tempos de execução e como você pode obter comunicados sobre atualizações.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 869bd0e3f684ff4a2291e189cf247daedfb74922
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch do sistema operacional e do tempo de execução no Serviço de Aplicativo do Azure
 
@@ -93,7 +93,7 @@ A tabela a seguir mostra como encontrar informações sobre as versões do Windo
 | Versão do Python | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no prompt de comando: <br> `python --version` |
 
 > [!NOTE]
-> O acesso ao local do registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, em que as informações sobre [patches "KB"]((https://technet.microsoft.com/security/bulletins.aspx)) é armazenada, está bloqueado.
+> O acesso ao local do registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, em que as informações sobre [patches "KB"]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)) é armazenada, está bloqueado.
 >
 >
 

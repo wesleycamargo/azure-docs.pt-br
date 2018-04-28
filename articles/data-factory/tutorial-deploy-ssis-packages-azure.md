@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: hero-article
-ms.date: 01/29/2018
+ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: aca9f822bf3fd3b26e554240a4fee2474b89143d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cc0c26d83794cfb0b398e668ae89e268901df345
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Implantar pacotes do SQL Server Integration Services no Azure
 Este tutorial fornece etapas para o provisionamento para o portal do Azure de um tempo de execução de integração (IR) do Azure-SSIS no Azure Data Factory. Em seguida, você pode usar o SQL Server Data Tools ou o SQL Server Management Studio para implantar pacotes do SSIS (SQL Server Integration Services) para esse tempo de execução no Azure. Para obter informações conceituais sobre IRs do SSIS do Azure, consulte [visão geral do Integration Runtime do Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -25,7 +25,7 @@ Este tutorial fornece etapas para o provisionamento para o portal do Azure de um
 Neste tutorial, você completa as seguintes etapas:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Provisionar um tempo de execução de integração do Azure-SSIS.
 
 > [!NOTE]
@@ -41,11 +41,11 @@ Neste tutorial, você completa as seguintes etapas:
 
 > [!NOTE]
 > - Você pode criar um data factory da versão 2 nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Sudeste Asiático e Europa Ocidental. 
-> - Você pode criar um Azure-SSIS IR nas regiões a seguir: Leste dos EUA, Leste dos EUA 2, EUA Central, Europa Setentrional, Europa Ocidental e Leste da Austrália. 
+> - É possível criar um IR do Azure-SSIS nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Centro dos EUA, Oeste dos EUA 2, Europa Setentrional, Europa Ocidental, Sul do Reino Unido e Leste da Austrália. 
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 2. Entre no [portal do Azure](https://portal.azure.com/).    
 3. Selecione **Novo** no menu à esquerda, selecione **Dados + Análise**e, em seguida, selecione **Data Factory**. 
    
@@ -128,7 +128,7 @@ Neste tutorial, você completa as seguintes etapas:
    >
    > O serviço Data Factory se conecta ao Banco de Dados SQL do Azure para preparar o Catálogo SSIS (banco de dados SSISDB). O script também configura permissões e configurações para sua rede virtual, se for especificado. E ingressa a nova instância do tempo de execução de integração do Azure SSIS à rede virtual.
    > 
-   > Quando você provisiona uma instância de uma IR do Azure-SSI, o Azure Feature Pack para SSIS e o Acesso Redistribuível também são instalados. Esses componentes fornecem conectividade para arquivos do Excel e do Access e para várias fontes de dados do Azure, além das fontes de dados com suporte dos componentes internos. No momento, não é possível instalar componentes de terceiros para SSIS. (Essa restrição inclui componentes de terceiros da Microsoft, como os componentes do Oracle e Teradata da Attunity e os componentes SAP BI).
+   > Quando você provisiona uma instância de uma IR do Azure-SSI, o Azure Feature Pack para SSIS e o Acesso Redistribuível também são instalados. Esses componentes fornecem conectividade para arquivos do Excel e do Access e para várias fontes de dados do Azure, além das fontes de dados com suporte dos componentes internos. Também é possível instalar outros componentes. Para obter mais informações, confira [Configuração personalizada para o tempo de execução de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 7. Na guia **Conexões**, alterne para **Tempos de Execução de Integração**, se necessário. Selecione **Atualizar** para atualizar o status. 
 
@@ -164,7 +164,7 @@ Consulte os artigos a seguir na documentação do SSIS:
 Neste tutorial, você aprendeu como: 
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Provisionar um tempo de execução de integração do Azure-SSIS.
 
 Avance para o tutorial a seguir para saber mais sobre a cópia de dados do local para a nuvem: 

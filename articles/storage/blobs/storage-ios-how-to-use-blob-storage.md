@@ -1,32 +1,26 @@
 ---
-title: Como usar o Armazenamento de Blobs do Azure no iOS | Microsoft Docs
-description: "Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
+title: Como usar o armazenamento de objeto (Blob) do iOS - Azure | Microsoft Docs
+description: Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto).
 services: storage
 documentationcenter: ios
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: f238804e6031fcf3f194695a06bf5b88733a27b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como usar o armazenamento de Blob no iOS
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+Este artigo mostra como executar cenários comuns usando o Armazenamento de Blobs do Microsoft Azure. Os exemplos são escritos em Objective-C e usam a [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)(Biblioteca do Cliente de Armazenamento do Azure para iOS). Os cenários abrangidos incluem carregar, listar, baixar e excluir blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas](#next-steps) . Você também pode baixar o [aplicativo de exemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rapidamente o uso do Armazenamento do Azure em um aplicativo do iOS.
 
-## <a name="overview"></a>Visão geral
-Este artigo mostra como executar cenários comuns usando o armazenamento de Blob do Microsoft Azure. Os exemplos são escritos em Objective-C e usam a [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)(Biblioteca do Cliente de Armazenamento do Azure para iOS). Os cenários abrangidos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas](#next-steps) . Você também pode baixar o [aplicativo de exemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rapidamente o uso do Armazenamento do Azure em um aplicativo do iOS.
+## <a name="what-is-blob-storage"></a>O que é Armazenamento de Blobs?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 

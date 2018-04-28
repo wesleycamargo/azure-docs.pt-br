@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: markgal;trinadhk;sogup
+ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planejar sua infraestrutura de backup da VM no Azure
 Este artigo fornece sugestões de desempenho e recursos para ajudá-lo a planejar a infraestrutura de backup da VM. Ele também define os principais aspectos do serviço de Backup. Esses aspectos podem ser críticos para determinar a arquitetura, o planejamento de capacidade e o agendamento. Se você [preparou o ambiente](backup-azure-arm-vms-prepare.md), o planejamento será a próxima etapa antes de começar a [fazer backup das VMs](backup-azure-arm-vms.md). Se você precisa de mais informações sobre máquinas virtuais do Azure, confira a [documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -99,7 +99,8 @@ Embora a maioria do tempo de backup seja gasto na leitura e cópia de dados, out
 
 * Tempo necessário para [instalar ou atualizar a extensão de backup](backup-azure-arm-vms.md).
 * Hora do instantâneo, que é o tempo levado para disparar um instantâneo. Os instantâneos são disparados próximo ao horário de backup agendado.
-* Tempo de espera da fila. Quando o serviço de backup estiver processando backups de vários clientes, a cópia de dados de backup do instantâneo para o cofre do backup ou dos Serviços de Recuperação poderá não ser iniciada imediatamente. Em períodos de pico de carga, a espera pode se alongar a até oito horas devido ao número de backups sendo processados. No entanto, o tempo total de backup da VM é inferior a 24 horas para políticas de backup diárias.
+* Tempo de espera da fila. Quando o serviço de backup estiver processando backups de vários clientes, a cópia de dados de backup do instantâneo para o cofre do backup ou dos Serviços de Recuperação poderá não ser iniciada imediatamente. Em períodos de pico de carga, a espera pode se alongar a até oito horas devido ao número de backups sendo processados. No entanto, o tempo total de backup da VM é inferior a 24 horas para políticas de backup diárias. <br>
+**Isso permanece válido apenas para backups de incremento e não para o primeiro backup. O primeiro backup é proporcional e pode ser maior do que 24 horas dependendo do tamanho dos dados e do backup de hora ser realizado.**
 * Tempo de transferência de dados, o tempo necessário para o serviço de backup computar as alterações incrementais do backup anterior e transferir essas alterações para o armazenamento de cofre.
 
 ### <a name="why-am-i-observing-longer12-hours-backup-time"></a>Por que eu estou observando tempos de backup mais longos (mais de 12 horas)?

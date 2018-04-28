@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/29/2018
 ms.author: billmath
-ms.openlocfilehash: 208a65c09b13acad62c9b6d8e55b6050041c9f5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de Uso do Azure Active Directory
 Os Termos de Uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais.  Essa apresentação faz com que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais.
@@ -96,7 +96,7 @@ Para começar a usar a auditoria use o procedimento a seguir:
 2. Clique em Exibir logs de auditoria.</br>
 ![Auditar evento](media/active-directory-tou/tou8.png)
 3.  Você pode filtrar as informações usando as listas suspensas fornecidas para buscar informações de log de auditoria específicas na tela de logs de auditoria do Azure AD.
-![Auditar evento](media/active-directory-tou/tou9.png)
+[Auditar evento](media/active-directory-tou/tou9.png)
 4.  Você também pode baixar as informações em um arquivo .csv para uso local.
 
 ## 

@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Form.com | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Form.com."
+title: 'Tutorial: Integração do Azure Active Directory com o Form.com | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Form.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e4de55d99fce1cb1feff18a784eb029d3cb6a404
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b1d990337c7c5caaee79bc8e3280c2690fc47b0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Azure Active Directory com o Form.com
 
@@ -32,7 +32,7 @@ A integração do Form.com ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o Form.com, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Form.com da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-formcom-from-the-gallery"></a>Adição do Form.com da galeria
 Para configurar a integração do Form.com com o Azure AD, você precisará adicionar o Form.com à sua lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -101,7 +101,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_samlbase.png)
 
 3. Na seção **URLs e Domínio do Form.com**, execute as seguintes etapas:
@@ -118,46 +118,26 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
     | `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
     
-    > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Logon, a URL de Resposta e o Identificador. Contate a [equipe de suporte do Cliente do Form.com](https://form.com/about/company/contact-us/) para obter esses valores. 
- 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com a URL de Logon, a URL de Resposta e o Identificador. Contate a [equipe de suporte do Cliente do Form.com](https://form.com/about/company/contact-us/) para obter esses valores.
 
-    ![O link de download do Certificado](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_certificate.png) 
-
-5. Para gerar a **URL de Metadados**, execute as seguintes etapas:
-
-    a. Clique em **Registros do aplicativo**.
+4. Na seção **Certificado de Autenticação SAML**, execute as seguintes etapas:
     
-    ![Configurar appreg](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar Endpointcon](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpointicon.png)
+    ![Configurar o logon único](./media/active-directory-saas-formcom-tutorial/tutorial_metadataurl.png)
 
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar ponto de extremidade](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpoint.png)
+    a. Clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+
+    b. Clique em **Certificado (Base64)** e salve o arquivo de certificado em seu computador.
      
-    d. Agora, acesse a página de propriedades do **Form.com** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar appid](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Clique no botão **Salvar** .
+5. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-formcom-tutorial/tutorial_general_400.png)
 
-7. Na seção **Configuração do Form.com**, clique em **Configurar o Form.com** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+6. Na seção **Configuração do Form.com**, clique em **Configurar o Form.com** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configuração do Form.com](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_configure.png) 
 
-8. Para configurar o logon único no lado do **Form.com**, é necessário enviar o **Certificado (Base64)** baixado, a **URL dos Metadados** e a **URL do Serviço de Logon Único SAML** para a [equipe de suporte do Form.com](https://form.com/about/company/contact-us/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+7. Para configurar logon único no **Form.com** é necessário enviar o **Certificado (Base64)** baixado, a **URL de metadados de federação do aplicativo** e a **URL do serviço de logon único do SAML** para a [Equipe de suporte do Form.com](https://form.com/about/company/contact-us/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

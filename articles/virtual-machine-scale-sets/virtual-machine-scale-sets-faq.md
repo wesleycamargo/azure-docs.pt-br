@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -170,7 +170,7 @@ Para obter mais informações, veja [Criar ou atualizar um conjunto de dimension
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -402,9 +402,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 Você pode encontrar o valor extensionName em `$vmss`.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>Há um exemplo de modelo do conjunto de dimensionamento de máquinas virtuais que se integra com o Operations Management Suite?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Há um exemplo de modelo do conjunto de dimensionamento de máquinas virtuais que se integra com o Log Analytics?
 
-Para ver um exemplo de modelo do conjunto de dimensionamento de máquinas virtuais que se integra com o Operations Management Suite, consulte o segundo exemplo [Implantar um cluster do Service Fabric do Azure e habilitar o monitoramento usando o Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Para ver um exemplo de modelo do conjunto de dimensionamento de máquinas virtuais que se integra com o Log Analytics, consulte o segundo exemplo [Implantar um cluster do Azure Service Fabric e habilitar o monitoramento usando o Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>A extensões parecem ser executadas em paralelo nos conjuntos de dimensionamento de máquinas virtuais. Isso faz com que minha extensão de script personalizada falhe. O que fazer para corrigir isso?
 
@@ -693,9 +693,9 @@ Sim, você pode usar a operação de recriação de imagem para redefinir uma VM
 
 Para obter mais informações, consulte [Gerenciar todas as VMs em um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>É possível integrar conjuntos de dimensionamento ao Azure OMS (Operations Management Suite)?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>É possível integrar conjuntos de dimensionamento ao Azure Log Analytics?
 
-Sim, você pode por meio da instalação da extensão do OMS nas VMs do conjunto de dimensionamento. Veja um exemplo da CLI do Azure:
+Sim, isso é possível instalando a extensão do Log Analytics nas VMs do conjunto de dimensionamento. Veja um exemplo da CLI do Azure:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

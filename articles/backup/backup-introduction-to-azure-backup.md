@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b6701cdc4dd25c0a46193a73d1edd022388bc5ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Visão geral dos recursos do Backup do Azure
 O Backup do Azure é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. O Backup do Azure oferece vários componentes que você pode baixar e implantar em um computador, servidor, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação no Azure. Confira a [Tabela de componentes do Backup do Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais adiante neste artigo) para obter informações sobre qual componente usar para proteger dados, aplicativos ou cargas de trabalho específicos.
@@ -219,7 +219,7 @@ Alguns exemplos comuns de instâncias protegidas são máquinas virtuais, servid
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>O que é um cofre dos Serviços de Recuperação?
-Um cofre dos Serviços de Recuperação é uma entidade de armazenamento online no Azure usada para armazenar dados como cópias de backup, pontos de recuperação e políticas de backup. Você pode usar cofres dos Serviços de Recuperação para armazenar dados de backup de serviços do Azure, servidores e estações de trabalho locais. Os cofres dos Serviços de Recuperação facilitam a organização dos dados de backup, minimizando a sobrecarga de gerenciamento. Em cada assinatura do Azure, você pode criar até 25 cofres de Serviços de Recuperação por região do Azure. Ao considerar onde armazenar seus dados, nem todas as regiões são as mesmas. Confira [Armazenamento com redundância geográfica](../storage/common/storage-redundancy-grs.md) para obter informações sobre considerações de armazenamento adicional e emparelhamentos de regiões.
+Um cofre dos Serviços de Recuperação é uma entidade de armazenamento online no Azure usada para armazenar dados como cópias de backup, pontos de recuperação e políticas de backup. Você pode usar cofres dos Serviços de Recuperação para armazenar dados de backup de serviços do Azure, servidores e estações de trabalho locais. Os cofres dos Serviços de Recuperação facilitam a organização dos dados de backup, minimizando a sobrecarga de gerenciamento. Em cada assinatura do Azure, você pode criar até 500 cofres de Serviços de Recuperação por região do Azure. Ao considerar onde armazenar seus dados, nem todas as regiões são as mesmas. Confira [Armazenamento com redundância geográfica](../storage/common/storage-redundancy-grs.md) para obter informações sobre considerações de armazenamento adicional e emparelhamentos de regiões.
 
 Os cofres de backup, que foram baseados no Gerenciador de Serviços do Azure, foram a primeira versão do cofre. Os cofres dos Serviços de Recuperação, que adicionam os recursos do Azure Resource Manager, são a segunda versão do cofre. Consulte o [artigo de visão geral do cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para obter uma descrição completa das diferenças entre os recursos. Você não pode mais criar cofres de Backup, e todos os cofres de Backup existentes foram atualizados para os Cofres de Serviços de Recuperação. Você pode usar o portal do Azure para gerenciar os cofres que foram atualizados para os cofres de Serviços de Recuperação.
 

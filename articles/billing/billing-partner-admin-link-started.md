@@ -10,11 +10,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d1f6515c63e789643c285218aa121f1182902e0f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: abab0e63f91ad34d2671c37773d47c31eeeb8339
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Vincular ID de parceiro a suas contas do Azure 
 Como parceiro, você pode controlar o impacto em seus contratos de clientes por meio da vinculação de sua ID de parceiro às contas usadas para gerenciar recursos do cliente.
@@ -37,7 +37,7 @@ Quando você tem acesso aos recursos do cliente, use o PowerShell ou a CLI para 
 
 1. Instalar o módulo do Azure PowerShell [AzurePartnerRP](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner/0.1.0-preview).
 
-2. Faça logon no locatário do cliente com a conta de usuário ou entidade de serviço. Para obter mais informações, consulte [Logon com o Powershell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Faça logon no locatário do cliente com a conta de usuário ou entidade de serviço. Para obter mais informações, consulte [Logon com o Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  
    ```azurepowershell-interactive
     C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 

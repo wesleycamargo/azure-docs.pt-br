@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/15/2017
-ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/09/2018
+ms.openlocfilehash: f0c1b8aa99e9ac9c73f57af17490dd3a465a9cac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no ambiente do Time Series Insights
 
@@ -45,6 +45,11 @@ Durante o registro de um Hub IoT ou de um hub de eventos, especifique o grupo de
 Quando você puder ver os dados parcialmente, e se os dados estiverem parcialmente escondidos, há várias possibilidades a serem consideradas:
 
 ### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>Causa possível A: seu ambiente está ficando limitado
+Esse é um problema comum quando os ambientes são provisionados após a criação de uma origem do evento com dados.  Hubs de Eventos e Hubs IoT armazenam dados até sete dias.  O TSI será sempre iniciado a partir do evento mais antigo (FIFO), dentro da origem do evento.  Portanto, se você tiver cinco milhões de eventos em uma origem do evento quando conectar-se a um S1, ambiente de TSI de unidade única, o TSI lerá aproximadamente um milhão de eventos por dia.  À primeira vista, isso pode parecer que o TSI está passando por cinco dias de latência.  O que está realmente acontecendo é que o ambiente está sendo restringido.  Se houver eventos antigos na origem do evento, será possível abordar de duas maneiras:
+
+- Alterar os limites de retenção da origem do evento para ajudar a eliminar eventos antigos que você não quer exibir no TSI
+- Provisionar um tamanho de ambiente maior (em termos de número de unidades) para aumentar a taxa de transferência de eventos antigos.  Usando o exemplo acima, se você aumentou o mesmo ambiente S1 para cinco unidades por um dia, o ambiente deverá atualizar durante o dia.  Se a produção de evento de estado contínuo for de 1 M ou menos de eventos/dia, será possível reduzir a capacidade do evento para uma unidade após capturado.  
+
 A limitação é imposta com base na capacidade e no tipo de SKU do ambiente. Todas as origens do evento no ambiente compartilham essa capacidade. Se a origem do evento do hub de eventos ou Hub IoT estiver enviando dados por push além dos limites impostos, você verá a limitação e um retardo.
 
 O diagrama a seguir mostra um ambiente do Time Series Insights com um SKU S1 e uma capacidade 3. Ele pode ingressar 3 milhões de eventos por dia.
@@ -76,6 +81,12 @@ Para corrigir o retardo, execute as seguintes etapas:
 Verifique se o nome e o valor estão em conformidade com as seguintes regras:
 * O nome da propriedade do carimbo de data/hora _diferencia maiúsculas de minúsculas_.
 * O valor da propriedade do carimbo de data/hora obtido da origem do evento, como uma cadeia de caracteres JSON, deve ter o formato _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_. Um exemplo de uma cadeia de caracteres desse tipo é “2008-04-12T12:53Z”.
+
+A maneira mais fácil de assegurar que o *nome da propriedade de carimbo de data/hora* é capturado e funciona corretamente é usar o Gerenciador do TSI.  No Gerenciador do TSI, usando o gráfico, selecione um período de tempo após fornecer o *nome da propriedade de carimbo de data/hora*.  Clique com o botão direito na seleção e escolha a opção *Explore Eventos*.  O cabeçalho da primeira coluna deve ser o *nome da propriedade de carimbo de data/hora* e deve ter um *($ts)* próximo à palavra *Carimbo de data/hora*, em vez de:
+- *(abc)*, que indicaria que o TSI está lendo os valores de dados como cadeias de caracteres
+- *Ícone de Calendário*, que indicaria que o TSI está lendo o valor dos dados como *datetime*
+- *#*, que indicaria que o TSI está lendo os valores de dados como um inteiro
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter mais assistência, inicie uma conversa no [fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) ou no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 

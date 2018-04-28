@@ -1,6 +1,6 @@
 ---
-title: "Cargas de trabalho de contêiner no Lote do Azure | Microsoft Docs"
-description: "Saiba como executar aplicativos de imagens de contêiner no Lote do Azure."
+title: Cargas de trabalho de contêiner no Lote do Azure | Microsoft Docs
+description: Saiba como executar aplicativos de imagens de contêiner no Lote do Azure.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: fc8af53b0e0cfbe19a6509e8d126646badd0abbb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
@@ -34,7 +34,7 @@ Este artigo supõe familiaridade com conceitos de contêiner do Docker e como cr
     * SDK Java para o Lote versão 3.0
     * SDK Node. js para o Lote versão 3.0
 
-* Contas: na sua conta do Azure, você precisa criar uma conta do Lote e, opcionalmente, uma conta de Armazenamento de uso geral.
+* Contas: na sua Conta do Azure, você precisa criar uma conta do Lote e, opcionalmente, uma Conta de Armazenamento do Azure.
 
 * Uma imagem de VM com suporte. Os contêineres só têm suporte em pools criados com a configuração de máquina virtual a partir de imagens detalhadas na seção a seguir, "Imagens de máquina virtual com suporte".
 

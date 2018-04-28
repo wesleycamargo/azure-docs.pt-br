@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6767257a540e4f29bb5445a718ad65a31e1f373e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7d263dbb89b10876c3a1deb330f969c598addd6a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerenciar recursos do Lote com cmdlets do PowerShell
 
@@ -33,9 +33,9 @@ Este artigo baseia-se nos cmdlets do Azure PowerShell versão 3.0.0. É recomend
 Execute as seguintes operações para usar o Azure PowerShell para gerenciar os recursos de Lote.
 
 * [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
-* Execute o cmdlet **Login-AzureRmAccount** para se conectar à sua assinatura (os cmdlets do Lote do Azure são fornecidos no módulo Azure Resource Manager):
+* Execute o cmdlet **Connect-AzureRmAccount** para se conectar à sua assinatura (os cmdlets do Lote do Azure são fornecidos no módulo Azure Resource Manager):
   
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 * **Registrar com o namespace do provedor de Lote**. Essa operação só precisa ser executada **uma vez por assinatura**.
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`

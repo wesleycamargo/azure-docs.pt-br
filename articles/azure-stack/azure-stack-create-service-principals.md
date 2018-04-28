@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 833efa7f24d01346525af3dd9ca37012ab0ba3c4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 07a993bbdda374dedc37a03bc46eecef4dcdc257
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso de aplicativos a pilha do Azure
 
@@ -41,7 +41,7 @@ Dependendo de como você implantou pilha do Azure, comece criando um serviço pr
 
 Se você implantou o Azure pilha usando o Azure AD como repositório de identidades, você pode criar entidades de serviço, exatamente como faria para o Azure.  Esta seção mostra como executar as etapas no portal.  Verifique se você tiver o [necessárias permissões do AD do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de começar.
 
-### <a name="create-service-principal"></a>Criar entidade de serviço
+### <a name="create-service-principal"></a>Criar uma entidade de serviço
 Nesta seção, você criará um aplicativo (entidade de serviço) no AD do Azure que representa o aplicativo.
 
 1. Entre na sua conta do Azure por meio do [Portal do Azure](https://portal.azure.com).
@@ -57,7 +57,7 @@ Ao fazer logon por meio de programação, você usar a ID para o seu aplicativo 
 
 2. Copie a **ID do aplicativo** e armazene-a no código do aplicativo. Os aplicativos na seção [aplicativos de exemplo](#sample-applications) referem-se a esse valor como a ID do cliente.
 
-     ![id do cliente](./media/azure-stack-create-service-principal/image12.png)
+     ![ID do CLIENTE](./media/azure-stack-create-service-principal/image12.png)
 3. Para gerar uma chave de autenticação para um aplicativo Web / API, selecione **configurações** > **chaves**. 
 
 4. Forneça uma descrição da chave e uma duração para a chave. Ao terminar, escolha **Salvar**.
@@ -83,9 +83,9 @@ Requisitos:
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
 
-|Parâmetro|Descrição|Exemplo|
+|Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
-|Novo|Nome da conta SPN|MyAPP|
+|NOME|Nome da conta SPN|MyAPP|
 |ClientCertificates|Matriz de objetos de certificado|X509 certificado|
 |ClientRedirectUris<br>(Opcional)|URI de redirecionamento do aplicativo|         |
 
@@ -111,7 +111,7 @@ As informações a seguir são necessárias como entrada para os parâmetros de 
 
 2. Após a conclusão da automação, ele exibe os detalhes necessários para usar o SPN. 
 
-   Por exemplo:
+   Por exemplo: 
 
    ```
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -128,7 +128,7 @@ Depois que a entidade de serviço é criada, você deve [atribuí-la a uma funç
 Depois que você tenha atribuído a uma função, você pode entrar pilha do Azure usando a entidade de serviço com o seguinte comando:
 
 ```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
+Connect-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
  -ApplicationId $servicePrincipal.ApplicationId ` 

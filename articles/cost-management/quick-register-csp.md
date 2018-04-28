@@ -1,20 +1,20 @@
 ---
-title: "Registrar-se usando as informações do Parceiro CSP no Gerenciamento de Custo do Azure | Microsoft Docs"
-description: "Use as informações do Parceiro CSP para se registrar no Gerenciamento de Custos do Azure."
+title: Registrar-se usando as informações do Parceiro CSP no Gerenciamento de Custo do Azure | Microsoft Docs
+description: Use as informações do Parceiro CSP para se registrar no Gerenciamento de Custos do Azure.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9e09961685ad688098970ae4ea73e1a90f6a95ca
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrar-se mo programa de Parceiro CSP e exibir dados de custo
 
@@ -34,7 +34,7 @@ Para obter mais informações, consulte [Conectar-se à API do Partner Center](h
 
 - Faça logon no Portal do Azure em http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Criar um registro de avaliação
+## <a name="register-with-azure-cost-management"></a>Registro com o Gerenciamento de Custos do Azure
 
 1. No portal do Azure, clique em **Gerenciamento de Custo + Cobrança** na lista de serviços.
 2. Em **Visão Geral**, clique em **Gerenciamento de Custo**  

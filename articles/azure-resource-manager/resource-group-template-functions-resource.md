@@ -1,12 +1,12 @@
 ---
-title: "Funções de modelo do Azure Resource Manager – recursos | Microsoft Docs"
-description: "Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos."
+title: Funções de modelo do Azure Resource Manager – recursos | Microsoft Docs
+description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f2ff44fc6644f3a4294f7b2c752a7f3ab05f351d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos do Azure Resource Manager
 
 O Gerenciador de Recursos fornece as seguintes funções para obter valores de recurso:
 
-* [listKeys e list{Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [list*](#list)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -36,12 +38,14 @@ Para obter valores de parâmetros, de variáveis ou da implantação atual, veja
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-and-listvalue"></a>listKeys e list{Value}
+## <a name="listkeys-listsecrets-and-list"></a>listKeys, listSecrets e list*
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Retorna os valores para qualquer tipo de recurso que ofereça suporte à operação de lista. O uso mais comum é `listKeys`. 
+Retorna os valores para qualquer tipo de recurso que ofereça suporte à operação de lista. Os usos mais comuns são `listKeys` e `listSecrets`. 
 
 ### <a name="parameters"></a>parâmetros
 

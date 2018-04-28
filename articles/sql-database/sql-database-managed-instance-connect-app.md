@@ -3,17 +3,17 @@ title: Aplicativo de conexão da Instância Gerenciada do Banco de Dados SQL do 
 description: Este artigo descreve como conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure.
 ms.service: sql-database
 author: srdjan-bozovic
-manager: cguyer
+manager: craigg
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 243dfd09df5eaac05608f57a0b2abf6e757f00e8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -79,4 +79,4 @@ Configure uma conexão Ponto a Site com uma VNET usando a autenticação nativa 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações sobre a Instância Gerenciada, consulte [O que é uma Instância Gerenciada](sql-database-managed-instance.md).
-- Para obter um tutorial, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-tutorial-portal.md).
+- Para obter um tutorial mostrando como criar uma nova Instância Gerenciada, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md).

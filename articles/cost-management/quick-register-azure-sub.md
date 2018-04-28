@@ -2,19 +2,19 @@
 title: Registrar sua assinatura do Azure no Gerenciamento de Custo do Azure | Microsoft Docs
 description: Use sua assinatura do Azure para se registrar no Gerenciamento de Custos do Azure.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/26/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: ''
 ms.service: cost-management
-manager: carmonm
-ms.openlocfilehash: b7c1fee3276d98b6b7c611a09133804c1253384a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.openlocfilehash: abf169b84170ff44f7a2035acbb1243821f6e596
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrar uma assinatura individual do Azure e exibir dados de custo
 
@@ -24,7 +24,7 @@ Use sua assinatura do Azure para se registrar no Gerenciamento de Custos do Azur
 
 - Faça logon no Portal do Azure em http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Criar um registro de avaliação
+## <a name="register-with-azure-cost-management"></a>Registro com o Gerenciamento de Custos do Azure
 
 1. No portal do Azure, clique em **Gerenciamento de Custo + Cobrança** na lista de serviços.
 2. Em **Visão Geral**, clique em **Gerenciamento de Custo**  

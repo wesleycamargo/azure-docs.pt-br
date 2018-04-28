@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: 16e0fc493a257504e2708336e05c30b36d4bea15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c3622b4699ef532f204231c76aa3436be3676763
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>Explorar a nova experiência de alertas no Azure Monitor
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/03/2018
 
 Alertas têm nova experiência. A experiência mais antiga de alertas agora está na guia Alertas (clássico). A nova experiência de alertas tem os seguintes benefícios em relação à experiência de Alertas (clássico):
 
--   **Melhor sistema de notificação**: todos os alertas mais recentes usam [grupos de ações]( https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups), que são grupos nomeados de notificações e ações que podem ser reutilizados em vários alertas.  Alertas de métrica clássicos e alertas antigos do Log Analytics não usam grupos de ações. 
+-   **Melhor sistema de notificação**: todos os alertas mais recentes usam [grupos de ações]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), que são grupos nomeados de notificações e ações que podem ser reutilizados em vários alertas.  Alertas de métrica clássicos e alertas antigos do Log Analytics não usam grupos de ações. 
 - **Uma experiência de criação unificada** - Toda criação de alerta para métricas, logs e log de atividades no Azure Monitor, no Log Analytics e no Application Insights está em um lugar. 
 - **Exibir alertas disparados do Log Analytics no portal do Azure** – Você pode agora também consultar alertas do Log Analytics disparados na sua assinatura. Anteriormente, eles estavam em um portal separado. 
 - **Separação de Alertas Disparados e Regras de Alerta** – Regras de Alerta (a definição da condição que dispara um alerta) e os Alertas Disparados (uma instância do gatilho de regra de alerta) são diferenciados e, portanto, as exibições operacional e de configuração são diferentes.
@@ -104,7 +104,7 @@ Os alertas estão disponíveis em vários serviços de monitoramento do Azure. P
 | **Tipo de sinal** | **Fonte do Monitor** | **Descrição** | 
 |-------------|----------------|-------------|
 | Métrica | Azure Monitor | Também chamados [alertas de métrica quase em tempo real](monitoring-near-real-time-metric-alerts.md), dão suporte à avaliação de condições de métrica com frequência de 1 minuto e permitem regras de métrica multidimensionais e várias métricas. Uma lista de tipos de recursos com suporte está disponível [aqui](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). |
-| Métrica | Azure Monitor | [Alertas de métrica clássicos mais antigos](monitoring-overview-alerts.md) não têm suporte na nova experiência de alertas. É possível localizá-los em Alertas (Clássico) no Portal do Azure. Os alertas clássicos dão suporte a alguns tipos de métricas que ainda não foram movidos para os alertas mais recentes. Para uma lista completa, consulte [métrica com suporte](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
+| Métrica | Azure Monitor | [Alertas de métrica clássicos mais antigos](monitoring-overview-alerts.md) não têm suporte na nova experiência de alertas. É possível localizá-los em Alertas (Clássico) no Portal do Azure. Os alertas clássicos dão suporte a alguns tipos de métricas que ainda não foram movidos para os alertas mais recentes. Para uma lista completa, consulte [métrica com suporte](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
 | Logs  | Log Analytics | Receber notificações ou executar ações automatizadas quando uma Consulta de pesquisa de log sobre dados de métrica e/ou de evento atender a certos critérios. Os alertas mais antigos do Log Analytics ainda estão disponíveis, mas estão [sendo copiados para a nova experiência](monitoring-alerts-extend.md). Além disso, uma [versão prévia dos *Logs do Log Analytics como métrica*](monitoring-alerts-extend-tool.md)está disponível. A versão prévia permite que você pegue alguns tipos de logs e converta-os em métrica, onde será possível alertá-los usando a nova experiência de alerta. A versão prévia será útil se você tiver logs não Azure e deseja obter em conjunto com métrica do Azure Monitor nativa. |
 | Log de Atividade | Logs de atividades (geral) | Contém os registros de todas as ações Criar, Atualizar e Excluir realizadas por meio do destino selecionado (recurso/grupo de recursos/assinatura). |
 | Log de Atividade  | Integridade do Serviço | Sem suporte na nova experiência de alertas. Consulte [Criar alertas do log de atividades em notificações de serviço](monitoring-activity-log-alerts-on-service-notifications.md).  |

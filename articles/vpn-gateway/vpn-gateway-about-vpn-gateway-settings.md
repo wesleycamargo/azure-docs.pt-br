@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9ecd8dc40e168c2fd37e3d58ee588a0d9626a04a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre definições de configuração do Gateway de VPN
 
@@ -79,9 +79,9 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizechange"></a>Redimensionamento vs. alteração de uma SKU
+###  <a name="resizechange"></a>Redimensionar ou alterar uma SKU
 
-O redimensionamento da SKU de gateway é razoavelmente fácil. Você terá muito pouco tempo de inatividade durante o redimensionamento do gateway. No entanto, há regras sobre o redimensionamento:
+Se você tiver um gateway de VPN e quer usar uma SKU de gateway diferente, suas opções serão redimensionar a SKU do gateway ou alterar para outra SKU. Ao alterar para outra SKU de gateway, você exclui o gateway existente e cria um novo. Isso pode demorar até 45 minutos para ser compilado. Em comparação, ao redimensionar uma SKU de gateway, você terá muito pouco tempo de inatividade porque não será necessário excluir e recompilar o gateway. Se você tiver a opção de redimensionar a SKU do gateway, em vez de alterá-la, convém fazer isso. No entanto, há regras sobre o redimensionamento:
 
 1. Você pode redimensionar entre as SKUs VpnGw1, VpnGw2 e VpnGw3.
 2. Ao trabalhar com SKUs antigas, você ainda pode redimensionar entre SKUs Básicas, Standard e de Alto Desempenho.

@@ -1,25 +1,25 @@
 ---
-title: "Exemplo de json do Azure Policy – SKUs permitidos para contas de armazenamento e máquinas virtuais | Microsoft Docs"
-description: "Essa política de exemplo de json requer que contas de armazenamento e máquinas virtuais usem SKUs aprovados."
+title: Exemplo de json do Azure Policy – SKUs permitidos para contas de armazenamento e máquinas virtuais | Microsoft Docs
+description: Essa política de exemplo de json requer que contas de armazenamento e máquinas virtuais usem SKUs aprovados.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 9936af72dc7babfe8935dac1b49c25695e827042
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: a86e6ae1b12c59b0f103ec2bce1ec86ef3fa5146
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>SKUs permitidas para contas de armazenamento e máquinas virtuais
 

@@ -1,25 +1,23 @@
 ---
-title: "Operacionalizar um pipeline de análise de dados – Azure | Microsoft Docs"
-description: "Configure e execute um exemplo de pipeline de dados que é disparado por novos dados e produz resultados concisos."
+title: Operacionalizar um pipeline de análise de dados – Azure | Microsoft Docs
+description: Configure e execute um exemplo de pipeline de dados que é disparado por novos dados e produz resultados concisos.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 7a439c9d25a470a2474b427f6b20addb6ff3b0c7
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 7ac1ed0db15d91ef8af009c879c3634148826286
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalize um pipeline de análise de dados
 
@@ -181,7 +179,7 @@ Copie o arquivo usando o SCP em sua sessão de shell `bash`.
 
 Os dados de exemplo agora disponíveis. No entanto, o pipeline exige duas tabelas do Hive para o processamento, uma para os dados de entrada (`rawFlights`) e outra para os dados resumidos (`flights`). Crie essas tabelas no Ambari da seguinte maneira.
 
-1. Faça logon no Ambari navegando até [http://headnodehost:8080](http://headnodehost:8080).
+1. Faça logon no Ambari navegando para [http://headnodehost:8080](http://headnodehost:8080).
 2. Na lista de serviços, selecione **Hive**.
 
     ![Seleção de Hive no Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

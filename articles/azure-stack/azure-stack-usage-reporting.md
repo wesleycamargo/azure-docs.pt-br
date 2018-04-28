@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Relatar dados de uso de pilha do Azure para o Azure 
 
@@ -27,7 +27,7 @@ Dados de uso, também chamados de dados de consumo, representam a quantidade de 
 Sistemas com vários nós do Azure pilha que usam o modelo de cobrança com base em consumo devem relatar dados de uso do Azure para fins de cobrança.  Operadores de pilha do Azure devem configurar sua instância de pilha do Azure para relatar dados de uso para o Azure.
 
 > [!NOTE]
-> Relatórios de dados de uso é necessário para os usuários de vários nós de pilha do Azure que no modelo de pagamento que você-uso de licença. É opcional para os clientes que no modelo de capacidade de licença (consulte o [como comprar página](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/). Para usuários do Kit de desenvolvimento de pilha do Azure, os operadores de pilha do Azure podem relatar dados de uso e testar o recurso. No entanto, os usuários não serão cobrados para qualquer uso incorrem. 
+> Relatórios de dados de uso é necessário para os usuários de vários nós de pilha do Azure que no modelo de pagamento que você-uso de licença. É opcional para os clientes que no modelo de capacidade de licença (consulte o [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Para usuários do Kit de desenvolvimento de pilha do Azure, os operadores de pilha do Azure podem relatar dados de uso e testar o recurso. No entanto, os usuários não serão cobrados para qualquer uso incorrem. 
 
 
 ![fluxo de cobrança](media/azure-stack-usage-reporting/billing-flow.png)

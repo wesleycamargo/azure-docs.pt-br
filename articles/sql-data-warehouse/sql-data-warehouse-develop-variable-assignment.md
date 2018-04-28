@@ -1,40 +1,33 @@
 ---
-title: "Atribuição de variáveis no SQL Data Warehouse | Microsoft Docs"
-description: "Dicas para atribuir variáveis de Transact-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções."
+title: Atribuir variáveis no SQL Data Warehouse do Azure | Microsoft Docs
+description: Dicas para atribuir variáveis de T-SQL no SQL Data Warehouse do Azure para desenvolver soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 81ddc7cf-a6ba-4585-91a3-b6ea50f49227
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 045d5148cd3f12dac63c961ccf7c953d355ed725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 09b0ee336ce00eb20ea501cd97833dfdd6540b30
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="assign-variables-in-sql-data-warehouse"></a>Atribuir variáveis no SQL Data Warehouse
-As variáveis no SQL Data Warehouse são definidas usando a instrução `DECLARE` ou a instrução `SET`.
-
-Todos os itens a seguir são maneiras perfeitamente válidas de definir um valor de variável:
+# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Atribuindo variáveis no SQL Data Warehouse do Azure
+Dicas para atribuir variáveis de T-SQL no SQL Data Warehouse do Azure para desenvolver soluções.
 
 ## <a name="setting-variables-with-declare"></a>Definição de variáveis com DECLARE
-A inicialização de variáveis com DECLARE é uma das maneiras mais flexíveis de definir um valor de variável no SQL Data Warehouse.
+As variáveis no SQL Data Warehouse são definidas usando a instrução `DECLARE` ou a instrução `SET`. A inicialização de variáveis com DECLARE é uma das maneiras mais flexíveis de definir um valor de variável no SQL Data Warehouse.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-Você também pode usar DECLARE para definir mais de uma variável por vez. Você não pode usar `SELECT` ou `UPDATE` para fazer isso:
+Você também pode usar DECLARE para definir mais de uma variável por vez. Não é possível usar SELECT nem UPDATE para fazer o seguinte:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -42,7 +35,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Você não pode inicializar e usar uma variável na mesma instrução DECLARE. Para ilustrar esse ponto, o exemplo a seguir **não** é permitido, já que @p1 foi inicializado e usado na mesma instrução DECLARE. Isso resultará em um erro.
+Não é possível inicializar nem usar uma variável na mesma instrução DECLARE. Para ilustrar esse ponto, o exemplo a seguir **não** é permitido, já que @p1 foi inicializado e usado na mesma instrução DECLARE. O exemplo a seguir apresenta um erro.
 
 ```sql
 DECLARE @p1 int = 0
@@ -51,9 +44,9 @@ DECLARE @p1 int = 0
 ```
 
 ## <a name="setting-values-with-set"></a>Definição de valores com SET
-O SET é um método muito comum para definir uma variável.
+SET é um método comum para definir uma única variável.
 
-Todos os exemplos abaixo são maneiras válidas de definir uma variável com SET:
+As instruções a seguir sempre são maneiras válidas de definir uma variável com SET:
 
 ```sql
 SET     @v = (Select max(database_id) from sys.databases);
@@ -62,19 +55,11 @@ SET     @v = @v+1;
 SET     @v +=1;
 ```
 
-Você só pode definir uma variável por vez com SET. No entanto, como pode ser visto acima, são permitidos operadores compostos.
+Você só pode definir uma variável por vez com SET. No entanto, os operadores compostos são permitidos.
 
 ## <a name="limitations"></a>Limitações
 Você não pode usar SELECT ou UPDATE para atribuição de variáveis.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento][development overview].
+Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

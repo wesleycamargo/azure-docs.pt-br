@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/10/2017
+ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c79d82ddc65b7302552f745ab653109677205aa4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 494f2864f61ed9717dbddd7bf85981dc84bd3aad
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure no Linux
 
@@ -47,8 +47,8 @@ Você aprenderá a:
 
 Para concluir este tutorial:
 
-1. [Instalar o Git](https://git-scm.com/)
-1. [Instalar o SDK 1.1.2 do .NET Core](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
+* [Instalar o Git](https://git-scm.com/)
+* [Instalar o .NET Core](https://www.microsoft.com/net/core/)
 
 ## <a name="create-local-net-core-app"></a>Criar um aplicativo .NET Core local
 
@@ -147,7 +147,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 Substitua a cadeia de caracteres a seguir pelos *\<server_name>*, *\<db_username>* e *\<db_password>* usados anteriormente.
 
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
 ```
 
 Esta é a cadeia de conexão do aplicativo .NET Core. Copie-a para uso posterior.
@@ -215,7 +215,8 @@ A chamada `Database.Migrate()` ajuda você quando ele está em execução no Azu
 Salve suas alterações e depois confirme-as no repositório do Git. 
 
 ```bash
-git commit -am "connect to SQLDB in Azure"
+git add .
+git commit -m "connect to SQLDB in Azure"
 ```
 
 ### <a name="push-to-azure-from-git"></a>Enviar do Git para o Azure
@@ -347,8 +348,8 @@ No navegador, navegue até `http://localhost:5000/`. Agora você pode adicionar 
 ### <a name="publish-changes-to-azure"></a>Publicar alterações no Azure
 
 ```bash
-
-git commit -am "added done field"
+git add .
+git commit -m "added done field"
 git push azure master
 ```
 

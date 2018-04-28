@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 09a774e5dda71d87c3862a6152ff5d2c9468c40c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5b881c17b6ad1c9a7e46492f8549f563cfd6d796
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Use perfis de versão de API com Go na pilha do Azure
 
@@ -82,7 +80,7 @@ Para executar um exemplo de código Go na pilha do Azure:
   ```
 
   3. Se não estiver disponível, crie uma assinatura e salve a ID de assinatura a ser usado posteriormente. Para obter informações sobre como criar uma assinatura, consulte [criar assinaturas para ofertas na pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
-  4. Criar uma entidade de serviço com o escopo de "Assinatura" e **proprietário** função. Salve a ID da entidade de serviço e o segredo. Para obter informações sobre como criar uma entidade de serviço para a pilha do Azure, consulte [criar entidade de serviço](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). O ambiente de pilha do Azure está configurado.
+  4. Criar uma entidade de serviço com o escopo de "Assinatura" e **proprietário** função. Salve as entidades de serviço segredo e ID. Para obter informações sobre como criar uma entidade de serviço para a pilha do Azure, consulte [criar entidade de serviço](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). O ambiente de pilha do Azure está configurado.
   5. Importe um módulo de serviço de perfil SDK vá em seu código. A versão atual do perfil de pilha do Azure é **2017-03-09**. Por exemplo, para importar o módulo de rede de **2017-03-09** tipo de perfil: 
 
   ````go
@@ -129,7 +127,7 @@ O autorizador deve ser definido como o autorizador para o cliente do recurso. H�
 
 Esta seção apresenta uma forma comum de obter tokens autorizador na pilha do Azure usando as credenciais do cliente:
 
-  1. Se uma entidade de serviço com a função de proprietário na assinatura estiver disponível, ignore esta etapa. Caso contrário, crie uma entidade de serviço [instruções]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) e atribuí-la uma função de "proprietário" no escopo à sua assinatura [instruções]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Salve o segredo e ID de aplicativo principal do serviço. 
+  1. Se uma entidade de serviço com a função de proprietário na assinatura estiver disponível, ignore esta etapa. Caso contrário, crie uma entidade de serviço [instruções]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) e atribuí-la uma função de "proprietário" no escopo à sua assinatura [instruções]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Salve o segredo e ID de aplicativo principal do serviço. 
 
   2. Importação **adal** pacote de AutoRest ir em seu código. 
   

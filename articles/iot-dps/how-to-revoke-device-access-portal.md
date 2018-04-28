@@ -1,28 +1,28 @@
 ---
-title: "Gerenciar o acesso ao dispositivo para o Serviço de Provisionamento de Dispositivos do Hub IoT do Azure | Microsoft Docs"
-description: "Como revogar o acesso ao dispositivo para seu serviço DPS no Portal do Azure"
+title: Como cancelar o registro de um dispositivo do Provisionamento de Dispositivos no Hub IoT
+description: Como cancelar o registro de um dispositivo para impedir o provisionamento por meio do Provisionamento de Dispositivos no Hub IoT
 services: iot-dps
-keywords: 
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 12/22/2017
+keywords: ''
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/05/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 12aebf3a56aa7469a765ab6fc67aa65b254db71a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 50074eaecacf603d2bc6170183fd632b4a1ab2d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Revogar o acesso ao dispositivo para seu serviço de provisionamento no portal do Azure
+# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como cancelar o registro de um dispositivo do Provisionamento de Dispositivos no Hub IoT
 
-O gerenciamento adequado de credenciais do dispositivo é crucial para sistemas importantes como soluções de IoT. Uma melhor prática para tais sistemas é ter um plano claro de como revogar o acesso de dispositivos quando suas credenciais, sejam um token SAS (assinatura de acesso compartilhado) ou um certificado X.509, podem estar comprometidas. Este artigo descreve como revogar o acesso ao dispositivo na etapa de provisionamento.
+O gerenciamento adequado de credenciais do dispositivo é crucial para sistemas importantes como soluções de IoT. Uma melhor prática para tais sistemas é ter um plano claro de como revogar o acesso de dispositivos quando suas credenciais, sejam um token SAS (assinatura de acesso compartilhado) ou um certificado X.509, podem estar comprometidas. 
 
-Para saber mais sobre como revogar o acesso ao dispositivo para um Hub IoT depois que o dispositivo tiver sido provisionado, consulte [Desativar dispositivos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+O registro no Serviço de Provisionamento de Dispositivos permite que um dispositivo seja [autoprovisionado](concepts-auto-provisioning.md). Um dispositivo provisionado é aquele que foi registrado no Hub IoT, permitindo que ele receba o estado de [dispositivo gêmeo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) inicial e comece a relatar dados telemétricos. Este artigo descreve como cancelar o registro de um dispositivo da instância de serviço de provisionamento, evitando que ele seja provisionado novamente no futuro.
 
 > [!NOTE] 
 > Atente-se à política de repetição dos dispositivos para os quais você revoga o acesso. Por exemplo, um dispositivo que tem uma política de repetição infinita tenta continuamente registrar com o serviço de provisionamento. Essa situação consome recursos de serviço e possivelmente afeta o desempenho.
@@ -37,10 +37,10 @@ Para adicionar temporariamente o dispositivo à lista de bloqueios desabilitando
 2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar seu dispositivo à lista de bloqueios.
 3. No seu serviço de provisionamento, selecione **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**.
 4. Selecione a entrada de registro do dispositivo que você deseja adicionar à lista de bloqueios. 
-5. Selecione **Desabilitar** na botão **Habilitar entrada** e, em seguida, selecione **Salvar**.  
+5. Role até a parte inferior e selecione **Desabilitar** na opção **Habilitar entrada** e, em seguida, selecione **Salvar**.  
 
-   ![Desabilitar a entrada de registro individual no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
-    
+   [![Desabilitar a entrada de registro individual no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+
 Para adicionar permanentemente um dispositivo à lista de bloqueios excluindo sua entrada de registro:
 
 1. Faça logon no portal do Azure e clique em **Todos os recursos** no menu à esquerda.
@@ -64,9 +64,8 @@ Para adicionar temporariamente o certificado à lista de bloqueios desabilitando
 1. Faça logon no portal do Azure e clique em **Todos os recursos** no menu à esquerda.
 2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar o certificado de autenticação à lista de bloqueios.
 3. No seu serviço de provisionamento, selecione **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registros**.
-4. Selecione o grupo de registros do certificado que você deseja adicionar à lista de bloqueios.
-5. Na entrada de grupo de registros, selecione **Editar grupo**.
-6. Selecione **Desabilitar** na botão **Habilitar entrada** e, em seguida, selecione **Salvar**.  
+4. Selecione o grupo de registros usando o certificado que você deseja adicionar à lista de bloqueios.
+5. Selecione **Desabilitar** na botão **Habilitar entrada** e, em seguida, selecione **Salvar**.  
 
    ![Desabilitar a entrada do grupo de registros no portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
@@ -96,12 +95,15 @@ Para adicionar um dispositivo individual à lista de bloqueios em um grupo de re
 2. Na lista de recursos, selecione o serviço de provisionamento que contém o grupo de registros do dispositivo que você deseja adicionar à lista de bloqueios.
 3. No seu serviço de provisionamento, selecione **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**.
 4. Selecione o botão **Adicionar** na parte superior. 
-5. Selecione **X.509** como o mecanismo de segurança para o dispositivo e carregue o certificado do dispositivo. Esse é o certificado de entidade final assinado instalado no dispositivo. O dispositivo usa para gerar certificados para autenticação.
+5. Selecione **X.509** como o mecanismo de certificação para o dispositivo e carregue o certificado do dispositivo. Esse é o certificado de entidade final assinado instalado no dispositivo. O dispositivo usa para gerar certificados para autenticação.
 6. Para a **ID de dispositivo do Hub IoT**, insira a ID para o dispositivo. 
 7. Selecione **Desabilitar** na botão **Habilitar entrada** e, em seguida, selecione **Salvar**. 
 
-   ![Desabilitar a entrada de registro individual no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+    [![Usar a entrada de registro individual desabilitada para desabilitar o dispositivo do registro de grupo, no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 Após a criação bem-sucedida de seu registro, você deverá ver o dispositivo aparecer na guia **Registros Individuais**.
 
+## <a name="next-steps"></a>Próximas etapas
+
+O cancelamento do registro também faz parte do processo de desprovisionamento maior. O desprovisionamento de um dispositivo inclui tanto o cancelamento do registro do serviço de provisionamento como o cancelamento do registro do Hub IoT. Para saber mais sobre o processo completo, consulte [Como desprovisionar dispositivos autoprovisionados anteriormente](how-to-unprovision-devices.md) 
 

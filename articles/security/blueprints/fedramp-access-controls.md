@@ -1,6 +1,6 @@
 ---
-title: "Especificações técnicas de segurança e conformidade do Azure – Automação de Aplicativos Web para FedRAMP – Controle de acesso"
-description: "Automação de Aplicativos Web para FedRAMP – Controle de acesso"
+title: Especificações técnicas de segurança e conformidade do Azure – Automação de Aplicativos Web para FedRAMP – Controle de acesso
+description: Automação de Aplicativos Web para FedRAMP – Controle de acesso
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3d30f889c4d7ed0dafcf8559e8987090c03f4d5e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-ac"></a>Controle de Acesso (AC)
 
@@ -129,11 +129,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2.g** A organização monitora o uso de contas do sistema de informações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta especificação técnica implementa o painel de identidade e acesso da solução do OMS para segurança e auditoria. Esse painel permite que os gerentes de conta monitorem o uso de contas do sistema de informações. |
+| **Cliente** | Esta especificação técnica implementa o painel de identidade e acesso da solução para Segurança e Auditoria. Esse painel permite que os gerentes de conta monitorem o uso de contas do sistema de informações. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -199,12 +199,12 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (1)** A organização emprega mecanismos automatizados para dar suporte ao gerenciamento de contas do sistema de informações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta especificação técnica implementa o painel de identidade e acesso da solução do OMS para segurança e auditoria. Esse painel permite que os gerentes de conta monitorem o uso de contas do sistema de informações. O OMS pode ser configurado para enviar alertas quando atividades atípicas ou suspeitas ou outros eventos predefinidos ocorrerem. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Esta especificação técnica implementa o painel de identidade e acesso da solução para Segurança e Auditoria. Esse painel permite que os gerentes de conta monitorem o uso de contas do sistema de informações. Ela pode ser configurada para enviar alertas quando atividades atípicas ou suspeitas ou outros eventos predefinidos ocorrerem. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ac-2-2"></a>Controle NIST 800-53 AC-2 (2)
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (2)** O sistema de informações automaticamente [Seleção: remove; desabilita] contas temporárias e emergenciais após [Atribuição: período de tempo para cada tipo de conta de definido pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -245,8 +245,8 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta especificação técnica implementa os seguintes tipos de conta do sistema: usuários do Azure Active Directory, usuários do sistema operacional Windows, conta de serviço do SQL Server. Ações de gerenciamento de conta do Active Directory do Azure geram um evento no log de atividades do Azure; Ações de gerenciamento de conta no nível do sistema operacional geram um evento no log do sistema. Esses logs coletados pelo Log Analytics e armazenados no repositório do OMS. O OMS pode ser configurado para enviar alertas quando ocorrem eventos predefinidos.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Esta especificação técnica implementa os seguintes tipos de conta do sistema: usuários do Azure Active Directory, usuários do sistema operacional Windows, conta de serviço do SQL Server. Ações de gerenciamento de conta do Active Directory do Azure geram um evento no log de atividades do Azure; Ações de gerenciamento de conta no nível do sistema operacional geram um evento no log do sistema. Esses logs são coletados pelo Log Analytics e armazenados no espaço de trabalho do Log Analytics. O Log Analytics pode ser configurado para enviar alertas quando ocorrem eventos predefinidos.  |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ac-2-5"></a>Controle NIST 800-53 AC-2 (5)
@@ -255,12 +255,12 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (5)** A organização exige que os usuários façam logoff quando [Atribuição: o período de tempo definido pela organização de inatividade esperada ou descrição de quando fazer logoff].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | A política de controle de acesso de nível corporativo do cliente pode estabelecer uma política que os usuários fazem logoff quando eles sabem que ficarão inativos por um período de tempo (ou outros fatores). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ac-2-7a"></a>Controle NIST 800-53 AC-2 (7).a
@@ -269,11 +269,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (7).a** A organização estabelece e administra contas de usuário com privilégios de acordo com um esquema de acesso com base em função que organiza informações permitidas de acesso ao sistema e privilégios em funções.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta especificação técnica implementa os seguintes tipos de conta do sistema: usuários do Azure Active Directory, usuários do sistema operacional Windows, conta de serviço do SQL Server. Os privilégios de conta do Active Directory do Azure são implementados usando o controle de acesso com base em função ao atribuir usuários a funções; os privilégios de conta do Active Directory são implementados usando o controle de acesso com base em função ao atribuir usuários a grupos de segurança. Esses esquemas com base em função podem ser estendidos pelo cliente para atender às necessidades da tarefa. |
+| **Cliente** | Esta especificação técnica implementa os seguintes tipos de conta do sistema: usuários do Azure Active Directory, usuários do sistema operacional Windows, conta de serviço do SQL Server. Os privilégios de conta do Active Directory do Azure são implementados usando o controle de acesso com base em função ao atribuir usuários a funções; os privilégios de conta do Active Directory são implementados usando o controle de acesso com base em função ao atribuir usuários a grupos de segurança. Esses esquemas baseados em função podem ser estendidos pelo cliente para atender às necessidades da tarefa. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -283,12 +283,12 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (7).b** A organização monitora as atribuições de função privilegiada.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta especificação técnica implementa o painel de identidade e acesso da solução do OMS para segurança e auditoria. Esse painel permite que os gerentes de conta monitorem o uso de contas do sistema de informações. Essa solução pode ser consultada para relatar as atribuições de função privilegiada. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Esta especificação técnica implementa o painel de identidade e acesso da solução para Segurança e Auditoria. Esse painel permite que os gerentes de conta monitorem o uso de contas do sistema de informações. Essa solução pode ser consultada para relatar as atribuições de função privilegiada. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ac-2-7c"></a>Controle NIST 800-53 AC-2 (7).c
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (7).c** A organização retira [atribuição: ações definidas pela organização] quando as atribuições de função com privilégios não são mais apropriadas.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (9)** A organização só permite o uso de contas compartilhadas/de grupo que atendam aos [atribuição: condições de organização definidas para estabelecer contas compartilhadas/de grupo].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -357,7 +357,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta especificação técnica implementa o painel de identidade e acesso da solução do OMS para segurança e auditoria. Este painel permite que os gerentes de conta monitorem tentativas de acesso com base nos recursos implantados. |
+| **Cliente** | Esta especificação técnica implementa o painel de identidade e acesso da solução para Segurança e Auditoria. Este painel permite que os gerentes de conta monitorem tentativas de acesso com base nos recursos implantados. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta especificação técnica implementa o painel de identidade e acesso da solução do OMS para segurança e auditoria. Este painel permite que os gerentes de conta monitorem tentativas de acesso com base nos recursos implantados. Essa solução pode ser configurada para enviar alertas quando atividades atípicas forem suspeitas ou outros eventos predefinidos ocorrerem. |
+| **Cliente** | Esta especificação técnica implementa o painel de identidade e acesso da solução para Segurança e Auditoria. Este painel permite que os gerentes de conta monitorem tentativas de acesso com base nos recursos implantados. Essa solução pode ser configurada para enviar alertas quando atividades atípicas forem suspeitas ou outros eventos predefinidos ocorrerem. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (13)** A organização desativa a contas de usuários que demonstrem um risco significativo em [Atribuição: período de tempo definido pela organização] de descoberta do risco.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -399,7 +399,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta especificação técnica impõe autorizações de acesso lógico usando controle de acesso com base em função imposto pelo Azure Active Directory ao atribuir usuários a funções, pelo Active Directory ao atribuir usuários a grupos de segurança e pelos controles no nível do sistema operacional do Windows. As funções do Azure Active Directory atribuídas aos usuários ou grupos controlam o acesso lógico a recursos no Azure no nível do recurso, do grupo ou da assinatura. Grupos de segurança do Active Directory controlam o acesso lógico a funções e recursos no nível do sistema operacional. |
+| **Cliente** | Este projeto impõe autorizações de acesso lógico usando controle de acesso com base em função imposto pelo Azure Active Directory, atribuindo usuários a funções, pelo Active Directory atribuindo usuários a grupos de segurança e pelos controles no nível do sistema operacional do Windows. As funções do Azure Active Directory atribuídas aos usuários ou grupos controlam o acesso lógico a recursos no Azure no nível do recurso, do grupo ou da assinatura. Grupos de segurança do Active Directory controlam o acesso lógico a funções e recursos no nível do sistema operacional. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-4** O sistema de informações impõe autorizações aprovadas para controlar o fluxo de informações dentro do sistema e entre sistemas interconectados com base em [Atribuição: políticas de controle de fluxo de informações definidas pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-4 (21)** O sistema de informações separam os fluxos de informações logicamente ou fisicamente usando [atribuição: mecanismos e/ou técnicas definidos pela organização] para realizar [atribuição: separações necessárias definidas pela organização por tipos de informações].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-5.a** A organização separa [atribuição: tarefas de indivíduos definidas pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6** A organização emprega o princípio de privilégio mínimo, permitindo que apenas acessos autorizados de usuários (ou processos atuando em nome dos usuários) que são necessários para realizar tarefas atribuídas conforme missões organizacionais e funções de negócios.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (1)** A organização autoriza explicitamente o acesso ao [atribuição: funções de segurança definidas pela organização (implantadas em hardware, software e firmware) e informações relevantes de segurança].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (5)** A organização restringe contas com privilégios no sistema de informações para [atribuição: pessoal ou funções definidos pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (7).a** As análises da organização [atribuição: frequência definida pela organização] os privilégios atribuídos ao [atribuição: funções ou classes de usuários definidos pela organização] para validar a necessidade desses privilégios.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -605,11 +605,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (9)** O sistema de informações faz auditoria da execução de funções privilegiadas.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta especificação técnica implementa o serviço do Log Analytics no OMS. As VMs implantadas e as contas de armazenamento de diagnósticos do Azure são fontes conectadas ao Log Analytics que garantem que a execução de funções com privilégio sejam auditadas. |
+| **Cliente** | Esta especificação técnica implementa o serviço do Log Analytics. As VMs implantadas e as contas de armazenamento de diagnósticos do Azure são fontes conectadas ao Log Analytics que garantem que a execução de funções com privilégio sejam auditadas. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -619,12 +619,12 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (10)** O sistema de informações impede que usuários sem privilégios executem funções privilegiadas como desabilitar, burlar ou alterar proteções/contramedidas de segurança implementadas.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | Essa especificação técnica implementa o controle de acesso com base em função para dar privilégio somente a usuários explicitamente atribuídos.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ac-7a"></a>Controle NIST 800-53 AC-7.a
@@ -652,7 +652,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O portal do Azure bloqueia tentativas consecutivas inválidas de logon por usuários. Uma política de grupo é aplicada no nível do sistema operacional para todas as máquinas virtuais implantadas por essa especificação técnica. A política bloqueia contas por três horas após três tentativas consecutivas inválidas de logon pelos usuários. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ac-7-2"></a>Controle NIST 800-53 AC-7 (2)
@@ -661,12 +661,12 @@ ms.lasthandoff: 02/11/2018
 
 **AC-7 (2)** O sistema de informações limpa/apaga informações de [atribuição: dispositivos móveis definidos pelo usuário] com base em [atribuição: requisitos de limpar/apagar definidos pela organização] após [atribuição: número definido pela organização] tentativas consecutivas inválidas de logon do dispositivo.
 
-**Responsibilidades:** `Not Applicable`
+**Responsabilidades:** `Not Applicable`
 
 |||
 |---|---|
 | **Cliente** | Dispositivos móveis não estão dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure não permite dispositivos móveis dentro dos limites do Azure. Sendo assim, esse controle não se aplica ao Microsoft Azure. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure não permite dispositivos móveis dentro dos limites do Azure. Sendo assim, esse controle não se aplica ao Microsoft Azure. |
 
 
  ## <a name="nist-800-53-control-ac-8a"></a>Controle NIST 800-53 AC-8.a
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-8.c** O sistema de informações para sistemas publicamente acessíveis exibe informações de uso do sistema [atribuição: condições definidas pela organização], antes de conceder acesso adicional; exibe referências, se houver, para monitoramento, gravação, ou auditoria que são consistentes com acomodações de privacidade para esses sistemas que geralmente proibem essas atividades; e inclui uma descrição de usos autorizados do sistema.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -722,7 +722,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Uma política do sistema operacional é implementada para máquinas virtuais implementadas pela especificação técnica. A política implementa restrições de sessão simultânea (duas sessões). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ac-11a"></a>Controle NIST 800-53 AC-11.a
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 11.b** O sistema de informações mantém o bloqueio de sessão até que o usuário restabeleça o acesso usando procedimentos estabelecidos de identificação e autenticação.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -792,7 +792,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Os sistemas operacionais do Portal do Azure e da máquina virtual implantados por esta especificação técnica permitem usos para iniciar um logoff. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ac-12-1b"></a>Controle NIST 800-53 AC-12 (1).b
@@ -806,7 +806,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Os sistemas operacionais do Portal do Azure e da máquina virtual implantados por esta especificação técnica permitem usos para iniciar um logoff. O processo de logoff fornece indicação para os usuários de que a sessão foi encerrada. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ac-14a"></a>Controle NIST 800-53 AC-14.a
@@ -815,7 +815,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-14.a** A organização identifica [atribuição: ações de usuário definidas pela organização] que podem ser executadas no sistema de informações sem identificação ou autenticação consistente com funções organizacionais de missões/negócios.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -829,7 +829,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-14.b** Uma organização documenta e fornece lógica de suporte no plano de segurança para o sistema de informações, ações do usuário não requerem identificação ou autenticação.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -875,8 +875,8 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta especificação técnica fornece acesso remoto para o sistema de informações por meio do Portal do Azure, por meio de conexão de área de trabalho remota através de um jumpbox e por meio de um aplicativo Web implementado pelo cliente. O acesso por meio do portal do Azure e das sessões de área de trabalho remota são auditados e podem ser monitorados pelo OMS. O cliente deve implementar controles de acesso remoto, conforme necessário, para o aplicativo web. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Esta especificação técnica fornece acesso remoto para o sistema de informações por meio do Portal do Azure, por meio de conexão de área de trabalho remota através de um jumpbox e por meio de um aplicativo Web implementado pelo cliente. O acesso por meio do Portal do Azure e das sessões de área de trabalho remota são auditados e podem ser monitorados pelo Log Analytics. O cliente deve implementar controles de acesso remoto, conforme necessário, para o aplicativo web. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ac-17-2"></a>Controle NIST 800-53 AC-17 (2)
@@ -927,7 +927,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (4).b** A organização documenta a lógica para tal acesso no plano de segurança para o sistema de informações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -960,7 +960,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Não há nenhum acesso sem fio dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure estabelece restrições de uso, requisitos de configuração/conexão e diretrizes de implementação para acesso sem fio através de rede padrão de segurança, que proíbe explicitamente o uso de sem fio no ambiente do Microsoft Azure. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure estabelece restrições de uso, requisitos de configuração/conexão e diretrizes de implementação para acesso sem fio através de rede padrão de segurança, que proíbe explicitamente o uso de sem fio no ambiente do Microsoft Azure. |
 
 
  ## <a name="nist-800-53-control-ac-18b"></a>Controle NIST 800-53 AC-18.b
@@ -969,7 +969,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18.b** A organização autoriza o acesso sem fio para o sistema de informações antes de permitir tais conexões.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -983,7 +983,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18 (1)** O sistema de informações protege o acesso sem fio no sistema usando a autenticação de [seleção (um ou mais): usuários; dispositivos] e criptografia.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -997,12 +997,12 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18 (3)** A organização desabilita, quando não destinado para uso, recursos de rede sem fio internamente inseridos em componentes do sistema de informações antes da emissão e implantação.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Não há nenhum acesso sem fio dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure não permite o acesso sem fio no ambiente do Microsoft Azure. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure não permite o acesso sem fio no ambiente do Microsoft Azure. |
 
 
  ### <a name="nist-800-53-control-ac-18-4"></a>Controle NIST 800-53 AC-18 (4)
@@ -1025,12 +1025,12 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18 (5)** A organização seleciona antenas de rádio e calibra níveis de energia de transmissão para reduzir a probabilidade de que sinais utilizáveis possam ser recebidos fora dos limites controlados da organização.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Não há nenhum acesso sem fio dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure não permite o acesso sem fio no ambiente do Microsoft Azure. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure não permite o acesso sem fio no ambiente do Microsoft Azure. |
 
 
  ## <a name="nist-800-53-control-ac-19a"></a>Controle NIST 800-53 AC-19.a
@@ -1086,7 +1086,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | A política de aquisição de serviços do sistema de informações externas de nível empresarial do cliente inclui uma cláusula referente ao uso das ofertas de serviços de nuvem previstas no FedRAMP.  Azure recebeu uma autorização provisional para operar (P-ATO) por placa conjunta de autorização do FedRAMP (JAB) permitindo o uso de aquisição de serviços de nuvem do Azure por agências do governo. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ac-20b"></a>Controle NIST 800-53 AC-20.b
@@ -1095,7 +1095,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-20.b** A organização estabelece os termos e condições que não são consistentes com relação de confiança estabelecida com outras organizações, proprietário, operacional, e/ou manutenção dos sistemas de informações externas, permitindo que pessoas autorizadas acessem o sistema de informações de sistemas de informações externas.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -1109,12 +1109,12 @@ ms.lasthandoff: 02/11/2018
 
 **AC-20 (1)** A organização permite que pessoas autorizadas usem um sistema de informações externas para acessar o sistema de informações ou para processar, armazenar ou transmitir informações de organização controlada somente quando a organização verificar a implementação de controles de segurança necessárias no sistema externo conforme especificado na diretiva de segurança de informações da organização e o plano de segurança; ou retém informações aprovadas sistema contratos de processamento ou a conexão com a entidade organizacional que hospeda o sistema externo de informações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O grupo de tecnologia de informações de nível empresarial do cliente pode verificar a conformidade de provedor de serviço de nuvem com os requisitos de segurança de informações de organização e conceder aprovação de toda a empresa para utilizar as ofertas associadas ao serviço de nuvem. Azure obteve autorização provisória para operar (P-ATO) pela Comissão de Autorização Conjunta (JAB) do FedRAMP. O Azure é avaliado por uma organização de avaliação independente (3PAO) aprovada pelo FedRAMP para verificar a conformidade com o controle de segurança do FedRAMP e outros requisitos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ac-20-2"></a>Controle NIST 800-53 AC-20 (2)
@@ -1156,7 +1156,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente pode depender de um recurso de suporte de decisão de compartilhamento de informações de nível empresarial. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ac-22a"></a>Controle NIST 800-53 AC-22.a
@@ -1165,12 +1165,12 @@ ms.lasthandoff: 02/11/2018
 
 **AC-22.a** A organização designa indivíduos autorizados para publicar informações em um sistema de informações publicamente acessível.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | Os procedimentos de controle de acesso de nível empresarial do cliente podem designar a indivíduos autorizados a postar informações publicamente acessíveis. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ac-22b"></a>Controle NIST 800-53 AC-22.b
@@ -1207,10 +1207,10 @@ ms.lasthandoff: 02/11/2018
 
 **AC-22.d** A organização analisa o conteúdo no sistema de informações publicamente acessível para informações confidenciais [atribuição: organização definido frequência] e remove essas informações, se descoberto.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | Os procedimentos de controle de acesso de nível empresarial do cliente podem estabelecer um processo para a revisão periódica de conteúdo publicado de sistemas acessíveis. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 

@@ -1,6 +1,6 @@
 ---
-title: "Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP – Avaliação de Riscos"
-description: "Automação de Aplicativos Web para FedRAMP – Avaliação de Riscos"
+title: Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP – Avaliação de Riscos
+description: Automação de Aplicativos Web para FedRAMP – Avaliação de Riscos
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7a7529f9a0ebe43c9fd6e473baff6f7a3b61e5e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="risk-assessment-ra"></a>Avaliação de risco (RA)
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA 2.b** A organização documenta os resultados de categorização de segurança (incluindo raciocínio de apoio) no plano de segurança para o sistema de informações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -78,7 +78,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por garantir que a decisão de categorização de segurança seja examinada e aprovada. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ra-3a"></a>Controle NIST 800-53 RA-3.a
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.a** A organização realiza uma avaliação de risco, incluindo a probabilidade e a magnitude do problema, de acesso não autorizado, uso, divulgação, interrupção, modificação ou destruição do sistema de informações e as informações que ele processa, armazena ou transmite.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -106,7 +106,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por realizar uma avaliação de risco. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ra-3c"></a>Controle NIST 800-53 RA-3.g
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.e** A organização atualiza a avaliação de risco [Atribuição: frequência definida pela organização] ou sempre que há alterações significativas no sistema de informações ou no ambiente de operação (incluindo a identificação de novas ameaças e vulnerabilidades), ou outras condições que podem afetar o estado de segurança do sistema.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -161,7 +161,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este esquema implanta a solução de Segurança e Auditoria do OMS. Essa solução fornece uma visão abrangente da postura de segurança. Dentro da solução, dois domínios de segurança, Avaliação de Atualização e Avaliação de Linha de Base, estão disponíveis. A Avaliação de Linha de Base avalia um conjunto de chaves do registro, configurações de política de auditoria e configurações de política de segurança, juntamente com os valores recomendados da Microsoft para essas configurações. A Avaliação de Atualização avalia o status de atualizações disponíveis em todas as máquinas virtuais implantadas. |
+| **Cliente** | Esta especificação técnica implanta a solução de Segurança e Auditoria. Essa solução fornece uma visão abrangente da postura de segurança. Dentro da solução, dois domínios de segurança, Avaliação de Atualização e Avaliação de Linha de Base, estão disponíveis. A Avaliação de Linha de Base avalia um conjunto de chaves do registro, configurações de política de auditoria e configurações de política de segurança, juntamente com os valores recomendados da Microsoft para essas configurações. A Avaliação de Atualização avalia o status de atualizações disponíveis em todas as máquinas virtuais implantadas. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -171,12 +171,12 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.b** A organização emprega ferramentas e técnicas de verificação de vulnerabilidade que facilitam a interoperabilidade entre as ferramentas e automatizam partes do processo de gerenciamento de vulnerabilidade usando padrões para enumerar as plataformas, falhas de software e configurações inadequadas, formatando listas de verificação e procedimentos de teste e medindo o impacto da vulnerabilidade.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este esquema implanta a solução de Segurança e Auditoria do OMS. Dentro da solução, dois domínios de segurança, Avaliação de Atualização e Avaliação de Linha de Base, estão disponíveis. Problemas identificados recebem uma classificação de gravidade. As IDs de Common Configuration Enumeration (CCE) são fornecidas para regras de Avaliação de Linha de Base.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Esta especificação técnica implanta a solução de Segurança e Auditoria. Dentro da solução, dois domínios de segurança, Avaliação de Atualização e Avaliação de Linha de Base, estão disponíveis. Problemas identificados recebem uma classificação de gravidade. As IDs de Common Configuration Enumeration (CCE) são fornecidas para regras de Avaliação de Linha de Base.  |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ra-5c"></a>Controle NIST 800-53 RA-5.c
@@ -190,7 +190,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por analisar relatórios de verificação e os resultados de avaliações de controle de segurança. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ra-5d"></a>Controle NIST 800-53 RA-5.d
@@ -204,7 +204,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por corrigir vulnerabilidades nos recursos por ele implantados (para incluir aplicativos, sistemas operacionais, bancos de dados e software) de acordo com a avaliação de risco do cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ra-5e"></a>Controle NIST 800-53 RA-5.e
@@ -231,8 +231,8 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este esquema implanta a solução de Segurança e Auditoria do OMS. Dentro da solução, dois domínios de segurança, Avaliação de Atualização e Avaliação de Linha de Base, estão disponíveis. Os critérios com os quais essas soluções realizam avaliações são atualizados automaticamente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Esta especificação técnica implanta a solução de Segurança e Auditoria. Dentro da solução, dois domínios de segurança, Avaliação de Atualização e Avaliação de Linha de Base, estão disponíveis. Os critérios com os quais essas soluções realizam avaliações são atualizados automaticamente. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ra-5-2"></a>Controle NIST 800-53 RA-5 (2)
@@ -245,7 +245,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este esquema implanta a solução de Segurança e Auditoria do OMS. Dentro da solução, dois domínios de segurança, Avaliação de Atualização e Avaliação de Linha de Base, estão disponíveis. Os critérios com os quais essas soluções realizam avaliações são atualizados automaticamente. |
+| **Cliente** | Esta especificação técnica implanta a solução de Segurança e Auditoria. Dentro da solução, dois domínios de segurança, Avaliação de Atualização e Avaliação de Linha de Base, estão disponíveis. Os critérios com os quais essas soluções realizam avaliações são atualizados automaticamente. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -259,8 +259,8 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este esquema implanta a solução de Segurança e Auditoria do OMS. Dentro da solução, dois domínios de segurança, Avaliação de Atualização e Avaliação de Linha de Base, estão disponíveis. A Avaliação de Atualização executa uma análise em máquinas virtuais Windows e Linux. A Avaliação de Linha de Base executa análise em máquinas virtuais Windows usando uma linha de base desenvolvida pela Microsoft com base em práticas recomendadas do setor. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Esta especificação técnica implanta a solução de Segurança e Auditoria. Dentro da solução, dois domínios de segurança, Avaliação de Atualização e Avaliação de Linha de Base, estão disponíveis. A Avaliação de Atualização executa uma análise em máquinas virtuais Windows e Linux. A Avaliação de Linha de Base executa análise em máquinas virtuais Windows usando uma linha de base desenvolvida pela Microsoft com base em práticas recomendadas do setor. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ra-5-4"></a>Controle NIST 800-53 RA-5 (4)
@@ -269,12 +269,12 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (4)** A organização determina quais informações sobre o sistema de informações são detectáveis pelo adversários e subsequentemente realiza [Atribuição: ações corretivas definidas pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por executar uma ação em resposta às informações detectáveis. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ra-5-5"></a>Controle NIST 800-53 RA-5 (5)
@@ -288,7 +288,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O serviço Microsoft Monitoring Agent, que é configurado em máquinas virtuais implantadas por este esquema, é configurado como um serviço automático com os privilégios necessários para as atividades de avaliação. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ra-5-6"></a>Controle NIST 800-53 RA-5 (6)
@@ -301,7 +301,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | O OMS fornece a capacidade de criar blocos de painel personalizados para analisar dados coletados por Log Analystics e Microsoft Monitoring Agent. Esses blocos podem ser personalizados para mostrar tendências ao longo do tempo. |
+| **Cliente** | O Azure fornece a capacidade de criar blocos de painel personalizados para analisar dados coletados por Log Analytics e Microsoft Monitoring Agent. Esses blocos podem ser personalizados para mostrar tendências ao longo do tempo. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -325,9 +325,9 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (10)** A organização correlaciona a saída de ferramentas de verificação de vulnerabilidade para determinar a presença de vetores de ataque de várias vulnerabilidades/vários saltos.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este esquema implanta a solução de Segurança e Auditoria do OMS. Essa solução fornece uma visão abrangente da postura de segurança. O painel de Segurança e auditoria fornece percepções de alto nível do estado de segurança de recursos implantados usando os dados disponíveis em soluções do OMS implantadas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Esta especificação técnica implanta a solução de Segurança e Auditoria. Essa solução fornece uma visão abrangente da postura de segurança. O painel de Segurança e Auditoria fornece insight de alto nível do estado de segurança de recursos implantados usando os dados disponíveis em soluções de gerenciamento implantadas. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |

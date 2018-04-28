@@ -9,11 +9,11 @@ ms.custom: mvc,business continuity
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 569eef6e1d930e505bc6dff9b692814438e5bd4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implementar um banco de dados distribuído geograficamente
 
@@ -380,4 +380,17 @@ Instale o [Maven](https://maven.apache.org/download.cgi) usando o instalador ofi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais, confira [Grupos de failover e replicação geográfica ativa](sql-database-geo-replication-overview.md).
+Neste tutorial, você aprendeu a configurar um banco de dados SQL do Azure e o aplicativo para o failover para uma região remota e, em seguida, testar o seu plano de failover.  Você aprendeu como: 
+
+> [!div class="checklist"]
+> * Criar usuários de banco de dados e conceder a eles permissões
+> * Configurar uma regra de firewall de nível de banco de dados
+> * Criar um grupo de failover de replicação geográfica
+> * Criar e compilar um aplicativo Java para consultar um Banco de Dados SQL do Azure
+> * Executar uma análise de recuperação de desastre
+
+Vá para o próximo tutorial para aprender a criar uma Instância Gerenciada.
+
+> [!div class="nextstepaction"]
+>[Criar uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md)
+

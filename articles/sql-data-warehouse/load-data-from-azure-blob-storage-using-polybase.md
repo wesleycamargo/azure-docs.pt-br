@@ -1,31 +1,24 @@
 ---
-title: 'Tutorial: Carregamento de dados do Polybase – Azure Storage Blob para SQL Data Warehouse do Azure | Microsoft Docs'
-description: Um tutorial que usa o Portal do Azure e o SQL Server Management Studio para carregar dados dos táxis de Nova York do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure.
+title: 'Tutorial: carregar dados dos táxis de Nova York para o SQL Data Warehouse do Azure | Microsoft Docs'
+description: O tutorial usa o Portal do Azure e o SQL Server Management Studio para carregar dados dos táxis de Nova York de um blob público do Azure para o SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/16/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: igorstan
+ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Tutorial: Usar o PolyBase para carregar dados do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: carregar dados dos táxis de Nova York para o SQL Data Warehouse do Azure
 
-O PolyBase é a tecnologia de carregamento padrão para ingressar dados no SQL Data Warehouse. Neste tutorial, você usará o PolyBase para carregar dados dos táxis de Nova York do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio) para: 
+Este tutorial usa o PolyBase para carregar dados dos táxis de Nova York de um blob público do Azure para o SQL Data Warehouse do Azure. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio) para: 
 
 > [!div class="checklist"]
 > * Criar um data warehouse no Portal do Azure
@@ -50,7 +43,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Criar um SQL data warehouse em branco
 
-Um SQL Data Warehouse do Azure é criado com um conjunto definido de [recursos de computação](performance-tiers.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
+Um SQL Data Warehouse do Azure é criado com um conjunto definido de [recursos de computação](memory-and-concurrency-limits.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
 
 Siga estas etapas para criar um SQL data warehouse em branco. 
 
@@ -170,7 +163,7 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 
 
 ## <a name="create-a-user-for-loading-data"></a>Criar um usuário para carregar dados
 
-A conta do administrador do servidor é destinada a executar operações de gerenciamento, e não é adequada para executar consultas nos dados do usuário. O carregamento de dados é uma operação com uso intensivo de memória. Os [limites máximos de memória](performance-tiers.md#memory-maximums) são definidos de acordo com o [nível de desempenho](performance-tiers.md) e a [classe de recurso](resource-classes-for-workload-management.md). 
+A conta do administrador do servidor é destinada a executar operações de gerenciamento, e não é adequada para executar consultas nos dados do usuário. O carregamento de dados é uma operação com uso intensivo de memória. Os limites máximos de memória são definidos de acordo com o [nível de desempenho](memory-and-concurrency-limits.md#performance-tiers), com as [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) e com a [classe de recurso](resource-classes-for-workload-management.md). 
 
 É melhor criar um logon e um usuário dedicados para carregar dados. Em seguida, adicione o usuário carregado a uma [classe de recurso](resource-classes-for-workload-management.md) que permita uma alocação máxima de memória adequada.
 
@@ -221,7 +214,7 @@ A primeira etapa para carregar os dados é fazer logon como LoaderRC20.
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Criar tabelas externas para os dados de exemplo
 
-Você está pronto para iniciar o processo de carregamento de dados em seu novo data warehouse. Este tutorial mostra como usar o [Polybase](/sql/relational-databases/polybase/polybase-guide) para carregar dados dos táxis de Nova York de um Azure Storage Blob. Para uma referência futura, para saber como obter os dados para o armazenamento de blobs do Azure ou carregá-los diretamente do seu código-fonte no SQL Data Warehouse, consulte a [visão geral do carregamento](sql-data-warehouse-overview-load.md).
+Você está pronto para iniciar o processo de carregamento de dados em seu novo data warehouse. Este tutorial mostra como usar tabelas externas para carregar dados dos táxis de Nova York de um Azure Storage Blob. Para uma referência futura, para saber como obter os dados para o armazenamento de blobs do Azure ou carregá-los diretamente do seu código-fonte no SQL Data Warehouse, consulte a [visão geral do carregamento](sql-data-warehouse-overview-load.md).
 
 Execute os seguintes scripts SQL especificam informações sobre os dados que deseja carregar. Essas informações incluem o local em que os dados estão localizados, o formato do conteúdo dos dados e a definição da tabela para os dados. 
 

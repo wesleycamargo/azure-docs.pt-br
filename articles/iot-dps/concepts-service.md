@@ -1,28 +1,28 @@
 ---
-title: "Conceitos de serviço no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs"
-description: "Descreve conceitos de provisionamento de serviço específicos para dispositivos com DPS e Hub IoT"
+title: Conceitos de serviço no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
+description: Descreve conceitos de provisionamento de serviço específicos para dispositivos com DPS e Hub IoT
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 10/03/2017
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 96c63e5d0379150ea619dbbe912a21e373f808af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2bc58514ea716954ec3ac96151549168fedc2ed
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceitos do Serviço de Provisionamento de Dispositivos no Hub IoT
 
-O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar do Hub IoT que você usa para configurar o provisionamento de dispositivo sem interação para um Hub IoT especificado. Com o Serviço de Provisionamento de Dispositivos, você pode provisionar milhões de dispositivos de uma maneira segura e escalonável.
+O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar do Hub IoT que você usa para configurar o provisionamento de dispositivo sem interação para um Hub IoT especificado. Com o Serviço de Provisionamento de Dispositivos, é possível [provisionar automaticamente](concepts-auto-provisioning.md) milhões de dispositivos de maneira segura e escalonável.
 
-O provisionamento do dispositivo é um processo de duas partes. A primeira parte é estabelecer a conexão inicial entre o dispositivo e a solução de IoT, *registrando* o dispositivo. A segunda parte é aplicar a *configuração* apropriada ao dispositivo com base nos requisitos específicos da solução. Depois que ambas as etapas forem concluídas, poderemos dizer que o dispositivo foi completamente *provisionado*. O Serviço de Provisionamento de Dispositivos automatiza as etapas para fornecer uma experiência perfeita de provisionamento para o dispositivo.
+O provisionamento de dispositivos é um processo de duas partes. A primeira parte é estabelecer a conexão inicial entre o dispositivo e a solução de IoT, *registrando* o dispositivo. A segunda parte é aplicar a *configuração* apropriada ao dispositivo com base nos requisitos específicos da solução. Quando as duas etapas forem concluídas, o dispositivo será totalmente *provisionado*. O Serviço de Provisionamento de Dispositivos automatiza as etapas para fornecer uma experiência perfeita de provisionamento para o dispositivo.
 
 Este artigo fornece uma visão geral dos conceitos de provisionamento mais aplicáveis para gerenciar o *serviço*. Este artigo é muito relevante para todas as personas envolvidas na [etapa de configuração de nuvem](about-iot-dps.md#cloud-setup-step) da preparação de um dispositivo para implantação.
 
@@ -32,7 +32,7 @@ O ponto de extremidade das operações de serviço é o ponto de extremidade par
 
 ## <a name="device-provisioning-endpoint"></a>Ponto de extremidade de provisionamento do dispositivo
 
-O ponto de extremidade de provisionamento do dispositivo é o ponto de extremidade central com o qual todos os dispositivos se comunicam para provisionamento. A URL é a mesma para todos os serviços de provisionamento para eliminar a necessidade de emitir novamente dispositivos com as novas informações de conexão em cenários de cadeia de fornecimento. O [escopo da ID](#id-scope) garante o isolamento de locatários.
+O ponto de extremidade de provisionamento de dispositivos é o ponto de extremidade único que todos os dispositivos usam para provisionamento automático. A URL é a mesma para todas as instâncias de serviços de provisionamento, para eliminar a necessidade de atualizar novamente os dispositivos com novas informações de conexão nos cenários da cadeia de fornecedores. O [escopo da ID](#id-scope) garante o isolamento de locatários.
 
 ## <a name="linked-iot-hubs"></a>Hubs IoT vinculados
 
@@ -47,21 +47,27 @@ A configuração de nível de serviço determina como o Serviço de Provisioname
 
 ## <a name="enrollment"></a>Registro
 
-Um registro é um relatório de dispositivos ou grupos de dispositivos que podem, em algum ponto, ser registrados. O registro de inscrições contém as informações sobre o dispositivo ou grupo de dispositivos, incluindo o método de atestado para os dispositivos e, opcionalmente, a configuração inicial desejada, o Hub IoT desejado e a ID do dispositivo desejada. Há dois tipos de inscrições com suporte pelo Serviço de Provisionamento de Dispositivos.
+Um registro é o registro de dispositivos ou grupos de dispositivos que podem ser registrados por meio de provisionamento automático. O registro contém informações sobre o dispositivo ou grupo de dispositivos, incluindo:
+- o [mecanismo de certificação](concepts-security.md#attestation-mechanism) usado pelo dispositivo
+- a configuração inicial desejada opcional
+- hub IoT desejado
+- a ID do dispositivo desejado
+
+Há dois tipos de registros com suporte pelo Serviço de Provisionamento de Dispositivos:
 
 ### <a name="enrollment-group"></a>Grupo de registro
 
-Um grupo de registro é um grupo de dispositivos que compartilham um mecanismo de atestado específico. Todos os dispositivos do grupo de registro apresentam certificados X.509 que foram assinados pela mesma AC raiz. Grupos de registro só podem usar o mecanismo de atestado de X.509. O nome do grupo de registro e o nome do certificado devem ter caracteres alfanuméricos, letras minúsculas e podem conter hifens.
+Um grupo de registro é um grupo de dispositivos que compartilham um mecanismo de atestado específico. Todos os dispositivos no grupo de registros apresentam certificados X.509 que foram assinados pela mesma autoridade de AC intermediária ou raiz. Grupos de registro só podem usar o mecanismo de atestado de X.509. O nome do grupo de registro e o nome do certificado devem ter caracteres alfanuméricos, letras minúsculas e podem conter hifens.
 
 > [!TIP]
 > É recomendável usar um grupo de registro para um grande número de dispositivos que compartilhem uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário.
 
 ### <a name="individual-enrollment"></a>Registro individual
 
-Um registro individual é uma entrada para um único dispositivo que pode registrar. Inscrições individuais podem usar tokens de certificados X.509 ou tokens SAS (em um TPM real ou virtual) como mecanismos de atestado. A ID do registro em um registro individual é alfanumérica, com letras minúsculas e pode conter hifens. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.
+Um registro individual é uma entrada para um único dispositivo que pode registrar. Os registros individuais podem usar certificados folha X.509 ou tokens de SAS (de um TPM físico ou virtual) como mecanismos de certificação. A ID do registro em um registro individual é alfanumérica, com letras minúsculas e pode conter hifens. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.
 
 > [!TIP]
-> É recomendável usar inscrições individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que só podem usar tokens SAS por meio do TPM ou TPM virtual, como o mecanismo de atestado.
+> É recomendável o uso de registros individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que somente podem autenticar usando tokens de SAS via atestado de TPM.
 
 ## <a name="registration"></a>Registro
 

@@ -1,8 +1,8 @@
 ---
 title: Solucionar problemas com o cluster Apache Spark no Azure HDInsight | Microsoft Docs
-description: "Saiba mais sobre problemas relacionados aos clusters Apache Spark no Azure HDInsight e como solucioná-los."
+description: Saiba mais sobre problemas relacionados aos clusters Apache Spark no Azure HDInsight e como solucioná-los.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,24 +10,22 @@ tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos do cluster do Apache Spark no HDInsight
 
 Este documento mantém o registro de todos os problemas conhecidos para a visualização pública do Spark no HDInsight.  
 
 ## <a name="livy-leaks-interactive-session"></a>Sessão interativa de vazamentos do Livy
-Quando o Livy é reiniciado com uma sessão interativa (do Ambari ou devido a reinicialização da máquina virtual de nó principal 0) ainda ativa, uma sessão de trabalho interativo é vazado. Por isso, novos trabalhos podem travar no estado Aceito, não podendo ser iniciados.
+Quando o Livy é reiniciado com uma sessão interativa (do Ambari ou devido a reinicialização da máquina virtual de nó principal 0) ainda ativa, uma sessão de trabalho interativo é vazado. Como resultado, novos trabalhos podem estar paralisados no estado Aceito.
 
 **Atenuação:**
 
@@ -54,7 +52,12 @@ O servidor de histórico Spark não é iniciado automaticamente depois de um clu
 Inicie manualmente o servidor de histórico do Ambari.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Problema de permissão no diretório de log do Spark
-Quando hdiuser envia um trabalho com spark-submit, há um erro java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (permissão negada) e o log do driver não é gravado. 
+O hdiuser obtém o seguinte erro ao enviar um trabalho usando o envio spark:
+
+```
+java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
+```
+E nenhum driver log é gravado. 
 
 **Atenuação:**
 
@@ -65,7 +68,7 @@ Quando hdiuser envia um trabalho com spark-submit, há um erro java.io.FileNotFo
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>Não há suporte para o conector Spark Phoenix
 
-Atualmente, o conector Spark-Phoenix não tem suporte com um cluster HDInsight Spark.
+Os clusters de HDInsight Spark não dão suporte para o conector Spark Phoenix.
 
 **Atenuação:**
 
@@ -75,7 +78,7 @@ Use o conector Spark-HBase em vez disso. Para obter instruções, confira [Como 
 A seguir estão alguns problemas conhecidos relacionados aos notebooks do Jupyter.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Notebooks com caracteres não ASCII nos nomes de arquivos
-Os notebooks do Jupyter que podem ser usados em clusters HDInsight do Spark não devem ter caracteres não ASCII nos nomes de arquivos. Se você tentar carregar um arquivo por meio da interface do usuário do Jupyter que tenha um nome de arquivo não ASCII, ele falhará silenciosamente (ou seja, o Jupyter não permitirá que você carregue o arquivo, mas ele também não emitirá um erro visível). 
+Não use caracteres que não sejam ASCII em nomes de arquivos de notebook Jupyter. Se você tentar carregar um arquivo por meio da UI Jupyter, que tem um nome de arquivo não ASCII, ele falha sem qualquer mensagem de erro. Jupyter não permite que você carregue o arquivo, mas ele não gerará um erro visível.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Erro ao carregar notebooks de tamanhos maiores
 Você pode encontrar um erro **`Error loading notebook`** ao carregar notebooks com um tamanho maior.  

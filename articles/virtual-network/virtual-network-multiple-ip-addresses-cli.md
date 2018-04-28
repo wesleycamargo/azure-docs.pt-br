@@ -1,13 +1,13 @@
 ---
-title: "VM com vários endereços IP usando a CLI do Azure | Microsoft Docs"
-description: "Saiba como atribuir diversos endereços IP a uma máquina virtual usando a interface de linha de comando (CLI) do Azure."
+title: VM com vários endereços IP usando a CLI do Azure | Microsoft Docs
+description: Saiba como atribuir diversos endereços IP a uma máquina virtual usando a interface de linha de comando (CLI) do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c11883156f53ab53ebe6f84d66232f81f8cf31ff
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Como atribuir vários endereços IP a máquinas virtuais usando a CLI do Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/17/2017
 
 Este artigo explica como criar uma máquina virtual (VM) por meio do Modelo de implantação do Azure Resource Manager usando a CLI do Azure. Múltiplos endereços IP não podem ser atribuídos a recursos criados por meio do modelo de implantação clássico. Para saber mais sobre modelos de implantação do Azure, leia o artigo [Compreender os modelos de implantação](../resource-manager-deployment-model.md).
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Criar uma VM com vários endereços IP
 
@@ -167,7 +167,7 @@ Adicione os endereços IP privados ao sistema operacional da VM executando as et
 
 ## <a name="add"></a>Adicionar endereços IP a uma VM
 
-Você pode adicionar endereços IP públicos e privados adicionais para um NIC existente ao concluir as etapas a seguir. Os exemplos baseiam-se no [cenário](#Scenario) descrito neste artigo.
+Você pode adicionar endereços IP públicos e privados adicionais para uma interface de rede do Azure existente ao concluir as etapas a seguir. Os exemplos baseiam-se no [cenário](#Scenario) descrito neste artigo.
 
 1. Abra um shell de comando e conclua as etapas restantes nesta seção dentro de uma única sessão. Se você ainda não tiver instalado e configurado a CLI do Azure, conclua as etapas do artigo [Instalação da CLI 2.0 do Azure](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) e faça logon em sua conta do Azure com o comando `az-login`.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 17ea97e34deb375123de12508c2c0845cd25c27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure
 Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure. 
@@ -31,12 +31,12 @@ Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
 > * Prepare o armazenamento de dados para armazenar o valor de marca-d'água.
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Criar serviços vinculados. 
 > * Criar os conjuntos de dados de origem, de coletor e de marca-d'água.
 > * Crie um pipeline.
 > * Execute o pipeline.
-> * Monitore a execução de pipeline. 
+> * Monitorar a execução de pipeline. 
 > * Analisar resultados
 > * Adicionar mais dados à origem.
 > * Executar o pipeline novamente.
@@ -154,7 +154,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
@@ -181,10 +181,10 @@ END
     ![implantando bloco data factory](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
-   ![Página inicial da data factory](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
+   ![Página inicial do data factory](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
 10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 
-## <a name="create-a-pipeline"></a>Criar uma pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma atividade de Cópia e uma atividade de Procedimento armazenado encadeadas em um pipeline. 
 
 1. Na página **introdução** da interface do usuário do Data Factory, clique no bloco **Criar pipeline**. 
@@ -299,7 +299,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 29. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e solte a atividade de **Procedimento armazenado** da caixa de ferramentas **Atividades** para a superfície de designer do pipeline. **Conecte** a saída verde (Bem-sucedida) da atividade de **Cópia** à atividade de **Procedimento armazenado**. 
     
     ![Atividade de cópia - origem](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
-24. Selecione **Atividade de Procedimento armazenado** no designer de pipeline, altere seu nome para **StoredProceduretoWriteWatermarkActivity**. 
+24. Selecione **Atividade de Procedimento Armazenado** no designer de pipeline, altere seu nome para **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Atividade de procedimento armazenado - nome](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
 25. Alterne para a guia **Conta SQL** e selecione *AzureSqlDatabaseLinkedService** para o **Serviço vinculado**. 
@@ -433,12 +433,12 @@ Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
 > * Prepare o armazenamento de dados para armazenar o valor de marca-d'água.
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Criar serviços vinculados. 
 > * Criar os conjuntos de dados de origem, de coletor e de marca-d'água.
 > * Crie um pipeline.
 > * Execute o pipeline.
-> * Monitore a execução de pipeline. 
+> * Monitorar a execução de pipeline. 
 > * Analisar resultados
 > * Adicionar mais dados à origem.
 > * Executar o pipeline novamente.

@@ -1,19 +1,19 @@
 ---
-title: Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando Node.js | Microsoft Docs
-description: Neste guia de início rápido, você criará uma conta de armazenamento e um contêiner. Em seguida, você deve usar a biblioteca de clientes de armazenamento para Node.js a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
+title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usando Node.js | Microsoft Docs
+description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para Node.js a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 8783b83a1a94caf4a49f9da7a2dd30c9cb52df22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Início rápido: Carregar, baixar e listar blobs usando Node.js
 
@@ -82,7 +82,7 @@ O propósito desses módulos é o seguinte:
 - *dotenv* carrega variáveis de ambiente definidas em um arquivo chamado *.env* no contexto de execução atual
 - *path* é necessário para determinar o caminho absoluto de arquivo do arquivo a ser carregado no armazenamento de blobs
 - *yargs* expõe uma interface simples para acessar argumentos de linha de comando
-- *azure-storage* é o módulo do [SDK do Armazenamento do Azure](/nodejs/api/azure-storage) para Node.js
+- *azure-storage* é o módulo do [SDK do Armazenamento do Azure](https://docs.microsoft.com/javascript/api/azure-storage) para Node.js
 
 Em seguida, uma série de variáveis é inicializada:
 
@@ -294,4 +294,4 @@ Este início rápido demonstra como carregar um arquivo entre um disco local e o
 > [!div class="nextstepaction"]
 > [Instruções de operações do Armazenamento de Blobs](storage-nodejs-how-to-use-blob-storage.md)
 
-Para obter a referência Node.js para Armazenamento do Azure, consulte [Pacote do Armazenamento do Azure](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).
+Para obter a referência Node.js para Armazenamento do Azure, consulte [Pacote do Armazenamento do Azure](https://docs.microsoft.com/javascript/api/azure-storage).

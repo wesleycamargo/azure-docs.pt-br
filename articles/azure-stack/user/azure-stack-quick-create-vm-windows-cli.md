@@ -12,28 +12,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 04/19/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 2a4eb909c39051ce9fa2efd7e7997644d9b8b1b1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: 5665af14b9b0d0705b68c8a27c593b19c31b053e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Criar uma máquina virtual do Windows na pilha do Azure usando a CLI do Azure
+# <a name="quickstart-create-a-windows-virtual-machine-in-azure-stack-using-azure-cli"></a>Início rápido: criar uma máquina virtual do Windows na pilha do Azure usando a CLI do Azure
 
-CLI do Azure é usado para criar e gerenciar recursos de pilha do Azure a partir da linha de comando. Esses detalhes de guia usando a CLI do Azure para criar uma máquina de virtual do Windows Server 2016 na pilha do Azure. Depois que a máquina virtual é criada, irá se conectar com a área de trabalho remota, instalar o IIS, e exibir o site padrão. 
+CLI do Azure é usado para criar e gerenciar recursos de pilha do Azure a partir da linha de comando. Este artigo mostra como usar a CLI do Azure para criar e acessar uma máquina virtual do Windows Server 2016 na pilha do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Certifique-se de que seu operador de pilha do Azure adicionou a imagem de "Windows Server 2016" para o marketplace de pilha do Azure.  
+* Certifique-se de que seu operador de pilha do Azure adicionou a imagem de "Windows Server 2016" para o marketplace de pilha do Azure.
 
 * A pilha do Azure requer uma versão específica de CLI do Azure para criar e gerenciar os recursos. Se você não tiver a CLI do Azure configurada para a pilha do Azure, siga as etapas para [instalar e configurar a CLI do Azure](azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner lógico em qual pilha Azure recursos são implantados e gerenciados. O kit de desenvolvimento ou a pilha do Azure integrada ao sistema, execute o [criar grupo az](/cli/azure/group#az_group_create) comando para criar um grupo de recursos. Atribuímos valores para todas as variáveis neste documento, você pode usá-los como estão ou atribuir um valor diferente. O exemplo a seguir cria um grupo de recursos denominado myResourceGroup no local a local.
+Um grupo de recursos é um contêiner lógico em qual pilha Azure recursos são implantados e gerenciados. O kit de desenvolvimento ou a pilha do Azure integrada ao sistema, execute o [criar grupo az](/cli/azure/group#az_group_create) comando para criar um grupo de recursos. Os valores são atribuídos para todas as variáveis neste documento, você pode usar esses valores ou atribuir novos valores. O exemplo a seguir cria um grupo de recursos denominado myResourceGroup no local a local.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -54,8 +54,8 @@ az vm create \
   --location local
 ```
 
-Quando a VM é criada, anote o *PublicIPAddress* parâmetro que é a saída, que você usará para acessar a máquina virtual.
- 
+Quando a VM é criada, o *PublicIPAddress* parâmetro é de saída. Anote esse endereço, porque você precisa acessar a máquina virtual.
+
 ## <a name="open-port-80-for-web-traffic"></a>Abra a porta 80 para tráfego da Web
 
 Por padrão, apenas as conexões RDP são permitidas para uma máquina virtual do Windows implantada na pilha do Azure. Se essa VM for se transformar em um servidor Web, você precisará abrir a porta 80 na Internet. Use o comando [az vm open-port](/cli/azure/vm#open-port) para abrir a porta desejada.
@@ -74,7 +74,7 @@ mstsc /v <Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>Instalar o IIS usando o PowerShell
 
-Agora que você fez logon na VM do Azure, pode usar uma única linha do PowerShell para instalar o IIS e habilitar a regra de firewall local para permitir o tráfego da Web. Abra um promt do PowerShell e execute o seguinte comando:
+Depois de fazer logon VM do Azure, você pode usar uma única linha do PowerShell para instalar o IIS e habilitar a regra de firewall local para permitir o tráfego da web. Abra um promt do PowerShell e execute o seguinte comando:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -82,13 +82,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Exibir a página de boas-vindas do IIS
 
-Com o IIS instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do IIS padrão. Certifique-se de usar o endereço IP público que você documentou acima para visitar a página padrão. 
+Você pode usar um navegador da web de sua escolha para exibir a página de boas-vinda do IIS padrão. Use o endereço IP público documentado na seção anterior para visitar a página padrão.
 
-![Site do IIS padrão](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png) 
+![Site do IIS padrão](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, a VM e todos os recursos relacionados.
+Quando não é mais necessário, você pode usar o [excluir grupo de az](/cli/azure/group#az_group_delete) de comando para remover o grupo de recursos, a VM, e todos os recursos relacionados.
 
 ```cli
 az group delete --name myResourceGroup

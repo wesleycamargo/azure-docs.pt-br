@@ -2,10 +2,10 @@
 title: Criar uma conta do Lote no portal do Azure | Microsoft Docs
 description: Aprenda a criar uma conta do Lote do Azure no portal do Azure para executar cargas de trabalho paralelas em larga escala na nuvem.
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6374e49f3f682d022613e3e5244d273337213311
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Lote com o Portal do Azure
 
 > [!div class="op_single_selector"]
-> * [portal do Azure](batch-account-create-portal.md)
+> * [Portal do Azure](batch-account-create-portal.md)
 > * [.NET de Gerenciamento do Lote](batch-management-dotnet.md)
 >
 >
@@ -58,7 +58,7 @@ Para saber mais sobre contas do Lote e cenários, confira a [visão geral do rec
 
     d. **Local**: a região do Azure na qual a conta do Lote será criada. Somente as regiões com suporte da sua assinatura e do seu grupo de recursos são exibidas como opções.
 
-    e. **Conta de armazenamento** (opcional): uma conta do Armazenamento do Azure de uso geral que você associa à sua nova conta do Lote. Isso é recomendado para a maioria das contas do Lote. Confira [Conta do Armazenamento do Azure vinculada](#linked-azure-storage-account) mais adiante neste artigo para obter detalhes.
+    e. **Conta de armazenamento** (opcional): uma conta de Armazenamento do Azure que você associa à sua conta do Lote. Isso é recomendado para a maioria das contas do Lote. Confira [Conta do Armazenamento do Azure vinculada](#linked-azure-storage-account) mais adiante neste artigo para obter detalhes.
 
 4. Clique em **Criar** para criar a conta.
 
@@ -85,11 +85,11 @@ Após a criação da conta, clique na conta para acessar suas configurações e 
 
 ## <a name="linked-azure-storage-account"></a>Conta vinculada do Armazenamento do Azure
 
-Você pode vincular uma conta de Armazenamento do Azure de finalidade geral à sua nova conta do Lote, o que é útil para várias situações. O recurso de [pacotes de aplicativos](batch-application-packages.md) do Lote usa o armazenamento de Blobs do Azure, como faz a biblioteca [.NET de Convenções de Arquivo do Lote](batch-task-output.md). Esses recursos opcionais ajudarão você a implantar os aplicativos executados por suas tarefas do Lote, persistindo os dados que eles produzem.
+Você pode vincular uma conta de Armazenamento do Azure à sua conta do Lote, o que é útil para várias situações. O recurso de [pacotes de aplicativos](batch-application-packages.md) do Lote usa o armazenamento de Blobs do Azure, como faz a biblioteca [.NET de Convenções de Arquivo do Lote](batch-task-output.md). Esses recursos opcionais ajudarão você a implantar os aplicativos executados por suas tarefas do Lote, persistindo os dados que eles produzem.
 
-É recomendável que você crie uma nova conta de armazenamento exclusivamente para uso com sua conta do Lote. O Lote do Azure atualmente dá suporte apenas ao tipo de conta de Armazenamento de uso geral. Esse tipo de conta é descrito na etapa 5, [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md).
+Para opções de conta de armazenamento em Lote, confira a [Visão geral do recurso de Lote](batch-api-basics.md#azure-storage-account).
 
-![Criando uma conta de armazenamento de uso geral][storage_account]
+![Criando uma conta de armazenamento][storage_account]
 
 > [!NOTE]
 > Tome cuidado ao regenerar as chaves de acesso de uma conta de Armazenamento vinculada. Regenere somente uma chave de conta do Armazenamento e clique em **Sincronizar Chaves** na página da conta de Armazenamento vinculada. Aguarde cinco minutos para permitir que as chaves sejam propagadas para os nós de computação em seus pools e regenere e sincronize a outra chave, se necessário. Se você regenerar as chaves ao mesmo tempo, os nós de computação não poderão sincronizar nenhuma delas e, assim, perderão o acesso à conta de armazenamento.

@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2018
+ms.date: 04/17/2018
 ms.author: billmath
-ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
 
+
 Este artigo foi projetado para ajudá-lo a controlar as versões que foram lançadas e compreender se você precisa atualizar para a versão mais recente ou não.
 
 Esta é uma lista de tópicos relacionados:
-
-
 
 Tópico |  Detalhes
 --------- | --------- |
@@ -35,6 +34,21 @@ Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar 
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Download | [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="117510"></a>1.1.751.0
+Status 4/12/2018: Liberado apenas para fazer o download
+
+>[!NOTE]
+>Este é um hotfix para o Azure AD Connect
+
+### <a name="azure-ad-connect-sync"></a>Sincronização do Azure AD Connect
+#### <a name="fixed-issues"></a>Problemas corrigidos
+Corrigido um problema em que a descoberta de instância automática do Azure para os locatários da China estavam falhando ocasionalmente.  
+
+### <a name="ad-fs-management"></a>Gerenciamento dos AD FS
+#### <a name="fixed-issues"></a>Problemas corrigidos
+
+Houve um problema na lógica de nova tentativa de configuração que resultaria em um ArgumentException declarando “um item com a mesma chave já foi adicionado”.  Isso faria com que todas as operações de nova tentativa falhassem.
 
 ## <a name="117500"></a>1.1.750.0
 Status 22/3/2018: liberado para download e atualização automática.
@@ -99,8 +113,7 @@ Status: liberado para selecionar clientes
 As alterações irão considerar o seguinte:
 1. Instalações expressas
 2. Instalações personalizadas com conta de criação automática
-
-* Alterado o instalador para que ele não exija privilégio de SA na instalação limpa do Azure AD Connect
+3. Alterado o instalador para que ele não exija privilégio de SA na instalação limpa do Azure AD Connect
 
 * Adicionado um novo utilitário para solucionar problemas de sincronização para um objeto específico. Está disponível na opção 'Solucionar problemas de sincronização de objetos' da Tarefa adicional para solucionar problemas do assistente do Azure AD Connect. Atualmente, o utilitário verifica o seguinte:
 

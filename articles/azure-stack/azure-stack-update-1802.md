@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 04/19/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Atualização de pilha 1802 do Azure
 
@@ -56,9 +56,10 @@ Este artigo descreve as melhorias e correções no pacote de atualização de 18
 
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
-Após a instalação do 1802, instale os Hotfixes aplicáveis. Para mais informações, consulte os seguintes artigos da base de dados de Conhecimento, bem como nosso [política manutenção](azure-stack-servicing-policy.md).  
-- [KB 4103348 - serviço de API do controlador de rede falha quando você tentar instalar uma atualização da pilha do Azure](https://support.microsoft.com/help/4103348)
+Após a instalação do 1802, instale os Hotfixes aplicáveis. Para mais informações, consulte os seguintes artigos da base de dados de Conhecimento, bem como nosso [política manutenção](azure-stack-servicing-policy.md). 
+- Hotfix de pilha do Azure **1.0.180302.4**. [KB 4131152 - conjuntos de escala de máquinas virtuais existentes pode se tornar inutilizável]( https://support.microsoft.com/help/4131152) 
 
+  Essa correção também resolve os problemas detalhados na [KB 4103348 - falha do serviço de API do controlador de rede ao tentar instalar uma atualização do Azure pilha](https://support.microsoft.com/help/4103348).
 
 
 ### <a name="new-features-and-fixes"></a>Novos recursos e correções

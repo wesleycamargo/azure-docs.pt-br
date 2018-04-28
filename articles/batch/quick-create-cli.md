@@ -1,5 +1,5 @@
 ---
-title: "Início rápido do Azure - Executar trabalho do Lote - CLI"
+title: Início rápido do Azure - Executar trabalho do Lote - CLI
 description: Aprenda rapidamente a executar um trabalho do Lote com a CLI do Azure.
 services: batch
 author: dlepow
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8d0e827dd3658d711de3830453c92af581786ad0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: de0ff088b3a61c48ddcbdff01f105884870886e1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido: Executar o primeiro trabalho do Lote com a CLI do Azure
 
@@ -30,7 +30,7 @@ Se você optar por instalar e usar a CLI localmente, este guia de início rápid
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus2*.
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -40,7 +40,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Você pode vincular uma conta de armazenamento do Azure de uso geral com sua conta do Lote. Embora não seja necessário para este guia de início rápido, a conta de armazenamento é útil para implantar aplicativos e armazenar dados de entrada e saída para a maioria das cargas de trabalho da vida real. Crie uma conta de armazenamento em seu grupo de recursos com o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Você pode vincular uma conta de Armazenamento do Azure com sua conta do Lote. Embora não seja necessário para este guia de início rápido, a conta de armazenamento é útil para implantar aplicativos e armazenar dados de entrada e saída para a maioria das cargas de trabalho da vida real. Crie uma conta de armazenamento em seu grupo de recursos com o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \

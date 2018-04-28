@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: df97d2020309fa9af7f67170729ce9c2d723572d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9c4cb42e6bf9f60c883242fad6963f72b772063
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo do Azure no Linux
 
@@ -32,24 +32,15 @@ O Serviço de Aplicativo no Linux dá suporte a inúmeras imagens internas a fim
 
 | Linguagem | Versões com suporte |
 |---|---|
-| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9–6.11, 8.0, 8.1 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 9.4 |
 | Java * | 8.0 |
-| PHP | 5.6, 7.0 |
+| PHP | 5.6, 7.0, 7.2 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
+| Go | 1.0 |
+| Apache Tomcat | 8.5, 9.0 |
 
-* Visualizar suporte do recurso
-
-### <a name="preview-supported-java-runtimes"></a>Visualização: tempos de execução do Java com suporte
-
-Os tempos de execução do Java disponíveis no Serviço de Aplicativo no Linux são os seguintes:
-
-| Tempo de execução | Versão |
-|---|---|
-| Apache Tomcat | 8.5 |
-| Apache Tomcat | 9.0 |
-
-Consulte [Criar um aplicativo Web Java no Serviço de Aplicativo no Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java) para obter mais detalhes.
+Consulte [Criar um aplicativo Web Java no Serviço de Aplicativo no Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java) para obter mais detalhes.
 
 ## <a name="deployments"></a>Implantações
 
@@ -84,10 +75,7 @@ O portal do Azure mostra somente os recursos que funcionam atualmente para o Apl
 
 Alguns recursos, como a integração de rede virtual, a autenticação do Azure Active Directory/de terceiros ou as extensões de site do Kudu, ainda não estão disponíveis. Quando esses recursos estiverem disponíveis, atualizaremos nossa documentação e nosso blog sobre as alterações.
 
-Só há suporte para o Serviço de Aplicativo no Linux nos planos de serviço de aplicativo [Básico e Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) e ele não tem um nível [Gratuito nem Compartilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). A seguir, veja também restrições importantes para o Serviço de Aplicativo no Linux:
-
-* Não é possível criar o Aplicativo Web para Contêineres em um plano do Serviço de Aplicativo que já esteja hospedando Aplicativos Web não Linux.
-* Ao criar o Aplicativo Web para Contêineres em um grupo de recursos contendo Aplicativos Web não Linux, é necessário criar um plano do Serviço de Aplicativo em um grupo de recursos diferente do plano do Serviço de Aplicativo existente.
+Só há suporte para o Serviço de Aplicativo no Linux nos planos de serviço de aplicativo [Básico e Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) e ele não tem um nível [Gratuito nem Compartilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). Não é possível criar o Aplicativo Web para Contêineres em um plano do Serviço de Aplicativo que já esteja hospedando Aplicativos Web não Linux.
 
 ## <a name="troubleshooting"></a>solução de problemas
 

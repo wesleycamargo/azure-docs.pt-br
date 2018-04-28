@@ -1,12 +1,12 @@
 ---
-title: "Introdução às Coleções de Espaços de Trabalho do Microsoft Power BI"
-description: "As Coleções de Espaços de Trabalho do Power BI são um serviço do Azure que permite que os desenvolvedores de aplicativos adicionem relatórios interativos do Power BI a seus próprios aplicativos."
+title: Introdução às Coleções de Espaços de Trabalho do Microsoft Power BI
+description: As Coleções de Espaços de Trabalho do Power BI são um serviço do Azure que permite que os desenvolvedores de aplicativos adicionem relatórios interativos do Power BI a seus próprios aplicativos.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 4ee113ed25142507f381d8c9d49b25ee6553c525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: ce8638bab55b18ec4f15ed9fc11f3256659bfbd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introdução às Coleções de Espaços de Trabalho do Microsoft Power BI
 
@@ -106,7 +106,7 @@ Depois de salvar seu trabalho no **Power BI Desktop**, um arquivo PBIX será cri
 
 ## <a name="create-power-bi-datasets-and-reports-using-apis"></a>Criar relatórios e conjuntos de dados do Power BI usando APIs
 
-### <a name="datasets"></a>CONJUNTOS DE DADOS
+### <a name="datasets"></a>Conjunto de dados
 
 Você pode criar conjuntos de dados nas Coleções de Espaços de Trabalho do Power BI usando a API REST. Em seguida, você pode enviar dados por push para seu conjunto de dados. Isso permite que você trabalhe com dados sem a necessidade do Power BI Desktop. Para saber mais, veja [Postar conjuntos de dados](https://msdn.microsoft.com/library/azure/mt778875.aspx).
 
@@ -114,7 +114,7 @@ Você pode criar conjuntos de dados nas Coleções de Espaços de Trabalho do Po
 
 Você pode criar um relatório de um conjunto de dados diretamente em seu aplicativo usando a API de JavaScript. Para saber mais, confira [Criar um novo relatório de um conjunto de dados nas Coleções de Espaços de Trabalho do Power BI](create-report-from-dataset.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Introdução a exemplos](get-started-sample.md)  
 [Autenticando e autorizando em Coleções de Espaços de Trabalho do Power BI](app-token-flow.md)  

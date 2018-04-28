@@ -15,16 +15,16 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 34e7693ea40df2bf12fd6e9be2ef627f30748bcd
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consultar e enviar comandos para o serviço de gerenciador de reparo.
 
 ## <a name="commands"></a>Comandos
-|Get-Help|DESCRIÇÃO|
+|Comando|DESCRIÇÃO|
 | --- | --- |
 |    Aprovar-força| Força a aprovação de determinada tarefa de reparo.|
 |    excluir       | Exclui uma tarefa de reparo concluída.|
@@ -47,7 +47,7 @@ Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser us
 |    --debug             | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 |    --help -h           | Mostrar esta mensagem de ajuda e sair.|
 |    --output -o         | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.
-|    --query             | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+|    --query             | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 |    --verbose           | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 
@@ -69,7 +69,7 @@ Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser us
 |    --debug          | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 |    --help -h        | Mostrar esta mensagem de ajuda e sair.|
 |    --output -o      | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão| json.|
-|    --query          | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+|    --query          | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 |    --verbose        | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/19/2018
 ms.author: tomsh
-ms.openlocfilehash: dfc0128247ad86e9fa6932f8b05c91ae7da0d950
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 29a479ffee3488768f1882c0938b0ecfdd55218b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-white-papers"></a>White papers de segurança do Azure
 | | |
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/05/2018
 |[Segurança de rede do Azure](azure-network-security.md)|Apresenta uma ampla variedade de controles de rede que você pode configurar para aumentar a segurança das soluções que você implanta no Azure. O foco está nos controles de segurança de rede voltados ao cliente.|
 |[Segurança Operacional do Azure](azure-operational-security.md)|Fornece uma visão abrangente das tecnologias de segurança operacional voltadas ao cliente e os serviços disponíveis com o Azure.|
 |[Funcionalidades técnicas de segurança do Azure](azure-security-technical-capabilities.md)|Concentra-se nos recursos de segurança e a funcionalidades com suporte ao Armazenamento do Azure, Bancos de dados SQL do Azure, modelo de máquina virtual do Azure e as ferramentas e infraestrutura que gerenciam tudo.|
-|[Guia de segurança do Armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Apresenta uma visão geral de cada um dos recursos de segurança que podem ser usados com o Armazenamento do Microsoft Azure. Aborda a segurança do plano de gerenciamento, segurança do plano de dados, criptografia em repouso, criptografia em trânsito e análise de armazenamento.|
+|[Guia de segurança do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Apresenta uma visão geral de cada um dos recursos de segurança que podem ser usados com o Armazenamento do Microsoft Azure. Aborda a segurança do plano de gerenciamento, segurança do plano de dados, criptografia em repouso, criptografia em trânsito e análise de armazenamento.|
 |[Classificação de dados para preparação para a nuvem](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) |Este documento para download apresenta os fundamentos da classificação de dados e seu valor no contexto da computação em nuvem. As organizações avaliando a computação em nuvem para uso futuro ou organizações usando atualmente serviços de nuvem e buscando maneiras de otimizar o gerenciamento de dados se beneficiarão mais com este documento.|
 |[Governança no Azure](governance-in-azure.md)|Explica os recursos de segurança e governança integrados ao Azure. Os principais problemas de governança discutidos são: políticas, processos e implementação de procedimentos para as metas da sua organização; segurança e conformidade contínua com os padrões da organização; alertas e monitoramento.
 |[Isolamento na nuvem pública do Azure](azure-isolation.md)|Descreve como o Azure fornece isolamento contra usuários maliciosos e não maliciosos. Serve de guia para desenvolver soluções de nuvem, oferecendo várias opções de isolamento para arquitetos. O principal foco se concentra nos controles de segurança voltados para o cliente e não tenta solucionar questões de SLAs, modelos de preço e considerações de prática de DevOps.|

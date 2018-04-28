@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Criptografia de dados no Azure Data Lake Store
 
@@ -138,3 +138,6 @@ Observe que, se você usar as opções padrão para criptografia, seus dados sem
     ![Captura de tela da janela do Data Lake Store com a mensagem e Alterar realçados](./media/data-lake-store-encryption/rotatekey.png)
 
 Esta operação deve levar menos de dois minutos e não há nenhum tempo de inatividade esperado devido à alteração de chaves. Após a operação ser concluída, a nova versão da chave estará em uso.
+
+> [!IMPORTANT]
+> Após a conclusão da operação de rotação de chaves, a versão antiga da chave não é mais ativamente é usada para criptografar os dados.  No entanto, em casos raros de falha inesperada, em que até mesmo as cópias redundantes de seus dados são afetadas, os dados poderão ser restaurados de um backup que ainda está usando a chave antiga. Para garantir a acessibilidade de seus dados nessas circunstâncias raras, mantenha uma cópia da versão anterior da sua chave de criptografia. Consulte [Orientação de recuperação de desastres para dados no Data Lake Store](data-lake-store-disaster-recovery-guidance.md) para conferir as práticas recomendadas de planejamento de recuperação de desastres. 

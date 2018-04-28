@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
 Este artigo descreve duas maneiras de controlar um nome de domínio DNS em um diretório não gerenciado no Azure AD (Azure Active Directory). Quando um usuário de autoatendimento se inscreve em um serviço de nuvem que usa o Azure AD, eles são adicionados a um diretório do Azure AD não gerenciado com base em seu domínio de email. Para obter mais informações sobre o autoatendimento ou inscrição “viral” em um serviço, consulte [O que é a inscrição de autoatendimento do Azure Active Directory?]()
@@ -83,14 +83,12 @@ Quando você verificar a propriedade do nome de domínio, o Azure AD remove o no
 - Usuários
 - Assinaturas
 - Atribuições de licença
- 
-Há suporte para a opção [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para controle de administrador externo do nome de domínio apenas em dois serviços, o Power BI e o Azure RMS.
 
 ### <a name="support-for-external-admin-takeover"></a>Suporte para controle de administrador externo
 O controle de administrador externo tem suporte nos seguintes serviços online:
 
 - Power BI
-- Azure RMS (Rights Management Service)
+- Azure Rights Management
 - Exchange Online
 
 Os planos de serviço com suporte incluem:
@@ -99,12 +97,19 @@ Os planos de serviço com suporte incluem:
 - Power BI Pro
 - PowerApps Gratuito
 - PowerFlow Gratuito
-- Azure RMS (Rights Management Service) Básico
-- Azure RMS (Rights Management Service) Enterprise
+- RMS para pessoas
 - Microsoft Stream
 - Avaliação gratuita do Dynamics 365
 
-Não há suporte para controle de administrador externo para qualquer serviço que tenha planos de serviço que incluem o SharePoint, o OneDrive ou o Skype For Business como, por exemplo, por meio de uma assinatura gratuita do Office ou do SKU Básico do Office.
+Não há suporte para controle de administrador externo para qualquer serviço que tenha planos de serviço que incluem o SharePoint, o OneDrive ou o Skype For Business como, por exemplo, por meio de uma assinatura gratuita do Office ou do SKU Básico do Office. Opcionalmente, você pode usar a opção [ **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio do locatário não gerenciado e verificá-lo no locatário desejado. Essa opção ForceTakeover não moverá os usuários ou manterá o acesso à assinatura. Em vez disso, essa opção só move o nome de domínio. 
+
+#### <a name="more-information-about-rms-for-individuals"></a>Mais informações sobre o RMS para pessoas
+
+Para [RMS para pessoas](/information-protection/understand-explore/rms-for-individuals), quando o locatário não gerenciado está na mesma região que o locatário que você possui, a [chave de locatário da Proteção de Informações do Azure](/information-protection/plan-design/plan-implement-tenant-key) e os [modelos de proteção padrão](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) criados automaticamente são movidos adicionalmente com o nome de domínio. 
+
+A chave e os modelos não são movidos quando o locatário não gerenciado está em uma região diferente. Por exemplo, o locatário não gerenciado está na Europa, e o locatário que você possui está na América do Norte. 
+
+Embora o RMS para pessoas seja projetado para oferecer suporte à autenticação do Microsoft Azure Active Directory para abrir o conteúdo protegido, ele não impede que os usuários também protejam o conteúdo. Se os usuários tiverem protegido o conteúdo com a assinatura do RMS para pessoas, e a chave e os modelos não tiverem sido movidos, esse conteúdo não ficará acessível após o controle de domínio.    
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlets do Azure AD PowerShell para a opção ForceTakeover
 Você pode ver esses cmdlets usados no [exemplo do PowerShell](#powershell-example).
@@ -118,7 +123,7 @@ cmdlet | Uso
 `get-msoldomain` | O nome de domínio agora está incluído na lista de nomes de domínio associados com seu locatário gerenciado, mas está listado como **Não verificado**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fornece informações que serão colocadas no novo registro TXT do DNS para o domínio (MS=xxxxx). A verificação pode não acontecer imediatamente porque demora algum tempo para o registro TXT se propagar, portanto, aguarde alguns minutos antes de considerar a opção **-ForceTakeover**. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se seu nome de domínio ainda não foi verificado, você pode prosseguir com a opção **-ForceTakeover**. Ele verifica se o registro TXT foi criado e inicia o processo de tomada de controle.<li>A opção **-ForceTakeover** deve ser adicionada ao cmdlet apenas ao forçar um controle de administrador externo, como quando o locatário não gerenciado tem serviços do Office 365 que bloqueiam o controle.
-`get-msoldomain` | A lista de domínio agora mostra o nome de domínio como **Verificado**.
+`get-msoldomain` | A lista de domínios agora mostra o nome de domínio como **Verificado**.
 
 ### <a name="powershell-example"></a>Exemplo de PowerShell
 

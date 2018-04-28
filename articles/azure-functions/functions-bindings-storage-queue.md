@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: tdykstra
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 52cd0e9b23d7a752b121d3087f040a3bc63def41
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d140822b47325e8749d3b2788b47cf820f720a39
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associações de armazenamento de filas do Azure Functions
 
@@ -483,7 +483,7 @@ Em funções em JavaScript, use `context.bindings.<name>` para acessar a mensage
 
 | Associação |  Referência |
 |---|---|
-| Fila | [Fila de códigos de erro](https://docs.microsoft.com/en-us/rest/api/storageservices/queue-service-error-codes) |
+| Fila | [Fila de códigos de erro](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Blob, tabela, fila | [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, tabela, fila |  [Solução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

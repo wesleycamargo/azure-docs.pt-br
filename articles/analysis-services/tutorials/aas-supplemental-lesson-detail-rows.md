@@ -1,25 +1,18 @@
 ---
-title: "Lição suplementar de tutorial do Azure Analysis Services: linhas de detalhes | Microsoft Docs"
-description: "Descreve como criar uma expressão de linhas de detalhes no tutorial do Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lição suplementar de tutorial do Azure Analysis Services: linhas de detalhes | Microsoft Docs'
+description: Descreve como criar uma expressão de linhas de detalhes no tutorial do Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 02e9edd966e64c0bfa32e2b80f4c26f797e58582
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lição suplementar – Linhas de Detalhes
 
@@ -27,23 +20,23 @@ Nesta lição suplementar, você pode usar o Editor do DAX para definir uma expr
   
 Tempo estimado para conclusão desta lição: **10 minutos**  
   
-## <a name="prerequisites"></a>Pré-requisitos  
+## <a name="prerequisites"></a>pré-requisitos  
 Esta lição suplementar faz parte de um tutorial de modelagem tabular. Antes de executar as tarefas desta lição suplementar, você deve ter concluído todas as lições anteriores ou ter um projeto de modelo de amostra de Vendas pela Internet da Adventure Works concluído.  
   
 ## <a name="whats-the-issue"></a>Qual é o problema?
-Examinaremos os detalhes de nossa medida InternetTotalSales antes de adicionarmos uma expressão de linhas de detalhes.
+Veremos os detalhes da medida InternetTotalSales, antes de adicionar uma Expressão das Linhas de Detalhes.
 
 1.  No SSDT, clique no menu **Modelo** > **Analisar no Excel** para abrir o Excel e criar uma tabela dinâmica em branco.
   
-2.  Em **Campos de Tabela Dinâmica**, adicione a medida **InternetTotalSales** da tabela FactInternetSales a **Valores**, **CalendarYear** da tabela DimDate a **Colunas** e **EnglishCountryRegionName** a **Linhas**. Nossa Tabela Dinâmica agora nos oferece resultados agregados da medida InternetTotalSales por regiões e por ano. 
+2.  Em **Campos de Tabela Dinâmica**, adicione a medida **InternetTotalSales** da tabela FactInternetSales a **Valores**, **CalendarYear** da tabela DimDate a **Colunas** e **EnglishCountryRegionName** a **Linhas**. A tabela Dinâmica agora fornece um resultado agregado da medida InternetTotalSales por regiões e ano. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. Na tabela dinâmica, clique duas vezes em um valor agregado para um ano e um nome de região. Aqui, clicamos duas vezes no valor para Austrália e o ano de 2014. Uma nova planilha abre os dados contidos, mas não os dados úteis.
+3. Na tabela dinâmica, clique duas vezes em um valor agregado para um ano e um nome de região. O valor para a Austrália e o ano de 2014. Uma nova planilha abre os dados contidos, mas não os dados úteis.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-O que gostaríamos de ver aqui é uma tabela contendo colunas e linhas de dados que contribuam para o resultado agregado de nossa medida InternetTotalSales. Para fazer isso, podemos adicionar uma expressão de linhas de detalhes como uma propriedade da medida.
+O objetivo aqui é uma tabela contendo colunas e linhas de dados que contribuem para o resultado agregado da medida InternetTotalSales. Para fazer isso, adicione uma Expressão das Linhas de Detalhes como uma propriedade da medida.
 
 ## <a name="add-a-detail-rows-expression"></a>Adicionar uma expressão de linhas de detalhes
 
@@ -80,6 +73,8 @@ O que gostaríamos de ver aqui é uma tabela contendo colunas e linhas de dados 
 
   
 ## <a name="see-also"></a>Consulte também  
-[Função SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
-[Lição suplementar - segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[Lição suplementar - hierarquias desbalanceadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+
+[Função SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
+[Lição suplementar - Segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Lição suplementar - hierarquias desbalanceadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
+ 

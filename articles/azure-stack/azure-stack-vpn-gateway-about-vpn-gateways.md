@@ -1,11 +1,11 @@
 ---
 title: Sobre o gateway VPN para a pilha do Azure | Microsoft Docs
-description: "Saiba mais sobre e configurar os gateways de VPN, que você pode usar com a pilha do Azure."
+description: Saiba mais sobre e configurar os gateways de VPN, que você pode usar com a pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ba9642d8c51f57623aded44b84d7127334806bc1
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: MT
+ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sobre o gateway VPN para a pilha do Azure
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
@@ -87,13 +87,14 @@ Ao selecionar uma SKU, considere o seguinte:
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Taxa de transferência agregada estimada por SKU
 A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada pela SKU do gateway.
 
-|   | Taxa de transferência de Gateway VPN *(1)* |Túneis IPsec máximos de Gateway de VPN |
+|   | Taxa de transferência de Gateway VPN *(1)* | Túneis IPsec máximo de Gateway VPN *(2)* |
 |-------|-------|-------|
-|**SKUS Basic** ***(2)***    | 100 Mbps  | 10    |
+|**SKUS Basic** ***(3)***    | 100 Mbps  | 10    |
 |**SKU padrão**       | 100 Mbps  | 10    |
-|**SKU de Alto Desempenho** | 200 Mbps    | 30    |
+|**SKU de Alto Desempenho** | 200 Mbps    | 5 |
 ***(1)***  VPN a taxa de transferência não é uma taxa de transferência garantida para conexões entre locais através da Internet. É a medida de taxa de transferência máxima possível.  
-***(2)***  BGP não há suporte para a SKU básico.
+***(2)***  Túneis o número máximo é o total por implantação da pilha do Azure para todas as assinaturas.
+***(3)***  BGP não há suporte para a SKU básico.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [as configurações para gateways VPN](azure-stack-vpn-gateway-settings.md) pilha do Azure.

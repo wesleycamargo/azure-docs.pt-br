@@ -3,27 +3,26 @@ title: Transformar dados usando o Hive na Rede Virtual do Azure | Microsoft Docs
 description: Este tutorial fornece instruções passo a passo para transformar dados usando a Atividade Hive no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
-ms.author: shengc
-ms.openlocfilehash: a5f75990ab29dc09b6c45ddae17a654f9c3dab78
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: douglasl
+ms.openlocfilehash: e9ec338e04c456a9a91d51a7a4741e4760f1b3c9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure usando a Atividade Hive no Azure Data Factory
 Neste tutorial, você pode usar o portal do Azure para criar um pipeline do Data Factory que transforma dados usando a atividade Hive em um cluster HDInsight que está em uma Rede Virtual (VNet) do Azure. Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados. 
+> * Criar um data factory. 
 > * Criar um Integration Runtime auto-hospedado
 > * Criar serviços vinculados do Armazenamento do Azure e do Azure HDInsight
 > * Criar um pipeline com atividade do Hive.
@@ -71,7 +70,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).    
 2. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
@@ -99,7 +98,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
     ![implantando bloco data factory](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
-   ![Página inicial da data factory](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
+   ![Página inicial do data factory](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Clique em **Criar e Monitorar** para iniciar a interface do usuário (IU) do Azure Data Factory em uma guia separada.
 11. Na página **introdução**, acesse a guia **Editar** no painel esquerdo, conforme mostrado na imagem a seguir: 
 
@@ -196,7 +195,7 @@ Este artigo pressupõe que você tenha acesso ao cluster via Internet. Por exemp
 
     `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
-## <a name="create-a-pipeline"></a>Criar uma pipeline 
+## <a name="create-a-pipeline"></a>Criar um pipeline 
 Nesta etapa, você cria um pipeline com uma atividade Hive. A atividade executa o script do Hive para retornar dados de uma tabela de exemplo e salvá-los em um caminho que você definiu.
 
 Observe os seguintes pontos:
@@ -263,7 +262,7 @@ Observe os seguintes pontos:
 Neste tutorial, você realizará os seguintes procedimentos: 
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados. 
+> * Criar um data factory. 
 > * Criar um Integration Runtime auto-hospedado
 > * Criar serviços vinculados do Armazenamento do Azure e do Azure HDInsight
 > * Criar um pipeline com atividade do Hive.

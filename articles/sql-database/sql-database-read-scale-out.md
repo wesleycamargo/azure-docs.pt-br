@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: sashan
-ms.openlocfilehash: 26204d5bd61d193a3d08e26f98faf77ecc367a94
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6e82b851f7dc7e2b8c7fe996bff843c8f10f2978
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura (visualização)
 
@@ -32,7 +32,7 @@ Após a Expansão de leitura ser habilitada para um banco de dados, aplicativos 
 
 ## <a name="data-consistency"></a>Consistência de dados
 
-Um dos benefícios do AlwasyON é que as réplicas estão sempre no estado transacionalmente consistente, mas em diferentes pontos no tempo pode haver algumas pequenas latência entre réplicas diferentes. A Expansão de leitura oferece suporte a consistência em nível de sessão. Isso significa que, se a sessão somente leitura se reconectar após um erro de conexão causado pela indisponibilidade da réplica, ela pode ser redirecionada para uma réplica que não esteja 100% atualizada com a réplica de leitura-gravação. Da mesma forma, se um aplicativo grava dados usando uma sessão de leitura-gravação e imediatamente o lê usando uma sessão somente leitura, é possível que as atualizações mais recentes não fiquem visíveis imediatamente. Isso ocorre porque a refeitura do log de transação para as réplicas é assíncrona.
+Um dos benefícios do Always On é que as réplicas sempre estão no estado transacionalmente consistente, mas em diferentes pontos no tempo pode haver breve latência entre as réplicas diferentes. A Expansão de leitura oferece suporte a consistência em nível de sessão. Isso significa que, se a sessão somente leitura se reconectar após um erro de conexão causado pela indisponibilidade da réplica, ela pode ser redirecionada para uma réplica que não esteja 100% atualizada com a réplica de leitura-gravação. Da mesma forma, se um aplicativo grava dados usando uma sessão de leitura-gravação e imediatamente o lê usando uma sessão somente leitura, é possível que as atualizações mais recentes não fiquem visíveis imediatamente. Isso ocorre porque a refeitura do log de transação para as réplicas é assíncrona.
 
 > [!NOTE]
 > As latências de replicação na região são baixas e essa situação é rara.
