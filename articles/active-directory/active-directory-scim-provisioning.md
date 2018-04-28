@@ -17,10 +17,10 @@ ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Usar o sistema de gerenciamento de identidade de domínio cruzado para provisionar automaticamente usuários e grupos do Azure Active Directory a aplicativos
 
@@ -114,7 +114,7 @@ A maneira mais fácil de implementar um ponto de extremidade SCIM que possa acei
 
 **Para criar um exemplo de ponto de extremidade SCIM:**
 
-1. Baixe o pacote de exemplo de códigos de [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
+1. Baixe o pacote de exemplo de código em [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Descompacte o pacote e coloque-o no seu computador com Windows em um local como C:\AzureAD-BYOA-Provisioning-Samples\.
 3. Nessa pasta, inicie a solução FileProvisioningAgent no Visual Studio.
 4. Selecione **Ferramentas > Gerenciador de Pacotes de Biblioteca > Console do Gerenciador de Pacotes** e execute os seguintes comandos para o projeto FileProvisioningAgent resolver as referências de solução:
@@ -144,7 +144,7 @@ A maneira mais fácil de implementar um ponto de extremidade SCIM que possa acei
   ![][2]
   *Figura 4: Configurar o provisionamento no Portal do Azure*
     
-6. No campo **URL do locatário**, insira a URL exposta à Internet e a porta do seu ponto de extremidade SCIM. Isso seria algo como http://testmachine.contoso.com:9000 or http://<ip-address>:9000/, em que <ip-address> é o endereço IP exposto na Internet.  
+6. No campo **URL do locatário**, insira a URL exposta à Internet e a porta do seu ponto de extremidade SCIM. Isso seria algo como http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, onde <ip-address> é o endereço IP da Internet exposto.  
 7. Se o ponto de extremidade SCIM exigir um token de portador OAuth de um emissor diferente do Azure AD, copie o token de portador OAuth necessário para o campo opcional **Token Secreto**. Se esse campo for deixado em branco, o Azure AD incluirá um token de portador OAuth emitido do Azure AD com cada solicitação. Aplicativos que usam o Azure AD como provedor de identidade podem validar esse token emitido pelo Azure AD.
 8. Clique no botão **Testar conectividade** o Azure Active Directory tente se conectar ao ponto de extremidade do SCIM. Se as tentativas falharem, as informações de erro serão exibidas.  
 9. Se as tentativas de conexão ao aplicativo forem bem-sucedidas, clique em **Salvar** para salvar as credenciais de administrador.
@@ -168,7 +168,7 @@ Para desenvolver seu próprio serviço Web em conformidade com a especificação
 2. [Manipuladores de ExpressRoute](http://expressjs.com/guide/routing.html) estão disponíveis para análise de objetos de solicitação node.js que representam chamadas (como definido pela especificação do SCIM) feitas para um serviço Web node.js.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Criando um ponto de extremidade SCIM personalizado
-Usando as bibliotecas CLI, os desenvolvedores podem hospedar seus serviços em qualquer assembly executável da Common Language Infrastructure ou nos Serviços de Informações da Internet. Veja um exemplo de código para hospedar um serviço em um assembly executável no endereço http://localhost:9000: 
+Usando as bibliotecas CLI, os desenvolvedores podem hospedar seus serviços em qualquer assembly executável da Common Language Infrastructure ou nos Serviços de Informações da Internet. Veja um código de exemplo para hospedagem de um serviço em um assembly executável, no endereço http://localhost:9000: 
 
     private static void Main(string[] arguments)
     {
@@ -288,7 +288,7 @@ Para hospedar o serviço nos Serviços de Informações da Internet, um desenvol
     }
 
 ### <a name="handling-endpoint-authentication"></a>Manipulando a autenticação do ponto de extremidade
-As solicitações do Active Directory do Azure incluem um token de portador do OAuth 2.0.   Qualquer serviço que recebe a solicitação deve autenticar o emissor como sendo o Azure Active Directory em nome do locatário esperado do Azure Active Directory, para acesso ao serviço Web Graph do Azure Active Directory.  No token, o emissor é identificado por uma declaração de iss, como "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço base do valor da declaração, https://sts.windows.net, identifica o Azure Active Directory como o emissor, enquanto o segmento do endereço relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, é um identificador exclusivo do locatário do Azure Active Directory em nome do qual o token foi emitido.  Se o token tiver sido emitido para acessar um serviço Web Graph do Azure Active Directory, o identificador desse serviço, 00000002-0000-0000-c000-000000000000, deverá estar no valor da declaração aud do token.  
+As solicitações do Active Directory do Azure incluem um token de portador do OAuth 2.0.   Qualquer serviço que recebe a solicitação deve autenticar o emissor como sendo o Azure Active Directory em nome do locatário esperado do Azure Active Directory, para acesso ao serviço Web Graph do Azure Active Directory.  No token, o emissor é identificado por uma declaração iss, como, "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço básico do valor da declaração, https://sts.windows.net, identifica o Azure Active Directory como o emissor, enquanto o segmento de endereço relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, é um identificador exclusivo do locatário do Azure Active Directory em nome do qual o token foi emitido.  Se o token tiver sido emitido para acessar um serviço Web Graph do Azure Active Directory, o identificador desse serviço, 00000002-0000-0000-c000-000000000000, deverá estar no valor da declaração aud do token.  
 
 Os desenvolvedores que usam as bibliotecas CLA fornecidas pela Microsoft para criação de um serviço SCIM podem autenticar solicitações do Azure Active Directory usando o pacote Microsoft.Owin.Security.ActiveDirectory seguindo estas etapas: 
 
@@ -347,9 +347,9 @@ Os desenvolvedores que usam as bibliotecas CLA fornecidas pela Microsoft para cr
 ## <a name="user-and-group-schema"></a>Esquema de usuários e grupos
 O Azure Active Directory pode provisionar dois tipos de recurso aos serviços Web SCIM.  Esses tipos de recurso são usuários e grupos.  
 
-Os recursos de usuário são identificados pelo identificador do esquema, urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, que está incluído nesta especificação de protocolo: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  O mapeamento padrão dos atributos de usuários no Active Directory do Azure para os atributos dos recursos urn:ietf:params:scim:schemas:extension:enterprise:2.0:User é fornecido na tabela 1, abaixo.  
+Os recursos do usuário são identificados pelo identificador de esquema, urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, que está incluído nesta especificação de protocolo: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  O mapeamento padrão dos atributos de usuários no Active Directory do Azure para os atributos dos recursos urn:ietf:params:scim:schemas:extension:enterprise:2.0:User é fornecido na tabela 1, abaixo.  
 
-Os recursos de grupo são identificados pelo identificador do esquema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  A tabela 2 abaixo mostra o mapeamento padrão de atributos de grupos no Azure Active Directory para os atributos de recursos de http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+Os recursos do grupo são identificados pelo identificador de esquema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  A Tabela 2, abaixo, mostra o mapeamento padrão dos atributos dos grupos no Azure Active Directory para os atributos dos recursos http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabela 1: Mapeamento padrão de atributo do usuário
 | Usuário do Active Directory do Azure | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |

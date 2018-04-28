@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 92d2cb0cb21cbbb0e72f9704ac92cc36670385fc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 30bb21ebd6b19f4cc52e364039b9be8a9a7695e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>Coletar dados de computadores Linux hospedados no seu ambiente
 O [Azure Log Analytics](log-analytics-overview.md) pode coletar dados diretamente dos computadores Linux físicos ou virtuais e de outros recursos do ambiente em um único repositório para correlação e análise detalhadas.  Este guia de início rápido mostra como configurar e coletar dados do computador Linux com algumas etapas simples.  Para VMs Linux do Azure, consulte o tópico a seguir [Coletar dados sobre as Máquinas Virtuais do Azure](log-analytics-quick-collect-azurevm.md).  
@@ -102,7 +102,7 @@ O Log Analytics pode coletar eventos do Syslog do Linux e de contadores de desem
 2. Adicione um novo log de eventos digitando o nome do log.  Digite **Syslog** e, em seguida, clique no sinal de adição **+**.  
 3. Na tabela, desmarque as severidades **Informações**, **Aviso** e **Depuração**. 
 4. Clique em **Salvar** na parte superior da página para salvar a configuração.
-5. Selecione **Dados de Desempenho do Linux** para habilitar a coleta de contadores de desempenho em um computador Windows. 
+5. Selecione **Dados de Desempenho do Linux** para habilitar a coleta de contadores de desempenho em um computador Linux. 
 6. Quando você configura os contadores de desempenho do Linux para um novo espaço de trabalho do Log Analytics pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns. Eles são listados com uma caixa de seleção ao lado de cada um.<br><br> ![Contadores de desempenho padrão do Windows selecionados](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)<br> Clique em **Adicionar os contadores de desempenho selecionados**.  Eles são adicionados e predefinidos com um intervalo de amostragem de coleta de dez segundos.  
 7. Clique em **Salvar** na parte superior da página para salvar a configuração.
 

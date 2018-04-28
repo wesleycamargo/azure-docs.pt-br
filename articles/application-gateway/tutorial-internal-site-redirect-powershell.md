@@ -1,6 +1,6 @@
 ---
-title: "Criar um gateway de aplicativo com redirecionamento interno – Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicativo que redireciona o tráfego interno da Web ao pool back-end adequado de servidores usando o Azure Powershell."
+title: Criar um gateway de aplicativo com redirecionamento interno – Azure PowerShell | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo que redireciona o tráfego interno da Web ao pool back-end adequado de servidores usando o Azure Powershell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: davidmu
-ms.openlocfilehash: c319d4f9aa3f607bccdc7237ce1f678b338180d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c0da7920692673ce414d76932fe23280d3b217dd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com redirecionamento interno usando o Azure PowerShell
 
@@ -35,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Para saber qual é a versão, execute ` Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Para saber qual é a versão, execute ` Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -295,11 +295,11 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Digite seu nome de domínio na barra de endereços do navegador. Por exemplo, http://www.contoso.com.
+Digite seu nome de domínio na barra de endereços do navegador. Como http://www.contoso.com.
 
 ![Testar o site contoso no gateway do aplicativo](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-Altere o endereço para o seu outro domínio, por exemplo http://www.contoso.org, e você verá que o tráfego foi redirecionado de volta para o ouvinte de www.contoso.com.
+Altere o endereço para seu outro domínio, por exemplo http://www.contoso.org e você deve observar que o tráfego foi redirecionado de volta ao ouvinte para www.contoso.com.
 
 ## <a name="next-steps"></a>Próximas etapas
 

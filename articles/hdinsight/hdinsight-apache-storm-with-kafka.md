@@ -10,16 +10,14 @@ ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c74e46f37319a9d1eb0ea1587087e24312de451
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: be62705ce0217235b75ec5ad220ad6f32dfd3c10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Usar o Apache Kafka com o Storm no HDInsight
 
@@ -32,7 +30,7 @@ Saiba como usar o Apache Storm para ler e gravar no Apache Kafka. Este exemplo t
 
 ## <a name="get-the-code"></a>Obter o código
 
-O código do exemplo usado neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
+O código para o exemplo usado neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
 
 Para compilar esse projeto, você precisará da seguinte configuração para seu ambiente de desenvolvimento:
 
@@ -131,11 +129,11 @@ Os seguintes parâmetros são definidos em tempo de execução para essas topolo
 
 * `${kafka.zookeeper.hosts}`: os hosts nos quais o Zookeeper é executado no cluster Kafka.
 
-Para obter mais informações sobre as topologias do Flux, consulte [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+Para obter mais informações sobre topologias de Flux, consulte [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Baixar e compilar o projeto
 
-1. No ambiente de desenvolvimento, baixe o projeto de [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), abra uma linha de comando e altere os diretórios para o local em que você baixou o projeto.
+1. No ambiente de desenvolvimento, baixe o projeto a partir de [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), abra uma linha de comando e altere os diretórios para o local que você baixou o projeto.
 
 2. No diretório **hdinsight-storm-java-kafka**, use o seguinte comando para compilar o projeto e criar um pacote para implantação:
 

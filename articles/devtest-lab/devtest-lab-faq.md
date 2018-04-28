@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: d8b9e48db9e75fb41ecad1958b3aa930a6bce3aa
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7a65ba691b9cf8b0ce989f0c54bd0b74edd43b85
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Perguntas frequentes sobre o Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -128,9 +128,9 @@ Sim, você pode anexar vários discos a suas VMs.
 Para usar imagens do sistema operacional cliente Windows (Windows 7 ou posterior) para desenvolvimento ou teste no Azure, realize uma das seguintes ações:
 
 - [Comprar uma assinatura do MSDN](https://www.visualstudio.com/products/how-to-buy-vs).
-- Se você tiver um Contrato Enterprise, crie uma assinatura do Azure com a [oferta de Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
+- Se você tiver um Contrato Enterprise, crie uma assinatura do Azure com a [oferta de Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p).
 
-Para obter mais informações sobre os créditos Azure para cada oferta do MSDN, consulte [Crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+Para obter mais informações sobre os créditos Azure para cada oferta do MSDN, consulte [Crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Como automatizar o processo de carregamento de arquivos VHD para criar imagens personalizadas?
 Para automatizar o upload de arquivos VHD para criar imagens personalizadas, você tem duas opções:

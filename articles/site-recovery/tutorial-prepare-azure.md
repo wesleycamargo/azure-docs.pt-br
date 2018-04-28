@@ -1,18 +1,18 @@
 ---
 title: Criar recursos para usar com o Azure Site Recovery | Microsoft Docs
-description: "Saiba como preparar o Azure para a replicação de máquinas locais usando o Azure Site Recovery."
+description: Saiba como preparar o Azure para a replicação de máquinas locais usando o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2f6ff1d30eef1fe34e55457d9bdd4295804ec16a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 0aec94ce4d53e1d0f5ecfbc7c667f7d4ceea1d2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar recursos do Azure para replicação de máquinas locais
 
@@ -21,8 +21,9 @@ ms.lasthandoff: 02/23/2018
 Este tutorial mostra como preparar componentes do Azure quando você deseja replicar VMs locais (Hyper-V ou VMware) ou servidores físicos Windows/Linux para o Azure. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Verifique se sua conta tem permissões de replicação.
-> * Crie uma conta de armazenamento do Azure.
+> * Verifique se sua conta do Azure tem permissões de replicação.
+> * Crie uma conta de armazenamento do Azure. Os dados replicados são armazenados nela.
+> * Crie um cofre dos Serviços de Recuperação.
 > * Configure uma rede do Azure. Quando as VMs do Azure são criadas após o failover, elas são ingressadas nessa rede do Azure.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
@@ -39,7 +40,7 @@ Se acabou de criar sua conta gratuita do Azure, você é o administrador da assi
 - Criar uma VM na rede virtual selecionada.
 - Gravar na conta de armazenamento selecionada.
 
-A função interna Colaborador da Máquina Virtual tem essas permissões. Você também precisa de permissão para gerenciar as operações do Azure Site Recovery. A função Colaborador do Site Recovery tem todas as permissões necessárias para gerenciar as operações do Site Recovery em um cofre de Serviços de Recuperação.
+Para concluir essas tarefas, sua conta deve receber a função interna de Colaborador de Máquina Virtual. Além disso, para gerenciar as operações do Site Recovery em um cofre, sua conta deve receber a função interna de Colaborador do Site Recovery.
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 

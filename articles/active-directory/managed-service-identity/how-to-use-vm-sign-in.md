@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4df404bbf56efbc3bb68f006f8aa0c7cdf0e86ac
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ec8c9de6ecd81900c4104abf58ecbe032e43fad9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Como usar uma MSI (Identidade de Serviço Gerenciado) da VM do Azure para entrar 
 
@@ -51,7 +51,7 @@ O script a seguir demonstra como:
 2. Chamar o Azure Resource Manager e obter a ID da entidade de serviço da VM. A CLI cuida do gerenciamento de uso/aquisição de token para você automaticamente. Substitua o nome da máquina virtual para `<VM-NAME>`.  
 
    ```azurecli
-   az login --msi
+   az login --identity
    
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The MSI service principal ID is $spID
@@ -61,20 +61,11 @@ O script a seguir demonstra como:
 
 O script a seguir demonstra como:
 
-1. Adquirir um token de acesso da MSI para a VM.  
-2. Usar o token de acesso para entrar no Azure AD com a entidade de serviço MSI correspondente.   
-3. Chamar um cmdlet do Azure Resource Manager para obter informações sobre a VM. O PowerShell cuida do gerenciamento de uso de token para você automaticamente.  
+1. Entrar no Azure AD com a entidade de serviço MSI da VM  
+2. Chamar um cmdlet do Azure Resource Manager para obter informações sobre a VM. O PowerShell cuida do gerenciamento de uso de token para você automaticamente.  
 
    ```azurepowershell
-   # Get an access token for the MSI
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
-                                 -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-   $content =$response.Content | ConvertFrom-Json
-   $access_token = $content.access_token
-   echo "The MSI access token is $access_token"
-
-   # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-   Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+   Add-AzureRmAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
    $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
@@ -84,7 +75,7 @@ O script a seguir demonstra como:
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
 
-Consulte [Azure services that support Azure AD authentication](overview.md#azure-services-that-support-azure-ad-authentication) (Serviços do Azure que dão suporte à autenticação do Azure AD) para obter uma lista dos recursos compatíveis com o Azure AD e que foram testados com a MSI e as respectivas IDs do recurso.
+Consulte [Azure services that support Azure AD authentication](services-support-msi.md#azure-services-that-support-azure-ad-authentication) (Serviços do Azure que dão suporte à autenticação do Azure AD) para obter uma lista dos recursos compatíveis com o Azure AD e que foram testados com a MSI e as respectivas IDs do recurso.
 
 ## <a name="error-handling-guidance"></a>Diretrizes sobre tratamento de erro 
 

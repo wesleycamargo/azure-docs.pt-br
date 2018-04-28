@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cb1d529f8e3eaabb4d49e8bbea03cab8e838cfa2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Este artigo, **Etapa 2**, mostra a preparação dos VHDs (discos rígidos virtuais) que você implantará no Azure Marketplace. Seus VHDs são a base de sua SKU. O processo é diferente dependendo se você está fornecendo uma SKU baseada em Linux ou em Windows. Este artigo aborda ambos os cenários. Esse processo pode ser executado em paralelo com [Criação e registro de conta][link-acct-creation].
@@ -446,7 +446,7 @@ A seguir são mostradas as etapas para gerar a URL SAS usando a CLI do Azure
 
     b. **`<Storage Account Key>`**: informe a chave de conta de armazenamento
 
-    c. **`<Permission Start Date>`**: Para garantir a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 26 de outubro de 2016, o valor deverá ser 25/10/2016. Se estiver usando CLI do Azure 2.0 (comando az), forneça a data e a hora nas datas de início e término, por exemplo: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: Para garantir a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 25 de outubro de 2016, o valor deverá ser 25/10/2016. Se estiver usando CLI do Azure 2.0 (comando az), forneça a data e a hora nas datas de início e término, por exemplo: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: selecione uma data que seja pelo menos três semanas após a data em **Hora de Início**. O valor deve ser **02/11/2016**. Se estiver usando CLI do Azure 2.0 (comando az), forneça a data e a hora nas datas de início e término, por exemplo: 11-02-2016T00:00:00Z.
 

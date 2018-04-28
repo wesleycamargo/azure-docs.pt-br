@@ -1,24 +1,24 @@
 ---
-title: "Perguntas frequentes sobre a migração da plataforma da Central de Segurança | Microsoft Docs"
-description: "Encontre respostas para perguntas frequentes sobre a migração da plataforma da Central de Segurança do Azure."
+title: Perguntas frequentes sobre a migração da plataforma da Central de Segurança | Microsoft Docs
+description: Encontre respostas para perguntas frequentes sobre a migração da plataforma da Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 04/13/2018
 ms.author: terrylan
-ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 6a88fbadd8fbf05a4942e42b535770f6f068af28
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>Perguntas frequentes sobre a migração da plataforma da Central de Segurança
 No início de junho de 2017, a Central de Segurança do Azure começou a usar o Microsoft Monitoring Agent para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md). Encontre respostas para perguntas frequentes sobre a migração da plataforma.
@@ -34,7 +34,7 @@ A Central de Segurança usa o Microsoft Monitoring Agent para coletar dados de s
 Os dados coletados pelo agente são armazenados em um espaço de trabalho do Log Analytics conectado à VM ou um novo espaço de trabalho criado pela Central de Segurança. Quando a Central de Segurança cria um novo espaço de trabalho, a localização geográfica da VM é levada em consideração.
 
 > [!NOTE]
-> O Microsoft Monitoring Agent é o mesmo agente usado pelo OMS (Operations Management Suite), o serviço Log Analytics e pelo SCOM (System Center Operations Manager).
+> O Microsoft Monitoring Agent é o mesmo agente usado pelo serviço Log Analytics e pelo SCOM (System Center Operations Manager).
 >
 >
 
@@ -64,8 +64,8 @@ O local do espaço de trabalho tem base no local da VM. Para saber mais, consult
 >
 >
 
-### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>Sou cobrado pelo Log Analytics ou pelo OMS nos espaços de trabalho criados pela Central de Segurança?
-Não. Os espaços de trabalho criados pela Central de Segurança, embora sejam configurados para cobrança de OMS por nó, não incorrerão em encargos do OMS. A cobrança da Central de Segurança sempre tem base em sua política de segurança da Central de Segurança e nas soluções instaladas em um espaço de trabalho:
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Sou cobrado pelo Log Analytics nos espaços de trabalho criados pela Central de Segurança?
+Nº Os espaços de trabalho criados pela Central de Segurança, embora sejam configurados para cobrança de Log Analytics por nó, não incorrerão em encargos do Log Analytics. A cobrança da Central de Segurança sempre tem base em sua política de segurança da Central de Segurança e nas soluções instaladas em um espaço de trabalho:
 
 - **Camada gratuita**: a Central de Segurança instala a solução 'SecurityCenterFree' no espaço de trabalho padrão. Você não será cobrado pela Camada gratuita.
 - **Camada Standard**: a Central de Segurança habilita a solução 'Security' no espaço de trabalho padrão.
@@ -73,7 +73,7 @@ Não. Os espaços de trabalho criados pela Central de Segurança, embora sejam c
 Para saber mais sobre preços, confira [preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/). A página de preços aborda as mudanças no armazenamento de dados de segurança e cobrança rateada começando em junho de 2017.
 
 > [!NOTE]
-> O tipo de preço do OMS para espaços de trabalho criados pela Central de Segurança não afeta a cobrança da Central de Segurança.
+> O tipo de preço do Log Analytics para espaços de trabalho criados pela Central de Segurança não afeta a cobrança da Central de Segurança.
 >
 >
 
@@ -122,8 +122,6 @@ Para selecionar um espaço de trabalho existente do Log Analytics:
    >
 
    - Selecione **Cancelar** para cancelar a operação.
-
-      ![Reconfigurar VMs monitoradas][6]
 
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>E se o Microsoft Monitoring Agent já estivesse instalado como uma extensão na VM?
 A Central de Segurança não substitui as conexões existentes nos espaços de trabalho do usuário. A Central de Segurança armazena dados de segurança da VM no espaço de trabalho que já está conectado. A Central de Segurança atualiza a versão da extensão para incluir a ID de recurso do Azure da VM para dar suporte ao uso da Central de Segurança.
@@ -204,12 +202,12 @@ Para remover manualmente o agente:
 >
 >
 
-## <a name="existing-oms-customers"></a>Clientes existentes do OMS
+## <a name="existing-log-analytics-customers"></a>Clientes de Log Analytics existentes
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>A Central de Segurança substitui todas as conexões existentes entre as VMs e os espaços de trabalho?
 Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do Azure, a Central de Segurança não substituirá a conexão do espaço de trabalho existente. Em vez disso, a Central de Segurança usará o espaço de trabalho existente.
 
-Uma solução da Central de Segurança será instalado no espaço de trabalho, se ainda não estiver presente, e a solução será aplicada apenas às VMs relevantes. Quando você adiciona uma solução, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu espaço de trabalho do Log Analytics. [Direcionamento de Solução](../operations-management-suite/operations-management-suite-solution-targeting.md), que é um recurso do OMS que permite a aplicação de um escopo às suas soluções.
+Uma solução da Central de Segurança será instalado no espaço de trabalho, se ainda não estiver presente, e a solução será aplicada apenas às VMs relevantes. Quando você adiciona uma solução, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu espaço de trabalho do Log Analytics. [Direcionamento de Solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite a aplicação de um escopo às suas soluções.
 
 Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), a Central de Segurança não instalará o Microsoft Monitoring Agent e o monitoramento de segurança será limitado.
 
@@ -220,18 +218,13 @@ Isso não deve ocorrer. Se ocorrer, [Crie uma solicitação de suporte do Azure]
 - A ID de recurso do Azure do espaço de trabalho configurado na extensão antes da conexão ser interrompida
 - O agente e a versão instalados anteriormente
 
-### <a name="does-security-center-install-solutions-on-my-existing-oms-workspaces-what-are-the-billing-implications"></a>A Central de Segurança instala soluções em meus espaços de trabalho existentes do OMS? Quais são as implicações de cobrança?
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>A Central de Segurança instala soluções em meus espaços de trabalho existentes do Log Analytics? Quais são as implicações de cobrança?
 Quando a Central de Segurança identificar que uma VM já está conectada a um espaço de trabalho que você criou, a Central de Segurança habilitará as soluções neste espaço de trabalho de acordo com seu tipo de preço. As soluções são aplicadas apenas às VMs do Azure relevantes, por meio do [direcionamento de solução](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), portanto, a cobrança permanece igual.
 
 - **Camada gratuita** – A Central de Segurança instala a solução 'SecurityCenterFree' no espaço de trabalho. Você não será cobrado pela Camada gratuita.
 - **Camada Standard**: a Central de Segurança instala a solução 'Security' no espaço de trabalho.
 
    ![Soluções no espaço de trabalho padrão][4]
-
-> [!NOTE]
-> A solução 'Security' no Log Analytics é a solução de Segurança e Auditoria no OMS.
->
->
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Eu já tenho espaços de trabalho em meu ambiente, posso usá-los para coletar dados de segurança?
 Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do Azure, a Central de Segurança usará o espaço de trabalho existente conectado. Uma solução da Central de Segurança será instalado no espaço de trabalho, se ainda não estiver presente, e a solução será aplicada apenas às VMs relevantes por meio do [direcionamento de solução](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
@@ -253,4 +246,3 @@ Para saber mais sobre a migração de plataforma da Central de Segurança, confi
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
-[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png

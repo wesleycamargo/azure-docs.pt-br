@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 88254966c8aa16bf9fa182702c9c742d908851e1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual personalizada na pilha do Azure
 
@@ -59,7 +59,7 @@ Para adicionar a imagem para a pilha do Azure Marketplace, conclua as seguintes 
 
 2. Faça logon no seu ambiente de pilha do Azure. Execute um dos seguintes scripts, dependendo de você ter implantado em seu ambiente de pilha do Azure usando o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS). (Substitua o Azure AD `tenantName`, `GraphAudience` ponto de extremidade, e `ArmEndpoint` valores para refletir a configuração do ambiente.)
 
-    * **Azure Active Directory**. Use o seguinte cmdlet:
+    * **Active Directory do Azure**. Use o seguinte cmdlet:
 
       ```PowerShell
       # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
@@ -81,7 +81,7 @@ Para adicionar a imagem para a pilha do Azure Marketplace, conclua as seguintes 
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Add-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID
       ```
@@ -109,7 +109,7 @@ Para adicionar a imagem para a pilha do Azure Marketplace, conclua as seguintes 
           -ADFS `
           -EnvironmentName AzureStackAdmin
 
-        Login-AzureRmAccount `
+        Add-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
           -TenantId $TenantID
         ```

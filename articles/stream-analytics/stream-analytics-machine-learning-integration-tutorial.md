@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/16/2018
+ms.openlocfilehash: 63648dfe02a0b5ed00d0a7206a6aabbe200f94c4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Como realizar uma análise de sentimento usando o Azure Stream Analytics e o Azure Machine Learning
 Este artigo descreve como configurar rapidamente um trabalho do Azure Stream Analytics simples que se integre ao Azure Machine Learning. Você usa um modelo de análise de sentimento de Machine Learning da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Usar o Cortana Intelligence Suite permite realizar essa tarefa sem se preocupar com as complexidades de criar um modelo de análise de sentimento.
@@ -39,7 +39,7 @@ A figura a seguir demonstra essa configuração. Conforme observado, para um cen
 Antes de começar, verifique se você tem:
 
 * Uma assinatura ativa do Azure.
-* Um arquivo CSV com alguns dados. Você pode baixar o arquivo mostrado anteriormente do [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv) ou pode criar seu próprio arquivo. Neste artigo, vamos supor que você esteja usando o arquivo do GitHub.
+* Um arquivo CSV com alguns dados. Você pode baixar o arquivo mostrado anteriormente do [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv) ou pode criar seu próprio arquivo. Neste artigo, supõe-se que você esteja usando o arquivo do GitHub.
 
 Em um nível alto, para concluir as tarefas demonstradas neste artigo, você fará o seguinte:
 
@@ -107,7 +107,7 @@ Agora que os dados de exemplo estão em um blob, você pode habilitar o modelo d
 
 7. Na coluna **Aplicativos**, clique no link **Excel 2010 ou pasta de trabalho anterior** para baixar uma pasta de trabalho do Excel. A pasta de trabalho contém a chave de API e a URL de que você precisará mais tarde para configurar o trabalho do Stream Analytics.
 
-    ![Stream Analytics Machine Learning, visão rápida](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+    ![Machine Learning do Stream Analytics, visão rápida](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
 
 ## <a name="create-a-stream-analytics-job-that-uses-the-machine-learning-model"></a>Criar um trabalho do Stream Analytics que usa o modelo do Machine Learning
@@ -157,7 +157,7 @@ O trabalho envia resultados para o mesmo armazenamento de blobs do qual ele obt�
 
    |Campo  |Valor  |
    |---------|---------|
-   |**Alias de saída** | Use o nome `datainput` e selecione a opção **Selecionar o armazenamento de blobs por meio de sua assinatura**       |
+   |**Alias de saída** | Use o nome `datamloutput` e selecione a opção **Selecionar o armazenamento de blobs por meio de sua assinatura**       |
    |**Conta de armazenamento**  |  Selecione a conta de armazenamento criada anteriormente.  |
    |**Contêiner**  | Selecione o contêiner criado anteriormente (`azuresamldemoblob`)        |
    |**Formato de serialização do evento**  |  Selecione **CSV**       |
@@ -168,7 +168,7 @@ O trabalho envia resultados para o mesmo armazenamento de blobs do qual ele obt�
 
 
 ### <a name="add-the-machine-learning-function"></a>Adicionar a função de Machine Learning 
-Anteriormente, você publicou um modelo de Machine Learning a um serviço Web. Em nosso cenário, quando o trabalho de Stream Analysis é executado, ele envia cada tweet de exemplo da entrada para o serviço Web para análise de sentimento. O serviço Web do Machine Learning retorna um sentimento (`positive`, `neutral` ou `negative`) e a probabilidade de o tweet ser positivo. 
+Anteriormente, você publicou um modelo de Machine Learning a um serviço Web. Nesse cenário, quando o trabalho de Stream Analysis é executado, ele envia cada tweet de exemplo da entrada para o serviço Web para análise de sentimento. O serviço Web do Machine Learning retorna um sentimento (`positive`, `neutral` ou `negative`) e a probabilidade de o tweet ser positivo. 
 
 Nesta seção do tutorial, você define uma função do trabalho de Stream Analysis. A função pode ser invocada para enviar um tweet ao serviço Web e retornar a resposta. 
 
@@ -200,12 +200,13 @@ O Stream Analytics usa uma consulta declarativa baseada em SQL para examinar a e
 
     ```
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result from datainput  
+    SELECT text, sentiment(text) as result 
+    FROM datainput  
     )  
 
-    Select text, result.[Score]  
-    Into datamloutput
-    From sentiment  
+    SELECT text, result.[Score]  
+    INTO datamloutput
+    FROM sentiment  
     ```    
 
     A consulta invoca a função que você criou anteriormente (`sentiment`) para executar a análise de sentimento em cada tweet na entrada. 

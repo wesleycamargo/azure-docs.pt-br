@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 502e3cefca5e2e60efe6a9875de0b63413bc4578
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5c37a693e1594f9afe40effba45d7b05a68fd49c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar um aplicativo no Serviço de Aplicativo do Azure
 Este artigo mostra como restaurar um aplicativo no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md) do qual você fez backup anteriormente (veja [Fazer backup de seu aplicativo no Azure](web-sites-backup.md)). É possível restaurar seu aplicativo com seus bancos de dados vinculados sob demanda para um estado anterior ou criar um novo aplicativo com base em um dos backups do seu aplicativo original. O Serviço de Aplicativo do Azure oferece suporte aos seguintes bancos de dados para backup e restauração:
-- [Banco de Dados SQL](https://azure.microsoft.com/en-us/services/sql-database/)
-- [Banco de Dados do Azure para MySQL)](https://azure.microsoft.com/en-us/services/mysql)
-- [Banco de Dados do Azure para PostgreSQL](https://azure.microsoft.com/en-us/services/postgres)
+- [Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
+- [Banco de Dados do Azure para MySQL)](https://azure.microsoft.com/services/mysql)
+- [Banco de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgres)
 - [MySQL no aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 A restauração usando backups está disponível para aplicativos que são executados nas camadas **Standard** e **Premium**. Para obter informações sobre como escalar verticalmente seu aplicativo, veja [Escalar verticalmente um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md). A camada **Premium** permite um número maior de backups diários do que a camada **Standard**.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 413485fc764000dadca1a2cccf9ee0de7e9046aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Marketplace do Azure disponíveis para a pilha do Azure
 
@@ -29,13 +29,13 @@ ms.lasthandoff: 04/16/2018
 ## <a name="virtual-machine-extensions"></a>Extensões da Máquina Virtual
 Sempre que há atualizações para extensões de máquina virtual (VM) que você usar, você deve baixá-los. Extensões fornecidas no produto não atualizam o processo normal de patch e atualização; Para verificar se há atualizações com frequência. Outras extensões só estão disponíveis por meio do gerenciamento do Marketplace.
 
-|  | Nome do item | Descrição | Fornecedor | Tipo de sistema operacional |
+|  | Nome do item | DESCRIÇÃO | Publicador | Tipo de sistema operacional |
 | --- | --- | --- | --- | --- |
 |![Extensão SQL IaaS](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensão SQL IaaS ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Baixar essa extensão para implantar qualquer SQL Server no item do Marketplace do Windows - essa extensão é necessária.</b> | Microsoft | Windows |
-|![Extensão de script personalizado](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensão do Script personalizado ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Baixe essa atualização para a versão na caixa da extensão de Script personalizado para Windows.</b> | Microsoft | Windows |
+|![Extensão de script personalizado](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensão do Script personalizado ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Baixe essa atualização para a versão na caixa da extensão de Script personalizado para Windows.</b> | Microsoft | Windows |
 |![Extensão de DSC do PowerShell](media/azure-stack-marketplace-azure-items/dsc.png) | [ Extensão de DSC do PowerShell ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Baixe essa atualização para a versão de caixa de entrada da extensão de DSC do PowerShell. Atualizado para suportar v TLS 1.2.</b> | Microsoft | Windows |
-| ![Extensão de Antimalware da Microsoft](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensão de Antimalware da Microsoft ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| O Antimalware da Microsoft para Azure é uma solução de agente único para aplicativos e ambientes de locatário, projetado para ser executado em segundo plano sem intervenção humana. | Microsoft | Windows |
-|![Extensão de script personalizado](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensão do Script personalizado ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Baixe essa atualização para a versão de caixa de entrada da extensão de Script personalizado para Linux. Há várias versões da extensão e você deve baixar 1.5.2.1 e 2.0. x. </b> | Microsoft | Linux |
+| ![Extensão de Antimalware da Microsoft](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensão de Antimalware da Microsoft ](https://docs.microsoft.com/azure/security/azure-security-antimalware)| O Antimalware da Microsoft para Azure é uma solução de agente único para aplicativos e ambientes de locatário, projetado para ser executado em segundo plano sem intervenção humana. | Microsoft | Windows |
+|![Extensão de script personalizado](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensão do Script personalizado ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Baixe essa atualização para a versão de caixa de entrada da extensão de Script personalizado para Linux. Há várias versões da extensão e você deve baixar 1.5.2.1 e 2.0. x. </b> | Microsoft | Linux |
 | ![Extensão do Docker](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Extensão de docker para máquinas virtuais Linux. | Microsoft | Linux |
 | ![Acesso da máquina virtual para Linux](media/azure-stack-marketplace-azure-items/cse.png) | [ Acesso da máquina virtual para Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Baixe essa atualização para a versão de caixa de entrada do Vmacess para extensão de Linux. Essa atualização é importante se você planeja usar Debian VMs do Linux.</b> | Microsoft | Linux |
 | ![Extensão de Backup Acronis para Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [ Extensão de Backup Acronis para Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | A extensão de Backup Acronis do Microsoft Azure faz parte da família de produtos de proteção de dados de Acronis Backup. | GmbH internacionais de Acronis. | Linux |
@@ -47,7 +47,7 @@ Sempre que há atualizações para extensões de máquina virtual (VM) que você
 
 A pilha do Microsoft Azure oferece suporte a máquinas virtuais a seguir Azure Marketplace e modelos de solução. Baixe todas as dependências separadamente, conforme observado. Aplicativos como o SQL Server e o servidor de aprendizado de máquina exigem uma licença apropriada, exceto onde marcada como livre ou avaliação.
 
-|  | Nome do item | Descrição | Fornecedor |
+|  | Nome do item | DESCRIÇÃO | Publicador |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Soluções corporativas que são simples de implantar, econômicos, voltada para o aplicativo e centrado no usuário. Essas imagens são atualizadas regularmente com os patches mais recentes. <b>Informações importantes: imagens baixadas antes de 18 de janeiro de 2018 deve ser excluída e substituída com as versões mais recentes.</b> | Microsoft |
 | ![Serviços da Área de Trabalho Remota](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Implantação de serviços de área de trabalho remota (RDS)](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Crie uma implantação básica de serviços de área de trabalho remota (RDS). <b>Baixe a imagem do Windows Server 2016 Datacenter mais recente.</b> | Microsoft |
@@ -80,7 +80,7 @@ A pilha do Microsoft Azure oferece suporte a máquinas virtuais a seguir Azure M
 
 
 ## <a name="linux-distributions"></a>Distribuições do Linux
-|  | Nome do item | Descrição | Fornecedor |
+|  | Nome do item | DESCRIÇÃO | Publicador |
 | --- | --- | --- | --- |
 | ![Contêiner Linux por CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Contêiner Linux por CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Contêiner Linux é uma distribuição de Linux mínima e moderna, fornecendo uma maneira fácil de executar contêineres, gerenciar clusters e atualizar diretamente os servidores - todos os componentes que permitem a escala de depósito de computação. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | O Ubuntu Server é a distribuição do Linux mais popular do mundo para ambientes em nuvem. | Canônico |
@@ -94,7 +94,7 @@ A pilha do Microsoft Azure oferece suporte a máquinas virtuais a seguir Azure M
 
 ## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>BYOL de terceiros, livre e avaliação de imagens e modelos de solução
 
-|  | Nome do item | Descrição | Fornecedor |
+|  | Nome do item | DESCRIÇÃO | Publicador |
 | --- | --- | --- | --- |
 | ![AbanteCart](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | Código-fonte aberto comércio eletrônico carrinho de compras. | Bitnami |
 | ![ActiveMQ](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | Agente de mensagens de código-fonte aberto em Java. | Bitnami |
@@ -124,7 +124,7 @@ A pilha do Microsoft Azure oferece suporte a máquinas virtuais a seguir Azure M
 | ![CRM livre FAT](media/azure-stack-marketplace-azure-items/fatfreecrm.png) | [CRM livre FAT](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.fatfreecrm) | Código-fonte aberto Ruby no CRM com base em trilhos. | Bitnami |
 | ![GitLab Community Edition](media/azure-stack-marketplace-azure-items/bitnami.png) | [GitLab Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.gitlab) | Proteger rápida, software de gerenciamento de Git. | Bitnami |
 | ![Ghost](media/azure-stack-marketplace-azure-items/ghost.png) | [Fantasma](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.ghost) | Uma plataforma dedicada para a publicação. | Bitnami |
-| ![Hadoop](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | Estrutura para a computação distribuída, escalonável e confiável. | Bitnami |
+| ![O Hadoop](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | Estrutura para a computação distribuída, escalonável e confiável. | Bitnami |
 | ![HHVM](media/azure-stack-marketplace-azure-items/hhvm.png) | [HHVM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hhvmstack) | Ambiente de desenvolvimento totalmente integrada e pronta para ser executada. | Bitnami |
 | ![Horda Groupware Webmail](media/azure-stack-marketplace-azure-items/hordegroupwarewebmail.png) | [Horda Groupware Webmail](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hordegroupwarewebmail) | Livre, pacote de comunicação baseada em navegador pronto enterprise. | Bitnami |
 | ![Jenkins](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jenkins) | Servidor de integração de SCM ferramentas de suporte: CVS, subversão e Git. | Bitnami |

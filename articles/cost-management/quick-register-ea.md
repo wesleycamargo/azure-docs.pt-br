@@ -2,7 +2,7 @@
 title: Registrar seu Contrato Enterprise do Azure no Gerenciamento de Custo do Azure | Microsoft Docs
 description: Use seu Contrato Enterprise para se registrar no Gerenciamento de Custos do Azure.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 75ae3aabf51a14ceb3326e7f3cee3e20d9b98579
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f0769340ca15f2b60cbcb2669e1a5cf9beef6b8e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrar um Contrato Enterprise do Azure e exibir dados de custo
 
@@ -24,7 +24,7 @@ Use seu Contrato Enterprise do Azure para se registrar no Gerenciamento de Custo
 
 - Faça logon no Portal do Azure em http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Criar um registro de avaliação
+## <a name="register-with-azure-cost-management"></a>Registro com o Gerenciamento de Custos do Azure
 
 1. No portal do Azure, clique em **Gerenciamento de Custo + Cobrança** na lista de serviços.
 2. Em **Visão Geral**, clique em **Gerenciamento de Custo**  

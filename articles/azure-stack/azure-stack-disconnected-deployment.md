@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/26/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 49697a57e59b652fed4997d57bc7ae15cc596cf7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados de decisões de pilha do Azure de planejamento de implantação desconectada do Azure
 Depois que você decidir [como integrará pilha do Azure em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, finalizar suas decisões de implantação da pilha do Azure.
@@ -47,7 +47,7 @@ Pilha do Azure foi projetada para funcionar melhor quando conectado ao Azure, po
 |Alerta correção/atenuação que faz referência a um guia de correção online|Disponível – nenhuma correção de alerta links que usam que um URL da Internet não funcionará.|
 |Distribuição de mercado – a capacidade de selecionar e adicionar pacotes de galeria diretamente no Azure Marketplace|Usuários portadores de deficiência – quando você implanta a pilha do Azure em modo desconectado (sem qualquer conectividade com a internet), não é possível baixar itens do marketplace usando o portal de pilha do Azure. No entanto, você pode usar o [ferramenta de distribuição do marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) para baixar os itens do marketplace para um computador que tenha conectividade com a internet e, em seguida, transferi-los para seu ambiente de pilha do Azure.|
 |Usando contas de Federação do Active Directory do Azure para gerenciar uma implantação de pilha do Azure|Disponível – Este recurso requer conectividade com o Azure. O AD FS com uma instância local do Active Directory deve ser usado em vez disso.|
-|Provedores de recursos como WebApps e SQL|Não disponível - provedores de recursos, como SQL e WebApps requer acesso à Internet para o conteúdo.|
+|Serviços de Aplicativos|Usuários portadores de deficiência - WebApps podem exigir acesso à Internet para conteúdo atualizado.|
 |Interface de Linha de Comando (CLI)|Usuários portadores de deficiência – CLI tem funcionalidade reduzida em termos de autenticação e o provisionamento de princípios de serviço.|
 |O Visual Studio – Cloud discovery|Cloud Discovery prejudicada – ou descobrirá nuvens diferentes ou não funcionará em todos os.|
 |O Visual Studio – do AD FS|Prejudicada – somente o Visual Studio Enterprise dá suporte ao AD FS.

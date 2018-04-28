@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,17 +15,17 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 34e4d47b1de509c2053996d9d1078733d7055447
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Iniciar, parar e emitir relatórios sobre o serviço de teste de caos.
 
 ## <a name="commands"></a>Comandos
 
-|Get-Help|DESCRIÇÃO|
+|Comando|DESCRIÇÃO|
 | --- | --- |
 |    relatório| Obtém o próximo segmento do relatório do Chaos com base no token de continuação repassado ou no intervalo repassado.|
 |    iniciar | Inicia o Chaos no cluster.|
@@ -53,7 +53,7 @@ Você pode especificar o ContinuationToken para obter o próximo segmento do rel
 | --debug          | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h        | Mostrar esta mensagem de ajuda e sair.|
 | --output -o      | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query          | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query          | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose        | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-chaos-start"></a>início sfctl chaos
@@ -86,7 +86,7 @@ Se Chaos já não estiver em execução no cluster, inicia o Chaos com os parâm
 | --debug                    | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                  | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.           Padrão: json.|
-| --query                    | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query                    | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose                  | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-chaos-stop"></a>parar sfctl chaos
@@ -107,7 +107,7 @@ Impede que o Chaos agende mais falhas; mas as falhas em andamento não são afet
 | --debug  | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h| Mostrar esta mensagem de ajuda e sair.|
 | --output -o | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query  | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query  | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose| Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="next-steps"></a>Próximas etapas

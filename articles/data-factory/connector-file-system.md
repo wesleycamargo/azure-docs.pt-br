@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: e765c5b0240eb1b0311210dc466d1bc0a43ae58f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cac7ba6f538a8efbd09b27888bd5f1059c2290bd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiar dados de ou para um sistema de arquivos usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,11 @@ As propriedades a seguir têm suporte no serviço vinculado do sistema de arquiv
 
 | Cenário | "host" em definição de serviço vinculado | "folderPath" em definição de conjunto de dados |
 |:--- |:--- |:--- |
-| Pasta local no computador do Integration Runtime: <br/><br/>Exemplos: D:\\\* ou D:\pasta\subpasta\\\* |D:\\\\ |.\\\\ ou pasta\\\\subpasta |
-| Pasta compartilhada remota:  <br/><br/>Exemplos: \\\\meuservidor\\compartilhar\\\* ou \\\\meuservidor\\compartilhar\\pasta\\subpasta\\* |\\\\\\\\meuservidor\\\\compartilhar |.\\\\ ou pasta\\\\subpasta |
+| Pasta local no computador do Integration Runtime: <br/><br/>Exemplos: D:\\\* ou D:\pasta\subpasta\\\* |Em JSON: `D:\\`<br/>Na interface do usuário: `D:\` |Em JSON: `.\\` ou `folder\\subfolder`<br>Na interface do usuário: `.\` ou `folder\subfolder` |
+| Pasta compartilhada remota:  <br/><br/>Exemplos: \\\\meuservidor\\compartilhar\\\* ou \\\\meuservidor\\compartilhar\\pasta\\subpasta\\\* |Em JSON: `\\\\myserver\\share`<br/>Na interface do usuário: `\\myserver\share` |Em JSON: `.\\` ou `folder\\subfolder`<br/>Na interface do usuário: `.\` ou `folder\subfolder` |
+
+>[!NOTE]
+>Durante a criação via interface do usuário, não é necessário inserir barras invertidas duplas (`\\`) para escape, como é feito via JSON, especifique a barra invertida simples.
 
 **Exemplo:**
 

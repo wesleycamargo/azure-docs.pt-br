@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8238e0f55b88e4fa207357630aa4228250c33249
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Implantação contínua com o Jenkins e o Serviço de Contêiner do Azure
 
-Este documento demonstra como configurar um fluxo de trabalho de implantação contínua básico entre o Jenkins e um cluster do AKS (Serviço de Contêiner do Azure). 
+Este documento demonstra como configurar um fluxo de trabalho de implantação contínua básico entre o Jenkins e um cluster do AKS (Serviço de Contêiner do Azure).
 
 O fluxo de trabalho de exemplo inclui as seguintes etapas:
 
@@ -41,7 +41,7 @@ Para concluir as etapas neste artigo, você precisa dos itens a seguir.
 
 ## <a name="prepare-application"></a>Preparar o aplicativo
 
-O aplicativo de voto do Azure usado em todo este documento contém uma interface da Web hospedada em um ou mais pods, além de um segundo pod hospedando o Redis para armazenamento de dados temporário. 
+O aplicativo de voto do Azure usado em todo este documento contém uma interface da Web hospedada em um ou mais pods, além de um segundo pod hospedando o Redis para armazenamento de dados temporário.
 
 Antes de criar a integração entre o Jenkins e o AKS, prepare e implante o aplicativo de voto do Azure no cluster do AKS. Pense nisso como a primeira versão do aplicativo.
 
@@ -94,7 +94,7 @@ Use o comando [docker tag][docker-tag] para marcar a imagem com o nome do servid
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Atualize o valor do servidor de logon do ACR com o nome do servidor de logon do ACR e envie a imagem `azure-vote-front` por push para o registro. 
+Atualize o valor do servidor de logon do ACR com o nome do servidor de logon do ACR e envie a imagem `azure-vote-front` por push para o registro.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:v1
@@ -118,7 +118,7 @@ Em seguida, use o comando [kubectl create][kubectl-create] para executar o aplic
 kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
-Um [serviço Kubernetes][kubernetes-service] é criado para expor o aplicativo à Internet. Esse processo pode levar alguns minutos. 
+Um [serviço Kubernetes][kubernetes-service] é criado para expor o aplicativo à Internet. Esse processo pode levar alguns minutos.
 
 Para monitorar o andamento, use o comando [kubectl get service][kubectl-get] com o argumento `--watch`.
 
@@ -127,12 +127,12 @@ kubectl get service azure-vote-front --watch
 ```
 
 Inicialmente o *EXTERNAL -IP* para o serviço *azure-vote-front* aparece como *pendente*.
-  
+
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Depois que o endereço *EXTERNAL-IP* for alterado de *pendente* para um *endereço IP*, use `control+c` para interromper o processo kubectl watch. 
+Depois que o endereço *EXTERNAL-IP* for alterado de *pendente* para um *endereço IP*, use `control+c` para interromper o processo kubectl watch.
 
 ```
 azure-vote-front   10.0.34.242   13.90.150.118   80:30676/TCP   2m
@@ -160,20 +160,6 @@ Open a browser to http://52.166.118.64:8080
 Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
-
-Se você tiver problemas para fazer logon em Jenkins, crie uma sessão SSH com a VM Jenkins e reinicie o serviço de Jenkins. O endereço IP da VM é o mesmo endereço que foi fornecido pelo script de build. Um nome de usuário de administrador para a VM é `azureuser`.
-
-```bash
-ssh azureuser@52.166.118.64
-```
-
-Reinicie o serviço Jenkins.
-
-```bash
-sudo service jenkins restart
-```
-
-Atualize o navegador, e o formulário de logon do Jenkins deverá ser apresentado.
 
 ## <a name="jenkins-environment-variables"></a>Variáveis de ambiente Jenkins
 
@@ -209,7 +195,7 @@ Clique em **OK** e retorne ao portal de administração do Jenkins.
 
 No portal de administração do Jenkins, clique em **Novo Item**.
 
-Dê um nome ao projeto, por exemplo `azure-vote`, selecione **Projeto de Estilo Livre** e clique em **OK**. 
+Dê um nome ao projeto, por exemplo `azure-vote`, selecione **Projeto de Estilo Livre** e clique em **OK**.
 
 ![Projeto do Jenkins](media/aks-jenkins/jenkins-project.png)
 
@@ -217,9 +203,9 @@ Em **Geral**, selecione **Projeto do GitHub** e digite a URL para seu fork do pr
 
 ![Projeto do GitHub](media/aks-jenkins/github-project.png)
 
-Em **Gerenciamento de Código-fonte**, selecione **Git** e insira a URL para seu fork do repositório do GitHub do voto do Azure. 
+Em **Gerenciamento de Código-fonte**, selecione **Git** e insira a URL para seu fork do repositório do GitHub do voto do Azure.
 
-Para as credenciais, clique em **Adicionar** > **Jenkins**. Em **Tipo**, selecione **Texto secreto** e insira seu [Token de acesso pessoal do GitHub][git-access-token] como o segredo. 
+Para as credenciais, clique em **Adicionar** > **Jenkins**. Em **Tipo**, selecione **Texto secreto** e insira seu [Token de acesso pessoal do GitHub][git-access-token] como o segredo.
 
 Selecione **Adicionar** quando terminar.
 
@@ -233,7 +219,7 @@ Em **Ambiente de Build**, selecione **Usar arquivos ou textos secretos**.
 
 ![Ambiente de build do Jenkins](media/aks-jenkins/build-environment.png)
 
-Em **Associações**, selecione **Adicionar** > **Nome de usuário e senha (separados)**. 
+Em **Associações**, selecione **Adicionar** > **Nome de usuário e senha (separados)**.
 
 Digite `ACR_ID` para a **Variável de Nome de Usuário** e `ACR_PASSWORD` para a **Variável de Senha**.
 
@@ -263,13 +249,13 @@ Depois de concluído, clique em **Salvar**.
 
 Antes de prosseguir, teste o build do Jenkins. Isso valida que o trabalho de build foi configurado corretamente, o arquivo de autenticação do Kubernetes adequado está em vigor e que as credenciais do ACR adequadas foram fornecidas.
 
-Clique em **Compilar Agora** no menu à esquerda do projeto. 
+Clique em **Compilar Agora** no menu à esquerda do projeto.
 
 ![Build de teste do Jenkins](media/aks-jenkins/test-build.png)
 
 Durante este processo, o repositório do GitHub é clonado para o servidor de build do Jenkins. Uma nova imagem de contêiner é compilada e enviada por push para o registro do ACR. Por fim, o aplicativo de voto do Azure em execução no cluster do AKS é atualizado para usar a nova imagem. Já que nenhuma alteração foi feita ao código do aplicativo, o aplicativo não é alterado.
 
-Quando o processo é concluído, você pode clicar em **Build 1** no histórico de builds e selecionar **Saída do Console** para ver toda a saída do processo de build. A linha final deve indicar um build bem-sucedido. 
+Quando o processo estiver concluído, clique em **Build 1** no histórico de compilação e selecione **Saída do Console** ara ver todas as saídas do processo de compilação. A linha final deve indicar um build bem-sucedido.
 
 ## <a name="create-github-webhook"></a>Criar um webhook do GitHub
 
@@ -280,14 +266,14 @@ Em seguida, conecte o repositório de aplicativo ao servidor de build do Jenkins
 3. Escolha **Adicionar Serviço**, digite `Jenkins (GitHub plugin)` na caixa de filtro e selecione o plug-in.
 4. Para a URL de conexão do Jenkins, digite `http://<publicIp:8080>/github-webhook/`, em que `publicIp` é o endereço IP do servidor Jenkins. Não deixe de incluir a barra (/) à direita.
 5. Selecione Adicionar serviço.
-  
+
 ![Webhook do GitHub](media/aks-jenkins/webhook.png)
 
 ## <a name="test-cicd-process-end-to-end"></a>Testar o processo de CI/CD de ponta a ponta
 
-No computador de desenvolvimento, abra o aplicativo clonado com um editor de código. 
+No computador de desenvolvimento, abra o aplicativo clonado com um editor de código.
 
-No diretório **/azure-vote/azure-vote**, você pode encontrar um arquivo chamado **config_file.cfg**. Atualize os valores de voto neste arquivo para algo diferente de gatos e cachorros. 
+No diretório **/azure-vote/azure-vote**, localize um arquivo nomeado **config_file.cfg**. Atualize os valores de voto neste arquivo para algo diferente de gatos e cachorros.
 
 O exemplo a seguir mostra um arquivo **config_file.cfg** atualizado.
 
@@ -299,7 +285,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Ao concluir, salve o arquivo, confirme as alterações e envie-o por push para o fork do repositório do GitHub. Após a conclusão da confirmação, o webhook do GitHub dispara um novo build do Jenkins, que atualiza a imagem de contêiner e a implantação do AKS. Monitore o processo de build no console de administrador do Jenkins. 
+Ao concluir, salve o arquivo, confirme as alterações e envie-o por push para o fork do repositório do GitHub. Após a conclusão da confirmação, o webhook do GitHub dispara um novo build do Jenkins, que atualiza a imagem de contêiner e a implantação do AKS. Monitore o processo de build no console de administrador do Jenkins.
 
 Após a conclusão do build, procure novamente o ponto de extremidade do aplicativo para observar as alterações.
 

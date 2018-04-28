@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2016
+ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: d415c3eb540056dc7ad6f1ab14fc8250903d6744
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 905eb170d2458f92469034b1cbf38ccd017d8f58
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in do Service Fabric para o desenvolvimento de aplicativos Eclipse Java
 O Eclipse é um dos IDEs (ambientes de desenvolvimento integrado) mais amplamente usados para desenvolvedores de Java. Neste artigo, descreveremos como configurar seu ambiente de desenvolvimento do Eclipse para trabalhar com o Azure Service Fabric. Saiba como instalar o plug-in do Service Fabric e criar e implantar o aplicativo do Service Fabric em um cluster do Service Fabric local ou remoto no Eclipse. 
@@ -34,20 +34,22 @@ Você pode instalar um plug-in do Service Fabric no Eclipse. O plug-in pode ajud
 > 
 > No Ubuntu, é recomendável instalar diretamente a partir do site do Eclipse em vez de usar um instalador de pacote (`apt` ou `apt-get`). Isso garante que você obtenha a versão mais atual do Eclipse. 
 
-1.  Verifique se você tem instalados o Eclipse Neon ou posterior e a versão mais recente do Buildship (1.0.17 ou posterior):
-    -   Para verificar as versões dos componentes instalados, no Eclipse, acesse **Ajuda** > **Detalhes da Instalação**.
-    -   Para atualizar o Buildship, confira [Eclipse Buildship: plug-ins do Eclipse para Gradle][buildship-update].
-    -   Para verificar e instalar atualizações para o Eclipse, acesse **Ajuda** > **Verificar se há Atualizações**.
+Instale o Eclipse Neon ou posterior do [site do Eclipse](https://www.eclipse.org).  Instale também a versão 2.2.1 ou posterior do Buildship (plug-in do Service Fabric não é compatível com versões anteriores do Buildship):
+-   Para verificar as versões dos componentes instalados, no Eclipse, acesse **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**.
+-   Para atualizar o Buildship, confira [Eclipse Buildship: plug-ins do Eclipse para Gradle][buildship-update].
+-   Para verificar e instalar atualizações para o Eclipse, acesse **Ajuda** > **Verificar se há Atualizações**.
 
-2.  Para instalar o plug-in do Service Fabric, no Eclipse, acesse **Ajuda** > **Instalar Novo Software**.
-  1.    Na caixa **Trabalhar com**, insira **http://dl.microsoft.com/eclipse**.
-  2.    Clique em **Adicionar**.
-
-         ![Plug-in do Service Fabric para Eclipse][sf-eclipse-plugin-install]
-  3.    Selecione o plug-in do Service Fabric e clique em **Avançar**.
-  4.    Conclua as etapas de instalação e aceite os Termos de Licença de Software da Microsoft.
-
-Se já tiver o plug-in do Service Fabric instalado, verifique se você tem a versão mais recente. Para verificar se há atualizações disponíveis, acesse **Ajuda** > **Detalhes da Instalação**. Na lista de plug-ins instalados, selecione o Service Fabric e clique em **Atualizar**. As atualizações disponíveis serão instaladas.
+Instale o plug-in do Service Fabric, no Eclipse, acesse **Ajuda** > **Instalar Novo Software**.
+1. Na caixa **Trabalhar com**, insira **http://dl.microsoft.com/eclipse**.
+2. Clique em **Adicionar**.
+    ![Plug-in do Service Fabric para Eclipse][sf-eclipse-plugin-install]
+3. Selecione o plug-in do Service Fabric e clique em **Avançar**.
+4. Conclua as etapas de instalação e aceite os Termos de Licença de Software da Microsoft.
+  
+Se você já tiver o plug-in do Service Fabric instalado, instale a versão mais recente. 
+1. Para verificar se há atualizações disponíveis, acesse **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**. 
+2. Na lista de plug-ins instalados, selecione o Service Fabric e clique em **Atualizar**. As atualizações disponíveis serão instaladas.
+3. Após a atualização do plug-in do Service Fabric, atualize também o projeto Gradle.  Clique com botão direito em **build.gradle** e selecione **Atualizar**.
 
 > [!NOTE]
 > Se a instalação ou atualização do plug-in do Service Fabric estiver lenta, isso poderá ser devido a uma configuração do Eclipse. O Eclipse coleta metadados sobre todas as alterações para atualizar sites que estão registrados com a instância do Eclipse. Para acelerar o processo de verificar e instalar uma atualização de plug-in do Service Fabric, acesse **Sites de Software Disponível**. Desmarque as caixas de seleção de todos os sites, exceto aquele que aponta para o local do plug-in do Service Fabric (http://dl.microsoft.com/eclipse/azure/servicefabric).
@@ -151,7 +153,7 @@ Para atualizar o aplicativo usando o Eclipse, você pode criar um perfil de conf
 
 1.  Acesse **Executar** > **Configurações de Execução**. No painel esquerdo, clique na seta pequena à esquerda de **Projeto do Gradle**.
 2.  Clique com o botão direito do mouse em **ServiceFabricDeployer**e selecione **Duplicar**. Digite um novo nome para essa configuração, por exemplo, **ServiceFabricUpgrader**.
-3.  No painel direito, na guia **Argumentos**, altere **-Pconfig='deploy'** para **-Pconfig='upgrade'**e clique em **Aplicar**.
+3.  No painel direito, na guia **Argumentos**, altere **-Pconfig='deploy'** para **-Pconfig='upgrade'** e clique em **Aplicar**.
 
 Esse processo cria e salva um perfil de configuração de execução que você pode usar a qualquer momento para atualizar o aplicativo. Também obtém a versão mais recente do tipo de aplicativo atualizado do arquivo de manifesto do aplicativo.
 

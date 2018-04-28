@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9fb928b7cb8e1a83734b64a8b9c19bc3cf3203ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Usando o ponto de extremidade com privilégios na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Como um operador de pilha do Azure, você deve usar o portal do administrador, PowerShell ou APIs do Gerenciador de recursos do Azure para tarefas de gerenciamento mais diárias. No entanto, para alguns menos operações comuns, você precisa usar o *privilegiado do ponto de extremidade* (PEP). O PEP é um console do PowerShell remoto pré-configurado que fornece recursos suficientes para ajudá-lo a executar uma tarefa obrigatória. O ponto de extremidade usa [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/en-us/powershell/jea/overview) para expor apenas um conjunto restrito de cmdlets. Para acessar o PEP e invocar um conjunto restrito de cmdlets, uma conta de baixo privilégio é usada. Nenhuma conta de administrador é necessária. Para obter segurança adicional, o script não é permitido.
+Como um operador de pilha do Azure, você deve usar o portal do administrador, PowerShell ou APIs do Gerenciador de recursos do Azure para tarefas de gerenciamento mais diárias. No entanto, para alguns menos operações comuns, você precisa usar o *privilegiado do ponto de extremidade* (PEP). O PEP é um console do PowerShell remoto pré-configurado que fornece recursos suficientes para ajudá-lo a executar uma tarefa obrigatória. O ponto de extremidade usa [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) para expor apenas um conjunto restrito de cmdlets. Para acessar o PEP e invocar um conjunto restrito de cmdlets, uma conta de baixo privilégio é usada. Nenhuma conta de administrador é necessária. Para obter segurança adicional, o script não é permitido.
 
 Você pode usar o PEP para executar tarefas como a seguir:
 
@@ -108,7 +108,7 @@ Antes de iniciar este procedimento para um sistema integrado, certifique-se de q
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Dicas para usar o ponto de extremidade com privilégios 
 
-Conforme mencionado acima, o PEP é um [PowerShell JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) ponto de extremidade. Além de fornecer uma camada de alta segurança, um ponto de extremidade JEA reduz alguns dos recursos básicos do PowerShell, como preenchimento com tab ou script. Se você tentar qualquer tipo de operação de script, a operação falhará com o erro **ScriptsNotAllowed**. Este comportamento é esperado.
+Conforme mencionado acima, o PEP é um [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) ponto de extremidade. Além de fornecer uma camada de alta segurança, um ponto de extremidade JEA reduz alguns dos recursos básicos do PowerShell, como preenchimento com tab ou script. Se você tentar qualquer tipo de operação de script, a operação falhará com o erro **ScriptsNotAllowed**. Este comportamento é esperado.
 
 Portanto, por exemplo, para obter a lista de parâmetros para um cmdlet, você execute o seguinte comando:
 
@@ -116,7 +116,7 @@ Portanto, por exemplo, para obter a lista de parâmetros para um cmdlet, você e
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Como alternativa, você pode usar o [Import-PSSession](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) para importar todos os cmdlets PEP para a sessão atual no computador local. Ao fazer isso, todos os cmdlets e funções do PEP agora estão disponíveis em seu computador local, junto com o preenchimento com tab e, mais em geral, de script. 
+Como alternativa, você pode usar o [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) para importar todos os cmdlets PEP para a sessão atual no computador local. Ao fazer isso, todos os cmdlets e funções do PEP agora estão disponíveis em seu computador local, junto com o preenchimento com tab e, mais em geral, de script. 
 
 Para importar a sessão PEP em seu computador local, execute as seguintes etapas:
 

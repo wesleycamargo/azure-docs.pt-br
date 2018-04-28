@@ -1,19 +1,21 @@
 ---
-title: Executar o Azure Functions a partir dos trabalhos do Azure Stream Analytics
-description: Este artigo descreve como configurar o Azure Functions como um coletor de saída em trabalhos do Stream Analytics para cargas de trabalho de controladas por evento.
+title: 'Tutorial: executar Azure Functions com trabalhos do Azure Stream Analytics | Microsoft Docs'
+description: Neste tutorial, você aprenderá a configurar o Azure Functions como um coletor de saída para trabalhos do Stream Analytics.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
-ms.reviewer: jasonh
 manager: kfile
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/19/2017
-ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.topic: tutorial
+ms.custom: mvc
+ms.workload: data-services
+ms.date: 04/09/2018
+ms.author: jasonh
+ms.reviewer: jasonh
+ms.openlocfilehash: 1d33c3f0a4c36dc681aaa42bc68ae56eec234401
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Executar o Azure Functions a partir dos trabalhos do Azure Stream Analytics 
 
@@ -21,7 +23,14 @@ ms.lasthandoff: 04/06/2018
 
 O Stream Analytics invoca o Azure Functions por meio de gatilhos HTTP. O adaptador de saída do Azure Functions permite que os usuários o conectem ao Stream Analytics, de modo que os eventos possam ser disparados com base em consultas do Stream Analytics. 
 
-Este tutorial demonstra como conectar o Stream Analytics ao [Cache Redis do Azure](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) usando o [Azure Functions](../azure-functions/functions-overview.md). 
+Neste tutorial, você aprenderá como:
+
+> [!div class="checklist"]
+> * Criar um trabalho de Stream Analytics
+> * Criar uma função do Azure
+> * Configurar a função do Azure como saída de seu trabalho
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Configurar um trabalho do Stream Analytics para executar uma função 
 
@@ -191,3 +200,16 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
 
 No portal do Azure, quando você tenta redefinir o valor de Tamanho máximo do lote/Contagem máxima de lotes como vazio (padrão), o valor é alterado para o valor inserido anteriormente ao salvar. Nesse caso, insira manualmente os valores padrão para esses campos.
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, pode interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste início rápido usando as seguintes etapas:
+
+1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado.  
+2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Neste tutorial, você criou um trabalho simples do Stream Analytics que executa uma função do Azure. Para saber mais sobre trabalhos do Stream Analytics, vá para o próximo tutorial:
+
+> [!div class="nextstepaction"]
+> [Executar funções definidas pelo usuário do JavaScript em trabalhos do Stream Analytics](stream-analytics-javascript-user-defined-functions.md)

@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e843bc0d3a56b9e99cd3fbb865bb0066321475df
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8730cb61ac598a547c58e473bcd26589bd1b2a52
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início rápido: Executar o primeiro trabalho do Lote com a API do Python
 
@@ -30,7 +30,7 @@ Este guia de início rápido executa um trabalho do Lote do Azure de um aplicati
 
 * Gerenciador de pacotes de [pip](https://pip.pypa.io/en/stable/installing/)
 
-* Uma conta do Lote do Azure e uma conta de Armazenamento do Azure para fins gerais vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md). 
+* Uma conta do Lote do Azure e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

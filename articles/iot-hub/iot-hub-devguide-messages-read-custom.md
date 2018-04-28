@@ -1,23 +1,23 @@
 ---
 title: Compreender os pontos de extremidade personalizados do Hub IoT do Azure | Microsoft Docs
-description: "Guia do desenvolvedor – regras de direcionamento para direcionar mensagens de dispositivo para a nuvem para pontos de extremidade personalizados."
+description: Guia do desenvolvedor – regras de direcionamento para direcionar mensagens de dispositivo para a nuvem para pontos de extremidade personalizados.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3d54da43141dc2bdf34c9f71adc41dc7cf24ff10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem
 
@@ -31,6 +31,8 @@ O Hub IoT habilita o direcionamento de [mensagens de dispositivo para a nuvem][l
 | **Ponto de extremidade**  | O nome do ponto de extremidade em que Hub IoT envia as mensagens que correspondem à condição. Os pontos de extremidade devem estar na mesma região que o Hub IoT, caso contrário, você pode ser cobrado por gravações entre regiões. |
 
 Uma única mensagem pode corresponder à condição em várias regras de roteamentos, caso em que o Hub IoT entrega a mensagem para o ponto de extremidade associado a cada regra correspondente. O Hub IoT também elimina a duplicação da entrega de mensagem automaticamente, portanto, se uma mensagem corresponder a várias regras que têm o mesmo destino, ela será gravada apenas uma vez no destino.
+
+## <a name="endpoints-and-routing"></a>Pontos de extremidade e roteamento
 
 Um hub IoT tem um [ponto de extremidade interno][lnk-built-in] padrão. Você pode criar pontos de extremidade personalizados para direcionar mensagens ou vinculando outros serviços em sua assinatura ao hub. O Hub IoT atualmente dá suporte aos contêineres de Armazenamento do Microsoft Azure, Hubs de Eventos, filas do Barramento de Serviço e tópicos do Barramento de Serviço como pontos de extremidade personalizados.
 
@@ -50,6 +52,12 @@ Para saber mais sobre a leitura de pontos de extremidade personalizados, confira
 * Leitura de [Hubs de Eventos][lnk-getstarted-eh].
 * Leitura de [filas do Barramento de Serviço][lnk-getstarted-queue].
 * Leitura de [tópicos do Barramento de Serviço][lnk-getstarted-topic].
+
+## <a name="latency"></a>Latency
+
+Ao rotear mensagens de telemetria do dispositivo para nuvem usando pontos de extremidade internos, haverá um pequeno aumento na latência de ponta a ponta após a criação da primeira rota.
+
+Na maioria dos casos, o aumento médio na latência é inferior a um segundo. É possível monitorar a latência usando **d2c.endpoints.latency.builtIn.events** [Métrica do Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics). Criar ou excluir qualquer rota após a primeira não afeta a latência de ponta a ponta.
 
 ### <a name="next-steps"></a>Próximas etapas
 

@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9968d18f9e27d7a138831394658b40a483b66709
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dbd96187ad73a9c7e27b28f137e25fe66e2944ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Comece a criar soluções com a biblioteca de cliente do Lote para .NET
 
@@ -40,12 +40,8 @@ Este artigo pressupõe que você tenha um conhecimento prático do C# e do Visua
 ### <a name="accounts"></a>Contas
 * **Conta do Azure**: se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita do Azure][azure_free_account].
 * **Conta do Lote**: quando você tiver uma assinatura do Azure, [crie uma conta do Lote do Azure](batch-account-create-portal.md).
-* **Conta de armazenamento**: veja [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md).
+* [Conta de armazenamento](batch-api-basics.md#azure-storage-account): para opções de conta de armazenamento em Lote, confira a **Visão geral do recurso de Lote**.
 
-> [!IMPORTANT]
-> No momento, o Lote dá suporte *somente* ao tipo de conta de armazenamento de **uso geral**, conforme descrito na etapa 5 [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md).
->
->
 
 ### <a name="visual-studio"></a>Visual Studio
 Você deve ter o **Visual Studio 2015 ou mais recente** para compilar o projeto de exemplo. Você pode encontrar versões gratuitas e de avaliação do Visual Studio na [visão geral dos produtos do Visual Studio][visual_studio].
@@ -101,11 +97,6 @@ private const string BatchAccountUrl  = "";
 private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
-
-> [!IMPORTANT]
-> Como mencionado acima, no momento você deve especificar as credenciais para uma conta de armazenamento de **uso geral** no Armazenamento do Azure. Os aplicativos do Lote usa o armazenamento de blobs na conta de armazenamento de **uso geral**. Não especifique as credenciais de uma conta do Armazenamento criada por meio da seleção do tipo de conta do *armazenamento de Blobs* .
->
->
 
 Você pode encontrar suas credenciais de conta do Lote e de Armazenamento na folha da conta de cada serviço no [Portal do Azure][azure_portal]:
 

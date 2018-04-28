@@ -10,18 +10,18 @@ ms.topic: article
 manager: carmonm
 tags: top-support-issue
 keywords: erro de automação, solução de problemas, problema
-ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44200ae9deb1a5c11c81550173b3f6f90b5d62ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Solução de problemas comuns na Automação do Azure 
 Este artigo fornece ajuda para solucionar erros comuns quem pode ser encontrados na Automação do Azure e sugere possíveis soluções para eles.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Erros de autenticação ao trabalhar com runbooks da Automação do Azure
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Cenário: falha ao entrar na Conta do Azure
-**Erro:** você recebe o erro "Unknown_user_type: tipo de usuário desconhecido" ao trabalhar com os cmdlets Add-AzureAccount ou Login-AzureRmAccount.
+**Erro:** você recebe o erro "Unknown_user_type: Tipo de Usuário Desconhecido" ao trabalhar com os cmdlets Add-AzureAccount ou Login-AzureRmAccount.
 
 **Motivo do erro:** esse erro ocorrerá se o nome do ativo de credencial não for válido ou se o nome de usuário e a senha que você usou para configurar o ativo de credencial de automação não forem válidos.
 
@@ -34,7 +34,7 @@ Este artigo fornece ajuda para solucionar erros comuns quem pode ser encontrados
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. Se a autenticação falhar localmente, isso indicará que você não configurou corretamente as credenciais do Active Directory do Azure. Confira a postagem de blog [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) (Autenticação no Azure usando o Azure Active Directory) para configurar corretamente a conta do Azure Active Directory.  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>Cenário: não é possível localizar a assinatura do Azure

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: aa74596906206ba4460e80af9015955c0b848cd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual Linux com Rede Acelerada
 
@@ -66,7 +66,7 @@ Existem as seguintes limitações ao usar essa funcionalidade:
 * **Criação da VM:** uma NIC com rede acelerada habilitada somente poderá ser conectada a uma VM quando a VM for criada. A NIC não pode ser anexada a uma VM existente. Se adicionar a máquina virtual a um grupo de disponibilidades definida, todas as VMs no conjunto de disponibilidades também deverão a rede acelerada habilitada.
 * **Implantação somente por meio do Azure Resource Manager:** máquinas virtuais (clássicas) não podem ser implantadas com Rede Acelerada.
 
-Embora este artigo forneça etapas para criar uma máquina virtual com a rede acelerada usando a CLI do Azure, você também pode [criar uma máquina virtual com a rede acelerada usando o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual com um sistema operacional e tamanho de VM compatíveis no portal, em **Configurações**, selecione **Habilitado** em **Rede acelerada**. Depois de criar a máquina virtual, você precisa concluir as instruções em [Confirmar se a rede acelerada está habilitada](#confirm-that-accelerated-networking-is-enabled).
+Embora este artigo forneça etapas para criar uma máquina virtual com a rede acelerada usando a CLI do Azure, você também pode [criar uma máquina virtual com a rede acelerada usando o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, em **Configurações**, selecione **Habilitado** em **Rede acelerada**. A opção de habilitar a rede acelerada não aparece no portal, a menos que você tenha selecionado um [sistema operacional com suporte](#supported-operating-systems) e [tamanho de VM](#supported-vm-instances). Depois de criar a máquina virtual, você precisa concluir as instruções em [Confirmar se a rede acelerada está habilitada](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 

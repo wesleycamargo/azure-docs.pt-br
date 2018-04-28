@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/17/2018
+ms.date: 04/25/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 860a381e5ec2054cd6243901a8e172832e6ada53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 2876565f3d6a3411eb170d4da640166fa3e607eb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Ferramentas para o armazenamento do Azure de pilha
 
@@ -47,41 +47,88 @@ Devido a diferenças de serviços de armazenamento entre o Azure e a pilha do Az
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy é um utilitário de linha de comando projetado para copiar dados para e do armazenamento de blob e tabela do Microsoft Azure usando comandos simples com um desempenho ideal. Você pode copiar dados de um objeto para outro dentro de sua conta de armazenamento, ou entre contas de armazenamento. Há duas versões do utilitário AzCopy: AzCopy no Windows e AzCopy no Linux. A pilha do Azure suporta apenas a versão do Windows. 
- 
-### <a name="download-and-install-azcopy"></a>Baixar e instalar o AzCopy 
 
-[Baixar](https://aka.ms/azcopyforazurestack) a versão do Windows com suporte do AzCopy para a pilha do Azure. Você pode instalar e usar AzCopy na pilha do Azure da mesma forma que o Azure. Para obter mais informações, consulte [transferir dados com o utilitário de linha de comando AzCopy](../../storage/common/storage-use-azcopy.md). 
+AzCopy é um utilitário de linha de comando projetado para copiar dados para e do armazenamento de blob e tabela do Microsoft Azure usando comandos simples com um desempenho ideal. Você pode copiar dados de um objeto para outro dentro de sua conta de armazenamento, ou entre contas de armazenamento.
 
- - Para a atualização ou versões mais recentes, o 1802 [baixar AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
- - Para a versão anterior, [baixar AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20150405).
+### <a name="download-and-install-azcopy"></a>Baixar e instalar o AzCopy
+
+Há duas versões do utilitário AzCopy: AzCopy no Windows e AzCopy no Linux.
+
+ - **AzCopy no Windows**  
+    - Baixe a versão com suporte do AzCopy para a pilha do Azure. Você pode instalar e usar AzCopy na pilha do Azure da mesma forma que o Azure. Para obter mais informações, consulte [AzCopy no Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+        - Para a atualização 1802 ou versões mais recentes, [baixar AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+        - Para versões anteriores, [baixar AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20170417).
+
+ - **AzCopy no Linux**  
+
+    - AzCopy no Linux dá suporte à atualização do Azure pilha 1802 ou versões mais recentes. Você pode instalar e usar AzCopy na pilha do Azure da mesma forma que o Azure. Para obter mais informações, consulte [AzCopy no Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Exemplos de comandos do AzCopy para transferência de dados
 
-Os exemplos a seguir demonstram um cenários típicos para copiar dados para e de blobs do Azure pilha. Para obter mais informações, consulte [transferir dados com o utilitário de linha de comando AzCopy](../../storage/storage-use-azcopy.md). 
+Os exemplos a seguir seguem os cenários típicos para copiar dados para e de blobs do Azure pilha. Para obter mais informações, consulte [AzCopy no Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) e [AzCopy no Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
 
-#### <a name="download-all-blobs-to-local-disk"></a>Baixar todos os blobs no disco local
+### <a name="download-all-blobs-to-a-local-disk"></a>Baixar todos os blobs em um disco local
 
-```azcopy  
+**Windows**
+
+````AzCopy  
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-```
+````
 
-#### <a name="upload-single-file-to-virtual-directory"></a>Carregar arquivo único no diretório virtual 
-```azcopy  
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount.blob.local.azurestack.external/mycontainer \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --recursive
+````
+
+### <a name="upload-single-file-to-virtual-directory"></a>Carregar arquivo único no diretório virtual
+
+**Windows**
+
+```AzCopy  
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
-#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Mover dados entre o Azure e a pilha de armazenamento do Azure 
-Não há suporte para a transferência de dados assíncrona entre o armazenamento do Azure e a pilha do Azure. Você precisa especificar a transferência com o **/SyncCopy** opção. 
+**Linux**
 
-```azcopy  
+````AzCopy  
+azcopy \
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
+    --dest-key <key>
+````
+
+### <a name="move-data-between-azure-and-azure-stack-storage"></a>Mover dados entre o Azure e a pilha de armazenamento do Azure
+
+Não há suporte para a transferência de dados assíncrona entre o armazenamento do Azure e a pilha do Azure. Você precisa especificar a transferência com o **/SyncCopy** ou **– cópia sincronizada** opção.
+
+**Windows**
+
+````AzCopy  
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-```
-### <a name="azcopy-known-issues"></a>Problemas conhecidos de Azcopy
+````
+
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
+    --destination https://myaccount2.blob.core.windows.net/myContainer/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --include "abc.txt" \
+    --sync-copy
+````
+
+### <a name="azcopy-known-issues"></a>Azcopy problemas conhecidos
 
  - Qualquer operação AzCopy em um repositório de arquivo não está disponível porque o armazenamento de arquivos ainda não está disponível na pilha do Azure.
  - Não há suporte para a transferência de dados assíncrona entre o armazenamento do Azure e a pilha do Azure. Você pode especificar a transferência com o **/SyncCopy** opção para copiar os dados.
- - Não há suporte para a versão do Linux do Azcopy para o armazenamento de pilha do Azure. 
+ - A versão do Linux do Azcopy suporta apenas 1802 atualização ou versões posteriores. E ele não oferece suporte para o serviço tabela.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -132,7 +179,7 @@ Set-AzureRmEnvironment -Name $ARMEvnName -GraphEndpoint $GraphAudience
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Connect-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Add-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName

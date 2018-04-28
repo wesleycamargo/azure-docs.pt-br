@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Atribuir acesso no Gerenciamento de Custos do Azure | Microsoft Docs'
-description: "Neste tutorial, você aprende a atribuir acesso aos dados de gerenciamento de custos com contas de usuário que definem os níveis de acesso para entidades."
+description: Neste tutorial, você aprende a atribuir acesso aos dados de gerenciamento de custos com contas de usuário que definem os níveis de acesso para entidades.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/09/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: db5cdecc57cf07876ca8d4e981860615643cfd79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: Atribuir acesso aos dados de gerenciamento de custos
 
@@ -40,7 +40,7 @@ Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azu
 
 Embora você já tenha acesso de administrador, os colegas de trabalho em sua organização também precisaram ter acesso de administrador. No portal da Cloudyn, clique no símbolo de engrenagem no canto superior direito e selecione **Gerenciamento de Usuários**. Clique em **Adicionar Novo Usuário** para adicionar um novo usuário.
 
-Insira as informações necessárias sobre o usuário. Você pode deixar o campo de senha vazio para que o usuário possa definir uma nova senha na primeira entrada. Um link com informações de entrada é enviado da Cloudyn para o email do usuário quando você seleciona **Notificar usuário por email**. Escolha permissões para permitir o Gerenciamento de Usuários para que o usuário possa criar e modificar a outros usuários. Gerenciamento de listas de destinatários para permitir que o usuário edite listas de destinatários.
+Insira as informações necessárias sobre o usuário. A ID de logon deve ser um endereço de email válido. Escolha permissões para permitir o Gerenciamento de Usuários para que o usuário possa criar e modificar a outros usuários. O Gerenciamento de Listas de Destinatários permite que o usuário edite listas de destinatários. Um link com informações de entrada é enviado da Cloudyn para o email do usuário quando você seleciona **Notificar usuário por email**. Na primeira entrada, o usuário define uma senha.
 
 Em **Usuário tem acesso de administrador**, a entidade de raiz de sua organização está selecionada. Deixe a raiz selecionada e, em seguida, salve as informações do usuário. Selecionar a entidade raiz permite que o usuário tenha permissão de administrador não apenas para a entidade raiz na árvore, mas também para todas as entidades que residem abaixo dela.  
   ![adicionar novo usuário com acesso de administrador](.\media\tutorial-user-access\new-admin-access.png)
@@ -64,7 +64,7 @@ Ao criar a árvore, considere como você deseja ou precisa ver os custos separad
 
 Quando você registrou seu contrato do Azure ou sua conta com a Cloudyn, seus dados de recurso do Azure, incluindo dados de uso, desempenho, cobrança e marca das suas assinaturas foram copiados para sua conta da Cloudyn. No entanto, você deve criar a árvore de entidades manualmente. Se você tiver ignorado o registro do Azure Resource Manager, somente os dados de cobrança e alguns relatórios de ativos estarão disponíveis no portal da Cloudyn.
 
-No portal da Cloudyn, clique em **Configurações** no canto superior direito e selecione **Contas de Nuvem**. Você começa com uma única entidade (raiz) e cria a árvore de entidade na raiz. Aqui está um exemplo de uma hierarquia de entidades que pode ser semelhante à de muitas organizações de TI após a conclusão da árvore:
+No portal da Cloudyn, clique no símbolo de engrenagem no canto superior direito e selecione **Contas do Cloud**. Você começa com uma única entidade (raiz) e cria a árvore de entidade na raiz. Aqui está um exemplo de uma hierarquia de entidades que pode ser semelhante à de muitas organizações de TI após a conclusão da árvore:
 
 ![árvore de entidades](.\media\tutorial-user-access\entity-tree.png)
 

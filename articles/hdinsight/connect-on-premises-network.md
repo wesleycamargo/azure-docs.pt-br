@@ -8,16 +8,14 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea793af7fc4565c054675af7cbf88b74722690f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Conectar o HDInsight à sua rede local
 
@@ -297,7 +295,7 @@ Use as etapas no documento [Criar um cluster HDInsight usando o portal do Azure]
 
 ## <a name="connecting-to-hdinsight"></a>Conectando-se ao HDInsight
 
-A maior parte da documentação no HDInsight supõe que você tenha acesso ao cluster via Internet. Por exemplo, você pode se conectar ao cluster em https://NOMEDOCLUSTER.azurehdinsight.net. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs ou UDRs para restringir o acesso da Internet.
+A maior parte da documentação no HDInsight supõe que você tenha acesso ao cluster via Internet. Por exemplo, que você possa se conectar ao cluster em https://CLUSTERNAME.azurehdinsight.net. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs ou UDRs para restringir o acesso da Internet.
 
 Alguns documentos também fazem referência `headnodehost` ao se conectarem ao cluster de uma sessão SSH. Esse endereço só está disponível de nós em um cluster e não é utilizável em clientes conectados através da rede virtual.
 

@@ -1,8 +1,8 @@
 ---
 title: Logs do Cofre de Chaves do Azure | Microsoft Docs
-description: "Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do Azure."
+description: Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do Azure.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-key-vault-logging"></a>Logs do Cofre da Chave do Azure
 O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -42,7 +42,7 @@ Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do 
 
 Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para concluir este tutorial, você precisará do seguinte:
 
 * Um cofre da chave existente que você esteja usando.  
@@ -52,7 +52,7 @@ Para concluir este tutorial, você precisará do seguinte:
 ## <a id="connect"></a>Conectar-se a suas assinaturas
 Inicie uma sessão do PowerShell do Azure e entre em sua conta do Azure com o seguinte comando:  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta do Azure. O Azure PowerShell obtém todas as assinaturas que estão associadas a essa conta e, por padrão, usa a primeira.
 
@@ -133,7 +133,7 @@ Para listar todos os blobs desse contêiner, digite:
     Get-AzureStorageBlob -Container $container -Context $sa.Context
 A saída será parecida com esta:
 
-**URI de contêiner: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**URI do Contêiner: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 **Nome**
 
@@ -150,7 +150,7 @@ Os valores de data e hora usam UTC.
 
 Como a mesma conta de armazenamento pode ser usada para coletar logs de vários recursos, a ID do recurso completa no nome do blob será muito útil para acessar ou baixar apenas os blobs que você precisa. Mas, antes de fazer isso, primeiro vamos mostrar como baixar todos os blobs.
 
-Primeiro, crie uma pasta para baixar os blobs. Por exemplo:
+Primeiro, crie uma pasta para baixar os blobs. Por exemplo: 
 
     New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 
@@ -164,7 +164,7 @@ Redirecione essa lista pelo 'Get-AzureStorageBlobContent' para baixar os blobs e
 
 Quando você executar esse segundo comando, o delimitador **/** nos nomes de blob criará uma estrutura de pastas completa na pasta de destino e essa estrutura será usada para baixar e armazenar os blobs como arquivos.
 
-Use caracteres curinga para baixar seletivamente os blobs. Por exemplo:
+Use caracteres curinga para baixar seletivamente os blobs. Por exemplo: 
 
 * Se você tiver vários cofres da chave e quiser baixar logs de apenas um cofre da chave, chamado CONTOSOKEYVAULT3:
 
@@ -208,10 +208,10 @@ Os blobs individuais são armazenados como texto, formatados como um blob JSON. 
 
 A tabela a seguir lista os nomes e as descrições de campo.
 
-| Nome do campo | Descrição |
+| Nome do campo | DESCRIÇÃO |
 | --- | --- |
 | tempo real |Data e hora (UTC). |
-| resourceId |ID do Recurso do Gerenciador de Recursos do Azure. Para os logs do Cofre de Chaves, isso sempre será a ID do recurso do Cofre de Chaves. |
+| ResourceId |ID do Recurso do Gerenciador de Recursos do Azure. Para os logs do Cofre de Chaves, isso sempre será a ID do recurso do Cofre de Chaves. |
 | operationName |Nome da operação, como documentado na tabela a seguir. |
 | operationVersion |É a versão da API REST solicitada pelo cliente. |
 | categoria |Para logs do Cofre da Chave, AuditEvent é o único valor disponível. |
@@ -224,7 +224,7 @@ A tabela a seguir lista os nomes e as descrições de campo.
 | identidade |Identidade do token que foi apresentado ao fazer a solicitação da API REST. Isso geralmente é um "usuário", uma "entidade de serviço" ou uma combinação "usuário+appId", como no caso de uma solicitação, resultado de um cmdlet do Azure PowerShell. |
 | propriedades |Esse campo conterá informações diferentes com base na operação (operationName). Na maioria dos casos, contém informações de cliente (a cadeia de caracteres useragent passada pelo cliente), o URI exato da solicitação da API REST e o código de status HTTP. Além disso, quando um objeto é retornado como resultado de uma solicitação (por exemplo, KeyCreate ou VaultGet), também conterá o URI da Chave (como "id"), o URI do Cofre ou o URI do Segredo. |
 
-Os valores do campo **operationName** estão no formato ObjectVerb. Por exemplo:
+Os valores do campo **operationName** estão no formato ObjectVerb. Por exemplo: 
 
 * Todas as operações do cofre de chaves têm o formato 'Vault`<action>`', como `VaultGet` e `VaultCreate`.
 * Todas as operações da chave têm o formato 'Key`<action>`', como `KeySign` e `KeyList`.

@@ -26,12 +26,12 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Sub-redes por rede virtual |1000 |10000 |
 | Emparelhamentos de rede virtual por Rede Virtual |10 |50 |
 | Servidores DNS por rede virtual |9 |25 |
-| Endereços IP privados por rede virtual |4096 |8192 |
+| Endereços IP privados por rede virtual |16384** |16384 |
 | Endereços IP privados por interface de rede |256 |1024 |
 | Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função |500K |500K |
-| NIC (Interfaces de rede) |350 |20000 |
+| NIC (Interfaces de rede) |24000** |24.000 |
 | Grupos de segurança de rede (NSG) |100 |5.000 |
-| Regras de NSG por NSG |200 |1000 |
+| Regras de NSG por NSG |1000** |1000 |
 | Endereços e intervalos IP especificados para a origem ou o destino em um grupo de segurança |2000 |4000 |
 | Grupos de segurança do aplicativo |200 |500 |
 | Grupos de segurança do aplicativo por configuração de IP, por NIC |10 |20 |
@@ -43,6 +43,8 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Endereços IP públicos - estáticos |(Basic) 20 |entrar em contato com o suporte |
 | Endereços IP públicos - estáticos |(Standard) 20 |entrar em contato com o suporte |
 | Certificados raiz de ponto a site por gateway de VPN |20 |20 |
+
+***Esses limites padrão aplicam-se às assinaturas que anteriormente não tinham esses limites aumentados pelo suporte
 
 #### <a name="load-balancer"></a>Limites do Load Balancer
 

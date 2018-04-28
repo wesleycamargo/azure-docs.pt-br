@@ -5,7 +5,7 @@
 | Núcleos por série de VM (Dv2, F etc.) por [ssinatura](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região | Contate o suporte |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por assinatura |Ilimitado |Ilimitado |
 | [Contas de armazenamento](../articles/storage/common/storage-create-storage-account.md) por assinatura |200 |200<sup>2</sup> |
-| [Grupos de Recursos](../articles/azure-resource-manager/resource-group-overview.md) por assinatura |800 |800 |
+| [Grupos de Recursos](../articles/azure-resource-manager/resource-group-overview.md) por assinatura |980 |980 |
 | [Conjuntos de disponibilidade](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por assinatura |2.000 por região |2.000 por região |
 | Leituras de API do Gerenciador de Recursos |15.000 por hora |15.000 por hora |
 | Gravações de API do Gerenciador de Recursos |1.200 por hora |1.200 por hora |

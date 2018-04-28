@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ca0a1cd9766d3ad76d0fe5dd29a34ec40ea276
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrar o tráfego de rede com grupos de segurança de rede
 
@@ -50,8 +50,8 @@ As regras NSG contêm as propriedades a seguir:
 | **Protocolo** |Protocolo para fazer a correspondência da regra. |TCP, UDP ou * |O uso de * como um protocolo inclui ICMP (somente tráfego Leste-Oeste), bem como TCP e UDP, e pode reduzir o número de regras necessárias.<br/>Ao mesmo tempo, o uso de * pode ser uma abordagem muito ampla. Portanto, é recomendável que você use * somente quando necessário. |
 | **Intervalo de portas de origem** |Intervalo de portas de origem para fazer a correspondência da regra. |Número de porta única de 1 a 65535, intervalo de portas (exemplo: 1 a 65535) ou * (para todas as portas). |As portas de origem pode ser efêmeras. A menos que seu programa cliente esteja usando uma porta específica, use * na maioria dos casos.<br/>Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras.<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula. |
 | **Intervalo de portas de destino** |Intervalo de portas de destino para fazer a correspondência da regra. |Número de porta única de 1 a 65535, intervalo de portas (exemplo: 1 a 65535) ou \* (para todas as portas). |Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras.<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula. |
-| **Prefixo de endereço de origem** |Prefixo ou marca de endereço de origem para fazer a correspondência da regra. |Um único endereço IP (exemplo: 10.10.10.10), sub-rede de IP (exemplo: 192.168.1.0/24), [marca padrão](#default-tags) ou * (para todos os endereços). |Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras. |
-| **Prefixo de endereço de destino** |Prefixo ou marca de endereço de destino para fazer a correspondência da regra. | Um único endereço IP (exemplo: 10.10.10.10), sub-rede de IP (exemplo: 192.168.1.0/24), [marca padrão](#default-tags) ou * (para todos os endereços). |Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras. |
+| **Prefixo de endereço de origem** |Prefixo ou marca de endereço de origem para fazer a correspondência da regra. |Um único endereço IP (exemplo: 10.10.10.10), sub-rede de IP (exemplo: 192.168.1.0/24), [marca de serviço](#service-tags) ou * (para todos os endereços). |Considere o uso de intervalos, marcas de serviço e * para reduzir o número de regras. |
+| **Prefixo de endereço de destino** |Prefixo ou marca de endereço de destino para fazer a correspondência da regra. | Um único endereço IP (exemplo: 10.10.10.10), sub-rede de IP (exemplo: 192.168.1.0/24), [marca padrão](#service-tags) ou * (para todos os endereços). |Considere o uso de intervalos, marcas de serviço e * para reduzir o número de regras. |
 | **Direção** |Direção do tráfego para fazer a correspondência da regra. |Entrada ou saída. |Regras de entrada e saída são processadas separadamente, com base na direção. |
 | **Prioridade** |As regras são verificadas na ordem de prioridade. Depois que uma regra se aplica, outras regras não são testadas quanto à correspondência. | Número entre 100 e 4096. | Considere a criação de regras aumentando as prioridades em 100 para cada regra para deixar espaço para as novas regras que você criar no futuro. |
 | **Access** |Tipo de acesso a ser aplicado se a regra for correspondente. | Permitir ou negar. | Lembre-se, se uma regra de permissão não for encontrada para um pacote, ele será descartado. |
@@ -62,36 +62,13 @@ Os NSGs contêm dois conjuntos de regras: entrada e saída. A prioridade de uma 
 
 A figura anterior mostra como as regras de NSG são processadas.
 
-### <a name="default-tags"></a>Marcas padrão
-Marcas padrão são identificadores fornecidos pelo sistema para atender a uma categoria de endereços IP. Você pode usar marcas padrão nas propriedades **prefixo de endereço de origem** e **prefixo de endereço de destino** de qualquer regra. Há três marcas padrão que você pode usar:
+### <a name="default-tags"></a>Marcas do sistema
 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para clássico): essa marca inclui o espaço de endereço de rede virtual (intervalos CIDR definidos no Azure), todos os espaços de endereço locais conectados e todas as conectados do Azure conectadas (redes locais).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para clássico): essa marca denota o balanceador de carga de infraestrutura do Azure. A marca significa um IP de datacenter do Azure de onde se originam as investigações de integridade do Azure Load Balancer.
-* **Internet** (Resource Manager) (**INTERNET** para clássico): essa marca denota o espaço de endereço IP que está fora da rede virtual e é acessível pela Internet pública. O intervalo inclui o [espaço IP público do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+Marcas de serviços são identificadores fornecidos pelo sistema para atender a uma categoria de endereços IP. Você pode usar marcas de serviço nas propriedades **prefixo de endereço de origem** e **prefixo de endereço de destino** de qualquer regra de segurança. Saiba mais sobre [marcas de serviço](security-overview.md#service-tags).
 
-### <a name="default-rules"></a>Regras padrão
-Todos os NSGs contêm um conjunto de regras padrão. As regras padrão não podem ser excluídas, mas como recebem a prioridade mais baixa, elas podem ser substituídas pelas regras que você criar. 
+### <a name="default-rules"></a>Regras de segurança padrão
 
-As regras padrão permitem e impedem o tráfego da seguinte maneira:
-- **Rede virtual:** o tráfego que começa e termina em uma rede virtual é permitido nas direções de entrada e saída.
-- **Internet:** o tráfego de saída é permitido, mas o tráfego de entrada é bloqueado.
-- **Balanceador de carga:** permita ao Azure Load Balancer investigar a integridade de suas VMs e instâncias de função. Se você substituir essa regra, a investigação da integridade do Azure Load Balancer falhará e poderá causar impacto ao seu serviço.
-
-**Regras de entrada padrão**
-
-| NOME | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | PERMITIR |
-| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | PERMITIR |
-| DenyAllInBound |65500 | * | * | * | * | * | Negar |
-
-**Regras de saída padrão**
-
-| NOME | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | PERMITIR |
-| AllowInternetOutBound | 65001 | * | * | Internet | * | * | PERMITIR |
-| DenyAllOutBound | 65500 | * | * | * | * | * | Negar |
+Todos os NSGs contêm um conjunto de regras de segurança padrão. As regras padrão não podem ser excluídas, mas como recebem a prioridade mais baixa, elas podem ser substituídas pelas regras que você criar. Saiba mais sobre as [regras de segurança padrão](security-overview.md#default-security-rules).
 
 ## <a name="associating-nsgs"></a>Associando NSGs
 Você pode associar um NSG a VMs, NICs e sub-redes, dependendo do modelo de implantação que estiver usando, da seguinte maneira:
@@ -127,7 +104,7 @@ Você pode implementar NSGs no Resource Manager ou modelos de implantação clá
 | PowerShell     | [Sim](virtual-networks-create-nsg-classic-ps.md) | [Sim](tutorial-filter-network-traffic.md) |
 | CLI do Azure **V1**   | [Sim](virtual-networks-create-nsg-classic-cli.md) | [Sim](tutorial-filter-network-traffic-cli.md) |
 | CLI do Azure **V2**   | Não  | [Sim](tutorial-filter-network-traffic-cli.md) |
-| Modelo do Azure Resource Manager   | Não   | [Sim](virtual-networks-create-nsg-arm-template.md) |
+| Modelo do Azure Resource Manager   | Não   | [Sim](template-samples.md) |
 
 ## <a name="planning"></a>Planejamento
 Antes de implementar NSGs, você precisa responder às perguntas a seguir:

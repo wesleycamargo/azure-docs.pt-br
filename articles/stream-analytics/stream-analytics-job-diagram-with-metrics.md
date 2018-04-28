@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuração orientada a dados usando o diagrama de trabalho
 
@@ -76,11 +76,11 @@ Se a etapa de consulta anterior for um processador de entrada, use as métricas 
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Estamos ficando para trás na leitura dos dados?
 
-*   **InputEventsSourcesBackloggedTotal** informa quantas mensagens mais precisam ser lidas das entradas dos Hubs de Eventos e do Hub IoT do Azure.
+*   **Input Events Backlogged (Total)** informa quantas mensagens mais precisam ser lidas das entradas dos Hubs de Eventos e do Hub IoT do Azure. Quando esse número for maior que 0, significa que seu trabalho não pode processar os dados tão rápido quanto entram. Nesse caso, pode ser necessário aumentar o número de Unidades de Streaming e/ou verificar se que o trabalho pode ser colocado em paralelo. Você pode ver mais informações sobre isso na [página de paralelização de consulta](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais ajuda, teste nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obter mais ajuda, teste nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)

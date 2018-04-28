@@ -1,19 +1,19 @@
 ---
-title: "Configurar a recuperação de desastre de VMs VMware locais para o Azure com o Azure Site Recovery | Microsoft Docs"
-description: "Saiba como configurar a recuperação de desastre do Azure para de VMs VMware locais com o Azure Site Recovery."
+title: Configurar a recuperação de desastre de VMs VMware locais para o Azure com o Azure Site Recovery | Microsoft Docs
+description: Saiba como configurar a recuperação de desastre do Azure para de VMs VMware locais com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7580db2a2fd41c124443b26257f1b946adcc068c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c86a98dd819b91608be04f1466dc1e6764ee4b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação de desastre de VMs VMware locais para o Azure
 
@@ -27,8 +27,8 @@ Este tutorial mostra como configurar a recuperação de desastre para o Azure pa
 
 Este tutorial é o terceiro de uma série. Este tutorial presume que você já concluiu as tarefas dos tutoriais anteriores:
 
-* [Preparar o Azure](tutorial-prepare-azure.md)
-* [Preparar o VMware local](vmware-azure-tutorial-prepare-on-premises.md)
+* [Preparar o Azure](tutorial-prepare-azure.md). Este tutorial descreve como configurar uma conta de armazenamento do Azure e rede, verificar se a sua conta do Azure tem as permissões corretas e criar um cofre dos Serviços de Recuperação.
+* [Preparar o VMware local](vmware-azure-tutorial-prepare-on-premises.md). Neste tutorial você prepara contas para que o Site Recovery possa acessar servidores VMware para descobrir VMs e, opcionalmente, fazer uma instalação por push do componente de serviço Site Recovery Mobility quando você habilitar a replicação de uma VM. Você também garante que seus servidores VMware e VMs estejam em conformidade com os requisitos do Site Recovery.
 
 Antes de começar, é aconselhável [examinar a arquitetura](vmware-azure-architecture.md) dos cenários de recuperação de desastre.
 
@@ -43,8 +43,6 @@ Antes de começar, é aconselhável [examinar a arquitetura](vmware-azure-archit
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
-> [!TIP]
-> O método recomendado para implantar um servidor de configuração para proteger a máquina virtual VMware é usar o modelo de implantação baseado em OVF como sugerido neste artigo. Caso haja restrições em sua organização que impedem a implantação de um modelo de OVF, você pode usar [UnifiedSetup.exe para instalar um servidor de configuração](physical-manage-configuration-server.md).
 
 Para configurar o ambiente de origem, é necessário um computador local único e altamente disponível para hospedar os componentes locais do Site Recovery. Os componentes incluem o servidor de configuração, o servidor de processo e o servidor de destino mestre:
 
@@ -53,6 +51,10 @@ Para configurar o ambiente de origem, é necessário um computador local único 
 - O servidor de destino mestre lida com os dados de replicação durante o failback do Azure.
 
 Para configurar o servidor de configuração como uma VM VMware altamente disponível, baixe um modelo OVF preparado e importe-o na VMware para criar a VM. Depois de configurar o servidor de configuração, registre-o no cofre. Após o registro, o Site Discovery descobre VMs locais da VMware.
+
+> [!TIP]
+> Este tutorial usa um modelo OVF para criar a VM do VMware do servidor de configuração. Se você não conseguir fazer isso, execute a [Configuração manual](physical-manage-configuration-server.md). 
+
 
 ### <a name="download-the-vm-template"></a>Baixe o modelo de VM
 
@@ -103,7 +105,7 @@ Para incluir uma NIC adicional ao servidor de configuração, faça-o antes de r
 7. A ferramenta executa algumas tarefas de configuração e, em seguida, é reinicializada.
 8. Entre novamente no computador. O assistente de gerenciamento do servidor de configuração é iniciado automaticamente.
 
-### <a name="configure-settings-and-connect-to-vmware"></a>Definir configurações e conectar-se à VMware
+### <a name="configure-settings-and-add-the-vmware-server"></a>Definir as configurações e adicionar o servidor do VMware
 
 1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade** e depois selecione a NIC que receberá o tráfego de replicação. Em seguida, selecione **Salvar**. Não é possível alterar essa configuração depois de ela ter sido definida.
 2. Em **Selecionar cofre de Serviços de Recuperação**, selecione sua assinatura do Azure e o grupo de recursos e o cofre relevantes.

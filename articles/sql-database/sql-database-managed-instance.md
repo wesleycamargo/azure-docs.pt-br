@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma Instância Gerenciada (versão prévia)?
 
@@ -42,8 +42,6 @@ A tabela a seguir apresenta as principais diferenças e os cenários de uso prev
 |Banco de Dados SQL do Azure (único ou pool) |**Pools Elásticos**: para os clientes que desenvolvem novos aplicativos multilocatários SaaS ou intencionalmente transformando seus aplicativos locais existentes em um aplicativo multilocatário SaaS, propõe-se pools elásticos. Os benefícios desse modelo são: <br><ul><li>Conversão do modelo de negócios da venda de licenças para venda de assinaturas de serviços (para ISVs)</li></ul><ul><li>Isolamento de locatário fácil e à prova de marcador</li></ul><ul><li>Um modelo de programação centrada em banco de dados simplificado</li></ul><ul><li>O potencial para escalar horizontalmente atingir um limite rígido</li></ul>**Banco de dados individuais**: para clientes que desenvolvem novos aplicativos diferentes do multilocatário SaaS, cuja carga de trabalho é estável e previsível, propõe-se bancos de dados individuais. Os benefícios desse modelo são:<ul><li>Um modelo de programação centrada em banco de dados simplificado</li></ul>  <ul><li>Desempenho previsível para cada banco de dados</li></ul>|
 |Máquina virtual de IaaS do SQL|Para clientes que necessitam personalizar o sistema operacional ou o servidor de banco de dados, assim como clientes que possuem requisitos específicos em termos de execução de aplicativos de terceiros junto com SQL Server (na mesma VM), propõe-se IaaS/VMs do SQL como a solução ideal|
 |||
-
-<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Como identificar programaticamente uma Instância Gerenciada
 
@@ -131,7 +129,7 @@ A seguir, são descritos os principais recursos da camada de serviço de Uso Ger
 
 A Instância Gerenciada fornece isolamento de segurança adicional de outros locatários na nuvem do Azure. O isolamento de segurança inclui: 
 
-- Implementação e conectividade de rede virtual nativa com o ambiente local usando a Rota Expressa do Azure ou Gateway de VPN 
+- [Implementação e conectividade de rede virtual nativa](sql-database-managed-instance-vnet-configuration.md) com o ambiente local usando a Rota Expressa do Azure ou Gateway de VPN 
 - O ponto de extremidade do SQL é exposto apenas por meio de um endereço IP privado, permitindo conectividade segura a partir de redes híbridas ou privadas do Azure
 - Locatário único com infraestrutura subjacente dedicada (computação, armazenamento)
 
@@ -185,7 +183,13 @@ O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente ge
 
 ### <a name="backup-and-restore"></a>Backup e restauração  
 
-A abordagem de migração aproveita backups do SQL para Azure Storage Blob. Backups armazenados no Azure Storage Blob podem ser restaurados diretamente na Instância Gerenciada. 
+A abordagem de migração aproveita backups do SQL para Azure Storage Blob. Backups armazenados no Azure Storage Blob podem ser restaurados diretamente na Instância Gerenciada. Para restaurar um banco de dados SQL existente para uma Instância Gerenciada, você pode:
+
+- Usar o [DMS (Serviço de Migração de Dados)](/sql/dma/dma-overview). Para obter um tutorial, consulte [Migrar para uma Instância Gerenciada usando o DMS (Serviço de Migração de Dados) do Azure](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um arquivo de backup do banco de dados
+- Use o [comando T-SQL RESTORE](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+  - Para obter um tutorial mostrando como restaurar a Wide World Importers - Arquivo de backup do banco de dados padrão, consulte [Restaurar um arquivo de backup para uma instância gerenciada](sql-database-managed-instance-restore-from-backup-tutorial.md). Este tutorial mostra que você precisa carregar um arquivo de backup para o armazenamento de blog do Azure e o proteja usando uma Chave de assinatura de acesso compartilhado (SAS).
+  - Para obter informações sobre restauração de URL, consulte [Restauração nativa de URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- [Importar de um arquivo BACPAC](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>Recursos do SQL com suporte 
 
@@ -217,5 +221,6 @@ A Instância Gerenciada permite que o administrador do sistema concentre-se no q
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
-- Para obter um tutorial que cria uma Instância Gerenciada e restaura um banco de dados de um arquivo de backup, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-tutorial-portal.md).
+- Para saber mais sobre a configuração de rede virtual, confira [Configuração de VNet de Instância Gerenciada](sql-database-managed-instance-vnet-configuration.md).
+- Para obter um tutorial que cria uma Instância Gerenciada e restaura um banco de dados de um arquivo de backup, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md).
 - Para obter um tutorial usando o DMS (Serviço de Migração de Banco de Dados do Azure) para migração, consulte [Migração de Instância Gerenciada usando DMS](../dms/tutorial-sql-server-to-managed-instance.md).

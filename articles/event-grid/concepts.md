@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.author: babanisa
-ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e5499fca98118de6ef8e08c8ce278b90520425e6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
 
@@ -20,7 +20,7 @@ Os principais conceitos da Grade de Eventos do Azure são:
 
 ## <a name="events"></a>Eventos
 
-Um evento é a menor quantidade de informações que descreve por completo algo que aconteceu no sistema.  Todos os eventos apresentam informações comuns: origem do evento, hora em que o evento ocorreu e identificador exclusivo.  Cada evento também apresenta informações específicas que são relevantes somente para o tipo de evento em questão. Por exemplo, um evento sobre um novo arquivo que está sendo criado no Armazenamento do Azure contém detalhes sobre o arquivo, como o valor `lastTimeModified`. Ou, um evento sobre a reinicialização de uma máquina virtual contém o nome da máquina virtual e o motivo da reinicialização. Cada evento é limitado a 64 KB de dados.
+Um evento é a menor quantidade de informações que descreve por completo algo que aconteceu no sistema. Todos os eventos apresentam informações comuns: origem do evento, hora em que o evento ocorreu e identificador exclusivo. Cada evento também apresenta informações específicas que são relevantes somente para o tipo de evento em questão. Por exemplo, um evento sobre um novo arquivo que está sendo criado no Armazenamento do Azure contém detalhes sobre o arquivo, como o valor `lastTimeModified`. Ou, um evento sobre a reinicialização de uma máquina virtual contém o nome da máquina virtual e o motivo da reinicialização. Cada evento é limitado a 64 KB de dados.
 
 ## <a name="event-sourcespublishers"></a>Origens/fornecedores do evento
 
@@ -32,7 +32,7 @@ Os fornecedores categorizam eventos em tópicos. O tópico inclui um ponto de ex
 
 Os tópicos do sistema são tópicos internos fornecidos pelos serviços do Azure. Os tópicos personalizados são tópicos de aplicativo e de terceiros.
 
-Ao projetar o aplicativo, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuários e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Ao assinar o tópico personalizado, o manipulador de eventos pode filtrar por tipo de evento.
+Ao projetar o seu aplicativo, você terá flexibilidade ao decidir sobre quantos tópicos criar. Para soluções maiores, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuários e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
 
 ## <a name="event-subscriptions"></a>Assinaturas de evento
 
@@ -40,7 +40,7 @@ Uma assinatura orienta a Grade de Eventos sobre quais eventos em um tópico um a
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
-Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador usa alguma ação adicional para processar o evento.  A Grade de Eventos dá suporte a vários tipos de assinante. Dependendo do tipo de assinante, a Grade de Eventos segue diferentes mecanismos para garantir a entrega do evento.  Para manipuladores de eventos de webhook HTTP, o evento é repetido até que o manipulador retorne um código de status de `200 – OK`. Na Fila de Armazenamento do Microsoft Azure, os eventos são repetidos até que o serviço Fila possa processar com êxito o push de mensagens na fila.
+Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. A Grade de Eventos dá suporte a vários tipos de assinante. Dependendo do tipo de assinante, a Grade de Eventos segue diferentes mecanismos para garantir a entrega do evento. Para manipuladores de eventos de webhook HTTP, o evento é repetido até que o manipulador retorne um código de status de `200 – OK`. Na Fila de Armazenamento do Microsoft Azure, os eventos são repetidos até que o serviço Fila possa processar com êxito o push de mensagens na fila.
 
 ## <a name="filters"></a>Filtros
 

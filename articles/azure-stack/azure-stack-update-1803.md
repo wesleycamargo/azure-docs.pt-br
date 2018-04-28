@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-1803-update"></a>Atualização de pilha 1803 do Azure
 
@@ -44,10 +44,11 @@ Este artigo descreve as melhorias e correções no pacote de atualização de 18
 
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
-Após a instalação do 1803, instale os Hotfixes aplicáveis. Para mais informações, consulte os seguintes artigos da base de dados de Conhecimento, bem como nosso [política manutenção](azure-stack-servicing-policy.md).
+- Após a instalação do 1803, instale os Hotfixes aplicáveis. Para mais informações, consulte os seguintes artigos da base de dados de Conhecimento, bem como nosso [política manutenção](azure-stack-servicing-policy.md).
 
-- [KB 4103348 - serviço de API do controlador de rede falha quando você tentar instalar uma atualização da pilha do Azure](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4103348 - serviço de API do controlador de rede falha quando você tentar instalar uma atualização da pilha do Azure](https://support.microsoft.com/en-us/help/4103348)
 
+- Depois de instalar esta atualização, examine a configuração de firewall para garantir [portas necessárias](azure-stack-integrate-endpoints.md) estão abertas. Por exemplo, esta atualização introduz o Monitor do Azure que inclui uma alteração de logs de auditoria para logs de atividade. Com essa alteração, a porta 13012 agora é usada e deve também ser aberta.  
 
 ### <a name="new-features"></a>Novos recursos 
 Esta atualização inclui os seguintes aprimoramentos e correções para a pilha do Azure.
@@ -169,7 +170,7 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
     - *Permita:*
  
       ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -199,7 +200,7 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
 
         ```powershell
         
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

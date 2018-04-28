@@ -17,17 +17,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: 18f580f1eae31c9bf3626e100217467bb48ca881
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure (Versão Prévia)
+# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure
 
 O uso do Azure Cosmos DB no Gerenciador de Armazenamento do Azure permite que os usuários gerenciem entidades do Azure Cosmos DB, manipulem dados, atualizem procedimentos armazenados e gatilhos junto com outras entidades do Azure, como os blobs de armazenamento e as filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local. Neste momento, o Gerenciador de Armazenamento do Azure oferece suporte para contas do SQL, MongoDB, Graph e Tabela.
-
-Neste artigo, você pode aprender como usar o Gerenciador de Armazenamento para gerenciar o Azure Cosmos DB.
 
 
 ## <a name="prerequisites"></a>pré-requisitos
@@ -75,8 +73,11 @@ Um modo alternativo de se conectar a um Azure Cosmos DB é usar uma cadeia de co
     ![Cadeia de conexão](./media/storage-explorer/connection-string.png)
 
 ## <a name="connect-to-azure-cosmos-db-by-using-local-emulator"></a>Conectar-se ao Azure Cosmos DB usando um emulador local
+
 Use as seguintes etapas para se conectar a um Azure Cosmos DB pelo Emulador. Atualmente, só há suporte para conta do SQL.
-1. Instale o emulador e inicialize-o. Para saber como instalar o emulador, consulte [Emulador Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+
+1. Instale o emulador e inicialize-o. Para saber como instalar o emulador, consulte [Emulador Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator)
+
 2. Encontre a opção **Local e Anexo** na árvore à esquerda, clique com o botão direito do mouse em **Contas do Cosmos DB** e escolha **Conectar-se ao Emulador Cosmos DB...**
 
     ![Conecte-se ao Cosmos DB pelo emulador](./media/storage-explorer/emulator-entry.png)
@@ -84,7 +85,6 @@ Use as seguintes etapas para se conectar a um Azure Cosmos DB pelo Emulador. Atu
 3. Atualmente, só há suporte para API do SQL. Cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão, consulte [Obtenha a cadeia de conexão](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![Conecte-se ao Cosmos DB pelo diálogo do emulador](./media/storage-explorer/emulator-dialog.png)
-
 
 
 ## <a name="azure-cosmos-db-resource-management"></a>Gerenciamento de recursos do Azure Cosmos DB
@@ -208,8 +208,111 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
     ![Procedimento armazenado](./media/storage-explorer/stored-procedure.png)
 * As operações para **Gatilhos** e **UDF** são semelhantes aos **Procedimentos Armazenados**.
 
+## <a name="troubleshooting"></a>solução de problemas
+
+[Azure Cosmos DB no Gerenciador de Armazenamento](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) é um aplicativo autônomo que permite que você se conecte a contas do Azure Cosmos DB hospedadas nas nuvens do Azure e soberanas do Windows, do macOS ou do Linux. Ele permite a você gerenciar entidades do Azure Cosmos DB, manipular dados, atualizar procedimentos armazenados e gatilhos junto com outras entidades do Azure, como blobs e filas do Armazenamento.
+
+Estas são as soluções de problemas comuns do Azure Cosmos DB encontradas no Gerenciador de Armazenamento.
+
+### <a name="sign-in-issues"></a>Problemas de entrada
+
+Antes de continuar, tente reiniciar o aplicativo e ver se os problemas podem ser corrigidos.
+
+#### <a name="self-signed-certificate-in-certificate-chain"></a>Certificado autoassinado na cadeia confiável
+
+Há alguns motivos que podem exibir esse erro. Os dois mais comuns são:
+
++ Você está por trás de um "proxy transparente", o que significa que alguém (por exemplo, o departamento de TI) está interceptando o tráfego HTTPS, descriptografando-o e criptografando-o usando um certificado autoassinado.
+
++ Você está executando software, por exemplo, um software antivírus, que está injetando certificados SSL autoassinados nas mensagens HTTPS recebidas.
+
+Quando o Gerenciador de Armazenamento encontrar um desses "certificados autoassinados", ele pode não saber se a mensagem HTTPS recebida foi adulterada. No entanto, se você tiver uma cópia do certificado autoassinado, poderá ordenar o Gerenciador de Armazenamento para confiar nele. Se você não tiver certeza de quem está injetando o certificado, tente localizá-lo por conta própria seguindo as etapas abaixo:
+
+1. Instalar o Open SSL
+     - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (qualquer uma das versões leves serve)
+     - Mac e Linux: deve estar incluído com o sistema operacional
+2. Executar Open SSL
+    - Windows: vá para o diretório de instalação; em seguida, para **/bin/** e clique duas vezes em **openssl.exe**.
+    - Mac e Linux: execute **openssl** em um terminal
+3. Execute `s_client -showcerts -connect microsoft.com:443`
+4. Procurar certificados autoassinados. Se você não tiver certeza quais são autoassinados, procure onde o assunto ("s") e o emissor ("i") são os mesmos.
+5.  Depois de encontrar os certificados autoassinados, copie e cole tudo desde, e incluindo, **---BEGIN CERTIFICATE---** até **---END CERTIFICATE---** em um novo arquivo .cer para cada um.
+6.  Abra o Gerenciador de Armazenamento e vá para **Editar** > **Certificados SSL** > **Importar Certificados**. Usando o seletor de arquivos, encontre, selecione e abra os arquivos .cer criados.
+
+Se você não conseguir localizar todos os certificados autoassinados usando as etapas acima, envie comentários para obter mais ajuda.
+
+#### <a name="unable-to-retrieve-subscriptions"></a>Não é possível recuperar as assinaturas
+
+Se não for possível recuperar suas assinaturas depois de entrar com êxito:
+
+- Verifique se sua conta tem acesso às assinaturas entrando no [Portal do Azure](http://portal.azure.com/)
+- Verifique se você entrou usando o ambiente certo ([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Alemanha](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/) ou Ambiente Personalizado/Azure Stack)
+- Se você estiver atrás de um proxy, verifique se configurou o proxy do Gerenciador de Armazenamento apropriadamente
+- Tentar remover e readicionar a conta
+- Tente excluir os seguintes arquivos do diretório inicial (por exemplo,C:\Users\ContosoUser) e adicione a conta novamente:
+  - .adalcache
+  - .devaccounts
+  - .extaccounts
+- Veja se aparecem mensagens de erro no console de ferramentas de desenvolvedor (F12) ao entrar
+
+![console](./media/storage-explorer/console.png)
+
+#### <a name="unable-to-see-the-authentication-page"></a>Não é possível ver a página de autenticação 
+
+Se você não conseguir ver a página de autenticação:
+
+- Dependendo da velocidade de sua conexão, talvez demore algum tempo para a página de entrada carregar. Aguarde pelo menos um minuto antes de fechar o diálogo de autenticação
+- Se você estiver atrás de um proxy, verifique se configurou o proxy do Gerenciador de Armazenamento apropriadamente
+- Exiba o console do desenvolvedor pressionando a tecla F12. Veja as respostas no console do desenvolvedor e tente encontrar alguma dica do motivo do não funcionamento da autenticação
+
+#### <a name="cannot-remove-account"></a>Não é possível remover a conta
+
+Se você não conseguir remover uma conta, ou se o link de nova autenticação não fizer nada
+
+- Tente excluir os seguintes arquivos do diretório inicial e adicione a conta novamente:
+  - .adalcache
+  - .devaccounts
+  - .extaccounts
+- Se você quiser remover SAS associado a recursos de Armazenamento, exclua:
+  - Pasta %AppData%/StorageExplorer para Windows
+  - /Usuários/<seu_nome>/Library/Applicaiton SUpport/StorageExplorer para Mac
+  - ~/.config/StorageExplorer para Linux
+  - **Será necessário reinserir todas as suas credenciais** se você excluir esses arquivos
+
+
+### <a name="httphttps-proxy-issue"></a>Problema de proxy HTTP/HTTPS
+
+Não é possível listar os nós do Azure Cosmos DB na árvore à esquerda na hora de configurar o proxy HTTP/HTTPS no ASE. Esse é um problema conhecido e será corrigido na próxima versão. Você pode usar o Data Explorer do Azure Cosmos DB no Portal do Azure como uma solução alternativa no momento. 
+
+### <a name="development-node-under-local-and-attached-node-issue"></a>Problema de nó "Desenvolvimento" em "Local e Anexado"
+
+Não há nenhuma resposta depois de clicar no nó "Desenvolvimento" no nó "Local e Anexado" na árvore à esquerda.  O comportamento é esperado. O emulador de local do Azure Cosmos DB terá suporte a partir da próxima versão.
+
+![Nó de desenvolvimento](./media/storage-explorer/development.png)
+
+### <a name="attaching-azure-cosmos-db-account-in-local-and-attached-node-error"></a>Erro de anexação de conta do Azure Cosmos DB ao nó "Local e Anexado"
+
+Se você vir o erro abaixo depois de anexar a conta do Azure Cosmos DB ao nó "Local e Anexado", verifique se você está usando a cadeia de conexão certa.
+
+![Erro de anexação do Azure Cosmos DB a "Local e Anexado"](./media/storage-explorer/attached-error.png)
+
+### <a name="expand-azure-cosmos-db-node-error"></a>Erro de expansão do nó do Azure Cosmos DB
+
+Você pode ver o erro abaixo ao tentar expandir os nós da árvore à esquerda. 
+
+![Erro de expansão](./media/storage-explorer/expand-error.png)
+
+Tente as seguintes sugestões:
+
+- Verifique se a conta do Azure Cosmos DB está sendo provisionada e tente novamente quando a conta for criada com êxito.
+- Se a conta estiver no nó "Acesso Rápido" ou "Local e Anexado", verifique se a conta foi excluída. Nesse caso, você precisará remover o nó manualmente.
+
+## <a name="contact-us"></a>Fale conosco
+
+Se nenhuma das soluções funcionar, envie um email à equipe das Ferramentas de Desenvolvimento do Azure Cosmos DB ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) com detalhes sobre o problema, para que possa ser corrigido.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * Assista ao seguinte vídeo para aprender a usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be) (Usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure).
-* Saiba mais sobre o Gerenciador de Armazenamento e conecte mais serviços em [Introdução ao Gerenciador de Armazenamento (versão prévia)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Saiba mais sobre o Gerenciador de Armazenamento e conecte mais serviços em [Introdução ao Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

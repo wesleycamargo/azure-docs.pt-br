@@ -1,25 +1,25 @@
 ---
-title: "Visão geral do Lote do Azure para desenvolvedores | Microsoft Docs"
-description: "Conheça os recursos do serviço de Lote e suas APIs do ponto de vista de um desenvolvedor."
+title: Visão geral do Lote do Azure para desenvolvedores | Microsoft Docs
+description: Conheça os recursos do serviço de Lote e suas APIs do ponto de vista de um desenvolvedor.
 services: batch
 documentationcenter: .net
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/28/2018
+ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0a18f975530d2a291e529308ee53d6d48a68e42
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1a202efd08de69e6e766c9c42047c01a03be4d96
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -79,10 +79,15 @@ Você pode executar várias cargas de trabalho do Lote em uma única conta do Lo
 
 ## <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
 
-A maioria das soluções do Lote usa o Armazenamento do Azure para armazenar arquivos de recurso e de saída.  
+A maioria das soluções do Lote usa o Armazenamento do Azure para armazenar arquivos de recurso e de saída. Por exemplo, as tarefas do Lote (incluindo as tarefas padrão, tarefas iniciais, tarefas de preparação do trabalho e tarefas de liberação do trabalho) especificam tipicamente os arquivos de recurso que residem nas contas de armazenamento.
 
-Atualmente, o Lote dá suporte apenas ao tipo da conta de armazenamento de Uso geral, conforme descrito na etapa 5 de [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md). As tarefas do Lote (incluindo as tarefas padrão, tarefas iniciais, tarefas de preparação do trabalho e tarefas de liberação do trabalho) devem especificar os arquivos de recurso que residem nas contas de armazenamento de finalidade geral.
+O Lote dá suporte às seguintes [opções de conta](../storage/common/storage-account-options.md) de Armazenamento do Azure:
 
+* Contas de v2 (GPv2) de uso geral 
+* Contas v1 (GPv1) de uso geral
+* Contas de armazenamento de Blobs
+
+Você pode associar uma conta de armazenamento à sua conta do Lote durante a criação da conta do Lote, ou depois. Considere seus requisitos de desempenho e custo ao escolher uma conta de armazenamento. Por exemplo, as opções de conta de armazenamento de blob e GPv2 dão suporte a [limites maiores de capacidade e escalabilidade](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) em comparação com a GPv1. (Contate o Suporte do Azure para solicitar um aumento do limite de armazenamento.) Essas opções de conta podem melhorar o desempenho das soluções do Lote que contêm uma grande quantidade de tarefas paralelas lidas ou gravadas na conta de armazenamento.
 
 ## <a name="compute-node"></a>Nó de computação
 Um nó de computação é uma máquina virtual (VM) do Azure ou VM do serviço de nuvem que é dedicada ao processamento de uma parte da carga de trabalho do aplicativo. O tamanho de um nó determina o número de núcleos de CPU, a capacidade da memória e o tamanho do sistema de arquivos local alocado para o nó. Você pode criar pools de nós de Windows ou Linux usando os Serviços de Nuvem do Azure, imagens do [Marketplace de Máquinas Virtuais do Azure][vm_marketplace] ou imagens personalizadas preparadas por você. Consulte o seguinte seção [Pool](#pool) para obter mais informações sobre essas opções.
@@ -252,7 +257,7 @@ Ao criar uma tarefa, você pode especificar:
     `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
     Se as tarefas precisarem executar um aplicativo ou script que não esteja no `PATH` do nó ou fazer referência às variáveis de ambiente, chame o shell explicitamente na linha de comando da tarefa.
-* **Arquivos de recursos** que contêm os dados a serem processados. Esses arquivos são copiados automaticamente para o nó a partir do armazenamento de Blobs em uma conta de Armazenamento do Azure geral, antes da linha de comando da tarefa ser executada. Para obter mais informações, consulte as seções [Tarefa inicial](#start-task) e [Arquivos e diretórios](#files-and-directories).
+* **Arquivos de recursos** que contêm os dados a serem processados. Esses arquivos são copiados automaticamente para o nó a partir do armazenamento de Blobs em uma conta de Armazenamento do Azure, antes da linha de comando da tarefa ser executada. Para obter mais informações, consulte as seções [Tarefa inicial](#start-task) e [Arquivos e diretórios](#files-and-directories).
 * As **variáveis de ambiente** que são exigidas pelo aplicativo. Para obter mais informações, consulte a seção [Configurações do ambiente para tarefas](#environment-settings-for-tasks) .
 * As **restrições** de acordo com as quais a tarefa deve ser executada. Por exemplo, as restrições incluem o tempo máximo que a tarefa pode ser executada, o número máximo de vezes que uma tarefa com falha deve ser repetida e o tempo máximo que os arquivos no diretório de trabalho da tarefa são mantidos.
 * **Pacotes de aplicativos** para implantar no nó de computação no qual a tarefa está agendada para ser executada. [Application packages](#application-packages) fornecem uma implantação simplificada e controle de versão dos aplicativos que suas tarefas executam. Os pacotes de aplicativos de nível de tarefa são especialmente úteis em ambientes de pool compartilhado, em que diferentes trabalhos são executados em um pool e o pool não é excluído quando um trabalho é concluído. Se o trabalho tiver menos tarefas do que os nós no pool, pacotes de aplicativos de tarefa poderão minimizar a transferência de dados, pois o aplicativo é implantado apenas para os nós que executam tarefas.

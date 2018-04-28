@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: de3d430ad984c9b173f77138417532badc3a7497
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface de usuário (IU) da página
 Este artigo é um complemento do [artigo principal sobre a personalização da interface do usuário](active-directory-b2c-reference-ui-customization.md) no Active Directory B2C do Azure (AD do Azure). As etapas a seguir descrevem como usufruir do recurso de personalização da interface do usuário da página usando conteúdo de exemplo HTML e CSS que fornecemos.
@@ -29,7 +29,7 @@ O conteúdo de exemplo fornecido pode ser usado para personalizar duas páginas 
 ## <a name="register-an-application"></a>Registrar um aplicativo
 Você precisará [registrar um aplicativo](active-directory-b2c-app-registration.md) no locatário B2C que possa ser usado para executar a política. Depois de registrar o aplicativo, você terá algumas opções que poderão ser usadas para executar de fato a política de inscrição:
 
-* Compilar um dos aplicativos de início rápido do AD B2C do Azure listados na seção "Introdução" de [Entrada e inscrição de consumidores em seus aplicativos](active-directory-b2c-overview.md#get-started).
+* Compilar um dos aplicativos de início rápido do AD B2C do Azure listados na seção "Introdução" de [Entrada e inscrição de consumidores em seus aplicativos](active-directory-b2c-overview.md).
 * Use o aplicativo predefinido [Playground do AD B2C do Azure](https://aadb2cplayground.azurewebsites.net) . Caso opte por usar o playground, você deverá registrar um aplicativo no locatário B2C usando o **URI de redirecionamento** `https://aadb2cplayground.azurewebsites.net/`.
 * Na política, use o botão **Executar Agora** no [Portal do Azure](https://portal.azure.com/).
 
@@ -39,7 +39,7 @@ Para personalizar a aparência da sua política, primeiro será necessário cria
 Para os fins deste tutorial, já criamos o conteúdo de exemplo e o hospedamos no Armazenamento de Blobs do Azure. O conteúdo de exemplo é uma personalização bastante básica no tema de nossa empresa fictícia, "Wingtip Toys". Para testá-lo em sua própria política, siga estas etapas:
 
 1. Entre em seu locatário no [portal do Azure](https://portal.azure.com/) e navegue até a folha de recursos B2C.
-2. Clique em **Políticas de inscrição ou de entrada** e clique em sua política (por exemplo, "b2c1signupsignin\_1\_sign\_up\_sign\_in").
+2. Clique em **Políticas de inscrição ou de entrada** e clique em Editar (por exemplo, "b2c1signupsignin\_1\_sign\_up\_sign\_in").
 3. Clique na **Personalização da interface do usuário da Página** e na **Página de inscrição ou de entrada unificada**.
 4. Alterne a opção **Usar página personalizada** para **Sim**. No campo **URI da página personalizada**, digite `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Clique em **OK**.
 5. Clique em **Página de inscrição da conta local**. Alterne a opção **Usar modelo personalizado** para **Sim**. No campo **URI da página personalizada**, digite `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.

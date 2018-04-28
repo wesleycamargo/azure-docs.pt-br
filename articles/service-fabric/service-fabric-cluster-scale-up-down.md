@@ -1,11 +1,11 @@
 ---
 title: Escalar ou reduzir horizontalmente um cluster do Service Fabric | Microsoft Docs
-description: "Escale ou reduza horizontalmente um cluster do Service Fabric para que ele corresponda à demanda, definindo regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais. Adicionar ou remover nós de um cluster do Service Fabric"
+description: Escale ou reduza horizontalmente um cluster do Service Fabric para que ele corresponda à demanda, definindo regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais. Adicionar ou remover nós de um cluster do Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
-ms.author: chackdan
-ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: aljo
+ms.openlocfilehash: 506877e12d12ff3b1372cc0360a8df1a1d52744a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Escalar ou reduzir horizontalmente um cluster do Service Fabric usando regras de autoescala
-Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Cada tipo de nó pode ser escalado ou reduzido horizontalmente de forma independente, ter conjuntos diferentes de portas abertas e métricas de capacidade diferentes. Leia mais sobre isso no documento [Tipos de nó do Service Fabric](service-fabric-cluster-nodetypes.md) . Uma vez que os tipos de nó do Service Fabric no cluster são compostos por conjuntos de dimensionamento de máquinas virtuais no back-end, você precisa configurar regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais.
+# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Reduzir horizontalmente ou escalar horizontalmente um cluster do Service Fabric usando regra de dimensionamento automático ou manualmente
+Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Cada tipo de nó pode ser escalado ou reduzido horizontalmente de forma independente, ter conjuntos diferentes de portas abertas e métricas de capacidade diferentes. Leia mais sobre isso no documento [Tipos de nó do Service Fabric](service-fabric-cluster-nodetypes.md) . Como os tipos de nós do Service Fabric no cluster são compostos por conjuntos de dimensionamento de máquinas virtuais no back-end, é necessário configurar regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais.
 
 > [!NOTE]
 > Sua assinatura precisa ter uma quantidade suficiente de núcleos para adicionar as novas VMs que compõe esse cluster. Atualmente, não há nenhuma validação de modelo. Logo, você receberá uma falha de tempo de implantação se qualquer um dos limites de cota for atingido.
@@ -29,9 +29,9 @@ Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Az
 > 
 
 ## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>Escolher o tipo de nó/conjunto de dimensionamento de máquinas virtuais a ser dimensionado
-Atualmente, não é possível especificar as regras de dimensionamento automático para os conjuntos de dimensionamento de máquinas virtuais usando o portal, por esse motivo, vamos usar o Azure PowerShell (1.0+) para listar os tipos de nó e, em seguida, adicionar as regras de dimensionamento automático a eles.
+Atualmente, não é possível especificar as regras de dimensionamento automático para conjuntos de dimensionamento de máquinas virtuais usando o portal, portanto, vamos utilizar o Microsoft Azure PowerShell (1.0+) para listar os tipos de nó e, em seguida, adicionar regras de dimensionamento automático a eles.
 
-Para obter a lista de conjuntos de dimensionamento de máquinas virtuais que compõem o cluster, execute os seguintes cmdlets:
+Para obter a lista de conjuntos de dimensionamento de máquinas virtuais que compõem o cluster, execute os cmdlets a seguir:
 
 ```powershell
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
@@ -74,7 +74,7 @@ Você precisa executar as etapas a seguir em uma instância VM por vez. Isso per
 
 1. Execute [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) com a intenção 'RemoveNode' para desabilitar o nó que você removerá (a instância mais alta deste tipo de nó).
 2. Execute [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para verificar se o nó realmente foi desabilitado. Caso contrário, aguarde até que o nó seja desabilitado. Não tenha pressa nesta etapa.
-3. Siga os modelos/instruções da [galeria de modelos de Início Rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para alterar a quantidade de VMs para uma no Nodetype. A instância removida é a instância VM mais alta. 
+3. Siga os exemplos/instruções na [galeria de modelos de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para alterar o número de VMs por um nesse tipo de Nó. A instância removida é a instância VM mais alta. 
 4. Repita as etapas 1 a 3 conforme necessário, mas nunca reduza verticalmente o número de instâncias no tipo de nó primário para uma quantidade menor do que a camada de confiabilidade garante. Confira [os detalhes sobre os níveis de confiabilidade aqui](service-fabric-cluster-capacity.md). 
 
 ## <a name="manually-remove-vms-from-the-non-primary-node-typevirtual-machine-scale-set"></a>Remover as VMs manualmente do tipo de nó não primário/conjunto de dimensionamento de máquinas virtuais
@@ -87,7 +87,7 @@ Você precisa executar as seguintes etapas em uma instância VM por vez. Isso pe
 
 1. Execute [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) com a intenção 'RemoveNode' para desabilitar o nó que você removerá (a instância mais alta deste tipo de nó).
 2. Execute [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para verificar se o nó realmente foi desabilitado. Caso contrário, aguarde até que o nó seja desabilitado. Não tenha pressa nesta etapa.
-3. Siga os modelos/instruções da [galeria de modelos de Início Rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para alterar a quantidade de VMs para uma no Nodetype. Agora, isso removerá a instância VM mais alta. 
+3. Siga os exemplos/instruções na [galeria de modelos de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para alterar o número de VMs por um nesse tipo de Nó. Agora, isso removerá a instância VM mais alta. 
 4. Repita as etapas 1 a 3 conforme necessário, mas nunca reduza verticalmente o número de instâncias no tipo de nó primário para uma quantidade menor do que a camada de confiabilidade garante. Confira [os detalhes sobre os níveis de confiabilidade aqui](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Comportamentos que podem ser observados no Service Fabric Explorer
@@ -95,7 +95,7 @@ Ao escalar verticalmente um cluster, o Service Fabric Explorer refletirá o núm
 
 Veja a seguir a explicação para esse comportamento.
 
-Os nós listados no Service Fabric Explorer são um reflexo do que os serviços do sistema do Service Fabric (especificamente, FM) conhecem sobre o número de nós que o cluster tinha/tem. Ao reduzir verticalmente o conjunto de dimensionamento de máquinas virtuais, observe que a VM foi excluída, mas o serviço do sistema do FM ainda acreditará que o nó (mapeado para a VM que foi excluída) voltará. Portanto, o Service Fabric Explorer continua exibindo o nó (embora o estado de integridade possa ser erro ou desconhecido).
+Os nós listados no Service Fabric Explorer são um reflexo do que os serviços do sistema do Service Fabric (especificamente, FM) conhecem sobre o número de nós que o cluster tinha/tem. Ao reduzir verticalmente o conjunto de dimensionamento de máquinas virtuais, observe que a VM foi excluída, mas o serviço de sistema do FM ainda admitirá que o nó (mapeado para a VM que foi excluída) retornará. Portanto, o Service Fabric Explorer continua exibindo o nó (embora o estado de integridade possa ser erro ou desconhecido).
 
 Para certificar-se de que um nó será removido quando uma VM for removida, você tem duas opções:
 

@@ -1,8 +1,8 @@
 ---
-title: "Autenticação do usuário final: SDK do .NET com o Data Lake Store usando o Azure Active Directory | Microsoft Docs"
-description: "Saiba como obter a autenticação do usuário final com o Data Lake Store usando o Azure Active Directory com o SDK do .NET"
+title: 'Autenticação do usuário final: SDK do .NET com o Data Lake Store usando o Azure Active Directory | Microsoft Docs'
+description: Saiba como obter a autenticação do usuário final com o Data Lake Store usando o Azure Active Directory com o SDK do .NET
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 524b00c9fac8b874576cb756c1c8ee39e15e9882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Autenticação do usuário final com o Data Lake Store usando o SDK do .NET
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/12/2018
 
 Neste artigo, você aprenderá como usar o SDK do .NET para fazer a autenticação do usuário final com o Azure Data Lake Store. Para saber sobre autenticação serviço a serviço com o Data Lake Store usando o SDK do .NET, consulte [Autenticação serviço a serviço com Data Lake Store usando o SDK do .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * **Visual Studio 2013, 2015 ou 2017**. As instruções abaixo usam o Visual Studio 2017.
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -63,7 +63,7 @@ Neste artigo, você aprenderá como usar o SDK do .NET para fazer a autenticaç�
    4. Feche o **Gerenciador de Pacotes NuGet**.
 
 6. Abrir **Program.cs**
-7. Libere o uso de instruções com as linhas a seguir:
+7. Substitua as instruções usando as linhas a seguir:
 
     ```csharp
     using System;

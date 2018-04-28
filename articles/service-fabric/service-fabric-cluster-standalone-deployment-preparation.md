@@ -1,23 +1,23 @@
 ---
-title: "Preparação para implantação de cluster autônomo do Azure Service Fabric | Microsoft Docs"
-description: "Documentação relacionada à preparação do ambiente e à criação da configuração de cluster a ser considerada antes de implantar um cluster voltado para a manipulação de uma carga de trabalho de produção."
+title: Preparação para implantação de cluster autônomo do Azure Service Fabric | Microsoft Docs
+description: Documentação relacionada à preparação do ambiente e à criação da configuração de cluster a ser considerada antes de implantar um cluster voltado para a manipulação de uma carga de trabalho de produção.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
-ms.author: dekapur;maburlik;chackdan
-ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;maburlik;aljo
+ms.openlocfilehash: 62673025f5c597f6ed958ad523190d937a52c912
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 <a id="preparemachines"></a>
 
@@ -49,11 +49,11 @@ Ao especificar UDs no ClusterConfig.json, você pode escolher o nome de cada UD.
 
 Para obter informações mais detalhadas sobre os FDs e UDs, confira [Descrevendo um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-Um cluster em produção deve abranger pelo menos três FDs para receber suporte em um ambiente de produção. Se você tem controle total sobre a manutenção e o gerenciamento de nós, ou seja, você é responsável por atualizar e substituir as máquinas. Para clusters executados em ambientes (ou seja, instâncias de VM do Amazon Web Services) em que você não tem controle total sobre as máquinas, você deve ter um mínimo de cinco FDs em seu cluster. Cada FD pode ter um ou mais nós. Isso é para evitar problemas causados por atualizações de computador e que, dependendo do seu tempo, pode interferir com a execução de aplicativos e serviços em clusters.
+Um cluster em produção deve alcançar pelo menos três FDs para ter suporte em um ambiente de produção, se você tiver controle total sobre a manutenção e o gerenciamento dos nós, ou seja, você é responsável por atualizar e substituir os computadores. Para clusters em execução em ambientes (ou seja, instâncias de VMs do Amazon Web Services) onde você não tem controle total sobre os computadores, será necessário ter no mínimo cinco FDs no cluster. Cada FD pode ter um ou mais nós. Isso evita problemas causados por atualizações e upgrades de computadores que, dependendo do momento, podem interferir na execução de aplicativos e serviços em clusters.
 
 ## <a name="determine-the-initial-cluster-size"></a>Determinar o tamanho inicial do cluster
 
-Em geral, o número de nós no cluster é determinado com base nas suas necessidades comerciais, ou seja, a quantidade de serviços e contêineres será executada no cluster e quantos recursos você precisa para manter suas cargas de trabalho. Para clusters de produção, é recomendável ter pelo menos 5 nós no cluster, abrangendo 5 FDs. No entanto, conforme descrito acima, se você tem controle total sobre os nós e pode incluir três FDs, então três nós também devem fazer o trabalho.
+Geralmente, o número de nós no cluster é determinado com base nas suas necessidades comerciais, ou seja, quantos serviços e contêineres serão executados no cluster e quantos recursos são necessários para sustentar as cargas de trabalho. Para clusters de produção, é recomendável ter pelo menos cinco nós no cluster, alcançando 5 FDs. No entanto, conforme descrito acima, se você tem controle total sobre os nós e pode incluir três FDs, então três nós também devem fazer o trabalho.
 
 Clusters de teste executando cargas de trabalho com monitoração de estado devem ter três nós, enquanto os clusters de teste apenas executando cargas de trabalho sem monitoração de estado só precisam de um nó. Também deve ser observado que, para fins de desenvolvimento, você pode ter mais de um nó em um determinado computador. No entanto, em um ambiente de produção, o Service Fabric dá suporte apenas a um nó por máquina virtual ou física.
 
@@ -99,7 +99,7 @@ Quando um administrador de cluster configura um cluster autônomo do Service Fab
 * Desinstalar o SDK do Service Fabric
 * Desinstalar o tempo de execução do Service Fabric 
 * Habilitar o serviço de Firewall do Windows (mpssvc)
-* Habilitar o Serviço de Registro Remoto (remoteregistry)
+* Ter o Serviço de Registro Remoto (registro remoto) habilitado
 * Habilitar o compartilhamento de arquivos (SMB)
 * Abrir as portas necessárias, com base nas portas de configuração de cluster
 * Abrir as portas necessárias para o Serviço de Registro Remoto e o SMB do Windows: 135, 137, 138, 139 e 445

@@ -1,8 +1,8 @@
 ---
-title: "Portal do usuário para o servidor Azure MFA | Microsoft Docs"
-description: "Esta é a página de autenticação do Azure Multi-Factor Authentication que descreve como começar com o Azure MFA e o Portal do Usuário."
+title: Portal do usuário para o servidor Azure MFA | Microsoft Docs
+description: Esta é a página de autenticação do Azure Multi-Factor Authentication que descreve como começar com o Azure MFA e o Portal do Usuário.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal do usuário para o Servidor de Autenticação Multifator do Azure
 
@@ -69,7 +69,7 @@ Para implantar o portal do usuário, siga estas etapas:
    > [!NOTE]
    > Esse Certificado SSL é geralmente um Certificado SSL assinado publicamente.
 
-4. Abra um navegador da web em qualquer computador e navegue até a URL onde o portal do usuário foi instalado (por exemplo, https://mfa.contoso.com/MultiFactorAuth ). Certifique-se de que nenhum aviso de certificado ou erro seja exibido.
+4. Abra um navegador Web em qualquer computador e navegue até a URL na qual o portal do usuário foi instalado (Por exemplo: https://mfa.contoso.com/MultiFactorAuth). Certifique-se de que nenhum aviso de certificado ou erro seja exibido.
 
 ![Instalação do portal de usuário do Servidor MFA](./media/multi-factor-authentication-get-started-portal/install.png)
 
@@ -105,10 +105,10 @@ A instalação do portal do usuário em um servidor diferente do Servidor de Aut
     * Localize a chave **"USE_WEB_SERVICE_SDK"** e altere **value="false"** para **value="true"**
     * Localize a chave **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** e altere **value=""** para **value="DOMAIN\User"**, em que DOMAIN/User é uma conta de serviço que faz parte do Grupo “Administradores do PhoneFactor”.
     * Localize a chave **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** e altere **value=""** para **value="Password"**, em que Password é a senha da conta de serviço inserida na linha anterior.
-    * Localize o valor **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** e altere essa URL de espaço reservado para a URL do SDK do Serviço Web instalado na etapa 2.
-    * Salve o arquivo Web.config e feche o Bloco de Notas.
+    * Localize o valor **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** e altere essa URL de espaço reservado para a URL do SDK de Serviço da Web que instalamos na etapa 2.
+    * Salve o arquivo Web.Config e feche o Bloco de Notas.
 
-6. Abra um navegador da web em qualquer computador e navegue até a URL onde o portal do usuário foi instalado (por exemplo, https://mfa.contoso.com/MultiFactorAuth ). Certifique-se de que nenhum aviso de certificado ou erro seja exibido.
+6. Abra um navegador Web em qualquer computador e navegue até a URL na qual o portal do usuário foi instalado (Por exemplo: https://mfa.contoso.com/MultiFactorAuth). Certifique-se de que nenhum aviso de certificado ou erro seja exibido.
 
 Se você tem dúvidas sobre como configurar um Certificado SSL em um servidor IIS, confira o artigo [Como configurar o SSL no IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
@@ -129,7 +129,7 @@ Configuração opcional:
 
 O servidor de Autenticação Multifator do Azure fornece várias opções para o portal do usuário. A tabela a seguir fornece uma lista dessas opções e uma explicação de como elas são usadas.
 
-| Configurações do Portal de Usuário | Descrição |
+| Configurações do Portal de Usuário | DESCRIÇÃO |
 |:--- |:--- |
 | URL do portal do usuário | Insira a URL de onde o portal está sendo hospedado. |
 | Autenticação primária | Especifique o tipo de autenticação a ser usado ao entrar no portal. Autenticação do Windows, Radius ou LDAP. |

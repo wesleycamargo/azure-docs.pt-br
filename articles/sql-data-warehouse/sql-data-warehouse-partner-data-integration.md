@@ -10,11 +10,11 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 6a1604dbca09e65d8d6d5b45b31b0d3c7f053ccd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5469d6b97ec1a485acc53d0f86a723dc6ee058c1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Parceiros de integração de dados do SQL Data Warehouse
 Para criar sua solução de data warehouse, você pode escolher dentre uma ampla variedade de ferramentas líderes do setor. Este artigo destaca as empresas parceiras da Microsoft com soluções de integração de dados com suporte ao SQL Data Warehouse do Azure.
@@ -73,14 +73,14 @@ Para saber mais sobre outros parceiros, consulte [Parceiros de Business Intellig
 [snaplogic_website]:https://www.snaplogic.com/solutions/microsoft-cortana-analytics-integration/
 
 <!--Marketplace Links -->
-[alteryx_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/alteryx/alteryx-designer/
+[alteryx_marketplace]:https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/
 [attunity_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/ 
 [bryte_systems_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/bryte/bryteflow-cdc-free-trial/ 
-[informatica_Cloud_Services_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/informatica-cloud/informatica-cloud/
-[informatica_PowerCenter_std_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/informatica/informatica-powercenter-standard-10-0pc-std-10-0-windows/
-[informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/ 
+[informatica_Cloud_Services_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica-cloud/informatica-cloud/
+[informatica_PowerCenter_std_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-standard-10-0pc-std-10-0-windows/
+[informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/ 
 <!--[redgate_marketplace]:-->
-[snaplogic_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
+[snaplogic_marketplace]:https://azure.microsoft.com/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
 
 <!--Quickstart_links-->
 [attunity_quickstart]:http://www.attunity.com/sites/default/files/product_resource/quick_start_guide_attunity_cloudbeam_for_microsoft_azure.pdf

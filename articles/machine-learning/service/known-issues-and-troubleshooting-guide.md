@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: e421797d85dd031b77788958db6b1df62a292a8a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: db910096f776f2f8710c0ac03f0378491018fc09
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – problemas conhecidos e Guia de solução de problemas 
 Este artigo ajuda a localizar e corrigir os erros ou falhas encontrados como parte do uso do aplicativo Azure Machine Learning Workbench. 
@@ -137,7 +137,7 @@ Você também pode excluir os projetos e espaços de trabalho de dentro do aplic
 Se você tiver o Windows 10 Fall Creators Update, e se o seu projeto for criado em uma pasta local mapeada para o OneDrive, talvez descubra que não pode abrir qualquer arquivo no Workbench. Isso ocorre devido a um bug introduzido pela versão Fall Creators Update, que faz com que o código node.js falhe em uma pasta do OneDrive. O bug será corrigido em breve pelo Windows update, mas até lá, não crie projetos em uma pasta do OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>Nome de arquivo muito longo no Windows
-Se você usar o Workbench no Windows, poderá encontrar o limite máximo padrão do tamanho de nome do arquivo de 260 caracteres, que poderia aparecer como um erro "o sistema não pode localizar o caminho especificado". Você pode modificar uma configuração da chave do Registro para permitir nomes de caminho de arquivos muito mais longos. Leia [este artigo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) para ver mais detalhes sobre como definir a chave do Registro _MAX_PATH_.
+Se você usar o Workbench no Windows, poderá encontrar o limite máximo padrão do tamanho de nome do arquivo de 260 caracteres, que poderia aparecer como um erro "o sistema não pode localizar o caminho especificado". Você pode modificar uma configuração da chave do Registro para permitir nomes de caminho de arquivos muito mais longos. Leia [este artigo](https://msdn.microsoft.com/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) para ver mais detalhes sobre como definir a chave do Registro _MAX_PATH_.
 
 ## <a name="interrupt-cli-execution-output"></a>Interromper a saída de execução da CLI
 Se você iniciar uma experimentação executada usando `az ml experiment submit` ou `az ml notebook start` e quiser de interromper a saída: 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: fbdf4023bc70f1ad05dd52ac1eabe95b12be9be2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerenciar o registro do inquilino na pilha do Azure
 
@@ -47,7 +47,7 @@ Observe que apenas uma assinatura do Azure pode ser associada um locatário. Se 
 
 ### <a name="powershell"></a>PowerShell
 
-Use o cmdlet New-AzureRmResource para atualizar o recurso de registro. Faça logon no Azure (`Connect-AzureRmAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
+Use o cmdlet New-AzureRmResource para atualizar o recurso de registro. Faça logon no Azure (`Add-AzureRmAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +78,7 @@ Obter uma lista de todos os locatários que foram adicionados a um registro.
 
 ### <a name="powershell"></a>PowerShell
 
-Use o cmdlet Get-AzureRmResovurce para listar todos os locatários. Faça logon no Azure (`Connect-AzureRmAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
+Use o cmdlet Get-AzureRmResovurce para listar todos os locatários. Faça logon no Azure (`Add-AzureRmAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

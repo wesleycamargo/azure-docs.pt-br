@@ -1,26 +1,22 @@
 ---
-title: "Segurança do Hadoop - clusters HDInsight ingressados no domínio - Azure | Microsoft Docs"
+title: HDInsight - clusters de HDInsight ingressados no domínio - Azure
 description: Saiba como...
 services: hdinsight
-documentationcenter: 
-author: saurinsh
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/31/2016
-ms.author: saurinsh
-ms.openlocfilehash: 0a3558973014e47d470ef89d5d0f7c9ac15cb4d9
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 6225bd824e3bcff24b84c79f39ce209f16caafd8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Uma introdução à segurança do Hadoop com clusters HDInsight ingressados no domínio
 
@@ -35,7 +31,7 @@ O Azure HDInsight até hoje dava suporte apenas a um administrador local de usu�
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="benefits"></a>Benefícios
-I Enterprise Security contém quatro grandes pilares: segurança do perímetro, autenticação, autorização e criptografia.
+I Enterprise Security contém quatro pilares principais: segurança do perímetro, autenticação, autorização e criptografia.
 
 ![Pilares de benefícios de clusters HDInsight associados ao domínio](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
 
@@ -59,3 +55,6 @@ A proteção dos dados é importante para atender aos requisitos de conformidade
 * Para gerenciar um cluster HDInsight associado a um domínio, confira [Gerenciar clusters HDInsight associados a domínio](apache-domain-joined-manage.md).
 * Para configurar políticas do Hive e executar consultas do Hive, confira [Configurar políticas do Hive para clusters HDInsight associados ao domínio](apache-domain-joined-run-hive.md).
 * Para executar consultas Hive usando SSH em clusters HDInsight adicionados ao domínio, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Para usar o VSCode para vincular ao cluster ingressado no domínio, consulte [Vincular ao cluster ingressado no domínio com o VSCode](../hdinsight-for-vscode.md#linkcluster).
+* Para usar o IntelliJ para vincular ao cluster ingressado no domínio, consulte [Vincular ao cluster ingressado no domínio com o IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#linkcluster).
+* Para usar o Eclipse para vincular ao cluster ingressado no domínio, consulte [Vincular ao cluster ingressado no domínio com o Eclipse](../spark/apache-spark-eclipse-tool-plugin.md#linkcluster).

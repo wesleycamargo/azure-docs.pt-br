@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/18/2018
   ms.author: bradsev
-  ms.openlocfilehash: a12326f4e3822bc32b863dd61de3b5f2a440dd23
-  ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+  ms.openlocfilehash: 232b4a1e4ef6fdb4c8d07234c2ae988e3e1f3650
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/28/2018
+  ms.lasthandoff: 04/28/2018
 abstract:
   description: O Processo de Ciência de Dados de Equipe é uma metodologia de ciência de dados ágil e iterativa que fornece, com eficiência, soluções de análise preditiva e de aplicativos inteligentes. O TDSP ajuda a melhorar a colaboração e o aprendizado em equipe. Ele contém as principais práticas recomendadas e estruturas da Microsoft, e de outras empresas do setor, que facilitam a implementação bem-sucedida de iniciativas de ciência de dados. O objetivo é ajudar as empresas a obter todos os benefícios do programa de análise escolhido.
 sections:
@@ -28,8 +28,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href:"overview">Visão geral</a>
-    - html: <a href:"lifecycle">Ciclo de vida</a>
+    - html: <a href="overview">Visão geral</a>
+    - html: <a href="lifecycle">Ciclo de vida</a>
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Nexonia | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Nexonia."
+title: 'Tutorial: Integração do Azure Active Directory ao Nexonia | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Nexonia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 027b7ae5b87cc8349670b2270124c18d68242a9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Tutorial: Integração do Azure Active Directory ao Nexonia
 
@@ -95,7 +95,7 @@ Para configurar e testar o logon único do Azure AD com o Nexonia, você precisa
 Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único em seu aplicativo Nexonia.
 
   > [!Note]
-   > Se você tiver problemas na integração, consulte este [link](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery) para um guia de solução de problemas. Se você ainda não encontrou a solução, acione a solicitação de suporte do Portal do Azure.
+   > Se você tiver problemas na integração, consulte este [link](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery) para um guia de solução de problemas. Se você ainda não encontrou a solução, acione a solicitação de suporte do Portal do Azure.
 
 **Para configurar o logon único do Azure AD com o Nexonia, execute as seguintes etapas:**
 

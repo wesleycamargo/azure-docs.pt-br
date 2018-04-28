@@ -1,11 +1,11 @@
 ---
-title: "Comparações e contrastes entre filas do Armazenamento do Azure e filas do Barramento de Serviço | Microsoft Docs"
-description: "Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure."
+title: Comparações e contrastes entre filas do Armazenamento do Azure e filas do Barramento de Serviço | Microsoft Docs
+description: Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de fila oferecidos pelo Microsoft Azure atualmente: filas do Armazenamento e filas do Barramento de Serviço. Usando essas informações, é possível comparar e contrastar as respectivas tecnologias e tomar uma decisão mais informada sobre qual solução atende melhor às suas necessidades.
@@ -39,7 +39,7 @@ Ao determinar qual tecnologia de enfileiramento é adequada ao propósito de uma
 
 Como arquiteto/desenvolvedor de soluções, **você deve considerar o uso das filas do Armazenamento** quando:
 
-* Seu aplicativo precisar armazenar mais de 80 GB de mensagens em uma fila, onde as mensagens têm um tempo de vida de menos de 7 dias.
+* O aplicativo deve armazenar mais de 80 GB de mensagens em uma fila.
 * Seu aplicativo desejar rastrear o progresso do processamento de uma mensagem na fila. Isso será útil se o trabalho de processamento de uma mensagem falhar. Um trabalho subsequente pode usar essas informações para continuar de onde o anterior parou.
 * Você precisar de logs do servidor de todas as transações executadas em suas filas.
 
@@ -51,7 +51,6 @@ Como arquiteto/desenvolvedor de soluções, **você deve considerar o uso das fi
 * Sua solução precisar ser capaz de oferecer suporte à detecção automática de duplicidades.
 * Você desejar que seu aplicativo processe mensagens como fluxos paralelos de longa execução (mensagens associadas a um fluxo usando a propriedade [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) na mensagem). Nesse modelo, cada nó no aplicativo de consumo compete por fluxos, em oposição às mensagens. Quando um fluxo é fornecido a um nó de consumo, o nó pode examinar o estado do fluxo do aplicativo usando transações.
 * Sua solução exigir comportamento transacional e atomicidade ao enviar ou receber várias mensagens de uma fila.
-* A característica de TTL (vida útil) da carga de trabalho específica de aplicativo puder exceder o período de 7 dias.
 * Seu aplicativo tratar mensagens que podem exceder 64 KB, mas provavelmente não se aproximarão do limite de 256 KB.
 * Você tiver que lidar com a necessidade de fornecer um modelo de acesso baseado em função às filas e diferentes direitos/permissões para remetentes e destinatários.
 * O tamanho da fila não for exceder 80 GB.
@@ -133,7 +132,7 @@ Esta seção compara as filas do Armazenamento e as filas do Barramento de Servi
 | --- | --- | --- |
 | Tamanho máximo da fila |**500 TB**<br/><br/>(limitado a uma [capacidade de conta de armazenamento única](../storage/common/storage-introduction.md#queue-storage)) |**1 GB a 80 GB**<br/><br/>(definido na criação de uma fila e [habilitando particionamento](service-bus-partitioning.md) – confira a seção "Informações adicionais") |
 | Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB ao usar a codificação **Base64**)<br/><br/>O Azure oferece suporte a mensagens grandes combinando filas e blobs — nesse ponto, você pode enfileirar até 200 GBs para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende da [camada de serviço](service-bus-premium-messaging.md). |
-| TTL máxima da mensagem |**7 dias** |**TimeSpan.Max** |
+| TTL máxima da mensagem |**Infinito** (a partir da versão da API de 27/07/2017) |**TimeSpan.Max** |
 | Número máximo de filas |**Ilimitado** |**10,000**<br/><br/>(por namespace do serviço) |
 | Número máximo de clientes simultâneos |**Ilimitado** |**Ilimitado**<br/><br/>(o limite de 100 conexões simultâneas se aplica somente à comunicação baseada no protocolo TCP) |
 

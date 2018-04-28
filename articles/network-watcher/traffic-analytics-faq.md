@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/28/2018
 12.  Se eu receber a mensagem a seguir: "1) Analisando seus logs de fluxo NSG pela primeira vez. Esse processo pode demorar de 20 a 30 minutos para ser concluído. Verifique novamente após algum tempo. 2) Se a etapa acima não funcionar e seu espaço de trabalho estiver sob a SKU gratuita, então, verifique o uso de espaço de trabalho aqui para validar a quota, caso contrário consulte as perguntas frequentes para obter mais informações", como faço para resolver isso?
 
         Você pode receber o erro pelos seguintes motivos:
-        - A Análise de Tráfego pode ter sido habilitada recentemente e pode estar agregando dados suficientes para que obtenha informações relevantes antes que qualquer relatório possa ser gerado. Neste caso, tente novamente após 30 minutos
+        - A Análise de tráfego pode ter sido habilitada recentemente e pode não estar agregando dados suficientes para derivar insights significantes.
         - Seu espaço de trabalho OMS está sob a SKU gratuita e violou os limites de cota. Nesse caso, será necessário utilizar um espaço de trabalho em uma SKU com capacidade maior.
     
         Se os problemas persistirem, manifeste as preocupações no [Fórum Voz do Usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -104,11 +104,15 @@ ms.lasthandoff: 03/28/2018
 
         Você está vendo a informação de recursos no painel, no entanto, não há estatísticas relacionadas ao fluxo presentes. Os dados podem estar ausentes porque não há fluxo de comunicação entre os recursos. Aguarde 60 minutos e verifique o status novamente. Se você tiver certeza de que a comunicação flui entre os recursos, então, manifeste as preocupações no [Fórum Voz do Usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Como a Análise de Tráfego é precificada?
+14. Posso Configurar a análise de tráfego usando o PowerShell ou um modelo do Gerenciador de recursos do Azure?
+
+    Não, as análises de tráfego só podem ser configuradas usando o Portal do Azure.
+
+15.  Como a Análise de Tráfego é precificada?
 
         A análise de tráfego é monitorada para melhorar a redução de logs e armazenar os logs avançados em um espaço de trabalho do Log Analytics. Enquanto estiver na visualização, a análise de tráfego não é cobrada para melhorar os logs de redução, no entanto, a retenção de dados em um espaço de trabalho está sujeita a cobrança em taxas publicadas. Essa resposta será atualizada quando os preços para análise de tráfego estiverem disponíveis.
 
-15.  Como posso navegar usando o Teclado na Exibição do Mapa Geográfico?
+16.  Como posso navegar usando o Teclado na Exibição do Mapa Geográfico?
 
         A página do mapa geográfico contém duas seções principais:
     

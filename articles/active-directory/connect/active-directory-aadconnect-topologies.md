@@ -1,11 +1,11 @@
 ---
 title: 'Azure AD Connect: Topologias com suporte | Microsoft Docs'
-description: "Este tópico detalha as topologias com e sem suporte para o Azure AD Connect"
+description: Este tópico detalha as topologias com e sem suporte para o Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
 Este artigo descreve várias topologias locais e do Azure Active Directory (Azure AD) que usam a sincronização do Azure AD Connect como solução de integração principal. Este artigo inclui configurações com e sem suporte.
@@ -35,6 +35,11 @@ Aqui está a legenda para imagens neste artigo:
 | Servidor do Azure AD Connect Sync detalhado |![Servidor do Azure AD Connect Sync detalhado](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
 | AD do Azure |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | Cenário sem suporte |![Cenário sem suporte](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
+
+
+> [!IMPORTANT]
+> A Microsoft não oferece suporte à modificação ou à operação da sincronização do Azure AD Connect fora das configurações ou ações formalmente documentadas. Qualquer uma dessas configurações ou ações pode resultar em um estado inconsistente ou sem suporte da sincronização do Azure AD Connect. Consequentemente, a Microsoft não pode fornecer suporte técnico para essas implantações.
+
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Floresta única, locatário único do Azure AD
 ![Topologia de uma única floresta e um único locatário](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0d8bee936717a5668e16fbd66d416fcc4e738814
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute
 
@@ -73,7 +73,7 @@ Criar um espaço de trabalho na assinatura que tem o link das VNETs ao(s) circui
 1. No [Portal do Azure](https://portal.azure.com), selecione a Assinatura que tem as VNETs emparelhadas com o seu circuito do ExpressRoute. Depois, pesquise o "Monitor de Desempenho de Rede" na lista de serviços do **Marketplace**. Na volta, clique para abrir a página **Monitor de Desempenho de Rede**.
 
    >[!NOTE]
-   >Você pode criar um novo espaço de trabalho ou usar um existente.  Se você quiser usar um espaço de trabalho existente, certifique-se de que o espaço de trabalho tenha sido migrado para a nova linguagem de consulta. [Mais informações...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Você pode criar um novo espaço de trabalho ou usar um existente.  Se você quiser usar um espaço de trabalho existente, certifique-se de que o espaço de trabalho tenha sido migrado para a nova linguagem de consulta. [Mais informações...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
@@ -118,7 +118,7 @@ Criar um espaço de trabalho na assinatura que tem o link das VNETs ao(s) circui
   >
   
   >[!NOTE]
-  >Efetuar push de agentes pelo SCOM (incluindo [MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx)) talvez não possa detectar consistentemente a localização, se estiverem hospedados no Azure.  É recomendável não utilizar esses agentes em VNETs do Azure para monitorar o ExpressRoute.
+  >Efetuar push de agentes pelo SCOM (incluindo [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) talvez não possa detectar consistentemente a localização, se estiverem hospedados no Azure.  É recomendável não utilizar esses agentes em VNETs do Azure para monitorar o ExpressRoute.
   >
   >
 

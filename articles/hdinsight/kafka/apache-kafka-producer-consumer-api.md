@@ -1,8 +1,8 @@
 ---
 title: Utilizar as APIs de produtor e consumidor do Apache Kafka - Azure HDInsight | Microsoft Docs
-description: "Saiba como utilizar as APIs de produtor e consumidor do Apache Kafka com o Kafka no HDInsight. Essas APIs permitem desenvolve aplicativos que fazem gravação e leitura a partir do Apache Kafka."
+description: Saiba como utilizar as APIs de produtor e consumidor do Apache Kafka com o Kafka no HDInsight. Essas APIs permitem desenvolve aplicativos que fazem gravação e leitura a partir do Apache Kafka.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: b57745d6bd993a993e923c964327d9071e745413
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 01592401c4c88adeed49b11df4e7963e27b1bcee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-kafka-producer-and-consumer-apis"></a>APIs de produtor e consumidor do Apache Kafka
 
@@ -43,7 +43,7 @@ Esse exemplo requer Kafka no HDInsight 3.6. Para saber como criar um Kafka no Cl
 
 ## <a name="build-and-deploy-the-example"></a>Compilar e implantar o exemplo
 
-1. Baixe os exemplos de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Baixe os exemplo de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
 2. Altere os diretórios para o local do `Producer-Consumer` diretório e use o seguinte comando:
 

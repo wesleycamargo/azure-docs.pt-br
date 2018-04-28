@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 404ede664f13900137c730034798fbb4b8307852
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitoramento dos aplicativos e recursos do Azure
 
@@ -161,6 +161,6 @@ Após uma interrupção relatada, você usará o Mapa do Serviço para executar 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre:
 
-* [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) para introduzir com alertas e principais métricas de monitoramento.
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/) para introduzir com alertas e principais métricas de monitoramento.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) se você estiver tentando diagnosticar problemas em seu aplicativo Web do Serviço de Aplicativo.
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) para analisar logs e dados de monitoramento coletados.

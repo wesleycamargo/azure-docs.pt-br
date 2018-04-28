@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: fbf3c66979730a9162c56e8583f0a32977a0310d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 349661352d17b015d4c605b39f1e42aa482949ac
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Geração de solicitação de assinatura de certificados de pilha do Azure
 
@@ -55,7 +55,7 @@ Siga estas etapas para preparar e validar os certificados PKI de pilha do Azure:
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ````
 
-2.  Declare o **assunto** como um dicionário ordenado. Por exemplo: 
+2.  Declare o **assunto** como um dicionário ordenado. Por exemplo:  
 
     ````PowerShell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
@@ -112,4 +112,6 @@ Siga estas etapas para preparar e validar os certificados PKI de pilha do Azure:
 8.  Enviar o **. SOL** arquivo gerado para sua autoridade de certificação (interna ou pública).  O diretório de saída de **AzsReadinessChecker início** contém o CSR(s) necessárias ao envio de uma autoridade de certificação.  Ele também contém um diretório filho que contém o arquivo INF (s) usado durante a geração de solicitação de certificado, como uma referência. Certifique-se de que a autoridade de certificação gera certificados usando a solicitação gerada que atendem a [requisitos de PKI de pilha do Azure](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
+
 [Preparar certificados PKI de pilha do Azure](azure-stack-prepare-pki-certs.md)
+

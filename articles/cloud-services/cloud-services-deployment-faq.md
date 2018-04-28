@@ -1,11 +1,11 @@
 ---
-title: "Problemas de implantação para perguntas frequentes sobre Serviços de Nuvem do Microsoft Azure | Microsoft Docs"
-description: "Este artigo lista as perguntas frequentes sobre a implantação para Serviços de Nuvem do Microsoft Azure."
+title: Problemas de implantação para perguntas frequentes sobre Serviços de Nuvem do Microsoft Azure | Microsoft Docs
+description: Este artigo lista as perguntas frequentes sobre a implantação para Serviços de Nuvem do Microsoft Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: effc0eb872a1f63e32c1958234c173a53c381620
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implantação para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -79,4 +79,4 @@ Como o Serviço de Nuvem é um recurso clássico que não é diretamente compat�
 
 No portal clássico, o pacote foi carregado diretamente para a camada da API de gerenciamento e, então, a camada da API colocaria temporariamente o pacote em uma conta de armazenamento interno.  Esse processo causa problemas de desempenho e escalabilidade, porque a camada da API não foi projetada para ser um serviço de carregamento de arquivo.  No portal do Azure (modelo de implantação do Gerenciador de Recursos), ignoramos a etapa provisória do primeiro carregamento para a camada da API, resultando em implantações mais rápidas e mais confiáveis. 
 
-Quanto ao custo, ele é muito pequeno e você pode reutilizar a mesma conta de armazenamento em todas as implantações. Você pode usar a [calculadora de preços de armazenamento](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) para determinar o custo para carregar o service pack (CSPKG), fazer o download do CSPKG, e então excluir o CSPKG. 
+Quanto ao custo, ele é muito pequeno e você pode reutilizar a mesma conta de armazenamento em todas as implantações. Você pode usar a [calculadora de preços de armazenamento](https://azure.microsoft.com/pricing/calculator/#storage1) para determinar o custo para carregar o service pack (CSPKG), fazer o download do CSPKG, e então excluir o CSPKG. 

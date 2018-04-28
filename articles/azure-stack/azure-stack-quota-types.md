@@ -1,25 +1,25 @@
 ---
 title: Tipos de cota na pilha do Azure | Microsoft Docs
-description: "Examine os tipos diferentes de cota disponíveis para serviços e recursos na pilha do Azure."
+description: Examine os tipos diferentes de cota disponíveis para serviços e recursos na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/23/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: xiaofmao
+ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cota na pilha do Azure
 
@@ -35,16 +35,18 @@ ms.lasthandoff: 02/21/2018
 | Define o número máximo de disponibilidade | 10 | O número máximo de conjuntos de disponibilidade que podem ser criados neste local. |
 | Define o número máximo de escala de máquinas virtuais | 20 | O número máximo de conjuntos de escala de máquinas virtuais que podem ser criados neste local. |
 
-> [!NOTE]
-> Elas não são impostas nesta visualização técnica de computação.
-> 
-> 
+
 
 ## <a name="storage-quota-types"></a>Tipos de cota de armazenamento
 | **Item** | **Valor padrão** | **Descrição** |
 | --- | --- | --- |
 | Capacidade máxima (GB) |500 |Capacidade total de armazenamento que pode ser consumida por uma assinatura neste local. |
 | Número total de contas de armazenamento |20 |O número máximo de contas de armazenamento que pode criar uma assinatura neste local. |
+
+> [!NOTE]  
+> Pode levar até duas horas antes de uma nova cota de armazenamento é imposta. 
+> 
+> 
 
 ## <a name="network-quota-types"></a>Tipos de cota de rede
 | **Item** | **Valor padrão** | **Descrição** |

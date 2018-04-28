@@ -2,7 +2,7 @@
 title: Implantar e gerenciar topologias do Apache Storm no HDInsight| Microsoft Docs
 description: Aprenda a implantar, monitorar e gerenciar topologias do Apache Storm usando o Painel do Storm no HDInsight. Use as ferramentas do Hadoop para Visual Studio.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5e542072-f014-42aa-82d6-2694a76df520
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 92c1a02cd7d435809914e7f5bb43b2f8d6aa0cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 55c92e6408522b8a96a37dbedd99d929af1e49fb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no HDInsight baseado no Windows
 
@@ -33,7 +31,7 @@ Os recursos do Storm e do Painel Storm das Ferramentas do HDInsight contam com A
 >
 > Para obter informações sobre como implantar e gerenciar topologias Storm com um cluster HDInsight que usa Linux, veja [Implantar e gerenciar topologias Apache Storm no HDInsight baseado em Linux](apache-storm-deploy-monitor-topology-linux.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Apache Storm no HDInsight** - veja [Introdução ao Apache Storm no HDInsight](apache-storm-tutorial-get-started-linux.md) para obter as etapas de criação de um cluster.
 
@@ -51,7 +49,7 @@ Os recursos do Storm e do Painel Storm das Ferramentas do HDInsight contam com A
 
   * Visual Studio 2017 (qualquer edição)
 
-## <a name="storm-dashboard"></a>Painel Storm
+## <a name="storm-dashboard"></a>Painel de Controle do Storm
 
 O Painel do Strom é uma página da Web disponível no cluster Storm. A URL é **https://&lt;nomedocluster>.azurehdinsight.net/**, onde **nomedocluster** é o nome do seu Storm no cluster HDInsight.
 
@@ -94,7 +92,7 @@ Selecionar um link na seção **Resumo da topologia** exibirá as seguintes info
 
   * **Reequilibrar**: ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. Isso permite que a topologia ajuste o paralelismo para compensar o aumento/diminuição do número de nós no cluster.
 
-      Para saber mais, veja [Understanding the parallelism of a Storm topology (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (Noções básicas do paralelismo de uma topologia Storm).
+      Para saber mais, consulte [Noções básicas sobre o paralelismo de uma topologia do Storm (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
   * **Eliminar**: encerra uma topologia Storm após o tempo limite especificado.
 

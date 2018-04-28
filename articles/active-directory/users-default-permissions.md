@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c4f6ef9d934a414ef805ddba6d2602b03bcbf16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Permissões de usuário padrão no Azure Active Directory
 
-No Azure Active Directory (Azure AD), a todos os usuários é concedido um conjunto de permissões padrão. Um acesso do usuário é composto por tipo de usuário, suas [associações de função](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal) e sua posse de objetos individuais. Este artigo descreve as permissões padrão e contém uma comparação entre os padrões do usuário membro e convidado.
+No Azure Active Directory (Azure AD), a todos os usuários é concedido um conjunto de permissões padrão. Um acesso do usuário é composto por tipo de usuário, suas [associações de função](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) e sua posse de objetos individuais. Este artigo descreve as permissões padrão e contém uma comparação entre os padrões do usuário membro e convidado.
 
 ## <a name="member-and-guest-users"></a>Usuários membro e convidado
 O conjunto de permissões padrão recebido depende se o usuário é um membro nativo do locatário (usuário membro) ou se o usuário é um convidado de colaboração B2B (usuário convidado). Para obter mais informações sobre a colaboração B2B, consulte [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md) para obter mais informações sobre usuários convidados. 

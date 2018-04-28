@@ -1,11 +1,11 @@
 ---
-title: "Políticas de restrição de acesso do Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre as políticas de restrição de acesso disponíveis para uso no Gerenciamento de API do Azure."
+title: Políticas de restrição de acesso do Gerenciamento de API do Azure | Microsoft Docs
+description: Saiba mais sobre as políticas de restrição de acesso disponíveis para uso no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -88,8 +88,8 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
@@ -113,8 +113,8 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |NOME|DESCRIÇÃO|Obrigatório|  
 |----------|-----------------|--------------|  
 |set-limit|Elemento raiz.|sim|  
-|api|Adicione um ou mais desses elementos para impor um limite de taxa de chamadas para as APIs dentro do produto. Limites de taxa de chamadas à API e ao produto são aplicados de forma independente.|Não |  
-|operation|Adicione um ou mais desses elementos para impor um limite de taxa de chamadas para as operações dentro de uma API. Limites de taxa de chamadas à API, operação e produto são aplicados de forma independente.|Não |  
+|api|Adicione um ou mais desses elementos para impor um limite de taxa de chamadas para as APIs dentro do produto. Limites de taxa de chamadas à API e ao produto são aplicados de forma independente. A API pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado.|Não |  
+|operation|Adicione um ou mais desses elementos para impor um limite de taxa de chamadas para as operações dentro de uma API. Limites de taxa de chamadas à API, operação e produto são aplicados de forma independente. A operação pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado.|Não |  
   
 ### <a name="attributes"></a>Atributos  
   
@@ -243,8 +243,8 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
@@ -268,8 +268,8 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |NOME|DESCRIÇÃO|Obrigatório|  
 |----------|-----------------|--------------|  
 |quota|Elemento raiz.|sim|  
-|api|Adicione um ou mais desses elementos para impor uma cota para as APIs dentro do produto. Cotas de API e produto são aplicadas de forma independente.|Não |  
-|operation|Adicione um ou mais desses elementos para impor uma cota para as operações dentro de uma API. Cotas de operações, APIs e produtos são aplicadas de forma independente.|Não |  
+|api|Adicione um ou mais desses elementos para impor uma cota para as APIs dentro do produto. Cotas de API e produto são aplicadas de forma independente. A API pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado.|Não |  
+|operation|Adicione um ou mais desses elementos para impor uma cota para as operações dentro de uma API. Cotas de operações, APIs e produtos são aplicadas de forma independente. A operação pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado.|Não |  
   
 ### <a name="attributes"></a>Atributos  
   

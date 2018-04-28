@@ -1,11 +1,11 @@
 ---
-title: "Design de identidade híbrida - estratégia de adoção do Azure | Microsoft Docs"
-description: "Com o controle de acesso condicional, o Active Directory do Azure verifica as condições específicas que você escolhe para autenticar o usuário e antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo."
-documentationcenter: 
+title: Design de identidade híbrida - estratégia de adoção do Azure | Microsoft Docs
+description: Com o controle de acesso condicional, o Active Directory do Azure verifica as condições específicas que você escolhe para autenticar o usuário e antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, você define uma estratégia de adoção para sua solução de identidade híbrida para atender aos requisitos de negócios que abordamos nos tópicos:
@@ -90,7 +90,7 @@ Conheça também os recursos que não estão disponíveis:
 * A transição do Office para o processo de autenticação passiva lhes permitem fornecer suporte exclusivamente a provedores de identidade SAML 2.0, mas o suporte é fornecido individualmente aos clientes
 
 > [!NOTE]
-> Para obter a lista mais atualizada, leia o artigo em https://aka.ms/ssoproviders.
+> Para obter a lista mais atualizada, leia o artigo https://aka.ms/ssoproviders.
 > 
 > 
 
@@ -196,7 +196,7 @@ Mesmo que defina uma solução para sua estratégia, você deve usar a avaliaç�
 | AD local |Servidor de Autenticação Multifator |
 
 > [!NOTE]
-> Você deve garantir que a opção de design de autenticação multifator selecionada seja compatível com os recursos necessários para o seu design.  Para saber mais, leia [Escolha a solução de segurança multifator mais adequada](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
+> Você deve garantir que a opção de design de autenticação multifator selecionada seja compatível com os recursos necessários para o seu design.  Para saber mais, leia [Escolha a solução de segurança multifator mais adequada](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
 > 
 > 
 

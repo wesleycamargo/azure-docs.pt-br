@@ -1,9 +1,9 @@
 ---
 title: Business Intelligence do SQL Server | Microsoft Docs
-description: "Este tópico usa recursos criados com o modelo de implantação clássica e descreve os recursos de BI (Business Intelligence) disponíveis para o SQL Server em execução em VMs (máquinas virtuais) do Azure."
+description: Este tópico usa recursos criados com o modelo de implantação clássica e descreve os recursos de BI (Business Intelligence) disponíveis para o SQL Server em execução em VMs (máquinas virtuais) do Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
-ms.author: asaxton
-ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: maghan
+ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence do SQL Server em máquinas virtuais do Azure
 > [!IMPORTANT] 
@@ -216,7 +216,7 @@ Para saber mais sobre permissões do servidor de relatório, consulte [Concedend
 Para verificar a configuração, navegue até o gerenciador de relatórios na VM.
 
 1. Na VM, inicie o Internet Explorer com privilégios de administrador.
-2. Navegue até http://localhost/reports na VM.
+2. Navegue para http://localhost/reports na máquina virtual.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>Para conectar-se ao portal da Web Conexão Remota ou para o Gerenciador de Relatórios para as versões 2014 e 2012
 Se você quiser se conectar ao portal da Web ou ao Gerenciador de Relatórios para as versões 2014 e 2012, na máquina virtual de um computador remoto, crie um novo Ponto de Extremidade TCP de máquina virtual. Por padrão, o servidor de relatório escuta solicitações HTTP na **porta 80**. Se você configurar as URLs do servidor de relatório para usar uma porta diferente, especifique o número da porta nas instruções a seguir.
@@ -225,7 +225,7 @@ Se você quiser se conectar ao portal da Web ou ao Gerenciador de Relatórios pa
 2. Abra a porta 80 no firewall da máquina virtual.
 3. Navegue até o portal da Web ou até o gerenciador de relatórios usando o **Nome DNS** da Máquina Virtual do Azure como o nome do servidor na URL. Por exemplo: 
    
-    **Servidor de relatório**: http://uebi.cloudapp.net/reportserver **Portal da Web**: http://uebi.cloudapp.net/reports
+    **Servidor de relatório**: http://uebi.cloudapp.net/reportserver  **Portal web**: http://uebi.cloudapp.net/reports
    
     [Configurar um firewall para acesso ao servidor de relatório](https://msdn.microsoft.com/library/bb934283.aspx)
 

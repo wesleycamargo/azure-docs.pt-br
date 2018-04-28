@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Compliance ELF | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Compliance ELF."
+title: 'Tutorial: Integração do Azure Active Directory ao Compliance ELF | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Compliance ELF.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f05c43e2d8f6e777ae128e90040d8d5c270c212b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 32cb676393558079baad9bb0fc26d2c4daaa3519
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Tutorial: Integração do Azure Active Directory ao Compliance ELF
 
@@ -32,7 +32,7 @@ A integração do Compliance ELF ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Compliance ELF, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Compliance ELF da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-compliance-elf-from-the-gallery"></a>Adicionando o Compliance ELF da galeria
 Para configurar a integração do Compliance ELF ao Azure AD, você precisará adicionar o Compliance ELF da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -101,7 +101,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
 3. Na seção **Domínio e URLs do Compliance ELF**, execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
@@ -119,34 +119,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esse valor não é real. Atualize esses valores com a URL de Logon real. Contate a [equipe de suporte ao cliente do Compliance ELF](mailto:support@complianceelf.com) para obter esse valor.
 
-5. Clique no botão **Salvar** .
+5. Na seção **Certificado de Autenticação SAML** clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+    
+    ![Configurar o logon único](./media/active-directory-saas-complianceelf-tutorial/tutorial_metadataurl.png)
+     
+6. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-complianceelf-tutorial/tutorial_general_400.png)
 
-6. Para gerar a URL de **Metadados**, execute as seguintes etapas:
-
-    a. Clique em **Registros do aplicativo**.
-    
-    ![Configurar Logon Único](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar Logon Único](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpointicon.png)
-
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar Logon Único](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpoint.png)
-     
-    d. Agora, acesse a página de propriedades do **Compliance ELF** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar Logon Único](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. Para configurar o logon único no lado do **Compliance ELF**, é necessário enviar o **URL de metadados** baixado para a [equipe de suporte do Compliance ELF](mailto:support@complianceelf.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Para configurar logon único no **Compliance ELF**, é necessário enviar a **URL de metadados de federação do aplicativo** para a [Equipe de suporte do Compliance ELF](mailto:support@complianceelf.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

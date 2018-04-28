@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 919b1bef1f1337ad188e26476da8c5a5ef029224
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 133c09ad1f81a122d089485f8793d7dddbd1488a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e usá-lo para criar novas VMs no Azure
 
@@ -107,7 +107,7 @@ Você também pode carregar um VHD na sua conta de armazenamento usando um dos s
     A Importação/Exportação pode ser usada para copiar para a conta de armazenamento standard. Você precisará copiar do armazenamento standard para a conta de armazenamento premium usando uma ferramenta como o AzCopy.
 
 > [!IMPORTANT]
-> Se estiver usando o AzCopy para carregar o VHD no Azure, verifique se você definiu [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) antes de executar o script de upload. Se o destino é um blob e essa opção não está especificada, por padrão, o AzCopy cria um blob de blocos.
+> Se estiver usando o AzCopy para carregar o VHD no Azure, verifique se você definiu [/BlobType:page](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) antes de executar o script de upload. Se o destino é um blob e essa opção não está especificada, por padrão, o AzCopy cria um blob de blocos.
 > 
 > 
 

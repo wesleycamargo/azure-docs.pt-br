@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server 
 
@@ -239,7 +239,7 @@ A [Pesquisa semântica](https://docs.microsoft.com/sql/relational-databases/sear
 ### <a name="linked-servers"></a>Servidores vinculados
  
 Servidores vinculados na Instância Gerenciada oferecem suporte a um número limitado de destinos: 
-- Suporte a destinos: SQL Server, banco de dados SQL, Instância Gerenciada e SQL Server em uma máquina virtual.
+- Destinos com suporte: Banco de Dados SQL e SQL Server
 - Destinos sem suporte: arquivos, Analysis Services e outros RDBMS.
 
 Operações
@@ -419,4 +419,4 @@ Só pode haver apenas um perfil do Database Mail e ele deve ser chamado de `Azur
 
 - Para mais detalhes sobre a Instância Gerenciada, consulte [O que é uma Instância Gerenciada](sql-database-managed-instance.md)
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
-- Para obter um tutorial, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-tutorial-portal.md).
+- Para obter um tutorial mostrando como criar uma nova Instância Gerenciada, consulte [Criando uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md).

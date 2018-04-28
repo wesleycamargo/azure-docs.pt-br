@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,17 +15,17 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: c83dc3eeb6ca0d66b0c70236354fd7bab80f355f
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-cluster"></a>cluster sfctl
 Selecionar, gerenciar e operar clusters do Service Fabric.
 
 ## <a name="commands"></a>Comandos
 
-|Get-Help|DESCRIÇÃO|
+|Comando|DESCRIÇÃO|
 | --- | --- |
 |    versões de código| Obtém uma lista de versões de códigos de malha que são provisionadas em um cluster do Service Fabric.|
 |    versões de configurações | Obtém uma lista de versões de configurações de malha que são provisionadas em um cluster do Service Fabric.|
@@ -68,7 +68,7 @@ Obtém a integridade de um cluster do Service Fabric. Use EventsHealthStateFilte
 | --debug                        | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                      | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                    | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.                    Padrão: json.|
-| --query                        | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query                        | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose                      | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-cluster-manifest"></a>Manifesto do cluster sfctl
@@ -89,7 +89,7 @@ Obter o manifesto do cluster do Service Fabric. O manifesto do cluster contém p
 | --debug  | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h| Mostrar esta mensagem de ajuda e sair.|
 | --output -o | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query  | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query  | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose| Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-cluster-provision"></a>provisionamento do cluster sfctl
@@ -111,7 +111,7 @@ Valide e provisione o código ou os pacotes de configuração de um cluster do S
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h  | Mostrar esta mensagem de ajuda e sair.|
 | --output -o| O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose  | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-cluster-select"></a>seleção do cluster sfctl
@@ -138,7 +138,7 @@ Se estiver se conectando ao cluster seguro, especifique um certificado (.crt) e 
 | --debug           | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h         | Mostrar esta mensagem de ajuda e sair.|
 | --output -o       | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query           | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query           | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose         | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-cluster-unprovision"></a>desprovisionamento do cluster sfctl
@@ -159,7 +159,7 @@ Desconfigurar os pacotes de código ou a configuração de um cluster do Service
 |--debug         | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
  |   --help -h       | Mostrar esta mensagem de ajuda e sair.|
  |   --output -o     | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
- |   --query         | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+ |   --query         | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
  |   --verbose       | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 
@@ -197,7 +197,7 @@ Valide os parâmetros de upgrade fornecidos e comece a atualizar o código ou a 
 |--debug                               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 |    --help -h                             | Mostrar esta mensagem de ajuda e sair.|
 |    --output -o                           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv. Padrão: json.|
-|    --query                               | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+|    --query                               | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 |    --verbose                             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="next-steps"></a>Próximas etapas

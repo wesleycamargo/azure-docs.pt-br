@@ -1,24 +1,26 @@
 ---
 title: Atualizar para a última geração do SQL Data Warehouse do Azure | Microsoft Docs
-description: Etapas para atualizar o SQL Data Warehouse do Azure para a última geração de arquitetura de armazenamento e hardware do Azure.
+description: Atualize o SQL Data Warehouse do Azure para a última geração de arquitetura de armazenamento e hardware do Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
-ms.services: sql-data-warehouse
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/02/2018
+ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6ea45398b0bf7fca43c75797313b7e683972b1ab
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 673386ad236f596aa4c64fe2e8c885fb86afe170
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimize o desempenho ao fazer upgrade do SQL Data Warehouse
+Atualize o SQL Data Warehouse do Azure para a última geração de arquitetura de armazenamento e hardware do Azure.
 
-Agora você pode atualizar diretamente para o nível de desempenho Otimizado para Computação no Portal do Azure. Se tiver um data warehouse Otimizado para Elasticidade, é recomendável atualizar para a geração mais recente de hardware do Azure e uma arquitetura de armazenamento avançada. Você poderá aproveitar um desempenho mais rápido, escalabilidade mais alta e armazenamento em colunas ilimitado. 
+## <a name="why-upgrade"></a>Por que atualizar?
+Agora você pode atualizar diretamente para o nível de desempenho Otimizado para Computação no Portal do Azure. Se você tiver um data warehouse otimizado para elasticidade, é recomendado fazer o upgrade. Com o upgrade, você poderá usar a última geração de hardware do Azure e a arquitetura de armazenamento aprimorada. Você poderá aproveitar um desempenho mais rápido, escalabilidade mais alta e armazenamento em colunas ilimitado. 
 
 ## <a name="applies-to"></a>Aplica-se a
 Essa atualização aplica-se aos data warehouses no nível de desempenho do Otimizado para Elasticidade.
@@ -28,12 +30,6 @@ Essa atualização aplica-se aos data warehouses no nível de desempenho do Otim
 Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
-
-> [!NOTE]
-> A partir de 30/3, você deve ter [auditorias no nível de servidor](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing#subheading-8) desativada antes de iniciar a atualização.
-> 
->
-
 > [!NOTE]
 > Se seu data warehouse Otimizado para Elasticidade existente não estiver em uma região onde Otimizado para Computação está disponível, você poderá [restauração geograficamente para Otimizado para Computação](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) por meio do PowerShell para uma região com suporte.
 > 
@@ -70,9 +66,9 @@ Entre no [portal do Azure](https://portal.azure.com/).
    
    A primeira etapa do processo de atualização passa pela operação de expansão ("Atualização - Offline") em que todas as sessões serão eliminadas e as conexões serão removidas. 
    
-   A segunda etapa do processo de atualização é a migração de dados ("Atualização - Online"). Migração de dados é um processo lento em plano de fundo online, que lentamente move dados de colunas da arquitetura de armazenamento Gen1 antiga para a nova arquitetura de armazenamento Gen2 para aproveitar o cache SSD Gen2 local. Durante esse tempo, o data warehouse ficará online para consultas e carregamento. Todos os dados estarão disponíveis para consulta, independentemente se forem migrados ou não. A migração de dados ocorre em uma taxa que varia dependendo do tamanho dos seus dados, do nível de desempenho e do número de segmentos do columnstore. 
+   A segunda etapa do processo de atualização é a migração de dados ("Atualização - Online"). A migração de dados é um processo lento em segundo plano online, que move lentamente os dados de colunas da arquitetura de armazenamento antiga para a nova arquitetura de armazenamento para aproveitar o cache SSD local. Durante esse tempo, o data warehouse ficará online para consultas e carregamento. Todos os dados estarão disponíveis para consulta, independentemente se forem migrados ou não. A migração de dados ocorre em uma taxa que varia dependendo do tamanho dos seus dados, do nível de desempenho e do número de segmentos do columnstore. 
 
-5. **Recomendação opcional:** para agilizar o processo em plano de fundo de migração de dados, é recomendável forçar imediatamente a movimentação de dados executando [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas de columnstore em uma classe maior de SLO e recursos. Esta operação está offline, em comparação com o processo lento em plano de fundo; no entanto, a migração de dados será muito mais rápida, em que você pode, em seguida, aproveitar ao máximo a arquitetura de armazenamento Gen2 uma vez concluída com grupos de linhas de alta qualidade. 
+5. **Recomendação opcional:** para agilizar o processo em plano de fundo de migração de dados, é recomendável forçar imediatamente a movimentação de dados executando [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas de columnstore em uma classe maior de SLO e recursos. Esta operação está offline, em comparação com o processo lento em segundo plano; no entanto, a migração de dados será muito mais rápida, e você poderá aproveitar ao máximo a arquitetura de armazenamento aprimorada depois de concluída com grupos de linhas de alta qualidade. 
 
 Esta consulta a seguir gera os comandos necessários Alter Index Rebuild para acelerar o processo de migração de dados:
 

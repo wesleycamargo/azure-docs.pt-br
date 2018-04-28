@@ -2,24 +2,22 @@
 title: Adicionar outras contas de armazenamento do Azure ao HDInsight | Microsoft Docs
 description: Saiba como adicionar outras contas de armazenamento do Azure a um cluster existente do HDInsight.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 569a41dfdbf2f9d911e67f283f413130ba7e1f79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
@@ -55,7 +53,7 @@ Durante o processamento, o script executa as ações a seguir:
 
 ## <a name="the-script"></a>O script
 
-__Local do script__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
+__Localização do script__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
 __Requisitos__:
 
@@ -68,7 +66,7 @@ Você pode usar o script por meio do Portal do Azure, do Azure PowerShell ou da 
 > [!IMPORTANT]
 > Ao usar as etapas fornecidas no documento de personalização, use as informações a seguir para aplicar esse script:
 >
-> * Substitua qualquer exemplo de URI de ação de script pelo URI desse script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
+> * Substitua qualquer URI de ação de script de exemplo pelo URI desse script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
 > * Substitua quaisquer parâmetros de exemplo pelo nome da conta de armazenamento do Azure e pela chave da conta de armazenamento a ser adicionada ao cluster. Se você usar o Portal do Azure, esses parâmetros deverão ser separados por um espaço.
 > * Não é necessário marcar esse script como __Persistido__, pois ele atualiza diretamente a configuração do Ambari para o cluster.
 
@@ -100,7 +98,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Defina `$PASSWORD` como a senha de conta de logon do cluster (admin). Defina `$CLUSTERNAME` como o nome do cluster do HDInsight. Defina `$STORAGEACCOUNTNAME` como o nome da conta de armazenamento.
 >
-> Esse exemplo usa [curl (http://curl.haxx.se/)](http://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para recuperar e analisar dados de JSON.
+> Este exemplo usa [curl (http://curl.haxx.se/)](http://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para recuperar e analisar dados JSON.
 
 Ao usar esse comando, substitua __NOMEDOCLUSTER__ pelo nome do cluster do HDInsight. Substitua __SENHA__ pela senha de logon HTTP do cluster. Substitua __STORAGEACCOUNT__ pelo nome da conta de armazenamento adicionada usando a ação de script. As informações que retornam desse comando são semelhantes ao texto a seguir:
 

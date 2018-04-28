@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 77f6ae1df8a364eecc5e7d6d6fe3a07dd215ac16
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Usando as políticas personalizadas do Azure AD B2C (Azure Active Directory B2C), é possível enviar um parâmetro em uma cadeia de caracteres de consulta. Passando o parâmetro para seu ponto de extremidade HTML, é possível alterar dinamicamente o conteúdo da página. Por exemplo, é possível alterar a imagem de tela de fundo na página de inscrição ou de entrada do Azure AD B2C, com base em um parâmetro passado do seu aplicativo Web ou móvel. 
 
 ## <a name="prerequisites"></a>pré-requisitos
@@ -193,7 +196,7 @@ Seu modelo HTML5 está pronto para uso. No entanto, ele não está disponível n
     >Para verificar se o site em que você está hospedando seu conteúdo habilitou o CORS e pode testar solicitações CORS, acesse o site [test-cors.org](http://test-cors.org/). 
 
 * O conteúdo veiculado é protegido em **HTTPS**.
-* Você está usando *URLS absolutas* como *https://seudomínio/conteúdo* para todos os links, conteúdo CSS e imagens.
+* Você está usando *URLS absolutas* como *https://yourdomain/content* para todos os links, conteúdo CSS e imagens.
 
 ## <a name="step-5-configure-your-content-definition"></a>Etapa 5: Configurar sua definição de conteúdo
 Para configurar `ContentDefinition`, faça o seguinte:

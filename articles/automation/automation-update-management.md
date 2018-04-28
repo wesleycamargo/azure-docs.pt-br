@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -51,7 +51,7 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte:
 |Sistema operacional  |Observações  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Suporte apenas para avaliações de atualização         |
-|Windows Server 2008 R2 SP1 e superior     |.NET Framework 4.5 e WMF 5.0 ou posterior são necessários para Windows Server 2008 R2 SP1        |
+|Windows Server 2008 R2 SP1 e superior     |O Windows PowerShell 4.0 ou superior é necessário ([faça o download do WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([faça o download do WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) é recomendado para aumentar a confiabilidade.         |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
@@ -252,7 +252,7 @@ Se você encontrar problemas ao tentar integrar a solução ou uma máquina virt
 | Não é possível registrar a máquina para gerenciamento de patch,<br>Falha no registro com exceção<br>System.Net.Http.HttpRequestException: ocorreu um erro ao enviar a solicitação. ---><br>System.Net.WebException: a conexão subjacente<br>foi fechada: ocorreu um erro<br>inesperado em um recebimento. ---> System.ComponentModel.Win32Exception:<br>O cliente e o servidor não podem se comunicar,<br>pois não possuem um algoritmo em comum | Proxy/Gateway/Firewall está bloqueando a comunicação | [Revisar os requisitos de rede](automation-offering-get-started.md#network-planning)|
 | Não é possível registrar a máquina para gerenciamento de patch,<br>Falha no registro com exceção<br>Newtonsoft.Json.JsonReaderException: Erro ao analisar um valor infinito positivo. | Proxy/Gateway/Firewall está bloqueando a comunicação | [Revisar os requisitos de rede](automation-offering-get-started.md#network-planning)|
 | O certificado apresentado pelo serviço <wsid>.oms.opinsights.azure.com<br>não foi emitido por uma autoridade de certificação<br>usado para serviços da Microsoft. Contato<br>seu administrador de rede para ver se há um proxy em execução que intercepta<br>a comunicação TLS/SSL. |Proxy/Gateway/Firewall está bloqueando a comunicação | [Revisar os requisitos de rede](automation-offering-get-started.md#network-planning)|
-| Não é possível registrar a máquina para gerenciamento de patch,<br>Falha no registro com exceção<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Falha ao criar um certificado autoassinado. ---><br>System.UnauthorizedAccessException: acesso negado. | Falha ao gerar certificado autoassinado | Verifique se a conta do sistema tem<br>acesso de leitura à pasta:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
+| Não é possível registrar a máquina para gerenciamento de patch,<br>Falha no registro com exceção<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Falha ao criar um certificado autoassinado. ---><br>System.UnauthorizedAccessException: acesso negado. | Falha ao gerar certificado autoassinado | Verifique se a conta do sistema tem<br>acesso de leitura à pasta:<br>**C:\ProgramData\Microsoft\**<br>** Crypto\RSA**|
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 10e5b1a261f28391bed8cf3f111b1124b52d7816
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6f184ac0b2af3a66affecd1a3a9c247a96e616f8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure 2.0
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo. Neste tutorial, você aprenderá a:
@@ -29,7 +29,7 @@ Ao criar um conjunto de dimensionamento, o número de instâncias de VM que voc�
 > * Usar o dimensionamento automático com um conjunto de dimensionamento
 > * Criar e usar regras de dimensionamento automático
 > * Testar instâncias de VM sob estresse e disparar regras de dimensionamento automático
-> * Redimensionamento automático com a redução da demanda
+> * Redimensionar automaticamente conforme a demanda é reduzida
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -88,7 +88,7 @@ O início do perfil de autoescala define a capacidade do conjunto de dimensionam
 ## <a name="create-a-rule-to-autoscale-out"></a>Criar uma regra de dimensionamento automático para aumento
 Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunto de dimensionamento também aumentará. Se esse aumento de carga for consistente, em vez de apenas uma demanda breve, configure as regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando essas instâncias de VM forem criadas e os aplicativos implantados, o conjunto de dimensionamento começará a distribuir o tráfego para eles por meio do balanceador de carga. Você controla quais métricas são monitoradas, como CPU ou disco, por quanto tempo a carga do aplicativo deve atender a determinado limite e quantas instâncias de VM devem ser adicionadas ao conjunto de dimensionamento.
 
-Vamos criar uma regra que aumenta o número de instâncias de VM em um conjunto de dimensionamento quando a carga da CPU média for maior que 70% por um período de cinco minutos. Quando a regra é disparada, o número de instâncias de VM aumenta em 20%.
+Vamos criar uma regra que aumenta o número de instâncias de VM em um conjunto de dimensionamento quando a carga da CPU média for maior que 70% por um período de cinco minutos. Quando a regra é disparada, a quantidade de instâncias de VM aumenta por três.
 
 Os seguintes parâmetros são usados para essa regra:
 
@@ -101,7 +101,7 @@ Os seguintes parâmetros são usados para essa regra:
 | *operator*        | Operador usado para comparar os dados da métrica com o limite.                                                     | Maior que    |
 | *threshold*       | O valor que faz com que a regra de autoescala dispare uma ação.                                                      | 70%             |
 | *direction*       | Define se o conjunto de dimensionamento deve ser reduzido ou escalado horizontalmente quando a regra se aplicar.                                              | Aumento        |
-| *tipo*            | Indica que o número de instâncias de VM deve ser modificado por um valor específico.                                    | Alterar contagem    |
+| *tipo*            | Indica que a quantidade de instâncias de VM deve ser modificada por um valor específico.                                    | Alterar contagem    |
 | *valor*           | Quantas instâncias de VM devem ser reduzidas ou escaladas horizontalmente quando a regra se aplicar.                                             | 3               |
 | *cooldown*        | O tempo de espera antes da regra ser aplicada novamente para que as ações de autoescala tenham tempo para entrar em vigor. | 5 minutos       |
 
@@ -308,7 +308,7 @@ watch az vmss list-instances \
   --output table
 ```
 
-Depois que o limite de CPU foi atingido, as regras de dimensionamento automático aumentam o número de instâncias de VM no conjunto de dimensionamento. A saída abaixo mostra três VMs criadas com o aumento de dimensionamento do conjunto de dimensionamento:
+Assim que o limite de CPU for atingido, as regras de dimensionamento automático aumentam o número de instâncias de VM no conjunto de dimensionamento. A saída a seguir mostra três VMs criadas à medida que conjunto de dimensionamento é escalado horizontal e automaticamente:
 
 ```bash
 Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name myScaleSet --output table
@@ -322,13 +322,13 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
            6  True                  eastus      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-Assim que o **stress** é interrompido nas instâncias de VM inicias, a carga média da CPU volta ao normal. Após mais cinco minutos, as regras de dimensionamento automático reduzem o número de instâncias de VM. As ações de redução removem instâncias de VM começando pelas IDs mais altas. A saída de exemplo abaixo mostra uma instância de VM excluída pela redução do conjunto de dimensionamento:
+Assim que o **stress** é interrompido nas instâncias de VM inicias, a carga média da CPU volta ao normal. Após mais 5 minutos, as regras de dimensionamento automático reduzem horizontalmente o número de instâncias de VM. As ações de redução horizontal removem instâncias de VM começando pelas IDs mais altas. Quando um conjunto de dimensionamento usa Conjuntos de Disponibilidade ou Zonas de Disponibilidade, as ações de reduzir horizontalmente são distribuídas uniformemente entre essas instâncias de VM. A saída de exemplo a seguir mostra uma instância de VM excluída conforme o conjunto de dimensionamento reduz horizontal e automaticamente:
 
 ```bash
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-Saia do *watch* usando `Ctrl-c`. O conjunto de dimensionamento continua a reduzir a cada cinco minutos e a remover uma instância de VM até que a contagem mínima de instâncias, duas, seja alcançada.
+Saia do *watch* usando `Ctrl-c`. O conjunto de dimensionamento continua a reduzir horizontalmente a cada 5 minutos e a remover uma instância de VM até que a contagem mínima de duas instâncias seja alcançada.
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -346,7 +346,7 @@ Neste tutorial você aprendeu a reduzir ou escalar aplicativos horizontal e auto
 > * Usar o dimensionamento automático com um conjunto de dimensionamento
 > * Criar e usar regras de dimensionamento automático
 > * Testar instâncias de VM sob estresse e disparar regras de dimensionamento automático
-> * Redimensionamento automático com a redução da demanda
+> * Redimensionar automaticamente conforme a demanda é reduzida
 
 Para obter mais exemplos de conjuntos de dimensionamento de máquinas virtuais em ação, consulte os seguintes scripts de exemplo do exemplo da CLI do Azure 2.0:
 

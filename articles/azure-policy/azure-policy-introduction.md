@@ -3,19 +3,19 @@ title: Visão geral da Política do Azure | Microsoft Docs
 description: A Política do Azure é um serviço no Azure que você pode usar para criar, atribuir e gerenciar definições de política em seu ambiente do Azure.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.reviewer: nini
-ms.date: 03/29/2018
+ms.date: 04/18/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f9cd00aec025748170a6576fe3ee4dbf794edfdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 886026f8548cf3d7416b5034995399368de8c419
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-policy"></a>O que é a Política do Azure?
 
@@ -53,13 +53,17 @@ Na Política do Azure, oferecemos algumas políticas internas que estão dispon�
 - **Impor a marca e seu valor**: esta política impõe uma marca necessária e seu valor para um recurso.
 - **Tipos de recurso não permitidos**: essa política permite que você especifique os tipos de recurso que sua organização não consegue implantar.
 
-Você pode atribuir qualquer uma dessas políticas usando o portal do Azure, o PowerShell ou a CLI do Azure.
+Você pode atribuir qualquer uma dessas políticas usando o portal do Azure, o PowerShell ou a CLI do Azure. Após fazer alterações em uma definição de política, a reavaliação da política ocorre uma vez por hora, aproximadamente.
 
 Para saber mais sobre as estruturas das definições de políticas, consulte este artigo – [Estrutura da definição de política](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Atribuição de política
 
-Uma atribuição de política é uma definição de política que foi atribuída para entrar em vigor em um escopo específico. Esse escopo pode variar de um grupo de gerenciamento para um grupo de recursos. O termo *escopo* refere-se a todos os grupos de recursos, assinaturas ou grupos de gerenciamento aos quais a definição de política esteja atribuída. Atribuições de política são herdadas por todos os recursos filho. Então, se uma política for aplicada a um grupo de recursos, ela será aplicada a todos os recursos desse grupo de recursos. No entanto, você pode excluir um subescopo da atribuição de política. Por exemplo, no escopo da assinatura, você pode atribuir uma política que impede a criação de recursos de rede. No entanto, você exclui um grupo de recursos dentro da assinatura que se destina à infraestrutura de rede. Você concede acesso a esse grupo de recursos de rede a usuários em que você confia para criar recursos de rede.
+Uma atribuição de política é uma definição de política que foi atribuída para entrar em vigor em um escopo específico. Esse escopo pode variar de um grupo de gerenciamento para um grupo de recursos. O termo *escopo* refere-se a todos os grupos de recursos, assinaturas ou grupos de gerenciamento aos quais a definição de política esteja atribuída. Atribuições de política são herdadas por todos os recursos filho. Então, se uma política for aplicada a um grupo de recursos, ela será aplicada a todos os recursos desse grupo de recursos. No entanto, você pode excluir um subescopo da atribuição de política.
+
+Por exemplo, no escopo da assinatura, você pode atribuir uma política que impede a criação de recursos de rede. No entanto, você exclui um grupo de recursos dentro da assinatura que se destina à infraestrutura de rede. Você concede acesso a esse grupo de recursos de rede a usuários em que você confia para criar recursos de rede.
+
+Em outro exemplo, convém atribuir uma política de lista de permissões de tipo de recurso no nível do grupo de gerenciamento. E, depois, atribuir uma política mais permissiva (permitindo mais tipos de recurso) em um grupo de gerenciamento filho, ou até mesmo diretamente em assinaturas. No entanto, este exemplo não funcionaria, pois a política é um sistema de negação explícito. Em vez disso, você precisa excluir o grupo de gerenciamento filho ou a assinatura da atribuição da política no nível do grupo de gerenciamento. Depois, atribua a política mais permissiva no grupo de gerenciamento filho ou no nível da assinatura. Para resumir, se qualquer política resultar na negação de um recurso, a única maneira de permitir o recurso será modificar a política de negação.
 
 Para obter mais informações sobre a configuração de definições e atribuições de política, consulte [Criar uma atribuição de política para identificar recursos que não estão em conformidade no seu ambiente do Azure](assign-policy-definition.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Segurança e conformidade do Azure Blueprint – Automação de aplicativos Web para FedRAMP – Proteção de sistema e comunicações"
-description: "Automação de aplicativos Web para FedRAMP – Proteção de sistema e comunicações"
+title: Segurança e conformidade do Azure Blueprint – Automação de aplicativos Web para FedRAMP – Proteção de sistema e comunicações
+description: Automação de aplicativos Web para FedRAMP – Proteção de sistema e comunicações
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6749ad50cd1ea1cd4ec6ca2f86fef43a9f1515d9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Proteção do sistema e das comunicações (SC)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | A política e os procedimentos de proteção do sistema e das comunicações de nível empresarial do cliente podem ser suficientes para atender a esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-2"></a>Controle NIST 800-53 SC-2
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Este projeto separa a funcionalidade do usuário da funcionalidade de gerenciamento do sistema por meio da aplicação de controles de acesso lógico e a da arquitetura do sistema. A funcionalidade de usuário é limitada a interfaces de aplicativo Web implantados pelo cliente. As interfaces para a funcionalidade de gerenciamento do sistema são independentes das interfaces do usuário. Toda a conectividade de gerenciamento é executada por meio de um host bastião seguro (jumpbox) localizado em uma sub-rede de gerenciamento com regras do grupo de segurança de rede para limitar o acesso aos recursos de produção conforme adequado. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-3"></a>Controle NIST 800-53 SC-3
@@ -64,7 +64,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | As máquinas virtuais implantadas por esse projeto executam sistemas operacionais Windows. O Windows mantém domínios de execução separados para cada processo em execução designando um espaço de endereço virtual privado para cada processo. Além disso, a solução implementa uma arquitetura e controles de acesso criados para isolar a funcionalidade de segurança quando necessário. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-4"></a>Controle NIST 800-53 SC-4
@@ -87,12 +87,12 @@ ms.lasthandoff: 02/11/2018
 
 **SC-5** O sistema de informações protege contra ou limita os efeitos dos seguintes tipos de ataques negação de serviço: [Atribuição: tipos de ataques de negação de serviço ou referências a fontes para essas informações definidos pela organização] empregando [Atribuição: garantias de segurança definidas pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | Este projeto implanta um Gateway de Aplicativo que inclui um firewall do aplicativo Web e recursos de balanceamento de carga. Máquinas virtuais implantadas com suporte a camada da Web, a camada de banco de dados e o Active Directory são implantados em um conjunto de disponibilidade escalonável. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-6"></a>Controle NIST 800-53 SC-6
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-6** O sistema de informações protege a disponibilidade de recursos alocando [Atribuição: recursos definidos pela organização] por [Seleção (um ou mais); prioridade; cota; [Atribuição: garantias de segurança definidas pela organização]].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -119,8 +119,8 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este projeto implanta um Gateway de Aplicativo, um balanceador de carga e configura as regras de grupo de segurança de rede para controlar as trocas em limites externos e entre sub-redes internas. O Gateway de Aplicativo, o balanceador de carga e o evento de grupo de segurança de rede e logs de diagnóstico são coletados pelo Log Analytics do OMS para permitir o monitoramento de clientes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta um Gateway de Aplicativo, um balanceador de carga e configura as regras de grupo de segurança de rede para controlar as trocas em limites externos e entre sub-redes internas. O Gateway de Aplicativo, o balanceador de carga e o evento de grupo de segurança de rede e logs de diagnóstico são coletados pelo Log Analytics para permitir o monitoramento de clientes. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-7b"></a>Controle NIST 800-53 SC-7.b
@@ -143,12 +143,12 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7.c** O sistema de informações se conecta a redes externas ou sistemas de informações somente por meio de interfaces gerenciadas que consistem em dispositivos com proteção de limites organizados de acordo com uma arquitetura de segurança organizacional.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | Este projeto implanta um Gateway de Aplicativo para gerenciar conexões externas para um aplicativo Web implantado pelo cliente. Conexões externas para acesso de gerenciamento são restritas ao host bastião/jumpbox implantado em uma sub-rede de gerenciamento com as regras de segurança de rede aplicadas para restringir as conexões externas a endereços IP autorizados. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-3"></a>Controle NIST 800-53 SC-7 (3)
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (3)** A organização limita o número de conexões de rede externas no sistema de informações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -176,7 +176,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Este projeto implanta dois endereços IP públicos: um associado ao Gateway de Aplicativo e um associado ao host de bastiões gerenciamento/jumpbox. O gerenciamento dessas interfaces é habilitada por meio da rede definida por software. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-4b"></a>Controle NIST 800-53 SC-7 (4).b
@@ -204,7 +204,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O gateway de aplicativo Web implantado por este projeto é configurado com um ouvinte HTTPS, garantindo confidencialidade e integridade de sessões de comunicações. Conexões de área de trabalho remota para o jumpbox também são criptografadas para fornecer confidencialidade e integridade. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-4d"></a>Controle NIST 800-53 SC-7 (4).d
@@ -218,7 +218,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Os clientes não são responsáveis por operações do datacenter (para incluir serviços de telecomunicações). Todos os serviços de telecomunicação são fornecidos e gerenciados pelo Microsoft Azure. Esse controle é herdado do Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-4e"></a>Controle NIST 800-53 SC-7 (4).e
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (7)** O sistema de informações, em conjunto com um dispositivo remoto, impede que o dispositivo estabeleça simultaneamente conexões não remotas com o sistema e se comunique por meio de alguma outra conexão a recursos em redes externas.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -269,12 +269,12 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (8)** O sistema de informações roteia [Atribuição: tráfego de comunicação interna definido pela organização] para [Atribuição: redes externas definidas pela organização] por meio de servidores proxy autenticados em interfaces gerenciadas.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por rotear informações definidas por ele por meio de um proxy autenticado a uma rede externa. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-10"></a>Controle NIST 800-53 SC-7 (10)
@@ -288,7 +288,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | A organização impede o vazamento não autorizado de informações em interfaces gerenciadas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-12"></a>Controle NIST 800-53 SC-7 (12)
@@ -297,12 +297,12 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (12)** A organização implementa [Atribuição: mecanismos de proteção de limite baseados em host definidos pela organização] em [Atribuição: componentes do sistema de informações definidos pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | Máquinas virtuais implantadas por este projeto são configuradas com um firewall baseado em host habilitado. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-13"></a>Controle NIST 800-53 SC-7 (13)
@@ -330,7 +330,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Não há dispositivos de proteção de limite físico dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure implanta servidores de Gateway separados geograficamente e redundantes e VPN SSL. Quando um sistema de Gateway falha, ele falha com a segurança e o acesso é restringido no ambiente. Para estabelecer uma conexão com o ambiente do Microsoft Azure, um usuário deve estabelecer uma conexão separada com um servidor Gateway ativo gerenciado pelo Microsoft Azure. <br /> Além disso, se os dispositivos de rede do Microsoft Azure (incluindo roteadores de borda, roteadores de acesso, balanceadores de carga, switches de agregação e TORS) falharem, o circuito afetado é desconectado, assim, fazendo com que a segurança falhe. Uma falha de um dispositivo de rede do Microsoft Azure não pode levar a ou fazer com que informações externas ao sistema entrem no dispositivo, nem uma falha pode permitir uma versão de informações não autorizadas. A redundância interna permite que os ativos do Microsoft Azure falhem sem afetar a disponibilidade. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure implanta servidores de Gateway separados geograficamente e redundantes e VPN SSL. Quando um sistema de Gateway falha, ele falha com a segurança e o acesso é restringido no ambiente. Para estabelecer uma conexão com o ambiente do Microsoft Azure, um usuário deve estabelecer uma conexão separada com um servidor Gateway ativo gerenciado pelo Microsoft Azure. <br /> Além disso, se os dispositivos de rede do Microsoft Azure (incluindo roteadores de borda, roteadores de acesso, balanceadores de carga, switches de agregação e TORS) falharem, o circuito afetado é desconectado, assim, fazendo com que a segurança falhe. Uma falha de um dispositivo de rede do Microsoft Azure não pode levar a ou fazer com que informações externas ao sistema entrem no dispositivo, nem uma falha pode permitir uma versão de informações não autorizadas. A redundância interna permite que os ativos do Microsoft Azure falhem sem afetar a disponibilidade. |
 
 
  ### <a name="nist-800-53-control-sc-7-20"></a>Controle NIST 800-53 SC-7 (20)
@@ -400,7 +400,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | A autenticação para sessões de área de trabalho remota é gerenciada pelo Active Directory. Quando o acesso estiver desabilitado para um usuário no Active Directory, as sessões remotas serão terminadas imediatamente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-12"></a>Controle NIST 800-53 SC-12
@@ -413,8 +413,8 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este projeto implanta um Azure Key Vault. O Cofre de Chaves do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. O Azure Key Vault pode gerar chaves usando um recurso de segurança de módulo de segurança de hardware (HSM) FIPS 140-2 nível 2. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta um Azure Key Vault. O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. O Azure Key Vault pode gerar chaves usando um recurso de segurança de módulo de segurança de hardware (HSM) FIPS 140-2 nível 2. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-12-1"></a>Controle NIST 800-53 SC-12 (1)
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12 (2)** A organização produz, controla e distribui chaves de criptografia simétricas usando [Seleção: compatível com FIPS NIST; com aprovação NSA] tecnologia e processos de gerenciamento de chaves.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -456,7 +456,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por produzir, controlar e distribuir chaves de criptografia assimétrica (se forem usadas em recursos implantados por ele). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-13"></a>Controle NIST 800-53 SC-13
@@ -470,7 +470,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | A autenticação do Windows, a área de trabalho remota e o BitLocker são empregados por este projeto. Esses componentes podem ser configurados para confiar em módulos criptográficos validados por FIPS 140. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-15a"></a>Controle NIST 800-53 SC-15.a
@@ -479,12 +479,12 @@ ms.lasthandoff: 02/11/2018
 
 **SC-15.a** O sistema de informações proíbe a ativação remota de dispositivos de computação colaborativos com as exceções a seguir: [Atribuição: exceções definidas pela organização onde a ativação remota é permitida].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | Não há nenhum dispositivo de computação colaborativa implantado como parte deste projeto. Observação: há dispositivos de computação colaborativos físicos dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-15b"></a>Controle NIST 800-53 SC-15.b
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-15.b** O sistema de informações fornece uma indicação explícita de uso para os usuários fisicamente presentes nos dispositivos.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-18.a** A organização define código móvel aceitável e inaceitável e tecnologias de código móvel.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-18.b** A organização estabelece restrições de uso e diretrizes de implementação para código móvel aceitável e tecnologias de código móvel.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -554,7 +554,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente pode depender de um processo de nível empresarial para autorização, monitoramento e controle do uso de código móvel. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-19a"></a>Controle NIST 800-53 SC-19.a
@@ -596,7 +596,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por um serviço de nome seguro e resolução de endereço. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-20b"></a>Controle NIST 800-53 SC-20.b
@@ -651,8 +651,8 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | O acesso remoto aos recursos implantados por este projeto, incluindo o portal do Azure, a conexão de área de trabalho remota e o gateway de aplicativo Web, é protegido com o uso de TLS. O TLS fornece autenticidade para comunicações no nível da sessão. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | O acesso remoto aos recursos implantados por esta especificação técnica, incluindo o Portal do Azure, a conexão de área de trabalho remota e o gateway de aplicativo Web, é protegido com o uso de TLS. O TLS fornece autenticidade para comunicações no nível da sessão. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-23-1"></a>Controle NIST 800-53 SC-23 (1)
@@ -665,7 +665,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | O acesso remoto aos recursos implantados por este projeto, incluindo o portal do Azure, a conexão de área de trabalho remota e o gateway de aplicativo Web, é protegido com o uso de TLS. O portal do Azure e sessões de área de trabalho remota invalidam identificadores de sessão no logout. A invalidação de sessão Web é imposta por meio do Gateway de aplicativo do Azure - regras de Firewall de aplicativo Web (WAF). O WAF aplica afinidade por cookies por sessão e executa o tempo limite da sessão após 30 minutos (configurável após a implantação para regras específicas da organização) de inatividade do cliente. |
+| **Cliente** | O acesso remoto aos recursos implantados por esta especificação técnica, incluindo o Portal do Azure, a conexão de área de trabalho remota e o gateway de aplicativo Web, é protegido com o uso de TLS. O portal do Azure e sessões de área de trabalho remota invalidam identificadores de sessão no logout. A invalidação de sessão Web é imposta por meio do Gateway de aplicativo do Azure - regras de Firewall de aplicativo Web (WAF). O WAF aplica afinidade por cookies por sessão e executa o tempo limite da sessão após 30 minutos (configurável após a implantação para regras específicas da organização) de inatividade do cliente. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -694,7 +694,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | A implementação de SI-28 (1) satisfaz esse requisito de controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-28-1"></a>Controle NIST 800-53 SC-28 (1)
@@ -708,7 +708,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Máquinas virtuais implantadas por este projeto implementam a criptografia de disco para proteger a confidencialidade e a integridade das informações em repouso. A criptografia de disco do Azure para Windows é implementada usando o recurso BitLocker do Windows. O SQL Server está configurado para usar dados TDE (Transparent Data Encryption), que executa criptografia e descriptografia de dados e arquivos de log em tempo real para proteger informações em repouso. O TDE fornece a garantia de que os dados armazenados não tenham ficado sujeitos a acesso não autorizado. Clientes podem optar por implementar controles de nível de aplicativo adicionais para proteger a integridade de informações armazenadas. A confidencialidade e a integridade de todos os blobs de armazenamento implantados por este projeto estão protegidas por meio da SSE (Criptografia do Serviço de Armazenamento) do Azure. A SSE protege dados em repouso em contas de armazenamento do Azure usando criptografia AES de 256 bits. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-39"></a>Controle NIST 800-53 SC-39
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-39** O sistema de informações mantém um domínio de execução separado para cada processo em execução.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

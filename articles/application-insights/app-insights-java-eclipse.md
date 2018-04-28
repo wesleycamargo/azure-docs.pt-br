@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao Azure Application Insights com Java no Eclipse | Microsoft Docs"
+title: Introdução ao Azure Application Insights com Java no Eclipse | Microsoft Docs
 description: Use o plug-in Eclipse para adicionar o monitoramento de desempenho e uso a seu site Java com o Application Insights
 services: application-insights
 documentationcenter: java
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 616cbfed405454d2abbb6bb526166d2c72e4365d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introdução ao Application Insights com Java no Eclipse
 O SDK do Application Insights envia telemetria por meio do seu aplicativo Web Java para que você possa analisar o uso e o desempenho. O plug-in Eclipse para o Application Insights instala automaticamente o SDK em seu projeto para que você obtenha telemetria já pronta, além de uma API que você pode usar para escrever telemetria personalizada.   
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Atualmente, o plug-in funciona para projetos Maven e projetos dinâmicos da Web no Eclipse.
 ([Adicione o Application Insights a outros tipos de projeto Java][java].)
 
 Você precisará de:
 
-* Oracle JRE 1.6 ou posterior
+* JRE 1.7 ou 1.8
 * Uma assinatura do [Microsoft Azure](https://azure.microsoft.com/).
 * [Um IDE do Eclipse para desenvolvedores do Java EE](http://www.eclipse.org/downloads/), Indigo ou posterior.
 * Windows 7 ou posterior, ou Windows Server 2008 ou posterior
@@ -129,7 +129,7 @@ Para coletar dados em outras exceções, você tem duas opções:
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Monitorar chamadas de método e dependências externas
 [Instale o Agente Java](app-insights-java-agent.md) para registrar métodos internos especificados e chamadas feitas por meio de JDBC, com dados de tempo.
 
-## <a name="performance-counters"></a>Contadores de desempenho
+## <a name="performance-counters"></a>contadores de desempenho
 Na folha Visão geral, role para baixo e clique no bloco **Servidores**. Você verá uma variedade de contadores de desempenho.
 
 ![Role para baixo e clique no bloco Servidores](./media/app-insights-java-eclipse/11-perf-counters.png)

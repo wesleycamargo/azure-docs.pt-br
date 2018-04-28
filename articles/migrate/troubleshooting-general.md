@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 03/19/2018
 ms.author: raynew
-ms.openlocfilehash: b2c89a980411cac02f46bc91d53620bc94fa845b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bba52534c534ea33c2939d0d9b76b7b4138e13cd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -37,7 +37,7 @@ Confira se você copiou e colou as informações corretas. Para solucionar o pro
 2. Para iniciar a instalação, clique duas vezes no arquivo baixado.
 3. Na instalação, na página **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
 4. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**.
-5. Em **Opções de Instalação do Agente**, selecione **Azure Log Analytics (OMS)** > **Avançar**.
+5. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
 6. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do projeto e a chave que você copiou. Em seguida, clique em **Próximo**.
 7. Verifique se o agente pode se conectar ao projeto. Se não for possível, verifique as configurações. Se o agente pode se conectar, mas não o coletor, contate o suporte.
 
@@ -62,7 +62,7 @@ Para habilitar a coleta de dados de desempenho de disco e rede, altere o nível 
 
 **Eu instalei agentes e usei a visualização de dependência para criar grupos. Agora, após o failover, as máquinas mostram a ação de "Instalar o agente" em vez de "Exibir dependências"**
 * O failover pós-planejado ou não planejado, as máquinas locais são desativadas e as máquinas equivalentes são criadas no Azure. Essas máquinas adquirem um endereço MAC diferente. Elas podem adquirir um endereço IP diferente com base em se o usuário optou por reter o endereço IP local ou não. Se os endereços IP e MAC forem diferentes, as Migrações para Azure não associarão as máquinas locais com os dados de dependência do Mapa do Serviço e solicitarão que o usuário instale os agentes em vez de exibir as dependências.
-* Após o failover de teste, as máquinas locais permanecem ativadas conforme o esperado. As máquinas equivalentes criadas no Azure adquirem um endereço MAC diferente e podem adquirir um endereço IP diferente. A menos que o usuário bloqueie o tráfego de OMS de saída dessas máquinas, as Migrações para Azure não associarão as máquinas locais com os dados de dependência do Mapa do Serviço e solicitarão que o usuário instale os agentes em vez de exibir as dependências.
+* Após o failover de teste, as máquinas locais permanecem ativadas conforme o esperado. As máquinas equivalentes criadas no Azure adquirem um endereço MAC diferente e podem adquirir um endereço IP diferente. A menos que o usuário bloqueie o tráfego de Log Analytics de saída desses computadores, as Migrações para Azure não associarão os computadores locais com os dados de dependência do Mapa do Serviço e solicitarão que o usuário instale os agentes em vez de exibir as dependências.
 
 
 ## <a name="troubleshoot-readiness-issues"></a>Solucionar problemas de preparação
@@ -115,14 +115,14 @@ Para coletar Rastreamento de Eventos para Windows, faça o seguinte:
 2. Pressione F12 para iniciar as Ferramentas para Desenvolvedores. Se necessário, desmarque a configuração **Limpar entradas na navegação**.
 3. Clique na guia **Rede** e inicie a captura do tráfego de rede:
  - No Chrome, selecione **Preservar log**. A gravação deve ser iniciada automaticamente. Um círculo vermelho indica que o tráfego está sendo capturado. Se não for exibido, clique no círculo preto para iniciar
- - No Microsoft Edge/IE, a gravação deve ser iniciada automaticamente. Se não estiver, clique no botão verde para executar.
+ - No Edge/IE, a gravação deve ser iniciada automaticamente. Se não estiver, clique no botão verde para executar.
 4. Tente reproduzir o erro.
 5. Depois que você tiver encontrado o erro durante a gravação, interrompa a gravação e salve uma cópia da atividade registrada:
  - No Chrome, clique com o botão direito e clique em **Salvar como HAR com conteúdo**. Isso compacta e exporta os logs como um arquivo .har.
- - No IE/Microsoft Edge, clique no ícone **Exportar tráfego capturado**. Isso compacta e exporta o log.
+ - No IE/Edge, clique no ícone **Exportar tráfego capturado**. Isso compacta e exporta o log.
 6. Navegue até a guia **Console** para verificar se há avisos ou erros. Para salvar o log do console:
  - No Chrome, clique com o botão direito em qualquer lugar no log do console. Selecione **Salvar como**, para exportar e compactar o log.
- - No Microsoft Edge/IE, clique com o botão direito nos erros e selecione **Copiar tudo**.
+ - No Edge/IE, clique com o botão direito nos erros e selecione **Copiar tudo**.
 7. Fechar as Ferramentas para Desenvolvedores.
 
 

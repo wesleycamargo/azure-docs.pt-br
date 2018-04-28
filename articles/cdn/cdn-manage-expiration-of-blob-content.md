@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 72a823ef04ad69d1d3b40377c32a02bacb8328c2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6d2681ad05890fc5f9f2821245e0f0280bf45a5f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gerencie expiração de armazenamento Blob do Azure na Rede de Distribuição de Conteúdo do Microsoft Azure
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Também é possível controlar as configurações de cache do portal do Azure, d
 O método preferido para configuração do cabeçalho `Cache-Control` do blob é usar regras de cache no Portal do Azure. Para obter mais informações sobre as regras de cache da CDN, consulte [Controlar o comportamento de cache da CDN do Azure com regras de cache](cdn-caching-rules.md).
 
 > [!NOTE] 
-> As regras de cache estão disponíveis apenas para perfis de **CDN Standard do Azure da Verizon** e **CDN Standard do Azure da Akamai**. Para perfis de **CDN Premium do Azure da Verizon**, é necessário usar o [mecanismo de regras da CDN do Azure](cdn-rules-engine.md) no portal **Gerenciar** para uma funcionalidade semelhante.
+> As regras de cache estão disponíveis apenas para perfis de **CDN Standard do Azure do Verizon** e **CDN Standard do Azure da Akamai**. Para perfis de **CDN Premium do Azure do Verizon**, é necessário usar o [mecanismo de regras da CDN do Azure](cdn-rules-engine.md) no portal **Gerenciar** para uma funcionalidade semelhante.
 
 **Para navegar até a página de regras de cache da CDN**:
 
@@ -148,7 +148,7 @@ class Program
 ## <a name="setting-cache-control-headers-by-using-other-methods"></a>Configurando cabeçalhos de Cache-Control usando outros métodos
 
 ### <a name="azure-storage-explorer"></a>Gerenciador de Armazenamento do Azure
-Com [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), você pode exibir e editar seus recursos de armazenamento de blob, incluindo propriedades, como a propriedade *CacheControl*. 
+Com [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), você pode exibir e editar seus recursos de armazenamento de blob, incluindo propriedades, como a propriedade *CacheControl*. 
 
 Para atualizar a propriedade *CacheControl* de um blob com o Gerenciador de Armazenamento do Microsoft Azure:
    1. Selecione um blob e, em seguida, **Propriedades** no menu de contexto. 
@@ -168,8 +168,8 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 ### <a name="azure-storage-services-rest-api"></a>API REST de serviços de armazenamento do Azure
 Você pode usar o [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx) para definir explicitamente a propriedade *x-ms-blob-cache-control* usando as seguintes operações em uma solicitação:
   
-   - [Colocar Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
-   - [Colocar lista de blocos](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Colocar Blob](https://msdn.microsoft.com/library/azure/dd179451.aspx)
+   - [Colocar lista de blocos](https://msdn.microsoft.com/library/azure/dd179467.aspx)
    - [Definir propriedades de Blob](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
 ## <a name="testing-the-cache-control-header"></a>Testando o cabeçalho de Controle de Cache

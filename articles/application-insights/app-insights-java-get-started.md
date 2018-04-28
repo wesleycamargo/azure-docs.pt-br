@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: f772485dd49a730e34ec856768fa91bc3fdd114b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e1c4ea08b71c2e99b6c8e839e1fddc3172ca251d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights em um projeto Web Java
 
@@ -30,7 +30,7 @@ O Application Insights oferece suporte a aplicativos Java em execução no Windo
 
 Você precisa de:
 
-* Oracle ou Zulu JRE versões 1.7 ou 1.8
+* JRE versão 1.7 ou 1.8
 * Uma assinatura do [Microsoft Azure](https://azure.microsoft.com/).
 
 *Se você tiver um aplicativo Web já em uso, siga o procedimento alternativo para [adicionar o SDK em tempo de execução ao servidor Web](app-insights-java-live.md). Essa alternativa evita a recompilação do código, mas você não obtém a opção de escrever código para rastrear a atividade do usuário.*

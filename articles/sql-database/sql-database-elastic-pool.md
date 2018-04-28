@@ -7,14 +7,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 6c2e4e7f99aeec3028e8df520dc6896234b5c969
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
@@ -32,9 +32,9 @@ Os pools elásticos resolvem esse problema, garantindo que os bancos de dados re
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Os pools elásticos permitem que o desenvolvedor compre recursos para um pool compartilhado por vários bancos de dados para acomodar períodos imprevisíveis de uso por bancos de dados individuais. Você pode configurar recursos para o pool com base no [Modelo de compra baseado em DTU (versão prévia)](sql-database-service-tiers.md#dtu-based-purchasing-model) ou o [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). O requisito de recurso para um pool é determinado pela utilização agregada dos bancos de dados. A quantidade de recursos disponíveis para o pool é controlada pelo orçamento do desenvolvedor. O desenvolvedor simplesmente adiciona bancos de dados ao pool, define os recursos mínimo e máximo para os bancos de dados (DTUs mínimo e mínimo ou vCores mínimo ou máximo dependendo da opção de modelo de recurso) e define os recursos do pool com base no orçamento. Um desenvolvedor pode usar pools para aumentar seu serviço com perfeição desde uma startup lean até uma empresa madura em escala cada vez maior.
+Os pools elásticos permitem que o desenvolvedor compre recursos para um pool compartilhado por vários bancos de dados para acomodar períodos imprevisíveis de uso por bancos de dados individuais. Você pode configurar recursos para o pool com base no [Modelo de compra baseado em DTU (versão prévia)](sql-database-service-tiers.md#dtu-based-purchasing-model) ou o [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). O requisito de recurso para um pool é determinado pela utilização agregada dos bancos de dados. A quantidade de recursos disponíveis para o pool é controlada pelo orçamento do desenvolvedor. O desenvolvedor simplesmente adiciona bancos de dados ao pool, define os recursos mínimo e máximo para os bancos de dados (DTUs ou vCores mínimo e máximo, dependendo da opção de modelo de recurso) e define os recursos do pool com base no orçamento. Um desenvolvedor pode usar pools para aumentar seu serviço com perfeição desde uma startup lean até uma empresa madura em escala cada vez maior.
 
-Dentro do pool, os bancos de dados individuais recebem a flexibilidade para dimensionar automaticamente no conjunto de parâmetros. Sob carga pesada, um banco de dados pode consumir mais recursos para atender à demanda. Bancos de dados sob cargas leves consomem menos e bancos de dados sem carga não consomem recursos. O provisionamento de recursos para o pool inteiro em vez do bancos de dados único simplifica as tarefas de gerenciamento. Além disso, você tem um orçamento previsível para o pool. Recursos adicionais podem ser adicionados a um pool existente sem tempo de inatividade do banco de dados, exceto que os bancos de dados podem precisar ser movidos para fornecer os recursos de computação adicionais para a nova reserva eDTU. Da mesma forma, se recursos adicionais não forem mais necessários, eles poderão ser removidos de um pool existente a qualquer momento. E você pode adicionar ou subtrair bancos de dados para o pool. Se um banco de dados é previsível por estar subutilizando recursos, mova-o.
+Dentro do pool, os bancos de dados individuais recebem a flexibilidade para dimensionar automaticamente no conjunto de parâmetros. Sob carga pesada, um banco de dados pode consumir mais recursos para atender à demanda. Bancos de dados sob cargas leves consomem menos e bancos de dados sem carga não consomem recursos. O provisionamento de recursos para o pool inteiro em vez do bancos de dados único simplifica as tarefas de gerenciamento. Além disso, há um orçamento previsível para o pool. Recursos adicionais podem ser adicionados a um pool existente sem tempo de inatividade do banco de dados, exceto que os bancos de dados podem precisar ser movidos para fornecer os recursos de computação adicionais para a nova reserva eDTU. Da mesma forma, se recursos adicionais não forem mais necessários, eles poderão ser removidos de um pool existente a qualquer momento. E você pode adicionar ou subtrair bancos de dados para o pool. Se um banco de dados é previsível por estar subutilizando recursos, mova-o.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando um pool elástico do Banco de Dados SQL deve ser considerado?
 
@@ -74,7 +74,7 @@ As seguintes regras básicas relacionadas à contagem e utilização de banco de
 
 ### <a name="minimum-number-of-databases"></a>Número mínimo de bancos de dados
 
-Se a quantidade de recursos para bancos de dados individuais for maior que 1,5x de recursos necessários para o pool, um pool elástico será mais econômico.
+Se a quantidade agregada de recursos para bancos de dados individuais for maior que 1,5x de recursos necessários para o pool, será mais econômico usar um pool elástico.
 
 ***Exemplo de modelo de compra baseado em DTU***<br>
 pelo menos dois bancos de dados S3 ou 15 bancos de dados S0 são necessários para um pool de 100 eDTUs ser mais econômico do que o uso de níveis de desempenho para bancos de dados individuais.
@@ -98,7 +98,7 @@ um banco de dados S3 com picos de 100 DTUs e que usa em média 67 DTUs, ou menos
 
 O melhor tamanho para um pool depende dos recursos agregados necessários para todos os bancos de dados no pool. Isso inclui determinar o seguinte:
 
-* Máximo de recursos utilizados por todos os bancos de dados no pool (o máximo de DTUs ou o máximo de vCores, dependendo da opção do modelo de recursos).
+* O máximo de recursos utilizados por todos os bancos de dados no pool (seja o máximo de DTUs ou de vCores, dependendo da escolha do modelo de recursos).
 * Bytes de armazenamento máximo utilizados por todos os bancos de dados no pool.
 
 Para as camadas de serviço disponíveis para cada modelo de recurso, consulte [Modelo de compra baseado em DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) ou [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).

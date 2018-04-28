@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ajustando o desempenho no Banco de Dados SQL do Azure
 
@@ -28,7 +28,7 @@ Esses são métodos manuais, porque você precisa decidir quais [camadas de serv
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumentando o nível de desempenho do banco de dados
 
-O Banco de Dados SQL do Azure oferece quatro [camadas de serviço](sql-database-service-tiers.md): Básico, Standard e Premium (o desempenho é medido em unidades de produtividade do banco de dados ou [DTUs](sql-database-what-is-a-dtu.md). Cada camada de serviço isola os recursos que o banco de dados SQL pode usar e garante um desempenho previsível para o nível de serviço em questão. Neste artigo, oferecemos orientações que podem ajudá-lo a escolher a camada de serviço para seu aplicativo. Também abordamos de que formas você pode ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure.
+O Banco de Dados SQL do Azure oferece dois modelos de compra um modelo de compra baseado em DTU e um modelo de compra baseado em v-Core. Cada modelo tem várias [camadas de serviço](sql-database-service-tiers.md) que você pode escolher. Cada camada de serviço isola os recursos que o banco de dados SQL pode usar e garante um desempenho previsível para o nível de serviço em questão. Neste artigo, oferecemos orientações que podem ajudá-lo a escolher a camada de serviço para seu aplicativo. Também abordamos de que formas você pode ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure.
 
 > [!NOTE]
 > Este artigo se concentra em fornecer orientações sobre o desempenho de bancos de dados únicos no Banco de Dados SQL do Azure. Para obter as diretrizes de desempenho relacionadas aos pools elásticos, consulte [Considerações de preço e desempenho para pools elásticos](sql-database-elastic-pool-guidance.md). No entanto, observe que você pode aplicar muitas das recomendações de ajuste neste artigo a bancos de dados em um pool elástico e obter benefícios de desempenho semelhantes.

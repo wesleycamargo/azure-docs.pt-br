@@ -1,8 +1,8 @@
 ---
 title: Fazer backup de seu aplicativo no Azure
-description: "Saiba como criar backups de seus aplicativos no Serviço de Aplicativo do Azure."
+description: Saiba como criar backups de seus aplicativos no Serviço de Aplicativo do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 435370a8758d439a5fcce2e04efd11b4aaaf0357
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
 O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](app-service-web-overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo. 
@@ -35,9 +35,9 @@ O Serviço de Aplicativo pode fazer backup das seguintes em uma conta de armazen
 * Banco de dados conectado ao seu aplicativo
 
 As soluções de banco de dados a seguir são compatíveis com o recurso de backup: 
-   - [Banco de Dados SQL](https://azure.microsoft.com/en-us/services/sql-database/)
-   - [Banco de Dados do Azure para MySQL (Visualização)](https://azure.microsoft.com/en-us/services/mysql)
-   - [Banco de Dados do Azure para PostgreSQL (Visualização)](https://azure.microsoft.com/en-us/services/postgres)
+   - [Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
+   - [Banco de Dados do Azure para MySQL (Visualização)](https://azure.microsoft.com/services/mysql)
+   - [Banco de Dados do Azure para PostgreSQL (Visualização)](https://azure.microsoft.com/services/postgres)
    - [MySQL no aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

@@ -12,26 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 440f7eba99e5fa02a597ae62d5d14329f5e50af7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f982e859892965379b7ffb08e15dd1cf51b9801f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote
 
 O recurso de pacotes de aplicativos do Lote do Azure fornece um fácil gerenciamento dos aplicativos de tarefa e sua implantação para os nós de computação em seu pool. Com os pacotes de aplicativos, você pode carregar e gerenciar diversas versões dos aplicativos que suas tarefas executam, incluindo seus arquivos de suporte. Você pode implantar automaticamente um ou mais desses aplicativos nos nós de computação em seu pool.
 
-Neste artigo, você aprenderá como carregar e gerenciar os pacotes de aplicativos usando o portal do Azure. Em seguida, aprenderá como instalá-los nos nós de computação de um pool com a biblioteca [.NET do Lote][api_net].
+Neste artigo, você aprenderá como carregar e gerenciar os pacotes de aplicativos usando o Portal do Azure. Em seguida, aprenderá como instalá-los nos nós de computação de um pool com a biblioteca [.NET do Lote][api_net].
 
 > [!NOTE]
 > 
 > Os pacotes de aplicativos têm suporte em todos os pools do Lote criados após 5 de julho de 2017. Elas só terão suporte em pools do Lote criados entre 10 de março de 2016 e 5 de julho de 2017 se o pool tiver sido criado usando uma configuração de Serviço de Nuvem. Os pools do Lote criados antes de 10 de março de 2016 não dão suporte a pacotes de aplicativos.
 >
-> As APIs para criar e gerenciar pacotes de aplicativos fazem parte da biblioteca [Batch Management .NET][[api_net_mgmt]]. As APIs para instalar pacotes de aplicativos em um nó de computação fazem parte da biblioteca [Batch .NET][api_net].  
+> As APIs para criar e gerenciar pacotes de aplicativos fazem parte da biblioteca [[Batch Management .NET]][api_net_mgmt]. As APIs para instalar pacotes de aplicativos em um nó de computação fazem parte da biblioteca [Batch .NET][api_net]. Os recursos comparáveis estão nas APIs do lote disponível para outros idiomas. 
 >
 > O recurso de pacotes de aplicativos descrito aqui substitui o recurso Aplicativos do Lote, disponível nas versões anteriores do serviço.
 > 
@@ -39,13 +39,6 @@ Neste artigo, você aprenderá como carregar e gerenciar os pacotes de aplicativ
 
 ## <a name="application-package-requirements"></a>Requisitos do pacote de aplicativos
 Para usar pacotes de aplicativos, você deve [vincular uma conta de Armazenamento do Azure](#link-a-storage-account) à sua conta do Lote.
-
-Esse recurso foi introduzido na [API REST do Lote][api_rest] versão 2015-12-01.2.2 e na biblioteca [.NET do Lote][api_net] correspondente, versão 3.1.0. É recomendável sempre usar a versão da API mais recente ao trabalhar com o Lote.
-
-> [!NOTE]
-> Os pacotes de aplicativos têm suporte em todos os pools do Lote criados após 5 de julho de 2017. Elas só terão suporte em pools do Lote criados entre 10 de março de 2016 e 5 de julho de 2017 se o pool tiver sido criado usando uma configuração de Serviço de Nuvem. Os pools do Lote criados antes de 10 de março de 2016 não dão suporte a pacotes de aplicativos.
->
->
 
 ## <a name="about-applications-and-application-packages"></a>Sobre aplicativos e pacotes de aplicativos
 No Lote do Azure, um *aplicativo* refere-se a um conjunto de binários com versão que podem ser baixados automaticamente para os nós de computação no pool. Um *pacote de aplicativos* refere-se a um *conjunto específico* desses binários e representa uma determinada *versão* do aplicativo.
@@ -85,50 +78,50 @@ Com pacotes de aplicativos, a tarefa de inicialização do pool não precisa esp
 >
 
 ## <a name="upload-and-manage-applications"></a>Carregar e gerenciar aplicativos
-Você pode usar o [Portal do Azure][portal] ou a biblioteca [.NET de Gerenciamento do Lote](batch-management-dotnet.md) para gerenciar os pacotes de aplicativos em sua conta do Lote. Nas próximas seções, primeiro vincularemos uma conta de Armazenamento e analisaremos como adicionar aplicativos e pacotes e como gerenciá-los com o portal.
+Você pode usar o [Portal do Azure][portal] ou as APIs de Gerenciamento de Lote para gerenciar os pacotes de aplicativos em sua conta do Lote. Nas próximas seções, primeiro vincularemos uma conta de Armazenamento e analisaremos como adicionar aplicativos e pacotes e como gerenciá-los com o portal.
 
 ### <a name="link-a-storage-account"></a>Vincular uma conta de armazenamento
-Para usar pacotes de aplicativos, em primeiro lugar, você deve vincular uma conta de armazenamento do Azure à sua conta do Lote. Se você ainda não configurou uma conta de Armazenamento, o portal do Azure exibe um aviso na primeira vez em que clicar no bloco **Aplicativos** na folha **Conta do Lote**.
+Para usar pacotes de aplicativo, primeiro vincule uma [conta do Azure Storage](batch-api-basics.md#azure-storage-account) a sua conta de Lote. Se você ainda não configurou uma conta de Armazenamento, o Portal do Azure exibe um aviso na primeira vez em que clicar em **Aplicativos** na Conta do Lote.
 
-> [!IMPORTANT]
-> No momento, o Lote dá suporte *somente* ao tipo de conta de armazenamento de **Uso geral**, conforme descrito na etapa 5 [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md). Ao vincular uma conta de Armazenamento do Azure à sua conta do Lote, você vincula *somente* uma conta de armazenamento de **Finalidade geral**.
-> 
-> 
+
 
 ![Aviso de 'Nenhuma conta de armazenamento configurada' no portal do Azure][9]
 
-O serviço de Lote usa a conta de Armazenamento associada para armazenar os pacotes de aplicativos. Depois que você tiver vinculado as duas contas, o Lote poderá implantar automaticamente os pacotes armazenados na conta de armazenamento vinculada nos nós de computação. Para vincular uma conta de armazenamento à sua conta do Lote, clique em **Configurações da conta de armazenamento** na folha **Aviso** e clique em **Conta de Armazenamento** na folha **Conta de Armazenamento**.
+O serviço de Lote usa a conta de Armazenamento associada para armazenar os pacotes de aplicativos. Depois que você tiver vinculado as duas contas, o Lote poderá implantar automaticamente os pacotes armazenados na conta de armazenamento vinculada nos nós de computação. Para vincular uma Conta de armazenamento à sua conta do Lote, clique em **Conta de armazenamento** na janela **Aviso** e clique em **Conta de Armazenamento** novamente.
 
 ![Folha Escolher conta de armazenamento no portal do Azure][10]
 
-Recomendamos que você crie uma conta de armazenamento para usar *especificamente* com sua conta do Lote e que a selecione aqui. Para obter detalhes sobre como criar uma conta de armazenamento, consulte "Criar uma Conta de Armazenamento" em [Sobre contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md). Depois de ter criado uma conta de Armazenamento, você poderá vinculá-la à sua conta do Lote usando a folha **Conta de Armazenamento** .
+Recomendamos que você crie uma conta de armazenamento para usar *especificamente* com sua conta do Lote e que a selecione aqui. Depois de ter criado uma conta de Armazenamento, você poderá vinculá-la à sua conta do Lote usando a janela **Conta de Armazenamento**.
 
-> [!WARNING]
-> O serviço de Lote usa o Armazenamento do Azure para armazenar os pacotes de aplicativos como blobs de blocos. Você é [cobrado normalmente][storage_pricing] pelos dados de blob de blocos. Não se esqueça de considerar o tamanho e o número de pacotes de aplicativos e, periodicamente, remova pacotes preteridos para minimizar o custo.
+> [!NOTE] 
+> Atualmente você não pode usar pacotes de aplicativos com uma conta de Armazenamento do Microsoft Azure que está configurada com [as regras de firewall](../storage/common/storage-network-security.md).
+> 
+
+O serviço de Lote usa o Armazenamento do Azure para armazenar os pacotes de aplicativos como blobs de blocos. Você é [cobrado normalmente][storage_pricing] pelos dados de blob de blocos. Não se esqueça de considerar o tamanho e o número de pacotes de aplicativos e, periodicamente, remova pacotes preteridos para minimizar o custo.
 > 
 > 
 
 ### <a name="view-current-applications"></a>Exibir aplicativos atuais
-Para exibir os aplicativos em sua conta do Lote, clique no item de menu **Aplicativos** no menu à esquerda enquanto exibe a folha **Conta do Lote**.
+Para exibir os aplicativos em sua conta do Lote, clique no item de menu **Aplicativos** no menu à esquerda enquanto exibe sua **Conta do Lote**.
 
 ![Bloco Aplicativos][2]
 
-Selecionar essa opção de menu abre a folha **Aplicativos**:
+Selecionar essa opção de menu abre a janela **Aplicativos**:
 
 ![Listar aplicativos][3]
 
-A folha **Aplicativos** exibe a ID de cada aplicativo em sua conta e as seguintes propriedades:
+Essa janela exibe a ID de cada aplicativo em sua conta e as seguintes propriedades:
 
 * **Pacotes**: o número de versões associadas a este aplicativo.
 * **Versão padrão**: a versão do aplicativo que será instalada se você não indicar uma versão ao especificar o aplicativo para um pool. Essa configuração é opcional.
 * **Permitir atualizações**: o valor que especifica se são permitidas as atualizações, exclusões e adições do pacote. Se isso estiver definido para **Não**, as exclusões e atualizações do pacote ficarão desabilitadas para o aplicativo. Apenas novas versões do pacote de aplicativos poderão ser adicionadas. O padrão é **Sim**.
 
 ### <a name="view-application-details"></a>Exibir detalhes do aplicativo
-Clique em um aplicativo na folha **Aplicativos** para abrir a folha que inclui os detalhes desse aplicativo.
+Para ver os detalhes de um aplicativo, selecione o aplicativo na janela **Aplicativos**.
 
 ![Detalhes do aplicativo][4]
 
-Na folha de detalhes do aplicativo, você pode configurar as definições a seguir para o aplicativo.
+Nos detalhes do aplicativo, você pode configurar as definições a seguir para o aplicativo.
 
 * **Permitir atualizações**: especifique se seus pacotes de aplicativos podem ser atualizados ou excluídos. Consulte "Atualizar ou excluir um pacote de aplicativos" mais adiante neste artigo.
 * **Versão padrão**: especifique um pacote de aplicativos padrão para implantar nos nós de computação.
@@ -137,11 +130,11 @@ Na folha de detalhes do aplicativo, você pode configurar as definições a segu
 ### <a name="add-a-new-application"></a>Adicionar um novo aplicativo
 Para criar um novo aplicativo, adicione um pacote de aplicativos e especifique uma ID de aplicativo nova e exclusiva. O primeiro pacote de aplicativos que você adiciona com a nova ID de aplicativo também cria o novo aplicativo.
 
-Clique em **Adicionar** na folha **Aplicativos** para abrir a folha **Novo aplicativo**.
+Clique em **Aplicativos** > **Adicionar**.
 
 ![Folha Novo aplicativo no portal do Azure][5]
 
-A folha **Novo aplicativo** fornece os campos a seguir para especificar as configurações do seu novo aplicativo e do pacote de aplicativos.
+A janela **Novo aplicativo** fornece os campos a seguir para especificar as configurações do seu novo aplicativo e do pacote de aplicativos.
 
 **ID do aplicativo**
 
@@ -165,28 +158,28 @@ Este campo especifica a versão do pacote de aplicativos que você está carrega
 
 Esse campo especifica o arquivo .zip que contém os binários do aplicativo e os arquivos de suporte que necessários à execução do aplicativo. Clique na caixa **Selecionar um arquivo** ou no ícone de pasta para procurar e selecionar um arquivo .zip que contém os arquivos do seu aplicativo.
 
-Depois de ter selecionado um arquivo, clique em **OK** para começar a carregar no Armazenamento do Azure. Quando a operação de upload for concluída, o portal exibirá uma notificação e fechará a folha. Dependendo do tamanho do arquivo que você estiver carregando e da velocidade da conexão de rede, essa operação pode demorar um pouco.
+Depois de ter selecionado um arquivo, clique em **OK** para começar a carregar no Armazenamento do Azure. Quando a operação de upload for concluída, o portal exibirá uma notificação. Dependendo do tamanho do arquivo que você estiver carregando e da velocidade da conexão de rede, essa operação pode demorar um pouco.
 
 > [!WARNING]
-> Não feche a folha **Novo aplicativo** antes de a operação de carregamento estar concluída. Isso interromperá o processo de carregamento.
+> Não feche a janela **Novo aplicativo** antes de a operação de carregamento estar concluída. Isso interromperá o processo de carregamento.
 > 
 > 
 
 ### <a name="add-a-new-application-package"></a>Adicionar um novo pacote de aplicativos
-Para adicionar uma nova versão do pacote de aplicativos a um aplicativo existente, selecione um aplicativo na folha **Aplicativos**, clique em **Pacotes** e **Adicionar** para abrir a folha **Adicionar pacote**.
+Para adicionar uma nova versão do pacote de aplicativos a um aplicativo existente, selecione um aplicativo na janela **Aplicativos** e clique em **Adicionar** > **Pacotes**.
 
 ![Folha Adicionar pacote de aplicativos no portal do Azure][8]
 
-Como você pode ver, os campos correspondem aos da folha **Novo aplicativo**, mas a caixa **ID do Aplicativo** fica desabilitada. Assim como para o novo aplicativo, especifique a **Versão** do novo pacote, procure o arquivo .zip do **Pacote de aplicativos** e clique em **OK** para carregar o pacote.
+Como você pode ver, os campos correspondem aos da janela **Novo aplicativo**, mas a caixa **ID do Aplicativo** fica desabilitada. Assim como para o novo aplicativo, especifique a **Versão** do novo pacote, procure o arquivo .zip do **Pacote de aplicativos** e clique em **OK** para carregar o pacote.
 
 ### <a name="update-or-delete-an-application-package"></a>Atualizar ou excluir um pacote de aplicativos
-Para atualizar ou excluir um pacote de aplicativos existente, abra a folha de detalhes do aplicativo, clique em **Pacotes** para abrir a folha **Pacotes**, clique nas **reticências** na linha do pacote de aplicativos que você deseja modificar e selecione a ação que deseja executar.
+Para atualizar ou excluir um pacote de aplicativos existente, abra os detalhes do aplicativo, clique em **Pacotes** clique nas **reticências** na linha do pacote de aplicativos que você deseja modificar e selecione a ação que deseja executar.
 
 ![Atualizar ou excluir pacote no portal do Azure][7]
 
 **Atualização**
 
-Quando você clica em **Atualizar**, a folha *Atualizar pacote* é exibida. Essa folha é semelhante à folha *Novo pacote de aplicativos*. No entanto, somente o campo de seleção de pacotes está habilitado, permitindo que você especifique um novo arquivo ZIP a carregar.
+Quando você clica em **Atualizar**, a janela **Atualizar pacote** é exibida. Essa janela é semelhante à folha **Novo pacote de aplicativos**. No entanto, somente o campo de seleção de pacotes está habilitado, permitindo que você especifique um novo arquivo ZIP a carregar.
 
 ![Folha do pacote de atualização no portal do Azure][11]
 
@@ -283,7 +276,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_blender_2_7
 ``` 
 
-Quando você carrega um pacote de aplicativos, você pode especificar uma versão padrão para implantar em seus nós de computação. Se você tiver especificado uma versão padrão para um aplicativo, poderá omitir o sufixo da versão ao referenciar o aplicativo. Você pode especificar a versão padrão do aplicativo no portal do Azure, na folha de Aplicativos, como mostrado em [Carregue e gerencie aplicativos](#upload-and-manage-applications).
+Quando você carrega um pacote de aplicativos, você pode especificar uma versão padrão para implantar em seus nós de computação. Se você tiver especificado uma versão padrão para um aplicativo, poderá omitir o sufixo da versão ao referenciar o aplicativo. Você pode especificar a versão padrão do aplicativo no portal do Azure, na janela de **Aplicativos**, como mostrado em [Carregue e gerencie aplicativos](#upload-and-manage-applications).
 
 Por exemplo, se você definiu "2.7" como a versão padrão do *blender* de aplicativos e suas tarefas referenciam a variável de ambiente a seguir, seus nós do Windows executarão a versão 2.7:
 

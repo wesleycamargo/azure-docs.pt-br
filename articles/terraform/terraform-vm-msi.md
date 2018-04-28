@@ -7,11 +7,11 @@ manager: rloutlaw
 ms.author: tarcher
 ms.date: 3/12/2018
 ms.topic: article
-ms.openlocfilehash: db45e9fe1eb724e6404f5e83bbbe4f62ee32343d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual do Terraform do Linux com Identidade de Serviço Gerenciada
 
@@ -88,7 +88,7 @@ O script anterior usa o mecanismo [Logon interativo AZ CLI v 2.0](https://docs.m
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- Para obter mais informações sobre o Gerenciamento de Estado Remoto, consulte [esta página sobre o estado remoto do Terraform](https://www.terraform.io/docs/state/remote.html). A chave de acesso de armazenamento é exposta nesse arquivo e precisa ser cuidadosamente verificada no controle do código-fonte.  
+ Para obter mais informações sobre o Gerenciamento de Estado Remoto, consulte [esta página sobre o estado remoto do Terraform](https://www.terraform.io/docs/state/remote.html). A chave de acesso ao armazenamento é exposta neste arquivo e precisa ser excluída antes de confirmar os arquivos de configuração do Terraform no controle de origem.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como configurar uma máquina virtual do Terraform do Linux no Azure. A seguir são apresentados alguns recursos adicionais para ajudá-lo a saber mais sobre o Terraform no Azure: 

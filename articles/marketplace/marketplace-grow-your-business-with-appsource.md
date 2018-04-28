@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: de7716a540737d4f2cc6f0f495180533ef6aa90a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="grow-your-business-with-appsource"></a>Desenvolver seus negócios com o AppSource
 O Azure Marketplace e o AppSource são os pontos de lançamento para atividades de mercado conjuntas com a Microsoft e um impulso para o crescimento da sua empresa. Usando a promoção de lançamento, geração de demanda e marketing e vendas conjuntas, a oferta do marketplace pode ser o ponto central do seu mecanismo de negócios na nuvem. Não há taxas para a participação. Os clientes da Microsoft visitam nossos marketplaces na nuvem diariamente para encontrar os aplicativos e serviços certos para ajudar a impulsionar seus negócios. Nosso objetivo é conectar organizações com soluções e serviços da Microsoft e nosso ecossistema de parceiros. 
@@ -117,7 +117,7 @@ A adição desses parâmetros à URL do AppSource permite que você examine a ef
 
 #### <a name="marketplace-gtm-benefits"></a>Benefícios do GTM do Marketplace 
 
-As novas listagens no AppSource são elegíveis para receber os benefícios gratuitos do GTM do marketplace. Uma vez listado, nossa equipe de especialistas de marketing entrará em contato com você e trabalhará com seu contato de marketing para iniciar essas atividades. As atividades que oferecemos diferem, dependendo do status da sua solução em nosso marketplace. Os benefícios aumentam para as ofertas que vêm com uma experiência de avaliação. Os parceiros Microsoft Gold podem acessar benefícios adicionais. Para maximizar o impacto dessas atividades, recomendamos que você tenha seu plano de lançamento pronto para executar. Você pode querer aproveitar sua página de aterrissagem para muitas dessas táticas. Observe que o Catálogo OCP (One Commercial Partner) é um benefício dos membros no Microsoft Partner Network. Para obter diretrizes sobre como criar uma página de aterrissagem excelente, veja [Criar uma página de aterrissagem excelente](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). Para obter suporte à entrada no mercado adicional, incluindo modelos, conteúdo da Web, treinamento e ferramentas para promover seus negócios, visite [https://www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com). 
+As novas listagens no AppSource são elegíveis para receber os benefícios gratuitos do GTM do marketplace. Uma vez listado, nossa equipe de especialistas de marketing entrará em contato com você e trabalhará com seu contato de marketing para iniciar essas atividades. As atividades que oferecemos diferem, dependendo do status da sua solução em nosso marketplace. Os benefícios aumentam para as ofertas que vêm com uma experiência de avaliação. Os parceiros Microsoft Gold podem acessar benefícios adicionais. Para maximizar o impacto dessas atividades, recomendamos que você tenha seu plano de lançamento pronto para executar. Você pode querer aproveitar sua página de aterrissagem para muitas dessas táticas. Observe que o Catálogo OCP (One Commercial Partner) é um benefício dos membros no Microsoft Partner Network. Para obter diretrizes sobre como criar uma página de aterrissagem excelente, veja [Criar uma página de aterrissagem excelente](https://docs.microsoft.com/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). Para obter suporte à entrada no mercado adicional, incluindo modelos, conteúdo da Web, treinamento e ferramentas para promover seus negócios, visite [https://www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com). 
 
 #### <a name="enable-lead-sharing"></a>Habilitar compartilhamento de cliente potencial 
 Certifique-se de que o gerenciamento de clientes potenciais esteja habilitado na sua oferta do Marketplace para que você possa receber as informações de contato dos usuários comerciais que experimentam seus aplicativos ou que estejam interessados em seus serviços. Esses clientes potenciais fornecem a base de atendimento para campanhas de estímulo, movimentos de vendas pela equipe de vendas em campo e informações sobre como está o desempenho da sua oferta. As melhores práticas para o uso desses clientes potenciais incluem:

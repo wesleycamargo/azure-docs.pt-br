@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 97c92a68009a378d13daed35520c7d338c5b932a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7ca037a6aec8516d9656b3389da67b9b02a906d8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo. Neste tutorial, você aprenderá a:
@@ -171,7 +171,7 @@ az vmss list-instance-connection-info \
   --name myScaleSet
 ```
 
-A saída de exemplo a seguir mostra o nome da instância, o endereço IP público do balanceador de carga e o número da porta para onde as regras de Conversão de Endereços de Rede (NAT) encaminham o tráfego:
+A saída de exemplo a seguir mostra o nome da instância, o endereço IP público do balanceador de carga e o número da porta para onde as regras NAT (Conversão de Endereços de Rede) encaminham o tráfego:
 
 ```json
 {
@@ -201,7 +201,7 @@ Para confirmar que o **stress** gera carga de CPU, examine a carga do sistema at
 top
 ```
 
-Saia do **top**, depois feche a conexão com a instância de VM. O **stress** continuará a ser executado na instância de VM.
+Saia do **top** e feche a conexão com a instância de VM. **stress** continuará a ser executado na instância de VM.
 
 ```azurecli-interactive
 Ctrl-c
@@ -214,7 +214,7 @@ Conecte-se à segunda instância de VM com o número da porta listado no [az vms
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
-Instale e execute o **stress**, depois inicie os dez trabalhos nessa segunda instância de VM.
+Instale e execute **stress** e inicie os dez trabalhos nessa segunda instância de VM.
 
 ```azurecli-interactive
 sudo apt-get -y install stress
@@ -223,7 +223,7 @@ sudo stress --cpu 10 --timeout 420 &
 
 Novamente, quando o **stress** mostrar a saída semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, pressione a tecla *Enter* para retornar ao prompt.
 
-Feche a conexão com a segunda instância de VM. O **stress** continuará a ser executado na instância de VM.
+Feche a conexão com a segunda instância de VM. **stress** continuará a ser executado na instância de VM.
 
 ```azurecli-interactive
 exit
@@ -253,7 +253,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
            6  True                  eastus      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-Assim que o **stress** é interrompido nas instâncias de VM inicias, a carga média da CPU volta ao normal. Após mais 5 minutos, as regras de dimensionamento automático reduzem horizontalmente o número de instâncias de VM. As ações de redução horizontal removem instâncias de VM começando pelas IDs mais altas. A saída de exemplo a seguir mostra uma instância de VM excluída conforme o conjunto de dimensionamento reduz horizontal e automaticamente:
+Assim que o **stress** é interrompido nas instâncias de VM inicias, a carga média da CPU volta ao normal. Após mais 5 minutos, as regras de dimensionamento automático reduzem horizontalmente o número de instâncias de VM. As ações de redução horizontal removem instâncias de VM começando pelas IDs mais altas. Quando um conjunto de dimensionamento usa Conjuntos de Disponibilidade ou Zonas de Disponibilidade, as ações de reduzir horizontalmente são distribuídas uniformemente entre essas instâncias de VM. A saída de exemplo a seguir mostra uma instância de VM excluída conforme o conjunto de dimensionamento reduz horizontal e automaticamente:
 
 ```bash
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
