@@ -1,0 +1,5 @@
+> [!IMPORTANT]
+> O recurso de Zona Privada de DNS do Azure é, atualmente, uma versão prévia gerenciada e exige que você se inscreva para obter a versão prévia do SDK/módulo do PowerShell. Para se inscrever nessa versão prévia, envie um email para [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) com os detalhes da sua assinatura. Os exemplos neste artigo presumem que você já se inscreveu para a Versão prévia e obteve a versão prévia do SDK/módulo do PowerShell. Usando o módulo de PowerShell Público atual não funciona para esse recurso de versão prévia.
+
+Essa Versão prévia é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
+
