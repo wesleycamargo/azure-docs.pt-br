@@ -14,11 +14,11 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6b62baf1fdad6e08535b13f2ca461b00156a7f14
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identidade de Serviço Gerenciado (MSI) para recursos do Azure
 
@@ -32,14 +32,14 @@ Quando você habilita a Identidade de Serviço Gerenciado em um serviço do Azur
 
 Aqui está um exemplo de como a Identidade de Serviço Gerenciado funciona com as Máquinas Virtuais do Azure.
 
-![Exemplo de MSI de Máquina Virtual](../media/msi-vm-example.png)
+![Exemplo de MSI de Máquina Virtual](../media/msi-vm-imds-example.png)
 
-1. O Azure Resource Manager recebe uma mensagem para habilitar o MSI em uma máquina virtual.
+1. O Azure Resource Manager recebe uma mensagem para habilitar a MSI (Identidade de Serviço Gerenciada) atribuída pelo sistema em uma máquina virtual.
 2. O Azure Resource Manager cria uma Entidade de Serviço no Azure AD para representar a identidade da máquina virtual. A Entidade de Serviço é criada no locatário do Azure AD que é confiável para essa assinatura.
-3. O Azure Resource Manager configura os detalhes da Entidade de Serviço na extensão de VM do MSI da VM.  Essa etapa inclui definir a ID do cliente e o certificado usado pela extensão para obter tokens de acesso do Azure AD.
-4. Agora que a identidade da Entidade de Serviço da VM é conhecida, ela pode ser concedida acesso aos recursos do Azure.  Por exemplo, se seu código precisa chamar o Azure Resource Manager, em seguida, você atribuiria à Entidade de Serviço da VM a função apropriada usando o controle de acesso baseado em função (RBAC) no Azure AD.  Se seu código precisar chamar o Key Vault, então você concederia ao seu código o acesso ao segredo ou chave específica no Key Vault.
-5. O código em execução na máquina virtual solicita um token de um ponto de extremidade local que é hospedado pela extensão de VM MSI: http://localhost:50342/oauth2/token.  O parâmetro de recurso especifica o serviço ao qual o token é enviado. Por exemplo, se você quiser que seu código autentique para o Azure Resource Manager, você usaria resource=https://management.azure.com/.
-6. A extensão de VM do MSI usa sua ID de cliente configurado e o certificado para solicitar um token de acesso do Azure AD.  O Azure AD retorna um token de acesso do JSON Web Token (JWT).
+3. O Azure Resource Manager configura os detalhes da Entidade de Serviço para a máquina virtual no Azure Instance Metadata Service da máquina virtual. Essa etapa inclui definir a ID do cliente e o certificado usado para obter tokens de acesso do Azure AD. *Observação: o ponto de extremidade IMDS da MSI está substituindo o ponto de extremidade da Extensão de máquina virtual da MSI. Para obter mais informações sobre essa alteração, consulte as Perguntas frequentes e problemas conhecidos.*
+4. Agora que a identidade da Entidade de Serviço da VM é conhecida, ela pode ser concedida acesso aos recursos do Azure. Por exemplo, se seu código precisa chamar o Azure Resource Manager, em seguida, você atribuiria à Entidade de Serviço da VM a função apropriada usando o controle de acesso baseado em função (RBAC) no Azure AD.  Se seu código precisar chamar o Key Vault, então você concederia ao seu código o acesso ao segredo ou chave específica no Key Vault.
+5. Sua execução de código na máquina virtual solicita um token do ponto de extermidade MSI do Azure Instance Metadata Service, que só é acessível da máquina virtual: http://169.254.169.254/metadata/identity/oauth2/token. O parâmetro de recurso especifica o serviço ao qual o token é enviado. Por exemplo, se você quiser que seu código autentique para o Azure Resource Manager, você usaria resource=https://management.azure.com/.
+6. O Azure Instance Metadata solicita um token de acesso do Microsoft Azure A, usando a ID do cliente e o certificado para a máquina virtual. O Azure AD retorna um token de acesso do JSON Web Token (JWT).
 7. Seu código envia o token de acesso em uma chamada para um serviço que dá suporte à autenticação do Azure AD.
 
 Cada serviço do Azure que dá suporte a Identidades de Serviço Gerenciado tem seu próprio método para seu código obter um token de acesso. Confira os tutoriais para cada serviço para descobrir o método específico para obter um token.

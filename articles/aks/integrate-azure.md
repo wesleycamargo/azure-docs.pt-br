@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 
@@ -21,9 +21,9 @@ Junto com o [catálogo de serviços do Kubernetes ][kubernetes-service-catalog],
 ## <a name="prerequisites"></a>pré-requisitos
 * Uma assinatura do Azure
 
-* CLI do Azure 2.0: você pode [instalá-lo localmente][azure-cli-install], ou usá-lo no [Azure Cloud Shell][azure-cloud-shell].
+* CLI 2.0 do Azure: [instale localmente][azure-cli-install], ou use-o no [Azure Cloud Shell][azure-cloud-shell].
 
-* Helm CLI 2.7+: você pode [instalá-lo localmente][helm-cli-install], ou usá-lo no [Azure Cloud Shell][azure-cloud-shell].
+* CLI 2.7+ do Helm: [instale localmente][helm-cli-install], ou use-o no [Azure Cloud Shell][azure-cloud-shell].
 
 * Permissões para criar uma Entidade de Serviço com a função de Colaborador na sua assinatura Azure
 

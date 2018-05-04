@@ -1,4 +1,4 @@
-# [Documentação do Key Vault](index.md)
+# [Documentação do Key Vault](index.yml)
 
 # Visão geral
 ## [Visão Geral do Key Vault](key-vault-overview.md)
@@ -9,13 +9,13 @@
 ## [Criar um Key Vault - Portal](quick-create-portal.md)
 
 # Tutoriais
-## [Configurar um aplicativo Web do Azure para ler um segredo do Key Vault](tutorial-web-application-keyvault.md)
-# Exemplos
-## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=key-vault)
-# Conceitos
+## [Leia um segredo do Key Vault ](tutorial-web-application-keyvault.md)
 ## [Introdução ao Cofre de Chaves](key-vault-get-started.md)
 ## [Configurar a rotação e auditoria de chaves](key-vault-key-rotation-log-monitoring.md)
 ## [Usar o Cofre de Chaves de um aplicativo Web](key-vault-use-from-web-application.md)
+# Exemplos
+## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=key-vault)
+# Conceitos
 ## [Mundos de segurança](key-vault-ovw-security-worlds.md)
 ## [Exclusão reversível](key-vault-ovw-soft-delete.md)
 ## [Chaves da conta de armazenamento](key-vault-ovw-storage-keys.md)

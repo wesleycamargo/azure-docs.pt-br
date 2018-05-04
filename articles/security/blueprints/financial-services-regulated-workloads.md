@@ -1,6 +1,6 @@
 ---
-title: "Projeto de Segurança e de Conformidade do Azure – cargas de trabalho regulamentadas pelos serviços financeiros FFIEC"
-description: "Projeto de Segurança e de Conformidade do Azure – cargas de trabalho regulamentadas pelos serviços financeiros FFIEC"
+title: Projeto de Segurança e de Conformidade do Azure – cargas de trabalho regulamentadas pelos serviços financeiros FFIEC
+description: Projeto de Segurança e de Conformidade do Azure – cargas de trabalho regulamentadas pelos serviços financeiros FFIEC
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 497c5a987753cbbe577c1d042d6bf61be9d905ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Projeto de Segurança e de Conformidade do Azure – cargas de trabalho regulamentadas pelos serviços financeiros FFIEC
 
@@ -122,7 +122,7 @@ A solução usou os serviços do Azure a seguir. Os detalhes da arquitetura de i
 >- Gateway de Aplicativo
 >- Azure Active Directory
 >- Ambiente do Serviço de Aplicativo v2
->- Log Analytics do OMS
+>- Log Analytics
 >- Cofre da Chave do Azure
 >- Grupos de segurança de rede
 >- BD SQL do Azure
@@ -177,7 +177,7 @@ Cada NSG tem portas e protocolos específicos abertos para o funcionamento segur
 Além disso, as seguintes configurações estão habilitadas para cada NSG:
 
 - Os [eventos e logs de diagnóstico](/azure/virtual-network/virtual-network-nsg-manage-log) habilitados são armazenados na conta de armazenamento 
-- O OMS Log Analytics está conectado ao [diagnóstico do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- O Log Analytics está conectado ao [diagnóstico do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
  
 #### <a name="subnets"></a>Sub-redes
@@ -208,12 +208,12 @@ A instância do Banco de Dados SQL usa as seguintes medidas de segurança de ban
 
 ### <a name="logging-and-auditing"></a>Registro em log e auditoria
 
-O [OMS (Operations Management Suite)](/azure/operations-management-suite/) pode fornecer à Contoso Webstore um registro em log extensivo de todas as atividades de sistema e de usuário, inclusive registro em log de dados financeiros. A precisão das alterações pode ser examinada e verificada. 
+O [Log Analytics](https://azure.microsoft.com/services/log-analytics) pode fornecer à Contoso Webstore um registro em log extensivo de todas as atividades de sistema e de usuário, inclusive registro em log de dados financeiros. A precisão das alterações pode ser examinada e verificada. 
 
 - **Logs de atividade.**  Os [Logs de atividades](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas em recursos em sua assinatura.
 - **Logs de diagnóstico.**  Os [Logs de diagnóstico](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são todos os logs emitidos por todos os recursos. Esses logs são logs do sistema de eventos do Windows, logs do armazenamento de blobs do Azure, tabelas e logs de fila.
 - **Logs de firewall.**  O Gateway de Aplicativo fornece logs de diagnóstico e de acesso completos. Logs do firewall estão disponíveis para recursos do Gateway de Aplicativo que têm o WAF habilitado.
-- **Arquivamento em log.**  Todos os logs de diagnóstico são configurados para gravar em uma conta de armazenamento do Azure centralizada e criptografada com arquivamento após um período de retenção definido (2 dias). Os logs são conectados ao Azure Log Analytics para processar, armazenar e usar painéis. O [Log Analytics](https://azure.microsoft.com/services/log-analytics) é um serviço do OMS que ajuda a coletar e analisar dados gerados pelos recursos em seus ambientes local e de nuvem.
+- **Arquivamento em log.**  Todos os logs de diagnóstico são configurados para gravar em uma conta de armazenamento do Azure centralizada e criptografada com arquivamento após um período de retenção definido (2 dias). Os logs são conectados ao Azure Log Analytics para processar, armazenar e usar painéis. O [Log Analytics](https://azure.microsoft.com/services/log-analytics) é um serviço que ajuda a coletar e analisar dados gerados pelos recursos nos ambientes locais e de nuvem.
 
 ### <a name="encryption-and-secrets-management"></a>Gerenciamento de criptografia e segredos
 
@@ -230,7 +230,7 @@ As tecnologias a seguir oferecem recursos de gerenciamento de identidade no ambi
 - O [Azure AD (Azure Active Directory)](https://azure.microsoft.com/services/active-directory/) é o serviço de gerenciamento de identidade e diretório multilocatário baseado em nuvem da Microsoft. Todos os usuários da solução foram criados no Azure Active Directory, incluindo os usuários que acessam o Banco de Dados SQL.
 - A autenticação para o aplicativo é executada usando o Azure AD. Para saber mais, confira [Integrando aplicativos com o Active Directory do Azure](/azure/active-directory/develop/active-directory-integrating-applications). Além disso, a criptografia de coluna do banco de dados também usa o Azure AD para autenticar o aplicativo no Banco de Dados SQL do Azure. Para obter mais informações, consulte [Always Encrypted: proteger dados confidenciais no Banco de Dados SQL](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - O [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) detecta possíveis vulnerabilidades que poderiam afetar as identidades da organização, configura respostas automatizadas para detectar ações suspeitas relacionadas a identidades de sua organização, investiga incidentes suspeitos e executa as ações apropriadas para resolvê-los.
-- O [RBAC (Controle De Acesso Baseado Em Função) do Azure](/azure/active-directory/role-based-access-control-configure) permite o gerenciamento de acesso detalhado para o Azure. O acesso à assinatura é limitado ao administrador da assinatura, e o acesso ao Azure Key Vault é restrito a todos os usuários.
+- O [RBAC (Controle De Acesso Baseado Em Função) do Azure](/azure/role-based-access-control/role-assignments-portal) permite o gerenciamento de acesso detalhado para o Azure. O acesso à assinatura é limitado ao administrador da assinatura, e o acesso ao Azure Key Vault é restrito a todos os usuários.
 
 Para saber mais sobre como usar os recursos de segurança do Banco de Dados SQL do Azure, confira o exemplo [Aplicativo de demonstração da Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample) exemplo.
    
@@ -263,7 +263,7 @@ Como o Ambiente do Serviço de Aplicativo é protegido e bloqueado, é preciso h
 Uma máquina virtual foi criada como jumpbox (host bastião) com as seguintes configurações:
 
 -   [Extensão de antimalware](/azure/security/azure-security-antimalware)
--   [Extensão do OMS](/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Extensão do Log Analytics](/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Extensão de Diagnóstico do Azure](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](/azure/security/azure-security-disk-encryption) usando o Azure Key Vault 
 -   Uma [política de desligamento automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) para reduzir o consumo de recursos de máquina virtual quando eles não estiverem em uso
@@ -284,11 +284,11 @@ Use o [Application Insights](https://azure.microsoft.com/services/application-in
 
 #### <a name="log-analytics"></a>Log Analytics
 
-O Log Analytics é um serviço do [OMS (Operations Management Suite)](https://azure.microsoft.com/services/log-analytics/) que ajuda a coletar e analisar dados gerados pelos recursos em seus ambientes local e de nuvem.
+O [Log Analytics](https://azure.microsoft.com/services/log-analytics/) é um serviço que ajuda a coletar e analisar dados gerados pelos recursos nos ambientes locais e de nuvem.
 
-#### <a name="oms-solutions"></a>Soluções do OMS
+#### <a name="managment-solutions"></a>Soluções de gerenciamento
 
-Essas soluções OMS adicionais devem ser consideradas e configuradas: 
+Essas soluções de gerenciamento adicionais devem ser consideradas e configuradas: 
 - [Log Analytics de Atividade](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Usar a Análise de Rede do Azure](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -344,9 +344,9 @@ A Microsoft realmente recomenda que uma instalação limpa do PowerShell seja us
     
     Para obter instruções detalhadas de uso, confira [instruções de Script - Implantar e configurar recursos do Azure](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. Registro em log e monitoramento do OMS Depois que a solução for implantada, um espaço de trabalho do [OMS (Microsoft Operations Management Suite)](/azure/operations-management-suite/operations-management-suite-overview) poderá ser aberto e os modelos de exemplo fornecidos no repositório de solução poderão ser usados para ilustrar como um painel de monitoramento pode ser configurado. Para os modelos de exemplo do OMS, consulte a [pasta omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Observe que os dados devem ser coletados no OMS para que os modelos sejam implantados corretamente. Isso pode levar até uma hora ou mais dependendo da atividade do site.
+3. Registro em log e monitoramento do Log Analytics. Quando a solução é implantada, um espaço de trabalho do Log Analytics pode ser aberto e os modelos de exemplo fornecidos no repositório da solução podem ser utilizados para ilustrar como um painel de monitoramento pode ser configurado. Para os modelos de exemplo, consulte a pasta [omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Observe que os dados devem ser coletados no Log Analytics para que os modelos sejam implantados corretamente. Isso pode levar até uma hora ou mais dependendo da atividade do site.
  
-    Ao configurar o registro em log do OMS, considere a inclusão desses recursos:
+    Ao configurar o registro em log do Log Analytics, considere a inclusão desses recursos:
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups

@@ -253,6 +253,8 @@
           href: app-service-web-troubleshoot-http-502-http-503.md
         - name: Solucionar problemas de desempenho
           href: app-service-web-troubleshoot-performance-degradation.md
+        - name: Solucionar problemas de domínio e certificado
+          href: app-service-web-troubleshoot-domain-ssl-certificates.md
         - name: Perguntas frequentes
           items:
             - name: 'Disponibilidade, desempenho e perguntas frequentes sobre aplicativos'

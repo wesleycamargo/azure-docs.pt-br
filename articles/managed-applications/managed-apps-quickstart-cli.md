@@ -1,6 +1,6 @@
 ---
 title: Criar aplicativo gerenciado pelo Azure com CLI do Azure | Microsoft Docs
-description: "Mostra como criar um aplicativo gerenciado do Azure destinado aos membros de sua organização."
+description: Mostra como criar um aplicativo gerenciado do Azure destinado aos membros de sua organização.
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35059603096279f7d58da1c1b40dd2ab3f1b5c38
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 46ea192220ced18b25d60030527d1f76fb37962a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Criar e implementar um aplicativo gerenciado pelo Azure com a CLI do Azure
 
@@ -22,7 +22,7 @@ Este artigo fornece uma introdução ao trabalho com aplicativos gerenciados. Vo
 
 Quando tiver terminado, você tem três grupos de recursos contendo diferentes partes do aplicativo gerenciado.
 
-| Grupo de recursos | Contém: | Descrição |
+| Grupo de recursos | Contém: | DESCRIÇÃO |
 | -------------- | -------- | ----------- |
 | appDefinitionGroup | A definição de aplicativo gerenciado. | O editor cria esse grupo de recursos e a definição do aplicativo gerenciado. Qualquer pessoa com acesso à definição do aplicativo gerenciado pode implantá-lo. |
 | applicationGroup | A instância do aplicativo gerenciado. | O consumidor cria esse grupo de recursos e a instância do aplicativo gerenciado. O consumidor pode atualizar o aplicativo gerenciado por meio dessa instância. |
@@ -75,7 +75,7 @@ Quando o comando for concluído, você tem uma definição de aplicativo gerenci
 Alguns dos parâmetros usados no exemplo anterior são:
 
 * **resource-group**: o nome do grupo de recursos no qual a definição de aplicativo gerenciado é criada.
-* **lock-level**: o tipo de bloqueio colocado no grupo de recursos gerenciado. Ela impede que o cliente execute operações indesejáveis no grupo de recursos. Atualmente, ReadOnly é o único nível de bloqueio com suporte. Quando ReadOnly é especificado, o cliente pode ler somente os recursos presentes no grupo de recursos gerenciados.
+* **lock-level**: o tipo de bloqueio colocado no grupo de recursos gerenciado. Ela impede que o cliente execute operações indesejáveis no grupo de recursos. Atualmente, ReadOnly é o único nível de bloqueio com suporte. Quando ReadOnly é especificado, o cliente pode ler somente os recursos presentes no grupo de recursos gerenciados. As identidades do publicador que concedem acesso ao grupo de recursos gerenciado são isentas de bloqueio.
 * **authorizations**: descreve a ID da entidade e a ID de definição de função que são usadas para conceder permissão ao grupo de recursos gerenciado. Ele é especificado no formato `<principalId>:<roleDefinitionId>`. Vários valores também podem ser especificados para essa propriedade. Se houver a necessidade de vários valores, eles deverão ser especificados no formulário `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Vários valores são separados por um espaço.
 * **package-file-uri**: o local de um pacote .zip que contém os arquivos necessários. No mínimo, o pacote contém os arquivos **mainTemplate.json** e **createUiDefinition.json**. **mainTemplate.json**: define os recursos do Azure que são provisionados como parte do aplicativo gerenciado. O modelo não é diferente de um modelo normal do Resource Manager. O **createUiDefinition.json** gera a interface do usuário para os usuários que criam o aplicativo gerenciado por meio do portal.
 

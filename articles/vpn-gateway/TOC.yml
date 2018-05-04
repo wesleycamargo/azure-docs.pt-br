@@ -1,5 +1,5 @@
 - name: Documentação de Gateway de VPN
-  href: index.md
+  href: index.yml
 - name: Visão geral
   items:
     - name: Sobre o Gateway de VPN

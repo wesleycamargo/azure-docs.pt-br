@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: aa1d70d33e1f9cefee4d06ea182ffb3fc960e07a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f668b233cd2bb44012c6132fee55626ddc3597e0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de grafo usando Python e o portal do Azure
 
@@ -47,24 +47,7 @@ Antes de criar um banco de dados de grafo, você precisa criar uma conta do banc
 
 ## <a name="add-a-graph"></a>Adicionar um grafo
 
-Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados de grafo. 
-
-1. Clique em **Data Explorer** > **Novo Grafo**.
-
-    A área **Adicionar Grafo** é exibida à direita, talvez seja necessário rolar para a direita para vê-la.
-
-    ![O Data Explorer do Portal do Azure, página Adicionar Grafo](./media/create-graph-python/azure-cosmosdb-data-explorer-graph.png)
-
-2. Na página **Adicionar Grafo**, insira as configurações do novo grafo.
-
-    Configuração|Valor sugerido|DESCRIÇÃO
-    ---|---|---
-    ID do banco de dados|banco de dados de exemplo|Digite *banco de dados de exemplo* como o nome do novo banco de dados. Os nomes de banco de dados devem ter entre um e 255 caracteres e não podem conter `/ \ # ?` nem espaços à direita.
-    ID do Grafo|grafo de exemplo|Digite *grafo de exemplo* como o nome da nova coleção. Os nomes de grafo têm os mesmos requisitos de caractere do que as IDs de banco de dados.
-    Capacidade de Armazenamento|Fixo (10 GB)|Deixe o valor padrão de **Fixo (10 GB)**. Esse valor é a capacidade de armazenamento do banco de dados.
-    Throughput|400 RUs|Altere a taxa de transferência para 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.
-
-3. Quando o formulário estiver preenchido, clique em **OK**.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
@@ -90,7 +73,7 @@ Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do Graph
 
 ## <a name="review-the-code"></a>Examine o código
 
-Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Os trechos de códigos são todos obtidos a partir do arquivo `connect.py` na pasta C:\git-samples\azure-cosmos-db-graph-python-getting-started\. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information). 
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Os trechos de códigos são todos obtidos a partir do arquivo connect.py na pasta C:\git-samples\azure-cosmos-db-graph-python-getting-started\. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information). 
 
 * O Gremlin `client` é inicializado na linha 104 em `connect.py`:
 

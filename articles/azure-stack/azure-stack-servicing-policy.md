@@ -3,7 +3,7 @@ title: Política de manutenção de pilha do Azure | Microsoft Docs
 description: Saiba mais sobre a manutenção de política e como manter um sistema integrado em um estado com suporte a pilha do Azure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/18/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: 160ba42c5cbdd3e8b999040cba8254d4c87f7c63
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 77cc2f80588a104880e8149daccc6debd1ec43bc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Política de manutenção de pilha do Azure
 Este artigo descreve a política de serviço para sistemas de pilha do Azure integradas, e que você deve fazer para manter o sistema em um estado com suporte. 
@@ -55,6 +55,9 @@ Para continuar a receber suporte, você deve manter sua implantação do Azure p
 Por exemplo, se a versão disponível mais recente de atualização é 1805 e os dois pacotes de atualização anteriores eram versões 1804 e 1803, 1803 e 1804 permanecem no suporte. No entanto, 1802 tem suporte. A política se aplica quando não há nenhuma versão para um ou dois meses. Por exemplo, se a versão atual é 1805 e não houve nenhuma versão 1804, os dois pacotes de atualização anterior de 1803 e 1802 permanecem no suporte.
 
 Pacotes de atualização de software Microsoft não cumulativa e requerem o pacote de atualização anterior como um pré-requisito. Se você optar por adiar uma ou mais atualizações, considere o tempo de execução geral, se você deseja obter a versão mais recente. 
+
+## <a name="get-support"></a>Obtenha suporte
+A pilha do Azure segue o mesmo processo de suporte do Azure. Os clientes corporativos podem seguir o processo descrito em [como criar uma solicitação de suporte do Azure](/azure/azure-supportability/how-to-create-azure-support-request). Se você for um cliente de um provedor de serviços de nuvem (CSP), entre em contato com seu CSP para obter suporte.  Para obter mais informações, consulte as [Perguntas Frequentes do Suporte do Azure](https://azure.microsoft.com/support/faq/). 
 
 
 ## <a name="next-steps"></a>Próximas etapas

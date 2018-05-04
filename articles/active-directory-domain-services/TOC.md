@@ -16,7 +16,7 @@
 ## [Tarefa 2: definir as configurações de rede](active-directory-ds-getting-started-network.md)
 ## [Tarefa 3: configurar o grupo de administradores e habilitar os Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ## [Tarefa 4: atualizar configurações de DNS para a rede virtual](active-directory-ds-getting-started-dns.md)
-## [Tarefa 5: habilitar sincronização de senha](active-directory-ds-getting-started-password-sync.md)
+## [Tarefa 5: permitir sincronização de hash de senha](active-directory-ds-getting-started-password-sync.md)
 
 # Como
 ## [Verifique a integridade de um domínio gerenciado](active-directory-ds-check-health.md)
@@ -56,7 +56,7 @@
 
 
 # Referência
-## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Relacionados
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

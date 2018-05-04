@@ -1,8 +1,8 @@
 ---
-title: "Criar clusters Hadoop sob demanda usando o Data Factory – Azure HDInsight | Microsoft Docs"
+title: Criar clusters Hadoop sob demanda usando o Data Factory – Azure HDInsight | Microsoft Docs
 description: Saiba como criar clusters Hadoop sob demanda usando o Azure Data Factory.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: spelluru
 manager: jhubbard
@@ -11,16 +11,14 @@ ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6344b9a50f182a2b9ab05562c29099c9d6976f0b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Criar clusters Hadoop sob demanda usando o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -66,7 +64,7 @@ Para obter uma lista das atividades de transformação de dados do Data Factory,
 > [!NOTE]
 > No momento, você só pode criar o cluster HDInsight versão 3.2 do Azure Data Factory.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar a seguir as instruções neste artigo, você deve ter o seguinte:
 
 * [Assinatura do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -117,7 +115,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 ####################################
@@ -178,7 +176,7 @@ Se você precisar de ajuda com o script do PowerShell, confira [Como usar o Azur
 
 **Para examinar a conta de armazenamento e o conteúdo**
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **Grupos de recursos** no painel esquerdo.
 3. Clique duas vezes no nome do grupo de recursos criado em seu script da CLI ou do PowerShell. Use o filtro se houver muitos grupos de recursos listados.
 4. No bloco **Recursos** , você deverá ter um recurso listado, a menos que compartilhe o grupo de recursos com outros projetos. Esse recurso é a conta de armazenamento com o nome especificado anteriormente. Clique no nome da conta de armazenamento.
@@ -491,7 +489,7 @@ Exclua as pastas **adfjobs** e **adfyourdatafactoryname-linkedservicename-dateti
 ### <a name="delete-the-resource-group"></a>Exclua o grupo de recursos
 O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) é usado para implantar, gerenciar e monitorar sua solução como um grupo.  A exclusão de um grupo de recursos exclui todos os componentes dentro do grupo.  
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **Grupos de recursos** no painel esquerdo.
 3. Clique no nome do grupo de recursos criado em seu script do PowerShell. Use o filtro se houver muitos grupos de recursos listados. Ele abre o grupo de recursos em uma nova folha.
 4. No bloco **Recursos** , a conta de armazenamento padrão e o data factory deverão estar listados, a menos que você compartilhe o grupo de recursos com outros projetos.

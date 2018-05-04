@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1d5bc55b132b449ebc2964ef95016a6a4780c19
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnósticos e ativar alertas para os Aplicativo Lógico do Azure
 
@@ -66,7 +66,7 @@ Para obter notificações sobre falhas ou outros possíveis problemas, configure
    ![Detalhes da etapa](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Todos os eventos e detalhes de tempo de execução são criptografados no serviço Aplicativos Lógicos. Eles são descriptografados apenas quando um usuário solicita a exibição desses dados. Controle também o acesso a esses eventos com o [RBAC (Controle de Acesso Baseado em Função) do Azure](../active-directory/role-based-access-control-what-is.md).
+   > Todos os eventos e detalhes de tempo de execução são criptografados no serviço Aplicativos Lógicos. Eles são descriptografados apenas quando um usuário solicita a exibição desses dados. Controle também o acesso a esses eventos com o [RBAC (Controle de Acesso Baseado em Função) do Azure](../role-based-access-control/overview.md).
 
 6. Para obter detalhes sobre um evento de gatilho específico, volte para o painel **Visão geral**. Em **Histórico de gatilhos**, selecione o evento de gatilho. Agora você pode examinar detalhes como entradas e saídas, por exemplo:
 
@@ -217,7 +217,7 @@ Para configurar alertas sem o [Azure Log Analytics](../log-analytics/log-analyti
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Configurações e detalhes de eventos do Diagnóstico do Azure
 
-Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, o acompanhamento e o log de forma programática, use esses detalhes com a [API REST do Aplicativo Lógico do Azure](https://docs.microsoft.com/rest/api/logic) e a [API REST do Diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, acompanhamento e registro em log de forma programática, é possível usar esses detalhes com a [API REST para Aplicativo Lógico do Azure](https://docs.microsoft.com/rest/api/logic) e a [API REST para Diagnóstico do Microsoft Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 
 Por exemplo, o evento `ActionCompleted` tem as propriedades `clientTrackingId` e `trackedProperties`, que podem ser usadas para acompanhamento e monitoramento:
 

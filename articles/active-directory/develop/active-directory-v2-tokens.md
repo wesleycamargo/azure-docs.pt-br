@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 071e0c2b802b1bb6ef68092362c61bf3960fd45a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referência de tokens do Azure Active Directory v2.0
 O ponto de extremidade do Azure AD (Azure Active Directory) v 2.0 emite vários tipos de tokens de segurança em cada [fluxo de autenticação](active-directory-v2-flows.md). Esta referência descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
@@ -73,9 +73,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | ID do objeto |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | O identificador imutável de um objeto do sistema de identidade da Microsoft, nesse caso, uma conta de usuário.  Também pode ser usada para realizar verificações de autorização com segurança e como uma chave em tabelas de banco de dados. Essa ID identifica exclusivamente o usuário entre os aplicativos - dois aplicativos diferentes autenticando o mesmo usuário receberão o mesmo valor na declaração `oid`.  Isso significa que pode ser usada ao fazer consultas nos serviços online da Microsoft, como o Microsoft Graph.  O Microsoft Graph retornará essa ID como a propriedade `id` para uma determinada conta de usuário.  Como o `oid` permite que vários aplicativos correlacionem usuários, o escopo `profile` é necessário a fim de receber essa declaração. Observe que, se um único usuário existir em vários locatários, o usuário conterá uma ID de objeto diferentes em cada locatário - são consideradas contas diferentes, mesmo que o usuário faça logon em cada conta com as mesmas credenciais. |
 
 ### <a name="access-tokens"></a>Tokens de acesso
-Atualmente, os tokens de acesso emitidos pelo ponto de extremidade v 2.0 só podem ser consumidos por Microsoft Services. Os aplicativos não precisam executar nenhuma validação ou inspeção de tokens de acesso para qualquer um dos cenários que atualmente têm suporte. Você pode tratar os tokens de acesso como completamente opacos. São apenas cadeias de caracteres que o aplicativo pode passar para a Microsoft em solicitações HTTP.
 
-Em breve, o ponto de extremidade v2.0 apresentará no seu aplicativo a capacidade de receber tokens de acesso de outros clientes. Nesse momento, as informações neste tópico de referência serão atualizadas com as informações de que você precisa para que o aplicativo execute a validação de token de acesso e outras tarefas semelhantes.
+O ponto de extremidade v2.0 permite que aplicativos de terceiros registrados no Microsoft Azure AD emitam tokens de acesso para recursos protegidos, como APIs da Web. Para obter mais informações sobre como configurar um aplicativo para emitir tokens de acesso, consulte [Como registrar um aplicativo com o ponto de extremidade v2.0](active-directory-v2-app-registration.md). Ao registrar o aplicativo com o ponto de extremidade v2.0, o desenvolvedor pode especificar níveis de acesso, chamados **escopos**, para os quais os tokens de acesso podem ser emitidos. Por exemplo, o escopo **calendars.read** definido na API do Microsoft Graph concede permissão para ler o calendário do usuário. Quando o aplicativo receber um token de acesso do ponto de extremidade v2.0, você deverá validar assinatura, emissor, audiência, tempo de expiração e qualquer outra declaração do token, dependendo do cenário. 
 
 Quando você solicita um token de acesso do ponto de extremidade v2.0, ele também retorna metadados sobre o token de acesso para uso pelo aplicativo. Essas informações incluem a data de expiração do token de acesso e os escopos para os quais ele é válido. O aplicativo usa os metadados para executar o armazenamento em cache inteligente de tokens de acesso sem ter que analisar abertamente o token de acesso.
 

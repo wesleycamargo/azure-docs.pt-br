@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Perguntas frequentes (FAQ) sobre o Azure Machine Learning: cobrança, recursos, limitações e suporte
 Aqui estão algumas perguntas frequentes e as respostas correspondentes sobre o Azure Machine Learning, um serviço de nuvem para o desenvolvimento de modelos de previsão e soluções de operacionalização por meio de serviços Web. Essas perguntas frequentes fornecem perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -372,7 +372,7 @@ A camada Gratuita do Machine Learning não exige nem permite armazenamento separ
 
 **O Machine Learning dá suporte a alta disponibilidade?**
 
-Sim. Para obter detalhes, confira [Preços do Machine Learning](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) para obter uma descrição do SLA (contrato de nível de serviço).
+Sim. Para obter detalhes, confira [Preços do Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) para obter uma descrição do SLA (contrato de nível de serviço).
 
 **Em quais tipos específicos de recursos de computação minhas chamadas à API de produção serão executadas?**
 

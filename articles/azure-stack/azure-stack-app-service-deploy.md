@@ -1,12 +1,12 @@
 ---
-title: "Implantar serviços de aplicativos: Pilha do Azure | Microsoft Docs"
-description: "Instruções detalhadas para implantar o serviço de aplicativo na pilha do Azure"
+title: 'Implantar serviços de aplicativos: Pilha do Azure | Microsoft Docs'
+description: Instruções detalhadas para implantar o serviço de aplicativo na pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 2d26aedf37727a4e3d687cdc6c748268d546f60f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 330b8015bdddbbcf27e4325b97e8b734c4d98d12
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo a pilha do Azure
 
@@ -168,6 +168,18 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 2. Na visão geral em status, verifique que o **Status** mostra **todas as funções estão prontas**.
 
     ![Gerenciamento de serviço de aplicativo](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> Se você optar por implantar em uma rede virtual existente e um endereço IP interno para conenct para seu servidor de arquivos, você deve adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
+> * Origem: qualquer
+> * Intervalo de porta de origem: *
+> * Destino: Endereços IP
+> * Intervalo de endereço IP de destino: intervalo de endereços IP para o servidor de arquivos
+> * Intervalo de porta de destino: 445
+> * Protocolo: TCP
+> * Ação: permitir
+> * Prioridade: 700
+> * Nome: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Faça o test drive do serviço de aplicativo na pilha do Azure
 
@@ -198,9 +210,9 @@ Para criar a web, API e o Azure funções de aplicativos, você deve usar o port
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Implantar um site de WordPress, DNN ou Django (opcional)
 
-1. No portal de locatário de pilha do Azure, clique em  **+** , vá para o Azure Marketplace, implantar um site Django e aguardar a conclusão bem-sucedida. O web platform Django usa um banco de dados do arquivo baseado no sistema. Ele não requer que os provedores de recursos adicionais, como SQL ou MySQL.
+1. No portal de locatário de pilha do Azure, clique em **+**, vá para o Azure Marketplace, implantar um site Django e aguardar a conclusão bem-sucedida. O web platform Django usa um banco de dados do arquivo baseado no sistema. Ele não requer que os provedores de recursos adicionais, como SQL ou MySQL.
 
-2. Se você também implantou um provedor de recursos do MySQL, você pode implantar um site de WordPress do Marketplace. Quando você for solicitado para parâmetros de banco de dados, digite o nome de usuário como  *User1@Server1* com o nome de usuário e o nome do servidor de sua escolha.
+2. Se você também implantou um provedor de recursos do MySQL, você pode implantar um site de WordPress do Marketplace. Quando você for solicitado para parâmetros de banco de dados, digite o nome de usuário como *User1@Server1*com o nome de usuário e o nome do servidor de sua escolha.
 
 3. Se você também implantou um provedor de recursos do SQL Server, você pode implantar um site DNN do Marketplace. Quando você for solicitado para parâmetros de banco de dados, escolha um banco de dados no computador executando o SQL Server que está conectado ao seu provedor de recursos.
 

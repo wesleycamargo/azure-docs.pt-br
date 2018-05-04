@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/20/2018
+ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 579af89c0d6d184b517ecb9e8a53be9d76cf1c93
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cd057704197eb4bf66eff33d3c83a2ca9d5712d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -61,16 +61,14 @@ O seu primeiro ponto de entrada para todos os dados de atividades de entrada é 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/61.png "Atividade de entrada")
 
 
-Um log de entradas tem um modo de exibição de lista padrão que mostra:
+Um log de auditoria tem um modo de exibição de lista padrão que mostra:
 
-- A hora de entrada
-- O usuário relacionado
-- O aplicativo no qual o usuário entrou
-- O status de entrada
-- O status da detecção de riscos
-- O status do requisito de MFA (autenticação multifator) 
+- o usuário relacionado
+- o aplicativo no qual o usuário entrou
+- o status de entrada
+- a hora de entrada
 
-![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/01.png "Atividade de entrada")
+![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/41.png "Atividade de entrada")
 
 Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
 
@@ -78,81 +76,58 @@ Você pode personalizar o modo de exibição de lista clicando em **Colunas** na
 
 Isso permite a você exibir campos adicionais ou remover campos que já estão exibidos.
 
-![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/02.png "Atividade de entrada")
+![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/42.png "Atividade de entrada")
 
-Ao clicar em um item na exibição de lista, você obterá mais detalhes sobre ele em uma exibição horizontal.
+Ao clicar em um item na exibição de lista, você obterá mais detalhes sobre ele.
 
-![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/03.png "Atividade de entrada")
+![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/43.png "Atividade de entrada")
 
 
 ## <a name="filtering-sign-in-activities"></a>Filtragem de atividades de entrada
 
-Para restringir os dados relatados a um nível que funciona para você, filtre os dados de entradas usando os seguintes campos padrão:
+Para restringir os dados relatados a um nível que funciona para você, filtre os dados de entradas usando os seguintes campos:
 
+- Intervalo de tempo
 - Usuário
 - Aplicativo
+- Cliente
 - Status de entrada
-- Status da detecção de riscos
-- Data
+
+![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/44.png "Atividade de entrada")
 
 
-![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/04.png "Atividade de entrada")
-
-O filtro **Usuário** permite que você especifique o nome ou o UPN (nome UPN) do usuário desejado. 
-
-O filtro **Aplicativo** permite que você especifique o nome do aplicativo desejado.  
-
-O filtro **status de entrada** permite que você selecione:
-
-- Todos 
-- Sucesso
-- Failure
-
-O filtro **Riscos Detectados** filtro permite que você selecione:
-
-- Todos
-- sim
-- Não  
-
-
-O filtro **Data** permite definir um período de tempo para os dados retornados.  
+O filtro **intervalo de tempo** permite a você definir um período de tempo para os dados retornados.  
 Os valores possíveis são:
 
 - 1 mês
 - 7 dias
 - 24 horas
-- Intervalo de tempo personalizado
+- Personalizado
 
 Quando você seleciona um período de tempo personalizado, pode configurar uma hora de início e uma hora de término.
 
-Se você adicionar outros campos ao modo de exibição de entradas, esses campos serão adicionados automaticamente à lista de filtros. Por exemplo, ao adicionar o campo **Aplicativo Cliente** à sua lista, você também obtém outra opção de filtro que permite definir os seguintes filtros:
+O filtro **usuário** permite que você especifique o nome ou o UPN (nome principal do usuário) do usuário desejado.
 
-- Navegador      
-- Exchange ActiveSync (com suporte)               
-- Exchange ActiveSync (sem suporte)
-- Outros clientes               
-    - IMAP
-    - MAPI
-    - Clientes mais antigos do Office
-    - POP
-    - SMTP
+O filtro **aplicativo** permite que você especifique o nome do aplicativo desejado.
 
+O filtro **cliente** permite que você especifique informações sobre o dispositivo desejado.
 
-![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/12.png "Atividade de entrada")
+O filtro **status de entrada** permite que você selecione um dos filtros abaixo:
 
+- Todos
+- Sucesso
+- Failure
 
 
 ## <a name="sign-in-activities-shortcuts"></a>Atalhos de atividades de entrada
 
 Além do Azure Active Directory, o portal do Azure fornece dois pontos de entrada adicionais para dados de atividade de entrada:
 
-- Visão geral da proteção de segurança de identidade
-- Usuários
-- Grupos
+- Usuários e grupos
 - Aplicativos empresariais
 
 
-### <a name="users-sign-ins-activities"></a>Atividades de logon de usuários
+### <a name="users-and-groups-sign-ins-activities"></a>Atividades de entrada de usuários e grupos
 
 Com as informações fornecidas pelo relatório de entrada de usuário, você encontra respostas para perguntas como:
 
@@ -162,40 +137,29 @@ Com as informações fornecidas pelo relatório de entrada de usuário, você en
 
 
 
-O ponto de entrada para esses dados é o gráfico de entradas do usuário na página de visão geral da **proteção de segurança de identidade**. O grafo de entrada do usuário mostra agregações semanais de entradas para todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
+O ponto de entrada para esses dados é o grafo de entrada do usuário na seção **Visão geral** em **Usuários e grupos**.
 
-![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/06.png "Atividade de entrada")
+![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/45.png "Atividade de entrada")
 
-Quando você clica em um dia no gráfico de entradas, obtém uma lista detalhada das atividades de entrada do dia.
+O grafo de entrada do usuário mostra agregações semanais de entradas para todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
 
-![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/07.png "Atividade de entrada")
+![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/46.png "Atividade de entrada")
 
-Cada linha na lista de atividades de entrada mostra:
+Quando você clica em um dia no grafo de entradas, obtém uma lista detalhada das atividades de entrada do dia.
+
+![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/41.png "Atividade de entrada")
+
+Cada linha na lista de atividades de entrada oferece as informações detalhadas sobre a entrada selecionada, como:
 
 * Quem entrou?
+* Qual era o UPN relacionado?
 * Qual aplicativo era o destino da entrada?
-* Qual é o status da entrada?
-* Qual é o status de MFA da entrada?
+* Qual é o endereço IP da entrada?
+* Qual era o status da entrada?
 
-Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
+A opção **entradas** fornece uma visão geral completa de todas as entradas de usuário.
 
-- Id de Usuário
-- Usuário
-- Nome de Usuário
-- ID do aplicativo
-- Aplicativo
-- Cliente
-- Local padrão
-- Endereço IP
-- Data
-- MFA obrigatório
-- Status de entrada
-
- 
-Na página **Usuários**, você obtém uma visão geral completa de todas as entradas do usuário clicando em **Entradas** na seção **Atividade**.
-
-![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/08.png "Atividade de entrada")
-
+![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/51.png "Atividade de entrada")
 
 
 
@@ -207,9 +171,9 @@ Com uma exibição centrada no aplicativo de seus dados de entrada, você pode r
 * Quais são os três principais aplicativos em sua organização?
 * Recentemente, eu implantei um aplicativo. Como ele está se saindo?
 
-Seu ponto de entrada para esses dados é composto pelos *três principais aplicativos em sua organização no relatório dos 30 últimos dias*, presente na seção **Visão geral** da página **Aplicativos empresariais**.
+Seu ponto de entrada para esses dados é composto pelos três principais aplicativos em sua organização no relatório dos 30 últimos dias, presente na seção **Visão geral**, em **Aplicativos empresariais**.
 
-![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/10.png "Atividade de entrada")
+![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/64.png "Atividade de entrada")
 
 As agregações semanais ao grafo de uso do aplicativo de entradas para seus três principais aplicativos em um determinado período de tempo. O padrão para o período é de 30 dias.
 
@@ -228,11 +192,10 @@ Quando você clica em um dia no grafo de uso do aplicativo, pode obter uma lista
 
 A opção **Entradas** oferece uma visão geral completa de todos os eventos de entrada para seus aplicativos.
 
-![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/11.png "Atividade de entrada")
+![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/49.png "Atividade de entrada")
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser saber mais sobre os códigos de erro da atividade de entrada, confira o [Códigos de erro do relatório de atividade de entrada no portal do Azure Active Directory](active-directory-reporting-activity-sign-ins-errors.md).
-

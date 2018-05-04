@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3d8a4ddd98086252f36eeb7034248e909fec1ac0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 627b5bf39c066cd974b70f9db974fcf3fd73b251
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
-O Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento de cada fluxo de autenticação. Este documento descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
+O Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento de cada fluxo de autenticação. Este documento descreve o formato, as características de segurança e o conteúdo de cada tipo de token. 
 
 ## <a name="types-of-tokens"></a>Tipos de tokens
 O AD do Azure dá suporte ao [protocolo de autorização do OAuth 2.0](active-directory-protocols-oauth-code.md), que usa access_tokens e refresh_tokens.  Ele também oferece suporte à autenticação e conexão por meio do [OpenID Connect](active-directory-protocols-openid-connect-code.md), que introduz um terceiro tipo de token, o id_token.  Cada um desses tokens é representado como um "token de portador".
@@ -52,7 +52,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | Declaração JWT | NOME | DESCRIÇÃO |
 | --- | --- | --- |
-| `appid` |ID do aplicativo |Identifica o aplicativo que está usando o token para acessar um recurso. O aplicativo pode agir como ele próprio ou em nome de um usuário. A ID do aplicativo normalmente representa um objeto de aplicativo, mas também pode representar um objeto de entidade de serviço no AD do Azure. <br><br> **Valor de exemplo de JWT**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |Público-alvo |O destinatário pretendido do token. O aplicativo que recebe o token deve verificar se o valor de público-alvo está correto e rejeitar quaisquer tokens destinados a um público-alvo diferente. <br><br> **Valor de exemplo de SAML**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Valor de exemplo de JWT**: <br> `"aud":"https://contoso.com"` |
 | `appidacr` |Referência de classe de contexto de autenticação de aplicativo |Indica como o cliente foi autenticado. Para um cliente público, o valor é 0. Se a ID do cliente e o segredo do cliente são usados, o valor é 1. <br><br> **Valor de exemplo de JWT**: <br> `"appidacr": "0"` |
 | `acr` |Referência de classe de contexto de autenticação |Indica como o assunto foi autenticado, em oposição ao cliente na declaração de Referência de Classe de Contexto de Autenticação do Aplicativo. Um valor "0" indica que a autenticação do usuário final não atendeu aos requisitos da ISO/IEC 29115. <br><br> **Valor de exemplo de JWT**: <br> `"acr": "0"` |
@@ -163,9 +162,8 @@ Os tokens de atualização podem ser invalidados ou revogados a qualquer momento
   * Involuntária alteração de senha: Se um administrador força o usuário a alterar sua senha ou a redefini-la, os tokens de usuário serão invalidados se foram obtidos usando sua senha.  Consulte as observações abaixo para exceções. 
   * Violação de segurança: No caso de uma violação de segurança (por exemplo, o armazenamento local de senhas for ultrapassado) o administrador pode revogar todos os tokens de atualização emitidos no momento.  Isso forçará todos os usuários para autenticar novamente. 
 
-Observação: 
-
-Se um método diferente de senha de autenticação foi usado (Windows Hello, o aplicativo Authenticator, biometria como uma face ou impressão digital) para obter o token, alterar a senha do usuário não forçará o usuário a autenticar novamente (mas vai forçar seu aplicativo autenticador a autenticar novamente).  Isso ocorre porque a autenticação escolhida de entrada (uma face, por exemplo) não foi alterado e, portanto, pode ser usado novamente para autenticar novamente.
+> [!NOTE]
+>Se um método diferente de senha de autenticação foi usado (Windows Hello, o aplicativo Authenticator, biometria como uma face ou impressão digital) para obter o token, alterar a senha do usuário não forçará o usuário a autenticar novamente (mas vai forçar seu aplicativo autenticador a autenticar novamente).  Isso ocorre porque a autenticação escolhida de entrada (uma face, por exemplo) não foi alterado e, portanto, pode ser usado novamente para autenticar novamente.
 
 ## <a name="sample-tokens"></a>Tokens de exemplo
 

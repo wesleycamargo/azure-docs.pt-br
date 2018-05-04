@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: 6c440acc68583860bc01fdb249833c4c4c6148d8
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6bb67fa17ace2e662091c6b66a774baf9d7d8bfd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-status"></a>Status do Azure
-[Status do Azure](https://azure.microsoft.com/en-us/status/) fornece uma exibição global da integridade dos serviços do Azure. Com o status do Azure, você pode obter informações atualizadas sobre a disponibilidade do serviço. Todos têm acesso ao status do Azure e pode exibir todos os serviços que a integridade do serviço de relatório. 
+[Status do Azure](https://azure.microsoft.com/status/) fornece uma exibição global da integridade dos serviços do Azure. Com o status do Azure, você pode obter informações atualizadas sobre a disponibilidade do serviço. Todos têm acesso ao status do Azure e pode exibir todos os serviços que a integridade do serviço de relatório. 
 
 ![Página de status do Azure](./media/azure-status-overview/azure-status.PNG)
 
@@ -31,12 +31,12 @@ A página de status do Azure é atualizada em tempo real conforme a integridade 
 ![Atualização do status do Azure](./media/azure-status-overview/update.PNG)
 
 ## <a name="azure-status-history"></a>Histórico de status do Azure
-Enquanto a página de status do Azure sempre mostra as informações de integridade mais recentes, você pode exibir os eventos mais antigos usando a [página de histórico de status do Azure](https://azure.microsoft.com/en-us/status/history/).
+Enquanto a página de status do Azure sempre mostra as informações de integridade mais recentes, você pode exibir os eventos mais antigos usando a [página de histórico de status do Azure](https://azure.microsoft.com/status/history/).
 
 Nela, você pode ver eventos de até 90 dias anteriores, incluindo a causa raiz preliminar, a mitigação e as próximas etapas do Azure.
 
 ## <a name="rss-feed"></a>RSS Feed
-O status do Azure também fornece [um RSS feed](https://azure.microsoft.com/en-us/status/feed/) de alterações para a integridade dos serviços do Azure em que você pode se inscrever.
+O status do Azure também fornece [um RSS feed](https://azure.microsoft.com/status/feed/) de alterações para a integridade dos serviços do Azure em que você pode se inscrever.
 
 # <a name="next-steps"></a>Próximas etapas
 * Saiba como você pode obter uma exibição mais personalizada da integridade do Azure com a [Integridade do Serviço](./service-health-overview.md).

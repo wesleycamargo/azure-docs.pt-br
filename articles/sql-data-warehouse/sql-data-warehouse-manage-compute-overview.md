@@ -2,24 +2,19 @@
 title: Gerenciar recursos de computação no SQL Data Warehouse do Microsoft Azure | Microsoft Docs
 description: Saiba mais sobre os recursos de escala horizontal de desempenho no SQL Data Warehouse do Azure. Escalar horizontalmente ajustando DWUs, ou reduzir os custos pausando o data warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: johnmac
-editor: ''
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/20/2018
-ms.author: elbutter
-ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: ca6d34d3b670bfd05a9b65fe9e6b260120e3a5b8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gerenciar computação no SQL Data Warehouse do Azure
 Saiba mais sobre como gerenciar recursos de computação no SQL Data Warehouse do Azure. Reduzir os custos pausando o data warehouse, ou dimensionar o data warehouse para atender às demandas de desempenho. 
@@ -28,7 +23,7 @@ Saiba mais sobre como gerenciar recursos de computação no SQL Data Warehouse d
 A arquitetura do SQL Data Warehouse separa armazenamento e computação, permitindo que cada um seja dimensionado independentemente. Como resultado, é possível dimensionar o cálculo para atender às demandas de desempenho independentes do armazenamento de dados. Além disso, você também pode pausar e retomar os recursos de computação. Uma consequência natural dessa arquitetura é que a [cobrança](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) pela computação e pelo armazenamento é separada. Se não for necessário usar o data warehouse por um tempo, você poderá economizar os custos de computação, pausando a computação. 
 
 ## <a name="scaling-compute"></a>Dimensionar computação
-É possível escalar horizontalmente ou voltar a escala de computação, ajustando a configuração [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) para seu data warehouse. O desempenho de consultas e carregamento pode aumentar linearmente na medida em que você adicionar mais unidades de data warehouse. O SQL Data Warehouse oferece [níveis de serviço](performance-tiers.md#service-levels) para unidades de data warehouse que garantem uma alteração notável no desempenho ao escalar horizontalmente ou voltar. 
+É possível escalar horizontalmente ou voltar a escala de computação, ajustando a configuração [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) para seu data warehouse. O desempenho de consultas e carregamento pode aumentar linearmente na medida em que você adicionar mais unidades de data warehouse. 
 
 Para etapas de escala horizontal, consulte os inícios rápidos do [Portal do Azure](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md) ou [T-SQL](quickstart-scale-compute-tsql.md). Também é possível executar operações de escala horizontal com uma [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -103,7 +98,7 @@ Para etapas de pausa e retomada, consulte os inícios rápidos do [Portal do Azu
 
 Ao pausar ou dimensionar o SQL Data Warehouse, nos bastidores, suas consultas são canceladas quando você inicia a pausa ou dimensionar a solicitação.  Cancelar uma simples consulta SELECT é uma operação rápida e quase não terá impacto sobre o tempo que leva para pausar ou dimensionar sua instância.  No entanto, as consultas transacionais, que modificam os dados ou a estrutura dos dados, não conseguirão parar rapidamente.  **As consultas transacionais, por definição, devem ser concluídas na íntegra ou reverter suas alterações.**  Reverter o trabalho concluído por uma consulta transacional pode levar tanto tempo, ou até mais, quanto a alteração original que a consulta estava aplicando.  Por exemplo, se você cancelar uma consulta que estava excluindo linhas que já estava em execução por uma hora, poderá levar uma hora para o sistema inserir de volta as linhas que foram excluídas.  Se você executar a pausa ou o dimensionamento enquanto as transações estiverem em andamento, a pausa ou o dimensionamento poderão demorar muito tempo porque eles têm que esperar a reversão ser concluída antes de prosseguir.
 
-Consulte também [Compreendendo as transações](sql-data-warehouse-develop-transactions.md) e [Otimizando as transações][Otimizando as transações](sql-data-warehouse-develop-best-practices-transactions.md).
+Consulte também [Noções básicas sobre transações](sql-data-warehouse-develop-transactions.md) e [Otimizar transações](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## <a name="automating-compute-management"></a>Automatizar o gerenciamento de computação
 Para automatizar as operações de gerenciamento de computação, consulte [Gerenciar computação com o Azure Functions](manage-compute-with-azure-functions.md).
@@ -115,7 +110,7 @@ Para verificar o estado do data warehouse, consulte o início rápido do [PowerS
 
 ## <a name="permissions"></a>Permissões
 
-Escalar o data warehouse exige as permissões descritas em [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Pausar e Retomar exige a permissão [Contribuidor do DB SQL](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor), especificamente Microsoft.Sql/servers/databases/action.
+Escalar o data warehouse exige as permissões descritas em [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  Pausar e Retomar exige a permissão [Contribuidor do DB SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor), especificamente Microsoft.Sql/servers/databases/action.
 
 
 ## <a name="next-steps"></a>Próximas etapas

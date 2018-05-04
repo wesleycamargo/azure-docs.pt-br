@@ -1,11 +1,11 @@
 ---
-title: "Configurar o sistema de mensagens com o Barramento de Serviço do Azure para Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Enviar e receber mensagens com seus aplicativos lógicos usando o Barramento de Serviço do Azure"
+title: Configurar o sistema de mensagens com o Barramento de Serviço do Azure para Aplicativo Lógico do Azure | Microsoft Docs
+description: Enviar e receber mensagens com seus aplicativos lógicos usando o Barramento de Serviço do Azure
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 02/06/2018
 ms.author: ladocs
-ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5a4760e1e0f38fd81fd779786985f5753d77eab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Enviar e receber mensagens com o conector do Barramento de Serviço do Azure
 
@@ -65,12 +65,17 @@ Um [*gatilho*](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um ev
 
    ![Selecionar um gatilho do Barramento de Serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > Alguns gatilhos retornam uma ou mensagens, como o gatilho de *Barramento de Serviço - Quando uma ou mais mensagens chegam em uma fila (preenchimento automático)*.
+   > Quando esses gatilhos são disparados, eles retornam entre um e o número de mensagens especificado pela propriedade **Contagem máxima de mensagens**.
+
    1. Se você ainda não tiver uma conexão para o namespace do Barramento de Serviço, receberá uma solicitação para criar essa conexão. Dê um nome para sua conexão e selecione o namespace do Barramento de Serviço do Azure que deseja usar.
 
       ![Criar uma conexão do Barramento de Serviço](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
       Ou, para inserir manualmente a cadeia de conexão, escolha **Inserir manualmente as informações de conexão**. 
       Saiba [como localizar a cadeia de conexão](#permissions-connection-string).
+      
 
    2. Agora, selecione a política de Barramento de Serviço a ser usada e, em seguida, escolha **Criar**.
 
@@ -79,6 +84,11 @@ Um [*gatilho*](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um ev
 4. Selecione a fila do Barramento de Serviço a ser usada e configure o intervalo e a frequência para quando verificar a fila.
 
    ![Selecionar a fila do Barramento de Serviço, configurar o intervalo de sondagem](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > Todos os gatilhos de Barramento de Serviço são gatilhos de **sondagem longa**, o que significa que quando um gatilho dispara, o gatilho processa todas as mensagens e aguarda 30 segundos para que mais mensagens apareçam na fila ou na assinatura do tópico.
+   > Se nenhuma mensagem for recebida em 30 segundos, a execução do gatilho será ignorada. Caso contrário, o gatilho continuará lendo as mensagens até que a fila ou a assinatura do tópico esteja vazia.
+   > A próxima sondagem de gatilho é baseada no intervalo de recorrência especificado nas propriedades do gatilho.
 
 5. Salve seu aplicativo lógico. Clique em **Salvar** na barra de ferramentas do designer.
 

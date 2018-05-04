@@ -1,22 +1,36 @@
 ---
-title: Funções definidas pelo usuário do JavaScript no Azure Stream Analytics
-description: Este artigo descreve como executar a mecânica de consulta avançada com funções definidas pelo usuário do JavaScript no Azure Stream Analytics.
+title: 'Tutorial: funções definidas pelo usuário do JavaScript do Azure Stream Analytics | Microsoft Docs '
+description: Neste tutorial, execute o mecanismo de consulta avançada com funções definidas pelo usuário do JavaScript
+keywords: javascript, funções definidas pelo usuário, udf
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: SnehaGunda
 manager: kfile
-ms.reviewer: jasonh
+ms.assetid: ''
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 462bd55dfae3a2c471d1111637a6de0bc95e6bfa
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.topic: tutorial
+ms.reviewer: jasonh
+ms.custom: mvc
+ms.date: 04/01/2018
+ms.workload: data-services
+ms.author: sngun
+ms.openlocfilehash: f3a94017b95eb614669fa42594fe3a3499c74be7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Funções definidas pelo usuário do JavaScript do Stream Analytics do Azure
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: funções definidas pelo usuário do JavaScript do Stream Analytics do Azure
+
 O Stream Analytics do Azure dá suporte a funções definidas pelo usuário gravadas em JavaScript. Com o conjunto avançado dos métodos **String**, **RegExp**, **Math**, **Array** e **Date** fornecidos pelo JavaScript, as transformações de dados complexas com trabalhos do Stream Analytics se tornam mais fáceis de serem criadas.
+
+Neste tutorial, você aprenderá como:
+
+> [!div class="checklist"]
+> * Definir uma função definida pelo usuário de JavaScript
+> * Adicionar a função ao Portal
+> * Definir uma consulta que executa a função
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="javascript-user-defined-functions"></a>Funções definidas pelo usuário de JavaScript
 As funções definidas pelo usuário de JavaScript dão suporte a funções escalares sem monitoração de estado somente para computação que não requerem conectividade externa. O valor retornado de uma função pode ser apenas um valor escalar (único). Depois de adicionar uma função definida pelo usuário do JavaScript a um trabalho, você poderá usar a função em qualquer lugar na consulta, como uma função escalar interna.
@@ -133,12 +147,19 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, pode interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste início rápido usando as seguintes etapas:
+
+1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado.  
+2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
+
 ## <a name="get-help"></a>Obter ajuda
 Para obter ajuda adicional, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
-* [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referência da API REST do gerenciamento do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+Neste tutorial, você criou um trabalho do Stream Analytics que executa uma função simples definida pelo usuário de JavaScript. Para saber mais sobre o Stream Analytics, confira os artigos de cenários em tempo real:
+
+> [!div class="nextstepaction"]
+> [Análise de sentimento do Twitter em tempo real no Azure Stream Analytics](stream-analytics-twitter-sentiment-analysis-trends.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 48a8f6d35c3ea1266880f05d12ebf4efd855df41
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replicar um aplicativo do SharePoint de várias camadas para recuperação de desastre usando funcionalidades do Azure Site Recovery
 
@@ -53,7 +53,7 @@ Antes de começar, você precisa entender o seguinte:
 
 ## <a name="sharepoint-architecture"></a>Arquitetura do SharePoint
 
-O SharePoint pode ser implantado em um ou mais servidores usando topologias em camadas e funções de servidor para implementar um design de farm que cumpra metas e objetivos específicos. Um farm grande e de alta demanda típico do SharePoint Server, que dá suporte a um grande número de usuários simultâneos e um grande número de itens de conteúdo usam o agrupamento de serviços como parte de sua estratégia de escalabilidade. Essa abordagem envolve a execução de serviços em servidores dedicados, agrupando esses serviços e depois expandindo os servidores como um grupo. A topologia a seguir ilustra o serviço agrupamento de serviços e servidores para um farm do SharePoint Server de três camadas. Consulte a documentação do SharePoint e arquiteturas de linha de produto para obter diretrizes detalhadas sobre diferentes topologias do SharePoint. Você pode encontrar mais detalhes sobre a implantação do SharePoint 2013 [neste documento](https://technet.microsoft.com/en-us/library/cc303422.aspx).
+O SharePoint pode ser implantado em um ou mais servidores usando topologias em camadas e funções de servidor para implementar um design de farm que cumpra metas e objetivos específicos. Um farm grande e de alta demanda típico do SharePoint Server, que dá suporte a um grande número de usuários simultâneos e um grande número de itens de conteúdo usam o agrupamento de serviços como parte de sua estratégia de escalabilidade. Essa abordagem envolve a execução de serviços em servidores dedicados, agrupando esses serviços e depois expandindo os servidores como um grupo. A topologia a seguir ilustra o serviço agrupamento de serviços e servidores para um farm do SharePoint Server de três camadas. Consulte a documentação do SharePoint e arquiteturas de linha de produto para obter diretrizes detalhadas sobre diferentes topologias do SharePoint. Você pode encontrar mais detalhes sobre a implantação do SharePoint 2013 [neste documento](https://technet.microsoft.com/library/cc303422.aspx).
 
 
 

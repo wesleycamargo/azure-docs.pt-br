@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 5bfa445eb11ed8be608278d0b95249372f9976ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f418e70c6da46443b95e5fd4056ca26d46d95505
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-azure-container-service-aks-preview"></a>Introdução à versão prévia do Serviço de Contêiner do Azure (AKS)
 
@@ -41,7 +41,7 @@ Com o Azure lidando com o gerenciamento de nós no cluster AKS, você não preci
 O objetivo do AKS é fornecer um ambiente de hospedagem de contêineres usando ferramentas e tecnologias de fonte aberta que são comuns entre os clientes hoje. Para esse fim, vamos expor os pontos de extremidade da API do Kubernetes padrão. Usando esses pontos de extremidade padrão, é possível utilizar qualquer software que possa se comunicar com um cluster Kubernetes. Por exemplo, você pode escolher [kubectl][kubectl-overview], [helm][helm] ou [draft][draft].
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Criação de um cluster Kubernetes usando o Serviço de Contêiner do Azure (AKS)
-Para começar a usar AKS, implante um cluster AKS com a [CLI do Azure][aks-quickstart] ou por meio do portal (pesquise Serviço de **Contêiner do Azure no Marketplace**). Se você for um usuário avançado que precisa de mais controle sobre os modelos do Azure Resource Manager, poderá usar o projeto [acs-engine][acs-engine] de código aberto para criar seu próprio cluster Kubernetes personalizado e implantá-lo por meio da CLI `az`.
+Para começar a usar AKS, implante um cluster AKS com a [CLI do Azure][aks-quickstart] ou por meio do portal (pesquise Serviço de **Contêiner do Azure no Marketplace**). Se você for um usuário avançado que precisa de mais controle sobre os modelos do Azure Resource Manager, use o projeto [acs-engine][acs-engine] de código aberto para criar seu próprio cluster Kubernetes personalizado e implantá-lo por meio da CLI `az`.
 
 ### <a name="using-kubernetes"></a>Como usar Kubernetes
 O Kubernetes automatiza a implantação, o dimensionamento e o gerenciamento de aplicativos em contêineres. Ele tem um conjunto avançado de recursos, incluindo:

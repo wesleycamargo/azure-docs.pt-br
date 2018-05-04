@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 33879187a912394b5cec6e9f9a8898f431134f5c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: fcf1abfe574dd3067f00df7c5ff2632b9cc2ec4f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-redeploy-the-asdk"></a>Tutorial: reimplantar o ASDK
 Neste tutorial, você aprenderá como reimplantar o Azure pilha Development Kit (ASDK) em um ambiente de não produção. Como atualizar o ASDK não tem suporte, você precisa completamente reimplantá-lo para mover para uma versão mais recente. Também é possível reimplantar o ASDK a qualquer momento que você apenas deseja começar do zero.
@@ -48,7 +48,7 @@ Para remover o recurso de registro, use o **AzsRegistration remover** cmdlet par
   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   # Provide Azure subscription admin credentials
-  Connect-AzureRmAccount
+  Add-AzureRmAccount
 
   # Provide ASDK admin credentials
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"

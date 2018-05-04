@@ -14,11 +14,11 @@ ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
-ms.openlocfilehash: 0b76d2debb9814188e5551252e52bd0dae38eb50
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8fa9a24b5b402ebebb69bc69f7cda47092436642
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Fazer backup e recuperar credenciais de conta com o aplicativo Microsoft Authenticator
 **Aplica-se a:**
@@ -104,4 +104,4 @@ Agora que você fez backup e recuperou as credenciais da conta para o novo dispo
 
 - [Perguntas frequentes sobre o aplicativo Microsoft Authenticator](microsoft-authenticator-app-faq.md)
 
-- [Autenticação multifator](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)
+- [Autenticação multifator](https://docs.microsoft.com/azure/multi-factor-authentication/)
