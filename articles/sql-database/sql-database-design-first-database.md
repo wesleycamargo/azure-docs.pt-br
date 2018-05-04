@@ -9,11 +9,11 @@ ms.custom: mvc,develop databases
 ms.topic: tutorial
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: b09807e1fa7624ed134a24c7df4a61abf2a1d723
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1415edf8ea70b3835e99daa1691d278fe833b950
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="design-your-first-azure-sql-database-using-ssms"></a>Projetar seu primeiro banco de dados SQL do Azure usando o SSMS
 
@@ -108,7 +108,7 @@ O serviço do Banco de Dados SQL cria um firewall no nível do servidor impedind
 
 1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda, depois, clique em **mySampleDatabase** na página **Bancos de dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver-20170824.database.windows.net**) e fornece opções para configurações adicionais. 
 
-2. Copie esse nome do servidor totalmente qualificado para se conectar ao servidor e bancos de dados nos próximos tutoriais de início rápido. 
+2. Copie esse nome do servidor totalmente qualificado para se conectar ao servidor e aos bancos de dados nos próximos inícios rápidos. 
 
    ![nome do servidor](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -147,7 +147,7 @@ Use o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-ser
 
    | Configuração       | Valor sugerido | DESCRIÇÃO | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
+   | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório. |
    | Nome do servidor | O nome do servidor totalmente qualificado | O nome deve ser semelhante a este: **mynewserver20170824.database.windows.net**. |
    | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configuramos neste tutorial. |
    | Logon | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |

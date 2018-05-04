@@ -1,8 +1,8 @@
 ---
-title: "Usar o Hive do Hadoop no Console de Consulta no HDInsight – Azure | Microsoft Docs"
-description: "Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop por meio do seu navegador."
+title: Usar o Hive do Hadoop no Console de Consulta no HDInsight – Azure | Microsoft Docs
+description: Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop por meio do seu navegador.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5ae074b0-f55e-472d-94a7-005b0e79f779
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: d6032b8a1e3d338b046c958804102aeb9efcf4ab
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04a6ad67fec4145d8f9164743b08f9e105778091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Executar consultas Hive usando o Console de Consulta
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -39,7 +37,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 * Um navegador da Web
 
 ## <a id="run"></a> Executar consultas Hive usando o Console de Consulta
-1. Abra um navegador da Web, navegue até **https://CLUSTERNAME.azurehdinsight.net**, onde **CLUSTERNAME** é o nome do seu cluster HDInsight. Se solicitado, insira o nome de usuário e senha que você inseriu ao criar o cluster.
+1. Abra um navegador da web e navegue para **https://CLUSTERNAME.azurehdinsight.net**, onde **CLUSTERNAME** é o nome do cluster HDInsight. Se solicitado, insira o nome de usuário e senha que você inseriu ao criar o cluster.
 2. Nos links na parte superior da página, selecione **Editor Hive**. Isso exibe um formulário que pode ser usado para inserir instruções HiveQL que você deseja executar no cluster HDInsight.
 
     ![o editor de hive](./media/apache-hadoop-use-hive-query-console/queryconsole.png)
@@ -53,7 +51,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    As instruções executam as seguintes ações:
+    Essas instruções executam as seguintes ações:
 
    * **DROP TABLE**: exclui a tabela e o arquivo de dados, caso a tabela já exista.
    * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive; os dados são deixados no local original.

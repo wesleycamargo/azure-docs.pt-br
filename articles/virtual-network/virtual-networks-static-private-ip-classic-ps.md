@@ -1,10 +1,10 @@
 ---
-title: "Configurar endereços IP para máquinas virtuais (Clássicas) - Azure PowerShell | Microsoft Docs"
-description: "Saiba como configurar endereços IP para máquinas virtuais (Clássico) usando o PowerShell."
+title: Configurar endereços IP para máquinas virtuais (Clássicas) - Azure PowerShell | Microsoft Docs
+description: Saiba como configurar endereços IP para máquinas virtuais (Clássico) usando o PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 60c7b489-46ae-48af-a453-2b429a474afd
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da2992fad89a703086b7645c88f6d8e1a39e4b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f99e67341d46e858cee7dd6a22f16fe06ad5b88a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>Configurar endereços IP particulares para uma máquina virtual (Clássica) usando o PowerShell
 
@@ -102,7 +102,7 @@ Saída esperada:
     OperationId                 : 34c1560a62f0901ab75cde4fed8e8bd1
     OperationStatus             : OK
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Como remover o endereço IP privado estático de uma VM
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Como remover um endereço IP privado estático de uma VM
 Para remover o endereço IP estático e privado adicionado à VM no script acima, execute o seguinte comando do PowerShell:
 
     Get-AzureVM -ServiceName TestService -Name DNS01 |
@@ -127,6 +127,10 @@ Saída esperada:
     OperationDescription OperationId                          OperationStatus
     -------------------- -----------                          ---------------
     Update-AzureVM       77d8cae2-87e6-0ead-9738-7c7dae9810cb Succeeded 
+
+## <a name="set-ip-addresses-within-the-operating-system"></a>Definir endereços IP no sistema operacional
+
+É recomendável que você não atribua estaticamente o IP privado atribuído à máquina virtual do Azure no sistema operacional de uma VM, a menos que seja necessário. Se você definir manualmente o endereço IP privado no sistema operacional, verifique se é o mesmo endereço que o endereço IP privado atribuído à VM do Azure ou se é possível perder a conectividade com a máquina virtual. Nunca atribua manualmente o endereço IP público atribuído a uma máquina virtual do Azure no sistema operacional da máquina virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md) .

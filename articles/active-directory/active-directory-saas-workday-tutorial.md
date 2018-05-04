@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Workday | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Workday."
+title: 'Tutorial: integração do Azure Active Directory com o Workday | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Workday.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 1dfe319e708e6a4e815413da1a7bf635f4d0a53d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Active Directory do Azure com o Workday
 
@@ -119,7 +119,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://impl.workday.com/<tenant>/login-saml.htmld`
      
     > [!NOTE] 
-    > Esses não são os valores reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Sua URL de resposta deve ter um subdomínio, por exemplo: www, wd2, wd3, wd3-impl, wd5, wd5-impl. O uso de algo como "*http://www.myworkday.com*" funciona, mas "*http://myworkday.com*", não. Contate a [equipe de suporte ao cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter esses valores.  
+    > Esses não são os valores reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Sua URL de resposta deve ter um subdomínio, por exemplo: www, wd2, wd3, wd3-impl, wd5, wd5-impl. Usar algo como "*http://www.myworkday.com*" funciona, mas "*http://myworkday.com*" não. Contate a [equipe de suporte ao cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter esses valores.  
 
 5. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -153,7 +153,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     >[!NOTE]
     > O valor do atributo Ambiente é vinculado ao valor da URL do locatário:  
-    >–Se o nome de domínio da URL do locatário do Workday começar com impl, por exemplo, *https://impl.workday.com/\<tenant\>/login-saml2.htmld*, o atributo **Ambiente** deverá ser definido como Implementação.  
+    >-Se o nome de domínio da URL do locatário da Workday iniciar com impl por exemplo: *https://impl.workday.com/\<locatário\>/login-saml2.htmld*), o atributo do **Ambiente** deverá ser definido como Implementação.  
     >–Se o nome de domínio começar de outra forma, será necessário contatar a [equipe de suporte ao cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter o valor de **Ambiente** correspondente.
 
 11. Na seção **Configuração do SAML** , execute as seguintes etapas:
@@ -172,9 +172,9 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     b. No Portal do Azure, na janela **Configurar logon**, copie o valor da **ID da Entidade SAML** e, em seguida, cole-o na caixa de texto **Emissor do Certificado**.
 
-    ![Provedores de Identidade SAML](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "Provedores de Identidade SAML")
+    ![Provedores de Identidade SAML](./media/active-directory-saas-workday-tutorial/IC7829272.png "Provedores de Identidade SAML")
    
-    c. Selecione **Habilitar Logoff Iniciado pelo Workday**.
+    c. Selecione **Habilitar logoff iniciado pelo idp**.
    
     d. No portal do Azure, na janela **Configurar logon**, copie o valor da **URL de Saída** e, em seguida, cole-o na caixa de texto **URL de Resposta de Logoff**.
 
@@ -215,7 +215,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Configuração de SSO](./media/active-directory-saas-workday-tutorial/WorkdaySSOConfiguratio.png "Configuração de SSO")
    
-    a.  Na caixa de texto **ID do provedor de serviço**, digite **http://www.workday.com**.
+    a.  Na caixa de texto **ID do Provedor de Serviço**, digite **http://www.workday.com**.
    
     b. Selecione **Não Esvazie a Solicitação de Autenticação iniciada por SP**.
    
@@ -226,9 +226,6 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     d. Clique em **OK**. 
    
     ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -309,7 +306,6 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-workday-tutorial/tutorial_general_01.png
@@ -323,4 +319,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-workday-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workday-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workday-tutorial/tutorial_general_203.png
-

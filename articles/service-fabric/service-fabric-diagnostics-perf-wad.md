@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: b2b740c2ececba2c3f95f8fbfbfb55e7f4811112
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9e8ef7243fcef990dae6ddc6509cd31b3f36e3d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitoramento de desempenho com a extensão de Diagnóstico do Microsoft Azure do Windows
 
@@ -44,7 +44,9 @@ Para coletar os contadores de desempenho por meio do WAD, você precisa modifica
 
     A `scheduledTransferPeriod` define a frequência com que os valores dos contadores que são coletados são transferidos para a tabela de armazenamento do Azure e para qualquer coletor configurado. 
 
-3. Adicione os contadores de desempenho que você deseja coletar à `PerformanceCounterConfiguration` que foi declarada na etapa anterior. Cada contador que você gostaria de coletar é definido com um `counterSpecifier`, `sampleRate`, `unit`, `annotation` e quaisquer `sinks` relevantes. Aqui está um exemplo de configuração com o contador para o *Tempo Total do Processador* (o período de tempo do CPU em uso para operações de processamento) e *Invocações de Método de Ator do Service Fabric por segundo*, um dos contadores de desempenho personalizado do Service Fabric. Consulte [Contadores de Desempenho de Ator Confiável](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) e [Contadores de Desempenho de Serviço Confiáveis](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) para obter uma lista completa de contadores de desempenho personalizada do Service Fabric.
+3. Adicione os contadores de desempenho que você deseja coletar à `PerformanceCounterConfiguration` que foi declarada na etapa anterior. Cada contador que você gostaria de coletar é definido com um `counterSpecifier`, `sampleRate`, `unit`, `annotation` e quaisquer `sinks` relevantes.
+
+Aqui está um exemplo de configuração com o contador para o *Tempo Total do Processador* (o período de tempo do CPU em uso para operações de processamento) e *Invocações de Método de Ator do Service Fabric por segundo*, um dos contadores de desempenho personalizado do Service Fabric. Consulte [Contadores de Desempenho de Ator Confiável](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) e [Contadores de Desempenho de Serviço Confiáveis](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) para obter uma lista completa de contadores de desempenho personalizada do Service Fabric.
 
  ```json
  "WadCfg": {
@@ -112,9 +114,8 @@ Para coletar os contadores de desempenho por meio do WAD, você precisa modifica
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Quando a distribuição da atualização terminar (demora entre 15 e 45 minutos), o WAD deverá coletar os contadores de desempenho e enviá-los para a tabela com o nome WADPerformanceCountersTable na conta de armazenamento associada ao seu cluster.
+5. Quando a distribuição da atualização terminar (demora entre 15 e 45 minutos), o WAD deverá coletar os contadores de desempenho e enviá-los para a tabela com o nome WADPerformanceCountersTable na conta de armazenamento associada ao seu cluster. Consulte seus contadores de desempenho no Application Insights ao [adicionar o coletor de IA ao modelo do Gerenciador de Recursos](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Consulte seus contadores de desempenho no Application Insights ao [adicionar o coletor de IA ao modelo do Gerenciador de Recursos](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)
 * Colete mais contadores de desempenho para o cluster. Consulte [Métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md) para obter uma lista de contadores que você deve coletar.
 * [Use monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) para fazer outras modificações em seu `WadCfg`, incluindo a configuração de contas de armazenamento adicionais para as quais enviar dados de diagnóstico.

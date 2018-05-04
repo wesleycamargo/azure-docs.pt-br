@@ -1,3 +1,5 @@
+- name: Conceitos básicos do Azure IoT
+  href: ../iot-fundamentals/index.yml
 - name: Documentação dos Serviços do Azure Baseados na Localização
   href: index.yml
 - name: Visão geral
@@ -47,6 +49,32 @@
       href: 'https://docs.microsoft.com/rest/api/location-based-services-management/'
     - name: API do Controle de Mapeamento - Javascript
       href: 'https://docs.microsoft.com/javascript/api/location-based-services-javascript/'
+- name: Relacionados
+  items:
+    - name: Soluções
+      items:
+        - name: Soluções pré-configuradas do IoT Suite
+          href: /azure/iot-suite
+        - name: Central da IoT
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Serviços de plataforma
+      items:
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: Serviço de Provisionamento de Dispositivos do Hub IoT
+          href: /azure/iot-dps
+        - name: Serviços Baseados no Local
+          href: /azure/location-based-services
+        - name: SDKs do Serviço
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Análises de Séries Temporais
+          href: /azure/time-series-insights
+    - name: Microsoft Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
     - name: Centro de Desenvolvedores do IoT do Azure

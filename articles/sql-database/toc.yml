@@ -74,8 +74,10 @@
       href: sql-database-servers-databases.md
     - name: Instância gerenciada
       href: sql-database-managed-instance.md
-    - name: Camadas de serviço
-      href: sql-database-service-tiers.md
+    - name: Camadas de serviço com base em DTU
+      href: sql-database-service-tiers-dtu.md
+    - name: Camadas de serviço com base em vCore
+      href: sql-database-service-tiers-vcore.md
     - name: Expansão de leitura
       href: sql-database-read-scale-out.md
     - name: Limites do recurso baseados em DTU
@@ -412,8 +414,12 @@
               href: saas-tenancy-schema-management.md
             - name: Relatório entre locatários
               href: saas-tenancy-cross-tenant-reporting.md
-            - name: ETL para análise
-              href: saas-tenancy-tenant-analytics.md
+            - name: Análise de locatário
+              items:
+                - name: Com banco de dados SQL
+                  href: saas-tenancy-tenant-analytics.md
+                - name: Com data warehouse SQL
+                  href: saas-tenancy-tenant-analytics-adf.md
             - name: Recuperação de desastre usando a restauração geográfica
               href: saas-dbpertenant-dr-geo-restore.md
             - name: Recuperação de desastre usando a replicação geográfica do banco de dados

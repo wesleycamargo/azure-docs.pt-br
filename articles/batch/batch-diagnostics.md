@@ -1,55 +1,135 @@
 ---
-title: Habilitar o log de diagnóstico para Eventos em lote - Azure | Microsoft Docs
+title: Métricas, alertas e logs de diagnóstico para Lote do Azure | Microsoft Docs
 description: Registre e analisar eventos de log de diagnóstico para recursos de conta do Lote do Azure, como pools e tarefas.
 services: batch
 documentationcenter: ''
 author: dlepow
 manager: jeconnoc
 editor: ''
-ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
+ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 04/05/2018
 ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.custom: ''
+ms.openlocfilehash: e64d272695c4e47c972df040d1c1c2a63bf3dddd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Eventos de log para avaliação de diagnóstico e monitoramento de soluções do Lote
+# <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico
 
-Assim como acontece com muitos serviços do Azure, o serviço de Lote emite eventos de log para certos recursos durante a vida útil do recurso. Você pode habilitar logs de diagnóstico do Lote do Azure para registrar eventos de recursos, como pools e tarefas, e usar os logs para a avaliação e monitoramento de diagnóstico. Eventos como criação de pool, exclusão de pool, início da tarefa, conclusão de tarefa e outros são incluídos nos logs de diagnóstico do Lote.
+Este artigo explica como monitorar uma conta do Lote usando os recursos do [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). O Azure Monitor coleta [métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para recursos na conta do Lote. Colete e consuma esses dados de várias maneiras para monitorar a conta do Lote e diagnosticar problemas. Também é possível configurar [alertas de métrica](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) para receber notificações quando uma métrica alcançar um valor especificado. 
+
+## <a name="batch-metrics"></a>Métricas do Lote
+
+Métricas são dados telemétricos do Azure (também chamados de contadores de desempenho) emitidos pelos recursos do Azure que são consumidos pelo serviço Azure Monitor. Exemplo de métrica em uma conta do Lote inclui: Eventos de Criação de Pool, Contagem de Nó de Baixa Prioridade e Eventos de Conclusão de Tarefa. 
+
+Consulte [lista de métricas do Lote com suporte](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+
+Métricas são:
+
+* Habilitadas por padrão em cada conta do Lote sem configuração adicional
+* Geradas a cada 1 minuto
+* Não são persistidas automaticamente, mas têm um histórico de 30 dias. É possível persistir métricas de atividades como parte do [log de diagnósticos](#work-with-diagnostic-logs).
+
+### <a name="view-metrics"></a>Métricas de exibição
+
+Visualize as métricas para a conta do Lote no Portal do Azure. A **Visão Geral** da conta, por padrão, mostra as principais métricas de tarefa, núcleo e nó. 
+
+Para exibir todas as métricas da conta do lote: 
+
+1. Clique em **Todos os serviços** > **Contas do Lote** e, em seguida, clique no nome da conta do Lote.
+2. Em **Monitoramento**, clique em **Métrica**.
+3. Selecione uma ou mais métricas. Se preferir, selecione as métricas de recursos adicionais usando as listas suspensas **Assinaturas**, **Grupo de recursos**, **Tipo de recurso** e **Recurso**.
+
+    ![Métricas do Lote](media/batch-diagnostics/metrics-portal.png)
+
+Para recuperar métricas programaticamente, use as APIs do Azure Monitor. Por exemplo, consulte [Recuperar métricas do Azure Monitor com .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
+
+## <a name="batch-metric-alerts"></a>Alertas de métrica do Lote
+
+Opcionalmente, configure os *alertas de métrica* quase em tempo real que são disparados quando o valor de uma métrica especificada ultrapassa um limite atribuído. O alerta gera uma [notificação](../monitoring-and-diagnostics/insights-alerts-portal.md) escolhida quando o alerta for "Ativado" (quando o limite é ultrapassado e a condição de alerta é atendida), bem como quando for "Resolvido" (quando o limite é ultrapassado novamente e a condição não é mais atendida). 
+
+Por exemplo, você pode configurar um alerta de métrica quando a contagem de núcleos de baixa prioridade cair para um determinado nível, de modo que seja possível ajustar a composição dos pools.
+
+Para configurar um alerta de métrica no portal:
+
+1. Clique em **Todos os serviços** > **Contas do Lote** e, depois, clique no nome de sua conta do Lote.
+2. Em **Monitoramento**, clique em **Regras de alerta** > **Adicionar métrica de alerta**.
+3. Selecione uma métrica, uma condição de alerta (por exemplo, quando uma métrica exceder um valor específico durante um período) e uma ou mais notificações.
+
+Também é possível configurar um alerta quase em tempo real usando a [API REST](). Para obter mais informações, consulte [Usar os alertas de métrica mais recentes para os serviços do Azure no Portal do Azure](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+## <a name="batch-diagnostics"></a>Diagnóstico do Lote
+
+Os logs de diagnóstico contêm informações emitidas pelos recursos do Azure que descrevem a operação de cada recurso. Para o Lote, é possível coletar os logs a seguir:
+
+* Eventos de **Logs de Serviço** emitidos pelo serviço do Lote do Azure durante o tempo de vida de um recurso individual do Lote, como um pool ou uma tarefa. 
+
+* Logs de **Métrica** no nível da conta. 
+
+As configurações para habilitar a coleta de logs de diagnóstico não são habilitadas por padrão. Habilite explicitamente as configurações de diagnóstico para cada conta do Lote que você quer monitorar.
+
+### <a name="log-destinations"></a>Destinos do log
+
+Um cenário comum é selecionar uma conta de Armazenamento do Microsoft Azure como o destino do log. Para armazenar logs no Armazenamento do Microsoft Azure, crie a conta antes de habilitar a coleção dos logs. Se você associou uma conta de armazenamento à conta do Lote, poderá escolher essa conta como o destino do log. 
+
+Outros destinos opcionais para logs de diagnóstico:
+
+* Transmita eventos de log de diagnóstico do Lote para um [Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Os Hubs de Eventos podem incluir milhões de eventos por segundo, os quais você pode transformar e armazenar usando qualquer provedor de análise em tempo real. 
+
+* Envie logs de diagnóstico para o [Azure Log Analytics](../log-analytics/log-analytics-overview.md), onde será possível analisá-los no Portal do OMS (Operations Management Suite) ou exportá-los para análise no Power BI ou Excel.
 
 > [!NOTE]
-> Este artigo descreve os eventos de registro em log para os próprios recursos de conta do Lote, e não para os dados de saída de trabalhos e tarefas. Para obter detalhes sobre como armazenar os dados de saída de seus trabalhos e tarefas, confira [Persistir a saída de trabalhos e tarefas do Lote do Azure](batch-task-output.md).
-> 
-> 
+> É possível que incorra custos adicionais para armazenar ou processar dados de log de diagnóstico com os serviços do Azure. 
+>
 
-## <a name="prerequisites"></a>pré-requisitos
-* [Conta do Lote do Azure](batch-account-create-portal.md)
-* [Conta do Armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
-  
-  Para persistir os logs de diagnóstico do Lote, você deve criar uma conta de Armazenamento do Azure na qual o Azure armazenará os logs. Especifique a conta de Armazenamento quando você [Habilitar o registro em log de diagnóstico](#enable-diagnostic-logging) para sua conta do Lote. A conta de Armazenamento especificada quando você habilita a coleta de log não é a mesma que uma conta de armazenamento vinculada citada nos artigos [pacotes de aplicativos](batch-application-packages.md) e [persistência de saída da tarefa](batch-task-output.md).
-  
-  > [!WARNING]
-  > Você é **cobrado** pelos dados armazenados em sua conta de Armazenamento do Azure. Isso inclui os logs de diagnóstico discutidos neste artigo. Lembre-se disso ao projetar sua [política de retenção de log](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md).
-  > 
-  > 
+### <a name="enable-collection-of-batch-diagnostic-logs"></a>Habilitar coleção de logs de diagnóstico do Lote
 
-## <a name="enable-diagnostic-logging"></a>Habilitar registro em log de diagnóstico
-O registro em log de diagnóstico não está habilitado por padrão para sua conta do Lote. Você deve habilitar explicitamente o registro em log de diagnóstico para cada conta do Lote que você deseja monitorar:
+1. Clique em **Todos os serviços** > **Contas do Lote** e, em seguida, clique no nome da conta do Lote.
+2. Em **Monitoramento**, clique em **Logs de diagnóstico** > **Ativar diagnóstico**.
+3. Em **Configurações de diagnóstico**, insira um nome para a configuração e escolha um destino do log (Conta de Armazenamento, Hub de Eventos ou Log Analytics existente). Selecione um ou ambos **ServiceLog** e **AllMetrics**.
 
-[Como habilitar a coleção de Logs de Diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
+    Ao selecionar uma conta de armazenamento, opcionalmente, defina uma política de retenção. Se você não especificar um número de dias para retenção, os dados serão retidos durante a vida útil da conta de armazenamento.
 
-Recomendamos que você leia todo o artigo [Visão geral dos Logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para entender não apenas como habilitar o registro em log, mas também as categorias de log com suporte dos vários serviços do Azure. Por exemplo, atualmente o Lote do Azure oferece suporte a uma categoria de log: **Logs de Serviço**.
+4. Clique em **Salvar**.
 
-## <a name="service-logs"></a>Logs de serviço
-Os Logs de serviço do Lote do Azure contêm os eventos emitidos pelo serviço de Lote do Azure durante o tempo de vida de um recurso do Lote como uma tarefa ou um pool. Cada evento emitido pelo Lote é armazenado na conta de Armazenamento especificada no formato JSON. Por exemplo, este é o corpo de um exemplo de **evento de criação de pool**:
+    ![Diagnóstico do Lote](media/batch-diagnostics/diagnostics-portal.png)
+
+Outras opções para habilitar a coleção de logs incluem: use o Azure Monitor no portal para definir configurações de diagnóstico, use um [modelo do Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) ou use o Azure PowerShell ou a CLI do Azure. consulte [Coletar e consumir dados de log dos recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs).
+
+
+### <a name="access-diagnostics-logs-in-storage"></a>Acessar logs de diagnóstico no armazenamento
+
+Se você arquivar logs de diagnóstico do Lote em uma conta de armazenamento, um contêiner de armazenamento será criado na conta de armazenamento assim que ocorrer um evento relacionado. Os blobs são criados de acordo com o padrão de nomenclatura a seguir:
+
+```
+insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
+RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
+BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/
+m={two-digit numeric month}/d={two-digit numeric day}/
+h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
+Exemplo:
+
+```
+insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
+RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
+BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
+```
+Cada arquivo blob PT1H.json contém eventos formatados em JSON que ocorreram na hora especificada na URL do blob (por exemplo, h = 12). Durante a hora presente, os eventos são acrescentados ao arquivo PT1H.json conforme eles ocorrem. O valor de minuto (m=00) é sempre 00, como eventos de logs de diagnóstico são divididos em blobs individuais por hora. (Todas as horas estão em UTC.)
+
+
+Para obter mais informações sobre o esquema de logs de diagnóstico na conta de armazenamento, consulte [Arquivar logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+
+Para acessar os logs na conta de armazenamento programaticamente, use as APIs de Armazenamento. 
+
+### <a name="service-log-events"></a>Eventos do Log de Serviço
+Logs de Serviço do Lote do Azure, se coletados, contêm eventos emitidos pelo serviço do Lote do Azure durante o tempo de vida de um recurso individual do Lote, como um pool ou uma tarefa. Cada evento emitido pelo Lote é registrado em formato JSON. Por exemplo, este é o corpo de um exemplo de **evento de criação de pool**:
 
 ```json
 {
@@ -57,7 +137,7 @@ Os Logs de serviço do Lote do Azure contêm os eventos emitidos pelo serviço d
     "displayName": "Production Pool",
     "vmSize": "Small",
     "cloudServiceConfiguration": {
-        "osFamily": "4",
+        "osFamily": "5",
         "targetOsVersion": "*"
     },
     "networkConfiguration": {
@@ -73,37 +153,22 @@ Os Logs de serviço do Lote do Azure contêm os eventos emitidos pelo serviço d
 }
 ```
 
-Cada corpo de evento reside em um arquivo .json na conta especificada do Armazenamento do Azure. Se você quiser acessar os logs diretamente, talvez você queira examinar o [esquema de Logs de Diagnóstico na conta de armazenamento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
-
-## <a name="service-log-events"></a>Eventos do Log de Serviço
 O serviço do Lote emite atualmente os seguintes eventos do Log de Serviço. Essa lista pode não ser completa, pois outros eventos podem ter sido adicionados desde a última atualização deste artigo.
 
 | **Eventos do Log de Serviço** |
 | --- |
-| [Criação de pool][pool_create] |
-| [Início de exclusão de pool][pool_delete_start] |
-| [Conclusão de exclusão de pool][pool_delete_complete] |
-| [Início de redimensionamento de pool][pool_resize_start] |
-| [Conclusão de redimensionamento de pool][pool_resize_complete] |
-| [Início de tarefa][task_start] |
-| [Conclusão de tarefa][task_complete] |
-| [Falha de tarefa][task_fail] |
+| [Criação de pool](batch-pool-create-event.md) |
+| [Início de exclusão de pool](batch-pool-delete-start-event.md) |
+| [Conclusão da exclusão de pool](batch-pool-delete-complete-event.md) |
+| [Início de redimensionamento de pool](batch-pool-resize-start-event.md) |
+| [Conclusão de redimensionamento de pool](batch-pool-resize-complete-event.md) |
+| [Início da tarefa](batch-task-start-event.md) |
+| [Conclusão da tarefa](batch-task-complete-event.md) |
+| [Falha da tarefa](batch-task-fail-event.md) |
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
-Além de armazenar os eventos do log de diagnóstico em uma conta de Armazenamento do Azure, você também pode transmitir eventos do Log de Serviço do Lote para um [Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md), e enviá-los para o [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
 
-* [Transmitir Logs de Diagnóstico do Azure para os Hubs de Eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
-  
-  Transmita os eventos de diagnóstico do Lote para o serviço de entrada de dados altamente dimensionável, Hubs de Eventos. Os Hubs de Eventos podem incluir milhões de eventos por segundo, os quais você pode transformar e armazenar usando qualquer provedor de análise em tempo real.
-* [Analisar logs de diagnóstico do Azure usando o Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-  
-  Envie os logs de diagnóstico para o Log Analytics, onde é possível analisá-los no Portal do Azure ou exporte-os para análise no Power BI ou Excel.
-
-[pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
-[pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx
-[pool_delete_complete]: https://msdn.microsoft.com/library/azure/mt743618.aspx
-[pool_resize_start]: https://msdn.microsoft.com/library/azure/mt743609.aspx
-[pool_resize_complete]: https://msdn.microsoft.com/library/azure/mt743608.aspx
-[task_start]: https://msdn.microsoft.com/library/azure/mt743616.aspx
-[task_complete]: https://msdn.microsoft.com/library/azure/mt743612.aspx
-[task_fail]: https://msdn.microsoft.com/library/azure/mt743607.aspx
+* Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
+* Saiba mais sobre [Monitorar soluções do Lote](monitoring-overview.md).

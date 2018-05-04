@@ -9,15 +9,22 @@ ms.custom: mvc,security
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: daredis
-ms.openlocfilehash: 4d2f5ce387a1e9b36fd1625210f42525a272c270
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteger o Banco de Dados SQL do Azure
 
-O Banco de Dados SQL protege seus dados limitando o acesso ao banco de dados usando regras de firewall, mecanismos de autenticação que exigem que os usuários comprovem sua identidade e autorização para dados por meio de permissões e associações de função, bem como por meio de segurança em nível de linha e mascaramento de dados dinâmicos.
+O Banco de Dados SQL protege seus dados: 
+- Limitando o acesso ao banco de dados usando regras de firewall 
+- Usando mecanismos de autenticação que exigem a identidade
+- Autorizando dados por meio de associações e permissões baseadas em função 
+- Segurança em nível de linha
+- Mascaramento de dados dinâmicos
+
+O Banco de Dados SQL também tem monitoramento, auditoria e detecção de ameaças sofisticados. 
 
 Você pode melhorar a proteção do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples. Neste tutorial, você aprenderá a: 
 
@@ -155,7 +162,7 @@ A TDE (Transparent Data Encryption) do Banco de Dados SQL do Azure criptografa s
 
 3. Se for necessário, defina **Criptografia de dados** como ATIVADO e clique em **Salvar**.
 
-O processo de criptografia é iniciado em segundo plano. Você pode monitorar o progresso ao se conectar ao banco de dados SQL usando o [SQL Server Management Studio](./sql-database-connect-query-ssms.md) ao consultar a coluna encryption_state da exibição `sys.dm_database_encryption_keys`.
+O processo de criptografia é iniciado em segundo plano. Você pode monitorar o progresso conectando-se ao Banco de Dados SQL usando o [SQL Server Management Studio](./sql-database-connect-query-ssms.md) e consultando a coluna encryption_state da exibição [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). Um estado 3 indica que o banco de dados está criptografado. 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>Habilitar a auditoria do Banco de Dados SQL, se for necessário
 
@@ -167,7 +174,7 @@ A Auditoria do Azure SQL Database rastreia eventos do banco de dados e os grava 
 
     ![Folha Auditoria](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. Se você preferir habilitar um tipo (ou local?) de Auditoria diferente do especificado no nível do servidor, **ATIVE** a opção Auditoria e escolha o Tipo de Auditoria **Blob**. Se a auditoria de blob do servidor estiver habilitada, a auditoria de banco de dados configurada existirá lado a lado com a auditoria de blob do servidor.
+3. Se você preferir habilitar um tipo (ou local?) de Auditoria diferente do especificado no nível do servidor, **ATIVE** a opção Auditoria e escolha o Tipo de Auditoria **Blob**. Se a auditoria de blobs do servidor estiver habilitada, a auditoria configurada para o banco de dados existirá lado a lado com a auditoria de blobs do servidor.
 
     ![Ativar a auditoria](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 

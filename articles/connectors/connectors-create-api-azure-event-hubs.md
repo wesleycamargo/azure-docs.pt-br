@@ -1,14 +1,14 @@
 ---
-title: "Configurar o monitoramento de eventos com Hubs de Eventos do Azure para Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Monitorar fluxos de dados para receber eventos e enviar eventos com seus aplicativos lógicos usando os Hubs de Eventos do Azure"
+title: Configurar o monitoramento de eventos com Hubs de Eventos do Azure para Aplicativos Lógicos do Azure | Microsoft Docs
+description: Monitorar fluxos de dados para receber eventos e enviar eventos com seus aplicativos lógicos usando os Hubs de Eventos do Azure
 services: logic-apps
 keywords: fluxo de dados, monitor de eventos, hubs de eventos
 author: ecfan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8de56cd64f38791fb27d9bcce1e16641fb162c2f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Monitorar, receber e enviar eventos com o conector do Hubs de Eventos
 
@@ -76,11 +76,28 @@ Um [*gatilho*](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um ev
 3. Selecione o Hub de Eventos para monitorar e configure o intervalo e a frequência para quando verificar o Hub de Eventos.
 
     ![Especifique o Hub de Evento ou grupo de consumidores](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+    
+    > [!NOTE]
+    > Todos os gatilhos de Hub de Eventos são gatilhos de *sondagem longa*, o que significa que quando um gatilho dispara, o gatilho processa todas os eventos e aguarda 30 segundos para que mais eventos apareçam no Hub de Eventos.
+    > Se nenhum evento for recebido em 30 segundos, a execução do gatilho será ignorada. Caso contrário, o gatilho continua a ler eventos até que o Hub de eventos esteja vazio.
+    > A próxima sondagem de gatilho é baseada no intervalo de recorrência especificado nas propriedades do gatilho.
 
-    > [!TIP]
-    > Para selecionar, opcionalmente, um grupo de consumidores para ler eventos, escolha **Mostrar opções avançadas**.
 
-4. Salve seu aplicativo lógico. Clique em **Salvar** na barra de ferramentas do designer.
+4. Opcionalmente, marque algumas das opções avançadas do GATILHO, escolha **Mostrar opções avançadas**.
+
+    ![Opções avançadas de gatilho](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+
+    | Propriedade | Detalhes |
+    | --- | --- |
+    | Tipo de conteúdo  |Selecione o tipo de conteúdo de evento na lista suspensa. Por padrão, aplicativo/octet-stream é selecionado. |
+    | Esquema de conteúdo |Insira o esquema de conteúdo em JSON para os eventos que são lidos a partir do Hub de eventos. |
+    | Nome do grupo de consumidor |Insira o [nome do grupo de consumidor](../event-hubs/event-hubs-features.md#consumer-groups) do Hub de Eventos para ler os eventos. Quando o nome do grupo de consumidor não for especificado, o grupo de consumidores padrão é usado. |
+    | Chave de participação mínima |Insira a ID de [partição](../event-hubs/event-hubs-features.md#partitions) mínima para leitura. Por padrão, todas as partições são lidas. |
+    | Chave de participação máxima |Insira a ID de [participação](../event-hubs/event-hubs-features.md#partitions) para leitura. Por padrão, todas as partições são lidas. |
+    | Contagem de eventos máxima |Insira um valor para o número máximo de eventos. O gatilho retorna entre um e o número de eventos especificado por essa propriedade. |
+    |||
+
+5. Salve seu aplicativo lógico. Clique em **Salvar** na barra de ferramentas do designer.
 
 Agora, quando seu aplicativo lógico verifica o Hub de Eventos selecionada e localiza um novo evento, o gatilho executa as ações nele para o evento encontrado.
 

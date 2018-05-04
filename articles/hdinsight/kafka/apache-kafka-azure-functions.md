@@ -1,24 +1,24 @@
 ---
 title: Usar o Azure Functions para enviar dados para o Kafka no HDInsight | Microsoft Docs
-description: "Saiba como usar uma Função do Azure para gravação de dados no Kafka no HDInsight."
+description: Saiba como usar uma Função do Azure para gravação de dados no Kafka no HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: larryfr
-ms.openlocfilehash: c1c03cfcbcb7e0bfdb4a631b9e2ae568f0684069
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6c462f9fe5e152c82be1a2b8643ee35d260a90f6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>Usar o Kafka no HDInsight a partir de um aplicativo de Funções do Azure
 
@@ -70,7 +70,7 @@ As informações nesta seção preparam o cluster do Kafka para aceitar dados de
 
 Por padrão, o Zookeeper retorna o nome de domínio dos agentes do Kafka aos clientes. Essa configuração não funciona sem um servidor DNS, pois o cliente (Azure Functions) não pode resolver nomes para a rede virtual. Para essa configuração, use as seguintes etapas para configurar o Kafka a fim de anunciar endereços IP no lugar de nomes de domínio:
 
-1. Usando um navegador da Web, acesse https://NOMEDOCLUSTER.azurehdinsight.net. Substitua __NOMEDOCLUSTER__ pelo nome do Kafka no cluster HDInsight.
+1. Usando um navegador da Web, acesse https://CLUSTERNAME.azurehdinsight.net. Substitua __NOMEDOCLUSTER__ pelo nome do Kafka no cluster HDInsight.
 
     Quando solicitado, use o nome de usuário e a senha HTTPS para o cluster. A Interface de Usuário Ambari Web para o cluster é exibida.
 

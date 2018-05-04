@@ -1,12 +1,12 @@
 ---
-title: "Diversos endereços IP para máquinas virtuais do Azure – modelo | Microsoft Docs"
-description: "Saiba como atribuir vários endereços IP a uma máquina virtual usando um modelo do Azure Resource Manager."
-documentationcenter: 
+title: Diversos endereços IP para máquinas virtuais do Azure – modelo | Microsoft Docs
+description: Saiba como atribuir vários endereços IP a uma máquina virtual usando um modelo do Azure Resource Manager.
+documentationcenter: ''
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-an-azure-resource-manager-template"></a>Atribuir vários endereços IP a máquinas virtuais usando um modelo do Azure Resource Manager
 
@@ -34,9 +34,9 @@ A implantação de um modelo permite a você criar de forma rápida e consistent
 
 <a name="resources"></a>A implantação do modelo cria os seguintes recursos:
 
-|Recurso|Nome|Descrição|
+|Recurso|NOME|DESCRIÇÃO|
 |---|---|---|
-|Interface de rede|*myNic1*|As três configurações IP descritas na seção de cenário deste artigo são criadas e atribuídas a essa NIC.|
+|interface de rede|*myNic1*|As três configurações IP descritas na seção de cenário deste artigo são criadas e atribuídas a essa NIC.|
 |Recurso de endereço IP público|2 são criados: *myPublicIP* e *myPublicIP2*|Esses recursos são atribuídos a endereços IP públicos estáticos e são atribuídos às configurações IP *IPConfig-1* e *IPConfig-2* descritas no cenário.|
 |VM|*myVM1*|Uma VM DS3 Standard.|
 |Rede virtual|*myVNet1*|Crie uma rede virtual com uma sub-rede denominada *mySubnet*.|
@@ -44,7 +44,7 @@ A implantação de um modelo permite a você criar de forma rápida e consistent
 
 <a name="parameters"></a>Ao implantar o modelo, você deve especificar os valores para os seguintes parâmetros:
 
-|Nome|Descrição|
+|NOME|DESCRIÇÃO|
 |---|---|
 |adminUsername|Nome de usuário do administrador. O nome de usuário deve atender aos [requisitos de nome de usuário do Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 |adminPassword|Senha de administrador A senha deve atender aos [requisitos de senha do Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -76,7 +76,7 @@ Independentemente do método escolhido, você precisará fornecer valores para o
 
 Para implantar o modelo usando o PowerShell, siga as etapas a seguir:
 
-1. Implante o modelo seguindo as etapas descritas no artigo [Implantar um modelo com o PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md). O artigo descreve várias opções para implantar um modelo. Se você escolher implantar usando o `-TemplateUri parameter`, o URI deste modelo será *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se você optar por implantar usando o parâmetro `-TemplateFile`, copie o conteúdo do [arquivo de modelo](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) do GitHub para um novo arquivo em seu computador. Modifique o conteúdo do modelo, se desejado. O modelo implanta os recursos e configurações listados na seção [recursos](#resources) deste artigo. Para saber mais sobre os modelos e como criá-los, leia o artigo [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Implante o modelo seguindo as etapas descritas no artigo [Implantar um modelo com o PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md). O artigo descreve várias opções para implantar um modelo. Se você escolher implantar usando `-TemplateUri parameter`, a URL para esse modelo é *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se você optar por implantar usando o parâmetro `-TemplateFile`, copie o conteúdo do [arquivo de modelo](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) do GitHub para um novo arquivo em seu computador. Modifique o conteúdo do modelo, se desejado. O modelo implanta os recursos e configurações listados na seção [recursos](#resources) deste artigo. Para saber mais sobre os modelos e como criá-los, leia o artigo [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Independentemente da opção escolhida para implantar o modelo, você deve fornecer valores para os valores dos parâmetros listados na seção [parâmetros](#parameters) deste artigo. Se você escolher fornecer parâmetros usando um arquivo de parâmetros, copie os conteúdos do [arquivo de parâmetros](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) do GitHub para um novo arquivo no seu computador. Modifique os valores no arquivo. Use o arquivo que você criou como o valor para o parâmetro `-TemplateParameterFile`.
 
@@ -91,7 +91,7 @@ Para implantar o modelo usando o PowerShell, siga as etapas a seguir:
 
 Para implantar o modelo usando a CLI 1.0 do Azure, siga as etapas a seguir:
 
-1. Implante o modelo seguindo as etapas descritas no artigo [Implantar um modelo com a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md). O artigo descreve várias opções para implantar o modelo. Se você escolher implantar usando o `--template-uri` (-f), o URI deste modelo será *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se você optar por implantar usando o parâmetro `--template-file` (-f), copie o conteúdo do [arquivo de modelo](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) do GitHub para um novo arquivo em seu computador. Modifique o conteúdo do modelo, se desejado. O modelo implanta os recursos e configurações listados na seção [recursos](#resources) deste artigo. Para saber mais sobre os modelos e como criá-los, leia o artigo [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Implante o modelo seguindo as etapas descritas no artigo [Implantar um modelo com a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md). O artigo descreve várias opções para implantar o modelo. Se você escolher implantar usando `--template-uri`(-f), a URL para esse modelo é *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se você optar por implantar usando o parâmetro `--template-file` (-f), copie o conteúdo do [arquivo de modelo](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) do GitHub para um novo arquivo em seu computador. Modifique o conteúdo do modelo, se desejado. O modelo implanta os recursos e configurações listados na seção [recursos](#resources) deste artigo. Para saber mais sobre os modelos e como criá-los, leia o artigo [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Independentemente da opção escolhida para implantar o modelo, você deve fornecer valores para os valores dos parâmetros listados na seção [parâmetros](#parameters) deste artigo. Se você escolher fornecer parâmetros usando um arquivo de parâmetros, copie os conteúdos do [arquivo de parâmetros](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) do GitHub para um novo arquivo no seu computador. Modifique os valores no arquivo. Use o arquivo que você criou como o valor para o parâmetro `--parameters-file` (-e).
 

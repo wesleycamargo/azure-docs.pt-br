@@ -1,8 +1,8 @@
 ---
 title: Um tour pelo Analytics no Azure Application Insights | Microsoft Docs
-description: "Exemplos curtos de todas as principais consultas na Análise, a ferramenta de pesquisa avançada do Application Insights."
+description: Exemplos curtos de todas as principais consultas na Análise, a ferramenta de pesquisa avançada do Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 81c5b6051b8e1b1812e47cfcb64538c25ee8bfe5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Um tour pela Análise no Application Insights
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
@@ -33,7 +33,7 @@ Abra o Analytics na [folha de visão geral](app-insights-dashboards.md) de seu a
 
 ![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics-tour/001.png)
 
-## <a name="takehttpsdocsloganalyticsioquerylanguagequerylanguagetakeoperatorhtml-show-me-n-rows"></a>[Take](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): mostre-me n linhas
+## <a name="takehttpsdocsloganalyticsiodocslanguage-referencetabular-operators-show-me-n-rows"></a>[Take](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators): mostre-me n linhas
 Os pontos de dados que registram em log operações de usuário (geralmente solicitações HTTP recebidas pelo seu aplicativo Web) são armazenados em uma tabela chamada `requests`. Cada linha é um ponto de dados de telemetria recebido do SDK do Application Insights em seu aplicativo.
 
 Vamos começar examinando algumas linhas de exemplo da tabela:
@@ -68,7 +68,7 @@ Se você quiser combinar dados de vários aplicativos do Application Insights, u
     
 ```
 
-## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Superior](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) e [classificação](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
+## <a name="tophttpsdocsloganalyticsiodocslanguage-referencetabular-operatorstop-operator-and-sorthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssort-operator"></a>[Superior](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) e [classificação](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
 `take` é útil para obter um exemplo rápido de um resultado, mas mostra linhas da tabela sem uma ordem específica. Para obter uma exibição ordenada, use `top` (para obter um exemplo) ou `sort` (na tabela inteira).
 
 Mostre-me as primeiras n linhas, ordenadas por uma coluna específica:
@@ -94,7 +94,7 @@ O resultado seria o mesmo, mas ele seria executado um pouco mais lentamente. (Ta
 
 Os cabeçalhos de coluna no modo de exibição de tabela também podem ser usados para classificar os resultados na tela. Mas, obviamente, se você tiver usado `take` ou `top` para recuperar apenas parte de uma tabela, clicar no cabeçalho da coluna apenas reordenará os registros que você recuperou.
 
-## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtragem de uma condição
+## <a name="wherehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorswhere-operator-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator): filtragem de uma condição
 
 Vamos ver apenas as solicitações que retornaram um código de resultado específico:
 
@@ -170,10 +170,10 @@ Outros exemplos:
 
 ```
 
-[Referência de datas e horas](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
+[Referência de datas e horas](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
-## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Projeto](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): selecionar, renomear e computar colunas
+## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Projeto](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): selecionar, renomear e computar colunas
 Use [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) para selecionar apenas as colunas desejadas:
 
 ```AIQL
@@ -207,7 +207,7 @@ Você também pode renomear e definir novas colunas:
 As expressões podem incluir todos os operadores comuns (`+`, `-`, ...) e há uma variedade de funções úteis.
 
 ## <a name="extend"></a>Extend
-Se quiser apenas adicionar colunas às existentes, use [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html):
+Se quiser apenas adicionar colunas às existentes, use [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator):
 
 ```AIQL
 
@@ -216,7 +216,7 @@ Se quiser apenas adicionar colunas às existentes, use [`extend`](https://docs.l
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-O uso de [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html) será menos detalhado do que o de [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) se você quiser manter todas as colunas existentes.
+O uso de [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator) será menos detalhado do que o de [`project`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) se você quiser manter todas as colunas existentes.
 
 ### <a name="convert-to-local-time"></a>Converter em hora local
 
@@ -229,8 +229,7 @@ Os carimbos de data e hora são sempre em UTC. Portanto, se estiver na costa do 
     | extend localTime = timestamp - 8h
 ```
 
-
-## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[Resumir](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): agregar grupos de linhas
+## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Resumir](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): agregar grupos de linhas
 `Summarize` aplica uma *função de agregação* especificada em grupos de linhas.
 
 Por exemplo, o tempo que o seu aplicativo Web leva para responder a uma solicitação é informado no campo `duration`. Vamos ver o tempo médio de resposta para todas as solicitações:
@@ -268,7 +267,7 @@ Portanto, a soma de itemCount dá uma boa estimativa do número original de even
 
 Também há uma agregação `count()` (e uma operação de contagem), para casos em que você realmente quiser contar o número de linhas em um grupo.
 
-Há uma série de [funções de agregação](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
+Há uma série de [funções de agregação](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 
 ## <a name="charting-the-results"></a>Colocando os resultados em gráficos
 ```AIQL
@@ -409,7 +408,7 @@ A cláusula `where` exclui sessões únicas (sessionDuration==0) e define o comp
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## <a name="percentileshttpsdocsloganalyticsioquerylanguagequerylanguagepercentilesaggfunctionhtml"></a>[Percentis](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
+## <a name="percentileshttpsdocsloganalyticsiodocslanguage-referenceaggregation-functionspercentiles"></a>[Percentis](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/percentiles())
 Quais intervalos de durações abordam diferentes porcentagens de sessões?
 
 Use a consulta acima, mas substitua a última linha:
@@ -470,7 +469,7 @@ Para encontrar as exceções relacionadas a uma solicitação que retornou uma r
 É uma prática recomendável usar `project` para selecionar apenas as colunas necessárias antes de executar a junção.
 Renomeamos a coluna de carimbo de data/hora nas mesmas cláusulas.
 
-## <a name="lethttpsdocsloganalyticsioquerylanguagequerylanguageletstatementhtml-assign-a-result-to-a-variable"></a>[Let](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): atribuir um resultado a uma variável
+## <a name="lethttpsdocsloganalyticsiodocslanguage-referencequery-statementslet-statement-assign-a-result-to-a-variable"></a>[Let](https://docs.loganalytics.io/docs/Language-Reference/Query-statements/Let-statement): atribuir um resultado a uma variável
 
 Use `let` para separar as partes da expressão anterior. Os resultados não mudam:
 
@@ -541,7 +540,7 @@ Por exemplo, se o seu aplicativo inclui:
 ```csharp
 
     var dimensions = new Dictionary<string, string>
-                     {{"p1", "v1"},{"p2", "v2"}};
+                     {{"p1", "v1"},{"p2.d2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
@@ -554,7 +553,6 @@ Para extrair esses valores na Análise:
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 Para verificar se uma dimensão personalizada é de um tipo específico:
@@ -565,6 +563,18 @@ Para verificar se uma dimensão personalizada é de um tipo específico:
     | extend p1 = customDimensions.p1,
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
+
+### <a name="special-characters"></a>Caracteres Especiais
+
+Para identificadores com caracteres especiais ou palavras-chave de idioma em seus nomes, você precisa acessá-los por meio de `['` e `']` ou usando `["` e `"]`.
+
+```AIQL
+
+    customEvents
+    | extend p2d2 = customDimensions.['p2.d2'], ...
+```
+
+[Referência de regras de nomenclatura de identificador](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## <a name="dashboards"></a>Painéis
 Você pode fixar os resultados em um painel para reunir todos os seus gráficos e suas tabelas mais importantes.

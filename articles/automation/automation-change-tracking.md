@@ -9,11 +9,11 @@ ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a093a44106ad861449b6defb140532698fa668
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
@@ -23,18 +23,19 @@ Alterações no software instalado, nos serviços Windows, nos arquivos e regist
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitar Controle de Alterações e Inventário
 
-
 Para iniciar o controle de alterações, é necessário ativar a solução Controle de Alterações e Inventário para a sua Conta de Automação.
 
 1. No Portal do Azure, navegue até sua Conta de Automação
 1. Selecione **Controle de Alterações** em **CONFIGURAÇÃO**.
-2. Selecione um espaço de trabalho do Log Analytics existente ou **Criar novo espaço de trabalho** e clique em **Habilitar**.
+1. Selecione um espaço de trabalho do Log Analytics existente ou **Criar novo espaço de trabalho** e clique em **Habilitar**.
 
 Isso habilita a solução para sua conta de automação. A solução pode demorar até 15 minutos para habilitar. A faixa azul notifica-o quando a solução estiver habilitada. Navegue de volta para a página **Controle de Alterações** para gerenciar a solução.
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurar o Controle de Alterações e Inventário
 
-Para saber como integrar computadores para a solução, visite: [Integração das soluções de Automação do Azure](automation-onboard-solutions-from-automation-account.md). Ao habilitar um uma chave de registro ou arquivo para controlar, ele será habilitado tanto para o Controle de Alterações como para Inventário.
+Para saber como integrar computadores para a solução, visite: [Integração das soluções de Automação do Azure](automation-onboard-solutions-from-automation-account.md). Quando você tem uma integração de máquina com a solução de Controle de Alterações e de inventário, você pode configurar os itens para rastrear. Ao habilitar um uma chave de registro ou arquivo para controlar, ele será habilitado tanto para o Controle de Alterações como para Inventário.
+
+Para rastrear alterações em arquivos no Windows e Linux, os hashes MD5 dos arquivos são usados. Esses hashes são usados para detectar se uma alteração foi feita desde o último inventário.
 
 ### <a name="configure-linux-files-to-track"></a>Configurar arquivos do Linux para controle
 
@@ -109,6 +110,7 @@ Outras limitações:
 ## <a name="known-issues"></a>Problemas conhecidos
 
 Atualmente, a solução Controle de Alterações está enfrentando os seguintes problemas:
+
 * Atualizações de hotfix não são coletadas para Atualização do Windows 10 para Criadores e computadores Windows Server 2016 Core RS3.
 
 ## <a name="change-tracking-data-collection-details"></a>Detalhes de coleta de dados do Controle de Alterações
@@ -117,13 +119,13 @@ A tabela a seguir mostra a frequência da coleta de dados para os tipos de alter
 
 | **Alterar tipo** | **Frequência** |
 | --- | --- |
-| Registro do Windows | 50 minutos | 
-| Arquivo do Windows | 30 minutos | 
-| Arquivo Linux | 15 minutos | 
-| Serviços do Windows | 30 minutos | 
+| Registro do Windows | 50 minutos |
+| Arquivo do Windows | 30 minutos |
+| Arquivo Linux | 15 minutos |
+| Serviços do Windows | 30 minutos |
 | Daemons Linux | 5 minutos |
-| Software do Windows | 30 minutos | 
-| Software Linux | 5 minutos | 
+| Software do Windows | 30 minutos |
+| Software Linux | 5 minutos |
 
 ### <a name="registry-key-change-tracking"></a>Controle de alterações de chave do Registro
 

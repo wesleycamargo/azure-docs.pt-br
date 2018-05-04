@@ -1,19 +1,19 @@
 ---
-title: "Usar a Política do Azure para criar e gerenciar políticas para impor a conformidade organizacional | Microsoft Docs"
-description: "Use a Política do Azure para impor padrões, atender requisitos de auditoria e regulamentares, controlar custos, manter a consistência de segurança e desempenho e impor princípios de design em toda a empresa."
+title: Usar a Política do Azure para criar e gerenciar políticas para impor a conformidade organizacional | Microsoft Docs
+description: Use a Política do Azure para impor padrões, atender requisitos de auditoria e regulamentares, controlar custos, manter a consistência de segurança e desempenho e impor princípios de design em toda a empresa.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/18/2018
+ms.date: 04/19/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e50c2330c03e5fc36e608b672fe8390a1f19e99b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerenciar políticas para impor a conformidade
 
@@ -372,7 +372,7 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Isentar um recurso negado ou sem conformidade usando a Exclusão
 
-Seguindo o exemplo acima, após atribuir a definição de política para exigir o SQL Server versão 12.0, um SQL Server criado com uma versão diferente seria recusado. Nesta seção, você verá como resolver uma tentativa negada de criar um SQL Server de uma versão diferente solicitando uma exclusão. A exclusão basicamente impede a aplicação de políticas. Uma exclusão pode aplicar a um grupo de recursos, ou você pode restringir a exclusão a recursos individuais.
+Seguindo o exemplo acima, após atribuir a definição de política para exigir o SQL Server versão 12.0, um SQL Server criado com uma versão diferente da 12.0 seria recusado. Nesta seção, você verá como resolver uma tentativa negada de criar um SQL Server solicitando a exclusão de recursos específicos. A exclusão basicamente impede a aplicação de políticas. No exemplo a seguir, qualquer versão do SQL server é permitida. Uma exclusão pode aplicar a um grupo de recursos, ou você pode restringir a exclusão a recursos individuais.
 
 1. Selecione **Atribuições** no painel esquerdo.
 2. Navegue por todas as atribuições de política e abra a atribuição *Exigir SQL Server versão 12.0*.
@@ -384,7 +384,7 @@ Seguindo o exemplo acima, após atribuir a definição de política para exigir 
 
 4. Clique em **Atribuir**.
 
-Nesta seção, você resolveu a recusa de sua tentativa de criar um SQL Server com a versão 12.0, solicitando uma exclusão para os recursos.
+Nesta seção, você resolveu a recusa de sua tentativa de criar um SQL Server solicitando a exclusão de recursos.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

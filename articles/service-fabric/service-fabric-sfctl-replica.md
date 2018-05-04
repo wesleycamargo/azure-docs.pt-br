@@ -1,12 +1,12 @@
 ---
-title: "CLI do Azure Service Fabric – réplica sfctl | Microsoft Docs"
-description: "Descreve os comandos da réplica sfctl da CLI do Service Fabric."
+title: CLI do Azure Service Fabric – réplica sfctl | Microsoft Docs
+description: Descreve os comandos da réplica sfctl da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,17 +15,17 @@ ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
 ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-replica"></a>réplica sfctl
 Gerenciar as réplicas que pertencem a partições de serviço.
 
 ## <a name="commands"></a>Comandos
 
-|Get-Help|DESCRIÇÃO|
+|Comando|DESCRIÇÃO|
 | --- | --- |
 |    deployed  | Obtém os detalhes da réplica implantada em um nó do Service Fabric.|
 |    deployed-list| Obtém a lista de réplicas implantadas em um nó do Service Fabric.|
@@ -58,7 +58,7 @@ Obtém os detalhes da réplica implantada em um nó do Service Fabric. As inform
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
 | --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
-| --query               | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query               | Cadeia de caracteres de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-replica-health"></a>sfctl replica health
@@ -82,7 +82,7 @@ Obtém a integridade de uma réplica do Service Fabric. Use EventsHealthStateFil
 | --debug                  | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                | Mostrar esta mensagem de ajuda e sair.|
 | --output -o              | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query                  | Cadeia de caracteres de consulta JMESPath. Para mais informações, consulte http://jmespath.org/.|
+| --query                  | Cadeia de caracteres de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
 | --verbose                | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
@@ -106,7 +106,7 @@ A resposta inclui a ID, a função, o status, a integridade, o nome do nó, o te
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
 | --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
-| --query               | Cadeia de caracteres de consulta JMESPath. Para mais informações, consulte http://jmespath.org/.|
+| --query               | Cadeia de caracteres de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list
@@ -130,7 +130,7 @@ A resposta inclui a ID, a função, o status, a integridade, o nome do nó, o te
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
 | --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
-| --query               | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query               | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-replica-remove"></a>sfctl replica remove
@@ -155,7 +155,7 @@ Essa API simula uma falha de réplica do Service Fabric removendo uma réplica d
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
 | --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
-| --query               | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query               | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-replica-restart"></a>sfctl replica restart
@@ -179,7 +179,7 @@ Reinicia uma réplica de serviço de um serviço persistente em execução em um
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
 | --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
-| --query               | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query               | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="next-steps"></a>Próximas etapas

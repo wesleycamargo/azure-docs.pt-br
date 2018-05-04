@@ -7,14 +7,14 @@ author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Use pontos de extremidade e regras de serviço de rede virtual para o Banco de dados SQL do Azure
 
@@ -140,7 +140,7 @@ Para o Banco de Dados SQL do Azure, o recurso de regras de rede virtual tem as s
 Ao usar pontos de extremidade de serviço para o Banco de Dados SQL do Azure, veja as considerações a seguir:
 
 - **Saída para IPs públicos do Banco de Dados SQL do Azure é necessária**: NSGs (Grupos de Segurança de Rede) devem ser abertos para IPs do Banco de Dados SQL do Azure para permitir a conectividade. Você pode fazer isso usando o NSG [Marcas de Serviço](../virtual-network/security-overview.md#service-tags) para o Banco de Dados SQL do Azure.
-- **Não há suporte para o Banco de Dados do Azure para PostgreSQL e MySQL**: pontos de extremidade de serviço não têm suporte para o Banco de Dados do Azure para PostgreSQL ou MySQL. A habilitação de pontos de extremidade de serviço para o Banco de Dados SQL interromperá a conectividade com esses serviços. Temos uma mitigação para isso; entre em contato com *dmalik@microsoft.com*.
+- **Não há suporte para o Banco de Dados do Azure para PostgreSQL e MySQL**: pontos de extremidade de serviço não têm suporte para o Banco de Dados do Azure para PostgreSQL ou MySQL. A habilitação de pontos de extremidade de serviço para o Banco de Dados SQL interromperá a conectividade com esses serviços. Há uma mitigação para isso, e você deve entrar em contato com *dmalik@microsoft.com* para obter mais informações.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -178,7 +178,7 @@ O Armazenamento do Azure implementou o mesmo recurso que permite que você limit
 Se optar por usar esse recurso com uma conta de Armazenamento que está sendo usada por um Azure SQL Server, você poderá encontrar problemas. A seguir há uma lista e uma discussão sobre os recursos do Azure SQLDB que são afetados por isso.
 
 #### <a name="azure-sqldw-polybase"></a>PolyBase do Azure SQLDW
-O PolyBase normalmente é usado para carregar dados no Azure SQLDW de contas de Armazenamento. Se a conta de Armazenamento da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase à conta será interrompida. Há uma mitigação para isso; entre em contato com *dmalik@microsoft.com* para obter mais informações.
+O PolyBase normalmente é usado para carregar dados no Azure SQLDW de contas de Armazenamento. Se a conta de Armazenamento da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase à conta será interrompida. Há uma mitigação para isso, e você deve entrar em contato com *dmalik@microsoft.com* para obter mais informações.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Auditoria de blob do Azure SQLDB
 A auditoria de blob envia por push logs de auditoria para sua própria conta de armazenamento. Se essa conta de armazenamento usar o recurso de pontos de extremidade de serviço VENT, a conectividade do Azure SQLDB à conta de armazenamento será interrompida.
@@ -227,8 +227,9 @@ Uma lista de várias mensagens de erro de Banco de Dados SQL está documentada [
 Esta seção ilustra como você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma *regra de rede virtual* no banco de dados SQL do Azure. A regra informa ao Banco de dados SQL do Microsoft Azure para aceitar a comunicação de uma sub-rede específica que foi marcada como sendo um *ponto de extremidade de serviço de rede virtual*.
 
 > [!NOTE]
-> Verifique se os pontos de extremidade de serviço estão ativados para a VNET/sub-rede que você pretende adicionar às Regras de Firewall de VNET do servidor.
-> Se os pontos de extremidade de serviço não estiverem ativados para a VNET/sub-rede, você receberá uma solicitação no portal para habilitá-los. Clique em Habilitar na folha em que você adiciona a regra.
+> Se você pretende adicionar um ponto de extremidade de serviço às regras de firewall de VNET do servidor de Banco de Dados SQL do Azure, verifique se os pontos de extremidade de serviço estão Ativados para a sub-rede.
+>
+> Se os pontos de extremidade de serviço não estão ativados para a sub-rede, o portal pede para você habilitá-los. Clique no botão **Habilitar** na mesma folha em que você adicionou a regra.
 
 #### <a name="powershell-alternative"></a>Alternativa do PowerShell
 

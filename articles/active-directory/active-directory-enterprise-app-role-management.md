@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3acfa51351ac49456f5f9fcac8aa4f4f339b9ea3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d869a21230661e473ffff6bbdb1ea29b1ea336d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configurar a declaração de Função emitida no token SAML para aplicativos empresariais no Azure Active Directory
 
@@ -54,7 +54,7 @@ Se o aplicativo espera que as funções personalizadas sejam passadas na respost
 
 5. Depois que o aplicativo for adicionado, vá para a página **Propriedades** e copie a **ID de Objeto**.
 
-    ![Página Propriedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
+    ![Página Propriedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.PNG)
 
 6. Abra o [Explorador do Graph do Microsoft Azure AD](https://developer.microsoft.com/graph/graph-explorer) em outra janela.
 
@@ -253,7 +253,7 @@ Para excluir uma função existente, execute as etapas a seguir:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte a [Documentação do Aplicativo ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) para as etapas adicionais.
+Consulte a [Documentação do Aplicativo ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) para as etapas adicionais.
 
 <!--Image references-->
 <!--Image references-->

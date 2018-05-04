@@ -1,9 +1,9 @@
 ---
-title: "Guia estratégico do Azure Active Directory Identity Protection | Microsoft Docs"
+title: Guia estratégico do Azure Active Directory Identity Protection | Microsoft Docs
 description: Saiba como o Azure AD Identity Protection permite limitar a capacidade de um invasor de explorar uma identidade ou um dispositivo comprometidos ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente.
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f4240c9196796c2e83c408271fe81b20842ab722
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 210d097f0719725a0ecf145ce536875a383b04e6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico do Azure Active Directory Identity Protection
 
@@ -50,7 +50,7 @@ A conclusão do procedimento a seguir requer que você use:
 
 **Para simular uma entrada de um IP anônimo, realize as seguintes etapas**:
 
-1. Usando o [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+1. Usando o [Navegador Tor](https://www.torproject.org/projects/torbrowser.html.en), navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).   
 2. Insira as credenciais da conta que deseja exibir no relatório **Entradas de endereços IP anônimos** .
 
 A entrada aparece no painel de segurança Identity Protection dentro de 10 a 15 minutos. 
@@ -76,7 +76,7 @@ A conclusão do procedimento a seguir requer que você use uma conta de usuário
 **Para simular uma entrada de um local desconhecido, realize as seguintes etapas**:
 
 1. Ao entrar com sua conta de teste, falhe o desafio MFA ao não passar pelo desafio MFA.
-2. Usando sua nova VPN, navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com) e insira as credenciais da sua conta de teste.
+2. Usando sua nova VPN, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com) e insira as credenciais da sua conta de teste.
    
 
 A entrada aparece no painel de segurança Identity Protection dentro de 10 a 15 minutos.
@@ -90,7 +90,7 @@ Para obter mais informações sobre esse evento de risco, consulte [Viagem impos
 
 **Para simular uma viagem impossível para um local atípico, realize as seguintes etapas**:
 
-1. Usando seu navegador padrão, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1. Usando o navegador padrão, navegue até [ https://myapps.microsoft.com ](https://myapps.microsoft.com).  
 2. Insira as credenciais da conta para a qual deseja gerar um evento de risco de viagem impossível.
 3. Altere o agente do usuário. É possível alterar o agente do usuário no Internet Explorer nas Ferramentas de Desenvolvedor ou então no Firefox ou Chrome usando um complemento de alternador de agente do usuário.
 4. Altere seu endereço IP. É possível alterar seu endereço IP usando uma VPN, um complemento do Tor ou criando um novo computador no Azure em um diferente.
@@ -101,7 +101,7 @@ A entrada aparece no painel de controle Identity Protection dentro de 2 a 4 hora
 ## <a name="simulating-vulnerabilities"></a>Simulação de vulnerabilidades
 Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser explorados por um ator maligno. Atualmente, três tipos de vulnerabilidades são exibidas no Azure AD Identity Protection que aproveitam os outros recursos do Azure AD. Essas vulnerabilidades serão exibidas no painel do Identity Protection automaticamente depois que esses recursos forem configurados.
 
-* Autenticação Multifator do [Microsoft Azure AD](../multi-factor-authentication/multi-factor-authentication.md)
+* Autenticação Multifator do [Microsoft Azure AD](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 

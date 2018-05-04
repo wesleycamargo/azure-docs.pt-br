@@ -1,11 +1,11 @@
 ---
-title: "Instruções para o Hub IoT do Azure | Microsoft Docs"
-description: "Como desenvolvedor, como usar os vários recursos do Hub IoT?"
+title: Instruções para o Hub IoT do Azure | Microsoft Docs
+description: Como desenvolvedor, como usar os vários recursos do Hub IoT?
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9b112d2d7fc1756b74e98335831175f5d4c13320
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Como usar o Hub IoT do Azure
 
@@ -52,7 +52,7 @@ Se você prefere aprender sobre recursos específicos do Hub IoT trabalhando em 
 
 - [Usar as propriedades desejadas para configurar os dispositivos][lnk-properties-tutorial]. Este tutorial mostra como usar as propriedades desejadas e relatadas do dispositivo gêmeo para configurar o dispositivo remotamente.
 
-- [Usar trabalhos de dispositivo para iniciar uma atualização de firmware do dispositivo][lnk-jobs-tutorial]. Este tutorial mostra como usar recursos-chave de gerenciamento de dispositivos, como gêmeos e métodos diretos. Você aprenderá a usar esses recursos para atualizar o firmware do dispositivo remotamente.
+- [Usar o gerenciamento de dispositivos para atualizar o firmware do dispositivo][lnk-jobs-tutorial]. Este tutorial mostra como usar recursos-chave de gerenciamento de dispositivos, como gêmeos e métodos diretos. Você aprenderá a usar esses recursos para atualizar o firmware do dispositivo remotamente.
 
 - [Agendar e transmitir trabalhos][lnk-schedule-tutorial]. Este tutorial mostra como usar propriedades desejadas e métodos diretos para interagir com vários dispositivos em um horário agendado.
 

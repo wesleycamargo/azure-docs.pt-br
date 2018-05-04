@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: ea33fa95aa7b73668aeee313a9d71a7f78e89a77
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6d1e093fafc6ea74dfcdfa498810ff33d27d89f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Personalizar a IU (interface do usuário) do Azure AD B2C
 
@@ -341,7 +341,8 @@ Se você estiver planejando usar o recurso de personalização de interface do u
 * Não copie o conteúdo padrão do Azure AD B2C nem tente modificá-lo. É melhor criar seu conteúdo HTML5 do zero e usar o conteúdo padrão como referência.
 * Por motivos de segurança, não permitimos incluir nenhum JavaScript em seu conteúdo. A maior parte do que você precisa já deve estar disponível imediatamente. Caso contrário, use a [Voz do Usuário](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) para solicitar novas funcionalidades.
 * Versões do navegador para as quais há suporte:
-  * Internet Explorer 11, 10, Microsoft Edge
+  * Internet Explorer 11, 10, Edge
   * Suporte limitado para o Internet Explorer 9, 8
   * Google Chrome 42.0 e superior
   * Mozilla Firefox 38.0 e superior
+* Não inclua marcas `<form>` no HTML, pois isso irá interferir com as operações POST geradas pelo HTML injetado do Azure AD B2C.

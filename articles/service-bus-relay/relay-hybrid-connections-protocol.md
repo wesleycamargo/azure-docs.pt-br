@@ -1,11 +1,11 @@
 ---
-title: "Guia de Protocolo de Conexões Híbridas de Retransmissão do Azure | Microsoft Docs"
-description: "Guia de protocolo de Conexões Híbridas de Retransmissão do Azure."
+title: Guia de Protocolo de Conexões Híbridas de Retransmissão do Azure | Microsoft Docs
+description: Guia de protocolo de Conexões Híbridas de Retransmissão do Azure.
 services: service-bus-relay
 documentationcenter: na
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1979746d143dbf8c3f4bca3f9a3a7925fe8e3f0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de Conexões Híbridas de Retransmissão do Azure
-A Retransmissão do Azure é um dos principais pilares de funcionalidades da plataforma do Barramento de Serviço do Azure. A nova funcionalidade *Conexões Híbridas* da Retransmissão é uma evolução segura e de protocolo em aberto com base em HTTP e WebSockets. Ele substitui o antigo recurso chamado igualmente de *Serviços BizTalk*, criado sobre uma base de protocolo proprietário. A integração do Conexões Híbridas aos Serviços de Aplicativos do Azure continuará a funcionar no estado em que se encontra.
+A Retransmissão do Azure é um dos principais pilares de funcionalidades da plataforma do Barramento de Serviço do Azure. A nova funcionalidade *Conexões Híbridas* da Retransmissão é uma evolução segura e de protocolo em aberto com base em HTTP e WebSockets. Ele substitui o antigo, identicamente nomeado de recurso de *Serviços BizTalk* que foi construído em uma base de protocolo proprietário. A integração do Conexões Híbridas aos Serviços de Aplicativos do Azure continuará a funcionar no estado em que se encontra.
 
 O Conexões Híbridas possibilita uma comunicação com transmissão bidirecional binária entre dois aplicativos em rede, durante a qual um ou ambos podem residir atrás de NATs ou de firewalls. Este artigo descreve as interações do lado do cliente com a retransmissão de Conexões Híbridas para conectar clientes nas funções de ouvinte e o remetente e o modo como os ouvintes aceitam novas conexões.
 
 ## <a name="interaction-model"></a>Modelo de interação
 A retransmissão do Conexões Híbridas conecta duas partes, fornecendo um ponto de encontro na nuvem do Azure que as partes podem descobrir e ao qual podem se conectar da perspectiva da sua própria rede. Esse ponto de encontro é chamado de "Conexão Híbrida" nesta e em outras documentações, nas APIs e também no Portal do Azure. O ponto de extremidade de serviço de Conexões Híbridas será referido como o "serviço" no restante deste artigo. O modelo de interação depende da nomenclatura estabelecida por muitas outras APIs de rede.
 
-Há um ouvinte que primeiro indica a prontidão para lidar com conexões de entrada e, subsequentemente, aceita-as assim que chegam. Do outro lado, há um cliente conectado que se conecta ao ouvinte, esperando que essa conexão seja aceita para estabelecer um caminho de comunicação bidirecional.
+Há um ouvinte que primeiro indica a prontidão para lidar com conexões de entrada e, subsequentemente, aceita-as assim que chegam. De outro modo, há um cliente de conexão que oferece uma conexão ao ouvinte, esperando que essa conexão seja aceita para estabelecer um caminho de comunicação bidirecional.
 "Conectar", "Escutar" e "Aceitar" são os mesmos termos que você encontrará na maioria das APIs de soquete.
 
-Qualquer modelo de comunicação retransmitida faz com que uma das partes realize conexões de saída em direção a um ponto de extremidade de serviço, o que torna o "ouvinte" também um "cliente" em uso coloquial e também pode causar outras sobrecargas de terminologia. Portanto, o significado preciso que usamos para Conexões Híbridas é o seguinte:
+Qualquer modelo de comunicação retransmitida faz com que ambas as partes estabeleçam conexões de saída para um ponto de extremidade de serviço, o que torna o "ouvinte" também um "cliente" em uso coloquial e também pode causar outras sobrecargas de terminologia. Portanto, o significado preciso que usamos para Conexões Híbridas é o seguinte:
 
 Os programas em ambos os lados de uma conexão são chamados de "cliente", pois são clientes para o serviço. O cliente que aguarda e aceita conexões é o "ouvinte", ou diz-se que faz a "função de ouvinte". O cliente que inicia uma nova conexão em direção a um ouvinte por meio do serviço é chamado de "remetente" ou faz a "função de remetente".
 
@@ -40,10 +40,10 @@ O ouvinte tem quatro interações com o serviço; todos os detalhes de conexão 
 
 #### <a name="listen"></a>Escutar
 Para indicar a preparação para o serviço sinalizando que um ouvinte está pronto para aceitar conexões, ele cria uma conexão WebSocket de saída. O handshake de conexão recebe o mesmo nome de uma Conexão Híbrida configurada no namespace de Retransmissão, além de um token de segurança que confere o direito "Listen" (de escuta) nesse nome.
-Quando o WebSocket é aceito pelo serviço, o registro é concluído e o WebSocket da Web estabelecido é mantido ativo como "canal de controle" para habilitar todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos em uma Conexão Híbrida. Se há dois ou mais ouvintes ativos, as conexões de entrada são balanceadas entre eles em ordem aleatória; não há garantia de distribuição justa.
+Quando o WebSocket é aceito pelo serviço, o registro é concluído e o WebSocket estabelecido é mantido ativo como o "canal de controle" para habilitar todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos em uma Conexão Híbrida. Se há dois ou mais ouvintes ativos, as conexões de entrada são balanceadas entre eles em ordem aleatória; não há garantia de distribuição justa.
 
 #### <a name="accept"></a>Aceitar
-Quando um remetente abre uma nova conexão no serviço, o serviço escolhe e notifica um os ouvintes ativos na Conexão Híbrida. Essa notificação é enviada para o ouvinte no canal de controle em aberto como uma mensagem JSON que contém a URL do ponto de extremidade de WebSocket ao qual o ouvinte deve se conectar para aceitar a conexão.
+Quando um remetente abre uma nova conexão no serviço, o serviço escolhe e notifica um os ouvintes ativos na Conexão Híbrida. Essa notificação é enviada ao ouvinte pelo canal de controle em aberto como uma mensagem JSON contendo a URL do ponto de extremidade WebSocket ao qual o ouvinte deve conectar para aceitar a conexão.
 
 A URL pode e deve ser usada diretamente pelo ouvinte sem nenhum trabalho extra.
 As informações codificadas são válidas apenas por um curto período de tempo, essencialmente o tempo pelo qual o remetente está disposto a esperar para que a conexão seja estabelecida de ponta a ponta, até um máximo de 30 segundos. A URL pode ser usada apenas para uma tentativa de conexão bem-sucedida. Assim que a conexão de WebSocket com a URL da reunião é estabelecida, todas as atividades adicionais neste WebSocket são retransmitidas de e para o remetente, sem nenhuma intervenção ou interpretação pelo serviço.
@@ -75,7 +75,7 @@ Todas as conexões de WebSocket são feitas na porta 443 como uma atualização 
 O protocolo de ouvinte consiste em dois gestos de conexão e três operações de mensagem.
 
 #### <a name="listener-control-channel-connection"></a>Conexão de canal de controle do ouvinte
-O canal de controle é aberto com a criação de uma conexão de WebSocket para:
+O canal de controle é aberto criando uma conexão WebSocket para:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
@@ -195,7 +195,7 @@ Ao ser concluído corretamente, esse handshake falhará intencionalmente com um 
 | 500 |Erro Interno |Algo deu errado no serviço. |
 
 ### <a name="listener-token-renewal"></a>Renovação de tokens do ouvinte
-Quando o token do ouvinte estiver prestes a expirar, ele poderá ser substituído enviando uma mensagem de quadro de texto ao serviço por meio do canal de controle estabelecido. A mensagem contém um objeto JSON chamado `renewToken`, que define a propriedade a seguir neste momento:
+Quando o token do ouvinte estiver prestes a expirar, o ouvinte poderá substituí-lo enviando uma mensagem de quadro de texto ao serviço por meio do canal de controle estabelecido. A mensagem contém um objeto JSON chamado `renewToken`, que define a propriedade a seguir neste momento:
 
 * **token** – um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida e que confere o direito **Listen** (escutar).
 

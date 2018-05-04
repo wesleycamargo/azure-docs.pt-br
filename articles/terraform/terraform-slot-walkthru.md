@@ -1,33 +1,35 @@
 ---
-title: Terraform com slot de implantação de provedor do Azure
-description: Tutorial do Terraform com slot de implantação de provedor do Azure
+title: Terraform com slots de implantação de provedor do Azure
+description: Tutorial sobre como usar o Terraform com slots de implantação de provedor do Azure
 keywords: terraform, devops, máquina virtual, Azure, slots de implantação
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 4/05/2018
 ms.topic: article
-ms.openlocfilehash: 34b16b5fb2b5b574d166693db346ebba15eaa1f9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="using-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Usando Terraform para provisionar infraestrutura com slots de implantação do Azure
+# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Usar o Terraform para provisionar a infraestrutura com slots de implantação do Azure
 
-Os [slots de implantação do Azure](/azure/app-service/web-sites-staged-publishing) permitem alternar entre versões diferentes do seu aplicativo - como produção e preparo - para minimizar o impacto das implantações quebradas. Este artigo ilustra um exemplo de uso de slots de implantação ao guiá-lo pela implantação de dois aplicativos por meio de GitHub e Azure. Um aplicativo é hospedado em um "slot de produção", enquanto o segundo aplicativo é hospedado em um slot de "preparação". (Os nomes "produção" e "preparação" são arbitrários e podem ser qualquer coisa desejada que represente seu cenário.) Uma vez configurados seus slots de implantação, você pode usar o Terraform para alternar entre os dois slots conforme necessário.
+É possível usar os [slots de implantação do Azure](/azure/app-service/web-sites-staged-publishing) para alternar entre diferentes versões do aplicativo. Essa capacidade ajuda a minimizar o impacto de implantações interrompidas. 
+
+Este artigo ilustra um exemplo de uso de slots de implantação ao guiá-lo pela implantação de dois aplicativos por meio de GitHub e Azure. Um aplicativo está hospedado em um slot de produção. O segundo aplicativo está hospedado em um slot de teste. (Os nomes "produção" e "preparação" são arbitrários e podem ser qualquer coisa desejada que represente seu cenário.) Após configurar os slots de implantação, você poderá usar o Terraform para alternar entre os dois slots, conforme necessário.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-- **Assinatura do Azure**: caso você não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Assinatura do Azure**: caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Conta do GitHub** - Uma conta do [GitHub](http://www.github.com) é necessária para criar fork e usar o repositório GitHub de teste.
+- **Conta do GitHub**: é necessário ter uma conta do [GitHub](http://www.github.com) para criar fork e usar o repositório GitHub de teste.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Criar e aplicar o plano do Terraform
 
-1. Navegue até o [Portal do Azure](http://portal.azure.com)
+1. Navegue até o [Portal do Azure](http://portal.azure.com).
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview) e selecione **Bash** como seu ambiente caso não tenha feito isso anteriormente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se você não selecionou um ambiente anteriormente, selecione **Bash** como o ambiente.
 
     ![Aviso do Cloud Shell](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
@@ -49,7 +51,7 @@ Os [slots de implantação do Azure](/azure/app-service/web-sites-staged-publish
     mkdir swap
     ```
 
-1. Verifique se ambos os diretórios foram criados com êxito usando o comando bash `ls`.
+1. Use o comando bash `ls` para verificar se ambos os diretórios foram criados com êxito.
 
     ![Cloud Shell após a criação de diretórios](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
 
@@ -59,18 +61,18 @@ Os [slots de implantação do Azure](/azure/app-service/web-sites-staged-publish
     cd deploy
     ```
 
-1. Usando o [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), crie um arquivo chamado `deploy.tf`, que conterá a [configuração do Terraform](https://www.terraform.io/docs/configuration/index.html).
+1. Usando o [editor vi](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), crie um arquivo nomeado `deploy.tf`. Este arquivo conterá a [configuração do Terraform](https://www.terraform.io/docs/configuration/index.html).
 
     ```bash
     vi deploy.tf
     ```
 
-1. Entre no modo de inserção pressionando a tecla da letra `i`.
+1. Entre no modo de inserção selecionando a tecla I.
 
 1. Cole o código a seguir no editor:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     resource "azurerm_resource_group" "slotDemo" {
@@ -104,15 +106,15 @@ Os [slots de implantação do Azure](/azure/app-service/web-sites-staged-publish
     }
     ```
 
-1. Pressione a tecla **&lt;Esc>** para sair do modo de inserção.
+1. Selecione a tecla Esc para sair do modo de inserção.
 
-1. Salve o arquivo e saia do vi editor inserindo o seguinte comando, seguido do pressionamento de **&lt;Enter>**:
+1. Salve o arquivo e saia do editor vi, inserindo o comando a seguir:
 
     ```bash
     :wq
     ```
 
-1. Quando o arquivo tiver sido criado, você poderá verificar seu conteúdo.
+1. Agora que você criou o arquivo, verifique o conteúdo.
 
     ```bash
     cat deploy.tf
@@ -138,15 +140,15 @@ Os [slots de implantação do Azure](/azure/app-service/web-sites-staged-publish
 
 1. Feche a janela do Cloud Shell.
 
-1. No menu principal do Portal do Azure, clique em **Grupos de recursos**.
+1. No menu principal do Portal do Azure, selecione **Grupos de recursos**.
 
-    ![Grupos de recursos do Portal do Azure](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
+    ![Seleção "Grupos de recursos" no portal](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
-1. Na guia **Grupos de Recursos**, selecione **slotDemoResourceGroup**.
+1. Na guia **Grupos de recursos**, selecione **slotDemoResourceGroup**.
 
     ![Grupo de recursos criado pelo Terraform](./media/terraform-slot-walkthru/resource-group.png)
 
-Quando terminar, você verá todos os recursos criados pelo Terraform.
+Agora, você vê todos os recursos que o Terraform criou.
 
 ![Recursos criados pelo Terraform](./media/terraform-slot-walkthru/resources.png)
 
@@ -156,7 +158,7 @@ Antes de testar a criação e a troca dentro e fora dos slots de implantação, 
 
 1. Navegue até o [repositório awesome-terraform no GitHub](https://github.com/Azure/awesome-terraform).
 
-1. Crie fork do **repositório awesome-terraform**.
+1. Crie fork do repositório **awesome-terraform**.
 
     ![Crie fork do repositório awesome-terraform do GitHub](./media/terraform-slot-walkthru/fork-repo.png)
 
@@ -164,9 +166,9 @@ Antes de testar a criação e a troca dentro e fora dos slots de implantação, 
 
 ## <a name="deploy-from-github-to-your-deployment-slots"></a>Implantar do GitHub para seus slots de implantação
 
-Assim que criar fork do repositório do projeto de teste, configure os slots de implantação com as seguintes etapas:
+Após criar fork do repositório do projeto de teste, configure os slots de implantação por meio das etapas a seguir:
 
-1. No menu principal do Portal do Azure, clique em **Grupos de recursos**.
+1. No menu principal do Portal do Azure, selecione **Grupos de recursos**.
 
 1. Selecione **slotDemoResourceGroup**.
 
@@ -182,9 +184,9 @@ Assim que criar fork do repositório do projeto de teste, configure os slots de 
 
 1. Depois que o Azure faz a conexão e exibe todas as opções, selecione **Autorização**.
 
-1. Na guia **Autorização**, selecione **Autorizar** e forneça as credenciais necessárias para o Azure acessar sua conta do GitHub. 
+1. Na guia **Autorização**, selecione **Autorizar** e forneça as credenciais que o Azure precisa para acessar a conta do GitHub. 
 
-1. Depois que o Azure validar suas credenciais do GitHub, uma mensagem será exibida indicando que o processo de autorização foi concluído. Selecione **OK** para fechar a guia **Autorização**.
+1. Depois que o Azure validar as credenciais do GitHub, será exibida uma mensagem informando que o processo de autorização foi concluído. Selecione **OK** para fechar a guia **Autorização**.
 
 1. Selecione **Escolha sua organização** e selecione sua organização.
 
@@ -204,19 +206,19 @@ Assim que criar fork do repositório do projeto de teste, configure os slots de 
 
 Neste ponto, você implantou o slot de produção. Para implantar o slot de preparo, execute todas as etapas anteriores nesta seção apenas com as modificações a seguir:
 
-- Na etapa 3, recurso **slotAppServiceSlotOne**.
+- Na etapa 3, selecione o recurso **slotAppServiceSlotOne**.
 
-- Na etapa 13, selecione o branch de "trabalho" em vez do branch mestre.
+- Na etapa 13, selecione o branch de trabalho em vez do branch mestre.
 
-    ![Escolher branch de trabalho](./media/terraform-slot-walkthru/choose-branch-working.png)
+    ![Escolha o branch de trabalho](./media/terraform-slot-walkthru/choose-branch-working.png)
 
 ## <a name="test-the-app-deployments"></a>Testar as implantações de aplicativo
 
-Nas seções anteriores, você configura dois slots - **slotAppService** e **slotAppServiceSlotOne** - para implantar a partir de branches diferentes no GitHub. Vamos visualizar os aplicativos Web para validar que foram implantados com êxito.
+Nas seções anteriores, você configurou dois slots--**slotAppService** e **slotAppServiceSlotOne**--para implantar a partir de diferentes branches no GitHub. Vamos visualizar os aplicativos Web para validar que foram implantados com êxito.
 
-Execute as etapas a seguir duas vezes, em que, na etapa 3, você seleciona **slotAppService** na primeira vez e, em seguida, seleciona **slotAppServiceSlotOne** na segunda vez:
+Execute duas vezes as etapas a seguir. Na etapa 3, selecione **slotAppService** na primeira vez e, em seguida, selecione **slotAppServiceSlotOne** na segunda vez.
 
-1. No menu principal do Portal do Azure, clique em **Grupos de recursos**.
+1. No menu principal do Portal do Azure, selecione **Grupos de recursos**.
 
 1. Selecione **slotDemoResourceGroup**.
 
@@ -239,11 +241,11 @@ Para o aplicativo Web **slotAppService**, você vê uma página azul com um tít
 
 Para testar a troca dos dois slots de implantação, execute as seguintes etapas:
  
-1. Alternar para a guia do navegador executando **slotAppService** (o aplicativo com a página azul). 
+1. Alterne para a guia do navegador que está executando o **slotAppService** (o aplicativo com a página azul). 
 
-1. Retorne ao Portal do Azure em uma guia separada.
+1. Retorne para o Portal do Azure em uma guia separada.
 
-1. Abra o Cloud Shell.
+1. Abra o Azure Cloud Shell.
 
 1. Altere os diretórios para o diretório **clouddrive/swap**.
 
@@ -251,18 +253,18 @@ Para testar a troca dos dois slots de implantação, execute as seguintes etapas
     cd clouddrive/swap
     ```
 
-1. Usando o vi editor, crie um arquivo chamado `swap.tf`.
+1. Usando o editor vi, crie um arquivo nomeado `swap.tf`.
 
     ```bash
     vi swap.tf
     ```
 
-1. Entre no modo de inserção pressionando a tecla da letra `i`.
+1. Entre no modo de inserção selecionando a tecla I.
 
 1. Cole o código a seguir no editor:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     # Swap the production slot and the staging slot
@@ -273,9 +275,9 @@ Para testar a troca dos dois slots de implantação, execute as seguintes etapas
     }
     ```
 
-1. Pressione a tecla **&lt;Esc>** para sair do modo de inserção.
+1. Selecione a tecla Esc para sair do modo de inserção.
 
-1. Salve o arquivo e saia do vi editor inserindo o seguinte comando, seguido do pressionamento de **&lt;Enter>**:
+1. Salve o arquivo e saia do editor vi, inserindo o comando a seguir:
 
     ```bash
     :wq
@@ -299,16 +301,16 @@ Para testar a troca dos dois slots de implantação, execute as seguintes etapas
     terraform apply
     ```
 
-1. Quando o Terraform tiver finalizado a troca dos slots, volte para o navegador que está renderizando o aplicativo Web **slotAppService** e atualize a página. 
+1. Depois que o Terraform terminar de alternar os slots, retorne ao navegador que está renderizando o aplicativo Web **slotAppService** e atualize a página. 
 
-O aplicativo web no slot de preparo **slotAppServiceSlotOne** foi trocado pelo slot de produção e agora renderiza verde. 
+O aplicativo Web no slot de preparo **slotAppServiceSlotOne** foi alternado pelo slot de produção e agora é renderizado em verde. 
 
 ![Os slots de implantação foram trocados](./media/terraform-slot-walkthru/slots-swapped.png)
 
-Para retornar para a versão de produção original do aplicativo, aplique novamente o plano do Terraform criado a partir do arquivo de configuração `swap.tf`.
+Para retornar à versão de produção original do aplicativo, reaplique o plano do Terraform criado a partir do arquivo de configuração `swap.tf`.
 
 ```bash
 terraform apply
 ```
 
-Quando estiverem trocados, você poderá ver a configuração original.
+Depois que o aplicativo for alternado, você verá a configuração original.

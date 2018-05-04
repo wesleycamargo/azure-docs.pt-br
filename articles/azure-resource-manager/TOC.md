@@ -47,6 +47,7 @@
 ### [Portal do Azure](resource-group-portal.md)
 ### [Usar marcações para organizar recursos](resource-group-using-tags.md)
 ### [Mover recursos para um novo grupo ou assinatura](resource-group-move-resources.md)
+### [Criar assinaturas de EA de forma programática](programmatically-create-subscription.md)
 ### [Criar grupos de gerenciamento](management-groups-create.md)
 ### [Gerenciar seus grupos de gerenciamento](management-groups-manage.md)
 ### [Exemplos de governança](resource-manager-subscription-examples.md)

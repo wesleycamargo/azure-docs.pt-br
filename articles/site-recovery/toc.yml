@@ -129,6 +129,8 @@
           items:
             - name: Recuperação de desastres das VMs do Azure após a migração para o Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Recuperação de desastres de máquinas virtuais do Azure usando o PowerShell
+              href: azure-to-azure-powershell.md
         - name: 'Replicação, failover e failback'
           items:
             - name: Habilitar a replicação do Azure para o Azure

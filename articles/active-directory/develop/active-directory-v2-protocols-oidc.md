@@ -1,11 +1,11 @@
 ---
 title: Azure Active Directory v2.0 e o protocolo OpenID Connect | Microsoft Docs
-description: "Compile aplicativos Web usando a implementação v.2.0 do Azure AD do protocolo de autenticação OpenID Connect."
+description: Compile aplicativos Web usando a implementação v.2.0 do Azure AD do protocolo de autenticação OpenID Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3f5b6a68cf6ee38d1dc2317381ec33f035c57569
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 e o protocolo OpenID Connect
 O OpenID Connect é um protocolo de autenticação baseado no OAuth 2.0 que você pode usar para assinar com segurança em um usuário a um aplicativo Web. Quando você usa a implementação do ponto de extremidade v2.0 do OpenID Connect, você pode adicionar entrada e acesso à API aos seus aplicativos baseados na Web. Neste artigo, mostraremos como fazer isso independentemente do idioma. Descreveremos como enviar e receber mensagens HTTP sem usar qualquer uma das bibliotecas de software livre da Microsoft.
@@ -29,7 +29,7 @@ O OpenID Connect é um protocolo de autenticação baseado no OAuth 2.0 que voc�
 > 
 > 
 
-O [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* do OAuth 2.0 para uso como um protocolo de *autenticação*, o que permite executar o logon único usando o OAuth. O OpenID Connect apresenta o conceito de um *token de ID*, que é um token de segurança que permite ao cliente verificar a identidade do usuário. O token de ID também obtém informações de perfil básico sobre o usuário. Como o OpenID Connect estende o OAuth 2.0, os aplicativos podem adquirir *access_tokens* com segurança, os quais podem ser usados para acessar os recursos protegidos por um [servidor de autorização](active-directory-v2-protocols.md#the-basics). É recomendável que você use o OpenID Connect se estiver criando um [aplicativo Web](active-directory-v2-flows.md#web-apps) que fica hospedado em um servidor e é acessado por meio de um navegador.
+O [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* do OAuth 2.0 para uso como um protocolo de *autenticação*, o que permite executar o logon único usando o OAuth. O OpenID Connect apresenta o conceito de um *token de ID*, que é um token de segurança que permite ao cliente verificar a identidade do usuário. O token de ID também obtém informações de perfil básico sobre o usuário. Como o OpenID Connect estende o OAuth 2.0, os aplicativos podem adquirir *access_tokens* com segurança, os quais podem ser usados para acessar os recursos protegidos por um [servidor de autorização](active-directory-v2-protocols.md#the-basics). O ponto de extremidade v2.0 permite também que aplicativos de terceiros registrados no Microsoft Azure AD emitam tokens de acesso para recursos protegidos, como APIs da Web. Para obter mais informações sobre como configurar um aplicativo para emitir tokens de acesso, consulte [Como registrar um aplicativo com o ponto de extremidade v2.0](active-directory-v2-app-registration.md). É recomendável que você use o OpenID Connect se estiver criando um [aplicativo Web](active-directory-v2-flows.md#web-apps) que fica hospedado em um servidor e é acessado por meio de um navegador.
 
 ## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: Entrar
 O fluxo de entrada mais básico tem as etapas mostradas no diagrama seguinte. Descrevemos cada etapa detalhadamente neste artigo.
@@ -45,7 +45,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 O `{tenant}` pode ter um de quatro valores:
 
-| Valor | Descrição |
+| Valor | DESCRIÇÃO |
 | --- | --- |
 | `common` |Os usuários com uma conta pessoal da Microsoft e uma conta corporativa ou de estudante do Azure Active Directory (Azure AD) podem entrar aplicativo. |
 | `organizations` |Somente os usuários com contas corporativas ou de estudante do Azure AD podem se conectar ao aplicativo. |
@@ -78,7 +78,7 @@ Quando o aplicativo Web precisa autenticar o usuário, ele pode direcionar o usu
 * O parâmetro `response_type` deve incluir `id_token`.
 * A solicitação deve incluir o parâmetro `nonce` .
 
-Por exemplo:
+Por exemplo: 
 
 ```
 // Line breaks are for legibility only.
@@ -99,7 +99,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 
 > 
 
-| Parâmetro | Condição | Descrição |
+| Parâmetro | Condição | DESCRIÇÃO |
 | --- | --- | --- |
 | locatário |Obrigatório |Você pode usar o valor `{tenant}` no caminho da solicitação para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para saber mais, veja [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | client_id |Obrigatório |A ID de aplicativo do [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuída ao seu aplicativo. |
@@ -128,7 +128,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | id_token |O token de ID que o aplicativo solicitou. Você pode usar o parâmetro `id_token` para verificar a identidade do usuário e iniciar uma sessão com o usuário. Para obter mais detalhes sobre tokens de ID e seu conteúdo, veja a [referência os tokens de ponto de extremidade v2.0](active-directory-v2-tokens.md). |
 | state |Se um parâmetro `state` estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de estado na solicitação e na resposta são idênticos. |
@@ -144,7 +144,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | error |Uma cadeia de caracteres de códigos de erro que você pode usar para classificar tipos de erro que ocorrem e para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro de autenticação. |
@@ -152,7 +152,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 ### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de erro para erros de ponto de extremidade de autorização
 A tabela a seguir descreve os códigos de erro que podem ser retornados no parâmetro `error` da resposta de erro:
 
-| Código do erro | Descrição | Ação do cliente |
+| Código do erro | DESCRIÇÃO | Ação do cliente |
 | --- | --- | --- |
 | invalid_request |Erro de protocolo, como um parâmetro obrigatório ausente. |Corrija e reenvie a solicitação. Esse é um erro de desenvolvimento normalmente identificado durante os testes iniciais. |
 | unauthorized_client |O aplicativo cliente não pode solicitar um código de autorização. |Isso geralmente ocorre quando o aplicativo cliente não está registrado no Azure AD ou não é adicionado ao locatário do Azure AD do usuário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
@@ -188,7 +188,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parâmetro | Condição | Descrição |
+| Parâmetro | Condição | DESCRIÇÃO |
 | ----------------------- | ------------------------------- | ------------ |
 | post_logout_redirect_uri | Recomendadas | A URL para a qual o usuário é redirecionado após o logout bem-sucedido. Se o parâmetro não for incluído, o usuário receberá uma mensagem genérica gerada pelo ponto de extremidade v2.0. Esta URL deve corresponder exatamente a um redirecionamento de URIs registrado para seu aplicativo no portal de registro de aplicativo.  |
 
@@ -221,7 +221,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 ```
 
 > [!TIP]
-> Clique no link a seguir para executar essa solicitação. Depois de entrar, o navegador é redirecionado para https://localhost/myapp/, com um token de ID e um código na barra de endereços. Observe que esta solicitação usa `response_mode=query` (somente para fins de demonstração). É recomendável usar o `response_mode=form_post`.
+> Clique no link a seguir para executar essa solicitação. Depois de entrar, seu navegador será redirecionado para https://localhost/myapp/, com um token de ID e um código na barra de endereços. Observe que esta solicitação usa `response_mode=query` (somente para fins de demonstração). É recomendável usar o `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
@@ -239,7 +239,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | id_token |O token de ID que o aplicativo solicitou. Você pode usar o token de ID para verificar a identidade do usuário e iniciar uma sessão com o usuário. Você encontrará mais detalhes sobre tokens de ID e seu conteúdo na [referência os tokens de ponto de extremidade v2.0](active-directory-v2-tokens.md). |
 | código |O código de autorização que o aplicativo solicitou. O aplicativo pode usar o código de autorização para solicitar um token de acesso para o recurso de destino. Um código de autorização tem uma duração muito curta. Normalmente, um código de autorização expira em cerca de 10 minutos. |
@@ -256,7 +256,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | error |Uma cadeia de caracteres de códigos de erro que você pode usar para classificar tipos de erro que ocorrem e para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro de autenticação. |

@@ -1,24 +1,24 @@
 ---
-title: "Usar o Serviço de Contêiner do Azure com Kafka no HDInsight | Microsoft Docs"
-description: "Saiba como usar o Kafka no HDInsight a partir de imagens de contêiner hospedadas no AKS (Serviço de Contêiner do Azure)."
+title: Usar o Serviço de Contêiner do Azure com Kafka no HDInsight | Microsoft Docs
+description: Saiba como usar o Kafka no HDInsight a partir de imagens de contêiner hospedadas no AKS (Serviço de Contêiner do Azure).
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 16513cbd775e200a0821e8786ae823b82c67e437
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Usar o Serviço de Contêiner do Azure com Kafka no HDInsight
 
@@ -108,7 +108,7 @@ Ao criar o Kafka no Cluster HDInsight, será necessário unir à rede virtual cr
 
 Use as etapas a seguir para configurar o Kafka para anunciar endereços IP em vez de nomes de domínio:
 
-1. Usando um navegador da Web, acesse https://NOMEDOCLUSTER.azurehdinsight.net. Substitua __NOMEDOCLUSTER__ pelo nome do Kafka no cluster HDInsight.
+1. Usando um navegador da Web, acesse https://CLUSTERNAME.azurehdinsight.net. Substitua __NOMEDOCLUSTER__ pelo nome do Kafka no cluster HDInsight.
 
     Quando solicitado, use o nome de usuário e a senha HTTPS para o cluster. A Interface de Usuário Ambari Web para o cluster é exibida.
 
@@ -158,7 +158,7 @@ Neste ponto, o Kafka e o Serviço de Contêiner do Azure estão em comunicação
 
 1. Crie um tópico do Kafka que será usado pelo aplicativo de teste. Para obter informações sobre a criação de tópicos do Kafka, consulte o documento [Criar um cluster do Kafka](apache-kafka-get-started.md).
 
-2. Baixe o aplicativo de exemplo do [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
+2. Faça o download do aplicativo de exemplo em [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
 
 3. Edite o arquivo `index.js` e altere as linhas a seguir:
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b304a198ce1791a14094eea4cad3b6de870c80ce
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: df0b578448e1f943d45233f7d36ebf4b9cb09fad
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Tutorial: Integração do Azure Active Directory do com o SafetyNet
 
@@ -117,33 +117,17 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.predictivesolutions.com`
      
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Contate a [equipe de suporte do Cliente SafetyNet](mailto:dev@predictivesolutions.com) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Contate a [equipe de suporte do Cliente SafetyNet](mailto:dev@predictivesolutions.com) para obter esses valores.
 
-5. Clique no botão **Salvar** .
+5. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+
+    ![O link de download do Certificado](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_certificate.png)
+
+6. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-safetynet-tutorial/tutorial_general_400.png)
 
-6. Para gerar a **URL de Metadados**, execute as seguintes etapas:
-
-    a. Clique em **Registros do aplicativo**.
-    
-    ![Configurar o logon único](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar o logon único](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_endpointicon.png)
-
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar o logon único](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_endpoint.png)
-     
-    d. Agora, acesse a página de propriedades do **SafetyNet** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar o logon único](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-    
-7. Para configurar o logon único no lado do **SafetyNet**, é necessário enviar a **URL de Metadados** gerada para a [equipe de suporte do SafetyNet](mailto:dev@predictivesolutions.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+7. Para configurar o logon único no lado do **SafetyNet**, é necessário enviar a **URL de metadados da federação do aplicativo** para a [equipe de suporte do SafetyNet](mailto:dev@predictivesolutions.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

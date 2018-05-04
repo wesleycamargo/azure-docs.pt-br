@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: damaerte
-ms.openlocfilehash: 5c4cb6230d8509830d25caaf497e4e63ac7e5806
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: cd1582697307219bf3710139c6b44b5957b176e4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Recursos e ferramentas para o PowerShell no Azure Cloud Shell (versão prévia)
 
@@ -77,7 +77,7 @@ Usando [PowerShellGet](https://docs.microsoft.com/powershell/module/powershellge
 Após a instalação, os módulos são automaticamente mantidos entre as sessões do Cloud Shell.
 
 > [!TIP]
-> Os módulos instalados pelos usuários são salvos na pasta `$Home\CloudDrive\.pscloudshell\WindowsPowerShell`. Um link simbólico para essa pasta é criado na pasta de documentos do usuário (`$home\Documents\WindowsPowerShell`).
+> Os módulos instalados pelos usuários são salvos na pasta `$Home\clouddrive\.pscloudshell\WindowsPowerShell`. Um link simbólico para essa pasta é criado na pasta de documentos do usuário (`$home\Documents\WindowsPowerShell`).
 
 ![](media/features-powershell/powershellget-module.png)
 
@@ -90,7 +90,7 @@ Esses comandos são criados em cima de comunicação remota do PowerShell e exig
 
 |**Categoria**    |**Nome**                                 |
 |----------------|-----------------------------------------|
-|Ferramentas do Azure     |[Azure PowerShell (5.6.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [CLI do Azure (2.0.30)](https://docs.microsoft.com/cli/azure)|
+|Ferramentas do Azure     |[Azure PowerShell (5.7.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [CLI do Azure (2.0.31)](https://docs.microsoft.com/cli/azure)|
 |Editores de texto    |vim<br> nano                             |
 |Gerenciador de Pacotes |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Controle do código-fonte  |git                                      |
@@ -102,8 +102,8 @@ Esses comandos são criados em cima de comunicação remota do PowerShell e exig
 |**Linguagem**|**Versão**|
 |------------|-----------|
 |.NET        |4.6        |
-|Node.js     |6.10       |
-|PowerShell  |5.1 e [6.0.2](https://github.com/PowerShell/powershell/releases)       |
+|Node.js     |8.9.4       |
+|PowerShell  |5.1 3 [6.1.0-versão prévia.1](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
 ## <a name="next-steps"></a>Próximas etapas

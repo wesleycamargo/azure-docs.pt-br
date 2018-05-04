@@ -1,8 +1,8 @@
 ---
-title: "Usar o túnel SSH para acessar o Azure HDInsight | Microsoft Docs"
-description: "Saiba como usar um túnel SSH para navegar com segurança em recursos da Web hospedados em seus nós HDInsight baseados em Linux."
+title: Usar o túnel SSH para acessar o Azure HDInsight | Microsoft Docs
+description: Saiba como usar um túnel SSH para navegar com segurança em recursos da Web hospedados em seus nós HDInsight baseados em Linux.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 05e06d6ed8c2a3bec0d12f81aae6f7022a56b942
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Usar o Túnel SSH para acessar a interface do usuário do Ambari na Web, JobHistory, NameNode, Oozie, entre outras
 
@@ -75,7 +73,7 @@ Esse comando cria uma conexão que encaminha o tráfego para a porta local 9876 
 * **2** : forçar o SSH para tentar somente a versão 2 do protocolo.
 * **q** : modo silencioso.
 * **T** - Desabilitar alocação pseudo-tty, já que estamos apenas encaminhando uma porta.
-* **n** – Impedir a leitura de STDIN, já que estamos apenas encaminhando uma porta.
+* **n** - Impedir a leitura de STDIN, já que você está apenas encaminhando uma porta.
 * **N** - Não executar um comando remoto, pois estamos apenas encaminhando uma porta.
 * **f** : executar em segundo plano.
 
@@ -85,7 +83,7 @@ Quando o comando terminar, o tráfego enviado para a porta 9876 no computador lo
 
 O [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) é um cliente SSH gráfico do Windows. Use as etapas a seguir para criar um túnel SSH usando o PuTTY:
 
-1. Abra o PuTTY e insira as informações da sua conexão. Se não estiver familiarizado com o PuTTY, confira a [documentação do PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
+1. Abra o PuTTY e insira as informações da sua conexão. Se você não estiver familiarizado com PuTTY, consulte a [documentação do PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
 
 2. Na seção **Categoria** à esquerda da caixa de diálogo, expanda **Conexão**, expanda **SSH** e selecione **Túneis**.
 
@@ -115,16 +113,16 @@ O [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) é um cliente SSH g
    > [!NOTE]
    > Selecionar **DNS Remoto** resolve as solicitações de DNS (Sistema de Nomes de Domínio) usando o cluster HDInsight. Essa configuração resolve o DNS usando o nó principal do cluster.
 
-2. Verifique se o túnel funciona visitando um site, como [http://www.whatismyip.com/](http://www.whatismyip.com/). O IP retornado deve ser um IP usado pelo data center do Microsoft Azure.
+2. Verifique se o túnel funciona, visitando um site como [http://www.whatismyip.com/](http://www.whatismyip.com/). O IP retornado deve ser um IP usado pelo data center do Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Verifique com a interface do usuário do Ambari Web
 
 Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verificar se você pode acessar as interfaces do usuário da Web do serviço Ambari Web:
 
-1. Em seu navegador, vá para http://headnodehost:8080. O endereço `headnodehost` é enviado pelo túnel para o cluster e resolverá o nó principal Ambari em execução. Quando solicitado, insira o nome de usuário do administrador (admin) e a senha do seu cluster. Talvez a interface do usuário do Ambari Web seja solicitada uma segunda vez. Nesse caso, insira novamente as informações.
+1. No navegador, acesse http://headnodehost:8080. O endereço `headnodehost` é enviado pelo túnel para o cluster e resolverá o nó principal Ambari em execução. Quando solicitado, insira o nome de usuário do administrador (admin) e a senha do seu cluster. Talvez a interface do usuário do Ambari Web seja solicitada uma segunda vez. Nesse caso, insira novamente as informações.
 
    > [!NOTE]
-   > Ao usar o endereço http://headnodehost:8080 para se conectar ao cluster, você estará se conectando através do túnel. A comunicação é protegida usando o túnel SSH em vez de HTTPS. Para se conectar pela Internet usando o HTTPS, use https://CLUSTERNAME.azurehdinsight.net, em que **CLUSTERNAME** é o nome do cluster.
+   > Ao usar o endereço http://headnodehost:8080 para conectar o cluster, você estará conectando através do túnel. A comunicação é protegida usando o túnel SSH em vez de HTTPS. Para conectar pela Internet usando HTTPS, use https://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do cluster.
 
 2. Na interface do usuário do Ambari na Web, selecione HDFS na lista à esquerda da página.
 
@@ -144,7 +142,7 @@ Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verific
     ![Imagem da interface do usuário do NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]
-   > Observe a URL da página; ela deve ser semelhante a **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Essa URI está usando o nome de domínio totalmente qualificado (FQDN) interno do nó e é acessada apenas ao utilizar um túnel SSH.
+   > Observe a URL dessa página, que deve ser semelhante a **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Essa URI está usando o nome de domínio totalmente qualificado (FQDN) interno do nó e é acessada apenas ao utilizar um túnel SSH.
 
 ## <a name="next-steps"></a>Próximas etapas
 

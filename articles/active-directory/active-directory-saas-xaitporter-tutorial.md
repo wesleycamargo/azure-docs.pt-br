@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao XaitPorter | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory do Azure e o XaitPorter."
+title: 'Tutorial: integração do Azure Active Directory ao XaitPorter | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory do Azure e o XaitPorter.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 2012d990f7cdcb8c12da5f16db518b261b06a5b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5e18850d902e5a11da904af719e598c4e247ce0d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: integração do Azure Active Directory ao XaitPorter
 
@@ -32,7 +32,7 @@ A integração do XaitPorter ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao XaitPorter, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando XaitPorter da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-xaitporter-from-the-gallery"></a>Adicionando XaitPorter da galeria
 Para configurar a integração do XaitPorter ao Azure AD, você precisará adicionar o XaitPorter da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -113,59 +113,39 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.xaitporter.com`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do XaitPorter](https://www.xait.com/support/) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do XaitPorter](https://www.xait.com/support/) para obter esses valores.
+     
+4. Na seção **Certificado de Autenticação SAML** clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas. 
 
-4. Clique no botão **Salvar** .
+    ![O link de download do Certificado](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_certificate.png) 
+
+5. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-xaitporter-tutorial/tutorial_general_400.png)
 
-5. Para gerar a URL de **Metadados**, execute as seguintes etapas:
-
-    a. Clique em **Registros do aplicativo**.
-    
-    ![Configurar Logon Único](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar Logon Único](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpointicon.png)
-
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar Logon Único](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpoint.png)
-     
-    d. Agora acesse a página de propriedades do **XaitPorter** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar Logon Único](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Forneça o **endereço IP** ou a **URL de metadados** para a [equipe de suporte SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), de modo que XaitPorter possa garantir que o endereço IP esteja acessível da sua instância XaitPorter configurando a lista de permissões em seu lado. 
+6. Forneça o **endereço IP** ou a **URL de Metadados de Federação de Aplicativos** para a [Equipe de suporte do SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), de modo que o XaitPorter possa garantir que o endereço IP seja acessível a partir da instância do XaitPorter, configurando a lista de permissões dele. 
 
 7. Em outra janela do navegador da Web, faça logon em seu site de empresa do XaitPorter como um administrador.
 
 8. Clique em **Admin**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-xaitporter-tutorial/user1.png)
+    ![Configurar o logon único](./media/active-directory-saas-xaitporter-tutorial/user1.png)
 
 9. Selecione **Gerenciar Logon Único** na lista suspensa **Configuração do Sistema**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-xaitporter-tutorial/user2.png)
+    ![Configurar o logon único](./media/active-directory-saas-xaitporter-tutorial/user2.png)
 
 10. Na seção **GERENCIAR LOGON ÚNICO**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-xaitporter-tutorial/user3.png)
+    ![Configurar o logon único](./media/active-directory-saas-xaitporter-tutorial/user3.png)
 
     a. Selecione **Habilitar Autenticação de Logon Único**.
 
-    b. Na caixa de texto **Configurações do Provedor de Identidade**, cole a **URL de Metadados** copiada do Azure e clique em **Buscar**.
+    b. Na caixa de texto **Configurações do Provedor de Identidade**, cole a **URL de Metadados de Federação de Aplicativos** que você copiou do Portal do Azure e clique em **Buscar**.
 
     c. Selecione **Habilitar Criação Automática de Usuários**.
 
     d. Clique em **OK**.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

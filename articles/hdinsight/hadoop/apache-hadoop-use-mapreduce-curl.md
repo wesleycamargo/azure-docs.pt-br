@@ -1,8 +1,8 @@
 ---
-title: "Usar o MapReduce e Curl com o Hadoop no HDInsight – Azure | Microsoft Docs"
+title: Usar o MapReduce e Curl com o Hadoop no HDInsight – Azure | Microsoft Docs
 description: Saiba como executar trabalhos MapReduce remotamente com Hadoop no HDInsight usando o Curl.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: bc6daf37-fcdc-467a-a8a8-6fb2f0f773d1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: e48e9f833db86f01d944133c8a32d2c6b27b7b48
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: eeecdb6432c4ab13b051c9a9dba1e7f14ce40f91
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Executar trabalhos MapReduce com Hadoop no HDInsight usando REST
 
@@ -84,7 +82,7 @@ Saiba como usar a API REST do WebHCat para executar trabalhos MapReduce em um Ha
    * **-u**: o nome de usuário e a senha usada para autenticar a solicitação
    * **-G**: indica que essa operação é uma solicitação GET
 
-   O início do URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações.
+   O início do URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, é o mesmo para todas as solicitações.
 
 4. Para enviar um trabalho MapReduce, use o seguinte comando:
 

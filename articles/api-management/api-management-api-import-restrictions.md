@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista
@@ -38,12 +38,12 @@ Caso esteja recebendo erros ao importar seu documento da Open API, verifique se 
 
 ## <a name="wsdl"> </a>WSDL
 Arquivos WSDL são usados para gerar as APIs de passagem SOAP ou servir como o back-end de uma API de SOAP para REST.
-
-* **WSDL:Import** – Atualmente, APIM não dá suporte a APIs que estejam usando esse atributo. Os clientes devem mesclar os elementos importados em um documento.
-* **Mensagens com diversas partes** Atualmente, APIM não dá suporte a esses tipos de mensagens.
-* **wsHttpBinding no WCF** Serviços SOAP criados com o Windows Communication Foundation devem usar basicHttpBinding – não há suporte para wsHttpBinding.
-* **MTOM** Serviços que usam MTOM <em>podem</em> funcionar. No momento, não oferecemos suporte oficial.
-* APIM não dá suporte para tipos de **recursão** definidos recursivamente (por exemplo, referir-se a uma matriz de si mesmo).
+* **Associações SOAP** - Apenas as associações SOAP de estilo "documento" e codificação "literal" têm suporte. Não há suporte para estilo "rpc" ou SOAP-Encoding.
+* **WSDL:Import** - Não há suporte para esse atributo. Os clientes devem mesclar as importações em um documento.
+* **Mensagens com várias partes** - Não há suporte para esses tipos de mensagens.
+* **WCF wsHttpBinding** - Serviços SOAP criados com Windows Communication Foundation devem usar basicHttpBinding - não há suporte para wsHttpBinding.
+* **MTOM** - Serviços usando MTOM <em>podem</em> funcionar. No momento, não oferecemos suporte oficial.
+* **Recursão** - Tipos que são definidos recursivamente (por exemplo, referem-se a uma matriz deles) não têm suporte pelo APIM.
 
 ## <a name="wadl"> </a>WADL
 Atualmente, não há problemas de importação de WADL conhecidos.

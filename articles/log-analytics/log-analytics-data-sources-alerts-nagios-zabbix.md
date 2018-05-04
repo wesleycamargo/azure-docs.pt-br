@@ -1,8 +1,8 @@
 ---
 title: Coletar alertas do Nagios e do Zabbix no OMS Log Analytics | Microsoft Docs
-description: "O Nagios e o Zabbix são ferramentas de monitoramento de software livre. Você pode coletar alertas dessas ferramentas para o Log Analytics para analisá-los junto com os alertas de outras fontes.  Este artigo descreve como configurar o Agente do OMS para Linux para coletar alertas desses sistemas."
+description: O Nagios e o Zabbix são ferramentas de monitoramento de software livre. Você pode coletar alertas dessas ferramentas para o Log Analytics para analisá-los junto com os alertas de outras fontes.  Este artigo descreve como configurar o Agente do OMS para Linux para coletar alertas desses sistemas.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -12,27 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Coletar alertas do Nagios e do Zabbix no Log Analytics do Agente do OMS para Linux 
-O [Nagios](https://www.nagios.org/) e o [Zabbix](http://www.zabbix.com/) são ferramentas de monitoramento de software livre.  Você pode coletar alertas dessas ferramentas para o Log Analytics para analisá-los junto com os [alertas de outras fontes](log-analytics-alerts.md).  Este artigo descreve como configurar o Agente do OMS para Linux para coletar alertas desses sistemas.
+O [Nagios](https://www.nagios.org/) e o [Zabbix](http://www.zabbix.com/) são ferramentas de monitoramento de software livre. Você pode coletar alertas dessas ferramentas para o Log Analytics para analisá-los junto com os [alertas de outras fontes](log-analytics-alerts.md).  Este artigo descreve como configurar o Agente do OMS para Linux para coletar alertas desses sistemas.
  
+## <a name="prerequisites"></a>pré-requisitos
+O Agente do OMS para Linux dá suporte para coletar alertas do Nagios até a versão 4.2.x e do Zabbix até a versão 2.x.
+
 ## <a name="configure-alert-collection"></a>Configurar coleta de alertas
 
 ### <a name="configuring-nagios-alert-collection"></a>Configurar coleta de alertas do Nagios
-Execute as etapas a seguir no servidor Nagios para coletar alertas.
+Para coletar alertas, execute as etapas a seguir no servidor do Nagios.
 
-1. Conceda ao usuário **omsagent** acesso de leitura ao arquivo de log do Nagios (ou seja, `/var/log/nagios/nagios.log`). Supondo que o arquivo nagios.log pertença ao grupo `nagios`, você poderá adicionar o usuário **omsagent** ao grupo **nagios**. 
+1. Conceda ao usuário **omsagent** acesso de leitura ao arquivo de log do Nagios `/var/log/nagios/nagios.log`. Supondo que o arquivo nagios.log pertença ao grupo `nagios`, você poderá adicionar o usuário **omsagent** ao grupo **nagios**. 
 
     sudo usermod -a -G nagios omsagent
 
-2.  Modificar o arquivo de configuração em (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Verifique se as entradas a seguir estão presentes e se não foram comentadas:  
+2.  Modifique o arquivo de configuração em `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Verifique se as entradas a seguir estão presentes e se não foram comentadas:  
 
         <source>  
           type tail  
@@ -53,11 +56,11 @@ Execute as etapas a seguir no servidor Nagios para coletar alertas.
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Configurar coleta de alertas do Zabbix
-Para obter alertas de um servidor do Zabbix, você precisa especificar um usuário e senha com *texto não criptografado*. Isso não é o ideal, mas recomendamos que você crie o usuário e conceda permissões somente para monitorar.
+Para obter alertas de um servidor do Zabbix, você precisa especificar um usuário e senha com *texto não criptografado*.  Embora não seja o ideal, é recomendável que você crie o usuário e conceda permissões somente para monitorar.
 
-Execute as etapas a seguir no servidor Nagios para coletar alertas.
+Para coletar alertas no servidor do Nagios, execute as etapas a seguir.
 
-1. Modificar o arquivo de configuração em (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Verifique se as entradas a seguir estão presentes e se não foram comentadas.  Altere o nome de usuário e senha para valores para o seu ambiente do Zabbix.
+1. Modifique o arquivo de configuração em `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Verifique se as entradas a seguir estão presentes e se não foram comentadas.  Altere o nome de usuário e senha para valores para o seu ambiente do Zabbix.
 
         <source>
          type zabbix_alerts
@@ -80,9 +83,9 @@ Você pode recuperar registros de alerta do Nagios e do Zabbix usando [pesquisas
 
 Registros de alerta coletados pelo Nagios têm **Type** definido como **Alert** e **SourceSystem** definido como **Nagios**.  Eles têm as propriedades indicadas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Tipo |*Alerta* |
+| type |*Alerta* |
 | SourceSystem |*Nagios* |
 | AlertName |Nome do alerta. |
 | AlertDescription | Descrição do alerta. |
@@ -96,14 +99,14 @@ Registros de alerta coletados pelo Nagios têm **Type** definido como **Alert** 
 ### <a name="zabbix-alert-records"></a>Registros de alerta do Zabbix
 Registros de alerta coletados pelo Zabbix têm **Type** definido como **Alert** e **SourceSystem** definido como **Zabbix**.  Eles têm as propriedades indicadas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Tipo |*Alerta* |
+| type |*Alerta* |
 | SourceSystem |*Zabbix* |
 | AlertName | Nome do alerta. |
 | AlertPriority | Severidade do alerta.<br><br>não classificado<br>informações<br>Aviso<br>média<br>alto<br>desastre  |
-| AlertState | Estado do alerta.<br><br>0 – estado está atualizado.<br>1 – o estado é desconhecido.  |
-| AlertTypeNumber | Especifica se o alerta pode ou não gerar vários eventos de problema.<br><br>0 – estado está atualizado.<br>1 – o estado é desconhecido.    |
+| AlertState | Estado do alerta.<br><br>0 - O estado está atualizado.<br>1 – o estado é desconhecido.  |
+| AlertTypeNumber | Especifica se o alerta pode ou não gerar vários eventos de problema.<br><br>0 - O estado está atualizado.<br>1 – o estado é desconhecido.    |
 | Comentários | Comentários adicionais para o alerta. |
 | HostName | Nome do host que criou o alerta. |
 | PriorityNumber | Valor que indica a gravidade do alerta.<br><br>0 – não classificado<br>1 – informações<br>2 – aviso<br>3 – média<br>4 – alta<br>5 – desastre |

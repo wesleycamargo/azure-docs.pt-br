@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2a16e346e508b96338bb1c216ad6a64c013895f2
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Tipos de preço do Banco de Dados do Azure para PostgreSQL
 
@@ -36,7 +36,8 @@ Para escolher um tipo de preço, use a tabela a seguir como ponto de partida.
 | Uso geral | A maioria das cargas de trabalho que exigem a computação e a memória balanceadas com a taxa de transferência de E/S escalonável. Os exemplos incluem servidores para hospedar aplicativos Web e móveis e outros aplicativos empresariais.|
 | Otimizado para memória | Cargas de trabalho de banco de dados de alto desempenho que exigem desempenho na memória para o processamento de transações mais rápido e com simultaneidade mais alta. Os exemplos incluem servidores para o processamento de dados em tempo real e aplicativos analíticos ou transacionais de alto desempenho.|
 
-Depois de criar um servidor, o número de vCores pode ser aumentado ou reduzido em segundos. Você pode também, independentemente, ajustar a quantidade de armazenamento de backup e o período de retenção de backup para cima ou para baixo sem tempo de inatividade do aplicativo. Para obter mais informações, consulte a seção “Recursos de dimensionamento”.
+Depois de criar um servidor, o número de vCores pode ser aumentado ou reduzido (com a mesma camada de preços) em segundos. Você pode também, independentemente, ajustar a quantidade de armazenamento de backup e o período de retenção de backup para cima ou para baixo sem tempo de inatividade do aplicativo. Não será possível alterar o tipo de preço ou o tipo de armazenamento de backup depois que um servidor é criado. Para obter mais informações, consulte a seção [Recursos de dimensionamento](#scale-resources).
+
 
 ## <a name="compute-generations-vcores-and-memory"></a>Gerações de computação, vCores e memória
 
@@ -44,7 +45,7 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|
-| Centro dos EUA |  | X |
+| Centro dos EUA | X |  |
 | Leste dos EUA | X | X |
 | Leste dos EUA 2 | X | X |
 | Centro-Norte dos EUA | X |  |
@@ -53,16 +54,18 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 | Oeste dos EUA 2 |  | X |
 | Canadá Central | X | X |
 | Leste do Canadá | X | X |
-| Sul do Brasil | X |  |
+| Sul do Brasil | X | X |
 | Norte da Europa | X | X |
-| Europa Ocidental | X | X |
+| Europa Ocidental |  | X |
 | Oeste do Reino Unido |  | X |
 | Sul do Reino Unido |  | X |
 | Ásia Oriental | X |  |
-| Sudeste Asiático | X |  |
+| Sudeste Asiático | X | X |
 | Leste da Austrália |  | X |
+| Sudeste da Austrália |  | X |
 | Índia Central | X |  |
 | Índia Ocidental | X |  |
+| Sul da Índia |  | X |
 | Leste do Japão | X | X |
 | Oeste do Japão | X | X |
 | Sul da Coreia |  | X |
@@ -90,7 +93,7 @@ O serviço faz backups do servidor automaticamente. O período de retenção mí
 
 ## <a name="scale-resources"></a>Recursos de escala
 
-Após criar o servidor, você poderá, independentemente, alterar vCores, a quantidade de armazenamento e o período de retenção de backup. Não será possível alterar o tipo de preço ou o tipo de armazenamento de backup depois que um servidor é criado. Os vCores e o período de retenção de backup podem ser aumentados ou reduzidos. O tamanho de armazenamento só pode ser aumentado. O dimensionamento dos recursos pode ser feito por meio do portal ou da CLI do Azure. Para obter um exemplo de dimensionamento usando a CLI do Azure, consulte [Monitorar e dimensionar um servidor do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure](scripts/sample-scale-server-up-or-down.md).
+Após criar o servidor, você poderá, independentemente, alterar vCores, a quantidade de armazenamento e o período de retenção de backup. Não será possível alterar o tipo de preço ou o tipo de armazenamento de backup depois que um servidor é criado. O número de vCores pode ser dimensionado para cima ou para baixo dentro do mesmo tipo de preço. Os vCores e o período de retenção de backup podem ser aumentados ou reduzidos de 7 a 35 dias. O tamanho de armazenamento só pode ser aumentado.  O dimensionamento dos recursos pode ser feito por meio do portal ou da CLI do Azure. Para obter um exemplo de dimensionamento usando a CLI do Azure, consulte [Monitorar e dimensionar um servidor do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure](scripts/sample-scale-server-up-or-down.md).
 
 Ao alterar o número de vCores, uma cópia do servidor original é criada com a nova alocação de computação. Depois que o novo servidor entra em execução, as conexões são alternadas para o novo servidor. Durante um momento enquanto o sistema muda para o novo servidor, nenhuma nova conexão pode ser estabelecida e todas as transações não confirmadas são revertidas. Esse período varia, mas na maioria dos casos fica abaixo um minuto.
 

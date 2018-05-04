@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 604249151f3c1ca206f64a178b25ea1dae5b5023
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7c6d1588aaf069d6c3ae175e9b554c0da6c86290
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Tutorial: Integração do Microsoft Azure Active Directory ao Spacio
 
@@ -117,31 +117,11 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
-5. Para gerar a **URL de Metadados**, execute as seguintes etapas:
+5. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas. 
 
-    a. Clique em **Registros do aplicativo**.
-    
-    ![Configurar o logon único](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appregistrations.png)
-   
-    b. Clique em **Pontos de Extremidade** para abrir a caixa de diálogo **Pontos de Extremidade**.  
-    
-    ![Configurar o logon único](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpointicon.png)
+    ![O link de download do Certificado](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png)
 
-    c. Clique no botão **Copiar** para copiar a URL de **DOCUMENTO DE METADADOS FEDERADOS** e cole-a no Bloco de notas.
-    
-    ![Configurar o logon único](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpoint.png)
-     
-    d. Agora, acesse para a página de propriedades do **Spacio** e copie a **ID do aplicativo**, utilizando o botão **Copiar** e cole-a no Bloco de notas.
- 
-    ![Configurar o logon único](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Para configurar o logon único no lado do **Spacio**, é necessário enviar a **URL de metadados** gerada para a [equipe de suporte do Spacio](mailto:support@spac.io). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+6. Para configurar o logon único no lado do **Spacio**, é necessário enviar a **URL de metadados de federação do aplicativo** para a [equipe de suporte do Spacio](mailto:support@spac.io). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Práticas recomendadas para usar o Azure Data Lake Store
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Store. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Store. Antes do Data Lake Store, trabalhar com big data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. Com o Data Lake Store, a maioria dos limites rígidos para tamanho e desempenho foram removidos. No entanto, ainda há algumas considerações que este artigo abrange para que seja possível obter o melhor desempenho com o Data Lake Store. 
@@ -26,11 +26,13 @@ Neste artigo, você aprenderá sobre as melhores práticas e considerações par
 
 O Azure Data Lake Store oferece controles de acesso POSIX e auditoria detalhada para usuários, grupos e entidades de serviço do Microsoft Azure AD (Azure Active Directory). Esses controles de acesso podem ser configurados para arquivos e pastas existentes. Os controles de acesso também podem ser utilizados para criar padrões que podem ser aplicados a novos arquivos ou pastas. Quando as permissões forem definidas para pastas existentes e objetos secundários, as permissões deverão ser propagadas recursivamente em cada objeto. Se houver um grande número de arquivos, propagar as permissões poderá demorar muito tempo. O tempo escolhido pode variar entre 30 e 50 objetos processados por segundo. Portanto, planeje a estrutura de pasta e os grupos de usuários adequadamente. Caso contrário, atrasos e problemas imprevistos poderão ocorrer ao trabalhar com os dados. 
 
-Suponha que você tenha uma pasta com 100.000 objetos filho. Se você aceitar o limite inferior de 30 objetos processados por segundo, atualizar a permissão para toda a pasta poderá demorar uma hora. Mais detalhes sobre ACLs do Data Lake Store estão disponíveis em [Controle de acesso no Azure Data Lake Store](data-lake-store-access-control.md). Para melhorar o desempenho ao atribuir ACLs de recursivamente, você pode utilizar a Ferramenta de Linha de Comando do Azure Data Lake. A ferramenta cria vários threads e lógica de navegação recursiva para aplicar rapidamente ACLs a milhões de arquivos. A ferramenta está disponível para Linux e Windows, e a [documentação](https://github.com/Azure/data-lake-adlstool) e os [downloads](http://aka.ms/adlstool-download) para essa ferramenta podem ser encontrados no GitHub.
+Suponha que você tenha uma pasta com 100.000 objetos filho. Se você aceitar o limite inferior de 30 objetos processados por segundo, atualizar a permissão para toda a pasta poderá demorar uma hora. Mais detalhes sobre ACLs do Data Lake Store estão disponíveis em [Controle de acesso no Azure Data Lake Store](data-lake-store-access-control.md). Para melhorar o desempenho ao atribuir ACLs de recursivamente, você pode utilizar a Ferramenta de Linha de Comando do Azure Data Lake. A ferramenta cria vários threads e lógica de navegação recursiva para aplicar rapidamente ACLs a milhões de arquivos. A ferramenta está disponível para Linux e Windows, e a [documentação](https://github.com/Azure/data-lake-adlstool) e os [downloads](http://aka.ms/adlstool-download) para essa ferramenta podem ser encontrados no GitHub. Essas mesmas melhorias de desempenho podem ser habilitadas por suas próprias ferramentas escritas com Data Lake Store [.NET](data-lake-store-data-operations-net-sdk.md) e [Java](data-lake-store-get-started-java-sdk.md) SDKs.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Usar grupos de segurança versus usuários individuais 
 
-Ao trabalhar com big data no Data Lake Store, é provável que uma entidade de serviço seja utilizada para permitir que serviços como o Azure HDInsight trabalhem com os dados. No entanto, poderá haver casos em que usuários individuais também precisarão ter acesso aos dados. Nesses casos, será necessário utilizar os grupos de segurança do Azure Active Directory, em vez de atribuir usuários individuais a pastas e arquivos. Quando permissões são atribuídas a um grupo de segurança, adicionar ou remover usuários do grupo não exigirá atualizações para o Data Lake Store. 
+Ao trabalhar com big data no Data Lake Store, é provável que uma entidade de serviço seja utilizada para permitir que serviços como o Azure HDInsight trabalhem com os dados. No entanto, poderá haver casos em que usuários individuais também precisarão ter acesso aos dados. Nesses casos, será necessário utilizar os [grupos de segurança](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) do Azure Active Directory, em vez de atribuir usuários individuais a pastas e arquivos. 
+
+Quando permissões são atribuídas a um grupo de segurança, adicionar ou remover usuários do grupo não exigirá atualizações para o Data Lake Store. Isso também ajuda a garantir que você não exceda o limite de [32 ACLs de acesso e padrão](../azure-subscription-service-limits.md#data-lake-store-limits) (isso inclui as quatro ACLs de estilo POSIX que sempre estão associadas a cada arquivo e pasta: [o usuário proprietário](data-lake-store-access-control.md#the-owning-user), [o grupo proprietário](data-lake-store-access-control.md#the-owning-group), [a máscara](data-lake-store-access-control.md#the-mask-and-effective-permissions) e outros).
 
 ### <a name="security-for-groups"></a>Segurança para grupos 
 

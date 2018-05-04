@@ -2,24 +2,25 @@
 title: Analisar sua carga de trabalho – SQL Data Warehouse do Azure | Microsoft Docs
 description: Técnicas para analisar a priorização de consulta para sua carga de trabalho no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-author: sqlmojo
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 03/28/2018
-ms.author: joeyong
-ms.reviewer: jrj
-ms.openlocfilehash: 7fa5bbd8d9a50bb1dcd1ab5be73f4e248cbbf8fc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="analyze-your-workload"></a>Analisar sua carga de trabalho
+# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analisar sua carga de trabalho no Azure SQL Data Warehouse
 Técnicas para analisar a priorização de consulta para sua carga de trabalho no SQL Data Warehouse do Azure.
 
 ## <a name="workload-groups"></a>Grupos de carga de trabalho 
-O SQL Data Warehouse implementa classes de recursos usando grupos de carga de trabalho. Há um total de oito grupos de carga de trabalho que controlam o comportamento das classes de recurso entre os vários tamanhos de DWU. Para qualquer DWU, o SQL Data Warehouse usa somente quatro dos oito grupos de carga de trabalho. Isso faz sentido, pois cada grupo de carga de trabalho é atribuído a uma das quatro classes de recurso: smallrc, mediumrc, largerc ou xlargerc. A importância de entender esses grupos de carga de trabalho é que alguns deles são definidos com *importância*maior. A importância é usada para agendamento de CPU. As consultas executadas com importância alta obterão três vezes mais ciclos de CPU do que aquelas com importância média. Portanto, os mapeamentos de slot de simultaneidade também determinam a prioridade da CPU. Quando uma consulta consome 16 ou mais slots, ela é executada com alta importância.
+O SQL Data Warehouse implementa classes de recursos usando grupos de carga de trabalho. Há um total de oito grupos de carga de trabalho que controlam o comportamento das classes de recurso entre os vários tamanhos de DWU. Para qualquer DWU, o SQL Data Warehouse usa somente quatro dos oito grupos de carga de trabalho. Esta abordagem faz sentido pois cada grupo de carga de trabalho é atribuído a uma das quatro classes de recurso: smallrc, mediumrc, largerc ou xlargerc. A importância de entender esses grupos de carga de trabalho é que alguns deles são definidos com *importância*maior. A importância é usada para agendamento de CPU. As consultas executadas com importância alta obtêm três vezes mais ciclos de CPU do que aquelas com importância média. Portanto, os mapeamentos de slot de simultaneidade também determinam a prioridade da CPU. Quando uma consulta consome 16 ou mais slots, ela é executada com alta importância.
 
 A tabela a seguir mostra os mapeamentos de importância para cada grupo de carga de trabalho.
 
@@ -38,7 +39,7 @@ A tabela a seguir mostra os mapeamentos de importância para cada grupo de carga
 | SloDWGroupC08   | 256                      | 25.600                         | 64.000                      | Alto               |
 
 <!-- where are the allocation and consumption of concurrency slots charts? -->
-Da tabela **Alocação e consumo de slots de simultaneidade** , podemos ver que um DW500 usa um, quatro, oito ou 16 slots de simultaneidade para smallrc, mediumrc, largerc e xlargerc, respectivamente. Você pode procurar esses valores na tabela anterior para localizar a importância de cada classe de recurso.
+A tabela **Alocação e consumo de slots de simultaneidade** mostra que um DW500 usa 1, 4, 8 ou 16 slots de simultaneidade para smallrc, mediumrc, largerc e xlargerc, respectivamente. Para descobrir a importância de cada classe de recurso, você pode procurar esses valores na tabela anterior.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mapeamento do DW500 para obter a importância das classes de recurso
 | classe de recurso | Grupo de carga de trabalho | Slots de simultaneidade usados | MB / Distribuição | Importância |
@@ -57,7 +58,7 @@ Da tabela **Alocação e consumo de slots de simultaneidade** , podemos ver que 
 | staticrc80     | SloDWGroupC03  | 16                     | 1.600             | Alto       |
 
 ## <a name="view-workload-groups"></a>Exibir grupos de carga de trabalho
-Você pode usar a seguinte consulta DMV para examinar as diferenças na alocação de recurso de memória em detalhes da perspectiva do administrador de recursos ou para analisar o uso ativo e histórico dos grupos de carga de trabalho ao solucionar problemas.
+A consulta a seguir mostra os detalhes da alocação de recursos de memória da perspectiva do administrador de recursos. Isso é útil para analisar o uso ativo e histórico dos grupos de carga de trabalho na solução de problemas.
 
 ```sql
 WITH rg
@@ -146,7 +147,7 @@ O SQL Data Warehouse tem os seguintes tipos de espera:
 * **LocalQueriesConcurrencyResourceType**: consultas que ficam fora da estrutura de slot de simultaneidade. Consultas DMV e funções de sistema, como `SELECT @@VERSION` , são exemplos de consultas de locais.
 * **UserConcurrencyResourceType**: consultas que ficam dentro da estrutura de slot de simultaneidade. Consultas em tabelas do usuário final representam exemplos que usariam esse tipo de recurso.
 * **DmsConcurrencyResourceType**: esperas resultantes de operações de movimentação de dados.
-* **BackupConcurrencyResourceType**: essa espera indica que está sendo feito backup de um banco de dados. O valor máximo para esse tipo de recurso é 1. Se vários backups foram solicitados ao mesmo tempo, os outros serão colocados em fila.
+* **BackupConcurrencyResourceType**: essa espera indica que está sendo feito backup de um banco de dados. O valor máximo para esse tipo de recurso é 1. Se vários backups forem solicitados ao mesmo tempo, os outros serão colocados em fila.
 
 O DMV `sys.dm_pdw_waits` pode ser usado para ver quais recursos uma solicitação está aguardando.
 
@@ -229,16 +230,6 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre como gerenciar usuários de banco de dados e segurança, confira [Proteger um banco de dados no SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para obter mais informações sobre como classes de recurso maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Recriando índices para melhorar a qualidade de segmento].
+Para obter mais informações sobre como gerenciar usuários de banco de dados e segurança, confira [Proteger um banco de dados no SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recurso maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Recriando índices para melhorar a qualidade de segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
-<!--Image references-->
 
-<!--Article references-->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[Recriando índices para melhorar a qualidade de segmento]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-
-<!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
-
-<!--Other Web references-->

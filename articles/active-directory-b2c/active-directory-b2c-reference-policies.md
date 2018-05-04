@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c733f919189dadcf1181ddbe2a1057b2bcf66fc4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: políticas internas
 
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Criar uma política de inscrição ou credenciais
 
-Esta política controla as duas experiências de inscrição e credenciais do consumidor com uma única configuração. Os consumidores são conduzidos para o caminho certo (inscrição ou credenciais), dependendo do contexto. Ele também descreve o conteúdo de tokens que o aplicativo receberá mediante inscrições ou entradas bem-sucedidas.  Há um exemplo de código para a política de inscrição ou de entrada [disponível aqui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  É recomendável que você use essa política, em vez de uma política de inscrição e política de entrada.  
+Esta política controla as duas experiências de inscrição e credenciais do consumidor com uma única configuração. Os consumidores são conduzidos para o caminho certo (inscrição ou credenciais), dependendo do contexto. Ele também descreve o conteúdo de tokens que o aplicativo receberá mediante inscrições ou entradas bem-sucedidas.  Há um exemplo de código para a política de **inscrição ou entrada**, [disponível aqui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  É recomendável usar essa política em uma política de **inscrição** ou uma política de **entrada**.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -85,16 +85,16 @@ Esta política controla as duas experiências de inscrição e credenciais do co
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Como fazer para vincular uma política de inscrição ou entrada a uma política de redefinição de senha?
-Quando cria uma política de inscrição ou entrada (com contas locais), você vê um link **Esqueceu a senha?** na primeira página da experiência. Clicar nesse link não dispara automaticamente uma política de redefinição de senha. 
+Ao criar uma política de **inscrição ou entrada** (com contas locais), você verá um link **Esqueceu a senha?** na primeira página da experiência. Clicar nesse link não dispara automaticamente uma política de redefinição de senha. 
 
 Em vez disso, o código de erro **`AADB2C90118`** é retornado para seu aplicativo. Seu aplicativo precisa lidar com esse código de erro invocando uma política de redefinição de senha específica. Para obter mais informações, consulte um [exemplo que demonstra a abordagem de vinculação de políticas](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Eu devo usar uma política de inscrição ou entrada ou uma política de inscrição e uma política de entrada?
-Recomendamos que você use uma política de inscrição ou entrada em vez de usar uma política de inscrição e uma política de entrada.  
+É recomendável que você use uma política de **inscrição ou entrada** em uma política de **inscrição** e uma política de **entrada**.  
 
-A política de inscrição ou entrada tem mais recursos do que a política de entrada. Ela também permite que você use a personalização da interface do usuário da página e tem melhor suporte para localização. 
+A política de **inscrição ou entrada** tem mais recursos que a política de **entrada**. Ela também permite que você use a personalização da interface do usuário da página e tem melhor suporte para localização. 
 
-A política de entrada é recomendada se você não precisar localizar suas políticas, precisar apenas de recursos de personalização secundários para a identidade visual e quiser a redefinição de senha embutida.
+A política de **entrada** será recomendável, se você não precisar localizar suas políticas e precisar apenas de pequenos recursos de personalização para identidade visual e quiser redefinir a senha interna.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configuração de token, de sessão e de logon único](active-directory-b2c-token-session-sso.md)

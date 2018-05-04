@@ -296,13 +296,15 @@
       href: /powershell/module/azurerm.logicapp
     - name: API REST
       href: /rest/api/logic/
-    - name: Esquema da Linguagem de Definição do Fluxo de Trabalho
+    - name: Esquema da linguagem de definição do fluxo de trabalho
       href: logic-apps-workflow-definition-language.md
       items:
+        - name: Gatilhos e ações do fluxo de trabalho
+          href: logic-apps-workflow-actions-triggers.md
+        - name: Funções da linguagem de definição do fluxo de trabalho
+          href: workflow-definition-language-functions-reference.md
         - name: GA - Histórico do esquema
           href: logic-apps-schema-2016-04-01.md
-    - name: Gatilhos e ações do fluxo de trabalho
-      href: logic-apps-workflow-actions-triggers.md
     - name: Esquemas de acompanhamento
       items:
         - name: Esquema de acompanhamento do AS2

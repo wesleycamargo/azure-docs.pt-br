@@ -1,27 +1,25 @@
 ---
-title: "Componentes e versões do Hadoop – Azure HDInsight | Microsoft Docs"
-description: "Conheça os componentes e versões do Hadoop no HDInsight e os níveis de serviço disponíveis na distribuição de nuvem do Hortonworks Data Platform."
-keywords: "versões do hadoop, componentes do ecossistema do hadoop, componentes do hadoop, como verificar a versão do hadoop"
+title: Componentes e versões do Hadoop – Azure HDInsight | Microsoft Docs
+description: Conheça os componentes e versões do Hadoop no HDInsight e os níveis de serviço disponíveis na distribuição de nuvem do Hortonworks Data Platform.
+keywords: versões do hadoop, componentes do ecossistema do hadoop, componentes do hadoop, como verificar a versão do hadoop
 services: hdinsight
 editor: cgronlun
 manager: asadk
 author: bprakash
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 35ded349e9ced6463ece876ca1fd92423d20c625
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 813b05c5be4378ea6e57cb0b14fd8110e2772998
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões do Hadoop disponíveis com o HDInsight?
 
@@ -109,13 +107,13 @@ A tabela a seguir lista as versões do HDInsight que **não** estão disponívei
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Pacote de Segurança Enterprise para HDInsight
 
-O Azure HDInsight é um pacote opcional que você pode adicionar em seu cluster HDInsight como parte do fluxo de trabalho do cluster de criação. O Pacote de Segurança Enterprise oferece suporte a:
+O Enterprise Security é um pacote opcional que pode ser adicionado ao cluster HDInsight como parte do fluxo de trabalho de criação de cluster. O Pacote de Segurança Enterprise oferece suporte a:
 
 - Integração com o Active Directory para autenticação.
 
     No passado, você só podia criar clusters de HDInsight com um usuário administrador local e um usuário SSH local. O usuário administrador local podia acessar todos os arquivos, pastas, tabelas e colunas.  Com o Pacote de Segurança Enterprise, você pode habilitar o controle de acesso baseado em função integrando clusters HDInsight com seu próprio Active Directory, que inclui Active Directory local, Azure Active Directory Domain Services ou Active Directory em máquina virtual IaaS. O administrador de domínio no cluster pode permitir que os usuários usem seu próprio nome de usuário corporativo (domínio) e senha para acessar o cluster. 
 
-    Para obter mais informações, confira:
+    Para obter mais informações, consulte:
 
     - [Uma introdução à segurança do Hadoop com clusters HDInsight ingressados no domínio](./domain-joined/apache-domain-joined-introduction.md)
     - [Planejar clusters Hadoop do Azure ingressados no domínio no HDInsight](./domain-joined/apache-domain-joined-architecture.md)
@@ -127,7 +125,7 @@ O Azure HDInsight é um pacote opcional que você pode adicionar em seu cluster 
     - Integração com o Apache Ranger para autorização de Hive, Spark SQL e filas de Yarn.
     - Você pode configurar o controle de acesso em arquivos e pastas.
 
-    Para obter mais informações, confira:
+    Para obter mais informações, consulte:
 
     - [Configurar políticas do Hive no HDInsight ingressado no domínio](./domain-joined/apache-domain-joined-run-hive.md)
 

@@ -1,8 +1,8 @@
 ---
-title: "Início rápido com o Azure Application Insights | Microsoft Docs"
-description: "Fornece instruções para configurar rapidamente um aplicativo Web Java para monitoramento com o Application Insights"
+title: Início rápido com o Azure Application Insights | Microsoft Docs
+description: Fornece instruções para configurar rapidamente um aplicativo Web Java para monitoramento com o Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Começar a monitorar o aplicativo Web Java
 
@@ -26,7 +26,7 @@ Este guia de início rápido lhe ajuda a adicionar o SDK do Application Insights
 
 Para concluir este guia de início rápido:
 
-- Instale o Oracle JRE 1.6 ou posterior ou então o JRE Zulu 1.6 ou posterior
+- Instalar o JRE 1.7 ou 1.8
 - Instale o [Eclipse IDE para desenvolvedores de Java EE gratuito](http://www.eclipse.org/downloads/). Este guia de início rápido usa Eclipse Oxygen (4.7)
 - Você precisará de uma assinatura do Azure e de um projeto Web dinâmico Java existente
  

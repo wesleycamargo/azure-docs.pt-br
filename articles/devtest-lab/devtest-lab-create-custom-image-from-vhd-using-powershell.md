@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 2c542f9d47eb8011a13bf7156430324c53d238ce
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6bfb34c05a03ed02694210a5901f4f367e8a2fd3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Criar uma imagem personalizada de um arquivo VHD usando o PowerShell
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 03/23/2018
 
 As seguintes etapas orientam você durante a criação de uma imagem personalizada de um arquivo VHD usando o PowerShell:
 
-1. Em um prompt do PowerShell, entre na sua conta do Azure com a chamada a seguir ao cmdlet **Login-AzureRmAccount**.  
+1. Em um prompt do PowerShell, entre na sua conta do Azure com a chamada a seguir ao cmdlet **Connect-AzureRmAccount**.  
     
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1.  Selecione a assinatura do Azure desejada chamando o cmdlet **Select-AzureRmSubscription**. Substitua o espaço reservado a seguir para a variável **$subscriptionId** por uma ID de assinatura válida do Azure. 
@@ -83,7 +83,7 @@ O script do PowerShell a seguir pode ser usado para criar uma imagem personaliza
 
 ```PowerShell
 # Log in to your Azure account.  
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Select the desired Azure subscription. 
 $subscriptionId = '<Specify your subscription ID here>'

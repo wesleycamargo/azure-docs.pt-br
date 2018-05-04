@@ -1,11 +1,11 @@
 ---
-title: "Usar o módulo de política de pilha do Azure | Microsoft Docs"
+title: Usar o módulo de política de pilha do Azure | Microsoft Docs
 description: Aprenda a restringir uma assinatura do Azure para que atue como uma assinatura de pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mabrigg
-ms.openlocfilehash: 71f17a460f4a81a98e2cdef183acb29f721d584e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 10df87ec6d30e74356b0ff0f44b8745f8c7b8bf3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gerenciar a política do Azure usando o módulo de política de pilha do Azure
 
@@ -41,7 +41,7 @@ O módulo de política de pilha do Azure permite que você configure uma assinat
 O comando a seguir pode ser usado para aplicar uma política do Azure pilha padrão em sua assinatura do Azure. Antes de executar, substitua *nome da assinatura do Azure* com sua assinatura do Azure.
 
 ```PowerShell
-Login-AzureRmAccount
+Add-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
@@ -53,7 +53,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 Você talvez queira aplicar políticas em um método mais granular.  Por exemplo, você pode ter outros recursos em execução na mesma assinatura.  Você pode definir o escopo a aplicação da diretiva para um grupo de recursos específico, o que lhe permite testar seus aplicativos para a pilha do Azure usando os recursos do Azure. Antes de executar, substitua *nome da assinatura do Azure* com o nome da sua assinatura do Azure.
 
 ```PowerShell
-Login-AzureRmAccount
+Add-AzureRmAccount
 $rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)

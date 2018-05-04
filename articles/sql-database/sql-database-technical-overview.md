@@ -9,11 +9,11 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 03/07/2018
 ms.author: carlrab
-ms.openlocfilehash: a3b703c96e309294e5327fb7fb013cbf28c369e4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2b47dfbac3ee5c91e416fb234468fe22aa936c4c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço do Banco de Dados SQL do Azure? 
 
@@ -72,9 +72,9 @@ Mas como você pode comparar o desempenho relativo de bancos de dados únicos e 
 
 Além disso, o Banco de Dados SQL pode [emitir métrica e logs de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
 
-- **Armazenamento do Azure**: para o arquivamento de grandes volumes de telemetria por um pequeno custo
-- **Hub de Eventos do Azure**: para a integração de telemetria de Banco de Dados SQL com a sua solução de monitoramento personalizada ou pipelines ativos
-- **Azure Log Analytics**: para solução de monitoramento interna com relatórios, alertas e recursos de mitigação
+- **Armazenamento do Azure**: para o arquivamento de grandes quantidades de telemetria por um preço baixo.
+- **Hub de Eventos do Azure**: para a integração de telemetria de Banco de Dados SQL com a sua solução de monitoramento personalizada ou pipelines ativos.
+- **Azure Log Analytics**: para solução de monitoramento interna com relatórios, alertas e recursos de mitigação. Este é um recurso do [OMS (Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Arquitetura](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -84,8 +84,8 @@ Os acordos de nível de serviço [(SLA)](http://azure.microsoft.com/support/lega
 
 - **[Backups automáticos](sql-database-automated-backups.md)**: o Banco de Dados SQL executa backups de log de transações, completos e diferenciais.
 - **[Restaurações point-in-time](sql-database-recovery-using-backups.md)**: o Banco de Dados SQL dá suporte à recuperação para qualquer ponto no tempo dentro do período de retenção do backup automático.
-- **[Replicação geográfica ativa](sql-database-geo-replication-overview.md)**: o Banco de Dados SQL permite que você configure até quatro bancos de dados secundários legíveis no mesmo data center do Azure ou em outros distribuídos globalmente.  Por exemplo, se você tiver um aplicativo SaaS com um banco de dados de catálogo que tem um alto volume de transações simultâneas somente leitura, use a replicação geográfica ativa para habilitar a escala global de leitura e remover gargalos no primário devido a cargas de trabalho de leitura. 
-- **[Grupos de failover](sql-database-geo-replication-overview.md)**: o Banco de Dados SQL permite que você habilite a alta disponibilidade e o balanceamento de carga em escala global, incluindo a replicação geográfica transparente e o failover de grandes conjuntos de bancos de dados e de pools elásticos. Grupos de failover e replicação geográfica permitem a criação de aplicativos SaaS globalmente distribuídos com sobrecarga de administração mínima, deixando todos o monitoramento complexos, roteamento e coordenação de failover para o Banco de Dados SQL.
+- **[Replicação geográfica ativa](sql-database-geo-replication-overview.md)**: o Banco de Dados SQL permite que você configure até quatro bancos de dados secundários legíveis no mesmo data center do Azure ou em outros distribuídos globalmente.  Por exemplo, se você tiver um aplicativo SaaS com um banco de dados de catálogo que tem um alto volume de transações simultâneas somente leitura, use a replicação geográfica ativa para habilitar a escala global de leitura e remover gargalos no primário devido a cargas de trabalho de leitura. A replicação geográfica ativa permite o failover de um único banco de dados. 
+- **[Grupos de failover](sql-database-geo-replication-overview.md)**: o Banco de Dados SQL permite que você habilite a alta disponibilidade e o balanceamento de carga em escala global, incluindo a replicação geográfica transparente e o failover de grandes conjuntos de bancos de dados e de pools elásticos. Grupos de failover e replicação geográfica permitem a criação de aplicativos SaaS globalmente distribuídos com sobrecarga de administração mínima, deixando todos o monitoramento complexos, roteamento e coordenação de failover para o Banco de Dados SQL. Os grupos de failover permitem o failover de vários bancos de dados dentro de um mesmo grupo. 
 - **[Bancos de dados com redundância de zona](sql-database-high-availability.md)**: o Banco de Dados SQL permite provisionar bancos de dados Premium ou Comercialmente Crítico (versão prévia) ou pools elásticos em várias zonas de disponibilidade. Como esses bancos de dados e pools elásticos têm várias réplicas de redundância para alta disponibilidade, colocar essas réplicas em várias zonas de disponibilidade fornece maior resiliência, incluindo a capacidade de recuperar automaticamente de falhas de escala do datacenter sem perda de dados. Esse recurso está atualmente na visualização. 
 
 ## <a name="built-in-intelligence"></a>Inteligência interna
@@ -96,9 +96,9 @@ Com o Banco de Dados SQL, você obtém inteligência interna que ajuda a reduzir
 
 O Banco de Dados SQL fornece informações detalhadas sobre as consultas que você precisa monitorar. O Banco de Dados SQL aprende seus padrões de banco de dados e permite adaptar seu esquema de banco de dados à carga de trabalho. O Banco de Dados SQL fornece [recomendações de ajuste de desempenho](sql-database-advisor.md) em que você pode examinar as ações de ajuste e aplicá-las. 
 
-No entanto, monitorar o banco de dados é uma tarefa difícil e entediante, especialmente ao lidar com muitos bancos de dados. [Insights inteligentes](sql-database-intelligent-insights.md) faz esse trabalho para você automaticamente monitorando o desempenho do banco de dados SQL em grande escala e informa você sobre problemas de degradação de desempenho, identifica a causa raiz do problema e fornece recomendações de melhoria de desempenho quando possível.
+No entanto, monitorar o banco de dados é uma tarefa difícil e entediante, especialmente ao lidar com muitos bancos de dados. O [Intelligent Insights](sql-database-intelligent-insights.md) faz esse trabalho para você automaticamente monitorando o desempenho do Banco de Dados SQL em larga escala e informando sobre problemas de degradação do desempenho. O Intelligent Insights pode identificar a causa raiz e fornecer recomendações de aprimoramento de desempenho quando possível. 
 
-Gerenciar um grande número de bancos de dados pode ser impossível de se fazer com eficiência, mesmo com todas as ferramentas e relatórios disponíveis fornecidos pelo Banco de Dados SQL e pelo portal do Azure. Em vez de monitorar e ajustar o banco de dados manualmente, você pode considerar delegar algumas das ações de monitoramento e ajustes ao Banco de Dados SQL usando o [ajuste automático](sql-database-automatic-tuning.md). O Banco de Dados SQL aplica recomendações, testa e verifica cada uma das suas ações de ajustes automaticamente para garantir a melhoria do desempenho. Dessa forma, o Banco de Dados SQL se adapta à sua carga de trabalho de maneira segura e controlada automaticamente. O ajuste automático significa que o desempenho do banco de dados é monitorado cuidadosamente e comparado antes e depois de cada ação de ajuste, e se o desempenho não melhora, a ação de ajuste é revertida.
+Gerenciar um grande número de bancos de dados pode ser impossível de se fazer com eficiência, mesmo com todas as ferramentas e relatórios disponíveis fornecidos pelo Banco de Dados SQL e pelo portal do Azure. Em vez de monitorar e ajustar o banco de dados manualmente, você pode considerar delegar algumas das ações de monitoramento e ajustes ao Banco de Dados SQL usando o [ajuste automático](sql-database-automatic-tuning.md). O Banco de Dados SQL aplica automaticamente as recomendações e, em seguida, testa essas recomendações para verificar se houve melhoria no desempenho. Dessa forma, o Banco de Dados SQL pode se adaptar à sua carga de trabalho de maneira segura e controlada automaticamente. Esse ajuste automático significa que o desempenho do banco de dados é monitorado cuidadosamente e comparado antes e depois de cada ação de ajuste, e se o desempenho não melhora, a ação de ajuste é revertida.
 
 Hoje, muitos dos nossos parceiros executando [aplicativos SaaS multilocatários](sql-database-design-patterns-multi-tenancy-saas-applications.md) baseados no Banco de Dados SQL dependem de ajuste automático de desempenho para garantir que seus aplicativos sempre tenham desempenho estável e previsível. Para eles, esse recurso reduz o risco de ter um incidente de desempenho no meio da noite. Além disso, como parte de sua base de clientes também usa o SQL Server, eles estão usando as mesmas recomendações de indexação fornecidas pelo Banco de Dados SQL para ajudar seus clientes do SQL Server.
 
@@ -113,7 +113,7 @@ Também estamos adicionando a família de recursos de [processamento de consulta
 
 ### <a name="intelligent-threat-detection"></a>Detecção de ameaças inteligente
 
- A [Detecção de ameaças SQL](sql-database-threat-detection.md) aproveita a [auditoria do Banco de Dados SQL](sql-database-auditing.md) para monitorar continuamente os Bancos de Dados SQL do Azure em relação a tentativas potencialmente prejudiciais de acesso a dados confidenciais. A detecção de ameaças do SQL fornece uma nova camada de segurança, que permite que os clientes detectem e respondam às ameaças potenciais conforme elas ocorrem, fornecendo alertas de segurança sobre atividades anômalas. Os usuários recebem alertas em caso de atividades suspeitas em bancos de dados, possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões anômalos de acesso ao banco de dados. Os alertas da detecção de ameaças do SQL fornecem detalhes de atividades suspeitas e recomendam ação de como investigar e atenuar a ameaça. Os usuários podem explorar os eventos suspeitos para determinar se eles resultam de uma tentativa de acesso, violação ou exploração dos dados no banco de dados. A detecção de ameaças torna simples tratar as possíveis ameaças no banco de dados sem a necessidade de ser um especialista em segurança ou gerenciar os sistemas de monitoramento de segurança avançados.
+ A [Detecção de ameaças SQL](sql-database-threat-detection.md) aproveita a [auditoria do Banco de Dados SQL](sql-database-auditing.md) para monitorar continuamente os Bancos de Dados SQL do Azure em relação a tentativas potencialmente prejudiciais de acesso a dados confidenciais. A detecção de ameaças do SQL fornece uma nova camada de segurança, que permite que os clientes detectem e respondam às ameaças potenciais conforme elas ocorrem, fornecendo alertas de segurança sobre atividades anômalas. Os usuários recebem alertas em caso de atividades suspeitas em bancos de dados, possíveis vulnerabilidades, ataques de injeção de SQL e padrões anômalos de acesso ao banco de dados. Os alertas da detecção de ameaças do SQL fornecem detalhes de atividades suspeitas e recomendam ação de como investigar e atenuar a ameaça. Os usuários podem explorar os eventos suspeitos para determinar se eles resultam de uma tentativa de acesso, violação ou exploração dos dados no banco de dados. A detecção de ameaças torna simples tratar as possíveis ameaças no banco de dados sem a necessidade de ser um especialista em segurança ou gerenciar os sistemas de monitoramento de segurança avançados.
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas
 
@@ -154,7 +154,7 @@ O Banco de Dados SQL torna a compilação e o gerenciamento de aplicativos mais 
 - **[O portal do Azure](https://portal.azure.com/)**: um aplicativo baseado na Web para gerenciar todos os serviços do Azure 
 - **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**: um aplicativo cliente livre e que pode ser baixado para gerenciar qualquer infraestrutura SQL, do SQL Server ao Banco de Dados SQL
 - **[SQL Server Data Tools no Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**: um aplicativo cliente livre que pode ser baixado para o desenvolvimento de bancos de dados relacionais do SQL Server, bancos de dados SQL do Azure, pacotes do Integration Services, modelos de dados do Analysis Services e relatórios do Reporting Services.
-- **[Visual Studio Code](https://code.visualstudio.com/docs)**: um editor de código gratuito, de software livre e que pode ser baixado para Linux, macOS e Windows, com suporte a extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, Banco de Dados SQL do Azure e SQL Data Warehouse.
+- **[Visual Studio Code](https://code.visualstudio.com/docs)**: um editor de código gratuito, de software livre e que pode ser baixado para Linux, macOS e Windows, com suporte a extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace), para consultar o Microsoft SQL Server, o Banco de Dados SQL do Azure e o SQL Data Warehouse.
 
 O Banco de Dados SQL dá suporte à criação de aplicativos com Python, Java, Node.js, PHP, Ruby e .NET no MacOS, Linux e Windows. O Banco de Dados SQL dá suporte às mesmas [bibliotecas de conexão](sql-database-libraries.md) do SQL Server.
 
@@ -170,7 +170,7 @@ O Banco de Dados SQL dá suporte à criação de aplicativos com Python, Java, N
 
 - Confira a [página de preços](https://azure.microsoft.com/pricing/details/sql-database/) para ver comparações de custos entre o banco de dados único e pools elásticos e calculadoras.
 
-- Veja estes tutoriais de início rápido para começar:
+- Veja estes inícios rápidos para começar:
 
   - [Criar um banco de dados SQL no portal do Azure](sql-database-get-started-portal.md)  
   - [Criar um banco de dados SQL com a CLI do Azure](sql-database-get-started-cli.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91f067de33d1ff4bc272773e3db49de47fac2feb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Implantar um cluster HPC Pack 2016 no Azure
 
@@ -56,7 +56,7 @@ Depois que o certificado for criado no repositório Usuário Atual, use o snap-i
 
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Carregar o certificado em um Azure Key Vault
 
-Antes de implantar o cluster HPC, carregue o certificado PFX em um [cofre de chaves do Azure](../../key-vault/index.md) como um segredo e registre as seguintes informações para uso durante a implantação: **Nome do cofre**, **Grupo de recursos do cofre**, **URL do certificado** e **Impressão digital do certificado**.
+Antes de implantar o cluster HPC, carregue o certificado PFX em um [cofre de chaves do Azure](../../key-vault/index.yml) como um segredo e registre as seguintes informações para uso durante a implantação: **Nome do cofre**, **Grupo de recursos do cofre**, **URL do certificado** e **Impressão digital do certificado**.
 
 A seguir, um exemplo de script do PowerShell para carregar o certificado, criar o cofre de chaves e gerar as informações necessárias. Para saber mais sobre como carregar um certificado em um cofre de chaves do Azure, confira [Introdução ao Cofre de Chaves do Azure](../../key-vault/key-vault-get-started.md).
 

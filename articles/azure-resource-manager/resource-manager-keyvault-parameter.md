@@ -1,6 +1,6 @@
 ---
 title: Segredo do Cofre de Chaves com o modelo do Azure Resource Manager | Microsoft Docs
-description: "Mostra como transmitir um segredo de um cofre da chave como um parâmetro durante a implantação."
+description: Mostra como transmitir um segredo de um cofre da chave como um parâmetro durante a implantação.
 services: azure-resource-manager,key-vault
 documentationcenter: na
 author: tfitzmac
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 04/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2643f79bb1e5e2603b1bd50b04c8ee3e7496f1f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação
 
 Quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível recuperar o valor de um [Azure Key Vault](../key-vault/key-vault-whatis.md). Você recupera o valor fazendo referência ao cofre de chaves e ao segredo no arquivo de parâmetros. O valor nunca é exposto porque você apenas fazer referência à sua ID de cofre de chaves. Você não precisa inserir manualmente o valor para o segredo toda vez que implanta os recursos. O cofre de chaves pode existir em uma assinatura diferente que o grupo de recursos que está sendo implantado. Ao fazer referência ao Key Vault, inclua a ID da assinatura.
 
-Ao criar o cofre de chaves, defina a propriedade *enabledForTemplateDeployment* para *true*. Ao definir esse valor como true, é possível permitir acesso de modelos do Gerenciador de Recursos durante a implantação.
+Ao criar o cofre de chaves, defina a propriedade *enabledForTemplateDeployment* para *true*. Ao definir esse valor como true, você permite o acesso a partir de modelos do Resource Manager durante a implantação.
 
 ## <a name="deploy-a-key-vault-and-secret"></a>Implantar um cofre da chave e segredo
 
@@ -62,7 +62,7 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 
 ## <a name="enable-access-to-the-secret"></a>Habilitar o acesso ao segredo
 
-Se você estiver usando um cofre de chaves novo ou existente, verifique se o usuário que implanta o modelo pode acessar o segredo. O usuário que implanta um modelo que faz referência a um segredo deve ter a permissão `Microsoft.KeyVault/vaults/deploy/action` do cofre de chaves. Ambas as funções [Proprietário](../active-directory/role-based-access-built-in-roles.md#owner) e [Colaborador](../active-directory/role-based-access-built-in-roles.md#contributor) concedem esse acesso.
+Se você estiver usando um cofre de chaves novo ou existente, verifique se o usuário que implanta o modelo pode acessar o segredo. O usuário que implanta um modelo que faz referência a um segredo deve ter a permissão `Microsoft.KeyVault/vaults/deploy/action` do cofre de chaves. Ambas as funções [Proprietário](../role-based-access-control/built-in-roles.md#owner) e [Colaborador](../role-based-access-control/built-in-roles.md#contributor) concedem esse acesso.
 
 ## <a name="reference-a-secret-with-static-id"></a>Fazer referência a um segredo com ID estática
 
@@ -131,6 +131,13 @@ Agora, crie um arquivo de parâmetro para o modelo anterior. No arquivo de parâ
 }
 ```
 
+Se você precisar usar uma versão do segredo diferente da versão atual, use a propriedade `secretVersion`.
+
+```json
+"secretName": "examplesecret",
+"secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
+```
+
 Agora, implante o modelo e passe o arquivo de parâmetro. É possível usar o modelo de exemplo do GitHub, mas é necessário usar um arquivo de parâmetro local com os valores definidos para o seu ambiente.
 
 Para a CLI do Azure, use:
@@ -157,7 +164,7 @@ New-AzureRmResourceGroupDeployment `
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>Fazer referência a um segredo com ID dinâmica
 
-A seção anterior mostrou como passar uma ID de recurso estático para o segredo do cofre de chaves. No entanto, em alguns cenários, você precisa fazer referência a um segredo de cofre da chave que varia com base na implantação atual. Nesse caso, não é possível codificar a ID de recurso no arquivo de parâmetros. Infelizmente, você não pode gerar dinamicamente a ID do recurso no arquivo de parâmetros, pois não há permissão para expressões de modelo no arquivo de parâmetros.
+A seção anterior mostrou como passar uma ID de recurso estático para o segredo do cofre de chaves. No entanto, em alguns cenários, você precisa fazer referência a um segredo de cofre da chave que varia com base na implantação atual. Nesse caso, não será possível codificar a ID do recurso no arquivo de parâmetros. Infelizmente, você não poderá gerar dinamicamente a ID do recurso no arquivo de parâmetros porque as expressões de modelo não são permitidas no arquivo de parâmetros.
 
 Para gerar dinamicamente a ID de recurso para um segredo do cofre de chaves, você deve mover o recurso que precisa do segredo para um modelo vinculado. No modelo pai, adicione o modelo vinculado e passe um parâmetro que contém a ID de recurso gerada dinamicamente. A imagem a seguir mostra como um parâmetro no modelo vinculado faz referência ao segredo.
 

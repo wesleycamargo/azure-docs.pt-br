@@ -1,32 +1,30 @@
 ---
-title: "Usar o R no HDInsight para personalizar clusters – Azure | Microsoft Docs"
-description: "Saiba como instalar R usando a Ação de Script e usar R em clusters HDInsight."
+title: Usar o R no HDInsight para personalizar clusters – Azure | Microsoft Docs
+description: Saiba como instalar R usando a Ação de Script e usar R em clusters HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: be851270-afa5-4af0-a69e-2d343a4deeb7
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 666b51970bf04634708cbf65b8bca0c05412934b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c5fb38de8b1023a05709d07ba17b0c776c87957e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>Instalar e usar R em clusters Hadoop do HDInsight (visualização)
 
 Saiba como personalizar o cluster HDInsight baseado em Windows com R usando a Ação de Script, e como usar o R em clusters HDInsight. A [oferta do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) inclui o Servidor R como parte do cluster do HDInsight. Isso permite que os scripts R usem o MapReduce e o Spark para executar cálculos distribuídos. Para obter mais informações, confira [Introdução ao uso do Servidor R no HDInsight](r-server/r-server-get-started.md). Para obter informações sobre como usar o R com um cluster baseado no Linux, veja [Instalar e usar o R em clusters Hadoop do HDinsight (Linux)](hdinsight-hadoop-r-scripts-linux.md).
 
-Você pode instalar o R em qualquer tipo de cluster (Hadoop, Storm, HBase, Spark) no Azure HDInsight usando a *Ação de Script*. Um script de exemplo para instalar o R em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente leitura em [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
+Você pode instalar o R em qualquer tipo de cluster (Hadoop, Storm, HBase, Spark) no Azure HDInsight usando a *Ação de Script*. Um script de exemplo para instalar o R em um Cluster HDInsight está disponível em um Azure Storage Blob somente leitura em [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
 **Artigos relacionados**
 
@@ -36,7 +34,7 @@ Você pode instalar o R em qualquer tipo de cluster (Hadoop, Storm, HBase, Spark
 * [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md)
 
 ## <a name="what-is-r"></a>O que é R?
-O <a href="http://www.r-project.org/" target="_blank">Projeto R para computação de estatísticas</a> é uma linguagem de software livre e um ambiente de computação de estatísticas. O R fornece centenas de funções estatísticas de compilação e uma linguagem própria de programação que combina aspectos da programação funcional e orientada a objeto. Ele também fornece recursos abrangentes de gráficos. O R é o ambiente de programação preferencial para a maioria dos profissionais estatísticos e cientistas em uma ampla variedade de campos.
+O <a href="http://www.r-project.org/" target="_blank">Projeto R para computação de estatísticas</a> é uma linguagem de software livre e um ambiente de computação de estatísticas. O R fornece centenas de funções estatísticas de compilação e uma linguagem própria de programação que combina aspectos da programação funcional e orientada a objeto. Ele também fornece recursos abrangentes de grafos. O R é o ambiente de programação preferencial para a maioria dos profissionais estatísticos e cientistas em uma ampla variedade de campos.
 
 O R é compatível com o armazenamento de Blob do Azure (WASB) para que os dados armazenados nele possam ser processados usando R no HDInsight.  
 
@@ -55,10 +53,10 @@ Um [exemplo de script](https://hdiconfigactions.blob.core.windows.net/rconfigact
 
     <table border='1'>
         <tr><th>Propriedade</th><th>Valor</th></tr>
-        <tr><td>Nome</td>
+        <tr><td>NOME</td>
             <td>Especifique um nome para a ação de script, por exemplo, <b>Instalar R</b>.</td></tr>
         <tr><td>URI do script</td>
-            <td>Especifique o URI para o script que é chamado para personalizar o cluster, por exemplo, <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
+            <td>Especifique o URI para o script que é invocado para personalizar o cluster, por exemplo, <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
         <tr><td>Tipo de nó</td>
             <td>Especifique os nós em que o script de personalização deve ser executado. Você pode escolher <b>Todos os Nós</b>, <b>Somente nós do cabeçalho</b> ou <b>Somente nós de trabalho</b>.
         <tr><td>parâmetros</td>
@@ -95,12 +93,12 @@ As duas primeiras linhas chamam as bibliotecas R Hadoop que são instaladas com 
 
 
 ## <a name="install-r-using-aure-powershell"></a>Instalar o R usando o Azure PowerShell
-Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  O exemplo demonstra como instalar o Spark usando o Azure PowerShell. Você precisa personalizar o script para usar [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
+Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  O exemplo demonstra como instalar o Spark usando o Azure PowerShell. É necessário personalizar o script para usar [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
 ## <a name="install-r-using-net-sdk"></a>Instalar o R usando o SDK do .NET
-Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). O exemplo demonstra como instalar o Spark usando o SDK do .NET. Você precisa personalizar o script para usar [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
+Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). O exemplo demonstra como instalar o Spark usando o SDK do .NET. É necessário personalizar o script para usar [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Instalar e usar R em clusters Hadoop do HDInsight (Linux)](hdinsight-hadoop-r-scripts-linux.md)
 * [Criar clusters Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md): informações gerais sobre como criar clusters HDInsight
 * [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]: informações gerais sobre como personalizar os clusters HDInsight usando a Ação de Script

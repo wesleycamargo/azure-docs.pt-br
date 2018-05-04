@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 69264ac7ffe8124b964a10c11aacaca5c712fd63
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dcb46c7127590f1986fe1fd66c2f6ac4fd8b107d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
-O emparelhamento de rede virtual permite que você conecte duas [redes virtuais](virtual-networks-overview.md) do Azure sem interrupção. Uma vez emparelhadas, as redes virtuais aparecerão como uma para fins de conectividade. O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas será roteado por meio da infraestrutura de backbone da Microsoft, assim como o tráfego é roteado entre as máquinas virtuais na mesma rede virtual somente por endereços IP *privados*. 
+O emparelhamento de rede virtual permite que você conecte duas [redes virtuais](virtual-networks-overview.md) do Azure sem interrupção. Uma vez emparelhadas, as redes virtuais aparecerão como uma para fins de conectividade. O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas será roteado por meio da infraestrutura de backbone da Microsoft, assim como o tráfego é roteado entre as máquinas virtuais na mesma rede virtual somente por endereços IP *privados*. O Azure oferece suporte a:
+* Emparelhamento de rede virtual - conexão de redes virtuais na mesma região do Azure
+* Emparelhamento de rede virtual global - conexão de redes virtuais em regiões do Azure
 
-Os benefícios do uso do emparelhamento de rede virtual incluem:
+Os benefícios do uso do emparelhamento de rede virtual, seja local ou global, incluem:
 
 * O tráfego de rede entre redes virtuais emparelhadas é particular. O tráfego entre as redes virtuais é mantido na rede de backbone da Microsoft. Não são necessários a Internet pública, os gateways ou a criptografia na comunicação entre as redes virtuais.
 * Baixa latência, conexão com largura de banda alta entre os recursos em redes virtuais diferentes.

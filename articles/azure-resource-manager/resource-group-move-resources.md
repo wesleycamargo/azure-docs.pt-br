@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 40e79ba584843787ad7744f91e14907deb99ccaa
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -121,7 +121,6 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Serviços Cognitivos
 * Content Moderator
 * Catálogo de Dados
-* Data Factory
 * Data Lake Analytics
 * Repositório Data Lake
 * DNS
@@ -163,11 +162,14 @@ Os serviços que atualmente não permitem mover um recurso são:
 * AD Domain Services
 * Serviço de Integridade Híbrida do AD
 * Gateway de Aplicativo
+* Banco de Dados do Azure para MySQL
 * Serviços do BizTalk
+* Certificados - Os certificados do Serviço de Aplicativo podem ser movidos, mas os certificados carregados têm [limitações](#app-service-limitations).
 * Serviço de Contêiner
-* ExpressRoute
+* Data Factory
 * Laboratórios DevTest – mover para um novo grupo de recursos na mesma assinatura está habilitado, mas a troca entre assinaturas está desabilitado.
 * Dynamics LCS
+* ExpressRoute
 * Load Balancers - consulte [Limitações do Load Balancer](#lb-limitations)
 * Aplicativos gerenciados
 * Managed Disks – veja [Limitações das máquinas virtuais](#virtual-machines-limitations)
@@ -192,6 +194,8 @@ As máquinas virtuais criadas a partir dos recursos do Marketplace com os planos
 Máquinas Virtuais com certificado armazenado no Key Vault podem ser movidas para um novo grupo de recursos na mesma assinatura, mas não entre assinaturas.
 
 ## <a name="virtual-networks-limitations"></a>Limitações das redes virtuais
+
+Ao mover uma rede virtual, você também deve mover os recursos dependentes. Por exemplo, você deve mover os gateways com a rede virtual.
 
 Para mover uma rede virtual emparelhada, primeiro é necessário desabilitar o emparelhamento de rede virtual. Quando desabilitado, você pode mover a rede virtual. Após a movimentação, reabilite o emparelhamento de rede virtual.
 

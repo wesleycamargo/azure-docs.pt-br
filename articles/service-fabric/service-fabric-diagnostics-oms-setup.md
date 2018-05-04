@@ -12,24 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/30/2018
+ms.date: 4/03/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: af09df52fe733b69cfe4470de2fd6e978f126ca0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3d6a47ba184b4bbbd290a61c581ae8b83b9361af
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurar o Log Analytics para um cluster
 
-É possível configurar um espaço de trabalho do Log Analytics por meio do Azure Resource Manager, PowerShell ou Azure Marketplace. Se você mantém um modelo do Resource Manager atualizado de sua implantação para uso futuro, utilize o mesmo modelo para configurar o ambiente do OMS. A implantação por meio do Marketplace será mais fácil se você já tiver um cluster implantado com o diagnóstico habilitado. Caso não tenha acesso ao nível de assinatura na conta na qual está implantando o OMS, faça a implantação usando o PowerShell ou o modelo do Resource Manager.
+O Log Analytics é nossa recomendação para monitorar eventos de nível de cluster. É possível configurar um espaço de trabalho do Log Analytics por meio do Azure Resource Manager, PowerShell ou Azure Marketplace. Se você mantém um modelo do Resource Manager atualizado de sua implantação para uso futuro, utilize o mesmo modelo para configurar o ambiente do Log Analytics. A implantação por meio do Marketplace será mais fácil se você já tiver um cluster implantado com o diagnóstico habilitado. Caso não tenha acesso ao nível de assinatura na conta na qual está implantando, faça a implantação usando o PowerShell ou o modelo do Resource Manager.
 
 > [!NOTE]
-> Para configurar o Log Analytics para monitorar seu cluster, você precisa ter o diagnóstico habilitado para exibir eventos no nível do cluster ou da plataforma.
+> Para configurar o Log Analytics para monitorar seu cluster, você precisa ter o diagnóstico habilitado para exibir eventos no nível do cluster ou da plataforma. Consulte [como configurar o diagnóstico em clusters do Windows](service-fabric-diagnostics-event-aggregation-wad.md) e [como configurar o diagnóstico em clusters do Linux](service-fabric-diagnostics-event-aggregation-lad.md) para obter mais informações
 
-## <a name="deploy-oms-by-using-azure-marketplace"></a>Implantar o OMS usando o Azure Marketplace
+## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Implantar um espaço de trabalho do Log Analytics usando o Azure Marketplace
 
-Se você deseja adicionar um espaço de trabalho de OMS depois de implantar um cluster, vá para o Azure Marketplace no portal e procure **Análise do Service Fabric**:
+Se você deseja adicionar um espaço de trabalho do Log Analytics depois de implantar um cluster, vá para o Azure Marketplace no portal e procure **Análise do Service Fabric**. Esta é uma solução personalizada para implantações do Service Fabric que tenha dados específicos do Service Fabric. Neste processo, você criará a solução (o painel para exibir informações) e o espaço de trabalho (a agregação dos dados subjacentes do cluster).
 
 1. Selecione **Novo** no menu de navegação esquerdo. 
 
@@ -39,7 +39,7 @@ Se você deseja adicionar um espaço de trabalho de OMS depois de implantar um c
 
     ![Análise do OMS SF no Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Na janela de criação de Análise do Service Fabric, selecione **Selecionar um espaço de trabalho** para o campo **Espaço de trabalho do OMS** e, em seguida, **Criar um novo espaço de trabalho**. Preencha as entradas necessárias. O único requisito é que a assinatura para o cluster do Service Fabric e o espaço de trabalho de OMS devem ser iguais. Quando as entradas forem validadas, o espaço de trabalho do OMS começará a ser implantado. A implantação leva apenas alguns minutos.
+4. Na janela de criação de Análise do Service Fabric, selecione **Selecionar um espaço de trabalho** para o campo **Espaço de trabalho do OMS** e, em seguida, **Criar um novo espaço de trabalho**. Preencha as entradas necessárias. O único requisito é que a assinatura para o cluster do Service Fabric e o espaço de trabalho devem ser iguais. Quando as entradas forem validadas, o espaço de trabalho começará a ser implantado. A implantação leva apenas alguns minutos.
 
 5. Quando terminar, selecione **Criar** novamente na parte inferior da janela de criação de Análise do Service Fabric. Verifique se o novo espaço de trabalho será exibido em **Espaço de trabalho do OMS**. Essa ação adiciona a solução ao espaço de trabalho criado.
 
@@ -48,9 +48,9 @@ Se estiver usando o Windows, continue com as seguintes etapas para conectar o OM
 >[!NOTE]
 >A habilitação dessa experiência para clusters do Linux ainda não está disponível. 
 
-### <a name="connect-the-oms-workspace-to-your-cluster"></a>Conecte-se o espaço de trabalho do OMS para o cluster 
+### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Conecte-se ao espaço de trabalho do Log Analytics para o cluster 
 
-1. O espaço de trabalho precisa estar conectado aos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos em que você criou a solução Análise do Service Fabric. Selecione **ServiceFabric\<nomeDoEspaçodeTrabalhoOMS\>**  e vá para a página de visão geral. A partir daí, você pode alterar as configurações da solução,as configurações do espaço de trabalho e acessar o portal do OMS.
+1. O espaço de trabalho precisa estar conectado aos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos em que você criou a solução Análise do Service Fabric. Selecione **ServiceFabric\<nameOfWorkspace\>** e vá para a página de visão geral. A partir daí, você pode alterar as configurações da solução,as configurações do espaço de trabalho e acessar o portal do OMS.
 
 2. No menu de navegação à esquerda, selecione **Logs das contas de armazenamento** em **Fontes de Dados de Espaço de Trabalho**.
 

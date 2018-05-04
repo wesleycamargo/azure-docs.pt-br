@@ -1,18 +1,18 @@
 ---
-title: "Filtros de segurança para a fragmentação dos resultados do Azure Search usando identidades do Active Directory | Microsoft Docs"
-description: "Controle de acesso no conteúdo do Azure Search usando filtros de segurança e identidades do Active Directory."
-services: search
+title: Filtros de segurança para a fragmentação dos resultados do Azure Search usando identidades do Active Directory | Microsoft Docs
+description: Controle de acesso no conteúdo do Azure Search usando filtros de segurança e identidades do Active Directory.
 author: revitalbarletz
 manager: jlembicz
+services: search
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 7c1723e01c78132169d8975473a0e9f5466a066c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de segurança para a restrição dos resultados do Azure Search usando identidades do Active Directory
 
@@ -97,7 +97,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Etapa 4: Armazenar em Cache os identificadores de grupos
-Opcionalmente, para reduzir a latência de rede, você pode armazenar em cache as associações de grupo de usuários para que quando uma solicitação de pesquisa for emitida, os grupos sejam retornados do cache, economizando uma ida e volta ao AAD. Você pode usar (API do Lote do AAD)[https://developer.microsoft.com/graph/docs/concepts/json_batching] para enviar uma única solicitação de Http com diversos usuários e para compilar o cache.
+Opcionalmente, para reduzir a latência de rede, você pode armazenar em cache as associações de grupo de usuários para que quando uma solicitação de pesquisa for emitida, os grupos sejam retornados do cache, economizando uma ida e volta ao AAD. Você pode usar (API de lote AAD) [https://developer.microsoft.com/graph/docs/concepts/json_batching] para enviar uma única solicitação de Http com vários usuários e criar o cache.
 
 O Microsoft Graph foi projetado para lidar com um grande volume de solicitações. Caso haja um número excessivo de solicitações, o Microsoft Graph apresenta uma falha na solicitação com o código de status HTTP 429. Para saber mais, veja [Limitação de mecanismo do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
 

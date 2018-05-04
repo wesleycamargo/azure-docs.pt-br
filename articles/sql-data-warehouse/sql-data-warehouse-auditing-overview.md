@@ -1,28 +1,26 @@
 ---
 title: Auditoria no SQL Data Warehouse do Azure | Microsoft Docs
-description: "Introdução à auditoria no SQL Data Warehouse"
+description: Saiba mais sobre auditoria e como configurar a auditoria no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-documentationcenter: 
-author: ronortloff
-manager: jhubbard
-editor: 
-ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: security
-ms.date: 01/16/2018
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 6e0072602586b5a1b873a3a6a0ff71a9d640ff29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no Azure SQL Data Warehouse
 
+Saiba mais sobre auditoria e como configurar a auditoria no SQL Data Warehouse do Azure.
+
+## <a name="what-is-auditing"></a>O que é auditoria?
 A auditoria do SQL Data Warehouse permite registrar eventos no banco de dados em um log de auditoria na sua Conta de Armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança. A auditoria do SQL Data Warehouse também se integra ao Microsoft Power BI para relatórios e análises.
 
 As ferramentas de auditoria permitem e facilitam a adoção de padrões de conformidade, mas não garantem a conformidade. Para obter mais informações sobre os programas Azure que oferecem suporte à conformidade com os padrões, consulte o <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure Trust Center</a>.

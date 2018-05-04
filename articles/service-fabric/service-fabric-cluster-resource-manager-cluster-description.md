@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 396f1d3d8c69ba3204d16f06d49656fd138a1126
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 07ddf1c2b76230c8d753426d70098603ff14ec4d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrevendo um cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Cluster Resource Manager usa essas informações para garantir a alta disponibilidade dos serviços executados no cluster. Ao aplicar essas regras importantes, ele também tenta otimizar o consumo de recursos dentro do cluster.
@@ -39,7 +39,7 @@ Um domínio de falha é qualquer área da falha coordenada. Um único computador
 > [!WARNING]
 > É importante que as informações de domínio de falha fornecidas ao Service Fabric sejam precisas. Por exemplo, digamos que nós do cluster do Service Fabric estejam em execução dentro de dez máquinas virtuais que são executadas em cinco hosts físicos. Nesse caso, mesmo que haja dez máquinas virtuais, há apenas cinco domínios de falha (de nível superior) diferentes. Compartilhar o mesmo host físico faz com que as VMs compartilhem o mesmo domínio de falha raiz, uma vez que as VMs apresentarão falhas coordenadas se seu host físico falhar.  
 >
-> O Service Fabric espera que o domínio de falha de um nó não seja alterado. Outros mecanismos para garantir a alta disponibilidade das VMs, como [HA-VMs](https://technet.microsoft.com/en-us/library/cc967323.aspx), podem causar conflitos com o Service Fabric, pois usam a migração transparente de VMs de um host para outro. Esses mecanismos não reconfiguram ou notificam o código em execução dentro da VM. Sendo assim, eles **não têm suporte** como ambientes para executar clusters do Service Fabric. O Service Fabric deve ser a única tecnologia de alta disponibilidade empregada. Mecanismos como migração dinâmica de VMs e SANs, entre outros, não são necessários. Se usados em conjunto com o Service Fabric, esses mecanismos _reduzem_ a confiabilidade e a disponibilidade dos aplicativos, pois eles introduzem complexidade adicional, adicionam fontes de falha centralizadas e utilizam estratégias de disponibilidade e confiabilidade que entram em conflito com aquelas em vigor no Service Fabric. 
+> O Service Fabric espera que o domínio de falha de um nó não seja alterado. Outros mecanismos para garantir a alta disponibilidade das VMs, como [HA-VMs](https://technet.microsoft.com/library/cc967323.aspx), podem causar conflitos com o Service Fabric, pois usam a migração transparente de VMs de um host para outro. Esses mecanismos não reconfiguram ou notificam o código em execução dentro da VM. Sendo assim, eles **não têm suporte** como ambientes para executar clusters do Service Fabric. O Service Fabric deve ser a única tecnologia de alta disponibilidade empregada. Mecanismos como migração dinâmica de VMs e SANs, entre outros, não são necessários. Se usados em conjunto com o Service Fabric, esses mecanismos _reduzem_ a confiabilidade e a disponibilidade dos aplicativos, pois eles introduzem complexidade adicional, adicionam fontes de falha centralizadas e utilizam estratégias de disponibilidade e confiabilidade que entram em conflito com aquelas em vigor no Service Fabric. 
 >
 >
 

@@ -11,75 +11,80 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f87705ebbdd14b1bbf7cade481a7dbe7dd3d5131
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f25c39b602449be3ab9d1cd7e67d6fcfc78afb17
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitorar uso e custos estimados
 
-No hub do Monitor do Portal do Azure, a página **Uso e custos estimados** foi criada para ajudar a reconhecer o uso dos principais recursos de monitoramento, como [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Para clientes nos planos de preços disponíveis antes de abril de 2018, isso também inclui o uso do Log Analytics adquirido por meio das ofertas do Insights e do Analytics.
+No hub do Monitor do Portal do Azure, a página **Uso e custos estimados** explica o uso dos principais recursos de monitoramento, como [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Para clientes nos planos de preços disponíveis antes de abril de 2018, isso também inclui o uso do Log Analytics adquirido por meio das ofertas do Insights e do Analytics.
 
-Nessa página, os usuários podem visualizar o uso desses recursos nos últimos 31 dias, agregados por assinatura, com busca detalhada para ver a tendência de uso durante esse período. Há muitos dados necessários para efetuar pull em conjunto e fazer essa estimativa, portanto, seja paciente enquanto a página é carregada.
-Veja um exemplo que mostra o monitoramento de uso e uma estimativa dos custos resultantes:
+Nesta página, os usuários podem exibir o uso de recursos para os últimos 31 dias, agregados por assinatura. Os drill-ins mostram tendências de uso durante o período de 31 dias. São necessários vários dados para se juntar e fazer essa estimativa, portanto, seja paciente enquanto a página é carregada.
+
+Este exemplo mostra o uso de monitoramento e uma estimativa dos custos resultantes:
 
 ![Captura de tela do portal do uso e custos estimados](./media/monitoring-usage-and-estimated-costs/001.png)
 
-Clicar no link na coluna de uso Mensal abrirá um gráfico mostrando as tendências de uso nos últimos 31 dias:
+Selecione o link na coluna de uso mensal para abrir um gráfico que mostra as tendências de uso nos últimos 31 dias:
 
-![Incluído por captura de tela do nó 671,47 GB](./media/monitoring-usage-and-estimated-costs/002.png)
+![Incluído por captura de tela do gráfico de barras do nó](./media/monitoring-usage-and-estimated-costs/002.png)
 
-Este é outro resumo de custos e uso semelhante, nesse caso, para uma assinatura no novo modelo de preços com base no consumo de abril de 2018. Observe a falta de cobrança baseada em nó e que a retenção e ingestão de dados para o Log Analytics e Application Insights agora são relatadas em um novo medidor comum.
+Aqui está outro uso semelhante e resumo de custo. Este exemplo mostra uma assinatura no novo modelo de preços com base no consumo de abril de 2018. Observe a falta de cobrança com base no nó. A ingestão de dados e a retenção para o Log Analytics e Application Insights agora são relatadas em um novo medidor comum.
 
-![Captura de tela do portal do uso e custos estimados](./media/monitoring-usage-and-estimated-costs/003.png)
+![Captura de tela do portal do uso e custos estimados - Preços de abril de 2018](./media/monitoring-usage-and-estimated-costs/003.png)
 
 ## <a name="new-pricing-model"></a>Novo modelo de preços
 
-Em abril de 2018, um novo modelo de preços de monitoramento foi liberado.  Este apresenta preços com base no consumo e é amigável para nuvem. Você paga apenas pelo que usa, sem compromissos baseados em nó. Os detalhes do novo modelo de preços estão disponíveis para [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
+Em abril de 2018, um novo modelo de preços de monitoramento foi liberado. Apresenta preços com base no consumo e é amigável para a nuvem. Você paga apenas pelo que usa, sem compromissos baseados em nó. Os detalhes do novo modelo de preços estão disponíveis para [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
-Para clientes que participam do Log Analytics ou do Application Insights após 2 de abril de 2018, o novo modelo de preços é a única opção. Para clientes que já utilizaram esses serviços, a mudança para o novo modelo de preços é opcional.
+Para clientes que começaram a usar o Log Analytics ou o Application Insights após 2 de abril de 2018, o novo modelo de preços é a única opção. Para clientes que já utilizam esses serviços, a mudança para o novo modelo de preços é opcional.
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Avaliar o impacto do novo modelo de preços
 
-O novo modelo de preços terá impactos diferentes para cada cliente com base nos padrões de uso de monitoramento. Para clientes que já usavam o Log Analytics ou o Application Insights antes de 2 de abril de 2018, a página **Uso e custos estimados** no Azure Monitor fornece uma maneira de estimar qualquer alteração nos custos, caso o cliente passe para o novo modelo de preços e disponibiliza a maneira de mover uma assinatura para o novo modelo. Para a maioria dos clientes, o novo modelo de preços será vantajoso, mas especialmente para clientes com padrões de alto uso de dados ou em regiões de custo mais elevados, é possível que este não seja o caso.
+O novo modelo de preços terá impactos diferentes para cada cliente com base nos padrões de uso de monitoramento. Para os clientes que estavam usando o Log Analytics ou o Application Insights antes de 2 de abril de 2018, a página **Uso e custo estimados** no Azure Monitor calcula qualquer alteração nos custos se elas são movidas para o novo modelo de preços. Ele fornece a maneira de mover uma assinatura para o novo modelo. Para a maioria dos clientes, o novo modelo de preços será vantajoso. Para clientes com padrões de alto uso de dados ou em regiões de custo mais elevados, é possível que este não seja o caso.
 
-Para ver uma estimativa dos custos para as assinaturas que você selecionou na página **Uso e custos estimados** clique na faixa azul perto da parte superior da página. É recomendável fazer essa assinatura por vez, pois esse é o nível no qual o novo modelo de preços pode ser adotado.
+Para ver uma estimativa dos custos para as assinaturas que você selecionou na página **Uso e custos estimados**, selecione a faixa azul perto da parte superior da página. É recomendável fazer uma assinatura por vez, pois esse é o nível no qual o novo modelo de preços pode ser adotado.
 
-![Captura de tela do modelo de preços](./media/monitoring-usage-and-estimated-costs/004.png)
+![Monitorar o uso e os custos estimados no novo modelo de preços - captura de tela](./media/monitoring-usage-and-estimated-costs/004.png)
 
-A seguir, é apresentada uma versão semelhante dessa página com uma faixa verde:
+A nova página mostra uma versão semelhante da página anterior com uma faixa verde:
 
-![Captura de tela do modelo de preços](./media/monitoring-usage-and-estimated-costs/005.png)
+![Monitorar o uso e os custos estimados no modelo de preços atual - captura de tela](./media/monitoring-usage-and-estimated-costs/005.png)
 
-A seguir, será mostrado um conjunto diferente de medidores – os medidores que correspondem ao novo modelo de preços. Por exemplo, medidores de ingestão de dados como
+A página mostra também um conjunto diferente de medidores que correspondem ao novo modelo de preços. Essa lista é um exemplo:
 
-1. Insight e Analytics\Excedente por Nó
-2. Insight e Analytics\Incluído por Nó
-3. Application Insights\Dados Excedentes Básicos
-4. Application Insights\Dados Incluídos
+- Insight e Analytics\Excedente por Nó
+- Insight e Analytics\Incluído por Nó
+- Application Insights\Dados Excedentes Básicos
+- Application Insights\Dados Incluídos
 
-são combinados em um novo medidor comum de ingestão de dados chamado **Serviços Compartilhados\Ingestão de Dados**, pois o novo modelo de preços não tem alocações de dados incluídas com base em nó.
+O novo modelo de preços não tem as alocações de dados incluídas com base no nó. Portanto, esses medidores de ingestão de dados são combinados em um novo medidor de ingestão de dados comuns chamado **Serviços Compartilhados\Ingestão de Dados**. 
 
-Outra alteração que você verá é que os dados ingeridos no Log Analytics ou Application Insights em regiões com custos mais elevados serão mostrados com os novos medidores regionais para refletir adequadamente isso, por exemplo, **“Ingestão de Dados (Centro-oeste dos EUA)**.
+Há outra alteração nos dados ingeridos no Log Analytics ou no Application Insights em regiões com custos mais altos. Os dados para essas regiões de alto custo serão mostrados com os novos medidores regionais. Um exemplo é **Ingestão de Dados (Centro-oeste dos EUA)**.
 
 > [!NOTE]
-> Se você tiver uma assinatura do OMS (Microsoft Operations Management Suite), receberá as alocações de ingestão de dados do Log Analytics e do Application Insights para cada nó adquirido. Como isso é aplicado no nível da conta (não na assinatura), essa estimativa não pode mostrar o efeito dessas alocações. Neste caso, consulte seu representante de conta para uma discussão mais aprofundada sobre o novo modelo de preços.
+> Os custos estimados por assinatura não influenciam os direitos por nó de nível de conta da assinatura Operations Management Suite (OMS). Neste caso, consulte seu representante de conta para uma discussão mais aprofundada sobre o novo modelo de preços.
 
-## <a name="changes-when-moving-to-the-new-pricing-model"></a>Alterações ao mudar para o novo modelo de preços
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Novo modelo de preços e direitos de inscrição do Operations Management Suite
 
-Mover uma assinatura para o novo modelo de preços irá alterar a camada de preços de cada Log Analytics para uma nova camada Por GB e moverá todos (chamado “pergb2018” no Azure Resource Manager). Essa mudança também alterará todos os recursos do Application Insights no plano Enterprise para o plano Básico. Os efeitos destes são mostrados na estimativa de custo descrita acima. 
+Clientes que adquiriram o Microsoft Operations Management Suite E1 e E2 estão qualificados para direitos de ingestão de dados por nó para [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Para receber esses direitos para espaços de trabalho Log Analytics ou recursos Application Insights em uma determinada assinatura, o modelo de preços de assinatura deve permanecer no modelo de preços antes de abril de 2018. Que é onde o modelo de preços do Log Analytics "Por nó (OMS)" e o modelo de preços do Application Insights "Empresarial" estão disponíveis. Dependendo do número de nós do conjunto que sua organização adquiriu, mover algumas assinaturas para o novo modelo de preços ainda pode ser vantajoso. Mas isso requer uma consideração cuidadosa.
+
+## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Alterações ao mudar para o novo modelo de preços
+
+Mover uma assinatura para o novo modelo de preços irá alterar a camada de preços de cada Log Analytics para uma nova camada Por GB e moverá todos (chamado “pergb2018” no Azure Resource Manager). Essa mudança também alterará todos os recursos do Application Insights no plano Enterprise para o plano Básico. A estimativa de custo mostra os efeitos dessas alterações.
 
 ## <a name="moving-to-the-new-pricing-model"></a>Mover para o novo modelo de preços
 
-Se você decidiu adotar o novo modelo de preços para uma assinatura, clique na opção **Seleção do modelo de preços** na parte superior da página **Uso e custos estimados**:
+Se você decidiu adotar o novo modelo de preços para uma assinatura, selecione a opção **Seleção do modelo de preços** na parte superior da página **Uso e custos estimados**:
 
-![Captura de tela do novo modelo de preços para monitorar Uso e custos estimados](./media/monitoring-usage-and-estimated-costs/006.png)
+![Monitorar o uso e os custos estimados no novo modelo de preços - captura de tela](./media/monitoring-usage-and-estimated-costs/006.png)
 
-Isso abrirá a página **Seleção do modelo de preços** listando cada uma das assinaturas que você visualizou na página anterior:
+A página **Seleção de modelo de preços** será aberta. Mostra uma lista de cada uma das assinaturas que você exibiu na página anterior:
 
 ![Captura de tela da seleção do modelo de preços](./media/monitoring-usage-and-estimated-costs/007.png)
 
-Para mover uma assinatura para o novo modelo de preços, basta marcar a caixa e clicar em **Salvar**.  Você pode retornar para o modelo de preços mais antigo da mesma maneira. Lembre-se de que as permissões de colaborador ou proprietário da assinatura precisam alterar o modelo de preços.
+Para mover uma assinatura para o novo modelo de preços, basta marcar a caixa de seleção e clicar em **Salvar**. Você pode retornar para o modelo de preços mais antigo da mesma maneira. Lembre-se de que as permissões de colaborador ou proprietário da assinatura são necessárias para alterar o modelo de preços.

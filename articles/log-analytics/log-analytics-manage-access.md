@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar espaços de trabalho no Azure Log Analytics | Microsoft Docs"
-description: "Você pode gerenciar espaços de trabalho no Log Analytics do Azure usando uma variedade de tarefas administrativas em usuários, contas, espaços de trabalho e contas do Azure."
+title: Gerenciar espaços de trabalho no Azure Log Analytics | Microsoft Docs
+description: Você pode gerenciar espaços de trabalho no Log Analytics do Azure usando uma variedade de tarefas administrativas em usuários, contas, espaços de trabalho e contas do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 25a68fb535300e80efdf2adf9f3a8afe1b304667
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-workspaces"></a>Gerenciar espaços de trabalho
 
@@ -34,7 +34,7 @@ Para criar um espaço de trabalho, você precisa:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinar o número de espaços de trabalho que você precisa
 Um espaço de trabalho é um recurso do Azure e é um contêiner no qual os dados são coletados, agregados, analisados e apresentados no portal do Azure.
 
-Você pode ter vários espaços de trabalho por assinatura do Azure e ter acesso a mais de um espaço de trabalho. Anteriormente você poderia apenas analisar dados no espaço de trabalho atual e isso limitava sua capacidade de consultar em vários espaços de trabalho definidos em sua assinatura. Agora, você pode [consultar em vários espaços de trabalho](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), fornecendo uma exibição de todo o sistema de seus dados. Esta seção descreve quando pode ser útil criar mais de um espaço de trabalho.
+Você pode ter vários espaços de trabalho por assinatura do Azure e ter acesso a mais de um espaço de trabalho. Anteriormente você poderia apenas analisar dados no espaço de trabalho atual e isso limitava sua capacidade de consultar em vários espaços de trabalho definidos em sua assinatura. Agora, você pode [consultar em vários espaços de trabalho](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search), fornecendo uma exibição de todo o sistema de seus dados. Esta seção descreve quando pode ser útil criar mais de um espaço de trabalho.
 
 Hoje, um espaço de trabalho fornece:
 
@@ -77,14 +77,14 @@ Por padrão, a conta da Microsoft ou a conta Organizacional usada para criar o e
 Há dois modelos de permissão que controlam o acesso a um espaço de trabalho do Log Analytics:
 
 1. Funções de usuário herdadas do Log Analytics
-2. [Acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md)
+2. [Acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md)
 
 A tabela a seguir resume o acesso que pode ser definido usando cada modelo de permissão:
 
 |                          | Portal do Log Analytics | Portal do Azure | API (incluindo PowerShell) |
 |--------------------------|----------------------|--------------|----------------------------|
 | Funções de usuário do Log Analytics | sim                  | Não           | Não                          |
-| Acesso baseado em função do Azure  | sim                  | Sim          | sim                        |
+| Acesso baseado em função do Azure  | sim                  | sim          | sim                        |
 
 > [!NOTE]
 > O Log Analytics está passando a usar o acesso baseado em função do Azure como o modelo de permissão, substituindo as funções de usuário do Log Analytics.
@@ -104,7 +104,7 @@ As atividades a seguir também exigem permissões do Azure:
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gerenciar o acesso ao Log Analytics usando permissões do Azure
-Para conceder acesso ao espaço de trabalho do Log Analytics usando permissões do Azure, execute as etapas em [Usar atribuições de função para gerenciar o acesso aos recursos de sua assinatura do Azure](../active-directory/role-based-access-control-configure.md).
+Para conceder acesso ao espaço de trabalho do Log Analytics usando permissões do Azure, execute as etapas em [Usar atribuições de função para gerenciar o acesso aos recursos de sua assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
 
 O Azure tem duas funções de usuário predefinidas para o Log Analytics:
 - Leitor do Log Analytics
@@ -156,7 +156,7 @@ Use essas funções para conceder acesso aos usuários em escopos diferentes:
 - Grupo de Recursos - acesso a todo espaço de trabalho no grupo de recursos
 - Recurso - acesso somente ao espaço de trabalho especificado
 
-Use as [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md) para criar funções com as permissões específicas necessárias.
+Use as [funções personalizadas](../role-based-access-control/custom-roles.md) para criar funções com as permissões específicas necessárias.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Funções de usuário do Azure e funções de usuário do portal do Log Analytics
 Se você tiver pelo menos a permissão de leitura do Azure no espaço de trabalho do Log Analytics, abra o portal do OMS clicando na tarefa **Portal do OMS** ao exibir o espaço de trabalho do Log Analytics.
@@ -174,7 +174,7 @@ Sua atribuição de função no portal do OMS é determinada da seguinte maneira
 | Para assinaturas de gerenciadas por CSP (Provedor de solução de nuvem) <br> A conta com a qual você está conectado está no Azure Active Directory vinculado ao espaço de trabalho | Administrador | Normalmente, o cliente de um CSP |
 | Para assinaturas de gerenciadas por CSP (Provedor de solução de nuvem) <br> A conta com a qual você está conectado não está no Azure Active Directory vinculado ao espaço de trabalho | Colaborador | Normalmente o CSP |
 
-<sup>1</sup> Consulte [Permissões do Azure](../active-directory/role-based-access-control-custom-roles.md) para saber mais sobre definições de função. Ao avaliar funções, uma ação de `*` não é equivalente a `Microsoft.OperationalInsights/workspaces/*`.
+<sup>1</sup> Consulte [Permissões do Azure](../role-based-access-control/custom-roles.md) para saber mais sobre definições de função. Ao avaliar funções, uma ação de `*` não é equivalente a `Microsoft.OperationalInsights/workspaces/*`.
 
 Alguns pontos a ter em mente sobre o portal do Azure:
 

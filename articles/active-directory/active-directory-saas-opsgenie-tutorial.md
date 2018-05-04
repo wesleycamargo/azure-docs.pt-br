@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d57c80e8e965e15d92736ec482247f02064f6009
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Active Directory do Azure com o OpsGenie
 
@@ -112,33 +112,17 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     Na caixa de texto **URL de Logon**, digite a URL: `https://app.opsgenie.com/auth/login`
 
-4. Clique no botão **Salvar** .
+4. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+
+    ![O link de download do Certificado](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png)
+
+5. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-5. Na seção **Configuração do OpsGenie**, clique em **Configurar OpsGenie** para abrir a janela **Configurar logon**. Copie a **URL do Serviço de Logon Único SAML** da seção de Referência Rápida.
+6. Na seção **Configuração do OpsGenie**, clique em **Configurar OpsGenie** para abrir a janela **Configurar logon**. Copie a **URL do Serviço de Logon Único SAML** da seção de Referência Rápida.
 
     ![Configurar o logon único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
-
-6. Para gerar a **URL de Metadados**, execute as seguintes etapas:
-
-    a. Clique em **Registros do aplicativo**.
-    
-    ![Configurar o logon único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar o logon único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
-
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar o logon único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
-     
-    d. Agora, acesse a página de propriedades do **OpsGenie** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar o logon único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. Abra outra instância do navegador e, em seguida, faça logon no OpsGenie como administrador.
 
@@ -160,13 +144,9 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     
     a. Na caixa de texto **do Ponto de Extremidade SML 2.0**, cole o valor**a URL do Serviço de Logon único**que você copiou do portal do Azure.
     
-    b. Na caixa de texto **URL de Metadados**, cole o valor da **URL de Metadados** que você copiou do Portal do Azure.
+    b. Na caixa de texto **URL de Metadados:**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure.
     
     c. Clique em **Salvar Alterações**.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.

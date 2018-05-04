@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4294169e89533150cade700fb89e14c4121c4404
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dbb37c6fc2b5db8b2799eaacbfb4864c4e04fee7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Entrada HTTPS no AKS (Serviço de Contêiner do Azure)
 
@@ -21,9 +21,13 @@ Um controlador de entrada é uma parte do software que fornece proxy reverso, ro
 
 Este documento descreve uma implantação de exemplo do [Controlador de entrada NGINX][nginx-ingress] no cluster do AKS (Serviço de Contêiner do Azure). Além disso, o projeto [KUBE-LEGO][kube-lego] é usado para gerar e configurar automaticamente certificados [Vamos Criptografar][lets-encrypt]. Finalmente, vários aplicativos executam no cluster do AKS, cada um dos quais é acessível em um único endereço.
 
+## <a name="prerequisite"></a>Pré-requisito
+
+Instalar a CLI do Helm - Consulte a[documentação][helm-cli] da CLI do Helm para obter instruções de instalação.
+
 ## <a name="install-an-ingress-controller"></a>Instalar um controlador de entrada
 
-Use Helm para instalar o controlador de entrada NGINX. Consulte a [documentação][nginx-ingress] do controlador de entrada NGINX para obter informações detalhadas sobre a implantação. 
+Use Helm para instalar o controlador de entrada NGINX. Consulte a [documentação][nginx-ingress] do controlador de entrada NGINX para obter informações detalhadas sobre a implantação.
 
 Atualize o repositório do gráfico.
 
@@ -72,13 +76,7 @@ PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAdd
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-Se necessário, execute o comando a seguir para recuperar o FQDN. Atualize o valor do endereço IP com o do controlador de entrada.
-
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
-```
-
-O controlador de entrada agora está acessível por meio do FQDN.
+O controlador de entrada deve agora estar acessível através do FQDN.
 
 ## <a name="install-kube-lego"></a>Instalar KUBE-LEGO
 
@@ -177,12 +175,14 @@ Observe também que a conexão é criptografada e que um certificado emitido pel
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o software demonstrado neste documento. 
+Saiba mais sobre o software demonstrado neste documento.
 
+- [CLI do Helm][helm-cli]
 - [Controlador de entrada NGINX ][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

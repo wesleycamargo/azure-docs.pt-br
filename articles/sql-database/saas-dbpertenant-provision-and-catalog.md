@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3a4026b56522da6c6efede4b8b7a542efc8a776d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como provisionar novos locatários e registrá-los no catálogo
 
@@ -63,7 +63,7 @@ O provisionamento de banco de dados deve fazer parte de sua estratégia de geren
 
 O aplicativo de banco de dados por locatário Wingtip Tickets provisiona novos locatários copiando um banco de dados modelo chamado _basetenantdb_, que é implantado no servidor de catálogo. O provisionamento pode ser integrado ao aplicativo como parte da experiência de entrada. Ele também pode ter suporte offline com o uso de scripts. Este tutorial explora o provisionamento usando o PowerShell. 
 
-Os scripts de provisionamento copiam o banco de dados _basetenantdb_ para criar um novo banco de dados de locatário em um pool elástico. Os scripts inicializam o banco de dados com informações específicas do locatário e o registram no mapa do fragmento de catálogo. Bancos de dados de locatário são nomes com base no nome do locatário. Esse esquema de nomenclatura não é uma parte crítica do padrão. O catálogo mapeia a chave de locatário para o nome do banco de dados, para que qualquer convenção de nomenclatura possa ser usada. 
+Os scripts de provisionamento copiam o banco de dados _basetenantdb_ para criar um novo banco de dados de locatário em um pool elástico. O banco de dados de locatário é criado no servidor de locatários mapeado para o alias DNS _newtenant_. Esse alias mantém uma referência ao servidor usado para provisionar novos locatários e é atualizado para apontar um servidor de locatário de recuperação nos tutoriais de recuperação de desastre ([DR usando restauração geográfica](saas-dbpertenant-dr-geo-restore.md), [DR usando replicação geográfica](saas-dbpertenant-dr-geo-replication.md)). Os scripts inicializam o banco de dados com informações específicas do locatário e o registram no mapa do fragmento de catálogo. Bancos de dados de locatário são nomes com base no nome do locatário. Esse esquema de nomenclatura não é uma parte crítica do padrão. O catálogo mapeia a chave de locatário para o nome do banco de dados, para que qualquer convenção de nomenclatura possa ser usada. 
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo de banco de dados por locatário SaaS Wingtip Tickets

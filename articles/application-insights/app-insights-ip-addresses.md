@@ -1,6 +1,6 @@
 ---
-title: "Endereços IP usados pelo Application Insights e pelo Log Analytics | Microsoft Docs"
-description: "Exceções de firewall de servidor exigidas pelo Application Insights"
+title: Endereços IP usados pelo Application Insights e pelo Log Analytics | Microsoft Docs
+description: Exceções de firewall de servidor exigidas pelo Application Insights
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b48b17b214f6ff22c7c68421ba8c89104c8b4b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP usados pelo Application Insights e pelo Log Analytics
 O serviço [Azure Application Insights](app-insights-overview.md) usa vários endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
@@ -48,7 +48,7 @@ Configuração do Monitor de Status - necessária somente ao fazer alterações.
 | Configuração |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuração |`auth.gfx.ms` | |`443` |
 | Configuração |`login.live.com` | |`443` |
-| Instalação |`packages.nuget.org` , `nuget.org`, `api.nuget.org` | |`443` |
+| Instalação |`packages.nuget.org`, `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (Downloads NuGet) | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
 | Finalidade | URL | IP | Portas |

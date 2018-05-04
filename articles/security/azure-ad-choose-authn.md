@@ -9,11 +9,11 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: e7f894733546fa8949902a82f4ae3a9c62b749c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 102fa06be3734fa6993616f752922433ee0dee7f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choosing-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolhendo o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory 
 
@@ -87,7 +87,7 @@ Consulte [como implementar a Sincronização de Hash de Senha](https://docs.micr
 
 * **Experiência do usuário:** recomenda-se que as organizações implantem o logon único contínuo com autenticação de passagem para melhorar a experiência de entrada do usuário, evitando solicitações desnecessárias quando eles se conectarem.
 
-* **Cenários avançados:** a autenticação de passagem garante que as solicitações de autenticação sejam negadas imediatamente quando o estado de conta do usuário local está desabilitado, bloqueado ou quando a senha expirou. As organizações que requerem autenticação multifator com autenticação de passagem devem usar a autenticação multifator do Azure AD e não podem usar um método de autenticação multifator local ou de terceiros. Os recursos avançados, como o relatório de credenciais vazadas da Proteção de Identidade requererão que a Sincronização de Hash de Senha seja implantada independentemente se você escolher a autenticação de passagem.
+* **Cenários avançados:** a autenticação de passagem garante que as solicitações de autenticação sejam negadas imediatamente quando o estado de conta do usuário local está desabilitado, bloqueado ou quando a senha expirou ou após passarem as horas de logon permitidas ao usuário. As organizações que requerem autenticação multifator com autenticação de passagem devem usar a autenticação multifator do Azure AD e não podem usar um método de autenticação multifator local ou de terceiros. Os recursos avançados, como o relatório de credenciais vazadas da Proteção de Identidade requererão que a Sincronização de Hash de Senha seja implantada independentemente se você escolher a autenticação de passagem.
 
 * **Continuidade de negócios:** recomenda-se que você implante dois agentes de passagem extra, além do primeiro agente no servidor do Azure AD Connect para garantir a alta disponibilidade de solicitações de autenticação. Quando você tiver três agentes implantados, um deles ainda poderá falhar quando outro agente estiver inoperante para manutenção. Outro benefício da implantação da Sincronização de Hash de Senha, além da autenticação de passagem, é que ela poderá funcionar como método de autenticação de backup quando o método de autenticação principal não estiver mais disponível, por exemplo, quando os servidores locais não estão disponíveis.
 

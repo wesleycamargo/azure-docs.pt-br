@@ -1,25 +1,25 @@
 ---
 title: Tutorial de MongoDB, Angular e Node para Azure - parte 4 | Microsoft Docs
-description: "Parte 4 da série de tutoriais sobre como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB"
+description: Parte 4 da série de tutoriais sobre como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e1d96fe8cb06be08863bbcd1885080aaca8fbd61
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c9f0c6f18645a8d3a5a069aa55fec0ba8e9ba547
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Criar um aplicativo do MongoDB com Angular e Azure Cosmos DB - parte 4: criar uma conta do Azure Cosmos DB usando a CLI do Azure
 
@@ -64,7 +64,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 Pode levar um minuto ou dois para o comando ser concluído. Quando tiver terminado, a janela do terminal exibirá informações sobre o novo banco de dados. 
 
 Depois que a conta do Azure Cosmos DB foi criada:
-1. Abra uma nova janela do navegador e vá para [https://portal.azure.com](https://portal.azure.com)
+1. Abra uma nova janela do navegador e acesse [https://portal.azure.com](https://portal.azure.com)
 1. Clique no logotipo do Azure Cosmos DB ![Ícone do Azure Cosmos DB no portal do Azure](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) na barra de ferramentas à esquerda e ele mostrará todos os Azure Cosmos DBs que você tem.
 1. Clique na conta do Azure Cosmos DB que você acabou de criar, selecione a guia **Visão Geral** e role para baixo para exibir o mapa onde se encontra o banco de dados. 
 

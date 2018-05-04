@@ -1,26 +1,26 @@
 ---
-title: "Condições de acesso condicional do Azure Active Directory | Microsoft Docs"
-description: "Saiba como as atribuições são usadas no acesso condicional do Azure Active Directory para disparar uma política."
+title: Condições de acesso condicional do Azure Active Directory | Microsoft Docs
+description: Saiba como as atribuições são usadas no acesso condicional do Azure Active Directory para disparar uma política.
 services: active-directory
-keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Condições de acesso condicional do Azure Active Directory 
 
@@ -71,7 +71,7 @@ A condição de aplicativos de nuvem é obrigatória em uma política de acesso 
 
 Você pode selecionar:
 
-- **Todos os aplicativos em nuvem** para políticas de linha de base a serem aplicadas em toda a organização. Um caso de uso comum para essa seleção é uma política que exige autenticação multifator quando o risco de entrada for detectado para qualquer aplicativo de nuvem.
+- **Todos os aplicativos em nuvem** para políticas de linha de base a serem aplicadas em toda a organização. Um caso de uso comum para essa seleção é uma política que exige autenticação multifator quando o risco de entrada for detectado para qualquer aplicativo de nuvem. Uma política aplicada a **Todos os aplicativos em nuvem** aplica-se ao acesso a todos os sites e serviços. Essa configuração não limita-se aos aplicativos na nuvem exibidos na lista **Selecionar aplicativos em nuvem**.
 
 - Aplicativos de nuvem individuais para atingir serviços específicos pela política. Por exemplo, você pode exigir que os usuários tenham um [dispositivo compatível](active-directory-conditional-access-policy-connected-applications.md) para acessar o SharePoint Online. Essa política também se aplica a outros serviços quando eles acessarem o conteúdo do SharePoint, por exemplo, Microsoft Teams. 
 
@@ -147,7 +147,7 @@ Casos de uso comuns para essa condição são políticas que:
 
 Além de usar protocolos de autenticação modernos e SSO da Web, você pode aplicar essa condição para aplicativos de email que usam o Exchange ActiveSync, como os aplicativos de email nativos na maioria dos smartphones. No momento, aplicativos cliente que usam os protocolos herdados precisam ser protegidos usando o AD FS.
 
- Para obter mais informações, confira:
+ Para obter mais informações, consulte:
 
 - [Configurar o SharePoint Online e o Exchange Online para acesso condicional do Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md)
  

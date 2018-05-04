@@ -1,4 +1,19 @@
-
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: b4d208ca28f6287489f104ba4e2ea9696e7a1f58
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/24/2018
+---
 ## <a name="about-vhds"></a>Sobre VHDs
 
 Os VHDs usados no Azure são arquivos .vhd armazenados como blobs de página em uma conta de armazenamento padrão ou premium no Azure. Para conhecer mais detalhes sobre os blobs, consulte [Noções Gerais sobre blobs de blocos e blobs de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Para obter detalhes sobre o armazenamento premium, veja [Armazenamento premium de alto desempenho e máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
@@ -10,10 +25,10 @@ Todos os arquivos. vhd no Azure que você deseja usar como uma fonte para criar 
 Quando você cria uma máquina virtual por meio de uma imagem, o Azure cria um disco para a máquina virtual que é uma cópia do arquivo .vhd de origem. Para proteger contra exclusão acidental, o Azure faz uma concessão de qualquer arquivo .vhd de origem que é usado para criar uma imagem, um disco de sistema operacional ou um disco de dados.
 
 Antes de excluir um arquivo .vhd de origem, você precisará remover a concessão excluindo o disco ou a imagem. Para excluir um arquivo .vhd que está sendo usado por uma máquina virtual como disco do sistema operacional, você pode excluir a máquina virtual, o disco do sistema operacional e o arquivo .vhd de origem de uma só vez excluindo a máquina virtual e todos os discos associados. No entanto, a exclusão de um arquivo .vhd que é uma origem de um disco de dados requer várias etapas em uma ordem definida. Primeiro, desanexar o disco da máquina virtual; em seguida, excluir o disco e, por fim, excluir o arquivo .vhd.
-
 > [!WARNING]
 > Se você excluir um arquivo .vhd de origem do armazenamento ou excluir sua conta de armazenamento, a Microsoft não poderá recuperar esses dados para você.
 > 
+> Blobs de página no Armazenamento Premium são projetados para uso como somente VHDs. A Microsoft não recomenda armazenar outros tipos de dados em blobs de página no Armazenamento Premium, pois o custo pode ser significativamente maior. Use os blobs de bloco para armazenar dados que não estão em um VHD.
 
 ## <a name="types-of-disks"></a>Tipos de discos 
 
@@ -30,7 +45,7 @@ Para saber mais sobre como usar o armazenamento Standard com discos de VM, veja 
 
 ### <a name="premium-storage"></a>Armazenamento Premium 
 
-O Armazenamento Premium tem o suporte de SSDs e oferece suporte de disco de alto desempenho e baixa latência para VMs executando cargas de trabalho intensivas para entradas e saídas. Você pode usar o Armazenamento Premium com DS, DSv2, GS, Ls ou FS as VMs do Azure da série. Para saber mais, veja [Armazenamento Premium](../articles/virtual-machines/windows/premium-storage.md).
+O Armazenamento Premium tem o suporte de SSDs e oferece suporte de disco de alto desempenho e baixa latência para VMs executando cargas de trabalho intensivas para entradas e saídas. Normalmente você pode usar o armazenamento Premium com tamanhos que incluem um "s" no nome da série. Por exemplo, há a série de Dv3 e a série Dsv3, a série Dsv3 pode ser usada com o Armazenamento Premium.  Para saber mais, veja [Armazenamento Premium](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Discos não gerenciados
 

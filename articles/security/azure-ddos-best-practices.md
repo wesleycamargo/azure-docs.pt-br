@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: barclayn
-ms.openlocfilehash: fea235ed057517840515f1ad0543dba1b1c46dd0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4b2d785f5b9095a2decfc65ec46808ff6f65c38e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architecture"></a>Proteção contra DDoS do Azure: práticas recomendadas e arquitetura de referência
 
@@ -167,7 +167,7 @@ Firmamos parceria com a [BreakingPoint Cloud](https://www.ixiacom.com/products/b
 
 - Treine suas equipes de segurança de rede
 
-A segurança cibernética é uma batalha implacável que exige constante inovação na proteção. A Proteção contra DDoS Standard do Azure é uma oferta de ponta tstate-of-the-artstomers com uma solução efetiva para mitigar ataques de DDoS cada vez mais complexos.
+A segurança cibernética é uma batalha implacável que exige constante inovação na proteção. A Proteção contra DDoS Standard do Azure é uma oferta de ponta para clientes com uma solução efetiva para mitigar ataques de DDoS cada vez mais complexos.
 
 ## <a name="components-of-a-ddos-response-strategy"></a>Componentes de uma estratégia de resposta a DDoS
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f4825d7393b4507b1cd512f3e33c5637fea8ba2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 35636543ac4cbd260e9db2f6ca5d1548a7329858
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e escala no Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Como o particionamento funciona? Cada item deve ter uma *chave de partição* e 
 De forma resumida, veja como o particionamento funciona no Azure Cosmos DB:
 
 * Você pode provisionar um contêiner do Azure Cosmos DB com uma taxa de transferência **T** RU/s (solicitações por segundo).
-* Nos bastidores, o Azure Cosmos DB provisiona as partições necessárias para atender as solicitações **T** por segundo. Se **T** for maior que a taxa de transferência máxima por partição **t**, o Azure Cosmos DB provisionará as partições **N = T/t**.
+* Nos bastidores, o Azure Cosmos DB provisiona as partições necessárias para atender as solicitações **T** por segundo. Se **T** for maior que a taxa de transferência máxima por partição **t**, o Azure Cosmos DB provisionará as partições **N = T/t**. O valor da taxa de transferência máxima por partição(t) é configurado com o Azure Cosmos DB. Esse valor é atribuído com base na taxa de transferência total provisionada e a configuração de hardware utilizada. 
 * O Azure Cosmos DB aloca o espaço de chave dos hashes de chave de partição uniformemente entre as partições **N**. Sendo assim, cada partição (partição física) hospeda os valores de chave de partição (partições lógicas) **1/N**.
 * Quando uma partição física **p** atinge seu limite de armazenamento, o Azure Cosmos DB divide perfeitamente **p** em duas novas partições, **p1** e **p2**. Ele distribui valores correspondentes para cerca de metade das chaves para cada uma das novas partições. Essa operação de divisão é completamente invisível para o aplicativo. Se uma partição física atingir seu limite de armazenamento e todos os dados na partição física pertencerem à mesma chave de partição lógica, a operação de divisão não ocorrerá. Isso ocorre porque todos os dados para uma chave única de partição lógica devem residir na mesma partição física. Nesse caso, uma estratégia de chave de partição diferente deve ser empregada.
 * Quando você provisiona uma taxa de transferência maior que **t*N**, o Azure Cosmos DB divide uma ou mais de suas partições para dar suporte à taxa de transferência mais alta.

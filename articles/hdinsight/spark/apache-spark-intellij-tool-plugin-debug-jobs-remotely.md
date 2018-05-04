@@ -58,7 +58,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 2. Na interface do usuário do Ambari, selecione **Hosts**.
 
     ![Selecionar Hosts no Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
-3. Você deve ver uma lista de nós de cabeçalho, nós de trabalho e nós do zookeeper. Os nós de cabeçalho têm um prefixo **hn***. Selecione o primeiro nó de cabeçalho.
+3. Você deve ver uma lista de nós de cabeçalho, nós de trabalho e nós do zookeeper. Os nós de cabeçalho têm um prefixo **hn**\*. Selecione o primeiro nó de cabeçalho.
 
     ![Localizar o nó de cabeçalho no Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 4. No painel **Resumo** na parte inferior da página que abre, copie o **endereço IP** do nó de cabeçalho e o **nome do host**.

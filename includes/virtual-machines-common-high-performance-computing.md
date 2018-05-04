@@ -181,7 +181,7 @@ Aqui estão exemplos de clientes que solucionaram problemas de negócios com sol
 * Saiba mais sobre as soluções de computação intensa para [simulação de engenharia](https://simulation.azure.com/), [renderização](https://simulation.azure.com/), [bancos e mercados de capital](https://finance.azure.com/) e [genômicas](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Usar o serviço [Lote](https://azure.microsoft.com/services/batch/) do Azure gerenciável e escalável para executar cargas de trabalho de computação intensa sem ter que gerenciar a infraestrutura subjacente [Saiba mais](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Usar o serviço [Lote](https://azure.microsoft.com/services/batch/) do Azure gerenciável e escalável para executar cargas de trabalho de computação intensa sem ter que gerenciar a infraestrutura subjacente [Saiba mais](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

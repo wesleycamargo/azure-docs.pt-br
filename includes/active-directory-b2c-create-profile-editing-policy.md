@@ -1,4 +1,4 @@
-Para habilitar a edição de perfil no aplicativo, você precisará criar uma política de edição de perfil. Essa política descreve as experiências pelas quais os consumidores passarão durante a edição do perfil e o conteúdo de tokens que o aplicativo receberá na conclusão bem-sucedida.
+Se quiser habilitar a edição de perfil no aplicativo, use uma política de **edição de perfil**. Essa política descreve as experiências pelas quais os clientes passarão durante a edição de perfil e o conteúdo dos tokens que o aplicativo receberá após a conclusão com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

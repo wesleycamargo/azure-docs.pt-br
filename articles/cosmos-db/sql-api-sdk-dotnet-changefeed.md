@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: fe6dd9545be17453be38ce9afd5836aa07882ce6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 24a1a04bf7170886b232611eefd7174192904ff0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
 > [!div class="op_single_selector"]
@@ -40,6 +40,9 @@ ms.lasthandoff: 04/16/2018
 |**Framework atualmente com suporte**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Correções na estimativa de trabalho pendente.
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Aprimoramentos de estabilidade.
@@ -74,6 +77,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |18 de abril de 2018 |--- |
 | [1.3.1](#1.3.1) |13 de março de 2018 |--- |
 | [1.2.0](#1.2.0) |31 de outubro de 2017 |--- |
 | [1.1.1](#1.1.1) |29 de agosto de 2017 |--- |

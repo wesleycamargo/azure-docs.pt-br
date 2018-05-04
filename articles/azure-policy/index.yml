@@ -1,30 +1,30 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação do Azure Policy"
+title: Documentação do Azure Policy
 metadata:
-  title: "Documentação do Azure Policy - Tutoriais, Referência da API | Microsoft Docs"
-  description: "O Azure Policy ajuda você a gerenciar e prevenir problemas de TI com definições de políticas que impõem regras e ações para os seus recursos. Quando você usa o Azure Policy, os recursos permanecem compatíveis com seus padrões empresariais e contratos de nível de serviço. Aprenda a criar, atribuir e gerenciar definições de políticas com nossos guias de início rápido, tutoriais e exemplos."
+  title: Documentação do Azure Policy - Tutoriais, Referência da API | Microsoft Docs
+  description: O Azure Policy ajuda você a gerenciar e prevenir problemas de TI com definições de políticas que impõem regras e ações para os seus recursos. Quando você usa o Azure Policy, os recursos permanecem compatíveis com seus padrões empresariais e contratos de nível de serviço. Aprenda a criar, atribuir e gerenciar definições de políticas com nossos guias de início rápido, tutoriais e exemplos.
   services: azure-policy
-  author: czeumault
-  manager: carolz
+  author: DCtheGeek
+  manager: carmonm
   ms.service: azure-policy
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/18/2017
-  ms.author: carolz
-  ms.openlocfilehash: 6082601b46ab4b420575fbc4d04b176c96225f72
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.author: dacoulte
+  ms.openlocfilehash: 0ca9efe0c1c1871265da127acfd76e90126b59ad
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 04/28/2018
 abstract:
-  description: "O Azure Policy ajuda você a gerenciar e prevenir problemas de TI com definições de políticas que impõem regras e ações para os seus recursos. Quando você usa o Azure Policy, os recursos permanecem compatíveis com seus padrões empresariais e contratos de nível de serviço. Aprenda a criar, atribuir e gerenciar definições de políticas com nossos guias de início rápido, tutoriais e exemplos."
+  description: O Azure Policy ajuda você a gerenciar e prevenir problemas de TI com definições de políticas que impõem regras e ações para os seus recursos. Quando você usa o Azure Policy, os recursos permanecem compatíveis com seus padrões empresariais e contratos de nível de serviço. Aprenda a criar, atribuir e gerenciar definições de políticas com nossos guias de início rápido, tutoriais e exemplos.
 sections:
-- title: "Guia de início rápido de 5 minutos"
+- title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: "Aprenda como criar, atribuir e gerenciar definições de políticas no Azure."
+    text: Aprenda como criar, atribuir e gerenciar definições de políticas no Azure.
   - type: list
     style: icon48
     items:
@@ -43,7 +43,7 @@ sections:
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: "Aprenda como criar, atribuir e gerenciar definições de políticas no Azure."
+    text: Aprenda como criar, atribuir e gerenciar definições de políticas no Azure.
   - type: list
     style: unordered
     items:
@@ -51,13 +51,13 @@ sections:
 - title: Exemplos
   items:
   - type: paragraph
-    text: "Use os exemplos JSON a seguir para ajudar a criar as definições de política no Azure."
+    text: Use os exemplos JSON a seguir para ajudar a criar as definições de política no Azure.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/azure-policy/json-samples">PowerShell do Azure</a>
-- title: "Referência"
+- title: Referência
   items:
   - type: list
     style: cards

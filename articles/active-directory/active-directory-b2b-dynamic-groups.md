@@ -1,13 +1,13 @@
 ---
-title: "Grupos dinâmicos e Colaboração do Azure Active Directory B2B | Microsoft Docs"
-description: "Mostra como usar os grupos dinâmicos do Azure AD com a colaboração B2B do Azure Active Directory"
+title: Grupos dinâmicos e Colaboração do Azure Active Directory B2B | Microsoft Docs
+description: Mostra como usar os grupos dinâmicos do Azure AD com a colaboração B2B do Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb700e513947034a783c6b6574c8daddf96844b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d96fefb859cba5db65382801fb1ac143df12b647
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupos dinâmicos e Colaboração do Azure Active Directory B2B
 
@@ -55,7 +55,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Delegação de convites de colaboração B2B](active-directory-b2b-delegate-invitations.md)
 * [Código de colaboração B2B e exemplos do PowerShell](active-directory-b2b-code-samples.md)
 * [Configurar aplicativos SaaS para colaboração B2B](active-directory-b2b-configure-saas-apps.md)
-* [Tokens de usuário de colaboração B2B](active-directory-b2b-user-token.md)
-* [Mapeamento de declarações de usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
-* [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
-* [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
+

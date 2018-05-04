@@ -4,7 +4,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Criar um banco de dados SQL em branco
 
-Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](../articles/sql-database/sql-database-service-tiers.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de banco de dados SQL do Azure](../articles/sql-database/sql-database-features.md). 
+Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](../articles/sql-database/sql-database-service-tiers-dtu.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de banco de dados SQL do Azure](../articles/sql-database/sql-database-features.md). 
 
 Siga estas etapas para criar um banco de dados SQL em branco. 
 

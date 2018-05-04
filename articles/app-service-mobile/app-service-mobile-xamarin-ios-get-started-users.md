@@ -1,11 +1,11 @@
 ---
-title: "Introdução à autenticação para aplicativos móveis no Xamarin iOS"
-description: "Aprenda a usar os aplicativos móveis para autenticar usuários de seu aplicativo Xamarin iOS por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft."
+title: Introdução à autenticação para aplicativos móveis no Xamarin iOS
+description: Aprenda a usar os aplicativos móveis para autenticar usuários de seu aplicativo Xamarin iOS por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 1649d2bf4f3429f2f5f56bdabdfe9a015a115893
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Adicionar autenticação ao aplicativo Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -116,7 +116,7 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. Abra o arquivo **Info.plist**, navegue até **Tipos de URL** na seção **Avançado**. Agora configure o **Identificador** e os **Esquemas de URL** do Tipo de URL e clique em **Adicionar Tipo de URL**. Os **Esquemas de URL** devem ser o mesmo que o {esquema_de_URL_do_seu_aplicativo}.
-7. No Visual Studio ou Xamarin Studio conectado ao seu Host de compilação Xamarin em seu Mac, execute o projeto de cliente direcionado a um dispositivo ou emulador. Verifique se o aplicativo não exibe dados.
+7. No Visual Studio, conectado ao Host do Mac ou Visual Studio para Mac, execute o projeto do cliente direcionando um dispositivo ou emulador. Verifique se o aplicativo não exibe dados.
    
     Faça um gesto de atualização pressionando a lista de itens, o que fará com que a tela de logon apareça. Depois de fornecer credenciais válidas, o aplicativo exibirá a lista de itens de tarefas e você poderá atualizar os dados.
 

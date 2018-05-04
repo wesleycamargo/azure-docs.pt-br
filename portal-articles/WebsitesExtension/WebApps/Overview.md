@@ -1,6 +1,6 @@
 ---
-title: "Visão geral de aplicativos Web | Microsoft Docs"
-description: "Visão geral do conteúdo da Ajuda para aplicativos Web no portal do Azure"
+title: Visão geral do Serviço de Aplicativo | Microsoft Docs
+description: Visão geral do conteúdo da Ajuda para Serviço de Aplicativo no portal do Azure
 services: app-service
 author: sewatson
 manager: lwelicki
@@ -8,19 +8,21 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 13709876752dd5df356765ed636c5a7e4a665d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e795a6c5f76fb8d40c7e6778555de619d00b3a41
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="web-apps-documentation"></a>Documentação de Aplicativos Web
+# <a name="app-service-documentation"></a>Documentação do Serviço de Aplicativo
+O Serviço de Aplicativo do Azure permite criar e hospedar aplicativos Web na linguagem de programação de sua escolha, sem gerenciamento de infra-estrutura nem tempo de execução de estrutura da Web ou linguagem. Eles oferecem o dimensionamento automático e alta disponibilidade, compatível com Windows e Linux e permite implantações automatizadas do GitHub, Visual Studio Team Services ou qualquer repositório Git. Saiba como usar o Serviço de Aplicativo do Azure com nossos inícios rápidos, tutoriais e exemplos.
 
-Os Aplicativos Web do Azure permitem criar e hospedar aplicativos Web na linguagem de programação de sua escolha, sem gerenciamento de infra-estrutura. Eles oferecem o dimensionamento automático e alta disponibilidade, compatível com Windows e Linux e permite implantações automatizadas do GitHub, Visual Studio Team Services ou qualquer repositório Git. Saiba como usar os Aplicativos Web do Azure com nossos guias de início rápido, tutoriais e exemplos.
+## <a name="windows-linux-and-docker"></a>Windows, Linux e Docker
+[Aplicativos Web](/app-service/app-service-web-overview) é o Serviço de Aplicativo principal de oferta para a criação e hospedagem de aplicativos da Web usando os ambientes do Windows. Os desenvolvedores que preferem ambientes Linux podem escolher o [Serviço de Aplicativo para Linux](/app-service/containers/app-service-linux-intro). Os desenvolvedores também podem implantar imagens do Docker diretamente no Serviço de Aplicativo para Linux para implantar os tempos de execução/estruturas personalizados.
 
 ## <a name="5-minute-quickstarts"></a>Guia de início rápido de 5 minutos
 
-Aprenda a implantar seu primeiro aplicativo para a nuvem usando Aplicativos Web:
+Saiba como implantar seu primeiro aplicativo para a nuvem usando o Serviço de Aplicativo para Aplicativos Web:
 
 - [.NET](/azure/app-service/app-service-web-get-started-dotnet)
 - [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
@@ -33,7 +35,11 @@ Aprenda a implantar seu primeiro aplicativo para a nuvem usando Aplicativos Web:
 
 Saiba como implantar, gerenciar e monitorar aplicativos Web seguros no Azure.
 
-- Crie um aplicativo usando [.NET com o Banco de Dados SQL do Azure](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase) ou [Node.js com MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+- Crie um aplicativo usando:
+  - [.NET com banco de dados SQL do Azure](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+  - [Node.js com o MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+  - [Java com MySQL](/app-service/app-service-web-tutorial-java-mysql)
+  - [Python com PostgreSQL](/app-service/app-service-web-tutorial-python-postgresql)
 - [Mapear um domínio personalizado existente para seu aplicativo ](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Associar um certificado SSL existente ao seu aplicativo](/azure/app-service/app-service-web-tutorial-custom-SSL)
 
@@ -51,5 +57,4 @@ Encontre scripts para gerenciar tarefas comuns.
 
 ## <a name="more"></a>Mais
 
-- [Veja a documentação para saber mais](/azure/app-service-web/index)
 - [Saiba mais sobre todos os Serviços do Azure](https://aka.ms/j3wr7y)

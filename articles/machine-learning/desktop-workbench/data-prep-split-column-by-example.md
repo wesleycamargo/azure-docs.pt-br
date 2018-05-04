@@ -1,6 +1,6 @@
 ---
-title: "Transformação Dividir Coluna por Exemplo usando o Azure Machine Learning Workbench"
-description: "O documento de referência para a transformação “Dividir Coluna por Exemplo”"
+title: Transformação Dividir Coluna por Exemplo usando o Azure Machine Learning Workbench
+description: O documento de referência para a transformação “Dividir Coluna por Exemplo”
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 497c1725fc4554792add11c0ec069d1628a89fbd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="split-column-by-example-transformation"></a>Transformação Dividir coluna por exemplo
 Essa transformação divide preditivamente o conteúdo de uma coluna em limites significativos sem a necessidade de entrada do usuário. O algoritmo de divisão seleciona os limites depois de analisar o conteúdo da coluna. Esses limites podem ser definidos por

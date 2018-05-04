@@ -1,11 +1,11 @@
 ---
-title: "Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure Active Directory | Microsoft Docs"
-description: "Saiba mais sobre os conceitos e as etapas necessárias para usar o Azure AD (Azure Active Directory) para autenticar o acesso à API dos Serviços de Mídia do Azure."
+title: Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure Active Directory | Microsoft Docs
+description: Saiba mais sobre os conceitos e as etapas necessárias para usar o Azure AD (Azure Active Directory) para autenticar o acesso à API dos Serviços de Mídia do Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57f2680d6b3f06a88a13a09018e7d72afcb710a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD
  
 A API dos Serviços de Mídia do Azure é uma API RESTful. Você pode usá-la para executar operações em recursos de mídia usando uma API REST ou os SDKs de cliente disponíveis. Os Serviços de Mídia do Azure oferecem um SDK de cliente dos Serviços de Mídia para o Microsoft .NET. Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, primeiro você deve ser autenticado. 
 
-Os Serviços de Mídia dão suporte à [autenticação baseada no Azure AD (Azure Active Directory)](../active-directory/active-directory-whatis.md). O serviço REST de Mídia do Azure exige que o usuário ou o aplicativo que faz as solicitações da API REST tenha a função **Colaborador** ou **Proprietário** para acessar os recursos. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../active-directory/role-based-access-control-what-is.md).  
+Os Serviços de Mídia dão suporte à [autenticação baseada no Azure AD (Azure Active Directory)](../active-directory/active-directory-whatis.md). O serviço REST de Mídia do Azure exige que o usuário ou o aplicativo que faz as solicitações da API REST tenha a função **Colaborador** ou **Proprietário** para acessar os recursos. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
 > Atualmente, os Serviços de Mídia dão suporte ao modelo de autenticação do serviço de Controle de Acesso do Azure. No entanto, a autorização de Controle de Acesso será preterida em 1º de junho de 2018. Recomendamos que você migre para o modelo de autenticação do Azure AD assim que possível.
@@ -75,13 +75,13 @@ No diagrama anterior, os números representam o fluxo das solicitações em orde
         As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito.
     * URI de recurso dos Serviços de Mídia. 
 
-        Esse URI é o mesmo das contas dos Serviços de Mídia que estão no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
+        Esse URI é o mesmo para contas de Serviços de Mídia que estão no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
 
     * ID do cliente do aplicativo (nativo) dos Serviços de Mídia.
     * URI de redirecionamento do aplicativo (nativo) dos Serviços de Mídia.
     * URI de recurso dos Serviços de Mídia REST.
         
-        O URI representa o ponto de extremidade de API REST (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
+        O URI representa o ponto de extremidade da API REST (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
 
     Para obter valores para esses parâmetros, consulte [Usar o portal do Azure para acessar as configurações de autenticação do Azure AD](media-services-portal-get-started-with-aad.md) usando a opção de autenticação de usuário.
 
@@ -117,11 +117,11 @@ Na figura anterior, os números representam o fluxo das solicitações em ordem 
         As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito.
     * URI de recurso dos Serviços de Mídia. 
 
-        Esse URI é o mesmo das contas dos Serviços de Mídia que estão localizadas no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
+        Esse URI é o mesmo para contas de Serviços de Mídia localizadas no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
 
     * URI de recurso dos Serviços de Mídia REST.
 
-        O URI representa o ponto de extremidade de API REST (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
+        O URI representa o ponto de extremidade da API REST (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
 
     * Valores do aplicativo do Azure AD: a ID do cliente e o segredo do cliente.
     
@@ -135,7 +135,7 @@ Para obter mais informações sobre como usar a autenticação do Azure AD para 
 
 Se você não estiver usando o SDK de cliente do .NET dos Serviços de Mídia, deverá criar manualmente uma solicitação de token do Azure AD usando os parâmetros descritos na etapa 1. Para obter mais informações, consulte [Como usar a Biblioteca de Autenticação do Azure AD para obter o token do Azure AD](../active-directory/develop/active-directory-authentication-libraries.md).
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Exceção: “O servidor remoto retornou um erro: (401) Não autorizado”.
 
@@ -147,7 +147,7 @@ Os seguintes artigos são visões gerais dos conceitos de autenticação do Azur
 
 - [Cenários de autenticação abordados pelo Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 - [Adicionar, atualizar ou remover um aplicativo no Azure AD](../active-directory/develop/active-directory-integrating-applications.md)
-- [Configurar e gerenciar o Controle de Acesso Baseado em Função usando o PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Configurar e gerenciar o Controle de Acesso Baseado em Função usando o PowerShell](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

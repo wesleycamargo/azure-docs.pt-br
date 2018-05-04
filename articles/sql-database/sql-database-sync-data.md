@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL (versão prévia)
 
@@ -44,7 +44,7 @@ A Sincronização de Dados usa uma topologia hub-spoke para sincronizar os dados
 
 ## <a name="when-to-use-data-sync"></a>Quando usar a Sincronização de Dados
 
-A Sincronização de Dados é útil em casos onde os dados precisam ser atualizados em vários Bancos de Dados SQL do Azure ou Bancos de Dados do SQL Server. Estes são os casos de uso principais para Sincronização de Dados:
+A Sincronização de Dados é útil em casos onde os dados precisam ser atualizados em vários Bancos de Dados SQL do Microsoft Azure ou bancos de dados do Microsoft SQL Server. Estes são os casos de uso principais para Sincronização de Dados:
 
 -   **Sincronização de Dados Híbrida:** com a Sincronização de Dados, você pode manter os dados sincronizados entre seus bancos de dados local e os Bancos de Dados SQL do Azure para habilitar aplicativos híbridos. Esse recurso pode ser atraente para clientes que estejam avaliando a mudança para a nuvem e gostariam de colocar alguns dos seus aplicativos no Azure.
 
@@ -138,6 +138,11 @@ Sim. Você deve ter uma conta do Banco de Dados SQL para hospedar o Banco de Dad
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Posso usar a Sincronização de Dados para sincronizar somente entre bancos de dados locais do SQL Server? 
 Não diretamente. Contudo, é possível sincronizar entre bancos de dados locais do SQL Server indiretamente criando um banco de dados Hub no Azure e adicionando os bancos de dados locais ao grupo de sincronização.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Eu posso usar a Sincronização de Dados para sincronizar entre os Bancos de Dados SQL que pertencem a assinaturas diferentes?
+Sim. É possível sincronizar entre os Bancos de Dados SQL que pertencem a grupos de recursos pertencentes a assinaturas diferentes.
+-   Se as assinaturas pertencerem ao mesmo locatário e você tiver permissão para todas as assinaturas, será possível configurar o grupo de sincronização no Portal do Azure.
+-   Caso contrário, será necessário usar o PowerShell para adicionar os membros de sincronização que pertencem a assinaturas diferentes.
    
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Posso usar a Sincronização de Dados para propagar dados do meu banco de dados de produção para um banco de dados vazio e mantê-los sincronizados? 
 Sim. Crie o esquema manualmente no novo banco de dados desenvolvendo o script com base no original. Depois de criar o esquema, adicione as tabelas a um grupo de sincronização para copiar os dados e mantê-los sincronizados.
@@ -147,6 +152,12 @@ Sim. Crie o esquema manualmente no novo banco de dados desenvolvendo o script co
 Não é recomendável usar a Sincronização de Dados SQL (Versão Prévia) para criar um backup de seus dados. Você não pode fazer backup e restaurar para um ponto específico no tempo porque as sincronizações da Sincronização de Dados SQL (Versão Prévia) não têm controle de versão. Além disso, a Sincronização de Dados SQL (Versão Prévia) não faz backup de outros objetos SQL, como procedimentos armazenados e não fazem o equivalente a uma operação de restauração rapidamente.
 
 Para obter uma técnica de backup recomendada, veja [Copiar um banco de dados SQL do Azure](sql-database-copy.md).
+
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>A Sincronização de Dados pode sincronizar tabelas e colunas criptografadas?
+
+-   Se um banco de dados usar Always Encrypted, será possível sincronizar apenas as tabelas e colunas *não* criptografadas. Não é possível sincronizar as colunas criptografadas porque a sincronização de dados não pode descriptografar os dados.
+
+-   Se uma coluna usar a CLE (Criptografia em Nível de Coluna), será possível sincronizar a coluna, desde que o tamanho da linha seja menor que o tamanho máximo de 24 MB. A Sincronização de Dados trata a coluna criptografada pela chave (CLE) como dados binários normais. Para descriptografar os dados em outros membros de sincronização, é necessário ter o mesmo certificado.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>Há suporte para agrupamento na Sincronização de Dados SQL?
 
@@ -166,7 +177,7 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
 -   [Melhores práticas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
--   [Monitorar Sincronização de Dados SQL do Azure com o Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Solucionar problemas com a Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:

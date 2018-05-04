@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7fe1cd003bd7e6b681989324a42a076f4fd2f7df
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d60c5766b22e31c33d0dd4a743fa297470109ac6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Use o provisionamento automático do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para registrar o MXChip IoT DevKit com o Hub IoT
 
@@ -54,7 +54,7 @@ Para conectar o Kit de Desenvolvimento à instância de serviço de provisioname
 4. Abra o Visual Studio Code, conecte o DevKit ao computador e abra a pasta contendo o código clonado.
 
 5. Abra **DevKitDPS.ino**. Localize e substitua `[Global Device Endpoint]` e `[ID Scope]` pelos valores anotados.
-  ![Ponto de extremidade do DPS](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) Você pode deixar o **registrationId** em branco. O aplicativo irá gerar um com base no endereço MAC e na versão do firmware. Se você quiser personalizá-la, a ID de Registro deve usar combinações alfanuméricas, minúsculas e hifens com no máximo 128 caracteres. Para obter mais informações, consulte [Gerenciar registros de dispositivos com o Portal do Azure](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
+  ![Ponto de extremidade do DPS](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) Você pode deixar o **registrationId** em branco. O aplicativo irá gerar um com base no endereço MAC e na versão do firmware. Se você quiser personalizá-la, a ID de Registro deve usar combinações alfanuméricas, minúsculas e hifens com no máximo 128 caracteres. Para obter mais informações, consulte [Gerenciar registros de dispositivos com o Portal do Azure](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
 
 6. Use a Abertura Rápida no VS Code (Windows: `Ctrl+P`, macOS: `Cmd+P`) e insira *task device-upload* para compilar e carregar o código para o Kit de Desenvolvimento.
 

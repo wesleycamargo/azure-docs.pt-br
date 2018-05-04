@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao Cerner Central | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Cerner Central."
+title: 'Tutorial: integração do Azure Active Directory ao Cerner Central | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Cerner Central.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 391994b8df73657dc75e8c9790356f443341159d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6481a96956fe82d47c3c0bb2f7f69a0df8d5b993
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Tutorial: integração do Azure Active Directory ao Cerner Central
 
@@ -31,7 +31,7 @@ A integração do Cerner Central ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Cerner Central, você precisa dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Cerner Central da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-cerner-central-from-the-gallery"></a>Adicionar o Cerner Central da galeria
 Para configurar a integração do Cerner Central ao Azure AD, você precisa adicionar o Cerner Central à sua lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -63,11 +63,11 @@ Para configurar a integração do Cerner Central ao Azure AD, você precisa adic
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Para adicionar o novo aplicativo, clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Cerner Central**.
 
@@ -77,18 +77,18 @@ Para configurar a integração do Cerner Central ao Azure AD, você precisa adic
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Cerner Central, com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Cerner Central é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Cerner Central.
 
 Para configurar e testar o logon único do Azure AD com o Cerner Central, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criação de um usuário de teste do Cerner Central](#creating-a-cerner-central-test-user)** – para ter um equivalente de Brenda Fernandes no Cerner Central que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -98,15 +98,15 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. No Portal do Azure, na página de integração do aplicativo **Cerner Central**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
-    ![Configurar Logon Único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_samlbase.png)
+
+    ![Configurar o logon único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_samlbase.png)
 
 3. Na seção **URLs e Domínio do Cerner Central**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_url.png)
 
     a. Na caixa de texto **Identificador**, digite o valor usando os seguintes padrões:
     
@@ -115,46 +115,24 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     
-
-    b. Na caixa de texto **URL de Resposta** , digite uma URL nos seguintes padrões: 
+    b. Na caixa de texto **URL de Resposta** , digite uma URL nos seguintes padrões:
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
     
-
-    > [!NOTE] 
+    > [!NOTE]
     > Esses não são os valores reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) para obter esses valores.
- 
-4. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
-
-5. Para gerar a URL de **Metadados**, execute as seguintes etapas:
-
-    a. Clique em **Registros do aplicativo**.
+4. Na seção **Certificado de Autenticação SAML** clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
     
-    ![Configurar Logon Único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar Logon Único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpointicon.png)
-
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar Logon Único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpoint.png)
+    ![Configurar o logon único](./media/active-directory-saas-cernercentral-tutorial/tutorial_metadataurl.png)
      
-    d. Agora, vá para a página de propriedades do **Cerner Central** e copie a **ID do aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar Logon Único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_appid.png)
+5. Clique no botão **Salvar** .
 
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+    ![Configurar o logon único](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
 
-6. Para configurar o logon único no lado do **Cerner Central**, você precisa enviar a **URL de Metadados** para o [suporte do Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Eles configuram o SSO no lado do aplicativo para concluir a integração.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+6. Para configurar logon único no **Cerner Central**, é necessário enviar a **URL de metadados de federação do aplicativo**  para o [suporte do Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Eles configuram o SSO no lado do aplicativo para concluir a integração.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes. 
@@ -205,7 +183,7 @@ Nesta seção, ao conceder a Brenda Fernandes acesso ao Cerner Central, você pe
 
 2. Na lista de aplicativos, selecione **Cerner Central**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -247,4 +225,3 @@ Ao clicar no bloco do Cerner Central no Painel de Acesso, você deverá ser cone
 [201]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_203.png
-

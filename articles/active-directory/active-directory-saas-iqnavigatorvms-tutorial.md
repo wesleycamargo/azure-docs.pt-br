@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao IQNavigator VMS | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o IQNavigator VMS."
+title: 'Tutorial: Integração do Azure Active Directory ao IQNavigator VMS | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o IQNavigator VMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 82c91ba8fa340fb2b179d61200a69e94ab85b6d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddb2883c0b90aaffa82bbc701cdc20de1feb7e19
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Tutorial: Integração do Azure Active Directory ao IQNavigator VMS
 
@@ -31,7 +31,7 @@ A integração do IQNavigator VMS ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao IQNavigator VMS, você precisa dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o IQNavigator VMS por meio da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-iqnavigator-vms-from-the-gallery"></a>Adicionando o IQNavigator VMS por meio da galeria
 Para configurar a integração do IQNavigator VMS ao Azure AD, é necessário adicionar o IQNavigator VMS à lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -63,11 +63,11 @@ Para configurar a integração do IQNavigator VMS ao Azure AD, é necessário ad
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **IQNavigator VMS**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do IQNavigator VMS ao Azure AD, é necessário ad
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configura e testa o logon único do Azure AD com o IQNavigator VMS, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do IQNavigator VMS é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do IQNavigator VMS.
@@ -86,11 +86,11 @@ No IQNavigator VMS, atribua o valor do **nome de usuário** no Azure AD como o v
 
 Para configurar e testar o logon único do Azure AD com o IQNavigator VMS, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criando um usuário de teste do IQNavigator VMS](#creating-a-iqnavigator-vms-test-user)** – para ter um equivalente de Brenda Fernandes no IQNavigator VMS que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração do aplicativo **IQNavigator VMS**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
-    ![Configurar Logon Único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_samlbase.png)
+
+    ![Configurar o logon único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_samlbase.png)
 
 3. Na seção **Domínio e URLs do IQNavigator VMS**, realize as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url.png)
 
     a. Na caixa de texto **Identificador**, digite a URL: `iqn.com`
 
@@ -116,50 +116,30 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 4. Marque **Mostrar configurações de URL avançadas** e realize a seguinte etapa:
 
-    ![Configurar Logon Único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url1.png)
+    ![Configurar o logon único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url1.png)
 
     Na caixa de texto **Estado de retransmissão**, digite uma URL usando o seguinte padrão: `https://<subdomain>.iqnavigator.com`
 
-    > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Resposta e o estado de Retransmissão reais. Contate a [equipe de suporte ao Cliente do IQNavigator VMS](https://www.beeline.com/iqn-product-support/) para obter esses valores. 
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com a URL de Resposta e o estado de Retransmissão reais. Contate a [equipe de suporte ao Cliente do IQNavigator VMS](https://www.beeline.com/iqn-product-support/) para obter esses valores.
 
-5. Clique no botão **Salvar** .
-
-    ![Configurar Logon Único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_400.png)
-
-6. Para gerar a URL de **Metadados**, execute as seguintes etapas:
-
-    a. Clique em **Registros do aplicativo**.
+5. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
     
-    ![Configurar Logon Único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar Logon Único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpointicon.png)
+    ![Configurar o logon único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar Logon Único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpoint.png)
-     
-    d. Agora, acesse a página de propriedades do **IQNavigator VMS** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar Logon Único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appid.png)
+6. O aplicativo IQNavigator espera o valor do identificador de usuário único na declaração do Identificador de Nome. O cliente pode mapear o valor correto para a declaração do Identificador de Nome. Nesse caso, mapeamos o UserPrincipalName do usuário para a finalidade da demonstração. Porém, de acordo com as configurações de sua organização, você deve mapear o valor correto para ele.
 
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+    ![Configurar o logon único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
-7. O aplicativo IQNavigator espera o valor do identificador de usuário único na declaração do Identificador de Nome. O cliente pode mapear o valor correto para a declaração do Identificador de Nome. Nesse caso, mapeamos o UserPrincipalName do usuário para a finalidade da demonstração. Porém, de acordo com as configurações de sua organização, você deve mapear o valor correto para ele.   
+7. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
+    ![Configurar o logon único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_400.png)
 
 8. Na seção **Configuração do IQNavigator VMS**, clique em **Configurar o IQNavigator VMS** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png)
 
-9. Para configurar o logon único no lado do **IQNavigator VMS**, é necessário enviar a **URL de Metadados**, a **URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** para a [equipe de suporte do IQNavigator VMS](https://www.beeline.com/iqn-product-support/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+9. Para configurar o logon único no lado do **IQNavigator VMS**, é necessário enviar a **URL de metadados de federação do aplicativo**, a **URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** para a [equipe de suporte do IQNavigator VMS](https://www.beeline.com/iqn-product-support/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -174,11 +154,11 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_02.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_02.png)
 
 3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_03.png) 
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_03.png)
 
 4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
@@ -191,7 +171,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="creating-a-iqnavigator-vms-test-user"></a>Criando um usuário de teste do IQNavigator VMS
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no IQNavigator VMS. Trabalhe com a [equipe de suporte do IQNavigator VMS](https://www.beeline.com/iqn-product-support/) para adicionar os usuários à conta do IQNavigator VMS.
@@ -200,21 +180,21 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no IQNavi
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao IQNavigator VMS.
 
-![Atribuir usuário][200] 
+![Atribuir usuário][200]
 
 **Para atribuir Brenda Fernandes ao IQNavigator VMS, realize as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
-    ![Atribuir usuário][201] 
+    ![Atribuir usuário][201]
 
 2. Na lista de aplicativos, selecione **IQNavigator VMS**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png)
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
-    ![Atribuir usuário][202] 
+    ![Atribuir usuário][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
@@ -237,8 +217,6 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
