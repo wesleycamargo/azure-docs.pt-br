@@ -111,6 +111,8 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: Sobre o Azure Traffic Manager com o Site Recovery
       href: concepts-traffic-manager-with-site-recovery.md
+    - name: Sobre o ExpressRoute com o Site Recovery
+      href: concepts-expressroute-with-site-recovery.md
     - name: Perguntas frequentes
       href: site-recovery-faq.md
 - name: Guias de instruções
@@ -119,12 +121,14 @@
       items:
         - name: Rede
           items:
-            - name: Gerenciar a rede para a recuperação de desastre da VM do Azure (versão prévia)
+            - name: Gerenciar a rede para a recuperação de desastre da VM do Azure
               href: azure-to-azure-about-networking.md
             - name: Preparar o mapeamento da rede na recuperação de desastre da VM do Azure
               href: azure-to-azure-network-mapping.md
             - name: Configurar o endereçamento IP para failover
               href: site-recovery-retain-ip-azure-vm-failover.md
+            - name: ExpressRoute com a recuperação de desastres de máquinas virtuais do Azure
+              href: azure-vm-disaster-recovery-with-expressroute.md
         - name: Recuperação de desastre
           items:
             - name: Recuperação de desastres das VMs do Azure após a migração para o Azure
