@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do data center do Azure pilha - identidade
 Você pode implantar a pilha do Azure usando o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Antes de implantar a pilha do Azure, você deve fazer a escolha. Implantação usando o AD FS também é chamada de como implantar o Azure pilha no modo desconectado.
@@ -60,10 +60,12 @@ Requisitos:
 
 ## <a name="setting-up-graph-integration"></a>Configurar a integração de gráfico
 
+Gráfico só dá suporte à integração com uma única floresta do Active Directory. Se houver várias florestas, apenas a floresta especificada na configuração será usada para buscar os usuários e grupos.
+
 As informações a seguir são necessárias como entradas para os parâmetros de automação:
 
 
-|Parâmetro|Descrição|Exemplo|
+|Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN do destino da floresta do Active Directory<br>Se você deseja integrar com|Contoso.com|
 |CustomADAdminCredentials|Um usuário com permissão de leitura de LDAP|YOURDOMAIN\graphservice|
@@ -95,16 +97,18 @@ Para esse procedimento, use um computador em sua rede de datacenter que pode se 
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   Quando solicitado, especifique a credencial da conta de usuário que você deseja usar para o serviço de gráfico (como graphservice).
+   Quando solicitado, especifique a credencial da conta de usuário que você deseja usar para o serviço de gráfico (como graphservice). A entrada para o cmdlet Register-DirectoryService deve ser o nome da floresta / raiz de domínio na floresta em vez de qualquer outro domínio na floresta.
 
    > [!IMPORTANT]
    > Aguarde até que as credenciais de pop-up (Get-Credential não há suporte para no ponto de extremidade com privilégios) e insira as credenciais de conta de serviço do Graph.
 
 #### <a name="graph-protocols-and-ports"></a>Gráfico de protocolos e portas
 
+Serviço de gráfico na pilha do Azure usa os seguintes protocolos e portas para se comunicar com um servidor de catálogo de Global (GC) gravável e o Centro de distribuição de chaves (KDC) que pode processar solicitações de logon no destino de floresta do Active Directory.
+
 Serviço de gráfico na pilha do Azure usa os seguintes protocolos e portas para se comunicar com o destino do Active Directory:
 
-|Digite|Porta|Protocolo|
+|type|Porta|Protocolo|
 |---------|---------|---------|
 |LDAP|389|TCP E UDP|
 |LDAP SSL|636|TCP|
@@ -115,7 +119,7 @@ Serviço de gráfico na pilha do Azure usa os seguintes protocolos e portas para
 
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
-|Parâmetro|Descrição|Exemplo|
+|Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nome do provedor de declarações. <cr>Parece dessa forma na página de aterrissagem do AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Link de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -154,7 +158,7 @@ Use este método se alguma das seguintes condições for verdadeira:
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
 
-|Parâmetro|Descrição|Exemplo|
+|Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nome do provedor de declarações. Parece que forma na página de aterrissagem do AD FS.|Contoso|
 |CustomADFSFederationMetadataFile|Arquivo de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -289,7 +293,7 @@ Há muitos cenários que exigem o uso de um nome principal de serviço (SPN) par
 Para obter mais informações sobre como criar um SPN, consulte [criar entidade de serviço do AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 ### <a name="configuration-rollback"></a>Reversão de configuração
 

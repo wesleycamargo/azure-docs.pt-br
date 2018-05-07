@@ -22,6 +22,8 @@
       href: powershell-samples.md
 - name: Tutoriais
   items:
+    - name: Balancear tráfego interno de carga para VMs
+      href: tutorial-load-balancer-basic-internal-portal.md
     - name: VMs com balanceamento de carga entre zonas de disponibilidade
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: VM de balanceamento de carga dentro de uma zona específica de disponibilidade

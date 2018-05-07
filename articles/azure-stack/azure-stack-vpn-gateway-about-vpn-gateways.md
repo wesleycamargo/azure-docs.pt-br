@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: 10b2bf863540330a57b5aecac438f2b9e4bc8a74
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 7e489db0d9a65b850df41360ce11616d518c5265
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sobre o gateway VPN para a pilha do Azure
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
@@ -94,7 +94,7 @@ A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada
 |**SKU de Alto Desempenho** | 200 Mbps    | 5 |
 ***(1)***  VPN a taxa de transferência não é uma taxa de transferência garantida para conexões entre locais através da Internet. É a medida de taxa de transferência máxima possível.  
 ***(2)***  Túneis o número máximo é o total por implantação da pilha do Azure para todas as assinaturas.  
-***(3)***  BGP não há suporte para a SKU básico.  
+***(3)***  BGP não há suporte para a SKU básico.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [as configurações para gateways VPN](azure-stack-vpn-gateway-settings.md) pilha do Azure.

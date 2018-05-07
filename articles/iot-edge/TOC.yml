@@ -53,6 +53,8 @@
           href: how-to-vscode-debug-csharp-module.md
         - name: Depurar Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: CI/CD no VSTS
+      href: how-to-ci-cd.md
     - name: Armazenar dados na borda
       href: sql-storage.md
     - name: Solucionar problemas

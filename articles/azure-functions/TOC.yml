@@ -123,6 +123,8 @@
           href: durable-functions-versioning.md
         - name: Desempenho e escala
           href: durable-functions-perf-and-scale.md
+        - name: Recuperação de desastres e distribuição geográfica
+          href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Guias de instruções
   items:
     - name: Desenvolver
@@ -195,7 +197,7 @@
           href: functions-bindings-cosmosdb.md
         - name: Grade de Eventos
           href: functions-bindings-event-grid.md
-        - name: Hubs de evento
+        - name: Hubs de Eventos
           href: functions-bindings-event-hubs.md
         - name: Arquivo externo
           href: functions-bindings-external-file.md

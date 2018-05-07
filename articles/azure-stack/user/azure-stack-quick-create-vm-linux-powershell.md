@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 86597defad7c76d41065270030a4c77ee901b014
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 1e2dbc6020dd317e96c4116811f8e3bf87680bfb
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Início rápido: criar uma máquina virtual do servidor Linux usando o PowerShell na pilha do Azure
 
@@ -28,6 +28,7 @@ ms.lasthandoff: 04/28/2018
 Você pode criar uma máquina virtual de Ubuntu Server 16.04 LTS usando o Azure PowerShell de pilha. Siga as etapas neste artigo para criar e usar uma máquina virtual.  Este artigo fornece as etapas para:
 
 * Conecte-se à máquina virtual com um cliente remoto.
+* Instalar o servidor de web NGINX e exibir a página inicial padrão.
 * Limpe os recursos não utilizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -218,6 +219,26 @@ ssh <Public IP Address>
 ```
 
 Quando solicitado, digite azureuser como o usuário de logon. Se você usou uma senha ao criar as chaves de SSH, você precisará fornecer a frase secreta.
+
+## <a name="install-the-nginx-web-server"></a>Instalar o servidor de web NGINX
+
+Para atualizar recursos do pacote e instalar o pacote NGINX mais recente, execute o seguinte script:
+
+```bash
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## <a name="view-the-nginx-welcome-page"></a>Exibir a página de boas-vindas do NGINX
+
+Com NGINX instalado e a porta 80 aberta na sua máquina virtual, você pode acessar o servidor web usando o endereço IP público da máquina virtual. Abra um navegador da web e navegue até ```http://<public IP address>```.
+
+![Página de boas-vindas NGINX web server](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

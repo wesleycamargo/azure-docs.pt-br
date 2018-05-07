@@ -1,39 +1,35 @@
 ---
 title: Servidores na pilha do Azure de hospedagem SQL | Microsoft Docs
-description: "Como adicionar instâncias do SQL para o provisionamento por meio do provedor de recursos do adaptador de SQL"
+description: Como adicionar instâncias do SQL para o provisionamento por meio do provedor de recursos do adaptador de SQL
 services: azure-stack
-documentationCenter: 
-author: mattbriggs
+documentationCenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: 0a29ef133a045b2828777050f2d7a204c0add4a8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Adicionar servidores de hospedagem para uso pelo adaptador de SQL
-
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
-
+# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do SQL
 Você pode usar instâncias do SQL em máquinas virtuais dentro de seu [Azure pilha](azure-stack-poc.md), ou uma instância fora de seu ambiente de pilha do Azure, fornecido o provedor de recursos pode se conectar a ele. Os requisitos gerais são:
 
 * A instância do SQL deve ser dedicada para uso por cargas de trabalho do usuário e RP. Você não pode usar uma instância do SQL que está sendo usada por outro consumidor, incluindo serviços de aplicativos.
-* O adaptador RP não tiver ingressado no domínio e só pode se conectar usando a autenticação do SQL.
-* Você deve configurar uma conta com privilégios apropriados para uso pela RP.
-* RP e usuários, como aplicativos Web usam a rede de usuário, para que conectividade com a instância do SQL nesta rede seja necessária. Esse requisito geralmente significa que o IP de suas instâncias do SQL deve estar em uma rede pública.
-* Gerenciamento de seus hosts e as instâncias do SQL é até você. RP não executar a aplicação de patch, o backup, credencial rotação, etc.
+* O provedor de recursos do SQL VM não está ingressado no domínio e só pode se conectar usando a autenticação do SQL.
+* Você deve configurar uma conta com privilégios apropriados para uso pelo provedor de recursos.
+* O provedor de recursos e os usuários, como aplicativos Web, usam a rede do usuário, para que conectividade com a instância do SQL nesta rede seja necessária. Esse requisito geralmente significa que o IP de suas instâncias do SQL deve estar em uma rede pública.
+* Gerenciamento de seus hosts e as instâncias do SQL é até você. o provedor de recursos não executar a aplicação de patch, o backup, credencial rotação, etc.
 * SKUs podem ser usados para criar classes diferentes de recursos do SQL, como desempenho, sempre ativa, etc.
 
-
-Um número de imagens de máquinas virtuais IaaS do SQL está disponível por meio do recurso de gerenciamento do Marketplace. Certifique-se de sempre baixar a versão mais recente da extensão SQL IaaS antes de implantar uma VM usando um item do Marketplace. As imagens do SQL são o mesmo que as VMs do SQL que estão disponíveis no Azure. Para VMs do SQL criado dessas imagens, a extensão de IaaS e aprimoramentos do portal correspondentes fornecem recursos como a aplicação de patch automática e recursos de backup.
+Um número de imagens de máquinas virtuais IaaS do SQL está disponível por meio do recurso de gerenciamento do Marketplace. Certifique-se de sempre baixar a versão mais recente do **extensão SQL IaaS** antes de implantar uma VM usando um item do Marketplace. As imagens do SQL são o mesmo que as VMs do SQL que estão disponíveis no Azure. Para VMs do SQL criado dessas imagens, a extensão de IaaS e aprimoramentos do portal correspondentes fornecem recursos como a aplicação de patch automática e recursos de backup.
 
 Há outras opções para a implantação de VMs do SQL, incluindo modelos de [Galeria de início rápido do Azure pilha](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -65,11 +61,11 @@ Para adicionar um autônomo que hospeda o servidor que já foi provisionado, sig
 
   O **servidores de hospedagem SQL** folha é onde você pode conectar o provedor de recursos do SQL Server para instâncias do SQL Server reais que servem como back-end do provedor de recursos.
 
-  ![Hosting Servers](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+  ![Servidores de hospedagem](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
 
 3. Preencha o formulário com os detalhes de conexão da instância do SQL Server.
 
-  ![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+  ![Novo servidor de hospedagem](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
     Opcionalmente, você pode incluir um nome de instância, e um número de porta pode ser fornecido se a instância não está atribuída a porta padrão 1433.
 
@@ -84,7 +80,10 @@ Para adicionar um autônomo que hospeda o servidor que já foi provisionado, sig
 
   O nome da SKU deve refletir as propriedades para que os usuários podem colocar seus bancos de dados adequadamente. Todos os servidores de hospedagem em um SKU devem ter os mesmos recursos.
 
-    Um exemplo:
+> [!IMPORTANT]
+> Caracteres especiais, incluindo espaços e pontos, não há suporte para o **família** ou **camada** nomes quando você cria uma SKU para os provedores de recursos do SQL e MySQL.
+
+Um exemplo:
 
 ![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
@@ -130,7 +129,7 @@ Para adicionar servidores de hospedagem SQL Always On, siga estas etapas:
 
 4. Marque esta caixa para habilitar o suporte para instâncias de SQL sempre no grupo de disponibilidade.
 
-    ![Hosting Servers](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+    ![Servidores de hospedagem](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
 5. Adicione a instância do SQL Always On a uma SKU. Você não pode misturar servidores autônomos com instâncias de AlwaysOn no SKU do mesmo. Que será determinada ao adicionar o primeiro servidor de hospedagem. Tentativa de combinar tipos posteriormente resultará em erro.
 
@@ -140,27 +139,6 @@ Para adicionar servidores de hospedagem SQL Always On, siga estas etapas:
 Crie planos e ofertas para disponibilizar os bancos de dados SQL para os usuários. Adicione o serviço de Microsoft.SqlAdapter para o plano e adicionar uma cota de existente ou crie um novo. Se você criar uma cota, você pode especificar a capacidade de permitir que o usuário.
 
 ![Criar planos e ofertas para incluir bancos de dados](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
-
-## <a name="maintenance-of-the-sql-adapter-rp"></a>Manutenção do adaptador SQL RP
-
-Manutenção das instâncias do SQL não é abordada aqui, com exceção de informações de rotação de senha. Você é responsável pela aplicação de patch e backup/recuperação dos servidores de banco de dados usado com o adaptador de SQL.
-
-### <a name="patching-and-updating"></a>Aplicação de patch e atualização
- O adaptador SQL não será processado como parte da pilha do Azure como um componente complementar. Microsoft fornecerá atualizações para o adaptador SQL conforme necessário. O adaptador SQL é instanciado em um _usuário_ máquina virtual sob a assinatura do provedor padrão. Portanto, é necessário fornecer patches do Windows, as assinaturas de antivírus, etc. O Windows update pacotes que são fornecidos como parte do ciclo de atualização e patch pode ser usado para aplicar atualizações a VM do Windows. Quando um adaptador atualizado é liberado, um script é fornecido para aplicar a atualização. Esse script cria uma nova VM RP e migra qualquer estado que você já tiver.
-
- ### <a name="backuprestoredisaster-recovery"></a>Backup/restauração/recuperação de desastre
- O adaptador SQL não é feito como parte do processo de continuidade de negócios de pilha do Azure-DR, conforme ele é um componente complementar. Scripts serão fornecidos para facilitar a:
-- Fazendo backup das informações de estado necessárias (armazenadas em uma conta de armazenamento do Azure pilha)
-- Restaurando o RP no caso de uma recuperação de pilha completa é necessária.
-Servidores de banco de dados devem ser recuperados pela primeira vez (se necessário), antes do RP é restaurado.
-
-### <a name="updating-sql-credentials"></a>Atualizando as credenciais do SQL
-
-Você é responsável pela criação e manutenção de contas de administrador do sistema em seus servidores SQL. RP precisa de uma conta com esses privilégios para gerenciar bancos de dados em nome dos usuários - não precisa de acesso aos dados nesses bancos de dados. Se você precisar atualizar as senhas de sa em seus servidores SQL, você pode usar o recurso de atualização da interface do administrador do RP para alterar a senha armazenada usada pela RP. Essas senhas são armazenadas em um cofre de chaves em sua instância de pilha do Azure.
-
-Para modificar as configurações, clique em **procurar** &gt; **recursos ADMINISTRATIVOS** &gt; **servidores de hospedagem SQL** &gt; **Logons do SQL Server** e selecione um nome de logon. A alteração deve ser feita primeiro na instância do SQL (e todas as réplicas, se necessário). No **configurações** do painel, clique em **senha**.
-
-![Atualize a senha de administrador](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
 ## <a name="next-steps"></a>Próximas etapas

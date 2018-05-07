@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Balanceador de carga
+title: Load Balancer
 metadata:
   document_id: 
-  title: Balanceador de carga
+  title: Load Balancer
   meta.description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
   services: load-balancer
   author: KumudD
@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/19/2018
   ms.author: kumud
-  ms.openlocfilehash: 55d33ea42c831103286f68e22ed14caf2743af99
-  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.openlocfilehash: 8ddf35502bb8fd7f6d4e2a83d1f6f37f30ab8857
+  ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/28/2018
+  ms.lasthandoff: 05/03/2018
 abstract:
   description: Aprenda a usar o Azure Load Balancer. Guias de início rápido, tutoriais, exemplos e muito mais, mostram como implantar um balanceador de carga e balancear a carga do tráfego de e para máquinas virtuais e recursos de nuvem, assim como em redes virtuais entre locais.
 sections:
@@ -46,8 +46,9 @@ sections:
   - type: paragraph
     text: Saiba como criar um balanceador de carga e serviços de balanceamento de carga entre VMs.
   - type: list
-    style: ordered
+    style: unordered
     items:
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-basic-internal-portal">Balancear tráfego interno de carga para VMs</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">Criar um Balanceador de Carga Padrão público e redundante da zona</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">VMs com balanceamento de carga em uma zona</a>
 - title: Treinamento em Vídeo Pluralsight gratuito
@@ -66,11 +67,6 @@ sections:
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
-    - title: Implementação da Rede do Microsoft Azure
-      href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
     - title: Administração do Microsoft Azure para Administradores do AWS
       href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
       image:

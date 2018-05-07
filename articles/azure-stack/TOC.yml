@@ -160,7 +160,7 @@
               href: azure-stack-identity-overview.md
             - name: Arquitetura de identidade
               href: azure-stack-identity-architecture.md
-            - name: "Gerenciar\_RBAC"
+            - name: Gerenciar o RBAC
               href: azure-stack-manage-permissions.md
             - name: Adicionar usuários do Azure AD
               href: azure-stack-add-new-user-aad.md
@@ -172,7 +172,7 @@
               href: azure-stack-enable-multitenancy.md
         - name: Girar segredos
           href: azure-stack-rotate-secrets.md
-    - name: Serviços da oferta
+    - name: Oferecer serviços
       items:
         - name: Visão geral da oferta de serviços
           href: azure-stack-offer-services-overview.md
@@ -190,18 +190,25 @@
               href: azure-stack-delegated-provider.md
             - name: Tipos de cotas
               href: azure-stack-quota-types.md
-        - name: Oferta do SQL ou MySQL como PaaS
+        - name: Visão geral dos serviços PaaS
+          href: azure-stack-tools-paas-services.md
+        - name: Oferecer SQL como PaaS
+          href: azure-stack-sql-resource-provider.md
           items:
-            - name: Visão geral dos serviços PaaS
-              href: azure-stack-tools-paas-services.md
-            - name: Implantar provedor de recursos do MySQL
-              href: azure-stack-mysql-resource-provider-deploy.md
-            - name: Implantar provedor de recursos do SQL
+            - name: Implantar o provedor de recursos do SQL Server
               href: azure-stack-sql-resource-provider-deploy.md
             - name: Adicionar servidores de hospedagem
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: Criar bancos de dados SQL
               href: azure-stack-sql-resource-provider-databases.md
+            - name: Atualizar o provedor de recursos do SQL Server
+              href: azure-stack-sql-resource-provider-update.md
+            - name: Manter o provedor de recursos do SQL Server
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: Remover o provedor de recursos do SQL Server
+              href: azure-stack-sql-resource-provider-remove.md
+        - name: Oferecer MySQL como PaaS
+          href: azure-stack-mysql-resource-provider-deploy.md
         - name: Oferta de Serviço de Aplicativo como PaaS
           items:
             - name: Serviço de Aplicativo na visão geral do Azure Stack
@@ -290,7 +297,7 @@
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
-- name: Relacionado
+- name: Relacionados
   items:
     - name: Documentação do Usuário do Azure Stack
       href: /azure/azure-stack/user/
@@ -304,7 +311,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Comentários de documentação de pilha do Azure
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
-    - name: Informações sobre preços
+    - name: Informações sobre preço
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'

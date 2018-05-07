@@ -61,6 +61,8 @@
           href: logic-apps-content-type.md
         - name: Lidar com erros e exceções
           href: logic-apps-exception-handling.md
+        - name: Processar mensagens grandes
+          href: logic-apps-handle-large-messages.md
         - name: Assegurar seus aplicativos lógicos
           href: logic-apps-securing-a-logic-app.md
         - name: Desenvolver conectores personalizados

@@ -31,6 +31,8 @@
       href: powershell-samples.md
     - name: Modelos do Gerenciador de Recursos
       href: template-samples.md
+    - name: Modelos de Política do Azure
+      href: policy-samples.md
 - name: Conceitos
   items:
     - name: Segurança
