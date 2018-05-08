@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c4a1edc8e4ff129a8b073f008e1d20bb20941ae1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de computadores em pesquisas de log do Log Analytics
 
@@ -56,14 +56,6 @@ Use o procedimento a seguir para criar um grupo de computadores de uma pesquisa 
 2. Abra **Pesquisa de Logs** e, em seguida, clique em **Pesquisas Salvas** na parte superior da tela.
 3. Clique em **Adicionar** e forneça valores para cada propriedade para o grupo de computadores.
 4. Selecione **Salvar esta consulta como um grupo de computadores** e clique em **OK**.
-
-
-Use o procedimento a seguir para criar um grupo de computadores de uma pesquisa de logs no portal do OMS.
-
-1. Abra **Pesquisa de Logs** e crie a pesquisa de logs para o grupo de computadores.  
-2. Clique no botão **Salvar** na parte superior da tela.
-3. Selecione **Sim** para **Salvar esta consulta como um grupo de computadores**.
-5. Forneça valores para cada propriedade para o grupo de computadores. 
 
 
 

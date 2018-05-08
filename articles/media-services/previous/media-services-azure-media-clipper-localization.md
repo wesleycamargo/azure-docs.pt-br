@@ -1,8 +1,8 @@
 ---
-title: "Definir a localização de um Media Clipper do Azure | Microsoft Docs"
-description: "Saiba mais sobre os idiomas suportados e o suporte à localização do Media Clipper do Azure"
+title: Definir a localização de um Media Clipper do Azure | Microsoft Docs
+description: Saiba mais sobre os idiomas suportados e o suporte à localização do Media Clipper do Azure
 services: media-services
-keywords: "clipe;subclipe;codificação;mídia"
+keywords: clipe;subclipe;codificação;mídia
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-localization"></a>Configurar a localização
 O Media Clipper do Azure está disponível em 18 idiomas. Para definir o idioma do widget, defina o parâmetro `language` durante a inicialização. Passe a cadeia de caracteres de código do idioma desejada da seguinte lista:

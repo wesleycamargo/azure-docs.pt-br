@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: e0e0fdbb3702ec16e9d5a33659c1ddbee589b989
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9893ab83584e2fc93ea9cf29c0b74b957080d5ad
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada no Red Hat para o Azure
 Neste artigo, você aprenderá como preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. Neste artigo, abordamos as versões 6.7+ e 7.1+ do RHEL. Neste artigo, abordamos os seguintes hipervisores de preparação: Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para saber mais informações sobre os requisitos de qualificação para participação no programa Red Hat Cloud Access, confira o [site Red Hat Cloud Access](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o artigo[Como executar o RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -159,7 +159,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
 5. Certifique-se de que o serviço de rede será iniciado durante a inicialização executando o seguinte comando:
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 6. Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
@@ -411,7 +411,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
 6. Certifique-se de que o serviço de rede será iniciado durante a inicialização executando o seguinte comando:
 
-        # chkconfig network on
+        # sudo systemctl enable network
 
 7. Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
@@ -665,7 +665,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 
 3. Certifique-se de que o serviço de rede será iniciado durante a inicialização executando o seguinte comando:
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 4. Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 

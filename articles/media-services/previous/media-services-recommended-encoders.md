@@ -1,8 +1,8 @@
 ---
-title: "Saiba mais sobre os codificadores recomendados pelos Serviços de Mídia do Azure | Microsoft Docs"
-description: "Saiba mais sobre os codificadores recomendados pelos serviços de mídia"
+title: Saiba mais sobre os codificadores recomendados pelos Serviços de Mídia do Azure | Microsoft Docs
+description: Saiba mais sobre os codificadores recomendados pelos serviços de mídia
 services: media-services
-keywords: "codificação; codificadores; mídia"
+keywords: codificação; codificadores; mídia
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: d0c5536d2339470eac058250cc14e1f250b86d90
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locais recomendados
 Ao fazer uma transmissão ao vivo com os Serviços de Mídia do Azure, você pode especificar como deseja que o canal receba o fluxo de entrada. Se optar por usar um codificador local com um canal de codificação ativa, o codificador deverá enviar por push um fluxo de taxa de bits única de alta qualidade como saída. Se optar por usar um codificador local com um canal de passagem, o codificador deverá enviar por push um fluxo de múltiplas taxas de bits como saída com todas as qualidades de saída desejada. Para obter mais informações, consulte [Transmissão ao vivo com codificadores locais](media-services-live-streaming-with-onprem-encoders.md).

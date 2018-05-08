@@ -1,11 +1,11 @@
 ---
-title: "Carregar arquivos em uma conta dos Serviços de Mídia do Azure usando o REST | Microsoft Docs"
-description: "Saiba como obter o conteúdo de mídia nos serviços de mídia ao criar e carregar ativos."
+title: Carregar arquivos em uma conta dos Serviços de Mídia do Azure usando o REST | Microsoft Docs
+description: Saiba como obter o conteúdo de mídia nos serviços de mídia ao criar e carregar ativos.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: juliako
 ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Neste tutorial, aprenda a carregar um arquivo e outra operação associada a ele
 > * Carregar um arquivo para o armazenamento de blob usando a URL de carregamento
 > * Criar um metadados no ativo para o arquivo de mídia carregado
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - [Crie uma conta dos Serviços de Mídia do Azure usando o Portal do Azure](media-services-portal-create-account.md).
@@ -184,7 +184,7 @@ Como exemplo, usamos o Postman para carregar um arquivo. mp4 pequeno. Pode haver
 A solicitação de carregamento não é parte da coleção do **AzureMedia**. 
 
 Criar e configurar uma nova solicitação:
-1. Pressione  **+**  para criar uma nova guia de solicitação.
+1. Pressione **+** para criar uma nova guia de solicitação.
 2. Selecione **COLOCAR** operação e cole **{{UploadURL}}** na URL.
 2. Deixe a guia **Autorização** como está (não a defina como **Token de portador**).
 3. Na guia **Cabeçalhos**, especifique: **Chave**: "x-ms-tipo-de-blob" e **Valor**: "BlockBlob".

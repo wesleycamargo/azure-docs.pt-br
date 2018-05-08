@@ -1,7 +1,7 @@
 ---
-title: "Esquema de dispositivo na solução de monitoramento remoto – Azure | Microsoft Docs"
-description: "Este artigo descreve o esquema JSON que define um dispositivo simulado na solução de monitoramento remoto."
-services: 
+title: Esquema de dispositivo na solução de monitoramento remoto – Azure | Microsoft Docs
+description: Este artigo descreve o esquema JSON que define um dispositivo simulado na solução de monitoramento remoto.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 364698a529623958695f93a245bab28a89f6bd4c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 24aeb9c3f73d04a3d05f09ebd2ba0859a38e7ad8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema de modelo do dispositivo
 
@@ -104,10 +104,10 @@ O exemplo a seguir mostra a definição do objeto de estado do dispositivo para 
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:10",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```

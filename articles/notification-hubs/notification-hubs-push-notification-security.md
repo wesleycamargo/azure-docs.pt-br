@@ -1,24 +1,24 @@
 ---
-title: "Segurança para Hubs de notificação"
-description: "Este tópico explica a segurança para hubs de notificação do Azure."
+title: Segurança para Hubs de notificação
+description: Este tópico explica a segurança para hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 6506177c-e25c-4af7-8508-a3ddca9dc07c
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 7c3283799806135060bb8ca57ea398c93d1106bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 9f197a85dfad31ce32d0f9c93127b69d8e33c9ee
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="security"></a>Segurança
 ## <a name="overview"></a>Visão geral
@@ -38,7 +38,7 @@ Não é recomendável que você insira o valor da chave em aplicativos cliente d
 ## <a name="security-claims"></a>Declarações de segurança
 Semelhantes a outras entidades, as operações de Hub de notificação são permitidas para três declarações de segurança: ouvir, enviar e gerenciar.
 
-| Declaração | Descrição | Operações permitidas |
+| Declaração | DESCRIÇÃO | Operações permitidas |
 | --- | --- | --- |
 | Escutar |Criar/atualizar, ler e excluir registros simples |Criar/Atualizar o registro<br><br>Ler registro<br><br>Ler todos os registros para um identificador<br><br>Excluir registro |
 | Enviar |Enviar mensagens ao hub de notificação |Enviar mensagem |

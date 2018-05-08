@@ -1,11 +1,11 @@
 ---
-title: "Configurar o codificador Haivision KB para enviar uma transmissão ativa da taxa de bits única para o Azure | Microsoft Docs"
-description: "Este tópico mostra como configurar o codificador ativo Haivision KB para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa."
+title: Configurar o codificador Haivision KB para enviar uma transmissão ativa da taxa de bits única para o Azure | Microsoft Docs
+description: Este tópico mostra como configurar o codificador ativo Haivision KB para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: dbgeorge
 manager: vsood
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: juliako;dbgeorge
 ms.openlocfilehash: 25077cd9338a2764c6dff9e755812033685f6641
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Haivision KB para enviar uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
