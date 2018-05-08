@@ -1,6 +1,6 @@
 ---
-title: "Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP – Manutenção"
-description: "Automação de Aplicativos Web para FedRAMP – Manutenção"
+title: Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP – Manutenção
+description: Automação de Aplicativos Web para FedRAMP – Manutenção
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="maintenance-ma"></a>Manutenção (MA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-1** A organização desenvolve, documenta e distribui à [Atribuição: equipe ou funções definidas pela organização] uma política de manutenção do sistema que aborda a finalidade, o escopo, as funções, as responsabilidades, o compromisso de gerenciamento, a coordenação entre entidades organizacionais e a conformidade; e os procedimentos para facilitar a implementação da política de manutenção do sistema e os controles de manutenção do sistema associados; e revisa e atualiza a política de manutenção do sistema atual [Atribuição: frequência definida pela organização]; e os procedimentos de manutenção do sistema [Atribuição: frequência definida pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -64,7 +64,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela manutenção controlada. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-2c"></a>Controle NIST 800-53 MA-2.c
@@ -78,7 +78,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Os clientes não têm acesso físico a qualquer recurso do sistema em datacenters do Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure exige que os ativos proprietários (por exemplo, dispositivo ou servidor de rede) que necessitam de transferência externa obtenham aprovação expressa do proprietário do ativo. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure exige que os ativos proprietários (por exemplo, dispositivo ou servidor de rede) que necessitam de transferência externa obtenham aprovação expressa do proprietário do ativo. |
 
 
  ## <a name="nist-800-53-control-ma-2d"></a>Controle NIST 800-53 MA-2.d
@@ -92,7 +92,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Os clientes não têm acesso físico a qualquer recurso do sistema em datacenters do Azure. |
-| **Provedor (Microsoft Azure)** | O Padrão de Proteção de Ativos do Microsoft Azure define as precauções de manuseio necessárias para a transferência externa de ativos. O Padrão de Proteção de Ativos exige que os ativos de armazenamento de dados sejam limpos de uma maneira consistente com o NIST SP 800-88, Diretrizes para Limpeza de Mídia, antes de sair do datacenter. |
+| **Fornecedor (Microsoft Azure)** | O Padrão de Proteção de Ativos do Microsoft Azure define as precauções de manuseio necessárias para a transferência externa de ativos. O Padrão de Proteção de Ativos exige que os ativos de armazenamento de dados sejam limpos de uma maneira consistente com o NIST SP 800-88, Diretrizes para Limpeza de Mídia, antes de sair do datacenter. |
 
 
  ## <a name="nist-800-53-control-ma-2e"></a>Controle NIST 800-53 MA-2.e
@@ -148,7 +148,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por automatizar as atividades de manutenção. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-3"></a>Controle NIST 800-53 MA-3
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3** A organização aprova, controla e monitora as ferramentas de manutenção do sistema de informações.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -171,12 +171,12 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3 (1)** A organização inspeciona as ferramentas de manutenção transportadas para determinada instalação pela equipe de manutenção para verificar se há modificações inadequadas ou não autorizadas.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Os clientes não têm acesso físico a qualquer recurso do sistema em datacenters do Azure. |
-| **Provedor (Microsoft Azure)** | A equipe de Serviços de Site do Microsoft Azure mantém um inventário das ferramentas de manutenção aprovadas para uso no datacenter (consulte o MA-3 para obter mais detalhes). A equipe de manutenção é instruída a usar as ferramentas de manutenção fornecidas. A aprovação do DMC é necessária para usar ferramentas não fornecidas pelo datacenter. |
+| **Fornecedor (Microsoft Azure)** | A equipe de Serviços de Site do Microsoft Azure mantém um inventário das ferramentas de manutenção aprovadas para uso no datacenter (consulte o MA-3 para obter mais detalhes). A equipe de manutenção é instruída a usar as ferramentas de manutenção fornecidas. A aprovação do DMC é necessária para usar ferramentas não fornecidas pelo datacenter. |
 
 
  ### <a name="nist-800-53-control-ma-3-2"></a>Controle NIST 800-53 MA-3 (2)
@@ -190,7 +190,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Os clientes não têm acesso físico a qualquer recurso do sistema em datacenters do Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure proíbe o uso de mídias de armazenamento ou de computação móvel no ambiente de produção de data centers do Microsoft Azure sem aprovação da gerência do data center. É proibido o uso de mídia pessoais no ambiente de produção de data centers do Microsoft Azure. <br /> O Microsoft Azure implementou um processo para inspecionar laptops antes de serem usados no ambiente de produção de data centers do Microsoft Azure. Os agentes de segurança são treinados para confrontar pessoal que utiliza laptops no ambiente de produção com o intuito de verificar se os laptops foram submetidos a inspeções e aprovados. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure proíbe o uso de mídias de armazenamento ou de computação móvel no ambiente de produção de data centers do Microsoft Azure sem aprovação da gerência do data center. É proibido o uso de mídia pessoais no ambiente de produção de data centers do Microsoft Azure. <br /> O Microsoft Azure implementou um processo para inspecionar laptops antes de serem usados no ambiente de produção de data centers do Microsoft Azure. Os agentes de segurança são treinados para confrontar pessoal que utiliza laptops no ambiente de produção com o intuito de verificar se os laptops foram submetidos a inspeções e aprovados. |
 
 
  ### <a name="nist-800-53-control-ma-3-3"></a>Controle NIST 800-53 MA-3 (3)
@@ -218,7 +218,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por executar manutenções não locais em sistemas operacionais implantados por clientes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-4b"></a>Controle NIST 800-53 MA-4.b
@@ -232,7 +232,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por executar manutenções não locais em sistemas operacionais implantados por clientes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-4c"></a>Controle NIST 800-53 MA-4.c
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-4.e** A organização encerra conexões de rede e de sessão quando a manutenção não local é concluída.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,12 +325,12 @@ ms.lasthandoff: 02/11/2018
 
 **MA 5.a** A organização estabelece um processo de autorização de equipes de manutenção e mantém uma lista de organizações ou equipes de manutenção autorizadas.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | Os processos de acompanhamento e autorização de funcionários de manutenção de nível empresarial do cliente podem ser suficientes para atender a esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-5b"></a>Controle NIST 800-53 MP-5.b

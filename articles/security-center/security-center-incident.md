@@ -1,11 +1,11 @@
 ---
-title: "Gerenciamento de alertas de segurança na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento ajuda você a usar os recursos da Central de Segurança do Azure para gerenciar incidentes de segurança."
+title: Gerenciamento de alertas de segurança na Central de Segurança do Azure | Microsoft Docs
+description: Este documento ajuda você a usar os recursos da Central de Segurança do Azure para gerenciar incidentes de segurança.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: yurid
-ms.openlocfilehash: a302f8cb2555eef469a24da2523fdd9b97cc5730
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f87edc0717631775acec315dda61323b8fa5909
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Manipulação de Incidentes de Segurança na Central de Segurança do Azure
 A triagem e investigação de alertas de segurança pode ser uma tarefa demorada até mesmo para os analistas de segurança mais capacitados, e, para muitos, é difícil até mesmo saber por onde começar. Usando [análise](security-center-detection-capabilities.md) para conectar as informações entre diferentes [alertas de segurança](security-center-managing-and-responding-alerts.md), a Central de Segurança pode fornecer uma exibição única de uma campanha de ataque e todos os alertas relacionados, com isso, você pode entender rapidamente quais ações o invasor executou e quais recursos foram afetados.
@@ -35,7 +35,7 @@ Você pode examinar os incidentes atuais de segurança observando o bloco de ale
 
     ![Bloco Alertas de segurança na Central de Segurança](./media/security-center-incident/security-center-incident-fig1.png)
 
-2. Clique nesse bloco para expandi-lo e se um incidente de segurança for detectado, ele aparecerá no gráfico de alertas de segurança, como mostrado abaixo:
+2. Clique nesse bloco para expandi-lo e se um incidente de segurança for detectado, ele aparecerá no grafo de alertas de segurança, como mostrado abaixo:
 
     ![Incidente de segurança](./media/security-center-incident/security-center-incident-fig2.png)
 

@@ -1,21 +1,21 @@
 ---
-title: "Criar um gateway de aplicativo com terminação SSL – Portal do Azure | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicativo e adicionar um certificado para a terminação SSL usando o portal do Azure."
+title: Criar um gateway de aplicativo com terminação SSL – Portal do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo e adicionar um certificado para a terminação SSL usando o portal do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: daab3ada5ef0cc20883130e4c12b1dc3570e63b1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 10796000f913428e39a0ffbd0aa2cbe0c515eb7a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Criar um gateway de aplicativo com terminação SSL usando o portal do Azure
 
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon no portal do Azure em [http://portal.azure.com](http://portal.azure.com)
+Faça logon no Portal do Azure em [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 

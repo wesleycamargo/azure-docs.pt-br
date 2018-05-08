@@ -3,7 +3,7 @@ title: Extensão da máquina virtual do Agente do Observador de Rede do Azure pa
 description: Implante o Agente do Observador de Rede na máquina virtual Windows usando uma extensão da máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
-author: dennisg
+author: gurudennis
 manager: amku
 editor: ''
 tags: azure-resource-manager
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: dcfbc22b0f3d6eac58a6a6e0c95dd5c1f8df3527
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ed5795b3ec6cf31feea9429914b04f11efeffe6a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Agente do Observador de Rede para Windows
 

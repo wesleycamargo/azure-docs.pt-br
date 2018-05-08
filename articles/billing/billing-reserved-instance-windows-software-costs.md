@@ -1,24 +1,24 @@
 ---
-title: "Custos de software do Windows para Instâncias de VM de Reserva do Azure | Microsoft Docs"
-description: "Saiba quais medidores de software do Windows não estão incluídos nos custos de instância de máquina virtual reservada."
+title: Custos de software do Windows para Instâncias de VM de Reserva do Azure | Microsoft Docs
+description: Saiba quais medidores de software do Windows não estão incluídos nos custos de instância de máquina virtual reservada.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20fd3c6c118b33ca91d717d30d77bb9c7843f4e6
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Os custos de software do Windows não estão incluídos nas Instâncias Reservadas
 
@@ -52,11 +52,11 @@ Se não tiver um Benefício do Uso de Híbrido do Azure em suas máquinas virtua
 Você pode obter o custo de cada um desses medidores por meio da API RateCard do Azure. Para obter informações sobre como obter as taxas de um medidor do Azure, consulte [Obter informações sobre preço e metadados para recursos usados em uma assinatura do Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre as Instâncias de Máquina Virtual Reservadas, consulte os artigos a seguir.
+Para saber mais sobre as Instâncias de Máquina Virtual Reservadas, confira os artigos a seguir.
 
 - [Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de VM Reservadas](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gerenciar Instâncias de Máquina Virtual Reservadas](billing-manage-reserved-vm-instance.md)
-- [Economizar dinheiro de máquinas virtuais com Instâncias de Máquinas Virtuais Reservadas](billing-save-compute-costs-reservations.md)
+- [Economizar dinheiro em máquinas virtuais com Instâncias de Máquinas Virtuais Reservadas](billing-save-compute-costs-reservations.md)
 - [Entender como é aplicado o desconto em Instâncias de Máquina Virtual Reservada](billing-understand-vm-reservation-charges.md)
-- [Entender o uso da Instância Reservada na sua assinatura Paga Conforme o Uso](billing-understand-reserved-instance-usage.md)
+- [Entender o uso da Instância Reservada na sua assinatura Paga pelo Uso](billing-understand-reserved-instance-usage.md)
 - [Entender o uso da Instância Reservada no seu registro de Empresa](billing-understand-reserved-instance-usage-ea.md)

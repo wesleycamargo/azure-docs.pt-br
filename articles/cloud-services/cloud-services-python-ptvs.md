@@ -1,11 +1,11 @@
 ---
-title: "Introdução aos Serviços de Nuvem do Azure e ao Python | Microsoft Docs"
-description: "Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho."
+title: Introdução aos Serviços de Nuvem do Azure e ao Python | Microsoft Docs
+description: Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho.
 services: cloud-services
 documentationcenter: python
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,17 +14,17 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 030a09c05ac4b480c9326b8a9ebc585339f312b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6bd89c160387abbb2b0339a5a5f62d998c0c84e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções Web e de trabalho do Python com Ferramentas Python para Visual Studio
 
 Este artigo oferece uma visão geral do uso das funções Web e de trabalho do Python por meio das [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio]. Saiba como usar o Visual Studio para criar e implantar um Serviço de Nuvem básico que usa Python.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * [Visual Studio 2013, 2015 ou 2017](https://www.visualstudio.com/)
 * [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Ferramentas do SDK do Azure para VS 2013][Azure SDK Tools for VS 2013] ou  
@@ -172,6 +172,7 @@ Em seguida, crie os arquivos **PrepPython.ps1** e **PipInstaller.ps1** na pasta 
 Esse script instala o python. Se a variável de ambiente **PYTHON2** estiver definida como **ativada**, o Python 2.7 será instalado; caso contrário, o Python 3.5 será instalado.
 
 ```powershell
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
 $is_emulated = $env:EMULATED -eq "true"
 $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine

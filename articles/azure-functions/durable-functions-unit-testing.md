@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: a8d2a2281dcaf6e5e308ad4a2aafb167f9ba9121
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="durable-functions-unit-testing"></a>Testes de unidade de Funções Duráveis
 
@@ -128,7 +128,7 @@ Após a combinação de todas as etapas, o teste de unidade terá o código a se
 
 ## <a name="unit-testing-orchestrator-functions"></a>Testes de unidade das funções de orquestrador
 
-As Funções do Orchestrator são ainda mais interessantes para testes de unidade, uma vez que normalmente têm muito mais lógica de negócios. Atualmente, as funções do Orchestrator podem ser implementadas somente em C#.
+As Funções do Orchestrator são ainda mais interessantes para testes de unidade, uma vez que normalmente têm muito mais lógica de negócios.
 
 Nesta seção, os testes de unidade validarão a saída da função do Orchestrator `E1_HelloSequence`:
 

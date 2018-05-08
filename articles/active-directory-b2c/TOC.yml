@@ -141,8 +141,14 @@
           href: active-directory-b2c-reference-language-customization.md
         - name: Usar a API de relatórios
           href: active-directory-b2c-reference-usage-reporting-api.md
+        - name: Acesse os logs de auditoria
+          href: active-directory-b2c-reference-audit-logs.md
         - name: Migrar usuários
           href: active-directory-b2c-user-migration.md
+        - name: Usando b2clogin.com
+          href: b2clogin.md
+        - name: Usando a restrição de idade
+          href: basic-age-gating.md
     - name: Identity Experience Framework
       items:
         - name: Políticas personalizadas
@@ -153,8 +159,10 @@
               href: active-directory-b2c-get-started-custom.md
             - name: Configurar provedores OIDC/OAUTH
               items:
-                - name: AD do Azure
+                - name: Azure AD (único locatário)
                   href: active-directory-b2c-setup-aad-custom.md
+                - name: Azure AD (multilocatário)
+                  href: active-directory-b2c-setup-commonaad-custom.md
                 - name: Conta da Microsoft
                   href: active-directory-b2c-custom-setup-msa-idp.md
                 - name: Google+
@@ -163,8 +171,6 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
-                - name: Multilocatário
-                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: Configurar provedores de SAML
               items:
                 - name: ADFS

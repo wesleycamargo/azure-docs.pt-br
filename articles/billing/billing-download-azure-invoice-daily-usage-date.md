@@ -1,27 +1,27 @@
 ---
-title: "Baixar a fatura de cobrança e os dados de uso diário do Azure | Microsoft Docs"
-description: "Descreve como baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure."
-keywords: "fatura de cobrança, download de fatura, fatura do Azure, uso do Azure"
-services: 
-documentationcenter: 
+title: Baixar a fatura de cobrança e os dados de uso diário do Azure | Microsoft Docs
+description: Descreve como baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure.
+keywords: fatura de cobrança, download de fatura, fatura do Azure, uso do Azure
+services: ''
+documentationcenter: ''
 author: genlin
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eea55735d0e17de4fe543847d0d521b0e8c0c3f7
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 6fa9f9ae4ef2bd39f3c6d3ec7c6d757aa50b2fd1
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure
 É possível baixar sua fatura no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou recebê-la por email. Para baixar o uso diário, acesse o [Centro de Contas do Azure](https://account.azure.com/Subscriptions). Somente certas funções como o administrador da conta têm permissão para obter as informações de uso e a fatura de cobrança. Para saber mais sobre como obter acesso a informações de cobrança, consulte [Gerenciar o acesso à cobrança do Azure usando funções](billing-manage-access.md).

@@ -1,25 +1,25 @@
 ---
-title: "Alterar seu cartão de crédito do Azure | Microsoft Docs"
-description: "Descreve como alterar o cartão de crédito usado para pagar uma assinatura do Azure"
-services: 
-documentationcenter: 
+title: Alterar seu cartão de crédito do Azure | Microsoft Docs
+description: Descreve como alterar o cartão de crédito usado para pagar uma assinatura do Azure
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 15252ced-1841-4a66-ae79-2e58af1d3370
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: d1239b04bbdaf4e98323fbaaad688b2d238c1a38
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito ou débito do Azure
 
@@ -40,7 +40,7 @@ No Centro de Contas, é possível adicionar um novo cartão de crédito, atualiz
 
     ![Captura de tela que mostra a opção Editar ao lado da forma de pagamento.](./media/billing-how-to-change-credit-card/editcard_new.png)
 1. Insira os detalhes do cartão de crédito ou débito.
-1. Selecione **Salvar**. 
+1. Clique em **Salvar**. 
 
 Se você receber um erro depois de adicionar o cartão de crédito, consulte [Cartão de crédito recusado na inscrição do Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
@@ -53,7 +53,7 @@ Caso seu cartão de crédito seja renovado e o número permaneça o mesmo, atual
 1. Selecione **Gerenciar formas de pagamento**.
 1. Selecione **Editar** ao lado do cartão que você deseja atualizar.
 1. Atualizar os detalhes do cartão de crédito ou débito.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Usar um cartão de crédito diferente para a assinatura do Azure
 

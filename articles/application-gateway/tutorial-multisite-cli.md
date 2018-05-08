@@ -1,9 +1,9 @@
 ---
-title: "Criar um gateway de aplicativo com hospedagem de vários sites – CLI do Azure | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicativo que hospeda vários sites usando a CLI do Azure."
+title: Criar um gateway de aplicativo com hospedagem de vários sites – CLI do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo que hospeda vários sites usando a CLI do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: df475cb6eed2b75275e573721f754e7de87698f5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 2e1367db9c2c1d47f34cc35fc088a9eecf00247b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Criar um gateway de aplicativo com hospedagem de vários sites usando a CLI do Azure
 
@@ -205,7 +205,7 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
     --settings '{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 done
 ```
@@ -226,7 +226,7 @@ O uso de registros A não é recomendado, pois o VIP pode mudar quando o gateway
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Digite seu nome de domínio na barra de endereços do navegador. Por exemplo, http://www.contoso.com.
+Digite seu nome de domínio na barra de endereços do navegador. Como http://www.contoso.com.
 
 ![Testar o site contoso no gateway do aplicativo](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 

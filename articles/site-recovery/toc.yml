@@ -145,6 +145,12 @@
           items:
             - name: Solucionar problemas de replicação do Azure para o Azure
               href: azure-to-azure-troubleshoot-errors.md
+            - name: Solucionar problemas de extensão do Azure Site Recovery
+              href: site-recovery-extension-troubleshoot.md
+        - name: Gerenciar
+          items:
+            - name: Atualização automática da extensão de serviço de mobilidade
+              href: azure-to-azure-autoupdate.md
     - name: VMware/físicos no Azure
       items:
         - name: Rede

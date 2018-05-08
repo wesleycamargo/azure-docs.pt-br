@@ -1,6 +1,6 @@
 ---
-title: "Segurança e conformidade do Azure Blueprint – Automação de aplicativos Web para FedRAMP – Aquisição de sistema e serviços"
-description: "Automação de Aplicativos Web para FedRAMP – Aquisição de Sistema e Serviços"
+title: Segurança e conformidade do Azure Blueprint – Automação de aplicativos Web para FedRAMP – Aquisição de sistema e serviços
+description: Automação de Aplicativos Web para FedRAMP – Aquisição de Sistema e Serviços
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>Aquisições do sistema e de serviços (SA)
 
@@ -31,12 +31,12 @@ ms.lasthandoff: 02/11/2018
 
 **SA-1** A organização desenvolve, documenta e distribui à [Atribuição: equipe ou funções definidas pela organização] uma política de aquisições do sistema e de serviços que aborda a finalidade, o escopo, as funções, as responsabilidades, o compromisso de gerenciamento, a coordenação entre entidades organizacionais e a conformidade; e os procedimentos para facilitar a implementação da política de aquisições do sistema e de serviços e os controles associados de aquisições do sistema e de serviços; e revisa e atualiza a política de aquisições do sistema e de serviços atual [Atribuição: frequência definida pela organização]; e os procedimentos de aquisições do sistema e de serviços [Atribuição: frequência definida pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | A política e os procedimentos de aquisições do sistema e de serviços de nível empresarial do cliente pode ser suficiente para atender a esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-2a"></a>Controle NIST 800-53 SA-2.a
@@ -92,7 +92,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por gerenciar recursos implantados por clientes (para incluir aplicativos, sistemas operacionais, bancos de dados e software) adotando um ciclo de vida de desenvolvimento de sistemas (SDLC). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-3b"></a>Controle NIST 800-53 SA-3.b
@@ -120,7 +120,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por gerenciar recursos implantados por clientes adotando um ciclo de vida de desenvolvimento de sistemas (SDLC). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-3d"></a>Controle NIST 800-53 SA-3.d
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 3.d** A organização integra o processo organizacional de gerenciamento de riscos de segurança de informações em atividades do ciclo de vida de desenvolvimento de sistemas.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -148,7 +148,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O processo de aquisição de recursos de nível empresarial pode ser suficiente para atender a esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sa-4-1"></a>Controle NIST 800-53 SA-4 (1)
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-4 (2)** A organização exige que o desenvolvedor do sistema de informações, do componente do sistema ou do serviço do sistema de informações apresente informações de design e implementação para os controles de segurança a serem empregados que incluam: [Atribuição: informações de design/implementação definidas pela organização] sobre [Seleção (uma ou mais): interfaces externas do sistema relevantes à segurança; design de alto nível; design de baixo nível; esquemas de hardware ou de código-fonte;] em [Atribuição: nível de detalhamento definido pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -218,7 +218,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | A política de aquisição do sistema e de serviços de nível empresarial do cliente pode atender aos requisitos referentes a produtos de PIV. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-5a"></a>Controle NIST 800-53 SA-5.a
@@ -232,7 +232,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por obter a documentação do administrador referente a recursos implantados por clientes (para incluir aplicativos, sistemas operacionais, bancos de dados e software). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-5b"></a>Controle NIST 800-53 SA-5.b
@@ -246,7 +246,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por obter a documentação do usuário referente a recursos implantados por clientes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-5c"></a>Controle NIST 800-53 SA-5.c
@@ -260,7 +260,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por documentar tentativas de obter a documentação do administrador e/ou do usuário referente a recursos implantados por clientes quando a referida documentação estiver indisponível ou não existir. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-5d"></a>Controle NIST 800-53 SA-5.d
@@ -288,7 +288,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por distribuir a documentação referente a recursos implantados por clientes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-8"></a>Controle NIST 800-53 SA-8
@@ -325,12 +325,12 @@ ms.lasthandoff: 02/11/2018
 
 **SA 9.b** A organização define e documenta as funções e responsabilidades do usuário e de supervisão do governo referentes aos serviços do sistema de informações externas.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | A política de aquisição de serviços do sistema de informações externas de nível empresarial do cliente inclui uma cláusula referente ao uso das ofertas de serviços na nuvem previstas no FedRAMP. O FedRAMP fornece um processo de supervisão para conformidade com os requisitos de segurança por ele estabelecidos. Azure obteve autorização provisória para operar (P-ATO) pela Comissão de Autorização Conjunta (JAB) do FedRAMP. O Azure é avaliado por uma organização de avaliação independente (3PAO) aprovada pelo FedRAMP para verificar a conformidade com o controle de segurança do FedRAMP e outros requisitos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-9c"></a>Controle NIST 800-53 SA-9.c
@@ -353,12 +353,12 @@ ms.lasthandoff: 02/11/2018
 
 **SA-9 (1).a** A organização realiza uma avaliação organizacional de risco antes da aquisição ou terceirização de serviços dedicados de segurança de informações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | A política de aquisição de serviços do sistema de informações externas de nível empresarial do cliente inclui uma cláusula referente ao uso das ofertas de serviços na nuvem previstas no FedRAMP. O FedRAMP foi designado para tratar do risco associado a um modelo de responsabilidade de segurança compartilhado. Azure obteve autorização provisória para operar (P-ATO) pela Comissão de Autorização Conjunta (JAB) do FedRAMP. O Azure é avaliado por uma organização de avaliação independente (3PAO) aprovada pelo FedRAMP para verificar a conformidade com o controle de segurança do FedRAMP e outros requisitos.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sa-9-1b"></a>Controle NIST 800-53 SA-9 (1).b
@@ -372,7 +372,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | A política de aquisição de serviços do sistema de informações externas de nível empresarial do cliente inclui uma cláusula referente ao uso das ofertas de serviços na nuvem previstas no FedRAMP. O FedRAMP foi designado para tratar do risco associado a um modelo de responsabilidade de segurança compartilhado.  Azure obteve autorização provisória para operar (P-ATO) pela Comissão de Autorização Conjunta (JAB) do FedRAMP. O Azure é avaliado por uma organização de avaliação independente (3PAO) aprovada pelo FedRAMP para verificar a conformidade com o controle de segurança do FedRAMP e outros requisitos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sa-9-2"></a>Controle NIST 800-53 SA-9 (2)
@@ -386,7 +386,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | A política de aquisição de serviços do sistema de informações externas de nível empresarial do cliente inclui uma cláusula referente ao uso das ofertas de serviços na nuvem previstas no FedRAMP. Um SSP que documenta a arquitetura de segurança do Azure está disponível aos clientes por meio do FedRAMP. Azure obteve autorização provisória para operar (P-ATO) pela Comissão de Autorização Conjunta (JAB) do FedRAMP. O portal de gerenciamento do Azure pode ser acessado via navegador da Web. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sa-9-4"></a>Controle NIST 800-53 SA-9 (4)
@@ -400,7 +400,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | A política de aquisição de serviços do sistema de informações externas de nível empresarial do cliente inclui uma cláusula referente ao uso das ofertas de serviços na nuvem previstas no FedRAMP. O Azure obteve autorização provisória para operar (P-ATO) pela Comissão de Autorização Conjunta (JAB) do FedRAMP.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sa-9-5"></a>Controle NIST 800-53 SA-9 (5)
@@ -409,12 +409,12 @@ ms.lasthandoff: 02/11/2018
 
 **SA-9 (5)** A organização restringe o local de [Seleção (um ou mais): processamento de informações; informações/dados; serviços do sistema de informações] para [Atribuição: locais definidos pela organização] com base em [Atribuição: requisitos ou condições definidas pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | A política de aquisição de serviços do sistema de informações externas de nível empresarial do cliente inclui uma cláusula referente ao uso das ofertas de serviços na nuvem previstas no FedRAMP. Os data centers do Azure Governamental estão localizados no território dos Estados Unidos. Azure obteve autorização provisória para operar (P-ATO) pela Comissão de Autorização Conjunta (JAB) do FedRAMP.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-10a"></a>Controle NIST 800-53 SA-10.a
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-10.a** A organização exige que o desenvolvedor do sistema de informações, do componente do sistema ou do serviço do sistema de informações execute o gerenciamento de configuração durante [Seleção (um ou mais): design; desenvolvimento ; implementação; operação] do sistema, componente ou serviço.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -451,12 +451,12 @@ ms.lasthandoff: 02/11/2018
 
 **SA-10.c** A organização exige que o desenvolvedor do sistema de informações, do componente do sistema ou do serviço do sistema de informações implemente apenas alterações no sistema, componente ou serviço aprovadas pela organização.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por exigir do desenvolvedor de recursos implantados por clientes a utilização do gerenciamento de configuração. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-10d"></a>Controle NIST 800-53 SA-10.d
@@ -484,7 +484,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por exigir do desenvolvedor de recursos implantados por clientes a utilização do gerenciamento de configuração. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sa-10-1"></a>Controle NIST 800-53 SA-10 (1)
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-11.a** A organização exige que o desenvolvedor do sistema de informações, do componente do sistema ou do serviço do sistema de informações crie e implemente um plano de avaliação de segurança.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -526,7 +526,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por exigir do desenvolvedor de recursos implantados por clientes a execução de testes e avaliações. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-11c"></a>Controle NIST 800-53 SA-11.c
@@ -540,7 +540,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por exigir do desenvolvedor de recursos implantados por clientes a execução de testes e avaliações. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-11d"></a>Controle NIST 800-53 SA-11.d
@@ -554,7 +554,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por exigir do desenvolvedor de recursos implantados por clientes a execução de testes e avaliações. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-11e"></a>Controle NIST 800-53 SA-11.e
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-11.e** A organização exige que o desenvolvedor do sistema de informações, do componente do sistema ou do serviço do sistema de informações corrija falhas identificadas durante os testes/avaliação de segurança.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -619,12 +619,12 @@ ms.lasthandoff: 02/11/2018
 
 **SA-12** A organização protege o sistema de informações, o componente do sistema ou o serviço do sistema de informações contra ameaças da cadeia de suprimentos ao empregar [Atribuição: proteções de segurança definidas pela organização] como parte de uma estratégia de segurança de informações abrangente e de defesa em profundidade.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | As proteções de alteração no fornecimento de nível empresarial do cliente podem ser suficientes para atender a esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-15a"></a>Controle NIST 800-53 A-15.a
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-15.a** A organização exige que o desenvolvedor do sistema de informações, do componente do sistema ou do serviço do sistema de informações siga o processo documentado de desenvolvimento que aborda explicitamente os requisitos de segurança; identifica os padrões e ferramentas usados no processo de desenvolvimento; documenta as opções específicas de ferramentas e as configurações de ferramentas usadas no processo de desenvolvimento; e documenta, gerencia e garante a integridade das alterações no processo e/ou nas ferramentas usadas no desenvolvimento.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -652,7 +652,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por analisar o processo de desenvolvimento, os padrões, as ferramentas e as opções/configurações de ferramentas, conforme necessário, para determinar se podem satisfazer os requisitos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-16"></a>Controle NIST 800-53 SA-16
@@ -661,12 +661,12 @@ ms.lasthandoff: 02/11/2018
 
 **SA-16** A organização exige que o desenvolvedor do sistema de informações, do componente do sistema de informações ou do serviço do sistema de informações disponibilize [Atribuição: treinamento definido pela organização] no uso e operação atuais das funções, controles e/ou mecanismos de segurança implementados.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por exigir do desenvolvedor de recursos implantados por clientes (que devem incluir aplicativos, sistemas operacionais, bancos de dados e software) a disponibilização de treinamento. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-17a"></a>Controle NIST 800-53 SA-17.a
@@ -680,7 +680,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por exigir do desenvolvedor de recursos implantados por clientes (que devem incluir aplicativos, sistemas operacionais, bancos de dados e software) a elaboração de uma arquitetura de segurança e especificações de design. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sa-17b"></a>Controle NIST 800-53 SA-17.b

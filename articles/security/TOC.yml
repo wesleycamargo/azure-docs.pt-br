@@ -162,44 +162,13 @@
         - name: Proteger dados pessoais usando as ferramentas de relatório do Azure
           href: protection-personal-data-azure-reporting-tools.md
     - name: FEDRAMP
-      href: ./blueprints/fedramp.md
       items:
-        - name: Visão geral dos controles de segurança
-          href: ./blueprints/fedramp-controls-overview.md
-        - name: Controle de acesso
-          href: ./blueprints/fedramp-access-controls.md
-        - name: Auditoria e Contabilidade
-          href: ./blueprints/fedramp-audit-accountability-controls.md
-        - name: Reconhecimento e Treinamento
-          href: ./blueprints/fedramp-awareness-training-controls.md
-        - name: Gerenciamento de configuração
-          href: ./blueprints/fedramp-configuration-manager-controls.md
-        - name: Planejamento de Contingência
-          href: ./blueprints/fedramp-contingency-planning-controls.md
-        - name: Identificação e Autenticação
-          href: ./blueprints/fedramp-identification-authentication-controls.md
-        - name: Resposta a incidentes
-          href: ./blueprints/fedramp-incident-response-controls.md
-        - name: 'Manutenção '
-          href: ./blueprints/fedramp-maintenance-controls.md
-        - name: Proteção de Mídia
-          href: ./blueprints/fedramp-media-protection-controls.md
-        - name: Segurança de Pessoal
-          href: ./blueprints/fedramp-personnel-security-controls.md
-        - name: Proteção Física e Ambiental
-          href: ./blueprints/fedramp-physical-environmental-protection-controls.md
-        - name: Planejamento
-          href: ./blueprints/fedramp-planning-controls.md
-        - name: Avaliação de risco
-          href: ./blueprints/fedramp-risk-assessment-controls.md
-        - name: Avaliação da Segurança e Autorização
-          href: ./blueprints/fedramp-security-assessment-authorization-controls.md
-        - name: Proteção do Sistema e das Comunicações
-          href: ./blueprints/fedramp-system-communications-protection-controls.md
-        - name: Integridade do Sistema e das Informações
-          href: ./blueprints/fedramp-system-information-integrity-controls.md
-        - name: Aquisições do sistema e de serviços
-          href: ./blueprints/fedramp-system-services-acquisition-controls.md
+        - name: Análise de dados
+          href: ./blueprints/fedramp-analytics-overview.md
+        - name: Data warehouse
+          href: ./blueprints/fedramp-datawarehouse-overview.md
+        - name: Aplicativo Web de infraestrutura como serviço
+          href: ./blueprints/fedramp-iaaswa-overview.md
     - name: PCI DSS
       href: ./blueprints/payment-processing-blueprint.md
       items:

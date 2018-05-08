@@ -10,16 +10,16 @@ tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: ec4fd970c6b552d87e006f9e0ab55d3495c9b0c8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f3e0e3eeab88ad8ad0c4a21eb69a6340dbbe0441
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Entenda sua fatura do Microsoft Azure
 Para entender sua fatura do Azure, compare sua fatura com o arquivo de uso diário detalhado e os relatórios de gerenciamento de custo no Portal do Azure.
@@ -64,13 +64,13 @@ O mesmo encargo é mostrado na seção **Instrução** de seu CSV de uso detalha
 
 ![Encargos de uso de CSV](./media/billing-understand-your-bill/2.png)
 
-Para ver uma divisão desse encargo dia a dia, vá para a seção **Uso Diário** do CSV. Filtre por "Agendador" em *Categoria de Medidor* e você poderá ver em quais dias o medidor foi usado e quanto foi consumido. As informações *Recurso* e *Grupo de Recursos* também são listadas para comparação. A soma dos valores de *Consumido* devem equivaler ao que é mostrado na nota fiscal.
+Para ver uma divisão desse encargo dia a dia, vá para a seção **Uso Diário** do CSV. Filtre por "Agendador" em *Categoria de Medidor* e você poderá ver em quais dias o medidor foi usado e quanto foi consumido. As informações *Recurso* e *Grupo de Recursos* também são listadas para comparação. A soma dos valores de *Consumido* devem equivaler ao que é mostrado na fatura.
 
 ![Seção Uso Diário no CSV](./media/billing-understand-your-bill/3.png)
 
 Para obter o custo por dia, multiplique os valores de *Consumido* com o valor de *Taxa* da seção **Instrução**.
 
-Para saber mais sobre a nota fiscal, consulte [Entenda sua fatura do Azure](billing-understand-your-invoice.md).
+Para saber mais sobre a fatura, consulte [Entenda sua fatura do Azure](billing-understand-your-invoice.md).
 
 Para saber mais sobre cada uma das colunas no CSV, consulte [Entenda seu uso detalhado do Azure](billing-understand-your-invoice.md).
 

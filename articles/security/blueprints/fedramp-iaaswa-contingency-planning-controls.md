@@ -1,6 +1,6 @@
 ---
-title: "Especificações técnicas de segurança e conformidade do Azure – Automação de Aplicativos Web para FedRAMP – Planejamento de contingências"
-description: "Automação de Aplicativos Web para FedRAMP – Planejamento de contingências"
+title: Especificações técnicas de segurança e conformidade do Azure – Automação de Aplicativos Web para FedRAMP – Planejamento de contingências
+description: Automação de Aplicativos Web para FedRAMP – Planejamento de contingências
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="contingency-planning-cp"></a>CP (Planejamento de contingência)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-1** A organização desenvolve, documenta e distribui à [Atribuição: equipe ou funções definidas pela organização] uma política de planejamento de contingência que aborda a finalidade, o escopo, as funções, as responsabilidades, o compromisso de gerenciamento, a coordenação entre entidades organizacionais e a conformidade; e os procedimentos para facilitar a implementação da política de planejamento de contingência e os controles de planejamento de contingência associados; e revisa e atualiza a política de planejamento de contingência atual [Atribuição: frequência definida pela organização]; e os procedimentos de planejamento de contingência [Atribuição: frequência definida pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por desenvolver um plano de contingência para recursos implantados pelo cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-2b"></a>Controle NIST 800-53 CP-2.b
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.c** A organização coordena atividades de planejamento de contingência com atividades de tratamento de incidentes.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (1)** A organização coordena o desenvolvimento do plano de contingência com os elementos organizacionais responsáveis por planos relacionados.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -204,7 +204,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente pode contar com um planejamento de contingência em toda a organização de nível empresarial para missões e funções de negócios essenciais. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-2-8"></a>Controle NIST 800-53 CP-2 (8)
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-3.a** A organização fornece treinamento de continência para usuários do sistema de informações consistente com as funções e responsabilidades atribuídas dentro da [Atribuição: período de tempo definido pela organização] de assumir uma função ou responsabilidade de contingência.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-3.c** A organização fornece treinamento de contingência para usuários do sistema de informações consistente com as funções e responsabilidades atribuídas [Atribuição: frequência definida pela organização] depois.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -274,7 +274,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O treinamento de contingência de nível empresarial do cliente pode incluir eventos simulados. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-4a"></a>Controle NIST 800-53 CP-4.a
@@ -288,7 +288,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por testar o plano de contingência para recursos implantados pelo cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-4b"></a>Controle NIST 800-53 CP-4.b
@@ -330,7 +330,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente pode contar com a coordenação de teste do plano de contingência de nível empresarial. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-4-2a"></a>Controle NIST 800-53 CP-4 (2).a
@@ -344,7 +344,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por testar o plano de contingência em um local de processamento alternativo. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-4-2b"></a>Controle NIST 800-53 CP-4 (2).b
@@ -358,7 +358,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por testar o plano de contingência em um local de processamento alternativo. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-6a"></a>Controle NIST 800-53 CP-6.a
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6.a** A organização estabelece um site de armazenamento alternativo, incluindo contratos necessários, para permitir o armazenamento e a recuperação de informações de backup do sistema de informações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -414,7 +414,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Todas as contas de armazenamento implantadas por estas especificações técnicas são replicadas para garantir alta disponibilidade usando GRS (armazenamento com redundância geográfica). O GRS garante que os dados são replicados para uma região secundária. Os clientes devem garantir que o modelo de replicação de dados do Azure é compatível com os objetivos de contingência. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-6-3"></a>Controle NIST 800-53 CP-6 (3)
@@ -442,7 +442,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Estas especificações técnicas contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-7b"></a>Controle NIST 800-53 CP-7.b
@@ -456,7 +456,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Estas especificações técnicas contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. Ao implantar uma região alternativa do Azure, o provisionamento de equipamentos é gerenciado de forma transparente pelo Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-7c"></a>Controle NIST 800-53 CP-7.c
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7.c** A organização assegura que o site de processamento alternativo fornece garantias de segurança da informação equivalentes às do site primário.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (2)** A organização identifica potenciais problemas de acessibilidade no site de processamento alternativo em caso de desastres ou de interrupção em toda a área e descreve ações de mitigação explícitas.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (4)** A organização prepara o site de processamento alternativo para que ele esteja pronto para ser usado como o site operacional que dá suporte a missões e funções de negócios essenciais.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8** A organização estabelecerá serviços de telecomunicações alternativos incluindo contratos necessários para permitir a retomada de [Atribuição: operações de sistema de informações definidas pela organização] para missões e funções de negócios essenciais dentro da [Atribuição: período de tempo definido pela organização] quando as funcionalidades de telecomunicações primários não estiverem disponíveis nos sites de armazenamento ou de processamento primários ou alternativos.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (2)** A organização obtém os serviços de telecomunicações alternativos para reduzir a probabilidade de compartilhar um ponto único de falha com serviços de telecomunicações primários.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -596,7 +596,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Os clientes não controlam os serviços de telecomunicações que fornecem conectividade para sistemas no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure minimiza o risco de pontos únicos de falhas com vínculos de telecomunicações, exigindo que cada datacenter do Azure tenha pelo menos dois caminhos de fibra diferentes. Os vínculos de comunicação redundantes foram estabelecidos seguindo caminhos diferentes por meio da rede de fibra da Microsoft. Esta é uma solução continuamente operacional gerenciada pelo Azure. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure minimiza o risco de pontos únicos de falhas com vínculos de telecomunicações, exigindo que cada datacenter do Azure tenha pelo menos dois caminhos de fibra diferentes. Os vínculos de comunicação redundantes foram estabelecidos seguindo caminhos diferentes por meio da rede de fibra da Microsoft. Esta é uma solução continuamente operacional gerenciada pelo Azure. |
 
 
  ### <a name="nist-800-53-control-cp-8-4a"></a>Controle NIST 800-53 CP-8 (4).a
@@ -652,7 +652,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Estas especificações técnicas implantam um Cofre dos Serviços de Recuperação do Microsoft Azure. As informações de nível de usuário no banco de dados SQL implantado são implementadas usando a extensão IaaS da VM do SQL. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-9b"></a>Controle NIST 800-53 CP-9.b
@@ -666,7 +666,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Estas especificações técnicas implantam um Cofre dos Serviços de Recuperação do Microsoft Azure. Uma política de Backup do Azure é estabelecida para todas as máquinas virtuais que implementam uma retenção de imagem de backup diária, semanal, mensal e anual.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-9c"></a>Controle NIST 800-53 CP-9.c
@@ -680,7 +680,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por realizar backups dos recursos por ele implantados (para incluir aplicativos, sistemas operacionais, bancos de dados e software). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-9d"></a>Controle NIST 800-53 CP-9.d
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9.d** A organização protege a confidencialidade, integridade e disponibilidade das informações de backup em locais de armazenamento.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -703,12 +703,12 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (1)** A organização testa informações de backup [Atribuição: frequência definida pela organização] para verificar a confiabilidade de mídia e a integridade das informações.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Os Cofres dos Serviços de Recuperação do Azure usam armazenamento online; não há mídia de backup de cliente dentro do escopo dos sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure monitora os backups continuamente usando os alertas gerados pelo sistema que notificam a equipe de operações do Microsoft Azure sobre backups incompletos ou com falha. Além de alertas gerados pelo sistema, são realizados testes de restauração para todos os backups de propriedade do Microsoft Azure pelo menos a cada 12 meses usando a ferramenta Gerenciador BCDR. A integridade dos dados é confirmada automaticamente após a conclusão do backup. <br /> A qualquer momento, O Banco de Dados SQL do Microsoft Azure mantém três réplicas de dados, uma primária e duas réplicas secundárias. O Banco de Dados SQL do Microsoft Azure usa um esquema de confirmação baseado em quorum em que os dados são gravados na réplica primária e em uma secundária antes de que a transação seja considerada confirmada. Se o hardware falhar na réplica primária, o Banco de Dados SQL do Microsoft Azure detectará a falha e fará failover para a réplica secundária. No caso de uma perda física de uma réplica, o Banco de Dados SQL do Microsoft Azure cria uma nova réplica automaticamente. Portanto, há pelo menos duas cópias físicas consistentes de transação de dados de cliente no datacenter. O Banco de Dados SQL do Microsoft Azure não gravará as transações no banco de dados, a menos que réplicas primárias e secundárias sejam feitas. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure monitora os backups continuamente usando os alertas gerados pelo sistema que notificam a equipe de operações do Microsoft Azure sobre backups incompletos ou com falha. Além de alertas gerados pelo sistema, são realizados testes de restauração para todos os backups de propriedade do Microsoft Azure pelo menos a cada 12 meses usando a ferramenta Gerenciador BCDR. A integridade dos dados é confirmada automaticamente após a conclusão do backup. <br /> A qualquer momento, O Banco de Dados SQL do Microsoft Azure mantém três réplicas de dados, uma primária e duas réplicas secundárias. O Banco de Dados SQL do Microsoft Azure usa um esquema de confirmação baseado em quorum em que os dados são gravados na réplica primária e em uma secundária antes de que a transação seja considerada confirmada. Se o hardware falhar na réplica primária, o Banco de Dados SQL do Microsoft Azure detectará a falha e fará failover para a réplica secundária. No caso de uma perda física de uma réplica, o Banco de Dados SQL do Microsoft Azure cria uma nova réplica automaticamente. Portanto, há pelo menos duas cópias físicas consistentes de transação de dados de cliente no datacenter. O Banco de Dados SQL do Microsoft Azure não gravará as transações no banco de dados, a menos que réplicas primárias e secundárias sejam feitas. |
 
 
  ### <a name="nist-800-53-control-cp-9-2"></a>Controle NIST 800-53 CP-9 (2)
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-10** A organização proporciona a recuperação e a reconstituição do sistema de informações para um estado conhecido após uma interrupção, comprometimento ou falha.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -778,7 +778,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Estas especificações técnicas implantam o SQL Server em um Grupo de Disponibilidade AlwaysOn. O SQL Server mantém um log de transações que é compatível com a recuperação de transações em caso de falha no sistema. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-10-4"></a>Controle NIST 800-53 CP-10 (4)

@@ -1,27 +1,27 @@
 ---
-title: "Atualizar sua assinatura gratuita do Azure para Pós-pago | Microsoft Docs"
-description: "Descreve como é possível fazer uma atualização pré-paga de uma assinatura gratuita e os requisitos"
-keywords: "atualização pré-paga"
-services: 
-documentationcenter: 
+title: Atualizar sua assinatura gratuita do Azure para Pós-pago | Microsoft Docs
+description: Descreve como é possível fazer uma atualização pré-paga de uma assinatura gratuita e os requisitos
+keywords: atualização pré-paga
+services: ''
+documentationcenter: ''
 author: jlian
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b9642eec0fd0f1e547f34de1077e551fbb61593
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 86c733f138e9926fb13c2c1cb404cc9b61f4780e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Atualizar sua avaliação gratuita ou assinatura do Microsoft Imagine Azure para pré-pago
 

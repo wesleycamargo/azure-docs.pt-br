@@ -1,10 +1,10 @@
 ---
-title: "Configurar o descarregamento SSL - Gateway de Aplicativo do Azure - PowerShell clássico | Microsoft Docs"
-description: "Este artigo fornece instruções para criar um gateway de aplicativo com descarregamento SSL usando o modelo de implantação clássico do Azure"
+title: Configurar o descarregamento SSL - Gateway de Aplicativo do Azure - PowerShell clássico | Microsoft Docs
+description: Este artigo fornece instruções para criar um gateway de aplicativo com descarregamento SSL usando o modelo de implantação clássico do Azure
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.assetid: 63f28d96-9c47-410e-97dd-f5ca1ad1b8a4
 ms.service: application-gateway
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: davidmu
-ms.openlocfilehash: 9540522a945e1ea2a09456b42d64b7b94753791f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: e620730b86d648c1ac9db7a9e6faa7a2d206b46e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurar um Application Gateway para o descarregamento SSL usando o modelo implantação clássico
 
@@ -32,7 +32,7 @@ O Gateway de Aplicativo do Azure pode ser configurado para encerrar a sessão SS
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente da seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
+1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
 2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O gateway de aplicativo deve estar sozinho em uma sub-rede de rede virtual.
 3. Os servidores que você configura para usar o gateway de aplicativo devem existir ou ter seus pontos de extremidade que são criados na rede virtual, ou com um endereço IP público ou VIP (endereço IP virtual) atribuído.
 

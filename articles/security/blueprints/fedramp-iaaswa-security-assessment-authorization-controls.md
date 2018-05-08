@@ -1,6 +1,6 @@
 ---
-title: "Segurança e conformidade do Azure Blueprint – Automação de aplicativos Web para FedRAMP – Avaliação da segurança e autorização"
-description: "Automação de Aplicativos Web para FedRAMP – Avaliação da Segurança e Autorização"
+title: Segurança e conformidade do Azure Blueprint – Automação de aplicativos Web para FedRAMP – Avaliação da segurança e autorização
+description: Automação de Aplicativos Web para FedRAMP – Avaliação da Segurança e Autorização
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Avaliação e Autorização da Segurança (CA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-1** A organização desenvolve, documenta e distribui a [Atribuição: equipe ou funções definidos pela organização] uma política de avaliação e autorização de segurança que aborda a finalidade, o escopo, as funções, as responsabilidades, o compromisso de gerenciamento, a coordenação entre entidades organizacionais e a conformidade; e os procedimentos para facilitar a implementação da política de avaliação e autorização de segurança e os controles de avaliação e autorização de segurança associados; e revisa e atualiza a política atual de avaliação e autorização de segurança [Atribuição: frequência definida pela organização]; e os procedimentos de reconhecimento e treinamento de segurança [Atribuição: frequência definida pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por desenvolver um plano de avaliação de segurança para o sistema implantado pelo cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ca-2b"></a>Controle NIST 800-53 CA-2.b
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2.b** A organização avalia os controles de segurança no sistema de informações e seu ambiente de operação [Atribuição: frequência definida por organização] para determinar a extensão a qual os controles são implementados corretamente, operando como pretendido e produzindo resultado desejado em relação à satisfação dos requisitos de segurança.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2.c** A organização gera um relatório de avaliação de segurança que documenta os resultados da avaliação.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2.d** A organização fornece os resultados da avaliação de controle de segurança para [Atribuição: indivíduos ou funções definidos pela organização.].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,12 +101,12 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2 (1)** A organização emprega avaliadores ou equipes de avaliação com [Atribuição: nível de independência definido de organização] para realizar avaliações de controle de segurança.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por empregar avaliadores independentes ou equipes de avaliação para conduzir as avaliações de controle de segurança. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ca-2-2"></a>Controle NIST 800-53 CA-2 (2)
@@ -120,7 +120,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela seleção de testes adicionais a serem incluídos como parte de avaliações de controle de segurança. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ca-2-3"></a>Controle NIST 800-53 CA-2 (3)
@@ -143,12 +143,12 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3.a** A organização autoriza conexões do sistema de informações com outros sistemas de informações com o uso de Contratos de Segurança de Interconexão.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | Os procedimentos de autorização e avaliação de segurança do nível empresarial do cliente podem endereçar autorização das interconexões de sistema. Observação: FedRAMP não requer ISAs entre um CSP e um órgão Federal. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ca-3b"></a>Controle NIST 800-53 CA-3.b
@@ -162,7 +162,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Os procedimentos de autorização e avaliação de segurança do nível empresarial do cliente podem estabelecer requisitos para estabelecer das interconexões de sistema. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ca-3c"></a>Controle NIST 800-53 CA-3.c
@@ -176,7 +176,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Os procedimentos de autorização e avaliação de segurança do nível empresarial do cliente podem estabelecer revisão ISA e atualizar processos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ca-3-3"></a>Controle NIST 800-53 CA-3 (3)
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-5.a** A organização desenvolve um plano de ação e as etapas para o sistema de informações documentar as ações remediais planejadas da organização para corrigir falhas ou deficiências observadas durante a avaliação dos controles de segurança e para reduzir ou eliminar vulnerabilidades conhecidas no sistema.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-6.a** A organização atribui um nível sênior executivo ou gerente como a autorização oficial do sistema de informações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -260,7 +260,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente pode depender de um processo de autorização de sistema de nível corporativo. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ca-6c"></a>Controle NIST 800-53 CA-6.c
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-6.c** A organização revisa e atualiza a autorização de segurança [Atribuição: frequência definida pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.a** A organização desenvolve uma estratégia de monitoramento contínua e implementa um programa de monitoramento contínuo que inclui o estabelecimento de [Atribuição: métricas organização definido] a ser monitorado.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.c** A organização desenvolve uma estratégia de monitoramento contínuo e implementa um programa de monitoramento contínuo que inclui avaliações de controle de segurança contínuas de acordo com a estratégia de monitoramento contínuo organizacional.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,12 +325,12 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.d** A organização desenvolve uma estratégia de monitoramento contínuo e implementa um programa de monitoramento contínuo que inclui monitoramento do status de segurança contínua das métricas definidas pela organização de acordo com a estratégia de monitoramento contínuo organizacional.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O programa de monitoramento contínuo de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ca-7e"></a>Controle NIST 800-53 CA-7.e
@@ -372,7 +372,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O programa de monitoramento contínuo de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ca-7-1"></a>Controle NIST 800-53 CA-7 (1)
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7 (1)** A organização emprega avaliadores ou equipes de avaliação com [Atribuição: nível de independência definido de organização] para monitorar os controles de segurança no sistema de informação em um ritmo contínuo.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -428,7 +428,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente pode depender de uma avaliação de testes de segurança de nível empresarial executada por um agente independente ou equipe. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ca-9a"></a>Controle NIST 800-53 CA-9.a
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-9.b** Os documentos da organização, para cada interconexão interna, as características de interface, os requisitos de segurança e a natureza das informações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

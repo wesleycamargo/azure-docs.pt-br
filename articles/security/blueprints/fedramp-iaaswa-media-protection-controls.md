@@ -1,6 +1,6 @@
 ---
-title: "Projeto de segurança e conformidade do Azure – Automação de aplicativos Web para FedRAMP – Proteção de mídia"
-description: "Automação de aplicativos Web para FedRAMP – Proteção de mídia"
+title: Projeto de segurança e conformidade do Azure – Automação de aplicativos Web para FedRAMP – Proteção de mídia
+description: Automação de aplicativos Web para FedRAMP – Proteção de mídia
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="media-protection-mp"></a>Proteção de mídia (MP)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-2** A organização restringe o acesso a [Atribuição: tipos de mídia digital e/ou não digital definidos pela organização] para [Atribuição: pessoal ou funções definidas pela organização].
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-3.b** A organização isenta [Atribuição: tipos de mídia do sistema de informações definidos pela organização] de marcação desde que a mídia permaneça em [Atribuição: áreas controladas definidas pela organização].
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -106,7 +106,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | Os ativos de mídia digital do Microsoft Azure são protegidos nas colocações do datacenter da Microsoft por meio de controles de acesso físico (PE-3) e controles de acesso lógico (IA-2) durante toda a vida útil. Os ativos do Microsoft Azure são limpos, removidos ou destruídos com métodos consistentes com o NIST SP 800-88 antes de serem descartados. Para destruir o ativo, o Microsoft Azure utiliza os serviços de destruição de ativos locais. |
+| **Fornecedor (Microsoft Azure)** | Os ativos de mídia digital do Microsoft Azure são protegidos nas colocações do datacenter da Microsoft por meio de controles de acesso físico (PE-3) e controles de acesso lógico (IA-2) durante toda a vida útil. Os ativos do Microsoft Azure são limpos, removidos ou destruídos com métodos consistentes com o NIST SP 800-88 antes de serem descartados. Para destruir o ativo, o Microsoft Azure utiliza os serviços de destruição de ativos locais. |
 
 
  ## <a name="nist-800-53-control-mp-5a"></a>Controle NIST 800-53 MP-5.a
@@ -120,7 +120,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | As mídias digitais do Microsoft Azure em datacenters da Microsoft consistem em servidores, dispositivos de rede e fitas e discos magnéticos de backup, quando apropriado. Os datacenters da Microsoft não usam mídia não digital. A Microsoft utiliza três métodos para proteger a mídia que está sendo transportada fora do datacenter: 1) Transporte seguro, 2) Criptografia 3) Limpar, remover ou destruir. |
+| **Fornecedor (Microsoft Azure)** | As mídias digitais do Microsoft Azure em datacenters da Microsoft consistem em servidores, dispositivos de rede e fitas e discos magnéticos de backup, quando apropriado. Os datacenters da Microsoft não usam mídia não digital. A Microsoft utiliza três métodos para proteger a mídia que está sendo transportada fora do datacenter: 1) Transporte seguro, 2) Criptografia 3) Limpar, remover ou destruir. |
 
 
  ## <a name="nist-800-53-control-mp-5b"></a>Controle NIST 800-53 MP-5.b
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-5.d** A organização restringe as atividades associadas ao transporte de mídia do sistema de informações ao pessoal autorizado.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -176,7 +176,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure utiliza um Serviço de Proteção de Dados (DPS) para gerenciar chaves de criptografia usando um módulo de criptografia FIPS 140-2 com validação de Nível 3 (cert. nº 1694) e HSM (cert. nº 1178) para proteger os dados nas fitas magnéticas criptografadas AES de 256 bits. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure utiliza um Serviço de Proteção de Dados (DPS) para gerenciar chaves de criptografia usando um módulo de criptografia FIPS 140-2 com validação de Nível 3 (cert. nº 1694) e HSM (cert. nº 1178) para proteger os dados nas fitas magnéticas criptografadas AES de 256 bits. |
 
 
  ## <a name="nist-800-53-control-mp-6a"></a>Controle NIST 800-53 MP-6.a
@@ -199,12 +199,12 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6.b** A organização emprega mecanismos de limpeza com a força e a integridade proporcionais à categoria de segurança ou à classificação das informações.
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure usa unidades de eliminação de dados e processos para limpar/remover dados de maneira consistente com NIST SP 800-88 e que são proporcionais à classificação do ativo do Microsoft Azure. Para ativos que precisam ser destruídos, o Microsoft Azure utiliza os serviços locais de destruição de ativos. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure usa unidades de eliminação de dados e processos para limpar/remover dados de maneira consistente com NIST SP 800-88 e que são proporcionais à classificação do ativo do Microsoft Azure. Para ativos que precisam ser destruídos, o Microsoft Azure utiliza os serviços locais de destruição de ativos. |
 
 
  ### <a name="nist-800-53-control-mp-6-1"></a>Controle NIST 800-53 MP-6 (1)
@@ -246,7 +246,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure garante que os datacenters do Azure sigam as ferramentas e o procedimento de segurança de mídia removível no runbook de serviços de data center para impedir a infecção do ambiente governamental por malware em dispositivos portáteis de armazenamento. O procedimento especifica que as seguintes ações sejam realizadas com unidades USB antes do uso no ambiente governamental: <br /> (1) Formate as unidades USB após a compra do fabricante ou fornecedor, antes de começar a usar ou ao reutilizar para uma ferramenta diferente. <br /> (2) Verifique qualquer unidade USB a ser usada em uma área designada pelo governo em busca de malwares, antes de levar a unidade para a área. <br /> (3) Depois de usar uma unidade dentro de uma área designada pelo governo, formate-a antes de deixar a área. <br /> As ferramentas e o procedimento de segurança de mídia removível também exigem que nenhuma unidade USB perdida, descartada, roubada ou extraviada seja reintroduzida em datacenters do Azure, mas que, em vez disso, sejam catalogadas e destruídas. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure garante que os datacenters do Azure sigam as ferramentas e o procedimento de segurança de mídia removível no runbook de serviços de data center para impedir a infecção do ambiente governamental por malware em dispositivos portáteis de armazenamento. O procedimento especifica que as seguintes ações sejam realizadas com unidades USB antes do uso no ambiente governamental: <br /> (1) Formate as unidades USB após a compra do fabricante ou fornecedor, antes de começar a usar ou ao reutilizar para uma ferramenta diferente. <br /> (2) Verifique qualquer unidade USB a ser usada em uma área designada pelo governo em busca de malwares, antes de levar a unidade para a área. <br /> (3) Depois de usar uma unidade dentro de uma área designada pelo governo, formate-a antes de deixar a área. <br /> As ferramentas e o procedimento de segurança de mídia removível também exigem que nenhuma unidade USB perdida, descartada, roubada ou extraviada seja reintroduzida em datacenters do Azure, mas que, em vez disso, sejam catalogadas e destruídas. |
 
 
  ## <a name="nist-800-53-control-mp-7"></a>Controle NIST 800-53 MP-7
@@ -255,12 +255,12 @@ ms.lasthandoff: 02/11/2018
 
 **MP-7** A organização [Seleção: restringe; proíbe] o uso de [Atribuição: tipos de mídia do sistema de informações definidos pela organização] em [Atribuição: sistema ou componentes do sistema de informações definidos pela organização] usando [Atribuição: garantias de segurança definidos pela organização].
 
-**Responsibilidades:** `Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure exige que os proprietários dos ativos atribuam seus ativos a uma classificação de ativos e nenhum ativo está isento dessa exigência. No ambiente de datacenter do Microsoft Azure, os ativos referem-se a servidores e dispositivos de rede. Outras mídias digitais, como unidades USB, são gerenciadas por políticas específicas e procedimentos que controlam como esses dispositivos são gerenciados. CD/DVDs não são usados. Mídias não digitais não são usadas no datacenter. O uso de mídia digital em ambientes de datacenter do Microsoft Azure é monitorado 24h por dia, sete dias por semana, por meio de cobertura de CFTV. Consulte PE-06 para obter mais detalhes. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure exige que os proprietários dos ativos atribuam seus ativos a uma classificação de ativos e nenhum ativo está isento dessa exigência. No ambiente de datacenter do Microsoft Azure, os ativos referem-se a servidores e dispositivos de rede. Outras mídias digitais, como unidades USB, são gerenciadas por políticas específicas e procedimentos que controlam como esses dispositivos são gerenciados. CD/DVDs não são usados. Mídias não digitais não são usadas no datacenter. O uso de mídia digital em ambientes de datacenter do Microsoft Azure é monitorado 24h por dia, sete dias por semana, por meio de cobertura de CFTV. Consulte PE-06 para obter mais detalhes. |
 
 
  ### <a name="nist-800-53-control-mp-7-1"></a>Controle NIST 800-53 MP-7 (1)
@@ -274,4 +274,4 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | A Microsoft restringe o uso de mídia removível e gravável em mídias que tenham sido explicitamente aprovadas pelo gerenciamento de datacenter pelas ferramentas de DCS e pelo procedimento de mídias removíveis. As mídias de propriedade pessoal ou que não tenham nenhum proprietário identificável são proibidas em qualquer área de produção, conforme observado no documento de regras e regulamentos de trabalho de datacenters da Microsoft. |
+| **Fornecedor (Microsoft Azure)** | A Microsoft restringe o uso de mídia removível e gravável em mídias que tenham sido explicitamente aprovadas pelo gerenciamento de datacenter pelas ferramentas de DCS e pelo procedimento de mídias removíveis. As mídias de propriedade pessoal ou que não tenham nenhum proprietário identificável são proibidas em qualquer área de produção, conforme observado no documento de regras e regulamentos de trabalho de datacenters da Microsoft. |

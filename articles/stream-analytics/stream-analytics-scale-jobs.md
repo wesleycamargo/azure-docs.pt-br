@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalar um trabalho do Azure Stream Analytics para aumentar a taxa de transferência
 Este artigo explica como você pode ajustar a consulta do Stream Analytics para aumentar a produtividade para os trabalhos do Streaming Analytics. Você pode usar o guia a seguir para dimensionar seu trabalho a fim de lidar com uma carga maior e aproveitar mais recursos do sistema (como maior largura de banda, mais recursos de CPU, mais memória).
@@ -31,7 +31,8 @@ Se sua consulta é inerentemente totalmente paralelizável entre partições de 
         - Se o problema for devido à limitação do coletor, talvez seja necessário aumentar o número de partições de saída (e também de partições de entrada para manter o trabalho totalmente paralelizáveis) ou aumentar a quantidade de recursos do coletor (por exemplo, número de unidades de solicitação para o CosmosDB).
     - No diagrama de trabalho, há uma métrica de evento de lista de pendências por partição para cada entrada. Se a métrica de evento de lista de pendências continuar crescendo, será também um indicador de que o recurso do sistema está restrito (seja devido à limitação do coletor de saída ou à alta utilização da CPU).
 4.  Depois de determinar os limites do que um trabalho com 6 UA pode alcançar, é possível extrapolar linearmente a capacidade de processamento do trabalho conforme vai adicionando mais UA, supondo que você não tenha nenhuma distorção de dados que torne certa partição "ativa".
->[!Note]
+
+> [!NOTE]
 > Escolha o número correto de Unidades de Streaming: como o Stream Analytics cria um nó de processamento para cada 6 SU adicionadas, é melhor ter um número de nós que seja divisor do número de partições de entrada, para que as partições possam ser distribuídas uniformemente entre os nós.
 > Por exemplo, você mediu que seu trabalho com 6 UA pode alcançar a taxa de processamento de 4 MB/s, e a contagem de partições de entrada é 4. Você pode optar por executar o trabalho com 12 UA para alcançar a taxa de processamento de aproximadamente 8 MB/s ou 24 UA para alcançar 16 MB/s. Em seguida, você pode decidir quando aumentar o número de UA para o trabalho e em qual valor como função da sua taxa de entrada.
 
