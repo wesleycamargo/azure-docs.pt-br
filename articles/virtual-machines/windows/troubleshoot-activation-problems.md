@@ -1,11 +1,11 @@
 ---
-title: "Solução de problemas de ativação de máquina virtual do Windows no Azure | Microsoft Docs"
-description: "Fornece as etapas de solução de problemas para corrigir problemas de ativação de máquina virtual do Windows no Azure"
+title: Solução de problemas de ativação de máquina virtual do Windows no Azure | Microsoft Docs
+description: Fornece as etapas de solução de problemas para corrigir problemas de ativação de máquina virtual do Windows no Azure
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3926522c8359587798ea540d13b157832551f24d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solucionar problemas de ativação de máquina virtual do Windows Azure
 
@@ -78,7 +78,7 @@ Esta etapa não é aplicável ao Windows 2012 ou Windows 2008 R2. Ela usa o recu
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Etapa 2 Verificar a conectividade entre o serviço KMS do Azure e de VM
 
-1. Baixe e extraia a ferramenta [Psping](http:/technet.microsoft.com/en-us/sysinternals/jj729731.aspx) em uma pasta local na VM que não ativa. 
+1. Baixe e extraia a ferramenta [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) em uma pasta local na VM que não ativa. 
 
 2. Vá para Iniciar, pesquise no Windows PowerShell, clique com o botão direito no Windows PowerShell e, em seguida, selecione Executar como administrador.
 
@@ -126,7 +126,7 @@ Sim.
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>O que acontece se o período de ativação do Windows expirar? 
  
-Quando o período de cortesia expirar e o Windows ainda não está ativado, o Windows Server 2008 R2 e versões posteriores do Windows mostrarão notificações adicionais sobre a ativação. O papel de parede da área de trabalho permanece preto e o Windows Update instalará somente as atualizações de segurança e críticas, mas não as atualizações opcionais. Consulte a seção de Notificações na parte inferior da página [Condições de Licenciamento](http://technet.microsoft.com/en-us/library/ff793403.aspx).   
+Quando o período de cortesia expirar e o Windows ainda não está ativado, o Windows Server 2008 R2 e versões posteriores do Windows mostrarão notificações adicionais sobre a ativação. O papel de parede da área de trabalho permanece preto e o Windows Update instalará somente as atualizações de segurança e críticas, mas não as atualizações opcionais. Consulte a seção de Notificações na parte inferior da página [Condições de Licenciamento](http://technet.microsoft.com/library/ff793403.aspx).   
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

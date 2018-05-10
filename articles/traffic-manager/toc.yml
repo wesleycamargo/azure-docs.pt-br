@@ -8,12 +8,6 @@
   items:
     - name: Criar um perfil do Gerenciador de Tráfego
       href: traffic-manager-create-profile.md
-- name: Exemplos
-  items:
-    - name: CLI do Azure
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: Tutoriais
   items:
     - name: Rotear o tráfego com base na localização geográfica do ponto de extremidade
@@ -24,6 +18,12 @@
       href: traffic-manager-configure-weighted-routing-method.md
     - name: Rotear tráfego para um ponto de extremidade de prioridade
       href: traffic-manager-configure-priority-routing-method.md
+- name: Exemplos
+  items:
+    - name: CLI do Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Conceitos
   items:
     - name: Métodos de roteamento
@@ -91,7 +91,7 @@
   items:
     - name: Gateway de Aplicativo
       href: /azure/application-gateway/
-    - name: Balanceador de carga
+    - name: Load Balancer
       href: /azure/load-balancer/
     - name: DNS do Azure
       href: /azure/dns/

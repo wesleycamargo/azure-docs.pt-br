@@ -5,7 +5,7 @@ services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 36c20b75-f2e5-4184-a6b5-9c5e618f79b2
 ms.service: storsimple
 ms.devlang: NA
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 8910471e09b9ecc797005818538ccfc6a91c68a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalar e configurar o Adaptador StorSimple para o SharePoint
 ## <a name="overview"></a>Visão geral
@@ -237,7 +237,7 @@ Depois de mover os BLOBs de volta para os bancos de dados de conteúdo do SQL Se
 2. Clique duas vezes no instalador do Adaptador StorSimple para SharePoint. O Assistente de Instalação é iniciado.
    
     ![Assistente de instalação](./media/storsimple-adapter-for-sharepoint/sasp2.png)
-3. Clique em **Avançar**. A página a seguir será exibida.
+3. Clique em **Próximo**. A página a seguir será exibida.
    
     ![Página de remoção do assistente de instalação](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 4. Clique em **Remover** para selecionar o processo de remoção. A página a seguir será exibida.
@@ -261,4 +261,4 @@ Depois de mover os BLOBs de volta para os bancos de dados de conteúdo do SQL Se
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
+[8]: https://technet.microsoft.com/library/ff943565.aspx

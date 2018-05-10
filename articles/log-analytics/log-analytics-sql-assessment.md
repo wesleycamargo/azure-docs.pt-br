@@ -1,11 +1,11 @@
 ---
 title: Otimizar seu ambiente do SQL Server com o Azure Log Analytics | Microsoft Docs
-description: "Com o Azure Log Analytics, você pode usar a solução de Verificação da Integridade do SQL para avaliar o risco e a integridade de seus ambientes em intervalos regulares."
+description: Com o Azure Log Analytics, você pode usar a solução de Verificação da Integridade do SQL para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimize seu ambiente SQL com a solução de Verificação da Integridade do SQL Server no Log Analytics
 
@@ -54,7 +54,7 @@ Para executar a verificação de integridade nos servidores do SQL Server, são 
 
 1. Instale o [MMA (Microsoft Monitoring Agent)](log-analytics-windows-agent.md) se o servidor ainda não for monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. Se for monitorado com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, e o grupo de gerenciamento não for integrado com o serviço Log Analytics, o servidor poderá ter hospedagem múltipla com o Log Analytics para coletar dados, encaminhar o serviço e ainda ser monitorado pelo Operations Manager.  
-3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-oms) depois de habilitar a solução em seu espaço de trabalho.  
+3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu espaço de trabalho.  
 
 O agente no SQL Server que informa um grupo de gerenciamento Operations Manager, coleta os dados, encaminha para o servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para o serviço Log Analytics.  Os dados não são gravados nos bancos de dados do Operations Manager.  
 
@@ -163,7 +163,7 @@ Antes de usar uma solução de avaliação no Log Analytics, é necessário ter 
 Veja as avaliações de conformidade resumidas para sua infraestrutura e faça uma busca detalhada das recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
-1. Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 3. No painel de assinaturas do Log Analytics, selecione um espaço de trabalho e clique no bloco **Visão geral**.  
 4. Na página **Visão Geral**, clique no bloco **Verificação da Integridade do SQL**.

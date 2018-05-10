@@ -73,7 +73,7 @@ Todos os aplicativos cliente que chamam a API também precisam ser registrados c
 
 Quando o aplicativo for criado, anote a **ID do aplicativo** para uso em uma etapa posterior. 
 
-Agora, crie um segredo de cliente para esse aplicativo, para uso em uma etapa posterior.
+Agora, crie um segredo do cliente para esse aplicativo, para uso em uma etapa posterior.
 
 1. Clique em **Configurações** novamente e vá para **Chaves**.
 

@@ -1,20 +1,20 @@
 ---
-title: "Criar um gateway de aplicativo com hospedagem de vários sites – Portal do Azure | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicativo que hospeda vários sites usando o portal do Azure."
+title: Criar um gateway de aplicativo com hospedagem de vários sites – Portal do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo que hospeda vários sites usando o portal do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: f3dd092b2298bfc97cac30b8706e0588a466e1e0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Criar um gateway de aplicativo com hospedagem de vários sites usando o Portal do Azure
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a:
 > * Criar máquinas virtuais para servidores de back-end
 > * Criar pools de back-end com os servidores de back-end
 > * Criar ouvintes e regras de roteamento
-> * Criar um registro CNAME em seu domínio
+> * Criar um registro CNAME no seu domínio
 
 ![Exemplo de roteamento de vários sites](./media/application-gateway-create-multisite-portal/scenario.png)
 
@@ -35,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon no portal do Azure em [http://portal.azure.com](http://portal.azure.com)
+Faça logon no Portal do Azure em [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
@@ -102,7 +102,7 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
 2. Execute o comando a seguir para instalar o IIS na máquina virtual: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -156,7 +156,7 @@ Neste exemplo, você criará duas novas regras e excluirá a regra padrão que f
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Criar um registro CNAME em seu domínio
 
-Depois de criar o gateway de aplicativo com seu endereço IP público, você pode obter o endereço DNS e usá-lo para criar um registro CNAME em seu domínio. O uso de registros A não é recomendável, pois o VIP pode mudar quando o gateway de aplicativo for reinicializado.
+Depois de criar o gateway de aplicativo com seu endereço IP público, você pode obter o endereço DNS e usá-lo para criar um registro CNAME em seu domínio. O uso de registros A não é recomendado, pois o VIP pode mudar quando o gateway de aplicativo for reiniciado.
 
 1. Clique em **Todos os recursos** e, em seguida, clique em **myAGPublicIPAddress**.
 
@@ -166,9 +166,9 @@ Depois de criar o gateway de aplicativo com seu endereço IP público, você pod
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-1. Digite seu nome de domínio na barra de endereços do navegador. Por exemplo, http://www.contoso.com.
+1. Digite seu nome de domínio na barra de endereços do navegador. Como http://www.contoso.com.
 
-    ![Testar o site do contoso no gateway do aplicativo](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
+    ![Testar o site contoso no gateway do aplicativo](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
 
 2. Altere o endereço para seu outro domínio e você verá algo parecido com o exemplo a seguir:
 
@@ -183,7 +183,7 @@ Neste artigo, você aprendeu a:
 > * Criar máquinas virtuais para servidores de back-end
 > * Criar pools de back-end com os servidores de back-end
 > * Criar ouvintes e regras de roteamento
-> * Criar um registro CNAME em seu domínio
+> * Criar um registro CNAME no seu domínio
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o que você pode fazer com o gateway de aplicativo](application-gateway-introduction.md)

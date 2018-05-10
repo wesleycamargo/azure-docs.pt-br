@@ -1,6 +1,6 @@
 ---
-title: "Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP – Identificação e Autorização"
-description: "Automação de Aplicativos Web para FedRAMP – Identificação e Autenticação"
+title: Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP – Identificação e Autorização
+description: Automação de Aplicativos Web para FedRAMP – Identificação e Autenticação
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identificação e Autenticação (IA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-1** A organização desenvolve, documenta e distribui à [Atribuição: equipe ou funções definidas pela organização] uma política de identificação e autenticação que aborda a finalidade, o escopo, as funções, as responsabilidades, o compromisso de gerenciamento, a coordenação entre entidades organizacionais e a conformidade; e os procedimentos para facilitar a implementação da política de identificação e autenticação e os controles de identificação e autenticação; e revisa e atualiza a política de proteção de identificação e autenticação atual [Atribuição: frequência definida pela organização]; e os procedimentos de identificação e autenticação [Atribuição: frequência definida pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2** O sistema de informações exclusivamente identifica e autentica usuários organizacionais (ou processos atuando em nome dos usuários organizacionais).
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -119,8 +119,8 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | As contas compartilhadas/de grupo não são habilitadas nos recursos implantados por esse projeto. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | As contas compartilhadas/de grupo estão desabilitadas nos recursos implantados por esta especificação técnica. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ia-2-8"></a>Controle NIST 800-53 IA-2 (8)
@@ -133,8 +133,8 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | O acesso a recursos implantados por este projeto é protegido contra ataques de repetição pela funcionalidade interna Kerberos do Azure Active Directory, pelo Active Directory e pelo sistema operacional Windows. Na autenticação Kerberos, o autenticador enviado pelo cliente contém dados adicionais, como uma lista de IP criptografada, carimbos de data/hora do cliente e vida útil do tíquete. Se um pacote é repetido, o carimbo de data/hora é verificado. Se o carimbo de data/hora for anterior ou igual a um autenticador anterior, o pacote será rejeitado. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | O acesso aos recursos implantados por este plano é protegido contra ataques de reprodução pela funcionalidade interna Kerberos do Azure Active Directory, pelo Active Directory e pelo sistema operacional Windows. Na autenticação Kerberos, o autenticador enviado pelo cliente contém dados adicionais, como uma lista de IP criptografada, carimbos de data/hora do cliente e vida útil do tíquete. Se um pacote é repetido, o carimbo de data/hora é verificado. Se o carimbo de data/hora for anterior ou igual a um autenticador anterior, o pacote será rejeitado. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ia-2-9"></a>Controle NIST 800-53 IA-2 (9)
@@ -147,7 +147,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | O acesso a recursos implantados por este projeto é protegido contra ataques de repetição pela funcionalidade interna Kerberos do Azure Active Directory, pelo Active Directory e pelo sistema operacional Windows. Na autenticação Kerberos, o autenticador enviado pelo cliente contém dados adicionais, como uma lista de IP criptografada, carimbos de data/hora do cliente e vida útil do tíquete. Se um pacote é repetido, o carimbo de data/hora é verificado. Se o carimbo de data/hora for anterior ou igual a um autenticador anterior, o pacote será rejeitado. |
+| **Cliente** | O acesso aos recursos implantados por este plano é protegido contra ataques de reprodução pela funcionalidade interna Kerberos do Azure Active Directory, pelo Active Directory e pelo sistema operacional Windows. Na autenticação Kerberos, o autenticador enviado pelo cliente contém dados adicionais, como uma lista de IP criptografada, carimbos de data/hora do cliente e vida útil do tíquete. Se um pacote é repetido, o carimbo de data/hora é verificado. Se o carimbo de data/hora for anterior ou igual a um autenticador anterior, o pacote será rejeitado. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (11)** O sistema de informações implementa a autenticação multifator para acesso remoto de contas com e sem privilégios, de modo que um dos fatores é fornecido por um dispositivo separado do sistema que está realizando o acesso e o dispositivo atende aos [Atribuição: requisitos de força do mecanismo definidos pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.a** A organização gerencia os identificadores de informações do sistema através do recebimento de autorização de [Atribuição: pessoal ou funções definidas pela organização] para atribuir um indivíduo, o identificador de grupo, função ou dispositivo.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -218,7 +218,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Durante a implantação, este projeto solicita identificadores especificados pelo cliente para contas individuais.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ia-4c"></a>Controle NIST 800-53 IA-4.c
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.e** A organização gerencia os identificadores de informações do sistema, impedindo a reutilização de identificadores depois de [Atribuição: período de tempo de inatividade definido pelo organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -274,7 +274,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Azure Active Directory e suporte do Active Directory denotando prestadores de serviços, fornecedores e outros tipos de usuário usando as convenções de nomenclatura aplicadas a seus identificadores. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ia-5a"></a>NIST 800-53 Controle IA-5.a
@@ -316,7 +316,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Autenticadores usados por este projeto atendem aos requisitos de força conforme exigido pelo FedRAMP. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ia-5d"></a>NIST 800-53 Controle IA-5.d
@@ -330,7 +330,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por gerenciar autenticadores. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ia-5e"></a>NIST 800-53 Controle IA-5.e
@@ -358,7 +358,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por gerenciar autenticadores. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ia-5g"></a>NIST 800-53 Controle IA-5.g
@@ -371,7 +371,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este projeto implanta um controlador de domínio ao qual todas as máquinas virtuais implantadas são unidas. Uma política de grupo é estabelecida e configurada para implementar restrições de tempo de vida da senha (60 dias). |
+| **Cliente** | Esta especificação técnica implanta um controlador de domínio no qual todas as máquinas virtuais implantadas devem ingressar. Uma política de grupo é estabelecida e configurada para implementar restrições de tempo de vida da senha (60 dias). |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -386,7 +386,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Este projeto implementa o Key Vault para proteger o conteúdo do autenticador contra modificação e a divulgação não autorizada. Os autenticadores a seguir são armazenadas no Key Vault: senha do Azure para implantar conta, senha de administrador da máquina virtual, senha de conta de serviço do SQL Server. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ia-5i"></a>Controle NIST 800-53 IA-5.i
@@ -400,7 +400,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Este projeto implementa o Key Vault para proteger o conteúdo do autenticador contra modificação e a divulgação não autorizada. Os autenticadores a seguir são armazenadas no Key Vault: senha do Azure para implantar conta, senha de administrador da máquina virtual, senha de conta de serviço do SQL Server. O Cofre de Chaves criptografa chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ia-5j"></a>NIST 800-53 Controle IA-5.j
@@ -413,7 +413,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | As contas compartilhadas/de grupo não são habilitadas nos recursos implantados por esse projeto. |
+| **Cliente** | As contas compartilhadas/de grupo estão desabilitadas nos recursos implantados por esta especificação técnica. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este projeto implanta um controlador de domínio ao qual todas as máquinas virtuais implantadas são unidas. Uma política de grupo é estabelecida e configurada para impor requisitos de complexidade de senha para contas locais da máquina virtual e contas do AD.  |
+| **Cliente** | Esta especificação técnica implanta um controlador de domínio no qual todas as máquinas virtuais implantadas devem ingressar. Uma política de grupo é estabelecida e configurada para impor requisitos de complexidade de senha para contas locais da máquina virtual e contas do AD.  |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -442,7 +442,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por utilizar autenticação baseada em senha dentro de recursos de implantação de cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ia-5-1c"></a>Controle NIST 800-53 IA-5 (1).c
@@ -451,12 +451,12 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1).c** O sistema de informações, para autenticação baseada em senha armazena e transmite senhas somente criptograficamente protegidas.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O Azure Active Directory é usado para garantir que todas as senhas sejam protegidas por criptografia enquanto armazenados e transmitidas. Senhas armazenadas pelo Active Directory e localmente em máquinas virtuais Windows implantadas são codificadas em hash automaticamente como parte da funcionalidade de segurança interna. Sessões de autenticação de área de trabalho remota são protegidas usando TLS para garantir que os autenticadores sejam protegidos quando transmitidos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ia-5-1d"></a>Controle NIST 800-53 IA-5 (1).d
@@ -469,7 +469,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este projeto implanta um controlador de domínio ao qual todas as máquinas virtuais implantadas são unidas. Uma política de grupo é estabelecida e configurada para impor restrições de senhas que impõem mínimo (1 dia) e o tempo de vida máximo (60 dias) restrições para contas locais e contas do AD. |
+| **Cliente** | Esta especificação técnica implanta um controlador de domínio no qual todas as máquinas virtuais implantadas devem ingressar. Uma política de grupo é estabelecida e configurada para impor restrições de senhas que impõem mínimo (1 dia) e o tempo de vida máximo (60 dias) restrições para contas locais e contas do AD. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -479,11 +479,11 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1).e** O sistema de informações, para autenticação baseada em senha impede a reutilização de senha para [Atribuição: número definido de organização] gerações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este projeto implanta um controlador de domínio ao qual todas as máquinas virtuais implantadas são unidas. Uma política de grupo é estabelecida e configurada para impor restrições sobre condições de reutilização (24 senhas) para contas locais e contas do AD. |
+| **Cliente** | Esta especificação técnica implanta um controlador de domínio no qual todas as máquinas virtuais implantadas devem ingressar. Uma política de grupo é estabelecida e configurada para impor restrições sobre condições de reutilização (24 senhas) para contas locais e contas do AD. |
 | **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -512,7 +512,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por utilizar autenticação baseada em PKI dentro de recursos de implantação de cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ia-5-2b"></a>Controle NIST 800-53 IA-5 (2).b
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2).b** O sistema de informações, para a autenticação baseada em PKI, impõe acesso autorizado à chave privada correspondente.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2).c** O sistema de informações, para a autenticação baseada em PKI, mapeia a identidade autenticada à conta do indivíduo ou grupo.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (3)** A organização requer que o processo de registro para receber [Atribuição: tipos de e/ou autenticadores específicos definidos pela organização] seja conduzido [Seleção: pessoalmente; por um terceiro confiável] antes de [Atribuição: autoridade de registro definida pela organização] com autorização por [Atribuição: pessoal ou funções definidas pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -591,12 +591,12 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (6)** A organização protege autenticadores proporcionais à categoria de segurança das informações às quais o uso do autenticado permite o acesso.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por proteger autenticadores. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ia-5-7"></a>Controle NIST 800-53 IA-5 (7)
@@ -610,7 +610,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Não há uso de autenticadores estáticos não criptografadas incorporados a aplicativos, scripts de acesso ou teclas de função implantadas por este projeto. Qualquer script ou aplicativo que usa um autenticador faz uma chamada para um contêiner do Azure Key Vault antes de cada uso. O acesso aos contêineres do Azure Key Vault é auditado, o que permite a detecção de violações dessa proibição se uma conta de serviço é usada para acessar um sistema sem uma chamada correspondente para o contêiner do Azure Key Vault. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ia-5-8"></a>Controle NIST 800-53 IA-5 (8)
@@ -619,12 +619,12 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (8)** A organização implementa [Atribuição: proteções de segurança definidas pela organização] para gerenciar o risco de comprometimento devido a indivíduos com contas em vários sistemas de informações.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente pode depender de garantias de segurança de nível corporativo para gerenciar o risco associado a indivíduos terem contas em vários sistemas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ia-5-11"></a>Controle NIST 800-53 IA-5 (11)
@@ -633,12 +633,12 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (11)** O sistema de informações, para autenticação baseada em token de hardware, emprega mecanismos que satisfazem [Atribuição: requisitos de qualidade de token definidos pela organização].
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por empregar mecanismos para atender aos requisitos de qualidade de autenticação baseada em token de hardware. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ia-5-13"></a>Controle NIST 800-53 IA-5 (13)
@@ -652,7 +652,7 @@ ms.lasthandoff: 02/11/2018
 |||
 |---|---|
 | **Cliente** | Nenhum recurso implantado por este esquema é configurado para permitir o uso de autenticadores armazenados em cache. A autenticação para máquinas virtuais implantadas requer que um autenticador seja inserido no momento da autenticação. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ia-6"></a>Controle NIST 800-53 IA-6
@@ -689,12 +689,12 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8** O sistema de informações exclusivamente identifica e autentica usuários não organizacionais (ou processos atuando em nome dos usuários não organizacionais).
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por identificar e autenticar usuários não organizacionais acessando recursos implantados pelo cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ia-8-1"></a>Controle NIST 800-53 IA-8 (1)
@@ -703,12 +703,12 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (1)** O sistema de informações aceita e eletronicamente verifica as credenciais de Verificação de Identidade Pessoal (PIV) de outras agências federais.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por aceitar e verificar as Credenciais de Verificação de Identidade Pessoal (PIV) emitidas por outras agências federais. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ia-8-2"></a>Controle NIST 800-53 IA-8 (2)
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (2)** O sistema de informações aceita somente credenciais de terceiros aprovados pelo FICAM.
 
-**Responsibilidades:** `Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

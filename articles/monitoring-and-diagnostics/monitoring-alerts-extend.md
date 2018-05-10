@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Estender (copiar) alertas do Portal do OMS para o Azure
 O Portal do OMS (Microsoft Operations Management Suite) mostra apenas alertas do Log Analytics.  A nova experiência de alertas agora integrou a experiência de alertas em vários serviços e partes no Microsoft Azure. A nova experiência disponível como **Alertas** no Azure Monitor no Portal do Azure contém alertas de log de atividades, alertas de métrica e alertas de log para o Log Analytics e o Application Insights. 
@@ -43,7 +43,7 @@ Quando os alertas em um espaço de trabalho do Log Analytics forem agendados par
  ![Durante o período agendado, a ação do usuário em alertas é redirecionada para o Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Não há encargos para a extensão de alertas do Portal do OMS para o Azure e o uso de alertas do Azure para alertas do Log Analytics baseados em consulta não será cobrado, quando usado dentro das condições e dos limites definidos na [Política de preços do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/)  
+> Não há encargos para a extensão de alertas do Portal do OMS para o Azure e o uso de alertas do Azure para alertas do Log Analytics baseados em consulta não será cobrado, quando usado dentro das condições e dos limites definidos na [Política de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/)  
 
 Os usuários podem aproveitar os benefícios da extensão de alertas antes dessa data aceitando voluntariamente tornar seus alertas gerenciáveis no Azure.
 

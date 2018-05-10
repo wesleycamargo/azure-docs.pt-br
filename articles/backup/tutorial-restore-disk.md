@@ -1,34 +1,36 @@
 ---
 title: Restaurar um disco de VM com o Backup do Azure | Microsoft Docs
-description: "Saiba como restaurar um disco e criar uma VM de recuperação no Azure com serviços de backup e recuperação."
+description: Saiba como restaurar um disco e criar uma VM de recuperação no Azure com serviços de backup e recuperação.
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 2/14/2018
+ms.date: 4/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 571d40c46771f43ad5ea78fe92398de09e87393c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2b82725362517d12dd4e7df7b2bb083fa107253
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurar um disco e criar uma VM recuperada no Azure
-O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Ao restaurar de um ponto de recuperação, você pode restaurar a VM inteira ou arquivos individuais. Este artigo explica como restaurar uma VM completa. Neste tutorial, você aprenderá a:
+O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Ao restaurar de um ponto de recuperação, você pode restaurar a VM inteira ou arquivos individuais. Este artigo explica como restaurar uma VM completa usando a CLI. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Liste e selecione os pontos de recuperação
 > * Restaurar um disco de um ponto de recuperação
 > * Criar uma VM do disco restaurado
+
+Para obter informações sobre como usar o PowerShell para restaurar um disco e criar uma VM recuperada, confira [Backup e restauração de VMs do Azure com o PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

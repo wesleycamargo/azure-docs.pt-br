@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação dos Serviços de Mídia do Azure
+metadata:
+  document_id: 
+  title: Documentação dos Serviços de Mídia do Azure | Microsoft Docs
+  meta.description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.
+  services: media-services
+  author: juliako
+  manager: cfowler
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04-21-2018
+  ms.author: juliako
+  ms.openlocfilehash: 6bee2f17db6d1f79dd2ba84a278ff6a82b871a9e
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Os Serviços de Mídia do Azure são uma plataforma baseada em nuvem que permite a criação de soluções que apresentem um streaming de vídeo com qualidade de difusão, aumentem a acessibilidade e a distribuição, analisem o conteúdo e muito mais.
+sections:
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsA
+    items:
+    - html: <a href="/azure/media-services/latest/"> <br><strong>Serviços de Mídia do Azure v3 (versão prévia)</strong></a> <p>Saiba como transmitir sob demanda, fazer difusões ao vivo e analisar seus vídeos com os Serviços de Mídia v3.</p>
+    - html: <a href="/azure/media-services/previous/"> <br><strong>Serviços de Mídia do Azure v2 (GA)</strong></a> <p>Saiba como transmitir sob demanda, fazer difusões ao vivo e analisar seus vídeos com os Serviços de Mídia v2.</p>
+- title: Guia de início rápido de 5 minutos
+  items:
+  - type: paragraph
+    text: 'Saiba como criar uma conta dos Serviços de Mídia, iniciar a codificação de vídeos e usar o Player de Mídia do Azure para reproduzi-los:'
+  - type: list
+    style: ordered
+    items:
+    - html: Transmitir arquivos&#58; <a href="/azure/media-services/latest/stream-files-dotnet-quickstart">v3</a> | <a href="/azure/media-services/previous/media-services-portal-vod-get-started">v2</a>
+- title: Tutoriais Passo a Passo
+  items:
+  - type: paragraph
+    text: 'Saiba como transmitir arquivos e analisar seus vídeos com os Serviços de Mídia:'
+  - type: list
+    style: ordered
+    items:
+    - html: Carregar, codificar, transmitir vídeos&#58; <a href="/azure/media-services/latest/stream-files-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-dotnet-get-started">v2</a>
+    - html: Analisar vídeos&#58; <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-analytics-overview">v2</a>

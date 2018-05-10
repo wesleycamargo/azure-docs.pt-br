@@ -8,12 +8,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
-ms.openlocfilehash: b622cffad66dc5d09df2d737bf2c1d30543a4252
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Carregar dados para o Azure Search usando a API REST
 > [!div class="op_single_selector"]
@@ -60,9 +60,9 @@ Cada objeto JSON da matriz "value" representa um documento a ser indexado. Cada 
 Agora que coletou os valores de campo necessários para as ações de índice, você está pronto para construir a solicitação HTTP real e o corpo da solicitação JSON para importar os dados.
 
 #### <a name="request-and-request-headers"></a>Solicitação e Cabeçalhos de Solicitação
-Na URL, você precisará fornecer o nome do serviço, nome do índice ("hotéis", neste caso), bem como a versão da API apropriada (a versão atual da API é `2016-09-01` no momento da publicação deste documento). Você precisará definir os cabeçalhos de solicitação `Content-Type` e `api-key`. Para a última opção, use uma das chaves de administração do serviço.
+Na URL, você precisará fornecer o nome do serviço, nome do índice ("hotéis", neste caso), bem como a versão da API apropriada (a versão atual da API é `2017-11-11` no momento da publicação deste documento). Você precisará definir os cabeçalhos de solicitação `Content-Type` e `api-key`. Para a última opção, use uma das chaves de administração do serviço.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

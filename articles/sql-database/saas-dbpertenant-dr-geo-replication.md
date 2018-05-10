@@ -10,15 +10,15 @@ ms.custom: saas apps
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: c6f3da52643caa9aa1172db5b884c5336c409715
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastre para um aplicativo SaaS multilocatário usando replicação geográfica do banco de dados
 
-Neste tutorial, você pode explorar um cenário de recuperação de desastre completo para um aplicativo SaaS multilocatário implementado usando o modelo de banco de dados por locatário. Para proteger o aplicativo contra uma interrupção, você deve usar [_replicação geográfica_](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) para criar réplicas para bancos de dados de catálogos e locatários em uma região de recuperação alternativa. Se ocorrer uma interrupção, você rapidamente faz failover para essas réplicas para retomar as operações normais de negócios. Durante um failover, os bancos de dados na região original se tornam as réplicas secundárias dos bancos de dados na região de recuperação. Quando essas réplicas voltam a ficar online, elas automaticamente atualizam o estado dos bancos de dados na região de recuperação. Após a interrupção ter sido resolvida, você não fará failback para os bancos de dados na região de produção original.
+Neste tutorial, você pode explorar um cenário de recuperação de desastre completo para um aplicativo SaaS multilocatário implementado usando o modelo de banco de dados por locatário. Para proteger o aplicativo contra uma interrupção, você deve usar [_replicação geográfica_](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para criar réplicas para bancos de dados de catálogos e locatários em uma região de recuperação alternativa. Se ocorrer uma interrupção, você rapidamente faz failover para essas réplicas para retomar as operações normais de negócios. Durante um failover, os bancos de dados na região original se tornam as réplicas secundárias dos bancos de dados na região de recuperação. Quando essas réplicas voltam a ficar online, elas automaticamente atualizam o estado dos bancos de dados na região de recuperação. Após a interrupção ter sido resolvida, você não fará failback para os bancos de dados na região de produção original.
 
 Este tutorial explora fluxos de trabalho de failover e failback. Você aprenderá a:
 > [!div classs="checklist"]
@@ -82,7 +82,7 @@ Neste tutorial, você primeiro usa replicação geográfica para criar réplicas
 Mais tarde, em uma etapa de repatriação separada, você faz failover dos bancos de dados de catálogo e locatário na região de recuperação para a região original. O aplicativo e os bancos de dados ficam disponíveis em toda a repatriação. Ao concluir, o aplicativo estará totalmente funcional na região original.
 
 > [!Note]
-> O aplicativo é recuperado para a _região emparelhada_ da região em que o aplicativo é implantado. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
+> O aplicativo é recuperado para a _região emparelhada_ da região em que o aplicativo é implantado. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Examinar o estado de integridade do aplicativo
 
@@ -103,7 +103,7 @@ Antes de iniciar o processo de recuperação, examine o estado de integridade no
 Nesta tarefa, você inicia um processo que sincroniza a configuração dos servidores, dos pools elásticos e dos bancos e dados com o catálogo de locatário. O processo mantém essas informações atualizadas no catálogo.  O processo funciona com o catálogo ativo, se estiver na região original ou na região de recuperação. As informações de configuração são usadas como parte do processo de recuperação para garantir que o ambiente de recuperação é consistente com o ambiente original e posteriormente, durante a repatriação para garantir que a região original seja tornada consistente com as alterações feitas no ambiente de recuperação. O catálogo também é usado para controlar o estado de recuperação de recursos de locatário
 
 > [!IMPORTANT]
-> Para simplificar, o processo de sincronização e outros processos de recuperação e de repatriação de longa execução são implementados nesses tutoriais como trabalhos ou sessões locais do Powershell executados em seu logon de usuário de cliente. Os tokens de autenticação emitidos quando seu logon expirar após várias horas e então os trabalhos falham. Em um cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure confiáveis de algum tipo, em execução sob uma entidade de serviço. Consulte [Usar o Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Para simplificar, o processo de sincronização e outros processos de recuperação e de repatriação de longa execução são implementados nesses tutoriais como trabalhos ou sessões locais do Powershell executados em seu logon de usuário de cliente. Os tokens de autenticação emitidos quando seu logon expirar após várias horas e então os trabalhos falham. Em um cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure confiáveis de algum tipo, em execução sob uma entidade de serviço. Consulte [Usar o Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. No _ISE do PowerShell_, abra o arquivo ...\Learning Modules\UserConfig.psm1. Substitua `<resourcegroup>` e `<user>` nas linhas 10 e 11 pelo valor usado quando você implantou o aplicativo.  Salve o arquivo!
 
@@ -181,7 +181,7 @@ Agora imagine que haja uma interrupção na região em que o aplicativo é impla
 
 2. Pressione **F5** para executar o script.  
     * O script é aberto em uma nova janela do PowerShell e, em seguida, inicia uma série de trabalhos do PowerShell executados em paralelo. Esses trabalhos fazem failover de bancos de dados de locatário para a região de recuperação.
-    * A região de recuperação é a _região emparelhada_ associada à região do Azure na qual você implantou o aplicativo. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). 
+    * A região de recuperação é a _região emparelhada_ associada à região do Azure na qual você implantou o aplicativo. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Monitore o status do processo de recuperação na janela do PowerShell.
     ![processo de failover](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -274,11 +274,11 @@ Agora vamos imaginar que a interrupção foi resolvida e o script de repatriaç�
 
 1. No *ISE do PowerShell*, no script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1.
 
-2. Verifique se o processo de sincronização de catálogo ainda está em execução em sua instância do PowerShell.  Se necessário, reinicie-o definindo:
-    * **$DemoScenario = 1**, Inicie a sincronização do servidor locatário, o pool e informações de configuração do banco de dados para o catálogo
+2. Verifique se o processo de sincronização de catálogo ainda está em execução em sua instância do PowerShell.  Se necessário, reinicie-o ao definir:
+    * **$DemoScenario = 1**, Iniciar a sincronização do servidor locatário, o pool e informações de configuração do banco de dados para o catálogo
     * Pressione **F5** para executar o script.
 
-3.  Em seguida, para iniciar o processo de repatriação, defina:
+3.  Então, para iniciar o processo de repatriação, defina:
     * **$DemoScenario = 6**, Repatrie o aplicativo para sua região original
     * Pressione **F5** para executar o script de recuperação em uma nova janela do PowerShell.  A repatriação levará vários minutos e pode ser monitorada na janela do PowerShell.
     ![Processo de repatriação](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
@@ -293,7 +293,7 @@ Agora vamos imaginar que a interrupção foi resolvida e o script de repatriaç�
 ## <a name="designing-the-application-to-ensure-app-and-database-are-colocated"></a>Projetando o aplicativo para garantir que ele e o banco de dados sejam colocados 
 O aplicativo foi projetado para sempre se conectar de uma instância na mesma região do banco de dados de locatário. Esse design reduz a latência entre o aplicativo e o banco de dados. Essa otimização assume que a interação do aplicativo no banco de dados é mais ativa que a interação do usuário com o aplicativo.  
 
-Bancos de dados de locatário podem ser distribuídos por regiões originais e de recuperação por algum tempo durante a repatriação. Para cada banco de dados, o aplicativo procura a região na qual o banco de dados está localizado, fazendo uma pesquisa de DNS no nome do servidor de locatário. No Banco de Dados SQL, o nome do servidor é um alias. O nome do servidor alternativo contém o nome da região. Se o aplicativo não estiver na mesma região que o banco de dados, ele redireciona para a instância na mesma região que o servidor de banco de dados.  Redirecionar a instância na mesma região que o banco de dados minimiza a latência entre o aplicativo e o banco de dados. 
+Os bancos de dados de locatário podem ser distribuídos por regiões originais e de recuperação por algum tempo durante a repatriação. Para cada banco de dados, o aplicativo procura a região na qual o banco de dados está localizado, fazendo uma pesquisa de DNS no nome do servidor de locatário. No Banco de Dados SQL, o nome do servidor é um alias. O nome de servidor com alias contém o nome da região. Se o aplicativo não estiver na mesma região do que o banco de dados, ele redirecionará para a instância na mesma região que o servidor de banco de dados.  Redirecionar a instância na mesma região que o banco de dados minimiza a latência entre o aplicativo e o banco de dados. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -310,4 +310,4 @@ Você pode aprender mais sobre as tecnologias que o banco de dados do SQL Azure 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)

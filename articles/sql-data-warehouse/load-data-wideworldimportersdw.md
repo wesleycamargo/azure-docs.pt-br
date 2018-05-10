@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 0e108487bac5154477988ad0b01378af4152836f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0b28bb07006ed58a82af80afe42fe472d4878971
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/25/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: carregar dados no SQL Data Warehouse do Azure
 
@@ -164,7 +164,7 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 
 
 ## <a name="create-a-user-for-loading-data"></a>Criar um usuário para carregar dados
 
-A conta do administrador do servidor é destinada a executar operações de gerenciamento, e não é adequada para executar consultas nos dados do usuário. O carregamento de dados é uma operação com uso intensivo de memória. Os limites máximos de memória são definidos de acordo com o [nível de desempenho](memory-and-concurrency-limits.md#performance-tiers), com as [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) e com a [classe de recurso](resource-classes-for-workload-management.md). 
+A conta do administrador do servidor é destinada a executar operações de gerenciamento, e não é adequada para executar consultas nos dados do usuário. O carregamento de dados é uma operação com uso intensivo de memória. Os máximos de memória são definidos de acordo com a Geração do SQL Data Warehouse que está usando, as [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) e [classe de recurso](resource-classes-for-workload-management.md). 
 
 É melhor criar um logon e um usuário dedicados para carregar dados. Em seguida, adicione o usuário carregado a uma [classe de recurso](resource-classes-for-workload-management.md) que permita uma alocação máxima de memória adequada.
 

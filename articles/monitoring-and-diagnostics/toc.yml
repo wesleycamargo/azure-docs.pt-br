@@ -65,8 +65,12 @@
           href: insights-alerts-command-line-interface.md
         - name: Configurar alertas clássicos com o Azure PowerShell
           href: insights-alerts-powershell.md
+        - name: Fazer com que o alerta de métrica clássico chame um webhook
+          href: insights-webhooks-alerts.md
         - name: Ações de Webhook para alertas do log
           href: monitor-alerts-unified-log-webhook.md
+        - name: Criar um alerta de log com um modelo do Resource Manager
+          href: monitor-alerts-unified-log-template.md
         - name: Criar um alerta de métrica mais recente com um modelo do Resource Manager
           href: monitoring-create-metric-alerts-with-templates.md
         - name: Criar um alerta de métrica clássico com um modelo do Gerenciador de Recursos
@@ -85,6 +89,8 @@
           href: monitoring-alerts-rate-limiting.md
         - name: Criar grupos de ação com o Resource Manager
           href: monitoring-create-action-group-with-resource-manager-template.md
+        - name: Implementar uma ação de aplicativo lógico
+          href: monitoring-action-groups-logic-app.md
     - name: Usar logs de diagnóstico
       items:
         - name: Arquivo
@@ -125,6 +131,8 @@
           href: insights-powershell-samples.md
     - name: Use a extensão de Diagnóstico do Azure
       items:
+        - name: Enviar ao Armazenamento do Azure
+          href: azure-diagnostics-storage.md
         - name: Enviar para o Application Insights
           href: azure-diagnostics-configure-application-insights.md
         - name: Enviar para Hubs de Eventos
@@ -175,6 +183,13 @@
       href: monitoring-activity-log-schema.md
     - name: Esquema de extensão do Diagnóstico do Azure
       href: azure-diagnostics-schema.md
+      items:
+        - name: 1.3 e posterior
+          href: azure-diagnostics-schema-1dot3-and-later.md
+        - name: 1.2
+          href: azure-diagnostics-schema-1dot2.md
+        - name: 1
+          href: azure-diagnostics-schema-1dot0.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

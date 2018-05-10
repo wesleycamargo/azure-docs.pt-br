@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 23bab643a88fe27eb34750f970f962041f8c18f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 204702eee1cf502ac873e0c1f5e3fd257ecce33c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Limites do modelo de compra baseado em vCore para o Banco de Dados SQL do Azure (visualização)
 
@@ -40,8 +40,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 |IOPS de destino|320|640|1280|2560|5120|
 |Latência de E/S (aproximada)|5-7 ms (gravação)
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|3200|
-|Máximo de logons simultâneos|200|400|800|1600|3200|
-|Máximo permitido de sessões|3000|3000|3000|3000|3000|
+|Máximo permitido de sessões|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|
@@ -63,8 +62,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 |IOPS de destino|5.000|10000|20000|40000|80000|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|3200|
-|Máximo de logons simultâneos|200|400|800|1600|3200|
-|Máximo permitido de sessões|3000|3000|3000|3000|3000|
+|Máximo permitido de sessões|30000|30000|30000|30000|30000|
 |Número de réplicas|3|3|3|3|3|
 |Multi-AZ|sim|sim|sim|sim|sim|
 |Escala de leitura|sim|sim|sim|sim|sim|
@@ -117,8 +115,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |IOPS de destino|320|640|1280|2560|5120|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |Máximo de trabalhos simultâneos (solicitações)|210|420|840|1680|3360|
-|Máximo de logons simultâneos|210|420|840|1680|3360|
-|Máximo permitido de sessões|3000|3000|3000|3000|3000|
+|Máximo permitido de sessões|30000|30000|30000|30000|30000|
 |Densidade de pool máxima|100|200|500|500|500|
 |Paradas de clique do pool elástico mínimo/máximo|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|
 |Número de réplicas|1|1|1|1|1|
@@ -128,7 +125,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |||
 
 ### <a name="business-critical-service-tier"></a>Camada de serviço comercialmente crítica
-|Nível de desempenho|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
+|Nível de desempenho|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
 |:--- | --: |--: |--: |--: |--: |
 |Geração de hardware|4|4|4|4|4|
 |vCores|1|2|4|8|16|
@@ -142,8 +139,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |IOPS de destino|320|640|1280|2560|5120|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |Máximo de trabalhos simultâneos (solicitações)|210|420|840|1680|3360|
-|Máximo de logons simultâneos|210|420|840|1680|3360|
-|Máximo permitido de sessões|3000|3000|3000|3000|3000|
+|Máximo permitido de sessões|30000|30000|30000|30000|30000|
 |Densidade de pool máxima|N/D|50|100|100|100|
 |Paradas de clique do pool elástico mínimo/máximo|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|
 |Multi-AZ|sim|sim|sim|sim|sim|

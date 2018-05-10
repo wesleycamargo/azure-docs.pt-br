@@ -289,6 +289,7 @@
 ## Proteger suas identidades
 ### [Acesso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Condições](active-directory-conditional-access-conditions.md)
+#### [Condições de local](active-directory-conditional-access-locations.md)
 #### [Controles](active-directory-conditional-access-controls.md)
 #### [Introdução](active-directory-conditional-access-azure-portal-get-started.md)
 #### [práticas recomendadas](active-directory-conditional-access-best-practices.md)

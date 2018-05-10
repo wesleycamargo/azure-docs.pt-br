@@ -1,26 +1,26 @@
 ---
-title: "Como usar a CLI do Azure 2.0 e a extensão de IoT para gerenciar serviços de provisionamento de dispositivos | Microsoft Docs"
-description: "Saiba como usar a CLI do Azure 2.0 e a extensão de IoT para gerenciar serviços de provisionamento de dispositivos"
+title: Como usar a CLI do Azure 2.0 e a extensão de IoT para gerenciar serviços de provisionamento de dispositivos | Microsoft Docs
+description: Saiba como usar a CLI do Azure 2.0 e a extensão de IoT para gerenciar serviços de provisionamento de dispositivos
 services: iot-dps
-keywords: 
+keywords: ''
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a1224c48537441726c0e01134f6a9256cf3b71c6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8e8bbf5808c11709a49f1cb6ebeba410837e5810
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Como usar a CLI do Azure 2.0 e a extensão de IoT para gerenciar serviços de provisionamento de dispositivos
 
-A [CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de software livre para gerenciamento dos recursos do Azure como, por exemplo, o IoT Edge. A CLI do Azure 2.0 está disponível para Windows, Linux e MacOS. A CLI do Azure 2.0 permite que você gerencie instantaneamente recursos, instâncias de serviço de provisionamento de dispositivos e hubs vinculados do Hub IoT do Azure.
+A [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de software livre para gerenciamento dos recursos do Azure como, por exemplo, o IoT Edge. A CLI do Azure 2.0 está disponível para Windows, Linux e MacOS. A CLI do Azure 2.0 permite que você gerencie instantaneamente recursos, instâncias de serviço de provisionamento de dispositivos e hubs vinculados do Hub IoT do Azure.
 
 A extensão de IoT aprimora a CLI do Azure 2.0 com recursos como gerenciamento de dispositivos e todos os recursos do IoT Edge.
 
@@ -34,7 +34,7 @@ Neste tutorial, você primeiro conclui as etapas para configurar a CLI do Azure 
 
 ### <a name="step-2---install-azure-cli-20"></a>Etapa 2 - Instale a CLI do Azure 2.0
 
-Siga as [instruções de instalação](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) para configurar a CLI do Azure 2.0 no seu ambiente. A versão 2.0 da CLI do Azure deve ser 2.0.24 ou superior. Use `az –version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. Uma maneira simples de instalar no Windows é baixar e instalar o [MSI](https://aka.ms/InstallAzureCliWindows).
+Siga as [instruções de instalação](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para configurar a CLI do Azure 2.0 no seu ambiente. A versão 2.0 da CLI do Azure deve ser 2.0.24 ou superior. Use `az –version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. Uma maneira simples de instalar no Windows é baixar e instalar o [MSI](https://aka.ms/InstallAzureCliWindows).
 
 ### <a name="step-3---install-iot-extension"></a>Etapa 3 - Instale a extensão de IoT
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento do Azure
 Neste artigo, apresentamos instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para transferir com segurança grandes quantidades de dados para o armazenamento de Blobs e do Azure e Arquivos do Azure enviando unidades de disco para um data center do Azure. Este serviço também pode ser usado para transferir dados do armazenamento do Azure para as discos rígidos e enviá-los aos seu site local. Os dados de uma única unidade de disco SATA interna podem ser importados para o armazenamento de Blobs do Azure ou para o os Arquivos do Azure. 
@@ -29,7 +29,7 @@ Siga as etapas abaixo caso os dados no disco tenham de ser importados para o Arm
 2.  Dependendo do tamanho total dos dados, adquira o número necessário de unidades de disco rígido SSD 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas.
 3.  Anexe os discos rígidos diretamente usando SATA ou com adaptadores USB externos para um computador Windows.
 1.  Crie um único volume NTFS em cada disco rígido e atribua uma letra de unidade ao volume. Não há pontos de montagem.
-2.  Para habilitar a criptografia no computador com Windows, habilite a criptografia BitLocker no volume NTFS. Use as instruções em https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  Para habilitar a criptografia no computador com Windows, habilite a criptografia BitLocker no volume NTFS. Use as instruções em https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
 3.  Copie completamente os dados para estes volumes NTFS criptografados únicos em discos usando copiar e colar ou arrastar e colar ou Robocopy ou qualquer uma dessas ferramentas.
 7.  Baixar WAImportExport V1 a partir de https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Descompacte para a pasta padrão waimportexportv1. Por exemplo, C:\WaImportExportV1  

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Perguntas frequentes sobre o Arquivos do Azure
 O serviço [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo [SMB (Service Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor (também conhecido como CIFS ou Common Internet File System). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Você também pode armazenar em cache os compartilhamentos de arquivos do Azure nos computadores Windows Server usando a Sincronização de Arquivos do Azure (versão prévia) para acesso rápido perto de onde os dados são usados.
@@ -257,7 +257,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
     Sim. O serviço Arquivos do Azure pode armazenar um máximo de 200 instantâneos de compartilhamento. Os instantâneos de compartilhamento não são considerados na cota de compartilhamento e, portanto, não há nenhum limite por compartilhamento no espaço total utilizado por todos os instantâneos de compartilhamento. Os limites de conta de armazenamento ainda se aplicam. Depois de 200 instantâneos de compartilhamento, os instantâneos mais antigos precisarão ser excluídos para que seja possível criar novos instantâneos de compartilhamento.
 * <a id="snapshot-cost"></a>
 **Quanto custam os instantâneos de compartilhamento?**  
-    Transação padrão e custo de armazenamento padrão serão aplicados ao instantâneo. Os instantâneos de compartilhamento são incrementais por natureza. O instantâneo base é o próprio compartilhamento. Todos os instantâneos subsequentes são incrementais e armazenam somente a diferença do instantâneo de anterior. Isso significa que as alterações delta que serão vistas na lista serão mínimas se a variação de carga de trabalho for mínima. Consulte a [Página de preços](https://azure.microsoft.com/en-us/pricing/details/storage/files/) para obter informações sobre preços os arquivos do Standard Azure Files. Hoje a forma de olhar o tamanho consumido por compartilhamento de instantâneo é comparando a capacidade cobrada com capacidade utilizada. Estamos trabalhando em ferramentas para melhorar a emissão de relatórios.
+    Transação padrão e custo de armazenamento padrão serão aplicados ao instantâneo. Os instantâneos de compartilhamento são incrementais por natureza. O instantâneo base é o próprio compartilhamento. Todos os instantâneos subsequentes são incrementais e armazenam somente a diferença do instantâneo de anterior. Isso significa que as alterações delta que serão vistas na lista serão mínimas se a variação de carga de trabalho for mínima. Consulte a [Página de preços](https://azure.microsoft.com/pricing/details/storage/files/) para obter informações sobre preços os arquivos do Standard Azure Files. Hoje a forma de olhar o tamanho consumido por compartilhamento de instantâneo é comparando a capacidade cobrada com capacidade utilizada. Estamos trabalhando em ferramentas para melhorar a emissão de relatórios.
 
 
 ### <a name="create-share-snapshots"></a>Criar instantâneos de compartilhamento

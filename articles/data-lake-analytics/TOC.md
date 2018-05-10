@@ -13,12 +13,14 @@
 
 ## Gerenciar o Data Lake Analytics
 ### [Portal do Azure](data-lake-analytics-manage-use-portal.md)
-### [CLI do Azure](data-lake-analytics-manage-use-cli.md)
-### [PowerShell do Azure](data-lake-analytics-manage-use-powershell.md)
-### [SDK .NET](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [SDK do Python](data-lake-analytics-manage-use-python-sdk.md)
-### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### Linha de comando
+#### [CLI do Azure](data-lake-analytics-manage-use-cli.md)
+#### [PowerShell do Azure](data-lake-analytics-manage-use-powershell.md)
+### SDKs
+#### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+#### [Python](data-lake-analytics-manage-use-python-sdk.md)
+#### [Java](data-lake-analytics-manage-use-java-sdk.md)
+#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Políticas](data-lake-analytics-policies.md)
 ### [Acessar logs de diagnóstico](data-lake-analytics-diagnostic-logs.md)
 ### [Ajustar limites de cota](data-lake-analytics-quota-limits.md)
@@ -36,6 +38,7 @@
 #### [Guia de programação](data-lake-analytics-u-sql-programmability-guide.md)
 
 ### Visual Studio
+#### [Instalar](data-lake-analytics-data-lake-tools-install.md)
 #### [Procurar e exibir trabalhos](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Depurar o código C# personalizado](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Solucionar problemas de trabalhos recorrentes](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

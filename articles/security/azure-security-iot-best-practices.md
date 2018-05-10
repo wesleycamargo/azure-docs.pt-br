@@ -1,10 +1,10 @@
 ---
-title: "Práticas recomendadas de segurança de Internet das Coisas | Microsoft Docs"
-description: "O artigo fornece uma lista selecionada de práticas recomendadas e recomendações gerais do Internet das Coisas da Microsoft."
+title: Práticas recomendadas de segurança de Internet das Coisas | Microsoft Docs
+description: O artigo fornece uma lista selecionada de práticas recomendadas e recomendações gerais do Internet das Coisas da Microsoft.
 services: security
 documentationcenter: na
-author: TomShinder
-manager: StevenPo
+author: barclayn
+manager: mbaldwin
 editor: TomSh
 ms.assetid: 2d5598c5-4c30-481d-b8f4-51ee024ea9a7
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 8937437652a78e05b94574cb9fe5df7962edb1ad
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 804dd6828931ca2801360ab18be938c8bacf2bfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="internet-of-things-security-best-practices"></a>Práticas recomendadas de segurança de Internet das Coisas
+
 Proteger a infraestrutura de IoT (Internet das Coisas) é uma tarefa crítica para qualquer pessoa envolvida com soluções de IoT. Por causa do número de dispositivos envolvidos e da natureza distribuída desses dispositivos, o impacto de um evento de segurança relacionado ao comprometimento de milhões de dispositivos IoT não é trivial, e pode ter impacto generalizado.
 
 Por esse motivo, a segurança do IoT precisa de uma abordagem de segurança detalhada. Os dados devem ser protegidos na nuvem e conforme eles se movem por redes públicas e privadas. É preciso que métodos estejam em vigor para provisionar, com segurança, os dispositivos IoT em si. Cada camada, desde dispositivo, passando pela rede, até o back-end de nuvem, precisa de garantias fortes de segurança.
@@ -35,6 +36,7 @@ As práticas recomendadas de IoT podem ser categorizadas da seguinte maneira:
 Este artigo resume as [Práticas recomendadas de segurança de Internet das Coisas](../iot-suite/iot-security-best-practices.md). Consulte esse artigo para obter informações mais detalhadas.
 
 ## <a name="iot-hardware-manufacturer-or-integrator"></a>Fabricante ou integrador de hardware de IoT
+
 Siga as práticas recomendadas a seguir se você for um fabricante ou integrador de hardware de IoT:
 
 * **Escopo de hardware para requisitos mínimos**: o design de hardware deve incluir o mínimo de recursos necessários para a operação de hardware e nada mais. 
@@ -43,6 +45,7 @@ Siga as práticas recomendadas a seguir se você for um fabricante ou integrador
 * **Tornar as atualizações seguras**: atualizar o firmware durante o tempo de vida do dispositivo é inevitável.
 
 ## <a name="iot-solution-developer"></a>Desenvolvedor de soluções IoT
+
 Siga as práticas recomendadas a seguir se você for um desenvolvedor de solução IoT:
 
 * **Seguir a metodologia de desenvolvimento de software seguro**: desenvolver software seguro requer uma consideração inicial desde a concepção do projeto até sua implementação, teste e implantação.
@@ -50,12 +53,14 @@ Siga as práticas recomendadas a seguir se você for um desenvolvedor de soluç�
 * **Integrar com cuidado**: há muitas das falhas de segurança de software no limite de bibliotecas e APIs. 
 
 ## <a name="iot-solution-deployer"></a>Implantador de soluções IoT
+
 Siga as práticas recomendadas a seguir se você for um implantador de solução IoT:
 
 * **Implantar o hardware com segurança**: implantações de IoT podem exigir que o hardware seja implantado em locais não seguros, como espaços públicos ou localidades sem supervisão.
 * **Manter as chaves de autenticação em segurança**: durante a implantação, cada dispositivo requer IDs de dispositivo e chaves de autenticação associadas geradas pelo serviço de nuvem. Mantenha essas chaves fisicamente seguras mesmo após a implantação. Qualquer chave comprometida pode ser usada por um dispositivo mal-intencionado passando-se por um dispositivo existente.
 
 ## <a name="iot-solution-operator"></a>Operador de solução IoT
+
 Siga as práticas recomendadas a seguir se você for um operador de solução IoT:
 
 * **Manter sistemas atualizados**: verifique se todos os sistemas operacionais e drivers do dispositivo estão atualizados para as versões mais recentes. 

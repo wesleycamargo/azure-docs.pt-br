@@ -32,8 +32,8 @@
 ### [Avaliação de linha de base](oms-security-web-baseline-assessment.md)
 
 ## Use as soluções
-### [Soluções de gerenciamento](operations-management-suite-solutions.md)
-### [Soluções de destino](operations-management-suite-solution-targeting.md)
+### [Soluções de gerenciamento](../monitoring/monitoring-solutions.md)
+### [Soluções de destino](../monitoring/monitoring-solution-targeting.md)
 ### Insight e análises
 #### [Avaliação do AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Status de replicação do AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -46,10 +46,10 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Análise do Service Fabric](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Mapa do Serviço
-##### [Passo a passo](operations-management-suite-walkthrough-servicemap.md)
-##### [Uso](operations-management-suite-service-map.md)
-##### [Configurar](operations-management-suite-service-map-configure.md)
-##### [Integração com o Operations Manager](operations-management-suite-service-map-scom.md)
+##### [Passo a passo](../monitoring/monitoring-walkthrough-servicemap.md)
+##### [Uso](../monitoring/monitoring-service-map.md)
+##### [Configurar](../monitoring/monitoring-service-map-configure.md)
+##### [Integração com o Operations Manager](../monitoring/monitoring-service-map-scom.md)
 #### [Avaliação do SQL](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Hub de Superfície](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Atualizar análise](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -62,12 +62,12 @@
 #### [Avaliação antimalware](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Criar soluções
-### [Design e criação](operations-management-suite-solutions-creating.md)
-### [Arquivo de solução](operations-management-suite-solutions-solution-file.md)
-### [Recursos de automação](operations-management-suite-solutions-resources-automation.md)
-### [Pesquisas de log e alertas](operations-management-suite-solutions-resources-searches-alerts.md)
-### [Modos de exibição](operations-management-suite-solutions-resources-views.md)
-### [práticas recomendadas](operations-management-suite-solutions-best-practices.md)
+### [Design e criação](../monitoring/monitoring-solutions-creating.md)
+### [Arquivo de solução](../monitoring/monitoring-solutions-solution-file.md)
+### [Recursos de automação](../monitoring/monitoring-solutions-resources-automation.md)
+### [Pesquisas de log e alertas](../monitoring/monitoring-solutions-resources-searches-alerts.md)
+### [Modos de exibição](../monitoring/monitoring-solutions-resources-views.md)
+### [práticas recomendadas](../monitoring/monitoring-solutions-best-practices.md)
 
 ## Cenários para gerenciamento
 ### [Coletar dados de análise do runbook](operations-management-suite-runbook-datacollect.md)

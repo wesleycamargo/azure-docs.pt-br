@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: 4270bf0b8002b5328241c6d31f399511fc38274e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9c2ce75b2bfb4b8ddab11ac94e5a8e50c2fad6ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo de vida de Reliable Services
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ Os serviços que não tratam o cancelamento corretamente podem enfrentar vários
 
 Uma vez que os serviços têm estado, também é provável que eles usem [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md). No Service Fabric, quando uma réplica primária é rebaixada, uma das primeiras coisas que acontece é que o acesso de gravação ao estado subjacente é revogado. Isso leva a um segundo conjunto de problemas que pode afetar o ciclo de vida do serviço. As coleções retornam exceções que se baseiam no tempo e em se a réplica está sendo movida ou desligada. É importante tratar essas exceções corretamente. 
 
-Exceções geradas pelo Service Fabric são permanentes [(`FabricException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception) ou transitórias [(`FabricTransientException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception._fabric_transient_exception). As exceções permanentes devem ser registradas e lançadas. As exceções transitórias podem ser repetidas com base na lógica de repetição.
+Exceções geradas pelo Service Fabric são permanentes [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception) ou transitórias [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception._fabric_transient_exception). As exceções permanentes devem ser registradas e lançadas. As exceções transitórias podem ser repetidas com base na lógica de repetição.
 
 Uma parte importante de testar e validar os Reliable Services é manipular as exceções que vêm do uso de `ReliableCollections` em conjunto com eventos de ciclo de vida do serviço. É recomendável que você sempre execute seu serviço sob carga. Você também deve executar atualizações e [teste de caos](service-fabric-controlled-chaos.md) antes de implantar para produção. Essas etapas básicas ajudam a garantir que o serviço seja implementado corretamente,e que ele trate os eventos do ciclo de vida corretamente.
 

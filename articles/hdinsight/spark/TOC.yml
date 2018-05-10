@@ -1,27 +1,32 @@
 - name: Documentação do HDInsight do Azure
   href: /azure/hdinsight
-- name: Spark no HDInsight
+- name: Visão geral
   items:
-    - name: Visão geral
+    - name: Sobre o Spark no HDInsight
       href: apache-spark-overview.md
     - name: Componentes do Hadoop no HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Introdução
+- name: Guia de início rápido
   items:
-    - name: Criar um cluster Spark
+    - name: Criar um cluster Spark - Portal
+      href: apache-spark-jupyter-spark-sql-use-portal.md
+    - name: Criar um cluster Spark - PowerShell
+      href: apache-spark-jupyter-spark-sql-use-powershell.md
+    - name: Criar um cluster Spark - Modelo
       href: apache-spark-jupyter-spark-sql.md
+- name: Tutoriais
+  items:
     - name: Executar consultas em um cluster Spark
       href: apache-spark-load-data-run-query.md
     - name: Analisar dados usando ferramentas de BI
       href: apache-spark-use-bi-tools.md
-    - name: Gerenciar recursos de cluster
-      href: apache-spark-resource-manager.md
-    - name: Depurar trabalhos Spark
-      href: apache-spark-job-debugging.md
-    - name: Instalar aplicativos HDInsight
-      href: ../hdinsight-apps-install-applications.md
-      maintainContext: true
+    - name: Executar trabalho de streaming
+      href: apache-spark-eventhub-streaming.md
+    - name: Criar aplicativo de aprendizado de máquina
+      href: apache-spark-ipython-notebook-machine-learning.md
+    - name: Criar um aplicativo spark usando IntelliJ
+      href: apache-spark-create-standalone-application.md
 - name: Como
   items:
     - name: Usar o armazenamento de cluster
@@ -34,8 +39,6 @@
           maintainContext: true
     - name: Desenvolver
       items:
-        - name: Criar um aplicativo independente
-          href: apache-spark-create-standalone-application.md
         - name: Usar um Shell Spark interativo
           href: apache-spark-shell.md
         - name: Trabalhos remotos com Livy
@@ -110,8 +113,6 @@
           href: apache-spark-streaming-exactly-once.md
     - name: Spark e Machine Learning
       items:
-        - name: Prever desempenho de HVAC
-          href: apache-spark-ipython-notebook-machine-learning.md
         - name: Prever resultados de inspeção de alimentos
           href: apache-spark-machine-learning-mllib-ipython.md
         - name: Analisar logs de site
@@ -205,6 +206,8 @@
           maintainContext: true
     - name: Gerenciar
       items:
+        - name: Gerenciar recursos de cluster
+          href: apache-spark-resource-manager.md
         - name: Definir configurações do Spark
           href: apache-spark-settings.md
         - name: Otimizar trabalhos do Spark
@@ -311,6 +314,8 @@
           maintainContext: true
     - name: Solucionar problemas
       items:
+        - name: Depurar trabalhos Spark
+          href: apache-spark-job-debugging.md
         - name: Solucionar problemas de um cluster HDInsight lento ou falhando
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

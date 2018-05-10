@@ -1,5 +1,5 @@
 ---
-title: "Início rápido do Azure - Executar trabalho do Lote - Portal"
+title: Início rápido do Azure - Executar trabalho do Lote - Portal
 description: Aprenda rapidamente a executar um trabalho do Lote com o portal do Azure.
 services: batch
 author: dlepow
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a00c8ea07c31d2ab4ba2638f2a7e4adcf5ca4a10
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início rápido: executar o primeiro trabalho do Lote no portal do Azure
 
@@ -24,7 +24,7 @@ Este guia de início rápido mostra como usar o portal do Azure para criar uma c
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure 
 
-Entre no portal do Azure em https://portal.azure.com.
+Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-batch-account"></a>Criar uma conta do Batch
 
@@ -37,7 +37,7 @@ Siga estas etapas para criar uma conta do Lote de exemplo para fins de teste. Vo
 
 2. Insira valores para **Nome do registro** e **Grupo de recursos**. O nome da conta deve ser exclusivo dentro da **Localização** do Azure selecionada; use apenas caracteres em minúsculas ou números e 3 a 24 caracteres. 
 
-3. Na **Conta de armazenamento**, selecione uma conta de armazenamento de uso geral existente ou crie uma nova.
+3. Na **Conta de armazenamento**, selecione uma conta de armazenamento existente ou crie uma nova.
 
 4. Mantenha os padrões para as configurações restantes e clique em **Criar** para criar a conta.
 

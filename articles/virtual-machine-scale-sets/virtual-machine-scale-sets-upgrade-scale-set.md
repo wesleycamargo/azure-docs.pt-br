@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 Em todo o ciclo de vida de seus aplicativos, talvez seja necessário modificar ou atualizar o conjunto de escala de máquina virtual. Essas atualizações podem incluir como atualizar a configuração do conjunto de escala, ou alterar a configuração do aplicativo. Este artigo descreve como modificar uma escala existente com as APIs REST, o Azure PowerShell ou o CLI do Azure 2.0.
@@ -373,12 +373,12 @@ Se um aplicativo for implantado em uma conjunto de dimensionamento por meio de e
 Também é comum que aplicativos sejam implantados por meio de uma imagem personalizada. Esse cenário é abordado na seção a seguir.
 
 ### <a name="os-updates"></a>Atualizações de SO
-Se você estiver usando imagens de plataforma do Azure, poderá atualizar a imagem modificando o *imageReference* (mais informações na documentação da [API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Se você estiver usando imagens de plataforma do Azure, poderá atualizar a imagem modificando o *imageReference* (mais informações na documentação da [API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
 > Com imagens de plataforma, é comum especificar "mais recente" para a versão de referência de imagem. Ao criar, dimensionar e recriar a imagem, as VMs são criadas com a versão disponível mais recente. No entanto, isso **não** significa que a imagem do SO será atualizada automaticamente ao longo do tempo com o lançamento de novas versões da imagem. Um recurso separado está atualmente em visualização que fornece atualizações automáticas do OS. Para obter mais informações, confira a [Documentação de Atualização Automática do SO](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Se você usar imagens personalizadas, poderá atualizar a imagem atualizando a ID do *imageReference* (mais informações na documentação da [API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Se você usar imagens personalizadas, poderá atualizar a imagem atualizando a ID do *imageReference* (mais informações na documentação da [API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Exemplos
 

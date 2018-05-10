@@ -1,6 +1,6 @@
 ---
 title: Monitorar e solucionar problemas de um aplicativo de armazenamento de nuvem no Azure | Microsoft Docs
-description: "Use ferramentas de diagnóstico, métricas e alertas para solucionar problemas e monitorar um aplicativo em nuvem."
+description: Use ferramentas de diagnóstico, métricas e alertas para solucionar problemas e monitorar um aplicativo em nuvem.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorar e solucionar problemas de um aplicativo de armazenamento de nuvem
 
@@ -41,11 +41,11 @@ Faça logon no [Portal do Azure](https://portal.azure.com)
 
 No menu à esquerda, selecione **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione sua conta de armazenamento na lista de recursos.
 
-Em **Diagnóstico**, defina **Status** para **Ativado**. Verifique se **Métricas de agregação de Blob**, **Métricas por API de Blob** e **Logs de Blob** estão habilitados.
+Em **Diagnóstico**, defina **Status** para **Ativado**. Verifique se todas as opções em **Propriedades de blob** estão habilitadas.
 
 Quando concluir, clique em **Salvar**
 
-![Painel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![Painel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/contoso.png)
 
 ## <a name="enable-alerts"></a>Habilitar alertas
 

@@ -1,11 +1,11 @@
 ---
-title: "Solução de Dados de Transmissão no Log Analytics | Microsoft Docs"
-description: "Dados de transmissão são dados consolidados de rede e de desempenho recebidos de computadores com agentes do OMS, incluindo agentes do Operations Manager e agentes conectados com o Windows. Os dados de rede são combinados com os dados de log para ajudá-lo a correlacionar dados."
+title: Solução de Dados de Transmissão no Log Analytics | Microsoft Docs
+description: Dados de transmissão são dados consolidados de rede e de desempenho recebidos de computadores com agentes do OMS, incluindo agentes do Operations Manager e agentes conectados com o Windows. Os dados de rede são combinados com os dados de log para ajudá-lo a correlacionar dados.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 658d92900763249aeeb3542132f4fe0c43ba005f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: d824272f5b5569971eddcf0a43bd5ba97f60f506
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solução Wire Data 2.0 (Versão Prévia) no Log Analytics
 
@@ -58,8 +58,8 @@ O Wire Data obtém seus dados do Agente de Dependência da Microsoft. O Agente d
 
 | **Fonte conectada** | **Com suporte** | **Descrição** |
 | --- | --- | --- |
-| Agentes do Windows | sim | O Wire Data analisa e coleta dados de computadores de agente do Windows. <br><br> Além do [Agente do OMS](log-analytics-windows-agent.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Agentes do Linux | sim | O Wire Data analisa e coleta dados de computadores de agente do Linux.<br><br> Além do [Agente do OMS](log-analytics-quick-collect-linux-computer.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
+| Agentes do Windows | sim | O Wire Data analisa e coleta dados de computadores de agente do Windows. <br><br> Além do [Agente do OMS](log-analytics-windows-agent.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
+| Agentes do Linux | sim | O Wire Data analisa e coleta dados de computadores de agente do Linux.<br><br> Além do [Agente do OMS](log-analytics-quick-collect-linux-computer.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
 | Grupo de gerenciamento do System Center Operations Manager | sim | O Wire Data analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](log-analytics-om-agents.md) conectado. <br><br> Uma conexão direta do computador do agente do System Center Operations Manager para Log Analytics é necessária. Os dados são encaminhados do grupo de gerenciamento ao Log Analytics. |
 | Conta de Armazenamento do Azure | Não  | O Wire Data coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do Armazenamento do Azure. |
 

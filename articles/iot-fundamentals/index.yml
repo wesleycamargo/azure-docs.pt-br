@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/20/2018
   ms.author: bryanla
-  ms.openlocfilehash: d8b144eb52400a76395096a2577fb9ecf28e01c1
-  ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+  ms.openlocfilehash: 80c88340e31ef6650dee13819dda316b4d9bcb4d
+  ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/03/2018
+  ms.lasthandoff: 05/08/2018
 abstract:
   description: Bem vindo ao Microsoft Azure e à IoT (Internet das Coisas). O Azure IoT é uma coleção abrangente de serviços e soluções projetados para ajudar você a criar aplicativos de IoT de ponta a ponta no Azure. De soluções de software como serviço (SaaS) totalmente hospedadas e gerenciadas a soluções de plataforma como serviço (PaaS) distintas e especializadas, bem como tecnologias para criar uma tecnologia de ponta inteligente, o Azure IoT fornece um conjunto avançado de opções e ferramentas que são adaptadas para as necessidades do seu setor as habilidades de recursos da sua empresa.
 sections:
@@ -29,19 +29,19 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/iot-central/quick-deploy-iot-central">Saiba como criar um novo aplicativo do Azure IoT Central.</a>
-    - html: <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Saiba como implantar a solução pré-configurada de monitoramento remoto.</a>
+    - html: <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Saiba como implantar o acelerador de solução de monitoramento remoto.</a>
     - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">Saiba como criar um hub IoT e conecte-se o seu dispositivo simulado primeiro ao Azure (Node. js).</a>
     - html: <a href="/azure/iot-edge/quickstart-linux">Implante seu primeiro módulo do IoT Edge e processe dados em um dispositivo simulado no Windows, Linux ou em um Mac.</a>
-    - html: <a href="/azure/location-based-services/quick-demo-map-app">Inicie um aplicativo de pesquisa do mapa usando os Serviços do Azure Baseados na Localização (versão prévia).</a>
+    - html: <a href="/azure/azure-maps/quick-demo-map-app">Inicie um aplicativo de pesquisa de mapa usando os Mapas do Azure.</a>
     - html: <a href="/azure/time-series-insights/time-series-quickstart">Explorar o Time Series Insights.</a>
 - title: Tecnologias e soluções
   items:
   - type: paragraph
-    text: Introdução rápida com soluções pré-configuradas e ofertas de SaaS.
+    text: Introdução rápida aos aceleradores de solução e ofertas de SaaS.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/iot-suite">IoT Suite</a>
+    - html: <a href="/azure/iot-suite">Aceleradores de solução do IoT</a>
     - html: <a href="/azure/iot-central">Centro de IoT</a>
   - type: paragraph
     text: Crie em cima de ofertas de plataforma como serviço (PaaS).
@@ -50,7 +50,7 @@ sections:
     items:
     - html: <a href="/azure/iot-hub">Hub IoT</a>
     - html: <a href="/azure/iot-dps">Serviços de Provisionamento de Dispositivos no Hub IoT</a>
-    - html: <a href="/azure/location-based-services">Serviços do Azure Baseados na Localização</a>
+    - html: <a href="/azure/azure-maps">Mapas do Azure</a>
     - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
     - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">SDKs do serviço IoT</a>
   - type: paragraph
@@ -100,4 +100,4 @@ sections:
     - title: Linguagens
       html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">SDKs IoT do Azure para. Net,C,Java,Node.js, Python</a></p>
     - title: REST
-      html: <p><a href="/rest/api/iothub">Hub IoT</a></p><p><a href="/rest/api/iot-dps">Serviço de Provisionamento de Dispositivos no Hub IoT</a></p><p><a href="/rest/api/location-based-services-management/">Gerenciamento de serviços baseados na localização</a></p><p><a href="/rest/api/location-based-services/">Serviços baseados na localização funcionais</a></p><p><a href="/rest/api/time-series-insights-management/">Gerenciamento do Time Series Insights</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>
+      html: <p><a href="/rest/api/iothub">Hub IoT</a></p><p><a href="/rest/api/iot-dps">Serviço de Provisionamento de Dispositivos no Hub IoT</a></p><p><a href="/rest/api/location-based-services-management/">Gerenciamento dos Mapas</a></p><p><a href="/rest/api/location-based-services/">Mapas funcionais</a></p><p><a href="/rest/api/time-series-insights-management/">Gerenciamento do Time Series Insights</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>

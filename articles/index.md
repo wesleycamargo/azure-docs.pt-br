@@ -6,11 +6,11 @@ description: Saiba como compilar e gerenciar aplicativos avançados com os servi
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: bbd593b58e137485a44048f3625edeaee9ccda9a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ec0c45cd36394dfac5066e1616226ced75161459
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -269,7 +269,7 @@ Terraform </a>
                             <li></li>
                             <li></li>
                             <li class="bottomRightItem">
-                                <a href="https://aka.ms/j3wr7y">
+                                <a href="https://docs.microsoft.com/azure/index#pivot=products&panel=all">
                                     <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">Exibir todos os Serviços do Azure<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
                                 </a>
                             </li>
@@ -344,7 +344,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Serviço de Contêiner do Azure (AKS)</p>
+                                                <p>AKS (Serviço do Kubernetes do Azure)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -470,7 +470,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Serviço de Contêiner do Azure (AKS)</p>
+                                                <p>AKS (Serviço do Kubernetes do Azure)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -710,6 +710,12 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/search/">
+                                                <img src="media/index/Search.svg" alt="" />
+                                                <p>Azure Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/computer-vision/">
                                                 <img src="media/index/API_Computer_Vision.svg" alt="" />
                                                 <p>API da Pesquisa Visual Computacional</p>
@@ -746,9 +752,15 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/speech-service/overview">
+                                                <img src="media/index/API_Speech_Service.svg" alt="" />
+                                                <p>Serviço de Fala</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/speech/home">
                                                 <img src="media/index/API_Bing_Speech.svg" alt="" />
-                                                <p>API de Fala do Bing</p>
+                                                <p>Speech API</p>
                                             </a>
                                         </li>
                                         <li>
@@ -842,6 +854,30 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/labs/url-preview/overview">
+                                                <img src="media/index/API_URL_Preview.svg" alt="" />
+                                                <p>Visualização de URL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/labs/answer-search/overview">
+                                                <img src="media/index/API_Answer_Search.svg" alt="" />
+                                                <p>Pesquisa no Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
+                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" /> 
+                                                <p>Localizador de Anomalia</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/labs/conversation-learner/overview">
+                                                <img src="media/index/API_Conversation_Learner.svg" alt="" />
+                                                <p>Aprendiz de conversa</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/bing-news-search/">
                                                 <img src="media/index/API_Bing_News_Search.svg" alt="" />
                                                 <p>API de Pesquisa de Notícias do Bing</p>
@@ -859,6 +895,14 @@ Terraform </a>
                                                 <p>API de Pesquisa na Web do Bing</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-visual-search/">
+                                                <img src="media/index/API_Bing_Visual_Search.svg" alt="" />
+                                                <p>API da Pesquisa Visual do Bing</p>
+                                            </a>
+                                        </li>
+
+
                                         <li>
                                             <a href="/azure/cognitive-services/Bing-Autosuggest/">
                                                 <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
@@ -1086,9 +1130,9 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devtest-lab/">
+                                            <a href="/azure/lab-services/">
                                                 <img src="media/index/DevTestLabs.svg" alt="" />
-                                                <p>Azure DevTest Labs</p>
+                                                <p>Azure Lab Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1158,9 +1202,45 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-hub/">
+                                                <img src="media/index/IoTHub.svg" alt="" />
+                                                <p>Hub IoT</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-edge/">
+                                                <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                <p>IoT Edge</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-central/">
                                                 <img src="media/index/IoT-central.svg" alt="" />
                                                 <p>Central da IoT</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-suite/">
+                                                <img src="media/index/iot-suite.svg" alt="" />
+                                                <p>Aceleradores de solução do IoT</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/time-series-insights/">
+                                                <img src="media/index/time-series-insights.svg" alt="" />
+                                                <p>Time Series Insights</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-dps/">
+                                                <img src="media/index/dps.svg" alt="" />
+                                                <p>Provisionamento de Dispositivos no Hub IoT</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-maps/">
+                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <p>Mapas do Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1170,27 +1250,9 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cosmos-db/">
-                                                <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Azure Cosmos DB</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/api-management/">
-                                                <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Gerenciamento de API</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/iot-hub/">
-                                                <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Hub IoT</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/iot-dps/">
-                                                <img src="media/index/dps.svg" alt="" />
-                                                <p>Provisionamento de Dispositivos no Hub IoT</p>
+                                            <a href="/azure/event-grid/">
+                                                <img src="media/index/azure_event_grid.svg" alt="" />
+                                                <p>Grade de Eventos</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1218,45 +1280,27 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/notification-hubs/">
-                                                <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>Hubs de Notificação</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Aplicativos Lógicos</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/iot-suite/">
-                                                <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>IoT Suite</p>
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>Hubs de Notificação</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/time-series-insights/">
-                                                <img src="media/index/time-series-insights.svg" alt="" />
-                                                <p>Time Series Insights</p>
+                                            <a href="/azure/cosmos-db/">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/event-grid/">
-                                                <img src="media/index/azure_event_grid.svg" alt="" />
-                                                <p>Grade de Eventos</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/iot-edge/">
-                                                <img src="media/index/IOT_edge_50.svg" alt="" />
-                                                <p>IoT Edge</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://docs.microsoft.com/azure/location-based-services/">
-                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
-                                                <p>Serviços do Azure Baseados na Localização</p>
+                                            <a href="/azure/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
+                                                <p>Gerenciamento de API</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1396,6 +1440,12 @@ Terraform </a>
                                                 <p>Proteção Avançada contra Ameaças do Azure</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Informações de segurança</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Identidade</h3>
                                     <ul>
@@ -1429,6 +1479,15 @@ Terraform </a>
                                                 <p>Azure Active Directory B2C</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Informações de segurança</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Ferramentas de gerenciamento</h3>
+                                    <ul>
                                         <li>
                                             <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
@@ -1754,7 +1813,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviço de Contêiner do Azure (AKS)</h3>
+                                                    <h3>AKS (Serviço do Kubernetes do Azure)</h3>
                                                     <p>Simplifique a implantação, o gerenciamento e as operações do Kubernetes</p>
                                                 </div>
                                             </div>
@@ -2577,7 +2636,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviço de Contêiner do Azure (AKS)</h3>
+                                                    <h3>AKS (Serviço do Kubernetes do Azure)</h3>
                                                     <p>Simplifique a implantação, o gerenciamento e as operações do Kubernetes</p>
                                                 </div>
                                             </div>
@@ -3249,6 +3308,25 @@ Terraform </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/search/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Search.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Search</h3>
+                                                    <p>Pesquisa como serviço totalmente gerenciada</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                             <li class="fullSpan">
                                 <h2 style="margin-top:24px;margin-bottom:18px;">API de Serviços Cognitivos</h2>
                                 <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
@@ -3373,6 +3451,33 @@ Terraform </a>
                                                                     <span>API do Serviço de Inteligência de Vinculação de Entidade</span>
                                                                 </a>
                                                             </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/url-preview/overview">
+                                                                    <img src="media/index/API_URL_Preview.svg" alt="" />
+                                                                    <span>Visualização de URL</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview">
+                                                                    <img src="media/index/API_Answer_Search.svg" alt="" />
+                                                                    <span>Pesquisa no Search</span>
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
+                                                                    <img src="media/index/API_Anomaly_Finder.svg" alt="" />
+                                                                    <span>Localizador de Anomalia</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview">
+                                                                    <img src="media/index/API_Conversation_Learner.svg" alt="" />
+                                                                    <span>Aprendiz de conversa</span>
+                                                                </a>
+                                                            </li>
+
+
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -3394,6 +3499,9 @@ Terraform </a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />API de Pesquisa na Web do Bing</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-visual-search/"><img src="media/index/API_Bing_Visual_Search.svg" alt="" />API da Pesquisa Visual do Bing</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />API de Sugestão Automática do Bing</a>
@@ -3440,6 +3548,44 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-hub/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/IoTHub.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Hub IoT</h3>
+                                                    <p>Conectar, monitorar e controlar bilhões de ativos de IoT</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Edge</h3>
+                                                    <p>Estender a inteligência da nuvem para dispositivos de borda</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-central/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3452,6 +3598,82 @@ Terraform </a>
                                                 <div class="cardText">
                                                     <h3>Central da IoT</h3>
                                                     <p>Teste do SaaS para IoT, sem necessidade de experiência em nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-suite/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/iot-suite.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Aceleradores de solução do IoT</h3>
+                                                    <p>Capturar e analisar dados inexplorados para melhorar os resultados dos negócios</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/time-series-insights/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/time-series-insights.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Time Series Insights</h3>
+                                                    <p>Explore e analise instantaneamente dados de série temporal</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-dps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/dps.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Provisionamento de Dispositivos no Hub IoT</h3>
+                                                    <p>Provisionamento de toque zero e Just-In-Time para o Hub IoT do Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-maps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Mapas do Azure</h3>
+                                                    <p>APIs de localização simples e seguras oferecem contexto geoespacial aos dados</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3478,75 +3700,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cosmos-db/">
+                                <a href="/azure/event-grid/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
+                                                        <img src="media/index/azure_event_grid.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Cosmos DB</h3>
-                                                    <p>Banco de dados multimodelo distribuído globalmente para qualquer escala</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/api-management/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/apimanagement.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Gerenciamento de API</h3>
-                                                    <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/iot-hub/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/IoTHub.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Hub IoT</h3>
-                                                    <p>Conectar, monitorar e controlar bilhões de ativos de IoT</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/iot-dps/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/dps.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Provisionamento de Dispositivos no Hub IoT</h3>
-                                                    <p>Provisionamento de toque zero e Just-In-Time para o Hub IoT do Azure</p>
+                                                    <h3>Grade de Eventos</h3>
+                                                    <p>Obter uma entrega de eventos confiável em grande escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3630,25 +3795,6 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/notification-hubs/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/NotificationHubs.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Hubs de Notificação</h3>
-                                                    <p>Envie notificações por push para qualquer plataforma de qualquer back-end</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3668,18 +3814,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/iot-suite/">
+                                <a href="/azure/notification-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iot-suite.svg" alt="" />
+                                                        <img src="media/index/NotificationHubs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Suite</h3>
-                                                    <p>Capturar e analisar dados inexplorados para melhorar os resultados dos negócios</p>
+                                                    <h3>Hubs de Notificação</h3>
+                                                    <p>Envie notificações por push para qualquer plataforma de qualquer back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3687,18 +3833,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/time-series-insights/">
+                                <a href="/azure/cosmos-db/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/time-series-insights.svg" alt="" />
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Time Series Insights</h3>
-                                                    <p>Explore e analise instantaneamente dados de série temporal</p>
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>Banco de dados multimodelo distribuído globalmente para qualquer escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3706,56 +3852,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/event-grid/">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure_event_grid.svg" alt="" />
+                                                        <img src="media/index/apimanagement.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Grade de Eventos</h3>
-                                                    <p>Obter uma entrega de eventos confiável em grande escala</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/iot-edge/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/IOT_edge_50.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>IoT Edge</h3>
-                                                    <p>Estender a inteligência da nuvem para dispositivos de borda</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://docs.microsoft.com/azure/location-based-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Serviços do Azure Baseados na Localização</h3>
-                                                    <p>APIs de localização simples e seguras oferecem contexto geoespacial aos dados</p>
+                                                    <h3>Gerenciamento de API</h3>
+                                                    <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4157,6 +4265,25 @@ Terraform </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/security/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Informações de segurança</h3>
+                                                    <p>Saber mais como o Azure fornece uma infraestrutura segura para compilar suas soluções de nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -4201,7 +4328,7 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/devtest-lab/">
+                                <a href="/azure/lab-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4211,8 +4338,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure DevTest Labs</h3>
-                                                    <p>Criar ambientes rapidamente usando modelos e artefatos reutilizáveis</p>
+                                                    <h3>Azure Lab Services</h3>
+                                                    <p>Criar laboratórios na nuvem para sala de aula, desenvolvimento e teste e outros cenários (anteriormente conhecido como DevTest Labs)</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5388,7 +5515,7 @@ CLI do Azure </h3>
                                                 <h3>
 Docker </h3>
                                                 <p>
-                                                    <a href="/dotnet/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Ferramentas do Visual Studio para Docker</a>
+                                                    <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Ferramentas do Visual Studio para Docker</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Download do Visual Studio</a>

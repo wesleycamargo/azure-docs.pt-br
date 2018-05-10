@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2053ed8cc420183d493097eeb2cd2ad93c82c70c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Usando a máquina virtual de Deep Learning
 
@@ -35,7 +35,7 @@ Além dos exemplos baseados em framework, também é fornecido um conjunto abran
 
 - [Um guia de instruções para criar uma solução de ponta a ponta para detectar produtos em imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): a detecção de imagem é uma técnica que pode localizar e classificar objetos em imagens. Essa tecnologia tem o potencial de trazer grande recompensa em vários domínios de negócios da vida real. Por exemplo, os varejistas podem usar essa técnica para determinar qual produto um cliente retirou da prateleira. Por sua vez, essas informações ajudam as lojas a gerenciar o estoque do produtos. 
 
-- [Extração de entidade nomeada de resumos de PubMed](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) Este tutorial mostra como extrair entidades nomeadas, como nomes de droga ou doença, de texto não estruturado. Ele treina uma palavra personalizada inserindo em um corpo de texto de 18 milhões resumos de PubMed, usa esse modelo para criar um modelo de rede neural recorrente de memória de longo curto prazo (LSTM) para extração de entidade e mostra que o modelo que insere a palavra específica de domínio pode ter um desempenho melhor que inserir uma palavra genérica para extração de entidade.
+- [Extração de entidade nomeada de resumos de PubMed](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) Este tutorial mostra como extrair entidades nomeadas, como nomes de droga ou doença, de texto não estruturado. Ele treina uma palavra personalizada inserindo em um corpo de texto de 18 milhões resumos de PubMed, usa esse modelo para criar um modelo de rede neural recorrente de memória de longo curto prazo (LSTM) para extração de entidade e mostra que o modelo que insere a palavra específica de domínio pode ter um desempenho melhor que inserir uma palavra genérica para extração de entidade.
 
 - [Deep learning para áudio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) Este tutorial mostra como treinar um modelo de deep learning para detecção de eventos de áudio no [conjunto de dados de sons urbanos](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) e fornece uma visão geral de como trabalhar com dados de áudio.
 

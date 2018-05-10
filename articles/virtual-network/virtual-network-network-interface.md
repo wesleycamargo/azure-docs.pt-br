@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c39f11eae08e74e1bb29a5587fa4a8f0ba7c6a5b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou excluir um adaptador de rede
 
@@ -216,7 +216,7 @@ As regras de segurança em vigor para cada adaptador de rede anexado a uma máqu
 4. Selecione **Regras de segurança em vigor** em **SUPORTE + SOLUÇÃO DE PROBLEMAS**.
 5. Examine a lista de regras de segurança em vigor para determinar se as regras corretas existem para a comunicação de entrada e saída necessária. Saiba mais sobre o que é mostrado na lista em [Bisão geral de Grupo de Segurança de Rede](security-overview.md).
 
-O recurso de verificação de fluxo IP do Observador de Rede do Azure também pode ajudar a determinar se as regras de segurança estão impedindo a comunicação entre uma máquina virtual e um ponto de extremidade. Para saber mais, consulte [Verificar o fluxo IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O recurso de verificação de fluxo IP do Observador de Rede do Azure também pode ajudar a determinar se as regras de segurança estão impedindo a comunicação entre uma máquina virtual e um ponto de extremidade. Para saber mais, consulte [Verificar o fluxo IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Comandos**
 
@@ -233,7 +233,7 @@ As rotas em vigor para os adaptadores de rede anexados a uma máquina virtual s�
 4. Selecione **Rotas em vigor** em **SUPORTE + SOLUÇÃO DE PROBLEMAS**.
 5. Examine a lista de rotas em vigor para determinar se as rotas corretas existem para a comunicação de entrada e saída necessária. Saiba mais sobre o que é mostrado na lista em [Visão geral de roteamento](virtual-networks-udr-overview.md).
 
-O recurso de próximo salto do Observador de Rede do Azure também pode ajudar a determinar se as rotas estão impedindo a comunicação entre uma máquina virtual e um ponto de extremidade. Para saber mais, consulte [Próximo salto](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O recurso de próximo salto do Observador de Rede do Azure também pode ajudar a determinar se as rotas estão impedindo a comunicação entre uma máquina virtual e um ponto de extremidade. Para saber mais, consulte [Próximo salto](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Comandos**
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 36d4cd910f841a323dfada49d65f7acb4bdf3138
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-stack-1803-update"></a>Atualização de pilha 1803 do Azure
 
@@ -40,8 +40,18 @@ Este artigo descreve as melhorias e correções no pacote de atualização de 18
 
 
 ### <a name="prerequisites"></a>Pré-requisitos
-- Instalar a pilha do Azure [1802 atualizar](azure-stack-update-1802.md) antes de aplicar a atualização 1803 de pilha do Azure.    
+- Instalar a pilha do Azure [1802 atualizar](azure-stack-update-1802.md) antes de aplicar a atualização 1803 de pilha do Azure.   
 
+- Instalar **AzS Hotfix – 1.0.180312.1-Build 20180222.2** antes de aplicar a atualização 1803 de pilha do Azure. Esse hotfix atualiza o Windows Defender e está disponível quando você baixar atualizações para a pilha do Azure.
+
+  Para instalar o hotfix, siga os procedimentos normais para [instalando atualizações para o Azure pilha](azure-stack-apply-updates.md). O nome da atualização é exibido como **AzS Hotfix – 1.0.180312.1**e inclui os seguintes arquivos: 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.xml
+
+  Depois de carregar esses arquivos para uma conta de armazenamento e contêiner, execute a instalação do bloco de atualização no portal de administração. 
+  
+  Ao contrário das atualizações a pilha do Azure, instalar essa atualização não altera a versão da pilha do Azure. Para confirmar se essa atualização é instalada, exiba a lista de **atualizações instaladas**.
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
 - Após a instalação do 1803, instale os Hotfixes aplicáveis. Para mais informações, consulte os seguintes artigos da base de dados de Conhecimento, bem como nosso [política manutenção](azure-stack-servicing-policy.md).

@@ -2,20 +2,20 @@
 title: Criar um gateway de aplicativo com terminação SSL – Portal do Azure | Microsoft Docs
 description: Saiba como criar um gateway de aplicativo e adicionar um certificado para a terminação SSL usando o portal do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 188632ee75f2fd755ec0601866183a7808f2971c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: victorh
+ms.openlocfilehash: a24cec5dfa8034cf43ce7cfe26308587cf20dc44
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Criar um gateway de aplicativo com terminação SSL usando o portal do Azure
 

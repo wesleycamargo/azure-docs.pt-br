@@ -1,19 +1,19 @@
 ---
-title: "Implantar um cluster do contêiner do Docker - CLI do Azure"
-description: "Implante uma solução Kubernetes, CD/SO ou Docker Swarm no Serviço de Contêiner do Azure usando a CLI 2.0 do Azure"
+title: Implantar um cluster do contêiner do Docker - CLI do Azure
+description: Implante uma solução Kubernetes, CD/SO ou Docker Swarm no Serviço de Contêiner do Azure usando a CLI 2.0 do Azure
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 40d5ea0e7abce165659219db8842ab64ac75fda7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 037834fa94a4ef6ecf6ab87055ed1369a3c8f1fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Implante uma solução de hospedagem de contêiner do Docker usando a CLI 2.0 do Azure
 
@@ -23,7 +23,7 @@ Para obter ajuda sobre os comandos `az acs`, passe o parâmetro `-h` para qualqu
 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para criar um cluster do Serviço de Contêiner do Azure usando a CLI do Azure 2.0, você deve:
 * ter uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/))
 * instalar e configurar [CLI do Azure 2.0](/cli/azure/install-az-cli2)
@@ -38,22 +38,22 @@ Siga os prompts para fazer logon interativamente. Para obter outros métodos par
 
 ### <a name="set-your-azure-subscription"></a>Definir sua assinatura do Azure
 
-Se você tiver mais de uma assinatura do Azure, defina a assinatura padrão. Por exemplo:
+Se você tiver mais de uma assinatura do Azure, defina a assinatura padrão. Por exemplo: 
 
 ```
 az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
 ```
 
 
-### <a name="create-a-resource-group"></a>Criar um grupos de recursos
-Recomendamos que você crie um grupo de recursos para cada cluster. Especifique uma região do Azure no qual o serviço de contêiner do Azure é [disponível](https://azure.microsoft.com/en-us/regions/services/). Por exemplo:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+Recomendamos que você crie um grupo de recursos para cada cluster. Especifique uma região do Azure no qual o serviço de contêiner do Azure é [disponível](https://azure.microsoft.com/regions/services/). Por exemplo: 
 
 ```azurecli
 az group create -n acsrg1 -l "westus"
 ```
 A saída deverá ser semelhante a esta:
 
-![Criar um grupos de recursos](./media/container-service-create-acs-cluster-cli/rg-create.png)
+![Criar um grupo de recursos](./media/container-service-create-acs-cluster-cli/rg-create.png)
 
 
 ## <a name="create-an-azure-container-service-cluster"></a>Criar um cluster do Serviço de Contêiner do Azure

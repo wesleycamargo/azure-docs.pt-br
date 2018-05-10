@@ -27,11 +27,9 @@
           href: service-fabric-tutorial-create-dotnet-app.md
         - name: 2 - Implantar o aplicativo
           href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-        - name: 3 - Habilitar HTTPS
-          href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
-        - name: 4 - Configurar CI/CD
+        - name: 3 - Configurar CI/CD
           href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-        - name: 5 - Monitorar e Diagnosticar
+        - name: 4 - Monitorar e Diagnosticar
           href: service-fabric-tutorial-monitoring-aspnet.md
     - name: Implantar um aplicativo Java
       items:
@@ -461,7 +459,7 @@
           items:
             - name: Implantar aplicativos em um cluster local
               href: service-fabric-get-started-with-a-local-cluster.md
-            - name: Gerenciador de Recursos do Azure
+            - name: Azure Resource Manager
               href: service-fabric-application-arm-resource.md
             - name: Azure PowerShell
               href: service-fabric-deploy-remove-applications.md
@@ -507,7 +505,7 @@
               items:
                 - name: Portal do Azure
                   href: service-fabric-cluster-creation-via-portal.md
-                - name: Gerenciador de Recursos do Azure
+                - name: Azure Resource Manager
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: Cluster usando o nome comum do certificado
                   href: service-fabric-create-cluster-using-cert-cn.md
@@ -563,42 +561,36 @@
           href: service-fabric-patch-orchestration-application-linux.md
     - name: Monitorar e diagnosticar
       items:
-        - name: Monitorar aplicativos
+        - name: Analisar com o OMS
           items:
-            - name: Analisar com o Application Insights
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: Adicionar registro em log ao seu aplicativo
-              href: service-fabric-how-to-diagnostics-log.md
-            - name: Eventos de agregação com EventFlow
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Monitorar contêineres
-              href: service-fabric-diagnostics-oms-containers.md
-        - name: Monitorar clusters
-          items:
-            - name: APIs de EventStore de consulta
-              href: service-fabric-diagnostics-eventstore-query.md
-            - name: Diagnóstico do Windows Azure
-              href: service-fabric-diagnostics-event-aggregation-wad.md
-            - name: Diagnóstico do Linux Azure
-              href: service-fabric-diagnostics-event-aggregation-lad.md
             - name: Configurar o Log Analytics do OMS
               href: service-fabric-diagnostics-oms-setup.md
+            - name: Adicionar Agente do OMS
+              href: service-fabric-diagnostics-oms-agent.md
             - name: Monitorar com o OMS
               href: service-fabric-diagnostics-event-analysis-oms.md
-        - name: Monitorar infraestrutura
+            - name: Monitorar contêineres
+              href: service-fabric-diagnostics-oms-containers.md
+        - name: Analisar com o Application Insights
+          href: service-fabric-diagnostics-event-analysis-appinsights.md
+        - name: Eventos agregados - EventFlow
+          href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        - name: Eventos agregados - Diagnóstico do Azure
           items:
-            - name: Monitoramento do desempenho com WAD
-              href: service-fabric-diagnostics-perf-wad.md
-            - name: Monitorar desempenho com Agente OMS
-              href: service-fabric-diagnostics-oms-agent.md
-        - name: Monitorar integridade
-          items:
-            - name: Relatar e verificar a integridade
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: Solucionar problemas com relatórios de integridade do sistema
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: Exibir relatórios de integridade
-              href: service-fabric-view-entities-aggregated-health.md
+            - name: Windows
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Linux
+              href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Monitoramento do desempenho com WAD
+          href: service-fabric-diagnostics-perf-wad.md
+        - name: Relatar e verificar a integridade
+          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: Adicionar registro em log ao seu serviço
+          href: service-fabric-how-to-diagnostics-log.md
+        - name: Solucionar problemas com relatórios de integridade do sistema
+          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+        - name: Exibir relatórios de integridade
+          href: service-fabric-view-entities-aggregated-health.md
         - name: Solucionar problemas do seu cluster local
           href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Referência
