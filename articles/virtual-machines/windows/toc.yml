@@ -206,7 +206,7 @@
         - name: Baixar o modelo
           href: download-template.md
         - name: Agente de VM do Azure
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: Manutenção planejada
           href: maintenance-notifications.md
         - name: Atenuando a execução especulativa
@@ -369,7 +369,7 @@
         - name: Agente do observador de rede
           href: extensions-nwa.md
         - name: Instalação da extensão restrita
-          href: extensions-rmpolicy-howto-ps.md
+          href: ../extensions/extensions-rmpolicy-howto-ps.md
     - name: Migrar VMs
       items:
         - name: Como migrar AWS e VMs locais

@@ -88,7 +88,7 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [Python (Gerenciamento de Conta)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+## [Python (Gerenciamento de Conta)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python (Gerenciamento do sistema de arquivos)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
 ## [CLI do Azure](https://docs.microsoft.com/cli/azure/dls)

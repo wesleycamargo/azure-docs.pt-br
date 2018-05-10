@@ -66,6 +66,6 @@ Siga as práticas recomendadas a seguir se você for um operador de solução Io
 * **Manter sistemas atualizados**: verifique se todos os sistemas operacionais e drivers do dispositivo estão atualizados para as versões mais recentes. 
 * **Proteger contra atividades mal-intencionadas**: se o sistema operacional permitir, aplique as funcionalidades antivírus e antimalware mais recentes em cada sistema operacional do dispositivo. 
 * **Auditar frequentemente**: auditar problemas relacionados à infraestrutura de IoT é essencial ao responder a incidentes de segurança.
-* **Proteger fisicamente a infraestrutura de IoT**: os pior ataques de segurança contra infraestrutura de são iniciados usando o acesso físico aos dispositivos.
+* **Proteger fisicamente a infraestrutura de IoT**: os piores ataques de segurança contra infraestrutura de são iniciados usando o acesso físico aos dispositivos.
 * **Proteger credenciais da nuvem**: credenciais de autenticação da nuvem usadas para configurar e operar uma implantação de IoT são possivelmente a maneira mais fácil para acessar e comprometer um sistema de IoT. 
 

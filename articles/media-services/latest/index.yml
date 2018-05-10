@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 03-20-2018
   ms.author: juliako
-  ms.openlocfilehash: 1ac829c8d9643401cada1f7cd558a39b63da87c2
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: 2aa16fb222c6a58d8e98a7399d1e3fd3cd9044f6
+  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/07/2018
+  ms.lasthandoff: 05/10/2018
 abstract:
   description: Saiba como transmitir vídeos sob demanda, transmitir ao vivo e analisar seus vídeos com os Serviços de Mídia. Tutoriais, referências de API e outras documentações mostram como oferecer com segurança, sob demanda e ao vivo, fluxos de áudio ou vídeos que são dimensionados para milhões de usuários.
 sections:
@@ -51,4 +51,4 @@ sections:
     - title: Linha de comando
       html: <p><a href="https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest">CLI do Azure</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/media/">API REST</a></p>
+      html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=873030">API REST</a></p>
