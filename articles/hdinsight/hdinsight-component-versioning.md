@@ -88,7 +88,7 @@ A tabela a seguir lista as versões do HDInsight estão disponíveis no Portal d
 > Depois que o suporte para uma versão tiver expirado, ela poderá não estar disponível por meio do Portal do Microsoft Azure. No entanto, as versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) e o SDK .NET até a data de baixa da versão.
 >
 
-### <a name="retired-versions"></a>Verões desativadas
+### <a name="retired-versions"></a>Versões desativadas
 
 A tabela a seguir lista as versões do HDInsight que **não** estão disponíveis atualmente no Portal do Azure.
 
