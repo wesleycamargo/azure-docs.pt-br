@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f24dd917f4197f933fd58f7c646c18372da8593
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Fazer o download de itens do marketplace do Azure para a pilha do Azure
 
@@ -31,7 +31,7 @@ Como decidir qual conteúdo para incluir no seu mercado de pilha do Azure, você
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Fazer o download de itens do marketplace em um cenário conectado (com conectividade com a internet)
 
 1. Para baixar itens do marketplace, você deve primeiro [registrar pilha do Azure com o Azure](azure-stack-register.md).
-2. Entrar no portal do administrador do Azure pilha (https://portal.local.azurestack.external).
+2. Entre no portal de administrador a pilha do Azure (para ASDK, use https://portal.local.azurestack.external).
 3. Alguns itens do marketplace podem ser grandes. Verifique se há espaço suficiente em seu sistema clicando **provedores de recursos** > **armazenamento**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
@@ -60,7 +60,7 @@ Antes de usar a ferramenta de distribuição do marketplace, certifique-se de qu
 
 Da máquina que tenha conectividade com a internet, use as etapas a seguir para baixar os itens do marketplace necessária:
 
-1. Abra um console do PowerShell como administrador e [instalar módulos do PowerShell específicos do Azure pilha](azure-stack-powershell-install.md). Certifique-se de que você instale **PowerShell versão 1.2.11 ou superior**.  
+1. Abra um console do PowerShell como administrador e [instalar módulos do PowerShell específicos do Azure pilha](azure-stack-powershell-install.md). Certifique-se de que você instale **módulo PowerShell da pilha do Azure versão 1.2.11 ou superior**.  
 
 2. Adicione a conta do Azure que você usou para registrar a pilha do Azure. Para adicionar a conta, execute o **AzureRmAccount adicionar** cmdlet sem parâmetros. Você for solicitado a digitar suas credenciais de conta do Azure e talvez você precise usar a autenticação de 2 fatores com base na configuração da sua conta.  
 
@@ -92,7 +92,7 @@ Da máquina que tenha conectividade com a internet, use as etapas a seguir para 
 5. Importe o módulo de distribuição e iniciar a ferramenta executando os seguintes comandos:  
 
    ```powershell
-   Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
+   Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
      -destination "<Destination folder path>" `
@@ -100,21 +100,28 @@ Da máquina que tenha conectividade com a internet, use as etapas a seguir para 
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
 
-6. Quando a ferramenta é executada, você precisará inserir suas credenciais de conta do Azure. Entrar para a conta do Azure que você usou para registrar a pilha do Azure. Após o logon for bem-sucedido, você deverá ver a tela a seguir com a lista de itens do marketplace disponíveis.  
+6. Quando a ferramenta é executada, você precisará inserir suas credenciais de conta do Azure. Entrar para a conta do Azure que você usou para registrar a pilha do Azure. Depois que o logon for bem-sucedido, você verá a tela a seguir com a lista de itens do marketplace disponíveis.  
 
    ![Pop-up itens do Azure Marketplace](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
 7. Selecione a imagem que você deseja baixar e anote a versão da imagem. Você pode selecionar várias imagens, mantendo a tecla Ctrl. Você pode usar a versão da imagem para importar a imagem na próxima seção.  Em seguida, clique em **Okey**e, em seguida, aceite os termos legais clicando em **Sim**. Você também pode filtrar a lista de imagens usando o **adicionar critérios** opção. 
 
-   O download demora algum tempo dependendo do tamanho da imagem. Uma vez os downloads de imagem, ele está disponível no caminho de destino que você forneceu anteriormente. O download contém os itens de arquivo e a Galeria VHD no formato Azpkg.
+   O download demora algum tempo dependendo do tamanho da imagem. Uma vez os downloads de imagem, ele está disponível no caminho de destino que você forneceu anteriormente. O download contém um arquivo VHD (para máquinas virtuais) ou um. Arquivo ZIP (para extensões de máquina virtual) e um item da galeria no formato Azpkg.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importar a imagem e publicá-lo no marketplace de pilha do Azure
+Há três tipos diferentes de itens no marketplace: máquinas virtuais, extensões de máquina Virtual e modelos de solução. Modelos de solução são discutidos abaixo.
+> [!NOTE]
+> Extensões de máquina virtual não pode ser adicionadas à pilha do Azure no momento.
 
 1. Depois de baixar o pacote de imagem e galeria, salvá-los e o conteúdo na pasta de ferramentas AzureStack-mestre para uma unidade de disco removível e copiá-lo para o ambiente de pilha do Azure (você pode copiá-lo localmente em qualquer local, como: "C:\MarketplaceImages").     
 
 2. Antes de importar a imagem, você deve conectar-se ao ambiente do operador de pilha do Azure usando as etapas descritas em [configurar o ambiente do PowerShell do operador da pilha do Azure](azure-stack-powershell-configure-admin.md).  
 
-3. Importe a imagem para a pilha do Azure usando o cmdlet Add-AzsVMImage. Ao usar esse cmdlet, certifique-se de substituir o *publicador*, *oferecem*e outros valores de parâmetros com os valores da imagem que você está importando. Você pode obter o *publicador*, *oferecem*, e *sku* valores da imagem do objeto imageReference do arquivo Azpkg que você baixou anteriormente e o  *versão* valor da etapa 6 na seção anterior.
+3. Se o seu download inclui um pequeno arquivo VHD de 3MB denominado fixed3.vhd, é um modelo de solução. Esse arquivo não é necessário; Vá para a etapa 5. Certifique-se de que baixar todos os itens dependentes conforme indicado na descrição para o download.
+
+4. Importe a imagem para a pilha do Azure usando o cmdlet Add-AzsVMImage. Ao usar esse cmdlet, certifique-se de substituir o *publicador*, *oferecem*e outros valores de parâmetros com os valores da imagem que você está importando. Você pode obter o *publicador*, *oferecem*, e *sku* valores da imagem do objeto imageReference do arquivo Azpkg que você baixou anteriormente e o  *versão* valor da etapa 6 na seção anterior.
+
+Para localizar o imageReference, será necessário renomear o arquivo AZPKG com o. Extensão de ZIP, extraia-o para um local temporário e abra o arquivo de DeploymentTemplates\CreateUiDefinition.json com um editor de texto. Localize nesta seção:
 
    ```json
    "imageReference": {
@@ -140,9 +147,9 @@ Da máquina que tenha conectividade com a internet, use as etapas a seguir para 
     -Location Local
    ```
 
-4. Portal de uso para carregar o item do Marketplace (. Azpkg) para o armazenamento de BLOBs do Azure pilha. Você pode carregar no armazenamento do Azure pilha local ou carregar no armazenamento do Azure. (É um local temporário para o pacote.) Certifique-se de que o blob é acessível publicamente e observe o URI.  
+5. Portal de uso para carregar o item do Marketplace (. Azpkg) para o armazenamento de BLOBs do Azure pilha. Você pode carregar no armazenamento do Azure pilha local ou carregar no armazenamento do Azure. (É um local temporário para o pacote.) Certifique-se de que o blob é acessível publicamente e observe o URI.  
 
-5. Publicar o item do marketplace a pilha do Azure usando o **AzsGalleryItem adicionar**. Por exemplo: 
+6. Publicar o item do marketplace a pilha do Azure usando o **AzsGalleryItem adicionar**. Por exemplo: 
 
    ```powershell
    Add-AzsGalleryItem `
@@ -150,7 +157,7 @@ Da máquina que tenha conectividade com a internet, use as etapas a seguir para 
      –Verbose
    ```
 
-6. Depois que o item de galeria é publicado, você pode exibi-lo no **novo** > **Marketplace** painel.  
+7. Depois que o item de galeria é publicado, você pode exibi-lo no **novo** > **Marketplace** painel. Se seu download foi um modelo de solução, verifique se que você baixou também a imagem do VHD dependente.
 
    ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 

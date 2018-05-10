@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: e6438c353d84510ee918df120e6d54df0607c89d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 752481186167fccb46d5bf3beb87c1507e0f4feb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede de pilha do Azure para ajudá-lo a decidir como integrar melhor pilha do Azure em seu ambiente de rede existente. 
@@ -38,7 +38,7 @@ Redes lógicas representam uma abstração da infraestrutura de rede física sub
 
 A tabela a seguir mostra as redes lógicas e os intervalos de sub-rede IPv4 associados que você deve planejar para:
 
-| Rede Lógica | Descrição | Tamanho | 
+| Rede Lógica | DESCRIÇÃO | Tamanho | 
 | -------- | ------------- | ------------ | 
 | VIP público | A pilha do Azure usa um total de 32 endereços da rede. Oito endereços IP públicos são usados para um pequeno conjunto de serviços de pilha do Azure e o restante são usados por máquinas virtuais de locatário. Se você planeja usar o serviço de aplicativo e os provedores de recursos do SQL, 7 mais endereços são usados. | / 26 (62 hosts) - /22 (1022 hosts)<br><br>Recomendado = /24 (254 hosts) | 
 | Infraestrutura de chave | Endereços IP de ponta a ponta para fins de roteamento, dedicados alternar interfaces de gerenciamento e os endereços de loopback atribuídos ao comutador. | / 26 | 
@@ -70,7 +70,7 @@ Isso/24 de rede dedicado para componentes internos de pilha do Azure para que el
 Isso/27 de rede é pequeno intervalo de sub-rede de infraestrutura do Azure pilha mencionado anteriormente, ele não requer que os endereços IP públicos, mas exige acesso à internet por meio de um NAT ou um Proxy transparente. Esta rede será alocada para sistema de Console de recuperação de emergência (ERCS), a VM ERCS requer acesso à internet durante o registro para o Azure e durante os backups de infraestrutura. A VM ERCS deve ser roteável à sua rede de gerenciamento para fins de solução de problemas.
 
 ### <a name="public-vip-network"></a>Rede pública de VIP
-Rede pública VIP é atribuída ao controlador de rede na pilha do Azure. Não é uma rede lógica no comutador. O SLB usa o pool de endereços e atribui/32 redes para cargas de trabalho de locatário. Na tabela de roteamento de comutador, desses IPs 32 são publicados como uma rota disponível por meio do BGP. Esta rede contém os endereços IP externo acessível ou públicos. A infraestrutura de pilha do Azure usa 8 endereços da rede VIP público, enquanto o restante é usado pelas máquinas virtuais do locatário. O tamanho da rede nesta sub-rede pode variar de um mínimo de /26 (64 hosts) a um máximo de /22 (1022 hosts), é recomendável que você planejar um /24 rede.
+Rede pública VIP é atribuída ao controlador de rede na pilha do Azure. Não é uma rede lógica no comutador. O SLB usa o pool de endereços e atribui/32 redes para cargas de trabalho de locatário. Na tabela de roteamento de comutador, desses IPs 32 são publicados como uma rota disponível por meio do BGP. Esta rede contém os endereços IP externo acessível ou públicos. A infraestrutura de pilha do Azure reserva os primeiros 31 endereços desta rede VIP público enquanto o restante é usado pelas máquinas virtuais do locatário. O tamanho da rede nesta sub-rede pode variar de um mínimo de /26 (64 hosts) a um máximo de /22 (1022 hosts), é recomendável que você planejar um /24 rede.
 
 ### <a name="switch-infrastructure-network"></a>Rede de infraestrutura de chave
 Isso/26 de rede é a sub-rede que contém sub-redes de IP de ponto a ponto roteável /30 (IP host 2) e o loopbacks que são dedicados/32 sub-redes de banda no comutador gerenciamento e a ID do roteador BGP. Esse intervalo de endereços IP deve ser roteável externamente da solução de pilha do Azure para o data center, podem ser IPs privadas ou públicas.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b65d0d88fd57dea59c79d2f72bab60967856e015
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 17737c2b272f2a123df3d58c62c471b3da5bebe1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Geração de solicitação de assinatura de certificados de pilha do Azure
 
@@ -33,6 +33,8 @@ A ferramenta do verificador de preparação de pilha do Azure (AzsReadinessCheck
     Especifica se a solicitação de assinatura de certificado será uma única solicitação, ou várias solicitações.
  - **Plataforma como serviço**  
     Se desejar solicitar nomes do plataforma como serviço (PaaS) a certificados como especificado na [requisitos de certificado da infraestrutura de chave pública do Azure pilha - certificados opcionais de PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
+
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

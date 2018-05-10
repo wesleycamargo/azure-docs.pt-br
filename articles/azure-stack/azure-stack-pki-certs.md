@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública de pilha do Azure
 
@@ -35,7 +35,7 @@ A pilha do Azure tem uma rede de infraestrutura pública usando externamente ace
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 A lista a seguir descreve os requisitos de certificado que são necessários para implantar o Azure pilha: 
 - Certificados devem ser emitidos por uma autoridade de certificação interna ou uma autoridade de certificação pública. Se uma autoridade de certificação pública for usada, ela deve ser incluída na imagem base do sistema operacional como parte do programa de autoridade de raiz confiável do Microsoft. Você pode encontrar a lista completa aqui: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Sua infraestrutura de pilha do Azure deve ter acesso à rede para a autoridade de certificação usado para assinar os certificados
+- Sua infraestrutura de pilha do Azure deve ter acesso à rede local de lista de revogação de certificados (CRL) da autoridade de certificação publicada no certificado. Essa CRL deve ser um ponto de extremidade de http
 - Quando a rotação de certificados, certificados devem ser emitidos por qualquer uma da mesma autoridade de certificado interno usada para assinar certificados fornecidos na implantação ou qualquer autoridade de certificação pública acima
 - Não há suporte para o uso de certificados autoassinados
 - O certificado pode ser um certificado curinga único que abrangem todos os espaços de nome no campo nome alternativo da entidade (SAN). Como alternativa, você pode usar certificados individuais usando caracteres curinga para pontos de extremidade como **acs** e chave de cofre onde eles são necessários. 
@@ -45,6 +45,7 @@ A lista a seguir descreve os requisitos de certificado que são necessários par
 - O arquivo pfx de certificado deve ter os valores "Autenticação do servidor (1.3.6.1.5.5.7.3.1)" e "Autenticação de cliente (1.3.6.1.5.5.7.3.2)" no campo "Uso avançado de chave".
 - O certificado "emitido para:" campo não deve ser o mesmo que seu "emitido por:" campo.
 - As senhas para todos os arquivos pfx de certificado devem ser o mesmo no momento da implantação
+- Senha para o pfx de certificado deve ser uma senha complexa.
 - Certifique-se de que os nomes de entidade e entidade alternativa nomes de todos os certificados correspondem as especificações descritas neste artigo para evitar falhas de implantação.
 
 > [!NOTE]
@@ -70,7 +71,7 @@ Para sua implantação, [Região] e [externalfqdn] valores devem corresponder a 
 | Público do Gerenciador de recursos do Azure | gerenciamento. &lt;região >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | Administração do Gerenciador de recursos do Azure | adminmanagement. &lt;região >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Blobs | blob.&lt;region>.&lt;fqdn> |
-| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de tabela | tabela. &lt;região >. &lt;fqdn > |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Tabelas | tabela. &lt;região >. &lt;fqdn > |
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Filas | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Key Vault | cofre. &lt;região >. &lt;fqdn > |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) |  Keyvault interno |  adminvault. &lt;região >. &lt;fqdn > |
@@ -118,7 +119,7 @@ A tabela a seguir descreve os pontos de extremidade e os certificados necessári
 
 <sup>1</sup> requer um certificado com vários nomes alternativos de entidade de caractere curinga. Curinga várias SANs em um único certificado pode não ter suporte de todas as autoridades de certificação pública 
 
-<sup>2</sup> um &#42;.appservice. *&lt;região >. &lt;fqdn >* certificado curinga não pode ser usado no lugar desses três certificados (api.appservice. *&lt;região >. &lt;fqdn >*, ftp.appservice. *&lt;região >. &lt;fqdn >*e sso.appservice. *&lt;região >. &lt;fqdn >*. Serviço de aplicativo explicitamente requer o uso de certificados separados para esses pontos de extremidade. 
+<sup>2</sup> um &#42;.appservice. *&lt;região >. &lt;fqdn >* certificado curinga não pode ser usado no lugar desses três certificados (api.appservice. *&lt;região >. &lt;fqdn >*, ftp.appservice. *&lt;região >. &lt;fqdn >* e sso.appservice. *&lt;região >. &lt;fqdn >*. Serviço de aplicativo explicitamente requer o uso de certificados separados para esses pontos de extremidade. 
 
 ## <a name="learn-more"></a>Saiba mais
 Saiba como [gerar certificados PKI para implantação do Azure pilha](azure-stack-get-pki-certs.md). 
