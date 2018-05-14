@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
-ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e58096d4bde9c947f199b4696c0b5c28291956d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Scripts do PowerShell para gerenciar certificados X.509 assinados pela AC
 
@@ -33,7 +33,9 @@ Este tutorial presume que você adquiriu os binários do OpenSSL. Você pode
 ## <a name="create-x509-certificates"></a>Criar certificados X.509
 As etapas a seguir mostram um exemplo de como criar certificados raiz X.509 localmente. 
 
-1. Abra uma janela do PowerShell como *Administrador*. 
+1. Abra uma janela do PowerShell como *Administrador*.  
+   **OBSERVAÇÃO:** você deve abrir isso no próprio PowerShell, não no PowerShell ISE, no Visual Studio Code ou em outras ferramentas que encapsulam o console do PowerShell subjacente.  Usar um console não baseado em PowerShell resultará nos comandos de `openssl` abaixo pendentes.
+
 2. Navegue até seu diretório de trabalho. Execute o script a seguir para definir as variáveis globais. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"

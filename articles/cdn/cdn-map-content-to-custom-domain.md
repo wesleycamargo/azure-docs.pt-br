@@ -6,20 +6,19 @@ documentationcenter: ''
 author: dksimpson
 manager: akucer
 editor: ''
-ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/06/2018
-ms.author: mazha
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure
 Este tutorial mostra como adicionar um domínio personalizado a um ponto de extremidade do Azure CDN (Rede de Distribuição de Conteúdo). Quando você usa um ponto de extremidade da CDN para distribuir conteúdo, é necessário ter um domínio personalizado se você deseja que seu próprio nome de domínio fique visível na URL da CDN. Ter um nome de domínio visível pode ser conveniente para os clientes e útil para fins de identidade visual. 
@@ -28,9 +27,9 @@ Depois que um ponto de extremidade da CDN é criado em seu perfil, o nome do pon
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
-> - Criar um registro DNS CNAME
-> - Associar o domínio personalizado ao seu ponto de extremidade da CDN
-> - Verificar o domínio personalizado
+> - Criar um registro DNS CNAME.
+> - Associar o domínio personalizado ao seu ponto de extremidade da CDN.
+> - Verificar o domínio personalizado.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -211,16 +210,16 @@ Nas etapas anteriores, você adicionou um domínio personalizado a um ponto de e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O que você aprendeu:
+Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
-> - Criou um registro DNS CNAME
-> - Associou o domínio personalizado ao seu ponto de extremidade da CDN
-> - Verificou o domínio personalizado
+> - Criar um registro DNS CNAME.
+> - Associar o domínio personalizado ao seu ponto de extremidade da CDN.
+> - Verificar o domínio personalizado.
 
 Avance para o próximo tutorial a fim de aprender a configurar HTTPS em um domínio personalizado da CDN do Azure.
 
 > [!div class="nextstepaction"]
-> [Configure HTTPS em um domínio personalizado da CDN do Azure](cdn-custom-ssl.md)
+> [Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure](cdn-custom-ssl.md)
 
 

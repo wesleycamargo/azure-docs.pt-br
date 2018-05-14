@@ -12,21 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 46ba7b6e638fafa512d4a3f291c49acc1ddf02e4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1ba02afa775343f496a2b5fec98699e593a330ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-the-cluster-and-platform"></a>Monitoramento de cluster e plataforma
 
 É importante monitorar o nível de plataforma para determinar se o hardware e o cluster estão funcionando conforme esperado. O Service Fabric pode ajudar a manter os aplicativos em execução durante falhas de hardware, mas você ainda precisa diagnosticar se um erro está ocorrendo em um aplicativo ou na infraestrutura subjacente. Você também deve monitorar os clusters para planejar melhor a capacidade, ajudando nas decisões sobre a adição ou remoção de hardware.
 
-O Service Fabric fornece os seguintes canais prontos para uso:
+O Service Fabric expõe vários eventos de plataforma estruturada, como "[Eventos do Service Fabric](service-fabric-diagnostics-events.md)," por meio do EventStore e vários canais de log fora da caixa. 
 
-* **Operacional**  
+O EventStore fornece acesso a eventos do cluster por entidade (incluindo o cluster, nós, aplicativos, serviços, partições, réplicas e contêineres de entidades) e os expõe por meio de APIs REST e da biblioteca de clientes do Service Fabric. Use o EventStore para monitorar os clusters de desenvolvimento/teste e para obter uma compreensão precisa do estado de seus clusters de produção. Leia mais sobre isso em [Visão geral do EventStore](service-fabric-diagnostics-eventstore.md).
+
+O Service Fabric também fornece os canais de log fora da caixa a seguir para configurar um pipeline para monitorar os clusters de produção de canais de log a seguir:
+
+* [**Operacional**](service-fabric-diagnostics-event-generation-operational.md)  
 Operações de alto nível executadas pelo Service Fabric e pelo cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de upgrade, etc.
 
 * **Operacional - detalhado**  

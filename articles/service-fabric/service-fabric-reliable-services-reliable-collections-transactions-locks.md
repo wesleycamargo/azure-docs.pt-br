@@ -1,6 +1,6 @@
 ---
-title: "Transações e modos de bloqueio em Coleções Confiáveis do Azure Service Fabric | Microsoft Docs"
-description: "Gerenciador de estado confiável do Azure Service Fabric e Bloqueio e Transações de Coleções Confiáveis."
+title: Transações e modos de bloqueio em Coleções Confiáveis do Azure Service Fabric | Microsoft Docs
+description: Gerenciador de estado confiável do Azure Service Fabric e Bloqueio e Transações de Coleções Confiáveis.
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.openlocfilehash: 3452473f5b2f86d29e46339c997193bc6403736a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9d431d94a6df9636a48e1b2aaa59aaa576e2dc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transações e modos de bloqueio em Coleções Confiáveis do Azure Service Fabric
 
 ## <a name="transaction"></a>Transação
 Uma transação é uma sequência de operações realizadas como uma única unidade lógica de trabalho.
-Uma transação deve exibir as propriedades ACID a seguir. (consulte: https://technet.microsoft.com/en-us/library/ms190612)
+Uma transação deve exibir as propriedades ACID a seguir. Confira: https://technet.microsoft.com/library/ms190612)
 * **Atomicidade**: uma transação deve ser uma unidade atômica de trabalho. Em outras palavras, todas as suas modificações de dados são realizadas ou nenhuma delas é realizada.
 * **Consistência**: quando concluída, uma transação deve deixar todos os dados em um estado consistente. Todas as estruturas de dados internos devem estar corretas ao final da transação.
 * **Isolamento**: as modificações feitas por transações simultâneas devem ser isoladas das modificações feitas por quaisquer outras transações simultâneas. O nível de isolamento usado para uma operação em um ITransaction é determinado pelo IReliableState que executa a operação.
@@ -34,13 +34,13 @@ Uma transação deve exibir as propriedades ACID a seguir. (consulte: https://te
 Nível de isolamento define o grau no qual a transação deve ser isolada de modificações feitas por outras transações.
 Há dois níveis de isolamento com suporte nas Coleções Confiáveis:
 
-* **Leitura repetida**: especifica que as instruções não podem ler dados que foram modificados, mas ainda não foram confirmados por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual seja concluída. Para obter mais detalhes, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Leitura repetida**: especifica que as instruções não podem ler dados que foram modificados, mas ainda não foram confirmados por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual seja concluída. Para obter mais informações, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 * **Instantâneo**: especifica que os dados lidos por qualquer instrução em uma transação são a versão transacionalmente consistente dos dados que existiam no início da transação.
   A transação pode reconhecer apenas modificações de dados que foram confirmadas antes do início da transação.
   Modificações de dados feitas por outras transações após o início da transação atual não são visíveis para instruções em execução na transação atual.
   O efeito é como se as instruções em uma transação obtivessem um instantâneo dos dados confirmados conforme existiam no início da transação.
   Os instantâneos são consistentes entre as Coleções Confiáveis.
-  Para obter mais detalhes, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+  Para obter mais informações, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 As Coleções Confiáveis escolhem automaticamente o nível de isolamento a ser usado para uma determinada operação de leitura dependendo da operação e da função da réplica no momento da criação da transação.
 A seguir está a tabela que descreve os padrões de nível de isolamento para operações de Dicionário Confiável e Fila.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52654704662b736811f429a811e10669a752b75a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de Grade de Eventos para o Azure Functions
 
@@ -337,6 +337,9 @@ Como alternativa, você mesmo pode enviar uma HTTP PUT para especificar o valor 
 
 ## <a name="local-testing-with-requestbin"></a>Testes locais com RequestBin
 
+> [!NOTE]
+> O site RequestBin não está disponível no momento, mas você pode usar essa abordagem com https://hookbin.com em vez disso. Se esse site estiver inativo, você pode usar [ngrok](#local-testing-with-ngrok).
+
 Para testar um gatilho de Grade de Eventos localmente, você deve receber solicitações HTTP de Grade de Eventos entre suas origens na nuvem para sua máquina local. Uma maneira de fazer isso é capturar solicitações online e manualmente reenviá-las em sua máquina local:
 
 2. [Criar um ponto de extremidade RequestBin](#create-a-RequestBin-endpoint).
@@ -348,7 +351,7 @@ Quando terminar de testar, você poderá usar a mesma assinatura para a produç�
 
 ### <a name="create-a-requestbin-endpoint"></a>Criar um ponto de extremidade RequestBin
 
-RequestBin é uma ferramenta de software livre que aceita solicitações HTTP e mostra o corpo da solicitação. A URL http://requestb.in obtém tratamento especial pela Grade de Eventos do Azure. Para facilitar o teste, a Grade de Eventos envia eventos para a URL RequestBin, sem requerer uma resposta correta às solicitações de validação de assinatura. Outras duas ferramentas de teste recebem o mesmo tratamento: http://webhookinbox.com e http://hookbin.com.
+RequestBin é uma ferramenta de software livre que aceita solicitações HTTP e mostra o corpo da solicitação. A URL http://requestb.in obtém tratamento especial pela Grade de Eventos do Azure. Para facilitar o teste, a Grade de Eventos envia eventos para a URL RequestBin, sem requerer uma resposta correta às solicitações de validação de assinatura. Outra ferramenta de teste recebe o mesmo tratamento: http://hookbin.com.
 
 RequestBin não se destina a um uso de alta raxa de transferência. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: da78f88f0c79c0ad853dd644ef278f8402824760
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8efbc1d400f1d32e6aee2c1e2d78847bea786940
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Visualização e análise de eventos com o Log Analytics
 
@@ -67,13 +67,14 @@ A imagem acima é a home page da solução de Análise do Service Fabric. Este �
     
     ![Canal Operacional de Consulta do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
 
-Como alternativa, você pode clicar na lupa à esquerda e usar a linguagem de consulta Kusto para localizar o que você está procurando. Por exemplo, para localizar todos os eventos relacionados a ações executadas em nós pelo cluster, você pode usar a consulta a seguir. As identificações de evento usadas abaixo são encontradas em [referência de eventos do canal operacional](service-fabric-diagnostics-event-generation-operational.md)
+Como alternativa, você pode clicar na lupa à esquerda e usar a linguagem de consulta Kusto para localizar o que você está procurando. Por exemplo, para localizar todas as ações executadas em nós no cluster, você pode usar a consulta a seguir. As identificações de evento usadas abaixo são encontradas em [referência de eventos do canal operacional](service-fabric-diagnostics-event-generation-operational.md)
 
 ```kusto
 ServiceFabricOperationalEvent
-| where EventId < 29627 and EventId > 29619 
+| where EventId < 25627 and EventId > 25619 
 ```
-Você pode consultar em vários outros campos como em nós específicos (computador), o serviço do sistema (TaskName) e muito mais
+
+Você pode consultar em vários outros campos como em nós específicos (computador), o serviço do sistema (TaskName).
 
 ### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Exibir eventos dos Atores e Serviços Confiáveis do Service Fabric
 

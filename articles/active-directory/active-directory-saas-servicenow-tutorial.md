@@ -249,7 +249,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     a. Selecione a opção de **URL** na caixa de diálogo **Importar metadados de provedor de identidade**.
 
-    b. Insira a **	URL de Metadados de Federação de Aplicativos** que você copiou do Portal do Azure.
+    b. Insira a **URL de Metadados de Federação de Aplicativos** que você copiou do Portal do Azure.
 
     c. Clique em **Importar**.
 

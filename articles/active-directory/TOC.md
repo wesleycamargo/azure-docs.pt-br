@@ -16,6 +16,7 @@
 ## [Adicionar usuários ao Azure AD](add-users-azure-active-directory.md)
 ## [Atribuir licenças aos usuários](license-users-groups.md)
 ## [Como configurar a redefinição de senha de autoatendimento](authentication/quickstart-sspr.md)
+## [Adicionar informações de privacidade da sua organização no Azure AD](active-directory-properties-area.md)
 
 
 # Como
@@ -58,6 +59,7 @@
 #### [Políticas de compartilhamento B2B](active-directory-b2b-delegate-invitations.md)
 #### [Adicionar um usuário B2B a uma função](active-directory-b2b-add-guest-to-role.md)
 #### [Grupos dinâmicos e usuários B2B](active-directory-b2b-dynamic-groups.md)
+#### [Sair da organização](active-directory-b2b-leave-the-organization.md)
 #### [Auditoria e relatórios](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B para organizações híbridas](active-directory-b2b-hybrid-organizations.md)
 ##### [Conceder aos usuários B2B acesso aos aplicativos locais](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -178,11 +180,11 @@
 
 ### [Acesse aplicativos remotamente com o Proxy de aplicativo](manage-apps/application-proxy.md)
 #### Introdução
-##### [Habilitar Proxy de aplicativo](active-directory-application-proxy-enable.md)
-##### [Publicar aplicativos](application-proxy-publish-azure-portal.md)
-##### [Domínios personalizados](active-directory-application-proxy-custom-domains.md)
-#### [Logon Único](application-proxy-sso-overview.md)
-##### [SSO com KCD](active-directory-application-proxy-sso-using-kcd.md)
+##### [Habilitar Proxy de aplicativo](manage-apps/application-proxy-enable.md)
+##### [Publicar aplicativos](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Logon Único](manage-apps/application-proxy-single-sign-on.md)
+##### [SSO com KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [SSO com cabeçalhos](application-proxy-ping-access.md)
 ##### [SSO com compartimentação de senha](application-proxy-sso-azure-portal.md)
 #### Conceitos

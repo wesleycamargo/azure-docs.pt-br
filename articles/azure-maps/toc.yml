@@ -34,6 +34,8 @@
       href: search-categories.md
     - name: Idiomas com suporte
       href: supported-languages.md
+    - name: Modelo de consumo
+      href: consumption-model.md
 - name: Guias de instruções
   items:
     - name: Gerenciar contas do Azure Mapas
@@ -115,7 +117,7 @@
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates'
     - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
+      href: 'http://stackoverflow.com/questions/tagged/azure-maps'
     - name: Estudos de casos técnicos
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: vídeos

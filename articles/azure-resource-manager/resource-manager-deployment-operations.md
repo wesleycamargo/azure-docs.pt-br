@@ -1,32 +1,31 @@
 ---
-title: "Operações de implantação com o Azure Resource Manager | Microsoft Docs"
-description: "Descreve como exibir as operações de implantação do Azure Resource Manager com o portal, o PowerShell, a CLI do Azure e a API REST."
+title: Operações de implantação com o Azure Resource Manager | Microsoft Docs
+description: Descreve como exibir as operações de implantação do Azure Resource Manager com o portal, o PowerShell, a CLI do Azure e a API REST.
 services: azure-resource-manager,virtual-machines
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 01/13/2017
+ms.date: 04/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 26c2c333a97abff75f6b4caefb1e351dea826081
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Exibir operações de implantação com o Azure Resource Manager
 
-
 Você pode exibir as operações para uma implantação por meio do portal do Azure. Você pode estar mais interessado em ver as operações quando recebeu um erro durante a implantação para que este artigo foque em exibir as operações que falharam. O portal fornece uma interface que permite encontrar facilmente os erros e determinar as possíveis correções.
 
-É possível solucionar problemas da implantação examinando os logs de auditoria ou as operações de implantação. Este tópico mostra ambos os métodos. Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
+É possível solucionar problemas da implantação examinando os logs de auditoria ou as operações de implantação. Este artigo mostra os dois métodos. Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 Para ver as operações de implantação, use as etapas a seguir:
@@ -136,21 +135,19 @@ Para ver as operações de implantação, use as etapas a seguir:
 1. Obtenha o status geral de uma implantação com o comando **azure group deployment show** .
 
   ```azurecli
-  azure group deployment show --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-  Um dos valores retornados é **correlationId**. Esse valor é usado para acompanhar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico na solução de um problema de implantação.
+1. Um dos valores retornados é **correlationId**. Esse valor é usado para acompanhar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico na solução de um problema de implantação.
 
   ```azurecli
-  "properties": {
-    "provisioningState": "Failed",
-    "correlationId": "4002062a-a506-4b5e-aaba-4147036b771a",
+  az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-2. Para ver as operações de uma implantação, use:
+1. Para ver as operações de uma implantação, use:
 
   ```azurecli
-  azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment operation list -g ExampleGroup -n ExampleDeployment
   ```
 
 ## <a name="rest"></a>REST

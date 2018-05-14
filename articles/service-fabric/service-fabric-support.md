@@ -1,12 +1,12 @@
 ---
-title: "Saiba mais sobre as opções de Suporte do Azure Service Fabric | Microsoft Docs"
-description: "Versões de cluster do Azure Service Fabric com suporte e links para transmitir tíquetes de suporte"
+title: Saiba mais sobre as opções de Suporte do Azure Service Fabric | Microsoft Docs
+description: Versões de cluster do Azure Service Fabric com suporte e links para transmitir tíquetes de suporte
 services: service-fabric
 documentationcenter: .net
 author: pkcsf
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/26/2018
 ms.author: pkc
-ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ec634dd19cf1e944c768e1d368f114f66e9c38a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Opções de suporte do Azure Service Fabric
 
@@ -30,7 +30,7 @@ Para relatar problemas no seu cluster do Service Fabric implantado no Azure, abr
 
 Saiba mais sobre:
  
-- [Suporte da Microsoft para o Azure](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
+- [Suporte da Microsoft para o Azure](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Suporte premier da Microsoft](https://support.microsoft.com/en-us/premier).
 
 <a id="getlivesitesupportonprem"></a>
@@ -77,7 +77,8 @@ Veja a seguir a lista das versões do Service Fabric com suporte e as datas de f
 | 5.6.* | 5.4.164.* |Menor ou igual à versão 2.6 |13 de outubro de 2017   |
 | 5.7.* | 5.4.164.* |Menor ou igual à versão 2.7 |15 de dezembro de 2017  |
 | 6.0.* | 5.6.205.* |Menor ou igual à versão 2.8 |30 de março de 2018     | 
-| 6.1.* | 5.7.221.* |Menor ou igual à versão 3.0 |Versão atual e, portanto, sem data de término |
+| 6.1.* | 5.7.221.* |Menor ou igual à versão 3.0 |15 de junho de 2018      |
+| 6.2.* | 6.0.232.* |Menor ou igual à versão 3.1 |Versão atual e, portanto, sem data de término |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versões prévias do Service Fabric – sem suporte para uso em produção.
 De tempos em tempos, lançamos versões com recursos significativos sobre os quais queremos comentários e que são lançadas como versões prévias. Essas versões prévias devem ser usadas apenas para fins de teste. O cluster de produção sempre deve estar executando uma versão do Service Fabric estável e com suporte. Uma versão prévia sempre começa com um número de versão principal e secundária de 255. Por exemplo, se você vir uma versão 255.255.5703.949 do Service Fabric, essa versão só deverá ser usada em clusters de teste e é uma versão prévia. Esses lançamentos de versões prévias também serão comunicados no [Blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) e terão detalhes sobre os recursos incluídos.

@@ -9,15 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b929eaf17255210a5c813e3e91478f9202941b64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemplos de consulta para padrões de uso do Stream Analytics
+
 ## <a name="introduction"></a>Introdução
-As consultas no Azure Stream Analytics são expressas em uma linguagem de consulta parecida com o SQL. Essas consultas estão documentadas no guia [Referência de linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). Este artigo descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
+As consultas no Azure Stream Analytics são expressas em uma linguagem de consulta parecida com o SQL. Essas construções de linguagem estão documentadas no guia [Referência de linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+
+O design de consulta pode expressar lógica de passagem simples para mover dados de evento de um fluxo de entrada para outro armazenamento de dados de saída. Ou ele pode fazer análise de correspondência e temporal padrão avançado para calcular agregações em várias janelas de tempo como a amostra de TollApp. Você pode associar dados de várias entradas para combinar eventos de fluxo contínuo e fazer pesquisas nos dados de referência estática para enriquecer os valores de evento. Além disso, você pode gravar dados para várias saídas.
+
+Este artigo descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
 
 ## <a name="query-example-convert-data-types"></a>Exemplo de consulta: converter tipos de dados
 **Descrição**: defina os tipos das propriedades no fluxo de entrada.
@@ -571,7 +576,7 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**Explicação**: a primeira consulta `max_power_during_last_3_mins` usa a [Janela deslizante](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para localizar o valor máximo do sensor de potência de cada dispositivo durante os últimos 3 minutos. A segunda consulta é unida à primeira consulta para localizar o valor de potência na janela mais recente relevante para o evento atual. E, em seguida, desde que as condições sejam atendidas, um alerta é gerado para o dispositivo.
+**Explicação**: a primeira consulta `max_power_during_last_3_mins` usa a [Janela deslizante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para localizar o valor máximo do sensor de potência de cada dispositivo durante os últimos 3 minutos. A segunda consulta é unida à primeira consulta para localizar o valor de potência na janela mais recente relevante para o evento atual. E, em seguida, desde que as condições sejam atendidas, um alerta é gerado para o dispositivo.
 
 
 ## <a name="get-help"></a>Obter ajuda

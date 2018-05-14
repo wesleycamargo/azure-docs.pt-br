@@ -1,6 +1,6 @@
 ---
-title: "Como criar DSVM e HDI como destinos de computação para o Azure ML"
-description: "Crie cluster DSVM e Spark HDI como destinos de computação para experimentação do Azure ML."
+title: Como criar DSVM e HDI como destinos de computação para o Azure ML
+description: Crie cluster DSVM e Spark HDI como destinos de computação para experimentação do Azure ML.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 15cdee0fb3994874c88b16bebec35f5eae9f8de2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1229a66ec84b4272337a5dd1e17942e46b25e9a0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Criar cluster DSVM e Spark HDI como destinos de computação
 
@@ -27,7 +27,7 @@ Você pode facilmente aumentar ou expandir seu experimento de aprendizado de má
 
 Você pode criar uma DSVM pelo portal do Azure. 
 
-1. Faça logon no portal do Azure em https://portal.azure.com
+1. Faça logon no Portal do Azure de https://portal.azure.com
 2. Clique no link **+NEW** e pesquise “máquina virtual de ciência de dados para Linux”.
     ![Ubuntu](media/how-to-create-dsvm-hdi/ubuntu_dsvm.png)
 4. Escolha **Máquina virtual de ciência de dados para Linux (Ubuntu)** na lista e siga as instruções na tela para criar a DSVM.
@@ -148,13 +148,13 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## <a name="expand-the-dsvm-os-disk"></a>Expandir o disco do SO da DSVM
-A VM Linux no Azure geralmente vem com um disco de sistema operacional de 30 GB. Quando usado como destino de computação para o Azure ML, ele pode ser consumido rapidamente pelo mecanismo do Docker puxando imagens do Docker e criando camadas de conda sobre ele. É uma boa ideia aumentar o tamanho do disco do sistema operacional (como 200 GB) para evitar o erro de "disco cheio" quando estiver no meio de uma execução. Consulte [Como expandir os discos rígidos virtuais em uma VM Linux com a CLI do Azure](../../virtual-machines/linux/expand-disks.md) para saber como fazer isso facilmente na azure-cli. 
+O Ubuntu DSVM vem com um disco de sistema operacional de 50 GB e um disco de dados de 100 GB. O Docker armazena suas imagens do disco de dados conforme mais espaço estiver disponível nesse local. Quando usado como destino de computação para o Azure ML, esse disco pode ser usado pelo mecanismo do Docker puxando imagens do Docker e criando camadas de conda sobre ele. Você pode precisar aumentar o tamanho do disco (como 200 GB) para evitar o erro de "disco cheio" quando estiver no meio de uma execução. Consulte [Como expandir os discos rígidos virtuais em uma VM Linux com a CLI do Azure](../../virtual-machines/linux/expand-disks.md) para saber como fazer isso facilmente na azure-cli. 
 
 ## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Criar um Apache Spark para cluster Azure HDInsight no portal do Azure
 
 Para executar trabalhos de expansão do Spark, você precisa criar um Apache Spark para cluster Azure HDInsight no portal do Azure.
 
-1. Faça logon no portal do Azure em https://portal.azure.com
+1. Faça logon no Portal do Azure de https://portal.azure.com
 2. Clique no link **+NEW** e procure "HDInsight".
 
     ![localizar hdi](media/how-to-create-dsvm-hdi/hdi.png)

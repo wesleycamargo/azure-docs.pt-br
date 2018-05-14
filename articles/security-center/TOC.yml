@@ -153,6 +153,8 @@
           href: security-center-events-dashboard.md
         - name: Search
           href: security-center-search.md
+        - name: Revisão de conformidade (REST)
+          href: security-center-review-policy-compliance.md
     - name: Cenários
       items:
         - name: Resposta a incidentes

@@ -25,7 +25,7 @@
       href: role-assignments-external-users.md
     - name: Logs de atividade
       href: change-history-report.md
-    - name: Elevar o acesso de administrador de locatário
+    - name: Elevar o acesso de Administrador global
       href: elevate-access-global-admin.md
     - name: Solucionar problemas
       href: troubleshooting.md

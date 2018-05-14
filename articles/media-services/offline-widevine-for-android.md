@@ -1,12 +1,12 @@
 ---
-title: "Configurar sua conta para streaming offline de conteúdo protegido pelo Widevine – Azure"
-description: "Este tópico mostra como configurar sua conta dos Serviços de Mídia do Azure para streaming offline de conteúdo protegido pelo Widevine."
+title: Configurar sua conta para streaming offline de conteúdo protegido pelo Widevine – Azure
+description: Este tópico mostra como configurar sua conta dos Serviços de Mídia do Azure para streaming offline de conteúdo protegido pelo Widevine.
 services: media-services
 keywords: DASH, DRM, Modo Offline do Widevine, ExoPlayer, Android
-documentationcenter: 
+documentationcenter: ''
 author: willzhan
 manager: steveng
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: b27ffcbf5749d612e63ba08df0adad72f357a83a
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming offline do Widevine para Android
 
@@ -148,7 +148,7 @@ Se você fizer upgrade do navegador móvel Chrome para a v62 (ou superior) em um
 
 O aplicativo PWA de software livre acima foi criado no Node.js. Se deseja hospedar sua própria versão em um servidor Ubuntu, os seguintes problemas comuns encontrados que podem impedir a reprodução:
 
-1. Problema do CORS: o vídeo de exemplo no aplicativo de exemplo é hospedado em https://storage.googleapis.com/biograf-video-files/videos/. A Google configurou o CORS para todas as suas amostras de teste hospedadas no bucket do Google Cloud Storage. Elas trazem cabeçalhos do CORS, especificando explicitamente a entrada do CORS https://biograf-155113.appspot.com (domínio no qual a Google hospeda sua amostra), impedindo o acesso por outros sites. Se você tentar, verá o seguinte erro HTTP: falha ao carregar https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: nenhum cabeçalho 'Access-Control-Allow-Origin' está presente no recurso solicitado. Portanto, a origem 'https://13.85.80.81:8080' não tem permissão de acesso. Se uma resposta opaca atender às suas necessidades, defina o modo da solicitação como 'no-cors' para buscar o recurso com o CORS desabilitado.
+1. Problema CORS: o exemplo de vídeo no aplicativo de exemplo hospedado em https://storage.googleapis.com/biograf-video-files/videos/. A Google configurou o CORS para todas as suas amostras de teste hospedadas no bucket do Google Cloud Storage. Elas trazem cabeçalhos do CORS, especificando explicitamente a entrada do CORS https://biograf-155113.appspot.com (domínio no qual a Google hospeda sua amostra), impedindo o acesso por outros sites. Se você tentar, verá o seguinte erro HTTP: falha ao carregar https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd:: nenhum cabeçalho 'Access-Control-Allow-Origin' está presente no recurso solicitado. Portanto, a origem https://13.85.80.81:8080' não tem permissão de acesso. Se uma resposta opaca atender às suas necessidades, defina o modo da solicitação como 'no-cors' para buscar o recurso com o CORS desabilitado.
 2. Problema de certificado: a partir do Chrome v 58, o EME para Widevine exige HTTPS. Portanto, é necessário hospedar o aplicativo de exemplo em HTTPS com um certificado X509. Um certificado de teste normal não funciona devido aos requisitos a seguir. É necessário obter um certificado que atenda aos seguintes requisitos mínimos:
     - O Chrome e Firefox exigem a presença da configuração de SAN (Nome Alternativo da Entidade) no certificado
     - O certificado precisa ter uma AC confiável e um certificado autoassinado de desenvolvimento não funciona
@@ -172,7 +172,7 @@ Isso significa que o STS (Secure Token Service) precisa ter a lógica de negóci
 
 ### <a name="question"></a>Pergunta
 
-Em relação aos níveis de segurança do Widevine, na documentação [Visão geral da arquitetura de DRM do Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) da Google, são definidos três níveis de segurança diferentes. No entanto, na [documentação dos Serviços de Mídia do Azure no modelo de licença do Widevine](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), são descritos cinco níveis de segurança diferentes. Qual é a relação ou o mapeamento entre os dois conjuntos diferentes de níveis de segurança?
+Em relação aos níveis de segurança do Widevine, na documentação [Visão geral da arquitetura de DRM do Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) da Google, são definidos três níveis de segurança diferentes. No entanto, na [documentação dos Serviços de Mídia do Azure no modelo de licença do Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), são descritos cinco níveis de segurança diferentes. Qual é a relação ou o mapeamento entre os dois conjuntos diferentes de níveis de segurança?
 
 ### <a name="answer"></a>Resposta
 
@@ -182,7 +182,7 @@ Na [Visão geral da arquitetura de DRM do Widevine](https://storage.googleapis.c
 2.  Nível de Segurança 2: faz a criptografia (mas não o processamento de vídeo) no TEE: os buffers descriptografados são retornados para o domínio do aplicativo e processados por meio de um hardware ou software de vídeo separado. No entanto, no nível 2, as informações de criptografia ainda são processadas somente no TEE.
 3.  Nível de Segurança 3: não tem um TEE no dispositivo. Podem ser tomadas medidas apropriadas para proteger as informações de criptografia e o conteúdo descriptografado no sistema operacional do host. Uma implementação de Nível 3 também pode incluir um mecanismo de criptografia de hardware, mas isso melhora apenas o desempenho, não a segurança.
 
-Ao mesmo tempo, na [documentação dos Serviços de Mídia do Azure no modelo de licença do Widevine](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), a propriedade security_level de content_key_specs pode ter os cinco seguintes valores diferentes (requisitos de robustez do cliente para reprodução):
+Ao mesmo tempo, na [documentação dos Serviços de Mídia do Azure no modelo de licença do Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), a propriedade security_level de content_key_specs pode ter os cinco seguintes valores diferentes (requisitos de robustez do cliente para reprodução):
 
 1.  A criptografia whitebox baseada em software é obrigatória.
 2.  A criptografia de software e um decodificador oculto são obrigatórios.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 76149ce3864811cf2b5648f8dc0aa214e5820d9f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Aprendizado Aprofundado no Azure 
 
@@ -44,9 +44,9 @@ Veja as etapas para criar uma instância da Máquina Virtual de Aprendizado Apro
       6. **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede. 
       
 > [!NOTE]
-> Como a DLVM é provisionada em instâncias de VM de GPU Série NC do Azure, você deve selecionar um dos locais no Azure que tenha GPUs. Atualmente, os locais que têm VMs de GPU são: **Leste dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA 2, Europa Setentrional, Europa Ocidental**. Para obter a lista mais recente, verifique os [Produtos do Azure pela página da região](https://azure.microsoft.com/en-us/regions/services/) e procure **Série NC** em **Computação**. 
+> O DLVM oferece suporte a todos as instâncias de VM de GPU das séries NC e ND. Ao provisionar o DLVM, você deve escolher um dos locais no Azure que tenha GPUs. Verifique a página [Produtos do Azure por Página de Região](https://azure.microsoft.com/regions/services/) para os locais disponíveis e procure **Série NC**, **Série NCv2**, **Série NCv3** ou **Série ND** em **Computação**. 
 
-   2. **Configurações**: selecione um tamanho de máquina virtual de GPU Série NC que atenda aos seus requisitos funcionais e restrições de custo. Crie uma conta de armazenamento para sua VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **Configurações**: selecione um dos tamanhos de máquina virtual de GPU Série NC (NC, NCv2, NCv3) ou ND que atenda aos seus requisitos funcionais e restrições de custo. Crie uma conta de armazenamento para sua VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **Resumo**: verifique se todas as informações inseridas estão corretas.
    5. **Comprar**: clique em **Comprar** para iniciar o provisionamento. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho** . 

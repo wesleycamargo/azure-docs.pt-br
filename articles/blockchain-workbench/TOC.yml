@@ -14,33 +14,37 @@
   items:
     - name: Implantar o Workbench
       href: blockchain-workbench-deploy.md
-    - name: Gerenciar usuários do Workbench
-      href: blockchain-workbench-manage-users.md
     - name: Criar aplicativo de blockchain
       href: blockchain-workbench-create-app.md
+    - name: Gerenciar usuários do Workbench
+      href: blockchain-workbench-manage-users.md
     - name: Usar o aplicativo de blockchain
       href: blockchain-workbench-use.md
     - name: Usar a API do Workbench
       href: blockchain-workbench-use-API.md
     - name: Solucionar problemas de aplicativos
       href: blockchain-workbench-troubleshooting.md
-    - name: Obtenha detalhes de banco de dados do Workbench
-      href: blockchain-workbench-getdb-details.md
-    - name: Configure o firewall de banco de dados do SQL do Workbench
-      href: blockchain-workbench-database-firewall.md
-    - name: Use os dados do Workbench no Excel
-      href: blockchain-workbench-data-excel.md
-    - name: Use os dados do Workbench no Power BI
-      href: blockchain-workbench-data-powerbi.md
-    - name: Use os dados do Workbench no SQL Management Studio
-      href: blockchain-workbench-data-sql-management-studio.md
+    - name: Usar dados do Workbench
+      items:
+        - name: Configurar o firewall do banco de dados
+          href: blockchain-workbench-database-firewall.md
+        - name: Obter detalhes do banco de dados
+          href: blockchain-workbench-getdb-details.md
+        - name: Usar dados no Excel
+          href: blockchain-workbench-data-excel.md
+        - name: Usar dados no Power BI
+          href: blockchain-workbench-data-powerbi.md
+        - name: Usar os dados no SQL Management Studio
+          href: blockchain-workbench-data-sql-management-studio.md
 - name: Referência
   items:
+    - name: Exemplos de código
+      href: 'https://github.com/Azure-Samples/blockchain'
     - name: Configuração
       href: blockchain-workbench-configuration-overview.md
     - name: Exibições de banco de dados
       href: blockchain-workbench-database-views.md
-    - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
     - name: API de mensagens
       href: blockchain-workbench-messages-overview.md
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'

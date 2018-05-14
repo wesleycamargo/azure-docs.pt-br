@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/06/2018
-ms.author: rli
+ms.date: 04/20/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 2da919a880332be928c211a2493f2c0b09a0fcbb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>O que é uma rede de distribuição de conteúdo no Azure?
 Uma CDN (rede de distribuição de conteúdo) é uma rede distribuída de servidores que pode fornecer conteúdo da Web para os usuários com eficiência. As CDNs armazenam conteúdo armazenado em cache em servidores de borda em localizações de ponto de presença (POP) que estão próximas aos usuários finais, para minimizar a latência. 
@@ -50,7 +50,7 @@ Para ver uma lista de locais de nó CDN atuais, confira [Locais POP de CDN do Az
 6. Se a vida útil do arquivo ainda não tiver expirado, o servidor de borda POP retornará os arquivos diretamente do cache. Esse processo resulta em uma experiência de usuário mais rápida e responsiva.
 
 ## <a name="requirements"></a>Requisitos
-Para usar a CDN do Azure, você deve ter pelo menos uma assinatura do Azure. Você também precisa criar pelo menos um perfil CDN, que é uma coleção de pontos de extremidade CDN. Cada ponto de extremidade CDN representa uma configuração específica do comportamento de entrega de conteúdo e o acesso. Para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério, use vários perfis. Como os [preços do Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) são aplicados no nível do perfil CDN, você deve criar vários perfis CDN se quiser usar uma combinação de tipos de preços.
+Para usar a CDN do Azure, você deve ter pelo menos uma assinatura do Azure. Você também precisa criar pelo menos um perfil CDN, que é uma coleção de pontos de extremidade CDN. Cada ponto de extremidade CDN representa uma configuração específica do comportamento de entrega de conteúdo e o acesso. Para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério, use vários perfis. Como os [preços do Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) são aplicados no nível do perfil CDN, você deve criar vários perfis CDN se quiser usar uma combinação de tipos de preços. Para obter informações sobre a estrutura de cobrança da CDN do Azure, consulte [Noções básicas da cobrança da CDN do Azure](cdn-billing.md).
 
 ### <a name="limitations"></a>Limitações
 Cada assinatura do Azure tem limites padrão para os seguintes recursos:
@@ -77,4 +77,5 @@ Para obter uma lista completa de recursos que dá suporte a cada produto da CDN 
 - Gerencie seus pontos de extremidade CDN por meio do [Portal do Microsoft Azure](https://portal.azure.com) ou do [PowerShell](cdn-manage-powershell.md).
 - Saiba como automatizar a CDN do Azure com [.NET](cdn-app-dev-net.md) ou [Node.js](cdn-app-dev-node.md).
 - Para ver a CDN do Azure em ação, assista aos [Vídeos da CDN do Azure](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
+- Para obter informações sobre os recursos mais recentes da CDN do Azure, consulte o [blog da CDN do Azure](https://azure.microsoft.com/blog/tag/azure-cdn/).
 

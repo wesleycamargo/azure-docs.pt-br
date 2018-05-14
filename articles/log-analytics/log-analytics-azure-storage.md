@@ -1,11 +1,11 @@
 ---
-title: "Coletar logs e as métricas do serviço do Azure para o Log Analytics | Microsoft Docs"
-description: "Configure o diagnóstico nos recursos do Azure para gravar logs e métricas no Log Analytics."
+title: Coletar logs e as métricas do serviço do Azure para o Log Analytics | Microsoft Docs
+description: Configure o diagnóstico nos recursos do Azure para gravar logs e métricas no Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Coletar logs e as métricas do serviço do Azure para uso no Log Analytics
 
@@ -31,7 +31,7 @@ Há quatro maneiras diferentes de coletar logs e métricas para os serviços do 
 4. Scripts para coletar e postar dados para o Log Analytics (espaços em branco na tabela a seguir e para os serviços que não estão listados)
 
 
-| O Barramento de                 | Tipo de recurso                           | Logs        | Métricas     | Solução |
+| Serviço                 | Tipo de recurso                           | Logs        | Métricas     | Solução |
 | --- | --- | --- | --- | --- |
 | Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Análise de Gateway de Aplicativo do Azure](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application insights    |                                         | Conector   | Conector   | [Conector do Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (visualização) |
@@ -48,7 +48,7 @@ Há quatro maneiras diferentes de coletar logs e métricas para os serviços do 
 | Aplicativos Lógicos              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
 | Grupos de segurança de rede | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Análise de Grupo de Segurança de Rede do Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Cofres de recuperação         | Microsoft.RecoveryServices/vaults       |             |             | [Análise dos Serviços de Recuperação do Azure (Visualização)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
-| Serviços de pesquisa         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
+| Serviços Search         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Namespace do Barramento de Serviço   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | [Análise do Barramento de Serviço (Visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Armazenamento     |             | [Análise do Service Fabric (visualização)](log-analytics-service-fabric.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | [Azure SQL Analytics (Visualização)](log-analytics-azure-sql.md) |
@@ -68,6 +68,13 @@ Há quatro maneiras diferentes de coletar logs e métricas para os serviços do 
 Muitos recursos do Azure são capazes de gravar logs de diagnóstico e métricas diretamente no Log Analytics e essa é a melhor maneira de coletar os dados para análise. Ao usar o diagnóstico do Azure, os dados são gravados imediatamente no Log Analytics, não sendo necessário primeiro gravá-los no armazenamento.
 
 Os recursos do Azure que dão suporte ao [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) pode enviar os logs e métricas diretamente para o Log Analytics.
+
+> [!NOTE]
+> Atualmente, não há suporte para o envio da métrica multidimensional para o Log Analytics por meio das configurações de diagnóstico. As métricas com dimensões são exportadas como métricas dimensionais simples, agregadas nos valores da dimensão.
+>
+> *Por exemplo*: a métrica “Mensagens de Entrada” em um Hub de Eventos pode ser explorada e mapeada por nível da fila. No entanto, quando exportada por meio das configurações de diagnóstico, a métrica é representada como todas as mensagens de entrada em todas as filas no Hub de Eventos.
+>
+>
 
 * Para obter os detalhes das métricas disponíveis, consulte [métricas compatíveis com o Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 * Para obter os detalhes dos logs disponíveis, consulte [serviços e esquema com suporte para logs de diagnóstico](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
@@ -145,7 +152,7 @@ Saiba mais sobre o [conector do Application Insights](https://blogs.technet.micr
 
 Para os serviços do Azure que não fornecem uma maneira direta de enviar métricas e logs para o Log Analytics, você pode usar um script de Automação do Azure para coletar os logs e métricas. O script poderá, então, enviar os dados para o Log Analytics usando a [API do coletor de dados](log-analytics-data-collector-api.md)
 
-A Galeria de modelos do Azure tem [exemplos de como usar a Automação do Azure](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) para coletar dados de serviços e enviá-los para o Log Analytics.
+A Galeria de modelos do Azure tem [exemplos de como usar a Automação do Azure](https://azure.microsoft.com/resources/templates/?term=OMS) para coletar dados de serviços e enviá-los para o Log Analytics.
 
 ## <a name="next-steps"></a>Próximas etapas
 

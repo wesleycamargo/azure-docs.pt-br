@@ -10,6 +10,7 @@
 ## Como
 ### [Configuração de alta disponibilidade com STONITH](ha-setup-with-stonith.md)
 ### [Backup do sistema operacional para SKUs do tipo II](os-backup-type-ii-skus.md)
+### [Atualização do sistema operacional para grandes instâncias do HANA](os-upgrade-hana-large-instance.md)
 # SAP HANA em Máquinas Virtuais do Azure
 ## [Instalação da única instância SAP HANA](hana-get-started.md)
 ## [Guia de implantação do HANA S/4 ou HANA BW/4 SAP CAL](cal-s4h.md)

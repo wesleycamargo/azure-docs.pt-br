@@ -1,10 +1,10 @@
 ---
 title: Usar SSH com Hadoop - Azure HDInsight | Microsoft Docs
-description: "Você pode acessar o HDInsight usando o Secure Shell (SSH). Este documento fornece informações sobre a conexão com o HDInsight usando os comandos ssh e scp de clientes Windows, Linux, Unix ou macOS."
+description: Você pode acessar o HDInsight usando o Secure Shell (SSH). Este documento fornece informações sobre a conexão com o HDInsight usando os comandos ssh e scp de clientes Windows, Linux, Unix ou macOS.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 keywords: hadoop comandos no linux, comandos do linux hadoop, hadoop macos, ssh hadoop, ssh cluster hadoop
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/07/2018
+ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 1a1fbac1eb4c529ea89f0f4c72b3317718ac45ea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Conectar ao HDInsight (Hadoop) usando o SSH
 
@@ -67,7 +67,7 @@ Por padrão, o Microsoft Windows não instala clientes SSH. Os clientes `ssh` e 
 
 * [Azure Cloud Shell](../cloud-shell/quickstart.md): o Cloud Shell fornece um ambiente Bash no seu navegador e fornece `ssh`, `scp` e outros comandos do Linux comuns.
 
-* [Git (https://git-scm.com/)](https://git-scm.com/): os comandos `ssh` e `scp` estão disponíveis por meio da linha de comando GitBash.
+* [Git (https://git-scm.com/)](https://git-scm.com/): Os comandos `ssh` e `scp` já estão disponíveis por meio da linha de comando GitBash.
 
 Também há vários clientes SSH gráficos, como [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) e [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Embora esses clientes possam ser usados para se conectar ao HDInsight, o processo de conexão é diferente do que usa o utilitário `ssh`. Para obter mais informações, confira a documentação do cliente gráfico que você está usando.
 
@@ -117,6 +117,9 @@ Contas SSH podem ser protegidas usando uma senha. Ao se conectar ao HDInsight us
 
 > [!WARNING]
 > A Microsoft não recomenda o uso da autenticação de senha para o SSH. As senhas podem ser adivinhadas e são vulneráveis a ataques de força bruta. Em vez disso, é recomendável usar [chaves SSH para autenticação](#sshkey).
+
+> [!IMPORTANT]
+> A senha da conta SSH expira 70 dias depois da criação do cluster HDInsight. Se a senha expirar, você pode alterá-la usando as informações do documento [Gerenciar HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords).
 
 ### <a name="create-hdinsight-using-a-password"></a>Criar o HDInsight usando uma senha
 
@@ -209,7 +212,7 @@ Se a conta SSH é protegida usando __chaves SSH__, verifique se o encaminhamento
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Se nada for retornado, o `ssh-agent` não estará em execução. Para saber mais, confira as informações de scripts de inicialização de agente em [usando ssh-agent com ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) ou confira a documentação do cliente SSH.
+    Se nada for retornado, o `ssh-agent` não estará em execução. Para saber mais, confira as informações de scripts de inicialização de agente em [Usando ssh-agent com ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)) ou confira a documentação do cliente SSH.
 
 4. Após confirmar que o **ssh-agent** está em execução, use o seguinte para adicionar sua chave privada SSH ao agente:
 
