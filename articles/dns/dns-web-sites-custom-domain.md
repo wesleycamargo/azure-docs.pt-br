@@ -41,7 +41,7 @@ Após criar uma zona e delegá-la ao DNS do Azure, você pode criar registros pa
 
 ## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. Criar um registro A para seu domínio personalizado
 
-Um registro A é usado para mapear um nome para seu endereço IP. No exemplo a seguir, atribuiremos @ como um registro A para um endereço IPv4:
+Um registro A é usado para mapear um nome para seu endereço IP. No exemplo a seguir, atribuiremos \@\ como um registro A para um endereço IPv4:
 
 ### <a name="step-1"></a>Etapa 1
 
@@ -53,7 +53,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>Etapa 2
 
-Adicione o valor IPv4 ao conjunto de registros criado anteriormente "@" usando a variável $rs atribuída. O valor IPv4 atribuído será o endereço IP do seu aplicativo Web.
+Adicione o valor IPv4 ao conjunto de registros criado anteriormente "\@\" usando a variável $rs atribuída. O valor IPv4 atribuído será o endereço IP do seu aplicativo Web.
 
 Para localizar o endereço IP de um aplicativo Web, siga as etapas em [Configurar um nome de domínio personalizado no serviço de aplicativo do Azure](../app-service/app-service-web-tutorial-custom-domain.md).
 

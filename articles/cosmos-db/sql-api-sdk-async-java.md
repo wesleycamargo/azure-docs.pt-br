@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: a8e4ac763b9a16210d62fc080aaf8917c1eefc33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java Assíncrono SQL do Azure Cosmos DB para a API SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 04/16/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo operações assíncronas com o suporte da [biblioteca Netty](http://netty.io/). O [SDK Java de API SQL](sql-api-sdk-java.md) preexistente não oferece suporte a operações assíncronas. 
 
@@ -55,20 +55,31 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+* Suporte de pressão contrária adicionado na consulta.
+* Suporte adicionado para ID de intervalo de chaves de partição na consulta.
+* Correção para permitir token de continuação maior no cabeçalho de solicitação (bugfix github #24).
+* Dependência netty atualizada para 4.1.22.Final para garantir que a JVM será desligada após a conclusão do thread principal.
+* Correção para evitar transmitir o token de sessão ao ler recursos mestres.
+* Mais exemplos adicionados.
+* Mais cenários de parâmetros de comparação adicionados.
+* Arquivos de cabeçalho de Java fixos para a geração de java doc apropriada.
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * SDK de GA com suporte de ponta a ponta para E/S sem bloqueio usando a [biblioteca Netty](http://netty.io/) no modo de gateway. 
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e desativação
 A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
 
-Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
+Novos recursos e funcionalidade e otimizações são adicionados apenas ao SDK atual. Portanto, é recomendável que você sempre atualize para a versão mais recente do SDK o quanto antes.
 
-Qualquer solicitação feita ao Cosmos DB usando um SDK desativado será rejeitada pelo serviço.
+Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será rejeitada pelo serviço.
 
 <br/>
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.0.1](#1.0.1) |20 de abril de 2018|--- |
 | [1.0.0](#1.0.0) |27 de fevereiro de 2018|--- |
 
 ## <a name="faq"></a>Perguntas frequentes

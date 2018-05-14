@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 05/07/2018
 ms.author: sngun
-ms.openlocfilehash: 0a53bb0a23fae386abbe71de944b073cbb93d502
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: bede91ed3ffc456740a0eb63ed7a15278e99ebe2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Definir e obter a taxa de transferência de contêineres do Microsoft Azure Cosmos DB
 
-Você pode definir a produtividade dos contêineres do Azure Cosmos DB no portal do Azure ou usando os SDKs do cliente. 
+Você pode definir a produtividade dos contêineres do Azure Cosmos DB ou de um conjunto de contêineres no portal do Azure ou usando os SDKs do cliente. 
 
 A tabela a seguir lista a produtividade disponível para cada contêiner:
 
@@ -31,15 +31,18 @@ A tabela a seguir lista a produtividade disponível para cada contêiner:
             <td valign="top"><p></p></td>
             <td valign="top"><p><strong>Contêiner de partição única</strong></p></td>
             <td valign="top"><p><strong>Contêiner particionado</strong></p></td>
+            <td valign="top"><p><strong>Conjunto de contêineres</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>Produtividade mínima</p></td>
             <td valign="top"><p>400 unidades de solicitação por segundo</p></td>
-            <td valign="top"><p>1000 unidades de solicitação por segundo</p></td>
+            <td valign="top"><p>1.000 unidades de solicitação por segundo</p></td>
+            <td valign="top"><p>50.000 unidades de solicitação por segundo</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Produtividade máxima</p></td>
             <td valign="top"><p>10.000 unidades de solicitação por segundo</p></td>
+            <td valign="top"><p>Ilimitado</p></td>
             <td valign="top"><p>Ilimitado</p></td>
         </tr>
     </tbody>
@@ -62,6 +65,7 @@ O trecho de código a seguir recupera a taxa de transferência atual e o altera 
 
 ```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
+// To change the throughput for a set of containers, use the database's selflink instead of the collection's selflink
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -82,6 +86,7 @@ O trecho de código a seguir recupera a taxa de transferência atual e o altera 
 
 ```Java
 // find offer associated with this collection
+// To change the throughput for a set of containers, use the database's resource id instead of the collection's resource id
 Iterator < Offer > it = client.queryOffers(
     String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
 assertThat(it.hasNext(), equalTo(true));
@@ -131,7 +136,7 @@ A maneira mais simples de obter uma boa estimativa de encargos da unidade de sol
 ![Métricas do portal da API MongoDB][1]
 
 ### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de taxa de transferência reservados na API MongoDB
-Aplicativos que excedem a taxa de transferência para um contêiner serão limitados até que a taxa fique abaixo do nível da taxa de transferência provisionado. Quando ocorrer uma limitação, o back-end terminará preventivamente a solicitação com um código de erro `16500`- `Too Many Requests`. Por padrão, a API MongoDB tentará novamente até 10 vezes antes de retornar um `Too Many Requests` código de erro. Se você estiver recebendo muitos códigos de erro `Too Many Requests` códigos de erro, considere adicionar uma repetição de lógico em suas rotinas de manuseio de erro do aplicativo ou [ aumentar a taxa e transferência provisionada para o contêiner](set-throughput.md).
+Aplicativos que excedem a taxa de transferência para um contêiner ou um conjunto de contêineres serão limitados até que a taxa fique abaixo do nível da taxa de transferência provisionado. Quando ocorrer uma limitação, o back-end terminará preventivamente a solicitação com um código de erro `16500`- `Too Many Requests`. Por padrão, a API MongoDB tentará novamente até 10 vezes antes de retornar um `Too Many Requests` código de erro. Se você estiver recebendo muitos códigos de erro `Too Many Requests` códigos de erro, considere adicionar uma repetição de lógico em suas rotinas de manuseio de erro do aplicativo ou [ aumentar a taxa e transferência provisionada para o contêiner](set-throughput.md).
 
 ## <a name="throughput-faq"></a>Perguntas frequentes sobre taxa de transferência
 

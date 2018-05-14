@@ -106,7 +106,7 @@ Os registros NS e SOA que são criados automaticamente são gerenciados de modo 
 
 ### <a name="modify-soa-records"></a>Modificar registros SOA
 
-Não é possível adicionar nem remover registros no conjunto de registros SOA criados automaticamente no apex da zona (nome = "@"). No entanto, é possível modificar qualquer um dos parâmetros no registro SOA (exceto o “Host”) e o TTL do conjunto de registros.
+Não é possível adicionar nem remover registros no conjunto de registros SOA criados automaticamente no apex da zona (nome = "\@\"). No entanto, é possível modificar qualquer um dos parâmetros no registro SOA (exceto o “Host”) e o TTL do conjunto de registros.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificar registros NS no apex da zona
 
@@ -118,7 +118,7 @@ Observe que isso se aplica somente ao conjunto de registros NS definido no apex 
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Excluir conjuntos de registros SOA ou NS
 
-Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (nome = "@") criados automaticamente quando a zona é criada. Eles são excluídos automaticamente ao excluir a zona.
+Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (nome = "\@\") criados automaticamente quando a zona é criada. Eles são excluídos automaticamente ao excluir a zona.
 
 ## <a name="next-steps"></a>Próximas etapas
 

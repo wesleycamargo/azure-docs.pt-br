@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
-ms.author: rli; v-deasim
-ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/30/2018
+ms.author: v-deasim
+ms.openlocfilehash: bb0824995972b49febdb1695e41f45fbd0966cd1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-caching-works"></a>Como funciona o cache
 
@@ -71,12 +71,13 @@ A CDN do Azure fornece suporte aos seguintes cabeçalhos de diretiva de cache HT
 **Cache-Control:**
 - Introduzido no HTTP 1.1 para dar aos editores da Web mais controle sobre seu conteúdo e tratar as limitações do cabeçalho `Expires`.
 - Substitui o cabeçalho `Expires`, se ele e `Cache-Control` estiverem definidos.
-- Quando usado em uma solicitação HTTP, `Cache-Control` é ignorado pela CDN do Azure, por padrão.
-- Perfis **CDN do Azure da Verizon** fornecem suporte a todas as diretivas `Cache-Control`, quando usados em uma resposta HTTP.
-- Perfis **CDN do Azure da Akamai** fornecem suporte para apenas as seguintes diretivas, quando usados em uma resposta HTTP; todos os outros são ignorados:
-   - `max-age`: um cache pode armazenar o conteúdo pelo número de segundos especificado. Por exemplo, `Cache-Control: max-age=5`. Esta diretiva especifica a quantidade máxima de tempo que o conteúdo é considerado como novo.
-   - `no-cache`: armazena o conteúdo em cache, mas valida o conteúdo sempre antes de entregá-lo por meio do cache. Equivalente a `Cache-Control: max-age=0`.
-   - `no-store`: nunca armazene em cache o conteúdo. Remova o conteúdo se já tiver sido armazenado anteriormente.
+- Quando usado em uma solicitação HTTP do cliente para os POP de CDN, `Cache-Control` é ignorado por todos os perfis de CDN do Azure, por padrão.
+- Quando usado em uma resposta HTTP do cliente para os POP de CDN:
+     - **A CDN Standard/Premium do Azure da Verizon** e **CDN Standard do Azure da Microsoft** é compatível com todas as `Cache-Control` diretivas.
+     - **CDN da Azure Standard da Akamai**: dá suporte apenas às seguintes diretivas `Cache-Control`; todas as outras são ignoradas:
+         - `max-age`: um cache pode armazenar o conteúdo pelo número de segundos especificado. Por exemplo, `Cache-Control: max-age=5`. Esta diretiva especifica a quantidade máxima de tempo que o conteúdo é considerado como novo.
+         - `no-cache`: armazena o conteúdo em cache, mas valida o conteúdo sempre antes de entregá-lo por meio do cache. Equivalente a `Cache-Control: max-age=0`.
+         - `no-store`: nunca armazene em cache o conteúdo. Remova o conteúdo se já tiver sido armazenado anteriormente.
 
 **Expires:**
 - Cabeçalho herdado introduzido no HTTP 1.0; com suporte para compatibilidade com versões anteriores.
@@ -92,38 +93,40 @@ A CDN do Azure fornece suporte aos seguintes cabeçalhos de diretiva de cache HT
 
 ## <a name="validators"></a>Validadores
 
-Quando o cache está obsoleto, validadores de cache HTTP são usados para comparar a versão armazenada em cache de um arquivo com a versão no servidor de origem. **CDN do Azure da Verizon** fornece suporte para ambos validadores `ETag` e `Last-Modified` por padrão, enquanto a **CDN do Azure da Akamai** fornece suporte apenas para `Last-Modified`, por padrão
+Quando o cache está obsoleto, validadores de cache HTTP são usados para comparar a versão armazenada em cache de um arquivo com a versão no servidor de origem. **A CDN Standard/Premium do Azure da Verizon** é compatível com os validadores `ETag` e `Last-Modified` por padrão, ao passo que **a CDN Standard da Microsoft** e **Azure CDN Standard da Akamai** é compatível apenas `Last-Modified` por padrão.
 
 **ETag:**
-- A **CDN do Azure da Verizon** utiliza `ETag` por padrão, enquanto **A CDN do Azure do Akamai** não.
+- **A CDN Standard/Premium do Azure da Verizon** é compatível `ETag` por padrão, ao passo que **a CDN Standard do Azure da Microsoft** e a **CDN Standard do Azure da Akamai** não.
 - `ETag` define uma cadeia de caracteres que é exclusiva para cada arquivo e versão de um arquivo. Por exemplo, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introduzido no HTTP 1.1 e é mais atual do que `Last-Modified`. Útil quando a última data de modificação for difícil de determinar.
 - Fornece suporte para validação de alta segurança e validação de baixa segurança. No entanto, a CDN do Azure fornece suporte apenas para validação de alta segurança. Para uma validação de alta segurança, as duas representações de recursos devem ser de byte a byte idênticos. 
 - Um cache valida um arquivo que usa `ETag` enviando um cabeçalho `If-None-Match` com um ou mais validadores `ETag` na solicitação. Por exemplo, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Se a versão do servidor coincidir com um validador `ETag` na lista, ele enviará o código de status 304 (Não Modificado) em sua resposta. Se a versão for diferente, o servidor responderá com o código de status 200 (OK) e o recurso atualizado.
 
 **Last-Modified:**
-- Para **CDN do Azure da Verizon somente**, `Last-Modified` será usado se `ETag` não for parte da resposta HTTP. 
+- Para a **CDN Standard/Premium do Azure da Verizon somente**, `Last-Modified` se usado se `ETag` não for parte da resposta HTTP. 
 - Especifica a data e a hora em que o servidor de origem determinou que o recurso foi modificado pela última vez. Por exemplo, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - Um cache valida um arquivo utilizando `Last-Modified` enviando um cabeçalho `If-Modified-Since` com uma data e hora na solicitação. O servidor de origem compara essa data com o cabeçalho `Last-Modified` do recurso mais recente. Se o recurso não foi modificado desde a hora especificada, o servidor retornará o código de status 304 (Não Modificado) em sua resposta. Se o recurso foi modificado, o servidor retornará o código de status 200 (OK) e o recurso atualizado.
 
 ## <a name="determining-which-files-can-be-cached"></a>Determinar quais arquivos podem ser armazenados em cache
 
-Nem todos os recursos podem ser armazenados em cache. A tabela a seguir mostra quais recursos podem ser armazenados em cache, com base no tipo de resposta HTTP. Os recursos entregues com respostas HTTP que não atendem a todas essas condições não podem ser armazenados em cache. Para a **CDN do Azure da Verizon Premium** é possível utilizar o mecanismo de regras para personalizar algumas dessas condições.
+Nem todos os recursos podem ser armazenados em cache. A tabela a seguir mostra quais recursos podem ser armazenados em cache, com base no tipo de resposta HTTP. Os recursos entregues com respostas HTTP que não atendem a todas essas condições não podem ser armazenados em cache. Para a **CDN Premium do Azure da Verizon** é possível utilizar o mecanismo de regras para personalizar algumas dessas condições.
 
-|                   | CDN do Azure da Verizon | CDN do Azure do Akamai            |
-|------------------ |------------------------|----------------------------------|
-| Códigos de status HTTP | 200                    | 200, 203, 300, 301, 302 e 401 |
-| Método HTTP       | GET                    | GET                              |
-| Tamanho do arquivo         | 300 GB                 | - Otimização geral de entrega na Web: 1,8 GB<br />- Otimizações de streaming de mídia: 1,8 GB<br />- Otimização de arquivos grandes: 150 GB |
+|                   | CDN do Azure da Microsoft          | CDN do Azure da Verizon | CDN do Azure do Akamai        |
+|-------------------|-----------------------------------|------------------------|------------------------------|
+| Códigos de status HTTP | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| Métodos HTTP      | OBTER, PRINCIPAL                         | GET                    | GET                          |
+| Limites de tamanho de arquivo  | 300 GB                            | 300 GB                 | - Otimização geral de entrega na Web: 1,8 GB<br />- Otimizações de streaming de mídia: 1,8 GB<br />- Otimização de arquivos grandes: 150 GB |
+
+Para **a CDN do Azure Standard da Microsoft** em cache para funcionar em um recurso, o servidor de origem deve oferecer suporte a qualquer CABEÇALHO e solicitações HTTP GET e os valores de comprimento de conteúdo devem ser o mesmo para todas as respostas de CABEÇALHO e HTTP GET para o ativo. Para uma solicitação de CABEÇALHO, o servidor de origem deve oferecer suporte a solicitação CABEÇALHO e deve responder com os mesmos cabeçalhos como se ele recebeu uma solicitação GET.
 
 ## <a name="default-caching-behavior"></a>Comportamento de cache padrão
 
 A tabela a seguir descreve o comportamento de cache padrão para os produtos da CDN do Azure e suas otimizações.
 
-|                    | Verizon: entrega Web geral | Verizon: DSA | Akamai: entrega Web geral | Akamai: DSA | Akamai: download de arquivo grande | Akamai: streaming de mídia geral ou VoD |
-|--------------------|--------|------|-----|----|-----|-----|
-| **Aceitar a origem**    | sim    | Não    | sim | Não  | sim | sim |
-| **Duração do cache da CDN** | 7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
+|    | Microsoft: entrega web geral | Verizon: entrega web geral | Verizon: DSA | Akamai: entrega web geral | Akamai: DSA | Akamai: download de arquivo grande | Akamai: streaming de mídia geral ou VoD |
+|------------------------|--------|-------|------|--------|------|-------|--------|
+| **Aceitar a origem**        | sim    | sim   | Não    | sim    | Não    | sim   | sim    |
+| **Duração do cache da CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
 **Aceitar a origem**: especifica se deve aceitar os [cabeçalhos de diretiva de cache com suporte](#http-cache-directive-headers), se eles existirem na resposta HTTP do servidor de origem.
 

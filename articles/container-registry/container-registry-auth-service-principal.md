@@ -1,18 +1,18 @@
 ---
-title: "Autenticação do Registro de Contêiner do Azure com entidades de serviço"
-description: "Saiba como fornecer acesso a imagens em seu registro de contêiner particular usando uma entidade de serviço do Azure Active Directory."
+title: Autenticação do Registro de Contêiner do Azure com entidades de serviço
+description: Saiba como fornecer acesso a imagens em seu registro de contêiner particular usando uma entidade de serviço do Azure Active Directory.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 04/23/2018
 ms.author: marsma
-ms.openlocfilehash: 97036ecabceb12b87b76c6ecb7e521157cbef827
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 16af83522dd55744c485f6dd3696481e16da1b22
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do Registro de Contêiner do Azure com entidades de serviço
 
@@ -38,16 +38,25 @@ Para acesso individual a um registro, como quando você efetua pull manualmente 
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
+## <a name="sample-scripts"></a>Scripts de exemplo
+
+Você pode encontrar os scripts de exemplo anteriores para a CLI do Azure no GitHub, bem como versões do Azure PowerShell:
+
+* [CLI do Azure][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Quando você tiver uma entidade de serviço para a qual você concedeu o acesso ao registro de contêiner, poderá usar suas credenciais nos aplicativos e serviços para interação com o registro.
 
 Embora a configuração de aplicativos individuais para usar as credenciais da entidade de serviço esteja fora do escopo deste artigo, você poderá encontrar instruções para alguns serviços e plataformas específicas aqui:
 
-* [Autenticar no Registro de Contêiner do Azure por meio do AKS (Serviço de Contêiner do Azure)](container-registry-auth-aks.md)
+* [Autenticar com o Registro de Contêiner do Azure do Serviço de Kubernetes do Azure (AKS)](container-registry-auth-aks.md)
 * [Autenticar no Registro de Contêiner do Azure por meio do ACI (Instâncias de Contêiner do Azure)](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az_acr_login

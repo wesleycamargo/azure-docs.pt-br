@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de receptores de hub de eventos no Azure Stream Analytics
-description: Práticas recomendadas de consulta para consideração de grupos de consumidores dos Hubs de Eventos em trabalhos do Stream Analytics.
+title: Solucionar problemas de receptores de Hub de Eventos no Azure Stream Analytics
+description: Este artigo descreve como usar vários grupos de consumidores para entradas de Hubs de Eventos em trabalhos do Stream Analytics.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,21 +8,45 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: 20614986fc6c6afa9a92d163bf973a148e0517c0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/27/2018
+ms.openlocfilehash: aaa8c4e8d273b44f453d3f63f0be1d4baf980649
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
-# <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Depurar o Stream Analytics do Azure com receptores do hub de eventos
+# <a name="troubleshoot-event-hub-receivers-in-azure-stream-analytics"></a>Solucionar problemas de receptores de Hub de Eventos no Azure Stream Analytics
 
 Você pode usar os Hubs de Eventos do Azure no Stream Analytics do Azure para ingerir ou gerar dados de um trabalho. Uma prática recomendada para usar Hubs de Eventos é usar vários grupos de consumidores a fim de garantir a escalabilidade do trabalho. Um dos motivos é que o número de leitores no trabalho do Stream Analytics para uma entrada específica afeta o número de leitores em um único grupo de consumidores. O número exato de receptores baseia-se nos detalhes da implementação interna para a lógica de topologia de expansão. O número de receptores não é exposto externamente. O número de leitores pode ser alterado na hora de início ou durante os upgrades do trabalho.
+
+O erro mostrado quando o número de receptores excede o máximo é: `The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
 
 > [!NOTE]
 > Quando o número de leitores muda durante o upgrade de um trabalho, avisos temporários são gravados nos logs de auditoria. Os trabalhos do Stream Analytics são recuperados automaticamente desses problemas transitórios.
 
+## <a name="add-a-consumer-group-in-event-hubs"></a>Adicionar um grupo de consumidores nos Hubs de Eventos
+Para adicionar um novo grupo de consumidores à instância dos Hubs de Eventos, execute estas etapas:
+
+1. Entre no Portal do Azure.
+
+2. Localize seus Hubs de Eventos.
+
+3. Selecione **Hubs de Eventos** sob o **Entidades**.
+
+4. Selecione o Hub de Eventos por nome.
+
+5. Na página **Instância de Hubs de Eventos** no cabeçalho **Entidades**, selecione **Grupos de consumidores**. Um grupo de consumidores com nome **$Default** está listado.
+
+6. Selecione **+ Grupo de Consumidores** para adicionar um novo grupo de consumidores. 
+
+   ![Adicionar um grupo de consumidores nos Hubs de Eventos](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
+
+7. Quando criou a entrada no trabalho do Stream Analytics para apontar para o Hub de Eventos, você especificou o grupo de consumidores nele. $Default é usado quando nenhum for especificado. Depois de criar um novo grupo de consumidores, edite a entrada do Hub de Eventos no trabalho do Stream Analytics e especifique o nome do novo grupo de consumidores.
+
+
 ## <a name="number-of-readers-per-partition-exceeds-event-hubs-limit-of-five"></a>Número de leitores por partição excede o limite de cinco dos Hubs de Eventos
+
+Se a sintaxe de consulta de streaming fizer referência ao mesmo recurso do Hub de Eventos de entrada várias vezes, o mecanismo de trabalho poderá usar vários leitores por consulta desse mesmo grupo de consumidores. Quando há um número excessivo de referências para o mesmo grupo de consumidores, o trabalho pode exceder o limite de cinco e gerar um erro. Nessas circunstâncias, você pode dividir ainda mais usando várias entradas em vários grupos de consumidores utilizando a solução descrita na seção a seguir. 
 
 Os cenários em que o número de leitores por partição excede o limite de cinco dos Hubs de Eventos incluem os seguintes:
 
@@ -73,12 +97,6 @@ FROM data
 Para consultas em que três ou mais entradas estão conectadas ao mesmo grupo de consumidores de Hubs de Eventos, crie grupos de consumidores separados. Isso exige a criação de entradas adicionais do Stream Analytics.
 
 
-## <a name="get-help"></a>Obter ajuda
-Para obter mais ajuda, teste nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução ao Stream Analytics](stream-analytics-introduction.md)
-* [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referência da linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referência da API REST de gerenciamento do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

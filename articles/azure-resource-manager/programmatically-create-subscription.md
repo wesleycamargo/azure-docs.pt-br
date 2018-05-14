@@ -8,16 +8,16 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/18/2018
+ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: 8d495bf89697a5e14ff79953ab98f241ef8972e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f55f878d53b3813ea2ff2510998d47820de76a6a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Criar programaticamente assinaturas do Azure Enterprise (versão prévia)
 
@@ -49,7 +49,7 @@ Depois que você for adicionado a um registro de EA do Azure como proprietário 
 - Você tem uma ou mais assinaturas EA ou EA desenvolvimento/teste, o que significa que você tenha passado pela inscrição manual pelo menos uma vez
 - Você está conectado ao *diretório base* do proprietário da conta, que é o diretório em que as assinaturas são criadas por padrão
 
-Se as duas condições acima forem atendidas, um `enrollmentAccount` recurso é retornado e você pode iniciar a criação de assinaturas sob esta conta. Todas as assinaturas criadas sob a conta serão cobradas na direção que a conta está no registro EA.
+Se as três condições acima forem atendidas, um `enrollmentAccount` recurso é retornado e você pode iniciar a criação de assinaturas sob esta conta. Todas as assinaturas criadas sob a conta serão cobradas na direção que a conta está no registro EA.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
@@ -65,19 +65,19 @@ Azure responde com uma lista de todas as contas de registro a que você tem aces
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -98,8 +98,8 @@ O Azure responde com uma lista de IDs de Objetos e endereços de e-mails de cont
 
 ```azurepowershell
 ObjectId                               | PrincipalName
-<enrollmentAccountId>   | MobileOnboardingEng@contoso.com
-<enrollmentAccountId>   | MobileBackendEng@contoso.com
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -117,19 +117,19 @@ O Azure responde com uma lista de IDs de Objetos e endereços de e-mails de cont
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -142,14 +142,14 @@ Use a `principalName` propriedade para identificar a conta na qual você deseja 
 
 ## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Crie assinaturas em uma conta de registro específico 
 
-O exemplo a seguir cria uma solicitação para criar a assinatura chamada *assinatura da equipe de desenvolvimento* e a oferta de assinatura é *MS-AZR-0017P* (regular EA). A conta de registro é `<enrollmentAccountId>`, que é a conta de registro para MobileOnboardingEng@contoso.com. Ele também adiciona dois usuários como Proprietários RBAC para a assinatura.
+O exemplo a seguir cria uma solicitação para criar a assinatura chamada *assinatura da equipe de desenvolvimento* e a oferta de assinatura é *MS-AZR-0017P* (regular EA). A conta de registro é `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (valor de placeholder, este é um GUID), que é a conta de registro para SignUpEngineering@contoso.com. Ele também adiciona dois usuários como Proprietários RBAC para a assinatura.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 Use o `id` do `enrollmentAccount` no caminho da solicitação para criar a assinatura.
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -177,16 +177,17 @@ Em resposta, você obtém um objeto `subscriptionOperation` para monitoramento. 
 
 Para usar este módulo de visualização, instale-o executando `Install-Module AzureRM.Subscription -AllowPrerelease` primeiro. Para certificar-se de que `-AllowPrerelease` funciona, instale uma versão recente do PowerShellGet do [Módulo Get do PowerShellGet](/powershell/gallery/psget/get_psget_module).
 
-Use o [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) juntamente com nome `enrollmentAccount` como o parâmetro `EnrollmentAccountObjectId` para criar uma nova assinatura. 
+Use o [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) juntamente com a `enrollmentAccount` ID do bojeto como o parâmetro `EnrollmentAccountObjectId` para criar uma nova assinatura. 
 
 ```azurepowershell-interactive
-New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountId> -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
 | Nome do elemento  | Obrigatório | type   | DESCRIÇÃO                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Não       | Cadeia de caracteres | O nome de exibição da assinatura. Se não for especificado, ele é definido como o nome da oferta, como "Microsoft Azure Enterprise."                                 |
 | `OfferType`   | sim      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | sim       | Cadeia de caracteres | A ID de Objeto da conta do registro que a assinatura é criada e cobrada. Este é um valor de GUID que você obteve de `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Não        | Cadeia de caracteres | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
 | `OwnerSignInName`    | Não        | Cadeia de caracteres | O endereço de e-mail de qualquer usuário que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro em vez de `OwnerObjectId`.|
 | `OwnerApplicationId` | Não        | Cadeia de caracteres | O ID do aplicativo de qualquer serviço principal que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro, em vez de `OwnerObjectId`.| 
@@ -197,16 +198,17 @@ Para ver uma lista completa de todos os parâmetros, consulte [New-AzureRmSubscr
 
 Para usar esta extensão de visualização, instale-a executando `az extension add --name subscription` primeiro.
 
-Use o [criar conta az](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) juntamente com nome `enrollmentAccount` como o parâmetro `enrollment_account_name` para criar uma nova assinatura.
+Use o [criar conta az](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) juntamente com a ID do objeto `enrollmentAccount` como o parâmetro `enrollment-account-object-id` para criar uma nova assinatura.
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-name "<enrollmentAccountId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | Nome do elemento  | Obrigatório | type   | DESCRIÇÃO                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Não       | Cadeia de caracteres | O nome de exibição da assinatura. Se não for especificado, ele é definido como o nome da oferta, como "Microsoft Azure Enterprise."                                 |
 | `offer-type`   | sim      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | sim       | Cadeia de caracteres | A ID de Objeto da conta do registro que a assinatura é criada e cobrada. Este é um valor de GUID que você obteve de `az billing enrollment-account list`. |
 | `owner-object-id`      | Não        | Cadeia de caracteres | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
 | `owner-upn`    | Não        | Cadeia de caracteres | O endereço de e-mail de qualquer usuário que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro em vez de `owner-object-id`.|
 | `owner-spn` | Não        | Cadeia de caracteres | O ID do aplicativo de qualquer serviço principal que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro em vez de `owner-object-id`.| 
@@ -217,12 +219,12 @@ Para ver uma lista completa de todos os parâmetros, consulte [criar conta az](/
 
 ## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>Delegue acesso a uma conta de registro usando o RBAC
 
-Para conceder a outro usuário ou entidade de serviço a capacidade de criar assinaturas em uma conta específica, [dê a eles uma função de Proprietário de RBAC no escopo da conta do registro](../active-directory/role-based-access-control-manage-access-rest.md). O exemplo a seguir fornece um usuário no locatário com `principalId` de `<userObjectId>` (para MobileOnboardingEng@contoso.com) uma função de Proprietário da conta do registro. 
+Para conceder a outro usuário ou entidade de serviço a capacidade de criar assinaturas em uma conta específica, [dê a eles uma função de Proprietário de RBAC no escopo da conta do registro](../active-directory/role-based-access-control-manage-access-rest.md). O exemplo a seguir fornece um usuário no locatário com `principalId` de `<userObjectId>` (para SignUpEngineering@contoso.com) uma função de Proprietário da conta do registro. 
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -238,7 +240,7 @@ Quando a função de Proprietário é atribuída com êxito no escopo da conta d
   "properties": {
     "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
     "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
+    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "createdOn": "2018-03-05T08:36:26.4014813Z",
     "updatedOn": "2018-03-05T08:36:26.4014813Z",
     "createdBy": "<assignerObjectId>",
@@ -255,7 +257,7 @@ Quando a função de Proprietário é atribuída com êxito no escopo da conta d
 Use o [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) para dar acesso de Proprietário de outro usuário na sua conta do registro.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -263,7 +265,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Sc
 Use o [criar atribuição de função az](../active-directory/role-based-access-control-manage-access-azure-cli.md) para dar acesso de Proprietário de outro usuário na sua conta do registro.
 
 ```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ----

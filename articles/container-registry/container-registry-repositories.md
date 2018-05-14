@@ -1,24 +1,24 @@
 ---
-title: "Os repositórios do Registro de Contêiner do Azure no Portal do Azure"
-description: "Como exibir os repositórios do Registro de Contêiner do Azure no Portal do Azure."
+title: Os repositórios do Registro de Contêiner do Azure no Portal do Azure
+description: Como exibir os repositórios do Registro de Contêiner do Azure no Portal do Azure.
 services: container-registry
 author: cristy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
-ms.openlocfilehash: 593972e972207a27d1232fcb0c1bf220ac3a8def
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 171593483fc94c1c67013ab520b0085ca98f3a82
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Exibir os repositórios do registro de contêiner no Portal do Azure
 
 O Registro de Contêiner do Azure permite armazenar imagens de contêiner do Docker em repositórios. Ao armazenar imagens de armazenamento em repositórios, você poderá ter grupos de imagens (ou versões de imagens) em ambientes isolados. Você pode especificar esses repositórios quando enviar imagens por push para o registro e exibir seus conteúdos no portal do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Registro de contêiner**: Crie um Registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md).
 * **CLI do Docker**: instale o [Docker] [ docker-install] em seu computador local, que fornece a interface de linha de comando do Docker.
@@ -49,7 +49,7 @@ Por exemplo, se você enviou por push a imagem Nginx como indicado em [Efetuar p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você conhece as noções básicas sobre como exibir e trabalhar com repositórios no portal, experimente usar o Registro de Contêiner do Azure com um cluster do [Serviço de Contêiner do Azure (AKS)](../aks/tutorial-kubernetes-prepare-app.md).
+Agora que você conhece as noções básicas sobre como exibir e trabalhar com repositórios no portal, experimente usar o Registro de Contêiner do Azure com um cluster do [Serviço de Kubernetes do Azure (AKS)](../aks/tutorial-kubernetes-prepare-app.md).
 
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/

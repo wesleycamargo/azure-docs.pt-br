@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/26/2018
   ms.author: mimig
-  ms.openlocfilehash: 83cb9b2f0bf1082efb13e1c92eb8e42945a6000e
-  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.openlocfilehash: 0981d1ef118ff08450b510204447427fc8475327
+  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/28/2018
+  ms.lasthandoff: 05/10/2018
 abstract:
   description: O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente. Use esses guias de início rápido, tutoriais e exemplos para desenvolver documento, chave-valor, toda a coluna e bancos de dados do grafo usando APIs populares e modelos de programação. Em seguida, saiba como replicar os dados em qualquer número de regiões do Azure e dimensionar a taxa de transferência independente do armazenamento, ao mesmo tempo em que usa SLAs abrangentes.
   aside:
@@ -154,6 +154,7 @@ sections:
     - html: Replicação global do banco de dados com o Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Tabela</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Grafo</a>
     - html: <a href="local-emulator">Desenvolver seu aplicativo localmente usando o emulador</a>
     - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Criar um Gatilho de HTTP com uma associação de entrada do Azure Cosmos DB</a>
+    - html: <a href="https://docs.microsoft.com/learn/build-serverless-app/index">Criar um aplicativo Web básico para hospedar arquivos estáticos no Cosmos DB</a>
 - title: Referência
   items:
   - type: list

@@ -62,38 +62,42 @@
               href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop'
             - name: Xamarin
               href: 'https://github.com/Azure-Samples/active-directory-b2c-xamarin-native'
-        - name: Aplicativos Web
-          items:
-            - name: Visão geral
-              href: active-directory-b2c-reference-oidc.md
-            - name: ASP.NET
-              href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
-            - name: ASP.NET Core
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp'
-            - name: Node.js
-              href: active-directory-b2c-devquickstarts-web-node.md
-        - name: Aplicativos de página única
-          items:
-            - name: Visão geral
-              href: active-directory-b2c-reference-spa.md
-            - name: JavaScript usando MSAL
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp'
-            - name: JavaScript usando Hello
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi'
-        - name: APIs da Web
-          items:
-            - name: ASP.NET
-              href: active-directory-b2c-devquickstarts-api-dotnet.md
-            - name: ASP.NET Core
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi'
-            - name: Node.js
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi'
-            - name: Chamar uma API Web do .NET
-              href: active-directory-b2c-devquickstarts-web-api-dotnet.md
+        - name: Credenciais da senha de proprietário do recurso
+          href: configure-ropc.md
+    - name: Aplicativos Web
+      items:
+        - name: Visão geral
+          href: active-directory-b2c-reference-oidc.md
+        - name: ASP.NET
+          href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
+        - name: ASP.NET Core
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp'
+        - name: Node.js
+          href: active-directory-b2c-devquickstarts-web-node.md
+    - name: Aplicativos de página única
+      items:
+        - name: Visão geral
+          href: active-directory-b2c-reference-spa.md
+        - name: JavaScript usando MSAL
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp'
+        - name: JavaScript usando Hello
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi'
+    - name: APIs da Web
+      items:
+        - name: ASP.NET
+          href: active-directory-b2c-devquickstarts-api-dotnet.md
+        - name: ASP.NET Core
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi'
+        - name: Node.js
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi'
+        - name: Chamar uma API Web do .NET
+          href: active-directory-b2c-devquickstarts-web-api-dotnet.md
     - name: Guias
       items:
         - name: Configurar provedores de identidade
           items:
+            - name: Personalizar OpenID Connect
+              href: active-directory-b2c-setup-oidc-idp.md
             - name: Conta da Microsoft
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -102,7 +106,7 @@
               href: active-directory-b2c-setup-goog-app.md
             - name: Amazon
               href: active-directory-b2c-setup-amzn-app.md
-            - name: LinkdIn
+            - name: LinkedIn
               href: active-directory-b2c-setup-li-app.md
             - name: Twitter
               href: active-directory-b2c-setup-twitter-app.md
@@ -112,10 +116,6 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
-            - name: AD do Azure (Único Locatário)
-              href: active-directory-b2c-setup-oidc-azure-active-directory.md
-            - name: Personalizar OpenID Connect
-              href: active-directory-b2c-setup-oidc-idp.md
         - name: Configurar redefinição de senha de autoatendimento
           href: active-directory-b2c-reference-sspr.md
         - name: Personalizando a interface do usuário
@@ -141,10 +141,12 @@
           href: active-directory-b2c-reference-language-customization.md
         - name: Usar a API de relatórios
           href: active-directory-b2c-reference-usage-reporting-api.md
-        - name: Acesse os logs de auditoria
-          href: active-directory-b2c-reference-audit-logs.md
+        - name: Gerenciar dados do usuário
+          href: manage-user-data.md
         - name: Migrar usuários
           href: active-directory-b2c-user-migration.md
+        - name: Migrar usuários com identidades sociais
+          href: active-directory-b2c-social-migration.md
         - name: Usando b2clogin.com
           href: b2clogin.md
         - name: Usando a restrição de idade
@@ -159,10 +161,8 @@
               href: active-directory-b2c-get-started-custom.md
             - name: Configurar provedores OIDC/OAUTH
               items:
-                - name: Azure AD (único locatário)
+                - name: AD do Azure
                   href: active-directory-b2c-setup-aad-custom.md
-                - name: Azure AD (multilocatário)
-                  href: active-directory-b2c-setup-commonaad-custom.md
                 - name: Conta da Microsoft
                   href: active-directory-b2c-custom-setup-msa-idp.md
                 - name: Google+
@@ -171,6 +171,8 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
+                - name: Multilocatário
+                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: Configurar provedores de SAML
               items:
                 - name: ADFS
@@ -207,6 +209,8 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Habilitar a opção mantenha-me conectado
                   href: active-directory-b2c-reference-kmsi-custom.md
+            - name: Gerenciar o acesso de usuário
+              href: manage-user-access.md
             - name: solução de problemas
               items:
                 - name: Coletar logs usando o Application Insights

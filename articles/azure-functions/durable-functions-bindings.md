@@ -1,12 +1,12 @@
 ---
-title: "Associações para Funções Duráveis – Azure"
-description: "Como usar gatilhos e associações para a extensão de Funções Duráveis do Azure Functions."
+title: Associações para Funções Duráveis – Azure
+description: Como usar gatilhos e associações para a extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 370e6e2c569aaf6d9289bddccde2174b4dd2ee97
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associações para Funções Duráveis (Azure Functions)
 
@@ -36,17 +36,12 @@ Quando você escreve funções de orquestrador em linguagens de script (por exem
 {
     "name": "<Name of input parameter in function signature>",
     "orchestration": "<Optional - name of the orchestration>",
-    "version": "<Optional - version label of this orchestrator function>",
     "type": "orchestrationTrigger",
     "direction": "in"
 }
 ```
 
 * `orchestration` é o nome da orquestração. Esse é o valor que os clientes devem usar quando quiserem iniciar novas instâncias dessa função de orquestrador. Essa propriedade é opcional. Se não for especificada, o nome da função será usado.
-* `version` é um rótulo de versão da orquestração. Clientes que iniciam uma nova instância de uma orquestração devem incluir o rótulo de versão correspondente. Essa propriedade é opcional. Se não for especificada, a cadeia de caracteres vazia será usada. Para obter mais informações sobre o controle de versão, consulte [Controle de versão](durable-functions-versioning.md).
-
-> [!NOTE]
-> Não é recomendado definir valores para as propriedades `orchestration` ou `version`.
 
 Internamente, essa associação de gatilho sonda uma série de filas na conta de armazenamento padrão do aplicativo de funções. Essas filas são detalhes da implementação interna da extensão e, por isso, elas não são configuradas explicitamente nas propriedades de associação.
 
@@ -69,12 +64,11 @@ A associação de gatilho de orquestração dá suporte a entradas e saídas. Es
 * **entradas** – as funções de orquestração dão suporte apenas a [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) como um tipo de parâmetro. Não há suporte para entradas de desserialização diretamente na assinatura da função. O código deve usar o método [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) para buscar as entradas de função de orquestrador. Essas entradas devem ser tipos serializáveis em JSON.
 * **saídas** – gatilhos de orquestração dão suporte a valores de saída, bem como entradas. O valor retornado da função é usado para atribuir o valor de saída e deve ser serializável em JSON. Se uma função retornar `Task` ou `void`, um valor `null` será salvo como a saída.
 
-> [!NOTE]
-> No momento, há suporte somente para gatilhos de orquestração em C#.
-
 ### <a name="trigger-sample"></a>Exemplo de gatilho
 
-Este é um exemplo de como a função de orquestrador em C# "Olá, Mundo" mais simples pode ser:
+Este é um exemplo de como a função de orquestrador "Olá, Mundo" mais simples pode ser:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -85,17 +79,45 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    return `Hello ${name}!`;
+});
+```
+
+> [!NOTE]
+> Os orquestradores JavaScript devem usar `return`. A biblioteca `durable-functions` é responsável por chamar o método `context.done`.
+
 A maioria das funções de orquestrador chamam funções de atividade, sendo assim, este é um exemplo de "Olá, Mundo" que demonstra como chamar uma função de atividade:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
 public static async Task<string> Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    string name = await context.GetInput<string>();
+    string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    const result = yield context.df.callActivityAsync("SayHello", name);
+    return result;
+});
 ```
 
 ## <a name="activity-triggers"></a>Gatilhos de atividade
@@ -110,17 +132,12 @@ Se você estiver usando o portal do Azure para desenvolvimento, o gatilho de ati
 {
     "name": "<Name of input parameter in function signature>",
     "activity": "<Optional - name of the activity>",
-    "version": "<Optional - version label of this activity function>",
     "type": "activityTrigger",
     "direction": "in"
 }
 ```
 
 * `activity` é o nome da atividade. Esse é o valor que as funções de orquestrador usam para invocar esta função de atividade. Essa propriedade é opcional. Se não for especificada, o nome da função será usado.
-* `version` é um rótulo de versão da atividade. Funções de orquestrador que invocam uma atividade devem incluir o rótulo da versão correspondente. Essa propriedade é opcional. Se não for especificada, a cadeia de caracteres vazia será usada. Para obter mais informações, consulte [Controle de versão](durable-functions-versioning.md).
-
-> [!NOTE]
-> Não é recomendado definir valores para as propriedades `activity` ou `version`.
 
 Internamente, essa associação de gatilho sonda uma fila na conta de armazenamento padrão para o aplicativo de funções. Essa fila é um detalhe da implementação interna da extensão e, por isso, ela não é configurada explicitamente nas propriedades da associação.
 
@@ -144,12 +161,11 @@ A associação de gatilho de atividade dá suporte a entradas e saídas, assim c
 * **saídas** – Funções de atividade dão suporte a valores de saída, bem como entradas. O valor retornado da função é usado para atribuir o valor de saída e deve ser serializável em JSON. Se uma função retornar `Task` ou `void`, um valor `null` será salvo como a saída.
 * **metadados** – funções de atividade podem ser associadas a um parâmetro `string instanceId` para obter a ID da instância da orquestração pai.
 
-> [!NOTE]
-> Atualmente, gatilhos de atividade não têm suporte em funções de Node.js.
-
 ### <a name="trigger-sample"></a>Exemplo de gatilho
 
-Este é um exemplo de como uma função simples de atividade em C# "Olá, Mundo" pode ser:
+Este é um exemplo de como uma função simples de atividade "Olá, Mundo" pode ser:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -160,13 +176,69 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+```javascript
+module.exports = function(context) {
+    context.done(null, `Hello ${context.bindings.name}!`);
+};
+```
+
 O tipo de parâmetro padrão para a associação `ActivityTriggerAttribute` é `DurableActivityContext`. No entanto, os gatilhos de atividade também dão suporte à associação direta com tipos serializáveis em JSON (incluindo tipos primitivos), de modo que a mesma função poderia ser simplificada da seguinte forma:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
 public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
+}
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+```javascript
+module.exports = function(context, name) {
+    context.done(null, `Hello ${name}!`);
+};
+```
+
+### <a name="passing-multiple-parameters"></a>Passando vários parâmetros 
+
+Não é possível passar vários parâmetros para uma função de atividade diretamente. Nesse caso, a recomendação é passar em uma matriz de objetos ou usar objetos [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples).
+
+O exemplo a seguir usa os novos recursos de [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) adicionados com [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+
+```csharp
+[FunctionName("GetCourseRecommendations")]
+public static async Task<dynamic> RunOrchestrator(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    string major = "ComputerScience";
+    int universityYear = context.GetInput<int>();
+
+    dynamic courseRecommendations = await context.CallActivityAsync<dynamic>("CourseRecommendations", (major, universityYear));
+    return courseRecommendations;
+}
+
+[FunctionName("CourseRecommendations")]
+public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
+{
+    // parse input for student's major and year in university 
+    (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
+
+    // retrieve and return course recommendations by major and university year
+    return new {
+        major = studentInfo.Major,
+        universityYear = studentInfo.UniversityYear,
+        recommendedCourses = new []
+        {
+            "Introduction to .NET Programming",
+            "Introduction to Linux",
+            "Becoming an Entrepreneur"
+        }
+    };
 }
 ```
 
@@ -264,9 +336,9 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 }
 ```
 
-#### <a name="nodejs-sample"></a>Exemplo de Node.js
+#### <a name="javascript-sample"></a>Exemplo de JavaScript
 
-O exemplo a seguir mostra como usar a associação de cliente de orquestração durável para iniciar uma nova instância de função de uma função Node.js:
+O exemplo a seguir mostra como usar a associação de cliente de orquestração durável para iniciar uma nova instância de função de uma função JavaScript:
 
 ```js
 module.exports = function (context, input) {

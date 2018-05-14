@@ -3,17 +3,17 @@ title: Tutorial do Registro de Contêiner do Azure – Preparar um Registro de c
 description: Crie um Registro de contêiner do Azure, configure a replicação geográfica, prepare uma imagem do Docker e implante-a no Registro. Parte um de uma série de três partes.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/26/2017
+ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 3463acc3db3dae9633635aaf7410d876aacf9b38
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: preparar um registro de contêiner do Azure com replicação geográfica
 
@@ -31,17 +31,13 @@ Nos tutoriais subsequentes, você implantará o contêiner do seu Registro parti
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este tutorial exige a execução da CLI do Azure versão 2.0.20 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Este tutorial requer uma instalação local da CLI do Azure (versão 2.0.31 ou posterior). Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
-Este tutorial assume uma compreensão básica dos conceitos fundamentais do Docker como contêineres, imagens de contêiner e comandos básicos do docker. Se necessário, consulte [Get started with Docker]( https://docs.docker.com/get-started/) (Introdução ao Docker) para conhecer os conceitos básicos de contêiner.
+Você deverá estar familiarizado com os conceitos do Docker, como contêineres, imagens de contêiner e comandos básicos da CLI do Docker. Consulte [Introdução ao Docker]( https://docs.docker.com/get-started/) para conhecer os conceitos básicos de contêiner.
 
-Para concluir este tutorial, você precisa de um ambiente de desenvolvimento do Docker. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Para concluir este tutorial, você precisa de uma instalação local do Docker. O Docker fornece instruções de instalação para sistemas [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
 Azure Cloud Shell não inclui os componentes de Docker necessários para concluir cada etapa neste tutorial. Portanto, é recomendável uma instalação local do ambiente de desenvolvimento da CLI do Azure e do Docker.
-
-> [!IMPORTANT]
-> O recurso de replicação geográfica do Registro de Contêiner do Azure está atualmente em **versão prévia**. As versões prévias são disponibilizadas a você com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
->
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
@@ -91,9 +87,9 @@ Quando a replicação for concluída, o portal refletirá *Pronto* para ambas as
 
 ## <a name="container-registry-login"></a>Logon no registro de contêiner
 
-Agora que você configurou a replicação geográfica, crie uma imagem de contêiner e efetue push dela para seu Registro. Primeiro, é necessário fazer logon em sua instância do ACR antes de efetuar push das imagens para ela. Com [SKUs Básicos, Standard e Premium](container-registry-skus.md), é possível autenticar-se usando sua identidade do Azure.
+Agora que você configurou a replicação geográfica, crie uma imagem de contêiner e efetue push dela para seu Registro. Primeiro, é necessário fazer logon em sua instância do ACR antes de efetuar push das imagens para ela.
 
-Use o comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) para autenticar e armazenar em cache as credenciais em seu Registro. Substitua `<acrName>` pelo nome do Registro criado nas etapas anteriores.
+Use o comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) para autenticar e armazenar em cache as credenciais em seu Registro. Substitua `<acrName>` pelo nome do registro criado anteriormente.
 
 ```azurecli
 az acr login --name <acrName>
@@ -103,7 +99,7 @@ O comando retorna `Login Succeeded` na conclusão.
 
 ## <a name="get-application-code"></a>Obter o código de aplicativo
 
-O exemplo neste tutorial inclui um pequeno aplicativo Web criado com o [ASP.NET Core](http://dot.net). O aplicativo atende uma página HTML que exibe a região na qual a imagem foi implantada pelo Registro de Contêiner do Azure.
+O exemplo neste tutorial inclui um pequeno aplicativo Web criado com o [ASP.NET Core][aspnet-core]. O aplicativo atende uma página HTML que exibe a região na qual a imagem foi implantada pelo Registro de Contêiner do Azure.
 
 ![Aplicativo de tutorial mostrado no navegador][tut-app-01]
 
@@ -114,11 +110,13 @@ git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
+Caso `git` não esteja instalado, você poderá [baixar o arquivo ZIP][acr-helloworld-zip] diretamente do GitHub.
+
 ## <a name="update-dockerfile"></a>Atualizar o Dockerfile
 
-O Dockerfile incluído no exemplo mostra como o contêiner é criado. Ele inicia em uma imagem [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore) oficial, copia os arquivos de aplicativo para o contêiner, instala dependências, compila a saída usando a imagem [aspnetcore-build](https://store.docker.com/community/images/microsoft/aspnetcore-build) oficial e, finalmente, cria uma imagem aspnetcore otimizada.
+O Dockerfile incluído no exemplo mostra como o contêiner é criado. Ele inicia em uma imagem [aspnetcore][dockerhub-aspnetcore] oficial, copia os arquivos de aplicativo para o contêiner, instala dependências, compila a saída usando a imagem [aspnetcore-build][dockerhub-aspnetcore-build] oficial e, finalmente, cria uma imagem aspnetcore otimizada.
 
-O Dockerfile está localizado em `./AcrHelloworld/Dockerfile` na origem clonada.
+O [Dockerfile][dockerfile] está localizado em `./AcrHelloworld/Dockerfile` na fonte clonada.
 
 ```dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
@@ -146,9 +144,9 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 ```
 
-O aplicativo na imagem *acr-helloworld* tenta determinar a região da qual seu contêiner foi implantado consultando o DNS para obter informações sobre o servidor de logon do Registro. É necessário especificar a URL do servidor de logon do Registro na variável de ambiente `DOCKER_REGISTRY` no Dockerfile.
+O aplicativo na imagem *acr-helloworld* tenta determinar a região da qual seu contêiner foi implantado consultando o DNS para obter informações sobre o servidor de logon do Registro. É necessário especificar o nome de domínio totalmente qualificado (FQDN) do servidor de logon de registro na variável de ambiente `DOCKER_REGISTRY` no Dockerfile.
 
-Primeiro, obtenha a URL do servidor de logon do Registro com o comando `az acr show`. Substitua `<acrName>` pelo nome do Registro criado nas etapas anteriores.
+Primeiro, obtenha o servidor de logon do registro com o comando `az acr show`. Substitua `<acrName>` pelo nome do Registro criado nas etapas anteriores.
 
 ```azurecli
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
@@ -162,7 +160,7 @@ AcrLoginServer
 uniqueregistryname.azurecr.io
 ```
 
-Em seguida, atualize a linha `DOCKER_REGISTRY` com a URL do servidor de logon do seu Registro. Neste exemplo, atualizamos a linha para refletir o exemplo do nome do Registro, *uniqueregistryname*:
+Em seguida, atualize a linha `ENV DOCKER_REGISTRY` com o FQDN do servidor de logon do registro. Este exemplo reflete o nome do registro de exemplo, *uniqueregistryname*:
 
 ```dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
@@ -170,7 +168,7 @@ ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 
 ## <a name="build-container-image"></a>Criar imagem de contêiner
 
-Agora que você atualizou o Dockerfile com a URL do Registro, é possível usar `docker build` para criar a imagem de contêiner. Execute o seguinte comando para criar a imagem e marque-a com a URL do seu Registro privado, substituindo novamente `<acrName>` pelo nome do seu Registro:
+Agora que você atualizou o Dockerfile com o FQDN do servidor de logon de registro, é possível usar `docker build` para criar a imagem de contêiner. Execute o seguinte comando para criar a imagem e marque-a com a URL do seu Registro privado, substituindo novamente `<acrName>` pelo nome do seu Registro:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -183,7 +181,9 @@ Sending build context to Docker daemon  523.8kB
 Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
 2.0: Pulling from microsoft/aspnetcore
 3e17c6eae66c: Pulling fs layer
-...
+
+[...]
+
 Step 18/18 : ENTRYPOINT dotnet AcrHelloworld.dll
  ---> Running in 6906d98c47a1
  ---> c9ca1763cfb1
@@ -192,23 +192,18 @@ Successfully built c9ca1763cfb1
 Successfully tagged uniqueregistryname.azurecr.io/acr-helloworld:v1
 ```
 
-Use o comando `docker images` para ver a imagem interna:
+Use `docker images` para ver a imagem construída e marcada:
 
-```bash
-docker images
-```
-
-Saída:
-
-```bash
+```console
+$ docker images
 REPOSITORY                                      TAG    IMAGE ID        CREATED               SIZE
 uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a minute ago    284MB
-...
+[...]
 ```
 
 ## <a name="push-image-to-azure-container-registry"></a>Enviar imagem por push ao Registro de Contêiner do Azure
 
-Por fim, use o comando `docker push` para efetuar push da imagem *acr helloworld* para seu Registro. Substitua `<acrName>` pelo nome do seu Registro.
+Em seguida, use o comando `docker push` para efetuar push da imagem *acr helloworld* para seu registro. Substitua `<acrName>` pelo nome do seu Registro.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
@@ -216,9 +211,8 @@ docker push <acrName>.azurecr.io/acr-helloworld:v1
 
 Como você configurou seu Registro para replicação geográfica, sua imagem é replicada automaticamente nas regiões *Oeste dos EUA* e *Leste dos EUA* com este único comando `docker push`.
 
-Saída:
-
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 cd54739c444b: Pushed
 d6803756744a: Pushed
@@ -232,15 +226,9 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou um Registro de contêiner com replicação geográfica e privado, criou uma imagem de contêiner e efetuou push dessa imagem para seu Registro. Seguindo as etapas neste tutorial, você:
+Neste tutorial, você criou um Registro de contêiner com replicação geográfica e privado, criou uma imagem de contêiner e efetuou push dessa imagem para seu Registro.
 
-> [!div class="checklist"]
-> * Criou um Registro de contêiner do Azure com replicação geográfica
-> * Clonou o código-fonte do aplicativo do GitHub
-> * Criou uma imagem de contêiner do Docker da origem de aplicativo
-> * Efetuou push da imagem de contêiner para seu Registro
-
-Passe para o próximo tutorial para aprender a implantar seu contêiner em várias instâncias de Aplicativos Web para Contêineres, usando a replicação geográfica para atender às imagens localmente.
+Passe para o próximo tutorial para implantar seu contêiner em várias instâncias de Aplicativos Web para Contêineres, usando a replicação geográfica para atender às imagens localmente.
 
 > [!div class="nextstepaction"]
 > [Implantar aplicativo Web do Registro de Contêiner do Azure](container-registry-tutorial-deploy-app.md)
@@ -253,3 +241,10 @@ Passe para o próximo tutorial para aprender a implantar seu contêiner em vári
 [tut-portal-05]: ./media/container-registry-tutorial-prepare-registry/tut-portal-05.png
 [tut-app-01]: ./media/container-registry-tutorial-prepare-registry/tut-app-01.png
 [tut-map-01]: ./media/container-registry-tutorial-prepare-registry/tut-map-01.png
+
+<!-- LINKS - External -->
+[acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
+[aspnet-core]: http://dot.net
+[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
+[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
+[dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

@@ -406,19 +406,19 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Recursos
   items:
-    - name: Perguntas frequentes
-      href: frequently-asked-questions.md
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: Stack Overflow
+    - name: Faça uma pergunta — Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
+    - name: Faça uma pergunta — Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Solicitar um recurso
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Disponibilidade de região
-      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Perguntas frequentes
+      href: frequently-asked-questions.md
+    - name: Roteiro
+      href: 'https://azure.microsoft.com/en-us/roadmap/?tag=data-factory'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: Disponibilidade por região
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Opções de suporte
       href: 'https://azure.microsoft.com/support/options/'
