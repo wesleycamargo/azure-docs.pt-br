@@ -6,6 +6,7 @@
 # Introdução
 ## [Portal do Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [PowerShell do Azure](data-lake-analytics-get-started-powershell.md)
 ## [CLI do Azure](data-lake-analytics-get-started-cli2.md)
 

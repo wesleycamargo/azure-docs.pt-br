@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 9f24dd917f4197f933fd58f7c646c18372da8593
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2e92dc96a69400f689e49b70d1b855c955084362
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Fazer o download de itens do marketplace do Azure para a pilha do Azure
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/10/2018
 
 Como decidir qual conteúdo para incluir no seu mercado de pilha do Azure, você deve considerar o conteúdo disponível no Azure marketplace. Você pode baixar em uma lista de curadoria de itens do marketplace do Azure que foram previamente testados para executar na pilha do Azure. Com frequência, novos itens são adicionados a essa lista, portanto certifique-se de verificar para o novo conteúdo.
 
-## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Fazer o download de itens do marketplace em um cenário conectado (com conectividade com a internet)
+## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Fazer o download de itens do marketplace em um cenário conectado (com conectividade com a Internet)
 
 1. Para baixar itens do marketplace, você deve primeiro [registrar pilha do Azure com o Azure](azure-stack-register.md).
 2. Entre no portal de administrador a pilha do Azure (para ASDK, use https://portal.local.azurestack.external).

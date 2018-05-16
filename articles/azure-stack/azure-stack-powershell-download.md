@@ -1,24 +1,24 @@
 ---
 title: Baixar ferramentas de pilha do Azure do GitHub | Microsoft Docs
-description: "Saiba como baixar as ferramentas necessárias para trabalhar com a pilha do Azure."
+description: Saiba como baixar as ferramentas necessárias para trabalhar com a pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: E4DF77FA-F468-42B5-B44F-F10ED8049171
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 219fd8e4e164df8c3002044719a90a7be56a9edf
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: thoroet
+ms.openlocfilehash: a116b7a048ff95ca601a65633cdc63f98fefee9d
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Baixar ferramentas de pilha do Azure do GitHub
 
@@ -53,13 +53,10 @@ O **AzureStack ferramentas** repositório contém módulos do PowerShell que dã
 | Funcionalidade | DESCRIÇÃO | Quem pode usar este módulo? |
 | --- | --- | --- |
 | [Recursos de nuvem](user/azure-stack-validate-templates.md) | Use este módulo para obter os recursos de nuvem de uma nuvem. Por exemplo, ao usar este módulo, você pode obter os recursos de nuvem, como versão de API e recursos do Gerenciador de recursos do Azure. Você também pode obter as extensões VM para a pilha do Azure e nuvens do Azure usando este módulo. | Os usuários e os operadores de nuvem |
-| [Administração de computação de pilha do Azure](azure-stack-add-vm-image.md) | Use este módulo para adicionar ou remover uma imagem de VM do marketplace do Azure pilha. | Operadores de nuvem |
-| [Administração de infraestrutura de pilha do Azure](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | Use este módulo para gerenciar VMs da infraestrutura de pilha do Azure, alertas, atualizações e assim por diante. |  Operadores de nuvem|
 | [Política do Gerenciador de recursos para a pilha do Azure](user/azure-stack-policy-module.md) | Use este módulo para configurar uma assinatura do Azure ou um grupo de recursos do Azure com o mesmo serviço e controle de versão de disponibilidade como a pilha do Azure. | Os usuários e os operadores de nuvem |
 | [Registrar com o Azure](azure-stack-register.md) | Use este módulo para registrar sua instância do kit de desenvolvimento com o Azure. Depois de registrar, você pode baixar os itens do marketplace do Azure e usá-los na pilha do Azure. | Operadores de nuvem |
 | [Implantação de pilha do Azure](azure-stack-run-powershell-script.md) | Use este módulo para preparar o computador de host de pilha do Azure para implantar e reimplantar usando a imagem de disco rígido virtual (VHD) de pilha do Azure. | Operadores de nuvem|
-| [Conectando-se a pilha do Azure](azure-stack-connect-powershell.md) | Use este módulo para se conectar a uma instância de pilha do Azure por meio do PowerShell e para configurar a conectividade VPN com a pilha do Azure. | Os usuários e os operadores de nuvem |
-| [Administração do serviço de pilha do Azure](azure-stack-create-offer.md) | Use este módulo para criar uma oferta de Inquilino padrão com cotas ilimitadas em computação, armazenamento do Azure, rede e serviços de Cofre de chaves.   | Operadores de nuvem|
+| [Conectando-se a pilha do Azure](azure-stack-connect-powershell.md) | Use este módulo para configurar a conectividade VPN com a pilha do Azure. | Os usuários e os operadores de nuvem |
 | [Validador de modelo](user/azure-stack-validate-templates.md) | Use este módulo para verificar se um existente ou um novo modelo pode ser implantado a pilha do Azure. | Os usuários e os operadores de nuvem|
 
 

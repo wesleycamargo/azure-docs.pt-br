@@ -3,24 +3,24 @@ title: Exibir todos os aplicativos empresariais que posso gerenciar no Azure Act
 description: Como ver uma lista dos aplicativos empresariais que você tem permissão para gerenciar no Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: c4fb6f94-34f8-4323-8bd7-a3ee44901f7d
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 64946b3bbf39cf8153fcc8c7aa548ed6055fb47f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: dd2d941cb4066bc4f7d1cfebe17d701feb105269
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Exibir todos os aplicativos empresariais que posso gerenciar no Azure Active Directory
 Você pode gerenciar seus aplicativos empresariais no Azure AD (Azure Active Directory). Você pode exibir os aplicativos que pode gerenciar, atribuir usuários ou grupos a um aplicativo, manter propriedades para o aplicativo, como o nome/logotipo do aplicativo, e até mesmo desabilitar um aplicativo para que nenhum usuário possa entrar nele.

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c66b0d7ea5ade90c6bb8f88006f2a09bd407deaa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f74d378359ec66b76fd53b95ab898f1cec9b07f7
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/10/2018
@@ -77,6 +77,9 @@ Adicione a imagem a seguir Ubuntu Server Marketplace:
     - **SKU**: 16.04 LTS
     - **Versão**: 16.04.201802220
 
+    > [!Note]  
+    > Mais de uma versão do Ubuntu Server 16.04 LTS pode ser listada. Você precisará adicionar a versão correspondente. O Kubernetes Cluster requer a versão exata do item.
+
 6. Selecione **baixar.**
 
 ## <a name="add-a-custom-script-for-linux"></a>Adicionar um script personalizado para Linux
@@ -95,6 +98,9 @@ Adicione o Cluster Kubernetes do Marketplace:
     - **Oferecer**: Script personalizado para Linux 2.0
     - **Versão**: 2.0.3
     - **Publicador**: Microsoft Corp
+
+    > [!Note]  
+    > Mais de uma versão do Script personalizado para Linux pode ser listada. Você precisará adicionar a versão correspondente. O Kubernetes Cluster requer a versão exata do item.
 
 6. Selecione **baixar.**
 
@@ -138,6 +144,8 @@ Para remover o item Kubernetes Cluster:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Implantar um Cluster de Kubernetes a pilha do Azure](/user/azure-stack-solution-template-kubernetes-deploy.md)
+[Implantar um Cluster de Kubernetes a pilha do Azure](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+
+
 
 [Visão geral da oferta de serviços na pilha do Azure](azure-stack-offer-services-overview.md)

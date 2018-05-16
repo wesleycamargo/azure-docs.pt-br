@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: ed87eab6250eea753bc3b0abd97182d1b869420c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalizar a autenticação e a autorização no Serviço de Aplicativo do Azure
 
@@ -25,7 +25,8 @@ Este artigo mostra como personalizar [a autenticação e a autorização no Serv
 
 Para começar rapidamente, veja um dos seguintes tutoriais:
 
-* [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure](app-service-web-tutorial-auth-aad.md)
+* [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure para Linux](containers/tutorial-auth-aad.md)
 * [Como configurar seu aplicativo para usar o logon do Active Directory do Azure](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Como configurar seu aplicativo para usar o logon do Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Como configurar seu aplicativo para usar o logon do Google](app-service-mobile-how-to-configure-google-authentication.md)
@@ -148,4 +149,5 @@ Clique em **Editar**, modifique a propriedade a seguir e, em seguida, clique em 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: autenticar e autorizar usuários de ponta a ponta](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Autenticar e autorizar usuários ponta a ponta (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Autenticar e autorizar usuários de ponta a ponta (Linux)](containers/tutorial-auth-aad.md)

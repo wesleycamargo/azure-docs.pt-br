@@ -11,21 +11,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 05e06d6ed8c2a3bec0d12f81aae6f7022a56b942
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 797538a6d023e1a4b95680057eb0f72489290f40
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Usar o Túnel SSH para acessar a interface do usuário do Ambari na Web, JobHistory, NameNode, Oozie, entre outras
 
-Os clusters do HDInsight baseados em Linux oferecem acesso à interface do usuário do Ambari Web pela Internet, mas alguns recursos da interface do usuário não são acessados. Por exemplo, a interface do usuário da Web para outros serviços exibidos por meio do Ambari. Para obter a funcionalidade completa da interface do usuário do Ambari Web, você deverá usar um túnel SSH para o início do cluster.
+Os clusters do HDInsight oferecem acesso à interface do usuário do Ambari Web pela Internet, mas alguns recursos requerem um túnel SSH. Por exemplo, a interface de usuário da web para o serviço Oozie não pode ser acessada pela internet sem um túnel SSh.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Por que usar um túnel SSH
 
-Vários menus no Ambari só funcionam por meio de um túnel SSH. Esses menus dependem de sites e serviços em execução em outros tipos de nó, como nós de trabalho. Geralmente, esses sites não são protegidos e, portanto, não é seguro expô-los diretamente na Internet.
+Vários menus no Ambari só funcionam por meio de um túnel SSH. Esses menus dependem de sites e serviços em execução em outros tipos de nó, como nós de trabalho.
 
 As seguintes interfaces do usuário da Web exigem um túnel SSH:
 
@@ -35,14 +35,14 @@ As seguintes interfaces do usuário da Web exigem um túnel SSH:
 * Interface do usuário da Web do Oozie
 * Interface do usuário mestre e de logs do HBase
 
-Se você usar as Ações de Script para personalizar seu cluster, todos os serviços ou utilitários que forem instalados e que expuserem a interface do usuário da Web exigirão um túnel SSH. Por exemplo, se você instalar o Hue usando uma Ação de Script, deverá usar um túnel SSH para acessar a interface do usuário da Web do Hue.
+Se você usar as Ações de Script para personalizar seu cluster, todos os serviços ou utilitários que forem instalados e que expuserem um serviço Web exigirão um túnel SSH. Por exemplo, se você instalar o Hue usando uma Ação de Script, deverá usar um túnel SSH para acessar a interface do usuário da Web do Hue.
 
 > [!IMPORTANT]
 > Se tiver acesso direto ao HDInsight por meio de uma rede virtual, você não precisará usar túneis SSH. Para obter um exemplo de acesso direto ao HDInsight por meio de uma rede virtual, consulte o documento [Conectar HDInsight em sua rede local](connect-on-premises-network.md).
 
 ## <a name="what-is-an-ssh-tunnel"></a>O que é um túnel SSH
 
-O [túnel de Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) roteia o tráfego enviado para uma porta em sua estação de trabalho local. O tráfego é roteado por meio de uma conexão SSH para o nó principal do cluster HDInsight. A solicitação é resolvida como se ela tivesse sido originada no nó principal. A resposta é então roteada de volta pelo túnel até a sua estação de trabalho.
+[O túnel Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) se conecta a uma porta em seu computador local para um nó principal no HDInsight. O tráfego enviado para a porta local é roteado por meio de uma conexão SSH para o nó principal. A solicitação é resolvida como se ela tivesse sido originada no nó principal. A resposta é então roteada de volta pelo túnel até a sua estação de trabalho.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -51,7 +51,7 @@ O [túnel de Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protoco
 * Um navegador da Web que pode ser configurado para usar um proxy SOCKS5.
 
     > [!WARNING]
-    > O suporte a proxy SOCKS integrado do Windows não dá suporte a SOCKS5 e não funciona com as etapas neste documento. Os navegadores a seguir contam com as configurações de proxy do Windows e não funcionam com as etapas neste documento:
+    > O suporte a proxy SOCKS integrado das configurações de Internet do Windows não dá suporte a SOCKS5 e não funciona com as etapas neste documento. Os navegadores a seguir contam com as configurações de proxy do Windows e não funcionam com as etapas neste documento:
     >
     > * Microsoft Edge
     > * Microsoft Internet Explorer
@@ -60,10 +60,10 @@ O [túnel de Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protoco
 
 ## <a name="usessh"></a>Criar um túnel usando o comando SSH
 
-Use o comando a seguir para criar um túnel SSH usando o comando `ssh` . Substitua **USERNAME** por um usuário SSH para seu cluster HDInsight e substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight:
+Use o comando a seguir para criar um túnel SSH usando o comando `ssh` . Substitua **sshuser** por um usuário SSH para seu cluster HDInsight e substitua **clustername** pelo nome do seu cluster HDInsight:
 
 ```bash
-ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 ```
 
 Esse comando cria uma conexão que encaminha o tráfego para a porta local 9876 do cluster via SSH. As opções são:
@@ -119,10 +119,10 @@ O [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) é um cliente SSH g
 
 Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verificar se você pode acessar as interfaces do usuário da Web do serviço Ambari Web:
 
-1. No navegador, acesse http://headnodehost:8080. O endereço `headnodehost` é enviado pelo túnel para o cluster e resolverá o nó principal Ambari em execução. Quando solicitado, insira o nome de usuário do administrador (admin) e a senha do seu cluster. Talvez a interface do usuário do Ambari Web seja solicitada uma segunda vez. Nesse caso, insira novamente as informações.
+1. No navegador, acesse http://headnodehost:8080. O endereço `headnodehost` é enviado pelo túnel para o cluster e resolverá o nó principal que o Ambari está executando. Quando solicitado, insira o nome de usuário do administrador (admin) e a senha do seu cluster. Talvez a interface do usuário do Ambari Web seja solicitada uma segunda vez. Nesse caso, insira novamente as informações.
 
    > [!NOTE]
-   > Ao usar o endereço http://headnodehost:8080 para conectar o cluster, você estará conectando através do túnel. A comunicação é protegida usando o túnel SSH em vez de HTTPS. Para conectar pela Internet usando HTTPS, use https://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do cluster.
+   > Ao usar o endereço http://headnodehost:8080 para conectar o cluster, você estará conectando através do túnel. A comunicação é protegida usando o túnel SSH em vez de HTTPS. Para conectar pela Internet usando HTTPS, use https://clustername.azurehdinsight.net, onde **clustername** é o nome do cluster.
 
 2. Na interface do usuário do Ambari na Web, selecione HDFS na lista à esquerda da página.
 

@@ -1,25 +1,25 @@
 ---
-title: "Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory | Microsoft Docs"
-description: "Cobre as considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure AD."
+title: Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory | Microsoft Docs
+description: Cobre as considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure AD.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f4ca4856333bf8b10a00952356080ed332dc266b
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e8f292f41c61ef208c316325f768dbdeaac88d84
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory
 
@@ -172,7 +172,7 @@ Você também pode considerar o uso de uma outra variante nessa situação. Se a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilitar Proxy de aplicativo](active-directory-application-proxy-enable.md)
-- [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
+- [Habilitar Proxy de aplicativo](manage-apps/application-proxy-enable.md)
+- [Habilitar o logon único](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 - [Habilitar o acesso condicional](application-proxy-enable-remote-access-sharepoint.md)
 - [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)

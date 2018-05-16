@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Suite e Azure Active Directory | Microsoft Docs
-description: "Descreve como o Pacote IoT do Azure usa o Active Directory do Azure para gerenciar permissões."
-services: 
+title: Aceleradores de solução do Azure IoT e Azure Active Directory | Microsoft Docs
+description: Descreve como os aceleradores de solução do Azure IoT usam o Azure Active Directory para gerenciar permissões.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b7360ca4df63cac114b0eb1f93375367da6735cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Permissões no site azureiotsuite.com
 
@@ -29,35 +29,35 @@ Quando você entra pela primeira vez no [azureiotsuite.com][lnk-azureiotsuite], 
 
 1. Primeiro, para preencher a lista de locatários logo ao lado de seu nome de usuário, site descobre a quais locatários do AAD no Azure você pertence. No momento, o site só consegue obter os tokens de usuário de um locatário por vez. Por isso, quando você alternar locatários usando o menu suspenso no canto superior direito, o site conectará você a esse locatário para obter os tokens para ele.
 
-2. Em seguida, o site descobre no Azure quais assinaturas estão associadas ao locatário selecionado. Você verá as assinaturas quando criar uma nova solução pré-configurada.
+2. Em seguida, o site descobre no Azure quais assinaturas estão associadas ao locatário selecionado. Você vê as assinaturas disponíveis quando cria um novo acelerador de solução.
 
-3. Por fim, o site recuperará todos os recursos nas assinaturas e nos grupos de recursos marcados como soluções pré-configuradas e preencherá os blocos na home page.
+3. Por fim, o site recupera todos os recursos nas assinaturas e grupos de recursos marcados como aceleradores de solução e preenche os blocos na home page.
 
-As seções a seguir descrevem as funções que controlam o acesso às soluções pré-configuradas.
+As seções a seguir descrevem as funções que controlam o acesso aos aceleradores de solução.
 
 ## <a name="aad-roles"></a>Funções do AAD
 
-As funções do AAD controlam as soluções pré-configuradas de provisão de capacidade e gerenciam usuários em uma solução pré-configurada.
+As funções do AAD controlam a capacidade de provisionar aceleradores de solução e gerenciam usuários em um acelerador de solução.
 
-Saiba mais sobre funções de administrador no AAD em [Atribuir funções de administrador no Azure AD][lnk-aad-admin]. O artigo atual enfoca as funções do diretório **Administrador Global** e **Usuário** conforme utilizadas pelas soluções pré-configuradas.
+Saiba mais sobre funções de administrador no AAD em [Atribuir funções de administrador no Azure AD][lnk-aad-admin]. O artigo atual enfoca as funções do diretório **Administrador Global** e **Usuário**, conforme utilizadas pelos aceleradores de solução.
 
 ### <a name="global-administrator"></a>Administrador global
 
 Pode haver muitos administradores globais por locatário do AAD:
 
 * Quando você cria um locatário do AAD, por padrão vira o administrador global desse locatário.
-* O administrador global pode provisionar soluções pré-configuradas básicas e padrão.
+* O administrador global pode provisionar aceleradores de solução básicos e padrão.
 
 ### <a name="domain-user"></a>Usuário de domínio
 
 Pode haver muitos usuários de domínio por locatário do AAD:
 
-* Um usuário do domínio pode provisionar uma solução pré-configurada básica por meio do site [azureiotsuite.com][lnk-azureiotsuite].
-* Um usuário de domínio pode criar uma solução pré-configurada básica usando a CLI.
+* Um usuário do domínio pode provisionar um acelerador de solução básico por meio do site [azureiotsuite.com][lnk-azureiotsuite].
+* Um usuário de domínio pode criar um acelerador de solução básico usando a CLI.
 
 ### <a name="guest-user"></a>Usuário Convidado
 
-Pode haver muitos usuários convidados por locatário do AAD. Os usuários convidados têm um conjunto limitado de direitos no locatário do AAD. Como resultado, os usuários convidados não podem provisionar uma solução pré-configurada no locatário do AAD.
+Pode haver muitos usuários convidados por locatário do AAD. Os usuários convidados têm um conjunto limitado de direitos no locatário do AAD. Como resultado, os usuários convidados não podem provisionar um acelerador de solução no locatário do AAD.
 
 Para obter mais informações sobre usuários e funções no AAD, confira os seguintes recursos:
 
@@ -94,7 +94,7 @@ Observe o seguinte diagrama para obter orientação:
 Se você tiver certeza de que tem uma assinatura do Azure, valide o mapeamento do locatário para a sua assinatura e certifique-se de que o locatário correto tenha sido selecionado na lista suspensa. Se você tiver validado corretamente o locatário desejado, siga o diagrama acima e valide o mapeamento de sua assinatura e este locatário do AAD.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para continuar aprendendo sobre o IoT Suite, veja como é possível [personalizar uma solução pré-configurada][lnk-customize].
+Para continuar a aprender sobre aceleradores de solução IoT, veja como é possível [personalizar um acelerador de solução][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 

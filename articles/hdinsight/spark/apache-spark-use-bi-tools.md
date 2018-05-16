@@ -1,7 +1,6 @@
 ---
-title: Spark BI usando ferramentas de visualização de dados no Azure HDInsight | Microsoft Docs
-description: Usar ferramentas de visualização de dados para análise usando Apache Spark BI em clusters HDInsight
-keywords: apache spark bi, spark bi, visualização de dados spark, spark business intelligence
+title: 'Tutorial: Analisar dados Apache Spark usando o Power BI no Azure HDInsight | Microsoft Docs'
+description: Use o Microsoft Power BI para visualizar dados Spark armazenados em clusters HDInsight
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -10,28 +9,34 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/14/2018
+ms.topic: tutorial
+ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 0e728e17a64acd990b301bac8139c7bb395a3098
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ece0132573f25f4d288309d2e7bb6710f8fd9519
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI usando ferramentas de visualização de dados com o Azure HDInsight
+# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados Spark usando o Power BI no HDInsight 
 
-Saiba como usar o [Microsoft Power BI](http://powerbi.microsoft.com) para visualizar dados em um cluster do Apache Spark no Azure HDInsight.
+Saiba como usar o Microsoft Power BI para visualizar dados em um cluster do Apache Spark no Azure HDInsight.
+
+Neste tutorial, você aprenderá como:
+> [!div class="checklist"]
+> * Visualizar dados de Spark usando o Power BI
+
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* **Concluir o artigo [Executar consultas interativas em clusters Spark no HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Concluir o artigo [Tutorial: Carregar dados e executar consultas em um cluster do Apache Spark no Azure HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) e [assinatura de avaliação do Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (opcional).
 
 
-## <a name="hivetable"></a>Verificar os dados
+## <a name="verify-the-data"></a>Verificar os dados
 
 O bloco de anotações do Jupyter que você criou no [tutorial anterior](apache-spark-load-data-run-query.md) inclui código para criar uma tabela `hvac`. Essa tabela é baseada no arquivo CSV disponível em todos os clusters HDInsight Spark em **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Use o procedimento a seguir para verificar os dados.
 
@@ -46,8 +51,7 @@ O bloco de anotações do Jupyter que você criou no [tutorial anterior](apache-
 
     ![Mostrar tabelas no Spark](./media/apache-spark-use-bi-tools/show-tables.png)
 
-    Se você fechou o bloco de anotações antes de iniciar este tutorial, `hvactemptable` é limpo e, portanto, não é incluído na saída.
-    Somente as tabelas do Hive que são armazenadas no metastore (indicado por **False** na coluna **isTemporary**) podem ser acessadas por meio das ferramentas de BI. Neste tutorial, você se conecta à tabela **hvac** que você criou.
+    Se você fechou o bloco de anotações antes de iniciar este tutorial, `hvactemptable` é limpo e, portanto, não é incluído na saída.  Somente as tabelas do Hive que são armazenadas no metastore (indicado por **False** na coluna **isTemporary**) podem ser acessadas por meio das ferramentas de BI. Neste tutorial, você se conecta à tabela **hvac** que você criou.
 
 2. Cole o código a seguir em uma célula vazia e pressione **SHIFT+ENTER**. O código verifica os dados na tabela.
 
@@ -62,21 +66,7 @@ O bloco de anotações do Jupyter que você criou no [tutorial anterior](apache-
 
 3. No menu **Arquivo** do notebook, clique em **Fechar e Interromper**. Feche o bloco de anotações para liberar os recursos. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## <a name="powerbi"></a>Usar o Power BI
+## <a name="visualize-the-data"></a>Visualizar os dados
 
 Nesta seção, use o Power BI para criar painéis, relatórios e visualizações a partir dos dados do cluster Spark. 
 
@@ -92,7 +82,7 @@ As primeiras etapas ao trabalhar com Spark são conectar-se ao cluster no Power 
     ![Coloque os dados no Power BI Desktop do Apache Spark do HDInsight](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Coloque os dados no Power BI do Apache Spark BI")
 
 
-2. Digite `Spark` na caixa de pesquisa, selecione **Spark no HDInsight (Beta)**e, em seguida, clique em **Conectar**.
+2. Digite `Spark` na caixa de pesquisa, selecione **Spark no HDInsight (Beta)** e, em seguida, clique em **Conectar**.
 
     ![Colocar dados no Power BI do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Colocar dados no Power BI do Apache Spark BI")
 
@@ -226,8 +216,11 @@ O visual é fixado no painel – você pode adicionar outros elementos visuais n
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Até agora, você aprendeu como criar um cluster, criar quadros de dados do Spark para consultar dados e, em seguida, acessar esses dados de ferramentas de BI. Agora você pode examinar as instruções sobre como gerenciar os recursos de cluster e depurar os trabalhos que são executados em um cluster HDInsight Spark.
+Neste tutorial, você aprendeu como:
 
-* [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
-* [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](apache-spark-job-debugging.md)
+- Visualizar dados de Spark usando o Power BI.
+
+Avance para o próximo artigo para ver como os dados que você registrou no Spark podem ser removidos em uma ferramenta de análise de BI, assim como Power BI. 
+> [!div class="nextstepaction"]
+> [Executar trabalho de streaming Spark](apache-spark-eventhub-streaming.md)
 

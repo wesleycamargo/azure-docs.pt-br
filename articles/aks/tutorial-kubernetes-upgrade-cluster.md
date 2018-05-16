@@ -3,21 +3,21 @@ title: Tutorial do Kubernetes no Azure - atualizar cluster
 description: Tutorial do Kubernetes no Azure - atualizar cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8340ca9d95e7600e2500755de252e7f6c6de9343
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0886d13b62b6b8ad1c0dcd430ce48bcc51d6d465
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-upgrade-kubernetes-in-azure-container-service-aks"></a>Tutorial: fazer upgrade do Kubernetes no Serviço de Contêiner do Azure (AKS)
+# <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutorial: fazer upgrade do Kubernetes no Serviço de Kubernetes do Azure (AKS)
 
-Um cluster AKS (Serviço de Contêiner do Azure) pode ser atualizado usando a CLI do Azure. Durante o processo de upgrade, os nós Kubernetes são cuidadosamente [isolados e esvaziados][kubernetes-drain] para minimizar as interrupções nos aplicativos em execução.
+Um cluster AKS (Serviço de Kubernetes do Azure) pode ser atualizado usando a CLI do Azure. Durante o processo de upgrade, os nós Kubernetes são cuidadosamente [isolados e esvaziados][kubernetes-drain] para minimizar as interrupções nos aplicativos em execução.
 
 Neste tutorial, parte oito de oito, é feito o upgrade de um cluster Kubernetes. As tarefas a serem concluídas incluem:
 
@@ -115,7 +115,7 @@ Saída:
 
 ## <a name="validate-upgrade"></a>Validar o upgrade
 
-Confirme se a atualização obteve êxito com o comando `az aks show`.
+Confirme se o upgrade teve êxito com o comando `az aks show`.
 
 ```azurecli
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table

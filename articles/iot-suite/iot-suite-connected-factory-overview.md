@@ -1,13 +1,13 @@
 ---
-title: "Visão geral da solução de fábrica conectada - Azure | Microsoft Docs"
-description: "Uma descrição da solução pré-configurada de fábrica conectada do Azure IoT Suite."
-services: 
+title: Visão geral da solução de Fábrica Conectada - Azure | Microsoft Docs
+description: Uma descrição do acelerador de solução da Fábrica Conectada do Azure IoT.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: bd68859e3837f7e5adbe911518631cb7abc2c2ce
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c5fe6cf6dff6fd8951a949761739cb12f98834bf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Introdução à solução pré-configurada de fábrica conectada
+# <a name="get-started-with-the-connected-factory-solution-accelerator"></a>Introdução ao acelerador de solução da Fábrica Conectada
 
-As [soluções pré-configuradas][lnk-preconfigured-solutions] do Azure IoT Suite combinam vários serviços de IoT do Azure para fornecer soluções de ponta a ponta que implementam cenários comuns de negócios de IoT. A solução pré-configurada de *Fábrica conectada* conecta-se aos dispositivos industriais e os monitora. Você pode usar a solução para analisar o fluxo de dados de dispositivos e promover a lucratividade e a produtividade operacionais.
+Os aceleradores de solução IoT do Azure IoT [aceleradores de solução][lnk-preconfigured-solutions] combinam vários serviços de IoT do Azure para fornecer soluções de ponta a ponta que implementam cenários comuns de negócios de IoT. O acelerador de solução da *Fábrica Conectada* conecta-se aos dispositivos industriais e os monitora. Você pode usar a solução para analisar o fluxo de dados de dispositivos e promover a lucratividade e a produtividade operacionais.
 
-Este tutorial mostra como provisionar a solução pré-configurada de fábrica conectada. Ele também explica os recursos básicos da solução pré-configurada. Você pode acessar muitos desses recursos no *painel* de solução que é implantado como parte da solução pré-configurada:
+Este tutorial mostra como provisionar o acelerador de solução da Fábrica Conectada. Ele também explica os recursos básicos do acelerador de solução. Você pode acessar muitos desses recursos no *painel* de solução que é implantado como parte do acelerador de solução:
 
-![Painel de solução pré-configurada de fábrica conectada][img-cf-home]
+![Painel do acelerador de solução da Fábrica Conectada][img-cf-home]
 
 Para concluir este tutorial, você precisa de uma assinatura ativa do Azure.
 
@@ -37,8 +37,8 @@ Para concluir este tutorial, você precisa de uma assinatura ativa do Azure.
 ## <a name="provision-the-solution"></a>Provisionar a solução
 
 1. Faça logon em azureiotsuite.com usando as credenciais de sua conta do Azure e clique em "**+**" para criar uma nova solução.
-2. Clique em **Selecionar** no bloco **Fábrica conectada**.
-3. Digite um **Nome de solução** para a solução pré-configurada de fábrica conectada.
+2. Clique em **Selecionar** no bloco **Fábrica Conectada**.
+3. Digite um **Nome de solução** para o acelerador de solução da Fábrica Conectada.
 4. Selecione a **Assinatura** e a **Região** que você deseja usar para provisionar a solução.
 5. Clique em **Criar Solução** para iniciar o processo de provisionamento. Este processo normalmente leva vários minutos para ser executado.
 
@@ -50,13 +50,13 @@ Para concluir este tutorial, você precisa de uma assinatura ativa do Azure.
 4. Clique no bloco para ver os detalhes da solução no painel à direita.
 
 > [!NOTE]
-> Se estiver tendo problemas para implantar a solução pré-configurada, dê uma olhada em [Permissões no site azureiotsuite.com][lnk-permissions] e nas [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md). Se os problemas persistirem, crie um tíquete de serviço no [portal][lnk-portal].
+> Se estiver tendo problemas para implantar o acelerador de solução, dê uma olhada em [Permissões no site azureiotsuite.com][lnk-permissions] e nas [Perguntas frequentes sobre a Fábrica Conectada](iot-suite-faq-cf.md). Se os problemas persistirem, crie um tíquete de serviço no [portal][lnk-portal].
 
 Há detalhes que você esperaria ver e que não estão listados para sua solução? Faça sugestões sobre recursos no [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
 ## <a name="scenario-overview"></a>Visão geral do cenário
 
-Quando você implantar a solução pré-configurada de fábrica conectada, ela será pré-preenchida com recursos que permitem que você percorra um cenário industrial comum. Nesse cenário, várias fábricas conectadas à solução relatam os valores de dados necessários para calcular a OEE (eficiência geral de equipamentos) e KPIs (indicadores chave de desempenho). As seções a seguir mostram como:
+Quando você implantar o acelerador de solução da Fábrica Conectada, ela será pré-preenchida com recursos que permitem que você percorra um cenário industrial comum. Nesse cenário, várias fábricas conectadas à solução relatam os valores de dados necessários para calcular a OEE (eficiência geral de equipamentos) e KPIs (indicadores chave de desempenho). As seções a seguir mostram como:
 
 * Monitorar fábrica, linhas de produção, OEE de estação e valores de KPI
 * Analisar os dados de telemetria gerados por esses dispositivos usando Análises de Séries Temporais do Azure
@@ -68,17 +68,17 @@ Um recurso-chave desse cenário é que você pode executar todas essas ações r
 
 O painel de solução permite que você gerencie a solução implantada. É uma representação hierárquica de uma configuração global de fábrica. Por exemplo, você pode exibir KPIs e OEE, publicar novos nós para alarmes de telemetria e de ação.
 
-1. Quando o provisionamento for concluído e o bloco da solução pré-configurada indicar **Pronto**, escolha **Iniciar** para abrir o portal de solução de fábrica conectada em uma nova guia.
+1. Quando o provisionamento for concluído e o bloco do acelerador de solução indicar **Pronto**, escolha **Iniciar** para abrir o portal de solução de Fábrica Conectada em uma nova guia.
 
-    ![Iniciar a solução pré-configurada][img-launch-solution]
+    ![Iniciar o acelerador de solução][img-launch-solution]
 
 1. Por padrão, o portal de solução mostra o *painel*. Para navegar para outras áreas do portal, use o menu no lado esquerdo da página.
 
-    ![Painel de solução pré-configurada de fábrica conectada][cf-img-menu]
+    ![Painel do acelerador de solução da Fábrica Conectada][cf-img-menu]
 
 O painel exibe as seguintes informações:
 
-* Um painel **Locais de fábricas** que mostra o status, o local e a configuração atual de produção na solução. Quando você executa a solução pela primeira vez, há vários dispositivos simulados. A simulação de linha de produção é composta de três servidores OPC UA reais por linha de produção que executam tarefas simuladas e compartilham dados. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md).
+* Um painel **Locais de fábricas** que mostra o status, o local e a configuração atual de produção na solução. Quando você executa a solução pela primeira vez, há vários dispositivos simulados. A simulação de linha de produção é composta de três servidores OPC UA reais por linha de produção que executam tarefas simuladas e compartilham dados. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre a Fábrica Conectada](iot-suite-faq-cf.md).
 * Um **mapa** que exibe o local de cada dispositivo conectado à solução. A solução pode usar a API do Bing Maps para criar gráficos de informações no mapa. Se sua assinatura estiver habilitada para a API do Bing Maps Enterprise, esse recurso será usado automaticamente. Caso contrário, confira as [Perguntas frequentes][lnk-faq] para aprender a fazer o mapa dinâmico.
 * Um painel **Alarmes** que exibe alarmes gerados quando um valor OEE/KPI ou de telemetria excede um limite específico.
 * Um painel **Eficiência Geral de Equipamento** que mostra os valores OEE para toda a empresa ou a fábrica/produção linha/estação que você está exibindo. Esse valor é agregado da exibição de estação para o nível corporativo. A figura de OEE e seus elementos constituintes podem ser mais analisados.
@@ -88,7 +88,7 @@ O painel exibe as seguintes informações:
 
 O painel *Locais de Fábricas* mostra a localização geográfica de todas as fábricas da solução, seus status e a configuração de produção atual. Na lista de locais, você pode navegar para os outros níveis na hierarquia de solução. As linhas na lista são hiperlinks que vinculam os detalhes das linhas de produção nesse local. Em seguida, é possível analisar os detalhes da linha de produção e a exibição de nível de estação. Você também pode aplicar um filtro à lista.
 
-![Fábricas de solução pré-configurada de fábrica conectada][cf-img-factories]
+![Fábricas de acelerador de solução da Fábrica Conectada][cf-img-factories]
 
 1. O **painel Fábrica** mostra a lista de fábricas para essa solução.
 
@@ -106,7 +106,7 @@ O painel *Locais de Fábricas* mostra a localização geográfica de todas as f�
 
 Se sua assinatura tiver acesso à API do Bing Maps, o mapa de *Fábricas* mostrará a localização geográfica e o status de todas as fábricas na solução. Para analisar os detalhes de local, clique nos locais exibidos no mapa.
 
-![Mapa de solução pré-configurada de fábrica conectada][cf-img-map]
+![Mapa de acelerador de solução da Fábrica Conectada][cf-img-map]
 
 ## <a name="view-alarms"></a>Exibir alarmes
 
@@ -121,10 +121,10 @@ Opcionalmente, você pode executar ações mais complexas. Por exemplo, para o n
 * Mitigar a causa do alarme chamando um método de OPC UA no dispositivo.
 * Suprima a disponibilidade das ações padrão.
 
-    ![Alarmes de solução pré-configurada de fábrica conectada][cf-img-alerts]
+    ![Alarmes de acelerador de solução da Fábrica Conectada][cf-img-alerts]
 
 > [!NOTE]
-> Esses alarmes são gerados por regras que são especificadas em um arquivo de configuração da solução pré-configurada. Essas regras podem gerar alarmes quando os valores de OEE ou KPI ou valores de nó de UA OPC excedem o limite configurado.
+> Esses alarmes são gerados por regras que são especificadas em um arquivo de configuração do acelerador de solução. Essas regras podem gerar alarmes quando os valores de OEE ou KPI ou valores de nó de UA OPC excedem o limite configurado.
 
 1. O **Painel de alarmes** mostra os alarmes gerados nesta solução.
 
@@ -138,23 +138,23 @@ Opcionalmente, você pode executar ações mais complexas. Por exemplo, para o n
 
 O OEE classifica a eficiência do processo de fabricação, usando uma chave parâmetros operacionais relacionados à produção. OEE é um padrão de medida do setor calculado multiplicando-se a taxa de disponibilidade, a taxa de desempenho e a taxa de qualidade: OEE = disponibilidade x qualidade x desempenho.
 
-![OEE de solução pré-configurada de fábrica conectada][cf-img-oee]
+![OEE do acelerador de solução da Fábrica Conectada][cf-img-oee]
 
 1. Para exibir o OEE para qualquer nível na hierarquia, navegue até o modo de exibição específico de que você precisa. O OEE para essa exibição é mostrado no painel junto com cada um dos elementos que compõem a porcentagem de OEE.
 
 2. Para analisar melhor o OEE para qualquer nível dos dados da hierarquia, clique na porcentagem de OEE, de disponibilidade, de desempenho ou de qualidade. É exibido um painel de contexto com Informações da Série de Tempo com visualizações que mostra dados da última hora, das últimas 24 horas e dos últimos sete dias.
 
-    ![Visualização de TSI de solução pré-configurada de fábrica conectada][cf-img-tsi-visualization]
+    ![Visualização de TSI do acelerador de solução da Fábrica Conectada][cf-img-tsi-visualization]
 
 3. Para analisar melhor os dados de alarme, clique no grafo no painel de alarme. Essa ação abre o ambiente de explorador Insights de Informações da Série Temporal.
 
-    ![Explorador de TSI de solução pré-configurada de fábrica conectada][cf-img-tsi-explorer]
+    ![TSI explorer do acelerador de solução da Fábrica Conectada][cf-img-tsi-explorer]
 
 ## <a name="view-key-performance-indicators"></a>Exibir Indicadores Chave de Desempenho
 
 A solução fornece dois indicadores-chave de desempenho, *unidades por hora* e *energia usada em kWh*.
 
-![KPI de solução pré-configurada de fábrica conectada][cf-img-kpi]
+![KPI do acelerador de solução da Fábrica Conectada][cf-img-kpi]
 
 1. Para exibir as unidades por hora ou energia usadas para qualquer nível na hierarquia, navegue até o modo de exibição específico de que você precisa. As unidades por hora e energia usadas são exibidas no painel.
 
@@ -166,7 +166,7 @@ Nesse cenário, você monitorou os valores de OEE e KPIs de fábricas no painel.
 
 ## <a name="other-features"></a>Outros recursos
 
-As seções a seguir descrevem alguns recursos adicionais de solução de fábrica conectada que não são descritos no cenário anterior.
+As seções a seguir descrevem alguns recursos adicionais de solução de Fábrica Conectada que não são descritos no cenário anterior.
 
 ## <a name="apply-filters"></a>Aplicar filtros
 
@@ -174,13 +174,13 @@ As seções a seguir descrevem alguns recursos adicionais de solução de fábri
 
 2. O painel de filtros é exibido para você.
 
-    ![Filtros de solução pré-configurados de fábrica conectada][cf-img-alert-filter]
+    ![Filtros do acelerador de solução da Fábrica Conectada][cf-img-alert-filter]
 
 3. Escolha o filtro necessário. Também é possível digitar texto livre nos campos de filtro.
 
 4. O filtro é aplicado para você. O estado do filtro também é mostrado no painel por meio de um funil que é exibido nas tabelas de fábricas e alarmes.
 
-    ![Filtros de solução pré-configurados de fábrica conectada][cf-img-alert-filter-funnel]
+    ![Filtros do acelerador de solução da Fábrica Conectada][cf-img-alert-filter-funnel]
 
     > [!NOTE]
     > Um filtro ativo não afeta os valores OEE e KPI exibidos. Ele apenas filtra o conteúdo da lista.
@@ -189,27 +189,27 @@ As seções a seguir descrevem alguns recursos adicionais de solução de fábri
 
 ## <a name="browse-an-opc-ua-server"></a>Procurar um servidor de OPC UA
 
-Ao implantar a solução pré-configurada, você provisiona automaticamente servidores OPC UA simulados que pode procurar por meio do navegador de solução. Esses servidores são *servidores OPC UA simulados*. Com os servidores simulados, você pode experimentar mais facilmente a solução pré-configurada sem a necessidade de implantar servidores físicos reais. Se deseja conectar um servidor de OPC UA real à solução, confira o tutorial [Conectar seu dispositivo OPC UA à solução pré-configurada de fábrica conectada][lnk-connect-cf].
+Ao implantar o acelerador de solução, você provisiona automaticamente servidores OPC UA simulados que pode procurar por meio do navegador de solução. Esses servidores são *servidores OPC UA simulados*. Com os servidores simulados, você pode experimentar mais facilmente o acelerador de solução sem a necessidade de implantar servidores físicos reais. Se deseja conectar um servidor de OPC UA real à solução, confira o tutorial [Conectar seu dispositivo OPC UA ao acelerador de solução da Fábrica Conectada][lnk-connect-cf].
 
 1. Clique no **ícone do navegador** na barra de navegação do painel.
 
-    ![Navegador de servidor de chamada de solução pré-configurada de fábrica conectada][cf-img-server-browser]
+    ![Navegador do servidor do acelerador de solução da Fábrica Conectada][cf-img-server-browser]
 
-2. Escolha um dos servidores na lista pré-configurada. Esta lista mostra os servidores que são implantados na solução pré-configurada.
+2. Escolha um dos servidores na lista pré-configurada. Esta lista mostra os servidores que são implantados no acelerador de solução.
 
-    ![Seleção de chamada de solução pré-configurada de fábrica conectada][cf-img-server-choice]
+    ![Seleção do servidor do acelerador de solução da Fábrica Conectada][cf-img-server-choice]
 
 3. Clique em **Conectar**. Uma caixa de diálogo de segurança será exibida. Para a simulação, é seguro clicar em **Continuar**
 
 4. Clique em um dos nós na árvore de servidor para expandi-lo. Nós que estão publicando telemetria têm uma marcação ao lado deles.
 
-    ![Árvore de chamada de solução pré-configurada de fábrica conectada][cf-img-server-tree]
+    ![Árvore do servidor do acelerador de solução da Fábrica Conectada][cf-img-server-tree]
 
 5. Clique com o botão direito do mouse em um item para ler, gravar, publicar ou chamar esse nó. As ações disponíveis para você dependem de suas permissões e dos atributos do nó. A opção de leitura exibe um painel de contexto mostrando o valor do nó específico. A opção de gravação exibe um painel de contexto em que você pode inserir um novo valor. A opção de chamada exibe um nó em que você pode inserir os parâmetros para a chamada.
 
 ## <a name="publish-a-node"></a>Publicar um nó
 
-Ao procurar um *servidor OPC UA simulado*, você também pode optar por publicar novos nós. Você pode analisar a telemetria desses nós na solução. Esses *servidores OPC UA simulados* facilitam o teste da solução pré-configurada sem implantar dispositivos físicos reais.
+Ao procurar um *servidor OPC UA simulado*, você também pode optar por publicar novos nós. Você pode analisar a telemetria desses nós na solução. Esses *servidores OPC UA simulados* facilitam o teste do acelerador de solução sem implantar dispositivos físicos reais.
 
 1. Navegue até um nó na árvore do navegador de servidor OPC UA que você deseja publicar.
 
@@ -217,15 +217,15 @@ Ao procurar um *servidor OPC UA simulado*, você também pode optar por publicar
 
 3. Escolha **Publicar**.
 
-    ![A fábrica conectada publica o nó][cf-img-publish-node]
+    ![A Fábrica Conectada publica o nó][cf-img-publish-node]
 
 4. É exibido um painel de contexto que informa que a publicação foi bem-sucedida. O nó aparece na exibição do nível de estação com uma marca de seleção ao lado dele.
 
-    ![Publicação pré-configurada com êxito de fábrica conectada][cf-img-publish-success]
+    ![Publicação pré-configurada com êxito da Fábrica Conectada][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Comando e controle
 
-A fábrica conectada permite que você comande e controle os dispositivos do setor diretamente da nuvem. Você pode usar esse recurso para responder aos alarmes gerados pelo dispositivo. Por exemplo, você pode enviar um comando para o dispositivo da nuvem. Você pode encontrar os comandos disponíveis no nó **StationCommands** na árvore do navegador de servidores OPC UA. Nesse cenário, você abre uma válvula de liberação de pressão na estação de montagem de uma linha de produção em Munique. Para usar a funcionalidade de comando e controle, você deve estar na função de **Administrador** para a implantação da solução pré-configurada.
+A Fábrica Conectada permite que você comande e controle os dispositivos do setor diretamente da nuvem. Você pode usar esse recurso para responder aos alarmes gerados pelo dispositivo. Por exemplo, você pode enviar um comando para o dispositivo da nuvem. Você pode encontrar os comandos disponíveis no nó **StationCommands** na árvore do navegador de servidores OPC UA. Nesse cenário, você abre uma válvula de liberação de pressão na estação de montagem de uma linha de produção em Munique. Para usar a funcionalidade de comando e controle, você deve estar na função de **Administrador** para a implantação do acelerador de solução.
 
 1. Navegue até o **StationCommands** nó na árvore do navegador do servidor UA OPC.
 
@@ -235,39 +235,39 @@ A fábrica conectada permite que você comande e controle os dispositivos do set
 
 4. Escolha **Chamar**.
 
-    ![Comando de chamada de solução pré-configurada de fábrica conectada][cf-img-call-command]
+    ![Comando de chamada do acelerador de solução da Fábrica Conectada][cf-img-call-command]
 
 5. É exibido um painel de contexto que informa o método que você está prestes a chamar e quaisquer detalhes de parâmetros aplicáveis.
 
 6. Escolha **Chamar**.
 
-    ![Contexto de chamada de solução pré-configurada de fábrica conectada][cf-img-call-context]
+    ![Contexto de chamada do acelerador de solução da Fábrica Conectada][cf-img-call-context]
 
 7. O painel de contexto é atualizado para informar que a chamada de método foi bem-sucedida. Você pode verificar se a chamada foi bem-sucedida lendo o valor do nó de pressão atualizado como resultado da chamada.
 
-    ![Sucesso de chamada de solução pré-configurada de fábrica conectada][cf-img-call-success]
+    ![Sucesso de chamada do acelerador de solução da Fábrica Conectada][cf-img-call-success]
 
 ## <a name="behind-the-scenes"></a>Nos bastidores
 
-Ao implantar uma solução pré-configurada, o processo de implantação criará vários recursos na assinatura do Azure que você selecionou. Você pode exibir esses recursos no [portal][lnk-portal] do Azure. O processo de implantação cria um **grupo de recursos** com um nome baseado no nome escolhido para sua solução pré-configurada:
+Ao implantar um acelerador de solução, o processo de implantação criará vários recursos na assinatura do Azure que você selecionou. Você pode exibir esses recursos no [portal][lnk-portal] do Azure. O processo de implantação cria um **grupo de recursos** com um nome baseado no nome escolhido para seu acelerador de solução:
 
-![Solução pré-configurada no portal do Azure][img-cf-portal]
+![Acelerador de solução no portal do Azure][img-cf-portal]
 
 Você pode exibir as configurações de cada recurso selecionando-o na lista de recursos no grupo de recursos.
 
-Você também pode exibir o código-fonte para a solução pré-configurada. O código-fonte da solução pré-configurada de fábrica conectada está no repositório do GitHub [azure-iot-connected-factory][lnk-cfgithub]:
+Você também pode exibir o código-fonte para o acelerador de solução. O código-fonte do acelerador de solução da Fábrica Conectada está no repositório do GitHub [azure-iot-connected-factory][lnk-cfgithub]:
 
-Quando você terminar, poderá excluir a solução pré-configurada de sua assinatura do Azure no site [azureiotsuite.com][lnk-azureiotsuite]. Esse site permite que você exclua facilmente todos os recursos que foram provisionados quando criou a solução pré-configurada.
+Quando você terminar, poderá excluir o acelerador de solução de sua assinatura do Azure no site [azureiotsuite.com][lnk-azureiotsuite]. Esse site permite que você exclua facilmente todos os recursos que foram provisionados quando criou o acelerador de solução.
 
 > [!NOTE]
-> Para garantir que você exclua tudo relacionado à solução pré-configurada, exclua-a no site [azureiotsuite.com][lnk-azureiotsuite]. Não exclua o grupo de recursos no portal.
+> Para garantir que você exclua tudo relacionado ao acelerador de solução, exclua-a no site [azureiotsuite.com][lnk-azureiotsuite]. Não exclua o grupo de recursos no portal.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você implantou uma solução de trabalho pré-configurada, poderá continuar a introdução ao Suite IoT lendo os seguintes artigos:
+Agora que você implantou um acelerador de solução de trabalho, poderá continuar a introdução aos aceleradores de solução IoT lendo os seguintes artigos:
 
-* [Passo a passo de solução pré-configurada de fábrica conectada][lnk-rm-walkthrough]
-* [Conecte o dispositivo à solução pré-configurada de fábrica conectada][lnk-connect-cf]
+* [Passo a passo do acelerador de solução da Fábrica Conectada][lnk-rm-walkthrough]
+* [Conecte o dispositivo ao acelerador de solução da Fábrica Conectada][lnk-connect-cf]
 * [Permissões no site azureiotsuite.com][lnk-permissions]
 
 [img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
@@ -293,7 +293,7 @@ Agora que você implantou uma solução de trabalho pré-configurada, poderá co
 [cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/cf-filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory

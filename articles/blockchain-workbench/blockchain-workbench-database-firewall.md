@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: dc22f212c014ab1d6622eff3491d669b21ca6f47
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: afeea143f73fa4f7d3e373535007846a668616ab
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Configurar o firewall do banco de dados do Azure Blockchain Workbench
 
@@ -57,4 +57,5 @@ Criar uma regra de firewall:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Exibições de banco de dados no Azure Blockchain Workbench](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Exibições de banco de dados no Azure Blockchain Workbench](blockchain-workbench-database-views.md)

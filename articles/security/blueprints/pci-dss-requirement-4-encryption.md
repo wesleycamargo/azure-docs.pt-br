@@ -3,7 +3,7 @@ title: Diagrama de processamento de pagamento do Azure - Requisitos de criptogra
 description: Requisito 4 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 43f75ba9-cb4e-49ab-b3f4-09e48310bc18
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 3eb5b663558c2a68c13368b179ff942dd3c53716
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 6de3290fc2147e3c8ed63642b6e8470093898ef6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="encryption-requirements-for-pci-dss-compliant-environments"></a>Requisitos de criptografia para ambientes em conformidade com o PCI DSS 
 ## <a name="pci-dss-requirement-4"></a>Requisito 4 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Criptografar a transmissão de dados do titular do cartão em redes abertas e públicas**
 
 > [!NOTE]
-> Esses requisitos são definidos pelo [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [Padrão de Segurança de Dados PCI (PCI DSS), Versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Confira o PCI DSS para obter informações sobre os procedimentos de teste e diretrizes para cada requisito.
+> Esses requisitos são definidos pelo [PCI (Payment Card Industry) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [PCI DSS (Padrão de Segurança de Dados PCI), versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Confira o PCI DSS para obter informações sobre os procedimentos de teste e diretrizes para cada requisito.
 
 As informações confidenciais devem ser criptografadas durante a transmissão em redes que sejam facilmente acessadas por pessoas mal-intencionadas. As redes sem fios mal configuradas e vulnerabilidades na criptografia herdada e protocolos de autenticação continuam sendo os alvos de indivíduos mal-intencionados que exploram essas vulnerabilidades para obter acesso privilegiado a ambientes de dados de titulares de cartão.
 
@@ -53,7 +53,7 @@ As informações confidenciais devem ser criptografadas durante a transmissão e
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(Diagrama PCI&#8209;DSS&nbsp;)** | A Contoso Webstore é uma solução PaaS que implanta uma criptografia forte para a implantação seguinte:<br /><br />Para atender aos requisitos de criptografia de dados em repouso, o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) usa o seguinte:<br /><br /><ul><li>[SSE (Criptografia de Serviço de Armazenamento) do Azure para dados em repouso](/azure/storage/storage-service-encryption)</li><li>Banco de Dados SQL: uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>O uso do Azure Key Vault atende aos requisitos de HIPAA, PCI DSS e Azure Governamental.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore é uma solução PaaS que implanta uma criptografia forte para a implantação seguinte:<br /><br />Para atender aos requisitos de criptografia de dados em repouso, o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) usa o seguinte:<br /><br /><ul><li>[SSE (Criptografia de Serviço de Armazenamento) do Azure para dados em repouso](/azure/storage/storage-service-encryption)</li><li>Banco de Dados SQL: uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>O uso do Azure Key Vault atende aos requisitos de HIPAA, PCI DSS e Azure Governamental.|
 
 
 
@@ -66,7 +66,7 @@ As informações confidenciais devem ser criptografadas durante a transmissão e
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(Diagrama PCI&#8209;DSS&nbsp;)** | O acesso sem fios e SNMP não estão implantados na solução.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | O acesso sem fios e SNMP não estão implantados na solução.|
 
 
 
@@ -79,7 +79,7 @@ As informações confidenciais devem ser criptografadas durante a transmissão e
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(Diagrama PCI&#8209;DSS&nbsp;)** | A Contoso Webstore não tem nenhuma solução de mensagens implementada que possa enviar dados de número de conta primária (PAN) desprotegidos.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore não tem nenhuma solução de mensagens implementada que possa enviar dados de número de conta primária (PAN) desprotegidos.|
 
 
 
@@ -92,7 +92,7 @@ As informações confidenciais devem ser criptografadas durante a transmissão e
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(Diagrama PCI&#8209;DSS&nbsp;)** | Os clientes são responsáveis por documentar e criptografar as transmissões que contêm os dados.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por documentar e criptografar as transmissões que contêm os dados.|
 
 
 

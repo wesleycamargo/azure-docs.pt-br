@@ -1,12 +1,12 @@
 ---
-title: "Suporte de SSH para o Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
-description: "Saiba como usar SSH com o Serviço de Aplicativo do Azure no Linux."
-keywords: "serviço de aplicativo do azure, aplicativo web, linux, oss"
+title: Suporte de SSH para o Serviço de Aplicativo do Azure no Linux | Microsoft Docs
+description: Saiba como usar SSH com o Serviço de Aplicativo do Azure no Linux.
+keywords: serviço de aplicativo do azure, aplicativo web, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cf27e852f5ec9b7e12b0c678e9940596bc57b385
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte de SSH para o Serviço de Aplicativo do Azure no Linux
 
@@ -30,6 +30,10 @@ O Serviço de Aplicativo no Linux fornece suporte de SSH no contêiner de aplica
 ![Pilhas de tempo de execução](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
 Você também pode usar SSH com suas imagens personalizadas do Docker incluindo o servidor SSH como parte da imagem e configurando-o conforme descrito neste artigo.
+
+> [!NOTE] 
+> Você também pode se conectar ao contêiner de aplicativo diretamente do seu computador de desenvolvimento local usando SSH, SFTP ou Visual Studio Code (para aplicativos do Node.js de depuração ao vivo). Para obter mais informações, consulte [Depuração remota e SSH no Serviço de Aplicativo no Linux](https://aka.ms/linux-debug).
+>
 
 ## <a name="making-a-client-connection"></a>Estabelecendo uma conexão de cliente
 

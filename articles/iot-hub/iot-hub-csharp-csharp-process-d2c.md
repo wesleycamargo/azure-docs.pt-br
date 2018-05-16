@@ -1,11 +1,11 @@
 ---
 title: Roteamento de mensagens com o Hub IoT do Azure (.Net) | Microsoft Docs
-description: "Como processar mensagens do dispositivo para nuvem do Hub IoT do Azure usando regras de roteamento e pontos de extremidade personalizados para enviar mensagens para outros serviços de back-end."
+description: Como processar mensagens do dispositivo para nuvem do Hub IoT do Azure usando regras de roteamento e pontos de extremidade personalizados para enviar mensagens para outros serviços de back-end.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5177bac9-722f-47ef-8a14-b201142ba4bc
 ms.service: iot-hub
 ms.devlang: csharp
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 4794f81787fd575c34fa8a2ef66431d85dcf4a5d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 84a74a59417d3d1b9ebe0e2ede6c105b6fb3a576
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>Roteamento de mensagens com o Hub IoT (.NET)
 
@@ -214,7 +214,7 @@ Neste tutorial, você aprendeu a expedir confiavelmente mensagens do dispositivo
 
 O tutorial [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT][lnk-c2d] mostra como enviar mensagens da solução de back-end para seus dispositivos.
 
-Para ver exemplos de soluções completas que usam o Hub IoT, veja [Azure IoT Suite][lnk-suite].
+Para ver exemplos de soluções completas que usam o Hub IoT, consulte [Acelerador de solução de Monitoramento Remoto do Azure IoT][lnk-suite].
 
 Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Guia do desenvolvedor do Hub IoT].
 

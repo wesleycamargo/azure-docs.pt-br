@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 6377b79d986d32fba8f84c670d6b69d5eda98b8a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 24d89b617c347bc9443b437c92cb034acb3e05cb
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 Quando você cria uma VM (máquina virtual), reinicia VMs paradas (desalocadas) ou redimensiona uma VM, o Microsoft Azure aloca recursos de computação para sua assinatura. Estamos continuamente investindo em infraestrutura e recursos adicionais para garantir que sempre tenhamos todos os tipos de VM disponíveis para dar suporte à demanda do cliente. No entanto, você pode enfrentar ocasionalmente falhas de alocação de recursos devido ao crescimento sem precedentes da demanda por serviços do Azure em regiões específicas. Esse problema pode ocorrer quando você tenta criar ou iniciar VMs em uma região, enquanto as VMs exibem o seguinte código de erro e a seguinte mensagem:
 
@@ -80,7 +80,7 @@ Se sua solicitação de alocação for grande (mais de 500 núcleos), consulte o
 |----------------------|----------------------------|--------------------|
 |Série Av1|[Série Av2](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Série Dv1 ou DSv1 (D1 a D5)|[Série Dv3 ou DSv3](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Série Dv1 ou DSv1 (D11 a D14)|[Série Ev3 ou ESv3](../articles/virtual-machines/windows/sizes-memory.md#esv3-series-sup1sup)|
+|Série Dv1 ou DSv1 (D11 a D14)|[Série Ev3 ou ESv3](../articles/virtual-machines/windows/sizes-memory.md#ev3-series)|
 |D15v2 ou DS15v2|Se você estiver usando o modelo de implantação do Gerenciador de Recursos para aproveitar as vantagens dos tamanhos de VM maiores, considere a migração para D16v3/DS16v3 ou D32v3/DS32v3. Eles são projetados para execução em hardware de geração mais recente. Se você estiver usando o modelo de implantação do Gerenciador de Recursos para se certificar de que sua instância de VM esteja isolada para o hardware dedicado a um único cliente, considere a migração para os novos tamanhos de VM isolados, E64i_v3 ou E64is_v3, que são projetados para execução em hardware de geração mais recente. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Falhas de alocação para implantações grandes (mais de 500 núcleos)

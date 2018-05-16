@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 05/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2597b434bc6db0d5639709a9ce869462c3e47f56
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Coletar dados de computadores em seu ambiente com o Log Analytics
 
@@ -28,7 +28,7 @@ O Log Analytics do Azure pode coletar e agir sobre dados de computadores Windows
 * Seu data center como servidores físicos ou máquinas virtuais
 * Máquinas virtuais em um serviço hospedado em nuvem como os serviços do Amazon Web Services (AWS)
 
-Computadores hospedados no seu ambiente podem ser conectados diretamente ao Log Analytics, ou se você já estiver monitorando esses computadores com o System Center Operations Manager 2012 R2 ou 2016, você pode integrar seu grupo de gerenciamento Operations Manage com o Logs Analytics e continue mantendo sua estratégia e processos de operações de serviço.  
+Computadores hospedados no seu ambiente podem ser conectados diretamente ao Log Analytics, ou se você já estiver monitorando esses computadores com o System Center Operations Manager 2012 R2, 2016 ou a versão 1801, você pode integrar seu grupo de gerenciamento Operations Manage com o Logs Analytics e continue mantendo deus processos de operações de serviço de TI.  
 
 ## <a name="overview"></a>Visão geral
 
@@ -36,15 +36,11 @@ Computadores hospedados no seu ambiente podem ser conectados diretamente ao Log 
 
 Antes de analisar e atuar em dados coletados, você precisa instalar e conectar agentes para todos os computadores que deseja enviar dados ao serviço do Log Analytics. Você pode instalar agentes nos seus computadores locais usando a Instalação, a linha de comando ou com o DSC (Configuração de Estado Desejado) na Automação do Azure. 
 
-O agente para Linux e Windows se comunica na saída com o serviço Log Analytics na porta TCP 443 e, caso o computador se conecte a um firewall ou servidor proxy para se comunicar pela Internet, examine [Configurando o agente para uso com um servidor proxy ou Gateway do OMS](#configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway) para entender quais alterações de configuração precisarão ser aplicadas. Se você estiver monitorando o computador com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, ele poderá ser multihomed com o serviço Log Analytics para coletar dados e encaminhe para o serviço e ainda ser monitorado pelo [Operations Manager](log-analytics-om-agents.md). Os computadores Linux monitorados por um grupo de gerenciamento do Operations Manager integrado ao Log Analytics não recebem a configuração de fontes de dados e encaminham os dados coletados pelo grupo de gerenciamento. O agente para Windows pode relatar até quatro espaços de trabalho, enquanto o agente do Linux oferece suporte a relatórios somente para um único espaço de trabalho.  
+O agente para Linux e Windows se comunica na saída com o serviço Log Analytics na porta TCP 443 e, caso o computador se conecte a um firewall ou servidor proxy para se comunicar pela Internet, veja a [seção de pré-requisitos](#prerequisites) para entender a configuração de rede necessária.  Se suas políticas de segurança de TI não permitirem que os computadores na rede se conectem à Internet, você poderá configurar um [Gateway OMS](log-analytics-oms-gateway.md) e, em seguida, configurar o agente para se conectar por meio do gateway ao Log Analytics. Assim, o agente pode receber informações de configuração e enviar dados coletados dependendo das regras e soluções de coleta de dados habilitadas. 
 
-O agente para Linux e Windows não é apenas para a conexão com o Log Analytics, também oferece suporte a conexão com a automação do Azure para hospedar a função Hybrid Runbook Worker e soluções de gerenciamento, como o controle de alterações e gerenciamento de atualizações.  Para obter mais informações sobre a função Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Automação do Azure](../automation/automation-offering-get-started.md#automation-architecture-overview).  
+Se você estiver monitorando o computador com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, ele poderá ser multihomed com o serviço Log Analytics para coletar dados e encaminhe para o serviço e ainda ser monitorado pelo [Operations Manager](log-analytics-om-agents.md). Os computadores Linux monitorados por um grupo de gerenciamento do Operations Manager integrado ao Log Analytics não recebem a configuração de fontes de dados e encaminham os dados coletados pelo grupo de gerenciamento. O agente para Windows pode relatar até quatro espaços de trabalho, enquanto o agente do Linux oferece suporte a relatórios somente para um único espaço de trabalho.  
 
-Se suas políticas de segurança não permitem que computadores em sua rede se conectem à Internet, o agente pode ser configurado para se conectar ao Gateway do OMS para receber informações de configuração e enviar os dados coletados dependendo da solução habilitada. Para obter mais informações e etapas sobre como configurar o agente para Linux ou Windows para se comunicar através de um Gateway do OMS ao serviço Log Analytics, consulte [Conectar computadores ao OMS usando o Gateway do OMS](log-analytics-oms-gateway.md). 
-
-> [!NOTE]
-> O agente para Windows dá suporte apenas ao protocolo TLS (Transport Layer Security) 1.0 e 1.1.  
-> 
+O agente para Linux e Windows não serve apenas para a conexão com o Log Analytics, ele também oferece suporte à Automação do Azure para hospedar a função Hybrid Runbook Worker, e soluções de gerenciamento, como o Controle de Alterações e o Gerenciamento de Atualizações.  Para obter mais informações sobre a função Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Automação do Azure](../automation/automation-hybrid-runbook-worker.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 Antes de começar, examine os detalhes a seguir para verificar se você atende aos requisitos mínimos do sistema.
@@ -54,6 +50,9 @@ Há suporte oficial para as seguintes versões do sistema operacional Windows pa
 
 * Windows Server 2008 Service Pack 1 (SP1) ou posterior
 * Windows 7 SP1 e posterior.
+
+> [!NOTE]
+> O agente para Windows dá suporte apenas ao protocolo TLS (Transport Layer Security) 1.0 e 1.1.  
 
 #### <a name="network-configuration"></a>Configuração de rede
 As informações abaixo listam as informações de configuração de proxy e firewall necessárias para que o agente do Windows se comunique com o Log Analytics. O tráfego é de saída da rede para o serviço Log Analytics. 

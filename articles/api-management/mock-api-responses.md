@@ -3,7 +3,7 @@ title: Simular respostas de API com o Portal do Azure | Microsoft Docs
 description: Este tutorial mostra como usar o APIM (Gerenciamento de API) para definir uma política em uma API para que ela retorne uma resposta fictícia. Este método permite que os desenvolvedores prossigam com a implementação e teste da instância de Gerenciamento de API no caso de o back-end não estar disponível para enviar respostas reais.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: f3209edb23577d656e228aa0d75d852f35cd93ef
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4383ce3788f6fade5299d69ef99b80221c58d9e7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="mock-api-responses"></a>Simular respostas de API
 
@@ -50,7 +50,7 @@ As etapas nesta seção mostram como criar uma API em branco sem back-end. Elas 
 3. Selecione **API em Branco** na lista.
 4. Insira "*API de Teste*" para **Nome de exibição**.
 5. Insira "*Ilimitado*" para **Produtos**.
-6. Selecione **Criar**.
+6. Clique em **Criar**.
 
 ## <a name="add-an-operation-to-the-test-api"></a>Adicionar uma operação à API de teste
 
@@ -75,7 +75,7 @@ As etapas nesta seção mostram como criar uma API em branco sem back-end. Elas 
 6. Sob o cabeçalho **Representações** à direita, selecione **+ Adicionar representação**.
 7. Insira "*application/json*" na caixa de pesquisa e selecione o tipo de conteúdo **application/json**.
 8. Na caixa de texto **Exemplo**, digite "*{ 'sampleField' : 'test' }*".
-9. Selecione **Salvar**.
+9. Clique em **Salvar**.
 
 ## <a name="enable-response-mocking"></a>Habilitar a simulação de resposta
 
@@ -85,7 +85,7 @@ As etapas nesta seção mostram como criar uma API em branco sem back-end. Elas 
 3. Na janela **Processamento de entrada**, clique no ícone de lápis.
 4. Na guia **Mocking**, selecione **Respostas estáticas** para **Comportamento do Mocking**.
 5. Na caixa de texto **API Management returns the following response: (O Gerenciamento de API retorna a seguinte resposta:)**, digite **200 OK, application/json**. Essa seleção indica que a sua API deve retornar o exemplo de resposta definido na seção anterior.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="test-the-mocked-api"></a>Testar a API fictícia
 

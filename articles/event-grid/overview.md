@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0be2952dc39064eaf2814806e81f16e882a6a6fe
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à Grade de Eventos do Azure
 
@@ -24,11 +24,15 @@ No momento, a Grade de Eventos oferece suporte às seguintes regiões:
 
 * Sudeste da Ásia
 * Leste da Ásia
+* Leste da Austrália
+* Sudeste da Austrália
 * Centro dos EUA
 *   Leste dos EUA
 *   Leste dos EUA 2
 * Europa Ocidental
 * Norte da Europa
+* Leste do Japão
+* Oeste do Japão
 *   Centro-Oeste dos EUA
 *   Oeste dos EUA
 *   Oeste dos EUA 2
@@ -43,12 +47,15 @@ Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à
 
 * Assinaturas do Azure (operações de gerenciamento)
 * Tópicos personalizados
-* Hubs de evento
+* Hubs de Eventos
 * Hub IoT
+* Serviços de mídia
 * Grupos de recursos (operações de gerenciamento)
 * Barramento de Serviço
 * Blob de Armazenamento
 * Uso geral v2 (GPv2) do Armazenamento
+
+Para obter links para artigos que mostram como usar cada origem de evento, consulte [Origens de evento na Grade de Eventos do Azure](event-sources.md).
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
@@ -56,12 +63,16 @@ Atualmente, os serviços do Azure a seguir dão suporte para manipulação de ev
 
 * Automação do Azure
 * Funções do Azure
-* Hubs de evento
+* Hubs de Eventos
+* Conexões Híbridas
 * Aplicativos Lógicos
 * Microsoft Flow
+* Armazenamento de Filas
 * WebHooks
 
 Ao usar o Azure Functions como o manipulador, use o gatilho Grade de Eventos em vez de gatilhos HTTP genéricos. A Grade de Eventos valida automaticamente os gatilhos de Função da Grade de Eventos. Com os gatilhos HTTP genéricos, você deve implementar a [resposta de validação](security-authentication.md#webhook-event-delivery).
+
+Para obter links para artigos que mostram como usar cada manipulador de evento, consulte [Manipuladores de evento na Grade de Eventos do Azure](event-handlers.md).
 
 ## <a name="concepts"></a>Conceitos
 

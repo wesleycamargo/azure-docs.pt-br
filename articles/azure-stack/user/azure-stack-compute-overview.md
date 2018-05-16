@@ -1,6 +1,6 @@
 ---
-title: "Introdução às máquinas virtuais de pilha do Azure"
-description: "Saiba mais sobre máquinas virtuais de pilha do Azure"
+title: Introdução às máquinas virtuais do Azure Stack
+description: Saiba mais sobre máquinas virtuais de pilha do Azure
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -8,41 +8,41 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="introduction-to-azure-stack-virtual-machines"></a>Introdução às máquinas virtuais de pilha do Azure
+# <a name="introduction-to-azure-stack-virtual-machines"></a>Introdução às máquinas virtuais do Azure Stack
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
 ## <a name="overview"></a>Visão geral
-Uma pilha de máquina Virtual (VM) do Azure é um tipo de recurso de computação sob demanda e escalonável que oferece pilha do Azure. Normalmente, você escolhe uma VM quando precisar de mais controle sobre o ambiente de computação do que as outras opções oferecem. Este artigo fornece informações sobre o que você deve considerar antes de criar uma VM, como criá-la e como gerenciá-la.
+Uma pilha de máquina Virtual (VM) do Azure é um tipo de um recurso de computação sob demanda e dimensionável oferece pilha do Azure. Normalmente, você escolhe uma VM quando precisar de mais controle sobre o ambiente de computação do que as outras opções oferecem. Este artigo fornece informações sobre o que você deve considerar antes de criar uma VM, como criá-la e como gerenciá-la.
 
-Uma VM de pilha do Azure oferece a flexibilidade da virtualização sem a necessidade de gerenciar clusters individuais ou máquinas. No entanto, você ainda precisa manter a VM executando tarefas, como configurar, corrigir e instalar o software que será executado nela.
+Uma VM de pilha do Azure oferece a flexibilidade da virtualização sem a necessidade de gerenciar clusters ou máquinas individuais. No entanto, você ainda precisa manter a VM, executando tarefas como configurar a aplicação de patch e instalar o software que será executado nele.
 
-Máquinas de virtuais de pilha do Azure pode ser usadas de várias maneiras. Por exemplo: 
+Você pode usar máquinas virtuais de pilha do Azure de várias maneiras. Por exemplo: 
 
 * **Desenvolvimento e teste** – VMs de pilha do Azure oferecem uma rápida e a maneira fácil de criar um computador com uma configuração específica necessária para codificar e testar um aplicativo.
 
 * **Aplicativos na nuvem** – porque a demanda para o seu aplicativo pode flutuar, pode fazer sentido econômico para executá-lo em uma VM na pilha do Azure. Você paga por VMs extras quando precisa delas e as desliga quando não são necessárias.
 
-* **Estendido datacenter** – máquinas virtuais em uma rede virtual do Azure pilha pode ser conectado facilmente a rede de sua organização ou do Azure.
+* **Estendido datacenter** – máquinas virtuais em uma rede virtual do Azure pilha facilmente pode ser conectado à rede da sua organização ou para o Azure.
 
-O número de VMs que o aplicativo usa pode ser escalado verticalmente e horizontalmente para atender às suas necessidades.
+As VMs que o aplicativo usa pode aumentar ou expandir para tudo o que é necessário para atender às suas necessidades.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>O que é necessário pensar antes de criar uma VM?
 
-Sempre há uma grande quantidade de considerações de design quando você cria uma infraestrutura de aplicativo na pilha do Azure. Estes aspectos de uma VM são importantes a considerar antes de começar:
+Sempre há várias considerações de design quando você cria uma infraestrutura de aplicativo na pilha do Azure. Esses aspectos de uma VM são importantes a considerar antes de começar a criar sua infraestrutura:
 
-- Os nomes dos recursos do aplicativo
-- O tamanho da VM
-- O número máximo de VMs que podem ser criadas
-- O sistema operacional que a VM executa
-- A configuração da VM após ela ser iniciada 
-- Os recursos relacionados dos quais a VM precisa
+* Os nomes de recursos do aplicativo.
+* O tamanho da VM.
+* O número máximo de máquinas virtuais que podem ser criadas.
+* O sistema operacional que executa a VM.
+* A configuração da VM após ele ser iniciado.
+* Os recursos relacionados a VM precisa.
 
 ### <a name="naming"></a>Nomenclatura
 
@@ -61,10 +61,9 @@ Sua assinatura tem limites de cota padrão que podem afetar a implantação de v
 ### <a name="operating-system-disks-and-images"></a>Imagens e discos de sistema operacional
 
 As máquinas virtuais usam discos rígidos virtuais (VHDs) para armazenar seus dados e sistema operacional (SO). Os VHDs também são usados para as imagens que você pode optar por instalar um sistema operacional.
-A pilha do Azure fornece um marketplace a ser usado com vários tipos de sistemas operacionais e versões. As imagens do Marketplace são identificadas por editor de imagem, oferta, sku e versão (normalmente, a versão é especificada como a versão mais recente).
+A pilha do Azure fornece um marketplace a ser usado com vários tipos de sistemas operacionais e versões. Imagens do Marketplace são identificadas pelo editor de imagem, oferta, sku e versão (normalmente versão é especificada como a versão mais recente.)
 
 A tabela a seguir mostra algumas maneiras que você pode encontrar as informações de uma imagem:
-
 
 |Método|DESCRIÇÃO|
 |---------|---------|
@@ -112,7 +111,12 @@ A tabela a seguir fornece informações para ajudá-lo a iniciar a criação de 
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>Como gerenciar a VM que criei?
 
-As VMs podem ser gerenciadas usando um portal baseado em navegador, ferramentas de linha de comando com suporte para scripts ou diretamente por meio de APIs. Algumas tarefas de gerenciamento típicas que você pode realizar são obter informações sobre uma VM, fazer logon em uma VM, gerenciar a disponibilidade e realizar backups.
+Você pode gerenciar máquinas virtuais usando um portal baseado em navegador, ferramentas de linha de comando com suporte para scripts ou diretamente por meio de APIs. Algumas tarefas típicas de gerenciamento que você pode executar são:
+
+* Obtendo informações sobre uma máquina virtual
+* Conectar-se a uma máquina virtual
+* Gerenciar a disponibilidade
+* Realização de backups
 
 ### <a name="get-information-about-a-vm"></a>Obter informações sobre uma VM
 
@@ -130,5 +134,5 @@ A tabela a seguir mostra algumas das maneiras como você pode obter informaçõe
 Você pode usar o **conectar** botão no portal de pilha do Azure para conectar-se à VM.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Considerações para máquinas virtuais na pilha do Azure](azure-stack-vm-considerations.md)
 
+* [Considerações para máquinas virtuais na pilha do Azure](azure-stack-vm-considerations.md)

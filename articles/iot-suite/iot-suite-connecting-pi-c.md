@@ -1,6 +1,6 @@
 ---
 title: Provisionar o Raspberry Pi para monitoramento remoto usando C – Azure | Microsoft Docs
-description: Descreve como conectar um dispositivo Raspberry Pi à solução de monitoramento remoto pré-configurada Azure IoT Suite usando um aplicativo escrito em C.
+description: Descreve como conectar um dispositivo Raspberry Pi ao acelerador de solução de Monitoramento Remoto usando um aplicativo escrito em C.
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: e3fb95bc5084bb633541f70a5e68cc8d6af83298
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9de7616ec7174f6c55888a659e9a12bca1e07f94
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Conectar o dispositivo Raspberry Pi à solução de monitoramento remoto pré-configurada (C)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Conecte seu dispositivo Raspberry Pi ao acelerador de solução de monitoramento remoto (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial mostra como conectar um dispositivo físico à solução de monitoramento remoto pré-configurada. Assim como acontece com a maioria dos aplicativos inseridos que são executados em dispositivos restritos, o código do cliente do aplicativo do dispositivo Raspberry Pi é escrito em C. Neste tutorial, você cria o aplicativo em um Raspberry Pi executando o sistema operacional Raspbian.
+Este tutorial mostra como conectar um dispositivo físico ao acelerador de solução de monitoramento remoto. Assim como acontece com a maioria dos aplicativos inseridos que são executados em dispositivos restritos, o código do cliente do aplicativo do dispositivo Raspberry Pi é escrito em C. Neste tutorial, você cria o aplicativo em um Raspberry Pi executando o sistema operacional Raspbian.
 
 ### <a name="required-hardware"></a>Requisitos de hardware
 
@@ -49,7 +49,7 @@ Um computador desktop para que você possa se conectar remotamente à linha de c
 
 Este artigo pressupõe que você tenha instalado a versão mais recente do [Raspbian SO em seu Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
 
-As etapas a seguir mostram como preparar seu Raspberry Pi para criar um aplicativo C que se conecta à solução pré-configurada:
+As etapas a seguir mostram como preparar seu Raspberry Pi para criar um aplicativo C que se conecta ao acelerador de solução:
 
 1. Conecte-se ao seu Raspberry Pi usando **ssh**. Para obter mais informações, consulte [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) no [site do Raspberry Pi](https://www.raspberrypi.org/).
 
@@ -174,16 +174,17 @@ As etapas a seguir descrevem como usar *CMake* para compilar o aplicativo client
     add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
 
     target_link_libraries(sample_app
-        serializer
-        iothub_client
-        iothub_client_mqtt_transport
-        aziotsharedutil
-        umqtt
-        pthread
-        curl
-        ssl
-        crypto
-        m
+      serializer
+      iothub_client_mqtt_transport
+      umqtt
+      iothub_client
+      aziotsharedutil
+      parson
+      pthread
+      curl
+      ssl
+      crypto
+      m
     )
     ```
 

@@ -9,21 +9,32 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: e30943426ad68171e1464f828a9c8672b06c975a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Novidades do Azure Machine Learning
 
-Neste artigo, saiba mais sobre as novas versões do [Serviços do Azure Machine Learning](../service/overview-what-is-azure-ml.md). 
+Neste artigo, saiba mais sobre as novas versões do [Azure Machine Learning](../service/overview-what-is-azure-ml.md). 
+
+
+## <a name="2018-05-sprint-5"></a>2018-05 (Sprint 5)
+
+Com esta versão do Azure Machine Learning, você pode:
++ Apresentar imagens com uma versão quantificada de ResNet 50, treinar um classificador com base nesses recursos e [implantar esse modelo em um FPGA no Azure](../service/how-to-deploy-fpga-web-service.md) para uma inferência de latência extremamente baixa.
+
++ Criar e implantar rapidamente o aprendizado de máquina altamente preciso e modelos de aprendizado avançado usando [Pacotes personalizados do Azure Machine Learning](../service/reference-python-package-overview.md) para os domínios a seguir:
+  + [Visual computacional](../service/how-to-build-deploy-image-classification-models.md)
+  + [Análise de texto](../service/how-to-build-deploy-text-classification-models.md)
+  + [Previsão](../service/how-to-build-deploy-forecast-models.md)
 
 ## <a name="2018-03-sprint-4"></a>2018-03 (Sprint 4)
 **Número de versão**:  0.1.1801.24353 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([localizar sua versão](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
-Bem-vindo à quinta atualização do Azure Machine Learning Workbench. Muitas das atualizações a seguir foram feitas como resultado direto de seus comentários. Continue enviando-os!
+Muitas das atualizações a seguir foram feitas como resultado direto de seus comentários. Continue enviando-os!
 
 **Alterações e novos recursos importantes**
 

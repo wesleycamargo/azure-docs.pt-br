@@ -13,16 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/11/2018
 ms.author: jeffgo
-ms.openlocfilehash: d7b79962822dcfec96c7087100b1537d8046ab46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 524c3b3b86e43b56e1d1f2a1653bdf7b82061022
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Preparar uma máquina virtual com base em Red Hat pilha do Azure
 Neste artigo, você aprenderá como preparar uma máquina virtual de Red Hat Enterprise Linux (RHEL) para uso na pilha do Azure. As versões do RHEL que são abordadas neste artigo são 7.1 +. Neste artigo, abordamos os seguintes hipervisores de preparação: Hyper-V, máquina virtual baseada em kernel (KVM) e VMware.
+
+Para obter informações de suporte do Red Hat Enterprise Linux, consulte [Red Hat e o Azure pilha: perguntas frequentes sobre](https://access.redhat.com/articles/3413531).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparar uma máquina virtual baseada em Red Hat a partir do Gerenciador do Hyper-V
 

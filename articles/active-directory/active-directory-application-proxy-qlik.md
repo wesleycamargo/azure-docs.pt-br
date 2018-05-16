@@ -12,11 +12,11 @@ ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e10fefdd3bd46aeb90fd2cfc82d4fee3b17d867b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ab029420ab9aa81b585c9b0315537bff2d9aaa6d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de Aplicativo e Qlik Sense 
 O Proxy de Aplicativo do Azure Active Directory e a Qlik Sense fizeram uma parceria para garantir que você possa facilmente usar o Proxy de Aplicativo para fornecer acesso remoto para sua implantação do Qlik Sense.  
@@ -25,13 +25,13 @@ O Proxy de Aplicativo do Azure Active Directory e a Qlik Sense fizeram uma parce
 O restante deste cenário pressupõe que você tenha feito o seguinte:
  
 - Configurado o [Qlik Sense](https://community.qlik.com/docs/DOC-19822). 
-- [Instalado um conector de Proxy de Aplicativo](active-directory-application-proxy-enable.md#install-and-register-a-connector) 
+- [Instalado um conector de Proxy de Aplicativo](manage-apps/application-proxy-enable.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Publicar seus aplicativos no Azure 
 Para publicar o QlikSense, você precisará publicar dois aplicativos no Azure.  
 
 ### <a name="application-1"></a>Aplicativo nº 1: 
-Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detalhado das etapas 1 a 8, veja [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-publish-azure-portal.md). 
+Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detalhado das etapas 1 a 8, veja [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](manage-apps/application-proxy-publish-azure-portal.md). 
 
 
 1. Entre no Portal do Azure como um administrador global. 
@@ -44,7 +44,7 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
 1.       Selecione **Adicionar** na parte inferior da folha. Seu aplicativo é adicionado e abre o menu de início rápido. 
 2.       No menu de início rápido, selecione **Atribuir um usuário para teste** e adicione pelo menos um usuário para o aplicativo. Verifique se essa conta de teste tem acesso ao aplicativo local. 
 3.       Selecione **Atribuir** para salvar a atribuição do usuário de teste. 
-4.       (Opcional) Na folha de gerenciamento do aplicativo, selecione Logon único. Escolha **Delegação restrita de Kerberos** no menu suspenso e preencha os campos obrigatórios, com base na sua configuração do Qlik. Selecione **Salvar**. 
+4.       (Opcional) Na folha de gerenciamento do aplicativo, selecione Logon único. Escolha **Delegação restrita de Kerberos** no menu suspenso e preencha os campos obrigatórios, com base na sua configuração do Qlik. Clique em **Salvar**. 
 
 ### <a name="application-2"></a>Aplicativo nº 2: 
 Siga as mesmas etapas do aplicativo nº 1, com as seguintes exceções: 
@@ -58,5 +58,5 @@ Seu aplicativo agora está pronto para teste. Acesse a URL externa usada para pu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Publique aplicativos com proxy de aplicativo](application-proxy-publish-azure-portal.md)
-- [Trabalhar com conectores de Proxy de Aplicativo](active-directory-application-proxy-connectors-azure-portal.md).
+- [Publique aplicativos com proxy de aplicativo](manage-apps/application-proxy-publish-azure-portal.md)
+- [Trabalhar com conectores de Proxy de Aplicativo](manage-apps/application-proxy-connector-groups.md).

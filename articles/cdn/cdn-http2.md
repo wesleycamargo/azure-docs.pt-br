@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: a58ab1165f3886484fb695170100422c2f1b0486
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b4751320af82a29fb13dc6012c1b197ebc2b1f9b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="http2-support-in-azure-cdn"></a>Suporte a HTTP/2 na CDN do Azure
 
@@ -29,7 +29,7 @@ Os benefícios do HTTP/2 incluem:
 
 *   **Multiplexação e simultaneidade**
 
-    Usando o HTTP 1.1, fazer várias solicitações de recursos requer várias conexões TCP, sendo que cada conexão tem uma sobrecarga de desempenho associada a ela. O HTTP/2 permite que vários recursos sejam solicitados em uma única conexão TCP.
+    Usando o HTTP 1.1, fazer solicitações de recursos requer várias conexões TCP, sendo que cada conexão tem uma sobrecarga de desempenho associada a ela. O HTTP/2 permite que vários recursos sejam solicitados em uma única conexão TCP.
 
 *   **Compactação de cabeçalho**
 
@@ -42,7 +42,7 @@ Os benefícios do HTTP/2 incluem:
 
 ## <a name="http2-browser-support"></a>Suporte a Navegador HTTP/2
 
-Todos os principais navegadores implementaram o suporte a HTTP/2 em suas versões atuais. O fallback de navegadores sem suporte para HTTP/1.1 ocorrerá automaticamente.
+Todos os principais navegadores implementaram o suporte a HTTP/2 em suas versões atuais. O fallback de navegadores sem suporte para HTTP/1.1 ocorre automaticamente.
 
 |Navegador|Versão Mínima|
 |-------------|------------|
@@ -54,7 +54,7 @@ Todos os principais navegadores implementaram o suporte a HTTP/2 em suas versõe
 
 ## <a name="enabling-http2-support-in-azure-cdn"></a>Habilitar o Suporte a HTTP/2 na CDN do Azure
 
-No momento, o suporte a HTTP/2 está ativo para os perfis **CDN do Azure do Akamai** e **CDN do Azure da Verizon**. Nenhuma ação adicional dos clientes é necessária.
+No momento, o suporte a HTTP/2 está ativo para todos os perfis de CDN do Azure. Nenhuma ação adicional dos clientes é necessária.
 
 ## <a name="next-steps"></a>Próximas etapas
 

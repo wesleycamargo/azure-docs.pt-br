@@ -1,74 +1,74 @@
 ---
-title: "Solucionar problemas de dispositivos na solução de monitoramento remoto – Azure | Microsoft Docs"
-description: "Este tutorial mostra como solucionar e corrigir problemas de dispositivo na solução de monitoramento remoto."
-services: 
+title: Solucionar problemas de dispositivos na solução de monitoramento remoto – Azure | Microsoft Docs
+description: Este tutorial mostra como solucionar e corrigir problemas de dispositivo na solução de monitoramento remoto.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: a959276ea61ec0e44ad45197019dfc80f26b768e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Solucionar e corrigir problemas de dispositivo
 
 Este tutorial mostra como usar a página **Manutenção** na solução para solucionar e corrigir problemas de dispositivo. Para apresentar esses recursos, o tutorial usa um cenário no aplicativo Contoso IoT.
 
-A Contoso está testando um novo dispositivo **Protótipo** em campo. Como um operador da Contoso, você observa durante o teste que o dispositivo **Protótipo** está disparando um alarme de temperatura no painel inesperadamente. Agora será necessário investigar o comportamento deste dispositivo **Protótipo** com falha.
+A Contoso está testando um novo dispositivo **Protótipo** em campo. Como operador da Contoso, você percebeu durante o teste que o dispositivo **Protótipo** está disparando inesperadamente um alerta de temperatura no painel. Agora será necessário investigar o comportamento deste dispositivo **Protótipo** com falha.
 
 Neste tutorial, você aprenderá como:
 
 >[!div class="checklist"]
-> * Usar a página **Manutenção** para investigar o alarme
+> * Usar a página **Manutenção** para investigar o alerta
 > * Chamar um método de dispositivo para corrigir o problema
 
 ## <a name="prerequisites"></a>pré-requisitos
 
 Para seguir este tutorial, você precisará de uma instância implantada de solução de monitoramento remoto na sua assinatura do Azure.
 
-Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) (Implantar a solução de monitoramento remoto pré-configurada).
+Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Implantar o acelerador de solução de monitoramento remoto](iot-suite-remote-monitoring-deploy.md).
 
 ## <a name="use-the-maintenance-dashboard"></a>Usar o painel de manutenção
 
-Na página **Painel**, você perceberá que há alarmes de temperatura inesperados provenientes da regra associada aos dispositivos **Protótipos**:
+Na página **Painel**, você perceberá que há alertas de temperatura inesperados provenientes da regra associada aos dispositivos **Protótipos**:
 
-![Alarmes mostrados no painel](media/iot-suite-remote-monitoring-maintain/dashboardalarm.png)
+![Alertas mostrados no painel](media/iot-suite-remote-monitoring-maintain/dashboardalarm.png)
 
-Para investigar o problema, escolha a opção **Explorar alarme** ao lado de alarme:
+Para investigar o problema, escolha a opção **Explorar alerta** ao lado do alerta:
 
-![Explorar o alarme no painel](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
+![Explorar o alerta no painel](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-A exibição de detalhes do alarme mostra:
+A exibição de detalhes do alerta mostra:
 
-* Quando o alarme foi disparado
-* Informações de status sobre os dispositivos associados ao alarme
-* Telemetria dos dispositivos associados ao alarme
+* Quando o alerta foi disparado
+* Informações de status sobre os dispositivos associados ao alerta
+* Telemetria dos dispositivos associados ao alerta
 
-![Detalhes do alarme](media/iot-suite-remote-monitoring-maintain/maintenancealarmdetail.png)
+![Detalhes do Alerta](media/iot-suite-remote-monitoring-maintain/maintenancealarmdetail.png)
 
-Para reconhecer o alarme, selecione as **Ocorrências do alarme** e escolha **Reconhecer**. Essa ação permite que os outros operadores saibam que você viu o alarme e está trabalhando nele.
+Para reconhecer o alerta, selecione as **Ocorrências do alerta** e escolha **Reconhecer**. Essa ação permite que os outros operadores saibam que você viu o alerta e está trabalhando nele.
 
-![Reconhecer os alarmes](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
+![Reconhecer os alertas](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
-Quando você confirma o alarme, o status da ocorrência altera para **Confirmado**.
+Quando você confirma o alerta, o status da ocorrência altera para **Confirmado**.
 
-Na lista, é possível ver o dispositivo **Protótipo** responsável por disparar o alarme de temperatura:
+Na lista, é possível ver o dispositivo **Protótipo** responsável por disparar o alerta de temperatura:
 
-![Lista dos dispositivos que estão causando o alarme](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
+![Lista dos dispositivos que estão causando o alerta](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
 
 ## <a name="remediate-the-issue"></a>Corrigir o problema
 
 Para corrigir o problema do dispositivo **Protótipo**, será necessário chamar o método **DecreaseTemperature** no dispositivo.
 
-Para agir em um dispositivo, selecione-o na lista de dispositivos e, em seguida, escolha **Agendar**. O modelo de dispositivo **Protótipo** especifica quatro métodos que precisam ter suporte em um dispositivo:
+Para agir em um dispositivo, selecione-o na lista de dispositivos e, em seguida, escolha **Trabalhos**. O modelo de dispositivo **Protótipo** especifica seis métodos que precisam ter suporte em um dispositivo:
 
 ![Exibir os métodos com suporte no dispositivo](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -90,7 +90,7 @@ Neste tutorial, você aprendeu como:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Usar a página **Manutenção** para investigar o alarme
+> * Usar a página **Manutenção** para investigar o alerta
 > * Chamar um método de dispositivo para corrigir o problema
 
 Agora que você aprendeu como gerenciar problemas de dispositivo, a próxima etapa sugerida é saber como [Testar sua solução com dispositivos simulados](iot-suite-remote-monitoring-test.md).

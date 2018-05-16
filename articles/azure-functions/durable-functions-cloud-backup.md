@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4e7b7b6af1f41eb0077d8a8605eb2a553c251f8e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Cenário de fan-out/fan-in nas Funções Duráveis – Exemplo de backup em nuvem
 
@@ -57,7 +57,13 @@ A função `E2_BackupSiteContent` usa o *function.json* padrão para funções d
 
 Este é o código que implementa a função de orquestrador:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
 Essa função de orquestrador faz, essencialmente, o seguinte:
 
@@ -67,9 +73,11 @@ Essa função de orquestrador faz, essencialmente, o seguinte:
 4. Aguarda que todos os uploads sejam concluídos.
 5. Retorna o total de bytes que foram carregados no Armazenamento de Blobs do Azure.
 
-Observe a linha `await Task.WhenAll(tasks);`. As chamadas para a função `E2_CopyFileToBlob` *não* foram esperadas. Isso é intencional, para permitir que sejam executadas em paralelo. Quando passamos essa matriz de tarefas para `Task.WhenAll`, obtemos uma tarefa que não será concluída *até que todas as operações de cópia tenham sido concluídas*. Se você estiver familiarizado com a TPL (biblioteca de paralelismo de tarefas) no .NET, isso não é novidade para você. A diferença é que essas tarefas poderiam ser executadas simultaneamente em várias VMs e a extensão Funções Duráveis assegura que a execução de ponta a ponta seja resiliente em caso de reciclagem do processo.
+Observe a linha `await Task.WhenAll(tasks);` (C#) e `yield context.df.Task.all(tasks);` (JS). As chamadas para a função `E2_CopyFileToBlob` *não* foram esperadas. Isso é intencional, para permitir que sejam executadas em paralelo. Quando passamos essa matriz de tarefas para `Task.WhenAll`, obtemos uma tarefa que não será concluída *até que todas as operações de cópia tenham sido concluídas*. Se você estiver familiarizado com a TPL (biblioteca de paralelismo de tarefas) no .NET, isso não é novidade para você. A diferença é que essas tarefas poderiam ser executadas simultaneamente em várias VMs e a extensão Funções Duráveis assegura que a execução de ponta a ponta seja resiliente em caso de reciclagem do processo.
 
-Depois de aguardar `Task.WhenAll`, sabemos que todas as chamadas de função foram concluídas e retornaram valores para nós. Cada chamada para `E2_CopyFileToBlob` retorna o número de bytes carregados, de forma que calcular a contagem total de bytes é uma questão de adicionar todos esses valores retornados.
+Tarefas são muito semelhantes ao conceito de promessas JavaScript. No entanto, `Promise.all` tem algumas diferenças de `Task.WhenAll`. O conceito de `Task.WhenAll` foram migradas como parte do módulo de JavaScript `durable-functions` e é exclusivo dele.
+
+Depois de aguardar `Task.WhenAll` (ou resultante de `context.df.Task.all`), sabemos que todas as chamadas de função foram concluídas e retornaram valores para nós. Cada chamada para `E2_CopyFileToBlob` retorna o número de bytes carregados, de forma que calcular a contagem total de bytes é uma questão de adicionar todos esses valores retornados.
 
 ## <a name="helper-activity-functions"></a>Funções de atividade auxiliares
 
@@ -79,7 +87,15 @@ Funções de atividade auxiliares, assim como ocorre com os outros exemplos, sã
 
 E esta é a implementação:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
+
+A implementação em JavaScript de `E2_GetFileList` usa o módulo `readdirp` para recursivamente ler a estrutura de diretório.
 
 > [!NOTE]
 > Você deve estar se perguntando por que você não poderia simplesmente colocar esse código diretamente na função de orquestrador. Você poderia, mas isso violaria uma das regras fundamentais das funções de orquestrador, de que elas nunca devem executar E/S, incluindo no caso de acesso ao sistema de arquivos local.
@@ -88,9 +104,17 @@ O arquivo *function.json* para `E2_CopyFileToBlob` também é simples:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-A implementação também é bastante simples. Ela usa alguns recursos avançados das associações do Azure Functions (ou seja, o uso do parâmetro `Binder`), mas você não precisa se preocupar com esses detalhes no contexto deste passo a passo.
+A implementação de C# também é bastante simples. Ela usa alguns recursos avançados das associações do Azure Functions (ou seja, o uso do parâmetro `Binder`), mas você não precisa se preocupar com esses detalhes no contexto deste passo a passo.
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+A implementação de JavaScript não tem acesso ao recurso `Binder` do Azure Functions, assim a [SDK de Armazenamento do Azure para o Nó](https://github.com/Azure/azure-storage-node) entra em seu lugar. Observe que o SDK requer uma configuração do aplicativo `AZURE_STORAGE_CONNECTION_STRING`.
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
 A implementação carrega o arquivo no disco e transmite de forma assíncrona o conteúdo para um blob de mesmo nome no contêiner "backups". O valor retornado é o número de bytes copiados para o armazenamento, que é usado pela função de orquestrador para calcular a soma agregada.
 

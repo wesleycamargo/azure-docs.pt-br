@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 140779ca1786bc9fa2afcfd08fdac0857580e8cf
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressão e funções no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -215,7 +215,7 @@ No exemplo a seguir, o pipeline usa os parâmetros **inputPath** e **outputPath*
 |-------------------|-----------------|  
 |int|Converta o parâmetro em um inteiro. Por exemplo, a expressão a seguir retorna 100 como um número, em vez de como uma cadeia de caracteres: `int('100')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Valor<br /><br /> **Descrição**: Obrigatório. O valor que é convertido em um inteiro.|  
 |string|Converta o parâmetro em uma cadeia de caracteres. Por exemplo, a expressão a seguir retorna `'10'`: `string(10)`. Você também pode converter um objeto em uma cadeia de caracteres, por exemplo, se o parâmetro **foo** for um objeto com uma propriedade `bar : baz`, o seguinte retornará `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Valor<br /><br /> **Descrição**: Obrigatório. O valor que é convertido em uma cadeia de caracteres.|  
-|json|Converter o parâmetro para um valor de tipo JSON. É o oposto de cadeia de caracteres(). Por exemplo, a expressão a seguir retorna `[1,2,3]` como uma matriz, em vez de uma cadeia de caracteres:<br /><br /> `parse('[1,2,3]')`<br /><br /> Da mesma forma, você pode converter uma cadeia de caracteres em um objeto. Por exemplo, `json('{"bar" : "baz"}')` retorna:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Cadeia de caracteres<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres que é convertida em um valor de tipo nativo.<br /><br /> A função json dá suporte a entrada xml também. Por exemplo, o valor do parâmetro de:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> é convertido para o json a seguir:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|json|Converter o parâmetro para um valor de tipo JSON. É o oposto de cadeia de caracteres(). Por exemplo, a expressão a seguir retorna `[1,2,3]` como uma matriz, em vez de uma cadeia de caracteres:<br /><br /> `json('[1,2,3]')`<br /><br /> Da mesma forma, você pode converter uma cadeia de caracteres em um objeto. Por exemplo, `json('{"bar" : "baz"}')` retorna:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Cadeia de caracteres<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres que é convertida em um valor de tipo nativo.<br /><br /> A função json dá suporte a entrada xml também. Por exemplo, o valor do parâmetro de:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> é convertido para o json a seguir:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |flutuante|Converte o argumento do parâmetro para um número de ponto flutuante. Por exemplo, a expressão a seguir retorna `10.333`: `float('10.333')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Valor<br /><br /> **Descrição**: Obrigatório. O valor é convertido em um número de ponto flutuante.|  
 |bool|Converte o parâmetro em um booliano. Por exemplo, a expressão a seguir retorna `false`: `bool(0)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Valor<br /><br /> **Descrição**: Obrigatório. O valor que é convertido em um booliano.|  
 |coalesce|Retorna o primeiro objeto não nulos nos argumentos passados. Observação: uma cadeia de caracteres vazia não é nula. Por exemplo, se os parâmetros 1 e 2 não forem definidos, isso retornará `fallback`: `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Número do parâmetro**: 1 ... *n*<br /><br /> **Nome**: Objeto*n*<br /><br /> **Descrição**: Obrigatório. Os objetos a serem verificados em relação a `null`.|  

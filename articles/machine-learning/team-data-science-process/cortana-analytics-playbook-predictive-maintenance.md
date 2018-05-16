@@ -1,8 +1,8 @@
 ---
-title: "Manutenção preditiva no setor aeroespacial com o Azure - Modelo de solução de Cortana Intelligence | Microsoft Docs"
-description: "Modelo de Solução com o Microsoft Cortana Intelligence para a manutenção preditiva no setor aeroespacial, de serviços públicos e de transporte."
+title: Guia estratégico de IA do Azure para soluções de manutenção preditiva | Microsoft Docs
+description: Uma descrição completa da ciência de dados que oferece soluções de manutenção preditiva em vários setores verticais.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/01/2018
 ms.author: fboylu
-ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad06617fb8c14928dca7d9ce18ad86190e8255fe
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia Estratégico do Modelo de Solução do Cortana Intelligence para a manutenção preditiva no setor aeroespacial e outras indústrias.
+# <a name="azure-ai-playbook-for-predictive-maintenance-solutions"></a>Guia estratégico de IA do Azure para soluções de manutenção preditiva 
 ## <a name="executive-summary"></a>Resumo executivo
 A manutenção preditiva é um dos usos mais exigidos de análise preditiva, com vantagens indiscutíveis, além de uma grande economia de custos. Este manual tem como objetivo fornecer uma referência para soluções de manutenção preditiva com ênfase em casos de uso importantes.
 Ele está preparado para fornecer ao leitor um entendimento dos cenários mais comuns de manutenção preditiva, dos desafios de qualificar os problemas de negócios para essas soluções, dos dados necessários para resolver esses problemas de negócios, das técnicas de modelagem preditiva para criar soluções que usam esses dados e práticas recomendadas com arquiteturas de solução de exemplo.

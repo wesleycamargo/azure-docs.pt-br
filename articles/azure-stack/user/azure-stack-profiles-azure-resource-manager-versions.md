@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 54de948597a5eddfcc808371c61e36d45089abc4
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões de API do provedor de recursos com suporte por perfis na pilha do Azure
 
@@ -30,7 +30,7 @@ O perfil de API usa convenções de nomenclatura de três:
 
 Para obter uma explicação de perfis de API e cadência de lançamento de versão para a pilha do Azure, consulte [perfis de versão de API de gerenciamento na pilha do Azure](azure-stack-version-profiles.md).
 
-> [!note]  
+> [!Note]  
 > O **mais recente** API perfil contém a versão mais recente da versão de API do provedor de recursos e não estiver neste artigo.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>Visão geral de 2018-03-01-híbrido
@@ -120,7 +120,7 @@ As APIs de computação do Azure oferecem acesso programático às máquinas vir
 | Operações | 2016-03-30 |
 | Máquinas Virtuais | 2016-03-30 |
 | Máquinas virtuais/extensões | 2016-03-30 |
-| Conjuntos de Escala de Máquina Virtual | 2016-03-30 |
+| Conjuntos de Dimensionamento de Máquinas Virtuais | 2016-03-30 |
 | Extensões/conjuntos de escala de máquinas virtuais | 2016-03-30 |
 | Interfaces de rede/conjuntos de escala de máquinas virtuais | 2016-03-30 |
 | Máquinas virtuais/conjuntos de escala de máquina virtual | 2016-03-30 |
@@ -224,7 +224,7 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 | Locais | 2016-01-01 |
 | Locations/quotas | 2016-01-01 |
 | Operações | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Usos | 2016-01-01 |
 
 ## <a name="details-for-the-2017-03-09-profile"></a>Detalhes de 2017-03-09-perfil
@@ -255,7 +255,7 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 | Operações | 2016-03-30 |
 | Máquinas Virtuais | 2016-03-30 |
 | Máquinas virtuais/extensões | 2016-03-30 |
-| Conjuntos de Escala de Máquina Virtual | 2016-03-30 |
+| Conjuntos de Dimensionamento de Máquinas Virtuais | 2016-03-30 |
 | Extensões/conjuntos de escala de máquinas virtuais | 2016-03-30 |
 | Interfaces de rede/conjuntos de escala de máquinas virtuais | 2016-03-30 |
 | Máquinas virtuais/conjuntos de escala de máquina virtual | 2016-03-30 |
@@ -319,7 +319,7 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 | Locais | 2016-01-01 |
 | Locations/quotas | 2016-01-01 |
 | Operações | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Usos | 2016-01-01 |
 
 ## <a name="next-steps"></a>Próximas etapas

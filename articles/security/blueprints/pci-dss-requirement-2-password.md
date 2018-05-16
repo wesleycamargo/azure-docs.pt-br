@@ -3,7 +3,7 @@ title: Plano gráfico de processamento de pagamento do Azure – Requisitos de s
 description: Requisito 2 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 0df24870-6156-4415-a608-dd385b6ae807
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 8fafc277d7410ab3f8f54b0defee127fd6ec2f4d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: d3ca83294702a138713f31e34b0e94b1ccb87be0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="password-requirements-for-pci-dss-compliant-environments"></a>Requisitos de senha para ambientes em conformidade com PCI DSS 
 ## <a name="pci-dss-requirement-2"></a>Requisito 2 de PCI DSS
@@ -71,7 +71,7 @@ As fontes dos padrões de proteção de sistema estabelecidas pela indústria po
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Para o Microsoft Azure, a equipe de OSSC Technical Security Services desenvolve os padrões de configuração de segurança para os sistemas no ambiente do Microsoft Azure que estejam de acordo com os padrões de proteção estabelecidos pela indústria. Essas configurações são documentadas nas linhas de base do sistema e as alterações de configuração relevantes são comunicadas para as equipes afetadas (por exemplo, a equipe de IPAK). Os procedimentos são implementados para monitorar a conformidade com os padrões de configuração de segurança. Os padrões de configuração de segurança para os sistemas no ambiente do Microsoft Azure estão de acordo com os padrões de proteção estabelecidos pela indústria e são revistos pelo menos uma vez por ano. |
-| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore fornece a proteção de todos os serviços no escopo do ambiente de dados do titular do cartão (CDE). <br /><br />A Contoso Webstore também implanta a [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/), que fornece uma visão centralizada do estado de segurança de todos os recursos do Azure. Você pode verificar rapidamente se os controles de segurança apropriados estão em vigor e configurados de maneira correta, bem como identificar com rapidez os recursos que exigem atenção.<br /><br />A Contoso Webstore utiliza a Operations Management Suite para registrar em log todas as alterações no sistema. O Log Analytics fornece amplo registro em log das alterações. A precisão das alterações pode ser examinada e verificada. Para obter instruções mais específicas, consulte [Diretriz de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore fornece a proteção de todos os serviços no escopo do ambiente de dados do titular do cartão (CDE). <br /><br />A Contoso Webstore também implanta a [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/), que fornece uma visão centralizada do estado de segurança de todos os recursos do Azure. Você pode verificar rapidamente se os controles de segurança apropriados estão em vigor e configurados de maneira correta, bem como identificar com rapidez os recursos que exigem atenção.<br /><br />A Contoso Webstore utiliza a Operations Management Suite para registrar em log todas as alterações no sistema. O Log Analytics fornece registro em log extensivo de alterações. A precisão das alterações pode ser examinada e verificada. Para obter instruções mais específicas, consulte [Diretriz de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 

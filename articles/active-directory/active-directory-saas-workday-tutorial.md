@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f3c3bbb23b9d4439188286342d80eb1cc1d0833
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Active Directory do Azure com o Workday
 
@@ -174,19 +174,17 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Provedores de Identidade SAML](./media/active-directory-saas-workday-tutorial/IC7829272.png "Provedores de Identidade SAML")
    
-    c. Selecione **Habilitar logoff iniciado pelo idp**.
-   
-    d. No portal do Azure, na janela **Configurar logon**, copie o valor da **URL de Saída** e, em seguida, cole-o na caixa de texto **URL de Resposta de Logoff**.
+    c. No portal do Azure, na janela **Configurar logon**, copie o valor da **URL de Saída** e, em seguida, cole-o na caixa de texto **URL de Resposta de Logoff**.
 
-    e. No Portal do Azure, na janela **Configurar logon**, copie o valor da **URL do Serviço de Logon Único SAML** e, em seguida, cole-o na caixa de texto **URL do Serviço de SSO IdP**.
+    d. No Portal do Azure, na janela **Configurar logon**, copie o valor da **URL do Serviço de Logon Único SAML** e, em seguida, cole-o na caixa de texto **URL do Serviço de SSO IdP**.
 
-    f. Na caixa de texto **Usado para Ambientes**, selecione o nome do ambiente.
+    e. Na caixa de texto **Usado para Ambientes**, selecione o nome do ambiente.
 
-    g. Clique em **Certificado de Chave Pública do Provedor de Identidade** e em **Criar**. 
+    f. Clique em **Certificado de Chave Pública do Provedor de Identidade** e em **Criar**. 
 
     ![Criar](./media/active-directory-saas-workday-tutorial/IC782928.png "Criar")
 
-    h. Clique em **Criar Chave Pública x509**. 
+    g. Clique em **Criar Chave Pública x509**. 
 
     ![Criar](./media/active-directory-saas-workday-tutorial/IC782929.png "Criar")
 

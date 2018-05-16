@@ -1,37 +1,43 @@
 ---
-title: "Habilitar o backup para a pilha do Azure no portal de administração | Microsoft Docs"
-description: "Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que a pilha do Azure podem ser restaurada, se houver uma falha."
+title: Habilitar o backup para a pilha do Azure no portal de administração | Microsoft Docs
+description: Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que a pilha do Azure podem ser restaurada, se houver uma falha.
 services: azure-stack
-documentationcenter: 
-author: mattbriggs
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
 ms.service: azure-stack
 ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: mabrigg
-ms.openlocfilehash: 456a0db9771f5963c8d4375d54a22257f6ca1c56
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.date: 05/11/2018
+ms.author: jeffgilb
+ms.openlocfilehash: 0ef8247eba4605d3c8e5ef0992ce97bce989002e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitar o backup para a pilha do Azure no portal de administração
+Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que a pilha do Azure pode gerar backups. Você pode usar esses backups para restaurar seu ambiente usando a nuvem de recuperação no caso de [uma falha catastrófica](.\azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é assegurar que seus operadores e os usuários podem fazer logon novamente no portal do após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, planos originais, ofertas e definida anteriormente computação, armazenamento e cotas de rede.
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+No entanto, o serviço de Backup de infraestrutura não fazer backup de VMs de IaaS, configurações de rede e recursos de armazenamento, como contas de armazenamento, blobs, tabelas e assim por diante, portanto, usuários registrados em log após a recuperação de nuvem é concluída não verá nenhuma de suas previamente existente recursos. Plataforma como um serviço (PaaS) recursos e dados também não são feitos pelo serviço. 
 
-Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que a pilha do Azure pode gerar backups. Você pode usar esses backups para restaurar o ambiente em caso de falha.
+Administradores e usuários são responsáveis por fazer backup e restaurar recursos de IaaS e PaaS separadamente dos processos de backup de infraestrutura. Para obter informações sobre como fazer backup de recursos de IaaS e PaaS, consulte os links a seguir:
+
+- [Máquinas virtuais](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
+- [Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+- [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
+
 
 > [!Note]  
 > Antes de habilitar o backup por meio do console, você precisa configurar o serviço de backup. Você pode configurar o serviço de backup usando o PowerShell. Para obter mais informações, consulte [habilitar o Backup para a pilha do Azure com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="enable-backup"></a>Habilitar o backup
 
-1. Abra o portal de administração de pilha do Azure em [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+1. Abra o portal de administração de pilha do Azure em [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
 2. Selecione **mais serviços** > **backup da infra-estrutura**. Escolha **configuração** no **backup da infra-estrutura** folha.
 
     ![Pilha do Azure - configurações de controlador de Backup](media\azure-stack-backup\azure-stack-backup-settings.png).
@@ -49,5 +55,5 @@ Para executar um backup, você precisa baixar as ferramentas de pilha do Azure e
 
 ## <a name="next-steps"></a>Próximas etapas
 
- - Saiba como executar um backup. Consulte [Azure pilha](azure-stack-backup-back-up-azure-stack.md ).
-- Saiba como verificar se o backup foi executado. Consulte [Confirmar backup concluído no portal de administração](azure-stack-backup-back-up-azure-stack.md ).
+- Saiba como executar um backup. Consulte [Azure pilha](azure-stack-backup-back-up-azure-stack.md ).
+- Saiba como verificar se o backup foi executado. Consulte [Confirmar backup concluído no portal de administração](azure-stack-backup-back-up-azure-stack.md).

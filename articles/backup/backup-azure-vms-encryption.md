@@ -1,11 +1,11 @@
 ---
-title: "Backup e restauração de VMs criptografadas usando o Backup do Azure"
-description: "Este artigo aborda a experiência de backup e restauração para VMs criptografadas usando o Azure Disk Encryption."
+title: Backup e restauração de VMs criptografadas usando o Backup do Azure
+description: Este artigo aborda a experiência de backup e restauração para VMs criptografadas usando o Azure Disk Encryption.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 8387f186-7d7b-400a-8fc3-88a85403ea63
 ms.service: backup
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c788720e046c2efef954ef77f7b52854439b7515
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Backup e restauração de máquinas virtuais criptografadas usando o Backup do Azure
 Este artigo descreve as etapas para fazer backup e restaurar VMs (máquinas virtuais) usando o Backup do Azure. Ele também oferece detalhes sobre os cenários com suporte, os pré-requisitos e as etapas de solução de problemas para casos de erro.
@@ -42,7 +42,7 @@ Este artigo descreve as etapas para fazer backup e restaurar VMs (máquinas virt
 
 * O cofre dos Serviços de Recuperação foi criado e a replicação de armazenamento foi definida seguindo as etapas em [Preparar seu ambiente para backup](backup-azure-arm-vms-prepare.md).
 
-* O backup recebeu [permissões para acessar o cofre de chaves](#provide-permissions-to-azure-backup) que contém chaves e segredos para VMs criptografadas.
+* O backup recebeu [permissões para acessar o cofre de chaves](#provide-permissions-to-backup) que contém chaves e segredos para VMs criptografadas.
 
 ## <a name="backup-encrypted-vm"></a>Backup de VM criptografada
 Use as etapas a seguir para definir a meta de backup, definir uma política, configurar itens e disparar um backup.

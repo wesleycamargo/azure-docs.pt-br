@@ -1,22 +1,22 @@
 ---
 title: Detectar problemas de dispositivos na solução de monitoramento remoto – Azure | Microsoft Docs
 description: Este tutorial mostra como usar regras e ações para detectar automaticamente os problemas do dispositivo relacionados ao limite na solução de monitoramento remoto.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9d9fbefd81fed506bcc025fa0f44315ec831cf0d
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5acf35ed19a5b6baa2885fd58cfb7fbbe1ac3cd8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Detectar problemas usando regras baseadas em limites
 
@@ -24,11 +24,14 @@ Este tutorial mostra os recursos do mecanismo de regras na solução de monitora
 
 A Contoso tem uma regra que gera um alerta crítico quando a pressão informada por um dispositivo **Resfriador** excede 250 PSI. Como um operador, pode ser útil identificar os dispositivos **Resfriadores** que podem apresentar problemas nos sensores buscando por picos de pressão. Para identificar esses dispositivos, crie uma regra para gerar um aviso quando a pressão exceder 150 PSI.
 
+Você também foi informado de que um alerta crítico deve ser disparado quando a umidade média do dispositivo **Resfriador** nos últimos 5 minutos for maior do que 80% e a temperatura do dispositivo **Resfriador** nos últimos 5 minutos for maior do que 75 graus Fahrenheit.
+
 Neste tutorial, você aprenderá como:
 
 >[!div class="checklist"]
 > * Exibir as regras na solução
 > * Criar uma nova regra
+> * Criar uma nova regra com várias condições
 > * Editar uma regra existente
 > * Excluir uma regra
 
@@ -36,67 +39,104 @@ Neste tutorial, você aprenderá como:
 
 Para seguir este tutorial, você precisará de uma instância implantada de solução de monitoramento remoto na sua assinatura do Azure.
 
-Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) (Implantar a solução de monitoramento remoto pré-configurada).
+Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Implantar o acelerador de solução de monitoramento remoto](iot-suite-remote-monitoring-deploy.md).
 
 ## <a name="view-the-rules-in-your-solution"></a>Exibir as regras na solução
 
-A página **Regras e ações** na solução exibe uma lista de todas as regras atuais:
+A página **Regras** na solução exibe uma lista de todas as regras atuais:
 
-![Página Regras e ações](media/iot-suite-remote-monitoring-automate/rulesactions.png)
+![Página Regras e ações](media/iot-suite-remote-monitoring-automate/rulesactions_v2.png)
 
 Para exibir somente as regras que se aplicam aos dispositivos **Resfriadores**, aplique um filtro:
 
-![Filtrar a lista de regras](media/iot-suite-remote-monitoring-automate/rulesactionsfilter.png)
+![Filtrar a lista de regras](media/iot-suite-remote-monitoring-automate/rulesactionsfilter_v2.png)
 
 É possível exibir mais informações sobre uma regra e editá-la ao selecioná-la na lista:
 
-![Exibir detalhes das regras](media/iot-suite-remote-monitoring-automate/rulesactionsdetail.png)
+![Exibir detalhes das regras](media/iot-suite-remote-monitoring-automate/rulesactionsdetail_v2.png)
 
 Para desabilitar, habilitar ou excluir uma ou mais regras, selecione várias regras na lista:
 
-![Selecionar várias regras](media/iot-suite-remote-monitoring-automate/rulesactionsmultiselect.png)
+![Selecionar várias regras](media/iot-suite-remote-monitoring-automate/rulesactionsmultiselect_v2.png)
 
 ## <a name="create-a-new-rule"></a>Criar uma nova regra
 
 Para adicionar uma nova regra que gera um aviso quando a pressão em um dispositivo **Resfriador** exceder 150 PSI, escolha **Nova regra**:
 
-![Criar regra](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule.png)
+![Criar regra](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule_v2.png)
 
 Use os seguintes valores para criar a regra:
 
 | Configuração          | Valor                                 |
 | ---------------- | ------------------------------------- |
-| NOME             | Aviso de resfriador                       |
-| Fonte           | Grupo de dispositivos dos **Resfriadores**             |
-| Campo de gatilho    | pressure                              |
-| Operador de gatilho | Maior que                          |
-| Valor do gatilho    | 150                                   |
-| Nível de severidade   | Aviso                               |
+| Nome da regra        | Aviso de resfriador                       |
 | DESCRIÇÃO      | A pressão do resfriador excedeu PSI 150 |
+| Grupo de dispositivos     | Grupo de dispositivos dos **Resfriadores**             |
+| Cálculo      | Instantâneo                               |
+| Campo Condição 1| pressure                              |
+| Operador de Condição 1 | Maior que                      |
+| Valor de Condição 1    | 150                               |
+| Nível de gravidade  | Aviso                               |
 
 Para salvar a nova regra, escolha **Aplicar**.
 
-É possível exibir quando a regra é disparada na página **Regras e ações** ou na página **Painel**.
+É possível exibir quando a regra é disparada na página **Regras** ou na página **Painel**.
+
+## <a name="create-a-new-rule-with-multiple-conditions"></a>Criar uma nova regra com várias condições
+
+Para criar uma nova regra com várias condições que gere um alerta crítico quando a umidade média do dispositivo **Resfriador** nos últimos 5 minutos for maior do que 80% e a temperatura do dispositivo **Resfriador** nos últimos 5 minutos for maior do que 75 graus Fahrenheit, escolha **Nova regra**:
+
+![Criar várias regras](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule_mult_v2.png)
+
+Use os seguintes valores para criar a regra:
+
+| Configuração          | Valor                                 |
+| ---------------- | ------------------------------------- |
+| Nome da regra        | Umidade e temperatura críticas do resfriador    |
+| DESCRIÇÃO      | Umidade e temperatura são essenciais |
+| Grupo de dispositivos     | Grupo de dispositivos dos **Resfriadores**             |
+| Cálculo      | Média                               |
+| Período de tempo      | 5                                     |
+| Campo Condição 1| umidade                              |
+| Operador de Condição 1 | Maior que                      |
+| Valor de Condição 1    | 80                               |
+| Nível de gravidade  | Crítico                              |
+
+Para adicionar a segunda condição, clique em "+ Adicionar condição".
+
+![Criar Condição 2](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2.png)
+
+Use os seguintes valores na nova condição:
+
+| Configuração          | Valor                                 |
+| ---------------- | ------------------------------------- |
+| Campo Condição 2| temperatura                           |
+| Operador de Condição 2 | Maior que                      |
+| Valor de Condição 2    | 75                                |
+
+Para salvar a nova regra, escolha **Aplicar**.
+
+É possível exibir quando a regra é disparada na página **Regras** ou na página **Painel**.
 
 ## <a name="edit-an-existing-rule"></a>Editar uma regra existente
 
-Para fazer uma alteração em uma regra existente, selecione-a na lista de regras. Em seguida, no painel **Detalhes da regra**, escolha **Modo de edição**.
+Para fazer uma alteração em uma regra existente, selecione-a na lista de regras.
 
-![Editar regra](media/iot-suite-remote-monitoring-automate/rulesactionsedit.png)
+![Editar regra](media/iot-suite-remote-monitoring-automate/rulesactionsedit_v2.png)
 
-## <a name="disable-a-rule"></a>Desabilitar uma regra
+<!--## Disable a rule
 
-Para desativar temporariamente uma regra, desabilite-a na lista de regras. Escolha a regra a ser desabilitada e selecione **Desabilitar**. O **Status** da regra na lista é alterado para indicar que a regra agora está desabilitada. Use o mesmo procedimento para reabilitar uma regra que foi desabilitada.
+To temporarily switch off a rule, you can disable it in the list of rules. Choose the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
 
-![Desabilitar regra](media/iot-suite-remote-monitoring-automate/rulesactionsdisable.png)
+![Disable rule](media/iot-suite-remote-monitoring-automate/rulesactionsdisable.png)
 
-É possível habilitar e desabilitar várias regras ao mesmo tempo selecionando diversas regras na lista.
+You can enable and disable multiple rules at the same time if you select multiple rules in the list.-->
 
-## <a name="delete-a-rule"></a>Excluir uma regra
+<!--## Delete a rule
 
-Para excluir uma regra permanentemente, escolha-a na lista de regras e selecione **Excluir**.
+To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
 
-É possível excluir várias regras ao mesmo tempo selecionando diversas regras na lista.
+You can delete multiple rules at the same time if you select multiple rules in the list.-->
 
 ## <a name="next-steps"></a>Próximas etapas
 

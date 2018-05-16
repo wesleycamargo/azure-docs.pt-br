@@ -3,22 +3,22 @@ title: Modelos
 description: Este tópico explica os modelos de hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 3e587bdf0efc7c5b416183640abb19286a5cff31
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="templates"></a>Modelos
 ## <a name="overview"></a>Visão geral
@@ -52,7 +52,7 @@ Esse requisito força o back-end do aplicativo a produzir cargas diferentes para
 
 O recurso de modelo de Hubs de Notificação permite que um aplicativo cliente crie registros especiais, chamados registros modelos, que abrangem, além do conjunto de marcas, um modelo. O recurso modelo dos Hubs de Notificação permite que um aplicativo cliente associe os dispositivos com modelos se você estiver trabalhando com instalações (preferidas) ou Registros. Considerando os exemplos anteriores de carga, a única informação independente de plataforma é a mensagem de alerta real (Olá!). Um modelo é um conjunto de instruções para o Hub de Notificação sobre como formatar uma mensagem independente de plataforma para o registro daquele aplicativo cliente específico. No exemplo anterior, a mensagem independente de plataforma é uma propriedade única: **message = Olá!**.
 
-A figura a seguir ilustra o processo acima:
+A figura a seguir ilustra o processo:
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
@@ -74,7 +74,7 @@ Observe que a mensagem real é substituída pela expressão $(message). A expres
 
 Se você estiver trabalhando com o modelo de instalação, a chave de instalação “modelos” terá uma JSON de vários modelos. Se você estiver trabalhando com o modelo de registro, o aplicativo cliente poderá criar vários registros para usar vários modelos. Por exemplo, um modelo para mensagens de alerta e um modelo para atualizações de bloco. Os aplicativos clientes também podem mesclar registros nativos (registros sem um modelo) e registros de modelo.
 
-O Hub de Notificação envia uma notificação para cada modelo sem considerar se eles pertencem ao mesmo aplicativo cliente. Esse comportamento pode ser usado para converter notificações independentes de plataforma em mais notificações. Por exemplo, a mesma mensagem independente de plataforma para o Hub de Notificação pode ser convertida em um alerta de notificação do sistema e uma atualização de bloco, sem a necessidade de back-end para estar ciente dele. Observe que algumas plataformas (por exemplo, iOS) podem recolher diversas notificações no mesmo dispositivo se elas forem enviadas em um curto período de tempo.
+O Hub de Notificação envia uma notificação para cada modelo sem considerar se eles pertencem ao mesmo aplicativo cliente. Esse comportamento pode ser usado para converter notificações independentes de plataforma em mais notificações. Por exemplo, a mesma mensagem independente de plataforma para o Hub de Notificação pode ser convertida em um alerta de notificação do sistema e uma atualização de bloco, sem a necessidade de back-end para estar ciente dele. Algumas plataformas (por exemplo, iOS) podem recolher diversas notificações no mesmo dispositivo se elas forem enviadas em um curto período de tempo.
 
 ## <a name="using-templates-for-personalization"></a>Como usar modelos para personalização
 Outra vantagem de usar modelos é a capacidade de usar os Hubs de Notificação para realizar a personalização por registro de notificações. Por exemplo, considere um aplicativo sobre clima que exibe um bloco com as condições climáticas em um local específico. Um usuário pode escolher entre graus Celsius ou Fahrenheit e uma previsão única ou de cinco dias. Ao usar modelos, cada instalação do aplicativo cliente pode registrar para o formato necessário (1 dia Celsius, 1 dia Fahrenheit, 5 dias Celsius, 5 dias Fahrenheit) e o back-end pode enviar uma única mensagem que contenha todas as informações necessárias para preencher esses modelos (por exemplo, uma previsão de cinco dias com graus Celsius e Fahrenheit).
@@ -120,7 +120,7 @@ A tabela a seguir mostra a linguagem permitida nos modelos:
 | $(prop, n) |Como consta acima, mas o texto é explicitamente cortado em n caracteres, por exemplo, $(title, 20) corta o conteúdo da propriedade de título em 20 caracteres. |
 | .(prop, n) |Como consta acima, mas o texto é sufixado com três pontos quando é cortado. O tamanho total da cadeia de caracteres cortada e do sufixo não excede n caracteres. .(title, 20) com uma propriedade de entrada de "Esta é a linha de título" resulta em **Este é o título...** |
 | %(prop) |Semelhante ao $(name), exceto que a saída é codificada para URI. |
-| #(prop) |Usada em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Essa função funciona exatamente como $(prop) anteriormente especificada, exceto quando usada em modelos JSON (por exemplo, modelos Apple). Nesse caso, se essa função não for delimitada por "{','}" (por exemplo, 'myJsonProperty': '#(name)') e for avaliada como um número em formato Javascript, por exemplo,regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, a saída JSON será um número.<br><br>Por exemplo, ‘badge : ‘#(name)’se torna 'badge': 40 (e não ‘40‘). |
+| #(prop) |Usada em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Essa função funciona exatamente como $(prop) anteriormente especificada, exceto quando usada em modelos JSON (por exemplo, modelos Apple). Nesse caso, se essa função não for delimitada por "{','}" (por exemplo, 'myJsonProperty': '#(name)') e for avaliada como um número em formato Javascript, por exemplo,regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;\*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, a saída JSON será um número.<br><br>Por exemplo, ‘badge : ‘#(name)’se torna 'badge': 40 (e não ‘40‘). |
 | 'texto' ou "texto" |Um literal. Literais contêm texto arbitrário entre aspas simples ou duplas. |
 | expr1 + expr2 |O operador de concatenação que une duas expressões em uma única cadeia de caracteres. |
 
@@ -128,7 +128,7 @@ As expressões podem ter qualquer uma das formas anteriores.
 
 Ao usar concatenação, toda a expressão deve estar entre {}. Por exemplo, {$(prop) + “ - ” + $(prop2)}. |
 
-Por exemplo, o seguinte não é um modelo XML válido:
+Por exemplo, o modelo a seguir não é um modelo XML válido:
 
     <tile>
       <visual>
@@ -139,7 +139,7 @@ Por exemplo, o seguinte não é um modelo XML válido:
     </tile>
 
 
-Como explicado acima, ao usar concatenação, as expressões devem ser colocadas entre colchetes. Por exemplo: 
+Como explicado antes, ao usar concatenação, as expressões devem ser colocadas entre colchetes. Por exemplo: 
 
     <tile>
       <visual>

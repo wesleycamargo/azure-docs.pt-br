@@ -1,12 +1,12 @@
 ---
-title: "Visão geral de diagnóstico do Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como solucionar problemas com seu aplicativo Web com o diagnóstico do Serviço de Aplicativo."
-keywords: "serviço de aplicativo, serviço de aplicativo do azure, diagnósticos, suporte, aplicativo web, solução de problemas, autoajuda"
+title: Visão geral de diagnóstico do Serviço de Aplicativo do Azure | Microsoft Docs
+description: Saiba como solucionar problemas com seu aplicativo Web com o diagnóstico do Serviço de Aplicativo.
+keywords: serviço de aplicativo, serviço de aplicativo do azure, diagnósticos, suporte, aplicativo web, solução de problemas, autoajuda
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: jen7714
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 50e0e9f5edc18aac42ee80e232f70e09736124bc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral de diagnóstico do Serviço de Aplicativo do Azure 
 
@@ -26,11 +26,13 @@ Quando você estiver executando um aplicativo Web, você deseja estar preparado 
  
 Embora essa experiência seja útil quando você estiver tendo problemas com seu aplicativo Web nas últimas 24 horas, todos os gráficos de diagnóstico estarão disponíveis para você analisar o tempo todo. Ferramentas e links de solução de problemas adicionais para documentação e fóruns úteis localizados na coluna à direita.
 
+O diagnóstico do Serviço de Aplicativo funciona não para apenas o aplicativo no Windows, mas também aplicativos em [Linux/contêineres](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro), [Ambiente do Serviço de Aplicativo](https://docs.microsoft.com/en-us/azure/app-service/environment/intro) e [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
+
 ## <a name="open-app-service-diagnostics"></a>Abra o diagnóstico do Serviço de Aplicativo
 
-Para acessar o diagnóstico do Serviço de Aplicativo, navegue até seu aplicativo Web do Serviço de Aplicativo no [portal do Azure](https://portal.azure.com). 
+Para acessar o diagnóstico do Serviço de Aplicativo, navegue até seu aplicativo Serviço de Aplicativo ou Ambiente do Serviço de Aplicativo no [Portal do Azure](https://portal.azure.com). No painel de navegação esquerdo, clique em **Diagnosticar e resolver problemas**. 
 
-No painel de navegação esquerdo, clique em **Diagnosticar e resolver problemas**.
+Para Azure Functions, navegue até seu aplicativo de função e, no painel de navegação superior, clique em **Recursos da plataforma** e selecione **Diagnosticar e resolver problemas** na seção **Monitoramento**. 
 
 ![Home page](./media/app-service-diagnostics/Homepage1.png)
 
@@ -46,13 +48,22 @@ Se for detectado um problema com uma categoria de problema específico nas últi
 
 ## <a name="tile-shortcuts"></a>Atalhos de bloco
 
-Se você souber exatamente qual tipo de solução de problemas de informações está procurando, os atalhos de bloco levarão você diretamente para o relatório de diagnóstico completo da categoria de problema em que você está interessado. Em comparação à verificação de integridade, os atalhos de bloco são mais diretos, mas sã uma maneira menos guiada de acessar suas métricas de diagnóstico.  
+Se você souber exatamente qual tipo de solução de problemas de informações está procurando, os atalhos de bloco levarão você diretamente para o relatório de diagnóstico completo da categoria de problema em que você está interessado. Em comparação à verificação de integridade, os atalhos de bloco são mais diretos, mas sã uma maneira menos guiada de acessar suas métricas de diagnóstico. Como parte dos blocos de atalho, aqui também é onde você encontrará **Ferramentas de Diagnóstico** que são ferramentas mais avançadas que ajudam a investigar problemas relacionados a problemas de código do aplicativo, lentidão, cadeias de conexão e muito mais. 
 
 ![Atalhos de bloco](./media/app-service-diagnostics/TileShortcuts4.png)
 
 ## <a name="diagnostic-report"></a>Relatório de diagnóstico
 
-Se você deseja obter mais informações depois de executar uma [verificação de integridade](#health-checkup) ou se tiver clicado em um dos [atalhos de bloco](#tile-shortcuts), o relatório de diagnóstico completo mostrará as métricas gráficas relevantes das últimas 24 horas. Se seu aplicativo tiver qualquer tempo de inatividade, ele será representado por uma barra laranja abaixo da linha do tempo. Você pode selecionar um dos tempos de inatividade para obter observações analisadas sobre o tempo de inatividade e as soluções sugeridas. 
+Se você deseja obter mais informações depois de executar uma [verificação de integridade](#health-checkup) ou se tiver clicado em um dos [atalhos de bloco](#tile-shortcuts), o relatório de diagnóstico completo mostrará as métricas gráficas relevantes das últimas 24 horas. Se seu aplicativo tiver qualquer tempo de inatividade, ele será representado por uma barra laranja abaixo da linha do tempo. Você pode selecionar uma das barras laranjas para selecionar o tempo de inatividade para ver as observações sobre esse tempo de inatividade e as etapas de solução de problemas sugeridas. 
 
 ![Relatório de diagnóstico](./media/app-service-diagnostics/DiagnosticReport5.png)
+
+
+## <a name="investigating-application-code-issues"></a>Investigando problemas de código do aplicativo
+
+Como muitos problemas de aplicativo estão relacionados a problemas no código do aplicativo, o diagnóstico do Serviço de Aplicativo integra-se ao [Application Insights](https://azure.microsoft.com/services/application-insights/) para realçar exceções e problemas de dependência para correlacionar com o tempo de inatividade selecionado. O Application Insights precisa ser habilitado separadamente. 
+
+Para exibir as exceções e dependências do Application Insights, selecione os blocos de atalho **Aplicativo Web inoperante** ou **Aplicativo Web lento**. 
+
+![Application insights](./media/app-service-diagnostics/AppInsights6.png)
 

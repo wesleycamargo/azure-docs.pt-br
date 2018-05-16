@@ -1,29 +1,29 @@
 ---
-title: "Autenticação baseada em cabeçalho com o PingAccess para Proxy de Aplicativo do Azure AD | Microsoft Docs"
-description: "Publique aplicativos com o PingAccess e o Proxy de Aplicativo a fim de oferecer suporte à autenticação baseada em cabeçalho."
+title: Autenticação baseada em cabeçalho com o PingAccess para Proxy de Aplicativo do Azure AD | Microsoft Docs
+description: Publique aplicativos com o PingAccess e o Proxy de Aplicativo a fim de oferecer suporte à autenticação baseada em cabeçalho.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5554260ad2b47cf4c66046c95007c95e44f188bd
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
-O Proxy de Aplicativo do Azure Active Directory e o PingAccess fizeram uma parceria para fornecer aos clientes do Azure Active Directory acesso a ainda mais aplicativos. O PingAccess expande as [ofertas existentes do Proxy de Aplicativo](active-directory-application-proxy-get-started.md) para incluir acesso de logon único a aplicativos que usam cabeçalhos para autenticação.
+O Proxy de Aplicativo do Azure Active Directory e o PingAccess fizeram uma parceria para fornecer aos clientes do Azure Active Directory acesso a ainda mais aplicativos. O PingAccess expande as [ofertas existentes do Proxy de Aplicativo](manage-apps/application-proxy.md) para incluir acesso de logon único a aplicativos que usam cabeçalhos para autenticação.
 
 ## <a name="what-is-pingaccess-for-azure-ad"></a>O que é PingAccess para Azure AD?
 
@@ -50,7 +50,7 @@ Este artigo destina-se a pessoas que estão publicando um aplicativo com esse ce
 
 Se você já tiver o Proxy de Aplicativo habilitado, além de um conector instalado, poderá ignorar essa seção e ir para [Adicionar seu aplicativo ao Azure AD com o Proxy de Aplicativo](#add-your-app-to-azure-ad-with-application-proxy).
 
-O conector do Proxy de Aplicativo é um serviço do Windows Server que direciona o tráfego de seus funcionários remotos para seus aplicativos publicados. Para obter informações mais detalhadas, confira [Habilitar o Proxy de Aplicativo no Portal do Azure](active-directory-application-proxy-enable.md).
+O conector do Proxy de Aplicativo é um serviço do Windows Server que direciona o tráfego de seus funcionários remotos para seus aplicativos publicados. Para obter informações mais detalhadas, confira [Habilitar o Proxy de Aplicativo no Portal do Azure](manage-apps/application-proxy-enable.md).
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador global.
 2. Selecione **Azure Active Directory** > **Proxy de aplicativo** .
@@ -65,7 +65,7 @@ O conector do Proxy de Aplicativo é um serviço do Windows Server que direciona
 
 Há duas ações necessárias no portal do Azure. Primeiro, você precisa publicar seu aplicativo com o Proxy de Aplicativo. Depois, colete algumas informações sobre o aplicativo a ser usado durante as etapas do PingAccess.
 
-Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detalhado das etapas 1 a 8, veja [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-publish-azure-portal.md).
+Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detalhado das etapas 1 a 8, veja [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](manage-apps/application-proxy-publish-azure-portal.md).
 
 1. Se você não fez isso na última seção, entre no [Portal do Azure](https://portal.azure.com) como um administrador global.
 2. Selecione **Azure Active Directory** > **Aplicativos empresariais**.
@@ -87,7 +87,7 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
 7. No menu de início rápido, selecione **Atribuir um usuário para teste** e adicione pelo menos um usuário para o aplicativo. Verifique se essa conta de teste tem acesso ao aplicativo local.
 8. Selecione **Atribuir** para salvar a atribuição do usuário de teste.
 9. Na folha de gerenciamento do aplicativo, selecione **Logon único**.
-10. Escolha **Logon baseado em cabeçalho** no menu suspenso. Selecione **Salvar**.
+10. Escolha **Logon baseado em cabeçalho** no menu suspenso. Clique em **Salvar**.
 
    >[!TIP]
    >Se esta for a primeira vez que você usa o logon único com base em cabeçalhos, será necessário instalar o PingAccess. Para certificar-se de que sua assinatura do Azure seja automaticamente associada à sua instalação do PingAccess, use o link nesta página de logon único para baixar o PingAccess. Você pode abrir o site de download agora ou voltar a esta página mais tarde. 
@@ -127,7 +127,7 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
   ![Selecionar Chaves](./media/application-proxy-ping-access/Keys.png)
 
 4. Crie uma chave inserindo uma descrição de chave e escolhendo uma data de validade no menu suspenso.
-5. Selecione **Salvar**. Um GUID será exibido no campo **Valor**.
+5. Clique em **Salvar**. Um GUID será exibido no campo **Valor**.
 
   Salve esse valor agora, pois você não poderá vê-lo novamente depois de fechar esta janela.
 
@@ -156,7 +156,7 @@ Este exemplo usa o [Portal do Azure](https://portal.azure.com) para atualizar o 
 3. Selecione seu aplicativo > **Manifesto**.
 4. Selecione **Editar**, procure o campo *acceptedMappedClaims* e altere o valor para **true**.
 ![Manifesto de aplicativo](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 >[!NOTE]
 >Para usar uma declaração personalizada, você também deve ter uma política personalizada definida e atribuída ao aplicativo.  Essa política deve incluir todos os atributos personalizados necessários.
@@ -181,5 +181,5 @@ Depois de concluir todas essas etapas, seu aplicativo estará pronto para execu�
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar o PingAccess para Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
-- [Como o Proxy de Aplicativo do Azure AD fornece logon único?](application-proxy-sso-overview.md)
+- [Como o Proxy de Aplicativo do Azure AD fornece logon único?](manage-apps/application-proxy-single-sign-on.md)
 - [Solucionar problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)

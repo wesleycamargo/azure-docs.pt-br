@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b2eeb7d2cca124abd811859077d7e5e55a36c521
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo #
 
@@ -63,6 +63,8 @@ Para criar um ASE ILB:
 
 4. Selecione ou crie uma VNet.
 
+    * Se selecionar uma VNet nova, você poderá especificar um nome e local. Se você pretende hospedar aplicativos do Linux neste ASE, somente estas seis regiões têm suporte no momento: **Oeste dos EUA, Leste dos EUA, Europa Ocidental, Europa Setentrional, Leste da Austrália, Sudeste Asiático.** 
+
 5. Ao selecionar uma VNet existente, você precisa criar uma sub-rede para manter o ASE. Lembre-se de definir um tamanho de sub-rede grande o suficiente para acomodar qualquer crescimento futuro do ASE. O tamanho recomendado é `/25`, que tem 128 endereços e é compatível com um ASE com tamanho máximo. E o tamanho mínimo que você pode selecionar é `/28`. Dependendo da necessidade da infraestrutura, esse tamanho só pode ser dimensionado para um máximo de três instâncias.
 
     * Vá além do padrão máximo de 100 instâncias nos planos do serviço de aplicativo.
@@ -106,7 +108,7 @@ Se você definir **Tipo de VIP** como **Interno**, o nome do ASE não será usad
 
 Você pode criar um aplicativo em uma ASE ILB da mesma maneira que você cria um aplicativo em um ASE.
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Web + Celular** > **Web** ou **Celular** ou **Aplicativo de API**.
+1. No portal do Azure, selecione **Criar um recurso** > **Web + Celular** > **Aplicativo Web**.
 
 2. Digite o nome do aplicativo.
 
@@ -114,9 +116,13 @@ Você pode criar um aplicativo em uma ASE ILB da mesma maneira que você cria um
 
 4. Selecione ou crie um grupo de recursos.
 
-5. Selecione ou crie um plano do Serviço de Aplicativo. Se você quiser criar um novo plano do Serviço de Aplicativo, selecione o seu ASE como o local. Selecione o pool de trabalhos no qual deseja criar o seu plano do Serviço de Aplicativo. Ao criar o plano do Serviço de Aplicativo, selecione o ASE como a localização e o pool de trabalhos. Ao especificar o nome do aplicativo, o domínio sob o nome do aplicativo é substituído pelo domínio do ASE.
+5. Selecione seu SO. 
 
-6. Selecione **Criar**. Se você deseja que o aplicativo seja exibido no painel, selecione a caixa de seleção **Fixar no painel**.
+    * Se você quiser criar um aplicativo do Linux usando um contêiner de Docker personalizado, basta trazer seu próprio contêiner usando estas instruções. 
+
+6. Selecione ou crie um plano do Serviço de Aplicativo. Se você quiser criar um novo plano do Serviço de Aplicativo, selecione o seu ASE como o local. Selecione o pool de trabalhos no qual deseja criar o seu plano do Serviço de Aplicativo. Ao criar o plano do Serviço de Aplicativo, selecione o ASE como a localização e o pool de trabalhos. Ao especificar o nome do aplicativo, o domínio sob o nome do aplicativo é substituído pelo domínio do ASE.
+
+7. Clique em **Criar**. Se você deseja que o aplicativo seja exibido no painel, selecione a caixa de seleção **Fixar no painel**.
 
     ![Criação do plano do Serviço de Aplicativo][2]
 
@@ -217,7 +223,7 @@ Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o d
 
 O Serviço de Aplicativo do Azure fornece várias medidas de segurança que protegem o sistema. Eles também ajudam a determinar se um aplicativo foi atacado por um hacker. A melhor proteção para um aplicativo Web é acoplar uma plataforma de hospedagem, como o Serviço de Aplicativo do Azure, com um firewall de aplicativo Web (WAF). Como o ASE ILB tem um ponto de extremidade do aplicativo isolado da rede, ele é perfeito para esse uso.
 
-Para saber mais sobre como configurar o ASE ILB com um dispositivo WAF, confira [Configuração de um firewall do aplicativo Web com o ambiente do serviço de aplicativo][ASEWAF]. Este artigo mostra como usar uma solução de virtualização Barracuda com o seu ASE. Outra opção é usar o gateway de aplicativo do Azure. O gateway de aplicativo usa as regras básicas do OWASP para proteger os aplicativos colocados atrás dele. Para obter mais informações sobre o gateway de aplicativo do Azure, confira [Introdução ao firewall de aplicativo Web do Azure][AppGW].
+Para saber mais sobre como configurar o ASE ILB com um dispositivo WAF, confira [Configuração de um firewall do aplicativo Web com o ambiente do serviço de aplicativo][ASEWAF]. Este artigo mostra como usar uma solução de virtualização Barracuda com o seu ASE. Outra opção é usar o gateway de aplicativo Azure. O gateway de aplicativo usa as regras básicas do OWASP para proteger os aplicativos colocados atrás dele. Para obter mais informações sobre o gateway de aplicativo do Azure, confira [Introdução ao firewall de aplicativo Web do Azure][AppGW].
 
 ## <a name="get-started"></a>Introdução ##
 

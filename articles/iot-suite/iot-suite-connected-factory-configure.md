@@ -1,12 +1,12 @@
 ---
-title: "Configurar a topologia de fábrica conectada | Microsoft Docs"
-description: "Como configurar a topologia de uma solução pré-configurada de fábrica conectada."
-services: 
+title: Configurar a topologia Connected Factory | Microsoft Docs
+description: Como configurar a topologia de um acelerador de solução Connected Factory.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 4230914c6fb35201a8c162e2e7ecb31262d2bdca
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="configure-the-connected-factory-preconfigured-solution"></a>Configurar a solução pré-configurada de fábrica conectada
+# <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador da solução Connected Factory
 
-A solução pré-configurada de fábrica conectada mostra um painel simulado para uma empresa fictícia, chamada Contoso. Essa empresa tem fábricas localizadas em vários locais globalmente.
+O acelerador de solução Connected Factory mostra um painel simulado para uma empresa fictícia chamada Contoso. Essa empresa tem fábricas localizadas em vários locais globalmente.
 
-Este artigo usa a Contoso como um exemplo para descrever como configurar a topologia de uma solução de fábrica conectada.
+Este artigo usa a Contoso como um exemplo para descrever como configurar a topologia de uma solução Connected Factory.
 
 ## <a name="simulated-factories-configuration"></a>Configuração de fábricas simuladas
 
@@ -34,19 +34,19 @@ Cada fábrica da Contoso tem linhas de produção compostas por três estações
 * Estação de teste
 * Estação de empacotamento
 
-Esses servidores OPC UA têm nós OPC UA e o [Editor de OPC](https://github.com/Azure/iot-edge-opc-publisher) envia os valores desses nós a uma fábrica conectada. Isso inclui:
+Esses servidores OPC UA têm nós OPC UA e o [Editor de OPC](https://github.com/Azure/iot-edge-opc-publisher) envia os valores desses nós a uma Connected Factory. Isso inclui:
 
 * Status operacional atual, como o consumo de energia atual.
 * Informações de produção, como o número de produtos produzidos.
 
-Você pode usar o painel para detalhar a topologia da fábrica da Contoso de uma exibição global para uma exibição no nível da estação. O painel de fábrica conectado possibilita:
+Você pode usar o painel para detalhar a topologia da fábrica da Contoso de uma exibição global para uma exibição no nível da estação. O painel da Connected Factory possibilita:
 
 * A visualização de valores de OEE e KPI para cada camada da topologia.
 * A visualização de valores atuais dos nós OPC UA nas estações.
 * A agregação dos valores de OEE e KPI do nível da estação para o nível global.
 * A visualização de alertas e ações a serem executadas caso os valores atinjam limites específicos.
 
-## <a name="connected-factory-topology"></a>Topologia de fábrica conectada
+## <a name="connected-factory-topology"></a>Topologia Connected Factory
 
 A topologia das fábricas, linhas de produção e estações é hierárquica:
 
@@ -66,7 +66,7 @@ Cada nó da topologia tem um conjunto comum de propriedades que definem:
 
 ## <a name="topology-configuration-file"></a>Arquivo de configuração de topologia
 
-Para configurar as propriedades listadas na seção anterior, a solução de fábrica conectada usa um arquivo de configuração chamado [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
+Para configurar as propriedades listadas na seção anterior, a solução Connected Factory usa um arquivo de configuração chamado [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
 
 Você pode encontrar esse arquivo no código-fonte da solução na pasta `WebApp/Contoso/Topology`.
 
@@ -193,7 +193,7 @@ Os itens `<factory_configuration>` e `<production_line_configuration>` têm uma 
   * **CallOpcMethod**: as informações do nó e os parâmetros do método OPC UA a ser chamado no formato "NodeId do nó pai, NodeId do método a ser chamado, URI do servidor OPC UA".
   * **OpenWebPage**: a URL a ser mostrada na janela do navegador.
 
-`<opc_node_description>` contém informações sobre nós do OPC UA em uma estação (servidor OPC UA). Nós que não representam nenhum nó do OPC UA existente, mas são usados como armazenamento na lógica de cálculo da fábrica conectada, também são válidos. Ele tem as seguintes propriedades:
+`<opc_node_description>` contém informações sobre nós do OPC UA em uma estação (servidor OPC UA). Nós que não representam nenhum nó do OPC UA existente, mas são usados como armazenamento na lógica de cálculo da Connected Factory, também são válidos. Ele tem as seguintes propriedades:
 
 * **NodeId** (tipo cadeia de caracteres)
 
@@ -259,7 +259,7 @@ Os itens `<factory_configuration>` e `<production_line_configuration>` têm uma 
 
   Define o conjunto de ações que podem ser executadas como resposta a um alerta máximo.
 
-No nível da estação, você também vê objetos de **Simulação**. Esses objetos são usados somente para configurar a simulação de fábrica conectada e não devem ser usados para configurar uma topologia real.
+No nível da estação, você também vê objetos de **Simulação**. Esses objetos são usados somente para configurar a simulação Connected Factory e não devem ser usados para configurar uma topologia real.
 
 ## <a name="how-the-configuration-data-is-used-at-runtime"></a>Como os dados de configuração são usados em tempo de execução
 
@@ -267,7 +267,7 @@ Todas as propriedades usadas no arquivo de configuração podem ser agrupadas em
 
 ### <a name="visual-appearance"></a>Aparência
 
-As propriedades nesta categoria definem a aparência do painel fábrica conectada. Os exemplos incluem:
+As propriedades nesta categoria definem a aparência do painel Connected Factory. Os exemplos incluem:
 
 * NOME
 * DESCRIÇÃO
@@ -282,18 +282,18 @@ O aplicativo Web mantém um dicionário de dados interno que contém informaçõ
 
 ### <a name="oeekpi-computation"></a>Computação OEE/KPI
 
-Os números de OEE/KPI para a simulação de fábrica conectada são parametrizados por:
+Os números de OEE/KPI para a simulação Connected Factory são parametrizados por:
 
 * Os valores de nó do OPC UA a serem incluídos no cálculo.
 * Como o número é computado por meio dos valores de telemetria.
 
-A fábrica conectada usa as fórmulas de OEE conforme publicadas por http://oeeindustrystandard.oeefoundation.org.
+A Connected Factory usa as fórmulas OEE, conforme publicadas pelo http://oeeindustrystandard.oeefoundation.org.
 
 Os objetos de nó do OPC UA nas estações permitem a marcação para uso no cálculo de OEE/KPI. A propriedade **Relevance** indica para qual número de OEE/KPI o valor do nó do OPC UA deve ser usado. A propriedade **OpCode** define como o valor é incluído na computação.
 
 ### <a name="alert-handling"></a>Tratamento de alertas
 
-A fábrica conectada é compatível com um mecanismo simples de geração de alerta baseado em limites mínimo/máximo. Há uma série de ações predefinidas que você pode configurar em resposta a esses alertas. As seguintes propriedades controlam este mecanismo:
+A Connected Factory é compatível com um mecanismo simples de geração de alerta baseado em limites mínimo/máximo. Há uma série de ações predefinidas que você pode configurar em resposta a esses alertas. As seguintes propriedades controlam este mecanismo:
 
 * Máximo
 * Mínimo
@@ -302,7 +302,7 @@ A fábrica conectada é compatível com um mecanismo simples de geração de ale
 
 ## <a name="correlating-to-telemetry-data"></a>Correlação com os dados de telemetria
 
-Para determinadas operações, como visualizar o último valor ou criar consultas do Time Series Insights, o aplicativo Web precisa de um esquema de endereçamento para os dados de telemetria ingeridos. A telemetria enviada à fábrica conectada também precisa ser armazenada em estruturas de dados internas. As duas propriedades que permitem essas operações estão no nível da estação (servidor OPC UA) e do nó do OPC UA:
+Para determinadas operações, como visualizar o último valor ou criar consultas do Time Series Insights, o aplicativo Web precisa de um esquema de endereçamento para os dados de telemetria ingeridos. A telemetria enviada à Connected Factory também precisa ser armazenada em estruturas de dados internas. As duas propriedades que permitem essas operações estão no nível da estação (servidor OPC UA) e do nó do OPC UA:
 
 * **OpcUri**
 
@@ -312,13 +312,13 @@ Para determinadas operações, como visualizar o último valor ou criar consulta
 
   Identifica o valor do nó do servidor de OPC UA. O formato da propriedade deve ser conforme especificado na especificação do OPC UA. Nas mensagens ingeridas, essa propriedade é enviada como **NodeId**.
 
-Verifique [esta](https://github.com/Azure/iot-edge-opc-publisher) página do GitHub para obter mais informações sobre como os dados de telemetria são ingeridos na fábrica conectada usando o Editor de OPC.
+Verifique [esta](https://github.com/Azure/iot-edge-opc-publisher) página do GitHub para obter mais informações sobre como os dados de telemetria são ingeridos na Connected Factory usando o Editor de OPC.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Exemplo: como o KPI1 é calculado
 
 A configuração no arquivo `ContosoTopologyDescription.json` controla como os valores de KPI/OEE são calculados. O exemplo a seguir mostra como propriedades deste arquivo controlam o cálculo do KPI1.
 
-Na fábrica conectada, o KPI1 é usado para medir o número de produtos fabricados com êxito na última hora. Cada estação (servidor OPC UA) na simulação de fábrica conectada fornece um nó de OPC UA (`NodeId: "ns=2;i=385"`), que fornece a telemetria para calcular esse KPI.
+Na Connected Factory, o KPI1 é usado para medir o número de produtos fabricados com êxito na última hora. Cada estação (servidor OPC UA) na simulação Connected Factory fornece um nó de OPC UA (`NodeId: "ns=2;i=385"`), que fornece a telemetria para calcular esse KPI.
 
 A configuração desse nó do OPC UA se parece com o trecho de código a seguir:
 
@@ -339,10 +339,10 @@ Essa configuração habilita a consulta dos valores de telemetria deste nó usan
 * A média de todos os valores.
 * A soma de todos os valores para todos pares de **OpcUri** (**ApplicationUri**), **NodeId** exclusivos em um determinado período.
 
-Uma característica do valor do nó **NumberOfManufactureredProducts** é que ele só aumenta. Para calcular o número de produtos fabricados no período, a fábrica conectada usa **OpCode** **SubMaxMin**. O cálculo recupera o valor mínimo no início do período e o valor máximo no final do período.
+Uma característica do valor do nó **NumberOfManufactureredProducts** é que ele só aumenta. Para calcular o número de produtos fabricados no período, a Connected Factory usa **OpCode** **SubMaxMin**. O cálculo recupera o valor mínimo no início do período e o valor máximo no final do período.
 
 O **OpCode** na configuração configura a lógica de cálculo para calcular o resultado da diferença dos valores máximo e mínimo. Esses resultados são acumulados de baixo para cima até o nível da raiz (global) e mostrados no painel.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Uma próxima etapa sugerida é aprender a [Implantar um gateway no Windows ou no Linux para a solução pré-configurada de fábrica conectada](iot-suite-connected-factory-gateway-deployment.md).
+Sugerimos como próxima etapa aprender a [Implantar um gateway no Windows ou no Linux para o acelerador de solução Connected Factory](iot-suite-connected-factory-gateway-deployment.md).

@@ -3,11 +3,12 @@ title: Introdução a iOS no Azure AD | Microsoft Docs
 description: Como criar um aplicativo para iOS que se integre ao Azure AD para fazer entrar e que chame as APIs protegidas do Azure AD usando o OAuth.
 services: active-directory
 documentationcenter: ios
-author: celestedg
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 598771eb12d0608ef424c08401b04191a2cc3ee8
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 1ceae59cca5790d9d74f72ce644e31fb0949cd49
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Introdução a iOS no Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -67,12 +68,12 @@ Para configurar o aplicativo para obter tokens, primeiro será necessário regis
 4. Clique em **Registros do aplicativo** e, em seguida, selecione **Adicionar**.
 5. Siga os prompts para criar um novo **Aplicativo Cliente Nativo**.
   * O **Nome** do aplicativo descreve o seu aplicativo aos usuários finais.
-  * O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o Azure AD usa para retornar respostas de tokens.  Insira um valor específico para seu aplicativo e baseado nas informações de URI de redirecionamento anteriores.
-6. Depois de você concluir o registro, o Azure AD atribui uma ID do aplicativo exclusiva ao aplicativo.  Você precisará desse valor nas próximas seções, portanto, copie-o da guia do aplicativo.
-7. Na página **Configurações**, selecione **Permissões Necessárias** e escolha **Adicionar**. Escolha o **Microsoft Graph** como a API e adicione a permissão **Ler Dados do Diretório** em **Permissões Delegadas**.  Isso permitirá que o aplicativo consulte a API do Graph do Azure AD para os usuários.
+  * O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o Azure AD usa para retornar respostas de tokens. Insira um valor específico para seu aplicativo e baseado nas informações de URI de redirecionamento anteriores.
+6. Depois de você concluir o registro, o Azure AD atribui uma ID do aplicativo exclusiva ao aplicativo. Você precisará desse valor nas próximas seções, portanto, copie-o da guia do aplicativo.
+7. Na página **Configurações**, selecione **Permissões Necessárias** e escolha **Adicionar**. Escolha o **Microsoft Graph** como a API e adicione a permissão **Ler Dados do Diretório** em **Permissões Delegadas**. Isso permitirá que o aplicativo consulte a API do Graph do Azure AD para os usuários.
 
 ## <a name="3-install-and-configure-adal"></a>3. Instalar e configurar a ADAL
-Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e escrever seu código relacionado à identidade.  Para que a ADAL possa se comunicar com o Azure AD, é necessário fornecer a ela algumas informações sobre o registro do aplicativo.
+Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e escrever seu código relacionado à identidade. Para que a ADAL possa se comunicar com o Azure AD, é necessário fornecer a ela algumas informações sobre o registro do aplicativo.
 
 1. Inicie adicionando a ADAL ao projeto DirectorySearcher usando o CocoaPods.
 
@@ -97,15 +98,15 @@ Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e e
     $ open QuickStart.xcworkspace
     ```
 
-4. No projeto do Guia de início rápido, abra o arquivo plist `settings.plist`.  Substitua os valores dos elementos na seção para refletir os valores que você inseriu no Portal do Azure. Seu código faz referência a esses valores sempre que ele usar a ADAL.
+4. No projeto do Guia de início rápido, abra o arquivo plist `settings.plist`. Substitua os valores dos elementos na seção para refletir os valores que você inseriu no Portal do Azure. Seu código faz referência a esses valores sempre que ele usar a ADAL.
   * O `tenant` é o domínio do seu locatário do Azure AD, por exemplo, contoso.onmicrosoft.com.
   * O `clientId` é a ID do cliente do seu aplicativo que você copiou do portal.
   * O `redirectUri` é a URL de redirecionamento que você registrou no portal.
 
-## <a name="4----use-adal-to-get-tokens-from-azure-ad"></a>4.    Usar a ADAL para obter tokens do Azure AD
-O princípio básico da ADAL é que sempre que seu aplicativo precisar de um token de acesso, ele simplesmente chama um completionBlock `+(void) getToken : `, e a ADAL faz o resto.  
+## <a name="4-use-adal-to-get-tokens-from-azure-ad"></a>4. Usar a ADAL para obter tokens do Azure AD
+O princípio básico da ADAL é que sempre que seu aplicativo precisar de um token de acesso, ele simplesmente chama um completionBlock `+(void) getToken : `, e a ADAL faz o resto. 
 
-1. No projeto `QuickStart`, abra `GraphAPICaller.m` e localize o comentário `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` perto da parte de cima.  É aqui que você passa à ADAL as coordenadas necessárias, por um CompletionBlock, para se comunicar com o Azure AD e informar a ele como armazenar tokens em cache.
+1. No projeto `QuickStart`, abra `GraphAPICaller.m` e localize o comentário `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` perto da parte de cima. É aqui que você passa à ADAL as coordenadas necessárias, por um CompletionBlock, para se comunicar com o Azure AD e informar a ele como armazenar tokens em cache.
 
     ```ObjC
     +(void) getToken : (BOOL) clearCache
@@ -146,7 +147,7 @@ O princípio básico da ADAL é que sempre que seu aplicativo precisar de um tok
 
     ```
 
-2. Agora, precisamos usar esse token para pesquisar usuários no grafo. Encontre o comentário `// TODO: implement SearchUsersList`. Esse método faz uma solicitação GET para que a API do Graph do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido.  Para consultar a API do Graph do Azure AD, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação. É aí que a ADAL entra em cena.
+2. Agora, precisamos usar esse token para pesquisar usuários no grafo. Encontre o comentário `// TODO: implement SearchUsersList`. Esse método faz uma solicitação GET para que a API do Graph do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido. Para consultar a API do Graph do Azure AD, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação. É aí que a ADAL entra em cena.
 
     ```ObjC
     +(void) searchUserList:(NSString*)searchString
@@ -218,7 +219,7 @@ O princípio básico da ADAL é que sempre que seu aplicativo precisar de um tok
     ```
 
 
-3. Quando o aplicativo solicita um token chamando `getToken(...)`, a ADAL tenta retornar um token sem pedir as credenciais ao usuário.  Se a ADAL determina que o usuário precisa entrar para obter um token, ela exibirá uma caixa de diálogo para entrada, coletará as credenciais do usuário e retornará um token após uma autenticação bem-sucedida.  Se a ADAL não puder retornar um token por qualquer motivo, ela lançará um `AdalException`.
+3. Quando o aplicativo solicita um token chamando `getToken(...)`, a ADAL tenta retornar um token sem pedir as credenciais ao usuário. Se a ADAL determina que o usuário precisa entrar para obter um token, ela exibirá uma caixa de diálogo para entrada, coletará as credenciais do usuário e retornará um token após uma autenticação bem-sucedida. Se a ADAL não puder retornar um token por qualquer motivo, ela lançará um `AdalException`.
 
 > [!Note] 
 > O objeto `AuthenticationResult` contém um objeto `tokenCacheStoreItem` que pode ser usado para coletar as informações de que seu aplicativo pode precisar. No Guia de Início Rápido, `tokenCacheStoreItem` é usado para determinar se a autenticação já ocorreu.
@@ -226,14 +227,14 @@ O princípio básico da ADAL é que sempre que seu aplicativo precisar de um tok
 >
 
 ## <a name="5-build-and-run-the-application"></a>5. Compile e execute o aplicativo
-Parabéns! Agora você tem um aplicativo iOS que tem a capacidade de autenticar usuários, chamar APIs Web com segurança usando OAuth 2.0 e obter informações básicas sobre o usuário.  Se você ainda não fez isso, agora é o momento de preencher seu locatário com alguns usuários.  Inicie o aplicativo do Guia de início rápido e entre com um desses usuários.  Procure por outros usuários com base em seus UPNs.  Feche o aplicativo e, em seguida, inicie-o novamente.  Observe que a sessão do usuário permanece intacta.
+Parabéns! Agora você tem um aplicativo iOS que tem a capacidade de autenticar usuários, chamar APIs Web com segurança usando OAuth 2.0 e obter informações básicas sobre o usuário. Se você ainda não fez isso, agora é o momento de preencher seu locatário com alguns usuários. Inicie o aplicativo do Guia de início rápido e entre com um desses usuários. Procure por outros usuários com base em seus UPNs. Feche o aplicativo e, em seguida, inicie-o novamente. Observe que a sessão do usuário permanece intacta.
 
-A ADAL facilita a incorporar todos esses recursos comuns de identidade em seu aplicativo.  Ele se encarrega de todo o trabalho difícil para você, por exemplo, gerenciamento de cache, suporte a protocolo OAuth, apresentação de uma interface do usuário de entrada ao usuário e atualização de tokens expirados.  Tudo o que você realmente precisa saber é uma única chamada à API, `getToken`.
+A ADAL facilita a incorporar todos esses recursos comuns de identidade em seu aplicativo. Ele se encarrega de todo o trabalho difícil para você, por exemplo, gerenciamento de cache, suporte a protocolo OAuth, apresentação de uma interface do usuário de entrada ao usuário e atualização de tokens expirados. Tudo o que você realmente precisa saber é uma única chamada à API, `getToken`.
 
-Para referência, o exemplo concluído (sem seus valores de configuração) é fornecido no [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
+Para referência, o exemplo concluído (sem seus valores de configuração) é fornecido no [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora você pode passar para cenários de adicionais.  Você pode desejar experimentar:
+Agora você pode passar para cenários de adicionais. Você pode desejar experimentar:
 
 * [Proteger uma API Web Node.js com o Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
 * Saiba [como habilitar o SSO entre aplicativos no iOS usando a ADAL](active-directory-sso-ios.md)  

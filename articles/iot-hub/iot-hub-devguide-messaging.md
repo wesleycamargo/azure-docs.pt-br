@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c1c3191ba198b56386f813b6f9d2588b895633c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50f95dc1af334468db25bce68f2ca00e0965a28b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Mensagens de dispositivo para nuvem e nuvem para dispositivo com o Hub IoT
 
@@ -31,7 +31,7 @@ Use mensagens do Hub IoT para se comunicar com os dispositivos da seguinte forma
 
 As propriedades básicas da funcionalidade de mensagens do Hub IoT são a confiabilidade e a durabilidade das mensagens. Essas propriedades habilitam a adaptação à conectividade intermitente no lado do dispositivo e a picos de carga no processamento de eventos no lado da nuvem. O Hub IoT implementa *pelo menos uma vez* as garantias de entrega de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo.
 
-Para obter uma introdução aos recursos de Hub IoT, confira os artigos [Azure e Internet das Coisas][lnk-azure-iot] e [Visão geral do serviço do Hub IoT do Azure][lnk-iot-hub-overview].
+Para obter uma introdução aos recursos de Hub IoT, confira [Visão geral do serviço do Hub IoT do Azure][lnk-iot-hub-overview].
 
 ## <a name="when-to-use-iot-hub-messaging"></a>Quando usar mensagens do Hub IoT
 

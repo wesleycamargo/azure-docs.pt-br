@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -29,34 +29,46 @@ O [Azure Functions](functions-overview.md) oferece integração interna com o [A
 
 ![Metrics Explorer do Application Insights](media/functions-monitoring/metrics-explorer.png)
 
-O Functions também tem monitoramento interno que não usa o Application Insights. Recomendamos o Application Insights porque ele oferece mais dados e maneiras melhores de analisar os dados. Para obter informações sobre o monitoramento interno, consulte a [última seção deste artigo](#monitoring-without-application-insights).
+O Functions também tem [monitoramento interno que não usa o Application Insights](#monitoring-without-application-insights). Recomendamos o Application Insights porque ele oferece mais dados e maneiras melhores de analisar os dados.
 
-## <a name="enable-application-insights-integration"></a>Habilitar a integração do Application Insights
+## <a name="application-insights-pricing-and-limits"></a>Preços e limites do Application Insights
 
-Para um aplicativo de funções enviar dados ao Application Insights, ele precisa saber a chave de instrumentação de uma instância do Application Insights. Há duas maneiras de fazer essa conexão no [portal do Azure](https://portal.azure.com):
+Você pode testar a integração do Application Insights aos Aplicativos de Funções gratuitamente. No entanto, há um limite diário de quantidade de dados que pode ser processada gratuitamente e você pode atingir esse limite durante o teste. O Azure fornece notificações por email e pelo portal quando você estiver próximo de atingir o limite diário.  Mas, se você não vir os alertas e atingir o limite, novos logs não aparecerão em consultas do Application Insights. Portanto lembre-se do limite para evitar o desperdiçar tempo desnecessariamente em solução de problemas. Para obter mais informações, consulte [Gerenciar o preço e o volume de dados no Application Insights](../application-insights/app-insights-pricing.md).
 
-* [Criar uma instância conectada do Application Insights ao criar o aplicativo de funções](#new-function-app).
-* [Conectar uma instância do Application Insights a um aplicativo de funções existente](#existing-function-app).
+## <a name="enable-app-insights-integration"></a>Habilitar a integração do App Insights
+
+Para um aplicativo de funções enviar dados ao Application Insights, ele precisa saber a chave de instrumentação de um recurso do Application Insights. A chave deve ser fornecida em uma configuração de aplicativo chamada APPINSIGHTS_INSTRUMENTATIONKEY.
+
+Você pode configurar essa conexão no [Portal do Azure](https://portal.azure.com):
+
+* [Automaticamente para um novo aplicativo de função](#new-function-app)
+* [Conectar manualmente um recurso do Application Insights](#manually-connect-an-app-insights-resource)
 
 ### <a name="new-function-app"></a>Novo aplicativo de funções
 
-Habilitar o Application Insights na página **Criar** do Aplicativo Functions:
+1. Vá para a função **Criar** do aplicativo de funções.
 
 1. Definir a opção **Application Insights** como **Ativada**.
 
 2. Selecionar um **Local do Application Insights**.
 
+   Escolha a região mais próxima à região do seu aplicativo de função, em uma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) onde você deseja que seus dados sejam armazenados.
+
    ![Habilitar o Application Insights ao criar um aplicativo de funções](media/functions-monitoring/enable-ai-new-function-app.png)
 
-### <a name="existing-function-app"></a>Aplicativo de funções existente
+3. Insira as outras informações necessárias.
 
-Obter a chave de instrumentação e salvá-la em um aplicativo de funções:
+1. Clique em **Criar**.
 
-1. Criar a instância do Application Insights. Definir o tipo de aplicativo como **Geral**.
+A próxima etapa é [desabilitar o registro em log interno](#disable-built-in-logging).
 
-   ![Uma instância do Application Insights, tipo Geral](media/functions-monitoring/ai-general.png)
+### <a name="manually-connect-an-app-insights-resource"></a>Conectar manualmente um recurso do Application Insights 
 
-2. Copie a chave de instrumentação da sua página **Essenciais** da instância do Application Insights. Focalize o fim do valor da chave exibido para obter um botão **Clique para copiar**.
+1. Criar o recurso do Application Insights. Definir o tipo de aplicativo como **Geral**.
+
+   ![Crie um recurso Application Insights, tipo Geral](media/functions-monitoring/ai-general.png)
+
+2. Copie a chave de instrumentação da sua página **Essenciais** do recurso do Application Insights. Focalize o fim do valor da chave exibido para obter um botão **Clique para copiar**.
 
    ![Copie a chave de instrução do Application Insights](media/functions-monitoring/copy-ai-key.png)
 
@@ -70,13 +82,46 @@ Obter a chave de instrumentação e salvá-la em um aplicativo de funções:
 
 Caso você habilite o Application Insights, recomendamos que desabilite o [registro em log interno que usa o armazenamento do Azure](#logging-to-storage). O registro em log interno é útil para testes com cargas de trabalho leves, mas não se destina ao uso em produção carga alta. Para monitoramento de produção, o Application Insights é recomendado. Se o registro em log interno foi usado na produção, o registro de log pode estar incompleto devido à limitação no Armazenamento do Azure.
 
-Para desabilitar o registro em log interno, exclua a configuração de aplicativo `AzureWebJobsDashboard`. Para obter informações sobre como excluir configurações do aplicativo no portal do Azure, consulte a seção **Configurações do aplicativo** em [Como gerenciar um aplicativo de funções](functions-how-to-use-azure-function-app-settings.md#settings).
+Para desabilitar o registro em log interno, exclua a configuração de aplicativo `AzureWebJobsDashboard`. Para obter informações sobre como excluir configurações do aplicativo no portal do Azure, consulte a seção **Configurações do aplicativo** em [Como gerenciar um aplicativo de funções](functions-how-to-use-azure-function-app-settings.md#settings). Antes de excluir a configuração do aplicativo, certifique-se de que nenhuma função existente no mesmo aplicativo de funções use-a para associações ou gatilhos do Armazenamento do Azure.
 
-Quando você habilita o Application Insights e desabilita o registro em log interno, a guia **Monitor** de uma função no portal do Azure leva você para o Application Insights.
+## <a name="view-telemetry-in-monitor-tab"></a>Exibir telemetria na guia Monitor
 
-## <a name="view-telemetry-data"></a>Exibir dados de telemetria
+Após configurar a integração do Application Insights conforme mostrado nas seções anteriores, você pode exibir dados de telemetria na guia **Monitor**.
 
-Para navegar à instância conectada do Application Insights de um aplicativo de funções no portal, selecione o link **Application Insights** na página **Visão geral** do aplicativo de funções.
+1. Na página de aplicativo de funções, selecione uma função que tenha sido executada pelo menos uma vez depois que o Application Insights foi configurado e, em seguida, selecione a guia **Monitor**.
+
+   ![Selecionar a guia Monitor](media/functions-monitoring/monitor-tab.png)
+
+2. Selecione **Atualizar** periodicamente até que a lista de invocações de função seja exibida.
+
+   Pode levar até 5 minutos para que a lista apareça, devido à maneira em que o cliente de telemetria empacota os dados para transmissão para o servidor. (Esse atraso não se aplica ao [Live Metrics Stream](../application-insights/app-insights-live-stream.md). Esse serviço se conecta ao host de Funções quando você carrega a página, logo os logs são transmitidos diretamente para a página.)
+
+   ![Lista de invocações](media/functions-monitoring/monitor-tab-ai-invocations.png)
+
+2. Para ver os logs de uma invocação de função específica, selecione o link da coluna **Data** para a invocação.
+
+   ![Link de detalhes da Invocação](media/functions-monitoring/invocation-details-link-ai.png)
+
+   A saída de logs para essa invocação aparece em uma nova página.
+
+   ![Detalhes da Invocação](media/functions-monitoring/invocation-details-ai.png)
+
+Ambas as páginas (detalhes e lista de invocação) fazem link à consulta de Análise do Application Insights que recupera os dados:
+
+![Executar no Application Insights](media/functions-monitoring/run-in-ai.png)
+
+![Lista de invocações de Análise do Application Insights](media/functions-monitoring/ai-analytics-invocation-list.png)
+
+A partir dessas consultas, você pode ver que a lista de invocação é limitada aos últimos 30 dias, não mais do que 20 linhas (`where timestamp > ago(30d) | take 20`) e a lista de detalhes de invocação é para os últimos 30 dias sem limites.
+
+Para obter mais informações, consulte [Dados de telemetria da consulta](#query-telemetry-data) a seguir neste artigo.
+
+## <a name="view-telemetry-in-app-insights"></a>Exibir telemetria no App Insights
+
+Para abrir o Application Insights de um aplicativo de funções no Portal do Azure, selecione o link **Application Insights** na seção **Recursos configurados** da página **Visão geral** do aplicativo de funções.
+
+![Link do Application Insights na página Visão geral](media/functions-monitoring/ai-link.png)
+
 
 Para obter informações sobre como usar o Application Insights, consulte a [documentação do o Application Insights](https://docs.microsoft.com/azure/application-insights/). Esta seção mostra alguns exemplos de como exibir dados no Application Insights. Se você já estiver familiarizado com o Application Insights, poderá ir diretamente para [as seções sobre como configurar e personalizar os dados de telemetria](#configure-categories-and-log-levels).
 
@@ -256,7 +301,7 @@ Conforme observado na seção anterior, o tempo de execução agrega dados sobre
 
 ## <a name="configure-sampling"></a>Configurar a amostragem
 
-O Application Insights tem um recurso de [amostragem](../application-insights/app-insights-sampling.md) que pode protegê-lo contra a produção de excesso de dados de telemetria em horários de pico de carregamento. Quando o número de itens de telemetria excede uma taxa especificada, o Application Insights começa a ignorar aleatoriamente alguns dos itens de entrada. Você pode configurar a amostragem em *host.json*.  Aqui está um exemplo:
+O Application Insights tem um recurso de [amostragem](../application-insights/app-insights-sampling.md) que pode protegê-lo contra a produção de excesso de dados de telemetria em horários de pico de carregamento. Quando o número de itens de telemetria excede uma taxa especificada, o Application Insights começa a ignorar aleatoriamente alguns dos itens de entrada. A configuração padrão para o número máximo de itens por segundo é 5. Você pode configurar a amostragem em *host.json*.  Aqui está um exemplo:
 
 ```json
 {
@@ -489,13 +534,19 @@ Para relatar um problema com a integração do Application Insights em Functions
 
 ## <a name="monitoring-without-application-insights"></a>Monitorando sem o Application Insights
 
-Recomendamos o Application Insights para monitorar funções porque ele oferece mais dados e maneiras melhores de analisar os dados. Porém, você também pode encontrar telemetria e logs nas páginas do portal do Azure para um aplicativo de funções.
+Recomendamos o Application Insights para monitorar funções porque ele oferece mais dados e maneiras melhores de analisar os dados. Mas se você preferir o sistema de registro em log interno que usa o Armazenamento do Azure, pode continuar a usá-lo.
 
 ### <a name="logging-to-storage"></a>Registro em log no armazenamento
 
-O registro em log interno usa a conta de armazenamento especificada pela cadeia de conexão na configuração `AzureWebJobsDashboard` do aplicativo. Se essa configuração do aplicativo estiver definida, você poderá ver os dados de registro em log no portal do Azure. No recurso de Armazenamento, vá para Arquivos, selecione o serviço de arquivo para a função e, em seguida, vá para `LogFiles > Application > Functions > Function > your_function` para ver o arquivo de log. Em uma página do aplicativo de funções, selecione uma função e selecione a guia **Monitor** para obter uma lista de execuções de função. Selecione uma execução de função para examinar a duração, os dados de entrada, os erros e os arquivos de log associados.
+O registro em log interno usa a conta de armazenamento especificada pela cadeia de conexão na configuração `AzureWebJobsDashboard` do aplicativo. Em uma página do aplicativo de funções, selecione uma função e selecione a guia **Monitor** e escolha manter no modo de exibição clássico.
 
-Se você usar o Application Insights e tiver o [registro em log interno desabilitado](#disable-built-in-logging), a guia **Monitor** o levará para o Application Insights.
+![Mudar para o modo de exibição clássico](media/functions-monitoring/switch-to-classic-view.png)
+
+ Você obterá uma lista de execuções de funções. Selecione uma execução de função para examinar a duração, os dados de entrada, os erros e os arquivos de log associados.
+
+Se você habilitou o Application Insights anteriormente, mas agora deseja voltar para registro em log interno, desabilite o Application Insights manualmente e, em seguida, selecione a guia **Monitor**. Para desabilitar a integração do Application Insights, exclua a configuração do aplicativo APPINSIGHTS_INSTRUMENTATIONKEY.
+
+Mesmo se a guia **Monitor** mostrar dados do Application Insights, você pode ver os dados de log no sistema de arquivos se ainda não tiver [desabilitado o registro em log interno](#disable-built-in-logging). No recurso de Armazenamento, vá para Arquivos, selecione o serviço de arquivo para a função e, em seguida, vá para `LogFiles > Application > Functions > Function > your_function` para ver o arquivo de log.
 
 ### <a name="real-time-monitoring"></a>Monitoramento em tempo real
 

@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: brenduns
-ms.openlocfilehash: 8c9fd7d5824e5d315a7dd30e5052fe10802d197e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerações para máquinas virtuais na pilha do Azure
+# <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerações para usar máquinas virtuais na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Máquinas virtuais são uma sob demanda, recursos escalonáveis de computação oferecidos pela pilha do Azure. Quando você usar máquinas virtuais, você deve entender que há diferenças entre os recursos que estão disponíveis no Azure e a pilha do Azure. Este artigo fornece uma visão geral das considerações exclusivas para máquinas virtuais e seus recursos na pilha do Azure. Para saber mais sobre as diferenças de alto nível entre a pilha do Azure e o Azure, consulte o [chave considerações](azure-stack-considerations.md) artigo.
+Máquinas de virtuais de pilha do Azure fornecem recursos de computação sob demanda e escalonáveis. Antes de implantar máquinas virtuais (VMs), você deve entender as diferenças entre os recursos de máquina virtual disponíveis na pilha do Azure e o Microsoft Azure. Este artigo descreve essas diferenças e identifica as principais considerações de planejamento de implantações de máquina virtual. Para saber mais sobre as diferenças de alto nível entre a pilha do Azure e o Azure, consulte o [chave considerações](azure-stack-considerations.md) artigo.
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Roteiro: diferenças de máquina Virtual
 
@@ -41,10 +41,12 @@ Máquinas virtuais são uma sob demanda, recursos escalonáveis de computação 
 |conjuntos de escala de máquina virtual|Suporte para dimensionamento automático|Dimensionamento automático não tem suportado.<br>Adicione mais instâncias em uma escala definida usando o portal, o Gerenciador de recursos de modelos ou o PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Tamanhos de máquina virtual
-O Azure impõe limites de recurso de várias maneiras para evitar excesso de consumo de recursos (servidor local e o nível de serviço). Sem colocar alguns limites em um consumo de locatários do recurso, a experiência de locatário pode sofrer quando um vizinho barulhento overconsumes recursos. 
-- Para saída de rede da VM, há limites de largura de banda em vigor. Caps na pilha do Azure correspondem as tampas no Azure.  
-- Para recursos de armazenamento, a pilha do Azure implementa limites de IOPs de armazenamento para evitar excesso básico de recursos pelos locatários para acesso de armazenamento. 
-- Para VMs com vários discos de dados anexados, a taxa de transferência máxima de cada disco de dados individuais é 500 IOPS para HHDs e IOPS 2300 SSDS.
+
+A pilha do Azure impõe limites de recursos para evitar o consumo de recursos (servidor local e o nível de serviço). Esses limites melhoram a experiência de locatário, reduzindo o impacto de consumo de recursos por outros locatários.
+
+- Para saída de rede da VM, há limites de largura de banda em vigor. Caps na pilha do Azure são iguais as tampas no Azure.
+- Para recursos de armazenamento, a pilha do Azure implementa limites de IOPS de armazenamento para evitar excesso básico de recursos pelos locatários para acesso de armazenamento.
+- Para VMs com vários discos de dados anexados, a taxa de transferência máxima de cada disco de dados é 500 IOPS para HHDs e IOPS 2300 SSDS.
 
 A tabela a seguir lista as VMs que têm suporte na pilha do Azure junto com sua configuração:
 
@@ -61,11 +63,11 @@ A tabela a seguir lista as VMs que têm suporte na pilha do Azure junto com sua 
 |Otimizado para memória|Série Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Otimizado para memória|Série de série DSv2-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Tamanhos de máquina virtual e suas quantidades de recursos associado são consistentes entre a pilha do Azure e o Azure. Essa consistência inclui a quantidade de memória, número de núcleos e o número ou o tamanho dos discos de dados que podem ser criadas. No entanto, o desempenho do mesmo tamanho VM na pilha do Azure depende das características subjacentes de um determinado ambiente da pilha do Azure.
+Tamanhos de máquina virtual e suas quantidades de recursos associado são consistentes entre a pilha do Azure e o Azure. Isso inclui a quantidade de memória, o número de núcleos e o número ou o tamanho dos discos de dados que podem ser criadas. No entanto, o desempenho das VMs com o mesmo tamanho depende as características subjacentes de um determinado ambiente da pilha do Azure.
 
 ## <a name="virtual-machine-extensions"></a>Extensões da máquina virtual
 
- A pilha do Azure inclui um pequeno conjunto de extensões. Atualizações e outras extensões e estão disponíveis por meio de agregação do Marketplace.
+ A pilha do Azure inclui um pequeno conjunto de extensões. Atualizações e extensões adicionais estão disponíveis por meio de agregação do Marketplace.
 
 Use o seguinte script do PowerShell para obter a lista de extensões de máquinas virtuais que estão disponíveis em seu ambiente de pilha do Azure:
 
@@ -92,18 +94,17 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
+
 A lista de tipos de recursos com suporte e as versões de API pode variar se o operador de nuvem atualiza seu ambiente de pilha do Azure para uma versão mais recente.
 
 ## <a name="windows-activation"></a>Ativação do Windows
 
-Produtos do Windows devem ser usados de acordo com direitos de uso do produto e os termos de licença da Microsoft. A pilha do Azure usa [ativação automática de VM](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) para ativar máquinas virtuais de Windows Server (VMs). 
- - Porque o host de pilha do Azure ativa com chaves AVMA para Windows Server 2016, todas as máquinas virtuais que executam o Windows Server 2012 ou posterior são automaticamente ativadas.
- - Máquinas virtuais que execute o Windows Server 2008 R2 não serão ativados automaticamente e deve ser ativado usando [a ativação da MAK](https://technet.microsoft.com/library/ff793438.aspx). 
+Produtos do Windows devem ser usados de acordo com direitos de uso do produto e os termos de licença da Microsoft. A pilha do Azure usa [ativação automática de VM](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) para ativar máquinas virtuais de Windows Server (VMs).
+
+- Host de pilha do Azure ativa Windows com chaves AVMA para Windows Server 2016. Todas as VMs que executam o Windows Server 2012 ou posterior são automaticamente ativadas.
+- Máquinas virtuais que execute o Windows Server 2008 R2 não serão ativados automaticamente e deve ser ativado usando [a ativação da MAK](https://technet.microsoft.com/library/ff793438.aspx).
 
 Microsoft Azure usa a ativação do KMS para ativar máquinas virtuais do Windows. Se você mover uma VM da pilha do Azure para o Azure e ocorrência ativar problemas, consulte [problemas de ativação de máquina virtual de solução de problemas do Azure Windows](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Informações adicionais podem ser encontradas no [falhas de ativação do Windows de solução de problemas em VMs do Azure](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) postagem no Blog de equipe de suporte do Azure.
-
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

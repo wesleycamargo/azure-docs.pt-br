@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 25ae6bde2ca89b2f944a8879c746dcedcf798ec2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs
 
-Saiba como a execução transacional e integrada de linguagem do JavaScript pelo Azure Cosmos DB permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente em um JavaScript [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/). Essa integração de Javascript permite que você escreva uma lógica de aplicativo de programa de banco de dados que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados. 
+Saiba como a execução transacional e integrada de linguagem do JavaScript pelo Azure Cosmos DB permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente em um JavaScript [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/). A integração de Javascript permite que você escreva uma lógica de programa que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados. 
 
 Recomendamos que você comece assistindo ao vídeo a seguir, em que Andrew Liu fornece uma introdução ao modelo de programação de banco de dados do lado do servidor do Azure Cosmos DB. 
 
@@ -58,7 +58,7 @@ Há suporte para a criação e execução de gatilhos de banco de dados, procedi
 Esse tutorial utiliza o [SDK do Node.js com Q Promises](http://azure.github.io/azure-documentdb-node-q/) para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.   
 
 ## <a name="stored-procedures"></a>Procedimentos armazenados
-### <a name="example-write-a-simple-stored-procedure"></a>Exemplo: escrever um procedimento armazenado simples
+### <a name="example-write-a-stored-procedure"></a>Exemplo: escrever um procedimento armazenado
 Vamos começar com um procedimento armazenado simples que retorna uma resposta “Hello World”.
 
     var helloWorldStoredProc = {
@@ -96,7 +96,7 @@ Uma vez que o procedimento armazenado seja registrado, você pode executá-lo em
         });
 
 
-O objeto de contexto fornece acesso a todas as operações que podem ser realizadas no armazenamento do Cosmos DB, bem como o acesso aos objetos de solicitação e resposta. Nesse caso, usamos o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais informações, consulte a [documentação do SDK do servidor do JavaScript do Azure Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
+O objeto de contexto fornece acesso a todas as operações que podem ser realizadas no armazenamento do Cosmos DB, bem como o acesso aos objetos de solicitação e resposta. Nesse caso, você deve usar o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais informações, consulte a [documentação do SDK do servidor do JavaScript do Azure Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
 
 Vamos ampliar esse exemplo e adicionar mais funcionalidades relativas ao banco de dados ao procedimento armazenado. Procedimentos armazenados podem criar, atualizar, ler, consultar e excluir documentos e anexos dentro da coleção.    
 
@@ -148,16 +148,16 @@ No exemplo acima, a chamada de torno lançará um erro se a operação falhar. C
     });
 
 
-Observe que esse procedimento armazenado pode ser modificado para assumir uma matriz de corpos de documentos como entrada e criá-los todos na mesma execução do procedimento armazenado ao invés de em várias solicitações de rede para criar cada um deles individualmente. Isso pode ser usado para implementar um importador em massa eficiente para o Cosmos DB (abordado posteriormente neste tutorial).   
+Esse procedimento armazenado pode ser modificado para assumir uma matriz de corpos de documentos como entrada e criá-los todos na mesma execução do procedimento armazenado ao invés de em várias solicitações para criar cada um deles individualmente. Esse procedimento armazenado pode ser usado para implementar um importador em massa eficiente para o Cosmos DB (abordado posteriormente neste tutorial).   
 
-O exemplo descrito demonstra como usar procedimentos armazenados. Iremos discutir os gatilhos e funções definidas pelo usuário (UDFs) posteriormente no tutorial.
+O exemplo descrito demonstra como usar procedimentos armazenados. Em seguida, você aprenderá sobre gatilhos e funções definidas pelo usuário (UDFs) posteriormente no tutorial.
 
 ## <a name="database-program-transactions"></a>Transações do programa de banco de dados
 A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação oferece **garantias ACID**. ACID é um acrônimo bastante conhecido que indica quatro propriedades: Atomicidade, Consistência, Isolamento e Durabilidade.  
 
 Em resumo, a atomicidade garante que todo o trabalho realizado dentro de uma transação seja tratado como uma única unidade em que tudo é confirmado ou não. A consistência garante que os dados estejam sempre em uma boa condição interna entre as transações. O isolamento garante que duas transações não interfiram uma com a outra; geralmente, a maioria dos sistemas comerciais oferece vários níveis de isolamento que podem ser usados com base nas necessidades do aplicativo. A durabilidade garante que qualquer alteração confirmada no banco de dados esteja sempre presente.   
 
-No Cosmos DB, o JavaScript é hospedado no mesmo espaço de memória do banco de dados. Portanto, as solicitações realizadas dentro de procedimentos armazenados e gatilhos são executadas no mesmo escopo de uma sessão do banco de dados. Isso permite que o Cosmos DB garanta ACID para todas as operações que fazem parte de um único procedimento armazenado/gatilho. Considere a seguinte definição de um procedimento armazenado:
+No Cosmos DB, o JavaScript é hospedado no mesmo espaço de memória do banco de dados. Portanto, as solicitações realizadas dentro de procedimentos armazenados e gatilhos são executadas no mesmo escopo de uma sessão do banco de dados. Esse recurso permite que o Cosmos DB garanta ACID para todas as operações que fazem parte de um único procedimento armazenado/gatilho. Considere a seguinte definição de um procedimento armazenado:
 
     // JavaScript source code
     var exchangeItemsSproc = {
@@ -232,14 +232,14 @@ As transações são profunda e nativamente integradas ao modelo de programaçã
 Se houver uma exceção propagada no script, o tempo de execução do JavaScript do Cosmos DB reverterá toda a transação. Como mostrado no exemplo anterior, gerar uma exceção é efetivamente equivalente a uma instrução “ROLLBACK TRANSACTION” no Cosmos DB.
 
 ### <a name="data-consistency"></a>Consistência de dados
-Procedimentos armazenados e gatilhos são sempre executados na réplica primária do contêiner do Azure Cosmos DB. Isso assegura que as leituras de dentro de procedimentos armazenados ofereçam uma forte consistência. As consultas que utilizam funções definidas pelo usuário podem ser executadas na réplica primária ou em qualquer réplica secundária, porém, garantimos que o nível de consistência solicitado seja atendido ao escolher a réplica adequada.
+Procedimentos armazenados e gatilhos são sempre executados na réplica primária do contêiner do Azure Cosmos DB. Isso assegura que as leituras de dentro de procedimentos armazenados ofereçam uma forte consistência. As consultas que utilizam funções definidas pelo usuário podem ser executadas na réplica primária ou em qualquer réplica secundária, porém, certifique-se de que o nível de consistência solicitado seja atendido ao escolher a réplica adequada.
 
 ## <a name="bounded-execution"></a>Execução vinculada
 Todas as operações do Cosmos DB devem ser concluídas dentro da duração de tempo limite da solicitação especificada pelo servidor. Essa restrição também se aplica à função de JavaScript (procedimentos armazenados, gatilhos e funções definidas pelo usuário). Se uma operação não for concluída com esse limite de tempo, a transação será retrocedida. Funções JavaScript devem ser concluídas dentro do limite de tempo ou implementar um modelo com base em uma continuação para criar um lote/retomar a execução.  
 
 A fim de simplificar o desenvolvimento de procedimentos armazenados e gatilhos para lidar com limites de tempo, todas as funções no objeto de coleção (para a criação, leitura, substituição e exclusão de documentos e anexos) retornam um valor booliano que representa se a operação será concluída. Se esse valor for falso, isso indica que o limite de tempo está prestes a expirar e que o procedimento deve encerrar a execução.  Operações colocadas em fila antes da primeira operação de armazenamento não aceita serão concluídas com certeza se o procedimento armazenado for concluído dentro do tempo e não colocar nenhuma outra solicitação em fila.  
 
-Funções de JavaScript também são vinculadas quanto ao consumo de recursos. O Cosmos DB reserva a produtividade por coleção com base no tamanho provisionado de uma conta de banco de dados. A produtividade é expressa em termos de uma unidade normalizada de consumo de CPU, memória e E/S chamada unidade de solicitação ou RU. Funções de JavaScript podem usar um grande número de RUs dentro de um curto período, e podem ter sua taxa limitada se o limite da coleção for atingido. Procedimentos armazenados ricos em recursos também podem ser postos em quarentena para garantir a disponibilidade das operações primitivas do banco de dados.  
+Funções de JavaScript também são vinculadas quanto ao consumo de recursos. Cosmos DB reserva a taxa de transferência por coleção ou por um conjunto de contêineres. A produtividade é expressa em termos de uma unidade normalizada de consumo de CPU, memória e E/S chamada unidade de solicitação ou RU. Funções de JavaScript podem usar um grande número de RUs dentro de um curto período, e podem ter sua taxa limitada se o limite da coleção for atingido. Procedimentos armazenados ricos em recursos também podem ser postos em quarentena para garantir a disponibilidade das operações primitivas do banco de dados.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Exemplo: importação de dados em massa em um programa de banco de dados
 Abaixo está um exemplo de um procedimento armazenado gravado para documentos de importação em massa em uma coleção. Observe como o procedimento armazenado lida com a execução vinculada verificando o valor de retorno booliano em createDocument, e depois utiliza a contagem de documentos inserida em cada invocação do procedimento armazenado para rastrear e retomar o progresso nos lotes.
@@ -349,7 +349,7 @@ E o código de registro do lado do cliente do Node.js para o gatilho:
 
 Pré-gatilhos não podem ter parâmetros de entrada. O objeto de solicitação pode ser usado para manipular a mensagem de solicitação associada à operação. Aqui, o pré-gatilho está sendo executado com a criação de um documento, e o corpo da mensagem de solicitação contém o documento a ser criado no formato JSON.   
 
-Quando os gatilhos são registrados, os usuários podem especificar as operações com as quais eles podem ser executados. Este gatilho foi criado com TriggerOperation.Create, o que significa que a situação a seguir não é permitida.
+Quando os gatilhos são registrados, os usuários podem especificar as operações com as quais eles podem ser executados. Esse gatilho foi criado com TriggerOperation.Create, o que significa que não é permitido usar o disparador em uma operação de substituição, conforme mostrado no código a seguir.
 
     var options = { preTriggerInclude: "validateDocumentContents" };
 
@@ -434,7 +434,7 @@ O gatilho pode ser registrado como mostrado na amostra a seguir.
 
 Esse gatilho consulta o documento de metadados e o atualiza com detalhes sobre o documento recém-criado.  
 
-É importante observar a execução **transacional** de gatilhos no Cosmos DB. Esse pós-gatilho é executado como parte da mesma transação como a criação do documento original. Portanto, se lançarmos uma exceção a partir do pós-gatilho (digamos, se não for possível atualizar o documento de metadados), toda a transação falhará e será retrocedida. Nenhum documento será criado e uma exceção será retornada.  
+É importante observar a execução **transacional** de gatilhos no Cosmos DB. Esse pós-gatilho é executado como parte da mesma transação como a criação do documento original. Portanto, se você lançar uma exceção a partir do pós-gatilho (digamos, se não for possível atualizar o documento de metadados), toda a transação falhará e será retrocedida. Nenhum documento será criado e uma exceção será retornada.  
 
 ## <a id="udf"></a>Funções definidas pelo usuário
 UDFs (funções definidas pelo usuário) são usadas para estender a gramática da linguagem de consulta SQL do Azure Cosmos DB e para implementar uma lógica de negócios personalizada. Elas podem ser invocadas somente de dentro das consultas. Elas não possuem acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, as UDFs podem ser executadas em réplicas secundárias do serviço Cosmos DB.  
@@ -479,7 +479,7 @@ A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>API de consulta integrada da linguagem JavaScript
-Além de emitir consultas usando a gramática SQL do Azure Cosmos DB, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Azure Cosmos DB.
+Além de emitir consultas usando a gramática SQL do Azure Cosmos DB, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como Lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (double-underscore) é um alias para `getContext().getCollection()`.
@@ -503,7 +503,7 @@ Inicia uma chamada encadeada que deve ser terminada com value().
 <b>filter(predicateFunction [, opções] [, callback])</b>
 <ul>
 <li>
-Filtra a entrada usando uma função de predicado que retorna true/false para filtrar documentos de entrada no conjunto resultante. Esse comportamento é semelhante ao de uma cláusula WHERE no SQL.
+Filtra a entrada usando uma função de predicado que retorna true/false para filtrar documentos de entrada no conjunto resultante. Essa função se comporta semelhante a uma cláusula WHERE no SQL.
 </li>
 </ul>
 </li>
@@ -511,7 +511,7 @@ Filtra a entrada usando uma função de predicado que retorna true/false para fi
 <b>map(transformationFunction [, opções] [, callback])</b>
 <ul>
 <li>
-Aplica uma projeção dada uma função de transformação que mapeia cada item de entrada para um objeto ou valor JavaScript. Esse comportamento é semelhante ao de uma cláusula SELECT no SQL.
+Aplica uma projeção dada uma função de transformação que mapeia cada item de entrada para um objeto ou valor JavaScript. Essa função se comporta semelhante a uma cláusula SELECT no SQL.
 </li>
 </ul>
 </li>
@@ -519,7 +519,7 @@ Aplica uma projeção dada uma função de transformação que mapeia cada item 
 <b>pluck([propertyName] [, opções] [, callback])</b>
 <ul>
 <li>
-Esse é um atalho para um mapa que extrai o valor de uma única propriedade de cada item de entrada.
+Essa função é um atalho para um mapa que extrai o valor de uma única propriedade de cada item de entrada.
 </li>
 </ul>
 </li>
@@ -527,7 +527,7 @@ Esse é um atalho para um mapa que extrai o valor de uma única propriedade de c
 <b>flatten([isShallow] [, opções] [, callback])</b>
 <ul>
 <li>
-Combina e nivela as matrizes de cada item de entrada em uma única matriz. Esse comportamento é semelhante ao de SelectMany no LINQ.
+Combina e nivela as matrizes de cada item de entrada em uma única matriz. Essa função se comporta semelhante a uma cláusula SelectMany no LINQ.
 </li>
 </ul>
 </li>
@@ -535,7 +535,7 @@ Combina e nivela as matrizes de cada item de entrada em uma única matriz. Esse 
 <b>sortBy([predicate] [, opções] [, callback])</b>
 <ul>
 <li>
-Produz um novo conjunto de documentos classificando os documentos no fluxo de documentos de entrada em ordem crescente usando o predicado em questão. Esse comportamento é semelhante ao da cláusula ORDER BY no SQL.
+Produz um novo conjunto de documentos classificando os documentos no fluxo de documentos de entrada em ordem crescente usando o predicado em questão. Essa função se comporta semelhante a uma cláusula ORDER BY no SQL.
 </li>
 </ul>
 </li>
@@ -543,7 +543,7 @@ Produz um novo conjunto de documentos classificando os documentos no fluxo de do
 <b>sortByDescending([predicate] [, opções] [, callback])</b>
 <ul>
 <li>
-Produz um novo conjunto de documentos classificando os documentos no fluxo de documentos de entrada em ordem decrescente usando o predicado em questão. Esse comportamento é semelhante ao da cláusula ORDER BY x DESC no SQL.
+Produz um novo conjunto de documentos classificando os documentos no fluxo de documentos de entrada em ordem decrescente usando o predicado em questão. Essa função se comporta semelhante a uma cláusula ORDER BY x DESC no SQL.
 </li>
 </ul>
 </li>
@@ -648,7 +648,7 @@ A [API do lado do servidor de JavaScript](http://azure.github.io/azure-documentd
 Procedimentos armazenados e gatilhos de JavaScript são colocados em uma área restrita para que os efeitos de um script não vazem para o outro sem passar pelo isolamento da transação de captura instantânea no nível do banco de dados. Os ambientes de tempo de execução são colocados em pools, porém, seu contexto é limpo após cada execução. Portanto, sua segurança é garantida e cada um deles está livre de qualquer efeito colateral inesperado advindo do outro.
 
 ### <a name="pre-compilation"></a>Pré-compilação
-Os procedimentos armazenados, gatilhos e UDFs são pré-compilados implicitamente para o formato de código de bytes a fim de evitar o custo de compilação no momento da invocação de cada script. Isso assegura que as invocações dos procedimentos armazenados sejam rápidas e possuam baixa pegada.
+Os procedimentos armazenados, gatilhos e UDFs são pré-compilados implicitamente para o formato de código de bytes a fim de evitar o custo de compilação no momento da invocação de cada script. A pré-compilação assegura que a chamada de procedimentos armazenados seja rápida e possua baixa pegada.
 
 ## <a name="client-sdk-support"></a>Suporte de SDK de cliente
 Além da API [Node.js](sql-api-sdk-node.md) do Azure Cosmos DB, o Azure Cosmos DB tem SDKs do [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](sql-api-sdk-python.md) também para a API do SQL. Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
@@ -723,7 +723,7 @@ E o exemplo a seguir mostra como criar uma função definida pelo usuário (UDF)
     }
 
 ## <a name="rest-api"></a>API REST
-Todas as operações do Azure Cosmos DB podem ser realizadas de maneira RESTful. Procedimentos armazenados, gatilhos e funções definidas pelo usuário podem ser registrados em uma coleção usando HTTP POST. A seguir está um exemplo sobre como registrar um procedimento armazenado:
+Todas as operações do Azure Cosmos DB podem ser realizadas de maneira RESTful. Procedimentos armazenados, gatilhos e funções definidas pelo usuário podem ser registrados em uma coleção usando HTTP POST. O exemplo a seguir mostra como registrar um procedimento armazenado:
 
     POST https://<url>/sprocs/ HTTP/1.1
     authorization: <<auth>>
@@ -757,7 +757,7 @@ Este procedimento armazenado pode, então, ser executado emitindo uma solicitaç
     [ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
 
 
-Aqui, a entrada para o procedimento armazenado é transmitida no corpo de solicitação. Observe que a entrada é transmitida como uma matriz JSON de parâmetros de entrada. O procedimento armazenado assume a primeira entrada como um documento que é um corpo de resposta. A resposta recebida é a seguinte:
+Aqui, a entrada para o procedimento armazenado é transmitida no corpo de solicitação. A entrada é transmitida como uma matriz JSON de parâmetros de entrada. O procedimento armazenado assume a primeira entrada como um documento que é um corpo de resposta. A resposta recebida é a seguinte:
 
     HTTP/1.1 200 OK
 
@@ -773,7 +773,7 @@ Aqui, a entrada para o procedimento armazenado é transmitida no corpo de solici
     }
 
 
-Gatilhos, diferentemente dos procedimentos armazenados, não podem ser executados diretamente. Ao invés disso, eles são executados como parte de uma operação em um documento. Podemos especificar os gatilhos a serem executados com uma solicitação usando cabeçalhos HTTP. O seguinte código mostra a solicitação para criar um documento.
+Gatilhos, diferentemente dos procedimentos armazenados, não podem ser executados diretamente. Ao invés disso, eles são executados como parte de uma operação em um documento. Você pode especificar os gatilhos a serem executados com uma solicitação usando cabeçalhos HTTP. O seguinte código mostra a solicitação para criar um documento.
 
     POST https://<url>/docs/ HTTP/1.1
     authorization: <<auth>>
@@ -793,9 +793,9 @@ Gatilhos, diferentemente dos procedimentos armazenados, não podem ser executado
 Aqui, o pré-gatilho a ser executado com a solicitação é especificado no cabeçalho x-ms-documentdb-pre-trigger-include. Da mesma forma, qualquer pós-gatilho é fornecido no cabeçalho x-ms-documentdb-post-trigger-include. Pré e pós-gatilhos podem ser especificados para uma determinada solicitação.
 
 ## <a name="sample-code"></a>Exemplo de código
-Você pode encontrar mais exemplos de código do lado do servidor (incluindo [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) em nosso [repositório GitHub](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Você pode encontrar mais exemplos de código do lado do servidor (incluindo [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) no [repositório GitHub](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
-Deseja compartilhar seu procedimento armazenado incrível? Envie uma solicitação pull! 
+Deseja compartilhar o incrível procedimento armazenado? contribuir para o repositório e criar uma solicitação pull! 
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de criar um ou mais procedimentos armazenados, gatilhos e funções definidas pelo usuário, você pode carregá-los e exibi-los no Portal do Azure usando o Data Explorer.

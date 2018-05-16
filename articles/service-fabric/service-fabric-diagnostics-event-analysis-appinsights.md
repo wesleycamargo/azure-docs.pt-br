@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 3a7c7663bc13b7169ec9d31aa21365219ec39059
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ef7517e91965b0d7444d158f041b1d2bddea6bd2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Visualização e análise de eventos com o Application Insights
 
@@ -32,7 +32,7 @@ O objetivo deste artigo é mostrar como obter insights e solucionar problemas no
 
 ## <a name="monitoring-in-app-insights"></a>Monitoramento em App Insights
 
-O Application Insights tem um desempenho avançado com o Service Fabric. Na página de visão geral, o AI fornece informações importantes sobre o serviço, como o tempo de resposta e o número de solicitações processadas. Ao clicar no botão "Pesquisar" na parte superior, é possível ver uma lista de solicitações recentes no aplicativo. Além disso, você poderá ver solicitações com falha e diagnosticar quais erros podem ter ocorrido.
+O Application Insights tem uma experiência avançada ao usar o Service Fabric. Na página de visão geral, o AI fornece informações importantes sobre o serviço, como o tempo de resposta e o número de solicitações processadas. Ao clicar no botão "Pesquisar" na parte superior, é possível ver uma lista de solicitações recentes no aplicativo. Além disso, você poderá ver solicitações com falha e diagnosticar quais erros podem ter ocorrido.
 
 ![Visão geral do AI](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
@@ -109,7 +109,7 @@ Certifique-se de fazer as alterações necessárias nos filtros, assim como incl
 
 É recomendável usar EventFlow e WAD como soluções de agregação porque permitem uma abordagem mais modular para diagnósticos e monitoramento, ou seja, se você quiser alterar as saídas do EventFlow, isso não exigirá nenhuma alteração na instrumentação real, apenas uma simples modificação no arquivo de configuração. No entanto, se você decidir investir na utilização do Application Insights e não é provável que mude para uma plataforma diferente, será necessário procurar usar o novo SDK do AI para agregar eventos e enviá-los ao AI. Isso significa que não será mais necessário configurar o EventFlow para enviar os dados para o AI, mas, em vez disso, irá instalar o pacote do NuGet Service Fabric do Application Insight. Detalhes sobre o pacote podem ser encontrados [aqui](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[O suporte do Application Insights para Microsserviços e Contêineres](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) apresenta alguns dos novos recursos que estão sendo trabalhados (atualmente ainda em versão beta), os quais permitem que você tenha opções de monitoramento prontas para uso com o AI. Isso inclui o acompanhamento de dependência (utilizado na construção de um AppMap de todos os seus serviços e aplicativos em um cluster e a comunicação entre eles) e uma melhor correlação de rastreamentos provenientes de seus serviços (ajuda a identificar melhor um problema no fluxo de trabalho de um aplicativo ou serviço).
+[O suporte do Application Insights para Microsserviços e Contêineres](https://azure.microsoft.com/blog/app-insights-microservices/) apresenta alguns dos novos recursos que estão sendo trabalhados (atualmente ainda em versão beta), os quais permitem que você tenha opções de monitoramento prontas para uso com o AI. Isso inclui o acompanhamento de dependência (utilizado na construção de um AppMap de todos os seus serviços e aplicativos em um cluster e a comunicação entre eles) e uma melhor correlação de rastreamentos provenientes de seus serviços (ajuda a identificar melhor um problema no fluxo de trabalho de um aplicativo ou serviço).
 
 Se você estiver desenvolvendo em .NET e provavelmente estará usando alguns dos modelos de programação do Service Fabric, e disposto a utilizar o AI como sua plataforma para visualizar e analisar dados de eventos e logs, então, é recomendável que você vá via a rota SDK do AI como seu fluxo de trabalho de diagnóstico e monitoramento. Leia [este](../application-insights/app-insights-asp-net-more.md) e [este](../application-insights/app-insights-asp-net-trace-logs.md) para começar a utilizar o AI para coletar e exibir seus logs.
 

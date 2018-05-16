@@ -1,19 +1,21 @@
 ---
-title: "Guia de início rápido do Azure – Configurar uma VM com DSC | Microsoft Docs"
-description: "Configurar uma pilha LAMP em uma máquina virtual Linux com Desired State Configuration"
+title: Guia de início rápido do Azure – Configurar uma VM com DSC | Microsoft Docs
+description: Configurar uma pilha LAMP em uma máquina virtual Linux com Desired State Configuration
 services: automation
-keywords: "dsc, configuração, automação"
+ms.service: automation
+ms.component: dsc
+keywords: dsc, configuração, automação
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar uma máquina virtual Linux com Desired State Configuration
 
@@ -28,7 +30,7 @@ Para concluir este início rápido, você precisa de:
 * Uma VM do Azure Resource Manager (não clássico) executando o Red Hat Enterprise Linux, CentOS e Oracle Linux. Para obter instruções sobre a criação de uma VM, consulte [Criar sua primeira máquina virtual do Linux no portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
-Faça logon no Azure em https://portal.azure.com
+Fazer logon no Azure em https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Carregar uma máquina virtual
 Há vários métodos diferentes para integrar um computador e habilitar o Desired State Configuration. Este guia de início rápido abrange a integração por meio de uma conta de Automação. É possível saber mais sobre diferentes métodos para carregar seus computadores para o Desired State Configuration lendo o artigo de [integração](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).

@@ -93,12 +93,10 @@
               href: azure-stack-kv-sample-app.md
         - name: Modelos de solução
           items:
-            - name: Modelos de solução
-              items:
-                - name: Implantar um cluster do Service Fabric
-                  href: azure-stack-solution-template-service-fabric-cluster.md
-                - name: Implantar um cluster Kubernetes
-                  href: azure-stack-solution-template-kubernetes-deploy.md
+            - name: Implantar um cluster do Service Fabric
+              href: azure-stack-solution-template-service-fabric-cluster.md
+            - name: Implantar um cluster Kubernetes
+              href: azure-stack-solution-template-kubernetes-deploy.md
     - name: Criar aplicativos
       items:
         - name: Desenvolver para o Azure Stack

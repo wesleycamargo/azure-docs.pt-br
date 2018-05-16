@@ -1,5 +1,5 @@
 ---
-title: Visão Geral das Funções Duráveis – Azure (versão prévia)
+title: Visão Geral das Funções Duráveis – Azure
 description: Introdução à extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="durable-functions-overview-preview"></a>Visão Geral das Funções Duráveis (versão prévia)
+# <a name="durable-functions-overview"></a>Visão geral das Funções Duráveis
 
 As *Funções Duráveis* são uma extensão do [Azure Functions](functions-overview.md) e do [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) que permitem que você escreva funções com estado em um ambiente sem servidor. A extensão gerencia estado, pontos de verificação e reinicializações para você.
 
@@ -31,7 +31,7 @@ A extensão permite definir fluxos de trabalho com estado em um novo tipo de fun
 * Elas fazem automaticamente o ponto de verificação pontual do progresso sempre que a função esperar. O estado local nunca será perdido se o processo for reciclado ou se a VM for reiniciada.
 
 > [!NOTE]
-> As Funções Duráveis estão em versão prévia e são uma extensão avançada do Azure Functions que não é apropriada para todos os aplicativos. O restante deste artigo pressupõe que você tenha uma forte familiaridade com os conceitos do [Azure Functions](functions-overview.md) e com os desafios envolvidos no desenvolvimento de aplicativos serverless.
+> As Funções Duráveis são uma extensão avançada do Azure Functions que não é apropriada para todos os aplicativos. O restante deste artigo pressupõe que você tenha uma forte familiaridade com os conceitos do [Azure Functions](functions-overview.md) e com os desafios envolvidos no desenvolvimento de aplicativos serverless.
 
 O caso de uso principal das Funções Duráveis é simplificar problemas complexos de coordenação com estado em aplicativos sem servidor. As seções a seguir descrevem alguns padrões de aplicativo típicos que podem se beneficiar das Funções Duráveis.
 
@@ -42,6 +42,8 @@ O caso de uso principal das Funções Duráveis é simplificar problemas complex
 ![Diagrama de encadeamento de funções](media/durable-functions-overview/function-chaining.png)
 
 As Funções Duráveis permitem implementar esse padrão de forma concisa no código.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -60,6 +62,19 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const x = yield ctx.df.callActivityAsync("F1");
+    const y = yield ctx.df.callActivityAsync("F2", x);
+    const z = yield ctx.df.callActivityAsync("F3", y);
+    return yield ctx.df.callActivityAsync("F4", z);
+});
+```
+
 Os valores de "F1", "F2", "F3" e "F4" são os nomes de outras funções no aplicativo de funções. O fluxo de controle é implementado usando construtos de codificação imperativa normal. Ou seja, o código é executado de cima para baixo e pode envolver a semântica do fluxo de controle da linguagem existente, como condicionais e loops.  A lógica de tratamento de erro pode ser incluída em blocos try/catch/finally.
 
 O parâmetro `ctx` ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) fornece métodos para invocar outras funções por nome, passar parâmetros e retornar a saída da função. Cada vez que o código chama `await`, a estrutura das Funções Duráveis faz a *verificação pontual* do progresso da instância da função atual. Se o processo ou a VM for reciclada no meio da execução, a instância da função continuará da chamada `await` anterior. Mais informações sobre esse comportamento de reinicialização são fornecidas mais adiante.
@@ -71,6 +86,8 @@ O parâmetro `ctx` ([DurableOrchestrationContext](https://azure.github.io/azure-
 ![Diagrama de fan-out/fan-in](media/durable-functions-overview/fan-out-fan-in.png)
 
 Com funções normais, o fan-out pode ser feito fazendo com que a função envie várias mensagens para uma fila. No entanto, o processo de fazer fan-in é muito mais desafiador. Você precisaria escrever um código para controlar quando as funções disparadas pela fila terminam e armazenar as saídas da função. A extensão de Funções Duráveis lida com esse padrão com um código relativamente simples.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -91,6 +108,28 @@ public static async Task Run(DurableOrchestrationContext ctx)
     int sum = parallelTasks.Sum(t => t.Result);
     await ctx.CallActivityAsync("F3", sum);
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const parallelTasks = [];
+
+    // get a list of N work items to process in parallel
+    const workBatch = yield ctx.df.callActivityAsync("F1");
+    for (let i = 0; i < workBatch.length; i++) {
+        parallelTasks.push(ctx.df.callActivityAsync("F2", workBatch[i]));
+    }
+
+    yield ctx.df.task.all(parallelTasks);
+
+    // aggregate all N outputs and send result to F3
+    const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
+    yield ctx.df.callActivityAsync("F3", sum);
+});
 ```
 
 O trabalho de fan-out é distribuído para várias instâncias da função `F2` e o trabalho é controlado usando uma lista dinâmica de tarefas. A API `Task.WhenAll` .NET é chamada para aguardar até que todas as funções chamadas sejam concluídas. Em seguida, as `F2`saídas da função são agregadas de uma função lista de tarefas dinâmicas e passadas para a função `F3`.
@@ -151,7 +190,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-O parâmetro de `starter` [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) é um valor da associação de saída `orchestrationClient`, que faz parte da extensão de Funções Duráveis. Ele fornece métodos para iniciar, enviar eventos, encerrar e consultar instâncias novas ou existentes da função de orquestrador. No exemplo acima, uma função disparada por HTTP assume um valor de `functionName` da URL de entrada e passa esse valor para [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Em seguida, essa associação de API retorna uma resposta que contém um cabeçalho `Location` e informações adicionais sobre a instância, que posteriormente podem ser usadas para pesquisar o status da instância iniciada ou encerrá-la.
+O parâmetro de `starter` [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) é um valor da associação de saída `orchestrationClient`, que faz parte da extensão de Funções Duráveis. Ele fornece métodos para iniciar, enviar eventos, encerrar e consultar instâncias novas ou existentes da função orquestradora. No exemplo anterior, uma função disparada por HTTP assume um valor de `functionName` da URL de entrada e passa esse valor para [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Em seguida, essa associação de API retorna uma resposta que contém um cabeçalho `Location` e informações adicionais sobre a instância, que posteriormente podem ser usadas para pesquisar o status da instância iniciada ou encerrá-la.
 
 ## <a name="pattern-4-monitoring"></a>Padrão 4: Monitoramento
 
@@ -162,6 +201,8 @@ Um exemplo seria reverter o cenário anterior da API HTTP assíncrona. Em vez de
 ![Diagrama de monitoramento](media/durable-functions-overview/monitor.png)
 
 Usando Funções Duráveis, vários monitores que observam pontos de extremidade arbitrários podem ser criados em poucas linhas de código. Os monitores podem encerrar a execução quando alguma condição for atendida ou serem terminados pelo [DurableOrchestrationClient](durable-functions-instance-management.md) e o intervalo de espera pode ser alterado com base em alguma condição (por exemplo, retirada exponencial.) O código a seguir implementa um monitor básico.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -189,6 +230,34 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+```js
+const df = require("durable-functions");
+const df = require("moment");
+
+module.exports = df(function*(ctx) {
+    const jobId = ctx.df.getInput();
+    const pollingInternal = getPollingInterval();
+    const expiryTime = getExpiryTime();
+
+    while (moment.utc(ctx.df.currentUtcDateTime).isBefore(expiryTime)) {
+        const jobStatus = yield ctx.df.callActivityAsync("GetJobStatus", jobId);
+        if (jobStatus === "Completed") {
+            // Perform action when condition met
+            yield ctx.df.callActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        const nextCheck = moment.utc(ctx.df.currentUtcDateTime).add(pollingInterval, 's');
+        yield ctx.df.createTimer(nextCheck.toDate());
+    }
+
+    // Perform further work here, or let the orchestration end
+});
+```
+
 Quando uma solicitação é recebida, uma nova instância de orquestração é criada para essa ID do trabalho. A instância sonda um status até que uma condição seja atendida e o loop seja encerrado. Um temporizador durável é usado para controlar o intervalo de sondagem. Trabalho adicional pode ser realizado, ou a orquestração pode encerrar. Quando `ctx.CurrentUtcDateTime` excede `expiryTime`, o monitor encerra.
 
 ## <a name="pattern-5-human-interaction"></a>Padrão 5: interação humana
@@ -200,6 +269,8 @@ Um exemplo de um processo de negócios que envolve a interação humana é um pr
 ![Diagrama de interação humana](media/durable-functions-overview/approval.png)
 
 Esse padrão pode ser implementado usando uma função de orquestrador. O orquestrador usaria um [temporizador durável](durable-functions-timers.md) para solicitar a aprovação e escalar em caso de tempo limite. Ele esperaria por um [evento externo](durable-functions-external-events.md), que seria a notificação gerada por alguma interação humana.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -224,7 +295,39 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+```js
+const df = require("durable-functions");
+const moment = require('moment');
+
+module.exports = df(function*(ctx) {
+    yield ctx.df.callActivityAsync("RequestApproval");
+
+    const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
+    const durableTimeout = ctx.df.createTimer(dueTime.toDate());
+
+    const approvalEvent = ctx.df.waitForExternalEvent("ApprovalEvent");
+    if (approvalEvent === yield ctx.df.Task.any([approvalEvent, durableTimeout])) {
+        durableTimeout.cancel();
+        yield ctx.df.callActivityAsync("ProcessApproval", approvalEvent.result);
+    } else {
+        yield ctx.df.callActivityAsync("Escalate");
+    }
+});
+```
+
 O temporizador durável é criado chamando `ctx.CreateTimer`. A notificação é recebida por `ctx.WaitForExternalEvent`. E `Task.WhenAny` é chamado para decidir se o próximo passo é escalonar (o tempo limite acontece primeiro) ou processar a aprovação (aprovação recebida antes do tempo limite).
+
+Um cliente externo pode entregar a notificação de eventos para uma função do orchestrator em espera usando o [APIs de HTTP interna](durable-functions-http-api.md#raise-event) ou usando a API [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) a partir de outra função:
+
+```csharp
+public static async Task Run(string instanceId, DurableOrchestrationClient client)
+{
+    bool isApproved = true;
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+}
+```
 
 ## <a name="the-technology"></a>A tecnologia
 
@@ -244,7 +347,7 @@ O comportamento de reprodução cria restrições quanto ao tipo do código que 
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-Atualmente, C# é a única linguagem com suporte para as Funções Duráveis. Isso inclui funções de orquestrador e de atividade. No futuro, adicionaremos suporte para todas as linguagens a que o Azure Functions dá suporte. Consulte a [Lista de problemas do Azure Functions no repositório do GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) para ver o status mais recente de nosso trabalho de suporte a linguagens adicionais.
+Atualmente, C# (Functions v1 e v2) e JavaScript (somente Funções v2) são as únicas linguagens com suporte para Funções Duráveis. Isso inclui funções orquestradoras e de atividade. No futuro, adicionaremos suporte para todas as linguagens a que o Azure Functions dá suporte. Consulte a [Lista de problemas do Azure Functions no repositório do GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) para ver o status mais recente de nosso trabalho de suporte a linguagens adicionais.
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoramento e diagnóstico
 
@@ -275,7 +378,7 @@ O armazenamento de tabela é usado para armazenar o histórico de execução das
 
 ## <a name="known-issues-and-faq"></a>Problemas conhecidos e perguntas frequentes
 
-De modo geral, todos os problemas conhecidos devem estar registrados na lista de [Problemas no GitHub](https://github.com/Azure/azure-functions-durable-extension/issues). Se você tiver um problema e não for possível localizá-lo no GitHub, abra um novo problema e inclua uma descrição detalhada dele. Mesmo que você queira apenas fazer uma pergunta, fique à vontade para abrir um problema no GitHub e marcá-lo como uma pergunta.
+Todos os problemas conhecidos devem estar registrados na lista de [Problemas no GitHub](https://github.com/Azure/azure-functions-durable-extension/issues). Se você tiver um problema e não for possível localizá-lo no GitHub, abra um novo problema e inclua uma descrição detalhada dele.
 
 ## <a name="next-steps"></a>Próximas etapas
 

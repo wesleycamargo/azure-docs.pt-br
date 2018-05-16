@@ -1,13 +1,14 @@
 ---
-title: "Opções avançadas de assinatura de certificado no token SAML para aplicativos pré-integrados no Azure Active Directory | Microsoft Docs"
-description: "Saiba como usar as opções avançadas de assinatura de certificado no token SAML para aplicativos pré-integrados no Azure Active Directory"
+title: Opções avançadas de assinatura de certificado no token SAML para aplicativos pré-integrados no Azure Active Directory | Microsoft Docs
+description: Saiba como usar as opções avançadas de assinatura de certificado no token SAML para aplicativos pré-integrados no Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jeevansd
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 9c035dcb55af451d0dae71d7a0f5548a6ba3c0ed
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cec377ad92e1491413f9d3ebc953abb154b83f01
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>As opções avançadas de assinatura de certificado no token SAML para aplicativos da galeria no Azure Active Directory
 Atualmente, o Azure Active Directory (AD do Azure) oferece suporte a milhares de aplicativos pré-integrados na Galeria de aplicativo do Azure Active Directory. Esse número inclui mais de 500 aplicativos que dão suporte ao logon único usando o protocolo SAML 2.0. Quando um usuário é autenticado em um aplicativo por meio do Azure AD usando SAML, o Azure AD envia um token ao aplicativo (por um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML são assinados com o certificado exclusivo que é gerado no Azure AD e por algorítimos padrão específicos.
@@ -28,7 +29,7 @@ O Azure AD usa algumas das configurações padrão para os aplicativos de galeri
 
 O Azure AD oferece suporte a configurações avançadas de assinatura de certificado. Para selecionar essas opções, primeiro marque a caixa de seleção **Mostrar configurações avançadas de assinatura de certificado**:
 
-![Mostrar configurações avançadas de assinatura de certificado][1]
+![Mostrar configurações avançadas de assinatura de certificado](./media/active-directory-enterprise-apps-advance-certificate-options/saml-advance-certificate.png)
 
 Depois de selecionar essa caixa, você pode configurar as opções de assinatura de certificado e o algoritmo de assinatura de certificado.
 
@@ -42,7 +43,7 @@ O Azure AD dá suporte a três opções de assinatura de certificado:
 
 * **Assinar resposta SAML e declaração**. Se essa opção for selecionada, o Azure AD, como IdP, assina todo o toke SAML com o certificado X509 do aplicativo. Além disso, ele usa o algoritmo de assinatura, que é selecionado na lista suspensa do **algorítimo de assinatura**.
 
-    ![Opções de assinatura de certificado][4]
+    ![Opções de assinatura de certificado](./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-options.png)
 
 ## <a name="certificate-signing-algorithms"></a>Algoritmo de assinatura de certificado
 
@@ -50,20 +51,15 @@ O Azure AD dá suporte a dois algoritmos de assinatura para assinar resposta SAM
 
 * **SHA-256**. O Azure AD dá suporte a dois algoritmos de assinatura para assinar resposta SAML. Este é o algoritmo mais recente e é considerado mais seguro do que SHA1. A maioria dos aplicativos dá suporte ao algoritmo SHA-256. Se um aplicativo suporta somente SHA-1 como o algoritmo de assinatura, você pode alterá-lo. Caso contrário, é recomendável usar o algoritmo SHA256 para assinar a resposta SAML.
 
-    ![Algoritmo de assinatura de certificado SHA-256][3]
+    ![Algoritmo de assinatura de certificado SHA-256](./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha256.png)
 
 * **SHA-1**. Este é o algoritmo mais antigo e não é tratado como menos seguro que SH-256. Se o aplicativo der suporte somente a esse algoritmo de assinatura, você poderá selecionar essa opção na lista suspensa de **Algorítimo de Assinatura**. O Azure AD assina a resposta SAML com o algoritmo SHA-1.
 
-    ![Algoritmo de assinatura de certificado SHA-1][2]
+    ![Algoritmo de assinatura de certificado SHA-1](./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha1.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Índice de artigos para gerenciamento de aplicativos no Azure Active Directory](active-directory-apps-index.md)
 * [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Solução de problemas de logon único baseado em SAML](develop/active-directory-saml-debugging.md)
 
-<!--Image references-->
 
-[1]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-advance-certificate.png
-[2]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha1.png
-[3]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha256.png
-[4]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-options.png

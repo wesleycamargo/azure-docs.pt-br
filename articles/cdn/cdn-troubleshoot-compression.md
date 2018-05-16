@@ -1,11 +1,11 @@
 ---
-title: "Solucionando problemas de compactação de arquivo na CDN do Azure | Microsoft Docs"
-description: "Solucione problemas com a compactação de arquivo da CDN do Azure."
+title: Solucionando problemas de compactação de arquivo na CDN do Azure | Microsoft Docs
+description: Solucione problemas com a compactação de arquivo da CDN do Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Solucionando problemas de compactação de arquivo CDN
 Este artigo ajuda você a solucionar problemas com a [compactação de arquivo CDN](cdn-improve-performance.md).
@@ -61,9 +61,9 @@ Primeiro, devemos fazer uma verificação de integridade rápida na solicitaçã
 
 ![Cabeçalhos da solicitação CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### <a name="verify-compression-settings-standard-cdn-profile"></a>Verificar as configurações de compactação (perfil CDN Standard)
+### <a name="verify-compression-settings-standard-cdn-profiles"></a>Verificar as configurações de compactação (perfis CDN Standard)
 > [!NOTE]
-> Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN Standard do Azure da Verizon** ou **CDN Standard do Azure do Akamai**. 
+> Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN Standard do Azure da Microsoft**, **CDN Standard do Azure da Verizon** ou **CDN Standard do Azure do Akamai**. 
 > 
 > 
 
@@ -74,9 +74,9 @@ Navegue até seu ponto de extremidade no [Portal do Azure](https://portal.azure.
 
 ![Configurações de compactação CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### <a name="verify-compression-settings-premium-cdn-profile"></a>Verificar as configurações de compactação (perfil CDN Premium)
+### <a name="verify-compression-settings-premium-cdn-profiles"></a>Verificar as configurações de compactação (perfis CDN Premium)
 > [!NOTE]
-> Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN Premium do Azure da Verizon** .
+> Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN Premium do Azure da Verizon**.
 > 
 > 
 
@@ -88,9 +88,9 @@ Navegue até seu ponto de extremidade no [Portal do Azure](https://portal.azure.
 
 ![Configurações de compactação premium CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-the-content-is-cached"></a>Verificar se que o conteúdo está armazenado em cache
+### <a name="verify-the-content-is-cached-verizon-cdn-profiles"></a>Verifique se o conteúdo está armazenado em cache (perfis CDN da Verizon)
 > [!NOTE]
-> Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN do Azure da Verizon** (Standard ou Premium).
+> Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN Standard do Azure da Verizon** ou **CDN Premium do Azure da Verizon**.
 > 
 > 
 
@@ -101,9 +101,9 @@ Usando as ferramentas de desenvolvedor do navegador, verifique os cabeçalhos de
 
 ![Cabeçalhos de resposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-the-file-meets-the-size-requirements"></a>Verificar se o arquivo atende aos requisitos de tamanho
+### <a name="verify-the-file-meets-the-size-requirements-verizon-cdn-profiles"></a>Verificar se o arquivo atende aos requisitos de tamanho (perfis da CDN da Verizon)
 > [!NOTE]
-> Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN do Azure da Verizon** (Standard ou Premium).
+> Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN Standard do Azure da Verizon** ou **CDN Premium do Azure da Verizon**.
 > 
 > 
 

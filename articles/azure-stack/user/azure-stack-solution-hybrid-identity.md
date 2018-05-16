@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 9a025716c2bb6266c1c1c552a2d0791b39429cac
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5224fe4682509f92e1f18d865e5cc5afb1218ad1
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-with-azure-and-azure-stack-applications"></a>Tutorial: Configurar a identidade de nuvem híbrida com aplicativos do Azure e a pilha do Azure
 
@@ -60,7 +60,7 @@ Uma instalação de pilha do Azure conectada ao Active Directory do Azure com um
 
 Para se conectar a pilha do Azure usando o código, use os pontos de extremidade do Gerenciador de recursos do Azure API para obter a autenticação e os pontos de extremidade do gráfico para a instalação de pilha do Azure e, em seguida, autenticar usando solicitações REST. Você pode encontrar um aplicativo de exemplo [aqui](https://github.com/shriramnat/HybridARMApplication).
 
-> [!note]  
+> [!Note]  
 A menos que o Azure SDK para o idioma de escolha dá suporte a perfis de API do Azure, o SDK pode não funcionar com a pilha do Azure. Para saber mais sobre perfis de API do Azure, vá [aqui](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles).
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 05/08/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: 10055b75000e5affdcdef5841a8d45db8b41ef05
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 883da7d1487922f5cd986a67d7a7bded78ea3759
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registros de contêiner do Docker privado no Azure
 
@@ -54,13 +54,10 @@ Configure as tarefas de build do [Build do ACR](#azure-container-registry-build)
 
 [O Build do Registro de Contêiner do Azure (Build do ACR)](container-registry-build-overview.md) é um pacote de recursos dentro do Registro de Contêiner do Azure que fornece builds de contêiner do Docker aprimorados e eficientes no Azure. Use o Build do ACR para estender o loop interno de desenvolvimento para a nuvem descarregando `docker build` operações no Azure. Configurar tarefas de build para automatizar seu pipeline de patch de sistema operacional e estrutura do contêiner e compilar imagens automaticamente quando sua equipe confirma o código para controle do código-fonte.
 
-> [!NOTE]
-> O Build do ACR está atualmente na visualização e é suportado somente pelos registros de contêiner do Azure nas regiões **Leste dos EUA** (eastus) e **Europa Ocidental** (westeurope). As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um registro de contêiner usando o portal do Azure](container-registry-get-started-portal.md)
 * [Criar um registro de contêiner usando a CLI do Azure](container-registry-get-started-azure-cli.md)
 * [Automatizar o sistema operacional e a aplicação de patch de estrutura com o Build do ACR](container-registry-build-overview.md) (visualização)
-
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

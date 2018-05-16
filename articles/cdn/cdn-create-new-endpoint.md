@@ -1,5 +1,5 @@
 ---
-title: Criar um ponto de extremidade e um perfil de CDN do Azure | Microsoft Docs
+title: 'Início Rápido: Criar um ponto de extremidade e um perfil de CDN do Azure | Microsoft Docs'
 description: Este início rápido mostra como habilitar a CDN do Azure criando um novo ponto de extremidade e perfil de CDN.
 services: cdn
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 6237b47be878217115849b87ebcd3d980665643a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2f2d34db2bb18b93ee4d8b78a135caecde5a293b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: criar um ponto de extremidade e um perfil de CDN do Azure
 Neste início rápido você habilita a Rede de Distribuição de Conteúdo (CDN) do Azure criando um novo ponto de extremidade e perfil de CDN. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes.
@@ -69,8 +69,10 @@ Depois de criar um perfil CDN, você pode usá-lo para criar um ponto de extremi
     
    ![Ponto de extremidade CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   Como o registro demora um pouco para se propagar, o ponto de extremidade não fica imediatamente disponível para uso. 
-
+   Como o registro demora um pouco para se propagar, o ponto de extremidade não fica imediatamente disponível para uso: 
+   - Para perfis da **CDN Standard do Azure da Microsoft**, a propagação geralmente conclui em dez minutos. 
+   - Para perfis da **CDN Standard do Azure da Akamai**, a propagação normalmente é concluída em um minuto. 
+   - Para perfis da **CDN Standard do Azure da Verizon** e **CDN Premium do Azure da Verizon**, a propagação geralmente conclui em 90 minutos. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Nas etapas anteriores, você criou um perfil CDN e um ponto de extremidade em um grupo de recursos. Salve esses recursos se você deseja ir para as [Próximas etapas](#next-steps) e saiba como adicionar um domínio personalizado em seu ponto de extremidade. No entanto, se você não espera usar esses recursos no futuro, poderá excluí-los ao excluir o grupo de recursos, evitando assim encargos adicionais:
@@ -85,6 +87,6 @@ Nas etapas anteriores, você criou um perfil CDN e um ponto de extremidade em um
 Para saber mais sobre como adicionar um domínio personalizado em seu ponto de extremidade CDN, confira o tutorial a seguir:
 
 > [!div class="nextstepaction"]
-> [Adicionar um domínio personalizado](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md)
 
 

@@ -1,11 +1,11 @@
 ---
 title: Perguntas frequentes do desempenho do aplicativo para aplicativos web do Azure | Microsoft Docs
-description: "Obtenha respostas para perguntas frequentes sobre disponibilidade, desempenho e problemas de aplicativo na funcionalidade de Aplicativos Web do Serviço de Aplicativo do Azure."
+description: Obtenha respostas para perguntas frequentes sobre disponibilidade, desempenho e problemas de aplicativo na funcionalidade de Aplicativos Web do Serviço de Aplicativo do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 926005eace0acde27e26619a2787368ba0954351
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9c8eda1c4a65465a93b9c3f9caf23a6663073f26
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
 
@@ -103,7 +103,7 @@ Para ativar o rastreamento de solicitação com falha:
 1. No portal do Azure, vá para seu aplicativo web.
 3. Selecione **Todas as configurações** > **Logs de diagnóstico**.
 4. Para **Rastreamento de solicitação com falha**, selecione **On**.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 6. Na folha de aplicativo Web, selecione **Ferramentas**.
 7. Selecione **Visual Studio Online**.
 8. Se a configuração não estiver **On**, selecione **On**.

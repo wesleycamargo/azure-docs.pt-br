@@ -1,9 +1,9 @@
 ---
-title: "Diagrama de processamento de pagamento do Azure - Requisitos de política"
+title: Diagrama de processamento de pagamento do Azure - Requisitos de política
 description: Requisito 12 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: a79d59d8-20e3-4efe-8686-c8f4ed80e220
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 05e9ed7c886d37a024db1eedbc541705b7d8a9a9
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 2fb238e9b95180d6156159c87ec008a71943e698
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="policy-requirements-for-pci-dss-compliant-environments"></a>Requisitos de política para ambientes em conformidade com o PCI DSS  
 ## <a name="pci-dss-requirement-12"></a>Requisito 12 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Manter uma política direcionada à segurança de informações para todos os funcionários**
 
 > [!NOTE]
-> Esses requisitos são definidos pelo [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [Padrão de Segurança de Dados PCI (PCI DSS), Versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte o PCI DSS para obter informações sobre procedimentos de teste e diretrizes para cada requisito.
+> Esses requisitos são definidos pelo [PCI (Payment Card Industry) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [PCI DSS (Padrão de Segurança de Dados PCI), versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Confira o PCI DSS para obter informações sobre os procedimentos de teste e diretrizes para cada requisito.
 
 Uma política de segurança forte define o tom de segurança para toda a entidade e informa à equipe o que é esperado deles. Todos os funcionários devem estar atentos à confidencialidade dos dados e a suas responsabilidades para protegê-los. Para fins do Requisito 12, “pessoal” ou “equipe” se refere a funcionários em tempo integral e de meio expediente, funcionários temporários, prestadores de serviço e consultores que tem "base" na instalação da entidade ou que possam acessar o ambiente de dados do titular do cartão.
 
@@ -39,7 +39,7 @@ Uma política de segurança forte define o tom de segurança para toda a entidad
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por estabelecer e manter uma política de segurança de informações.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por estabelecer e manter uma política de segurança de informações.|
 
 
 
@@ -52,7 +52,7 @@ Uma política de segurança forte define o tom de segurança para toda a entidad
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por atualizar sua política de segurança das informações pelo menos uma vez ao ano ou quando houver alterações em seu ambiente de CHD (dados de titulares de cartão).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por atualizar sua política de segurança das informações pelo menos uma vez ao ano ou quando houver alterações em seu ambiente de CHD (dados de titulares de cartão).|
 
 
 
@@ -69,7 +69,7 @@ Uma política de segurança forte define o tom de segurança para toda a entidad
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por implementar um processo de avaliação de risco que atende a todas as ameaças listadas no Requisito 12.2.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por implementar um processo de avaliação de risco que atende a todas as ameaças listadas no Requisito 12.2.|
 
 
 
@@ -86,7 +86,7 @@ Verifique se as políticas de uso exigem os itens a seguir.
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -99,7 +99,7 @@ Verifique se as políticas de uso exigem os itens a seguir.
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -112,7 +112,7 @@ Verifique se as políticas de uso exigem os itens a seguir.
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -125,7 +125,7 @@ Verifique se as políticas de uso exigem os itens a seguir.
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -138,7 +138,7 @@ Verifique se as políticas de uso exigem os itens a seguir.
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -151,7 +151,7 @@ Verifique se as políticas de uso exigem os itens a seguir.
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -164,7 +164,7 @@ Verifique se as políticas de uso exigem os itens a seguir.
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por determinar os locais de rede aceitáveis para armazenamento, serviços de suporte e VMs com base em nuvem.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por determinar os locais de rede aceitáveis para armazenamento, serviços de suporte e VMs com base em nuvem.|
 
 
 
@@ -177,7 +177,7 @@ Verifique se as políticas de uso exigem os itens a seguir.
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por determinar os locais de rede aceitáveis para armazenamento, serviços de suporte e VMs com base em nuvem.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por determinar os locais de rede aceitáveis para armazenamento, serviços de suporte e VMs com base em nuvem.|
 
 
 
@@ -190,7 +190,7 @@ Verifique se as políticas de uso exigem os itens a seguir.
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Microsoft Azure usa a funcionalidade de bloqueio de sessão do AD corporativo da Microsoft, que impõe o bloqueio da sessão após um período de inatividade. As conexões de rede são encerradas após 30 minutos de inatividade. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -203,7 +203,7 @@ Verifique se as políticas de uso exigem os itens a seguir.
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -217,7 +217,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por fazer com que a equipe que acessa os dados do titular do cartão por meio de tecnologias de acesso remoto sejam proibidos de copiar, movimentar e armazenar dados do titular do cartão em unidades de disco rígido locais e em mídia removível eletrônica, a menos que expressamente autorizados para um objetivo comercial específico.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por fazer com que a equipe que acessa os dados do titular do cartão por meio de tecnologias de acesso remoto sejam proibidos de copiar, movimentar e armazenar dados do titular do cartão em unidades de disco rígido locais e em mídia removível eletrônica, a menos que expressamente autorizados para um objetivo comercial específico.|
 
 
 
@@ -230,7 +230,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -248,7 +248,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes que são Provedores de Serviço serão responsáveis por documentar seu programa de conformidade de PCI.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes que são Provedores de Serviço serão responsáveis por documentar seu programa de conformidade de PCI.|
 
 
 
@@ -261,7 +261,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por definir e atribuir responsabilidades de segurança da informação aos seus funcionários.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por definir e atribuir responsabilidades de segurança da informação aos seus funcionários.|
 
 
 
@@ -274,7 +274,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por definir e atribuir responsabilidades de segurança da informação aos seus funcionários.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por definir e atribuir responsabilidades de segurança da informação aos seus funcionários.|
 
 
 
@@ -287,7 +287,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por definir e atribuir responsabilidades de segurança da informação aos seus funcionários.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por definir e atribuir responsabilidades de segurança da informação aos seus funcionários.|
 
 
 
@@ -300,7 +300,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -313,7 +313,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -326,7 +326,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas que ditam o uso, a implementação e a autenticação correta de tecnologias essenciais no CDE.|
 
 
 
@@ -339,7 +339,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por criar e manter políticas a respeito da conscientização de segurança para equipes com acesso ao CDE.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por criar e manter políticas a respeito da conscientização de segurança para equipes com acesso ao CDE.|
 
 
 
@@ -355,7 +355,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por fazer com que a equipe receba e confirme o treinamento de segurança da informação e reconhecimento de PCI-DSS pelo menos uma vez ao ano.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por fazer com que a equipe receba e confirme o treinamento de segurança da informação e reconhecimento de PCI-DSS pelo menos uma vez ao ano.|
 
 
 
@@ -368,7 +368,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por fazer com que a equipe receba e confirme o treinamento de segurança da informação e reconhecimento de PCI-DSS pelo menos uma vez ao ano.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por fazer com que a equipe receba e confirme o treinamento de segurança da informação e reconhecimento de PCI-DSS pelo menos uma vez ao ano.|
 
 
 
@@ -384,7 +384,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por garantir que a equipe com acesso ao CDE seja submetida a verificações de antecedentes completas.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por garantir que a equipe com acesso ao CDE seja submetida a verificações de antecedentes completas.|
 
 
 
@@ -397,7 +397,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por monitorar a conformidade de PCI em provedores de serviços com os quais os dados do titular do cartão são compartilhados, ou isso poderá afetar a segurança do CDE. Os clientes devem manter uma lista de todos os provedores de serviço usados em seus CDEs.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por monitorar a conformidade de PCI em provedores de serviços com os quais os dados do titular do cartão são compartilhados, ou isso poderá afetar a segurança do CDE. Os clientes devem manter uma lista de todos os provedores de serviço usados em seus CDEs.|
 
 
 
@@ -411,7 +411,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por monitorar a conformidade de PCI em provedores de serviços com os quais os dados do titular do cartão são compartilhados, ou isso poderá afetar a segurança do CDE. Os clientes devem manter uma lista de todos os provedores de serviço usados em seus CDEs.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por monitorar a conformidade de PCI em provedores de serviços com os quais os dados do titular do cartão são compartilhados, ou isso poderá afetar a segurança do CDE. Os clientes devem manter uma lista de todos os provedores de serviço usados em seus CDEs.|
 
 
 
@@ -427,7 +427,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por firmar contratos por escrito com provedores de serviço confirmando a responsabilidade de manter a segurança dos dados do titular do cartão.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por firmar contratos por escrito com provedores de serviço confirmando a responsabilidade de manter a segurança dos dados do titular do cartão.|
 
 
 
@@ -440,7 +440,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por fazer com que haja um processo estabelecido para contatar provedores de serviços, incluindo a devida auditoria antes da contratação.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por fazer com que haja um processo estabelecido para contatar provedores de serviços, incluindo a devida auditoria antes da contratação.|
 
 
 
@@ -453,7 +453,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por manter um programa para monitorar o status de conformidade de PCI DSS dos provedores de serviço pelo menos uma vez ao ano.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por manter um programa para monitorar o status de conformidade de PCI DSS dos provedores de serviço pelo menos uma vez ao ano.|
 
 
 
@@ -466,7 +466,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por manter uma cópia da [Matriz de Resumo de Responsabilidade](https://aka.ms/pciblueprintcrm32), que descreve os requisitos de PCI DSS de responsabilidade do cliente e os de responsabilidade do Microsoft Azure.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por manter uma cópia da [Matriz de Resumo de Responsabilidade](https://aka.ms/pciblueprintcrm32), que descreve os requisitos de PCI DSS de responsabilidade do cliente e os de responsabilidade do Microsoft Azure.|
 
 
 
@@ -482,7 +482,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes que são Provedores de Serviço serão responsáveis por confirmar suas responsabilidades de manter a conformidade de PCI. |
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes que são Provedores de Serviço serão responsáveis por confirmar suas responsabilidades de manter a conformidade de PCI. |
 
 
 
@@ -495,7 +495,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
 
 
 
@@ -515,7 +515,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
 
 
 
@@ -529,7 +529,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
 
 
 
@@ -542,7 +542,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
 
 
 
@@ -555,7 +555,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
 
 
 
@@ -568,7 +568,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
 
 
 
@@ -581,7 +581,7 @@ Onde houver uma necessidade comercial autorizada, as políticas de uso devem exi
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por desenvolver planos de IR e testes que levem em conta os controles de cliente relacionados a pontos de contato compartilhados e o aplicativos clientes que aproveitam a infraestrutura do Azure. É responsabilidade do cliente fornecer informações de contato precisas ao Azure para o caso de algum incidente que precise ser informado por poder afetar seu aplicativo ou seus dados.|
 
 
 
@@ -604,7 +604,7 @@ As revisões devem abranger os seguintes processos:
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes que são provedores de serviço são responsáveis por documentar suas revisões de processos para confirmar o desempenho de controle de conformidade de PCI.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes que são provedores de serviço são responsáveis por documentar suas revisões de processos para confirmar o desempenho de controle de conformidade de PCI.|
 
 
 
@@ -623,7 +623,7 @@ As revisões devem abranger os seguintes processos:
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes que são provedores de serviço são responsáveis por documentar suas revisões de processos para confirmar o desempenho de controle de conformidade de PCI.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes que são provedores de serviço são responsáveis por documentar suas revisões de processos para confirmar o desempenho de controle de conformidade de PCI.|
 
 
 

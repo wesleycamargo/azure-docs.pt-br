@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0fc8a977a172a859d6691a5b587135caf14e03f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 20af4611920328ddcaa6e658101184451217a011
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Modelo de recurso hierárquico e principais conceitos do Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Este artigo responde às seguintes perguntas:
 * O que são recursos definidos pelo sistema em oposição a recursos definidos pelo usuário?
 * Como eu acesso um recurso?
 * Como eu trabalho com coleções?
-* Como trabalhar com procedimentos armazenados, disparadores e UDFs (Funções Definidas pelo Usuário)?
+* Como eu trabalho com procedimentos armazenados, disparadores e UDFs (Funções Definidas pelo Usuário)?
 
 No vídeo a seguir, o gerente de programa do Azure Cosmos DB, Andrew Liu, demonstra como é o modelo de recursos do Azure Cosmos DB. 
 
@@ -58,7 +58,7 @@ Para começar a trabalhar com os recursos, [crie uma conta do banco de dados](cr
 | Banco de dados |Um banco de dados é um contêiner lógico de armazenamento de documentos particionado em coleções. Ele também é um contêiner para usuários. |
 | Usuário |O namespace lógico para obter o escopo das permissões. |
 | Permissão |Um token de autorização associado a um usuário para acesso a um recurso específico. |
-| Coleção |Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. Uma coleção é uma entidade faturável, em que o [custo](performance-levels.md) é determinado pelo nível de desempenho associado à coleção. As coleções podem abranger uma ou mais partições/servidores e podem ser dimensionadas para lidar com volumes de armazenamento ou taxa de transferência praticamente ilimitados. |
+| Coleção |Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. As coleções podem abranger uma ou mais partições/servidores e podem ser dimensionadas para lidar com volumes de armazenamento ou taxa de transferência praticamente ilimitados. |
 | Procedimento armazenado |Lógica de aplicativo gravada no JavaScript que é registrada com uma coleção e executada de forma transacional dentro do mecanismo do banco de dados. |
 | Gatilho |Lógica de aplicativo escrita em JavaScript executada antes ou depois de uma operação de inserção, substituição ou exclusão. |
 | UDF |Uma lógica de aplicativo escrita em JavaScript. As UDFs permitem modelar um operador de consulta personalizada e, portanto, estender a linguagem de consulta principal da API do SQL. |
@@ -166,14 +166,14 @@ Um banco de dados do Cosmos DB é um contêiner lógico de uma ou mais coleçõe
 ![Modelo hierárquico de coleções e conta de banco de dados][2]  
 **Um banco de dados é um contêiner lógico de usuários e coleções**
 
-Um banco de dados pode conter armazenamento de documentos praticamente ilimitado dividido nas coleções.
+Um banco de dados pode conter armazenamento de documentos ilimitado dividido nas coleções.
 
 ### <a name="elastic-scale-of-an-azure-cosmos-db-database"></a>Escala elástica de um banco de dados do Azure Cosmos DB
 Um banco de dados do Cosmos DB é elástico por padrão – variando de alguns GB a petabytes de armazenamento de documentos com suporte de SSD e produtividade provisionada. 
 
 Ao contrário de um banco de dados em um RDBMS tradicional, um banco de dados do Cosmos DB não tem o escopo definido para um único computador. Com o Cosmos DB, conforme a escala de seu aplicativo precisa ser aumentada, você pode criar mais coleções, bancos de dados ou ambos. Na verdade, vários aplicativos internos da Microsoft utilizam o Azure Cosmos DB na escala do cliente criando bancos de dados do Azure Cosmos DB extremamente grandes, cada um contendo milhares de coleções com terabytes de armazenamento de documentos. É possível expandir ou reduzir um banco de dados adicionando ou removendo coleções para atender os requisitos de escada do seu aplicativo. 
 
-Você pode criar qualquer número de coleções dentro de um banco de dados sujeito à oferta. Cada coleção tem armazenamento com SSD e taxa de transferência provisionada para você, dependendo do nível de desempenho selecionado.
+Você pode criar qualquer número de coleções dentro de um banco de dados sujeito à oferta. Cada coleção, ou conjunto de coleções (dentro de um banco de dados), tem armazenamento com SSD e taxa de transferência provisionada para você, dependendo da oferta selecionada.
 
 Um banco de dados do Azure Cosmos DB também é um contêiner de usuários. Um usuário, por sua vez, é um namespace lógico para um conjunto de permissões que oferece autorização e acesso refinado a coleções, documentos e anexos.  
 
@@ -183,7 +183,7 @@ Assim como ocorre com outros recursos do modelo de recurso do Azure Cosmos DB, o
 Uma coleção do Cosmos DB é um contêiner de seus documentos JSON. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>Armazenamento de documentos com suporte de SSD elástico
-Uma coleção é intrinsicamente elástica; ela cresce e é reduzida automaticamente conforme você adiciona ou remove documentos. Coleções são recursos lógicos e podem abranger um ou mais servidores ou partições físicas. O número de partições em uma coleção é determinado pelo Cosmos DB com base no tamanho do armazenamento e na produtividade provisionada da coleção. Cada partição no DB Cosmos tem uma quantidade fixa de armazenamento com suporte de SSD associado a ela e é replicada para alta disponibilidade. O gerenciamento de partição é totalmente gerenciado pelo DB Cosmos do Azure e você não precisa escrever um código complexo ou gerenciar suas partições. As coleções do Cosmos DB são **praticamente ilimitadas** em termos de armazenamento e produtividade. 
+Uma coleção é intrinsicamente elástica; ela cresce e é reduzida automaticamente conforme você adiciona ou remove documentos. Coleções são recursos lógicos e podem abranger um ou mais servidores ou partições físicas. O número de partições atribuídas a uma coleção é determinado pelo Cosmos DB com base no tamanho do armazenamento e na produtividade provisionada para a coleção ou conjunto de coleções. Cada partição no DB Cosmos tem uma quantidade fixa de armazenamento com suporte de SSD associado a ela e é replicada para alta disponibilidade. O gerenciamento de partição é totalmente gerenciado pelo DB Cosmos do Azure e você não precisa escrever um código complexo ou gerenciar suas partições. As coleções de Cosmos DB são **ilimitadas** em termos de armazenamento e taxa de transferência. 
 
 ### <a name="automatic-indexing-of-collections"></a>Indexação automática de coleções
 O Azure Cosmos DB é um verdadeiro sistema de banco de dados sem esquemas. Ele não assume nem requer qualquer esquema para os documentos JSON. Conforme você adiciona documentos a uma coleção, o Azure Cosmos DB os indexa automaticamente e eles ficam disponíveis para consulta. A indexação automática de documentos sem a necessidade de esquemas ou de índices secundários é uma funcionalidade-chave do Azure Cosmos DB e é habilitada por técnicas de manutenção de índice otimizada para gravação, livre de bloqueios e estruturada para log. O Azure Cosmos DB dá suporte a um volume sustentado de gravações extremamente rápidas, ao mesmo tempo que oferece consultas consistentes. Ambos os armazenamentos de documentos e de índices são usados para calcular o armazenamento consumido por cada coleção. Você pode controlar os compromissos de armazenamento e desempenho associados à indexação configurando a política de indexação para uma coleção. 
@@ -222,7 +222,7 @@ Devido ao seu profundo compromisso com o JavaScript e JSON diretamente no mecani
 * Implementação eficaz de controle de simultaneidade, recuperação e indexação automática dos grafos de objeto JSON diretamente no mecanismo do banco de dados
 * Expressar naturalmente o fluxo de controle, escopo de variáveis, atribuição e integração de primitivos de manuseio de exceções com transações de bancos de dados diretamente em termos da linguagem de programação JavaScript
 
-A lógica de JavaScript registrada no nível da coleção pode, então, emitir operações do banco de dados nos documentos da coleção determinada. O Azure Cosmos DB encapsula implicitamente os procedimentos de armazenamento baseados em JavaScript e os gatilhos em transações ACID ambientes com isolamento de instantâneos entre documentos de uma coleção. Durante sua execução, se o JavaScript lançar uma exceção, então, toda a transação será abortada. O modelo de programação resultante é bastante simples, porém, poderoso. Os desenvolvedores de JavaScript obtêm um modelo de programação “durável”, ao mesmo tempo em que utilizam os construtores de linguagem e primitivas de biblioteca com os quais estão familiarizados.   
+A lógica de JavaScript registrada no nível da coleção pode, então, emitir operações do banco de dados nos documentos da coleção determinada. O Azure Cosmos DB encapsula implicitamente os procedimentos de armazenamento baseados em JavaScript e os gatilhos em transações ACID ambientes com isolamento de instantâneos entre documentos de uma coleção. Durante sua execução, se o JavaScript lançar uma exceção, então, toda a transação será abortada. O modelo de programação resultante é simples, porém, poderoso. Os desenvolvedores de JavaScript obtêm um modelo de programação “durável”, ao mesmo tempo em que utilizam os construtores de linguagem e primitivas de biblioteca com os quais estão familiarizados.   
 
 A capacidade de executar JavaScript diretamente dentro do mecanismo do banco de dados no mesmo espaço de endereço que o conjunto de buffer permite uma execução de desempenho e transacional das operações do banco de dados em relação aos documentos de uma coleção. Além disso, o mecanismo de banco de dados do Cosmos DB assume um forte compromisso com o JSON e o JavaScript elimina qualquer incompatibilidade de impedância entre os sistemas de tipos do aplicativo e do banco de dados.   
 
@@ -322,7 +322,7 @@ A execução de um procedimento armazenado é feita com a emissão de um HTTP PO
         });
 
 ### <a name="unregistering-a-stored-procedure"></a>Cancelando o registro de um procedimento armazenado
-Cancelar o registro de um procedimento armazenado é um processo simples, feito com a emissão de um HTTP DELETE para um recurso do procedimento armazenado existente.   
+O cancelamento do registro de um procedimento armazenado é feito com a emissão de um HTTP DELETE para um recurso do procedimento armazenado existente.   
 
     client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
         .then(function (response) {
@@ -364,7 +364,7 @@ A execução de um gatilho é realizada especificando o nome de um gatilho exist
         });
 
 ### <a name="unregistering-a-pre-trigger"></a>Cancelando o registro de um pré-gatilho
-O cancelamento do registro de um gatilho é feito simplesmente ao emitir um comando HTTP DELETE para um recurso de gatilho existente.  
+O cancelamento do registro de um gatilho é feito ao emitir um comando HTTP DELETE para um recurso de gatilho existente.  
 
     client.deleteTriggerAsync(createdPreTrigger._self);
         .then(function(response) {
@@ -415,7 +415,7 @@ Embora os trechos acima mostrem o registro (POST), cancelamento do registro (PUT
 ## <a name="documents"></a>Documentos
 Você pode inserir, substituir, excluir, ler, enumerar e consultar documentos JSON arbitrários em uma coleção. O Azure Cosmos DB não exige nenhum esquema nem índices secundários para dar suporte à consulta em documentos de uma coleção. O tamanho máximo de um documento é de 2 MB.   
 
-Sendo um serviço de banco de dados verdadeiramente aberto, o Azure Cosmos DB não inverte nenhum tipo de dados especializado (por exemplo, data e hora) nem codificações específicas para documentos JSON. O Azure Cosmos DB não exige nenhuma convenção JSON especial para codificar as relações entre vários documentos; a sintaxe SQL do Azure Cosmos DB fornece operadores de consulta hierárquica e relacional muito avançados para consultar e projetar documentos sem nenhuma anotação especial nem a necessidade de codificar relações entre documentos usando propriedades diferenciadas.  
+Sendo um serviço de banco de dados verdadeiramente aberto, o Azure Cosmos DB não inverte nenhum tipo de dados especializado (por exemplo, data e hora) nem codificações específicas para documentos JSON. O Azure Cosmos DB não exige nenhuma convenção JSON especial para codificar as relações entre vários documentos; a sintaxe SQL do Azure Cosmos DB fornece operadores de consulta hierárquica e relacional avançados para consultar e projetar documentos sem nenhuma anotação especial nem a necessidade de codificar relações entre documentos usando propriedades diferenciadas.  
 
 Como ocorre com todos os outros recursos, documentos podem ser criados, substituídos, excluídos, lidos, enumerados e consultados facilmente usando APIs REST ou qualquer [SDK cliente](sql-api-sdk-dotnet.md). Excluir um documento libera imediatamente a cota correspondente a todos os anexos aninhados. O nível de consistência de leitura dos documentos segue a política de consistência da conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar documentos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida. 
 
@@ -430,7 +430,7 @@ Considere um aplicativo de leitura social que usa o Azure Cosmos DB para armazen
 
 Os exemplos listados acima utilizam IDs amigáveis para transmitir a hierarquia de recursos. Os recursos são acessados por meio das APIs REST usando IDs de recurso exclusivos. 
 
-Para a mídia gerenciada pelo Azure Cosmos DB, a propriedade _media do anexo faz referência à mídia por meio de seu URI. O Azure Cosmos DB garantirá que a mídia seja coletada como lixo quando todas as referências pendentes forem removidas. O Azure Cosmos DB gera o anexo automaticamente ao carregar a nova mídia e popula _media para que ela aponte para a mídia recém-adicionada. Se escolher armazenar a mídia em um armazenamento de blob remoto por conta própria (por exemplo, OneDrive, Azure Storage, DropBox, etc.), você ainda poderá usar os anexos para fazer referência à mídia. Nesse caso, você criará o anexo por conta própria e preencherá a propriedade its _media.   
+Para a mídia gerenciada pelo Azure Cosmos DB, a propriedade _media do anexo faz referência à mídia por meio de seu URI. O Azure Cosmos DB garantirá que a mídia seja coletada como lixo quando todas as referências pendentes forem removidas. O Azure Cosmos DB gera o anexo automaticamente ao carregar a nova mídia e popula _media para que ela aponte para a mídia recém-adicionada. Se escolher armazenar a mídia em um armazenamento de blob remoto por conta própria (por exemplo, OneDrive, Armazenamento do Microsoft Azure, DropBox, etc.), você ainda poderá usar os anexos para fazer referência à mídia. Nesse caso, você criará o anexo por conta própria e preencherá a propriedade its _media.   
 
 Assim como todos os outros recursos, os anexos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. Assim como com os documentos, o nível de consistência de leitura dos anexos segue a política de consistência na conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar anexos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida. 
  
@@ -457,7 +457,7 @@ Assim como todos os outros recursos, os usuários do Azure Cosmos DB podem ser c
 ## <a name="permissions"></a>Permissões
 De uma perspectiva do controle de acesso, recursos como as contas do banco de dados, bancos de dados, usuários e permissão são considerados recursos *administrativos*, uma vez que requerem permissões administrativas. Por outro lado, recursos que incluem as coleções, documentos, anexos, procedimentos armazenados, gatilhos e UDFs têm seu escopo definido em um determinado banco de dados e são considerados como *recursos do aplicativo*. Correspondente aos dois tipos de recursos e à funções que os acessam (ou seja, o administrador e o usuário), o modelo de autorização define dois tipos de *chaves de acesso*: *chave mestra* e *chave de recurso*. A chave mestre é uma parte da conta do banco de dados e é fornecida ao desenvolvedor (ou administrador) que está provisionando a conta do banco de dados. Essa chave mestre possui uma semântica do administrador, e ela pode ser usada para autorizar o acesso aos recursos administrativos e do aplicativo. Em contraste, uma chave de recurso é uma chave de acesso granular que permite o acesso a um recurso de aplicativo *específico*. Portanto, ela captura a relação entre o usuário de um banco de dados e as permissões que o usuário possui para um recurso específico (por exemplo, coleção, documento, anexo, procedimento armazenado, gatilho ou UDF).   
 
-A única maneira de obter uma chave de recurso é criar um recurso de permissão em um determinado usuário. Observe que, a fim de criar ou recuperar uma permissão, uma chave mestre deve ser apresentada no cabeçalho de autorização. Um recurso de permissão vincula o recurso, seu acesso e o usuário. Após criar um recurso de permissão, o usuário só precisa apresentar a chave de recurso associada para obter acesso ao recurso relevante. Portanto, uma chave de recurso pode ser visualizada como uma representação lógica e compacta do recurso de permissão.  
+A única maneira de obter uma chave de recurso é criar um recurso de permissão em um determinado usuário. Para criar ou recuperar uma permissão, uma chave mestre deve ser apresentada no cabeçalho de autorização. Um recurso de permissão vincula o recurso, seu acesso e o usuário. Após criar um recurso de permissão, o usuário só precisa apresentar a chave de recurso associada para obter acesso ao recurso relevante. Portanto, uma chave de recurso pode ser visualizada como uma representação lógica e compacta do recurso de permissão.  
 
 Assim como todos os outros recursos, as permissões do Azure Cosmos DB podem ser criadas, substituídas, excluídas, lidas ou enumeradas facilmente usando as APIs REST ou um dos SDKs do cliente. O Azure Cosmos DB sempre fornece uma coerência forte para leitura ou consulta dos metadados de uma permissão. 
 

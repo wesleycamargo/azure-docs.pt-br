@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -53,7 +53,7 @@ Há algumas etapas importantes a serem realizadas antes de mover um recurso. Ao 
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Se as IDs de locatário para as assinaturas de origem e de destino não forem iguais, use os métodos a seguir para reconciliá-las: 
+  Se as IDs de locatário para as assinaturas de origem e de destino não forem iguais, use os métodos a seguir para reconciliá-las:
 
   * [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md)
   * [Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
@@ -108,26 +108,27 @@ Entre em contato com o [suporte](https://portal.azure.com/#blade/Microsoft_Azure
 
 Os serviços que permitem mover para um novo grupo de recursos e uma nova assinatura são:
 
-* Gerenciamento da API
+* Gerenciamento de API
 * Aplicativos do Serviço de Aplicativo (aplicativos Web) - consulte [Limitações do Serviço de Aplicativo](#app-service-limitations)
 * Certificados do Serviço de Aplicativo
 * Application Insights
 * Automação
 * Azure Cosmos DB
-* Batch
+* Lote
 * Bing Mapas
 * CDN
 * Serviços de Nuvem - veja [Limitações da implantação clássica](#classic-deployment-limitations)
 * Serviços Cognitivos
 * Content Moderator
 * Catálogo de Dados
+* Data Factory - V1 pode ser movido, mas mover V2 (versão prévia) não tem suporte
 * Data Lake Analytics
-* Repositório Data Lake
+* Data Lake Store
 * DNS
-* Hubs de evento
+* Hubs de Eventos
 * Clusters HDInsight – veja [Limitações do HDInsight](#hdinsight-limitations)
 * Hubs IoT
-* Cofre da Chave
+* Key Vault
 * Load Balancers - consulte [Limitações do Load Balancer](#lb-limitations)
 * Aplicativos Lógicos
 * Aprendizado de Máquina - os serviços Web do Machine Learning Studio podem ser movidos para um grupo de recursos na mesma assinatura, mas não uma assinatura diferente. Outros recursos de Microsoft Machine Learning podem ser movidos entre assinaturas.
@@ -147,7 +148,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Armazenamento
 * Armazenamento (clássico) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 * Stream Analytics – os trabalhos do Stream Analytics não podem ser movidos durante o estado de execução.
-* Servidor de Banco de Dados SQL – o banco de dados e o servidor devem residir no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos.
+* Servidor de Banco de Dados SQL – o banco de dados e o servidor devem residir no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos. Isso inclui Banco de Dados SQL do Azure e banco de dados SQL Data Warehouse do Azure. 
 * Gerenciador de Tráfego
 * Máquinas virtuais – VMs com Managed Disks não podem ser movidas. Veja [Limitações das Máquinas Virtuais](#virtual-machines-limitations)
 * Máquinas virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
@@ -165,8 +166,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Banco de Dados do Azure para MySQL
 * Serviços do BizTalk
 * Certificados - Os certificados do Serviço de Aplicativo podem ser movidos, mas os certificados carregados têm [limitações](#app-service-limitations).
-* Serviço de Contêiner
-* Data Factory
+* Serviço do Kubernetes
 * Laboratórios DevTest – mover para um novo grupo de recursos na mesma assinatura está habilitado, mas a troca entre assinaturas está desabilitado.
 * Dynamics LCS
 * ExpressRoute
@@ -203,13 +203,13 @@ Você não pode mover uma rede virtual para uma assinatura diferente caso a rede
 
 ## <a name="app-service-limitations"></a>Limitações do Serviço de Aplicativo
 
-As limitações para mover recursos do Serviço de Aplicativo diferem se você está movendo os recursos dentro de uma assinatura ou para uma nova assinatura. 
+As limitações para mover recursos do Serviço de Aplicativo diferem se você está movendo os recursos dentro de uma assinatura ou para uma nova assinatura.
 
 As limitações descritas nesta seção se aplicam a certificados carregados, não a Certificados do Serviço de Aplicativo. Você pode mover Certificados do Serviço de Aplicativo para um novo grupo de recursos ou assinatura sem limitações. Se você tiver vários aplicativos Web que usam o mesmo Certificado do Serviço de Aplicativo, primeiro mova todos os aplicativos Web e depois mova o certificado.
 
 ### <a name="moving-within-the-same-subscription"></a>Movendo dentro da mesma assinatura
 
-Ao mover um aplicativo Web _dentro da mesma assinatura_, você não pode mover os certificados SSL carregados. No entanto, você pode mover um aplicativo Web para o novo grupo de recursos sem mover o respectivo certificado SSL carregado, mantendo a funcionalidade SSL do aplicativo. 
+Ao mover um aplicativo Web _dentro da mesma assinatura_, você não pode mover os certificados SSL carregados. No entanto, você pode mover um aplicativo Web para o novo grupo de recursos sem mover o respectivo certificado SSL carregado, mantendo a funcionalidade SSL do aplicativo.
 
 Se você deseja mover o certificado SSL com o aplicativo Web, siga estas etapas:
 
@@ -227,7 +227,7 @@ Ao mover um aplicativo Web _entre assinaturas_, as seguintes limitações se apl
     - Certificados SSL importados ou carregados
     - Ambientes de Serviço de Aplicativo
 - Todos os recursos de Serviço de Aplicativo no grupo de recursos devem ser movidos juntos.
-- Recursos do Serviço de Aplicativo podem ser movidos apenas no grupo de recursos no qual eles foram originalmente criados. Se um recurso do Serviço de Aplicativo não estiver mais em seu grupo de recursos original, ele deverá ser movido de volta para esse grupo de recursos original primeiro e, em seguida, poderá ser movido entre assinaturas. 
+- Recursos do Serviço de Aplicativo podem ser movidos apenas no grupo de recursos no qual eles foram originalmente criados. Se um recurso do Serviço de Aplicativo não estiver mais em seu grupo de recursos original, ele deverá ser movido de volta para esse grupo de recursos original primeiro e, em seguida, poderá ser movido entre assinaturas.
 
 ## <a name="classic-deployment-limitations"></a>Limitações da implantação clássica
 

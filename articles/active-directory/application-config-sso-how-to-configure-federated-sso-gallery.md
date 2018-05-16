@@ -1,11 +1,11 @@
 ---
-title: "Como configurar o logon único federado para um aplicativo na Galeria do Azure AD | Microsoft Docs"
-description: "Como configurar o logon único federado para um aplicativo na Galeria do Azure AD existente e usar tutoriais para começar rapidamente"
+title: Como configurar o logon único federado para um aplicativo na Galeria do Azure AD | Microsoft Docs
+description: Como configurar o logon único federado para um aplicativo na Galeria do Azure AD existente e usar tutoriais para começar rapidamente
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e71480910432c6475ca97d20853a72b864195faa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 47aab24702be966beeb41371201c6966497dc35a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o logon único federado para um aplicativo na Galeria do Azure AD
 
@@ -210,7 +210,7 @@ Após um breve período, os usuários que você selecionou poderão iniciar esse
 Para saber como personalizar as declarações de atributo SAML enviadas para seu aplicativo, consulte [Mapeamento de declarações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
+[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Implantar a solução de simulação de dispositivo – Azure | Microsoft Docs"
-description: "Este tutorial mostra como provisionar a solução de simulação de dispositivo do azureiotsuite.com."
+title: Implantar a solução de simulação de dispositivo – Azure | Microsoft Docs
+description: Este tutorial mostra como provisionar a solução de simulação de dispositivo do azureiotsuite.com.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: da9fb95ed5d3387c98c3274a53769d3f5f945371
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 52890c51b06777a2d74fcf143bee4e5e8919ba75
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>Implantar a solução de simulação de dispositivo IoT do Azure
 
@@ -45,7 +45,7 @@ Antes de implantar a solução na sua assinatura do Azure, você deve escolher a
 
 1. Clique em **Selecionar** no bloco **Simulação de Dispositivo**:
 
-    ![Escolher a simulação de dispositivo](media/iot-suite-device-simulation-deploy/select.png)
+    ![Escolha a simulação de dispositivo](media/iot-suite-device-simulation-deploy/select.png)
 
 1. Na página **Criar solução de simulação de dispositivo**, insira um **Nome da solução** para sua solução de simulação de dispositivo.
 

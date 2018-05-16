@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/11/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: 0d8c1ebe9688f32c460ef689119313b0682a0a68
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f34c4697439685ce6ea0ce3f2c7e954ee81b5079
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrar a pilha do Azure com o Azure
 Registrando [Azure pilha](azure-stack-poc.md) com o Azure permite que você para baixar itens do marketplace do Azure e configurar dados de comércio relatadas à Microsoft. Depois de registrar a pilha do Azure, uso é relatado para comércio do Azure e você pode vê-lo sob a assinatura usada para registro. 
 
 > [!IMPORTANT]
-> Registro será obrigatório se você escolher o modelo de cobrança de pagamento que você-uso. Caso contrário, será em violação dos termos de licenciamento da implantação da pilha do Azure como uso não será reportado.
+> Registro é necessário para dar suporte a funcionalidade completa da pilha do Azure, incluindo a distribuição do marketplace. Além disso, você será em violação da pilha do Azure termos de licença se você não registrar ao usar o modelo de cobrança de pagamento que você-uso. Para saber mais sobre a pilha do Azure modelos de licenciamento, consulte o [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de registrar a pilha do Azure com o Azure, você deve ter:

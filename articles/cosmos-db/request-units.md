@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2b69b3b5fee0d1148a762f817d9c5a8bc67806e7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7290c12e7d96ac01c66d97103920793f98120b38
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Solicitação no Azure Cosmos DB
 
@@ -32,9 +32,9 @@ Para fornecer um desempenho previsível, você precisa reservar a produtividade 
 Após ler este artigo, você poderá responder as perguntas a seguir:  
 
 * O que são unidades de solicitação e solicitações de encargos no Microsoft Azure Cosmos DB?
-* Como especificar a capacidade da unidade de solicitação para um contêiner Microsoft Azure Cosmos DB?
+* Como especificar a capacidade da unidade de solicitação para um contêiner ou conjunto de contêineres do Microsoft Azure Cosmos DB?
 * Como estimar as necessidades de unidades de solicitação de meu aplicativo?
-* Como especificar se eu exceder uma unidade de solicitação para um contêiner no Microsoft Azure Cosmos DB?
+* O que acontece se eu exceder a capacidade da unidade de solicitação para um contêiner ou conjunto de contêiners do Microsoft Azure Cosmos DB?
 
 Como o Microsoft Azure Cosmos DB é um banco de dados de vários modelos, é importante observar que este artigo é aplicável a todos os modelos de dados e APIs no Microsoft Azure Cosmos DB. Este artigo usa termos genéricos como *contêiner* e um *item* para referenciar genericamente a uma coleção, gráfico, ou uma tabela e um documento, um nó ou uma entidade, respectivamente.
 
@@ -50,14 +50,19 @@ Com o Azure Cosmos DB, a produtividade reservada é especificada em termos de pr
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificando a capacidade de unidades de solicitação no Azure Cosmos DB
-Ao iniciar um novo contêiner, especifique o número de unidades de solicitação por segundo (RU por segundo) que você deseja ter reservado. Com base na produtividade provisionada, o Azure Cosmos DB aloca partições físicas para hospedar seu contêiner e divide/redistribui os dados entre partições conforme eles aumentam.
 
-Os contêineres do Azure Cosmos DB podem ser criados como fixos ou ilimitados. Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que seus dados talvez precisem ser divididos em várias partições, é necessário selecionar uma chave de partição que tenha alta cardinalidade (100 milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, você garante que seu contêiner/tabela/gráfico e solicitações possam ser colocados em escala de maneira uniforme pelo Azure Cosmos DB. 
+Você pode especificar o número de unidades de solicitação por segundo (RU por segundo) que você deseja reservado para um contêiner individual ou para um conjunto de contêineres. Com base na produtividade provisionada, o Azure Cosmos DB alocará partições físicas para hospedar seu(s) contêiner(es) e divide/redistribui os dados entre partições conforme eles aumentam.
+
+Ao atribuir RU/s no nível do contêiner individual, os contêineres podem ser criados como *fixos* ou *ilimitados*. Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que seus dados talvez precisem ser divididos em várias partições, é necessário selecionar uma chave de partição que tenha alta cardinalidade (100 milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, você garante que seu contêiner/tabela/gráfico e solicitações possam ser colocados em escala de maneira uniforme pelo Azure Cosmos DB. 
+
+Ao atribuir RU/s em um conjunto de contêineres, os contêineres pertencentes a esse conjunto são tratados como contêineres *ilimitados* e devem especificar uma chave de partição.
+
+![Unidades de solicitação de provisionamento para contêineres individuais e conjunto de contêineres][6]
 
 > [!NOTE]
 > Uma chave de partição é um limite lógico e não físico. Portanto, não é necessário limitar o número de valores de chave de partição distinta. Na verdade, já que o Azure Cosmos DB tem mais opções de balanceamento de carga, é melhor ter mais valores de chave de partição distintos do que menos.
 
-Segue um trecho de código para criar um contêiner com 3.000 unidades de solicitação por segundo usando o SDK do .NET:
+Segue um trecho de código para criar um contêiner com 3.000 unidades de solicitação por segundo para um contêiner individual usando SDK do .NET da API do SQL:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -70,12 +75,41 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-O Microsoft Azure Cosmos DB opera em um modelo de reserva na produtividade. Ou seja, você será cobrado pela quantidade de produtividade *reservada*, independentemente do quanto da produtividade estiver em *uso*. À medida que a carga, os dados e os padrões de uso do aplicativo mudarem, você poderá aumentar ou reduzir verticalmente a quantidade de RUs reservadas por meio de SDKs ou usando o [Portal do Azure](https://portal.azure.com).
+Segue um trecho de código para provisionar 100.000 unidades de solicitação por segundo em um conjunto de contêineres usando SDK do .NET da API do SQL:
 
-Cada contêiner é mapeado para um recurso `Offer` no Azure Cosmos DB, que tem metadados sobre a produtividade provisionada. Altere a produtividade alocada procurando o recurso de oferta correspondente de um contêiner e, em seguida, atualizando-o com o novo valor de produtividade. Aqui está um trecho de código para alterar a taxa de transferência de um contêiner para 5.000 unidades de solicitação por segundo usando o SDK do .NET:
+```csharp
+// Provision 100,000 RU/sec at the database level. 
+// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
+// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
+Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
+
+DocumentCollection sharedCollection1 = new DocumentCollection();
+sharedCollection1.Id = "sharedCollection1";
+sharedCollection1.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
+
+DocumentCollection sharedCollection2 = new DocumentCollection();
+sharedCollection2.Id = "sharedCollection2";
+sharedCollection2.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
+
+DocumentCollection dedicatedCollection = new DocumentCollection();
+dedicatedCollection.Id = "dedicatedCollection";
+dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
+```
+
+
+O Microsoft Azure Cosmos DB opera em um modelo de reserva na produtividade. Ou seja, você será cobrado pela quantidade de produtividade *reservada*, independentemente do quanto da produtividade estiver em *uso*. À medida que a carga, os dados e os padrões de uso do aplicativo mudarem, você poderá aumentar ou reduzir verticalmente o número de RUs reservadas por meio de SDKs ou usando o [Portal do Azure](https://portal.azure.com).
+
+Cada contêiner, ou conjunto de contêineres, é mapeado para um recurso `Offer` no Azure Cosmos DB, que tem metadados sobre a produtividade provisionada. Altere a produtividade alocada procurando o recurso de oferta correspondente de um contêiner e, em seguida, atualizando-o com o novo valor de produtividade. Aqui está um trecho de código para alterar a taxa de transferência de um contêiner para 5.000 unidades de solicitação por segundo usando o SDK do .NET:
 
 ```csharp
 // Fetch the resource to be updated
+// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
                 .AsEnumerable()
@@ -88,28 +122,28 @@ offer = new OfferV2(offer, 5000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-Não há nenhum impacto sobre a disponibilidade do contêiner quando a produtividade é alterada. Normalmente, a nova taxa de transferência reservada se torna eficaz em segundos no aplicativo da nova taxa de transferência.
+Não há nenhum impacto sobre a disponibilidade do contêiner, ou conjunto de contêineres, quando a produtividade é alterada. Normalmente, a nova taxa de transferência reservada se torna eficaz em segundos no aplicativo da nova taxa de transferência.
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolamento de taxa de transferência em bancos de dados distribuído globalmente
 
-Quando o banco de dados é replicado em mais de uma região, o Azure Cosmos DB fornece isolamento de taxa de transferência para garantir que o uso de RU em uma região não afete o uso de RU em outra região. Por exemplo, se você gravar dados em uma região e ler dados de outra região, as RUs usadas para executar a operação de gravação na região *A* não removem as RUs usadas para a operação de leitura na região *B*. As RUs não são divididas entre as regiões implantadas. Cada região onde o banco de dados é replicado tem a quantidade total de RUs provisionada. Para obter mais informações sobre replicação global, consulte [Como distribuir os dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
+Quando o banco de dados é replicado em mais de uma região, o Azure Cosmos DB fornece isolamento de taxa de transferência para garantir que o uso de RU em uma região não afete o uso de RU em outra região. Por exemplo, se você gravar dados em uma região e ler dados de outra região, as RUs usadas para executar a operação de gravação na região *A* não removem as RUs usadas para a operação de leitura na região *B*. As RUs não são divididas entre as regiões implantadas. Cada região onde o banco de dados é replicado tem o número total de RUs provisionada. Para obter mais informações sobre replicação global, consulte [Como distribuir os dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Considerações sobre unidades de solicitação
-Ao estimar o número de unidades de solicitação a ser reservado para o contêiner do Microsoft Azure Cosmos DB, é importante considerar as seguintes variáveis:
+Ao estimar o número de unidades de solicitação para provisão, é importante considerar as seguintes variáveis:
 
 * **Tamanho do item**. Conforme o número de unidades de solicitação aumenta, as unidades consumidas para ler ou gravar os dados também aumentam.
 * **Contagem de propriedades do item**. Pressupondo a indexação padrão de todas as propriedades, as unidades consumidas para gravar um documento/nó/entidade aumentam conforme a contagem de propriedades aumenta.
 * **Consistência de dados**. Ao usar os níveis de consistência de dados como Forte ou Desatualização Limitada, unidades adicionais são consumidas para ler os itens.
-* **Propriedades indexadas**. Uma política de índice em cada contêiner determina quais propriedades são indexadas por padrão. Você pode reduzir o consumo de unidades de solicitação limitando o número de propriedades indexadas ou habilitando a indexação lenta.
+* **Propriedades indexadas**. Uma política de índice em cada contêiner determina quais propriedades são indexadas por padrão. Você pode reduzir o consumo de unidades de solicitação para operações de gravação, limitando o número de propriedades indexadas ou habilitando a indexação lenta.
 * **Indexação de documentos**. Por padrão, cada item é indexado automaticamente. Você consumirá menos unidades de solicitação se optar por não indexar alguns de seus itens.
-* **Padrões de consulta**. A complexidade de uma consulta afeta a quantidade de unidades de solicitação consumida para uma operação. O número de predicados, a natureza dos predicados, as projeções, o número de UDFs e o tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
+* **Padrões de consulta**. A complexidade de uma consulta afeta a quantidade de unidades de solicitação consumida para uma operação. O número de resultados de consulta, o número de predicados, a natureza dos predicados, as projeções, o número de UDFs e o tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
 * **Uso de scripts**.  Assim como ocorre com as consultas, os procedimentos armazenados e os gatilhos consomem unidades de solicitação com base na complexidade das operações que estão sendo executadas. À medida que desenvolver seu aplicativo, inspecione o cabeçalho de solicitação de carga para entender melhor como cada operação está consumindo a capacidade de unidades de solicitação.
 
 ## <a name="estimating-throughput-needs"></a>Estimativa das necessidades de produção
 Uma unidade de solicitação é uma medida normalizada de custo de processamento de solicitação. Uma única unidade de solicitação representa a capacidade de processamento necessária para ler (por meio de autolink ou ID) um único item de 1 KB que consiste em 10 valores de propriedade exclusivos (excluindo as propriedades do sistema). Uma solicitação para criar (inserir), substituir ou excluir o mesmo item consumirá mais processamento do serviço e, assim, mais unidades de solicitação.   
 
 > [!NOTE]
-> A linha de base de 1 unidade de solicitação para um item de 1 KB corresponde a um GET simples por autolink ou ID do item.
+> A linha de base de uma unidade de solicitação para um item de 1 KB corresponde a um GET simples por autolink ou ID do item.
 > 
 > 
 
@@ -177,8 +211,8 @@ Usar a ferramenta é simples:
 1. Carregue um ou mais itens representativos (por exemplo, um documento JSON).
    
     ![Carregar itens na calculadora de unidades de solicitação][2]
-2. Para estimar os requisitos de armazenamento de dados, insira o número total de itens (por exemplo, documentos, tabelas ou gráficos) que você espera armazenar.
-3. Insira o número de operações de criação, leitura e atualização e exclusão necessário (por segundo). Para estimar as cobranças da unidade de solicitação das operações de atualização de itens, carregue uma cópia do item de exemplo da etapa 1 acima que inclui atualizações típicas de campo.  Por exemplo, se as atualizações de itens normalmente modificarem duas propriedades chamadas l*lastLogin* e *userVisits*, basta copiar o item de exemplo, atualizar os valores dessas duas propriedades e carregar o item copiado.
+2. Para estimar os requisitos de armazenamento de dados, insira o número total de itens (por exemplo, documentos, linhas ou vértices) que você espera armazenar.
+3. Insira o número de operações de criação, leitura e atualização e exclusão necessário (por segundo). Para estimar as cobranças da unidade de solicitação das operações de atualização de itens, carregue uma cópia do item de exemplo da etapa 1 acima que inclui atualizações típicas de campo.  Por exemplo, se as atualizações de itens normalmente modificarem duas propriedades chamadas l*lastLogin* e *userVisits*, copie o item de exemplo, atualizar os valores dessas duas propriedades e carregar o item copiado.
    
     ![Inserir requisitos de produtividade na calculadora de unidade de solicitação][3]
 4. Clique em Calcular e examinar os resultados.
@@ -299,7 +333,7 @@ Com essas informações, é possível estimar os requisitos de RU para esse apli
 | Selecionar por grupo de alimentos |10 |700 |
 | Selecionar os 10 principais |15 |Total de 150 |
 
-Nesse caso, esperamos um requisito de taxa de transferência média de 1.275 RUs/s.  Arredondando para a centena mais próxima, vamos provisionar 1.300 RUs/s para o contêiner desse aplicativo.
+Nesse caso, esperamos um requisito de taxa de transferência média de 1.275 RUs/s.  Arredondando para a centena mais próxima, vamos provisionar 1.300 RUs/s para o contêiner (ou conjunto de contêineres) desse aplicativo.
 
 ## <a id="RequestRateTooLarge"></a> Excedendo os limites de produtividade reservada no Azure Cosmos DB
 Lembre-se de que o consumo de unidades de solicitação é avaliado como uma taxa por segundo. Para aplicativos que excedem a taxa das unidades de solicitação provisionada, serão limitados até que a taxa fique abaixo do nível de rendimento provisionado. Quando ocorre uma restrição com taxa limitada, o servidor encerra por preempção a solicitação com `RequestRateTooLargeException` (código de status HTTP 429) e retorna o cabeçalho `x-ms-retry-after-ms`, indicando o tempo, em milissegundos, que o usuário deve aguardar antes de repetir a solicitação.
@@ -310,7 +344,7 @@ Lembre-se de que o consumo de unidades de solicitação é avaliado como uma tax
 
 Se estiver usando as consultas do SDK do cliente .NET e LINQ, em seguida, na maioria das vezes, você nunca precisará lidar com essa exceção, pois a versão atual do SDK do Cliente .NET captura implicitamente essa resposta, respeita o cabeçalho retry-after especificado pelo servidor e tenta novamente a solicitação automaticamente. A menos que sua conta esteja sendo acessada simultaneamente por vários clientes, a próxima tentativa será bem-sucedida.
 
-Se você tiver mais de um cliente operando cumulativamente acima da taxa de solicitação, o comportamento de repetição padrão poderá não ser suficiente e o cliente lançará um `DocumentClientException`com o código de status 429 para o aplicativo. Em casos como esse, considere a manipulação do comportamento de repetição e da lógica nas rotinas de tratamento de erro do aplicativo ou o aumento da taxa de transferência provisionada para o contêiner.
+Se você tiver mais de um cliente operando cumulativamente acima da taxa de solicitação, o comportamento de repetição padrão poderá não ser suficiente e o cliente lançará um `DocumentClientException`com o código de status 429 para o aplicativo. Em casos como esse, considere a manipulação do comportamento de repetição e da lógica nas rotinas de tratamento de erro do aplicativo ou o aumento da taxa de transferência provisionada para o contêiner (ou conjunto de contêineres).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a produtividade reservada com bancos de dados do Azure Cosmos DB, conheça estes recursos:
@@ -326,3 +360,4 @@ Para obter uma introdução aos testes de escala e desempenho com o Azure Cosmos
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+[6]: ./media/request-units/provisioning_set_containers.png

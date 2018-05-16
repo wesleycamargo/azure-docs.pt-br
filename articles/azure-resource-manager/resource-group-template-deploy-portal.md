@@ -2,7 +2,7 @@
 title: Usar o Portal do Azure para implantar recursos do Azure | Microsoft Docs
 description: Use o portal do Azure e o Azure Resource Manager para implantar seus recursos.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0174f688cb3fd04fdd41714d54a7371319bae951
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implantar recursos com modelos do Resource Manager e o portal do Azure
 
 Este tópico mostra como usar o [Portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](resource-group-overview.md) para implantar seus recursos do Azure. Para saber sobre como gerenciar seus recursos, confira [Gerenciar recursos do Azure por meio do portal](resource-group-portal.md).
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
@@ -83,7 +85,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 
    ![Pesquisar implantação de modelo](./media/resource-group-template-deploy-portal/search-template.png)
 
-1. Selecione **Criar**.
+1. Clique em **Criar**.
 
    ![Selecione criar](./media/resource-group-template-deploy-portal/show-template-option.png)
 
@@ -103,7 +105,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 
    ![Escolher conta de armazenamento](./media/resource-group-template-deploy-portal/add-storage-account.png)
 
-1. O editor adiciona automaticamente o JSON para o tipo de recurso. Observe que ele inclui um parâmetro para a definição do tipo de conta de armazenamento. Selecione **Salvar**.
+1. O editor adiciona automaticamente o JSON para o tipo de recurso. Observe que ele inclui um parâmetro para a definição do tipo de conta de armazenamento. Clique em **Salvar**.
 
    ![Mostrar modelo](./media/resource-group-template-deploy-portal/show-json.png)
 

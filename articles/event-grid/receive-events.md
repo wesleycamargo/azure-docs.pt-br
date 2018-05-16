@@ -6,13 +6,13 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: 179f7c46186762eed2f7f8ac90620ac2fec9caf3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos em um ponto de extremidade HTTP
 
@@ -27,9 +27,9 @@ Este artigo descreve como [validar um ponto de extremidade HTTP](security-authen
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-Se você estiver desenvolvendo no .NET, [adicione uma dependência](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à função para o `Microsoft.Azure.EventGrid` [pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). SDKs para outros idiomas estão disponíveis na referência [SDKs de Publicação](./sdk-overview.md#publish-sdks). Esses pacotes contêm os modelos para tipos de eventos nativos, como `EventGridEvent`, `StorageBlobCreatedEventData` e `EventHubCaptureFileCreatedEventData`.
+Se você estiver desenvolvendo no .NET, [adicione uma dependência](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à função para o `Microsoft.Azure.EventGrid` [pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). SDKs para outros idiomas estão disponíveis na referência [SDKs de Publicação](./sdk-overview.md#data-plane-sdks). Esses pacotes contêm os modelos para tipos de eventos nativos, como `EventGridEvent`, `StorageBlobCreatedEventData` e `EventHubCaptureFileCreatedEventData`.
 
-Para fazer isso, clique no link "Exibir Arquivos" no Azure Functions (painel mais à direita no portal de funções do Azure) e crie um arquivo chamado project.json. Adicione o seguinte código ao arquivo `project.json` e salve-o:
+Clique no link "Exibir Arquivos" no Azure Functions (painel mais à direita no portal de funções do Azure) e crie um arquivo chamado project.json. Adicione o seguinte código ao arquivo `project.json` e salve-o:
 
  ```json
 {
@@ -41,19 +41,17 @@ Para fazer isso, clique no link "Exibir Arquivos" no Azure Functions (painel mai
     }
    }
 }
-
 ```
 
 ![Pacote NuGet adicionado](./media/receive-events/add-dependencies.png)
 
 ## <a name="endpoint-validation"></a>Validação do ponto de extremidade
 
-A primeira coisa que queremos fazer é manipular eventos `Microsoft.EventGrid.SubscriptionValidationEvent`. Sempre que uma nova Assinatura de Evento for criada, a Grade de Eventos envia um evento de validação para o ponto de extremidade com um `validationCode` na carga de dados. O ponto de extremidade é necessário para ecoar no corpo da resposta a fim de [provar que o ponto de extremidade é válido e pertence a você](security-authentication.md#webhook-event-delivery). Se você estiver usando um [Gatilho da Grade de Eventos](../azure-functions/functions-bindings-event-grid.md) em vez de uma função disparada por WebHook, a validação do ponto de extremidade é tratada para você.
+A primeira coisa a fazer é manipular eventos `Microsoft.EventGrid.SubscriptionValidationEvent`. Sempre que alguém assina um evento, a Grade de Eventos envia um evento de validação para o ponto de extremidade com um `validationCode` na carga de dados. O ponto de extremidade é necessário para ecoar no corpo da resposta a fim de [provar que o ponto de extremidade é válido e pertence a você](security-authentication.md#webhook-event-delivery). Se você estiver usando um [Gatilho da Grade de Eventos](../azure-functions/functions-bindings-event-grid.md) em vez de uma função disparada por WebHook, a validação do ponto de extremidade é tratada para você. Se você usar um serviço de API de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), você não poderá ecoar programaticamente o código de validação. Para esses serviços, você pode validar manualmente a assinatura usando uma URL de validação que é enviada no evento de validação de assinatura. Copie essa URL na propriedade `validationUrl` e envie uma solicitação GET por meio de um cliente REST ou pelo navegador da web.
 
-Use o seguinte código para lidar com a validação de assinatura:
+Para ecoar programaticamente o código de validação, use o seguinte código:
 
 ```csharp
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -102,7 +100,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -122,7 +119,6 @@ module.exports = function (context, req) {
     }
     context.done();
 };
-
 ```
 
 ### <a name="test-validation-response"></a>Resposta de validação do teste
@@ -130,7 +126,6 @@ module.exports = function (context, req) {
 Teste a função de resposta de validação colando o evento de exemplo no campo de teste para a função:
 
 ```json
-
 [{
   "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -143,7 +138,6 @@ Teste a função de resposta de validação colando o evento de exemplo no campo
   "metadataVersion": "1",
   "dataVersion": "1"
 }]
-
 ```
 
 Quando você clica em Executar, a saída deve ser 200 OK e `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` no corpo:
@@ -152,10 +146,9 @@ Quando você clica em Executar, a saída deve ser 200 OK e `{"ValidationResponse
 
 ## <a name="handle-blob-storage-events"></a>Tratar dos eventos do armazenamento de blobs
 
-Agora podemos estender a função para manipular `Microsoft.Storage.BlobCreated`:
+Agora vamos estender a função para manipular `Microsoft.Storage.BlobCreated`:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -211,7 +204,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -245,7 +237,6 @@ module.exports = function (context, req) {
 Teste a nova funcionalidade da função colocando um [evento de armazenamento de blobs](./event-schema-blob-storage.md#example-event) no campo de teste e executando:
 
 ```json
-
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
   "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
@@ -269,23 +260,21 @@ Teste a nova funcionalidade da função colocando um [evento de armazenamento de
   "dataVersion": "",
   "metadataVersion": "1"
 }]
-
 ```
 
 Você deve ver a saída de URL do blob no log de função:
 
 ![Log de saída](./media/receive-events/blob-event-response.png)
 
-Você também pode testar essa saída em tempo real criando uma conta de armazenamento de blobs ou GPv2 (Uso Geral V2), [adicionando uma assinatura de evento](../storage/blobs/storage-blob-event-quickstart.md) e definindo o ponto de extremidade para a URL de função:
+Você também pode testar criando uma conta de armazenamento de blobs ou GPv2 (Uso Geral V2), [adicionando uma assinatura de evento](../storage/blobs/storage-blob-event-quickstart.md) e definindo o ponto de extremidade para a URL de função:
 
 ![URL da função](./media/receive-events/function-url.png)
 
 ## <a name="handle-custom-events"></a>Manipular eventos personalizados
 
-Finalmente, vamos estender a função mais uma vez para que ela também possa tratar eventos personalizados. Adicionamos uma verificação ao nosso próprio evento `Contoso.Items.ItemReceived`. O código final deve ter esta aparência:
+Finalmente, vamos estender a função mais uma vez para que ela também possa tratar eventos personalizados. Adicionar uma verificação para o evento `Contoso.Items.ItemReceived`. O código final deve se assemelhar a:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -354,7 +343,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 var t = require('tcomb');
 
@@ -401,7 +389,6 @@ module.exports = function (context, req) {
 Por fim, teste se sua função estendida agora pode controlar o tipo de evento personalizado:
 
 ```json
-
 [{
     "subject": "Contoso/foo/bar/items",
     "eventType": "Microsoft.EventGrid.CustomEventType",
@@ -415,7 +402,6 @@ Por fim, teste se sua função estendida agora pode controlar o tipo de evento p
     "dataVersion": "",
     "metadataVersion": "1"
 }]
-
 ```
 
 Você também pode testar essa funcionalidade em tempo real [enviando um evento personalizado com CURL no Portal](./custom-event-quickstart-portal.md) ou [publicando em um tópico personalizado](./post-to-custom-topic.md) usando serviço ou aplicativo que possa enviar POST para um ponto de extremidade, como o [Postman](https://www.getpostman.com/). Crie um tópico personalizado e uma assinatura de evento com o ponto de extremidade definido como a URL de função.

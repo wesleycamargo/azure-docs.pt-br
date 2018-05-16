@@ -1,6 +1,6 @@
 ---
-title: Streaming Estruturado do Apache Spark com Kafka – Azure HDInsight | Microsoft Docs
-description: Saiba como usar o streaming do Apache Spark (DStream) para transmitir dados para dentro ou fora do Apache Kafka. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
+title: 'Tutorial: Streaming Estruturado do Apache Spark com Kafka – Azure HDInsight | Microsoft Docs'
+description: Saiba como usar o streaming do Apache Spark para transmitir dados para dentro ou fora do Apache Kafka. Neste tutorial, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -10,28 +10,107 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/04/2018
 ms.author: larryfr
-ms.openlocfilehash: 49c13bbea537d7de60ecf509bc28675191c0b34d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bdb2369f81ae8aeeb0a57e092dc1af7d0a7ded8f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Use fluxo estruturado do Spark com o Kafka no HDInsight
+# <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Tutorial: Usar o fluxo estruturado do Spark com Kafka no HDInsight
 
-Saiba como usar o Streaming Estruturado do Spark para ler dados do Apache Kafka no Azure HDInsight.
+Este tutorial demonstra como usar o Streaming Estruturado do Spark para ler e gravar dados com o Apache Kafka no Azure HDInsight.
 
-O streaming estruturado do Spark é um mecanismo de processamento de fluxo baseado no Spark SQL. Ele permite expressar cálculos de streaming do mesmo modo que cálculos de lote em dados estáticos. Para obter mais informações sobre Streaming Estruturado, consulte o [Guia de Programação de Streaming Estruturado [Versão Alfa]](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) em Apache.org.
+O streaming estruturado do Spark é um mecanismo de processamento de fluxo baseado no Spark SQL. Ele permite expressar cálculos de streaming do mesmo modo que cálculos de lote em dados estáticos. 
+
+Neste tutorial, você aprenderá como:
+
+> [!div class="checklist"]
+> * Fluxo estruturado com Kafka
+> * Criar clusters Kafka e Spark
+> * Carregar o bloco de anotações para Spark
+> * Use o bloco de anotações
+> * Limpar recursos
+
+Quando você terminar as etapas neste documento, lembre-se de excluir os clusters para evitar cobranças em excesso.
+
+## <a name="prerequisites"></a>pré-requisitos
+
+* Familiaridade com o uso de anotações do Jupyter com Spark no HDInsight. Para obter mais informações, confira o documento [Carregar dados e executar consultas com o Spark no HDInsight](spark/apache-spark-load-data-run-query.md).
+
+* Familiaridade com a linguagem de programação [Scala](https://www.scala-lang.org/). O código usado neste tutorial é gravado em Scala.
+
+* Familiaridade com a criação de tópicos Kafka. Para obter mais informações, consulte o documento [Início rápido do Kafka no HDInsight](kafka/apache-kafka-get-started.md).
 
 > [!IMPORTANT]
-> Este exemplo usa o Spark 2.2 no HDInsight 3.6.
+> As etapas neste documento requerem um grupo de recursos do Azure que contém um Spark no HDInsight e um Kafka no cluster de HDInsight. Esses clusters são ambos localizados em uma Rede Virtual do Azure, que permite que o cluster Spark se comunique diretamente com o cluster Kafka.
+> 
+> Para sua conveniência, este documento direciona para um modelo que pode criar todos os recursos necessários do Azure. 
 >
-> As etapas neste documento criam um grupo de recursos do Azure que contém um Spark no HDInsight e um Kafka no cluster de HDInsight. Esses clusters são ambos localizados em uma Rede Virtual do Azure, que permite que o cluster Spark se comunique diretamente com o cluster Kafka.
->
-> Quando você terminar as etapas neste documento, lembre-se de excluir os clusters para evitar cobranças em excesso.
+> Para obter mais informações sobre como usar o HDInsight em uma rede virtual, confira o documento [Estender o HDInsight usando uma rede virtual](hdinsight-extend-hadoop-virtual-network.md).
+
+## <a name="structured-streaming-with-kafka"></a>Fluxo estruturado com Kafka
+
+O fluxo estruturado do Spark é um mecanismo de processamento de fluxo baseado no mecanismo SQL do Spark. Ao usar fluxo estruturado, você pode gravar consultas de fluxo da mesma maneira que você grava consultas de lote.
+
+Os trechos de código a seguir demonstram a leitura do Kafka e o armazenamento de arquivo. A primeira é uma operação em lote, enquanto a segunda é uma operação de fluxo:
+
+```scala
+// Read a batch from Kafka
+val kafkaDF = spark.read.format("kafka")
+                .option("kafka.bootstrap.servers", kafkaBrokers)
+                .option("subscribe", kafkaTopic)
+                .option("startingOffsets", "earliest")
+                .load()
+// Select data and write to file
+kafkaDF.select(from_json(col("value").cast("string"), schema) as "trip")
+                .write
+                .format("parquet")
+                .option("path","/example/batchtripdata")
+                .option("checkpointLocation", "/batchcheckpoint")
+                .save()
+```
+
+```scala
+// Stream from Kafka
+val kafkaStreamDF = spark.readStream.format("kafka")
+                .option("kafka.bootstrap.servers", kafkaBrokers)
+                .option("subscribe", kafkaTopic)
+                .option("startingOffsets", "earliest")
+                .load()
+// Select data from the stream and write to file
+kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
+                .writeStream
+                .format("parquet")
+                .option("path","/example/streamingtripdata")
+                .option("checkpointLocation", "/streamcheckpoint")
+                .start.awaitTermination(30000)
+```
+
+Em ambos os trechos de código, os dados são lidos do Kafka e gravados no arquivo. As diferenças entre os exemplos são:
+
+| Lote | Fluxo |
+| --- | --- |
+| `read` | `readStream` |
+| `write` | `writeStream` |
+| `save` | `start` |
+
+A operação de fluxo também usa `awaitTermination(30000)`, que interrompe o fluxo após 30000 ms. 
+
+Para usar o fluxo estruturado com Kafka, seu projeto deve ter uma dependência no pacote `org.apache.spark : spark-sql-kafka-0-10_2.11`. A versão deste pacote deve corresponder à versão do Spark no HDInsight. Para Spark 2.2.0 (disponível no HDInsight 3.6), você pode encontrar as informações de dependência para diferentes tipos de projeto em [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
+
+Para o Jupyter Notebook fornecido com este tutorial, a célula a seguir carrega essa dependência do pacote:
+
+```
+%%configure -f
+{
+    "conf": {
+        "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
+        "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+    }
+}
+```
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
@@ -44,7 +123,7 @@ O diagrama a seguir mostra como a comunicação flui entre o Spark e o Kafka:
 > [!NOTE]
 > O serviço Kafka é limitado a comunicação dentro da rede virtual. Outros serviços no cluster, como SSH e Ambari, podem ser acessados pela Internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, consulte [portas e URIs usados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-Para sua conveniência, as etapas a seguir usam um modelo do Azure Resource Manager para criar clusters Kafka e Spark dentro de uma rede virtual.
+Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters Kafka e Spark dentro dela, use as seguintes etapas:
 
 1. Use o botão a seguir para entrar no Azure e abra o modelo do Gerenciador de Recursos no portal do Azure.
     
@@ -59,7 +138,7 @@ Para sua conveniência, as etapas a seguir usam um modelo do Azure Resource Mana
     * Uma Rede Virtual do Azure, que contém os clusters HDInsight.
 
     > [!IMPORTANT]
-    > O bloco de anotações de streaming estruturado usado neste exemplo requer o Spark no HDInsight 3.6. Se você usar uma versão anterior do Spark no HDInsight, você receberá erros ao usar o bloco de anotações.
+    > O bloco de anotações de fluxo estruturado usado neste exemplo requer o Spark 2.2.0 no HDInsight 3.6. Se você usar uma versão anterior do Spark no HDInsight, você receberá erros ao usar o bloco de anotações.
 
 2. Use as informações a seguir para preencher as entradas na seção **Modelo personalizado**:
 
@@ -77,18 +156,18 @@ Para sua conveniência, as etapas a seguir usam um modelo do Azure Resource Mana
    
     ![Captura de tela do modelo personalizado](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
+3. Leia os **Termos e Condições** e, em seguida, selecione **Eu concordo com os termos e condições declarados acima**
+
 4. Por fim, marque **Fixar no painel** e selecione **Comprar**. 
 
 > [!NOTE]
 > Pode levar até 20 minutos para criar os clusters.
 
-## <a name="get-the-notebook"></a>Obter o bloco de anotações
-
-O código do exemplo descrito neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
-
-## <a name="upload-the-notebooks"></a>Carregar os blocos de anotações
+## <a name="upload-the-notebook"></a>Carregar o bloco de anotações
 
 Para carregar o bloco de anotação do projeto para seu Spark no cluster HDInsight, use as etapas a seguir:
+
+1. Faça o download do projeto de [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
 
 1. No navegador da Web, conecte-se ao bloco de anotações do Jupyter em seu cluster Spark. Na URL a seguir, substitua `CLUSTERNAME` pelo nome do cluster __Spark__:
 
@@ -128,7 +207,7 @@ Para remover o grupo de recursos usando o portal do Azure:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a usar o Streaming Estruturado do Spark, consulte os documentos a seguir para saber mais sobre como trabalhar com Spark e Kafka:
+Neste tutorial, você aprendeu a usar o fluxo estruturado do Spark para gravar e ler dados do Kafka no HDInsight. Use o link a seguir para aprender a usar Storm com Kafka.
 
-* [Como usar o streaming do Spark (DStream) com Kafka](hdinsight-apache-spark-with-kafka.md).
-* [Iniciar com o bloco de anotações do Jupyter e Spark no HDInsight](spark/apache-spark-jupyter-spark-sql.md)
+> [!div class="nextstepaction"]
+> [Usar Apache Storm com Kafka](hdinsight-apache-storm-with-kafka.md)

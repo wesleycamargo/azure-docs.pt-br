@@ -3,21 +3,21 @@ title: Tutorial do Kubernetes no Azure - Atualizar aplicativo
 description: Tutorial de AKS – atualizar aplicativo
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>Tutorial: atualizar um aplicativo no Serviço de Contêiner do Azure (AKS)
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: atualizar um aplicativo no Serviço de Kubernetes do Azure (AKS)
 
-Depois que um aplicativo foi implantado no Kubernetes, ele pode ser atualizado especificando uma nova imagem de contêiner ou versão de imagem. Ao fazer isso, a atualização é dividida em etapas para que apenas uma parte da implantação seja atualizada simultaneamente. Essa atualização em etapas permite que o aplicativo continue em execução durante a atualização. Ela também oferece um mecanismo de reversão, caso ocorra uma falha de implantação. 
+Depois que um aplicativo foi implantado no Kubernetes, ele pode ser atualizado especificando uma nova imagem de contêiner ou versão de imagem. Ao fazer isso, a atualização é dividida em etapas para que apenas uma parte da implantação seja atualizada simultaneamente. Essa atualização em etapas permite que o aplicativo continue em execução durante a atualização. Ela também oferece um mecanismo de reversão, caso ocorra uma falha de implantação.
 
 Neste tutorial, parte seis de oito, o aplicativo de exemplo Azure Vote é atualizado. As tarefas a serem concluídas incluem:
 
@@ -31,15 +31,15 @@ Nos tutoriais subsequentes, o Log Analytics é configurado para monitorar o clus
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nos tutoriais anteriores, um aplicativo foi empacotado em uma imagem de contêiner, a imagem foi carregada no Registro de Contêiner do Azure e um cluster Kubernetes foi criado. Em seguida, o aplicativo foi executado no cluster Kubernetes. 
+Nos tutoriais anteriores, um aplicativo foi empacotado em uma imagem de contêiner, a imagem foi carregada no Registro de Contêiner do Azure e um cluster Kubernetes foi criado. Em seguida, o aplicativo foi executado no cluster Kubernetes.
 
 Um repositório de aplicativo também foi clonado, o qual inclui o código-fonte do aplicativo e um arquivo do Docker Compose pré-criado usado neste tutorial. Verifique se você criou um clone do repositório e se você alterou os diretórios para o diretório clonado. Dentro está um diretório chamado `azure-vote` e um arquivo chamado `docker-compose.yaml`.
 
-Se você ainda não completou essas etapas e deseja continuar acompanhando, retorne para [Tutorial 1 – Criar mensagens de contêiner][aks-tutorial-prepare-app]. 
+Se você ainda não completou essas etapas e deseja continuar acompanhando, retorne para [Tutorial 1 – Criar mensagens de contêiner][aks-tutorial-prepare-app].
 
 ## <a name="update-application"></a>Atualizar aplicativo
 
-Para este tutorial, é feita uma alteração no aplicativo e o aplicativo atualizado é implantado no cluster Kubernetes. 
+Para este tutorial, é feita uma alteração no aplicativo e o aplicativo atualizado é implantado no cluster Kubernetes.
 
 O código-fonte do aplicativo pode ser encontrado no diretório `azure-vote`. Abra o arquivo `config_file.cfg` com qualquer editor de texto ou de código. Neste exemplo, `vi` é usado.
 
@@ -75,7 +75,7 @@ Navegue até http://localhost:8080 para ver o aplicativo atualizado.
 
 ## <a name="tag-and-push-images"></a>Marcar e enviar mensagens por push
 
-Marque a imagem `azure-vote-front` com o loginServer do registro de contêiner. 
+Marque a imagem `azure-vote-front` com o loginServer do registro de contêiner.
 
 Obter o nome do servidor de logon com o comando [az acr list](/cli/azure/acr#az_acr_list).
 
@@ -164,10 +164,10 @@ Neste tutorial, você atualizou um aplicativo e distribuiu essa atualização pa
 > * Enviamos a imagem de contêiner por push para o Registro de Contêiner do Azure
 > * Implantamos o aplicativo atualizado
 
-Avance para o próximo tutorial para saber mais sobre como monitorar o Kubernetes com o Log Analytics.
+Avance para o próximo tutorial para saber mais sobre como fazer upgrade do Kubernetes para uma nova versão.
 
 > [!div class="nextstepaction"]
-> [Monitorar Kubernetes com o Log Analytics][aks-tutorial-monitor]
+> [Atualizar o Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -178,5 +178,5 @@ Avance para o próximo tutorial para saber mais sobre como monitorar o Kubernete
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

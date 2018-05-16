@@ -1,13 +1,14 @@
 ---
-title: "Protocolo SAML de Logon Único do Azure | Microsoft Docs"
-description: "Este artigo descreve o protocolo SAML de logon único no Azure Active Directory"
+title: Protocolo SAML de Logon Único do Azure | Microsoft Docs
+description: Este artigo descreve o protocolo SAML de logon único no Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddd5fa6f2ed0878afd8bbd6399471e92dfa30385
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de Logon Único
 Este artigo trata das solicitações e respostas de autenticação SAML 2.0 a que o Azure AD (Azure Active Directory) dá suporte para Logon Único.
@@ -42,7 +43,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
 
 
-| Parâmetro |  | Descrição |
+| Parâmetro |  | DESCRIÇÃO |
 | --- | --- | --- |
 | ID |obrigatório |O Azure AD usa esse atributo para popular o atributo `InResponseTo` da resposta retornada. A ID não deve começar com um número. Uma estratégia comum é anexar uma cadeia de caracteres como "id" à representação de cadeia de caracteres de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é uma ID válida. |
 | Versão |obrigatório |Ele deve ser **2.0**. |
@@ -93,7 +94,7 @@ Se fornecido, não inclua o atributo `ProxyCount` ou elemento `IDPListOption` ou
 ### <a name="signature"></a>Signature
 Não inclua um elemento `Signature` nos elementos `AuthnRequest`, pois o Azure AD não dá suporte a solicitações de autenticação assinadas.
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Assunto
 O Azure AD ignora o elemento `Subject` dos elementos `AuthnRequest`.
 
 ## <a name="response"></a>Response
@@ -198,7 +199,7 @@ Para gerar a assinatura digital, o Azure AD usa a chave de assinatura no element
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Subject
+#### <a name="subject"></a>Assunto
 Ele especifica a entidade que é o assunto das instruções na asserção. Ele contém um elemento `NameID` que representa o usuário autenticado. O valor `NameID` é um identificador de destino que é direcionado somente para o provedor de serviços que é o público-alvo do token. É persistente - pode ser revogado, mas nunca é reatribuído. Ele também é opaco, no sentido de não revelar nada sobre o usuário e não poder ser usado como um identificador para consultas de atributo.
 
 O atributo `Method` do elemento `SubjectConfirmation` é sempre definido como `urn:oasis:names:tc:SAML:2.0:cm:bearer`.
@@ -212,7 +213,7 @@ O atributo `Method` do elemento `SubjectConfirmation` é sempre definido como `u
 </Subject>
 ```
 
-#### <a name="conditions"></a>Conditions
+#### <a name="conditions"></a>Condições
 Esse elemento especifica as condições que definem o uso aceitável de asserções SAML.
 
 ```
@@ -228,7 +229,7 @@ Os atributos `NotBefore` e `NotOnOrAfter` especificam o intervalo durante o qual
 * O valor do atributo `NotBefore` é igual ou ligeiramente mais lento (menos de um segundo) do que o valor do atributo `IssueInstant` do elemento `Assertion`. O Azure AD não conta diferenças de tempo entre ele mesmo e o serviço de nuvem (provedor de serviços) e não adiciona buffer a esse tempo.
 * O valor do atributo `NotOnOrAfter` é 70 minutos depois do valor do atributo `NotBefore`.
 
-#### <a name="audience"></a>Audience
+#### <a name="audience"></a>Público-alvo
 Ele contém um URI que identifica um público-alvo. O Azure AD define o valor desse elemento como o valor do elemento `Issuer` da `AuthnRequest` que iniciou o logon. Para avaliar o valor `Audience`, use o valor do `App ID URI` que foi especificado durante o registro do aplicativo.
 
 ```

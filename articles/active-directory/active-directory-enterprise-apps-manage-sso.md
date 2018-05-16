@@ -3,23 +3,23 @@ title: Gerenciamento de logon único para aplicativos empresariais no Azure Acti
 description: Gerenciar configurações de logon único para aplicativos empresariais em sua organização da Galeria de Aplicativos do Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerenciar o logon único para aplicativos empresariais
 
@@ -28,13 +28,13 @@ Este artigo descreve como usar o [Portal do Azure](https://portal.azure.com) par
 ## <a name="finding-your-apps-in-the-portal"></a>Localizar seus aplicativos no portal
 Todos os aplicativos corporativos que estão configurados para o logon único podem ser exibidos e gerenciados no Portal do Azure. Os aplicativos podem ser localizados na seção **Todos os Serviços** &gt; **Aplicativos Empresariais** do portal. 
 
-![Folha de Aplicativos Empresariais][1]
+![Folha de Aplicativos Empresariais](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.png)
 
 Selecione **Todos os aplicativos** para exibir uma lista de todos os aplicativos que foram configurados. A seleção de um aplicativo exibe os recursos desse aplicativo, permitindo que os relatórios sejam exibidos para esse aplicativo e que várias configurações possam ser gerenciadas.
 
 Para gerenciar as configurações de logon único, selecione **Logon único**.
 
-![Folha de recursos do aplicativo][2]
+![Folha de recursos do aplicativo](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.png)
 
 ## <a name="single-sign-on-modes"></a>Modos de logon único
 **Logon único** começa com um menu **Modo**, que permite que o modo de logon único seja configurado. As opções disponíveis incluem:
@@ -76,24 +76,19 @@ O menu suspenso **Configurar Aplicativo** fornece novas instruções concisas in
 > 
 > 
 
-![Documentos internos][3]
+![Documentos internos](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Logon baseado em senha
 Se houver suporte para o aplicativo, selecionar o modo SSO baseado em senha e selecionar **Salvar** configura-o instantaneamente para fazer o SSO baseado em senha. Para obter mais informações sobre a implantação de SSO baseada em senha, confira [Como o logon único funciona com o Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Logon baseado em senha][4]
+![Logon baseado em senha](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Logon vinculado
 Se houver suporte para o aplicativo, selecionar o modo de SSO vinculado permite que você insira a URL para a qual deseja que o painel de acesso do Azure AD ou do Office 365 redirecione quando os usuários clicam nesse aplicativo. Para obter mais informações sobre o SSO vinculado (anteriormente conhecido como "SSO existente"), confira [Como o logon único funciona com o Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Logon vinculado][5]
+![Logon vinculado](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 
 ## <a name="feedback"></a>Comentários
 
 Esperamos que você goste de usar a experiência aprimorada do Azure AD. Continue a fazer seus comentários! Poste seus comentários e suas ideias para aprimoramento na seção **Portal de Administração** do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nós estamos empolgados para criar algo novo e interessante diariamente e usar suas diretrizes para formar e definir o que devemos criar a seguir.
 
-[1]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.PNG
-[3]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.PNG
-[4]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.PNG
-[5]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.PNG

@@ -15,15 +15,15 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: ebea5662017672ccbe911d4b9e7471aa081dd1bb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ea6817f80925c1989db13488472457e44801e7a8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicativos curinga no proxy do aplicativo do Azure Active Directory 
 
-No Azure Active Directory (Azure AD), a configuração de um grande número de aplicativos locais poderá se tornar rapidamente incontrolável e apresentar riscos desnecessários de erros de configuração, se muitas deles exigirem as mesmas configurações. Com [Proxy de Aplicativo do Azure AD](active-directory-application-proxy-get-started.md), você pode resolver esse problema usando a publicação de aplicativos curinga para publicar e gerenciar muitos aplicativos de uma só vez. Esta é uma solução que permite:
+No Azure Active Directory (Azure AD), a configuração de um grande número de aplicativos locais poderá se tornar rapidamente incontrolável e apresentar riscos desnecessários de erros de configuração, se muitas deles exigirem as mesmas configurações. Com [Proxy de Aplicativo do Azure AD](manage-apps/application-proxy.md), você pode resolver esse problema usando a publicação de aplicativos curinga para publicar e gerenciar muitos aplicativos de uma só vez. Esta é uma solução que permite:
 
 -   Simplificar a sobrecarga administrativa
 -   Reduzir o número de erros de configuração em potencial
@@ -48,14 +48,14 @@ Por exemplo: `http(s)://*.adventure-works.com`. Embora as URLs interna e externa
 
 Se tiver aplicativos adicionais com definições de configuração diferentes, você deverá publicar essas exceções como aplicativos à parte para substituir os padrões definidos para o curinga. Aplicativos sem um curinga sempre têm precedência sobre aplicativos curinga. Do ponto de vista da configuração, esses são aplicativos "apenas" regulares.
 
-A criação de um aplicativo curinga se baseia no mesmo [fluxo de publicação do aplicativo](application-proxy-publish-azure-portal.md) disponível para todos os outros aplicativos. A única diferença é que você inclui um curinga na URL e, talvez, a configuração SSO.
+A criação de um aplicativo curinga se baseia no mesmo [fluxo de publicação do aplicativo](manage-apps/application-proxy-publish-azure-portal.md) disponível para todos os outros aplicativos. A única diferença é que você inclui um curinga na URL e, talvez, a configuração SSO.
 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="custom-domains"></a>Domínios personalizados
 
-Embora [domínios personalizados](active-directory-application-proxy-custom-domains.md) sejam opcionais para todos os outros aplicativos, eles são um pré-requisito para aplicativos curinga. A criação de domínios personalizados requer:
+Embora [domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md) sejam opcionais para todos os outros aplicativos, eles são um pré-requisito para aplicativos curinga. A criação de domínios personalizados requer:
 
 1. Criar um domínio verificado no Azure 
 2. Carregue um certificado SSL no formato PFX para o proxy do aplicativo.
@@ -112,12 +112,12 @@ Se usar essa opção, você também precisará de outra entrada CNAME para o val
 
 O aplicativo curinga é representado com apenas um bloco no [painel MyApps](https://myapps.microsoft.com). Por padrão, esse bloco permanece oculto. Para mostrar o bloco e fazer os usuários aterrissarem em uma página específica:
 
-1. Siga as diretrizes para [definir uma URL da home page](application-proxy-office365-app-launcher.md).
+1. Siga as diretrizes para [definir uma URL da home page](manage-apps/application-proxy-configure-custom-home-page.md).
 2. Defina **Mostrar Aplicativo** como **verdadeiro** na página de propriedades do aplicativo.
 
 ### <a name="kerberos-constrained-delegation"></a>Delegação restrita de Kerberos
 
-Para aplicativos que usem [delegação restrita de Kerberos (KCD) como o método SSO](active-directory-application-proxy-sso-using-kcd.md), o SPN listado para o método SSO também pode precisar de um curinga. Por exemplo, o SPN pode ser: `HTTP/*.adventure-works.com`. Você ainda precisa ter os SPNs individuais configurados nos servidores back-end (por exemplo, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+Para aplicativos que usem [delegação restrita de Kerberos (KCD) como o método SSO](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md), o SPN listado para o método SSO também pode precisar de um curinga. Por exemplo, o SPN pode ser: `HTTP/*.adventure-works.com`. Você ainda precisa ter os SPNs individuais configurados nos servidores back-end (por exemplo, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 
 
@@ -136,7 +136,7 @@ Todos os três aplicativos:
 - Têm as mesmas propriedades
 
 
-Você pode publicar o aplicativo curinga usando as etapas descritas em [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-publish-azure-portal.md). Este cenário pressupõe:
+Você pode publicar o aplicativo curinga usando as etapas descritas em [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](manage-apps/application-proxy-publish-azure-portal.md). Este cenário pressupõe:
 
 - Um locatário com a seguinte ID: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -144,7 +144,7 @@ Você pode publicar o aplicativo curinga usando as etapas descritas em [Publicar
 
 - Uma entrada **CNAME** que aponta `*.adventure-works.com` para `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` foi criada.
 
-Seguindo as [etapas documentadas](application-proxy-publish-azure-portal.md), você cria um novo aplicativo de proxy do aplicativo no locatário. Neste exemplo, o curinga está nos seguintes campos:
+Seguindo as [etapas documentadas](manage-apps/application-proxy-publish-azure-portal.md), você cria um novo aplicativo de proxy do aplicativo no locatário. Neste exemplo, o curinga está nos seguintes campos:
 
 - URL Interna:
 
@@ -183,7 +183,7 @@ Neste cenário, você tem, além dos três aplicativos gerais, outro aplicativo,
 
 Você precisa se certificar de que os registros CNAME existam apontando `finance.adventure-works.com` para o ponto de extremidade específico do aplicativo, indicado na página Proxy do aplicativo. Neste cenário, `finance.adventure-works.com` aponta para `https://finance-awcycles.msappproxy.net/`. 
 
-Após as [etapas documentadas](application-proxy-publish-azure-portal.md), este cenário requer as seguintes configurações:
+Após as [etapas documentadas](manage-apps/application-proxy-publish-azure-portal.md), este cenário requer as seguintes configurações:
 
 
 - Na **URL Interna**, você define **finanças**, em vez de um curinga. 
@@ -212,8 +212,8 @@ Se tiver vários aplicativos publicados para finanças e `finance.adventure-work
 
 Para saber mais sobre:
 
-- **Domínios personalizados**, consulte [Trabalho com domínios personalizados no Proxy de Aplicativo do Azure AD](active-directory-application-proxy-custom-domains.md).
+- **Domínios personalizados**, consulte [Trabalho com domínios personalizados no Proxy de Aplicativo do Azure AD](manage-apps/application-proxy-configure-custom-domain.md).
 
-- **Publicação de aplicativos**, consulte [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-publish-azure-portal.md)
+- **Publicação de aplicativos**, consulte [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](manage-apps/application-proxy-publish-azure-portal.md)
 
 

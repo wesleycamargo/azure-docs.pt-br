@@ -1,22 +1,22 @@
 ---
-title: "Cotas de AKS (Serviço de Contêiner do Azure) e disponibilidade de região"
-description: "As cotas padrão e a disponibilidade de região do AKS (Serviço de Contêiner do Azure)."
+title: Cotas de AKS (Serviço de Kubernetes do Azure) e disponibilidade de região
+description: As cotas padrão e a disponibilidade de região do AKS (Serviço de Kubernetes do Azure).
 services: container-service
-author: david-stanford
-manager: timlt
+author: neilpeterson
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 01/16/2018
-ms.author: dastanfo
-ms.openlocfilehash: eddfab874501fd045820d7da3c968d340fdffe93
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 04/26/2018
+ms.author: nepeters
+ms.openlocfilehash: adf2d57961df9a4e8d03f2b3fe43ca0603685eb2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="quotas-and-region-availability-for-azure-container-service-aks"></a>Cotas e disponibilidade de região para o AKS (Serviço de Contêiner do Azure)
+# <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Cotas e disponibilidade de região para AKS (Serviço de Kubernetes do Azure)
 
-Todos os serviços do Azure incluem certos limites padrão e cotas de recursos. As seções a seguir detalham os limites de recursos padrão de vários recursos do AKS (Serviço de Contêiner do Azure), bem como a disponibilidade do serviço AKS em regiões do Azure.
+Todos os serviços do Azure incluem certos limites padrão e cotas de recursos. As seções a seguir detalham os limites de recursos padrão de vários recursos do AKS (Serviço de Kubernetes do Azure), bem como a disponibilidade do serviço AKS em regiões do Azure.
 
 ## <a name="service-quotas-and-limits"></a>Cotas e limites de serviço
 
@@ -28,7 +28,7 @@ Todas as outras limitações de rede, computação e armazenamento se aplicam à
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O AKS (Serviço de Contêiner do Azure) está disponível como versão prévia nas seguintes regiões:
+O AKS (Serviço de Kubernetes do Azure) está disponível como versão prévia nas seguintes regiões:
 - Leste dos EUA
 - Europa Ocidental
 - Centro dos EUA

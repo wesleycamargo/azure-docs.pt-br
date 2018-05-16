@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise do Azure SQL (Visualização) no Log Analytics
 
@@ -136,7 +136,8 @@ Por meio das perspectivas de Duração da consulta e Espera da consulta, é poss
 
 ### <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
 
-Você pode criar facilmente alertas com os dados provenientes de recursos de Banco de Dados SQL do Azure. Estas são algumas das consultas de [pesquisa de logs](log-analytics-log-searches.md) úteis que você pode usar para alertas:
+Você pode [criar alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) facilmente com os dados provenientes de recursos de Banco de Dados SQL do Azure. Estas são algumas das consultas de [pesquisa de logs](log-analytics-log-searches.md) úteis que você pode usar com um alerta do log:
+
 
 
 *DTU alta no Banco de Dados SQL do Azure*
@@ -157,18 +158,7 @@ AzureMetrics
 | render timechart
 ```
 
-Você pode usar essas consultas com base no alerta para alertar sobre limites específicos para o Banco de Dados SQL do Azure e pools elásticos. Para configurar um alerta para seu espaço de trabalho do Log Analytics:
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>Para configurar um alerta para seu espaço de trabalho
-
-1. Acesse o [portal do OMS](http://mms.microsoft.com/) e entre.
-2. Abra o espaço de trabalho que você configurou para a solução.
-3. Na página Visão geral, clique no bloco **Análise do Azure SQL (Visualização)**.
-4. Execute uma das consultas de exemplo.
-5. Na Pesquisa de Log, clique em **Alerta**.  
-![criar alerta na pesquisa](./media/log-analytics-azure-sql/create-alert01.png)
-6. Na página **Adicionar Regra de Alerta**, defina as propriedades adequadas e os limites específicos que você deseja e clique em **Salvar**. 
-![adicionar regra de alerta](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

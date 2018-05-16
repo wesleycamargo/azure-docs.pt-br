@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: db16a4ba2177e92fa4500af0969c44471004ba73
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos 
 
@@ -35,7 +35,7 @@ Os códigos de resposta HTTP a seguir indicam que um evento foi entregue com êx
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Os códigos de resposta HTTP a seguir indicam que houve falha na tentativa de entrega do evento. A Grade de Eventos tenta enviar o evento novamente. 
+Os códigos de resposta HTTP a seguir indicam que houve falha na tentativa de entrega do evento. 
 
 - 400 Solicitação Inválida
 - 401 Não Autorizado
@@ -46,9 +46,9 @@ Os códigos de resposta HTTP a seguir indicam que houve falha na tentativa de en
 - 503 Serviço Indisponível
 - 504 Tempo Limite do Gateway
 
-Qualquer outro código de resposta ou à falta de uma resposta indica uma falha. A Grade de Eventos repete a entrega. 
+Se a Grade de Eventos recebe um erro que indica que o ponto de extremidade não está disponível, ela tenta enviar o evento novamente. 
 
-## <a name="retry-intervals"></a>Intervalos de repetição
+## <a name="retry-intervals-and-duration"></a>Intervalos de repetição e duração
 
 A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. Se o seu webhook não responder ou retornar um código de falha, a Grade de Eventos repetirá a entrega nos seguintes intervalos:
 
@@ -62,9 +62,7 @@ A Grade de Eventos usa uma política de repetição de retirada exponencial para
 
 A Grade de Eventos adiciona uma pequena aleatoriedade a todos os intervalos de repetição. Após uma hora, a entrega de eventos é repetida a cada uma hora.
 
-## <a name="retry-duration"></a>Duração da repetição
-
-A Grade de Eventos do Azure expira todos os eventos que não são entregues dentro de 24 horas.
+Por padrão, a Grade de Eventos expira todos os eventos que não são entregues dentro de 24 horas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

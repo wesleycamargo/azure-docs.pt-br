@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dcfc295de39e909bf157edee4fec1ba51a583750
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos no datacenter corporativo e na nuvem, permitindo níveis de validação adicionais, como Multi-Factor Authentication e políticas de acesso condicional. O monitoramento de atividade suspeita por meio de alertas, auditoria e relatórios de segurança avançados ajuda a reduzir potenciais problemas de segurança. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece logon único para milhares de aplicativos (SaaS) de nuvem e acesso a aplicativos Web executados de forma local.
@@ -64,10 +64,10 @@ O Proxy de Aplicativo do Azure AD permite que você publique aplicativos locais,
 
 Saiba mais:
 
-* [Habilitando o Proxy de Aplicativo do AD do Azure.](../active-directory/active-directory-application-proxy-enable.md)
+* [Habilitando o Proxy de Aplicativo do AD do Azure.](../active-directory/manage-apps/application-proxy-enable.md)
 * [Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure](../active-directory/active-directory-application-proxy-publish.md)
-* [Logon único com Proxy de Aplicativo](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Trabalhando com acesso condicional](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
+* [Logon único com Proxy de Aplicativo](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Trabalhando com acesso condicional](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Autenticação multifator
 O MFA (Multi-Factor Authentication) é um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações dos usuários. O MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OAuth de terceiros.

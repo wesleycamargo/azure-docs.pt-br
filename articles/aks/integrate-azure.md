@@ -3,16 +3,16 @@ title: Integrar com serviços gerenciados do Azure usando o Service Broker Abert
 description: Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 services: container-service
 author: sozercan
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 
@@ -27,7 +27,7 @@ Junto com o [catálogo de serviços do Kubernetes ][kubernetes-service-catalog],
 
 * Permissões para criar uma Entidade de Serviço com a função de Colaborador na sua assinatura Azure
 
-* Um cluster existente no Serviço de Contêiner do Azure (AKS). Caso precise de um cluster AKS, siga o tutorial [Criar um cluster AKS][create-aks-cluster].
+* Um cluster do Serviço de Kubernetes do Azure (AKS) existente. Caso precise de um cluster AKS, siga o tutorial [Criar um cluster AKS][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Instalar o catálogo de serviços
 
@@ -182,7 +182,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Ao seguir as instruções deste artigo, você implantou o catálogo de serviços para um cluster do Serviço de Contêiner do Azure (AKS). Você usou o Service Broker Aberto para o Azure para implantar uma instalação do WordPress que usa os serviços gerenciados pelo Azure, neste caso, o Banco de Dados do Azure para MySQL.
+Ao seguir as instruções deste artigo, você implantou o catálogo de serviços para um cluster do Serviço de Kubernetes do Azure (AKS). Você usou o Service Broker Aberto para o Azure para implantar uma instalação do WordPress que usa os serviços gerenciados pelo Azure, neste caso, o Banco de Dados do Azure para MySQL.
 
 Consulte o repositório [Azure/gráficos-helm][helm-charts] para acessar outros gráficos Helm com base em OSBA atualizados. Se você estiver interessado em criar seus próprios gráficos que funcionam com OSBA, consulte [criar um novo gráfico][helm-create-new-chart].
 

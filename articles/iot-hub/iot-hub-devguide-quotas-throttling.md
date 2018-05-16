@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ef86af61284bb208cc8c469e3fe75bd4f4bdc5bf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 65e1f8a907c8bf64497f7439e5b635ad336cd23a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
@@ -45,10 +45,12 @@ A tabela a seguir mostra as limitações impostas. Os valores referem-se a um hu
 | Recebimentos de nuvem para dispositivo<sup>1</sup> <br/> (somente quando o dispositivo usar HTTPS)| 16,67/s/unidade (1000/min/unidade) | 16,67/s/unidade (1000/min/unidade) | 833,33/s/unidade (50000/min/unidade) |
 | Upload de arquivos | 1,67 notificações de carregamento de arquivo/s/unidade (100/min/unidade) | 1,67 notificações de carregamento de arquivo/s/unidade (100/min/unidade) | 83,33 notificações de carregamento de arquivo/s/unidade (5000/min/unidade) |
 | Métodos diretos<sup>1</sup> | 160KB/seg/unidade<sup>2</sup> | 480KB/seg/unidade<sup>2</sup> | 24MB/seg/unidade<sup>2</sup> | 
-| Leituras de dispositivo gêmeo<sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
-| Atualizações de dispositivo gêmeo<sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
+| Leituras de (dispositivos e módulos) gêmeos <sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
+| Atualizações de (dispositivo e módulo) gêmeos <sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 | Operações de trabalhos<sup>1</sup> <br/> (criar, atualizar, listar, excluir) | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
 | Taxa de transferência de operação de trabalhos por dispositivo<sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
+| Configurações e implantações de borda <sup>1</sup> <br/> (criar, atualizar, listar, excluir) | 0,33/s/unidade (20/min/unidade) | 0,33/s/unidade (20/min/unidade) | 0,33/s/unidade (20/min/unidade) |
+
 
 <sup>1</sup>Esse recurso não está disponível na camada básica do Hub IoT. Para obter mais informações, consulte [Como escolher o Hub IoT correto](iot-hub-scaling.md). <br/><sup>2</sup>O tamanho do medidor de limitação é 8 KB.
 
@@ -76,6 +78,9 @@ IoT Hub impõe outros limites operacionais:
 | Mensagens do dispositivo para a nuvem | Tamanho máximo da mensagem 256 KB |
 | Mensagens de nuvem para dispositivo<sup>1</sup> | Tamanho máximo da mensagem 64 KB. O máximo de mensagens pendentes para entrega é 50. |
 | Método direto<sup>1</sup> | O tamanho de payload do método direto máximo é 128 KB. |
+| Configurações | 20 configurações por hub. |
+| Implantações do Edge | 20 implantações por hub. 20 módulos por implantação. |
+| Gêmeos | O tamanho máximo por seções gêmeas (marcas, propriedades desejadas, propriedades relatadas) é de 8 KB |
 
 <sup>1</sup>Esse recurso não está disponível na camada básica do Hub IoT. Para obter mais informações, consulte [Como escolher o Hub IoT correto](iot-hub-scaling.md).
 

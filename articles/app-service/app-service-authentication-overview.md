@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: 342aeee25a7cb9f6a0f5af055d04e67d0c52db80
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c180dcf5d769245f3fa2485ccee2cbc18ecf5f67
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -138,7 +138,8 @@ Essa opção oferece mais flexibilidade no processamento de solicitações anôn
 
 ## <a name="more-resources"></a>Mais recursos
 
-[Tutorial: autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure](app-service-web-tutorial-auth-aad.md)  
+[Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure para Linux](containers/tutorial-auth-aad.md)  
 [Personalizar autenticação e autorização no Serviço de Aplicativo](app-service-authentication-how-to.md)
 
 Guias de instruções específicas do provedor:

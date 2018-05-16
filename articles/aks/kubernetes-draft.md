@@ -3,19 +3,19 @@ title: Usar o Rascunho com AKS e Registro de Contêiner do Azure
 description: Usar o Rascunho com AKS e Registro de Contêiner do Azure
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bb80d68d7ac37c8930626b5163597dc0e492a0d2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="use-draft-with-azure-container-service-aks"></a>Usar o Rascunho com o Serviço de Contêiner do Azure (AKS)
+# <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usar Rascunho com o AKS (Serviço de Kubernetes do Azure)
 
 Rascunho é uma ferramenta de software livre que ajuda a conter e implantar esses contêineres em um cluster do Kubernetes, deixando-o livre para concentrar-se no ciclo de desenvolvimento - o "loop interno" do desenvolvimento concentrado. O Rascunho funciona como o código está sendo desenvolvido, mas antes de comprometer-se com o controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Rascunho no Gitub][draft-documentation].
 
@@ -27,7 +27,7 @@ As etapas detalhadas neste documento pressupõem que você tenha criado um clust
 
 Você também precisa de um Registro do Docker privado no ACR (Registro de Contêiner do Azure). Para obter instruções sobre como implantar uma instância do ACR, consulte o [Início rápido do Registro de Contêiner do Azure][acr-quickstart].
 
-Helm também deve ser instalado em seu cluster AKS. Para obter mais informações sobre como instalar o comando, consulte [Usar o Helm com o serviço de contêiner do Azure (AKS)][aks-helm].
+Helm também deve ser instalado em seu cluster AKS. Para obter mais informações sobre como instalar o comando, consulte [Usar o Helm com o Serviço de Kubernetes do Azure (AKS)][aks-helm].
 
 Finalmente, você deve instalar o [Docker](https://www.docker.com).
 

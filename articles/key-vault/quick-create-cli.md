@@ -5,24 +5,24 @@ services: key-vault
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
-ms.assetid: ''
+ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: aaf8b93a41399b7754fb458d7d1d278a64f82139
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ae8957e5bf87fc190076db87d4eaca0e7a757c5e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-an-azure-key-vault-using-the-cli"></a>Tutorial: Criar um Azure Key Vault usando a CLI
 
-O Azure Key Vault é um serviço de nuvem que funciona como um repositório de segredos seguro. Você pode armazenar chaves, senhas, certificados e outros segredos com segurança. Para saber mais sobre o Key Vault, reveja a [Visão geral](key-vault-overview.md). A CLI do Azure é usada para criar e gerenciar recursos do Azure usando comandos ou scripts. Neste artigo, você criará um Key Vault. Neste guia de início rápido, você criará um cofre de chaves. Depois de concluído, você armazenará um segredo.
+O Azure Key Vault é um serviço de nuvem que funciona como um repositório de segredos seguro. Você pode armazenar chaves, senhas, certificados e outros segredos com segurança. Para saber mais sobre o Key Vault, reveja a [Visão geral](key-vault-overview.md). A CLI do Azure é usada para criar e gerenciar recursos do Azure usando comandos ou scripts. Neste guia de início rápido, você criará um cofre de chaves. Depois de concluído, você armazenará um segredo.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -63,7 +63,7 @@ A saída desse cmdlet mostra as propriedades do cofre de chaves criado recenteme
 - **Nome do Cofre**: no exemplo, é **Contoso-Vault2**. Você usará esse nome para outros comandos do Key Vault.
 - **URI do cofre**: no exemplo, isso é https://contoso-vault2.vault.azure.net/. Aplicativos que usam seu cofre via API REST devem usar esse URI.
 
-Neste momento, sua conta do Azure é a única autorizada a executar operações nesse novo cofre.
+Nesse ponto, sua conta do Azure é a única autorizada a executar qualquer operação nesse novo cofre.
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 
@@ -99,4 +99,4 @@ az group delete --name ContosoResourceGroup
 Neste início rápido, você criou um Key Vault e armazenou um segredo nele. Para saber mais sobre o Key Vault e como você pode usá-lo com seus aplicativos, prossiga para o tutorial de aplicativos Web que trabalham com o Key Vault.
 
 > [!div class="nextstepaction"]
-> [Usar o Azure Key Vault de um aplicativo Web](key-vault-use-from-web-application.md) Para saber como ler um segredo do Key Vault usando um aplicativo Web com [identidade de serviço gerenciada](/active-directory/managed-service-identity/overview.md), continue com o tutorial a seguir, [Configurar um aplicativo Web do Azure para ler um segredo do Key Vault](tutorial-web-application-keyvault.md)
+> Para saber como ler um segredo do Key Vault com um aplicativo Web usando identidades de serviço gerenciada, continue com o tutorial a seguir, [Configurar um aplicativo Web do Azure para ler um segredo do Key Vault](tutorial-web-application-keyvault.md)

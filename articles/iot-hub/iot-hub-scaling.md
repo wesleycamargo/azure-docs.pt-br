@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/02/2018
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3237ee41f8596ed3ce508857adf7dc29cee1ada
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 01e6c3a6fb922a649f0ae139af9c8515fcb8b2e0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher a camada certa do Hub IoT para a solução
 
@@ -48,7 +48,7 @@ Após criar o Hub IoT, será possível atualizar da camada Básica para a camada
 | [Serviço de provisionamento de dispositivos](../iot-dps/about-iot-dps.md) | sim | sim |
 | [Monitoramento e diagnósticos](iot-hub-monitor-resource-health.md) | sim | sim |
 | [Mensagens de nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md) |   | sim |
-| [Dispositivo gêmeo](iot-hub-devguide-device-twins.md) e [Gerenciamento de dispositivo](iot-hub-device-management-overview.md) |   | sim |
+| [Dispositivos gêmeos](iot-hub-devguide-device-twins.md), [Módulos gêmeos](iot-hub-devguide-module-twins.md) e [Gerenciamento de dispositivo](iot-hub-device-management-overview.md) |   | sim |
 | [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | sim |
 
 O Hub IoT também oferece uma camada gratuita destinado a testes e avaliação. Ela tem todos os recursos da camada Standard, mas provisões limitadas de mensagens. Não é possível fazer upgrade da camada gratuita para Básica ou Standard. 
@@ -61,19 +61,26 @@ A diferença nos recursos com suporte entre as camadas Básica e Standard do Hub
 | --- | ---------- | ------------- |
 | [Excluir dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | sim | sim |
 | [Obter dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | sim | sim |
+| Excluir módulo | sim | sim |
+| Obter módulo | sim | sim |
 | [Obter estatísticas de registro](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | sim | sim |
 | [Obter estatísticas de serviços](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | sim | sim |
 | [Implementar dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | sim | sim |
+| Colocar módulo | sim | sim |
 | [Dispositivos de consulta](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | sim | sim |
+| Consultar módulos | sim | sim |
 | [Criar URI de SAS de upload de arquivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | sim | sim |
 | [Receber notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | sim | sim |
 | [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | sim | sim |
+| Enviar eventos de módulo | sim | sim |
 | [Atualizar o status de upload de arquivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | sim | sim |
 | [Operação de dispositivo em massa](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | Sim, exceto pelos recursos do Azure IoT Edge | sim | 
 | [Limpar fila de comandos](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | sim |
 | [Obter dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | sim |
+| Obter módulo gêmeo |   | sim |
 | [Invocar um método de dispositivo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | sim |
 | [Atualizar dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | sim | 
+| Atualizar módulo gêmeo |   | sim | 
 | [Abandonar notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | sim |
 | [Completar notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | sim |
 | [Cancelar trabalho](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | sim |

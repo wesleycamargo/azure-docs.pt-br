@@ -11,16 +11,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 800105d29fa284531e02ce80db69eff3a9915652
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Como usar o Azure Managed Service Identity (visualização pública) no Serviço de Aplicativo e no Azure Functions
 
 > [!NOTE] 
 > Atualmente, o Managed Service Identity para o Serviço de Aplicativo e o Azure Functions está em versão prévia. Atualmente, não há suporte para o Serviço de Aplicativo no Linux nem para o Aplicativo Web para Contêineres.
+
+
+> [!Important] 
+> o Managed Service Identity para o Serviço de Aplicativo e o Azure Functions não se comportarão conforme o esperado se seu aplicativo é migrado entre assinaturas/locatários. O aplicativo precisará obter uma nova identidade e a identidade existente não pode ser excluída corretamente sem excluir o próprio site. Seu aplicativo precisará ser recriado com uma nova identidade e recursos downstream precisarão ter políticas de acesso atualizadas para usar a nova identidade.
+
 
 Este tópico mostra como criar uma identidade de aplicativo gerenciado para aplicativos do Serviço de Aplicativo e do Azure Functions e como usá-la para acessar outros recursos. Uma identidade de serviço gerenciado do Azure Active Directory permite que o aplicativo acesse facilmente os outros recursos protegidos pelo AAD, como o Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige provisionamento ou giro de nenhum segredo. Para obter mais informações sobre o Managed Service Identity, consulte a [Visão Geral do Managed Service Identity](../active-directory/managed-service-identity/overview.md).
 
@@ -237,6 +242,6 @@ $accessToken = $tokenResponse.access_token
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Acesse o Banco de Dados SQL com segurança usando a identidade do serviço gerenciada](app-service-web-tutorial-connect-msi.md)
+> [Acessar o Banco de Dados SQL com segurança usando a identidade do serviço gerenciada](app-service-web-tutorial-connect-msi.md)
 
 [Referência Microsoft.Azure.Services.AppAuthentication]: https://go.microsoft.com/fwlink/p/?linkid=862452

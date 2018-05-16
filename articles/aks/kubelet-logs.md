@@ -1,6 +1,6 @@
 ---
-title: Obter logs de Kubelet do AKS (Serviço de Contêiner do Azure)
-description: Obter logs de Kubelet dos nós de cluster do AKS (Serviço de Contêiner do Azure)
+title: Obter logs de Kubelet do AKS (Serviço de Kubernetes do Azure)
+description: Obter logs de Kubelet dos nós de cluster do AKS (Serviço de Kubernetes do Azure)
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 56e20a9f9d17eac01e6f85007db41dcc417f83e4
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0467be7e91fdbf4685fc41a375ea86a503e26009
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-kubelet-logs-from-azure-container-service-aks-cluster-nodes"></a>Obter logs de Kubelet dos nós de cluster do AKS (Serviço de Contêiner do Azure)
+# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obter logs de Kubelet dos nós de cluster do AKS (Serviço de Kubernetes do Azure)
 
-Ocasionalmente, talvez seja necessário obter logs de Kubelet de um nó do AKS (Serviço de Contêiner do Azure) para fins de solução de problemas. Este documento detalha uma opção para efetuar pull desses logs.
+Ocasionalmente, talvez seja necessário obter logs de Kubelet de um nó do AKS (Serviço de Kubernetes do Azure) para fins de solução de problemas. Este documento detalha uma opção para efetuar pull desses logs.
 
 ## <a name="create-an-ssh-connection"></a>Criar uma conexão SSH
 
-Primeiro, crie uma conexão SSH com o nó que é necessário efetuar pull dos logs de kubelet. Essa operação está detalhada no documento [SSH nos nós de cluster do AKS (Serviço de Contêiner do Azure)][aks-ssh].
+Primeiro, crie uma conexão SSH com o nó que é necessário efetuar pull dos logs de kubelet. Essa operação está detalhada no documento [SSH nos nós de cluster do AKS (Serviço de Kubernetes do Azure)][aks-ssh].
 
 ## <a name="get-kubelet-logs"></a>Obter logs de kubelet
 

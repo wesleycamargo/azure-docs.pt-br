@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f9429e88525e27c0b6bad29d1927d53d05dfbcc8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-azure-cdn-with-cors"></a>Usar a CDN do Azure com o CORS
 ## <a name="what-is-cors"></a>O que é CORS?
@@ -57,7 +57,7 @@ Uma solicitação complexa é uma solicitação CORS onde o navegador é necess�
 ## <a name="wildcard-or-single-origin-scenarios"></a>Cenários de origem única ou curinga
 O CORS na Azure CDN funcionará automaticamente sem nenhuma configuração adicional quando o cabeçalho **Access-Control-Allow-Origin** for definido como caractere curinga (*) ou uma origem única.  A CDN armazenará a primeira resposta em cache e as solicitações subsequentes usarão o mesmo cabeçalho.
 
-Se já tiverem sido feitas solicitações à CDN antes de o CORS ser definido na origem, você precisará limpar o conteúdo no conteúdo do ponto de extremidade para recarregar o conteúdo com o cabeçalho **Access-Control-Allow-Origin** .
+Se já tiverem sido feitas solicitações à CDN antes de o CORS ser definido na origem, você precisará limpar o conteúdo no conteúdo do ponto de extremidade para recarregar o conteúdo com o cabeçalho **Access-Control-Allow-Origin**.
 
 ## <a name="multiple-origin-scenarios"></a>Cenários de várias origens
 Se você precisar permitir que uma lista específica de origens seja permitida para o CORS, isso será um pouco mais complicado. O problema ocorre quando a CDN armazena o cabeçalho **Access-Control-Allow-Origin** em cache para a primeira origem do CORS.  Quando uma origem do CORS diferente fizer uma solicitação subsequente, a CDN terá fornecido o cabeçalho **Access-Control-Allow-Origin** armazenado em cache que não é correspondente.  Há várias maneiras de corrigir o problema.
@@ -67,7 +67,7 @@ A melhor maneira de habilitar essa opção é usar o **Azure CDN Premium da Veri
 
 Você precisará [criar uma regra](cdn-rules-engine.md) para verificar o cabeçalho **Origin** na solicitação.  Se for uma origem válida, a regra definirá o cabeçalho **Access-Control-Allow-Origin** com a origem fornecida na solicitação.  Se a origem especificada no cabeçalho **Origem** não for permitida, a regra deverá omitir o cabeçalho **Access-Control-Allow-Origin**, que fará com que o navegador rejeite a solicitação. 
 
-Há duas maneiras de fazer isso com o mecanismo de regras.  Em ambos os casos, o cabeçalho **Access-Control-Allow-Origin** do servidor de origem do arquivo é totalmente ignorado e o mecanismo de regras da CDN gerencia completamente as origens CORS permitidas.
+Há duas maneiras de fazer isso com o mecanismo de regras. Em ambos os casos, o cabeçalho **Access-Control-Allow-Origin** do servidor de origem do arquivo é ignorado e o mecanismo de regras da CDN gerencia completamente as origens CORS permitidas.
 
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Uma expressão regular com todas as origens válidas
 Nesse caso, você criará uma expressão regular que inclua todas as origens que deseja permitir: 
@@ -75,7 +75,7 @@ Nesse caso, você criará uma expressão regular que inclua todas as origens que
     https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 
 > [!TIP]
-> A **CDN do Azure da Verizon** usa as [Expressões Regulares Compatíveis com o Perl](http://pcre.org/) como seu mecanismo de expressões regulares.  Você pode usar uma ferramenta, como [Expressões Regulares 101](https://regex101.com/), para validar sua expressão regular.  Observe que o caractere "/" é válido em expressões regulares e não precisa ter um caractere de escape. No entanto, adicionar um caractere de escape a esse caractere é considerado uma prática recomendada e é esperado por alguns validadores de regex.
+> A **CDN Premium do Azure da Verizon** usa as [Expressões Regulares Compatíveis com o Perl](http://pcre.org/) como seu mecanismo de expressões regulares.  Você pode usar uma ferramenta, como [Expressões Regulares 101](https://regex101.com/), para validar sua expressão regular.  Observe que o caractere "/" é válido em expressões regulares e não precisa ter um caractere de escape. No entanto, adicionar um caractere de escape a esse caractere é considerado uma prática recomendada e é esperado por alguns validadores de regex.
 > 
 > 
 
@@ -93,6 +93,6 @@ Em vez de expressões regulares, você pode criar uma regra separada para cada o
 > 
 > 
 
-### <a name="azure-cdn-standard"></a>Padrão do Azure CDN
-Em perfis Padrão do Azure CDN, o único mecanismo para permitir várias origens sem o uso da origem curinga é usar o [armazenamento em cache da cadeia de caracteres de consulta](cdn-query-string.md).  Você precisa habilitar a configuração da cadeia de caracteres de consulta para o ponto de extremidade da CDN e usar uma cadeia de caracteres de consulta exclusiva para solicitações de cada domínio permitido. Isso fará com que a CDN armazene em cache um objeto separado para cada cadeia de caractere de consulta exclusiva. No entanto, essa abordagem não é ideal, pois resultará em várias cópias do mesmo arquivo armazenadas em cache na CDN.  
+### <a name="azure-cdn-standard-profiles"></a>Perfis padrão do Azure CDN
+Em perfis padrão do Azure CDN (**Azure CDN Standard da Microsoft**, **Azure CDN Standard da Akamai** e **Azure CDN Standard da Verizon**), o único mecanismo para permitir várias origens sem o uso da origem curinga é o uso de [cache de cadeia de consulta](cdn-query-string.md). Habilite a configuração da cadeia de caracteres de consulta para o ponto de extremidade da CDN e usar uma cadeia de caracteres de consulta exclusiva para solicitações de cada domínio permitido. Isso fará com que a CDN armazene em cache um objeto separado para cada cadeia de caractere de consulta exclusiva. No entanto, essa abordagem não é ideal, pois resultará em várias cópias do mesmo arquivo armazenadas em cache na CDN.  
 

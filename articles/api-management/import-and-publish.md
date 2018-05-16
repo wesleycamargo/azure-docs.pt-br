@@ -3,7 +3,7 @@ title: Importar e publicar sua primeira API no gerenciamento de API do Azure | M
 description: Saiba como importar e publicar sua primeira API com o gerenciamento de API.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: a72e870b1c98ec363b217030cf1e2f61ceaad5d9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a7a4391b436af4ffa303741397f0be7abf0186fb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar sua primeira API 
 
@@ -66,7 +66,7 @@ Esta seção mostra como importar e publicar uma API de back-end da especificaç
     >[!NOTE]
     > Para publicar a API, você deve associá-la a um produto. É possível fazer isso na **página Configurações**.
     
-3. Selecione **Criar**.
+3. Clique em **Criar**.
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testar a nova API do APIM no portal do Azure
 

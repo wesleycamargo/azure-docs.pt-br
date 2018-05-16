@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Teamphoria | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Teamphoria."
+title: 'Tutorial: integração do Azure Active Directory com o Teamphoria | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Teamphoria.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 260c85b14032e17def01ded4a461e6337d66239b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 724d1624a3ba86aba3665169a14115b2a90e0069
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: integração do Azure Active Directory ao Teamphoria
 
@@ -31,15 +31,7 @@ A integração do Teamphoria com o Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
-<!--## Overview
-
-To enable single sign-on with Teamphoria, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Teamphoria.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
-
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o Teamphoria, você precisará dos seguintes itens:
 
@@ -58,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Teamphoria da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-teamphoria-from-the-gallery"></a>Adicionar o Teamphoria da galeria
 Para configurar a integração do Teamphoria com o Azure AD, você precisará adicionar o Teamphoria da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -71,11 +63,11 @@ Para configurar a integração do Teamphoria com o Azure AD, você precisará ad
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Teamphoria**.
 
@@ -85,7 +77,7 @@ Para configurar a integração do Teamphoria com o Azure AD, você precisará ad
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Teamphoria, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Teamphoria é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Teamphoria.
@@ -94,11 +86,11 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 Para configurar e testar o logon único do Azure AD com o Teamphoria, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criação de um usuário de teste do Teamphoria](#creating-a-teamphoria-test-user)** – para ter um equivalente a Brenda Fernandes no Teamphoria que esteja vinculado à sua representação no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -112,11 +104,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
 2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_samlbase.png)
 
 3. Na seção **URLs e Domínio do Teamphoria**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_url.png)
 
     a. Na caixa de texto **URL de Entrada**, digite a URL usando o seguinte padrão: `https://<sub-domain>.teamphoria.com/login`    
 
@@ -125,7 +117,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o certificado em seu computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
@@ -133,17 +125,17 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
 6. Na seção **Configuração do Teamphoria**, clique em **Configurar o Teamphoria** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_configure.png) 
 
 7. Para configurar o logon único pelo **Teamphoria**, faça logon em seu aplicativo Teamphoria como administrador.
 
 8. Vá até a opção **CONFIGURAÇÕES DE ADMINISTRAÇÃO** na barra de ferramentas à esquerda e, na guia Configurar, clique em **LOGON ÚNICO** para abrir a janela de configuração de SSO.
 
-    ![Configurar Logon Único](./media/active-directory-saas-teamphoria-tutorial/admin_sso_configure.png)
+    ![Configurar o logon único](./media/active-directory-saas-teamphoria-tutorial/admin_sso_configure.png)
 
 9. Clique na opção **ADICIONAR NOVO PROVEDOR DE IDENTIDADE** no canto superior direito para abrir o formulário para adicionar as configurações de SSO.
 
-    ![Configurar Logon Único](./media/active-directory-saas-teamphoria-tutorial/add_new_identity_provider.png)
+    ![Configurar o logon único](./media/active-directory-saas-teamphoria-tutorial/add_new_identity_provider.png)
 
 10. Insira os detalhes nos campos conforme descrito abaixo:
 
@@ -239,13 +231,13 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 **Para atribuir Brenda Fernandes ao Teamphoria, execute as seguintes etapas:**
 
-1. No portal de gerenciamento do Azure, abra a exibição de aplicativos e, em seguida, navegue até o modo de exibição de diretório e vá para **aplicativos empresariais** e clique em **todos os aplicativos**.
+1. No Portal de Gerenciamento do Azure, abra a exibição de aplicativos e, em seguida, navegue até o modo de exibição de diretório e vá para **Aplicativos empresariais**, depois clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
 2. Na lista de aplicativos, selecione **Teamphoria**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 

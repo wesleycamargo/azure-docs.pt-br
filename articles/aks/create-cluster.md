@@ -1,5 +1,5 @@
 ---
-title: "Criar um cluster do AKS (Serviço de Contêiner do Azure)"
+title: Criar um cluster do Serviço de Kubernetes do Azure (AKS)
 description: Crie um cluster do AKS com a CLI ou o Portal do Azure.
 services: container-service
 author: neilpeterson
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 37d6dfc0aa6b3e4fcd88a53e83a3a3d7f2157681
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 46c2f718911f27ad8f51423589c6fdda100a68d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="create-an-azure-container-service-aks-cluster"></a>Criar um cluster do AKS (Serviço de Contêiner do Azure)
+# <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Criar um cluster do Serviço de Kubernetes do Azure (AKS)
 
-Um cluster do AKS (Serviço de Contêiner do Azure) pode ser criado com a CLI do Azure ou o Portal do Azure.
+Um cluster do AKS (Serviço de Kubernetes do Azure) pode ser criado com a CLI do Azure ou o Portal do Azure.
 
 ## <a name="azure-cli"></a>CLI do Azure
 
@@ -32,7 +32,7 @@ As opções a seguir estão disponíveis com o comando `az aks create`.
 | Argumento | DESCRIÇÃO | Obrigatório |
 |---|---|:---:|
 | `--name` `-n` | Nome de recurso do cluster gerenciado. | Sim |
-| `--resource-group` `-g` | Nome do grupo de recursos do Serviço de Contêiner do Azure. | Sim |
+| `--resource-group` `-g` | Nome do grupo de recursos do Serviço de Kubernetes do Azure. | Sim |
 | `--admin-username` `-u` | Nome de usuário para a Máquinas Virtuais do Linux.  Padrão: azureuser. | não |
 | ` --client-secret` | O segredo associado à entidade de serviço. | não |
 | `--dns-name-prefix` `-p` | Prefixo DNS para o endereço IP público dos clusters. | não |
@@ -48,7 +48,7 @@ As opções a seguir estão disponíveis com o comando `az aks create`.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Para obter instruções sobre como implantar um cluster do AKS com o Portal do Azure, veja o [Guia de início rápido do Portal do Azure][aks-portal-quickstart] do AKS (Serviço de Contêiner do Azure). 
+Para obter instruções sobre como implantar um cluster do AKS com o Portal do Azure, veja o [Guia de início rápido do Portal do Azure][aks-portal-quickstart] do AKS (Serviço de Kubernetes do Azure).
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create

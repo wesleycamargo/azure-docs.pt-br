@@ -1,23 +1,23 @@
 ---
-title: Criar um balanceador de carga interno do AKS (Serviço de Contêiner do Azure)
-description: Usar um balanceador de carga interno com o AKS (Serviço de Contêiner do Azure).
+title: Criar um balanceador de carga interno do AKS (Serviço de Kubernetes do Azure)
+description: Usar um balanceador de carga interno com o AKS (Serviço de Kubernetes do Azure).
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 3/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7b9ecdb5364f7c0f5bb68ce693e53bc2c5327337
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: a1a5d6d455086ee34767e92b277936840717bcd6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="use-an-internal-load-balancer-with-azure-container-service-aks"></a>Usar um balanceador de carga interno com o AKS (Serviço de Contêiner do Azure)
+# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usar um balanceador de carga interno com o AKS (Serviço de Kubernetes do Azure)
 
-O balanceamento de carga interno torna um serviço do Kubernetes acessível a aplicativos executando na mesma rede virtual que o cluster do Kubernetes. Este documento detalha a criação de um balanceador de carga interno com o AKS (Serviço de Contêiner do Azure).
+O balanceamento de carga interno torna um serviço do Kubernetes acessível a aplicativos executando na mesma rede virtual que o cluster do Kubernetes. Este documento detalha a criação de um balanceador de carga interno com o AKS (Serviço de Kubernetes do Azure).
 
 ## <a name="create-internal-load-balancer"></a>Criar balanceador de carga interno
 
@@ -38,11 +38,11 @@ spec:
     app: azure-vote-front
 ```
 
-Depois de implantado, um balanceador de carga do Azure é criado e disponibilizado na mesma rede virtual que o cluster do AKS. 
+Depois de implantado, um balanceador de carga do Azure é criado e disponibilizado na mesma rede virtual que o cluster do AKS.
 
 ![Imagem do balanceador de carga interno do AKS](media/internal-lb/internal-lb.png)
 
-Ao recuperar os detalhes do serviço, o endereço IP na coluna `EXTERNAL-IP` é o endereço IP do balanceador de carga interno. 
+Ao recuperar os detalhes do serviço, o endereço IP na coluna `EXTERNAL-IP` é o endereço IP do balanceador de carga interno.
 
 ```console
 $ kubectl get service azure-vote-front
@@ -71,7 +71,7 @@ spec:
     app: azure-vote-front
 ```
 
-Ao recuperar os detalhes do serviço, o endereço IP em `EXTERNAL-IP` deve refletir o endereço IP especificado. 
+Ao recuperar os detalhes do serviço, o endereço IP em `EXTERNAL-IP` deve refletir o endereço IP especificado.
 
 ```console
 $ kubectl get service azure-vote-front

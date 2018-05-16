@@ -1,29 +1,29 @@
 ---
-title: "Solução do problema de lentidão de backup de arquivos e pastas no Backup do Azure | Microsoft Docs"
-description: "Fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa dos problemas de desempenho de Backup do Azure"
+title: Solução do problema de lentidão de backup de arquivos e pastas no Backup do Azure | Microsoft Docs
+description: Fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa dos problemas de desempenho de Backup do Azure
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 373a98855886cc7be7518c664f82bb6f92ca86f3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6ed1e2d7bfc08afe135cb85995fdebaa30202c23
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 Este artigo fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa do baixo desempenho de backup de arquivos e pastas quando você usa o Backup do Azure. Quando você usa o agente do Backup do Azure para fazer backup de arquivos, o processo de backup pode demorar mais do que o esperado. Esse atraso pode ser causado por um ou mais dos seguintes itens:
 
-* [Há afunilamentos de desempenho no computador do qual está sendo feito o backup.](#cause1)
+* [Há gargalos de desempenho no computador do qual está sendo feito o backup.](#cause1)
 * [Outro processo ou software antivírus está interferindo com o processo de Backup do Azure.](#cause2)
 * [O agente do Backup está em execução em uma VM (máquina virtual) do Azure.](#cause3)  
 * [Você está fazendo backup de um grande número de arquivos (milhões).](#cause4)
@@ -36,12 +36,12 @@ Também recomendamos que você revise as [Perguntas frequentes do serviço Backu
 
 <a id="cause1"></a>
 
-## <a name="cause-performance-bottlenecks-on-the-computer"></a>Causa: afunilamentos de desempenho no computador
-Afunilamentos no computador do qual está sendo feito backup podem causar atrasos. Por exemplo, a capacidade do computador de ler ou gravar em disco ou a largura de banda disponível para enviar dados pela rede podem causar afunilamentos.
+## <a name="cause-performance-bottlenecks-on-the-computer"></a>Causa: gargalos de desempenho no computador
+Gargalos no computador do qual está sendo feito backup podem causar atrasos. Por exemplo, a capacidade do computador de ler ou gravar em disco ou a largura de banda disponível para enviar dados pela rede podem causar gargalos.
 
-O Windows fornece uma ferramenta interna chamada [Monitor de Desempenho](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) para detectar esses afunilamentos.
+O Windows fornece uma ferramenta interna chamada [Monitor de Desempenho](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) para detectar esses gargalos.
 
-Veja alguns contadores de desempenho e intervalos que podem ser úteis para diagnosticar afunilamentos para obter o backup ideal.
+Veja alguns contadores de desempenho e intervalos que podem ser úteis para diagnosticar gargalos para obter o backup ideal.
 
 | Contador | Status |
 | --- | --- |

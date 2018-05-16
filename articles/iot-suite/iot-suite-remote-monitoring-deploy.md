@@ -1,33 +1,33 @@
 ---
-title: "Implantar a solução de monitoramento remoto – Azure | Microsoft Docs"
-description: "Este tutorial mostra como provisionar a solução de monitoramento remoto pré-configurada do azureiotsuite.com."
-services: 
+title: Implantar a solução de monitoramento remoto – Azure | Microsoft Docs
+description: Este tutorial mostra como provisionar a solução de monitoramento remoto do azureiotsuite.com.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fa08817c870372488b1e03a2c282add2eaa85478
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: eb78ce91755c43f1c6fedf62a70238df911b940f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Implantar a solução de monitoramento remoto pré-configurada
+# <a name="deploy-the-remote-monitoring-solution-accelerator"></a>Implantar o acelerador de solução de monitoramento remoto
 
-Este tutorial mostra como provisionar a solução pré-configurada de monitoramento remoto. Você pode implantar a solução do azureiotsuite.com. Você também pode implantar a solução usando a CLI, para saber mais sobre essa opção, consulte [Deploy a preconfigured solution from the command line](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploy-a-pcs-from-the-command-line) (Implantar uma solução pré-configurada da linha de comando).
+Este tutorial mostra como provisionar o acelerador de solução de monitoramento remoto. Você pode implantar a solução do azureiotsuite.com. Você também pode implantar a solução usando a CLI. Para saber mais sobre essa opção, consulte [Implantar um acelerador de solução da linha de comando](iot-suite-remote-monitoring-deploy-cli.md).
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Configurar a solução pré-configurada
-> * Implantar a solução pré-configurada
-> * Entrar na solução pré-configurada
+> * Configurar o acelerador de solução
+> * Implantar o acelerador de solução
+> * Entrar no acelerador de solução
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -35,19 +35,17 @@ Para concluir este tutorial, você precisa de uma assinatura ativa do Azure.
 
 Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="deploy-the-preconfigured-solution"></a>Implantar a solução pré-configurada
+## <a name="deploy-the-solution-accelerator"></a>Implantar o acelerador de solução
 
-Antes de implantar a solução pré-configurada em sua assinatura do Azure, você deve escolher algumas opções de configuração:
+Antes de implantar o acelerador de solução em sua assinatura do Azure, escolha algumas opções de configuração:
 
-1. Faça logon no [azureiotsuite.com](https://www.azureiotsuite.com) usando as credenciais da sua conta do Azure e clique em **+** para criar uma nova solução:
+1. Faça logon no [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) usando suas credenciais de conta do Azure.
 
-    ![Criar uma nova solução](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
-
-1. Clique em **Selecionar** no bloco **Visualização do monitoramento remoto**.
+1. Clique em **Experimentar Agora** no bloco **Monitoramento Remoto**.
 
     ![Escolher o monitoramento remoto](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
-1. Na página **Criar solução de monitoramento remoto**, insira um **Nome da solução** para sua solução de monitoramento remoto pré-configurada.
+1. Na página **Criar solução de Monitoramento Remoto**, insira um **Nome da solução** para seu acelerador de solução de monitoramento remoto.
 
 1. Selecione uma implantação do tipo **Básico** ou **Standard**. Se você estiver implantando a solução para saber como ela funciona ou para executar uma demonstração, escolha a opção **Básico** para minimizar os custos.
 
@@ -63,9 +61,9 @@ Antes de implantar a solução pré-configurada em sua assinatura do Azure, voc�
 
 Para obter informações de solução de problemas, consulte [What to do when a deployment fails](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) (O que fazer quando uma implantação falhar) no repositório do GitHub.
 
-## <a name="sign-in-to-the-preconfigured-solution"></a>Entrar na solução pré-configurada
+## <a name="sign-in-to-the-solution-accelerator"></a>Entrar no acelerador de solução
 
-Quando o processo de provisionamento for concluído, você poderá entrar em sua solução de monitoramento remoto pré-configurada.
+Após a conclusão do processo de provisionamento, você poderá entrar em seu acelerador de solução de monitoramento remoto.
 
 1. Na página **Soluções provisionadas**, escolha sua nova solução de monitoramento remoto:
 
@@ -85,9 +83,9 @@ Quando o processo de provisionamento for concluído, você poderá entrar em sua
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
-> * Configurar a solução pré-configurada
-> * Implantar a solução pré-configurada
-> * Entrar na solução pré-configurada
+> * Configurar o acelerador de solução
+> * Implantar o acelerador de solução
+> * Entrar no acelerador de solução
 
 Agora que você implantou a solução de monitoramento remoto, a próxima etapa será [explorar os recursos do painel da solução](./iot-suite-remote-monitoring-explore.md).
 

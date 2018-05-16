@@ -1,6 +1,6 @@
 ---
-title: Implantação contínua do Jenkins com Kubernetes no Serviço de Contêiner do Azure
-description: Como automatizar um processo de implantação contínua com Jenkins para implantar e atualizar um aplicativo em recipientes no Kubernetes no Serviço de Contêiner do Azure
+title: Implantação contínua do Jenkins com Kubernetes no Serviço de Kubernetes do Azure
+description: Como automatizar um processo de implantação contínua com Jenkins para implantar e atualizar um aplicativo em recipientes no Kubernetes no Serviço de Kubernetes do Azure
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: efdb89c5f4c6bdb9b007b7c0020cbdb8f6034eed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Implantação contínua com o Jenkins e o Serviço de Contêiner do Azure
+# <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Implantação contínua com o Jenkins e o Serviço de Kubernetes do Azure
 
-Este documento demonstra como configurar um fluxo de trabalho de implantação contínua básico entre o Jenkins e um cluster do AKS (Serviço de Contêiner do Azure).
+Este documento demonstra como configurar um fluxo de trabalho de implantação contínua básico entre o Jenkins e um cluster do AKS (Serviço de Kubernetes do Azure).
 
 O fluxo de trabalho de exemplo inclui as seguintes etapas:
 
@@ -33,7 +33,7 @@ O fluxo de trabalho de exemplo inclui as seguintes etapas:
 Para concluir as etapas neste artigo, você precisa dos itens a seguir.
 
 - Noções básicas sobre Kubernetes, Git, CI/CD e ACR (Registro de Contêiner do Azure).
-- Um [cluster do AKS (Serviço de Contêiner do Azure)][aks-quickstart] e [credenciais do AKS configuradas][aks-credentials] em seu sistema de desenvolvimento.
+- Um [cluster do AKS (Serviço de Kubernetes do Azure)][aks-quickstart] e [credenciais do AKS configuradas][aks-credentials] no sistema de desenvolvimento.
 - Um [ACR (Registro de Contêiner do Azure)][acr-quickstart], o nome do servidor de logon do ACR e [credenciais do ACR][acr-authentication] com acesso via push e pull.
 - CLI do Azure instalada no sistema de desenvolvimento.
 - Docker instalado no sistema de desenvolvimento.

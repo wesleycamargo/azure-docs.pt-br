@@ -1,13 +1,13 @@
 ---
-title: "Perguntas frequentes da solução de fábrica conectada – Azure | Microsoft Docs"
-description: "Perguntas frequentes sobre a fábrica conectada do IoT Suite"
-services: 
+title: Perguntas frequentes da solução Connected Factory – Azure | Microsoft Docs
+description: Perguntas frequentes sobre o acelerador de solução Connected Factory
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 12ebd8b8dfa90ab736190e842b35744dbf1c5b96
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Perguntas frequentes sobre a solução pré-configurada de fábrica conectada do IoT Suite
+# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes sobre o acelerador de solução Connected Factory
 
-Consulte também as [Perguntas frequentes](iot-suite-faq.md) gerais sobre o IoT Suite.
+Veja também as [Perguntas frequentes](iot-suite-faq.md) gerais sobre aceleradores de solução IoT.
 
-### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solution"></a>Onde encontrar o código-fonte da solução pré-configurada?
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>Onde posso encontrar o código-fonte do acelerador de solução?
 
 O código-fonte é armazenado no seguinte repositório GitHub:
 
-* [Solução pré-configurada de fábrica conectada](https://github.com/Azure/azure-iot-connected-factory)
+* [Acelerador da solução Connected Factory](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>O que é OPC UA?
 
@@ -40,7 +40,7 @@ O OPC UA (Unified Architecture), lançado em 2008, é um padrão de interoperabi
 * Tecnologia
 * Processos
 
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Por que a Microsoft escolheu o OPC UA para a solução pré-configurada de fábrica conectada?
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Por que a Microsoft escolheu o OPC UA para o acelerador de solução Connected Factory?
 
 A Microsoft escolheu OPC UA porque ele é um padrão aberto, comprovado, não proprietário, independente de plataforma e reconhecido no setor. É um requisito para soluções de arquitetura de referência Industrie 4.0 (RAMI4.0) garantindo a interoperabilidade entre um amplo conjunto de processos de fabricação e equipamento. A Microsoft considera a demanda dos clientes para criar soluções do Industrie 4.0. O suporte para OPC UA ajuda a reduzir a barreira para os clientes atingirem suas metas e fornece valor comercial imediato para eles.
 
@@ -100,7 +100,7 @@ Se você implantou sua solução com o script `build.ps1` no [repositório](http
 
 Encontre também a cadeia de conexão usando o portal do Azure. No recurso Hub IoT no grupo de recursos da implantação, localize as configurações da cadeia de conexão.
 
-### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Quais dispositivos Hub IoT são usados pela simulação de Fábrica conectada?
+### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Quais dispositivos Hub IoT são usados pela simulação Connected Factory?
 
 A simulação registra automaticamente os seguintes dispositivos:
 
@@ -144,15 +144,15 @@ Inspecione os dados enviados por um dos dispositivos fornecedores:
 
 Caso você não veja nenhum dado enviado para o Hub IoT, há um problema com a simulação. Como uma primeira etapa de análise, você deve analisar os arquivos de log dos componentes da simulação. Consulte [Como obter dados de log dos componentes da simulação?](#how-can-i-get-log-data-from-the-simulation-components) Em seguida, tente interromper e iniciar a simulação e, se ainda nenhum dado estiver sendo enviado, atualize a simulação por completo. Consulte [Como fazer para atualizar a simulação na VM?](#how-do-i-update-the-simulation-in-the-vm)
 
-### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Como habilitar um mapa interativo na minha solução de Alocador conectado?
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Como fazer para habilitar um mapa interativo na minha solução Connected Factory?
 
-Para habilitar um mapa interativo em sua solução de Alocador conectado, deve ter uma API existente do Bing Maps para o plano Enterprise.
+Para habilitar um mapa interativo em sua solução Connected Factory, deve ter uma API existente do Bing Maps para o plano Enterprise.
 
-Durante a implantação de [www.azureiotsuite.com](http://www.azureiotsuite.com), o processo de implantação verifica se sua assinatura tem uma API do Bing Maps habilitado para o plano Enterprise e implanta automaticamente um mapa interativo no Alocador conectado. Se isso não for o caso, você poderá habilitar um mapa interativo em sua implantação da seguinte maneira:
+Durante a implantação de [www.azureiotsuite.com](http://www.azureiotsuite.com), o processo de implantação verifica se sua assinatura tem uma API do Bing Maps habilitado para o plano Enterprise e implanta automaticamente um mapa interativo na Connected Factory. Se isso não for o caso, você poderá habilitar um mapa interativo em sua implantação da seguinte maneira:
 
-Quando você implanta usando o `build.ps1` script no repositório GitHub do Alocador conectado e você tem uma API do Bing Maps para o plano Enterprise, defina a variável de ambiente `$env:MapApiQueryKey` na janela de compilação para a chave de consulta do seu plano. O mapa interativo, em seguida, é habilitado automaticamente.
+Quando você implanta usando o `build.ps1` script no repositório GitHub da Connected Factory e você tem uma API do Bing Maps para o plano Enterprise, defina a variável de ambiente `$env:MapApiQueryKey` na janela de compilação para a chave de consulta do seu plano. O mapa interativo, em seguida, é habilitado automaticamente.
 
-Se você não tiver uma API do Bing Maps para o plano Enterprise, implante a solução de Alocador conectado de [www.azureiotsuite.com](http://www.azureiotsuite.com) ou usando o script `build.ps1`. Em seguida, adicione uma API do Bing Maps para o plano Enterprise à sua assinatura, conforme explicado em [Como criar uma API do Bing Maps para a conta Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Pesquise a chave de consulta dessa conta conforme explicado em [Como obter a API do Bing Maps para Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e salve essa chave. Navegue até o portal do Azure e acesse o recurso de serviço de aplicativo em sua implantação de Alocador conectado. Navegue até **Configurações do aplicativo**, onde você pode encontrar uma seção **Configurações do aplicativo**. Defina o **MapApiQueryKey** para a chave de consulta que você obteve. Salvar as configurações e, em seguida, navegue até **Visão geral** e reinicie o serviço de aplicativo.
+Se você não tiver uma API do Bing Maps para o plano Enterprise, implante a solução Connected Factory de [www.azureiotsuite.com](http://www.azureiotsuite.com) ou usando o script `build.ps1`. Em seguida, adicione uma API do Bing Maps para o plano Enterprise à sua assinatura, conforme explicado em [Como criar uma API do Bing Maps para a conta Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Pesquise a chave de consulta dessa conta conforme explicado em [Como obter a API do Bing Maps para Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e salve essa chave. Navegue até o portal do Azure e acesse o recurso de serviço de aplicativo em sua implantação Connected Factory. Navegue até **Configurações do aplicativo**, onde você pode encontrar uma seção **Configurações do aplicativo**. Defina o **MapApiQueryKey** para a chave de consulta que você obteve. Salvar as configurações e, em seguida, navegue até **Visão geral** e reinicie o serviço de aplicativo.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Como criar uma API do Bing Maps para a conta Enterprise
 
@@ -162,7 +162,7 @@ Você pode obter um plano gratuito do *Bing Maps for Enterprise do Nível 1 das 
 
 ### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Como obter a QueryKey do API do Bing Maps for Enterprise
 
-Depois de criar sua API do Bing Maps for Enterprise, adicione um recurso do Bing Maps for Enterprise ao grupo de recursos de sua solução de Alocador conectado no portal do Azure.
+Depois de criar sua API do Bing Maps for Enterprise, adicione um recurso do Bing Maps for Enterprise ao grupo de recursos de sua solução Connected Factory no Portal do Azure.
 
 1. No portal do Azure, navegue até o grupo de recursos que contém seu plano da API do Bing Maps for Enterprise.
 
@@ -182,13 +182,13 @@ Para habilitar o mapa interativo ao depurar localmente, defina o valor da config
 
 Para alterar a imagem estática mostrada na home page do painel, substitua a imagem `WebApp\Content\img\world.jpg`. Em seguida, recompile e reimplante o WebApp.
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Como usar dispositivos não OPC UA com o Alocador conectado?
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Como usar dispositivos não OPC UA com a Connected Factory?
 
-Para enviar os dados telemétricos dos dispositivos não OPC UA ao Alocador conectado:
+Para enviar os dados telemétricos dos dispositivos não OPC UA à Connected Factory:
 
-1. [Configurar uma nova estação na topologia do Alocador conectado](iot-suite-connected-factory-configure.md) no arquivo `ContosoTopologyDescription.json`.
+1. [Configurar uma nova estação na topologia da Connected Factory](iot-suite-connected-factory-configure.md) no arquivo `ContosoTopologyDescription.json`.
 
-1. Ingira os dados telemétricos no formato JSON compatível do Alocador conectado:
+1. Ingira os dados telemétricos no formato JSON compatível com a Connected Factory:
 
     ```json
     [
@@ -206,12 +206,12 @@ Para enviar os dados telemétricos dos dispositivos não OPC UA ao Alocador cone
 
 1. O formato de `<timestamp>` é: `2017-12-08T19:24:51.886753Z`
 
-1. Reinicie o serviço de aplicativo do Alocador conectado.
+1. Reinicie o Serviço de Aplicativo da Connected Factory.
 
 ### <a name="next-steps"></a>Próximas etapas
 
-Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
+Você também pode explorar alguns dos outros recursos dos aceleradores de solução de IoT:
 
-* [Visão geral da solução pré-configurada de manutenção preditiva](iot-suite-predictive-overview.md)
-* [Visão geral da solução pré-configurada de fábrica conectada](iot-suite-connected-factory-overview.md)
+* [Visão geral do acelerador de solução de Manutenção Preditiva](iot-suite-predictive-overview.md)
+* [Visão geral do acelerador de solução Connected Factory](iot-suite-connected-factory-overview.md)
 * [Segurança da IoT desde o início](securing-iot-ground-up.md)

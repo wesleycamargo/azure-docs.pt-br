@@ -3,22 +3,22 @@ title: Expressões de marca e roteamento
 description: Este tópico explica as expressões de marca e roteamento para hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: c3266698a6077e85806286fadf1f48b7194a4d88
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: e08fca0b6b57d654f2b2ff7b935f38d8c517487b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-and-tag-expressions"></a>Expressões de marca e roteamento
 ## <a name="overview"></a>Visão geral
@@ -33,7 +33,7 @@ O back-end do aplicativo pode escolher os registros para direcionar uma notifica
 3. **Expressão de marca**: todos os registros cujos conjuntos de marcas correspondem à expressão especificada recebem a notificação.
 
 ## <a name="tags"></a>Marcas
-Uma marca pode ser qualquer cadeia de caracteres com até 120 caracteres que contenha caracteres alfanuméricos e os seguintes caracteres não alfanuméricos: ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. O exemplo a seguir mostra um aplicativo do qual você pode receber notificações de aviso sobre grupos musicais específicos. Nesse cenário, uma maneira simples de direcionar as notificações é rotular os registros com marcas que representem as diferentes bandas, como na seguinte imagem.
+Uma marca pode ser qualquer cadeia de caracteres com até 120 caracteres que contenha caracteres alfanuméricos e os seguintes caracteres não alfanuméricos: ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. O exemplo a seguir mostra um aplicativo do qual você pode receber notificações de aviso sobre grupos musicais específicos. Nesse cenário, uma maneira simples de direcionar as notificações é rotular os registros com marcas que representem as diferentes bandas, como na seguinte imagem:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
@@ -73,7 +73,7 @@ Outra maneira de usar marcas é identificar todos os dispositivos de um usuário
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
 
-Nesta figura, a UID de mensagem marcada:Alice atinge todas as UIDs de registros marcados:Alice; portanto, todos os dispositivos de Alice.
+Nesta imagem, a UID de mensagem marcada: Alice atinge todas as UIDs de registros marcados: Alice; portanto, todos os dispositivos de Alice.
 
 ## <a name="tag-expressions"></a>Expressões de marca
 Há casos em que uma notificação tem como destino um conjunto de registros identificados não por uma única marca, mas por uma expressão booliana nas marcas.

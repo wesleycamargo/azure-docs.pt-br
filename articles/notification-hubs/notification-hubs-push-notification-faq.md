@@ -1,25 +1,25 @@
 ---
-title: "Hubs de Notificação do Azure: perguntas frequentes | Microsoft Docs"
-description: "Perguntas frequentes sobre como projetar/implementar soluções em Hubs de Notificação"
+title: 'Hubs de Notificação do Azure: perguntas frequentes | Microsoft Docs'
+description: Perguntas frequentes sobre como projetar/implementar soluções em Hubs de Notificação
 services: notification-hubs
 documentationcenter: mobile
-author: ysxu
-manager: erikre
-keywords: "notificação por push, notificações por push, notificações por push do iOS, notificações por push do android, push do ios, push do android"
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
+keywords: notificação por push, notificações por push, notificações por push do iOS, notificações por push do android, push do ios, push do android
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/19/2017
-ms.author: yuaxu
-ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: fbdb52b1b2dee682021fd822d584551f41f723ff
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações por push com os Hubs de Notificação do Azure: perguntas frequentes
 ## <a name="general"></a>Geral

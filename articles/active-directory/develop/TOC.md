@@ -41,7 +41,7 @@
 ### [Concessão de código de autenticação do OAuth 2.0](active-directory-protocols-oauth-code.md)
 ### [Concessão implícita do Oauth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [Configurando a declaração de função](active-directory-enterprise-app-role-management.md)
+### [Configurando a declaração de função](../active-directory-enterprise-app-role-management.md)
 ### [Personalizar gráfico](active-directory-saml-claims-customization.md)
 ### [Depurar o SSO baseado em SAML](active-directory-saml-debugging.md)
 ### [Protocolo SAML de logon único](active-directory-single-sign-on-protocol-reference.md)

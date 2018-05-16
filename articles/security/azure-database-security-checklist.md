@@ -1,12 +1,12 @@
 ---
-title: "Lista de verificação de segurança do banco de dados do Azure | Microsoft Docs"
-description: "Este artigo fornece um conjunto de lista de verificação de segurança do banco de dados do Azure."
+title: Lista de verificação de segurança do banco de dados do Azure | Microsoft Docs
+description: Este artigo fornece um conjunto de lista de verificação de segurança do banco de dados do Azure.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 37523506369ece144183dba76feb8b23b6c1acb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7712196caefeea8a62045d432d762fbd16f42011
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança do banco de dados do Azure
 
@@ -42,7 +42,7 @@ A computação na nuvem exige novos paradigmas de segurança que não são famil
 É recomendável que você leia o artigo [Práticas recomendadas de segurança do banco de dados do Azure](https://docs.microsoft.com/azure/security/azure-database-security-best-practices) antes de examinar esta lista de verificação. Você poderá tirar o máximo proveito desta lista de verificação depois de entender as práticas recomendadas. Você pode usar esta lista de verificação para certificar-se de que já resolveu os problemas importantes na segurança do banco de dados do Azure.
 
 
-|Categoria da lista de verificação| Descrição|
+|Categoria da lista de verificação| DESCRIÇÃO|
 | ------------ | -------- |
 |**Proteger dados**||
 | <br> Criptografia em movimento/trânsito| <ul><li>[Protocolo TLS](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para criptografia de dados quando os dados se movem para as redes.</li><li>O banco de dados requer uma comunicação segura de clientes com base no protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) em TLS (Transport Layer Security).</li></ul> |

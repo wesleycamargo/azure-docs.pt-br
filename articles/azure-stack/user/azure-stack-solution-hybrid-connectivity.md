@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8b5f59d3fea402efa50bdafd7fc0439a93051e69
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 048e2636aabe406728c8fe1b93ef861f13346256
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutorial: configurar a conectividade de nuvem híbrida com o Azure e a pilha do Azure
 
@@ -93,7 +93,7 @@ Especificações de Conexão:
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>Criar uma rede virtual no global do Azure e na pilha do Azure
 
-> [!note]  
+> [!Note]  
 > Certifique-se de que não há nenhuma sobreposição de IPs em espaços de endereço de rede virtual do Azure ou a pilha do Azure. 
 
 Para criar uma rede virtual no modelo de implantação do Gerenciador de recursos usando o portal do Azure. Use o [valores de exemplo](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) se você estiver usando estas etapas como um tutorial. Se você não estiver executando estas etapas como um tutorial, substitua os valores pelos seus próprios. 
@@ -129,7 +129,7 @@ No [portal](http://portal.azure.com/), navegue até a rede virtual do Gerenciado
         - Clique em **+ criar novo** para abrir o **criar endereço IP público** página.
         - Insira um **nome** para seu endereço IP público. Deixe o SKU como **básica**, em seguida, selecione **Okey** na parte inferior desta página para salvar suas alterações.
 
-    > [!note]  
+    > [!Note]  
     > Gateway VPN atualmente suporta apenas a alocação de endereços IP públicos dinâmicos. No entanto, isso não significa que o endereço IP é alterado depois que ele foi atribuído ao seu gateway de VPN. A única vez em que o endereço IP Público é alterado é quando o gateway é excluído e recriado. Isso não altera o redimensionamento, a redefinição ou outras manutenções/atualizações internas do seu gateway de VPN.
 
 4. Verifique as configurações. 

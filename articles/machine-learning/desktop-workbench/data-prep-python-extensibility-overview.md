@@ -4,19 +4,17 @@ description: Este documento fornece uma visão geral e alguns exemplos detalhado
 services: machine-learning
 author: euangMS
 ms.author: euang
-manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/01/2018
-ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/09/2018
+ms.openlocfilehash: 6363d39b2dfbd36ccebff6780e35caf58ca84dda
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Extensões do Python para Preparação de Dados
 Como uma forma de preencher as lacunas de funcionalidade entre os recursos internos, a Preparação de Dados do Azure Machine Learning inclui a extensibilidade em vários níveis. Neste documento, descrevemos a extensibilidade por meio de script do Python. 
@@ -24,14 +22,10 @@ Como uma forma de preencher as lacunas de funcionalidade entre os recursos inter
 ## <a name="custom-code-steps"></a>Etapas de código personalizado 
 A Preparação de Dados tem as seguintes etapas personalizadas nas quais os usuários podem escrever o código:
 
-* Leitor de arquivo *
-* Gravador*
 * Adicionar Coluna
 * Filtro Avançado
 * Transformar fluxo de dados
 * Transformar Partição
-
-* Essas etapas não têm suporte no momento em uma execução do Spark.
 
 ## <a name="code-block-types"></a>Tipos de bloco de código 
 Para cada uma dessas etapas, há suporte para dois tipos de bloco de código. Primeiro, há suporte para uma expressão de Python básica que é executada no estado em que se encontra. Em segundo lugar, há suporte para um módulo de Python em que podemos chamar uma função específica com uma assinatura conhecida no código que você fornecer.
@@ -158,74 +152,6 @@ Exemplos
     row.ColumnA + row.ColumnB  
     row["ColumnA"] + row["ColumnB"]
 ```
-
-## <a name="file-reader"></a>Leitor de arquivos 
-### <a name="purpose"></a>Finalidade 
-Esse ponto de extensão do Leitor de arquivos permite controlar totalmente o processo de leitura de um arquivo em um fluxo de dados. O sistema chama o código e transmite a lista de arquivos que você deve processar. Seu código precisa criar e retornar um dataframe Pandas. 
-
->[!NOTE]
->Esse ponto de extensão não funciona no Spark. 
-
-
-### <a name="how-to-use"></a>Como usar 
-Acesse esse ponto de extensão no assistente **Abrir Fonte de Dados**. Escolha **Arquivo** na primeira página e, em seguida, escolha o local do arquivo. Na página **Escolher Parâmetros do Arquivo**, abra a lista suspensa **Tipo de Arquivo** e escolha **Arquivo Personalizado (Script)**. 
-
-O código recebe um dataframe Pandas chamado “df” que contém informações sobre os arquivos que você precisa ler. Se você optar por abrir um diretório que contém vários arquivos, o dataframe terá mais de uma linha.  
-
-Esse dataframe tem as seguintes colunas:
-
-- Caminho: o arquivo a ser lido.
-- PathHint: informa onde o arquivo está localizado. Valores: Local, AzureBlobStorage e AzureDataLakeStorage.
-- AuthenticationType: o tipo de autenticação usado para acessar o arquivo. Valores: None, SasToken e OAuthToken.
-- AuthenticationValue: contém None ou o token a ser usado.
-
-### <a name="syntax"></a>Sintaxe 
-Expression 
-
-```python
-    paths = df['Path'].tolist()  
-    df = pd.read_csv(paths[0])
-```
-
-
-Módulo  
-```python
-PathHint = Local  
-def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
-```
- 
-
-## <a name="writer"></a>Gravador 
-### <a name="purpose"></a>Finalidade 
-O ponto de extensão do Gravador permite controlar totalmente o processo de gravação de dados de um fluxo de trabalho. O sistema chama o código e transmite um dataframe. Seu código pode usar o dataframe para gravar dados de maneira que desejar. 
-
->[!NOTE]
->O ponto de extensão do Gravador não funciona no Spark.
-
-
-### <a name="how-to-use"></a>Como usar 
-Adicione esse ponto de extensão usando o bloco Gravar Fluxo de Dados (Script). Ele está disponível no menu **Transformações** no nível superior.
-
-### <a name="syntax"></a>Sintaxe 
-Expression
-
-```python
-    df.to_csv('c:\\temp\\output.csv')
-```
-
-Módulo
-
-```python
-def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
-```
- 
- 
-Este bloco de gravação personalizado pode existir no meio de uma lista de etapas. Se você usar um Módulo, a função de gravação deverá retornar o dataframe que é a entrada para a etapa seguinte. 
 
 ## <a name="add-column"></a>Adicionar Coluna 
 ### <a name="purpose"></a>Finalidade

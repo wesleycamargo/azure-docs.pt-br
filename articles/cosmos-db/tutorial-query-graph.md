@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: efeee797a537a16b1b44174ed2d6f7ea3348a25a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 449821d6121f8fec40b151ae06f687586133c3d1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Tutorial: Consultar a API do Graph do Azure Cosmos DB usando Gremlin
 
@@ -85,4 +85,4 @@ Neste tutorial, você fez o seguinte:
 Agora você pode prosseguir para o próximo tutorial e aprender a distribuir seus dados globalmente.
 
 > [!div class="nextstepaction"]
-> [Distribuir os dados globalmente](tutorial-global-distribution-sql-api.md)
+> [Distribuir os dados globalmente](tutorial-global-distribution-graph.md)

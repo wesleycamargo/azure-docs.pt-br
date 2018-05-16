@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 84ca616856f363e4d3d68ab1cc45b97f7c589185
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Use perfis de versão de API com Go na pilha do Azure
 
@@ -61,7 +61,8 @@ O SDK VÁ depende dos módulos do Azure Go-AutoRest para enviar solicitações R
 Para executar um exemplo de código Go na pilha do Azure:
   1. Instale o SDK do Azure para ir e suas dependências. Para obter instruções, consulte a seção anterior, [instalar o SDK do Azure para ir](#install-azure-sdk-for-go).
   2. Obtenha as informações de metadados do ponto de extremidade do Gerenciador de recursos. O ponto de extremidade retorna um arquivo JSON com as informações necessárias para executar seu código Go.
-  > [!note]  
+
+  > [!Note]  
   > O **ResourceManagerUrl** no Kit de desenvolvimento de pilha para Azure (ASDK) é: `https://management.local.azurestack.external/`  
   > O **ResourceManagerUrl** em sistemas integrados é: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Para recuperar os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -176,7 +177,8 @@ Esta seção apresenta uma forma comum de obter tokens autorizador na pilha do A
 ## <a name="example"></a>Exemplo
 
 Esta seção mostra um exemplo de código de ir para criar rede virtual na pilha do Azure. Para obter exemplos de conclusão do SDK vá consulte [repositório de exemplos do SDk do Azure vá](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Exemplos de pilha do Azure estão disponíveis em híbrida / caminho dentro das pastas de serviço do repositório.
-> [!note]  
+
+> [!Note]  
 > Para executar o código neste exemplo, verifique se a assinatura usada tem **rede** provedor de recursos listado como **registrado**. Para verificar se ela, procure a assinatura no portal do Azure pilha e clique em **provedores de recursos.**
 
 1. Importe os pacotes necessários em seu código. Você deve usar o perfil mais recente na pilha do Azure para importar o módulo de rede. 
@@ -194,7 +196,7 @@ Esta seção mostra um exemplo de código de ir para criar rede virtual na pilha
   )
   ````
 
-2. Defina as variáveis de ambiente. Observe que, para criar uma rede virtual, é necessário ter um grupo de recursos. 
+2. Defina as variáveis de ambiente. Para criar uma rede virtual, você precisa ter um grupo de recursos. 
 
   ````go
   var (

@@ -3,7 +3,7 @@ title: Plano gráfico de processamento de pagamento do Azure - Requisitos de Fir
 description: Requisito 1 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: b1935d88-acae-42f9-bc25-bb0766f876ab
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 4e04d6417f1468c1bafada1a93ab63a73e39653d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: 6f82c828b7cd878cc9ed9f42a4bf63d0d7aedb16
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="firewall-requirements-for-pci-dss-compliant-environments"></a>Requisitos de Firewall para ambientes em conformidade com PCI DSS 
 ## <a name="pci-dss-requirement-1"></a>Requisito 1 de PCI DSS
@@ -57,7 +57,7 @@ Outros componentes do sistema podem fornecer funcionalidade de firewall, desde q
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Uma instância da Contoso Webstore estabelece um modelo de DevOps CI/CD para garantir que todas as alterações sejam gerenciadas corretamente. O Log Analytics fornece amplo registro em log das alterações. A precisão das alterações pode ser examinada e verificada. Para obter instruções mais específicas, consulte [Diretriz de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />A [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) permite uma exibição centralizada do estado da segurança de todos os seus recursos do Azure. Você pode verificar rapidamente se os controles de segurança apropriados estão em vigor e configurados de maneira correta, bem como identificar com rapidez os recursos que exigem atenção.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Uma instância da Contoso Webstore estabelece um modelo de DevOps CI/CD para garantir que todas as alterações sejam gerenciadas corretamente. O Log Analytics fornece registro em log extensivo de alterações. A precisão das alterações pode ser examinada e verificada. Para obter instruções mais específicas, consulte [Diretriz de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />A [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) permite uma exibição centralizada do estado da segurança de todos os seus recursos do Azure. Você pode verificar rapidamente se os controles de segurança apropriados estão em vigor e configurados de maneira correta, bem como identificar com rapidez os recursos que exigem atenção.|
 
 
 

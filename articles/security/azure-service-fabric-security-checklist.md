@@ -1,12 +1,12 @@
 ---
-title: "Lista de verificação de segurança do Azure Service Fabric | Microsoft Docs"
-description: "Este artigo fornece um conjunto de listas de verificação de segurança do banco de dados do Azure."
+title: Lista de verificação de segurança do Azure Service Fabric | Microsoft Docs
+description: Este artigo fornece um conjunto de listas de verificação de segurança do banco de dados do Azure.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 526f10bab30b7d0fae796e47f5a27a58428b9a3b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ef404b106d600f5cb25a46319d75c8978148b466
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Lista de verificação de segurança do Azure Service Fabric
 Este artigo fornece uma lista de verificação fácil de usar que ajudará você a proteger seu ambiente do Azure Service Fabric.
@@ -30,7 +30,7 @@ O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita 
 Use a seguinte lista de verificação para ajudá-lo a garantir que você não negligenciou problemas importantes no gerenciamento e na configuração de uma solução segura do Azure Service Fabric.
 
 
-|Categoria da lista de verificação| Descrição |
+|Categoria da lista de verificação| DESCRIÇÃO |
 | ------------ | -------- |
 |[RBAC (Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles) | <ul><li>O controle de acesso permite que o administrador de cluster limite o acesso a determinadas operações de cluster para diferentes grupos de usuários, tornando o cluster mais seguro.</li><li>Os administradores têm acesso completo aos recursos de gerenciamento (incluindo recursos de leitura/gravação). </li><li> Os usuários, por padrão, têm apenas acesso de leitura aos recursos de gerenciamento (por exemplo, recursos de consulta) e a capacidade de resolver serviços e aplicativos.</li></ul>|
 |[Certificados X.509 e Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) | <ul><li>Os [certificados](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates) usados em clusters que executam cargas de trabalho de produção devem ser criados por meio de um serviço de certificado do Windows Server configurado corretamente ou obtidos por meio de uma [AC (Autoridade de Certificação)](https://en.wikipedia.org/wiki/Certificate_authority) aprovada.</li><li>Nunca use nenhum [certificado temporário ou de teste](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-create-temporary-certificates-for-use-during-development) em produção criado com ferramentas como [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968.aspx). </li><li>Você pode usar um [certificado autoassinado](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security), mas deve fazer isso somente para clusters de teste e não em produção.</li></ul>|
@@ -43,7 +43,7 @@ Use a seguinte lista de verificação para ajudá-lo a garantir que você não n
 |ClientCertificateThumbprints| <ul><li>Esse é um conjunto de certificados que você deseja instalar nos clientes autenticados. </li></ul>|
 |ClientCertificateCommonNames| <ul><li>Defina o nome comum do primeiro certificado do cliente para CertificateCommonName. A CertificateIssuerThumbprint é a impressão digital para o emissor deste certificado. </li></ul>|
 |ReverseProxyCertificate| <ul><li>Esse é um certificado opcional que poderá ser especificado se você desejar proteger o [Proxy Reverso](https://docs.microsoft.com/en-in/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
-|Cofre da Chave| <ul><li>Usado para gerenciar certificados de clusters do Service Fabric no Azure.  </li></ul>|
+|Key Vault| <ul><li>Usado para gerenciar certificados de clusters do Service Fabric no Azure.  </li></ul>|
 
 
 ## <a name="next-steps"></a>Próximas etapas

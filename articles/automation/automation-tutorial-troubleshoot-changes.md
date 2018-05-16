@@ -1,19 +1,21 @@
 ---
-title: "Solucionar problemas de alterações em uma máquina virtual do Azure | Microsoft Docs"
-description: "Use o Controle de Alterações para solucionar problemas de alterações em uma máquina virtual do Azure."
+title: Solucionar problemas de alterações em uma máquina virtual do Azure | Microsoft Docs
+description: Use o Controle de Alterações para solucionar problemas de alterações em uma máquina virtual do Azure.
 services: automation
-keywords: "alteração, controle, automação"
+ms.service: automation
+ms.component: change-inventory-management
+keywords: alteração, controle, automação
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solucionar problemas de alterações em seu ambiente
 
@@ -109,7 +111,7 @@ Na janela **Configuração do Espaço de Trabalho**, adicione as chaves do Regis
 |habilitado     | Determina se a configuração é aplicada        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos        |
-|Insira o Caminho     | O caminho para verificar o arquivo. Por exemplo: "c:\temp\myfile.txt"       |
+|Insira o Caminho     | O caminho para verificar o arquivo, por exemplo: "c:\temp\myfile.txt"       |
 
 ### <a name="add-a-linux-file"></a>Adicionar um arquivo Linux
 
@@ -125,7 +127,7 @@ Na janela **Configuração do Espaço de Trabalho**, adicione as chaves do Regis
 |Insira o Caminho     | O caminho para verificar o arquivo. Por exemplo: "/etc/*.conf"       |
 |Tipo de caminho     | Tipo de item a ser rastreado; possíveis valores são: Arquivo e Diretório        |
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
-|Use o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
+|Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
 |Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** - Ignora os links simbólicos e não inclui os arquivos/diretórios referenciados<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do tratamento do conteúdo retornado      |
 
    > [!NOTE]   

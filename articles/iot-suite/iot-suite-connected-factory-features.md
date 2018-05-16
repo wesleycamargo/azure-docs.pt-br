@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: fea9ccc53bd019039cf1e989d72db7a218e4517c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0bd023e73088897303fe0f9de47641cd6ea0389
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-iot-suite-connected-factory"></a>O que é Fábrica Conectada do Azure IoT Suite?
 
@@ -65,11 +65,11 @@ A Fábrica Conectada inclui os recursos a seguir:
 ## <a name="customizability"></a>Personalização
 
 - [Personalize](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) a solução para atender aos requisitos de negócios específicos.
-- Código-fonte da solução completa disponível no GitHub. Consulte o repositório da [solução pré-configurada de Fábrica Conectada](https://github.com/Azure/azure-iot-connected-factory).
+- Código-fonte da solução completa disponível no GitHub. Confira o repositório da [Solução pré-configurada de Fábrica Conectada](https://github.com/Azure/azure-iot-connected-factory).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a solução pré-configurada de fábrica Conectada lendo os seguintes artigos:
+Saiba mais sobre a solução pré-configurada de Fábrica Conectada lendo os seguintes artigos:
 
-* [Passo a passo de solução pré-configurada de fábrica conectada](iot-suite-connected-factory-sample-walkthrough.md)
-* [Implantar um gateway para a fábrica Conectada]( iot-suite-connected-factory-gateway-deployment.md)
+* [Passo a passo de solução pré-configurada de Fábrica Conectada](iot-suite-connected-factory-sample-walkthrough.md)
+* [Implantar um gateway para a Fábrica Conectada]( iot-suite-connected-factory-gateway-deployment.md)

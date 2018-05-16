@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a360b41b24f4aca3c3aba29387ecd55faf881b7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerenciar o custo controlando a retenção e o volume de dados no Log Analytics
 O Log Analytics foi projetado para dimensionar e fornecer suporte à coleta, indexação e armazenamento de grandes quantidades de dados por dia, a partir de qualquer fonte em sua empresa ou implantado no Azure.  Embora isso possa ser um driver primário para a organização, a eficiência de custo é, em última instância, o driver subjacente. Para isso, é importante reconhecer que o custo de um espaço de trabalho do Log Analytisc não baseia-se apenas no volume de dados coletados, mas também depende do plano selecionado e de quanto tempo você escolheu armazenar os dados gerados a partir de suas fontes conectadas.  
@@ -33,14 +33,15 @@ O custo dos dados pode ser considerável dependendo dos fatores a seguir:
 - Os dados do período são retidos no espaço de trabalho  
 - Número de soluções de gerenciamento habilitadas, fonte de dados e frequência de coleta 
 
-Consulte a documentação de cada solução, pois ela fornece uma estimativa da quantidade de dados coletados.   
+> [!NOTE]
+> Consulte a documentação de cada solução, pois ela fornece uma estimativa da quantidade de dados coletados.   
 
-Se você estiver no tipo de preço “Gratuito”, os dados estarão limitados a 7 dias de retenção. Para os tipos "Por GB (Autônomo)" ou "Por nó (OMS)", os dados coletados estão disponíveis para os últimos 31 dias e a retenção pode ser aumentada para até 2 anos. Encargos se aplicarão se você selecionar um período de retenção mais longo. O plano gratuito tem limite de ingestão diário de 500 MB e, se você acha que consistentemente excede a quantidade permitida de volume, você pode alterar seu espaço de trabalho para o tipo Por GB ou Por nó para coletar dados além desse limite. Você pode alterar seu tipo de plano a qualquer momento e, para obter mais informações sobre preços, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/log-analytics/). 
+Se você estiver no plano *Gratuito*, os dados estarão limitados a 7 dias de retenção. Para a camada *Autônoma* ou *Paga*, os dados coletados estarão disponíveis para os últimos 31 dias. O plano *Gratuito* tem um limite diário de ingestão de 500 MB e, se você perceber que excede consistentemente o volume permitido, poderá alterar o espaço de trabalho para um plano pago para coletar dados além desse limite. 
 
 > [!NOTE]
-> Em abril de 2018, [introduzimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para monitoramento do Azure. Esse modelo adota um modelo de "pagamento conforme o uso" simples no portfólio completo de serviços de monitoramento. Saiba mais sobre o [novo modelo de preços](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), como a [avaliar o impacto de migrar para esse modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) com base nos seus padrões de uso e [como aceitar o novo modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
+> Encargos se aplicam se você optar por selecionar um período de retenção mais longo para a camada paga. Você pode alterar seu tipo de plano a qualquer momento e, para obter mais informações sobre preços, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-Independentemente do modelo ou tipo de preços, o gerenciamento do volume de dados é fundamental para controlar os custos. Além da escolha e da configuração da solução específica, dentro do Log Analytics, há duas maneiras pelas quais o volume de dados pode ser limitado e ajudar a controlar o custo, ou seja, limite diário e retenção de dados.  
+Há duas maneiras pelas quais o volume de dados pode ser limitado e ajudar a controlar o custo, ou seja, limite diário e retenção de dados.  
 
 ## <a name="review-estimated-cost"></a>Analisar custo estimado
 O Log Analytics facilita reconhecer quais são os custos com base nos padrões de uso recentes.  Para fazer isso, execute as seguintes etapas.  
@@ -54,9 +55,9 @@ A partir daqui, é possível analisar o volume de dados para o mês. Isso inclui
 Os encargos do Log Analytics são adicionadas à sua fatura do Azure. É possível ver os detalhes da fatura do Azure na seção Cobrança do Portal do Azure ou no [Portal de Cobrança do Azure](https://account.windowsazure.com/Subscriptions).  
 
 ## <a name="daily-cap"></a>Limite diário
-Ao criar um espaço de trabalho do Log Analytics no Portal do Azure e escolher o plano *Gratuito*, ele é definido como um limite de 500 MB por dia. Não há limite para os outros planos de preços. É possível configurar um limite diário e limitar a ingestão diária para o espaço de trabalho, mas seja cuidadoso, pois sua meta não deve ser atingir o limite diário.  Caso contrário, nesse ponto, você perderá dados pelo restante do dia e a capacidade de observar as condições de integridade dos recursos que fornecem suporte aos serviços de TI será afetada.  O limite diário destina-se a ser usado como uma maneira de gerenciar o aumento inesperado no volume de dados dos recursos gerenciados e permanecer dentro do limite, ou quando você quiser simplesmente limitar encargos não planejados para o espaço de trabalho.  
+Ao criar um espaço de trabalho do Log Analytics no Portal do Azure e escolher o plano *Gratuito*, ele é definido como um limite de 500 MB por dia. Não há limite para os outros planos de preços. É possível configurar um limite diário e limitar a ingestão diária para o espaço de trabalho, mas seja cuidadoso, pois sua meta não deve ser atingir o limite diário.  Caso contrário, você perderá os dados no restante do dia, o que pode afetar outros serviços e soluções do Azure cuja funcionalidade pode depender de dados atualizados no espaço de trabalho.  Como resultado, sua capacidade de observar e receber alertas quando as condições de integridade dos recursos que dão suporte a serviços de TI forem afetadas.  O limite diário destina-se a ser usado como uma maneira de gerenciar o aumento inesperado no volume de dados dos recursos gerenciados e permanecer dentro do limite, ou quando você quiser simplesmente limitar encargos não planejados para o espaço de trabalho.  
 
-Quando o limite diário é alcançado, a coleta de tipos de dados faturáveis é interrompida pelo restante do dia.  Uma faixa de aviso aparece na parte superior da página do espaço de trabalho do Log Analytics selecionado e um evento de operação é enviado para a tabela *Operação* na categoria **LogManagement**. A coleta de dados é retomada após o tempo de redefinição definido em *O limite diário será definido em*. É recomendável definir uma regra de alerta com base nesse evento de operação, configurada para notificar quando o limite de dados diários for alcançado. 
+Quando o limite diário é alcançado, a coleta de tipos de dados faturáveis é interrompida pelo restante do dia. Uma faixa de aviso aparece na parte superior da página do espaço de trabalho do Log Analytics selecionado e um evento de operação é enviado para a tabela *Operação* na categoria **LogManagement**. A coleta de dados é retomada após o tempo de redefinição definido em *O limite diário será definido em*. É recomendável definir uma regra de alerta com base nesse evento de operação, configurada para notificar quando o limite de dados diários for alcançado. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados a definir 
 Analise [Uso do Log Analytics e custos estimados](log-analytics-usage.md) para reconhecer a tendência de ingestão de dados e qual é o limite diário de volume a ser definido. Considere-o com cuidado, pois não será possível monitorar os recursos depois que o limite for alcançado. 

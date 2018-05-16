@@ -4,7 +4,7 @@ description: Saiba mais sobre a Segurança do Azure, seus serviços e como ela f
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 51d0f1f6d2689e37c1c39bf4a5e8078a2482c76d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a7b8c480291360cb50af1ce4ae36cd406f0ddc21
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à Segurança do Azure
 ## <a name="overview"></a>Visão geral
@@ -78,7 +78,7 @@ A [solução de Segurança e Auditoria do OMS](https://docs.microsoft.com/azure/
 
 Além disso, você pode configurar a Segurança e Conformidade do OMS para [realizar automaticamente ações específicas](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando um evento específico for detectado.
 
-### <a name="azure-resource-manager"></a>Gerenciador de Recursos do Azure
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 O [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Use um [modelo do Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) para a implantação, e esse modelo pode ser útil para diferentes ambientes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação.
 
 As implantações baseadas em modelos do Azure Resource Manager ajudam a melhorar a segurança das soluções implantadas no Azure devido às configurações de controle de segurança padrão, e podem ser integradas às implantações baseadas em modelo padronizadas. Isso reduz o risco de erros de configuração de segurança que podem ocorrer durante as implantações manuais.
@@ -98,7 +98,7 @@ O [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) 
 
 O Log Analytics pode ser uma ferramenta útil na análise forense e em outras análises de segurança, pois a ferramenta permite que você pesquise rapidamente grandes quantidades de entradas relacionadas à segurança com uma abordagem de consulta flexível. Além disso, os [logs de firewall e de proxy locais podem ser exportados para o Azure e disponibilizados para análise com o Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
-### <a name="azure-advisor"></a>Azure Advisor
+### <a name="azure-advisor"></a>Assistente do Azure
 O [Assistente do Azure](https://docs.microsoft.com/azure/advisor/) é um consultor de nuvem personalizado que ajuda você a otimizar suas implantações do Azure. Ele analisa a configuração dos recursos e a telemetria do uso. Depois, recomenda soluções para ajudar a melhorar o [desempenho](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [segurança](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) e [alta disponibilidade](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) de seus recursos enquanto procura oportunidades para [reduzir a despesa geral do Azure](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). O Assistente do Azure fornece recomendações de segurança, o que pode melhorar consideravelmente sua postura de segurança geral para soluções implantadas no Azure. Essas recomendações são obtidas da análise de segurança executada pela [Central de Segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure

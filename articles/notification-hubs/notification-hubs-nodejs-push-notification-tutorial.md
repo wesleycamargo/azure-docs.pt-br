@@ -1,32 +1,32 @@
 ---
-title: "Enviar notificações por push com os Hubs de Notificação do Azure e o Node.js"
-description: "Saiba como usar os Hubs de notificação para enviar notificações por push de um aplicativo do Node. js."
-keywords: "notificação por push, notificações por push,push do node.js,push do ios"
+title: Enviar notificações por push com os Hubs de Notificação do Azure e o Node.js
+description: Saiba como usar os Hubs de notificação para enviar notificações por push de um aplicativo do Node. js.
+keywords: notificação por push, notificações por push,push do node.js,push do ios
 services: notification-hubs
 documentationcenter: nodejs
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: yuaxu
-ms.openlocfilehash: ff2dd0c2ededa3664c48b5ff77b05466fceb4b3f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7463d41382c59e4f7f03b58dbcbc3f5c45e9d15c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Enviar notificações por push com os Hubs de Notificação do Azure e o Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 ## <a name="overview"></a>Visão geral
 > [!IMPORTANT]
-> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
+> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
 > 
 > 
 
@@ -65,7 +65,7 @@ Usando um editor de texto, adicione o seguinte à parte superior do arquivo **se
 
     var azure = require('azure');
 
-### <a name="setup-an-azure-notification-hub-connection"></a>Instalar uma conexão do hub de notificação do Azure
+### <a name="set-up-an-azure-notification-hub-connection"></a>Configurar uma conexão do Hub de Notificação do Azure
 O objeto **NotificationHubService** permite trabalhar com Hubs de Notificação. O código a seguir cria um objeto **NotificationHubService** para o Hub de Notificação chamado **hubname**. Adicione-o próximo ao início do arquivo **server.js** , após a instrução de importação do módulo Azure:
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');

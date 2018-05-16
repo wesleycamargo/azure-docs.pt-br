@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
-ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.date: 05/07/2018
+ms.openlocfilehash: 44a7c0721d8a0683162d2219bff0e4a4ecb117e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aproveitar a paralelização de consultas no Azure Stream Analytics
 Este artigo mostra como tirar proveito da paralelização no Azure Stream Analytics. Aprenda a dimensionar trabalhos do Stream Analytics configurando partições de entrada e ajustando a definição da consulta de análise.
@@ -29,8 +29,8 @@ Dimensionamento de um trabalho do Stream Analytics tira proveito de partições 
 
 ### <a name="inputs"></a>Entradas
 Todas as entradas do Azure Stream Analytics podem tirar proveito do particionamento:
--   EventHub (é preciso definir a chave de partição explicitamente)
--   Hub IoT (é preciso definir a chave de partição explicitamente)
+-   EventHub (é preciso definir a chave de partição explicitamente com a palavra-chave PARTITION BY)
+-   Hub IoT (é preciso definir a chave de partição explicitamente com a palavra-chave PARTITION BY)
 -   Armazenamento de blob
 
 ### <a name="outputs"></a>outputs
@@ -39,7 +39,7 @@ Quando você trabalha com o Stream Analytics, você pode tirar proveito do parti
 -   Armazenamento do Azure Data Lake
 -   Funções do Azure
 -   tabela do Azure
--   Armazenamento de blob
+-   Armazenamento de Blob (é possível definir a chave de partição explicitamente)
 -   CosmosDB (é preciso definir a chave de partição explicitamente)
 -   EventHub (é preciso definir a chave de partição explicitamente)
 -   Hub IoT (é preciso definir a chave de partição explicitamente)
@@ -56,18 +56,19 @@ Para obter mais informações sobre partições, consulte os seguintes artigos:
 ## <a name="embarrassingly-parallel-jobs"></a>Trabalhos embaraçosamente paralelos
 Um trabalho *embaraçosamente paralelo* é o cenário mais escalonável que temos no Stream Analytics do Azure. Ele conecta uma partição da entrada para uma instância da consulta a uma partição da saída. Este paralelismo tem os seguintes requisitos:
 
-1. Se sua lógica de consulta for dependente da mesma chave que está sendo processada pela mesma instância de consulta, você deverá garantir que os eventos sejam encaminhados para a mesma partição da entrada. Para Hubs de eventos, isso significa que os dados de evento devem ter o conjunto de valor **PartitionKey**. Como alternativa, você pode usar os remetentes particionados. Para armazenamento de Blobs, isso significa que os eventos são enviados à mesma pasta de partição. Se sua lógica de consulta não exigir que a mesma chave seja processada pela mesma instância de consulta, você pode ignorar esse requisito. Um exemplo disso seria uma consulta simples de seleção/projeto/filtro.  
+1. Se sua lógica de consulta for dependente da mesma chave que está sendo processada pela mesma instância de consulta, você deverá garantir que os eventos sejam encaminhados para a mesma partição da entrada. Para Hubs de Eventos ou o Hub IoT, isso significa que os dados do evento devem ter o conjunto de valores **PartitionKey**. Como alternativa, você pode usar os remetentes particionados. Para armazenamento de Blobs, isso significa que os eventos são enviados à mesma pasta de partição. Se sua lógica de consulta não exigir que a mesma chave seja processada pela mesma instância de consulta, você pode ignorar esse requisito. Um exemplo disso seria uma consulta simples de seleção/projeto/filtro.  
 
 2. Depois que os dados são dispostos como precisam ser no lado da saída, você precisa garantir que a consulta seja particionada. Isso exige que você use **PARTITION BY** em todas as etapas. Várias etapas são permitidas, mas todas elas devem ser particionadas pela mesma chave. Atualmente, a chave de particionamento deve ser definida como **PartitionId** para que o trabalho seja totalmente paralelo.  
 
 3. A maioria da saída pode tirar proveito do particionamento, no entanto, se você usar um tipo de saída que não dá suporte ao particionamento, seu trabalho não será totalmente paralelo. Consulte a [seção de saída](#outputs) para obter mais detalhes.
 
-4. O número de partições de entrada deve ser igual ao número de partições de saída. Atualmente, o armazenamento de Blobs de saída não suporta partições. Mas isso é ok, porque ele herda o esquema de particionamento da consulta de upstream. Exemplos de valores de partição que permitem um trabalho totalmente paralelo:  
+4. O número de partições de entrada deve ser igual ao número de partições de saída. A saída do Armazenamento de Blob pode dar suporte a partições, e herda o esquema de particionamento da consulta de upstream. Quando uma chave de partição do Armazenamento de Blob for especificada, os dados serão particionados por partição de entrada, portanto, o resultado ainda será totalmente paralelo. Exemplos de valores de partição que permitem um trabalho totalmente paralelo:
 
    * 8 partições de entrada de Hubs de Eventos e 8 partições de saída de Hubs de Eventos
-   * 8 partições de entrada de Hubs de Eventos e Saída de armazenamento de Blobs  
-   * 8 partições de entrada de armazenamento de Blobs e Saída de armazenamento de Blobs  
-   * 8 partições de entrada de armazenamento de Blobs e 8 partições de saída de Hubs de Eventos  
+   * 8 partições de entrada de Hubs de Eventos e Saída de armazenamento de Blobs
+   * Oito partições de entrada do hub de eventos e a saída do armazenamento de blob particionadas por um campo personalizado com cardinalidade aleatória
+   * 8 partições de entrada de armazenamento de Blobs e Saída de armazenamento de Blobs
+   * 8 partições de entrada de armazenamento de Blobs e 8 partições de saída de Hubs de Eventos
 
 As seções a seguir discutem alguns cenários de exemplo que são embaraçosamente paralelos.
 

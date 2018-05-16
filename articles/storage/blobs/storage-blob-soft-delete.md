@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: mihauss
-ms.openlocfilehash: 649838af1d4c753ac1d82a66c855ef313f14e85b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Exclusão reversível para blobs do Armazenamento do Microsoft Azure (visualização)
 
@@ -292,7 +292,7 @@ Sim, a exclusão reversível é configurável para contas de armazenamento exist
 
 **Se eu excluir uma conta ou um contêiner inteiro com a exclusão reversível ativada, todos os blobs associados serão salvos?**
 
-Não, se você excluir uma conta ou um contêiner inteiro, todos os blobs associados serão excluídos permanentemente. Para saber como proteger uma conta de armazenamento contra exclusões acidentais, consulte o artigo do Azure Resource Manager [Bloquear recursos para evitar alterações inesperadas](/azure-resource-manager/resource-group-lock-resources.md).
+Não, se você excluir uma conta ou um contêiner inteiro, todos os blobs associados serão excluídos permanentemente. Para saber como proteger uma conta de armazenamento contra exclusões acidentais, consulte o artigo do Azure Resource Manager [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/resource-group-lock-resources.md).
 
 **Posso exibir as métricas de capacidade para os dados excluídos?**
 

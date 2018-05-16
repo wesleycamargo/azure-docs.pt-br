@@ -3,23 +3,25 @@ title: Diretrizes da Identidade Visual para Aplicativos | Microsoft Docs
 description: Um guia abrangente para recursos para desenvolvedores do Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: skwan
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: skwan
+ms.author: celested
+ms.reviewer: skwan
 ms.custom: aaddev
-ms.openlocfilehash: e5ce970913d767dbf6b13381cf18c1f7b05d252f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7794388a067cb8fb876d70b7186bc555e6ff2975
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
 Este tópico discute as diretrizes de identidade visual que você deve usar ao desenvolver aplicativos com o Azure AD (Azure Active Directory). Essas diretrizes ajudarão a direcionar os clientes quando eles quiserem usar sua conta comercial ou de estudante, gerenciada no Azure AD, para inscrição e logon no seu aplicativo.

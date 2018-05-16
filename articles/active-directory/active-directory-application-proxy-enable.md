@@ -1,30 +1,30 @@
 ---
-title: "Proxy do aplicativo do Azure AD – introdução à instalação do conector | Microsoft Docs"
+title: Proxy do aplicativo do Azure AD – introdução à instalação do conector | Microsoft Docs
 description: Ative o Proxy de Aplicativo no Portal do Azure e instale os Conectores para o proxy reverso.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2c2e0f977cdf0d31da19f71d9260b500184858e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d636542c788aff43acf9e35583b4c0615fe0c7db
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Introdução ao Proxy de Aplicativo e instale o conector
 Este artigo orienta você pelas etapas para habilitar o Proxy de Aplicativo do Microsoft Azure AD para seu diretório de nuvem no Azure AD.
 
-Se você ainda não conhece os benefícios de produtividade e segurança que o Proxy de Aplicativo traz para sua organização, saiba mais sobre [Como fornecer acesso remoto seguro a aplicativos locais](active-directory-application-proxy-get-started.md).
+Se você ainda não conhece os benefícios de produtividade e segurança que o Proxy de Aplicativo traz para sua organização, saiba mais sobre [Como fornecer acesso remoto seguro a aplicativos locais](manage-apps/application-proxy.md).
 
 ## <a name="application-proxy-prerequisites"></a>Pré-requisitos de Proxy de aplicativo
 Antes de habilitar e usar os serviços de Proxy de aplicativo, você precisa ter:

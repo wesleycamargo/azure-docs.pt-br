@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Mimecast Personal Portal | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Mimecast Personal Portal."
+title: 'Tutorial: Integração do Azure Active Directory ao Mimecast Personal Portal | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Mimecast Personal Portal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 4f2c5f7323d9d10b6a784da8f45577ccf774b78f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d8a746df9bea22970da9dc47b5e436a94335f49
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integração do Azure Active Directory ao Mimecast Personal Portal
 
@@ -32,7 +32,7 @@ A integração do Mimecast Personal Portal ao Azure AD oferece os seguintes bene
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Mimecast Personal Portal, você precisa dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Mimecast Personal Portal por meio da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-mimecast-personal-portal-from-the-gallery"></a>Adicionando o Mimecast Personal Portal por meio da galeria
 Para configurar a integração do Mimecast Personal Portal ao Azure AD, é necessário adicionar o Mimecast Personal Portal à lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -79,8 +79,6 @@ Para configurar a integração do Mimecast Personal Portal ao Azure AD, é neces
 Nesta seção, você configura e testa o logon único do Azure AD com o Mimecast Personal Portal, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Mimecast Personal Portal é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Mimecast Personal Portal.
-
-No Mimecast Personal Portal, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
 Para configurar e testar o logon único do Azure AD com o Mimecast Personal Portal, você precisa concluir os seguintes blocos de construção:
 
@@ -127,6 +125,16 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     | África do Sul    | `https://za-api.mimecast.com/sso/<accountcode>`|
     | Austrália       | `https://au-api.mimecast.com/sso/<accountcode>`|
     | Exterior        | `https://jer-api.mimecast.com/sso/<accountcode>`|
+
+    c. Na caixa de texto **URL de Resposta**, digite uma URL: 
+
+    | Região  |  Valor | 
+    | --------------- | --------------- | 
+    | Europa          | `https://eu-api.mimecast.com/login/saml`|
+    | Estados Unidos   | `https://us-api.mimecast.com/login/saml`|
+    | África do Sul    | `https://za-api.mimecast.com/login/saml`|
+    | Austrália       | `https://au-api.mimecast.com/login/saml`|
+    | Exterior        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
     > O valor do Identificador não é real. Atualize o valor com o identificador real. Contate a [equipe de suporte ao Cliente do Mimecast Personal Portal](http://www.mimecast.com/customer-success/technical-support/) para obter o valor. 
@@ -178,10 +186,6 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     h. Selecione **Permitir Logon Único**.
    
     i. Clique em **Salvar**.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

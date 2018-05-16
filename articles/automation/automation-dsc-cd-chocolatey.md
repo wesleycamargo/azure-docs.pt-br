@@ -3,16 +3,17 @@ title: Implantação Contínua de DSC de Automação do Azure com Chocolatey
 description: Implantação contínua de DevOps usando DSC de Automação do Azure e o gerenciador de pacotes Chocolatey.  Exemplo com modelo ARM JSON completo e fonte do PowerShell.
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: bf535dfae4c5f710a423343bc3d76c81d83df2ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9c3cb5a00433a76e8cc444cc48c648cb2749a2ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Exemplo de uso: implantação contínua em Máquinas Virtuais usando a DSC de Automação e o Chocolatey
 Em um mundo de DevOps, há várias ferramentas para ajudá-lo em vários pontos no pipeline de Integração Contínua.  A DSC (Configuração do Estado Desejado) da Automação do Azure é uma nova adição bem-vinda para as opções que podem ser utilizadas por equipes de DevOps.  Este artigo demonstra a configuração da CD (Implantação Contínua) para um computador com Windows.  Você pode facilmente ampliar a técnica para incluir tantos computadores com Windows quantos forem necessários na função (um site, por exemplo) e também para funções adicionais.

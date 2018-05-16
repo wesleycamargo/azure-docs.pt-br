@@ -3,7 +3,7 @@ title: Diagrama de processamento de pagamento do Azure – Requisitos de proteç
 description: Requisito 6 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 79889fdb-52d2-42db-9117-6e2f33d501e0
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: cd9054afc359d7568fcd08f983f374e0b2bc3792
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: 2f6f1bfc853f261eecf5357cef5d3e3d972781b1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="secure-system-requirements-for-pci-dss-compliant-environments"></a>Requisitos de proteção do sistema para ambientes em conformidade com o PCI DSS 
 ## <a name="pci-dss-requirement-6"></a>Requisito 6 de PCI DSS
@@ -130,7 +130,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | A Microsoft segue as diretrizes NIST sobre implicações de segurança no desenvolvimento de software, no sentido de que a segurança da informação deve estar integrada ao SDLC desde a criação do sistema. A integração contínua das práticas de segurança no Microsoft SDL permite:<ul><li>A identificação antecipada e redução de vulnerabilidades de segurança e configurações incorretas</li><li>O reconhecimento de possíveis desafios de codificação de software causados por controles de segurança obrigatórios</li><li>A identificação dos serviços de segurança compartilhados e a reutilização das ferramentas de melhores práticas de segurança que melhoram a postura de segurança por meio de métodos e técnicas comprovadas</li><li>Imposição do programa de gerenciamento de riscos já abrangente da Microsoft</li></ul>O Microsoft Azure definiu processos de gerenciamento de alterações e de versões para controlar a implementação de grandes alterações, incluindo:<ul><li>A identificação e a documentação da alteração planejada</li><li>A identificação de metas de negócios, prioridades e cenários durante o planejamento do produto</li><li>A especificação de design de componente/recurso</li><li>A revisão de prontidão operacional com base em critérios predefinidos/lista de verificação para avaliar o risco/impacto geral</li><li>O gerenciamento de alterações, autorização e teste com base em critérios de entrada/saída para os ambientes de DEV (desenvolvimento), INT (teste de integração), STAGE (pré-produção) e PROD (produção), conforme apropriado. Os clientes são responsáveis por seus próprios aplicativos hospedados no Microsoft Azure.</li></ul> |
-| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A demonstração da Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. <br /><br />Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).<br /><br />As alterações são registradas usando o Operations Management Suite, e Runbooks são usados para coletar logs. O Log Analytics fornece amplo registro em log das alterações. A precisão das alterações pode ser examinada e verificada. Para obter instruções mais específicas, consulte [Diretriz de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A demonstração da Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. <br /><br />Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).<br /><br />As alterações são registradas usando o Operations Management Suite, e Runbooks são usados para coletar logs. O Log Analytics fornece registro em log extensivo de alterações. A precisão das alterações pode ser examinada e verificada. Para obter instruções mais específicas, consulte [Diretriz de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 

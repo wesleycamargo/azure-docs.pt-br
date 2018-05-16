@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 17479fce776b0786e2fa32054eec8b0456871aae
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d9378a084d8ff421539a445986a5a18d073f3ce6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos de extremidade do Hub IoT
 
@@ -71,7 +71,7 @@ Você pode vincular os serviços existentes do Azure em sua assinatura ao Hub Io
 Atualmente, o Hub IoT é compatível com os seguintes serviços do Azure como pontos de extremidade adicionais:
 
 * Contêineres de Armazenamento do Azure
-* Hubs de evento
+* Hubs de Eventos
 * Filas de barramento de serviço
 * Tópicos do Service Bus
 
@@ -88,7 +88,7 @@ O Hub IoT oferece suporte somente à gravação de dados em contêineres de Arma
 * O lote alcançar um determinado tamanho.
 * Ou, uma determinada quantidade de tempo tenha decorrido.
 
-Se não houver dados para gravação, o Hub IoT gravará um blob vazio.
+O Hub IoT gravará em um blob vazio se não houver nenhum dado para gravação.
 
 O Hub IoT segue a seguinte convenção de nomenclatura de arquivo padrão:
 

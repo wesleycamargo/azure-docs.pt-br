@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 032412c329e79ec671f59a049da7d8ddc0b9dd08
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Enviar mensagens de nuvem para dispositivo com Hub IoT (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -58,7 +58,7 @@ Este é o dispositivo de exemplo criado no artigo [Enviar telemetria de um dispo
 
 ### <a name="install-cocoapods"></a>Instalar CocoaPods
 
-CocoaPods gerenciam dependências para projetos do iOS que usam bibliotecas de terceiros.
+Os CocoaPods gerenciam dependências para projetos do iOS que usam bibliotecas de terceiros.
 
 Em uma janela de terminal, navegue até a pasta Azure-IoT-Samples-iOS que você baixou nos pré-requisitos. Em seguida, navegue até o projeto de exemplo:
 
@@ -66,7 +66,7 @@ Em uma janela de terminal, navegue até a pasta Azure-IoT-Samples-iOS que você 
 cd quickstart/sample-device
 ```
 
-Certifique-se de que o XCode esteja fechado e, em seguida, execute o comando a seguir para instalar os CocoaPods declarados no arquivo **podfile**:
+Verifique se o XCode está fechado e execute o comando abaixo para instalar os CocoaPods declarados no arquivo **podfile**:
 
 ```sh
 pod install
@@ -92,7 +92,7 @@ Além de instalar os pods necessários para o projeto, o comando de instalação
 3. Abra **ViewController.swift** para edição em XCode. 
 4. Pesquise a variável **connectionString** e atualize o valor com a cadeia de conexão do dispositivo copiada na primeira etapa.
 5. Salve suas alterações. 
-6. Execute o projeto no emulador de dispositivo com o botão **Compilar e executar** ou a combinação de teclas **comando + r**. 
+6. Execute o projeto no emulador de dispositivo com o botão **Compilar e executar** ou a combinação de teclas **Command + R**. 
 
    ![Executar o projeto](media/quickstart-send-telemetry-ios/run-sample.png)
 
@@ -166,7 +166,7 @@ A saída deve ser semelhante ao exemplo a seguir:
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispositivo. 
 
-Para ver exemplos de soluções completas que usam o Hub IoT, consulte [Azure IoT Suite].
+Para ver exemplos de soluções completas que usam o Hub IoT, consulte [Acelerador de solução de Monitoramento Remoto do Azure IoT].
 
 Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Guia do desenvolvedor do Hub IoT].
 
@@ -185,4 +185,4 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
-[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Acelerador de solução de Monitoramento Remoto do Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
