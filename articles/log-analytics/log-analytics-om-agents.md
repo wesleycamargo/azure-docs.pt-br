@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 84eabef06b4d2ad71e6d9a947a77589f9159e030
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b11cffcb006ba4f0598bd7f5cf6ed13daad2db42
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Conectar o Operations Manager ao Log Analytics
 Para manter seu investimento existente no System Center Operations Manager e usar funcionalidades estendidas com o Log Analytics, você pode integrar o Operations Manager ao seu espaço de trabalho do Log Analytics.  Isso permite aproveitar as oportunidades do Log Analytics e continuar a usar o Operations Manager para:
@@ -77,9 +77,7 @@ Realize a série de etapas a seguir para configurar o grupo de gerenciamento do 
 Se esta for a primeira vez em que o grupo de gerenciamento do Operations Manager está sendo registrado com um espaço de trabalho do Log Analytics e os servidores de gerenciamento precisarem se comunicar com o serviço por meio de um servidor de Gateway do OMS ou de proxy, a opção para especificar a configuração de proxy para o grupo de gerenciamento não estará disponível no console de operações.  O grupo de gerenciamento deve ser registrado com êxito com o serviço antes que essa opção esteja disponível.  Você precisa atualizar a configuração de proxy do sistema usando Netsh no sistema de seu console de operações de execução para configurar a integração e todos os servidores de gerenciamento no grupo de gerenciamento.  
 
 1. Abra um prompt de comando com privilégios elevados.
-   a. Vá para **Iniciar** e digite **cmd**.
-   b. Clique com o botão direito do mouse no **prompt de comando** e selecione Executar como administrador**.
-2. Digite o comando a seguir e pressione **Enter**:
+1. Digite o comando a seguir e pressione **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -199,9 +197,9 @@ Não é possível excluir facilmente do grupo de gerenciamento nem os pacotes de
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Interno
-7. No portal do OMS, clique no bloco **Configurações**.
-8. Selecione **Fontes Conectadas**.
-9. Na tabela na seção System Center Operations Manager, você verá o nome do grupo de gerenciamento que deseja remover do espaço de trabalho.  Na coluna **Últimos Dados**, clique em **Remover**.  
+1. Abra o menu **Configurações avançadas** do espaço de trabalho do Log Analytics no Portal do Azure.
+1. Selecione **Fontes Conectadas** e, em seguida, **System Center**.
+1. Você deve ver o nome do grupo de gerenciamento que deseja remover do espaço de trabalho.  Na coluna **Últimos Dados**, clique em **Remover**.  
    
     > [!NOTE]
     > O link **Remover** não estará disponível até depois de 14 dias, se não for detectada nenhuma atividade pelo grupo de gerenciamento conectado.  

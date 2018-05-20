@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f64f25713dd05ece018138624a06c225218f68e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95f73dd702b3fffcefbdea28d58ad36bf8eb7eb5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -74,13 +74,20 @@ Para habilitar HTTPS em um domínio personalizado, siga estas etapas:
 
 4. Em Tipo de gerenciamento de certificado, selecione **CDN gerenciado**.
 
-4. Selecione **Ativado** para habilitar HTTPS.
+5. Selecione **Ativado** para habilitar HTTPS.
 
     ![Status de HTTPS de domínio personalizado](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
+6. Prossiga para [Validar o domínio](#validate-the-domain).
+
 
 ## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>Opção 2: habilitar o recurso HTTPS com seu próprio certificado 
+
+> [!IMPORTANT]
+> Este recurso está disponível apenas com perfis de **CDN Standard do Azure da Microsoft**. 
+>
  
+
 Você pode usar seu próprio certificado na CDN do Azure para entregar o conteúdo via HTTPS. Esse processo é feito por meio de uma integração com o Azure Key Vault. O Azure Key Vault permite que os clientes armazenem seus certificados com segurança. O serviço de CDN do Azure utiliza esse mecanismo seguro para obter o certificado. Usar seu próprio certificado requer algumas etapas adicionais.
 
 ### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>Etapa 1: preparar a conta e o certificado do Azure Key Vault
@@ -89,9 +96,23 @@ Você pode usar seu próprio certificado na CDN do Azure para entregar o conteú
  
 2. Certificados do Azure Key Vault: se já tiver um certificado, você poderá carregá-lo diretamente na sua conta do Azure Key Vault ou criar um novo certificado diretamente pelo Azure Key Vault a partir de uma das Autoridades de Certificação (CA) de parceiros às quais o Azure Key Vault se integra. 
 
-### <a name="step-2-grant-azure-cdn-access-to-your-key-vault"></a>Etapa 2: conceder à CDN do Azure acesso ao seu cofre de chaves
+### <a name="step-2-register-azure-cdn"></a>Etapa 2: registrar a CDN do Azure
+
+Registre a CDN do Azure como um aplicativo em seu Azure Active Directory por meio do PowerShell.
+
+1. Se for necessário, instale o [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) no PowerShell em seu computador local.
+
+2. No PowerShell, execute o seguinte comando:
+
+     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+
+    ![Registrar a CDN do Azure no PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
+              
+
+### <a name="step-3-grant-azure-cdn-access-to-your-key-vault"></a>Etapa 3: conceder à CDN do Azure acesso ao seu cofre de chaves
  
-Você deve conceder permissão de CDN do Azure para acessar os certificados (segredos) em sua conta do Azure Key Vault.
+Conceda à CDN do Azure permissão para acessar os certificados (segredos) em sua conta do Azure Key Vault.
+
 1. Em sua conta do Key Vault, em CONFIGURAÇÕES, selecione **Políticas de acesso** e depois **Adicionar novo** para criar uma nova política.
 
     ![Criar nova política de acesso](./media/cdn-custom-ssl/cdn-new-access-policy.png)
@@ -106,7 +127,7 @@ Você deve conceder permissão de CDN do Azure para acessar os certificados (seg
 
     A CDN do Azure pode acessar este cofre de chaves e os certificados (segredos) que estão armazenados nesse cofre.
  
-### <a name="step-3-select-the-certificate-for-azure-cdn-to-deploy"></a>Etapa 3: selecionar o certificado para a CDN do Azure implantar
+### <a name="step-4-select-the-certificate-for-azure-cdn-to-deploy"></a>Etapa 4: selecionar o certificado para a CDN do Azure implantar
  
 1. Retorne ao portal da CDN do Azure e selecione o perfil e o ponto de extremidade de CDN desejados para habilitar o HTTPS personalizado. 
 
@@ -126,16 +147,20 @@ Você deve conceder permissão de CDN do Azure para acessar os certificados (seg
     - As versões de certificado disponíveis. 
  
 5. Selecione **Ativado** para habilitar HTTPS.
+  
+6. Quando você usa seu próprio certificado, a validação de domínio não é necessária. Avance para a [Aguardar a propagação](#wait-for-propagation).
 
 
 ## <a name="validate-the-domain"></a>Validar o domínio
 
-Se você já tiver um domínio personalizado em uso que é mapeado para o ponto de extremidade personalizado com um registro CNAME, vá para  
+Se você já tiver um domínio personalizado em uso que é mapeado para o ponto de extremidade personalizado com um registro CNAME, ou se estiver usando seu próprio certificado, vá para  
 [O domínio personalizado é mapeado para o ponto de extremidade da CDN](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). Caso contrário, se a entrada de registro CNAME para o ponto de extremidade não existe ou contém o subdomínio cdnverify, vá para [Domínio personalizado não está mapeado para o ponto de extremidade da CDN](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
 ### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>O domínio personalizado é mapeado para o ponto de extremidade da CDN por meio de um registro CNAME
 
-Quando tiver adicionado um domínio personalizado ao seu ponto de extremidade, você criou um registro CNAME na tabela de DNS do seu registrador de domínio para mapear para o nome de host do ponto de extremidade da CDN. Se esse registro CNAME ainda existir e não contiver o subdomínio cdnverify, a autoridade de certificação (CA) DigiCert o usará para validar a propriedade do seu domínio personalizado. 
+Quando tiver adicionado um domínio personalizado ao seu ponto de extremidade, você criou um registro CNAME na tabela de DNS do seu registrador de domínio para mapear para o nome de host do ponto de extremidade da CDN. Se esse registro CNAME ainda existir e não contiver o subdomínio cdnverify, a autoridade de certificação (CA) DigiCert o usará para validar automaticamente a propriedade do seu domínio personalizado. 
+
+Se você estiver usando seu próprio certificado, a validação de domínio não será necessária.
 
 O registro CNAME deve estar no formato a seguir, em que *Nome* é o nome de domínio personalizado e *Valor* é o nome de host do ponto de extremidade da CDN:
 
@@ -147,7 +172,7 @@ Para obter mais informações sobre os registros CNAME, consulte [criar o regist
 
 Se o registro CNAME estiver no formato correto, o DigiCert automaticamente verificará seu nome de domínio personalizado e o adicionará ao certificado de Nomes Alternativos da Entidade (SAN). O DigitCert não enviará um email de verificação, e você não precisará aprovar sua solicitação. O certificado é válido por um ano e será renovado automaticamente antes de expirar. Avance para a [Aguardar a propagação](#wait-for-propagation). 
 
-A validação automática geralmente leva alguns minutos. Se você não vir o seu domínio validado em uma hora, abra um tíquete de suporte.
+A validação automática geralmente demora alguns minutos. Se você não vir o seu domínio validado em uma hora, abra um tíquete de suporte.
 
 >[!NOTE]
 >Caso você tenha um registro de CAA (Autorização de Autoridade de Certificação) com o provedor DNS, ele deverá incluir o DigiCert como uma AC válida. Um registro de CAA permite que os proprietários do domínio especifiquem com seus provedores DNS quais ACs estão autorizadas a emitir certificados para seus domínios. Se uma AC receber um pedido de um certificado para um domínio que tem um registro de CAA e a AC não estiver listada como um emissor autorizado, ela será proibida de emitir o certificado para esse domínio ou subdomínio. Para obter informações sobre como gerenciar registros CAA, consulte [Gerenciar registros CAA](https://support.dnsimple.com/articles/manage-caa-record/). Para uma ferramenta de registro CAA, consulte [Ajuda do registro CAA](https://sslmate.com/caa/).

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 17737c2b272f2a123df3d58c62c471b3da5bebe1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 69a4529e009d9fdd7081bc4d4b53c468befd8e6d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Geração de solicitação de assinatura de certificados de pilha do Azure
 
@@ -68,10 +68,10 @@ Siga estas etapas para preparar e validar os certificados PKI de pilha do Azure:
     > [!note]  
     > Se for fornecido um nome comum (CN) será substituído pelo primeiro nome DNS da solicitação de certificado.
 
-3.  Declare um diretório de saída que já existe:
+3.  Declare um diretório de saída que já existe. Por exemplo: 
 
     ````PowerShell  
-    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ````
 4.  Declarar identifique o sistema
 
@@ -95,7 +95,7 @@ Siga estas etapas para preparar e validar os certificados PKI de pilha do Azure:
     ````
 
     > [!note]  
-    > `<regionName>.<externalFQDN>` constitui a base na qual todos os nomes DNS externos na pilha do Azure são criados, neste exemplo, o portal seria `portal.east.azurestack.contoso.com`.
+    > `<regionName>.<externalFQDN>` constitui a base na qual todos os nomes DNS externos na pilha do Azure são criados, neste exemplo, o portal seria `portal.east.azurestack.contoso.com`.  
 
 6. Para gerar uma solicitação de certificado único com vários nomes de alternativo da entidade:
 

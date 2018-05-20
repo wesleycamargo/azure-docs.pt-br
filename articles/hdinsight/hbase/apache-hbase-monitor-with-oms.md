@@ -11,14 +11,14 @@ ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 78190576fb17409fac929b5afa50b71046f4d0e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 12ec60049cdf267834d251c6c927b35e3c363a4e
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="monitor-hbase-with-log-analytics"></a>Monitorar HBase com Log Analytics
 
@@ -51,7 +51,7 @@ Quando você provisiona uma solução de Monitoramento do HBase no HDInsight, vo
 7. No painel *nome da solução de gerenciamento*, selecione um espaço de trabalho existente para associar com a solução de gerenciamento ou criar um novo espaço de trabalho do Log Analytics e, em seguida, selecione-o.
 8. Altere as configurações do espaço de trabalho em relação à assinatura do Azure, ao grupo de recursos e ao local, conforme apropriado. 
     ![espaço de trabalho da solução](./media/apache-hbase-monitor-with-oms/solution-workspace.png)  
-9. Selecione **Criar**.  
+9. Clique em **Criar**.  
 10. Para usar essa nova solução de gerenciamento em seu espaço de trabalho, navegue até **Log Analytics** > ***nome do espaço de trabalho*** > **Soluções**. Uma entrada para a sua solução de gerenciamento é exibida na lista. Selecione a entrada para navegar até a solução.
 
     ![Soluções do Log Analytics](./media/apache-hbase-monitor-with-oms/log-analytics-solutions.png)  
@@ -116,7 +116,7 @@ Para habilitar a coleta de dados do seu cluster do HBase no HDInsight, execute u
 
     ![Configurações da ação de script](./media/apache-hbase-monitor-with-oms/submit-script-action.png)  
 
-10. Selecione **Criar**.
+10. Clique em **Criar**.
 11. A ação de script leva alguns minutos para ser executada. Você pode monitorar seu status no painel de ações de Script.
 
     ![Ação de script em execução](./media/apache-hbase-monitor-with-oms/script-action-running.png)  

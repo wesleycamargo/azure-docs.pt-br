@@ -78,6 +78,7 @@
 #### [Node.js (genérico)](iot-suite-connecting-devices-node.md)
 #### [Node.js no Raspberry Pi](iot-suite-connecting-pi-node.md)
 #### [C no Raspberry Pi](iot-suite-connecting-pi-c.md)
+#### [MX Chip AZ3166 DevKit](iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
 ### Conceitos
 #### [Detalhes de implementação de Monitoramento Remoto](iot-suite-remote-monitoring-sample-walkthrough.md)

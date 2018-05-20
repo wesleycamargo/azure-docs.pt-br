@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e1a7c3cec7925c6fb01aafba152dde2383cee442
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits
 
@@ -34,7 +34,7 @@ Nos Serviços de Mídia do Azure, um *Canal* representa um pipeline para process
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
 
 
-* Um codificador ao vivo local envia um fluxo de taxa de bits adaptável única para o canal que é habilitado para realizar a codificação ao vico com os serviços de mídia em um dos seguintes formatos: RTP (MPEG-TS), RTMP oi Smooth Streaming (MP4 fragmentado). O canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
+* Um codificador ativo local envia uma transmissão de taxa de bits adaptável única para o Canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
 
 A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, pode especificar como deseja que o canal receba o fluxo de entrada. Você também pode especificar se quer que o canal execute a codificação ativa de seu fluxo. Você tem duas opções:
 

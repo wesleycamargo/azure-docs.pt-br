@@ -1,56 +1,58 @@
 ---
-title: "Noções básicas sobre DNS na pilha do Azure | Microsoft Docs"
-description: "Noções básicas sobre os recursos DNS e capacidades da pilha do Azure"
+title: Noções básicas sobre iDNS na pilha do Azure | Microsoft Docs
+description: Noções básicas sobre iDNS recursos e capacidades da pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 86ed2805e93bd147841e22a773b52d1451f8c353
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: df9c22877eeac381d936f2fb86f5720c9cc9c930
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introdução ao iDNS pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-iDNS é um recurso na pilha do Azure que permite resolver nomes DNS externos (como http://www.bing.com).
-Ele também permite que você registre nomes de rede virtual interna. Fazendo isso, você pode resolver as VMs na mesma rede virtual por nome em vez do endereço IP, sem ter que fornecer entradas personalizadas de servidor DNS.
-
-Isso é algo que sempre tenha sido existe no Azure, mas está disponível no Windows Server 2016 e do Azure pilha muito.
+iDNS é um recurso de rede de pilha do Azure que permite resolver nomes DNS externos (por exemplo, http://www.bing.com.) também permite registrar nomes de rede virtual interna. Fazendo isso, você pode resolver as VMs na mesma rede virtual por nome em vez do endereço IP. Essa abordagem elimina a necessidade de fornecer entradas personalizadas de servidor DNS. Para obter mais informações sobre DNS, consulte o [visão geral do DNS do Azure](https://docs.microsoft.com/en-us/azure/dns/dns-overview).
 
 ## <a name="what-does-idns-do"></a>O que faz iDNS?
+
 Com iDNS na pilha do Azure, você tem os seguintes recursos, sem precisar especificar entradas personalizadas de servidor DNS:
 
 * Compartilhado serviços de resolução de nome DNS para cargas de trabalho de locatário.
 * Serviço DNS autoritativo para a resolução de nome e o registro DNS na rede virtual do locatário.
-* Serviço Recursive DNS para resolução de nomes de Internet de máquinas virtuais do locatário. Locatários não precisam especificar entradas DNS para resolver nomes de Internet (por exemplo, www.bing.com).
+* Serviço Recursive DNS para resolução de nomes de Internet de máquinas virtuais do locatário. Os locatários não precisam especificar entradas DNS para resolver nomes de Internet (por exemplo, www.bing.com.)
 
-Você pode ainda traga seu próprio DNS e usar servidores DNS personalizados. Mas, agora, se você apenas deseja ser capaz de resolver nomes de DNS da Internet e ser capaz de se conectar a outras máquinas virtuais na mesma rede virtual, você não precisa especificar nada e ele funcionará.
+Você ainda pode trazer seu próprio DNS e usar servidores DNS personalizados. No entanto, usando iDNS, você pode resolver nomes DNS da Internet e conecte-se com outras VMs na mesma rede virtual, você não precisa criar entradas DNS personalizadas.
 
-## <a name="what-does-idns-not-do"></a>O que não iDNS faz?
-Quais iDNS não permite fazer é criar um registro DNS para um nome que pode ser resolvido a partir de fora da rede virtual.
+## <a name="what-doesnt-idns-do"></a>O que não iDNS?
 
-No Azure, você tem a opção de especificar um rótulo de nome DNS que pode ser associado um endereço IP público. Você pode escolher o rótulo (prefixo), mas o Azure escolhe o sufixo, que é baseado na região em que você criar o endereço IP público.
+Quais iDNS não permite que você faça, é criar um registro DNS para um nome que pode ser resolvido a partir de fora da rede virtual.
 
-![Rótulo de nome de captura de tela de DNS](media/azure-stack-understanding-dns-in-tp2/image3.png)
+No Azure, você tem a opção de especificar um rótulo de nome DNS que está associado um endereço IP público. Você pode escolher o rótulo (prefixo), mas o Azure escolhe o sufixo, que é baseado na região em que você criar o endereço IP público.
 
-Na imagem acima, o Azure criará um registro "A" no DNS para o rótulo de nome DNS especificado na zona **westus.cloudapp.azure.com**. O prefixo e o sufixo junto compõem um totalmente qualificado domínio FQDN (nome) que pode ser resolvido a partir de qualquer lugar na Internet pública.
+![Exemplo de um rótulo de nome DNS](media/azure-stack-understanding-dns-in-tp2/image3.png)
+
+Como mostra a imagem anterior, Azure criará um registro "A" no DNS para o rótulo de nome DNS especificado na zona **westus.cloudapp.azure.com**. O prefixo e o sufixo são combinadas para compor uma [nome de domínio totalmente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN) que pode ser resolvido de qualquer lugar na Internet pública.
 
 A pilha do Azure somente dá suporte a iDNS para o registro de nome interno para que ele não pode fazer o seguinte:
 
-* Crie um registro DNS em uma zona DNS hospedado (por exemplo, local.azurestack.external) existente.
-* Crie uma zona DNS (por exemplo, Contoso.com).
+* Criar um registro DNS em uma zona DNS hospedado existente (por exemplo, local.azurestack.external.)
+* Criar uma zona DNS (por exemplo, Contoso.com).
 * Crie um registro em sua própria zona DNS personalizado.
 * Suporte para a compra de nomes de domínio.
 
+## <a name="next-steps"></a>Próximas etapas
+
+[Usando o DNS na pilha do Azure](azure-stack-dns.md)

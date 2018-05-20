@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 905e64d004c02db663634eb784cacf6fab805193
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Criar um novo dispositivo simulado
 
@@ -225,7 +225,7 @@ Neste tutorial, você trabalha com os projetos **device-simulation** e **storage
 1. Para clonar a versão do .NET do repositório **storage-adapter**, execute o seguinte comando:
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     O serviço de simulação de dispositivo usa o serviço de adaptador de armazenamento para se conectar ao serviço Cosmos DB no Azure. A solução de monitoramento remoto armazena os dados de configuração do dispositivo simulado em um banco de dados Cosmos DB.
@@ -258,7 +258,11 @@ A maneira mais fácil de criar um novo tipo de dispositivo no serviço de simula
 
 1. Na seção **Variáveis de ambiente**, edite o valor da variável **PCS\_IOTHUB\_CONNSTRING** para que ela seja a cadeia de conexão do Hub IoT que você anotou anteriormente. Em seguida, salve as alterações.
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse na solução **device-simulation** e escolha **Definir Projetos de Inicialização**. Escolha **Único projeto de inicialização** e selecione **SimulationAgent**. Em seguida, clique em **OK**.
+1. No Gerenciador de Soluções, clique com botão direito do mouse no projeto **WebService**, escolha **Propriedades** e, em seguida, **Depurar**.
+
+1. Na seção **Variáveis de ambiente**, edite o valor da variável **PCS\_IOTHUB\_CONNSTRING** para que ela seja a cadeia de conexão do Hub IoT que você anotou anteriormente. Em seguida, salve as alterações.
+
+1. No Gerenciador de Soluções, clique com o botão direito do mouse na solução **device-simulation** e escolha **Definir Projetos de Inicialização**. Escolha **Único projeto de inicialização** e selecione **WebService**. Em seguida, clique em **OK**.
 
 1. Cada tipo de dispositivo tem um arquivo de modelo JSON e scripts associados na pasta **Services/data/devicemodels**. No Gerenciador de Soluções, copie os arquivos do **Resfriador** para criar os arquivos de **Lâmpada**, conforme mostrado na seguinte tabela:
 
@@ -294,10 +298,12 @@ O arquivo **lightbulb-01.json** define as características do tipo, como a telem
         "status": "on"
       },
       "Interval": "00:00:20",
-      "Scripts": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js"
-      }
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -468,7 +474,7 @@ Para limitar o número de dispositivos simulados que se conectam à solução du
 
 Agora você está pronto para testar o novo tipo de lâmpada simulada executando o projeto de simulação de dispositivo localmente.
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse em **SimulationAgent**, escolha **Depurar** e, em seguida, **Iniciar nova instância**.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse em **WebService**, escolha **Depurar** e, em seguida, **Iniciar nova instância**.
 
 1. Para verificar se os dois dispositivos simulados estão conectados ao Hub IoT, abra o portal do Azure no navegador.
 

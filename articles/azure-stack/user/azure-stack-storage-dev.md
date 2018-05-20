@@ -1,29 +1,30 @@
 ---
-title: "Introdução às ferramentas de desenvolvimento de armazenamento de pilha do Azure"
-description: "Diretrizes para começar a usar as ferramentas de desenvolvimento de armazenamento de pilha do Azure"
+title: Introdução às ferramentas de desenvolvimento de armazenamento de pilha do Azure
+description: Diretrizes para começar a usar as ferramentas de desenvolvimento de armazenamento de pilha do Azure
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 02/21/2018
+ms.date: 05/14/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 81c62fc569e9f758d08bfca0bdfc5bcc9ed5860f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Introdução às ferramentas de desenvolvimento de armazenamento de pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-A pilha do Microsoft Azure fornece um conjunto de serviços de armazenamento, incluindo o armazenamento de BLOBs do Azure, tabela e fila.
+A pilha do Microsoft Azure fornece um conjunto de serviços de armazenamento que inclui o blob, tabela e o armazenamento de fila.
 
-Este artigo fornece orientações rápida sobre como começar a usar as ferramentas de desenvolvimento de armazenamento de pilha do Azure. Você pode encontrar informações mais detalhadas e código de exemplo nos tutoriais de armazenamento do Azure correspondentes.
+Use este artigo como um guia para começar a usar as ferramentas de desenvolvimento de armazenamento de pilha do Azure. Você pode encontrar informações mais detalhadas e código de exemplo nos tutoriais correspondentes do armazenamento do Azure.
 
-Há diferenças entre o armazenamento do Azure e armazenamento de pilha do Azure, incluindo alguns requisitos específicos para cada plataforma conhecidos. Por exemplo, há bibliotecas de cliente específico e requisitos de sufixo de ponto de extremidade específico para a pilha do Azure. Para obter mais informações, consulte [Azure pilha de armazenamento: diferenças e considerações](azure-stack-acs-differences.md).
+>[!NOTE]
+>Há diferenças entre o armazenamento de pilha do Azure e armazenamento do Azure, incluindo requisitos específicos para cada plataforma conhecidos. Por exemplo, há bibliotecas de cliente específico e requisitos de sufixo de ponto de extremidade específico para a pilha do Azure. Para obter mais informações, consulte [Azure pilha de armazenamento: diferenças e considerações](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Bibliotecas de cliente do Azure
 
@@ -37,15 +38,16 @@ As versões com suporte da API REST para o armazenamento do Azure pilha são 201
 | Java | 6.1.0 | Pacote de Maven:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0 | Configuração de cadeia de conexão |
 | Node.js | 2.7.0 | Link NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Executar: `npm install azure-storage@2.7.0`)<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | Declaração da instância de serviço |
 | C++ | 3.1.0 | Pacote do NuGet:<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | Configuração de cadeia de conexão |
-| PHP | 1.0.0 | Versão do GitHub:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>Fila:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Table: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Instalar por meio do criador (para saber mais, [consulte os detalhes abaixo](#install-php-client-via-composer---current).) | Configuração de cadeia de conexão |
+| PHP | 1.0.0 | Versão do GitHub:<br>Comuns: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>Fila:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Tabela: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Instalar por meio do criador (para saber mais, [consulte os detalhes abaixo](#install-php-client-via-composer---current).) | Configuração de cadeia de conexão |
 | Python | 1.0.0 | Versão do GitHub:<br>Comuns:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>Blob:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>Fila:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | Declaração da instância de serviço |
-| Ruby | 1.0.1 | Pacote de RubyGems:<br>Comuns:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Queue: https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>Table: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>Versão do GitHub:<br>Common: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>Queue: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>Table: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | Configuração de cadeia de conexão |
+| Ruby | 1.0.1 | Pacote de RubyGems:<br>Comuns:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Fila: https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>Tabela: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>Versão do GitHub:<br>Comuns: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>Fila: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>Tabela: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | Configuração de cadeia de conexão |
 
 #### <a name="install-php-client-via-composer---current"></a>Instalar o cliente PHP por meio de criador - atual
 
 Para instalar por meio do criador: (take blob exemplo).
 
 1. Crie um arquivo chamado **composer.json** na raiz do projeto com o código a seguir:
+
   ```php
     {
       "require": {
@@ -53,6 +55,7 @@ Para instalar por meio do criador: (take blob exemplo).
       }
     }
   ```
+
 2. Baixar [composer.phar](http://getcomposer.org/composer.phar) para a raiz do projeto.
 3. Execute: `php composer.phar install`.
 
@@ -73,6 +76,7 @@ Para instalar por meio do criador: (take blob exemplo).
 Para instalar por meio do criador:
 
 1. Crie um arquivo chamado **composer.json** na raiz do projeto com o código a seguir:
+
   ```php
     {
           "require":{
@@ -80,6 +84,7 @@ Para instalar por meio do criador:
           }
     }
   ```
+
 2. Baixar [composer.phar](http://getcomposer.org/composer.phar) na raiz do projeto.
 3. Execute: `php composer.phar install`.
 
@@ -91,16 +96,16 @@ Se você não tiver certeza sobre o ponto de extremidade, entre em contato com s
 
 ## <a name="examples"></a>Exemplos
 
-
 ### <a name="net"></a>.NET
 
 Para a pilha do Azure, o sufixo de ponto de extremidade é especificado no arquivo App. config:
 
 ```
-<add key="StorageConnectionString" 
+<add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
 ```
+
 ### <a name="java"></a>Java
 
 Para a pilha do Azure, o sufixo de ponto de extremidade é especificado na configuração de cadeia de caracteres de conexão:
@@ -121,6 +126,7 @@ Para a pilha do Azure, o sufixo de ponto de extremidade é especificado na inst�
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
+
 ### <a name="c"></a>C++
 
 Para a pilha do Azure, o sufixo de ponto de extremidade é especificado na configuração de cadeia de caracteres de conexão:
@@ -152,6 +158,7 @@ block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
 ```
+
 ### <a name="ruby"></a>Ruby
 
 Para a pilha do Azure, o sufixo de ponto de extremidade é especificado na configuração de cadeia de caracteres de conexão:
@@ -187,7 +194,6 @@ Os seguintes tutoriais do armazenamento de fila do Azure são aplicáveis a pilh
 * [Como usar o Armazenamento de Fila do PHP](../../storage/queues/storage-php-how-to-use-queues.md)
 * [Como usar o Armazenamento de fila do Python](../../storage/queues/storage-python-how-to-use-queue-storage.md)
 * [Como usar o Armazenamento de fila do Ruby](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
-
 
 ## <a name="table-storage"></a>Armazenamento de tabela
 

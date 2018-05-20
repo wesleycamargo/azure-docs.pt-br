@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2c16c0414ddf023e7055a8b57c514fc069f3112a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exemplos de implementação de scaffold do Azure Enterprise
-Este tópico fornece exemplos de como uma empresa pode implementar as recomendações para um [scaffold do Azure Enterprise](resource-manager-subscription-governance.md). Ele usa uma empresa fictícia chamada Contoso para ilustrar as melhores práticas para cenários comuns.
+Este artigo fornece exemplos de como uma empresa pode implementar as recomendações para um [scaffold do Azure Enterprise](resource-manager-subscription-governance.md). Ele usa uma empresa fictícia chamada Contoso para ilustrar as melhores práticas para cenários comuns.
 
 ## <a name="background"></a>Segundo plano
-A Contoso é uma empresa mundial que fornece soluções de cadeia de fornecedores para clientes em tudo desde um modelo de "Software como Serviço" para um modelo de pacote implantado no local.  Eles desenvolvem software em todo o mundo, com centros de desenvolvimento significativos na Índia, Estados Unidos e Canadá.
+A Contoso é uma empresa global que fornece soluções de cadeia de fornecimento para clientes. Fornecem tudo a partir de um Software como um modelo de serviço para um modelo de pacote implantado no local.  Eles desenvolvem software em todo o mundo, com centros de desenvolvimento significativos na Índia, Estados Unidos e Canadá.
 
 A parte de ISV da empresa é dividida em várias unidades comerciais independentes que gerenciam produtos em um negócio significativo. Cada unidade de negócios tem seus próprios desenvolvedores, gerentes de produto e arquitetos.
 
 A unidade de negócios de ETS (serviços de tecnologia empresarial) fornece funcionalidade de TI centralizada e gerencia vários data centers em que as unidades de negócios hospedam seus aplicativos. Juntamente com o gerenciamento de data centers, a organização ETS fornece e gerencia colaboração centralizada (como email e sites) e serviços de rede/telefonia. Eles também gerenciam cargas de trabalho voltadas para o cliente para unidades de negócios menores que não contam com equipe operacional.
 
-As pessoas seguir são usados neste tópico:
+As pessoas seguir são usadas neste tópico:
 
 * Dave é o administrador de ETS do Azure.
 * Alice é diretora de desenvolvimento da Contoso na unidade de negócios de cadeia de fornecedores.
 
-A Contoso precisa compilar um aplicativo de linha de negócios e um aplicativo voltado ao cliente. Ele decidiu executar os aplicativos no Azure. Dave lê o tópico [governança de assinatura prescritiva](resource-manager-subscription-governance.md) e agora está pronto para implementar as recomendações.
+A Contoso precisa compilar um aplicativo de linha de negócios e um aplicativo voltado ao cliente. Ele decidiu executar os aplicativos no Azure. Dave leu o artigo [governança de assinatura prescritiva](resource-manager-subscription-governance.md) e agora está pronto para implementar as recomendações.
 
 ## <a name="scenario-1-line-of-business-application"></a>Cenário 1: aplicativo de linha de negócios
 A Contoso está criando um sistema de gerenciamento de código-fonte (BitBucket) para ser usado pelos desenvolvedores em todo o mundo.  O aplicativo usa a IaaS (infraestrutura como serviço) para hospedagem e consiste em servidores Web e um servidor de banco de dados. Os desenvolvedores acessam servidores em seus ambientes de desenvolvimento, mas eles não precisam acessar os servidores no Azure. O ETS da Contoso deseja permitir que o proprietário do aplicativo e a equipe gerenciem o aplicativo. O aplicativo só está disponível enquanto está na rede corporativa da Contoso. Dave precisa configurar a assinatura para este aplicativo. A assinatura também hospeda outros softwares relacionados ao desenvolvedor no futuro.  
 
 ### <a name="naming-standards--resource-groups"></a>Padrões de nomenclatura e grupos de recursos
-Dave cria uma assinatura para dar suporte a ferramentas de desenvolvedor que são comuns a todas as unidades de negócios. Ele precisa criar nomes significativos para os grupos de recursos e a assinatura (para o aplicativo e as redes). Ele cria a seguinte assinatura e grupos de recursos:
+Dave cria uma assinatura para dar suporte a ferramentas de desenvolvedor que são comuns a todas as unidades de negócios. Dave precisa criar nomes significativos para os grupos de recursos e a assinatura (para o aplicativo e as redes). Ele cria a seguinte assinatura e grupos de recursos:
 
 | item | NOME | DESCRIÇÃO |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ Dave atribui as funções a seguir para a assinatura:
 | Função | Atribuído a | DESCRIÇÃO |
 | --- | --- | --- |
 | [Proprietário](../role-based-access-control/built-in-roles.md#owner) |ID Gerenciada do AD da Contoso |Essa ID é controlada com acesso JIT (Just in Time) por meio da ferramenta de Gerenciamento de Identidades da Contoso e garante que o acesso de proprietário da assinatura seja totalmente auditado |
-| [Gerenciador de Segurança](../role-based-access-control/built-in-roles.md#security-manager) |Departamento de gerenciamento de riscos e de segurança |Esta função permite que os usuários consultem a Central de Segurança do Azure e o status dos recursos |
+| [Leitor de Segurança](../role-based-access-control/built-in-roles.md#security-reader) |Departamento de gerenciamento de riscos e de segurança |Esta função permite que os usuários consultem a Central de Segurança do Azure e o status dos recursos |
 | [Colaborador de rede](../role-based-access-control/built-in-roles.md#network-contributor) |Equipe de rede |Esta função permite que a equipe de rede da Contoso gerencie o VPN Site a Site e as redes virtuais |
 | *Função personalizada* |Proprietário do aplicativo |Dave cria uma função que concede a capacidade de modificar os recursos no grupo de recursos. Para obter mais informações, veja [Funções personalizadas no RBAC do Azure](../role-based-access-control/custom-roles.md) |
 
@@ -115,7 +115,7 @@ Dave não tem nada a automatizar para este aplicativo. Embora ele tenha criado u
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 Gerenciamento de serviços de TI da Contoso precisa identificar e lidar com as ameaças rapidamente. Eles também desejam compreender quais problemas podem existir.  
 
-Para atender a esses requisitos, Dave habilita a [Central de Segurança do Azure](../security-center/security-center-intro.md) e fornece acesso à função de Gerenciador de Segurança.
+Para atender a esses requisitos, Dave habilita a [Central de Segurança do Azure](../security-center/security-center-intro.md) e fornece acesso à função do Leitor de Segurança.
 
 ## <a name="scenario-2-customer-facing-app"></a>Cenário 2: aplicativo voltado ao cliente
 A liderança de negócios na unidade de negócios da cadeia de fornecedores identificou várias oportunidades para aumentar o envolvimento com clientes da Contoso usando um cartão de fidelidade. Equipe de Alice deve criar esse aplicativo e decide que o Azure aumenta sua capacidade de atender às necessidades de negócios. Alice trabalha com Dave de ETS para configurar duas assinaturas para desenvolvimento e operação desse aplicativo.

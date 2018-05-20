@@ -14,17 +14,19 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: e7107e5c75d79714ae8d2d78d35e2cd3742ac674
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Tutorial: autenticação do Serviço do Azure SignalR
 
+O Microsoft Azure SignalR Service está atualmente, o serviço está na [Visualização Pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Este tutorial baseia-se no aplicativo de sala de bate-papo introduzido no início rápido. Se você não tiver completado [Crie uma sala de chat com SignalR Service](signalr-quickstart-dotnet-core.md), conclua esse exercício primeiro. 
 
-Neste tutorial, você aprenderá como implementar sua própria autenticação e integrá-la ao serviço do Azure SignalR. 
+Neste tutorial, você aprenderá como implementar sua própria autenticação e integrá-la ao serviço do Microsoft Azure SignalR. 
 
 A autenticação inicialmente usada no aplicativo de sala de chat do início rápido é muito simples para cenários do mundo real. O aplicativo permite que cada cliente de declare quem é e o servidor aceita. Esta abordagem não é muito útil para aplicativos do mundo real, onde um usuário não autorizado poderia representar outros usuários para acessar dados confidenciais. 
 
@@ -603,9 +605,7 @@ Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você adicionou a autenticação com o OAuth para fornecer uma abordagem melhor para autenticação com o serviço do Azure SignalR. Para saber mais sobre como usar o Serviço Azure SignalR, continue no próximo tutorial que demonstra a autenticação com o Azure Functions.
+Neste tutorial, você adicionou a autenticação com o OAuth para fornecer uma abordagem melhor para autenticação com o serviço do Azure SignalR. Para saber mais sobre como usar o Servidor do Azure SignalR, continue para os exemplos de CLI do Azure para o Serviço SignalR.
 
 > [!div class="nextstepaction"]
-> [Integrar o Azure Functions ao Serviço Azure SignalR](./signalr-integrate-functions.md)
-
-
+> [Exemplos de CLI do Azure SignalR](./signalr-cli-samples.md)

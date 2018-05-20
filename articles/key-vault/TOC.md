@@ -68,6 +68,7 @@
 ### [Métodos de criação de certificado](create-certificate.md)
 ### [Monitorar e gerenciar a criação de certificados](create-certificate-scenarios.md)
 ## [Autenticação, Solicitações e Respostas](authentication-requests-and-responses.md)
+## [Recursos de dados do cliente](key-vault-customer-data.md)
 ## [Parâmetros e cabeçalhos comuns](common-parameters-and-headers.md)
 ## [Versões do Key Vault](key-vault-versions.md)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

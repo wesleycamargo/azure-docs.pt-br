@@ -102,14 +102,6 @@
           href: disk-scalability-targets.md
         - name: Backup e recuperação de desastres para discos
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Como habilitar o acelerador de gravação
-          href: how-to-enable-write-accelerator.md
-        - name: Solucionar problemas de VHDs anexados
-          items:
-            - name: Armazenar erros de exclusão de recursos
-              href: storage-resource-deletion-errors.md
-            - name: Reinicializações inesperadas de VMs com VHDs anexados
-              href: unexpected-reboots-attached-vhds.md
     - name: Rede
       href: network-overview.md
     - name: Aplicativos de dimensionamento automático
@@ -306,6 +298,8 @@
           href: mount-azure-file-storage.md
         - name: Implantar discos com modelo
           href: using-managed-disks-template-deployments.md
+        - name: Habilitar acelerador de gravação
+          href: how-to-enable-write-accelerator.md
         - name: Como migrar para Managed Disks
           href: migrate-to-managed-disks.md
           items:
@@ -449,6 +443,12 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
         - name: Instalar o agente VM no modo offline
           href: install-vm-agent-offline.md
+        - name: Solucionar problemas de VHDs anexados
+          items:
+            - name: Armazenar erros de exclusão de recursos
+              href: storage-resource-deletion-errors.md
+            - name: Reinicializações inesperadas de VMs com VHDs anexados
+              href: unexpected-reboots-attached-vhds.md
 - name: Referência
   items:
     - name: CLI do Azure

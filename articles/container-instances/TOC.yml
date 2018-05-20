@@ -21,6 +21,12 @@
       href: container-instances-tutorial-prepare-acr.md
     - name: 3 - Implantar aplicativo
       href: container-instances-tutorial-deploy-app.md
+- name: Exemplos
+  items:
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
+    - name: Modelos do Gerenciador de Recursos
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
 - name: Conceitos
   items:
     - name: Cotas e limites regionais
@@ -31,22 +37,28 @@
       href: container-instances-container-groups.md
 - name: Guias de instruções
   items:
-    - name: Implantar grupos com vários contêineres
-      href: container-instances-multi-container-group.md
-    - name: Implantar a partir do Registro de Contêiner do Azure
-      href: container-instances-using-azure-container-registry.md
-    - name: Executar um comando (exec)
-      href: container-instances-exec.md
-    - name: Executar tarefas em contêineres
-      href: container-instances-restart-policy.md
-    - name: Definir variáveis de ambiente (env)
-      href: container-instances-environment-variables.md
-    - name: Solucionar problemas das implantações
-      href: container-instances-troubleshooting.md
-    - name: Agentes de compilação Jenkins na ACI
-      href: container-instances-jenkins.md
-    - name: Monitorar CPU e uso de memória
-      href: container-instances-monitor.md
+    - name: Implantar
+      items:
+        - name: Implantar grupos com vários contêineres
+          href: container-instances-multi-container-group.md
+        - name: Implantar a partir do Registro de Contêiner do Azure
+          href: container-instances-using-azure-container-registry.md
+        - name: Definir variáveis de ambiente (env)
+          href: container-instances-environment-variables.md
+        - name: Solucionar problemas das implantações
+          href: container-instances-troubleshooting.md
+    - name: Gerenciar
+      items:
+        - name: Executar um comando (exec)
+          href: container-instances-exec.md
+        - name: Monitorar CPU e uso de memória
+          href: container-instances-monitor.md
+    - name: Executar cargas de trabalho
+      items:
+        - name: Executar tarefas em contêineres
+          href: container-instances-restart-policy.md
+        - name: Agentes de compilação Jenkins na ACI
+          href: container-instances-jenkins.md
     - name: Configurar volumes de dados
       items:
         - name: Arquivos do Azure

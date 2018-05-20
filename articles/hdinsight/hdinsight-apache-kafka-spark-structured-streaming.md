@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: larryfr
-ms.openlocfilehash: bdb2369f81ae8aeeb0a57e092dc1af7d0a7ded8f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Tutorial: Usar o fluxo estruturado do Spark com Kafka no HDInsight
 
@@ -147,8 +147,8 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters Kafka e Sp
     | Assinatura | Sua assinatura do Azure |
     | Grupo de recursos | O grupo de recursos que contém os recursos. |
     | Local padrão | A região do Azure em que os recursos são criados. |
-    | Nome do cluster do Spark | O nome do cluster do Spark. |
-    | Nome do cluster do Kafka | O nome do cluster do Kafka. |
+    | Nome do cluster do Spark | O nome do cluster do Spark. Os primeiro de seis caracteres devem ser diferentes do nome de cluster Kafka. |
+    | Nome do cluster do Kafka | O nome do cluster do Kafka. Os primeiro de seis caracteres devem ser diferentes do nome de cluster Spark. |
     | Nome de usuário de logon do cluster | O nome de usuário administrador para os clusters. |
     | Senha de logon do cluster | A senha de usuário administrador para os clusters. |
     | Nome de usuário do SSH | O usuário do SSH para criar os clusters. |

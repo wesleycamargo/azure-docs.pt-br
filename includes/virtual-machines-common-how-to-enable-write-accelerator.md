@@ -5,14 +5,14 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/30/2018
+ms.date: 5/9/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 4fe1f2ad4bad9d670094bbb4eed188baf28108ea
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4db9fe907ab6625fcad74ceae59f17115458a3ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="write-accelerator"></a>Acelerador de Gravação
 O Acelerador de Gravação é uma capacidade de disco máquinas virtuais (VMs) da Série M no Armazenamento Premium com Azure Managed Disks exclusivamente. Como o nome indica, o objetivo da funcionalidade é melhorar a latência de E/S das gravações no Armazenamento Premium do Azure. O Acelerador de Gravação é ideal para quando as atualizações do arquivo de log são necessárias para manter em disco em um modo de alto desempenho para bancos de dados modernos.
@@ -164,6 +164,21 @@ Você pode habilitar o Acelerador de Gravação por meio do Portal onde pode esp
 
 ![Acelerador de Gravação no Portal do Azure](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
+### <a name="enabling-through-azure-cli"></a>Habilitação por meio da CLI do Azure
+Você pode usar a [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) para habilitar o Acelerador de Gravação. 
+
+Para habilitar o Acelerador de Gravação em um disco existente, use o comando abaixo, substituindo o diskName, VMName e ResourceGroup para o seu próprio: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 1=true
+```
+Para anexar um disco com o Acelerador de Gravação habilitado, use o comando abaixo com seus valores:
+```
+az vm disk attach -g group1 –vm-name vm1 –disk d1 --enable-write-accelerator
+```
+Para desabilitar o Acelerador de Gravação, defina a propriedade como false: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 0=false 1=false
+```
 
 ### <a name="enabling-through-rest-apis"></a>Habilitar por meio de APIs REST
 Para implantar por meio da API REST do Azure, é necessário instalar o armclient do Azure

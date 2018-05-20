@@ -1,4 +1,4 @@
-O suporte a dois recursos de depuração agora está disponível no Azure: Saída do Console e a Captura de Tela para o modelo de implantação do Resource Manager de Máquinas Virtuais do Azure. 
+O suporte a dois recursos de depuração agora está disponível no Azure: Saída do Console e a Captura de Tela para o modelo de implantação do Resource Manager de máquinas virtuais do azure. 
 
 Ao colocar sua própria imagem no Azure ou iniciar uma das imagens da plataforma, muitas razões podem contribuir para que uma máquina virtual fique em um estado não inicializável. Esses recursos permitem que você diagnostique e recupere as máquinas virtuais de falhas de inicialização facilmente.
 
@@ -29,13 +29,18 @@ Esses dois recursos têm suporte em máquinas virtuais do Azure em todas as regi
 - [Falha de inicialização ou INACCESSIBLE_BOOT_DEVICE](https://support.microsoft.com/help/4010143)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Habilitar o diagnóstico em uma nova máquina virtual
-1. Ao criar uma nova máquina virtual no Portal de Versão Prévia, selecione **Azure Resource Manager** no menu suspenso do modelo de implantação:
+1. Ao criar uma nova máquina virtual no Portal do Azure, selecione **Azure Resource Manager** no menu suspenso do modelo de implantação:
  
     ![Gerenciador de Recursos](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
-2. Configure a opção de monitoramento para selecionar a conta de armazenamento em que você deseja colocar esses arquivos de diagnóstico.
+2. Em **Configurações**, habilite os **Diagnósticos de inicialização**e, em seguida, selecione uma conta de armazenamento que deseja colocar esses arquivos de diagnósticos.
  
-    ![Criar VM](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
+    ![Criar VM](./media/virtual-machines-common-boot-diagnostics/create-storage-account.png)
+
+    > [!NOTE]
+    > O recurso de diagnóstico de inicialização não oferece suporte à conta de armazenamento premium. Se você usar a conta de armazenamento premium para o diagnóstico de inicialização, você poderá receber o erro StorageAccountTypeNotSupported quando você iniciar a VM.
+    >
+    > 
 
 3. Se você estiver implantando um modelo do Azure Resource Manager, navegue até seu recurso de máquina virtual e acrescente a seção de diagnóstico do perfil. Lembre-se de usar o cabeçalho de versão de API "2015-06-15".
 
@@ -61,9 +66,16 @@ Esses dois recursos têm suporte em máquinas virtuais do Azure em todas as regi
 
 Para implantar um exemplo de máquina virtual com o diagnóstico de inicialização habilitado, confira nosso repositório aqui.
 
-## <a name="update-an-existing-virtual-machine"></a>Atualizar uma máquina virtual existente ##
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Habilitar o diagnóstico de inicialização na máquina virtual existente 
 
-Para habilitar o diagnóstico de inicialização no Portal, você também poderá atualizar uma máquina virtual existente pelo Portal. Selecione a opção Diagnóstico de inicialização e salve. Reinicie a VM para que entre em vigor.
+Para habilitar o diagnóstico de inicialização em uma máquina virtual existente, siga estas etapas:
 
-![Atualizar VM existente](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
+1. Faça logon no [portal do Azure](https://portal.azure.com) e selecione a máquina virtual.
+2. Em **Suporte + solução de problemas**, selecione **Diagnósticos de inicialização** > **Configurações**, altere o status para **Ligado**e, em seguida, selecione uma conta de armazenamento. 
+4. Verifique se a opção diagnóstico de inicialização está selecionada e, em seguida, salve as alterações.
+
+    ![Atualizar VM existente](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)
+
+3. Reinicie a VM para que entre em vigor.
+
 

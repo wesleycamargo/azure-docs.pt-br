@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 70a2118ef0e26043f9f6a9cceb9d4a533d343556
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 9d09fb60722865a75ea0825f5ca54f792642980a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="install-powershell-for-azure-stack"></a>Instale o PowerShell para a pilha do Azure  
+# <a name="install-powershell-for-azure-stack"></a>Instale o PowerShell para a pilha do Azure
 
-Pilha do Azure compatíveis módulos do PowerShell do Azure são necessárias para trabalhar com a pilha do Azure. Neste guia, vamos orientá-lo pelas etapas necessárias para instalar o PowerShell para Azure pilha. Você pode usar as etapas descritas neste artigo do Kit de desenvolvimento de pilha do Azure ou de um cliente externo baseado no Windows, se você estiver conectado por meio de VPN.
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Este artigo possui instruções detalhadas para instalar o PowerShell para Azure pilha. No entanto, se você quiser instalar e configurar o PowerShell rapidamente, você pode usar o script que é fornecido no artigo "Colocar em funcionamento com o PowerShell". 
+Pilha do Azure compatíveis módulos do PowerShell do Azure são necessárias para trabalhar com a pilha do Azure. Este artigo orienta você pelas etapas necessárias para instalar o PowerShell para Azure pilha. Você pode usar as etapas descritas neste artigo do Kit de desenvolvimento de pilha do Azure ou de um cliente externo baseado no Windows, se você estiver conectado por meio de VPN.
+
+Este artigo fornece instruções detalhadas para instalar o PowerShell. No entanto, se você quiser instalar e configurar o PowerShell rapidamente, você pode usar o script fornecido no artigo "Colocar em funcionamento com o PowerShell".
 
 > [!NOTE]
 > As etapas a seguir exigem o PowerShell 5.0. Para verificar a versão, execute $PSVersionTable.PSVersion e compare a versão "Principal".
@@ -41,24 +43,22 @@ Set-PSRepository `
 
 Antes de instalar a versão necessária, certifique-se de que você desinstale todos os módulos do PowerShell do Azure existentes. Você pode desinstalá-los usando um dos dois métodos a seguir:
 
-* Para desinstalar os módulos do PowerShell existentes, entrar para o kit de desenvolvimento ou para o cliente externo baseado em Windows se você estiver planejando estabelecer uma conexão VPN. Feche todas as sessões ativas do PowerShell e execute o seguinte comando: 
+* Para desinstalar os módulos do PowerShell existentes, entrar para o kit de desenvolvimento ou para o cliente externo baseado em Windows se você estiver planejando estabelecer uma conexão VPN. Feche todas as sessões ativas do PowerShell e execute o seguinte comando:
 
    ```powershell
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Entrar para o kit de desenvolvimento ou para o cliente externo baseado em Windows se você estiver planejando estabelecer uma conexão VPN. Excluir todas as pastas que começam com "Azure" do `C:\Program Files (x86)\WindowsPowerShell\Modules` e `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` pastas. A exclusão dessas pastas remove quaisquer módulos do PowerShell existentes dos escopos de usuário "global" e "AzureStackAdmin". 
+* Entrar para o kit de desenvolvimento ou para o cliente externo baseado em Windows se você estiver planejando estabelecer uma conexão VPN. Excluir todas as pastas que começam com "Azure" do `C:\Program Files (x86)\WindowsPowerShell\Modules` e `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` pastas. A exclusão dessas pastas remove quaisquer módulos do PowerShell existentes dos escopos de usuário "global" e "AzureStackAdmin".
 
-As seções a seguir descrevem as etapas necessárias para instalar o PowerShell para Azure pilha. PowerShell pode ser instalado na pilha do Azure operado na conectado, parcialmente conectado, ou em um cenário desconectado. 
+As seções a seguir descrevem as etapas necessárias para instalar o PowerShell para Azure pilha. PowerShell pode ser instalado na pilha do Azure operado na conectado, parcialmente conectado, ou em um cenário desconectado.
 
-## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Instale o PowerShell em um cenário conectado (com conectividade com a internet)
+## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Instale o PowerShell em um cenário conectado (com conectividade com a Internet)
 
 Módulos de AzureRM compatíveis pilha do Azure são instalados por meio de perfis de versão de API. A pilha do Azure requer o **2017-03-09-perfil** perfil de versão de API, que está disponível ao instalar o módulo AzureRM.Bootstrapper. Para saber mais sobre perfis de versão de API e os cmdlets fornecidos por elas, consulte o [gerenciar perfis de versão de API](azure-stack-version-profiles-powershell.md). Além dos módulos AzureRM, você também deve instalar os módulos do PowerShell de pilha específicos do Azure. Execute o seguinte script do PowerShell para instalar esses módulos em sua estação de trabalho de desenvolvimento:
 
-
-
   ```powershell
-  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
   Install-Module `
     -Name AzureRm.BootStrapper
 
@@ -77,6 +77,7 @@ Para confirmar a instalação, execute o seguinte comando:
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
+
   Se a instalação for bem-sucedida, os módulos AzureRM e a pilha do Azure são exibidos na saída.
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Instale o PowerShell em um cenário parcialmente conectado ou um desconectada (com conectividade de internet limitada)
@@ -102,12 +103,12 @@ Em um cenário parcialmente conectado ou desconectado, você deve primeiro baixa
      -Name AzureStack `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.11 
+     -RequiredVersion 1.2.11
    ```
 
 2. Copie os pacotes baixados em um dispositivo USB.
 
-3. Entrar para o kit de desenvolvimento e copie os pacotes do dispositivo USB em um local no kit de desenvolvimento. 
+3. Entrar para o kit de desenvolvimento e copie os pacotes do dispositivo USB em um local no kit de desenvolvimento.
 
 4. Agora você deve registrar esse local como o repositório padrão e instalar os módulos AzureRM e AzureStack deste repositório:
 
@@ -125,11 +126,11 @@ Em um cenário parcialmente conectado ou desconectado, você deve primeiro baixa
      -Repository $RepoName
 
    Install-Module AzureStack `
-     -Repository $RepoName 
+     -Repository $RepoName
    ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Baixar ferramentas de pilha do Azure do GitHub](azure-stack-powershell-download.md)  
-* [Configurar o ambiente do PowerShell do usuário a pilha do Azure](azure-stack-powershell-configure-user.md)  
-* [Gerenciar perfis de versão de API na pilha do Azure](azure-stack-version-profiles-powershell.md)  
+* [Baixar ferramentas de pilha do Azure do GitHub](azure-stack-powershell-download.md)
+* [Configurar o ambiente do PowerShell do usuário a pilha do Azure](azure-stack-powershell-configure-user.md)
+* [Gerenciar perfis de versão de API na pilha do Azure](azure-stack-version-profiles-powershell.md)

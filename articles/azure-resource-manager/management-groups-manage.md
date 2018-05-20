@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/10/2018
 ms.author: rithorn
-ms.openlocfilehash: b69dce94e2e0bfaa413af9a95c5ef858f766ff1c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b68223830ca6c4e178447074bfbebd1322cb9477
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento 
 Grupos de gerenciamento são contêineres que o ajudarão a gerenciar o acesso, a política e a conformidade entre várias assinaturas. Você pode alterar, excluir e gerenciar esses contêineres para ter hierarquias que podem ser usadas com o [Azure Policy](../azure-policy/azure-policy-introduction.md) e os [Controles de Acesso Baseados em Função (RBAC) do Azure](../role-based-access-control/overview.md). Para saber mais sobre grupos de gerenciamento, consulte [Organizar seus recursos com grupos de gerenciamento do Azure](management-groups-overview.md).
@@ -103,9 +103,9 @@ Você pode exibir qualquer grupo de gerenciamento no qual você tem uma função
 ### <a name="view-in-the-portal"></a>Exibir no portal
 1. Fazer logon no [Portal do Azure](https://portal.azure.com)
 2. Selecione **Todos os serviços** > **Grupos de gerenciamento** 
-3. A página de hierarquia Grupo de Gerenciamento é carregada em todos os grupos aos quais você tem acesso. 
+3. A página de hierarquia do grupo de gerenciamento carrega de onde você pode explorar todas as assinaturas que você tem acesso a e grupos de gerenciamento. Selecionar o nome do grupo leva você a um nível abaixo da hierarquia. A navegação funciona da mesma forma que um explorador de arquivos. 
     ![Principal](media/management-groups/main.png)
-4. Selecione um grupo de gerenciamento individual para os detalhes  
+4. Para ver os detalhes do grupo de gerenciamento, selecione o link **(detalhes)** ao lado do título do grupo de gerenciamento. Se esse link não estiver disponível, você não tem permissões para exibir esse grupo de gerenciamento.  
 
 ### <a name="view-in-powershell"></a>Exibir no PowerShell
 Você pode usar o comando Get-AzureRmManagementGroup para recuperar todos os grupos.  

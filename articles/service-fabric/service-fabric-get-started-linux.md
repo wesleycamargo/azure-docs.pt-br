@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: bf88e4c702321a7810ec6a3e50eb6cd47a788734
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6609239cb859cb39f72fbdd7f76609b5dc8e1eca
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar seu ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -30,41 +30,41 @@ ms.lasthandoff: 04/23/2018
 
 Para implantar e executar os [aplicativos do Azure Service Fabric](service-fabric-application-model.md) em seu computador de desenvolvimento Linux, instale o tempo de execução e o SDK comum. Você também pode instalar os SDKs opcionais para desenvolvimento em Java e .NET Core. 
 
-As etapas neste artigo presumem que você está instalando nativamente no Linux ou usando a imagem de contêiner do Service Fabric OneBox `microsoft/service-fabric-onebox`. 
+As etapas neste artigo presumem a instalação nativa no Linux ou o uso da imagem de contêiner do Service Fabric OneBox, `microsoft/service-fabric-onebox`.
 
-Não há suporte para a instalação do tempo de execução do Service Fabric e do SDK no subsistema do Windows para Linux. No entanto, há suporte para a interface de linha de comando (CLI) do Azure Service Fabric, o que permite gerenciar entidades do Service Fabric hospedadas em outro lugar na nuvem ou no local. Para obter informações sobre como instalar a CLI, consulte [Configurar a CLI do Service Fabric](./service-fabric-cli.md).
+Não há suporte para a instalação do tempo de execução do Service Fabric e do SDK no subsistema do Windows para Linux. É possível gerenciar entidades do Service Fabric hospedadas em outro lugar na nuvem ou no local com a interface de linha de comando (CLI) do Azure Service Fabric, para a qual há suporte. Para obter informações sobre como instalar a CLI, consulte [Configurar a CLI do Service Fabric](./service-fabric-cli.md).
 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* Há suporte de desenvolvimento para as seguintes versões de sistema operacional:
+Há suporte de desenvolvimento para estas versões de sistema operacional.
 
-    * Ubuntu 16.04 (`Xenial Xerus`)
+* Ubuntu 16.04 (`Xenial Xerus`)
 
-      * Verifique se o pacote `apt-transport-https` está instalado:
+    Verifique se o pacote `apt-transport-https` está instalado.
          
-         ```bash
-         sudo apt-get install apt-transport-https
-         ```
-    * Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
+    ```bash
+    sudo apt-get install apt-transport-https
+    ```
+* Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
 
 
-## <a name="installation-methods"></a>Métodos de Instalação
+## <a name="installation-methods"></a>Métodos de instalação
 
-### <a name="1-script-installation-ubuntu"></a>1. Instalação por script (Ubuntu)
+### <a name="script-installation-ubuntu"></a>Instalação por script (Ubuntu)
 
-Um script é fornecido por questões de conveniência para instalar o tempo de execução do Service Fabric e o SDK do Service Fabric comum juntamente com a CLI **sfctl**. Execute as etapas de instalação manual na próxima seção para determinar o que está sendo instalado e as licenças que estão sendo concordadas. A execução do script supõe que você concorda com as licenças para todos os softwares que estão sendo instalados. 
+Para conveniência, um script é fornecido para instalar o tempo de execução do Service Fabric e o SDK do Service Fabric comum juntamente com a CLI **sfctl**. Execute as etapas de instalação manual da próxima seção. Você vê o que está sendo instalado e as licenças associadas. A execução do script supõe que você concorda com as licenças para todos os softwares que estão sendo instalados.
 
-Depois que o script é executado com êxito, você poderá pular diretamente para [Configurar um cluster local](#set-up-a-local-cluster).
+Depois que o script for executado com êxito, é possível pular para [Configurar um cluster local](#set-up-a-local-cluster).
 
 ```bash
 sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
 ```
 
-### <a name="2-manual-installation"></a>2. Instalação manual
-Para a instalação manual de tempo de execução do Service Fabric e SDK comum, siga o restante deste guia.
+### <a name="manual-installation"></a>Instalação manual
+Para a instalação manual do tempo de execução do Service Fabric e SDK comum, siga o restante deste guia.
 
-## <a name="update-your-apt-sourcesyum-repositories"></a>Atualizar suas fontes APT/repositórios Yum
+## <a name="update-your-apt-sources-or-yum-repositories"></a>Atualizar suas fontes APT ou repositórios Yum
 Para instalar o SDK e o pacote de execução associado via ferramenta da linha de comando apt-get, primeiro atualize as fontes APT (Advanced Packaging Tool).
 
 ### <a name="ubuntu"></a>Ubuntu
@@ -112,7 +112,7 @@ Para instalar o SDK e o pacote de execução associado via ferramenta da linha d
 ### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
 
 1. Abra um terminal.
-2. Faça o download e instale Pacotes Adicionais para Enterprise Linux (EPEL).
+2. Faça o download e instale EPEL (Pacotes adicionais para Enterprise Linux).
 
     ```bash
     wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -124,7 +124,7 @@ Para instalar o SDK e o pacote de execução associado via ferramenta da linha d
     sudo wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
     ```
 
-4. Importe a chave de assinatura do pacote efficios para o chaveiro GPG local.
+4. Importe a chave de assinatura do pacote EfficiOS para o chaveiro GPG local.
 
     ```bash
     sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
@@ -137,13 +137,13 @@ Para instalar o SDK e o pacote de execução associado via ferramenta da linha d
     sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
     ```
 
-6. Instale o sdk do dotnet.
+6. Instale o SDK do .NET.
 
     ```bash
     yum install rh-dotnet20 -y
     ```
 
-## <a name="install-and-set-up-the-service-fabric-sdk-for-local-cluster-setup"></a>Instalar e configurar o SDK do Service Fabric para a configuração do cluster local
+## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster"></a>Instalar e configurar o SDK do Service Fabric para um cluster local
 
 Após a atualização das fontes, você poderá instalar o SDK. Instale o pacote do SDK do Service Fabric, confirme a instalação e aceite o contrato de licença.
 
@@ -166,7 +166,7 @@ sudo apt-get install servicefabricsdkcommon
 sudo yum install servicefabricsdkcommon
 ```
 
-O tempo de execução do Service Fabric que vem com a instalação anterior inclui os pacotes na tabela a seguir. 
+O tempo de execução do Service Fabric que vem com a instalação anterior do SDK inclui os pacotes da tabela a seguir. 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
@@ -174,85 +174,91 @@ Ubuntu | 2.0.0 | OpenJDK 1.8 | Implícito do npm | mais recente |
 RHEL | - | OpenJDK 1.8 | Implícito do npm | mais recente |
 
 ## <a name="set-up-a-local-cluster"></a>Configurar um cluster local
-  Quando a instalação for bem-sucedida, você poderá iniciar um cluster local.
+Inicie um cluster local após a conclusão da instalação.
 
-  1. Execute o script de configuração do cluster.
+1. Execute o script de configuração do cluster.
 
-      ```bash
-      sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
-      ```
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
-  2. Abra um navegador da web e vá para o [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). Se o cluster tiver sido iniciado, você deverá ver o painel do Service Fabric Explorer. A configuração completa do cluster pode demorar alguns minutos. Se o seu navegador não conseguir abrir a URL, ou se o Service Fabric Explorer não mostrar o sistema como pronto, aguarde alguns minutos e tente novamente.
+2. Abra um navegador da web e vá para o [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). Ao iniciar o cluster, você vê o painel do Service Fabric Explorer. A configuração completa do cluster pode demorar alguns minutos. Se o seu navegador não conseguir abrir a URL, ou se o Service Fabric Explorer não mostrar que o sistema está pronto, aguarde alguns minutos e tente novamente.
 
-      ![Service Fabric Explorer no Linux][sfx-linux]
+    ![Service Fabric Explorer no Linux][sfx-linux]
 
-  Neste ponto, você é capaz de implantar os pacotes do aplicativo Service Fabric predefinidos ou novos com base nos contêineres ou executáveis do convidado. Para compilar novos serviços usando os SDKs do Java ou .NET Core, siga as etapas de configuração opcionais fornecidas nas seções posteriores.
-
-
-  > [!NOTE]
-  > Não há suporte para os clusters autônomos no Linux.
-  >
+    Agora você pode implantar os pacotes do aplicativo Service Fabric predefinidos ou novos com base nos contêineres ou executáveis do convidado. Para compilar novos serviços usando os SDKs do Java ou .NET Core, siga as etapas de configuração opcionais fornecidas nas próximas seções.
 
 
->   [!TIP]
-    Se você tiver um disco SSD disponível, é recomendável passar um caminho de pasta SSD usando `--clusterdataroot` com devclustersetup.sh para obter um desempenho melhor.
+> [!NOTE]
+> Não há suporte para os clusters autônomos no Linux.
+
+
+> [!TIP]
+> Se você tiver um disco SSD disponível, é recomendável passar um caminho de pasta SSD usando `--clusterdataroot` com devclustersetup.sh para obter um desempenho melhor.
 
 ## <a name="set-up-the-service-fabric-cli"></a>Configurar a CLI do Service Fabric
 
-A [CLI do Service Fabric](service-fabric-cli.md) tem comandos para interagir com as entidades do Service Fabric, inclusive clusters e aplicativos.
-Siga as instruções em [CLI do Service Fabric](service-fabric-cli.md) para instalar a CLI.
+A [CLI do Service Fabric](service-fabric-cli.md) tem comandos para interagir com as entidades do Service Fabric, inclusive clusters e aplicativos. Para instalar a CLI, siga as instruções em [CLI do Service Fabric](service-fabric-cli.md).
 
 
 ## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>Configurar os geradores do Yeoman para os contêineres e executáveis do convidado
 O Service Fabric fornece ferramentas de scaffolding que ajudam a criar aplicativos do Service Fabric em um terminal usando geradores de modelos Yeoman. Siga estas etapas para configurar os geradores de modelo do Yeoman do Service Fabric:
 
-1. Instalar o nodejs e o NPM em seu computador
+1. Instale o Node.js e o npm em seu computador.
 
-Ubuntu
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+    * Ubuntu
+        ```bash
+        sudo apt-get install npm
+        sudo apt install nodejs-legacy
+        ```
 
-Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
-  ```bash
-  sudo yum install nodejs
-  sudo yum install npm
-  ```
-2. Instalar o gerador de modelos [Yeoman](http://yeoman.io/) em seu computador a partir do NPM
+    * Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
+        ```bash
+        sudo yum install nodejs
+        sudo yum install npm
+        ```
+2. Instale o gerador de modelos [Yeoman](http://yeoman.io/) do npm em seu computador.
 
-  ```bash
-  sudo npm install -g yo
-  ```
-3. Instalar o gerador de contêineres Yeo do Service Fabric e o gerador de executáveis do convidado a partir do NPM
+    ```bash
+    sudo npm install -g yo
+    ```
+3. Instalar o gerador de contêineres Yeo do Service Fabric e o gerador de executáveis do convidado a partir do npm.
 
-  ```bash
-  sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
-  sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
-  ```
+    ```bash
+    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    ```
 
-Depois de instalar os geradores, você deverá conseguir criar os serviços do contêiner ou do executável do convidado executando `yo azuresfguest` ou `yo azuresfcontainer` respectivamente.
+Após a instalação dos geradores, crie os serviços do contêiner ou do executável do convidado executando `yo azuresfguest` ou `yo azuresfcontainer` respectivamente.
 
 ## <a name="set-up-net-core-20-development"></a>Configurar o desenvolvimento do .NET Core 2.0
 
-Instale o [SDK do .NET Core 2.0 para Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) para iniciar a [criação de aplicativos do Service Fabric em C#](service-fabric-create-your-first-linux-application-with-csharp.md). Os pacotes de aplicativos do .NET Core 2.0 Service Fabric estão hospedados em NuGet.org, atualmente em versão prévia.
+Instale o [SDK do .NET Core 2.0 para Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) para iniciar a [criação de aplicativos do Service Fabric em C#](service-fabric-create-your-first-linux-application-with-csharp.md). Os pacotes hospedados do NuGet.org para aplicativos do .NET Core 2.0 Service Fabric estão em versão prévia atualmente.
 
 ## <a name="set-up-java-development"></a>Configurar o desenvolvimento de Java
 
 Para criar serviços do Service Fabric usando o Java, instale o JDK 1.8 e Gradle para executar tarefas de compilação. O trecho a seguir instala o Open JDK 1.8 junto com o Gradle. As bibliotecas Java do Service Fabric são extraídas do Maven.
 
 
-Ubuntu 
- ```bash
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-  ```
+* Ubuntu
 
-Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
+    ```bash
+    sudo apt-get install openjdk-8-jdk-headless
+    sudo apt-get install gradle
+    ```
+
+* Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
+
   ```bash
   sudo yum install java-1.8.0-openjdk-devel
   curl -s https://get.sdkman.io | bash
   sdk install gradle
+  ```
+
+Você também precisa instalar o gerador de Yeo do Service Fabric para executáveis do Java. Verifique se você tem o [Yeoman instalado](#set-up-yeoman-generators-for-containers-and-guest-executables), depois execute o seguinte comando:
+
+  ```bash
+  sudo npm install -g generator-azuresfjava
   ```
  
 ## <a name="install-the-eclipse-plug-in-optional"></a>Instalar o plug-in do Eclipse (opcional)
@@ -260,7 +266,7 @@ Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
 Você pode instalar o plug-in Eclipse do Service Fabric de dentro do IDE do Eclipse para Desenvolvedores Java ou Java EE para Desenvolvedores. Você pode usar o Eclipse para criar aplicativos executáveis de convidado do Service Fabric e aplicativos de contêiner além dos aplicativos Java do Service Fabric.
 
 > [!IMPORTANT]
-> O plug-in do Service Fabric requer o Eclipse Neon ou uma versão posterior. Consulte as instruções após essa observação para saber como verificar qual versão do Eclipse você possui. Se você tiver uma versão anterior do Eclipse instalada, pode baixar as versões mais recentes no [site do Eclipse](https://www.eclipse.org). Não é recomendável instalar por cima de (substituir) uma instalação existente do Eclipse. Você pode removê-la antes de executar o instalador ou instalar a versão mais recente em um diretório diferente. 
+> O plug-in do Service Fabric requer o Eclipse Neon ou uma versão posterior. Consulte as instruções após essa observação para saber como verificar qual versão do Eclipse você possui. Se você tiver uma versão anterior do Eclipse instalada, pode baixar as versões mais recentes no [site do Eclipse](https://www.eclipse.org). Não é recomendável instalar por cima de (substituir) uma instalação existente do Eclipse. Remova-a antes de executar o instalador ou instale a versão mais recente em um diretório diferente.
 > 
 > No Ubuntu, é recomendável instalar diretamente a partir do site do Eclipse em vez de usar um instalador de pacote (`apt` ou `apt-get`). Isso garante que você obtenha a versão mais atual do Eclipse. Você pode instalar o IDE do Eclipse para Desenvolvedores Java ou para Java EE para Desenvolvedores.
 
@@ -268,53 +274,53 @@ Você pode instalar o plug-in Eclipse do Service Fabric de dentro do IDE do Ecli
 
 2. Para instalar o plug-in Service Fabric, selecione**Ajuda** > **Instalar Novo Software**.
 
-3. Na caixa **Trabalhar com**, digite **http://dl.microsoft.com/eclipse**.
+3. Na caixa **Trabalhar com**, insira **http://dl.microsoft.com/eclipse**.
 
-4. Clique em **Adicionar**.
+4. Selecione **Adicionar**.
 
-    ![A página Software Disponível][sf-eclipse-plugin]
+    ![Página do software disponível][sf-eclipse-plugin]
 
-5. Selecione o plug-in **ServiceFabric** e clique em **Avançar**.
+5. Selecione o plug-in **ServiceFabric** e selecione **Avançar**.
 
-6. Conclua as etapas de instalação e aceite o contrato de licença do usuário final.
+6. Execute as etapas de instalação. Depois aceite os termos de licença do usuário final.
 
-Se você já tiver o plug-in Service Fabric instalado, verifique se tem a versão mais recente. Você pode verificar selecionando **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação** e pesquisando o Service Fabric na lista de plug-ins instalados. Se uma versão mais recente estiver disponível, selecione **Atualizar**.
+Se você já tiver o plug-in Service Fabric instalado, verifique se tem a versão mais recente. Faça a verificação selecionando **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**. Em seguida, procure o Service Fabric na lista de plug-ins instalados. Selecione **Atualizar** se houver uma versão mais recente disponível.
 
 Para obter mais informações, consulte [Plug-in Service Fabric para o desenvolvimento de aplicativos Java do Eclipse](service-fabric-get-started-eclipse.md).
 
 ## <a name="update-the-sdk-and-runtime"></a>Atualizar SDK e execução
 
-Para atualizar para a versão mais recente do SDK e tempo de execução, execute os seguintes comandos :
+Para atualizar para a versão mais recente do SDK e tempo de execução, execute os seguintes comandos.
 
 ```bash
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon
 ```
-Para atualizar os binários SDK do Java a partir do Maven, você precisa atualizar os detalhes da versão do binário correspondente no arquivo ``build.gradle`` para apontar para a versão mais recente. Para saber exatamente onde você precisa atualizar a versão, poderá referenciar qualquer arquivo ``build.gradle`` nos exemplos de introdução do Service Fabric [aqui](https://github.com/Azure-Samples/service-fabric-java-getting-started).
+Para atualizar os binários SDK do Java a partir do Maven, você precisa atualizar os detalhes da versão do binário correspondente no arquivo ``build.gradle`` para apontar para a versão mais recente. Para saber exatamente onde você precisa atualizar a versão, consulte qualquer ``build.gradle`` arquivo  nos [exemplos de introdução do Service Fabric](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 > [!NOTE]
-> Atualizar os pacotes pode causar a interrupção do seu cluster de desenvolvimento local. Reinicie o cluster local após uma atualização seguindo as instruções nesta página.
+> Atualizar os pacotes pode causar a interrupção do seu cluster de desenvolvimento local. Reinicie o cluster local após uma atualização seguindo as instruções deste artigo.
 
 ## <a name="remove-the-sdk"></a>Remover o SDK
-Para remover os SDKs do Service Fabric, execute o seguinte:
+Para remover os SDKs do Service Fabric, execute os comandos a seguir.
 
-### <a name="ubuntu"></a>Ubuntu
+* Ubuntu
 
-```bash
-sudo apt-get remove servicefabric servicefabicsdkcommon
-sudo npm uninstall generator-azuresfcontainer
-sudo npm uninstall generator-azuresfguest
-sudo apt-get install -f
-```
+    ```bash
+    sudo apt-get remove servicefabric servicefabicsdkcommon
+    sudo npm uninstall generator-azuresfcontainer
+    sudo npm uninstall generator-azuresfguest
+    sudo apt-get install -f
+    ```
 
 
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
+* Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
 
-```bash
-sudo yum remote servicefabric servicefabicsdkcommon
-sudo npm uninstall generator-azuresfcontainer
-sudo npm uninstall generator-azuresfguest
-```
+    ```bash
+    sudo yum remote servicefabric servicefabicsdkcommon
+    sudo npm uninstall generator-azuresfcontainer
+    sudo npm uninstall generator-azuresfguest
+    ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -323,8 +329,8 @@ sudo npm uninstall generator-azuresfguest
 * [Criar seu primeiro aplicativo do CSharp no Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Preparar seu ambiente de desenvolvimento no OSX](service-fabric-get-started-mac.md)
 * [Preparar um ambiente de desenvolvimento do Linux no Windows](service-fabric-local-linux-cluster-windows.md)
-* [Usar a CLI do Service Fabric para gerenciar seus aplicativos](service-fabric-application-lifecycle-sfctl.md)
-* [Diferenças Windows/Linux do Service Fabric](service-fabric-linux-windows-differences.md)
+* [Gerenciar seus aplicativos usando a CLI do Service Fabric](service-fabric-application-lifecycle-sfctl.md)
+* [Diferenças entre Windows e Linux do Service Fabric](service-fabric-linux-windows-differences.md)
 * [Automatizar patches do sistema operacional no cluster do Linux](service-fabric-patch-orchestration-application-linux.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)
 

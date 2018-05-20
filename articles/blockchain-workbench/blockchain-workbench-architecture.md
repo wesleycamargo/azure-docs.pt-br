@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 79059fbd088d15ca62b39dacba766726119e6048
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d37913caa94dc4cf79aef9c2c12a7aacce7c03ce
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Arquitetura do Azure Blockchain Workbench
 
@@ -83,7 +83,7 @@ O consumidor de armazenamento usa mensagens do Barramento de Serviço e envia os
 
 Se uma mensagem no agente de mensagens de entrada precisa ser gravada no blockchain, ela será processada pelo consumidor DLT. O consumidor DLT é um serviço, que recupera a mensagem que contém metadados para executar uma transação desejada e, em seguida, envia as informações para o *construtor de transação e o assinante*. O *construtor de transação e o assinante* constituirá uma transação blockchain com base em dados e o destino blockchain desejado. Depois de criada, a transação é assinada. Chaves privadas são armazenadas no Azure Key Vault.
 
-Atualmente, o Azure Key Vault não oferece suporte a assinatura de software de transações blockchain no Key Vault. Em vez disso, o Blockchain Workbench recupera a chave privada apropriada do Key Vault e assina a transação fora do Key Vault. Uma vez conectado, a transação é enviada para razões e roteadores de transação.
+ O Blockchain Workbench recupera a chave privada apropriada do Key Vault e assina a transação fora do Key Vault. Uma vez conectado, a transação é enviada para razões e roteadores de transação.
 
 ## <a name="transaction-routers-and-ledgers"></a>Razões e roteadores de transação
 
@@ -118,4 +118,5 @@ O Azure Monitor fornece informações sobre a integridade da rede blockchain.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Implantar o Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Implantar o Azure Blockchain Workbench](blockchain-workbench-deploy.md)

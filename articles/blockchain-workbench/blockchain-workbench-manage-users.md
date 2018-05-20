@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c17a406a0fd6f1172599ac0379c6afc139403148
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 80f20e438b1d923e688aeef9e6b353642bd74c27
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gerenciar usuários no Azure Blockchain Workbench
 
@@ -43,9 +43,9 @@ Visite a documentação [Microsoft Azure AD](../active-directory/add-users-azure
 
 ## <a name="manage-blockchain-workbench-administrators"></a>Gerenciar administradores Blockchain Workbench
 
-Depois que os usuários foram adicionados ao diretório, a próxima etapa é escolher quais usuários são administradores de Blockchain Workbench. Os usuários no grupo **Administradores** estão associados à **função de aplicativo do Administrador** no Blockchain Workbench. Os administradores podem adicionar ou remover usuários, atribuir usuários a cenários específicos e criar novos aplicativos.
+Depois que os usuários foram adicionados ao diretório, a próxima etapa é escolher quais usuários são administradores de Blockchain Workbench. Os usuários no grupo **Administrador** estão associados à **função de aplicativo do Administrador** no Blockchain Workbench. Os administradores podem adicionar ou remover usuários, atribuir usuários a cenários específicos e criar novos aplicativos.
 
-Para adicionar usuários ao grupo **Administradores** no diretório do Microsoft Azure Active Directory:
+Para adicionar usuários ao grupo **Administrador** no diretório do Microsoft Azure Active Directory:
 
 1.  Entre no [Portal do Azure](https://portal.azure.com).
 2.  Verifique se você está no locatário do Azure Active Directory associado ao Blockchain Workbench selecionando sua conta no canto superior direito.
@@ -68,20 +68,18 @@ Para adicionar usuários ao grupo **Administradores** no diretório do Microsoft
 
 Use o aplicativo Blockchain Workbench para gerenciar usuários e organizações que fazem parte de seu consórcio. Você pode adicionar ou remover usuários para aplicativos e funções.
 
-[Abra o Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) no seu navegador e entre como administrador.
+1. [Abra o Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) no seu navegador e entre como administrador.
 
-![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
+    ![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
 
-### <a name="managing-members-in-applications"></a>Gerenciar os membros nos aplicativos
+    Os membros são adicionados a cada aplicativo. Os membros podem ter uma ou mais funções de aplicativo de contratos para iniciar ou executar ações.
 
-Os membros são adicionados a cada aplicativo. Os membros podem ter uma ou mais funções de aplicativo de contratos para iniciar ou executar ações.
+2. Para gerenciar membros de um aplicativo, selecione um bloco de aplicativo no painel **Aplicativos**.
 
-Para adicionar membros a um aplicativo, selecione um bloco de aplicativo no painel **Aplicativos**.
+    O número de membros associados ao aplicativo selecionado é refletido no bloco de membros.
 
-![Selecionar aplicativo](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
+    ![Selecionar aplicativo](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
 
-> [!NOTE]
-> O número de membros associados ao aplicativo selecionado é refletido no bloco de membros.
 
 #### <a name="add-member-to-application"></a>Adicionar membro ao aplicativo
 
@@ -116,4 +114,7 @@ Para adicionar membros a um aplicativo, selecione um bloco de aplicativo no pain
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar um aplicativo blockchain no Azure Blockchain Workbench](blockchain-workbench-create-app.md)
+Neste artigo de procedimentos, você aprendeu como gerenciar os usuários do Azure Blockchain Workbench. Para saber como usar o aplicativo blockchain, continue no próximo artigo de instruções.
+
+> [!div class="nextstepaction"]
+> [Criar um aplicativo blockchain no Azure Blockchain Workbench](blockchain-workbench-create-app.md)

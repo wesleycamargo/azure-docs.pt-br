@@ -10,17 +10,17 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ffc8be29cecac05fda440eaf72b51ffc6f024424
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Criar um aplicativo blockchain no Azure Blockchain Workbench
 
 Você pode usar o Azure Blockchain Workbench para criar aplicativos blockchain que representam os fluxos de trabalho de várias partes, definidos pela configuração e código de contrato inteligente.
 
-Você aprenderá a:
+Você aprenderá como:
 
 > [!div class="checklist"]
 > * Configurar um aplicativo blockchain
@@ -35,6 +35,8 @@ Você aprenderá a:
 * Uma conta de administrador Blockchain Workbench. Para obter mais informações, consulte adicionar [administradores Blockchain Workbench no Azure Blockchain Workbench ](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 
 Vamos construir um aplicativo de solicitação-resposta básica em que um solicitante envia que uma solicitação e o respondente enviam uma resposta à solicitação. Por exemplo, pode ser uma solicitação, "Olá, como vai?" e a resposta possível, "Estou ótimo!". A solicitação e a resposta são registradas no blockchain subjacente. 
+
+Siga as etapas para criar os arquivos de aplicativo, ou você pode [fazer o download do modelo do GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
 
 ## <a name="configuration-file"></a>Arquivo de configuração
 
@@ -398,4 +400,7 @@ Para obter mais informações sobre como gerenciar usuários Blockchain Workbenc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou um aplicativo, tente [usar um aplicativo de blockchain](blockchain-workbench-use.md).
+Neste artigo de procedimentos, você criou um aplicativo básico de solicitação e resposta. Para saber como usar o aplicativo, continue para o próximo artigo de instruções.
+
+> [!div class="nextstepaction"]
+> [Usando um aplicativo blockchain](blockchain-workbench-use.md)

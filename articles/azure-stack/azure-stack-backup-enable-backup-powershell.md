@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 5/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4faa6930c37f9d491a3efa4b34519dbb13761a9d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Habilitar o Backup para a pilha do Azure com o PowerShell
 
@@ -64,7 +64,7 @@ Na sessão do PowerShell, edite o seguinte script PowerShell adicionando as vari
 
 | Variável        | DESCRIÇÃO   |
 |---              |---                                        |
-| $username       | Tipo de **Username** usando o domínio e o nome de usuário para o local da unidade compartilhada. Por exemplo, `Contoso\administrator`. |
+| $username       | Tipo de **Username** usando o domínio e o nome de usuário para o local da unidade compartilhada com permissões suficientes de acesso para ler e gravar arquivos. Por exemplo, `Contoso\backupshareuser`. |
 | $password       | Tipo de **senha** para o usuário. |
 | $sharepath      | Digite o caminho para o **local de armazenamento de Backup**. Você deve usar uma cadeia de caracteres de convenção de nomenclatura Universal (UNC) para o caminho para um compartilhamento de arquivo hospedado em um dispositivo separado. Uma cadeia de caracteres UNC Especifica o local de recursos, como arquivos compartilhados ou dispositivos. Para garantir a disponibilidade dos dados de backup, o dispositivo deve estar em um local separado. |
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c219820fd5b8d5502bae394142dfbe80db1f59
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ef80c99225a9045686ba8de3fe8fd7cf7070b5cd
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.lasthandoff: 05/07/2018
 
 <tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação](http://azure.github.io/azure-documentdb-node/)</td></tr>
 
-<tr><td>**Contribuir para o SDK**</td><td>[Github](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
 
 <tr><td>**Exemplos**</td><td>[Exemplos de código do Node.js](sql-api-nodejs-samples.md)</td></tr>
 
@@ -61,6 +61,16 @@ ms.lasthandoff: 05/07/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="1.14.4"/>1.14.4</a>
+* documentação do npm corrigida.
+
+### <a name="1.14.3"/>1.14.3</a>
+* Adicionado suporte para repetições padrão em problemas de conexão.
+* Adicionado suporte para o feed de alteração de coleção de leitura.
+* Bug de consistência de sessão fixa que intermitentemente causou “sessão de leitura não disponível”
+* Adicionado suporte para métricas de consulta.
+* Modificado o número máximo de conexões do Agente de http.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Documentação atualizada para fazer referência ao Azure Cosmos DB em vez do Azure DocumentDB.
@@ -193,6 +203,8 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado é reje
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |03 de maio de 2018 |--- |
+| [1.14.3](#1.14.3) |03 de maio de 2018 |--- |
 | [1.14.2](#1.14.2) |21 de dezembro de 2017 |--- |
 | [1.14.1](#1.14.1) |10 de novembro, 2017 |--- |
 | [1.14.0](#1.14.0) |9 de novembro de 2017 |--- |

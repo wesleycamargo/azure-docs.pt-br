@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST
 > [!div class="op_single_selector"]
@@ -87,11 +87,11 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
     ```
 4. À esquerda da janela do **Postman**, clique em **1. Obtenha o token de autenticação do AAD** -> **Obter Token do Azure AD para Entidade de serviço**.
 
-    A parte da URL é preenchida com a variável de ambiente **AzureADSTSEndpoint** (o valor que você configurou anteriormente neste tutorial).
-    
-5. Pressione **Enviar**.
+    A parte da URL é preenchida com o ambiente **AzureADSTSEndpoint** variável (anteriormente no tutorial, você definiu os valores de [variáveis de ambiente](#configure-the-environment) que oferecem suporte a [coleção](#configure-the-collection)).
 
     ![Carregar um arquivo](./media/media-services-rest-upload-files/postment-get-token.png)
+
+5. Pressione **Enviar**.
 
     Você pode ver a resposta que contém "access_token". O script de "teste" usa esse valor e define a variável de ambiente do **AccessToken** (como descrito acima). Se você examinar suas variáveis de ambiente, você verá que essa variável agora contém o valor do token de acesso (token de portador) que é usado no restante das operações. 
 

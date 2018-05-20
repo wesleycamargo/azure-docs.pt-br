@@ -4,7 +4,7 @@ description: Documentação de referência para recursos do mecanismo de regras 
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure
 Este artigo lista descrições detalhadas dos recursos disponíveis para o [Mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -392,7 +392,7 @@ Configure esse recurso definindo as duas seguintes opções:
 Opção|DESCRIÇÃO
 --|--
 Caminho Original| Defina o caminho relativo para os tipos de solicitações cuja chave de cache é regravada. Um caminho relativo pode ser definido selecionando um caminho de origem de base e, em seguida, definindo uma expressão regular padrão.
-Novo Caminho|Defina o caminho relativo para o novo cache-key. Um caminho relativo pode ser definido selecionando um caminho de origem de base e, em seguida, definindo uma expressão regular padrão. Esse caminho relativo pode ser construído dinamicamente com o uso de variáveis HTTP
+Novo Caminho|Defina o caminho relativo para o novo cache-key. Um caminho relativo pode ser definido selecionando um caminho de origem de base e, em seguida, definindo uma expressão regular padrão. Esse caminho relativo pode ser construído dinamicamente com o uso de [variáveis HTTP](cdn-http-variables.md).
 **Comportamento padrão:** o cache-key da solicitação é determinado pelo URI de solicitação.
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
@@ -515,7 +515,7 @@ Informações de chave:
 
 ---
 ### <a name="debug-cache-response-headers"></a>Depurar Cabeçalhos de Resposta do Cache
-**Finalidade:** Determina se uma resposta pode incluir o cabeçalho de resposta X-EC-Debug, que fornece informações sobre a política de cache para o recurso solicitado.
+**Finalidade:** Determina se uma resposta pode incluir o cabeçalho de resposta [X-EC-Debug](cdn-http-debug-headers.md), que fornece informações sobre a política de cache para o recurso solicitado.
 
 Os cabeçalhos de resposta de cache de depuração serão incluídos na resposta quando ambos os seguintes itens forem verdadeiros:
 
@@ -884,9 +884,9 @@ Uma das seguintes ações pode ser realizada em um cabeçalho de solicitação:
 
 Opção|DESCRIÇÃO|Exemplo
 -|-|-
-Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de solicitação existente.|**Valor de cabeçalho de solicitação (cliente):** Valor1 <br/> **Valor de cabeçalho de solicitação (Mecanismo de Regras de HTTP):** Valor2 <br/>**Novo valor de cabeçalho de solicitação:** Value1Value2
-Substituir|O valor de cabeçalho de solicitação será definido com o valor especificado.|**Valor de cabeçalho de solicitação (cliente):** Valor1 <br/>**Valor de cabeçalho de solicitação (Mecanismo de Regras de HTTP):** Valor2 <br/>**Novo valor de cabeçalho de solicitação:** Value2 <br/>
-Excluir|Exclui o cabeçalho de solicitação especificado.|**Valor de cabeçalho de solicitação (cliente):** Valor1 <br/> **Modificar a configuração de Cabeçalho de Solicitação de Cliente:** exclua o cabeçalho de solicitação em questão. <br/>**Resultado:** o cabeçalho de solicitação especificado não será encaminhado ao servidor de origem.
+Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de solicitação existente.|**Valor de cabeçalho (cliente) da solicitação:**<br/>Value1<br/>**Valor de cabeçalho (mecanismo de regras) da solicitação:**<br/>Value2 <br/>**Valor do cabeçalho da nova solicitação:** <br/>Value1Value2
+Substituir|O valor de cabeçalho de solicitação será definido com o valor especificado.|**Valor de cabeçalho (cliente) da solicitação:**<br/>Value1<br/>**Valor de cabeçalho (mecanismo de regras) da solicitação:**<br/>Value2<br/>**Valor do cabeçalho da nova solicitação:**<br/> Value2 <br/>
+Excluir|Exclui o cabeçalho de solicitação especificado.|**Valor de cabeçalho (cliente) da solicitação:**<br/>Value1<br/>**Modificar a configuração de cabeçalho de solicitação do cliente:**<br/>Exclua o cabeçalho da solicitação em questão.<br/>**Resultado:**<br/>O cabeçalho de solicitação especificado não será encaminhado ao servidor de origem.
 
 Informações de chave:
 
@@ -922,9 +922,9 @@ Uma das seguintes ações pode ser realizada em um cabeçalho de resposta:
 
 Opção|DESCRIÇÃO|Exemplo
 -|-|-
-Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de resposta existente.|**Valor de cabeçalho de resposta (Cliente):** Valor1 <br/> **Valor de cabeçalho de resposta (Mecanismo de Regras de HTTP):** Valor2 <br/>**Novo valor de cabeçalho de resposta:** Value1Value2
-Substituir|O valor de cabeçalho de resposta será definido com o valor especificado.|**Valor de cabeçalho de resposta (Cliente):** Valor1 <br/>**Valor de cabeçalho de resposta (Mecanismo de Regras de HTTP):** Valor2 <br/>**Novo valor de cabeçalho de resposta:** Value2 <br/>
-Excluir|Exclui o cabeçalho de resposta especificado.|**Valor de cabeçalho de resposta (Cliente):** Value1 <br/> **Modificar a configuração de Cabeçalho de Resposta do Cliente:** exclua o cabeçalho de resposta em questão. <br/>**Resultado:** o cabeçalho de resposta especificado não será encaminhado ao solicitante.
+Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de resposta existente.|**Valor de cabeçalho de resposta (cliente):**<br />Value1<br/>**Valor de cabeçalho de resposta (mecanismo de regras):**<br/>Value2<br/>**Valor do cabeçalho da nova resposta:**<br/>Value1Value2
+Substituir|O valor de cabeçalho de resposta será definido com o valor especificado.|**Valor de cabeçalho de resposta (cliente):**<br/>Value1<br/>**Valor de cabeçalho de resposta (mecanismo de regras):**<br/>Value2 <br/>**Valor do cabeçalho da nova resposta:**<br/>Value2 <br/>
+Excluir|Exclui o cabeçalho de resposta especificado.|**Valor de cabeçalho de resposta (cliente):**<br/>Value1<br/>**Modificar a configuração de cabeçalho da resposta do cliente:**<br/>Exclua o cabeçalho da resposta em questão.<br/>**Resultado:**<br/>O cabeçalho de resposta especificado não será encaminhado ao solicitante.
 
 Informações de chave:
 
@@ -990,7 +990,7 @@ Informações de chave:
 
 ---
 ### <a name="proxy-special-headers"></a>Cabeçalhos Especiais de Proxy
-**Finalidade:** define o conjunto de cabeçalhos de solicitação HTTP específicos de Verizon que será encaminhado de um POP para um servidor de origem.
+**Finalidade:** define o conjunto de cabeçalhos de solicitação [HTTP específicos de Verizon](cdn-verizon-http-headers.md) que será encaminhado de um POP para um servidor de origem.
 
 Informações de chave:
 
@@ -1234,31 +1234,31 @@ A configuração deste recurso requer a definição das seguintes opções:
 Opção|DESCRIÇÃO
 -|-
 Código|Selecione o código de resposta que será retornado ao solicitante.
-Origem e Padrão| Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser redirecionadas. Serão redirecionadas somente as solicitações cuja URL atender aos seguintes critérios: <br/> <br/> **Origem (ou ponto de acesso de conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Esta é a seção  _/XXXX/_ e o nome do ponto de extremidade. <br/> **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> – Certifique-se de que os critérios de URI da solicitação (ou seja, Origem e padrão) definidos anteriormente não entram em conflito com as condições de correspondência definidas para esse recurso. <br/> – Especificar um padrão; se você usar um valor em branco como o padrão, todas as cadeias de caracteres serão correspondidas.
-Destino| Defina a URL para a qual as solicitações acima serão redirecionadas. <br/> Construa dinamicamente esta URL usando: <br/> - Um padrão de expressão regular <br/>- Variáveis HTTP <br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor para a ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor. <br/> 
+Origem e Padrão| Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser redirecionadas. Serão redirecionadas somente as solicitações cuja URL atender aos seguintes critérios: <br/> <br/> **Origem (ou ponto de acesso de conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Esta é a seção  _/XXXX/_ e o nome do ponto de extremidade. <br/><br/> **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> – Certifique-se de que os critérios de URI da solicitação (ou seja, Origem e padrão) definidos anteriormente não entram em conflito com as condições de correspondência definidas para esse recurso. <br/> – Especificar um padrão; se você usar um valor em branco como o padrão, todas as cadeias de caracteres serão correspondidas.
+Destino| Defina a URL para a qual as solicitações acima serão redirecionadas. <br/><br/> Construa dinamicamente esta URL usando: <br/> - Um padrão de expressão regular <br/>- [Variáveis HTTP](cdn-http-variables.md) <br/><br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor para a ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor. <br/> 
 É altamente recomendável usar uma URL absoluta. O uso de uma URL relativa pode redirecionar URLs da CDN para um caminho inválido.
 
 **Cenário de exemplo**
 
-Este exemplo mostra como redirecionar uma URL de CNAME de borda que aponta para esta URL base da CDN: http://marketing.azureedge.net/brochures
+Este exemplo mostra como redirecionar uma URL de CNAME de borda que aponta para esta URL base da CDN: http:\//marketing.azureedge.net/brochures
 
-As solicitações serão redirecionadas para esta URL CNAME de borda base: http://cdn.mydomain.com/resources
+As solicitações serão redirecionadas para esta URL CNAME de borda base: http:\//cdn.mydomain.com/resources
 
-Esse redirecionamento de URL pode ser obtido por meio da seguinte configuração:![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Esse redirecionamento de URL pode ser obtido por meio da seguinte configuração:![Redirecionamento de URL](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Pontos principais:**
 
 - O recurso de Redirecionamento de URL define as URLs de solicitação que serão redirecionadas. Como resultado, as condições de correspondência adicionais não são necessárias. Embora a condição de correspondência tenha sido definida como "Sempre", somente as solicitações que apontarem para a pasta "folhetos" na origem do cliente de "marketing" serão redirecionadas. 
 - Todas as solicitações correspondentes serão redirecionadas para a URL CNAME de borda definida na opção Destination. 
     - Cenário de exemplo 1: 
-        - Solicitação de exemplo (URL da CDN): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - URL de solicitação (depois do redirecionamento): http://cdn.mydomain.com/resources/widgets.pdf  
+        - Solicitação de exemplo (URL da CDN): http:\//marketing.azureedge.net/brochures/widgets.pdf 
+        - URL da solicitação (depois do redirecionamento): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Cenário de exemplo 2: 
-        - Exemplo de solicitação (URL de CNAME de borda): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - URL da solicitação (depois do redirecionamento): http://cdn.mydomain.com/resources/widgets.pdf  Cenário de exemplo
+        - Exemplo de solicitação (URL de CNAME de borda): http:\//marketing.mydomain.com/brochures/widgets.pdf 
+        - URL da solicitação (depois do redirecionamento): http:\//cdn.mydomain.com/resources/widgets.pdf Cenário de exemplo
     - Cenário de exemplo 3: 
-        - Exemplo de solicitação (URL de CNAME de borda): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - URL de solicitação (depois do redirecionamento): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - Solicitação de Exemplo (URL de CNAME de borda): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+        - URL da solicitação (depois do redirecionamento): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - O Esquema de Solicitação (%{scheme}) variável é aproveitado na opção de Destino, o que garante que o esquema da solicitação permanece inalterado após o redirecionamento.
 - Os segmentos da URL que foram capturados da solicitação são acrescentados à nova URL por meio de "$1".
 
@@ -1276,23 +1276,23 @@ Informações de chave:
 
 Opção|DESCRIÇÃO
 -|-
- Origem e Padrão | Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser reconfiguradas. Serão regravadas somente as solicitações cuja URL atender aos seguintes critérios: <br/>     - **Origem (ou ponto de acesso de conteúdo):** selecione um caminho relativo que identifique um servidor de origem. Esta é a seção  _/XXXX/_ e o nome do ponto de extremidade. <br/> - **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> Certifique-se de que os critérios de URI da solicitação (ou seja, Origem e padrão) definidos anteriormente não entram em conflito com as condições de correspondência definidas para esse recurso. Especificar um padrão; se você usar um valor em branco como o padrão, todas as cadeias de caracteres serão correspondidas. 
- Destino  |Defina a URL relativa na qual as solicitações acima serão regravadas: <br/>    1. Selecionando um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. Definindo um caminho relativo usando: <br/>        - Um padrão de expressão regular <br/>        - Variáveis HTTP <br/> <br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor para a ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor. 
+ Origem e Padrão | Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser reconfiguradas. Serão regravadas somente as solicitações cuja URL atender aos seguintes critérios: <br/><br/>  - **Origem (ou ponto de acesso de conteúdo):** selecione um caminho relativo que identifique um servidor de origem. Esta é a seção  _/XXXX/_ e o nome do ponto de extremidade. <br/><br/> - **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> Certifique-se de que os critérios de URI da solicitação (ou seja, Origem e padrão) definidos anteriormente não entram em conflito com as condições de correspondência definidas para esse recurso. Especificar um padrão; se você usar um valor em branco como o padrão, todas as cadeias de caracteres serão correspondidas. 
+ Destino  |Defina a URL relativa na qual as solicitações acima serão regravadas: <br/>    1. Selecionando um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. Definindo um caminho relativo usando: <br/>        - Um padrão de expressão regular <br/>        - [Variáveis HTTP](cdn-http-variables.md) <br/> <br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor para a ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor. 
  Esse recurso permite que os POPs regravem a URL sem executar um redirecionamento tradicional. Ou seja, o solicitante receberá o mesmo código de resposta que obteria se a URL regravada tivesse sido solicitada.
 
 **Cenário de exemplo 1**
 
-Este exemplo mostra como redirecionar uma URL de CNAME de borda que aponta para esta URL base da CDN: http://marketing.azureedge.net/brochures/
+Este exemplo mostra como redirecionar uma URL de CNAME de borda que aponta para esta URL base da CDN: http:\//marketing.azureedge.net/brochures/
 
-As solicitações serão redirecionadas para esta URL CNAME de borda base: http://MyOrigin.azureedge.net/resources/
+As solicitações serão redirecionadas para esta URL CNAME de borda base: http:\//MyOrigin.azureedge.net/resources/
 
-Esse redirecionamento de URL pode ser obtido por meio da seguinte configuração:![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Esse redirecionamento de URL pode ser obtido por meio da seguinte configuração:![Redirecionamento de URL](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Cenário de exemplo 2**
 
 Este exemplo mostra como redirecionar uma borda CNAME URL de MAIÚSCULAS para minúsculas usando expressões regulares.
 
-Esse redirecionamento de URL pode ser obtido por meio da seguinte configuração:![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Esse redirecionamento de URL pode ser obtido por meio da seguinte configuração:![Redirecionamento de URL](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Pontos principais:**

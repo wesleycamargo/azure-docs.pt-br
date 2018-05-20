@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/8/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84e9e3b486e3c825e98530a30850e9f21ef41b91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 28c8ec09ad02e5c1175312f2735cd6f900f88cab
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.lasthandoff: 05/07/2018
 
 <tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação do SDK do Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
 
-<tr><td>**Contribuir para o SDK**</td><td>[Github](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 
 <tr><td>**Introdução**</td><td>[Introdução ao SDK do Python](sql-api-python-application.md)</td></tr>
 
@@ -52,6 +52,9 @@ ms.lasthandoff: 05/07/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
+* Adicionado suporte para repetições padrão em problemas de conexão.
+
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
 * Documentação atualizada para fazer referência ao Azure Cosmos DB em vez do Azure DocumentDB.
 
@@ -138,6 +141,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado é reje
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |08 de maio de 2018 |--- |
 | [2.3.1](#2.3.1) |21 de dezembro de 2017 |--- |
 | [2.3.0](#2.3.0) |10 de novembro, 2017 |--- |
 | [2.2.1](#2.2.1) |29 de setembro de 2017 |--- |

@@ -1,25 +1,25 @@
 ---
 title: Telemetria de pilha do Azure | Microsoft Docs
-description: "Descreve como definir as configurações de telemetria de pilha do Azure usando o PowerShell."
+description: Descreve como definir as configurações de telemetria de pilha do Azure usando o PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: d48b6a02666348f2ef7c1b2a73982d219c79bf54
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bfd16901c5ce036719a1ed19e9a5b5c6ef52be93
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-stack-telemetry"></a>Telemetria de pilha do Azure
 
@@ -28,7 +28,7 @@ Dados de sistema de pilha do Azure ou telemetria, é carregada automaticamente �
 Como um operador de pilha do Azure, telemetria pode fornecer informações valiosas sobre implantações corporativas e oferece uma voz que ajuda a versões futuras de forma da pilha do Azure.
 
 > [!NOTE]
-> A pilha do Azure também pode ser configurada para informações sobre o uso de encaminhamento para o Azure para cobrança. Isso é necessário para clientes de vários nós do Azure pilha que escolha pago como você-uso cobrança. Relatório de uso é controlado independentemente de telemetria e não é necessário para os clientes de vários nós que escolher o modelo de capacidade ou para usuários do Kit de desenvolvimento de pilha do Azure. Nessas situações, o relatório de uso pode ser desativado [usando o script de registro](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). 
+> A pilha do Azure também pode ser configurada para informações sobre o uso de encaminhamento para o Azure para cobrança. Isso é necessário para clientes de vários nós do Azure pilha que escolha pago como você-uso cobrança. Relatório de uso é controlado independentemente de telemetria e não é necessário para os clientes de vários nós que escolher o modelo de capacidade ou para usuários do Kit de desenvolvimento de pilha do Azure. Nessas situações, o relatório de uso pode ser desativado [usando o script de registro](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
 
 Telemetria de pilha do Azure baseia-se o componente de telemetria e experiência de usuário conectado do Windows Server 2016, que usa o [rastreamento de eventos para Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) tecnologia de registro em log para coletar e armazenar dados e eventos de telemetria de rastreamento. Componentes da pilha do Azure usam a mesma tecnologia de registro em log para publicar eventos e os dados são coletados usando o log de eventos do sistema operacional público e APIs de rastreamento. Provedor de recursos de rede, provedor de recursos de armazenamento, provedor de recursos de monitoramento e provedor de recursos de atualização são exemplos de componentes da pilha do Azure. O componente de experiência do usuário conectado e telemetria criptografa dados usando SSL e usa a fixação de certificado para transmitir dados de telemetria via HTTPS para o serviço de gerenciamento de dados da Microsoft.
 
@@ -36,7 +36,7 @@ Telemetria de pilha do Azure baseia-se o componente de telemetria e experiência
 > Para oferecer suporte ao fluxo de dados de telemetria, a porta 443 (HTTPS) deve estar aberta em sua rede. O componente de experiência do usuário conectado e telemetria conecta-se para o serviço de gerenciamento de dados da Microsoft em https://v10.vortex-win.data.microsoft.com. O componente de experiência do usuário conectado e telemetria também se conecta ao https://settings-win.data.microsoft.com para baixar informações de configuração.
 
 ## <a name="privacy-considerations"></a>Considerações sobre privacidade
-O serviço ETW encaminha os dados de telemetria para armazenamento em nuvem protegida. O princípio de menos privilégios guias acessem dados de telemetria. Somente funcionários da Microsoft com uma necessidade comercial válido têm acesso aos dados de telemetria. A Microsoft não compartilha dados pessoais de nossos clientes com terceiros, exceto a critério do cliente ou para fins limitado descrito no [declaração de privacidade do Azure pilha](http://windows.microsoft.com/windows/preview-privacy-statement). Compartilhamos relatórios comerciais com os OEMs e os parceiros que incluem informações de telemetria anônimos, agregados. Decisões de compartilhamento de dados são feitos por uma equipe interna do Microsoft incluindo participantes do gerenciamento de dados, legal e privacidade.
+O serviço ETW encaminha os dados de telemetria para armazenamento em nuvem protegida. O princípio de menos privilégios guias acessem dados de telemetria. Somente funcionários da Microsoft com uma necessidade comercial válido têm acesso aos dados de telemetria. A Microsoft não compartilha dados pessoais de nossos clientes com terceiros, exceto a critério do cliente ou para fins limitado descrito no [declaração de privacidade do Azure pilha](https://privacy.microsoft.com/PrivacyStatement). Compartilhamos relatórios comerciais com os OEMs e os parceiros que incluem informações de telemetria anônimos, agregados. Decisões de compartilhamento de dados são feitos por uma equipe interna do Microsoft incluindo participantes do gerenciamento de dados, legal e privacidade.
 
 A Microsoft acredita em e minimização de informações de práticas. Buscamos coletar somente as informações de que precisamos e armazenamos apenas enquanto ele é necessário para fornecer um serviço ou para análise. Muitas das informações sobre como o sistema de pilha do Azure e os serviços do Azure estão funcionando é excluída em seis meses. Resumidos ou dados agregados são mantidos por um período mais longo.
 
@@ -50,19 +50,19 @@ Compreendemos que a privacidade e segurança de informações de nossos clientes
 Microsoft não pretende coletar informações confidenciais, como números de cartão de crédito, nomes de usuário e senhas, endereços de email ou outras informações confidenciais da mesma forma. Se, determinamos que informações confidenciais inadvertidamente recebidas, podemos excluí-la.
 
 ## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Exemplos de como a Microsoft usa os dados de telemetria
-Telemetria desempenha um papel importante para nos ajudar a rapidamente identificar e corrigir problemas de confiabilidade crítica nas configurações e implantações de nossos clientes. Ideias sobre os dados de telemetria coletadas nos ajudar a identificar rapidamente problemas de serviços ou configurações de hardware. A capacidade da Microsoft para obter esses dados de clientes e melhorias de unidade para o ecossistema de ajuda a elevar o nível de qualidade de nossas soluções integradas de pilha do Azure. 
+Telemetria desempenha um papel importante para nos ajudar a rapidamente identificar e corrigir problemas de confiabilidade crítica nas configurações e implantações de nossos clientes. Ideias sobre os dados de telemetria coletadas nos ajudar a identificar rapidamente problemas de serviços ou configurações de hardware. A capacidade da Microsoft para obter esses dados de clientes e melhorias de unidade para o ecossistema de ajuda a elevar o nível de qualidade de nossas soluções integradas de pilha do Azure.
 
 Telemetria também ajuda a Microsoft a entender melhor como os clientes implantar componentes, usar os recursos e usar serviços para atingir suas metas de negócios. Obtendo informações de dados ajuda a priorizar investimentos de engenharia em áreas que podem afetar diretamente as experiências de nossos clientes e cargas de trabalho.
 
 Alguns exemplos incluem o uso do cliente de contêineres, armazenamento e as configurações de rede que estão associadas a funções de pilha do Azure. Também podemos usar as ideias para aprimoramentos de unidade e sobre alguns dos nossos gerenciamento e soluções de monitoramento. Isso ajuda os clientes a diagnosticar problemas de qualidade e economizar dinheiro fazendo suporte menos chamadas para Microsoft.
 
 ## <a name="manage-telemetry-collection"></a>Gerenciar a coleção de telemetria
-Não é recomendável que você desative telemetria em sua organização como telemetria oferece dados que orienta a estabilidade e funcionalidade aprimorada de produto. Reconhecemos no entanto, que em alguns cenários isso pode ser necessário. 
+Não é recomendável que você desative telemetria em sua organização como telemetria oferece dados que orienta a estabilidade e funcionalidade aprimorada de produto. Reconhecemos no entanto, que em alguns cenários isso pode ser necessário.
 
 Nesses casos, você pode configurar o nível de telemetria enviado à Microsoft usando a pré-implantação de configurações de registro ou usando o pós-implantação de pontos de extremidade de telemetria.
 
 ### <a name="set-telemetry-level-in-the-windows-registry"></a>Definir o nível de telemetria no registro do Windows
-O Editor de registro do Windows é usado para definir o nível de telemetria manualmente no computador host físico antes de implantar a pilha do Azure. Se já existir uma política de gerenciamento, como a política de grupo, ela substitui a configuração do registro. 
+O Editor de registro do Windows é usado para definir o nível de telemetria manualmente no computador host físico antes de implantar a pilha do Azure. Se já existir uma política de gerenciamento, como a política de grupo, ela substitui a configuração do registro.
 
 Antes de implantar o Azure pilha no host do kit de desenvolvimento, inicialize o CloudBuilder.vhdx e execute o script a seguir em uma janela elevada do PowerShell:
 
@@ -70,7 +70,7 @@ Antes de implantar o Azure pilha no host do kit de desenvolvimento, inicialize o
 ### Get current AllowTelmetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
+### Set & Get updated AllowTelemetry value for ASDK-Host
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name "AllowTelemetry" -Value '0' # Set this value to 0,1,2,or3.  
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
@@ -84,25 +84,25 @@ Os níveis de telemetria são cumulativas e categorizados em quatro níveis (0-3
 **1 (básico)**. Dados de segurança e integridade básica e qualidade de dados. Informações básicas do dispositivo, incluindo: dados de nível de segurança, compatibilidade de aplicativo, dados de uso do aplicativo e dados relacionados à qualidade. Definindo o nível de telemetria a telemetria de pilha do Azure permite básico. Os dados coletados com esse nível incluem:
 
 - **Informações básicas do dispositivo** que ajuda a fornecer uma compreensão sobre os tipos e as configurações de instâncias virtualizadas e nativas do Windows Server 2016 no ecossistema do, incluindo:
- - Atributos de máquina, como OEM, modelagem, 
+ - Atributos de máquina, como OEM, modelagem,
  - Atributos de rede, como o número e a velocidade dos adaptadores de rede
- - Processador e memória atributos, como o número de núcleos, tamanho da memória, 
+ - Processador e memória atributos, como o número de núcleos, tamanho da memória,
  - Atributos de armazenamento, como o número de unidades, tipo e tamanho.
 - **Funcionalidade de telemetria**, incluindo % dos eventos carregados, eventos descartados e o último tempo de carregar.
 - **Informações relacionadas à qualidade** que ajuda a Microsoft a desenvolver uma compreensão básica do desempenho de pilha do Azure. Um exemplo é a contagem de alertas críticos em uma configuração de hardware específica.
 - * * Dados compatibilidade, o que ajuda a fornecer uma compreensão sobre quais provedores de recursos são instalados em um sistema e a máquina virtual e identifica possíveis problemas de compatibilidade.
 
-**2 (Avançado)**. Informações adicionais, incluindo: como o sistema operacional e outros serviços de pilha do Azure são usados, seu desempenho, confiabilidade avançada de dados e dados de níveis de segurança e do Basic. 
+**2 (Avançado)**. Informações adicionais, incluindo: como o sistema operacional e outros serviços de pilha do Azure são usados, seu desempenho, confiabilidade avançada de dados e dados de níveis de segurança e do Basic.
 
 **3 (completo)**. Todos os dados necessários para identificar e ajudar a corrigir problemas, mais dados do **segurança**, **básica**, e **avançado** níveis.
 
 > [!NOTE]
 > O valor de nível de telemetria padrão é 2 (Avançado).
 
-Desativando a telemetria do Windows e do Azure pilha desabilita a telemetria do SQL. Para obter informações adicionais sobre as implicações das configurações de telemetria do Windows Server, consulte o [white paper de telemetria do Windows](https://aka.ms/winservtelemetry). 
+Desativando a telemetria do Windows e do Azure pilha desabilita a telemetria do SQL. Para obter informações adicionais sobre as implicações das configurações de telemetria do Windows Server, consulte o [white paper de telemetria do Windows](https://aka.ms/winservtelemetry).
 
 > [!IMPORTANT]
-> Esses níveis de telemetria se aplicam somente aos componentes da pilha do Microsoft Azure. Componentes de software não Microsoft e serviços que estão em execução no Host de ciclo de vida do Hardware de parceiros de hardware do Azure pilha podem se comunicar com seus serviços de nuvem fora desses níveis de telemetria. Você deve trabalhar com seu provedor de solução de hardware de pilha do Azure para entender a política de telemetria e como você pode aceitar ou recusar. 
+> Esses níveis de telemetria se aplicam somente aos componentes da pilha do Microsoft Azure. Componentes de software não Microsoft e serviços que estão em execução no Host de ciclo de vida do Hardware de parceiros de hardware do Azure pilha podem se comunicar com seus serviços de nuvem fora desses níveis de telemetria. Você deve trabalhar com seu provedor de solução de hardware de pilha do Azure para entender a política de telemetria e como você pode aceitar ou recusar.
 
 ### <a name="enable-or-disable-telemetry-after-deployment"></a>Habilitar ou desabilitar a telemetria após a implantação
 
@@ -110,8 +110,8 @@ Para habilitar ou desabilitar a telemetria após a implantação, você precisa 
 1.  Para habilitar: `Set-Telemetry -Enable`
 2.  Para desabilitar o: `Set-Telemetry -Disable`
 
-Detalhes de parâmetro: 
-> . PARÂMETRO Enable - ativar o carregamento de dados de telemetria 
+Detalhes de parâmetro:
+> . PARÂMETRO Enable - ativar o carregamento de dados de telemetria
 
 > . PARÂMETRO Disable - desativar o carregamento de dados de telemetria  
 
@@ -143,4 +143,3 @@ if($psSession)
 
 ## <a name="next-steps"></a>Próximas etapas
 [Adicionar um item do marketplace](asdk-marketplace-item.md)
-

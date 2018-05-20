@@ -9,11 +9,11 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
-ms.openlocfilehash: 66d316f50f161c2e905c3f76da30580b44a63a23
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a970bd889e6994833b2e34adc90af594f9db4d6b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Criar e implantar modelos de classificação de texto com o Azure Machine Learning
 
@@ -420,13 +420,14 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Examinar e definir os parâmetros das diferentes etapas de pipeline
 
-Embora haja o ajuste de um modelo scikit-learn, o pré-processamento é feito antes do ajuste usando um pipeline de etapas de pré-processador e transformador. Portanto, a referência a um "pipeline" para treinamento. Durante a avaliação, o pipeline completo, incluindo o pré-processamento e a previsão de modelo scikit-learn, é aplicado a um conjunto de dados de teste.
+Durante o treinamento, você deve ter colunas de rótulo e de texto. Porém, somente a coluna de texto é necessária para previsões. 
+
+### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Examinar e definir os parâmetros das diferentes etapas de pipeline
+    
+Normalmente, você define os parâmetros antes de ajustar um modelo. 
 
 ***Exemplo mostrado com text_word_ngrams*** 
-
-Normalmente, você define os parâmetros antes de ajustar um modelo. 
 
 Os exemplos de código a seguir mostram como treinar o modelo usando os parâmetros de pipeline e modelo padrão. 
 

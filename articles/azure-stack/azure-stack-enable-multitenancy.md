@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 9ee54827ae9e8a803a5e3d7464559aec62c67119
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59b0f8e4c7234b246d4fb54d065ff318939e2662
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Habilitar multilocação na pilha do Azure
 
@@ -75,7 +75,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 Depois de concluir as etapas no diretório do Azure pilha, Mary deve fornecer autorização para acessar o diretório de convidado de pilha do Azure e registrar a pilha do Azure com o diretório de convidado. 
 
 ### <a name="registering-azure-stack-with-the-guest-directory"></a>Registrando a pilha do Azure com o diretório de convidado
-Depois que o administrador de diretório do convidado tiver fornecido consentimento para a pilha do Azure acessar o diretório da Fabrikam, eles devem se registrar pilha do Azure com o locatário de diretório da Fabrikam.
+Depois que o administrador de diretório do convidado tiver fornecido consentimento para a pilha do Azure acessar o diretório da Fabrikam, Mary deve registrar a pilha do Azure com o locatário de diretório da Fabrikam.
 
 ````PowerShell
 $tenantARMEndpoint = "https://management.local.azurestack.external"
@@ -93,7 +93,7 @@ Agora que você e Mary concluiu as etapas para o diretório de Mary integrado, M
 
 Mary direcionará qualquer [entidades externas](../role-based-access-control/rbac-and-directory-admin-roles.md) no diretório Fabrikam (ou seja, os usuários no diretório Fabrikam sem o sufixo do fabrikam.onmicrosoft.com) para entrar usando https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se eles não usam essa URL, eles são enviados ao seu diretório padrão (Fabrikam) e receber um erro informando que seu administrador não consentiu.
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - [Gerenciar provedores delegados](azure-stack-delegated-provider.md)
 - [Conceitos principais de pilha do Azure](azure-stack-key-features.md)

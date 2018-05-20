@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: mazha
-ms.openlocfilehash: bbb62a5f47c2fda6e24a204f30939e43676b33a9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 373095d1783a8e6e52d43e80377c01b448706fbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Locais POP de CDN do Azure por abreviação
 > [!div class="op_single_selector"]
@@ -35,10 +35,12 @@ AGA | Atlanta, Geórgia, EUA | América do Norte: Costa Leste dos EUA
 AGB | Atlanta, Geórgia, EUA | América do Norte: Costa Leste dos EUA
 AKL | Auckland, Nova Zelândia | Ásia
 AMA | Amsterdã, Países Baixos | Europa
+AMB | Amsterdã, Países Baixos | Europa
 AMS | Amsterdã, Países Baixos | Europa
 ARN | Estocolmo, Suécia | Europa
 ATL | Atlanta, Geórgia, EUA | América do Norte: Costa Leste dos EUA
 BAQ | Barranquilla, Colômbia | América Latina
+BLR | Bengaluru (Bangalore), Índia | Ásia
 BNJ | Newark, Nova Jersey, EUA | América do Norte: Costa Leste dos EUA
 BOS | Boston, Massachusetts, EUA | América do Norte: Costa Leste dos EUA
 BTH | Batam, Indonésia | Ásia
@@ -49,10 +51,10 @@ CGH | São Paulo, Brasil | América Latina
 CGK | Jacarta, Indonésia | Ásia
 CHA | Chicago, Illinois, EUA | América do Norte: Costa Leste dos EUA
 CHB | Chicago, Illinois, EUA | América do Norte: Costa Leste dos EUA
-CJB | Bengaluru (Bangalore), Índia | Ásia
 CNJ | Newark, Nova Jersey, EUA | América do Norte: Costa Leste dos EUA
 CPH | Copenhague, Dinamarca | Europa
 CPM | Los Angeles, Califórnia, EUA | América do Norte: Costa Oeste dos EUA
+CVA | Ashburn, Virgínia, EUA | América do Norte: Costa Leste dos EUA
 DAA | Dallas, Texas, EUA | América do Norte: Costa Central, EUA
 DAB | Dallas, Texas, EUA | América do Norte: Costa Central, EUA
 DCA | Ashburn, Virgínia, EUA | América do Norte: Costa Leste dos EUA
@@ -108,9 +110,10 @@ MEX | Cidade do México, México | América do Norte
 MIA | Miami, Flórida, EUA | América do Norte: Costa Leste dos EUA
 MIB | Miami, Flórida, EUA | América do Norte: Costa Leste dos EUA
 MIC | Miami, Flórida, EUA | América do Norte: Costa Leste dos EUA
+MRS | Marseille, França | Europa
 MXP | Milão, Itália | Europa
 NAG | Mumbai, Índia | Ásia
-NJA | Tóquio, Japão | Ásia
+NDL | Délhi, Índia | Ásia
 NRT | Tóquio, Japão | Ásia
 NYA | Nova York, Nova York, EUA | América do Norte: Costa Leste dos EUA
 NYB | Nova York, Nova York, EUA | América do Norte: Costa Leste dos EUA
@@ -118,6 +121,7 @@ OMM | Mascate, Omã | Oriente Médio
 ORD | Chicago, Illinois, EUA | América do Norte: EUA Central
 ORY | Paris, França | Europa
 OXR | Los Angeles, Califórnia, EUA | América do Norte: Costa Oeste dos EUA
+PAB | Paris, França | Europa
 PAE | Seattle, Washington, EUA | América do Norte: Costa Oeste dos EUA
 PBC | Puebla, México | América do Norte
 PHL | Filadélfia, Pensilvânia, EUA | América do Norte: Costa Leste dos EUA
@@ -125,6 +129,7 @@ PNQ | Mumbai, Índia | Ásia
 POX | Paris, França | Europa
 QRO | Santiago de Querétaro, México | América do Norte
 RHV | San Jose, Califórnia, EUA | América do Norte: Costa Oeste dos EUA
+RIB | Rio de Janeiro, Brasil | América Latina
 RIX | Riga, Letônia | Europa
 RTM | Amsterdã, Países Baixos | Europa
 SAA | San Jose, Califórnia, EUA | América do Norte: Costa Oeste dos EUA
@@ -133,12 +138,13 @@ SCL | Valparaíso, Chile | América Latina
 SEA | Seattle, Washington, EUA | América do Norte: Costa Oeste dos EUA
 SEB | Seattle, Washington, EUA | América do Norte: Costa Oeste dos EUA
 SEC | Seattle, Washington, EUA | América do Norte: Costa Oeste dos EUA
+SGB | Cingapura | Ásia
 SIN | Cingapura | Ásia
 SJC | San Jose, Califórnia, EUA | América do Norte: Costa Oeste dos EUA
 SJO | San Jose, Califórnia, EUA | América do Norte: Costa Oeste dos EUA
 STO | Estocolmo, Suécia | Europa
 SYD | Sydney, Austrália | Ásia
-TEB | Nova York, Nova York, EUA | América do Norte: Costa Leste dos EUA
+TIR | Chennai, Índia | Ásia
 TKA | Tóquio, Japão | Ásia
 TKB | Tóquio, Japão | Ásia
 TOJ | Madri, Espanha | Europa

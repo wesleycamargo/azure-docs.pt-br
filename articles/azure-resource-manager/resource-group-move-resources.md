@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -114,6 +114,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Application Insights
 * Automação
 * Azure Cosmos DB
+* Retransmissão do Azure
 * Lote
 * Bing Mapas
 * CDN
@@ -130,6 +131,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Hubs IoT
 * Key Vault
 * Load Balancers - consulte [Limitações do Load Balancer](#lb-limitations)
+* Log Analytics
 * Aplicativos Lógicos
 * Aprendizado de Máquina - os serviços Web do Machine Learning Studio podem ser movidos para um grupo de recursos na mesma assinatura, mas não uma assinatura diferente. Outros recursos de Microsoft Machine Learning podem ser movidos entre assinaturas.
 * Serviços de mídia
@@ -137,7 +139,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Hubs de Notificação
 * Insights Operacionais
 * Gerenciamento de Operações
-* Power BI
+* Power BI - tanto o Power BI inserido Embedded como a coleção de espaços de trabalho do BI
 * IP público - consulte [Limitações de IP público](#pip-limitations)
 * Cache Redis
 * Agendador
@@ -148,7 +150,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Armazenamento
 * Armazenamento (clássico) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 * Stream Analytics – os trabalhos do Stream Analytics não podem ser movidos durante o estado de execução.
-* Servidor de Banco de Dados SQL – o banco de dados e o servidor devem residir no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos. Isso inclui Banco de Dados SQL do Azure e banco de dados SQL Data Warehouse do Azure. 
+* Servidor de Banco de Dados SQL – o banco de dados e o servidor devem residir no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos. Este comportamento se aplica ao Banco de Dados SQL do Azure e ao banco de dados SQL Data Warehouse do Azure. 
 * Gerenciador de Tráfego
 * Máquinas virtuais – VMs com Managed Disks não podem ser movidas. Veja [Limitações das Máquinas Virtuais](#virtual-machines-limitations)
 * Máquinas virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
@@ -164,6 +166,8 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Serviço de Integridade Híbrida do AD
 * Gateway de Aplicativo
 * Banco de Dados do Azure para MySQL
+* Banco de Dados do Azure para PostgreSQL
+* Migrações para Azure
 * Serviços do BizTalk
 * Certificados - Os certificados do Serviço de Aplicativo podem ser movidos, mas os certificados carregados têm [limitações](#app-service-limitations).
 * Serviço do Kubernetes
@@ -189,6 +193,11 @@ O Managed Disks não dá suporte à movimentação. Essa restrição significa q
 * Instantâneos criados no Managed Disks
 * Conjuntos de disponibilidade com Máquinas Virtuais com o Managed Disks
 
+Embora não seja possível mover um disco gerenciado, é possível criar uma cópia e, em seguida, criar uma nova máquina virtual do disco gerenciado existente. Para obter mais informações, consulte:
+
+* Copiar discos gerenciados para a mesma assinatura ou outra assinatura diferente com o [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) ou [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
+* Criar uma máquina virtual usando um disco de sistema operacional gerenciado existente com o [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) ou  [CLI do Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
+
 As máquinas virtuais criadas a partir dos recursos do Marketplace com os planos anexados não podem ser movidas entre grupos de recursos ou assinaturas. Desprovisione a máquina virtual na assinatura atual e implante-a novamente na nova assinatura.
 
 Máquinas Virtuais com certificado armazenado no Key Vault podem ser movidas para um novo grupo de recursos na mesma assinatura, mas não entre assinaturas.
@@ -200,6 +209,8 @@ Ao mover uma rede virtual, você também deve mover os recursos dependentes. Por
 Para mover uma rede virtual emparelhada, primeiro é necessário desabilitar o emparelhamento de rede virtual. Quando desabilitado, você pode mover a rede virtual. Após a movimentação, reabilite o emparelhamento de rede virtual.
 
 Você não pode mover uma rede virtual para uma assinatura diferente caso a rede virtual contenha uma sub-rede com links de navegação de recurso. Por exemplo, se um recurso de Cache Redis estiver implantado em uma sub-rede, essa sub-rede terá um link de navegação do recurso.
+
+Você não pode mover uma rede virtual para uma assinatura diferente caso a rede virtual contenha um servidor DNS personalizado. Para mover a rede virtual, defina-a como o servidor DNS padrão (fornecido pelo Microsoft Azure). Após mover, reconfigure o servidor DNS personalizado.
 
 ## <a name="app-service-limitations"></a>Limitações do Serviço de Aplicativo
 

@@ -17,11 +17,13 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
+    - name: Compreender as definições de função
+      href: role-definitions.md
     - name: Funções internas
       href: built-in-roles.md
     - name: Funções personalizadas
       href: custom-roles.md
-    - name: Atribuir funções personalizadas para usuários internos e externos
+    - name: Gerenciar as atribuições de função para usuários externos
       href: role-assignments-external-users.md
     - name: Logs de atividade
       href: change-history-report.md

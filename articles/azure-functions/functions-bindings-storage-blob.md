@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -31,23 +31,42 @@ Este artigo explica como trabalhar com associações de armazenamento de blob do
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!NOTE]
-> Não há suporte para[Contas de armazenamento exclusivas de Blobs](../storage/common/storage-create-storage-account.md#blob-storage-accounts) para gatilhos de blob. Os gatilhos de armazenamento de Blobs requerem uma conta de armazenamento de uso geral. Para associações de entrada e saída, é possível utilizar contas de armazenamento exclusivas de blobs.
-
 ## <a name="packages"></a>Pacotes
 
 As associações de armazenamento de Blobs são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+> [!NOTE]
+> Use o gatilho de Grade de Eventos em vez do disparador do armazenamento de Blob apenas para contas de armazenamento de blob, para alta escala, ou para evitar atrasos de inicialização a frio. Para saber mais, veja a seção a seguir **Gatilho**. 
+
 ## <a name="trigger"></a>Gatilho
 
-Use um gatilho de armazenamento de Blob para iniciar uma função quando é detectado um blob novo ou atualizado. O conteúdo do blob é fornecido como entrada para a função.
+O gatilho de armazenamento de Blob inicia uma função quando é detectado um blob novo ou atualizado. O conteúdo do blob é fornecido como entrada para a função.
 
-> [!NOTE]
-> Ao usar um gatilho de blob em um plano de Consumo, pode haver um atraso de até 10 minutos no processamento de novos blobs depois que um aplicativo de funções ficar ocioso. Depois que o aplicativo de funções estiver em execução, os blobs serão processados imediatamente. Para evitar esse atraso inicial, considere uma das seguintes opções:
-> - Use um plano do Serviço de Aplicativo com a opçao Sempre ativado habilitada.
-> - Use outro mecanismo para disparar o processamento de blob, como uma mensagem de fila que contém o nome do blob. Por exemplo, consulte o [exemplo de associações de entrada de blob mais adiante neste artigo](#input---example).
+O [gatilho de Grade de Eventos](functions-bindings-event-grid.md) tem suporte interno para [eventos de blob](../storage/blobs/storage-blob-event-overview.md) e também pode ser usado para iniciar uma função quando um blob novo ou atualizado é detectado. Para obter um exemplo, consulte o tutorial [Redimensionamento de imagem com Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md).
+
+Use a Grade de Eventos em vez do disparador de armazenamento de Blobs para os seguintes cenários:
+
+* Contas de armazenamento íntegras exclusivas de blob
+* Alta escala
+* Atraso de inicialização a frio
+
+### <a name="blob-only-storage-accounts"></a>Contas de armazenamento íntegras exclusivas de blob
+
+[Contas de armazenamento exclusivas de blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts) têm suporte para associações de entrada e saída de blobs, mas não para gatilhos de blob. Os gatilhos de armazenamento de Blobs requerem uma conta de armazenamento de uso geral.
+
+### <a name="high-scale"></a>Alta escala
+
+A alta escala pode ser definida vagamente como contêineres que possuem mais de 100.000 blobs ou contas de armazenamento que têm mais de 100 atualizações de blobs por segundo.
+
+### <a name="cold-start-delay"></a>Atraso de inicialização a frio
+
+Se seu aplicativo de funções está no plano de Consumo, pode haver um atraso de até 10 minutos no processamento de novos blobs se um aplicativo de funções ficar ocioso. Para evitar esse atraso de inicialização a frio, você pode alterar para um plano do Serviço de Aplicativo com Always On habilitado, ou use um tipo de gatilho diferente.
+
+### <a name="queue-storage-trigger"></a>Gatilho de armazenamento de filas
+
+Além da Grade de Eventos, outra alternativa para blobs de processamento é o gatilho de armazenamento de Fila, mas ele não tem suporte interno para eventos de blob. Você precisaria criar mensagens de fila ao criar ou atualizar blobs. Suponto que você fez isso, consulte o [exemplo de associação de entrada de blob mais adiante neste artigo](#input---example).
 
 ## <a name="trigger---example"></a>Gatilho - exemplo
 
@@ -283,7 +302,7 @@ Para procurar as chaves em nomes de arquivos, escape as chaves usando duas chave
 "path": "images/{{20140101}}-{name}",
 ```
 
-Se o blob é nomeado *{20140101}-soundfile.mp3*, o `name` valor da variável no código da função é *soundfile.mp3*. 
+Se o blob é nomeado *{20140101}soundfile.mp3*, o valor da variável `name` no código da função é *soundfile.mp3*. 
 
 ## <a name="trigger---metadata"></a>Gatilho - metadados
 

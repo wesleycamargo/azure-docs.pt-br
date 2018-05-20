@@ -49,7 +49,7 @@
 - name: Como
   items:
     - name: Criar um Load Balancer Standard público com redundância de zona
-      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+      href: load-balancer-get-started-internet-az-portal.md
       items:
         - name: Criar um Load Balancer Standard público com redundância de zona (PowerShell)
           href: load-balancer-get-started-internet-az-powershell.md

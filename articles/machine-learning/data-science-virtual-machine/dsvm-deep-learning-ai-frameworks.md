@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: d73869d1371247a269b6601c35b1a938d89176c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Estruturas de Aprendizado Profundo e de AI
 A DSVM ([Máquina Virtual de Ciência de Dados](http://aka.ms/dsvm)) e a [VM de Aprendizado Profundo](http://aka.ms/dsvm/deeplearning) dão suporte a várias estruturas de aprendizado profundo para ajudar a criar aplicativos de AI (Inteligência Artificial) com funcionalidades cognitivas e análise preditiva como entendimento de imagem e linguagem. 
@@ -80,6 +80,7 @@ Aqui estão os detalhes sobre todas as estruturas de aprendizado profundo sobre 
 | O que é?   | Estrutura de aprendizado profundo      |
 | Edições do DSVM com suporte      | Ubuntu     |
 | Como é configurado/instalado no DSVM?  | O Caffe é instalado em `/opt/caffe`.    |
+| Como alternar para o Python 2.7 | Execute o `source activate root` |
 | Links para exemplos      | Os exemplos são incluídos no `/opt/caffe/examples`.      |
 | Ferramentas relacionadas ao DSVM      | Caffe2      |
 ### <a name="how-to-use--run-it"></a>Como usar/executar?  
@@ -88,12 +89,15 @@ Use X2Go para fazer logon em sua VM e, em seguida, inicie um novo terminal e ins
 
 ```
 cd /opt/caffe/examples
+source activate root
 jupyter notebook
 ```
 
 Uma nova janela do navegador é aberta com blocos de anotações de exemplo.
 
-Binários são instalados em /opt/caffe/build/install/bin. 
+Binários são instalados em /opt/caffe/build/install/bin.
+
+A versão instalada do Caffe requer Python 2.7 e não funcionará com o Python 3.5 ativado por padrão. Execute `source activate root` para alternar para o ambiente Anaconda. 
 
 ## <a name="caffe2"></a>Caffe2
 

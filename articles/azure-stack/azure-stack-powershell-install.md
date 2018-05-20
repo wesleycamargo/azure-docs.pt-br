@@ -16,7 +16,7 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.openlocfilehash: 8fea502457275c89d99084a5b025b620872d796b
 ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/12/2018
 ---

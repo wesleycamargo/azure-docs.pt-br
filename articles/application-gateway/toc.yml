@@ -7,17 +7,17 @@
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Direcionar o tráfego da web - Portal
+    - name: Gerenciar tráfego da Web - Portal
       href: quick-create-portal.md
-    - name: Direcionar o tráfego da web - PowerShell
+    - name: Gerenciar tráfego da Web - PowerShell
       href: quick-create-powershell.md
-    - name: Direcionar o tráfego da web - CLI do Azure
+    - name: Gerenciar tráfego da Web - CLI do Azure
       href: quick-create-cli.md
 - name: Tutoriais
   items:
     - name: Gerenciar o tráfego da Web
       href: tutorial-manage-web-traffic-cli.md
-    - name: Restringir o tráfego da Web
+    - name: Ativar firewall do aplicativo Web
       href: tutorial-restrict-web-traffic-cli.md
     - name: Proteger com SSL
       href: tutorial-ssl-cli.md
@@ -35,18 +35,23 @@
       href: cli-samples.md
 - name: Conceitos
   items:
+    - name: Terminação SSL
+      href: ssl-overview.md
+    - name: Visão geral da política SSL
+      href: application-gateway-ssl-policy-overview.md
     - name: Firewall do aplicativo Web
       href: waf-overview.md
     - name: Roteamento de URL
       href: url-route-overview.md
     - name: Hospedagem de vários sites
       href: multiple-site-overview.md
-    - name: Terminação SSL
-      href: ssl-overview.md
-    - name: Redirecionamento de URL
+    - name: Suporte para redirecionamento
       href: redirect-overview.md
+    - name: Suporte para multilocatário
     - name: Monitoramento da integridade
       href: application-gateway-probe-overview.md
+    - name: Suporte para WebSocket
+      href: application-gateway-websocket.md
 - name: Guias de instruções
   items:
     - name: Criar um gateway de aplicativo
@@ -55,10 +60,20 @@
           href: create-vmss-template.md
         - name: Aplicativos da Web - PowerShell
           href: create-web-app.md
-    - name: Habilitar terminação SSL - Portal
+        - name: Configurar balanceador de carga interno
+          href: application-gateway-ilb.md
+    - name: Configurar terminação SSL - Portal
       href: create-ssl-portal.md
     - name: Hospedar vários sites - Portal
       href: create-multiple-sites-portal.md
+    - name: Personalizar regras WAF
+      items:
+        - name: Portal do Azure
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: CLI do Azure
+          href: application-gateway-customize-waf-rules-cli.md
     - name: Redirecionar tráfego externo
       items:
         - name: Azure PowerShell
@@ -111,6 +126,8 @@
           href: application-gateway-diagnostics.md
 - name: Referência
   items:
+    - name: Regras CRS
+      href: application-gateway-crs-rulegroups-rules.md
     - name: CLI do Azure
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell

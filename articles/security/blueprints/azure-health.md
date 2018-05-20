@@ -282,7 +282,7 @@ Ao usar o script de demonstração. .\\HealthcareDemo.ps1 com a opção **BulkPa
 
 **2. Key Vault** solicitado por um segredo associado ao token solicitado.
 
-**3. As funções do Azure validam a solicitação, e autorizam a solicitação de acesso ao Key Vault.
+\*\*3. As funções do Azure validam a solicitação, e autorizam a solicitação de acesso ao Key Vault.
 
 **4. Key Vault** retorna o segredo, nesse caso, a cadeia de conexão SQL DB.
 

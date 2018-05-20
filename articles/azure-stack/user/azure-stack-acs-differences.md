@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 05/14/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Armazenamento do Azure de pilha: As diferenças e considerações
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/28/2018
 
 Pilha de armazenamento do Azure é o conjunto de serviços de nuvem de armazenamento na pilha do Microsoft Azure. Pilha de armazenamento do Azure fornece o blob, tabela, fila e funcionalidade de gerenciamento de conta com a semântica consistente com o Azure.
 
-Este artigo resume as diferenças de armazenamento do Azure pilha conhecidas do armazenamento do Azure. Ele também resume outras considerações para ter em mente quando você implanta a pilha do Azure. Para saber mais sobre as diferenças de alto nível entre a pilha do Azure e o Azure, consulte o [chave considerações](azure-stack-considerations.md) tópico.
+Este artigo resume as diferenças de armazenamento do Azure pilha conhecidas dos serviços de armazenamento do Azure. Ela também lista de coisas a considerar ao implantar o Azure pilha. Para saber mais sobre as diferenças de alto nível entre a pilha do Azure e o Azure, consulte o [chave considerações](azure-stack-considerations.md) tópico.
 
 ## <a name="cheat-sheet-storage-differences"></a>Roteiro: diferenças de armazenamento
 
@@ -49,26 +49,28 @@ Exclusão reversível para armazenamento de blob|Visualização|Ainda não tem s
 |Tamanho de chave de linha e chave de partição de tabela|1.024 caracteres (2.048 bytes)|400 caracteres (800 bytes)
 |Instantâneo de blob|O número máximo de instantâneos de um blob não é limitado.|O número máximo de instantâneos de um blob é 1.000.|
 
-### <a name="metrics"></a>Métricas
-Também há algumas diferenças com as métricas de armazenamento:
+Também há diferenças com as métricas de armazenamento:
+
 * Os dados de transações em métricas de armazenamento não diferenciam largura de banda de rede internos ou externos.
 * Os dados de transações em métricas de armazenamento não tem acesso de máquina virtual para os discos montados.
 
 ## <a name="api-version"></a>Versão da API
+
 As seguintes versões têm suporte com o armazenamento do Azure pilha:
 
 APIs de serviços de armazenamento do Azure:
 
 Atualizar 1802 ou mais recente:
+
  - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
  - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
  - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
  - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Versões anteriores:
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 APIs de gerenciamento de serviços de armazenamento do Azure:
 
@@ -78,7 +80,7 @@ APIs de gerenciamento de serviços de armazenamento do Azure:
 
 ## <a name="sdk-versions"></a>Versões do SDK
 
-As bibliotecas de cliente a seguir têm suporte com o armazenamento do Azure pilha:
+Pilha de armazenamento do Azure suporta as seguintes bibliotecas de cliente:
 
 | Biblioteca do cliente | Versão com suporte a pilha do Azure | Link                                                                                                                                                                                                                                                                                                                                     | Especificação de ponto de extremidade       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -94,4 +96,3 @@ As bibliotecas de cliente a seguir têm suporte com o armazenamento do Azure pil
 
 * [Introdução às ferramentas de desenvolvimento de armazenamento de pilha do Azure](azure-stack-storage-dev.md)
 * [Introdução ao armazenamento de pilha do Azure](azure-stack-storage-overview.md)
-

@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2446fac7526015d11737529c26d54e910643b750
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Vários mestres em escala global com o Azure Cosmos DB 
  
@@ -22,6 +22,25 @@ O desenvolvimento de aplicativos distribuídos mundialmente que respondam com la
 ![Arquitetura de vários mestres](./media/multi-region-writers/multi-master-architecture.png)
 
 Com o suporte para vários mestres do Azure Cosmos DB, você pode executar gravações em contêineres de dados (por exemplo, coleções, gráficos, tabelas) distribuídos em qualquer lugar no mundo. Você pode atualizar dados em qualquer região que esteja associada à sua conta de banco de dados. Essas atualizações de dados podem propagar-se assincronamente. Além de fornecer acesso rápido e latência de gravação aos seus dados, os vários mestres também fornecem uma solução prática para problemas de balanceamento de carga e failover. Em resumo, com o Azure Cosmos DB, você obtém uma latência de gravação de <10 ms no 99º percentil em qualquer lugar no mundo, 99,999% de disponibilidade de gravação e leitura em qualquer lugar no mundo e a capacidade de dimensionar a taxa de transferência de gravação e leitura em qualquer lugar do mundo.   
+
+> [!IMPORTANT]
+> O suporte a vários mestres está em versão prévia privada. Para usar a versão prévia, [inscreva-se](#sign-up-for-multi-master-support) agora.
+
+## <a name="sign-up-for-multi-master-support"></a>Inscreva-se para o suporte a vários mestres
+
+Caso você já tenha uma assinatura do Azure, inscreva-se no programa de versão prévia de vários mestres no Portal do Azure. Se estiver conhecendo o Azure agora, inscreva-se para uma [avaliação gratuita](https://azure.microsoft.com/free), em que você obtém 12 meses de acesso gratuito ao Azure Cosmos DB. Conclua as etapas a seguir para solicitar o acesso ao programa de versão prévia de vários mestres.
+
+1. No [portal do Azure](https://portal.azure.com), clique em **Criar um recurso** > **Bancos de dados** > **Azure Cosmos DB**.  
+
+2. Na página Nova Conta, forneça um nome para sua conta do Azure Cosmos DB, escolha a API, a Assinatura, o Grupo de Recursos e o Local.  
+
+3. Em seguida, selecione **Inscreva-se hoje na versão prévia** no campo Versão Prévia de Vários Mestres.  
+
+   ![Inscreva-se para a versão prévia de vários mestres](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. No painel **Inscrever-se na versão prévia hoje**, clique em **OK**. Depois de enviar a solicitação, o status mudará para **Aprovação pendente** na folha de criação de conta.  
+
+Depois de enviar a solicitação, você receberá uma notificação por email de que sua solicitação foi aprovada. Devido ao alto volume de solicitações, você deve receber a notificação dentro de uma semana. Você não precisa criar um tíquete de suporte para concluir a solicitação. Solicitações serão examinadas na ordem em que foram recebidas.
 
 ## <a name="a-simple-multi-master-example--content-publishing"></a>Um simples exemplo de vários mestres – publicação de conteúdo  
 
@@ -93,7 +112,7 @@ Com vários mestres, o desafio geralmente é que duas (ou mais) réplicas do mes
 
 **Exemplo** - Vamos supor que você esteja usando Microsoft Azure Cosmos DB como repositório de persistência para um aplicativo de carrinho de compras e esse aplicativo é implantado em duas regiões: Leste dos EUA e Oeste dos EUA.  Se aproximadamente, ao mesmo tempo, um usuário em São Francisco adiciona um item ao carrinho de compras (por exemplo, um livro) enquanto um processo de gerenciamento de estoque no Leste dos EUA invalida um item de carrinho compras diferente (por exemplo, um novo telefone) para esse mesmo usuário em resposta a uma notificação do fornecedor de que a data de lançamento foi adiada. No horário T1, os registros de carrinho de compras em duas regiões são diferentes. O banco de dados usará sua replicação e o mecanismo de resolução de conflitos para resolver essa inconsistência e, eventualmente, uma das duas versões do carrinho de compras será selecionada. Usando a heurística de resolução de conflitos geralmente aplicada por bancos de dados de vários mestres (por exemplo, última gravação prevalece), é impossível para o usuário ou aplicativo prever qual versão será selecionada. Em ambos os casos, os dados são perdidos ou pode ocorrer um comportamento inesperado. Se a versão da região Leste for selecionada, a seleção do usuário de um novo item de compra (ou seja, um livro) será perdida e se a região Oeste for selecionada, o item escolhido anteriormente (ou seja, telefone) ainda estará no carrinho. De qualquer forma, informações serão perdidas. Finalmente, qualquer outro processo inspecionando o carrinho de compras entre horários T1 e T2 vai ver também o comportamento não determinístico. Por exemplo, um processo em segundo plano que seleciona o depósito de atendimento e atualiza os custos de envio do carrinho produziria resultados que estão em conflito com o conteúdo final do carrinho. Se o processo está em execução na região Oeste e 1 alternativo se torna a realidade, ele calcularia os custos de envio para dois itens, embora o carrinho possa logo ter apenas um item, o livro. 
 
-O Azure Cosmos DB implementa a lógica para lidar com gravações conflitantes dentro do próprio mecanismo do banco de dados. O Azure Cosmos DB oferece **suporte de resolução de conflitos abrangente e flexível** oferecendo diversos modelos de resolução de conflitos, incluindo Automático (tipos de dados replicados livre de conflitos de CRDT), Última gravação prevalece (LWW), Personalizado (procedimento armazenado) e Manual para resolução de conflitos automática. Os modelos de resolução de conflitos fornecem garantias de exatidão e a consistência e removem a carga dos desenvolvedores para parar para pensar sobre consistência, disponibilidade, desempenho, latência de replicação e combinações complexas de eventos em failovers geográficos e conflitos de gravação entre regiões.  
+O Azure Cosmos DB implementa a lógica para lidar com gravações conflitantes dentro do próprio mecanismo do banco de dados. O Azure Cosmos DB oferece **suporte de resolução de conflitos abrangente e flexível** oferecendo diversos modelos de resolução de conflitos, incluindo Automático (tipos de dados replicados livre de conflitos de CRDT), Última gravação prevalece (LWW) e Personalizado (procedimento armazenado) para resolução de conflitos automática. Os modelos de resolução de conflitos fornecem garantias de exatidão e a consistência e removem a carga dos desenvolvedores para parar para pensar sobre consistência, disponibilidade, desempenho, latência de replicação e combinações complexas de eventos em failovers geográficos e conflitos de gravação entre regiões.  
 
   ![Resolução de conflitos de vários mestres](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
@@ -111,7 +130,7 @@ Neste artigo, você aprendeu a usar vários mestres distribuídos globalmente co
 
 * [Saiba sobre como o Azure Cosmos DB dá suporte à distribuição global](distribute-data-globally.md)  
 
-* [Saiba mais sobre failovers automáticos e manuais no Azure Cosmos DB](regional-failover.md)  
+* [Saiba mais sobre failovers automáticos no Azure Cosmos DB](regional-failover.md)  
 
 * [Saiba mais sobre consistência global com o Azure Cosmos DB](consistency-levels.md)  
 

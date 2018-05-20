@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 7e2fe84c51f93bdeb6cd99e23624d1796aff6c1f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 84e3e9fc18671d7199eeaf638377a6681cf09fb4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guia de solução de problemas da transmissão ao vivo
-Este tópico fornece sugestões sobre como solucionar alguns problemas da transmissão ao vivo.
+Este artigo fornece sugestões sobre como solucionar alguns problemas da transmissão ao vivo.
 
 ## <a name="issues-related-to-on-premises-encoders"></a>Problemas relacionados aos codificadores locais
 Esta seção fornece sugestões sobre como solucionar problemas relacionados aos codificadores locais que estão configurados para enviar uma transmissão de taxa de bits única para canais do AMS habilitados para a codificação ativa.
@@ -44,23 +44,10 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
     **Etapas de solução de problemas**: verifique se o codificador não está mais enviando para o AMS, pare-o e redefina o canal. Quando estiver em execução novamente, tente conectar seu codificador com as novas configurações. Se isso ainda não corrigir o problema, tente criar um novo canal, pois, às vezes, os canais podem ser corrompidos após várias tentativas com falha.  
 * **Possível problema**: o tamanho do GOP ou as configurações de quadro-chave não são ideais. 
   
-    **Etapas de solução de problemas**: o intervalo recomendado de tamanho do GOP ou de quadro-chave é de 2 segundos. Alguns codificadores calculam essa configuração em número de quadros, enquanto que outras usam segundos. Por exemplo: na saída de 30fps, o tamanho de GOP seria 60 quadros, o que é equivalente a 2 segundos.  
+    **Etapas de solução de problemas**: o intervalo recomendado de tamanho do GOP ou de quadro-chave é de dois segundos. Alguns codificadores calculam essa configuração em número de quadros, enquanto que outras usam segundos. Por exemplo: na saída de 30 fps, o tamanho de GOP seria 60 quadros, o que é equivalente a 2 segundos.  
 * **Possível problema**: as portas fechadas estão bloqueando a transmissão. 
   
-    **Etapas de solução de problemas**: ao transmitir por RTMP, verifique as configurações de firewall e/ou proxy para confirmar que as portas de saída 1935 e 1936 estão abertas. Ao usar a transmissão RTP, confirme que a porta de saída 2010 está aberta. 
-
-### <a name="problem-when-configuring-the-encoder-to-stream-with-the-rtp-protocol-there-is-no-place-to-enter-a-host-name"></a>Problema: ao configurar o codificador para a transmissão com o protocolo RTP, não há nenhum campo para inserir um nome de host.
-* **Possível problema**: muitos codificadores RTP não permitem nomes de host, e será necessário adquirir um endereço IP.  
-  
-    **Etapas de solução de problemas**: para localizar o endereço IP, abra um prompt de comando em qualquer computador. Para fazer isso no Windows, abra o inicializador de Execução (WIN + R) e digite “cmd” para abrir.  
-  
-    Depois de aberto o prompt de comando, digite “Ping [Nome do Host do AMS]”. 
-  
-    O nome do host pode ser derivado pela omissão do número da porta da URL de Ingestão do Azure, como destacado no seguinte exemplo: 
-  
-    rtp://test2-amstest009.rtp.channel.mediaservices.windows.net:2010/ 
-  
-    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
+    **Etapas de solução de problemas**: ao transmitir por RTMP, verifique as configurações de firewall e/ou proxy para confirmar que as portas de saída 1935 e 1936 estão abertas. 
 
 > [!NOTE]
 > Se, depois de seguir as etapas de solução de problemas, você ainda não conseguir realizar a transmissão, envie um tíquete de suporte usando o Portal do Azure.

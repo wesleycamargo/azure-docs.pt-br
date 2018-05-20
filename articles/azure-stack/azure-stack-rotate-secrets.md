@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a158da6fb397b864a439e067ca99d79814e2b8d2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Girar segredos na pilha do Azure
 
@@ -49,6 +48,24 @@ Certificados de serviço de infraestrutura de serviços externo que são forneci
 
 Para manter a integridade da infra-estrutura da pilha do Azure, operadores precisam da capacidade para girar periodicamente os segredos da sua infraestrutura em frequências que são consistentes com os requisitos de segurança da sua organização.
 
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Girando segredos com certificados externos de um novo autoridade de certificação
+
+A pilha do Azure dá suporte a rotação secreta com certificados externos de um novo (autoridade de certificação) nos seguintes contextos:
+
+|Certificação instalada|Autoridade de certificação para girar para|Com suporte|Versões de pilha do Azure com suporte|
+|-----|-----|-----|-----|-----|
+|De autoassinado|A empresa|Sem suporte||
+|De autoassinado|Para autoassinado|Sem suporte||
+|De autoassinado|Para o público<sup>*</sup>|Com suporte|1803 & posterior|
+|Da empresa|A empresa|Com suporte, contanto que os clientes usam a mesma empresa conforme usado na implantação da autoridade de certificação|1803 & posterior|
+|Da empresa|Para autoassinado|Sem suporte||
+|Da empresa|Para o público<sup>*</sup>|Com suporte|1803 & posterior|
+|Do público<sup>*</sup>|A empresa|Sem suporte|1803 & posterior|
+|Do público<sup>*</sup>|Para autoassinado|Sem suporte||
+|Do público<sup>*</sup>|Para o público<sup>*</sup>|Com suporte|1803 & posterior|
+
+<sup>*</sup> Aqui as autoridades de certificação pública são aqueles que fazem parte do programa de raiz confiável do Windows. Você pode encontrar a lista completa de [Microsoft Trusted Root Certificate Program: participantes (a partir de 27 de junho de 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+
 ## <a name="alert-remediation"></a>Correção de alerta
 
 Quando os segredos são dentro de 30 dias de expiração, os seguintes alertas são gerados no Portal do administrador: 
@@ -74,7 +91,7 @@ Executar o segredo rotação usando as instruções a seguir corrigirá esses al
 
 ## <a name="rotating-external-and-internal-secrets"></a>Girando segredos internos e externos
 
-Para girar os dois externo um segredos interno:
+Para girar ambos externo um segredo interno:
 
 1. Dentro do recém-criado **/certificados** diretório criado nas etapas anteriores ao, colocar o novo conjunto de certificados externos de substituição da estrutura de diretórios de acordo com o formato descrito na seção certificados obrigatório do [requisitos de certificado PKI de pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 2. Criar uma sessão do PowerShell com a [privilegiada do ponto de extremidade](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) usando o **CloudAdmin** conta e armazenar as sessões como uma variável. Você usará essa variável como o parâmetro na próxima etapa.

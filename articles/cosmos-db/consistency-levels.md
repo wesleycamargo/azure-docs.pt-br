@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0f38d05dc720dd596c81a51abf7040ac062e8158
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis ajustáveis de consistência de dados no Azure Cosmos DB
 O Azure Cosmos DB é projetado desde o início pensando em distribuição global para cada modelo de dados. Ele se destina a oferecer garantias de baixa latência previsíveis e vários modelos de consistência amena bem definidos. Atualmente, o Azure Cosmos DB fornece cinco níveis de consistência: forte, desatualização limitada, sessão, prefixo consistente e eventual. Desatualização limitada, sessão, prefixo consistente e eventual são chamados de "modelos de consistência amena", pois fornecem menos consistência de alta segurança, que é o modelo mais consistente disponível. 
@@ -44,7 +44,7 @@ A tabela a seguir ilustra as garantias específicas que cada nível de consistê
 | Nível de Consistência | Garantias |
 | --- | --- |
 | Strong | Transação atômica. As Leituras são garantidas para retornar a versão mais recente de um item.|
-| Bounded staleness | Prefixo consistente. Lê latência por trás de gravações por meio de prefixos k ou intervalos t |
+| Bounded staleness | Prefixo consistente. Lê latência por trás de gravações por meio de prefixos k ou intervalos t, no máximo |
 | Session   | Prefixo consistente. Leituras monotônicas, gravações monotônicas, read-your-writes (operações de leitura refletem gravações anteriores), write-follows-reads (gravações são propagadas após as leituras) |
 | Prefixo consistente | As atualizações retornadas são algum prefixo de todas as atualizações, sem intervalos |
 | Eventual  | Leituras fora de ordem |

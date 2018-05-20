@@ -4,7 +4,7 @@ description: Saiba o que é a CDN (Rede de Distribuição de Conteúdo) do Azure
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/20/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2f760c1b47da7273827ce2a980cdc9b4db943904
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>O que é uma rede de distribuição de conteúdo no Azure?
 Uma CDN (rede de distribuição de conteúdo) é uma rede distribuída de servidores que pode fornecer conteúdo da Web para os usuários com eficiência. As CDNs armazenam conteúdo armazenado em cache em servidores de borda em localizações de ponto de presença (POP) que estão próximas aos usuários finais, para minimizar a latência. 
@@ -70,7 +70,7 @@ A CDN do Azure oferece os seguintes recursos principais:
 - [Compactação de arquivos](cdn-improve-performance.md)
 - [Filtragem geográfica](cdn-restrict-access-by-country.md)
 
-Para obter uma lista completa de recursos que dá suporte a cada produto da CDN do Azure, confira [Recursos de produto da CDN do Azure](cdn-features.md).
+Para obter uma lista completa de recursos que dá suporte a cada produto da CDN do Azure, confira [Comparar recursos de produto da CDN do Azure](cdn-features.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para começar com a CDN, confira [Criar um perfil e ponto de extremidade da CDN do Azure](cdn-create-new-endpoint.md).

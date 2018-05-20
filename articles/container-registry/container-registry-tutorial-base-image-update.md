@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 976f61d99b88d241b39bfec9d95e16de272d9c14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 531aeaacf0bd70521d70afb45d141fc3296ebb04
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-build"></a>Tutorial: automatizar builds de imagem na atualização da imagem base com o Build de Registro de Contêiner do Azure
 
@@ -28,8 +28,7 @@ Neste tutorial, o último da série:
 > * Exibir a compilação disparada
 > * Verificar a imagem do aplicativo atualizada
 
-> [!IMPORTANT]
-> O Build do ACR está atualmente em versão prévia e é suportado somente pelos registros de contêiner do Azure nas regiões **Leste dos EUA** (eastus) e **Europa Ocidental** (westeurope). As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +41,7 @@ Se você quiser usar a CLI do Azure localmente, você deverá ter a versão da C
 Este tutorial pressupõe que você já concluiu as etapas nos dois primeiros tutoriais na série, em que você:
 
 * Crie um registro de contêiner do Azure
-* Cria fork do repositório de exemplo
+* Repositório de exemplo de fork
 * Clona o repositório de exemplo
 * Cria um token de acesso pessoal do GitHub
 
@@ -129,7 +128,7 @@ Use [executar tarefa de compilação acr az][az-acr-build-task-run] para dispara
 az acr build-task run --registry $ACR_NAME --name buildhelloworld
 ```
 
-Concluída a compilação, anote a **ID do Build** (por exemplo, "eastus6") se você deseja concluir a seguinte etapa opcional.
+Concluída a compilação, anote a **ID do Build** (por exemplo, "aa6") se você deseja concluir a seguinte etapa opcional.
 
 ### <a name="optional-run-application-container-locally"></a>Opcional: Executar contêiner do aplicativo localmente
 
@@ -141,7 +140,7 @@ Primeiro, faça logon em seu registro de contêiner com [logon de acr az][az-acr
 az acr login --name $ACR_NAME
 ```
 
-Agora, execute o contêiner localmente com `docker run`. Substituir **\<identificação da compilação\>** pela ID de compilação encontrada na saída da etapa anterior (por exemplo, "eastus5").
+Agora, execute o contêiner localmente com `docker run`. Substitua **\<identificação da compilação\>** pela ID de compilação encontrada na saída da etapa anterior (por exemplo, "aa6").
 
 ```azurecli
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
@@ -163,14 +162,14 @@ Se você concluiu o tutorial anterior (e não excluiu o registro), você verá u
 
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
-BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ------------  --------------------  ----------
-eastus6     buildhelloworld  Linux       Succeeded  Manual        2018-04-22T00:03:46Z  00:00:40
-eastus5                                  Succeeded  Manual        2018-04-22T00:01:45Z  00:00:25
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-21T23:52:33Z  00:00:30
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:50:10Z  00:00:35
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:46:15Z  00:00:55
-eastus1                                  Succeeded  Manual        2018-04-21T23:24:05Z  00:00:35
+BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+----------  ---------------  ----------  ---------  ----------  --------------------  ----------
+aa6         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual      2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit  2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual      2018-05-10T19:10:14Z  00:00:55
 ```
 
 ## <a name="update-base-image"></a>Atualização de imagem base
@@ -202,18 +201,18 @@ A saída deverá ser semelhante à seguinte. O GATILHO para a compilação execu
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
 BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ----------    --------------------  ----------
-eastus8     buildhelloworld  Linux       Succeeded  Image Update  2018-04-22T00:09:24Z  00:00:50
-eastus7                                  Succeeded  Manual        2018-04-22T00:08:49Z  00:00:40
-eastus6     buildhelloworld  Linux       Succeeded  Image Update  2018-04-20T00:15:30Z  00:00:43
-eastus5     buildhelloworld  Linux       Succeeded  Manual        2018-04-20T00:10:05Z  00:00:45
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-19T23:40:38Z  00:00:40
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:36:37Z  00:00:40
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:35:27Z  00:00:40
-eastus1                                  Succeeded  Manual        2018-04-19T22:51:13Z  00:00:30
+----------  ---------------  ----------  ---------  ------------  --------------------  ----------
+aa8         buildhelloworld  Linux       Succeeded  Image Update  2018-05-10T20:09:52Z  00:00:45
+aa7                          Linux       Succeeded  Manual        2018-05-10T20:09:17Z  00:00:40
+aa6         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual        2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit    2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual        2018-05-10T19:10:14Z  00:00:55
 ```
 
-Se você deseja executar a seguinte etapa opcional de executar o contêiner recém-criado para ver o número de versão atualizada, anote o valor da **ID do Build** para a compilação disparada para atualização da imagem (na saída acima, é "eastus6").
+Se você deseja executar a seguinte etapa opcional de executar o contêiner recém-criado para ver o número de versão atualizada, anote o valor da **ID do Build** para a compilação disparada para atualização da imagem (na saída acima, é "aa8").
 
 ### <a name="optional-run-newly-built-image"></a>Opcional: Executar imagem criada recentemente
 
@@ -253,7 +252,6 @@ Neste tutorial, você aprendeu como usar uma tarefa de compilação para dispara
 [code-sample]: https://github.com/Azure-Samples/acr-build-helloworld-node
 [dockerfile-app]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-app
 [dockerfile-base]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-base
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
