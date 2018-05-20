@@ -15,7 +15,7 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.openlocfilehash: 2bbfe4f829ad5c42a5742fdf08f2d185af627f42
 ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/11/2018
 ---

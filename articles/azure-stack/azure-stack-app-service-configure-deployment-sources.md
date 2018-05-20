@@ -17,7 +17,7 @@ ms.author: brenduns
 ms.reviewer: anwestg
 ms.openlocfilehash: 46242fd7ab9e05cfc2edde119afdc6053f129e40
 ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/11/2018
 ---

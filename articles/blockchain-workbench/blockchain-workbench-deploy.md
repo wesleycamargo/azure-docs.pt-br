@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 80a40cec8ebd062751e896f9b555c5ed5464d7a3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 85a627678f862d783d47013d82bae8b485d7d4e9
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implantar o Azure Blockchain Workbench
 
@@ -79,27 +79,6 @@ Em seguida, você precisa modificar o manifesto do aplicativo para usar as funç
 
 4.  Clique em **Salvar** para salvar as alterações do manifesto do aplicativo.
 
-### <a name="add-graph-api-key-to-application"></a>Adicionar chave de API do Graph ao aplicativo
-
-O Blockchain Workbench usa o Microsoft Azure Active Directory como principal sistema de gerenciamento de identidade para os usuários que interagem com aplicativos de blockchain. Para que o Blockchain Workbench acesse o Microsoft Azure Active Directory e recupere informações de usuário, como nomes e emails, você precisa adicionar uma chave de acesso. O Blockchain Workbench usa a chave para autenticar com o Microsoft Azure Active Directory.
-
-1. Para o aplicativo que você registrou, selecione **Configurações** no painel de detalhes do aplicativo registrado.
-2. Selecione **Chaves**.
-3. Adicione uma nova chave especificando uma **descrição** de chave e escolhendo o valor de duração **expira**. 
-
-    ![Chave Create](media/blockchain-workbench-deploy/app-key-create.png)
-
-    |Configuração  | Valor  |
-    |---------|---------|
-    | DESCRIÇÃO | `Service` |
-    | Expira | Escolha uma duração de expiração |
-
-4. Clique em **Salvar**. 
-5. Copie o valor da chave e guarde-o para mais tarde. Você precisará dele para a implantação.
-
-    > [!IMPORTANT]
-    >  Se você não salvar a chave para a implantação, você precisará gerar uma nova chave. Você não pode recuperar o valor da chave pelo portal depois.
-
 ### <a name="add-graph-api-required-permissions"></a>Adicionar permissões necessárias de API do Graph
 
 O aplicativo de API precisa solicitar a permissão do usuário para acessar o diretório. Defina a seguinte permissão necessária para o aplicativo de API:
@@ -122,6 +101,27 @@ O aplicativo de API precisa solicitar a permissão do usuário para acessar o di
 
    A concessão de permissão permite que o Blockchain Workbench acesse os usuários no diretório. A permissão de leitura é necessária para pesquisar e adicionar membros ao Blockchain Workbench.
 
+### <a name="add-graph-api-key-to-application"></a>Adicionar chave de API do Graph ao aplicativo
+
+O Blockchain Workbench usa o Microsoft Azure Active Directory como principal sistema de gerenciamento de identidade para os usuários que interagem com aplicativos de blockchain. Para que o Blockchain Workbench acesse o Microsoft Azure Active Directory e recupere informações de usuário, como nomes e emails, você precisa adicionar uma chave de acesso. O Blockchain Workbench usa a chave para autenticar com o Microsoft Azure Active Directory.
+
+1. Para o aplicativo que você registrou, selecione **Configurações** no painel de detalhes do aplicativo registrado.
+2. Selecione **Chaves**.
+3. Adicione uma nova chave especificando uma **descrição** de chave e escolhendo o valor de duração **expira**. 
+
+    ![Chave Create](media/blockchain-workbench-deploy/app-key-create.png)
+
+    |Configuração  | Valor  |
+    |---------|---------|
+    | DESCRIÇÃO | `Service` |
+    | Expira | Escolha uma duração de expiração |
+
+4. Clique em **Salvar**. 
+5. Copie o valor da chave e guarde-o para mais tarde. Você precisará dele para a implantação.
+
+    > [!IMPORTANT]
+    >  Se você não salvar a chave para a implantação, você precisará gerar uma nova chave. Você não pode recuperar o valor da chave pelo portal depois.
+
 ### <a name="get-application-id"></a>Obter ID do aplicativo
 
 As informações de locatário e ID do aplicativo são necessárias para a implantação. Coletar e armazenar as informações para uso durante a implantação.
@@ -134,23 +134,6 @@ As informações de locatário e ID do aplicativo são necessárias para a impla
     | Configurando para armazenar  | Usar na implantação |
     |------------------|-------------------|
     | ID do aplicativo | Configuração do Azure Active Directory > ID do aplicativo |
-
-### <a name="create-an-azure-ad-key-vault-application"></a>Criar um aplicativo Key Vault do Microsoft Azure Active Directory
-
-A implantação do Blockchain Workbench exige o registro de um aplicativo Key Vault do Microsoft Azure Active Directory.
-
-1. No painel de navegação esquerdo do Portal do Azure, selecione o serviço do **Azure Active Directory**. Selecione **Registros do aplicativo** > **Novo registro de aplicativo**.
-2. Forneça um **Nome** e uma **URL de Logon** para o aplicativo. Você pode usar valores de espaço reservado, pois eles podem ser alterados posteriormente durante a implantação.
-
-    ![Criar registro de aplicativo Key Vault](media/blockchain-workbench-deploy/key-vault-app-create.png)
-
-    | Configuração  | Valor  |
-    |---------|---------|
-    | NOME | `Blockchain Key Vault app` |
-    | Tipo de aplicativo | Aplicativo Web / API |
-    | URL de logon | `https://keyvaultclient |
-
-5. Selecione **Criar** para registrar o aplicativo Key Vault do Microsoft Azure Active Directory.
 
 ### <a name="get-tenant-domain-name"></a>Obter nome de domínio do locatário
 
@@ -187,6 +170,7 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
     | Senha | A senha é usada para se conectar a VMs. |
     | SSH | Use uma chave pública RSA no formato de única linha começando com **ssh-rsa** ou use o formato PEM de várias linha. É possível gerar chaves SSH usando `ssh-keygen` no Linux e OS X ou usando PuTTYGen no Windows. Para obter mais informações sobre como usar chaves SSH, veja [Como usar chaves SSH com o Windows no Azure](../virtual-machines/linux/ssh-from-windows.md). |
     | Senha do banco de dados / Confirmar senha do banco de dados | Especifique a senha a ser usada para acessar o banco de dados criado como parte da implantação. |
+    | Resultados da implantação | Especifique onde implantar os recursos Blockchain Workbench. Para melhor disponibilidade, isso deve corresponder à configuração do **Local**. |
     | Assinatura | Especifique a assinatura do Azure que você deseja usar para sua implantação. |
     | Grupos de recursos | Crie um novo grupo de recursos selecionando **Criar novo** e especifique um nome exclusivo para o grupo de recursos. |
     | Local padrão | Especifique a região em que você deseja implantar a estrutura. |
@@ -224,8 +208,8 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
     | Configuração | DESCRIÇÃO  |
     |---------|--------------|
-    | Monitoramento | Escolha se você deseja que o Azure Monitor seja usado para monitorar sua rede de blockchain. |
-    | Conectar-se à instância existente do OMS | Escolha se você quer usar uma instância do OMS (Operations Management Suite) existente ou criar uma nova. 
+    | Monitoramento | Escolha se você deseja que o Azure Monitor monitore a sua rede do blockchain |
+    | Conecte-se à instância do Log Analytics existente | Escolha se você quer usar uma instância do Log Analytics existente ou criar uma nova. Se usar uma instância existente, insira a ID do espaço de trabalho e a chave primária. |
 
 12. Clique em **OK** para concluir a seção do Azure Monitor.
 
@@ -253,6 +237,8 @@ Concluída a implantação do Blockchain Workbench, um novo grupo de recursos co
 
     ![Conceitos básicos do Serviço de Aplicativo](media/blockchain-workbench-deploy/app-service.png)
 
+Para associar um nome de domínio personalizado ao Blockchian Workbench, consulte [Configurando um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure usando o Gerenciador de Tráfego](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+
 ## <a name="configuring-the-reply-url"></a>Configurar a URL de resposta
 
 Quando o Azure Blockchain Workbench tiver sido implantado, a próxima etapa será verificar se o aplicativo cliente do Microsoft Azure Active Directory (Azure AD) está registrado na correta **URL de resposta** da URL da Web do Blockchain Workbench implantado.
@@ -262,7 +248,7 @@ Quando o Azure Blockchain Workbench tiver sido implantado, a próxima etapa ser�
 3. No painel de navegação esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **Registros do Aplicativo**.
 4. Selecione o aplicativo cliente do Microsoft Azure Active Directory registrado na seção de pré-requisitos.
 5. Selecione **Configurações > URLs de resposta**.
-6. Especifique a URL da Web principal da implantação do Azure Blockchain Workbench recuperada na seção **Obter a URL da Web do Azure Blockchain Workbench**. A URL de resposta é prefixada com `https://`.  Por exemplo, `https://myblockchain2-7v75.azurewebsites.net`
+6. Especifique a URL da Web principal da implantação do Azure Blockchain Workbench recuperada na seção **Obter a URL da Web do Azure Blockchain Workbench**. A URL de resposta é prefixada com `https://`. Por exemplo, `https://myblockchain2-7v75.azurewebsites.net`
 
     ![URLs de resposta](media/blockchain-workbench-deploy/configure-reply-url.png)
 
@@ -270,4 +256,7 @@ Quando o Azure Blockchain Workbench tiver sido implantado, a próxima etapa ser�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você tem o Azure Blockchain Workbench implantado, a próxima etapa será [gerenciar usuários no Azure Blockchain Workbench](blockchain-workbench-manage-users.md).
+Neste artigo de procedimentos, você implantou o Azure Blockchain Workbench. Para saber como usar o aplicativo blockchain, continue no próximo artigo de instruções.
+
+> [!div class="nextstepaction"]
+> [Criar um aplicativo blockchain no Azure Blockchain Workbench](blockchain-workbench-create-app.md)

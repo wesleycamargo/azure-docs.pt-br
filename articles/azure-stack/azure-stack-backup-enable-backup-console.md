@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 0ef8247eba4605d3c8e5ef0992ce97bce989002e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: ce5fd2feaa30948042cc0570a4b0ea7f0ab7ad77
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitar o backup para a pilha do Azure no portal de administração
 Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que a pilha do Azure pode gerar backups. Você pode usar esses backups para restaurar seu ambiente usando a nuvem de recuperação no caso de [uma falha catastrófica](.\azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é assegurar que seus operadores e os usuários podem fazer logon novamente no portal do após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, planos originais, ofertas e definida anteriormente computação, armazenamento e cotas de rede.
@@ -45,7 +45,7 @@ Administradores e usuários são responsáveis por fazer backup e restaurar recu
 3. Digite o caminho para o **local de armazenamento de Backup**. Use uma cadeia de caracteres de convenção de nomenclatura Universal (UNC) para o caminho para um compartilhamento de arquivo hospedado em um dispositivo separado. Uma cadeia de caracteres UNC Especifica o local de recursos, como arquivos compartilhados ou dispositivos. Para o serviço, você pode usar um endereço IP. Para garantir a disponibilidade dos dados de backup após um desastre, o dispositivo deve estar em um local separado.
     > [!Note]  
     > Se seu ambiente oferece suporte à resolução de nome de rede de infraestrutura de pilha do Azure para seu ambiente empresarial, você pode usar um FQDN em vez de IP.
-4. Tipo de **Username** usando o nome de usuário e domínio. Por exemplo, `Contoso\administrator`.
+4. Tipo de **Username** usando o domínio e o nome de usuário com permissões suficientes de acesso para ler e gravar arquivos. Por exemplo, `Contoso\backupshareuser`.
 5. Tipo de **senha** para o usuário.
 5. Digite a senha novamente para **Confirmar senha**.
 6. Fornecer uma chave pré-compartilhada no **chave de criptografia** caixa. Arquivos de backup são criptografados usando essa chave. Certifique-se de armazenar essa chave em um local seguro. Depois que você definir essa chave pela primeira vez ou gira a chave no futuro, você não pode exibir essa chave desta interface. Para obter mais instruções gerar uma chave pré-compartilhada, execute os scripts em [habilitar o Backup para a pilha do Azure com o PowerShell](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key). 
