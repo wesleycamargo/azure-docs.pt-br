@@ -7,13 +7,13 @@ ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 470f513260cef516fd53ad213138480bd056456a
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: e7135e620ab799131f772c16f6799ed80be312e0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-automation-integration-modules"></a>Módulos de integração de automação do Azure
 O PowerShell é a tecnologia fundamental por trás da Automação do Azure. Como a Automação do Azure foi desenvolvida sobre o PowerShell, os módulos do PowerShell são fundamentais para a extensibilidade da Automação do Azure. Neste artigo, orientamos você pelas questões específicas da utilização de módulos do PowerShell pela Automação do Azure, chamados de “Módulos de Integração”, e as práticas recomendadas para a criação de seus próprios módulos do PowerShell para ter certeza de que eles funcionam como Módulos de Integração dentro da Automação do Azure. 

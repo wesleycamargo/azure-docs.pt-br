@@ -1,36 +1,36 @@
 ---
-title: Central de Segurança do Azure e máquinas virtuais do Windows no Azure | Microsoft Docs
-description: Saiba mais sobre a segurança de sua máquina virtual do Microsoft Azure com a Central de Segurança do Azure.
+title: Tutorial – Usar a Central de Segurança do Azure para VMs Windows no Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá sobre os recursos da Central de Segurança do Azure para ajudar a proteger as máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35b6c8910b0dd5e8d1c388ee83223ce77a08f6d1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Monitorar a segurança da máquina virtual usando a Central de Segurança do Azure
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Usar a Central de Segurança do Azure para monitorar máquinas virtuais do Windows
 
 A Central de Segurança do Azure pode ajudá-lo a ganhar visibilidade em suas práticas de segurança de recursos do Azure. A Central de segurança oferece o monitoramento de segurança integrado. Ela pode detectar ameaças que não seriam notadas de outra forma. Neste tutorial, você saberá mais sobre a Central de Segurança do Azure e como:
- 
+
 > [!div class="checklist"]
 > * Configurar a coleta de dados
 > * Definir políticas de segurança
 > * Exibir e corrigir problemas de integridade de configuração
-> * Examinar ameaças detectadas  
+> * Examinar ameaças detectadas
 
 ## <a name="security-center-overview"></a>Visão geral da Central de Segurança
 

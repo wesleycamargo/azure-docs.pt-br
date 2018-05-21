@@ -2,35 +2,29 @@
 title: SSPR do Azure AD na tela de login do Windows 10 | Microsoft Docs
 description: Configurar a redefinição de senha do Azure AD da tela de login do Windows 10 e esqueci meu PIN
 services: active-directory
-keywords: ''
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: ''
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: a85cb6aea1027d657d38007a397321de10e16d07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Redefinição de senha do Azure AD a partir da tela de logon
 
 Você já implantou a redefinição de senha de autoatendimento do Azure AD (SSPR), mas os usuários ainda ligam para a assistência técnica quando esquecem a senha. Eles ligam para a assistência técnica porque não conseguem acessar um navegador da Web para poder acessar a SSPR.
 
-Com o novo Windows 10 Fall Creators Update, os usuários com dispositivos do Azure AD unidos podem ver um link de "Redefinir senha" na sua tela de logon. Quando clicam nesse link, eles têm a mesma experiência de redefinição de senha de autoatendimento (SSPR) com a qual já estão familiarizados.
+Com o novo Windows 10 Atualização de abril de 2018, os usuários com dispositivos do **Azure AD unidos** ou **Azure AD híbridos unidos** podem ver e usar um link de "Redefinir senha" na sua tela de logon. Quando clicam nesse link, eles têm a mesma experiência de redefinição de senha de autoatendimento (SSPR) com a qual já estão familiarizados.
 
 Para permitir que os usuários redefinam sua senha do Azure AD na tela de logon do Windows 10, os requisitos a seguir precisam ser atendidos:
 
-* Windows 10, versão 1709 ou mais recente do cliente que está [ingressado no Azure AD](../device-management-azure-portal.md).
+* Windows 10 Atualização de abril de 2018 ou cliente mais recente que seja [Azure AD unidos](../device-management-azure-portal.md) ou [Azure AD híbridos unidos](../device-management-hybrid-azuread-joined-devices-setup.md).
 * A redefinição de senha de autoatendimento do Azure AD deve ser habilitada.
 * Configurar e implantar a configuração para habilitar o link Redefinir senha por meio de um dos seguintes métodos:
    * [Perfil de configuração de dispositivo do Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
@@ -66,7 +60,7 @@ Para permitir que os usuários redefinam sua senha do Azure AD na tela de logon 
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) e clique em **Azure Active Directory**.
 2. Navegue até **Usuários e grupos** > **Todos os grupos de** > **Novo grupo**
-3. Forneça um nome para o grupo e, em **Tipo de associação** escolha **Atribuído** 
+3. Forneça um nome para o grupo e, em **Tipo de associação** escolha **Atribuído**
    * Em **Membros**, escolha os dispositivos Windows 10 ingressados pelo Azure AD nos quais você deseja aplicar a política.
    * Clique em **Selecionar**
 4. Clique em **Criar**
@@ -117,6 +111,7 @@ Ao testar essa funcionalidade usando a Área de Trabalho Remota, o link de "Rede
 * Atualmente não há suporte para a redefinição de senha a partir de uma Área de Trabalho Remota.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
 * [Como fazer para implantar a SSPR?](howto-sspr-deployment.md)
