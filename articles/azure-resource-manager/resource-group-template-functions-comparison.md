@@ -1,24 +1,24 @@
 ---
-title: "Funções de modelo do Azure Resource Manager – comparação | Microsoft Docs"
-description: "Descreve as funções a serem usadas em um modelo do Resource Manager para comparar valores."
+title: Funções de modelo do Azure Resource Manager – comparação | Microsoft Docs
+description: Descreve as funções a serem usadas em um modelo do Resource Manager para comparar valores.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3291d545bc7a66ffa9b4845acd890a714cf84ef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 364a271d84f9abfe99c7c674a6c504ce94318ac9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funções de comparação para modelos do Azure Resource Manager
 
@@ -37,10 +37,10 @@ Verifica se dois valores são iguais entre si.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int, string, array ou object |O primeiro valor para verificar a igualdade. |
-| arg2 |Sim |int, string, array ou object |O segundo valor para verificar a igualdade. |
+| arg1 |sim |int, string, array ou object |O primeiro valor para verificar a igualdade. |
+| arg2 |sim |int, string, array ou object |O segundo valor para verificar a igualdade. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -132,12 +132,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | True  |
-| checkStrings | Bool | True  |
-| checkArrays | Bool | True  |
-| checkObjects | Bool | Verdadeiro |
+| checkInts | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
@@ -170,9 +170,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Verdadeiro |
+| checkNotEquals | Bool | True |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
@@ -193,10 +193,10 @@ Verifica se o primeiro valor é maior que o segundo valor.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor da comparação de maior que. |
-| arg2 |Sim |int ou string |O segundo valor da comparação de maior que. |
+| arg1 |sim |int ou string |O primeiro valor da comparação de maior que. |
+| arg2 |sim |int ou string |O segundo valor da comparação de maior que. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -245,10 +245,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | Falso |
-| checkStrings | Bool | Verdadeiro |
+| checkStrings | Bool | True |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
@@ -269,10 +269,10 @@ Verifica se o primeiro valor é maior que ou igual ao segundo valor.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor da comparação de maior que ou igual a. |
-| arg2 |Sim |int ou string |O segundo valor da comparação de maior que ou igual a. |
+| arg1 |sim |int ou string |O primeiro valor da comparação de maior que ou igual a. |
+| arg2 |sim |int ou string |O segundo valor da comparação de maior que ou igual a. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -321,10 +321,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | Falso |
-| checkStrings | Bool | Verdadeiro |
+| checkStrings | Bool | True |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
@@ -345,10 +345,10 @@ Verifica se o primeiro valor é menor que o segundo valor.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor da comparação de menor que. |
-| arg2 |Sim |int ou string |O segundo valor da comparação de menor que. |
+| arg1 |sim |int ou string |O primeiro valor da comparação de menor que. |
+| arg2 |sim |int ou string |O segundo valor da comparação de menor que. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -397,9 +397,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | True  |
+| checkInts | Bool | True |
 | checkStrings | Bool | Falso |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
@@ -421,10 +421,10 @@ Verifica se o primeiro valor é menor que ou igual ao segundo valor.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor da comparação de menor que ou igual a. |
-| arg2 |Sim |int ou string |O segundo valor da comparação de menor que ou igual a. |
+| arg1 |sim |int ou string |O primeiro valor da comparação de menor que ou igual a. |
+| arg2 |sim |int ou string |O segundo valor da comparação de menor que ou igual a. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -473,9 +473,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | True  |
+| checkInts | Bool | True |
 | checkStrings | Bool | Falso |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:

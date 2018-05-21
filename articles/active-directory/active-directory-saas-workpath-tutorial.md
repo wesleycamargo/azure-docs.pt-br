@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Workpath | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Workpath."
+title: 'Tutorial: integração do Azure Active Directory com o Workpath | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Workpath.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 70aea0bc84b7aea47ec9b51fc46e502e93690db3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab0c407def62f89691a1989a869902d356c5bdc8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Tutorial: integração do Azure Active Directory com o Workpath
 
@@ -29,9 +29,9 @@ A integração do Workpath ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no Workpath (logon único) com as contas do Azure AD deles
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o Workpath, você precisará dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Workpath a partir da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-workpath-from-the-gallery"></a>Adicionar o Workpath a partir da galeria
 Para configurar a integração do Workpath ao Azure AD, você precisará adicionar o Workpath da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do Workpath ao Azure AD, você precisará adicion
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Workpath**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do Workpath ao Azure AD, você precisará adicion
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Workpath, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Workpath é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Workpath.
@@ -86,11 +86,11 @@ No Workpath, atribua o valor do **nome de usuário** no Azure AD como o valor do
 
 Para configurar e testar o logon único do Azure AD com o Workpath, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criação de um usuário de teste do Workpath](#creating-a-workpath-test-user)** – para ter um equivalente de Brenda Fernandes no Workpath que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 1. No Portal do Azure, na página de integração de aplicativos do **Workpath**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_samlbase.png)
 
 3. Na seção **Domínio e URLs do Workpath**, se você quiser configurar o aplicativo em modo iniciado pelo **IDP**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_url.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
@@ -116,7 +116,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 4. Marque **Mostrar configurações de URL avançadas**. Se desejar configurar o aplicativo no modo iniciado pelo **SP**, realize as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_url1.png)
+    ![Configurar o logon único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_url1.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.workpath.com/ `
 
@@ -125,7 +125,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 5. O aplicativo Workpath espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo dessa configuração. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_attributes.png)
+    ![Configurar o logon único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_attributes.png)
     
 6. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir:
     
@@ -136,7 +136,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     
     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-workpath-tutorial/tutorial_attribute_04.png)
+    ![Configurar o logon único](./media/active-directory-saas-workpath-tutorial/tutorial_attribute_04.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -155,11 +155,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 8. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-workpath-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-workpath-tutorial/tutorial_general_400.png)
 
 9. Na seção **Configuração do Workpath**, clique em **Configurar Workpath** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_configure.png) 
 
 10. Para configurar o logon único no lado do **Workpath**, é necessário enviar o **XML de Metadados** baixado, a **URL de Saída, a ID da Entidade e a URL do Serviço de Logon Único SAML** para a [equipe de suporte do Workpath](https://help.workpath.com). 
 
@@ -217,7 +217,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, escolha **Workpath**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -243,7 +243,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

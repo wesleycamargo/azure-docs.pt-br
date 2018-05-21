@@ -5,26 +5,25 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.openlocfilehash: 279722cc53889cb0a261fcffde0c7e0f86be6dc5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.reviewer: efemmano
+ms.openlocfilehash: 2ebafc4249f8455bdbe45a07a5bf88aa8984d67a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Usando o portal de pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Como um consumidor de serviços de pilha do Azure, use o portal de pilha do Azure para se inscrever para ofertas públicas e usar os serviços que fornecem essas ofertas. Se você usou o portal do Azure antes, você já está familiarizado com a interface do usuário.
+Você pode usar o portal de pilha do Azure para se inscrever para ofertas públicas e usar os serviços que fornecem essas ofertas. Se você usou o portal do Azure global, você já está familiarizado com como funciona o site.
 
 ## <a name="access-the-portal"></a>Acessar o portal
 
@@ -60,13 +59,13 @@ Se você precisar de orientação sobre como usar os serviços disponíveis, pod
     Em particular, sugerimos que você analise os artigos a seguir para começar:
 
     - [Considerações de chave: usando os serviços ou criação de aplicativos para a pilha do Azure](azure-stack-considerations.md)
-    - Na seção "Usar serviços" da documentação, há um artigo "Considerações sobre" para cada serviço. A página "Considerações sobre" descreve as diferenças entre o serviço oferecido no Azure e o mesmo serviço oferecido na pilha do Azure. Para obter um exemplo, consulte [considerações de VM](azure-stack-vm-considerations.md). Pode haver outras informações na seção "Usar serviços" que é exclusiva para a pilha do Azure.
+    - No **usar serviços** seção da documentação, há um artigo de considerações para cada serviço. A página considerações descreve as diferenças entre o serviço oferecido no Azure e o mesmo serviço oferecido na pilha do Azure. Para obter um exemplo, consulte [considerações de VM](azure-stack-vm-considerations.md). Pode haver outras informações no **usar serviços** seção que é exclusiva para a pilha do Azure.
      
       Você pode usar a documentação do Azure como referência geral para um serviço, mas você deve estar atento essas diferenças. Entender que a documentação contém links no **tutoriais** bloco aponte para documentação do Azure.
 
 ## <a name="get-support"></a>Obtenha suporte
 
-Se precisar de suporte adicional, entre em contato com seu provedor de serviço ou da organização para obter assistência.
+Se você precisar de suporte, contate o provedor de serviço ou da organização para obter ajuda.
 
 Se você estiver usando o Kit de desenvolvimento de pilha do Azure, o [Fórum do Azure pilha](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) é a única fonte de suporte.
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/18/2018
 ms.author: jeffgilb
-ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e08c0bfd3cbed64f5042e469801e20c913c2f70e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do SQL
 Você pode usar instâncias do SQL em máquinas virtuais dentro de seu [Azure pilha](azure-stack-poc.md), ou uma instância fora de seu ambiente de pilha do Azure, fornecido o provedor de recursos pode se conectar a ele. Os requisitos gerais são:
@@ -96,25 +96,21 @@ A configuração de instâncias do SQL Always On requer etapas adicionais e envo
 > [!NOTE]
 > O adaptador SQL RP _somente_ dá suporte a SQL 2016 SP1 Enterprise ou posteriores instâncias para o AlwaysOn, pois exige novos recursos do SQL, como a propagação automática. Além da lista anterior e comuns de requisitos:
 
-* Você deve fornecer um servidor de arquivos, além de computadores do SQL Always On. Há um [modelo de início rápido do Azure pilha](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-ha) que você pode criar esse ambiente para você. Ela também poderá servir como um guia para criar sua própria instância.
+Especificamente, você deve habilitar [a propagação automática](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) em cada grupo de disponibilidade para cada instância do SQL Server:
 
-* Você deve configurar os servidores SQL. Especificamente, você deve habilitar [a propagação automática](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) em cada grupo de disponibilidade para cada instância do SQL Server.
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON 'InstanceName'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  ```
 
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>]
-    MODIFY REPLICA ON 'InstanceName'
-    WITH (SEEDING_MODE = AUTOMATIC)
-GO
-```
+Em instâncias secundárias use esses comandos SQL:
 
-Em instâncias secundárias
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
-GO
-
-```
-
-
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
 
 Para adicionar servidores de hospedagem SQL Always On, siga estas etapas:
 
@@ -124,14 +120,16 @@ Para adicionar servidores de hospedagem SQL Always On, siga estas etapas:
 
     O **servidores de hospedagem SQL** folha é onde você pode conectar o provedor de recursos do SQL Server para instâncias do SQL Server reais que servem como back-end do provedor de recursos.
 
-
-3. Preencha o formulário com os detalhes de conexão da instância do SQL Server, certificando-se de usar o endereço FQDN ou IPv4 do ouvinte sempre em (e o número de porta opcional). Forneça as informações de conta para a conta configurada com privilégios de administrador do sistema.
+3. Preencha o formulário com os detalhes de conexão da instância do SQL Server, certificando-se de usar o endereço FQDN do ouvinte sempre em (e o número de porta opcional). Forneça as informações de conta para a conta configurada com privilégios de administrador do sistema.
 
 4. Marque esta caixa para habilitar o suporte para instâncias de SQL sempre no grupo de disponibilidade.
 
     ![Servidores de hospedagem](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. Adicione a instância do SQL Always On a uma SKU. Você não pode misturar servidores autônomos com instâncias de AlwaysOn no SKU do mesmo. Que será determinada ao adicionar o primeiro servidor de hospedagem. Tentativa de combinar tipos posteriormente resultará em erro.
+5. Adicione a instância do SQL Always On a uma SKU. 
+
+> [!IMPORTANT]
+> Você não pode misturar servidores autônomos com instâncias de AlwaysOn no SKU do mesmo. Tentativa de combinar tipos depois de adicionar os primeiros resultados de servidor de hospedagem em um erro.
 
 
 ## <a name="making-sql-databases-available-to-users"></a>Disponibilizar os bancos de dados SQL para usuários

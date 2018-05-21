@@ -1,24 +1,24 @@
 ---
-title: "Atualizar serviço de aplicativo do Azure Offline | Microsoft Docs"
-description: "Orientações detalhadas para a atualização do serviço de aplicativo do Azure na pilha do Azure offline"
+title: Atualizar serviço de aplicativo do Azure Offline | Microsoft Docs
+description: Orientações detalhadas para a atualização do serviço de aplicativo do Azure na pilha do Azure offline
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 61a3169229cc121c078a934f6b979bdaffafd565
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8671cba484a779e8d7cd0172df141497bb396a97
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Atualização offline do serviço de aplicativo do Azure na pilha do Azure
 
@@ -43,7 +43,7 @@ Seguindo as instruções neste artigo, você pode atualizar o [provedor de recur
 
 Para atualizar o provedor de recursos do serviço de aplicativo em um ambiente de pilha do Azure, você deve concluir estas tarefas:
 
-1. Baixe o [instalador de serviço de aplicativo](https://aka.ms/appsvcupdate1installer)
+1. Baixe o [instalador de serviço de aplicativo](https://aka.ms/appsvcupdate2installer)
 2. Crie um pacote de atualização offline.
 3. Execute o instalador de serviço de aplicativo (appservice.exe) e concluir a atualização.
 
@@ -52,7 +52,7 @@ Durante esse processo, a atualização será:
 * Detectar a implantação anterior do serviço de aplicativo
 * Carregar no armazenamento
 * Atualizar todas as funções de serviço de aplicativo (controladores, gerenciamento, front-end, Publisher e Worker funções)
-* Atualizar definições de conjunto de escala do serviço de aplicativo
+* Atualizar as definições do conjunto de dimensionamento do Serviço de Aplicativo
 * Atualizar o manifesto do provedor de recursos de serviço de aplicativo
 
 ## <a name="create-an-offline-upgrade-package"></a>Criar um pacote de atualização offline
@@ -78,7 +78,7 @@ Para atualizar o serviço de aplicativo em um ambiente desconectado, primeiro vo
 >
 >
 
-1. Execute appservice.exe como um administrador.  
+1. Execute appservice.exe como um administrador.
 
     ![Instalador de serviço de aplicativo][1]
 
@@ -101,7 +101,7 @@ Para atualizar o serviço de aplicativo em um ambiente desconectado, primeiro vo
    1. Clique no **conectar** lado a **assinaturas de pilha do Azure** caixa.
         * Se você estiver usando o Azure Active Directory (AD do Azure), insira a conta de administrador do AD do Azure e a senha que você forneceu quando você implantou a pilha do Azure. Clique em **entrar**.
         * Se você estiver usando os serviços de Federação do Active Directory (AD FS), fornece sua conta de administrador. Por exemplo, *cloudadmin@azurestack.local*. Digite sua senha e clique em **entrar**.
-   2. No **assinaturas do Azure pilha** , selecione sua assinatura.
+   2. No **assinaturas do Azure pilha** caixa, selecione a **assinatura do provedor padrão**.
    3. No **Azure pilha locais** , selecione o local que corresponde à região que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento de pilha do Azure.
    4. Se uma implantação existente do serviço de aplicativo for descoberta, em seguida, a conta de armazenamento e o grupo de recursos será preenchida e esmaecida.
    5. Clique em **próximo** para examinar o resumo da atualização.

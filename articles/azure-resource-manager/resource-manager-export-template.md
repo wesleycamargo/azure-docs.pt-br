@@ -2,7 +2,7 @@
 title: Exportar o modelo do Azure Resource Manager | Microsoft Docs
 description: Use o Azure Resource Manager para exportar um modelo a partir de um grupo de recursos existente.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -11,14 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ac553a3608df41548f845e27c545ff63886e37c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 14aa54277cac3369df739a1d84580624f2d3b401
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exportar um modelo do Azure Resource Manager a partir dos recursos existentes
 Neste artigo, você aprenderá a exportar um modelo do Resource Manager de recursos existentes em sua assinatura. Você pode usar esse modelo gerado para compreender melhor a sintaxe do modelo.
@@ -40,11 +40,11 @@ Vamos começar a implantação de recursos para o Azure que podem ser usados par
    
       ![Pesquise aplicativo Web e SQL](./media/resource-manager-export-template/webapp-sql.png)
 
-3. Selecione **Criar**.
+3. Clique em **Criar**.
 
       ![Selecione criar](./media/resource-manager-export-template/create.png)
 
-4. Forneça os valores necessários para o aplicativo Web e o banco de dados SQL. Selecione **Criar**.
+4. Forneça os valores necessários para o aplicativo Web e o banco de dados SQL. Clique em **Criar**.
 
       ![Forneça valor SQL e Web](./media/resource-manager-export-template/provide-web-values.png)
 

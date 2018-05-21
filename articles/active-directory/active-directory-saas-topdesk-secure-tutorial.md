@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o TOPdesk - Secure | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o TOPdesk – Secure."
+title: 'Tutorial: integração do Azure Active Directory com o TOPdesk - Secure | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o TOPdesk – Secure.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: ca3362bc3f966adaf9940f6eb4bec5235c6ea7d8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 34296313753eb795bee5d93a8d8f1c8ae5efac9f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Integração do Active Directory do Azure ao TOPdesk - Secure
 
@@ -30,9 +30,9 @@ A integração do TOPdesk – Secure ao Azure AD oferece os seguintes benefício
 - Você pode permitir que os usuários façam logon automaticamente no TOPdesk – Secure (logon único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao TOPdesk – Secure, você precisa dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o TOPdesk – Secure da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-topdesk---secure-from-the-gallery"></a>Adicionar o TOPdesk – Secure da galeria
 Para configurar a integração do TOPdesk – Secure ao Azure AD, é necessário adicionar o TOPdesk – Secure da galeria à lista de aplicativos SaaS gerenciados.
@@ -291,7 +291,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
