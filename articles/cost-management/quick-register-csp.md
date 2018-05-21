@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: 839f99153e0b7458d205c1afb61a05c75cbe0fb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b9dc2064a4d90b924730e2615378892b17340baf
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrar-se mo programa de Parceiro CSP e exibir dados de custo
 
@@ -60,7 +60,7 @@ Por padrão, a API do Partner Center só está acessível a CSPs diretos. No ent
 
 Para habilitar o acesso para clientes ou parceiros de CSP indireto, siga as etapas em [Criar um registro de avaliação](#create-a-trial-registration) para configurar um registro de avaliação. Em seguida, conclua estas etapas para segmentar dados de CSP indireto usando grupos de entidades Cloudyn. Em seguida, atribua as permissões de usuário apropriadas para os grupos de entidades.
 
-1. Crie um grupo de entidades com as informações em [Criar entidades](tutorial-user-access.md#create-entities).
+1. Crie um grupo de entidades com as informações em [Criar entidades](tutorial-user-access.md#create-and-manage-entities).
 2. Siga as etapas em [Atribuir assinaturas a Entidades de Custo](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Associe a conta do cliente de CSP indireto e suas assinaturas do Azure para a entidade que você criou anteriormente.
 3. Siga as etapas em [Criar um usuário com acesso de administrador](tutorial-user-access.md#create-a-user-with-admin-access) para criar uma conta de usuário com acesso de Administrador. Em seguida, verifique se a conta de usuário tem acesso de administrador às entidades específicas criadas anteriormente para a conta indireta.
 

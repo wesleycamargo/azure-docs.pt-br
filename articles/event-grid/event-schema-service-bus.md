@@ -1,18 +1,18 @@
 ---
-title: "Esquema de eventos do Barramento de Serviço da Grade de Eventos do Azure"
-description: "Descreve as propriedades que são fornecidas para eventos do Barramento de Serviço com a Grade de Eventos do Azure"
+title: Esquema de eventos do Barramento de Serviço da Grade de Eventos do Azure
+description: Descreve as propriedades que são fornecidas para eventos do Barramento de Serviço com a Grade de Eventos do Azure
 services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 02/21/2018
 ms.author: babanisa
-ms.openlocfilehash: 72780bff3807534efb456a9a7998f7d4de3c6f12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de eventos da Grade de Eventos do Azure para Barramento de Serviço
 

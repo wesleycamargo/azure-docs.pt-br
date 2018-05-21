@@ -1,24 +1,24 @@
 ---
-title: "Adicionar relatórios de integridade personalizados do Service Fabric | Microsoft Docs"
-description: "Descreve como enviar relatórios de integridade personalizados para entidades de integridade da Malha de Serviço do Azure. Fornece recomendações para projetar e implementar relatórios de integridade de qualidade."
+title: Adicionar relatórios de integridade personalizados do Service Fabric | Microsoft Docs
+description: Descreve como enviar relatórios de integridade personalizados para entidades de integridade da Malha de Serviço do Azure. Fornece recomendações para projetar e implementar relatórios de integridade de qualidade.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 1cd429ed8252573f8e8c3ed11d6c841cba855b52
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3eccb6ba18e6689c3726c8d930279b8a85ab1c92
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de integridade personalizados do Service Fabric
 O Azure Service Fabric apresenta um [modelo de integridade](service-fabric-health-introduction.md) desenvolvido para sinalizar condições de cluster e aplicativo não íntegras em entidades específicas. O modelo de integridade usa **relatores de integridade** (componentes do sistema e watchdogs). O objetivo é facilitar e agilizar o diagnóstico e o reparo. Os criadores de serviço precisam pensar à frente sobre a integridade. Qualquer condição que possa afetar a integridade deve ser apontada, especialmente se ela puder ajudar a sinalizar problemas próximos da raiz. As informações de integridade podem economizar tempo e esforço na investigação e depuração. A utilidade é especialmente clara quando o serviço está em funcionamento em grande escala na nuvem (Azure ou privada).

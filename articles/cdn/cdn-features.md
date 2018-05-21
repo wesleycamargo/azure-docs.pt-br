@@ -1,10 +1,10 @@
 ---
-title: Recursos do de produto da CDN (Rede de Distribuição de Conteúdo) do Azure| Microsoft Docs
+title: Comparar recursos do produto CDN (Rede de Distribuição de Conteúdo) do Azure| Microsoft Docs
 description: Saiba mais sobre os recursos para os quais cada produto CDN do Azure oferece suporte.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,20 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/25/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: ae57d4e9feb23f67bb4f05148d87fec96f055a7f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3368a8a14a3d1314e4c7ecae9256071f1fe646f9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="azure-cdn-product-features"></a>Recursos do produto CDN do Azure
+# <a name="compare-azure-cdn-product-features"></a>Comparar recursos do produto CDN do Azure
 
-A CDN (Rede de Distribuição de Conteúdo) do Azure inclui quatro produtos: **Azure CDN Standard da Microsoft**, **Azure CDN Standard da Akamai**, **Azure CDN Standard da Verizon** e **Azure CDN Premium da Verizon**. A tabela a seguir compara os recursos disponíveis em cada produto.
+A CDN (Rede de Distribuição de Conteúdo) do Azure inclui quatro produtos: **Azure CDN Standard da Microsoft** (em versão prévia), **Azure CDN Standard da Akamai**, **Azure CDN Standard da Verizon** e **Azure CDN Premium da Verizon**. 
 
-| **Recursos e otimizações de desempenho** | **Microsoft Standard** | **Akamai Standard** | **Verizon Standard** | **Verizon Premium** |
+A tabela a seguir compara os recursos disponíveis em cada produto.
+
+| **Recursos e otimizações de desempenho** | **Microsoft Standard (versão prévia)** | **Akamai Standard** | **Verizon Standard** | **Verizon Premium** |
 | --- | --- | --- | --- | --- |
 | [Aceleração de site dinâmica](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Aceleração de site dinâmico – compactação de imagem adaptável](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only)  |  | **&#x2713;**  |  |  |
@@ -42,16 +44,16 @@ A CDN (Rede de Distribuição de Conteúdo) do Azure inclui quatro produtos: **A
 | Pilha dupla IPv4/IPv6 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Suporte do HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
- **Segurança** | **Microsoft Standard** | **Akamai Standard** | **Verizon Standard** | **Verizon Premium** | 
+ **Segurança** | **Microsoft Standard (versão prévia)** | **Akamai Standard** | **Verizon Standard** | **Verizon Premium** | 
 | Suporte ao protocolo HTTPS com o ponto de extremidade CDN | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTPS de domínio personalizado](cdn-custom-ssl.md)  | **&#x2713;** | |**&#x2713;** |**&#x2713;** |
 | [Suporte a nome de domínio personalizado](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Filtragem geográfica](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Autenticação de token](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [Proteção DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Traga o seu próprio certificado](cdn-custom-ssl.md#option-2-enable-the-https-feature-with-your-own-certificate) |**&#x2713;** |  |  |  |
+| [Traga o seu próprio certificado](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) |**&#x2713;** |  |  |  |
 ||||
-| **Análise e relatórios** | **Microsoft Standard** | **Akamai Standard** | **Verizon Standard** | **Verizon Premium** | 
+| **Análise e relatórios** | **Microsoft Standard (versão prévia)** | **Akamai Standard** | **Verizon Standard** | **Verizon Premium** | 
 | [Logs de diagnóstico do Azure](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Relatórios de núcleo da Verizon](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [Relatórios personalizados da Verizon](cdn-verizon-custom-reports.md)  |  | |**&#x2713;** |**&#x2713;** |
@@ -60,8 +62,8 @@ A CDN (Rede de Distribuição de Conteúdo) do Azure inclui quatro produtos: **A
 | [Desempenho do nó de borda](cdn-edge-performance.md)  |  | | |**&#x2713;** |
 | [Alertas em tempo real](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
-| **Facilidade de uso** | **Microsoft Standard** | **Akamai Standard** | **Verizon Standard** | **Verizon Premium** | 
-| Fácil integração com os serviços do Azure, como [Armazenamento](cdn-create-a-storage-account-with-cdn.md), [Serviços de Nuvem](cdn-cloud-service-with-cdn.md), [Aplicativos Web](../app-service/app-service-web-tutorial-content-delivery-network.md) e [Serviços de Mídia](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| **Facilidade de uso** | **Microsoft Standard (versão prévia)** | **Akamai Standard** | **Verizon Standard** | **Verizon Premium** | 
+| Fácil integração com serviços do Azure como [Armazenamento](cdn-create-a-storage-account-with-cdn.md), [Aplicativos Web](cdn-add-to-web-app.md) e [Serviços de Mídia](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Gerenciamento via [API REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) ou [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Mecanismo de distribuição de conteúdo personalizável e baseado em regras](cdn-rules-engine.md)  |  | | |**&#x2713;** |
 | Redirecionamento/reconfiguração de URL (usando o [mecanismo de regras](cdn-rules-engine.md))  |  | | |**&#x2713;** |

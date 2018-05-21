@@ -3,23 +3,23 @@ title: Visão geral das Instâncias de Contêiner do Azure
 description: Compreender as Instâncias de Contêiner do Azure
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
 ms.date: 03/29/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: e10d4046f543fbcc479421f4ca8f10221abc806f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2da61d52e43857237f6e231c03ea62ba5eefdadd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
 Os contêineres estão se tornando o modo preferido para empacotar, implantar e gerenciar aplicativos de nuvem. As Instâncias de Contêiner do Azure oferecem a maneira mais rápida e simples para executar um contêiner no Azure, sem a necessidade de gerenciar máquinas virtuais nem adotar um serviço de nível superior.
 
-As Instâncias de Contêiner do Azure são uma ótima solução para qualquer cenário que possa ser usado em contêineres isolados, incluindo aplicativos simples, automação de tarefas e criação de trabalhos. Para cenários em que você precisa de orquestração de contêineres completa, incluindo descoberta do serviço em vários contêineres, dimensionamento automático e atualizações de aplicativo coordenadas, recomendamos o [AKS (Serviço de Contêiner do Azure)](../aks/index.yml).
+As Instâncias de Contêiner do Azure são uma ótima solução para qualquer cenário que possa ser usado em contêineres isolados, incluindo aplicativos simples, automação de tarefas e criação de trabalhos. Para cenários em que você precisa de orquestração de contêineres completa, incluindo descoberta do serviço em vários contêineres, dimensionamento automático e atualizações de aplicativo coordenadas, recomendamos o [AKS (Serviço de Kubernetes do Azure)](../aks/index.yml).
 
 ## <a name="fast-startup-times"></a>Inicialização mais rápida
 

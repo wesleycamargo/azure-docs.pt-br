@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 Ao criar uma VM (máquina virtual) do Azure, você deve criar uma [VNet](../articles/virtual-network/virtual-networks-overview.md) (rede virtual) ou usar uma VNet existente. Você também precisa decidir como suas VMs devem ser acessadas na VNet. É importante [planejar antes de criar recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e compreender os [limites de recursos de rede](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -95,7 +95,7 @@ Esta tabela lista os métodos que você pode usar para criar uma VNet e sub-rede
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 
-Um [NSG (grupo de segurança de rede)](../articles/virtual-network/virtual-networks-nsg.md) contém uma lista de regras de ACL (Lista de Controle de Acesso) que permitem ou negam o tráfego de rede para sub-redes, NICs ou ambos. Os NSGs podem ser associados a sub-redes ou NICs individuais conectadas a uma sub-rede. Quando um NSG é associado a uma sub-rede, as regras de ACL se aplicam a todas as VMs na sub-rede. Além disso, o tráfego para uma NIC individual pode ser restringido associando um NSG diretamente a uma NIC.
+Um [NSG (grupo de segurança de rede)](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) contém uma lista de regras de ACL (Lista de Controle de Acesso) que permitem ou negam o tráfego de rede para sub-redes, NICs ou ambos. Os NSGs podem ser associados a sub-redes ou NICs individuais conectadas a uma sub-rede. Quando um NSG é associado a uma sub-rede, as regras de ACL se aplicam a todas as VMs na sub-rede. Além disso, o tráfego para uma NIC individual pode ser restringido associando um NSG diretamente a uma NIC.
 
 Os NSGs contêm dois conjuntos de regras: entrada e saída. A prioridade de uma regra deve ser exclusiva em cada conjunto. Cada regra tem propriedades de protocolo, origem e intervalos de porta de destino, prefixos de endereço, direção de tráfego, prioridade e tipo de acesso. 
 
@@ -103,7 +103,7 @@ Todos os NSGs contêm um conjunto de regras padrão. As regras padrão não pode
 
 Quando um NSG é associado a uma NIC, as regras de acesso à rede no NSG são aplicadas somente a essa NIC. Se um NSG for aplicado a uma única NIC em uma VM com várias NICS, isso não afetará o tráfego para as outras NICs. É possível associar diferentes NSGs a um NIC (ou VM, dependendo do modelo de implantação) e à sub-rede a qual uma NIC ou VM está associada. A prioridade é fornecida com base na direção do tráfego.
 
-Não se esqueça de [planejar](../articles/virtual-network/virtual-networks-nsg.md#planning) seus NSGs ao planejar suas VMs e a VNet.
+Não se esqueça de [planejar](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) seus NSGs ao planejar suas VMs e a VNet.
 
 Esta tabela lista os métodos que você pode usar para criar um grupo de segurança de rede.
 

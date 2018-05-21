@@ -1,4 +1,19 @@
-
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: cfe675ca269a69c7c2bfa67638acd0afbcd1c8ea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/20/2018
+---
 Cada ponto de extremidade tem uma *porta pública* e uma *porta privada*:
 
 * A porta pública é usada pelo balanceador de carga do Azure para ouvir o tráfego de entrada da Internet com destino à máquina virtual.
@@ -6,7 +21,7 @@ Cada ponto de extremidade tem uma *porta pública* e uma *porta privada*:
 
 Os valores padrão para o protocolo IP e as portas TCP ou UDP para protocolos conhecidos são fornecidos quando você cria pontos de extremidade com o portal do Azure. Para pontos de extremidade personalizados, você precisará especificar o protocolo IP correto (TCP ou UDP) e as portas públicas e privadas. Para distribuir o tráfego de entrada aleatoriamente entre várias máquinas virtuais, você precisará criar um conjunto com balanceamento de carga composto de vários pontos de extremidade.
 
-Depois de criar um ponto de extremidade, você pode usar uma lista de controle de acesso (ACL) para definir regras que permitam ou neguem o tráfego de entrada na porta pública do ponto de extremidade com base em seu endereço IP de origem. No entanto, se a máquina virtual estiver em uma rede virtual do Azure, você deverá usar grupos de segurança de rede. Para obter detalhes, veja [Sobre os grupos de segurança de rede](../articles/virtual-network/virtual-networks-nsg.md).
+Depois de criar um ponto de extremidade, você pode usar uma lista de controle de acesso (ACL) para definir regras que permitam ou neguem o tráfego de entrada na porta pública do ponto de extremidade com base em seu endereço IP de origem. No entanto, se a máquina virtual estiver em uma rede virtual do Azure, você deverá usar grupos de segurança de rede. Para obter detalhes, veja [Sobre os grupos de segurança de rede](../articles/virtual-network/security-overview.md).
 
 > [!NOTE]
 > A configuração de firewall para máquinas virtuais do Azure é feita automaticamente para as portas associadas com pontos de extremidade de conectividade remota que o Azure configura automaticamente. Para portas especificadas para todos os outros pontos de extremidade, nenhuma configuração é feita automaticamente para o firewall da máquina virtual. Ao criar um ponto de extremidade para a máquina virtual, você precisará garantir que o firewall da máquina virtual também permita tráfego para o protocolo e a porta privada correspondente à configuração do ponto de extremidade. Para configurar o firewall, consulte a documentação ou a Ajuda online para o sistema operacional em execução na máquina virtual.
@@ -39,7 +54,7 @@ Para definir o conjunto de computadores que pode enviar tráfego, a ACL em um po
 >
 >
 
-Se a máquina virtual estiver em uma rede virtual do Azure, recomendamos grupos de segurança de rede em vez de ACLs. Para obter detalhes, veja [Sobre os grupos de segurança de rede](../articles/virtual-network/virtual-networks-nsg.md).
+Se a máquina virtual estiver em uma rede virtual do Azure, recomendamos grupos de segurança de rede em vez de ACLs. Para obter detalhes, veja [Sobre os grupos de segurança de rede](../articles/virtual-network/security-overview.md).
 
 1. Se ainda não tiver feito isso, entre no portal do Azure.
 2. Clique em **Máquinas Virtuais**e, em seguida, clique no nome da máquina virtual que você deseja configurar.
