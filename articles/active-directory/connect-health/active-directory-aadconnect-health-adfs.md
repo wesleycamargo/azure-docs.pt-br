@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5b17b4e8581daa5b19aaafd911765d843a9f3fe4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
 A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para saber mais sobre como monitorar o Azure AD Connect (Sincronização) com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health para Sincronização](active-directory-aadconnect-health-sync.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
@@ -116,7 +116,7 @@ O relatório fornece as seguintes informações:
 >
 >
 
-## <a name="risky-ip-report"></a>Relatório IP arriscado 
+## <a name="risky-ip-report-public-preview"></a>Relatório IP arriscado (visualização pública)
 Os clientes do AD FS podem expor pontos de extremidade de autenticação de senha para a Internet a fim de fornecer serviços de autenticação para os usuários finais acessarem aplicativos SaaS como o Office 365. Nesse caso, é possível que um ator mal-intencionado tente fazer logons em seu sistema de AD FS adivinhando a senha do usuário final e obtendo acesso aos recursos do aplicativo. O AD FS fornece a funcionalidade de bloqueio de conta de extranet para evitar esses tipos de ataque desde a sua versão no Windows Server 2012 R2. Se você estiver usando uma versão inferior, recomendamos fortemente que atualize seu sistema do AD FS para o Windows Server 2016. <br />
 Além disso, é possível que um único endereço IP tente vários logons em relação a vários usuários. Nesses casos, o número de tentativas por usuário pode estar abaixo do limite para a proteção de bloqueio de conta no AD FS. O Azure AD Connect Health agora fornece o "Relatório IP arriscado", que detecta essa condição e notifica os administradores quando isso ocorre. Estes são os principais benefícios do relatório: 
 - Detecção de endereços IP que excedem um limite de logons com falha com base em senha
@@ -152,10 +152,12 @@ Por exemplo, o item de relatório abaixo indica, da janela de 18h às 19h em 28/
 > - Esse relatório de alerta não mostra endereços IP privado ou endereços IP do Exchange. Eles ainda são incluídos na lista de exportação. 
 >
 
-
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4c.png)
 
-### <a name="download-risky-ip-report"></a>Baixar o relatório de IP arriscado
+### <a name="load-balancer-ip-addresses-in-the-list"></a>Atualizar o endereço IP do balanceador de carga
+Atividades de entrada com falha agregadas ao balanceador de carga e limite de alerta atingido. Se você está vendo endereços IP do balanceador de carga, é muito provável que o seu balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web. Configure o balanceador de carga corretamente para encaminhar o endereço IP do cliente. 
+
+### <a name="download-risky-ip-report"></a>Baixar o relatório de IP arriscado 
 Usando a função **Baixar**, a lista de endereços IP arriscados inteira nos últimos 30 dias pode ser exportada do Portal do Connect Health O resultado de exportação incluirá todas as atividades de entrada do AD FS com falha em cada janela de tempo de detecção, para que você possa personalizar a filtragem após a exportação. Além de agregações realçadas no portal, o resultado da exportação também mostra mais detalhes sobre as atividades de entrada com falha por endereço IP:
 
 |  Item do relatório  |  DESCRIÇÃO  | 
@@ -196,12 +198,14 @@ Se você está vendo endereços IP do balanceador de carga, é muito provável q
 
 3. O que fazer para bloquear o endereço IP?  <br />
 Você deve adicionar o endereço IP mal-intencionado ao firewall ou bloqueá-lo no Exchange.   <br />
-Para o AD FS 2016 + 1803.C+ QFE, você pode bloquear o endereço IP diretamente no AD FS. 
 
 4. Por que não vejo todos os itens no relatório? <br />
    - Atividades de entrada com falha não excedem as configurações de limite. 
    - Verifique se nenhum alerta “Serviço Health desatualizado” está ativo na sua lista de servidores AD FS.  Leia mais sobre [como solucionar esse alerta](active-directory-aadconnect-health-data-freshness.md).
    - As auditorias não estão habilitadas em farms de servidores do AD FS.
+ 
+5. Por que não estou vendo nenhum acesso ao relatório?  <br />
+É necessária a permissão de Administrador Global ou [Leitor de segurança](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Entre em contato com o administrador global para obter acesso.
 
 
 ## <a name="related-links"></a>Links relacionados

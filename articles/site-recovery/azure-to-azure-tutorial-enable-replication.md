@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 05/02/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária (versão prévia)
 
@@ -134,7 +134,7 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
 
 - **Localização de destino**: a região de destino usada para recuperação de desastre. É recomendável que a localização de destino corresponda à localização do cofre do Site Recovery.
 
-- **Grupo de recursos de destino**: o grupo de recursos na região de destino que contém as VMs do Azure após o failover. Por padrão, o Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr".
+- **Grupo de recursos de destino**: o grupo de recursos na região de destino que contém as VMs do Azure após o failover. Por padrão, o Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". local do grupo de recurso do grupo de recurso de destino pode ser de qualquer região exceto a região onde as suas máquinas virtuais de origem estão hospedadas. 
 
 - **Rede virtual de destino**: a rede na região de destino na qual as VMs estarão localizadas após o failover.
   Por padrão, o Site Recovery cria uma nova rede virtual (e sub-redes) na região de destino com um sufixo "asr".
