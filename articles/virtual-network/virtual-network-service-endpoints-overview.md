@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2018
+ms.date: 05/04/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: e91e27da5ef80236768d19c5870ac96f19f6b074
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -27,14 +27,12 @@ Os pontos de extremidade de serviço de VNet (rede virtual) estendem o espaço d
 
 Este recurso está disponível para os seguintes serviços e regiões do Azure:
 
-- **Armazenamento do Azure**: geralmente disponível. Todas as regiões na nuvem pública do Azure e Azure Governamental.
-- **Banco de Dados SQL do Azure**: disponível geralmente em todas as regiões do Azure. 
-- **Azure SQL Data Warehouse**: versão prévia. Todas as regiões na nuvem pública do Azure.
+- **Armazenamento do Microsoft Azure**: Disponível Geralmente em todas as regiões do Azure
+- **Banco de Dados SQL do Azure**: Disponível Geralmente em todas as regiões do Azure
+- **Microsoft Azure Cosmos DB**: Disponível Geralmente em todas as regiões de nuvem pública do Azure 
+- **SQL Data Warehouse do Azure**: Visualização em todas as regiões de nuvem pública do Azure
 
-Para obter as notificações mais recentes sobre a versão prévia, verifique a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
-
->[!NOTE]
-> Durante a versão prévia, o recurso pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Para obter as notificações mais recentes, verifique a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="key-benefits"></a>Principais benefícios
 
@@ -50,7 +48,7 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 
 - O recurso está disponível apenas para redes virtuais implantadas usando o modelo de implantação do Azure Resource Manager.
 - Os pontos de extremidade são habilitados nas sub-redes configuradas em redes virtuais do Azure. Os pontos de extremidade não podem ser usados para tráfego do seu local para os serviços do Azure. Para obter mais informações, consulte ["Garantindo o acesso local ao serviço do Azure"](#securing-azure-services-to-virtual-networks)
-- O ponto de extremidade de serviço aplica-se somente ao tráfego de serviço do Azure dentro de uma região da rede virtual. Para dar suporte a tráfego GRS e RA-GRS para o Armazenamento do Azure, pontos de extremidade também incluem as regiões emparelhadas em que a rede virtual é implantada. Saiba mais sobre as [regiões emparelhadas do Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)
+- Para o SQL do Azure, um ponto de extremidade de serviço aplica-se somente ao tráfego de serviço do Azure dentro de uma região da rede virtual. Para o Armazenamento do Microsoft Azure, para dar suporte a tráfego GRS e RA-GRS, pontos de extremidade também incluem as regiões emparelhadas em que a rede virtual é implantada. Saiba mais sobre as [regiões emparelhadas do Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Proteção dos serviços do Azure em redes virtuais
 
@@ -68,7 +66,7 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 
 - Os pontos de extremidade de serviço são configurados em uma sub-rede em uma rede virtual. Os pontos de extremidade funcionam com qualquer tipo de instâncias de computação em execução dentro dessa sub-rede.
 - Você pode configurar vários pontos de extremidade de serviço para todos os serviços do Azure compatíveis (por exemplo, Armazenamento do Azure ou Banco de dados SQL do Azure) em uma sub-rede.
-- As redes virtuais devem estar na mesma região do recurso do serviço do Azure. Se estiver usando contas GRS e RA-GRS do Armazenamento do Azure, a conta primária deverá estar na mesma região que a rede virtual.
+- Para o SQL do Azure, as redes virtuais devem estar na mesma região do recurso do serviço do Azure. Se estiver usando contas GRS e RA-GRS do Armazenamento do Azure, a conta primária deverá estar na mesma região que a rede virtual. Para todos os outros serviços, recursos de serviço do Azure podem ser protegidos para redes virtuais em qualquer região. 
 - A rede virtual em que o ponto de extremidade está configurado pode estar na mesma assinatura que o recurso do serviço do Azure ou em assinatura diferente. Para obter mais informações sobre as permissões necessárias para configurar pontos de extremidade e garantir os serviços do Azure, confira [Provisionamento](#Provisioning).
 - Para os serviços compatíveis, você pode proteger recursos novos ou existentes em redes virtuais usando pontos de extremidade de serviço.
 
@@ -112,7 +110,7 @@ As redes virtuais e os recursos de serviço do Azure podem estar na mesma assina
 
 ## <a name="pricing-and-limits"></a>Preços e limites
 
-Não há nenhum custo adicional para usar pontos de extremidade de serviço. O modelo de preços atual para os serviços do Azure (Armazenamento do Azure, Banco de Dados SQL do Azure) se aplica como é atualmente.
+Não há nenhum custo adicional para usar pontos de extremidade de serviço. O modelo de preços atual para os serviços do Azure (Armazenamento do Microsoft Azure, Banco de Dados SQL do Azure etc.) se aplica como é atualmente.
 
 Não há limite para o número total de pontos de extremidade de serviço em uma rede virtual.
 
@@ -124,5 +122,5 @@ Para um recurso de serviço do Azure (por exemplo, uma conta de Armazenamento do
 - Saiba como [proteger uma conta de Armazenamento do Azure em uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba como [proteger um Banco de Dados SQL do Azure em uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba mais sobre a [integração do serviço do Azure em redes virtuais](virtual-network-for-azure-services.md)
--  Início rápido: [modelo do gerenciador de recursos do Azure](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para configurar o ponto de extremidade de serviço em uma sub-rede de rede virtual e ligar a conta de armazenamento do Azure a essa sub-rede.
+-  Início rápido: [modelo do gerenciador de recursos do Azure](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para configurar o ponto de extremidade de serviço em uma sub-rede de rede virtual e ligar a conta de armazenamento do Azure a essa sub-rede.
 

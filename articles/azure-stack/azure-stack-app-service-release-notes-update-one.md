@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: fedf511e06243d5c0652e422b397bb00da3b42c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 80bd865b7a08d9488c0fb6a1a5b60445b9c6eaaa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Serviço de aplicativo no Azure pilha update 1 notas
 
@@ -39,7 +39,7 @@ O serviço de aplicativo no Azure pilha Update 1 número de compilação está *
 ### <a name="prerequisites"></a>Pré-requisitos
 
 > [!IMPORTANT]
-> Novas implantações de serviço de aplicativo do Azure na pilha do Azure agora precisam de um [certificado curinga com três entidades](azure-stack-app-service-before-you-get-started.md#get-certificates) devido a melhorias da maneira na qual o SSO para Kudu agora é manipulado no serviço de aplicativo do Azure. A nova entidade é * * *. sso.appservice.<region>. <domainname>.<extension>**
+> Novas implantações de serviço de aplicativo do Azure na pilha do Azure agora precisam de um [certificado curinga com três entidades](azure-stack-app-service-before-you-get-started.md#get-certificates) devido a melhorias da maneira na qual o SSO para Kudu agora é manipulado no serviço de aplicativo do Azure. A nova entidade é  **\*. sso.appservice.\< região\>.\< DomainName\>.\< extensão\>**
 >
 >
 

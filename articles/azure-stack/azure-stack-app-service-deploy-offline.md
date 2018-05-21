@@ -12,20 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um provedor de recursos do serviço de aplicativo para um ambiente desconectado do Azure pilha protegido pelo AD FS
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
 > [!IMPORTANT]
-> Aplicar a atualização 1802 para seu sistema de pilha do Azure integradas ou implantar o kit de desenvolvimento de pilha do Azure mais recente antes de implantar o serviço de aplicativo do Azure.
+> Aplicar a atualização 1804 a seu sistema de pilha do Azure integradas ou implantar o kit de desenvolvimento de pilha do Azure mais recente antes de implantar 1.2 de serviço de aplicativo do Azure.
 >
 >
 
@@ -80,7 +80,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
 7. Na próxima página:
     1. Clique no **conectar** lado a **assinaturas de pilha do Azure** caixa.
         - Fornece sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Digite sua senha e clique em **entrar**.
-    2. No **assinaturas do Azure pilha** , selecione sua assinatura.
+    2. No **assinaturas do Azure pilha** caixa, selecione a **assinatura do provedor padrão**.
     3. No **Azure pilha locais** , selecione o local que corresponde à região que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento de pilha do Azure.
     4. Clique em **Próximo**.
 
@@ -126,7 +126,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
 
     ![Instalador de serviço de aplicativo][11]
 
-12. Insira os detalhes do SQL Server para a instância do servidor usada para hospedar os bancos de dados do provedor de recursos do serviço de aplicativo e, em seguida, clique em **próximo**. O instalador valida as propriedades de conexão SQL.
+12. Insira os detalhes do SQL Server para a instância do servidor usada para hospedar os bancos de dados do provedor de recursos do serviço de aplicativo e, em seguida, clique em **próximo**. O instalador valida as propriedades de conexão SQL. Você **deve** digite o endereço ip interno ou o nome de domínio totalmente qualificado para o nome do SQL Server.
 
 > [!NOTE]
 > O instalador tentará testar a conectividade com o SQl Server antes de continuar.  No entanto, se você optar por implantar em uma rede Virtual existente, o instalador não pode ser capaz de se conectar ao SQL Server e exibe um aviso perguntando se deseja continuar.  Verifique as informações do SQL Server e continuar se elas estão corretas.
