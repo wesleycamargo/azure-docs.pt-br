@@ -1,46 +1,49 @@
 ---
-title: Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL - Azure PowerShell
-description: Saiba como criar um gateway de aplicativo com o tráfego redirecionado baseado em caminhos de URL, usando o Azure PowerShell.
+title: Rotear o tráfego da web baseado na URL - Azure PowerShell
+description: Saiba como rotear o tráfego de web baseado na URL para especificar pools dimensionáveis de servidores usando o Azure PowerShell.
 services: application-gateway
 author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 3/20/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2db93eaf5dc038570a2b872118c06df68bb4c068
+ms.openlocfilehash: 63533319d555e79c86d4fe3cdae0b168115e7ec5
 ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/03/2018
 ---
-# <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL, usando o Azure PowerShell
+# <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Rotear o tráfego da web baseado na URL usando Azure PowerShell
 
-É possível usar o Azure PowerShell para configurar as [regras de roteamento baseado em URL](application-gateway-url-route-overview.md) quando você cria um [gateway de aplicativo](application-gateway-introduction.md). Neste tutorial, você criará pools de back-end usando [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, criará regras de roteamento de URL que garantem que o tráfego da Web seja redirecionado para o pool de back-end apropriado.
+Você pode usar o Azure PowerShell para configurar o roteamento de tráfego da web para pools de servidor escalonável específico com base na URL que é usado para acessar o aplicativo. Neste tutorial, você cria [Gateway de Aplicativo do Azure](application-gateway-introduction.md) com três pools de back-end usando [Conjuntos de Dimensionamento de Máquinas Virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Cada um dos pools de back-end serve a uma finalidade específica, como dados comuns, imagens e vídeo.  Rotear o tráfego para separar pools garante que seus clientes obtenham as informações de que precisam, quando necessário.
+
+Para habilitar o roteamento de tráfego, você deve criar [regras de roteamento](application-gateway-url-route-overview.md) atribuídas aos ouvintes que escutam em portas específicas para garantir que o tráfego da web chegue aos servidores apropriados nos pools.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um Gateway de Aplicativo
-> * Adicionar ouvintes e regras de roteamento
-> * Criar conjuntos de dimensionamento de máquinas virtuais para pools de back-end
+> * Criar ouvintes, mapa de caminho de URL e regras
+> * Criar pools de back-end escalonáveis
 
-O exemplo a seguir mostra o tráfego do site proveniente de ambas as portas 8080 e 8081 e sendo direcionado para os mesmos pools de back-end:
-
-![Exemplo de roteamento de URL](./media/tutorial-url-redirect-powershell/scenario.png)
+![Exemplo de roteamento de URL](./media/tutorial-url-route-powershell/scenario.png)
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Para saber qual é a versão, execute ` Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Para saber qual é a versão, execute ` Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+
+Devido ao tempo necessário para criar recursos, isso pode levar até 90 minutos para concluir este tutorial.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos do Azure usando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
+Você precisa criar um grupo de recursos que contenha todos os recursos para seu aplicativo. 
+
+Crie um grupo de recursos do Azure usando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
@@ -48,7 +51,9 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede
 
-Criar as configurações de sub-rede para *myBackendSubnet* e *myAGSubnet* usando [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Crie a rede virtual denominada *myVNet* usando [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) com as configurações de sub-rede. E, finalmente, crie o endereço IP público denominado *myAGPublicIPAddress* usando [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Esses recursos são usados para fornecer conectividade de rede ao gateway de aplicativo e seus recursos associados.
+Se você tiver uma rede virtual existente ou criar uma nova, você precisa certificar-se de que ela contenha uma sub-rede que seja usada apenas para os gateways de aplicativos. Neste tutorial, você cria uma sub-rede para o gateway de aplicativo e uma sub-rede para os conjuntos de escala. Você cria um endereço IP público para habilitar o acesso aos recursos no gateway do aplicativo.
+
+Criar as configurações de sub-rede *myAGSubnet* e *myBackendSubnet* usando [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Crie a rede virtual denominada *myVNet* usando [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) com as configurações de sub-rede. E, finalmente, crie o endereço IP público denominado *myAGPublicIPAddress* usando [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Esses recursos são usados para fornecer conectividade de rede ao gateway de aplicativo e seus recursos associados.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -59,14 +64,13 @@ $agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myAGSubnet `
   -AddressPrefix 10.0.2.0/24
 
-New-AzureRmVirtualNetwork `
+$vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $backendSubnetConfig, $agSubnetConfig
-
-New-AzureRmPublicIpAddress `
+$pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
@@ -83,7 +87,7 @@ Nesta seção, você cria recursos que suportam o gateway de aplicativo e, final
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e porta de front-end
 
-Associe a *myAGSubnet* que você criou anteriormente para o gateway de aplicativo usando [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Atribua o *myAGPublicIPAddress* ao gateway de aplicativo usando [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig). E, em seguida, você pode criar a porta HTTP usando [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport).
+Associe a *myAGSubnet* que você criou anteriormente para o gateway de aplicativo usando [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Atribua o *myAGPublicIPAddress* ao gateway de aplicativo usando [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -127,13 +131,15 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>Criar o ouvinte e regra padrão
 
-Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear o tráfego corretamente para um pool de back-end. Neste tutorial, você criará vários ouvintes. O primeiro ouvinte básico espera tráfego na URL da raiz. Os outros ouvintes esperam tráfego em URLs específicas, como *http://52.168.55.24:8080/images/* ou *http://52.168.55.24:8081/video/*.
+Um ouvinte é necessário para habilitar o gateway do aplicativo para rotear o tráfego corretamente para o pool de back-end. Neste tutorial, você cria dois ouvintes. O primeiro ouvinte básico que você criar ouve o tráfego na URL da raiz. O segundo ouvinte que você criar ouve o tráfego em URLs específicas.
 
-Crie um ouvinte nomeado *defaultListener* usando [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) com a configuração front-end e a porta front-end que você criou anteriormente. Uma regra é necessária para o ouvinte saber qual pool de back-end deve ser usado para tráfego de entrada. Crie uma regra básica denominada *rule1* usando [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
+Crie o ouvinte padrão denominado *myDefaultListener* usando [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) com a configuração de front-end e porta de front-end que você criou anteriormente. 
+
+Uma regra é necessária para o ouvinte saber qual pool de back-end a ser usado para o tráfego de entrada. Crie uma regra básica denominada *rule1* usando [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzureRmApplicationGatewayHttpListener `
-  -Name defaultListener `
+  -Name myDefaultListener `
   -Protocol Http `
   -FrontendIPConfiguration $fipconfig `
   -FrontendPort $frontendport
@@ -156,7 +162,7 @@ $sku = New-AzureRmApplicationGatewaySku `
   -Tier Standard `
   -Capacity 2
 
-New-AzureRmApplicationGateway `
+$appgw = New-AzureRmApplicationGateway `
   -Name myAppGateway `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
@@ -170,9 +176,11 @@ New-AzureRmApplicationGateway `
   -Sku $sku
 ```
 
-### <a name="add-backend-pools-and-ports"></a>Adicionar pools e portas de back-end
+A criação do gateway de aplicativo pode levar até 30 minutos, aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção. Nesse ponto do tutorial, você tem um gateway de aplicativo que está escutando o tráfego na porta 80 e envia esse tráfego para um pool padrão de servidores.
 
-É possível adicionar pools de back-end ao gateway de aplicativo, usando [Add-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/add-azurermapplicationgatewaybackendaddresspool). Nesse exemplo, *imagesBackendPool* e *videoBackendPool* são criados. Você adiciona a porta de front-end para os pools usando [Add-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport). Em seguida, você envia as alterações para o gateway de aplicativo usando [Set-AzureRmApplicationGateway](/powershell/module/azurerm.network/set-azurermapplicationgateway).
+### <a name="add-image-and-video-backend-pools-and-port"></a>Adicionar porta e pools de back-end de imagem e vídeo
+
+Você pode adicionar os pools de back-end denominados *imagesBackendPool* e *videoBackendPool* para o seu gateway de aplicativo usando [Add-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/add-azurermapplicationgatewaybackendaddresspool). Adicionar a porta de front-end para os pools usando [Add-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport). Enviar as alterações para o gateway de aplicativo usando [Set-AzureRmApplicationGateway](/powershell/module/azurerm.network/set-azurermapplicationgateway).
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -192,19 +200,14 @@ Add-AzureRmApplicationGatewayFrontendPort `
   -Name bport `
   -Port 8080
 
-Add-AzureRmApplicationGatewayFrontendPort `
-  -ApplicationGateway $appgw `
-  -Name rport `
-  -Port 8081
-
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-## <a name="add-listeners-and-rules"></a>Adicionar ouvintes e regras
+Atualizar o gateway de aplicativo também pode levar até 20 minutos para ser concluído.
 
-### <a name="add-listeners"></a>Adicionar ouvintes
+### <a name="add-backend-listener"></a>Adicionar o listener de back-end
 
-Adicione os ouvintes nomeados *backendListener* e *redirectedListener* que são necessários para rotear o tráfego, usando [Add-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/add-azurermapplicationgatewayhttplistener).
+Adicione o ouvinte de back-end denominado *backendListener* que é necessário para rotear o tráfego usando [Add-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/add-azurermapplicationgatewayhttplistener).
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -214,10 +217,6 @@ $appgw = Get-AzureRmApplicationGateway `
 $backendPort = Get-AzureRmApplicationGatewayFrontendPort `
   -ApplicationGateway $appgw `
   -Name bport
-
-$redirectPort = Get-AzureRmApplicationGatewayFrontendPort `
-  -ApplicationGateway $appgw `
-  -Name rport
 
 $fipconfig = Get-AzureRmApplicationGatewayFrontendIPConfig `
   -ApplicationGateway $appgw
@@ -229,19 +228,12 @@ Add-AzureRmApplicationGatewayHttpListener `
   -FrontendIPConfiguration $fipconfig `
   -FrontendPort $backendPort
 
-Add-AzureRmApplicationGatewayHttpListener `
-  -ApplicationGateway $appgw `
-  -Name redirectedListener `
-  -Protocol Http `
-  -FrontendIPConfiguration $fipconfig `
-  -FrontendPort $redirectPort
-
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="add-the-default-url-path-map"></a>Adicionar o mapa de caminho de URL padrão
+### <a name="add-url-path-map"></a>Adicionar mapa de caminho da URL
 
-Os mapas de caminho de URL certificam que as URLs específicas sejam roteadas para pools de back-end específicos. É possível criar mapas de caminho de URL nomeados *imagePathRule* e *videoPathRule* usando [New-AzureRmApplicationGatewayPathRuleConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewaypathruleconfig) e [Add-AzureRmApplicationGatewayUrlPathMapConfig](/powershell/module/azurerm.network/add-azurermapplicationgatewayurlpathmapconfig).
+Os mapas de caminho de URL certificam que as URLs enviadas para o seu aplicativo sejam roteadas para pools de back-end específicos. Criar mapas de caminho de URL denominados *imagePathRule* e *videoPathRule* usando [New-AzureRmApplicationGatewayPathRuleConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewaypathruleconfig) e [Add-AzureRmApplicationGatewayUrlPathMapConfig](/powershell/module/azurerm.network/add-azurermapplicationgatewayurlpathmapconfig).
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -272,9 +264,9 @@ $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig `
 
 $videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig `
   -Name videoPathRule `
-  -Paths "/video/*" `
-  -BackendAddressPool $videoPool `
-  -BackendHttpSettings $poolSettings
+    -Paths "/video/*" `
+    -BackendAddressPool $videoPool `
+    -BackendHttpSettings $poolSettings
 
 Add-AzureRmApplicationGatewayUrlPathMapConfig `
   -ApplicationGateway $appgw `
@@ -286,68 +278,9 @@ Add-AzureRmApplicationGatewayUrlPathMapConfig `
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="add-redirection-configuration"></a>Adicionar a configuração de redirecionamento
+### <a name="add-routing-rule"></a>Adicionar regra de roteamento
 
-É possível configurar o redirecionamento para o ouvinte usando [Add-AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration).
-
-```azurepowershell-interactive
-$appgw = Get-AzureRmApplicationGateway `
-  -ResourceGroupName myResourceGroupAG `
-  -Name myAppGateway
-
-$backendListener = Get-AzureRmApplicationGatewayHttpListener `
-  -ApplicationGateway $appgw `
-  -Name backendListener
-
-$redirectConfig = Add-AzureRmApplicationGatewayRedirectConfiguration `
-  -ApplicationGateway $appgw `
-  -Name redirectConfig `
-  -RedirectType Found `
-  -TargetListener $backendListener `
-  -IncludePath $true `
-  -IncludeQueryString $true
-
-Set-AzureRmApplicationGateway -ApplicationGateway $appgw
-```
-
-### <a name="add-the-redirection-url-path-map"></a>Adicionar o mapa de caminho de URL de redirecionamento
-
-```azurepowershell-interactive
-$appgw = Get-AzureRmApplicationGateway `
-  -ResourceGroupName myResourceGroupAG `
-  -Name myAppGateway
-
-$poolSettings = Get-AzureRmApplicationGatewayBackendHttpSettings `
-  -ApplicationGateway $appgw `
-  -Name myPoolSettings
-
-$defaultPool = Get-AzureRmApplicationGatewayBackendAddressPool `
-  -ApplicationGateway $appgw `
-  -Name appGatewayBackendPool
-
-$redirectConfig = Get-AzureRmApplicationGatewayRedirectConfiguration `
-  -ApplicationGateway $appgw `
-  -Name redirectConfig
-
-$redirectPathRule = New-AzureRmApplicationGatewayPathRuleConfig `
-  -Name redirectPathRule `
-  -Paths "/images/*" `
-  -RedirectConfiguration $redirectConfig
-
-Add-AzureRmApplicationGatewayUrlPathMapConfig `
-  -ApplicationGateway $appgw `
-  -Name redirectpathmap `
-  -PathRules $redirectPathRule `
-  -DefaultBackendAddressPool $defaultPool `
-  -DefaultBackendHttpSettings $poolSettings
-
-Set-AzureRmApplicationGateway -ApplicationGateway $appgw
-```
-
-### <a name="add-routing-rules"></a>Adicionar regras de roteamento
-
-A regra de roteamento associa o mapa de URL ao ouvinte que você criou. É possível adicionar as regras nomeadas *defaultRule* e *redirectedRule* usando [Add-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule).
-
+A regra de roteamento associa o mapa de URL ao ouvinte que você criou. Adicionar a regra denominada *rule2* usando [Add-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -358,38 +291,23 @@ $backendlistener = Get-AzureRmApplicationGatewayHttpListener `
   -ApplicationGateway $appgw `
   -Name backendListener
 
-$redirectlistener = Get-AzureRmApplicationGatewayHttpListener `
-  -ApplicationGateway $appgw `
-  -Name redirectedListener
-
 $urlPathMap = Get-AzureRmApplicationGatewayUrlPathMapConfig `
   -ApplicationGateway $appgw `
   -Name urlpathmap
 
-$redirectPathMap = Get-AzureRmApplicationGatewayUrlPathMapConfig `
-  -ApplicationGateway $appgw `
-  -Name redirectpathmap
-
 Add-AzureRmApplicationGatewayRequestRoutingRule `
   -ApplicationGateway $appgw `
-  -Name defaultRule `
+  -Name rule2 `
   -RuleType PathBasedRouting `
   -HttpListener $backendlistener `
   -UrlPathMap $urlPathMap
-
-Add-AzureRmApplicationGatewayRequestRoutingRule `
-  -ApplicationGateway $appgw `
-  -Name redirectedRule `
-  -RuleType PathBasedRouting `
-  -HttpListener $redirectlistener `
-  -UrlPathMap $redirectPathMap
 
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando você define as configurações de IP.
+Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -464,6 +382,8 @@ for ($i=1; $i -le 3; $i++)
 
 ### <a name="install-iis"></a>Instalar o IIS
 
+Cada conjunto de escala contém duas instâncias de máquina virtual nas quais você instala o IIS, que é executado de uma página de exemplo para testar se o gateway do aplicativo está funcionando.
+
 ```azurepowershell-interactive
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
@@ -471,7 +391,6 @@ $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/sa
 for ($i=1; $i -le 3; $i++)
 {
   $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss$i
-
   Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
     -Name "customScript" `
     -Publisher "Microsoft.Compute" `
@@ -488,23 +407,21 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Você pode usar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicativo. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como, *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, *http://52.168.55.24:8080/video/test.htm* ou *http://52.168.55.24:8081/images/test.htm*.
+Use [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway do aplicativo. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como, *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm* ou *http://52.168.55.24:8080/video/test.htm*.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![Testar a URL de base no gateway de aplicativo](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
+![Testar a URL de base no gateway de aplicativo](./media/tutorial-url-route-powershell/application-gateway-iistest.png)
+
+Altere a URL para http://&lt;ip-address&gt;:8080/images/test.htm, substituindo o endereço IP por &lt;ip-address&gt;, e você deverá ver algo semelhante ao exemplo a seguir:
+
+![Testar a URL de imagens no gateway de aplicativo](./media/tutorial-url-route-powershell/application-gateway-iistest-images.png)
 
 Altere a URL para http://&lt;ip-address&gt;:8080/video/test.htm, substituindo o endereço IP para &lt;ip-address&gt;, e você deverá ver algo semelhante ao exemplo a seguir:
 
-![Testar a URL de imagens no gateway de aplicativo](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
-
-Altere a URL para http://&lt;ip-address&gt;:8080/video/test.htm, substituindo o endereço IP para &lt;ip-address&gt;, e você deverá ver algo semelhante ao exemplo a seguir:
-
-![Testar a URL de vídeo no gateway de aplicativo](./media/tutorial-url-redirect-powershell/application-gateway-iistest-video.png)
-
-Agora, altera a URL para http://&lt;ip-address&gt;:8081/images/test.htm, substituindo o endereço IP para &lt;ip-address&gt;, e você deverá ver o tráfego redirecionado de volta para o pool de back-end de imagens no http://&lt;ip-address&gt;:8080/images.
+![Testar a URL de vídeo no gateway de aplicativo](./media/tutorial-url-route-powershell/application-gateway-iistest-video.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -513,15 +430,15 @@ Quando não for mais necessário, remova o grupo de recursos, o gateway de aplic
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um Gateway de Aplicativo
-> * Adicionar ouvintes e regras de roteamento
-> * Criar conjuntos de dimensionamento de máquinas virtuais para pools de back-end
+> * Criar ouvintes, mapa de caminho de URL e regras
+> * Criar pools de back-end escalonáveis
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o que você pode fazer com o gateway de aplicativo](application-gateway-introduction.md)
+> [Redirecionar o tráfego da web com base na URL](./tutorial-url-redirect-powershell.md)

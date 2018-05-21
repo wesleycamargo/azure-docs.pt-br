@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/02/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ebad9304c38333173cec66c6b5574a9b45b17cd1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de erro no relatório de atividade de entrada no portal do Azure Active Directory
 
@@ -67,14 +67,21 @@ A seção a seguir fornece uma visão geral completa de todos os possíveis erro
 |50058|Nenhuma informação sobre a identidade do usuário é encontrada entre as credenciais fornecidas ou O usuário não foi encontrado no locatário ou Uma solicitação de entrada sem confirmação foi enviada, mas nenhum usuário está conectado ou O serviço não pôde autenticar o usuário.|
 |50072|Os usuários devem se registrar na autenticação de dois fatores (interativa)|
 |50074|O usuário não passou no desafio de MFA.|
+|50076|O usuário não passou no desafio de MFA (não interativo)|
 |50079|O usuário deve se registrar para autenticação de dois fatores.|
 |50089|Falha na validação de token do fluxo devido à expiração do token de fluxo.|
 |50097|O dispositivo não está autenticado.|
 |50105|O usuário conectado não está atribuído a uma função para este aplicativo.|
+|50125|Entrada foi interrompida devido a uma redefinição de senha ou a entrada de registro de senha|
 |50126|Nome de usuário ou senha inválida ou Nome de usuário ou senha local inválida.|
+|50127|Usuário precisa instalar um aplicativo do agente para obter acesso a esse conteúdo.|
+|50129|Dispositivo não está ingressado no local de trabalho - ingresso no local é necessário para registrar o dispositivo.|
 |50131|Usado em vários erros de acesso condicional. Por exemplo: estado de dispositivo Windows inválido, solicitação bloqueada devido a atividades suspeitas, decisões de política de acesso e política de segurança.|
 |50133|A sessão é inválida devido à expiração ou alteração de senha recente.|
+|50140|Usuários solicitados a darem consentimento para mantê-los assinado do usuário no dispositivo|
 |50144|A senha do Active Directory do usuário expirou.|
+|53000|Política de acesso condicional requer um dispositivo compatível, e o dispositivo não é compatível.|
+|53003|Acesso foi bloqueado devido a políticas de acesso condicional.|
 |65001|O aplicativo X não tem permissão para acessar o aplicativo Y ou a permissão foi revogada. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização ao administrador do seu locatário para atuar em nome do aplicativo: Y para o recurso: Z.|
 |65005|A lista de acesso a recursos exigida pelo aplicativo não contém aplicativos detectáveis pelo recurso ou O aplicativo cliente solicitou acesso a recursos que não foram especificados na lista de acesso a recursos exigida ou O serviço Graph retornou uma solicitação inválida ou o recurso não foi encontrado.|
 |70001|O aplicativo de nome X não foi encontrado no locatário de nome Y. Isso pode acontecer se o aplicativo não foi instalado pelo administrador do locatário ou aceito por algum usuário no locatário. Você pode ter enviado a solicitação de autenticação ao locatário errado.|
@@ -98,8 +105,7 @@ A seção a seguir fornece uma visão geral completa de todos os possíveis erro
 |81013|Não foi possível localizar o objeto de usuário com base nas informações no tíquete Kerberos do usuário.|
 |90014|Usado em vários casos em que um campo esperado não está presente na credencial.|
 |90093|O Graph retornou código de erro "proibido" para a solicitação.|
-
-
+|90094|Consentimento do administrador é necessário.|
 ## <a name="next-steps"></a>Próximas etapas
 
 Para ver mais detalhes, confira a [Introdução aos relatórios de atividade de entrada no portal do Azure Active Directory](active-directory-reporting-activity-sign-ins.md).
