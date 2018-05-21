@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Pantheon | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Pantheon."
+title: 'Tutorial: Integração do Azure Active Directory com o Pantheon | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Pantheon.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 21384d1cac43cf67da5bb481dfba0baeb098282e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e464c24128ab0b55ac23e28e7c9a2d3a18e96aa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Tutorial: Integração do Azure Active Directory com o Pantheon
 
@@ -29,9 +29,9 @@ A integração do Pantheon ao Azure AD oferece os seguintes benefícios:
 - Você pode habilitar os usuários a entrar automaticamente no Pantheon (Logon Único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Pantheon, você precisará dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Pantheon da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-pantheon-from-the-gallery"></a>Adição do Pantheon da galeria
 Para configurar a integração do Pantheon ao Azure AD, você precisa adicionar o Pantheon por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do Pantheon ao Azure AD, você precisa adicionar 
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Pantheon**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do Pantheon ao Azure AD, você precisa adicionar 
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-pantheon-tutorial/tutorial_pantheon_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Pantheon, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Pantheon é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Pantheon.
@@ -86,11 +86,11 @@ No Pantheon, atribua o valor do **nome de usuário** no Azure AD como o valor do
 
 Para configurar e testar o logon único do Azure AD com o Pantheon, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criação de um usuário de teste do Pantheon](#creating-a-pantheon-test-user)** – para ter um equivalente de Brenda Fernandes no Pantheon que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. No Portal do Azure, na página de integração de aplicativos do **Pantheon**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-pantheon-tutorial/tutorial_pantheon_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-pantheon-tutorial/tutorial_pantheon_samlbase.png)
 
 3. Na seção **URLs e Domínio do Pantheon**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-pantheon-tutorial/tutorial_pantheon_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-pantheon-tutorial/tutorial_pantheon_url.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:auth0:pantheon:<orgname>-SSO`
 
@@ -119,7 +119,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 4. O aplicativo do Pantheon espera a asserção do SAML em um formato específico, o que exige a definição do valor do atributo UserIdentifier com o endereço de email do usuário. Por padrão, o Azure AD usa o UserPrincipalName para o atributo UserIdentifier. Porém, para uma integração bem-sucedida, você precisa ajustar esse valor para corresponder ao endereço de email do usuário. A integração funcionará apenas depois de concluir o mapeamento correto.
 
-    ![Configurar Logon Único](./media/active-directory-saas-pantheon-tutorial/tutorial_attribute.png)  
+    ![Configurar o logon único](./media/active-directory-saas-pantheon-tutorial/tutorial_attribute.png)  
 
 
 5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
@@ -128,11 +128,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 6. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-pantheon-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-pantheon-tutorial/tutorial_general_400.png)
 
 7. Na seção **Configuração do Pantheon**, clique em **Configurar o Pantheon** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-pantheon-tutorial/tutorial_pantheon_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-pantheon-tutorial/tutorial_pantheon_configure.png) 
 
 8. Para configurar o logon único no lado do **Pantheon**, é necessário enviar o **Certificado** baixado e a **URL do Serviço de Logon Único do SAML** para a [equipe de suporte do Pantheon](https://pantheon.io/docs/getting-support/).
 
@@ -208,7 +208,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, selecione **Pantheon**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-pantheon-tutorial/tutorial_pantheon_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-pantheon-tutorial/tutorial_pantheon_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -234,7 +234,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

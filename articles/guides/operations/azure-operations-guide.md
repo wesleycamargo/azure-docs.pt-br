@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introdução à computação em nuvem e ao Microsoft Azure
 
@@ -238,7 +238,7 @@ O preço para cada serviço no Azure é diferente. Muitos serviços do Azure for
 
 Após implantar seu aplicativo ou solução no Azure será possível criar alertas, os quais enviarão emails para você ao se aproximar dos limites de gastos definidos no alerta. Para obter mais informações, veja [Configurar alertas de cobrança para suas assinaturas do Microsoft Azure](../../billing/billing-set-up-alerts.md).
 
-## <a name="azure-resource-manager"></a>Gerenciador de Recursos do Azure
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
 O Azure Resource Manager é um mecanismo de implantação, gerenciamento e organização de recursos do Azure. Usando o Resource Manager, você pode colocar muitos recursos individuais juntos em um grupo de recursos.
 
@@ -509,7 +509,7 @@ Do mesmo modo, você pode usar uma CLI do Azure para implantar um modelo do Azur
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acesso e segurança para redes virtuais
 
-Você pode ajudar a proteger redes virtuais do Azure usando um grupo de segurança de rede. Os NSGs contêm uma lista de regras de ACL (lista de controle de acesso) que permitem ou negam o tráfego de rede para suas instâncias de VM em uma Rede Virtual. Você pode associar NSGs a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando você associar um NSG a uma sub-rede, as regras de ACL se aplicam a todas as instâncias de VM nessa sub-rede. Além disso, você pode restringir ainda mais o tráfego para uma VM individual por meio da associação de um NSG diretamente a essa VM. Para obter mais informações, consulte [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md).
+Você pode ajudar a proteger redes virtuais do Azure usando um grupo de segurança de rede. Os NSGs contêm uma lista de regras de ACL (lista de controle de acesso) que permitem ou negam o tráfego de rede para suas instâncias de VM em uma Rede Virtual. Você pode associar NSGs a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando você associar um NSG a uma sub-rede, as regras de ACL se aplicam a todas as instâncias de VM nessa sub-rede. Além disso, você pode restringir ainda mais o tráfego para uma VM individual por meio da associação de um NSG diretamente a essa VM. Para obter mais informações, consulte [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

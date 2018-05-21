@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao Cimpl | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Cimpl."
+title: 'Tutorial: integração do Azure Active Directory ao Cimpl | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Active Directory do Azure e o Cimpl.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ab47130dd4485bfb5b2b4081f76e0737813a900
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4e2c39812f14d5c008c7201258fd4ad292e7a4f9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>Tutorial: Integração do Active Directory do Azure com o Cimpl
 
@@ -29,9 +29,9 @@ A integração do Cimpl ao Azure AD oferece os seguintes benefícios:
 - Permitir que seus usuários façam logon automaticamente no Cimpl (logon único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do AD do Azure ao Cimpl, você precisará dos seguintes itens:
 
@@ -63,11 +63,11 @@ Para configurar a integração do Cimpl ao AD do Azure, você precisará adicion
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Cimpl**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do Cimpl ao AD do Azure, você precisará adicion
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configura e testa o logon único do Azure AD com o Cimpl com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Cimpl é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Cimpl.
@@ -86,11 +86,11 @@ No Cimpl, atribua o valor do **nome de usuário** no Azure AD como o valor do **
 
 Para configurar e testar o logon único do AD do Azure com o Cimpl, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Como criar de um usuário de teste do Cimpl](#creating-a-cimpl-test-user)** – para ter um equivalente de Brenda Fernandes no Cimpl que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração de aplicativos do **Cimpl**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_samlbase.png)
 
 3. Na seção **URLs e Domínio do Cimpl**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_url.png)
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://sso.etelesolv.com/<TENANTNAME>`
 
@@ -119,15 +119,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
  
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-cimpl-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-cimpl-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Cimpl**, clique em **Configurar Cimpl** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único do SAML** da **seção de Referência Rápida.**
+6. Na seção **Configuração do Cimpl**, clique em **Configurar Cimpl** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_configure.png) 
 
 7. Para configurar o logon único no lado do **Cimpl**, é necessário enviar o **Certificado (Base64)** baixado, a **ID da Entidade do SAML e a URL do Serviço de Logon Único do SAML** ao suporte do Cimpl no telefone **+1 866-982-8250**.
 
@@ -185,7 +185,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, escolha **Cimpl**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -208,7 +208,7 @@ O objetivo desta seção é testar sua configuração de SSO do Azure AD usando 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

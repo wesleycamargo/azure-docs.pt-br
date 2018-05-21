@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o FM:Systems | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o FM:Systems."
+title: 'Tutorial: integração do Azure Active Directory com o FM:Systems | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o FM:Systems.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: c1de4c64b7e4931fe5cf00076f47f2106932d830
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 726b9c8001cb7b87c577bea6813ebe95e903a04d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Tutorial: Integração do Azure Active Directory com o FM:Systems
 
@@ -29,9 +29,9 @@ A integração do FM:Systems ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários entrem automaticamente no FM:Systems (Logon Único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao FM:Systems, você precisa dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando FM:Systems da Galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-fmsystems-from-the-gallery"></a>Adicionando FM:Systems da Galeria
 Para configurar a integração do FM:Systems ao Azure AD, você precisará adicionar o FM:Systems da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do FM:Systems ao Azure AD, você precisará adici
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **FM:Systems**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do FM:Systems ao Azure AD, você precisará adici
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fm-systems-tutorial/tutorial_fmsystems_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o FM:Systems com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do FM:Systems é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do FM:Systems.
@@ -86,11 +86,11 @@ No FM:Systems, atribua o valor do **nome de usuário** no Azure AD como o valor 
 
 Para configurar e testar o logon único do Azure AD com o FM:Systems, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Como criar um usuário de teste do FM:Systems](#creating-an-fmsystems-test-user)** – para ter um equivalente de Brenda Fernandes no FM:Systems que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração de aplicativos do **FM:Systems**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-fm-systems-tutorial/tutorial_fmsystems_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-fm-systems-tutorial/tutorial_fmsystems_samlbase.png)
 
 3. Na seção **URLs e Domínio do FM:Systems**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-fm-systems-tutorial/tutorial_fmsystems_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-fm-systems-tutorial/tutorial_fmsystems_url.png)
 
     Na caixa de texto **URL de resposta**, digite a **URL de resposta** do FM:Systems usando o seguinte padrão: `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
 
@@ -121,9 +121,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 5. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-fm-systems-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-fm-systems-tutorial/tutorial_general_400.png)
 
-6. Para configurar o logon único no lado do **FM:Systems**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do FM:Systems](https://fmsystems.com/ask-us/). Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
+6. Para configurar o logon único no lado do **FM:Systems**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do FM:Systems](https://fmsystems.com/ask-us/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -177,7 +177,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
    
     a. Digite o **Nome de Usuário**, a **Senha**, **Confirmar Senha**, o **Email** e a **ID do Funcionário** de uma conta válida do Azure Active Directory que você deseje provisionar nas caixas de texto relacionadas.
    
-    b. Clique em **Avançar**.
+    b. Clique em **Próximo**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
@@ -193,7 +193,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, selecione **FM:Systems**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-fm-systems-tutorial/tutorial_fmsystems_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-fm-systems-tutorial/tutorial_fmsystems_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -219,7 +219,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

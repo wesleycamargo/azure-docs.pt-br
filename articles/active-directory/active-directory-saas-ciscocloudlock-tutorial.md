@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Cisco Cloudlock | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Cisco Cloudlock."
+title: 'Tutorial: integração do Azure Active Directory com o Cisco Cloudlock | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Cisco Cloudlock.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: d6961eb760544ac078fdd6ed0d7c0c4d750a8b9f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 77390c8fb0731a2590fa9f0f60ea35374788c710
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloudlock"></a>Tutorial: integração do Azure Active Directory ao Cisco Cloudlock
 
@@ -30,7 +30,7 @@ A integração do Cisco Cloudlock ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que os usuários sejam automaticamente conectados ao Cisco Cloudlock (Logon Único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -84,7 +84,7 @@ Para configurar e testar o logon único do Azure AD com o Cisco Cloudlock, você
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Cisco Cloudlock](#create-a-cisco-cloudlock-test-user)**para ter um equivalente de Brenda Fernandes no Cisco Cloudlock que esteja vinculado à representação do usuário no Azure Active Directory.
+3. **[Criar um usuário de teste do Cisco Cloudlock](#create-a-cisco-cloudlock-test-user)** para ter um equivalente de Brenda Fernandes no Cisco Cloudlock que esteja vinculado à representação do usuário no Azure Active Directory.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
@@ -211,7 +211,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 
