@@ -1,7 +1,7 @@
 ---
 title: Erros de modelo inválido do Azure | Microsoft Docs
 description: Descreve como resolver erros de modelo inválido.
-services: azure-resource-manager,azure-portal
+services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
 manager: timlt
@@ -10,14 +10,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c6712eaf17cf55c1422baca355ce99ed319df28
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 59f07b9ba8116cb1a4b5ab50382d89d01a78853b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolva erros de modelo inválido
 
@@ -38,6 +38,8 @@ A mensagem de erro depende do tipo de erro.
 
 Esse erro pode resultar de vários tipos diferentes de erros. Normalmente, ele envolve um erro de sintaxe ou estrutural no modelo.
 
+<a id="syntax-error" />
+
 ## <a name="solution-1---syntax-error"></a>Solução 1 – erro de sintaxe
 
 Se você receber uma mensagem de erro que indica a validação do modelo falhou, você poderá ter um problema de sintaxe em seu modelo.
@@ -56,6 +58,8 @@ Esse erro é fácil de cometer porque as expressões do modelo podem ser complex
 Se você não fornecer a sintaxe correspondente, o modelo produzirá um valor diferente do que era sua intenção.
 
 Quando você receber esse tipo de erro, examine cuidadosamente a sintaxe da expressão. Considere usar um editor JSON como o [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) ou o [Visual Studio Code](resource-manager-vs-code.md) que pode avisá-lo sobre os erros de sintaxe.
+
+<a id="incorrect-segment-lengths" />
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Solução 2 – comprimentos de segmento incorretos
 
@@ -116,6 +120,8 @@ Ter os segmentos corretos pode ser difícil com os tipos de Resource Manager que
 }
 ```
 
+<a id="parameter-not-valid" />
+
 ## <a name="solution-3---parameter-is-not-valid"></a>Solução 3 – o parâmetro não é válido
 
 Se você fornecer um valor de parâmetro que não seja um dos valores permitidos, receberá uma mensagem semelhante ao erro a seguir:
@@ -129,9 +135,13 @@ part of the allowed values
 
 Verifique uma segunda vez os valores permitidos no modelo e forneça um durante a implantação. Para saber mais sobre os valores de parâmetro permitidos, confira a [seção Parâmetros dos modelos do Azure Resource Manager](resource-manager-templates-parameters.md).
 
+<a id="too-many-resource-groups" />
+
 ## <a name="solution-4---too-many-target-resource-groups"></a>Solução 4 – Muitos grupos de recursos de destino
 
 Se especificar mais de cinco grupos de recursos de destino em uma única implantação, você receberá esse erro. Considere a possibilidade de consolidar o número de grupos de recursos em sua implantação ou implantar alguns dos modelos como implantações separadas. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](resource-manager-cross-resource-group-deployment.md).
+
+<a id="circular-dependency" />
 
 ## <a name="solution-5---circular-dependency-detected"></a>Solução 5 – Dependência circular detectada
 

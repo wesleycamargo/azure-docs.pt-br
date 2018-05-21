@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o OnTrack | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o OnTrack."
+title: 'Tutorial: integração do Azure Active Directory com o OnTrack | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o OnTrack.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 9df3932fe7e68fff422dc4eca370ac1354fb2db0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 76a7bd34c3fddc70e025af52235be619f04fa0d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: integração do Azure Active Directory com o OnTrack
 
@@ -30,9 +30,9 @@ A integração do OnTrack com o Azure AD oferece os seguintes benefícios:
 - Você pode permitir que os usuários façam logon automaticamente no OnTrack (logon único) com suas respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o OnTrack, você precisa dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o OnTrack pela galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-ontrack-from-the-gallery"></a>Adicionar o OnTrack pela galeria
 Para configurar a integração do OnTrack com o Azure AD, você precisará adicionar o OnTrack pela galeria à sua lista de aplicativos SaaS gerenciados.
@@ -126,7 +126,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 5. O aplicativo OnTrack espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à configuração dos atributos do token SAML. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-ontrack-tutorial/tutorial_attribute.png)
+    ![Configurar o logon único](./media/active-directory-saas-ontrack-tutorial/tutorial_attribute.png)
 
 6. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML, conforme mostrado na imagem anterior e realize as seguintes etapas:
     
@@ -142,7 +142,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/active-directory-saas-ontrack-tutorial/tutorial_attribute_04.png)   
 
-    ![Configurar Logon Único](./media/active-directory-saas-ontrack-tutorial/tutorial_attribute_05.png)
+    ![Configurar o logon único](./media/active-directory-saas-ontrack-tutorial/tutorial_attribute_05.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -236,7 +236,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

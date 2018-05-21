@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao RFPIO | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o RFPIO."
+title: 'Tutorial: Integração do Azure Active Directory ao RFPIO | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o RFPIO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 57bb448f1bb858d15a7ecaad5a9ba797f5d7d85e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 915b6f9c96bc8dbab54e770340acf795df92a3fb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Tutorial: Integração do Azure Active Directory ao RFPIO
 
@@ -29,9 +29,9 @@ A integração do RFPIO ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que usuários façam logon automaticamente no RFPIO (Logon Único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local: o novo Portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao RFPIO, você precisará dos seguintes itens:
 
@@ -63,11 +63,11 @@ Para configurar a integração do RFPIO ao Azure AD, você precisará adicionar 
 
 2. Selecione **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior da caixa de diálogo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **RFPIO**.
 
@@ -100,19 +100,19 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 1. No Portal do Azure, na página de integração de aplicativos do **RFPIO**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_samlbase.png)
 
 3. Na seção **Domínio e URLs do RFPIO**, se você desejar configurar o aplicativo em modo iniciado pelo **IDP**:
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url.png)
 
     a. Na caixa de texto **Identificador**, digite a URL: `https://www.rfpio.com`
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url1.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url1.png)
 
     b. Marque **Mostrar configurações de URL avançadas**.
 
@@ -120,7 +120,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 4. Marque **Mostrar configurações de URL avançadas**. Se quiser configurar o aplicativo no modo iniciado em **SP**: 
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url2.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url2.png)
 
     Na caixa de texto **URL de Entrada**, digite a URL: `https://www.app.rfpio.com`
 
@@ -130,29 +130,29 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 6. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/tutorial_general_400.png)
 
 7. Em outra janela do navegador da Web, faça logon no site do **RFPIO** como administrador.
 
 8. Clique no menu suspenso de canto inferior esquerdo.
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/app1.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/app1.png)
 
 9. Clique em **Configurações da Organização**. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/app2.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/app2.png)
 
 10. Clique no **RECURSOS E INTEGRAÇÃO**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/app4.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/app4.png)
 
 11. Em **Configuração de SSO de SAML**, clique **Editar**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/app3.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/app3.png)
 
 12. Nesta seção, execute as seguintes ações:
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/app5.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/app5.png)
     
     a. Copie o conteúdo do **XML de Metadados baixado** e cole-o no campo de **configuração de identidade**.
 
@@ -211,23 +211,23 @@ No caso do RFPIO, o provisionamento é uma tarefa manual.
 
 2. Clique no menu suspenso de canto inferior esquerdo.
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/app1.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/app1.png)
 
 3. Clique em **Configurações da Organização**. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/app2.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/app2.png)
 
 4. Clique em **MEMBROS DA EQUIPE**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/app6.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/app6.png)
 
 5. Clique em **ADICIONAR MEMBROS**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/app7.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/app7.png)
 
 6. Na seção **Adicionar Novos Membros**. Execute as seguintes ações:
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/app8.png)
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/app8.png)
 
     a. Insira **Endereço de email** no campo **Inserir um email por linha**.
 
@@ -236,7 +236,7 @@ No caso do RFPIO, o provisionamento é uma tarefa manual.
     c. Clique em **ADICIONAR MEMBROS**.
         
     > [!NOTE]
-    > O titular da conta do Azure Active Directory receberá um email e seguirá um link para confirmar a conta antes que ela se torne ativa.
+    > O titular da conta do Azure Active Directory recebe um email e segue um link para confirmar sua conta antes que ela se torne ativa.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -252,7 +252,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, selecione **RFPIO**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -278,7 +278,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Veracode | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Veracode."
+title: 'Tutorial: Integração do Azure Active Directory com o Veracode | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Veracode.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 270b373943ea72f1ddbee4f9c6fa4967ff85b861
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 774cd70f7cc97be8b050cf6ac31063c150b2f657
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Tutorial: Integração do Active Directory do Azure com o Veracode
 
@@ -30,9 +30,9 @@ A integração do Veracode ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que os usuários façam logon automaticamente no Veracode (logon único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Veracode, você precisará dos seguintes itens:
 
@@ -106,7 +106,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 3. Na seção **URLs e Domínio do Veracode**, o usuário não precisa executar nenhuma etapa, já que o aplicativo já está pré-integrado ao Azure. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_url.png)
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -267,7 +267,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

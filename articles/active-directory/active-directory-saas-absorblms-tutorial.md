@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Absorb LMS | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Absorb LMS."
+title: 'Tutorial: Integração do Azure Active Directory ao Absorb LMS | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Absorb LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f877d8fee4a94207fc01f4a5e0e7919f1286f2e4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Azure Active Directory ao Absorb LMS
 
@@ -30,7 +30,7 @@ A integração do Absorb LMS ao Azure AD oferece os seguintes benefícios:
 - É possível habilitar os usuários para que entrem automaticamente no Absorb LMS (por meio de logon único) com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local, o portal clássico do Azure.
 
-Se desejar saber mais sobre a integração de aplicativos SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso do aplicativo e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Se desejar saber mais sobre a integração de aplicativos SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso do aplicativo e o logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -113,7 +113,7 @@ Para configurar o logon único do Azure AD com o Absorb LMS, siga as seguintes e
 
     ![Link de download do certificado de autenticação](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_certificate.png) 
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
     
@@ -188,7 +188,7 @@ Para criar um usuário de teste no Azure AD, faça o seguinte:
 
     c. Selecione a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor na caixa **Senha**.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
 
 ### <a name="create-an-absorb-lms-test-user"></a>Criar um usuário de teste do Absorb LMS
 
@@ -269,7 +269,7 @@ No Painel de Acesso, selecionar o bloco **Absorb LMS**, conectará automaticamen
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

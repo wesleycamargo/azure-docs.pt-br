@@ -1,29 +1,29 @@
 ---
 title: Gerenciar recursos com a CLI do Azure | Microsoft Docs
 description: Use a Interface de linha de comando (CLI) do Azure para gerenciar recursos e grupos do Azure
-editor: 
+editor: ''
 manager: timlt
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c68f2a8b6e18dc2d51d8bbb5cd05bc037dc2fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90dd1b6b7e65178f6b339e4ac0bb781fb74a25a6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Use a CLI do Azure para gerenciar recursos e grupos de recursos do Azure
 
 Neste artigo, você aprenderá a gerenciar suas soluções com o CLI do Azure e o Azure Resource Manager. Se você não estiver familiarizado com o Resource Manager, veja [Visão geral do Resource Manager](resource-group-overview.md). O foco deste artigo são as tarefas de gerenciamento. Você vai:
 
-1. Criar um grupos de recursos
+1. Criar um grupo de recursos
 2. Adicionar um recurso ao grupo de recursos
 3. Adicionar uma marca ao recurso
 4. Recursos de consulta baseados em nomes ou em valores de marca
