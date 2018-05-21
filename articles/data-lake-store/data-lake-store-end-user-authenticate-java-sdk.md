@@ -1,23 +1,21 @@
 ---
-title: "Autenticação do usuário final: Java com o Data Lake Store usando o Azure Active Directory | Microsoft Docs"
-description: "Saiba como obter a autenticação do usuário final com o Data Lake Store usando o Azure Active Directory com o Java"
+title: 'Autenticação do usuário final: Java com o Data Lake Store usando o Azure Active Directory | Microsoft Docs'
+description: Saiba como obter a autenticação do usuário final com o Data Lake Store usando o Azure Active Directory com o Java
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: b1fbf3c1e0e5715ff7effcdac45ff03f2b55f9ee
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b638860dbdab7e3b5a747a4ddd82e7247f24845f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-java"></a>Autenticação do usuário final com o Data Lake Store usando o Java
 > [!div class="op_single_selector"]
@@ -30,7 +28,7 @@ ms.lasthandoff: 01/10/2018
 
 Neste artigo, você aprenderá como usar o SDK do Java para fazer a autenticação do usuário final com o Azure Data Lake Store. Para saber sobre autenticação serviço a serviço com o Data Lake Store usando o SDK do Java, consulte [Autenticação serviço a serviço com Data Lake Store usando o SDK do Java](data-lake-store-service-to-service-authenticate-java.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Criar um aplicativo "Nativo" do Azure Active Directory**. Você deve ter concluído as etapas em [Autenticação do usuário final com o Data Lake Store usando o Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).

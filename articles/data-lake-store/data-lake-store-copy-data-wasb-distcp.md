@@ -1,24 +1,22 @@
 ---
 title: Copiar dados para e do WASB no Data Lake Store usando o Distcp| Microsoft Docs
-description: "Use a ferramenta Distcp para copiar dados de e para os Blobs de Armazenamento do Azure para o Repositório Data Lake"
+description: Use a ferramenta Distcp para copiar dados de e para os Blobs de Armazenamento do Azure para o Repositório Data Lake
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ae2e9506-69dd-4b95-8759-4dadca37ea70
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 8a5052f69eee7f53bb304524fc3ea4d375c76227
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c682ff56f4850638d3cad6e327c1237a0492c4d3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Use Distcp para copiar dados entre o Repositório do Data Lake e os Blobs de Armazenamento do Azure
 > [!div class="op_single_selector"]
@@ -29,7 +27,7 @@ ms.lasthandoff: 01/10/2018
 
 Se você tem um cluster HDInsight com acesso ao Data Lake Store, você pode usar as ferramentas do ecossistema Hadoop, como Distcp, para copiar dados **de e para** um armazenamento de cluster do HDInsight (WASB) em uma conta do Data Lake Store. Este artigo fornece instruções de como usar a ferramenta Distcp.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
