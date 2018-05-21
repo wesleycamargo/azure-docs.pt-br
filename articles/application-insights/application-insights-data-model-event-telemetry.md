@@ -1,9 +1,9 @@
 ---
-title: "Modelo de dados do Azure Application Insights Telemetry – telemetria de eventos | Microsoft Docs"
+title: Modelo de dados do Azure Application Insights Telemetry – telemetria de eventos | Microsoft Docs
 description: Modelo de dados do Application Insights para telemetria de eventos
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: dc6ef1771f4f09b274f12606d1278e1f29c23103
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: 4f6b5c35b65b4aff2dbe8dafbb2eb07d75c2382a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Telemetria de eventos: modelo de dados do Application Insights
 
@@ -24,7 +24,7 @@ Você pode criar itens de telemetria do evento (em [Application Insights](app-in
 
 Semanticamente, eventos podem ou não ser correlacionados às solicitações. No entanto, se usada corretamente, a telemetria de eventos é mais importante que solicitações ou rastreamentos. Os eventos representam a telemetria de negócios e devem estar sujeitos a uma [amostragem](app-insights-api-filtering-sampling.md) separada, menos agressiva.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>NOME
 
 Nome do evento. Para permitir o agrupamento adequado e métricas úteis, restrinja seu aplicativo de maneira que ele gere um pequeno número de nomes de eventos separados. Por exemplo, não use um nome à parte para cada instância gerado de um evento.
 
