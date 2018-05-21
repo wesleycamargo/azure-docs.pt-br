@@ -16,8 +16,21 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
     - name: Organizar recursos com grupos de gerenciamento
       href: billing-enterprise-mgmt-group-overview.md
-    - name: Economizar dinheiro com Instâncias de VM Reservadas
+    - name: Poupar com as Instâncias Reservadas do Azure
       href: billing-save-compute-costs-reservations.md
+      items:
+        - name: Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de Reservadas
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Gerenciar Instâncias Reservadas
+          href: billing-manage-reserved-vm-instance.md
+        - name: Compreender aplicativo de desconto para Instância Reservada
+          href: billing-understand-vm-reservation-charges.md
+        - name: Compreender uso da Instância Reservada para Pagamento Conforme o Uso
+          href: billing-understand-reserved-instance-usage.md
+        - name: Compreender uso da Instância Reservada para Empresas
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Reservar custos do Windows para Instâncias
+          href: billing-reserved-instance-windows-software-costs.md
     - name: Limites e cotas
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Como
@@ -38,20 +51,12 @@
           href: billing-understand-your-azure-marketplace-charges.md
         - name: Compreender mapeamento do medidor de serviço gratuito
           href: billing-understand-free-service-meter-mapping.md
-        - name: Reservar custos do Windows para Instâncias da VM
-          href: billing-reserved-instance-windows-software-costs.md
-        - name: Compreender aplicativo de desconto para Instância da VM Reservada
-          href: billing-understand-vm-reservation-charges.md
         - name: Compreender limite de gastos
           href: billing-spending-limit.md
         - name: Configurar alertas de cobrança
           href: billing-set-up-alerts.md
         - name: Resolver saldo vencido
           href: billing-azure-subscription-past-due-balance.md
-        - name: Compreender uso da Instância Reservada para Pagamento Conforme o Uso
-          href: billing-understand-reserved-instance-usage.md
-        - name: Compreender uso da Instância Reservada para Empresas
-          href: billing-understand-reserved-instance-usage-ea.md
     - name: Gerenciar Assinaturas
       items:
         - name: Localizar assinatura ou grupo de gerenciamento
@@ -82,8 +87,6 @@
           href: billing-partner-admin-link-started.md
         - name: Exibir contas de cobrança
           href: billing-view-all-accounts.md
-    - name: Gerenciar Instâncias da VM Reservadas
-      href: billing-manage-reserved-vm-instance.md
     - name: Solucionar problemas
       items:
         - name: Problemas de inscrição
