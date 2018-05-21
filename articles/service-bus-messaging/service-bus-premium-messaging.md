@@ -1,30 +1,30 @@
 ---
-title: "Visão geral das camadas de preço do Sistema de Mensagens Premium e Standard do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço"
+title: Visão geral das camadas de preço do Sistema de Mensagens Premium e Standard do Barramento de Serviço do Azure | Microsoft Docs
+description: Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
 services: service-bus-messaging
 documentationcenter: .net
 author: djrosanova
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2017
+ms.date: 04/30/2018
 ms.author: sethm
-ms.openlocfilehash: 613bb074063e436cdbd54fe5aee9c49109a2d8f2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1b2c9b3a0b7565e7de40d4dc0e623a62313b79db
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
 
 O Sistema de Mensagens do Barramento de Serviço, que inclui entidades como filas e tópicos, combina recursos corporativos de mensagens com rica semântica de assinatura para publicação na escala de nuvem. O Sistema de Mensagens do Barramento de Serviço é usado como o backbone de comunicação para muitas soluções de nuvem sofisticadas.
 
-A camada *Premium* do Sistema de Mensagens do Barramento de Serviço atende às solicitações comuns dos clientes em torno da escala, do desempenho e da disponibilidade para aplicativos de missão crítica. Embora os conjuntos de recursos sejam quase idênticos, essas duas camadas do Sistema de Mensagens do Barramento de Serviço foram desenvolvidas para atender a diferentes casos de uso.
+A camada *Premium* do Sistema de Mensagens do Barramento de Serviço atende às solicitações comuns dos clientes em torno da escala, do desempenho e da disponibilidade para aplicativos de missão crítica. A camada Premium é recomendada para cenários de produção. Embora os conjuntos de recursos sejam quase idênticos, essas duas camadas do Sistema de Mensagens do Barramento de Serviço foram desenvolvidas para atender a diferentes casos de uso.
 
 Algumas diferenças de alto nível são destacadas na tabela a seguir.
 
@@ -46,11 +46,7 @@ As seções a seguir discutem algumas diferenças entre as camadas dos sistemas 
 
 ### <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
-Filas e tópicos particionados têm suporte no Sistema de Mensagens Premium; na verdade essas entidades são particionadas sempre (e não podem ser desabilitadas). No entanto, as filas e tópicos particionados Premium não funcionam da mesma forma na camada Standard do Sistema de Mensagens do Barramento de Serviço. O sistema de mensagens Premium não usa o SQL como um armazenamento de dados e não tem mais a possível competição por recurso associada a uma plataforma compartilhada. Consequentemente, o particionamento não é necessário para melhorar o desempenho. Além disso, a contagem de partições foi alterada, de 16 partições no Sistema de Mensagens Standard para duas partições no Premium. Ter duas partições garante disponibilidade, além de ser um número mais apropriado para o ambiente de tempo de execução Premium. 
-
-Com as mensagens Premium, quando você especifica o tamanho de uma entidade com [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), o tamanho é dividido igualmente entre as duas partições, ao contrário de [Entidades particionadas padrão](service-bus-partitioning.md#standard) em que o tamanho total é 16 vezes o tamanho especificado. 
-
-Para saber mais sobre o particionamento, confira as [Filas e tópicos particionados](service-bus-partitioning.md).
+Não há suporte para filas e tópicos particionados no Sistema de Mensagens Premium. Para saber mais sobre o particionamento, confira as [Filas e tópicos particionados](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades expressas
 
@@ -64,7 +60,7 @@ A introdução ao Sistema de Mensagens Premium é simples e o processo é semelh
 
 ![criar-premium-namespace][create-premium-namespace]
 
-Você também pode criar um [Namespace Premium usando modelos do Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+Você também pode criar um [Namespace Premium usando modelos do Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
