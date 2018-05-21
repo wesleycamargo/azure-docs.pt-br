@@ -2,25 +2,19 @@
 title: Início rápido de redefinição de senha por autoatendimento – Azure Active Directory
 description: Implantar rapidamente a redefinição da senha de autoatendimento do Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 6add6e71c9acf6d63858ea921ec85924b4e6c60f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implantação rápida da redefinição da senha de autoatendimento do Azure AD
 
@@ -33,11 +27,13 @@ Este guia pressupõe que você já tem um locatário do Azure Active Directory (
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Habilitar SSPR para seu locatário do Azure AD
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. A partir do seu locatário existente do Azure AD, no **Portal do Azure** em **Azure Active Directory** selecione **Redefinição de senha**.
 
 2. Na página **Propriedades**, na opção **Redefinição da senha de autoatendimento habilitada**, escolha uma das seguintes opções:
    * **Ninguém**: Ninguém pode usar a funcionalidade de SSPR.
-   * **Selecionado**: Somente os membros de um grupo específico do Azure AD escolhido podem usar a funcionalidade de SSPR. É recomendável definir um grupo de usuários e usar essa configuração ao implantar essa funcionalidade para uma prova de conceito.
+   * **Selecionado**: Somente os membros de um grupo específico do Azure AD escolhido podem usar a funcionalidade de SSPR. É recomendável definir um grupo de usuários e usar essa configuração ao implantar essa funcionalidade para uma prova de conceito. Há suporte para o aninhamento de grupos de segurança.
    * **Todos**: Todos os usuários com contas no seu locatário do Azure AD podem usar a funcionalidade de SSPR. É recomendável usar essa configuração quando você estiver pronto para implantar essa funcionalidade em todo o seu locatário depois de concluir uma prova de conceito.
 
    > [!IMPORTANT]
