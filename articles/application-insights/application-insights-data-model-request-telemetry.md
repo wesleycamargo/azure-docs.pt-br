@@ -1,9 +1,9 @@
 ---
-title: "Modelo de dados do Azure Application Insights Telemetry – telemetria de solicitações | Microsoft Docs"
-description: "Modelo de dados do Application Insights para telemetria de solicitações"
+title: Modelo de dados do Azure Application Insights Telemetry – telemetria de solicitações | Microsoft Docs
+description: Modelo de dados do Application Insights para telemetria de solicitações
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: 0073f38097ffbebd669754eac5f2d48a620941bf
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: e0bdaf132474d8e5eaac6a9c65093d27d673d343
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de solicitações: modelo de dados do Application Insights
 
@@ -24,7 +24,7 @@ Um item de telemetria de solicitação (em [Application Insights](app-insights-o
 
 A solicitação de telemetria dá suporte ao modelo de extensibilidade padrão usando `properties` e `measurements` personalizadas.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>NOME
 
 O nome da solicitação representa o caminho de código necessário para processar a solicitação. Valor de baixa cardinalidade para permitir melhor agrupamento de solicitações. Para solicitações HTTP, ele representa o método HTTP e o modelo do caminho de URL como `GET /values/{id}` sem um valor real de `id`.
 
@@ -50,7 +50,7 @@ A origem da solicitação. Os exemplos são a chave de instrumentação do chama
 
 Comprimento máximo: 1.024 caracteres
 
-## <a name="duration"></a>Duração
+## <a name="duration"></a>Duration
 
 Duração da solicitação no formato: `DD.HH:MM:SS.MMMMMM`. Deve ser positivo e menor que `1000` dias. Esse campo é obrigatório, já que a telemetria de solicitação representa a operação com o início e fim.
 

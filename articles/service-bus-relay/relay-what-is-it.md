@@ -1,34 +1,36 @@
 ---
-title: "O que é a Retransmissão do Azure e por que usá-la - Visão Geral| Microsoft Docs"
-description: "Visão geral da Retransmissão do Azure"
+title: O que é a Retransmissão do Azure e por que usá-la - Visão Geral| Microsoft Docs
+description: Visão geral da Retransmissão do Azure
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
 ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 12/20/2017
+ms.date: 05/02/2018
 ms.author: sethm
-ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2b179f8f5de9a0020ea6457c11bb6f48f3a51320
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
 
 O serviço de Retransmissão do Azure facilita os aplicativos híbridos habilitando a exposição segura de serviços que residem em uma rede empresarial corporativa para a nuvem pública sem precisar abrir uma conexão de firewall nem exigir mudanças intrusivas em uma infraestrutura de rede corporativa. A retransmissão dá suporte a vários protocolos de transporte e padrões de serviços Web diferentes.
 
-O serviço de retransmissão dá suporte a tráfego unidirecional tradicional, de solicitação/resposta e ponto a ponto. Ele também oferece suporte a distribuição de eventos no escopo da Internet para habilitar cenários de publicação/assinatura, e a comunicação de soquete bidirecional para maior eficiência ponto a ponto. 
+O serviço de retransmissão dá suporte a tráfego unidirecional tradicional, de solicitação/resposta e ponto a ponto. Ele também oferece suporte a distribuição de eventos no escopo da Internet para habilitar cenários de publicação/assinatura, e a comunicação de soquete bidirecional para maior eficiência ponto a ponto.
 
 No padrão de transferência de dados retransmitidos, um serviço local conecta-se ao serviço de retransmissão por meio de uma porta de saída e cria um soquete bidirecional para comunicação vinculado a um endereço específico de reunião. Então o cliente pode se comunicar com o serviço local enviando tráfego para o serviço de retransmissão direcionado ao endereço de reunião. O serviço de retransmissão então "retransmite" dados para o serviço local por meio de um soquete bidirecional dedicado para cada cliente. O cliente não precisa de uma conexão direta com o serviço local, não precisa saber onde reside o serviço, e o serviço local não precisa de qualquer porta de entrada aberta no firewall.
 
-Os principais elementos de capacidade fornecidos pela Retransmissão são comunicação bidirecional sem buffer entre limites de rede com limitação estilo TCP, descoberta de ponto de extremidade, status de conectividade e segurança de ponto de extremidade sobreposta. As capacidades de Retransmissão diferem de tecnologias de integração em nível de rede, como VPN, no sentido de que o escopo dessa retransmissão pode ser definido para um único ponto de extremidade do aplicativo em um único computador, enquanto a tecnologia VPN é muito mais intrusiva, pois depende de alterar o ambiente de rede.
+Os principais elementos de capacidade fornecidos pela Retransmissão são comunicação bidirecional sem buffer entre limites de rede com limitação estilo TCP, descoberta de ponto de extremidade, status de conectividade e segurança de ponto de extremidade sobreposta.
+
+As capacidades de Retransmissão diferem de tecnologias de integração em nível de rede, como VPN, no sentido de que o escopo dessa retransmissão pode ser definido para um único ponto de extremidade do aplicativo em um único computador, enquanto a tecnologia VPN é muito mais intrusiva, pois depende de alterar o ambiente de rede.
 
 A Retransmissão do Azure tem dois recursos:
 
@@ -48,7 +50,9 @@ Conexões Híbridas e Retransmissões de WCF habilitam conexão segura para ativ
 
 ## <a name="hybrid-connections"></a>Conexões Híbridas
 
-A funcionalidade de [Conexões Híbridas de Retransmissão do Azure](relay-hybrid-connections-protocol.md) é uma evolução segura de protocolo aberto dos recursos existentes de Retransmissão que pode ser implementada em qualquer plataforma e em qualquer linguagem que tenha uma funcionalidade básica de WebSocket, que inclui explicitamente a API WebSocket em navegadores da Web comuns. A capacidade de Conexões Híbridas baseia-se em HTTP e WebSockets.
+A funcionalidade de Conexões Híbridas de Retransmissão do Azure é uma evolução segura de protocolo aberto dos recursos existentes de Retransmissão que pode ser implementada em qualquer plataforma e em qualquer linguagem. Conexões Híbridas podem retransmitir WebSockets bem como as solicitações de HTTP (S) e respostas. Esses recursos são compatíveis com a API do WebSocket em navegadores da web comuns. A capacidade de Conexões Híbridas baseia-se em HTTP e WebSockets.
+
+O protocolo está documentado no [Guia de Protocolo de Conexões Híbridas](relay-hybrid-connections-protocol.md), permitindo o uso de Conexões de Retransmissão Híbrida com praticamente qualquer biblioteca de Websockets qualquer tempo de execução e o idioma.
 
 ### <a name="service-history"></a>Histórico de serviço
 
@@ -70,6 +74,8 @@ Quando a conexão de retransmissão é estabelecida, os clientes podem trocar me
 
 * [Perguntas frequentes sobre retransmissão](relay-faq.md)
 * [Criar um namespace](relay-create-namespace-portal.md)
-* [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Introdução ao Node](relay-hybrid-connections-node-get-started.md)
+* [Introdução a .NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
+* [Introdução a Pedidos .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+* [Introdução a Node Websockets](relay-hybrid-connections-node-get-started.md)
+* [Introdução a Pedidos Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 
