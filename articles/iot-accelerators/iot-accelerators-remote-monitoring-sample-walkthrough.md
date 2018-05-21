@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 71b0405975d88e69d3ecea6090983bc3c779395d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 3effde81dfa48e9544d89153d40c160ff972d047
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Arquitetura do acelerador de solução de monitoramento remoto
 
@@ -35,7 +35,7 @@ Este artigo explica alguns dos principais elementos da solução de monitorament
 
 O diagrama a seguir descreve os componentes lógicos do acelerador de solução de monitoramento remoto sobreposta na [arquitetura da IoT](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
 
-![Arquitetura lógica](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Arquitetura lógica](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="why-microservices"></a>Por que os microsserviços?
 

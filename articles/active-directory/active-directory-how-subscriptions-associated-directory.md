@@ -6,21 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6664a2b9bb6375314090bf4dae9190c7d52565d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory
 
@@ -53,6 +51,8 @@ Todos os usuários têm um único diretório inicial que os autentica, mas eles 
 
     ![Captura de tela mostrando o seletor](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
+
+Os cofres de chaves do Azure pertencentes a você também são afetados pela movimentação de uma assinatura; portanto [altere a ID de locatário do cofre de chaves](../key-vault/key-vault-subscription-move-fix.md) antes de retomar as operações.
 
 A alteração do diretório da assinatura é uma operação de nível de serviço. Ela não afeta a propriedade de cobrança da assinatura, e o Administrador da Conta ainda pode alterar o Administrador de Serviço usando o [Centro de Contas](https://account.azure.com/subscriptions). Se você quiser excluir o diretório original, deverá transferir a propriedade de cobrança da assinatura para um novo Administrador de Conta. Para saber mais sobre como transferir a propriedade da conta, confira [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md). 
 

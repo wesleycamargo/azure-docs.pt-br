@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao SAP Business Object Cloud | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o SAP Business Object Cloud."
+title: 'Tutorial: integração do Azure Active Directory ao SAP Business Object Cloud | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o SAP Business Object Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: b0ea48aea2e13027c5af273a416489e48987b44a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a56a892ac3b28c4e90ec2ea6360da3d2eff2581
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: integração do Azure Active Directory ao SAP Business Object Cloud
 
@@ -30,9 +30,9 @@ Você obtém os seguintes benefícios quando integra o SAP Business Object Cloud
 - Você pode conectar automaticamente seus usuários ao SAP Business Object Cloud usando o logon único e a conta do Azure AD de um usuário.
 - É possível gerenciar suas contas em uma, um local central e no portal do Azure.
 
-Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao SAP Business Object Cloud, você precisa dos seguintes itens:
 
@@ -133,7 +133,7 @@ Para configurar o logon único do Azure AD com o SAP Business Object Cloud:
 
     ![Selecionar XML de Metadados](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_certificate.png) 
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
     ![Selecionar Salvar](./media/active-directory-saas-sapboc-tutorial/tutorial_general_400.png)
 
@@ -199,7 +199,7 @@ Para criar um usuário de teste no Azure AD:
 
     3. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
-    4. Selecione **Criar**.
+    4. Clique em **Criar**.
 
         ![A caixa de diálogo Usuário](./media/active-directory-saas-sapboc-tutorial/create_aaduser_04.png) 
 
@@ -252,7 +252,7 @@ Para atribuir Brenda Fernandes ao SAP Business Object Cloud:
 
 2. Na lista de aplicativos, selecione **SAP Business Object Cloud**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_app.png) 
 
 3. No menu esquerdo, selecione **Usuários e grupos**.
 
@@ -281,7 +281,7 @@ Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->
