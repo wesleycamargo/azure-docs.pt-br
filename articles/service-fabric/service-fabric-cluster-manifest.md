@@ -1,24 +1,24 @@
 ---
-title: "Configurar o cluster do Azure Service Fabric autônomo | Microsoft Docs"
-description: "Aprenda a configurar seu cluster autônomo ou local do Azure Service Fabric."
+title: Configurar o cluster do Azure Service Fabric autônomo | Microsoft Docs
+description: Aprenda a configurar seu cluster autônomo ou local do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e0fed608ac9dd02a6fe5563eefc30edb63d224b1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster autônomo no Windows
 Este artigo descreve como configurar um cluster autônomo do Microsoft Azure Service Fabric utilizando o arquivo ClusterConfig.json. Este arquivo será utilizado para especificar informações sobre os nós do cluster, as configurações de segurança, assim como a topologia de rede em termos de domínio de atualização e falha.

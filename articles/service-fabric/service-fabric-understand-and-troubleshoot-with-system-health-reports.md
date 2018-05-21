@@ -1,24 +1,24 @@
 ---
-title: "Solucionar problemas com relatórios de integridade do sistema | Microsoft Docs"
-description: "Descreve os relatórios de integridade enviados por componentes do Service Fabric do Azure e o seu uso para solucionar problemas de cluster ou de aplicativos"
+title: Solucionar problemas com relatórios de integridade do sistema | Microsoft Docs
+description: Descreve os relatórios de integridade enviados por componentes do Service Fabric do Azure e o seu uso para solucionar problemas de cluster ou de aplicativos
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: def4f1cdcd173e26964f9be11266d0e1a20fcafa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8304790b5eba4679b0633641c82d57316e7f8ec4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
@@ -637,7 +637,7 @@ A propriedade e o texto indicam qual API ficou paralisada. As próximas etapas a
 
 Outras chamadas à API que podem ficar paralisadas estão na interface **IReplicator**. Por exemplo: 
 
-- **IReplicator.CatchupReplicaSet**: esse aviso indica um dos dois motivos. Há réplicas insuficientes. Para verificar se esse é o caso, observe o status de réplica das réplicas na partição ou o relatório de integridade System.FM para uma reconfiguração paralisada. Ou as réplicas não estão confirmando operações. O cmdlet do PowerShell `Get-ServiceFabricDeployedReplicaDetail` pode ser utilizado para determinar o progresso de todas as réplicas. O problema está nas réplicas cujo valor `LastAppliedReplicationSequenceNumber` está atrás do valor `CommittedSequenceNumber` do primário.
+- **IReplicator.CatchupReplicaSet**: este aviso indica que um dos seguintes. Há réplicas insuficientes. Para verificar se esse é o caso, observe o status de réplica das réplicas na partição ou o relatório de integridade System.FM para uma reconfiguração paralisada. Ou as réplicas não estão confirmando operações. O cmdlet do PowerShell `Get-ServiceFabricDeployedReplicaDetail` pode ser utilizado para determinar o progresso de todas as réplicas. O problema está nas réplicas cujo valor `LastAppliedReplicationSequenceNumber` está atrás do valor `CommittedSequenceNumber` do primário.
 
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**: este aviso indica um problema no processo de build. Para obter mais informações, consulte [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md) (Ciclo de vida da réplica). Isso pode acontecer devido a uma configuração incorreta do endereço do replicador. Para obter mais informações, consulte [Configurar Reliable Services com estado](service-fabric-reliable-services-configuration.md) e [Especificar recursos em um manifesto de serviço](service-fabric-service-manifest-resources.md). Também pode ser um problema no nó remoto.
 

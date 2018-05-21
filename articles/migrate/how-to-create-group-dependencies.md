@@ -4,13 +4,13 @@ description: Descreve como refinar uma avaliação usando o mapeamento de depend
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: a7c1dcae5708164252fa04a0fd1471eb1ae9bf90
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 690231b938f60f16dcd10656b9a1f99c8c8f29cb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo usando o mapeamento de dependências de grupo
 
@@ -55,7 +55,7 @@ Para instalar o agente em uma máquina com Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Saiba mais](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) sobre sistemas operacionais com suporte do Agente de dependência. 
+[Saiba mais](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) sobre sistemas operacionais com suporte do Agente de dependência. 
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Refinar o grupo com base na visualização de dependências
 Depois de instalar os agentes em todas as máquinas do grupo, você pode visualizar as dependências do grupo e refiná-lo seguindo as etapas abaixo.

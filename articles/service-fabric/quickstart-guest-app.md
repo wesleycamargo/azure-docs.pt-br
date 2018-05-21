@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 65185a2d594a4a251cf87ece6f758ab3db223d7d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3cb7fdf309c935c21f4e80c1d1ba529838935acc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedar um aplicativo Node.js no Azure Service Fabric
 
@@ -107,7 +107,7 @@ Selecione o perfil de destino **PublishProfiles\Cloud.xml**.
 
 Se você já não fez isso, escolha uma conta do Azure para implantação. Se você ainda não tiver uma conta, [inscreva-se][create-account].
 
-Em **Ponto de Extremidade de Conexão**, selecione o cluster do Service Fabric para implantação. Se você não tiver um, selecione  **&lt;Criar Novo Cluster... &gt;** , o que abrirá a janela do navegador da Web no portal do Azure. Para saber mais, confira [Criar um cluster no portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Em **Ponto de Extremidade de Conexão**, selecione o cluster do Service Fabric para implantação. Se você não tiver um, selecione **&lt;Criar Novo Cluster... &gt;**, o que abrirá a janela do navegador da Web no portal do Azure. Para saber mais, confira [Criar um cluster no portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Quando você cria o cluster do Service Fabric, defina a configuração **Pontos de extremidade personalizados** como **80**.
 

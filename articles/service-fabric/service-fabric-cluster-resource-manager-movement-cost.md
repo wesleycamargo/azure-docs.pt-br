@@ -1,24 +1,24 @@
 ---
 title: 'Gerenciador de Recursos de Cluster do Service Fabric: custo de movimento | Microsoft Docs'
-description: "Visão geral do custo dos movimentos de serviços do Service Fabric"
+description: Visão geral do custo dos movimentos de serviços do Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3063647671fea94da3ce635b887f6f0f7de89f70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74b61967a796fca22ab86918235f1def27a22f91
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-movement-cost"></a>Custo do movimentação de serviços
 Um fator que o Gerenciador de Recursos de Cluster do Service Fabric considera ao tentar determinar quais alterações fazer em um cluster é o custo dessas alterações. A noção de "custo" é avaliada considerando quanto o cluster pode ser melhorado. O custo é considerado ao mover serviços para balanceamento, desfragmentação e outros requisitos. A meta é atender aos requisitos da maneira menos perturbadora ou cara. 
@@ -99,7 +99,7 @@ ClusterManifest.xml:
         </Section>
 ```
 
-via ClusterConfig.json para implantações autônomas ou Template.json para clusters hospedados pelo Azure:
+via ClusterConfig.json para implantações Autônomas ou Template.json para clusters hospedados pelo Azure:
 
 ```json
 "fabricSettings": [
