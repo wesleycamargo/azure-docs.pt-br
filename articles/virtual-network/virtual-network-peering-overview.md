@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: dcb46c7127590f1986fe1fd66c2f6ac4fd8b107d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 24d739e45ddaa7669fe1836eea53f0b091383d1e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -64,7 +64,7 @@ Quando as redes virtuais estiverem emparelhadas na mesma região, você também 
 
 ![trânsito de emparelhamento de rede virtual](./media/virtual-networks-peering-overview/figure04.png)
 
-Não há suporte para o trânsito de gateway na relação de emparelhamento entre redes virtuais criadas por meio de modelos de implantação diferentes ou em regiões diferentes. Ambas as redes virtuais na relação de emparelhamento devem ter sido criadas pelo Gerenciador de Recursos e precisam estar na mesma região para que um gateway de trânsito funcione.
+Não há suporte para o trânsito de gateway na relação de emparelhamento entre redes virtuais criadas em regiões diferentes. As duas redes virtuais na relação de emparelhamento devem existir na mesma região para que o tráfego de gateway funcione. Há suporte para o tráfego de gateway entre redes virtuais criadas por meio de diferentes modelos de implantação (Resource Manager e clássico) apenas se o gateway está na rede virtual (Resource Manager). Para saber mais sobre como usar um gateway para trânsito, consulte [Configurar um gateway de VPN para trânsito em um emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando as redes virtuais que compartilham uma única conexão de Azure ExpressRoute forem emparelhadas, o tráfego entre elas passará pela relação de emparelhamento (isto é, pela rede de backbone do Azure). Você ainda pode usar gateways locais em cada rede virtual para se conectar ao circuito local. Como alternativa, você pode usar um gateway compartilhado e configurar o trânsito para conectividade local.
 

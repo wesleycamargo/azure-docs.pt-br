@@ -5,16 +5,16 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: da2ab7b0d8b83238def346790362b680cd8eda23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-analysis-services-overview"></a>Visão geral do Azure Analysis Services
+# <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 O Azure Analysis Services fornece modelagem de dados de nível empresarial na nuvem. É uma plataforma totalmente gerenciada como um serviço (PaaS), integrada com os serviços de plataforma de dados do Azure. 
@@ -134,4 +134,5 @@ Quer fazer sugestões ou solicitações de recursos? Deixe seus comentários nos
 Quer fazer sugestões sobre a documentação? Você pode adicionar comentários usando o Livefyre na parte inferior de cada artigo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você sabe mais sobre o Azure Analysis Services, é hora de começar. Saiba como [criar um servidor](analysis-services-create-server.md) no Azure. Quando o servidor estiver pronto, percorra o [Tutorial do Adventure Works](tutorials/aas-adventure-works-tutorial.md) para aprender a criar um modelo de tabela totalmente funcional e implantá-lo em seu servidor.
+Saiba como [criar um servidor](analysis-services-create-server.md) no Azure.   
+Uma vez que você tenha criado um servidor, [adicionar um modelo de exemplo](analysis-services-create-sample-model.md).   

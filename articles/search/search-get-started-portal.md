@@ -7,13 +7,13 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 12/04/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: f24777fe5bb482eb74aba4acbd7313665f22c38b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Criar, consultar e filtrar um índice do Azure Search no portal
 
@@ -110,7 +110,7 @@ Agora você tem um índice de pesquisa que está pronto para consulta. **Gerenci
 
    ![Comandos de índice e API][6]
 
-3. Clique em **Definir versão de API** na barra de comandos para ver quais APIs REST estão disponíveis. As APIs de Visualização dão acesso aos novos recursos que ainda não foram lançados de maneira geral. Para as consultas abaixo, use a versão disponível (2016-09-01), a menos que haja indicação em contrário. 
+3. Clique em **Definir versão de API** na barra de comandos para ver quais APIs REST estão disponíveis. As APIs de Visualização dão acesso aos novos recursos que ainda não foram lançados de maneira geral. Para as consultas abaixo, use a versão disponível (2017-11-11), a menos que haja indicação em contrário. 
 
     > [!NOTE]
     > A [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) e a [biblioteca .NET](search-howto-dotnet-sdk.md#core-scenarios) são totalmente equivalentes, mas o **Search Explorer** só é capaz de lidar com chamadas REST. Ele aceita a sintaxe para a [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e para o [analisador de consulta Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis nas operações [Pesquisar Documento](https://docs.microsoft.com/rest/api/searchservice/search-documents).
