@@ -3,17 +3,17 @@ title: Tutorial das Instâncias de Contêiner do Azure - Preparar seu aplicativo
 description: Tutorial das Instâncias de Contêiner do Azure parte 1 de 3 – Preparar um aplicativo para implantação nas Instâncias de Contêiner do Azure
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 134cc6ea84a5851755c757cbcf20130bf890575c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 79041123196559c5759789638228ea0dd21f2762
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>Tutorial: criar contêiner para implantação nas Instâncias de Contêiner do Azure
 
@@ -116,7 +116,7 @@ $ docker run -d -p 8080:80 aci-tutorial-app
 a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 ```
 
-Agora, navegue até http://localhost:8080 no seu navegador para confirmar que o contêiner está sendo executado. Você verá uma página da Web semelhante à seguinte:
+Agora, navegue para http://localhost:8080 no navegador para confirmar que o contêiner está sendo executado. Você verá uma página da Web semelhante à seguinte:
 
 ![Executando o aplicativo localmente no navegador][aci-tutorial-app-local]
 

@@ -1,6 +1,6 @@
 ---
-title: Controlar máquinas virtuais do Azure com a CLI do Azure | Microsoft Docs
-description: Tutorial – Gerenciar máquinas virtuais do Azure aplicando RBAC, políticas, bloqueios e marcas com CLI do Azure
+title: Tutorial – Controlar máquinas virtuais do Azure com a CLI 2.0 do Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar a CLI 2.0 do Azure para gerenciar máquinas virtuais do Azure, aplicando RBAC, políticas, bloqueios e marcas
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,22 +10,23 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.custom: mvc
+ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-cli"></a>Governança de máquina virtual com a CLI do Azure
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Tutorial: Saiba mais sobre o controle de máquina virtual do Linux com a CLI 2.0 do Azure
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Para instalar e usar a CLI localmente, consulte [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Compreender o escopo
 

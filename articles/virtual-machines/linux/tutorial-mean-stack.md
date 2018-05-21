@@ -1,6 +1,6 @@
 ---
-title: Criar uma pilha MEAN em uma VM do Linux no Azure | Microsoft Docs
-description: Saiba como criar uma pilha MongoDB, Expresso, AngularJS e Node.js (MEAN) em uma VM do Linux no Azure.
+title: Tutorial – Criar uma pilha do MEAN em uma máquina virtual do Linux no Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a criar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma VM Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2bd89bf25f619caef07ae099232add55dbe0cda7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a9adcd03c5f75b4065273c4ccf657b01bc3d96d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Criar uma pilha MongoDB, Expresso, AngularJS e Node.js (MEAN) em uma VM do Linux no Azure
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma máquina virtual do Linux no Azure
 
-Este tutorial mostra como implementar uma pilha MongoDB, Expresso, AngularJS e Node.js (MEAN) em uma VM do Linux no Azure. A pilha MEAN que será criada permite adição, exclusão e listagem de livros em um banco de dados. Você aprenderá como:
+Este tutorial mostra como implementar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma VM (máquina virtual) Linux no Azure. A pilha MEAN que será criada permite adição, exclusão e listagem de livros em um banco de dados. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar uma VM do Linux
@@ -36,7 +36,7 @@ Este tutorial mostra como implementar uma pilha MongoDB, Expresso, AngularJS e N
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Criar uma VM do Linux

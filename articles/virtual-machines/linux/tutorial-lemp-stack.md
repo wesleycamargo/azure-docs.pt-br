@@ -1,6 +1,6 @@
 ---
-title: Implantar LEMP em uma máquina virtual do Linux no Azure | Microsoft Docs
-description: Tutorial – instalar a pilha LEMP em uma VM do Linux no Azure
+title: Tutorial – Implantar o LEMP em uma máquina virtual do Linux no Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a instalar a pilha do LEMP em uma máquina virtual do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -15,13 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: f907b468a409135d4b45e76297fc7cd86eeead78
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1f4c74ab96fc9494d1b3c7dd626265516533330b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Instalar um servidor Web LEMP em uma VM do Azure
+# <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor Web do LEMP em uma máquina virtual do Linux no Azure
+
 Este artigo explica como implantar um servidor Web NGINX, MySQL e PHP (a pilha LEMP) em uma VM do Ubuntu no Azure. A pilha LEMP é uma alternativa para a popular [pilha LAMP](tutorial-lamp-stack.md), que você também pode instalar no Azure. Para ver o servidor LEMP em ação, opcionalmente, você pode instalar e configurar um site de WordPress. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -31,12 +32,11 @@ Este artigo explica como implantar um servidor Web NGINX, MySQL e PHP (a pilha L
 > * Verificar a instalação e a configuração
 > * Instalar o WordPress no servidor LEMP
 
-
 Essa configuração destina-se a testes rápidos ou provas de conceito.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 

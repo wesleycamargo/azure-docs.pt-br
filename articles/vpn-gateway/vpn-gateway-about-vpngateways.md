@@ -7,7 +7,7 @@ author: cherylmc
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
+Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 30a2029fdf169747570d8c07915270ffae8ef8f5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01052d8058d1b1e3a03f584ad66da2ad79f4c425
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-vpn-gateway"></a>O que é o Gateway de VPN?
 
@@ -28,9 +28,9 @@ Um gateway de VPN é um tipo específico de gateway de rede virtual que é usado
 
 ## <a name="whatis"></a>O que é um gateway da rede virtual?
 
-Um gateway de rede virtual é composto de duas ou mais máquinas virtuais implantadas em uma sub-rede específica, chamada de *sub-rede de gateway*. As VMs localizadas na sub-rede de gateway são criadas quando você cria o gateway de rede virtual. As VMs de gateway de rede virtual são configuradas para conter as tabelas de roteamento e os serviços de gateway específicos do gateway. Não é possível configurar diretamente as VMs que fazem parte do gateway de rede virtual, e você nunca deve implantar recursos adicionais para a sub-rede de gateway.
+Um gateway de rede virtual é composto por duas ou mais máquinas virtuais implantadas em uma sub-rede específica criada, que é chamada de *sub-rede de gateway*. As VMs localizadas na sub-rede de gateway são criadas quando você cria o gateway de rede virtual. As VMs de gateway de rede virtual são configuradas para conter as tabelas de roteamento e os serviços de gateway específicos do gateway. Não é possível configurar diretamente as VMs que fazem parte do gateway de rede virtual, e você nunca deve implantar recursos adicionais para a sub-rede de gateway.
 
-A criação de um gateway de VPN pode demorar até 45 minutos para ser concluída. Quando você cria um gateway de VPN, as VMs de gateway são implantadas na sub-rede de gateway e definidas com as configurações que você especificar. Depois de criar um gateway de VPN, você pode criar uma conexão de túnel de VPN IPsec/IKE entre o gateway de VPN e o outro gateway de VPN (rede virtual a rede virtual), ou criar uma conexão de túnel de VPN IPsec/IKE entre locais, entre o gateway de VPN e um dispositivo VPN local (Site a Site). Você também pode criar uma conexão VPN Ponto a Site (VPN sobre IKEv2 ou SSTP), que permite a você se conectar à sua rede virtual de um local remoto, como de uma conferência ou em casa.
+A criação de um gateway de rede virtual pode levar até 45 minutos para ser concluída. Quando você cria um gateway de rede virtual, as VMs de gateway são implantadas na sub-rede de gateway e definidas com as configurações especificadas. Uma das configurações que você define é o tipo de gateway. O tipo de gateway 'vpn' especifica que o tipo de gateway de rede virtual criado é um gateway de VPN. Depois de criar um gateway de VPN, você pode criar uma conexão de túnel de VPN IPsec/IKE entre o gateway de VPN e o outro gateway de VPN (rede virtual a rede virtual), ou criar uma conexão de túnel de VPN IPsec/IKE entre locais, entre o gateway de VPN e um dispositivo VPN local (Site a Site). Você também pode criar uma conexão VPN Ponto a Site (VPN sobre IKEv2 ou SSTP), que permite a você se conectar à sua rede virtual de um local remoto, como de uma conferência ou em casa.
 
 ## <a name="configuring"></a>Configurando um Gateway de VPN
 
