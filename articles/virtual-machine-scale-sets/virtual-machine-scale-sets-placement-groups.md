@@ -1,11 +1,11 @@
 ---
-title: "Trabalhando com conjuntos de dimensionamento grandes de máquinas virtuais do Azure | Microsoft Docs"
-description: "O que você precisa saber para usar conjuntos de dimensionamento grandes de máquinas virtuais do Azure"
+title: Trabalhando com conjuntos de dimensionamento grandes de máquinas virtuais do Azure | Microsoft Docs
+description: O que você precisa saber para usar conjuntos de dimensionamento grandes de máquinas virtuais do Azure
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
 ms.author: negat
-ms.openlocfilehash: 192f2c01be0992e22ce67e3df6d641ba707e22fd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 17c8fdd0bc85b9d1a4e1b50cf422b28f32862a7e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhando com conjuntos de dimensionamento grandes de máquinas virtuais
 Agora você pode criar [conjuntos de dimensionamento de máquina virtual](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1.000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais grande_ é definido como um conjunto de dimensionamento capaz de ser redimensionado para mais de 100 VMs. Esse recurso é definido por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
@@ -77,7 +77,7 @@ Se estiver criando um conjunto de dimensionamento grande por meio da composiçã
       "mode": "Automatic"
     }
 ```
-Para obter um exemplo completo de modelo de conjunto de dimensionamento grande, confira [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+Para obter um exemplo completo de grande escala definida no modelo, consulte [ https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json ](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Converter um conjunto de dimensionamento existente para abranger vários grupos de posicionamento
 Para tornar um conjunto de dimensionamento de máquina virtual existente capaz de ser redimensionado para mais de 100 VMs, você precisa alterar a propriedade _singplePlacementGroup_ para _false_ no modelo de conjunto de dimensionamento. Você pode testar a alteração dessa propriedade com o [Gerenciador de Recursos do Azure](https://resources.azure.com/). Localize um conjunto de dimensionamento existente, selecione _Editar_ e altere a propriedade _singlePlacementGroup_. Se não vir essa propriedade, talvez você esteja exibindo o conjunto de dimensionamento com uma versão mais antiga da API Microsoft.Compute.

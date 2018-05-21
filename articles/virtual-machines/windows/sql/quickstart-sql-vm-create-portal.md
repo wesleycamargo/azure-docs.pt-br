@@ -1,6 +1,6 @@
 ---
 title: Criar uma VM do Windows do SQL Server no portal | Microsoft Docs
-description: "Este tutorial mostra como criar uma máquina virtual do Windows SQL Server 2017 no Portal do Azure."
+description: Este tutorial mostra como criar uma máquina virtual do Windows SQL Server 2017 no Portal do Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 05/11/2018
 ms.author: jroth
-ms.openlocfilehash: 080fecc7e89d9a76a9b160ba2ff4ba9dc31d0925
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: aeeee58242a5f6ea41b9ba354efc4f5d5087151c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: criar uma máquina virtual do Windows do SQL Server 2017 no portal do Azure
 
@@ -31,7 +31,7 @@ Esse Início Rápido percorre a criação de uma máquina virtual do SQL Server 
 > Este início rápido fornece um caminho para provisionar rapidamente e conectar-se a uma VM do SQL. Para obter mais informações sobre outras opções de provisionamento da VM SQL, confira o [Guia de provisionamento para VMs do Windows do SQL Server no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 > [!TIP]
-> Se você tiver dúvidas sobre máquinas virtuais do SQL Server, confira as [Perguntas frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
+> Em caso de dúvidas sobre máquinas virtuais do SQL Server, consulte as [Perguntas frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
 ## <a id="subscription"></a> Obter uma assinatura do Azure
 
@@ -72,11 +72,9 @@ Na janela **Básico**, forneça as seguintes informações:
 
 ## <a name="choose-virtual-machine-size"></a>Escolher o tamanho da máquina virtual
 
-Na etapa **Tamanho**, escolha um tamanho de máquina virtual na janela **Escolher um tamanho**. A janela exibe inicialmente os tamanhos recomendados da máquina com base na imagem selecionada. 
+1. Na etapa **Tamanho**, escolha um tamanho de máquina virtual na janela **Escolher um tamanho**.
 
-1. Clique em **Exibir tudo** para ver todos os tamanhos de máquina disponíveis.
-
-1. Para esse início rápido, selecione **D2S_V3**. O portal mostra o custo de máquina mensal estimado para uso contínuo (não incluindo os custos de licenciamento do SQL Server). Observe que a Developer Edition não tem custos de licenciamento adicionais para o SQL Server. Para obter informações de preço mais específicas, confira a [página de preço](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+   Para esse início rápido, selecione **D2S_V3**. O portal mostra o custo de máquina mensal estimado para uso contínuo (não incluindo os custos de licenciamento do SQL Server). Observe que a Developer Edition não tem custos de licenciamento adicionais para o SQL Server. Para obter informações de preço mais específicas, confira a [página de preço](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
    > [!TIP]
    > O tamanho de máquina **D2S_V3** economiza dinheiro durante o teste. Mas para as cargas de trabalho de produção, consulte os tamanhos recomendados de máquina e a configuração em [Práticas recomendadas de desempenho para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-performance.md).
@@ -85,7 +83,14 @@ Na etapa **Tamanho**, escolha um tamanho de máquina virtual na janela **Escolhe
 
 ## <a name="configure-optional-features"></a>Configurar os recursos opcionais
 
-Na janela **Configurações**, clique em **OK** para selecionar os padrões.
+1. Na janela **Configurações**, selecione a porta**RDP (3389)** na lista **Selecionar portas de entrada pública** se você quiser a área de trabalho remota na VM.
+
+   ![Portas de entrada](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > Você pode selecionar a porta **MS SQL (1433)** para acessar remotamente o SQL Server. No entanto, isso não é necessário, pois a etapa **configurações do SQL Server** fornece essa opção também. Se você selecionar a porta 1433 nesta etapa, ela será aberta, qualquer que seja suas seleções na etapa **Configurações do SQL Server**.
+
+1. Clique em **OK** para salvar as alterações e continuar.
 
 ## <a name="sql-server-settings"></a>Configurações do SQL Server
 

@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 6c3eb1e86d2dd98590d3a17dedf76c2a694f1a6d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 78954e2dd00e425d2dfdd81d2c3e386f199f4f8f
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a atividade Databricks Notebook no Azure Data Factory
 
@@ -34,6 +34,10 @@ Neste tutorial, você realizará os seguintes procedimentos:
   - Monitorar a execução de pipeline.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+Para ver uma introdução de 11 minutos e uma demonstração desse recurso, assista ao seguinte vídeo:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
 
 ## <a name="prerequisites"></a>pré-requisitos
 

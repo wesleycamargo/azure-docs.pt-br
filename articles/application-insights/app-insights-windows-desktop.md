@@ -1,6 +1,6 @@
 ---
-title: "Monitorando uso e desempenho de aplicativos de área de trabalho do Windows"
-description: "Analise o uso e o desempenho do seu aplicativo da área de trabalho do Windows usando o HockeyApp e o Application Insights."
+title: Monitorando uso e desempenho de aplicativos de área de trabalho do Windows
+description: Analise o uso e o desempenho de seu aplicativo da área de trabalho do Windows com o Application Insights.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -11,25 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/26/2016
+ms.date: 04/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b91996c12a27847befcacf6daf14457a0e066aa
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 5b325fd4326f2594a7386c65dea17a3da19abde8
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Monitorando uso e desempenho de aplicativos de área de trabalho do Windows
 
-
-[Azure Application Insights](app-insights-overview.md) e [HockeyApp](https://hockeyapp.net) permitem que você monitore seu aplicativo implantado quanto ao uso e desempenho.
-
-> [!IMPORTANT]
-> Recomendamos o [HockeyApp](https://hockeyapp.net) para distribuir e monitorar aplicativos de área de trabalho e dispositivo. Com o HockeyApp, você pode gerenciar a distribuição, testes ao vivo e comentários do usuário, bem como monitorar relatórios de uso e falhas. Você também pode [exportar e consultar a telemetria com o Analytics](app-insights-hockeyapp-bridge-app.md).
-> 
-> Embora a telemetria possa ser enviada para o Application Insights de um aplicativo de área de trabalho, isso é principalmente útil para fins experimentais e de depuração.
-> 
-> 
+Embora a telemetria possa ser enviada para o Application Insights de um aplicativo de área de trabalho, isso é principalmente útil para fins experimentais e de depuração.
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>Para enviar telemetria ao Application Insights de um aplicativo do Windows
 1. No [portal do Azure](https://portal.azure.com), [crie um recurso Application Insights](app-insights-create-new-resource.md). Para o tipo de aplicativo, escolha o aplicativo ASP.NET.

@@ -1,21 +1,21 @@
 ---
-title: "Criar uma instância do Serviço de Migração de Banco de Dados do Azure usando o Portal do Azure | Microsoft Docs"
-description: "Use o Portal do Azure para criar uma instância do Serviço de Migração de Banco de Dados do Azure"
+title: Criar uma instância do Serviço de Migração de Banco de Dados do Azure usando o Portal do Azure | Microsoft Docs
+description: Use o Portal do Azure para criar uma instância do Serviço de Migração de Banco de Dados do Azure
 services: database-migration
 author: edmacauley
 ms.author: edmaca
 manager: craigg
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/13/2017
-ms.openlocfilehash: 9dea80b0a6848bd69541aa9f7e0a0fe111fa0a28
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 05/01/2018
+ms.openlocfilehash: 7669ee678f4049c938c6e249c26997d993fd7c6a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Crie uma instância do Serviço de Migração de Banco de Dados do Azure usando o Portal do Azure
 Nesse Início Rápido, use o Portal do Azure para criar uma instância do Serviço de Migração de Banco de Dados do Azure.  Depois de criar o serviço, pode usá-lo para migrar dados do SQL Server no local para um banco de dados SQL do Azure.
@@ -39,9 +39,9 @@ Registre o provedor de recursos Microsoft.DataMigration antes de criar sua prime
 ![Registrar provedor de recursos](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Crie uma instância do serviço
-1. Clique em **+ Criar um recurso** para criar uma instância do Serviço de Migração de Banco de Dados do Azure, que está atualmente em versão prévia.
+1. Clique em **+ Criar um recurso** para criar uma instância do Serviço de Migração de Banco de Dados do Azure.
 
-2. Pesquise no marketplace para "migração", selecione **Serviço de Migração de Banco de Dados do Azure** e, em seguida, na tela **Serviço de Migração de Banco de Dados do Azure (versão prévia)**, clique em **Criar**.
+2. Pesquise "migração" no marketplace, selecione **Serviço de Migração de Banco de Dados do Azure** e, em seguida, na tela **Serviço de Migração de Banco de Dados do Azure**, clique em **Criar**.
 
 3. Na tela de **Serviço de Migração de Banco de Dados**: 
 
@@ -52,7 +52,7 @@ Registre o provedor de recursos Microsoft.DataMigration antes de criar sua prime
     - Selecione Básico: 1 vCore como **Tipo de preço**.
 
     ![Criar serviço de migração](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
-4. Selecione **Criar**.
+4. Clique em **Criar**.
 
 Após alguns instantes, sua instância do Serviço de Migração de Banco de Dados do Azure é criado e estará pronto para uso. O Serviço de Migração do Banco de Dados exibe conforme mostrado na imagem seguinte:
 
