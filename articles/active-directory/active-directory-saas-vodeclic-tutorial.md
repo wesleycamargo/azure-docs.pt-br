@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Microsoft Azure Active Directory com Vodeclic | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Microsoft Azure Active Directory e o Vodeclic."
+title: 'Tutorial: Integração do Microsoft Azure Active Directory com Vodeclic | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Microsoft Azure Active Directory e o Vodeclic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 940c7bb5040fb91a03b01dc43ee07d52e3d4e63b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: bc889919f2d869478843881cc8eae06fc9cb232c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: integração do Microsoft Azure Active Directory com o Vodeclic
 
@@ -30,7 +30,7 @@ A integração do Vodeclic ao Microsoft Azure AD oferece os seguintes benefício
 - Você pode permitir que os usuários entrem automaticamente no Vodeclic (logon único ou SSO) com suas contas do Microsoft Azure AD.
 - Você pode gerenciar suas contas em um único local: o novo Portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -125,7 +125,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     ![O link de download do Certificado](./media/active-directory-saas-vodeclic-tutorial/tutorial_vodeclic_certificate.png) 
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-vodeclic-tutorial/tutorial_general_400.png)
     
@@ -164,7 +164,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
  
 ### <a name="create-a-vodeclic-test-user"></a>Criar um usuário de teste do Vodeclic
 
@@ -214,7 +214,7 @@ Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,11 +1,11 @@
 ---
-title: "Criar um trabalho de importação para a Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba como criar uma importação para o serviço de Importação/Exportação do Microsoft Azure."
+title: Criar um trabalho de importação para a Importação/Exportação do Azure | Microsoft Docs
+description: Saiba como criar uma importação para o serviço de Importação/Exportação do Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: syadav
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8b886e83-6148-4149-9d0f-5d48ec822475
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a80d2169f346238f997c727f0e9d82666897b608
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criando um trabalho de importação para o serviço de Importação/Exportação do Azure
 
@@ -103,6 +103,8 @@ Você deve enviar suas unidades para o endereço obtido na etapa anterior, e dev
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Atualizando o trabalho de importação com as informações do envio
 Depois que tiver o número de rastreamento, chame a operação [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) para atualizar o nome da operadora, o número de rastreamento do trabalho e o número da conta da operadora para retorno. Opcionalmente, você também pode especificar a quantidade de unidades e a data de envio.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e5862e99b3e883554b42341d2c1dbe9d8b8ec72
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-networking"></a>Rede do Azure
 
@@ -120,7 +120,7 @@ A imagem a seguir mostra um aplicativo de várias camadas voltado para a Interne
 
 É possível filtrar o tráfego de e para recursos do Azure usando as seguintes opções:
 
-- **Rede:** é possível implementar NSGs (grupos de segurança de rede) do Azure para filtrar o tráfego de entrada e de saída para recursos do Azure. Cada NSG contém uma ou mais regras de entrada e saída. Cada regra especifica os endereços IP de origem, os endereços IP de destino, a porta e o protocolo com que o tráfego é filtrado. Os NSGs podem ser aplicados a sub-redes e a VMs individuais. Para saber mais sobre os NSGs, leia o artigo [Visão geral dos grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Rede:** é possível implementar NSGs (grupos de segurança de rede) do Azure para filtrar o tráfego de entrada e de saída para recursos do Azure. Cada NSG contém uma ou mais regras de entrada e saída. Cada regra especifica os endereços IP de origem, os endereços IP de destino, a porta e o protocolo com que o tráfego é filtrado. Os NSGs podem ser aplicados a sub-redes e a VMs individuais. Para saber mais sobre os NSGs, leia o artigo [Visão geral dos grupos de segurança de rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Aplicativo:** usando um Gateway de Aplicativo com o firewall do aplicativo Web, você pode proteger seus aplicativos Web contra vulnerabilidades e explorações. Exemplos comuns são ataques de injeção SQL, scripts entre sites e cabeçalhos mal formados. O gateway de aplicativo filtra esse tráfego e o impede de chegar a seus servidores Web. É possível configurar quais regras você deseja que sejam habilitadas. A capacidade de configurar políticas de negociação SSL é fornecida para permitir que determinadas políticas sejam desabilitadas. Para saber mais sobre o firewall do aplicativo Web, leia o artigo [Firewall do aplicativo Web](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 Se precisar de uma funcionalidade de rede que o Azure não fornece ou se quiser usar aplicativos de rede que você usa localmente, você pode implementar os produtos em VMs e conectá-las à sua VNet. O [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) contém várias VMs diferentes pré-configuradas com aplicativos de rede que você pode usar atualmente. Essas VMs pré-configuradas normalmente são conhecidas como NVAs (soluções de virtualização de rede). As NVAs estão disponíveis com aplicativos como otimização de WAN e firewall.

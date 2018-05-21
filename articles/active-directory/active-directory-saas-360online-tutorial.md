@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o 360 Online | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o 360 Online."
+title: 'Tutorial: integração do Azure Active Directory com o 360 Online | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o 360 Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 6bcad538173058159c82e1f834b7a69360246c1f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 11d5cb2e3727839a94e7c82846f9458147050f9a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Tutorial: Integração do Azure Active Directory com o 360 Online
 
@@ -29,9 +29,9 @@ A integração do 360 Online ao Azure AD oferece os seguintes benefícios:
 - Você pode habilitar seus usuários a fazerem logon automaticamente no 360 Online (logon único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao 360 Online, você precisa dos seguintes itens:
 
@@ -63,11 +63,11 @@ Para configurar a integração do 360 Online ao Azure AD, você precisa adicion�
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **360 Online**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do 360 Online ao Azure AD, você precisa adicion�
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-360online-tutorial/tutorial_360online_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você vai configurar e testar o logon único do Azure AD com o 360 Online, com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do 360 Online é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no 360 Online.
@@ -86,11 +86,11 @@ No 360 Online, atribua o valor do **nome de usuário** no Azure AD como o valor 
 
 Para configurar e testar o logon único do Azure AD com o 360 Online, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criar um usuário de teste do 360 Online](#creating-a-360-online-test-user)** – para ter um equivalente de Brenda Fernandes no 360 Online que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 1. No Portal do Azure, na página de integração de aplicativos do **360 Online**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-360online-tutorial/tutorial_360online_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-360online-tutorial/tutorial_360online_samlbase.png)
 
 3. Na seção **URLs e Domínio do 360 Online**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-360online-tutorial/tutorial_360online_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-360online-tutorial/tutorial_360online_url.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.public360online.com`
 
@@ -121,7 +121,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 5. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-360online-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-360online-tutorial/tutorial_general_400.png)
 
 6. Para configurar o logon único no lado do **360 Online**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte 360 Online](mailto:360online@software-innovation.com). 
 
@@ -178,7 +178,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, selecione **360 Video**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-360online-tutorial/tutorial_360online_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-360online-tutorial/tutorial_360online_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -203,7 +203,7 @@ Quando você clica no bloco 360 Online no Painel de Acesso, deve fazer logon aut
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

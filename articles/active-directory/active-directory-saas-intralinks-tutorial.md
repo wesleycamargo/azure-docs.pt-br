@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Intralinks | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Intralinks."
+title: 'Tutorial: integração do Azure Active Directory com o Intralinks | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Intralinks.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: a1aee1b1bb039f8956c4ce3722b98db9af737f0f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b0d6c86d6377a3d21aaa8d045d952ebe925c4bb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Tutorial: Integração do Azure Active Directory com o Intralinks
 
@@ -29,9 +29,9 @@ A integração do Intralinks ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no Intralinks (logon único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Intralinks, você precisa dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Intralinks da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-intralinks-from-the-gallery"></a>Adicionando o Intralinks da galeria
 Para configurar a integração do Intralinks ao Azure AD, você precisará adicionar o Intralinks da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do Intralinks ao Azure AD, você precisará adici
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Intralinks**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do Intralinks ao Azure AD, você precisará adici
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Intralinks, com base em uma usuária de teste chamada "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Intralinks é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Intralinks.
@@ -86,11 +86,11 @@ No Intralinks, atribua o valor do **nome de usuário** no Azure AD como o valor 
 
 Para configurar e testar o logon único do Azure AD com o Intralinks, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criando um usuário de teste do Intralinks](#creating-an-intralinks-test-user)** – para ter um equivalente de Brenda Fernandes no Intralinks que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração do aplicativo **Intralinks**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_samlbase.png)
 
 3. Na seção **Domínio e URLs do Intralinks**, realize as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_url.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
@@ -121,7 +121,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 5. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-intralinks-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_general_400.png)
 
 6. Para configurar o logon único no lado do **Intralinks**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Intralinks](https://www.intralinks.com/contact-1). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
@@ -177,7 +177,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 2. Na lista de aplicativos, selecione **Intralinks**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -209,11 +209,11 @@ Depois disso, você pode seguir o procedimento abaixo para adicionar outro aplic
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Intralinks**.
 
@@ -229,15 +229,15 @@ Depois disso, você pode seguir o procedimento abaixo para adicionar outro aplic
 
 6.  No portal do Azure, na página de integração do aplicativo **Intralinks**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 7. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon vinculado**.
  
-    ![Configurar Logon Único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
+    ![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
 8. Obtenha a URL de SSO Iniciada pelo SP da [equipe do Intralinks](https://www.intralinks.com/contact-1) para o outro aplicativo Intralinks e insira-a em **Configurar URL de Logon**, conforme mostrado abaixo. 
     
-     ![Configurar Logon Único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_customappurl.png)
+     ![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_customappurl.png)
     
      Na caixa de texto URL de Logon, digite a URL usada pelos usuários para fazer logon no aplicativo Intralinks usando o seguinte padrão:
    
@@ -245,7 +245,7 @@ Depois disso, você pode seguir o procedimento abaixo para adicionar outro aplic
 
 9. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-intralinks-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_general_400.png)
 
 10. Atribua o aplicativo para usuários ou grupos, como mostrado na seção **[Atribuição do usuário de teste do Azure AD](#assigning-the-azure-ad-test-user)**.
 
@@ -259,7 +259,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->
