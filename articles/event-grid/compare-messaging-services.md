@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: overview
 ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 1437916e62e7c2987c0a1d8c3a5ac4a5f332134d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre serviços do Azure que entregam mensagens
 
@@ -45,7 +45,7 @@ Uma mensagem é composta de dados brutos produzidos por um serviço para serem c
 | Serviço | Finalidade | type | Quando usar |
 | ------- | ------- | ---- | ----------- |
 | Grade de Eventos | Programação reativa | Distribuição de eventos (discreto) | Reagir a alterações de status |
-| Hubs de evento | Pipeline de Big Data | Streaming de evento (série) | Telemetria e streaming de dados distribuídos |
+| Hubs de Eventos | Pipeline de Big Data | Streaming de evento (série) | Telemetria e streaming de dados distribuídos |
 | Barramento de Serviço | Mensagens corporativas de alto valor | Mensagem | Processamento de pedidos e transações financeiras |
 
 ### <a name="event-grid"></a>Grade de Eventos
@@ -60,7 +60,7 @@ Ele tem as seguintes características:
 * baixo custo
 * sem servidor
 
-### <a name="event-hubs"></a>Hubs de evento
+### <a name="event-hubs"></a>Hubs de Eventos
 
 O Hubs de Eventos do Azure é um pipeline de Big Data. Ele facilita a captura, a retenção e a reprodução de telemetria e dados de fluxo de eventos. Os dados podem vir de várias fontes simultâneas. O Hubs de Eventos permite que os dados de telemetria e eventos sejam disponibilizados para uma variedade de infraestruturas de processamento de fluxo e serviços de análise. Ele está disponível como fluxos de dados ou lotes de eventos em pacote. Esse serviço fornece uma solução única que permite a recuperação rápida de dados para processamento em tempo real, bem como reprodução repetida de dados brutos armazenados. Ele pode capturar os dados de streaming em um arquivo para processamento e análise.
 

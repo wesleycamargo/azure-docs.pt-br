@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configurar ServiceNow para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
-description: "Saiba como provisionar e desprovisionar automaticamente contas de usuário do Azure AD para o ServiceNow."
+title: 'Tutorial: Configurar ServiceNow para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como provisionar e desprovisionar automaticamente contas de usuário do Azure AD para o ServiceNow.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 50d5ecd0542d236d4d68656af7808c329728aa39
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88505126389f51f59cf0538da8b72139f86e58d5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configurar ServiceNow para o provisionamento automático de usuário com o Azure Active Directory
 
@@ -91,7 +91,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar Logon Único](active-directory-saas-servicenow-tutorial.md)
 
 

@@ -1,24 +1,24 @@
 ---
-title: "Diferenças entre os Serviços de Nuvem e o Service Fabric | Microsoft Docs"
-description: "Uma visão geral conceitual para a migração de aplicativos dos Serviços de Nuvem para o Service Fabric."
+title: Diferenças entre os Serviços de Nuvem e o Service Fabric | Microsoft Docs
+description: Uma visão geral conceitual para a migração de aplicativos dos Serviços de Nuvem para o Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4bb5d92cd46533b46b388d178990f230424b09dc
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços de Nuvem e o Service Fabric antes de migrar os aplicativos.
 O Service Fabric do Microsoft Azure é a plataforma de aplicativos de nuvem de última geração para aplicativos distribuídos altamente escalonáveis e altamente confiáveis. Ele apresenta muitos recursos novos para empacotamento, implantação, atualização e gerenciamento de aplicativos em nuvem distribuídos. 
