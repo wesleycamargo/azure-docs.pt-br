@@ -1,6 +1,6 @@
 ---
-title: Monitorar e atualizar máquinas virtuais do Linux no Azure | Microsoft Docs
-description: Saiba como monitorar as métricas de desempenho e diagnóstico de inicialização e gerenciar atualizações de pacote em uma máquina virtual do Linux no Azure
+title: Tutorial – Monitorar e atualizar máquinas virtuais do Linux no Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a monitorar métricas de desempenho e diagnóstico de inicialização e gerenciar atualizações de pacote em uma máquina virtual do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d5fb239ffd6a957cbb088bf4843819e2c886cee8
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0dc403d92855902daef09c91a5dd022beb23fd71
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Como monitorar e atualizar uma máquina virtual do Linux no Azure
+# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar e atualizar uma máquina virtual do Linux no Azure
 
 Para garantir que suas VMs (máquinas virtuais) no Azure estejam sendo executadas corretamente, examine o diagnóstico de inicialização e as métricas de desempenho e gerencie as atualizações de pacote. Neste tutorial, você aprenderá como:
 
@@ -39,7 +39,7 @@ Para garantir que suas VMs (máquinas virtuais) no Azure estejam sendo executada
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Criar VM
 

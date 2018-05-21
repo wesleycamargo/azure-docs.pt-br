@@ -1,11 +1,11 @@
 ---
-title: CI/CD do Jenkins para VMs do Azure com o Team Services | Microsoft Docs
-description: "Configurar a CI (integração contínua) e a CD (implantação contínua) de um aplicativo Node.js usando o Jenkins para VMs do Azure por meio do Release Management no Visual Studio Team Services ou Microsoft Team Foundation Server"
+title: Tutorial – CI/CD do Jenkins para VMs do Azure com o Team Services | Microsoft Docs
+description: Neste tutorial, você aprenderá a configurar a CI (integração contínua) e a CD (implantação contínua) de um aplicativo Node.js usando o Jenkins para VMs do Azure por meio do Release Management no Visual Studio Team Services ou Microsoft Team Foundation Server
 author: ahomer
 manager: douge
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -14,19 +14,17 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fc301edf13f8e6874f0b77440e2b0dc01b2a55fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Implantar seu aplicativo em VMs Linux usando o Jenkins e o Team Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Jenkins e o Visual Studio Team Services
 
 A CI (integração contínua) e a CD (implantação contínua) forma um pipeline por meio do qual você pode compilar, liberar e implantar seu código. O Visual Studio Team Services fornece um conjunto completo de ferramentas de automação de CI/CD para implantação no Azure. O Jenkins é uma ferramenta de terceiros popular baseada em servidor de CI/CD que também fornece a automação de CI/CD. Use o Team Services e o Jenkins juntos para personalizar a maneira como você fornece seu aplicativo ou serviço de nuvem.
 
-Neste tutorial, você usa o Jenkins para criar um aplicativo Web Node.js. Em seguida, você usa o Team Services ou o Team Foundation Server para implantá-lo em um [grupo de implantação](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) que contém VMs (máquinas virtuais) Linux.
-
-Você vai:
+Neste tutorial, você usa o Jenkins para criar um aplicativo Web Node.js. Em seguida, você usa o Team Services ou o Team Foundation Server para implantá-lo em um [grupo de implantação](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) que contém VMs (máquinas virtuais) Linux. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Obter o aplicativo de exemplo.
@@ -36,7 +34,7 @@ Você vai:
 > * Crie um ponto de extremidade de serviço do Jenkins.
 > * Crie um grupo de implantação para as máquinas virtuais do Azure.
 > * Crie uma definição da versão do Team Services.
-> * Execute implantações manuais e disparadas por CI.
+> * Executar implantações manuais e disparadas por CI.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -57,7 +55,7 @@ Você vai:
 Você precisa de um aplicativo para implantação, armazenado em um repositório Git.
 Para este tutorial, recomendamos o uso [deste aplicativo de exemplo disponível no GitHub](https://github.com/azooinmyluggage/fabrikam-node). Este tutorial contém um script de exemplo usado para instalar o Node.js e um aplicativo. Se quiser trabalhar com seu próprio repositório, você deverá configurar um exemplo semelhante.
 
-Crie uma bifurcação deste aplicativo e anote o local (URL) para usar em etapas posteriores deste tutorial. Para obter mais informações, consulte [Criar fork para um repositório](https://help.github.com/articles/fork-a-repo/).    
+Crie uma bifurcação deste aplicativo e anote o local (URL) para usar em etapas posteriores deste tutorial. Para obter mais informações, consulte [Fork a repo](https://help.github.com/articles/fork-a-repo/) (Criar fork para um repositório).    
 
 > [!NOTE]
 > O aplicativo foi criado por meio do [Yeoman](http://yeoman.io/learning/index.html). Ele usa o Express, Bower e o Grunt. Além disso, ele tem alguns pacotes npm como dependências.
@@ -88,7 +86,7 @@ Primeiro, você deve configurar dois plug-ins do Jenkins: **NodeJS** e **Implant
     ![Adicionar um repositório ao seu build](media/tutorial-build-deploy-jenkins/jenkins-git.png)
 4. Na guia **Criar Gatilhos**, selecione **Sondar SCM** e insira o agendamento `H/03 * * * *` para sondar o repositório Git em busca de alterações a cada três minutos. 
 5. Na guia **Ambiente de Build**, selecione **Fornecer Nó &amp; CAMINHO do compartimento/pasta de npm** e selecione o valor da **Instalação do NodeJS**. Deixe o **arquivo npmrc** definido como **usar padrão do sistema**.
-6. Na guia **Build**, selecione **Executar shell** e insira o comando `npm install` para garantir que todas as dependências são atualizadas.
+6. Na guia **Build**, selecione **Executar shell** e insira o comando `npm install` para garantir que todas as dependências sejam atualizadas.
 
 
 ## <a name="configure-jenkins-for-team-services-integration"></a>Configurar o Jenkins para integração com o Team Services

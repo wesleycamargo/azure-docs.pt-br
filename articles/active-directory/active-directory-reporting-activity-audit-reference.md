@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5b94092d1fbcb76210f132d4b08d131533e25397
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be19130f7a2f45049cd7e08bb961ac6cb5aa14ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
 
@@ -38,7 +38,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
  
 
 
-## <a name="access-reviews"></a>Revisões de acesso
+## <a name="access-reviews"></a>Análises de acesso
 
 |Auditar categoria|Atividade|
 |---|---|
@@ -74,7 +74,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 
 
-## <a name="account-provisioning"></a>Provisionamento de conta de usuário
+## <a name="account-provisioning"></a>Provisionamento de conta
 
 |Auditar categoria|Atividade|
 |---|---|
@@ -86,7 +86,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de Aplicativos|Adicionar Oauth2Permissiongrant|
 |Gerenciamento de Aplicativos|Adicionar atribuição de função de aplicativo à entidade de serviço|
 
-## <a name="application-proxy"></a>Proxy de Aplicativo
+## <a name="application-proxy"></a>Proxy de aplicativo
 
 |Auditar categoria|Atividade|
 |---|---|
@@ -496,7 +496,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de Usuários|Criar a revisão de acesso|
 
 
-## <a name="invited-users"></a>Usuários Convidados
+## <a name="invited-users"></a>Usuários convidados
 
 |Auditar categoria|Atividade|
 |---|---|
@@ -547,7 +547,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 
 
-## <a name="self-service-group-management"></a>Gerenciamento de grupos de autoatendimento
+## <a name="self-service-group-management"></a>Gerenciamento de grupo de autoatendimento
 
 |Auditar categoria|Atividade|
 |---|---|
@@ -562,7 +562,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de grupos|O administrador gera uma senha temporária|
 
 
-## <a name="self-service-password-management"></a>Gerenciamento de senhas de auto-atendimento
+## <a name="self-service-password-management"></a>Gerenciamento de senhas de autoatendimento
 
 |Auditar categoria|Atividade|
 |---|---|
@@ -578,7 +578,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de Usuários|Impedido de executar a redefinição de senha de autoatendimento|
 
 
-## <a name="terms-of-use"></a>Termos de Uso
+## <a name="terms-of-use"></a>Termos de uso
 
 |Auditar categoria|Atividade|
 |---|---|

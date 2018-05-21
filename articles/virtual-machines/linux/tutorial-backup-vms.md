@@ -1,6 +1,6 @@
 ---
-title: Fazer backup de VMs do Linux do Azure | Microsoft Docs
-description: Proteja as VMs do Linux fazendo backup delas com o Backup do Azure.
+title: Tutorial – Fazer backup de máquinas virtuais do Linux no portal do Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar o portal do Azure para proteger máquinas virtuais do Linux com o Backup do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,22 +16,20 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4bd532a570a978715ba61880047f3a7e49b446ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="back-up-linux--virtual-machines-in-azure"></a>Fazer backup de máquinas virtuais do Linux no Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer backup e restaurar arquivos para máquinas virtuais do Linux no Azure
 
-Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Ao restaurar de um ponto de recuperação, você pode restaurar a VM inteira ou apenas arquivos específicos. Este artigo explica como restaurar um único arquivo em uma VM do Linux que executa o nginx. Se você ainda não tem uma VM para usar, você pode criar uma usando o [Início rápido do Linux](quick-create-cli.md). Neste tutorial, você aprenderá a:
+Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Ao restaurar de um ponto de recuperação, você pode restaurar a VM inteira ou arquivos específicos. Este artigo explica como restaurar um único arquivo em uma VM do Linux que executa o nginx. Se você ainda não tem uma VM para usar, você pode criar uma usando o [Início rápido do Linux](quick-create-cli.md). Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Criar um backup de uma VM
 > * Agendar um backup diário
 > * Restaurar um arquivo de um backup
-
-
 
 ## <a name="backup-overview"></a>Visão geral do backup
 
@@ -43,7 +41,7 @@ Quando a transferência de dados é concluída, o instantâneo é removido e um 
 
 
 ## <a name="create-a-backup"></a>Criar um backup
-Crie um backup diário agendado simples em um Cofre de Serviços de Recuperação. 
+Crie um backup diário agendado em um Cofre dos Serviços de Recuperação:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No menu à esquerda, selecione **Máquinas virtuais**. 
@@ -54,7 +52,7 @@ Crie um backup diário agendado simples em um Cofre de Serviços de Recuperaçã
 7. Na folha **Habilitar backup**, clique em **Habilitar Backup**. Isso cria um backup diário com base no agendamento padrão.
 10. Para criar um ponto de recuperação inicial, na folha **Backup**, clique em **Fazer backup agora**.
 11. Na folha **Fazer Backup Agora**, clique no ícone de calendário, use o controle de calendário para selecionar o último dia de retenção desse ponto de recuperação e clique em **Fazer Backup**.
-12. Na folha **Backup** de sua VM, você verá o número de pontos de recuperação completos.
+12. Na folha **Backup** da VM, é exibido o número de pontos de recuperação completos.
 
     ![Pontos de Recuperação](./media/tutorial-backup-vms/backup-complete.png)
 
@@ -62,7 +60,7 @@ O primeiro backup leva aproximadamente 20 minutos. Prossiga para a próxima part
 
 ## <a name="restore-a-file"></a>Restaurar um arquivo
 
-Se você acidentalmente excluir ou fizer alterações em um arquivo, você poderá usar a recuperação de arquivo para recuperar o arquivo de seu cofre de backup. A Recuperação de Arquivo utiliza um script que é executado na VM para montar o ponto de recuperação como uma unidade local. Essas unidades permanecerão montadas por 12 horas para que você possa copiar arquivos do ponto de recuperação e restaurá-los para a VM.  
+Se você acidentalmente excluir ou fizer alterações em um arquivo, você poderá usar a recuperação de arquivo para recuperar o arquivo de seu cofre de backup. A Recuperação de Arquivo utiliza um script que é executado na VM para montar o ponto de recuperação como uma unidade local. Essas unidades permanecem montadas por 12 horas, de modo que você possa copiar arquivos do ponto de recuperação e restaurá-los na VM.  
 
 Neste exemplo, mostramos como recuperar a página Web do nginx padrão /var/www/html/index.nginx-debian.html. O endereço IP público de nossa VM neste exemplo é *13.69.75.209*. Encontre o endereço IP da sua vm usando:
 

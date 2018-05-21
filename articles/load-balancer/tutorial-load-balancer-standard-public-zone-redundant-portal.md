@@ -1,39 +1,50 @@
 ---
-title: Balancear carga de VMs entre zonas de disponibilidade - Portal do Azure | Microsoft Docs
-description: Criar um Load Balancer Standard com front-end com redundância de zona para balancear carga de VMs entre zonas de disponibilidade utilizando o Portal do Azure
+title: 'Tutorial: Balancear a carga de VMs entre zonas de disponibilidade – portal do Azure | Microsoft Docs'
+description: Este tutorial demonstra como criar um Balanceador de Carga Standard com front-end com redundância de zona para balancear a carga de VMs entre zonas de disponibilidade usando o portal do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/18
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: ad476922342844a908961960407eb344711932f5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Balancear carga de VMs entre zonas de disponibilidade com um Load Balancer Standard utilizando o Portal do Azure
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear a carga de VMs entre zonas de disponibilidade com um Balanceador de Carga Standard usando o portal do Azure
 
-Este artigo orienta a criação de um Load Balancer Standard público com um front-end com redundância de zona para obter redundância de zona sem depender de vários registros DNS. Um único endereço IP de front-end em um Load Balancer Standard é automaticamente com redundância de zona. Usando um front-end com redundância de zona para o balanceador de carga, com um único endereço IP, será possível acessar qualquer VM em uma rede virtual em uma região que esteja em todas as Zonas de Disponibilidade. Use zonas de disponibilidade para proteger seus aplicativos e dados de uma improvável falha ou perda de um datacenter inteiro. Com redundância de zona, uma ou mais Zonas de Disponibilidade podem falhar e o caminho de dados sobreviver enquanto uma zona na região permanecer íntegra. 
+O balanceamento de carga fornece um nível mais alto de disponibilidade, distribuindo as solicitações de entrada em várias máquinas virtuais. Este tutorial descreve as etapas necessárias para criar um Balanceador de Carga Standard público que balanceia a carga de VMs entre zonas de disponibilidade. Isso ajuda a proteger seus aplicativos e dados contra uma improvável falha ou perda de um datacenter inteiro. Com redundância de zona, uma ou mais zonas de disponibilidade podem falhar e o caminho de dados sobrevive, desde que uma zona da região permaneça íntegra. Você aprenderá como:
+
+> [!div class="checklist"]
+> * Criar um Balanceador de Carga Standard
+> * Criar grupos de segurança de rede para definir as regras do tráfego de entrada
+> * Criar VMs com redundância de zona em várias zonas e anexá-las a um balanceador de carga
+> * Criar uma investigação de integridade do balanceador de carga
+> * Criar regras de tráfego para o balanceador de carga
+> * Criar um site básico do IIS
+> * Exibir um balanceador de carga em ação
 
 Para obter mais informações sobre o uso de Zonas de Disponibilidade com o Load Balancer Standard, consulte [Zonas de disponibilidade e Load Balancer Standard](load-balancer-standard-availability-zones.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça logon no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
 
-## <a name="create-a-public-standard-load-balancer"></a>Criar um Load Balancer Standard público
+## <a name="create-a-standard-load-balancer"></a>Criar um Balanceador de Carga Standard
 
 Um balanceador de carga padrão só oferece suporte a um endereço IP público padrão. Ao criar um novo IP público durante a criação do balanceador de carga, ele é configurado automaticamente como uma versão de SKU Standard e, além disso, é automaticamente com redundância de zona.
 
@@ -51,9 +62,11 @@ Um balanceador de carga padrão só oferece suporte a um endereço IP público p
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
-Nesta seção, você cria uma rede virtual, cria máquinas virtuais em zonas diferentes (zona 1, zona 2 e zona 3) para a região adicionar ao pool de back-end do balanceador de carga e instala IIS nas máquinas virtuais para ajudar a testar o balanceador de carga com redundância de zona. Portanto, se uma região falhar, a investigação de integridade da VM na mesma zona falhará e o tráfego continuará sendo atendido pelas VMs nas outras regiões.
+Nesta seção, você cria uma rede virtual, máquinas virtuais em diferentes regiões para a região e, em seguida, instala o IIS nas máquinas virtuais para ajudar a testar o balanceador de carga com redundância de zona. Portanto, se uma região falhar, a investigação de integridade da VM na mesma zona falhará e o tráfego continuará sendo atendido pelas VMs nas outras regiões.
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+Crie uma rede virtual para implantar os servidores back-end.
+
 1. Na parte superior esquerda da tela, clique em **Criar um recurso** > **Rede** > **Rede virtual** e insira esses valores para a rede virtual:
     - *myVNet* – para o nome da rede virtual.
     - *myResourceGroupLBAZ* - para o nome do grupo de recursos existente
@@ -64,6 +77,8 @@ Nesta seção, você cria uma rede virtual, cria máquinas virtuais em zonas dif
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
+Crie um grupo de segurança de rede para definir conexões de entrada para sua rede virtual.
+
 1. No canto superior esquerdo da tela, clique em **Criar um recurso**, na caixa de pesquisa digite *Grupo de Segurança de Rede* e, na página do grupo de segurança de rede, clique em **Criar**.
 2. Na página Criar grupo de segurança de rede, insira estes valores:
     - *myNetworkSecurityGroup*  - para o nome do grupo de segurança de rede.
@@ -71,9 +86,9 @@ Nesta seção, você cria uma rede virtual, cria máquinas virtuais em zonas dif
    
 ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
-### <a name="create-nsg-rules"></a>Criar regras NSG
+### <a name="create-network-security-group-rules"></a>Criar regras do grupo de segurança de rede
 
-Nesta seção, você cria regras do NSG para permitir conexões de entrada usando HTTP e RDP, utilizando o Portal do Azure.
+Nesta seção, você cria regras do grupo de segurança de rede para permitir conexões de entrada usando HTTP e RDP por meio do portal do Azure.
 
 1. No Portal do Azure, clique em **Todos os recursos** no menu esquerdo e, em seguida, pesquise e clique em **myNetworkSecurityGroup** localizado no grupo de recursos **myResourceGroupLBAZ**.
 2. Em **Configurações**, clique em **Regras de segurança de entrada** e clique em **Adicionar**.
@@ -84,8 +99,8 @@ Nesta seção, você cria regras do NSG para permitir conexões de entrada usand
     - *TCP* – para **Protocolo**
     - *Allow* – para **Ação**
     - *100* - para **Prioridade**
-    - *myHTTPRule* - para nome
-    - *Allow HTTP* - para descrição
+    - *myHTTPRule* – para o nome da regra do balanceador de carga.
+    - *Permitir HTTP* – para descrição da regra de balanceador de carga.
 4. Clique em **OK**.
  
  ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
@@ -99,8 +114,9 @@ Nesta seção, você cria regras do NSG para permitir conexões de entrada usand
     - *myRDPRule* - para nome
     - *Allow RDP* - para descrição
 
-
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
+
+Crie máquinas virtuais em diferentes regiões (zona 1, zona 2 e zona 3) para a região que pode atuar como servidores back-end para o balanceador de carga.
 
 1. No canto superior esquerdo da tela, clique em **Criar um recurso** > **Computação** > **Windows Server 2016 Datacenter** e insira esses valores para a máquina virtual:
     - *myVM1* - para o nome da máquina virtual.        
@@ -140,17 +156,17 @@ Nesta seção, você cria regras do NSG para permitir conexões de entrada usand
 
 ## <a name="create-load-balancer-resources"></a>Criar recursos do balanceador de carga
 
-Nesta seção, você definirá as configurações do balanceador de carga para um pool de endereços de back-end e uma investigação de integridade, também especificará as regras do balanceador de carga e NAT.
+Nesta seção, você define as configurações do balanceador de carga para um pool de endereços de back-end e uma investigação de integridade e especifica as regras NAT e o balanceador de carga.
 
 
 ### <a name="create-a-backend-address-pool"></a>Criar um pool de endereços de back-end
 
-Para distribuir o tráfego para as máquinas virtuais, um pool de endereços de back-end contém os endereços IP das NICs virtuais conectadas ao balanceador de carga. Crie o pool de endereços de back-end *myBackendPool* para incluir *VM1* e *VM2*.
+Para distribuir o tráfego para as máquinas virtuais, um pool de endereços de back-end contém os endereços IP das NICs virtuais conectadas ao balanceador de carga. Crie o pool de endereços de back-end *myBackendPool* para incluir *VM1*, *VM2* e *VM3*.
 
-1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** da lista de recursos.
+1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** na lista de recursos.
 2. Em **Configurações**, clique em **Pools de back-end** e clique em **Adicionar**.
 3. Na página **Adicionar um pool de back-end**, faça o seguinte:
-    - Em nome, digite *myBackEndPool como o nome de seu pool de back-end.
+    - Para nome, digite *myBackEndPool*, como o nome do pool de back-end.
     - Para **Rede virtual**, no menu suspenso, clique em **myVNet**
     - Para **Máquina virtual**, no menu suspenso, clique em **myVM1**.
     - Para **Endereço IP**, no menu suspenso, clique no endereço IP de myVM1.
@@ -200,6 +216,8 @@ Uma regra de balanceador de carga é usada para definir como o tráfego é distr
 2. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. A página padrão do servidor Web do IIS é exibida no navegador.
 
       ![Servidor Web do IIS](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+
+Para ver o balanceador de carga distribuir o tráfego entre as VMs distribuídas pela zona, você poderá forçar a atualização do navegador da Web.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d93ea939a938fa88615161d3d048ee1881dd319a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d707b9a4b7b683e75bb9313dae2611fd59dbb155
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Início Rápido: dimensionar a computação no SQL Data Warehouse do Azure no Portal do Azure
 
@@ -36,8 +36,8 @@ No SQL Data Warehouse, você pode aumentar ou diminuir os recursos de computaç�
 
 Para alterar unidades de data warehouse:
 
-1. Clique em **Bancos de Dados SQL** na página esquerda do portal do Azure.
-2. Selecione **mySampleDataWarehouse** da página **Bancos de Dados SQL**. O data warehouse é aberto.
+1. Clique em **SQL data warehouses** na página esquerda do portal do Azure.
+2. Selecione **mySampleDataWarehouse** na página **SQL data warehouses**. O data warehouse é aberto.
 3. Clique em **Escala**.
 
     ![Clique em Escala.](media/quickstart-scale-compute-portal/click-scale.png)

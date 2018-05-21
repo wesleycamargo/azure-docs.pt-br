@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fb102cc43c6e1d17afaa78a2833ae447600a96af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Cenário 1: avaliar cargas de trabalho locais que podem ser migradas para o Azure
 
 Enquanto estão pensando em fazer a migração para o Azure, a empresa Contoso deseja executar uma avaliação técnica e financeira para descobrir se as cargas de trabalho local são adequadas para a migração para a nuvem. Mais especificamente, eles querem avaliar a compatibilidade de computadores e banco de dados para migração e estimar a capacidade e os custos de execução de seus recursos no Azure.
 
-Para experimentarem e entenderem melhor as tecnologias envolvidas, eles vão avaliar e migrar um pequeno aplicativo de viagens local. É um aplicativo de duas camadas, com um aplicativo Web em execução em uma VM e um banco de dados do SQL Server em uma segunda VM. O aplicativo é implantado no VMware e o ambiente é gerenciado por um vCenter Server. Ele fará a avaliação usando o DMA (Assistente de Migração de Dados) e o serviço Migrações para Azure.
+Para experimentarem e entenderem melhor as tecnologias envolvidas, eles vão avaliar e migrar um pequeno aplicativo de viagens local. É um aplicativo de duas camadas, com um aplicativo Web em execução em uma VM e um banco de dados do SQL Server em uma segunda VM. O aplicativo é implantado no VMware e o ambiente é gerenciado por um vCenter Server. Ele fará a avaliação usando o DMA (Assistente de Migração de Dados) e o serviço Migrações para Azure. Caso deseje experimentar este cenário usando esse aplicativo de viagens de exemplo, baixe-o no [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 **Tecnologia** | **Descrição** | **Custo**
 --- | --- | ---
@@ -33,11 +33,11 @@ Neste cenário, vamos baixar e executar o DMA para avaliar o banco de dados do S
 
 ## <a name="architecture"></a>Arquitetura
 
-Neste cenário, vamos configurar 
 
- ![Arquitetura de avaliação da migração](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
+![Arquitetura de avaliação da migração](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
 Neste cenário:
+- A Contoso é um nome fictício que representa uma organização corporativa típica. A Contoso deseja avaliar e migrar seu aplicativo local de viagens de duas camadas.
 - A Contoso tem um datacenter local (**contoso-datacenter**), com um controlador de domínio local ( **contosodc1**).
 - O aplicativo de viagem interno tem camadas em duas VMs, **WEBVM** e **SQLVM**, e está localizado no host VMware ESXi **contosohost1.contoso.com**.
 - O ambiente VMware é gerenciado pelo vCenter Server (**vcenter.contoso.com**) em execução em uma VM.
@@ -489,7 +489,7 @@ Neste cenário:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Vamos prosseguir para o próximo cenário a fim de fazer uma migração lift-and-shift das VMs locais para o Azure.
+Vamos continuar com o próximo cenário para fazer uma [migração lift-and-shift](migrate-scenarios-lift-and-shift.md) das VMs locais e do banco de dados para o Azure.
 
 
 

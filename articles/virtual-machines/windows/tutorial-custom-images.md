@@ -1,6 +1,6 @@
 ---
-title: Criar imagens personalizadas da VM com o Azure PowerShell | Microsoft Docs
-description: Tutorial - Criar uma imagem personalizada da VM usando o Azure PowerShell.
+title: Tutorial – Criar imagens personalizadas de VM com o Azure PowerShell | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar o Azure PowerShell para criar uma imagem de máquina virtual personalizada no Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -10,19 +10,19 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 443f47b98ea063c6fe1f0b3517c00b6cf3692161
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a449c1f9781ffc86de4786eaab3cb83999b86a72
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>Criar uma imagem personalizada de uma VM do Azure usando o PowerShell
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell
 
 Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria. As imagens personalizadas podem ser usadas para configurações de inicialização como o pré-carregamento de aplicativos, configurações de aplicativos e outras configurações do sistema operacional. Neste tutorial, você criará sua própria imagem personalizada de uma máquina virtual do Azure. Você aprenderá como:
 
@@ -33,7 +33,6 @@ Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria
 > * Listar todas as imagens na sua assinatura
 > * Excluir uma imagem
 
-
 ## <a name="before-you-begin"></a>Antes de começar
 
 As etapas abaixo detalham como pegar uma máquina virtual existente e transformá-la em uma imagem personalizada reutilizável que você pode usar para criar novas instâncias de VM.
@@ -42,7 +41,7 @@ Para concluir o exemplo neste tutorial, você deverá ter uma máquina virtual. 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá a versão do módulo AzureRM 5.6.0 ou superior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá a versão do módulo AzureRM 5.7.0 ou superior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="prepare-vm"></a>Preparar VM
 
@@ -101,7 +100,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>Criar VMs por meio da imagem
 
-Agora que tem uma imagem, você pode criar uma ou mais VMs novas por meio da imagem. A criação de uma VM por meio de uma imagem personalizada é muito semelhante à criação de uma VM usando uma imagem do Marketplace. Ao usar uma imagem do Marketplace, você precisa fornecer informações sobre a imagem, o provedor da imagem, a oferta, a SKU e a versão. Ao usar o parâmetro simplificado definido para o [novo AzureRMVM]() cmdlet, você só precisará fornecer o nome da imagem personalizada, desde que ela esteja no mesmo grupo de recursos. 
+Agora que tem uma imagem, você pode criar uma ou mais VMs novas por meio da imagem. A criação de uma VM com base em uma imagem personalizada é semelhante à criação de uma VM usando uma imagem do Marketplace. Ao usar uma imagem do Marketplace, você precisa fornecer informações sobre a imagem, o provedor da imagem, a oferta, a SKU e a versão. Ao usar o parâmetro simplificado definido para o [novo AzureRMVM]() cmdlet, você só precisará fornecer o nome da imagem personalizada, desde que ela esteja no mesmo grupo de recursos. 
 
 Este exemplo cria uma VM chamada *myVMfromImage* a partir de *myImage*, em *myResourceGroup*.
 

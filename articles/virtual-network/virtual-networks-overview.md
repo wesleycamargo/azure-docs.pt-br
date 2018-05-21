@@ -17,15 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 3/23/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 072a4a483cb39a6f2827b6d5973ec544fd58d09c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
-A Rede Virtual do Azure permite vários tipos de recursos do Azure, como Máquinas Virtuais (VM) do Azure, para se comunicar com segurança entre si, a Internet, e as redes locais. A Rede Virtual do Azure fornece os seguintes recursos importantes: 
+A Rede Virtual do Azure permite vários tipos de recursos do Azure, como Máquinas Virtuais (VM) do Azure, para se comunicar com segurança entre si, a Internet, e as redes locais. A Rede Virtual do Azure fornece os seguintes recursos importantes:
 
 ## <a name="isolation-and-segmentation"></a>Isolamento e segmentação
 
@@ -42,7 +42,7 @@ Por padrão, todos os recursos em uma rede virtual podem se comunicar por saída
 
 Os recursos do Azure se comunicam com segurança entre si em uma das seguintes maneiras:
 
-- **Por meio de uma rede virtual**: você pode implantar VMs e vários outros tipos de recursos do Azure em uma rede virtual, tais como Ambientes de Serviço de Aplicativo do Azure e Conjuntos de Dimensionamento de Máquinas Virtuais do Azure. Para exibir uma lista completa de recursos do Azure que podem ser implantados em uma rede virtual, confira [Integração de serviços de rede virtual](virtual-network-for-azure-services.md). 
+- **Por meio de uma rede virtual**: você pode implantar VMs e vários outros tipos de recursos do Azure em uma rede virtual, tais como Ambientes de Serviço de Aplicativo do Azure, o Serviço de Kubernetes do Azure (AKS) e Conjuntos de Dimensionamento de Máquinas Virtuais do Azure. Para exibir uma lista completa de recursos do Azure que podem ser implantados em uma rede virtual, confira [Integração de serviços de rede virtual](virtual-network-for-azure-services.md). 
 - **Por meio de um ponto de extremidade de serviço de rede virtual**: estenda seu espaço de endereço privado da rede virtual e a identidade de sua rede virtual para os recursos de serviço do Azure, como contas de Armazenamento do Azure e Bancos de Dados SQL do Azure, em uma conexão direta. Os pontos de extremidade de serviço permitem que você possa garantir os recursos essenciais do serviço do Azure somente para apenas uma rede virtual. Para obter mais detalhes, confira [Visão geral dos pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md).
  
 ## <a name="communicate-with-on-premises-resources"></a>Se comunicar com os recursos locais

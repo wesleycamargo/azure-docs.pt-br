@@ -1,11 +1,11 @@
 ---
-title: "Rede para conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs"
-description: "Propriedades da rede de configuração dos conjuntos de dimensionamento de máquina virtual do Azure."
+title: Rede para conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+description: Propriedades da rede de configuração dos conjuntos de dimensionamento de máquina virtual do Azure.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 27f1ec18026b38d5cdb2aecfde2d01f32a86349e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1db4c7ae78320eb08b2aa0b9da701d9678baf798
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -55,9 +55,28 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 ```
 
+## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencia um Gateway de Aplicativo
+Para criar um conjunto de dimensionamento que usa um gateway de aplicativo, referencie o pool de endereços de back-end do gateway de aplicativo na seção ipConfigurations do conjunto de dimensionamento como nesta configuração de modelo ARM:
+```json
+"ipConfigurations": [{
+  "name": "{config-name}",
+  "properties": {
+  "subnet": {
+    "id": "{subnet-id}"
+  },
+  "ApplicationGatewayBackendAddressPools": [{
+    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/applicationGateways/{gateway-name}/backendAddressPools/{pool-name}"
+  }]
+}]
+```
+
+>[!NOTE]
+> Observe que o gateway de aplicativo deve estar na mesma rede virtual do conjunto de dimensionamento, mas deve estar em uma sub-rede diferente do conjunto de dimensionamento.
+
+
 ## <a name="configurable-dns-settings"></a>Configurações DNS configuráveis
 Por padrão, os conjuntos de dimensionamento assumem as configurações DNS específicas da VNET e da sub-rede na qual eles foram criados. No entanto, você pode definir diretamente as configurações DNS de um conjunto de dimensionamento.
-~
+
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Como criar um conjunto de dimensionamento com servidores DNS configuráveis
 Para criar um conjunto de dimensionamento com uma configuração DNS personalizada usando a CLI 2.0, adicione o argumento **--dns-servers** ao comando **vmss create**, seguido por endereços IP do servidor separados por espaços. Por exemplo: 
 ```bash
