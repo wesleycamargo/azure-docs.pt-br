@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Learning Seat LMS | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Learning Seat LMS."
+title: 'Tutorial: integração do Azure Active Directory com o Learning Seat LMS | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Learning Seat LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 478bd4fdc23b1f9944237bbf97c7454a8d30e6bb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 38b9f017fee4cf0d6905bb20848145386ac6df2c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutorial: integração do Azure Active Directory com o Learning Seat LMS
 
@@ -29,9 +29,9 @@ A integração do Learning Seat LMS ao Azure AD oferece os seguintes benefícios
 - Você pode habilitar seus usuários a fazerem logon automaticamente no Learning Seat LMS (Logon Único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte. [O que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte. [O que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Learning Seat LMS, você precisará dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Como adicionar Learning Seat LMS na galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-learning-seat-lms-from-the-gallery"></a>Como adicionar Learning Seat LMS na galeria
 Para configurar a integração do Learning Seat LMS ao Azure AD, você precisará adicionar o Learning Seat LMS por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do Learning Seat LMS ao Azure AD, você precisar�
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Learning Seat LMS**.
 
@@ -76,7 +76,7 @@ Para configurar a integração do Learning Seat LMS ao Azure AD, você precisar�
 5. No painel de resultados, selecione **Learning Seat LMS** e clique no botão **Adicionar** para adicionar o aplicativo.
 
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Learning Seat LMS, com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Learning Seat LMS é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Learning Seat LMS.
@@ -85,11 +85,11 @@ Essa relação de vínculo é estabelecida ao atribuir o valor do **nome de usu�
 
 Para configurar e testar o logon único do Azure AD com o Learning Seat LMS, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criação de um usuário de teste do Learning Seat LMS](#creating-a-learnconnect-test-user)**: para ter um equivalente de Brenda Fernandes no Learning Seat LMS que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -99,15 +99,15 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. No Portal do Azure, na página de integração de aplicativos do **Learning Seat LMS**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_samlbase.png)
 
 3. Na seção **Domínio e URLs do Learning Seat LMS**, execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
-    ![Configurar Logon Único](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.learningseatlms.com`
 
@@ -115,7 +115,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 4. Marque **Mostrar configurações avançadas de URL**, se quiser configurar o aplicativo no modo iniciado em **SP**:
 
-    ![Configurar Logon Único](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url2.png)
+    ![Configurar o logon único](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url2.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.learningseatlms.com`
      
@@ -128,7 +128,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 6. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-learnconnect-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-learnconnect-tutorial/tutorial_general_400.png)
 
 7. Para configurar o logon único no lado do **Learning Seat LMS**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Learning Seat LMS](http://help.learningseatlms.com/help).
 
@@ -185,7 +185,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, selecione **Learning Seat LMS**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -210,7 +210,7 @@ Clique no bloco Learning Seat LMS no Painel de Acesso e você será conectado au
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Proofpoint on Demand | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e Proofpoint on Demand."
+title: 'Tutorial: integração do Azure Active Directory com o Proofpoint on Demand | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e Proofpoint on Demand.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 55479406487bf445c5f449b13663c0bfaee751fd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 62001f94ce946a36147932afb752dff9079890a4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Tutorial: integração do Azure Active Directory ao Proofpoint on Demand
 
@@ -30,7 +30,7 @@ Integrar o Proofpoint on Demand ao Azure AD oferece os seguintes benefícios:
 - Você pode habilitar os usuários para serem conectados automaticamente no Proofpoint on Demand (logon único) com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -210,7 +210,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

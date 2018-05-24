@@ -1,6 +1,6 @@
 ---
 title: Proxy reverso do Azure Service Fabric | Microsoft Docs
-description: "Usar o proxy reverso do Service Fabric para comunicação com microsserviços de dentro e fora do cluster."
+description: Usar o proxy reverso do Service Fabric para comunicação com microsserviços de dentro e fora do cluster.
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
 Proxy reverso incorporado no Azure Service Fabric ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http.
