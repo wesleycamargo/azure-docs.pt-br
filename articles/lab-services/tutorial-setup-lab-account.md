@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 347b7d183839868f3b52adbdfd00b38cee3f3fbc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 22a9e90404475e8ff1f1ea72c233b1abfed938f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361364"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services-formerly-azure-devtest-labs"></a>Tutorial: Configurar uma conta de laboratório com o Azure Lab Services (anteriormente conhecido como Azure DevTest Labs)
 Neste tutorial, você agirá como um administrador de laboratório para criar uma conta de laboratório com o Azure Lab Services. Em seguida, você fornece aos educadores a permissão para criar laboratórios para suas classes nessa conta de laboratório. Um educador pode configurar um laboratório para uma classe usando o [site do Azure Lab Services](https://labs.azure.com).   

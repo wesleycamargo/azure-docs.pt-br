@@ -3,8 +3,8 @@ title: Exemplo de CLI para monitorar e dimensionar um único Banco de Dados SQL 
 description: Script de exemplo de CLI do Azure para monitorar e dimensionar um único banco de dados SQL do Azure
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: craigg
 editor: carlrab
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: da1b50a450f83bbcea1491c224260381e49ef66f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: 00464de212b7a2faa62eeac15bc4db1fd0f84b4f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364430"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Usar a CLI para monitorar e dimensionar um único Banco de Dados SQL
 

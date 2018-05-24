@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359733"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager vs. Implantação clássica: compreenda os modelos de implantação e o estado dos seus recursos
 Neste artigo, você conhecerá o Azure Resource Manager e os modelos de implantação clássicos. O Gerenciador de Recursos e os modelos de implantação clássicos representam duas maneiras de implantar e gerenciar soluções do Azure. Você trabalha com eles através de dois conjuntos diferentes de API e os recursos implantados podem conter diferenças importantes. Os dois modelos não são compatíveis um com o outro. Este artigo descreve essas diferenças.

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 68ed75a9ef2faee408e65c0991182b7d95bb17a8
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 2144747fdaa0c596397cc93d8509ca006b67c592
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303497"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366198"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Passo a passo do acelerador de solução da Fábrica Conectada
 
 O [acelerador de solução][lnk-preconfigured-solutions] da Fábrica Conectada é uma implementação de uma solução industrial de ponta a ponta que:
 
-* Conecta-se a dispositivos industriais simulados que executam servidores OPC UA em linhas de produção de fábrica simuladas e a dispositivos de servidor OPC UA reais. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre Connected Factory](iot-suite-faq-cf.md).
+* Conecta-se a dispositivos industriais simulados que executam servidores OPC UA em linhas de produção de fábrica simuladas e a dispositivos de servidor OPC UA reais. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre Connected Factory](iot-accelerators-faq-cf.md).
 * Mostra KPIs operacionais e OEE desses dispositivos e de linhas de produção.
 * Demonstra como um aplicativo baseado em nuvem pode ser usado para interagir com sistemas de servidor UA OPC.
 * Permite que você conecte seus próprios dispositivos de servidor OPC UA.
@@ -41,7 +41,7 @@ Este artigo explica alguns dos principais elementos da solução da Fábrica Con
 * Planejar como personalizar a solução para atender a seus próprios requisitos específicos.
 * Criar sua própria solução IoT que usa os serviços do Azure.
 
-Para saber mais, confira as [Perguntas frequentes sobre a Fábrica Conectada](iot-suite-faq-cf.md).
+Para saber mais, confira as [Perguntas frequentes sobre a Fábrica Conectada](iot-accelerators-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
 
@@ -127,7 +127,7 @@ O aplicativo Web implantado como parte do acelerador de solução é composto de
 
 ## <a name="telemetry-data-flow"></a>Fluxo de dados de telemetria
 
-![Fluxo de dados de telemetria](media/iot-suite-connected-factory-walkthrough/telemetry_dataflow.png)
+![Fluxo de dados de telemetria](./media/iot-accelerators-connected-factory-sample-walkthrough/telemetry_dataflow.png)
 
 ### <a name="flow-steps"></a>Etapas do fluxo
 
@@ -179,7 +179,7 @@ O aplicativo Web implantado como parte do acelerador de solução é composto de
 
 ## <a name="browsing-data-flow"></a>Navegação de fluxo de dados
 
-![Navegação de fluxo de dados](media/iot-suite-connected-factory-walkthrough/browsing_dataflow.png)
+![Navegação de fluxo de dados](./media/iot-accelerators-connected-factory-sample-walkthrough/browsing_dataflow.png)
 
 ### <a name="flow-steps"></a>Etapas do fluxo
 
@@ -233,15 +233,15 @@ O aplicativo Web implantado como parte do acelerador de solução é composto de
 Você pode continuar a introdução aos aceleradores de solução de IoT lendo os seguintes artigos:
 
 * [Permissões no site azureiotsuite.com][lnk-permissions]
-* [Implantar um gateway no Windows ou Linux para o acelerador de solução da Fábrica Conectada](iot-suite-connected-factory-gateway-deployment.md)
+* [Implantar um gateway no Windows ou Linux para o acelerador de solução da Fábrica Conectada](iot-accelerators-connected-factory-gateway-deployment.md)
 * [Implementação de referência do Publicador de OPC](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
-[connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
+[connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]:../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
-[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-preconfigured-solutions]:iot-accelerators-what-are-solution-accelerators.md
+[lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: iot-suite-v1-permissions.md
+[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md

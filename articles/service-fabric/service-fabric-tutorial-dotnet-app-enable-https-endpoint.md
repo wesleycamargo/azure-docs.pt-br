@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7446de27c306f795d885b4d929d7a8f75c3dcf23
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a07e3ed3363ad968156aab2233073406d05b7dba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364600"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core
 Este tutorial é a parte três de uma série.  Você aprenderá a habilitar HTTPS em um serviço ASP.NET Core em execução no Service Fabric. Quando você terminar, terá um aplicativo de votação com um front-end Web do ASP.NET Core habilitado para HTTPS escutando na porta 443. Se você não quiser criar manualmente o aplicativo de votação em [Criar um aplicativo do Service Fabric no .NET](service-fabric-tutorial-deploy-app-to-party-cluster.md), [baixe o código-fonte](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) do aplicativo concluído.
@@ -49,7 +50,7 @@ Antes de começar este tutorial:
 - [Instalar o SDK do Service Fabric](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Obter um certificado ou criar um certificado de desenvolvimento autoassinado
-, você precisa de um certificado digital.  Para aplicativos de produção, use um certificado de uma [CA (autoridade de certificação)](https://wikipedia.org/wiki/Certificate_authority). Para fins de desenvolvimento e teste, você pode criar e usar um certificado autoassinado. O SDK do Service Fabric fornece o script *CertSetup.ps1*, que cria um certificado autoassinado e o importa para o repositório de certificados `Cert:\LocalMachine\My`. Abra um prompt de comando como administrador e execute o seguinte comando para criar um certificado com o assunto "CN=localhost":
+Para aplicativos de produção, use um certificado de uma [CA (autoridade de certificação)](https://wikipedia.org/wiki/Certificate_authority). Para fins de desenvolvimento e teste, você pode criar e usar um certificado autoassinado. O SDK do Service Fabric fornece o script *CertSetup.ps1*, que cria um certificado autoassinado e o importa para o repositório de certificados `Cert:\LocalMachine\My`. Abra um prompt de comando como administrador e execute o seguinte comando para criar um certificado com o assunto "CN=localhost":
 
 ```powershell
 PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost

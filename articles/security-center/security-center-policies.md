@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: a993338e5a16514e855d771e25aac3e451faab45
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364379"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Configurar políticas de segurança na Central de Segurança do Azure
 Este artigo ajuda você a configurar políticas de segurança na Central de Segurança.
@@ -55,7 +56,7 @@ Para entender as definições de política disponíveis na política de seguran�
 | Configurações de segurança |Analisa as configurações do sistema operacional diariamente para determinar os problemas que podem tornar a máquina virtual vulnerável a ataques. A política também recomenda alterações de configuração para tratar essas vulnerabilidades. Para obter mais informações sobre as configurações específicas que estão sendo monitoradas, confira a [lista de linhas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (No momento, não há suporte completo para o Windows Server 2016.) |
 | Proteção do ponto de extremidade |Recomenda que seja configurada uma proteção do ponto de extremidade para todas as máquinas virtuais (VMs) do Windows para ajudar a identificar e remover vírus, spyware e outros software mal-intencionados. |
 | Criptografia do disco |Recomenda-se habilitar a criptografia de disco em todas as máquinas virtuais para aprimorar a proteção de dados em repouso. |
-| Grupos de segurança de rede |Recomenda que os [grupos de segurança da rede](../virtual-network/virtual-networks-nsg.md) sejam configurados para controlar os tráfegos de entrada e saída para as VMs com pontos de extremidade públicos. Os grupos de segurança da rede configurados para uma sub-rede são herdados por todas as interfaces de rede da máquina virtual, a menos que seja especificado o contrário. Além de verificar se um grupo de segurança de rede foi configurado, essa política avalia as regras de segurança de entrada para identificar as regras que permitem o tráfego de entrada. |
+| Grupos de segurança de rede |Recomenda que os [grupos de segurança da rede](../virtual-network/security-overview.md) sejam configurados para controlar os tráfegos de entrada e saída para as VMs com pontos de extremidade públicos. Os grupos de segurança da rede configurados para uma sub-rede são herdados por todas as interfaces de rede da máquina virtual, a menos que seja especificado o contrário. Além de verificar se um grupo de segurança de rede foi configurado, essa política avalia as regras de segurança de entrada para identificar as regras que permitem o tráfego de entrada. |
 | Firewall do aplicativo Web |Recomenda que um firewall do aplicativo Web seja configurado nas máquinas virtuais quando uma das seguintes opções é verdadeira: <ul><li>Um [IP público em nível de instância](../virtual-network/virtual-networks-instance-level-public-ip.md) é usado, e as regras de segurança de entrada para o grupo de segurança de rede associado são configuradas para permitir o acesso à porta 80/443.</li><li>Um IP de balanceamento de carga é usado, e o balanceamento de carga associado e as regras NAT (conversão do endereço de rede de entrada) são configurados para permitir o acesso à porta 80/443. Para saber mais, confira [Suporte do Azure Resource Manager para Balanceador de Carga](../load-balancer/load-balancer-arm.md).</li> |
 | Firewall da próxima geração |Estende as proteções da rede para além dos grupos de segurança da rede, que são internos no Azure. A Central de Segurança descobre as implantações para as quais um firewall da próxima geração é recomendado, então você pode configurar uma solução de virtualização. |
 | Auditoria do SQL e detecção de ameaças |Recomenda que a auditoria de acesso ao banco de dados SQL esteja habilitada para conformidade e para detecção de ameaça avançada para fins de investigação. |

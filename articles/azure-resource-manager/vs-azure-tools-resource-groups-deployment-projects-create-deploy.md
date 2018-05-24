@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 4bd084c8-0842-4a10-8460-080c6a085bec
 ms.service: azure-resource-manager
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd0680a16596931b5f595bbdd4e48414c8dbde73
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd2869b35d92ea92261223131476d7cc8eb854eb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360097"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 Com o Visual Studio e o [SDK do Azure](https://azure.microsoft.com/downloads/), você pode criar um projeto que implementa sua infraestrutura e o código no Azure. Por exemplo, você pode definir o host da Web, o site da Web e o banco de dados para seu aplicativo, e implantar essa infraestrutura juntamente com o código. Ou pode definir uma Máquina Virtual, uma Rede Virtual e uma Conta de Armazenamento e implantar essa infraestrutura juntamente com um script que é executado na Máquina Virtual. O projeto de implantação **Grupo de Recursos do Azure** permite a você implantar todos os recursos necessários em uma única operação repetida. Para obter mais informações sobre como implantar e gerenciar seus recursos, confira [Visão geral do Azure Resource Manager](resource-group-overview.md).

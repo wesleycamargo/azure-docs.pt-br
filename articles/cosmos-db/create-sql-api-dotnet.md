@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359366"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Início Rápido: compilar um aplicativo Web do .NET com o Azure Cosmos DB usando a API do SQL e o Portal do Azure
 

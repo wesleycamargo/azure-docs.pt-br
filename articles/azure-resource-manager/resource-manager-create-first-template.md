@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358040"
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Criar e implantar seu primeiro modelo do Azure Resource Manager
 Este tópico explica as etapas de criação de seu primeiro modelo do Azure Resource Manager. Os modelos do Resource Manager são arquivos JSON que definem os recursos necessários para implantar sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, consulte [Visão geral do Azure Resource Manager](resource-group-overview.md). Se você já tiver recursos e quiser obter um modelo para esses recursos, consulte [Exportar um modelo do Azure Resource Manager de recursos existentes](resource-manager-export-template.md).
