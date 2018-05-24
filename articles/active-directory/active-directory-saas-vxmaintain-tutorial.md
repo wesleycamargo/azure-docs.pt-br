@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao vxMaintain | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o vxMaintain."
+title: 'Tutorial: integração do Azure Active Directory ao vxMaintain | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o vxMaintain.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c30d59a2bd903a5578caf376957a22bb270455f9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Tutorial: integração do Azure Active Directory ao vxMaintain
 
@@ -29,7 +29,7 @@ Essa integração oferece vários benefícios importantes. Você pode:
 - Permita que seus usuários façam logon automaticamente no vxMaintain com logon único (SSO) usando suas contas do Azure AD.
 - Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -115,7 +115,7 @@ Nesta seção, você pode habilitar o SSO do Azure AD no portal do Azure e confi
 
     ![A seção “Certificado de Autenticação SAML”](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
     ![O botão Salvar](./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_400.png)
 
@@ -155,7 +155,7 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
 
     c. Marque a caixa de seleção **Mostrar Senha** e anote o valor gerado na caixa **Senha**.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
  
 ### <a name="create-a-vxmaintain-test-user"></a>Criar um usuário de teste vxMaintain
 
@@ -198,7 +198,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -118,12 +118,12 @@ O nome exibido e referenciado para tipos do próximo salto é diferente entre o 
 
 Um gateway de rede local pode trocar rotas com um gateway de rede virtual do Azure usando o protocolo BGP (Border Gateway Protocol). O uso do BGP com um gateway de rede virtual do Azure depende do tipo que você selecionou ao criar o gateway. Se o tipo selecionado foi:
 
-- **ExpressRoute**: você deve usar o BGP para anunciar rotas locais para o roteador de borda da Microsoft. Não é possível criar rotas definidas pelo usuário para forçar o tráfego ao gateway de rede virtual do ExpressRoute caso você implante um gateway de rede virtual implantado como tipo: ExpressRoute. Você pode usar as rotas definidas pelo usuário para forçar o tráfego do ExpressRoute para, por exemplo, uma Solução de Virtualização de Rede. 
+- **ExpressRoute**: você deve usar o BGP para anunciar rotas locais para o roteador de borda da Microsoft. Não é possível criar rotas definidas pelo usuário para forçar o tráfego ao gateway de rede virtual do ExpressRoute caso você implante um gateway de rede virtual implantado como tipo: ExpressRoute. Você pode usar as rotas definidas pelo usuário para forçar o tráfego do ExpressRoute para, por exemplo, uma Solução de Virtualização de Rede.
 - **VPN**: você pode usar o BGP outra opção. Para obter detalhes, confira [BGP com conexões VPN site a site](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Ao trocar de rotas com o Azure usando o BGP, uma rota separada é adicionada à tabela de rotas de todas as sub-redes em uma rede virtual para cada prefixo anunciado. A rota é adicionada com o *Gateway de rede virtual* listado como a fonte e o tipo do próximo salto. 
 
-A propagação de rotas BGP pode ser desabilitada em uma sub-rede usando uma propriedade em uma tabela de rotas. Quando você troca rotas com o Azure usando o BGP, as rotas não são adicionadas à tabela de rotas das sub-redes com propagação BGP desabilitada. A conectividade com conexões VPN é feita usando rotas personalizadas](#custom-routes) com um tipo de VPN de próximo salto. Para obter detalhes, consulte [Como desabilitar a propagação de rotas BGP](/manage-route-table#create-a-route-table.md).
+A propagação de rotas BGP pode ser desabilitada em uma sub-rede usando uma propriedade em uma tabela de rotas. Quando você troca rotas com o Azure usando o BGP, as rotas não são adicionadas à tabela de rotas das sub-redes com propagação BGP desabilitada. A conectividade com conexões VPN é feita usando rotas personalizadas](#custom-routes) com um tipo de VPN de próximo salto. Para obter detalhes, consulte [Como desabilitar a propagação de rotas BGP](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Como o Azure seleciona uma rota
 
@@ -259,4 +259,4 @@ A tabela de rotas para *Subnet2* contém todas as rotas padrão criadas pelo Azu
 - [Configurar o BGP para um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Usar o BGP com ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Exibir todas as rotas de uma sub-rede](virtual-network-routes-troubleshoot-portal.md). Uma tabela de rotas definidas pelo usuário só mostra as rotas definidas pelo usuário, não as rotas padrão e BGP de uma sub-rede. Exibir todas as rotas mostra as rotas padrão, BGP e definidas pelo usuário da sub-rede na qual está uma interface de rede.
-- [Determinar o tipo do próximo salto](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entre uma máquina virtual e um endereço IP de destino. O recurso do salto seguinte do Observador de Rede do Azure permite que você determine se o tráfego está deixando uma sub-rede e sendo roteado para onde você acha que ele devem estar.
+- [Determinar o tipo do próximo salto](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entre uma máquina virtual e um endereço IP de destino. O recurso do salto seguinte do Observador de Rede do Azure permite que você determine se o tráfego está deixando uma sub-rede e sendo roteado para onde você acha que ele devem estar.

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao BambooHR | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o BambooHR."
+title: 'Tutorial: Integração do Azure Active Directory ao BambooHR | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o BambooHR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 081144a645683d4d00ed0d464e23558378dc1b38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c63a625c1eca7008c751d6904f182f76ee5f343b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Tutorial: Integração do Azure Active Directory ao BambooHR
 
@@ -30,7 +30,7 @@ A integração do BambooHR ao Microsoft Azure Active Directory oferece os seguin
 - Você pode permitir que seus usuários façam logon automaticamente no BambooHR usando SSO (logon único) com suas contas do Microsoft Azure Active Directory.
 - Você pode gerenciar suas contas em um único local, o portal clássico do Azure.
 
-Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -111,7 +111,7 @@ Nesta seção, você habilita o SSO do Azure AD no portal do Azure e configura o
 
     ![O link de download do Certificado](./media/active-directory-saas-bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
     ![O botão Salvar](./media/active-directory-saas-bamboo-hr-tutorial/tutorial_general_400.png)
 
@@ -139,7 +139,7 @@ Nesta seção, você habilita o SSO do Azure AD no portal do Azure e configura o
       
     b. No Bloco de Notas, abra o certificado codificado em Base 64 baixado no Portal do Azure, copie o conteúdo e cole-o na caixa **Certificado X.509**.
    
-    c. Selecione **Salvar**.
+    c. Clique em **Salvar**.
 
 > [!TIP]
 > Enquanto você estiver configurando o aplicativo, é possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com). Depois de adicionar o aplicativo da seção **Active Directory** > **Aplicativos Empresariais**, basta selecionar a guia **Logon Único** e, em seguida, acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Para saber mais, confira a [documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -175,7 +175,7 @@ Para criar um usuário de teste no Azure AD, faça o seguinte:
 
     c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
  
 ### <a name="create-a-bamboohr-test-user"></a>Crie um usuário de teste do BambooHR
 
@@ -193,7 +193,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory façam logon 
 
 5. Digite o nome de usuário, a senha e o endereço de email da conta válida do Microsoft Azure Active Directory que você deseja configurar.
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
         
 >[!NOTE]
 >Para configurar contas de usuários do Microsoft Azure Active Directory, você também pode usar a ferramenta de criação de contas de usuários do BambooHR ou APIs.
@@ -239,7 +239,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 
