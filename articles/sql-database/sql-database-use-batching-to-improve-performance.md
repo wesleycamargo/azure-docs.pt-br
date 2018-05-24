@@ -9,11 +9,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194964"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL
 O envio de operações em lote para o Banco de Dados SQL do Azure melhora consideravelmente o desempenho e a escalabilidade dos aplicativos. Para compreender os benefícios, a primeira parte deste artigo aborda alguns exemplos de resultados de teste que comparam solicitações sequenciais e em lote para um Banco de Dados SQL. O restante do artigo mostra as técnicas, os cenários e considerações para ajudar você a usar o envio em lote com sucesso em seus aplicativos do Azure.
@@ -32,9 +33,9 @@ Um dos benefícios de usar o Banco de Dados SQL é que você não precisa gerenc
 A primeira parte do documento examina várias técnicas de envio em lote para aplicativos .NET que usam o Banco de Dados SQL. As duas últimas seções abordam diretrizes e cenários de envio em lote.
 
 ## <a name="batching-strategies"></a>Estratégias de envio em lote
-### <a name="note-about-timing-results-in-this-topic"></a>Observação sobre os resultados de tempo neste tópico
+### <a name="note-about-timing-results-in-this-article"></a>Observação sobre os resultados de tempo neste artigo
 > [!NOTE]
-> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço](sql-database-service-tiers.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
+> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço DTU](sql-database-service-tiers-dtu.md) ou [camadas de serviço vCore](sql-database-service-tiers-vcore.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
 > 
 > 
 
@@ -209,7 +210,7 @@ Cópia em massa do SQL é outra maneira de inserir grandes quantidades de dados 
         }
     }
 
-Há alguns casos nos quais é preferível usar a cópia em massa do que os parâmetros com valor de tabela. Consulte a tabela de comparação de Parâmetros com valor de tabela versus operações BULK INSERT no tópico [Parâmetros com valor de tabela](https://msdn.microsoft.com/library/bb510489.aspx).
+Há alguns casos nos quais é preferível usar a cópia em massa do que os parâmetros com valor de tabela. Consulte a tabela de comparação de Parâmetros com valor de tabela versus operações BULK INSERT no artigo [Parâmetros com valor de tabela](https://msdn.microsoft.com/library/bb510489.aspx).
 
 Os seguintes resultados do teste ad hoc mostram o desempenho do envio em lote com **SqlBulkCopy** em milissegundos.
 
@@ -592,7 +593,7 @@ Em seguida, crie um procedimento armazenado ou escreva um código que use a inst
 Para saber mais, consulte a documentação e exemplos da instrução MERGE. Embora o mesmo trabalho possa ser executado em uma chamada de procedimento armazenado com várias etapas, com operações INSERT e UPDATE separadas, a instrução MERGE é mais eficiente. O código do banco de dados também pode construir chamadas Transact-SQL que usam a instrução MERGE diretamente sem exigir duas chamadas de banco de dados para INSERT e UPDATE.
 
 ## <a name="recommendation-summary"></a>Resumo de recomendações
-A lista a seguir fornece um resumo das recomendações de envio em lote discutidas neste tópico:
+A lista a seguir fornece um resumo das recomendações de envio em lote discutidas neste artigo:
 
 * Use o armazenamento em buffer e o envio em lote para aumentar o desempenho e a escalabilidade de aplicativos do Banco de Dados SQL.
 * Entenda as compensações entre o envio em lote/armazenamento em buffer e resiliência. Durante uma falha de função, o risco de perder um lote não processado de dados críticos para os negócios pode superar o benefício do desempenho do envio em lote.

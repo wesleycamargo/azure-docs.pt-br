@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 480c1984219a5e2fb79e8eb81ed87710c79611e4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140075"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (Visualização Pública)
 Especifique o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
 
 > [!IMPORTANT]
-> Este método de controle da vida útil dos tokens será preterido.  Embora permaneça disponível até que o recurso de substituição esteja pronto, o método, após ser preterido, fará com que as políticas de vida útil de tokens criadas por meio dele deixem de funcionar. 
+> Depois de ouvir de clientes durante a visualização, estamos planejando substituir essa funcionalidade por um novo recurso no acesso condicional do Azure Active Directory.  Depois que o novo recurso for concluído, essa funcionalidade, eventualmente, será substituída após um período de notificação.  Se você usa a política de vida útil do Token configurável, esteja preparado para alternar para o novo recurso de acesso condicional quando ele estiver disponível. 
 >
 >
 
@@ -108,6 +109,8 @@ Crie e atribua uma política de tempo de vida de token para um aplicativo espec�
 Para saber mais sobre a relação entre objetos de aplicativo e de entidade de serviço, confira [Objetos de aplicativos e entidade de serviço no Azure Active Directory](active-directory-application-objects.md).
 
 A validade do token é avaliada no momento em que ele é usado. A política com a prioridade mais alta no aplicativo que está sendo acessado entra em vigor.
+
+Todos os períodos de tempo usados aqui são formatados de acordo com o objeto C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) - D.HH:MM:SS.  Assim, 80 dias e 30 minutos seria `80.00:30:00`.  Os D principal pode ser descartado se for zero, então 90 minutos seria `00:90:00`.  
 
 > [!NOTE]
 > Veja um exemplo de cenários.

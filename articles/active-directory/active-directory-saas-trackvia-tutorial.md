@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o TrackVia | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o TrackVia."
+title: 'Tutorial: Integração do Azure Active Directory com o TrackVia | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Active Directory do Azure e o TrackVia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 51b040e1dfaba8fff8136e8947edf716919f53b0
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: f0b0a2f29a1c14477fcd52e03fdfc47fee728c78
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34348386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Tutorial: Integração do Azure Active Directory ao TrackVia
 
@@ -30,7 +31,7 @@ A integração do TrackVia ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no TrackVia (logon único) com as contas do Azure AD deles.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -126,11 +127,22 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 6. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-    
-7. Para configurar o logon único no lado do **TrackVia**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do TrackVia](mailto:support@trackvia.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Sobre a seção **Configuração de TrackVia**, clique em **Configurar TrackVia** para abrir a janela **Configurar o logon**. Copie a **ID da Entidade SAML** da **seção Referência Rápida.**
+
+    ![Configuração de TrackVia](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+    
+8. Na janela de navegador diferente, faça logon no site TrackVia da sua empresa como um administrador.
+
+9. Clique em configurações **Minha conta** de TrackVia e, em seguida, selecione a guia **Logon Único**, execute as seguintes etapas:
+
+    ![Configuração de TrackVia](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+    a. Na caixa de texto **ID de entidade do provedor de identidade**, cole o valor **ID da entidade SAML** que você copiou do portal do Azure.
+
+    b. Selecione **Escolher arquivo** para carregar o arquivo de metadados que você baixou do portal do Azure.
+
+    c. Clique em **Salvar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -210,9 +222,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -227,4 +237,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-

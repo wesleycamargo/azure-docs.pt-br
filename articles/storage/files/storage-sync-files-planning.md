@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077667"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planejando uma implantação de Sincronização de Arquivo do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -46,7 +47,14 @@ O agente de Sincronização de arquivos do Azure é um pacote baixável que perm
     - C:\Arquivos de Programas\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Ponto de extremidade do servidor
-Um ponto de extremidade do servidor representa um local específico em um servidor registrado, como uma pasta em um volume do servidor. Vários pontos de extremidade do servidor podem existir no mesmo volume se seus namespaces não forem sobrepostos (por exemplo, `F:\sync1` e `F:\sync2`). Você pode configurar políticas de disposição em camada de nuvem individualmente para cada ponto de extremidade de servidor. Atualmente, não é possível criar um ponto de extremidade do servidor para a raiz de um volume (por exemplo `F:\` ou `C:\myvolume`, se um volume está montado como um ponto de montagem).
+Um ponto de extremidade do servidor representa um local específico em um servidor registrado, como uma pasta em um volume do servidor. Vários pontos de extremidade do servidor podem existir no mesmo volume se seus namespaces não forem sobrepostos (por exemplo, `F:\sync1` e `F:\sync2`). Você pode configurar políticas de disposição em camada de nuvem individualmente para cada ponto de extremidade de servidor. 
+
+Você pode criar um ponto de extremidade do servidor por meio de um ponto de montagem. Observe que os pontos de montagem no ponto de extremidade do servidor são ignorados.  
+
+Você pode criar um ponto de extremidade do servidor no volume do sistema, mas haverá duas limitações, se você fizer isso:
+* A disposição em camadas de nuvem não pode ser habilitada.
+* A restauração rápida de namespace (em que o sistema rapidamente desativa o namespace inteiro e, em seguida, começa a recuperar o conteúdo) não é executada.
+
 
 > [!Note]  
 > Apenas volumes não removíveis são compatíveis.  Não há suporte para unidades mapeadas de um compartilhamento remoto para um caminho de ponto de extremidade do servidor.  Além disso, um ponto de extremidade do servidor pode estar localizado no volume do sistema do Windows, embora a disposição em camadas de nuvem não seja compatível com o volume do sistema.
@@ -105,7 +113,7 @@ Versões futuras do Windows Server serão adicionadas à medida que forem libera
 | ~$\*.\* | Arquivo temporário do Office |
 | \*.tmp | Arquivo temporário |
 | \*.laccdb | Arquivo de bloqueio do banco de dados do Access|
-| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| 635D02A9D91C401B97884B82B3BCDAEA.* | Arquivo de sincronização interno|
 | \\Informações de Volume do Sistema | Pasta específica do volume |
 | $RECYCLE.BIN| Pasta |
 | \\SyncShareState | Pasta para sincronização |

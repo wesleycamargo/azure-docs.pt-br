@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309599"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -38,7 +39,8 @@ A amostragem reduz os custos de tráfego e de dados e ajuda a evitar a limitaç�
 ## <a name="types-of-sampling"></a>Tipos de amostragem
 Há três módulos de amostragem alternativos:
 
-* **amostragem adaptável** ajusta automaticamente o volume da telemetria enviada do SDK para seu aplicativo ASP.NET. Começando com o SDK v 2.0.0-beta3, esse é o método de amostragem padrão. A amostragem adaptável está disponível atualmente somente para telemetria ASP.NET do lado do servidor. 
+* **amostragem adaptável** ajusta automaticamente o volume da telemetria enviada do SDK para seu aplicativo ASP.NET. Começando com o SDK v 2.0.0-beta3, esse é o método de amostragem padrão. A amostragem adaptável está disponível atualmente somente para telemetria ASP.NET do lado do servidor. Para aplicativos do Asp.NET Core direcionados a Framework completo, a amostragem adaptável está disponível na versão 1.0.0 do SDK Microsoft.ApplicationInsights.AspNetCore. Para aplicativos do Asp.NET Core direcionados a NetCore, a amostragem adaptável está disponível na versão 2.2.0-beta1 do SDK Microsoft.ApplicationInsights.AspNetCore.
+
 * **amostragem de taxa fixa** reduz o volume de telemetria enviado do seu servidor ASP.NET ou servidor Java e dos navegadores dos seus usuários. Você define a taxa. O cliente e o servidor sincronizarão suas amostragens para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
 * A **amostragem de ingestão** funciona no portal do Azure. Ela descarta parte da telemetria que chega em seu aplicativo, na taxa de amostragem que você definir. Ela não reduz o tráfego de telemetria enviado do seu aplicativo, mas ajuda você a se manter em sua cota mensal. A principal vantagem da amostragem de ingestão é que você pode definir a taxa de amostragem sem reimplantar o aplicativo e ela funciona uniformemente para todos os servidores e clientes. 
 
@@ -335,7 +337,7 @@ Recurso da taxa de amostragem fixa do SDK em versões do ASP.NET de 2.0.0 e Java
 
 O algoritmo de amostragem decide quais itens de telemetria descartar e quais manter (se estiver no SDK ou no serviço Application Insights). A decisão de amostragem baseia-se em várias regras que visam preservar todos os pontos de dados inter-relacionados intactos, mantendo uma experiência de diagnóstico no Application Insights que seja acionável e confiável mesmo com um conjunto reduzido de dados. Por exemplo, se para uma solicitação com falha seu aplicativo enviar itens de telemetria adicionais (como exceção e rastreamentos registrados desta solicitação), a amostragem não dividirá essa solicitação e outra telemetria. Ela mantém ou remove todos juntos. Como resultado, quando você examinar os detalhes da solicitação no Application Insights, é possível ver sempre a solicitação junto com seus itens de telemetria associados. 
 
-Para aplicativos que definem o “usuário” (ou seja, a maioria dos aplicativos Web típicos), a decisão de amostragem é baseada no hash da ID de usuário, o que significa que toda a telemetria para qualquer usuário específico é preservada ou removida. Para os tipos de aplicativos que não definem usuários (como serviços Web), a decisão de amostragem baseia-se na ID de operação da solicitação. Por fim, para os itens de telemetria que não têm uma ID de usuário nem de operação definida (por exemplo, itens telemetria relatados dos threads assíncronos sem contexto HTTP), a amostragem apenas captura um percentual dos itens de telemetria de cada tipo. 
+A decisão de amostragem baseia-se a id da operação da solicitação, o que significa que todos os itens de telemetria que pertencem a uma determinada operação são preservados ou descartados. Para os itens de telemetria que não têm uma ID de usuário definida (por exemplo, itens telemetria relatados dos threads assíncronos sem contexto HTTP), a amostragem apenas captura um percentual dos itens de telemetria de cada tipo. Antes de 2.5.0-beta2 do SDK do .NET e 2.2.0-beta3 do ASP.NET Core SDK, a decisão de amostragem foi baseada no hash da id do usuário para aplicativos que definem o "usuário" (ou seja, aplicativos web mais comuns). Para os tipos de aplicativos que não definiam usuários (como serviços Web), a decisão de amostragem baseava-se na ID de operação da solicitação.
 
 Ao apresentar a telemetria de volta para você, o serviço Application Insights ajusta as métricas pelo mesmo percentual de amostragem usado no momento da coleta, para compensar os pontos de dados ausentes. Portanto, ao examinar a telemetria no Application Insights, os usuários veem aproximações estatisticamente corretas que estão muito próximas aos números reais.
 

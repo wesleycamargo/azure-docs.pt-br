@@ -10,11 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 535c16da137b114704aa9a2e97576ced5e9eba44
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187592"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Faça o backup e restauração no SQL Data Warehouse
 Aprenda a fazer backup e restauração do banco de dados no SQL Data Warehouse do Azure. Use backups de data warehouse para restaurar o data warehouse para um ponto de restauração na região primária. Use backups com redundância geográfica para restaurar para uma região geográfica diferente. 
@@ -55,9 +56,9 @@ Quando você remove um data warehouse, o SQL Data Warehouse cria um instantâneo
 > 
 
 ## <a name="geo-backups"></a>Backups geográficos
-O SQL Data Warehouse executa um backup geográfico uma vez por dia em um [data center emparelhado](../best-practices-availability-paired-regions.md). O RPO de uma restauração geográfica é de 24 horas. É possível restaurar o backup geográfico para o servidor na região geográfica emparelhada. Um backup geográfico garante que você possa restaurar um data warehouse caso não seja possível acessar os instantâneos em sua região primária.
+O SQL Data Warehouse executa um backup geográfico uma vez por dia em um [data center emparelhado](../best-practices-availability-paired-regions.md). O RPO de uma restauração geográfica é de 24 horas. Você pode restaurar o backup geográfico para um servidor em qualquer outra região em que o SQL Data Warehouse tem suporte. Um backup geográfico garante que você possa restaurar um data warehouse caso não seja possível acessar os instantâneos em sua região primária.
 
-Os backups geográficos são ativados por padrão. Se o data warehouse for adequado para elasticidade, será possível [recusar](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se desejar. Não é possível recusar os backups geográficos com o nível de desempenho otimizado para computação.
+Os backups geográficos são ativados por padrão. Se o data warehouse for Gen1, será possível [recusar](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se desejar. Você não pode recusar backups geográficos para Gen2, pois a proteção de dados é uma garantia interna.
 
 ## <a name="backup-costs"></a>Custos de backup
 Você observará que a fatura do Azure tem um item de linha para o Armazenamento Premium do Azure e um item de linha para armazenamento com redundância geográfica. O encargo do Armazenamento Premium é o custo total para armazenar seus dados na região primária, que inclui instantâneos.  O encargo com redundância geográfica abrange o custo para armazenar os backups geográficos.  

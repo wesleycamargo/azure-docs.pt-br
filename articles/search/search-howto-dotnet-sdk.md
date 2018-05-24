@@ -7,40 +7,49 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/22/2017
+ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: b50dda3847431299d7a2ffac84ecd89f3c4a586d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e8a492a0786281bdc1d7c2123a7188c32a124e13
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194117"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Como usar o Azure Search de um aplicativo .NET
 Este artigo é um passo a passo para ajudar você a usar o [SDK do .NET do Azure Search](https://aka.ms/search-sdk). Você pode usar o SDK do .NET para implementar uma experiência de pesquisa avançada em seu aplicativo usando o Azure Search.
 
 ## <a name="whats-in-the-azure-search-sdk"></a>Novidades no SDK do Azure Search
-O SDK é composto por um uma biblioteca de cliente, `Microsoft.Azure.Search`. Ele permite que você gerencie seus índices, fontes de dados e indexadores, carregue e gerencie documentos e execute consultas, sem a necessidade de lidar com os detalhes de HTTP e JSON.
+O SDK consiste em algumas bibliotecas de clientes que permitem que você gerencie seus índices, fontes de dados, indexadores e mapas de sinônimos, carregue e gerencie documentos e execute consultas, sem a necessidade de lidar com os detalhes de HTTP e JSON. Essas bibliotecas de cliente são distribuídas como pacotes NuGet.
 
-A biblioteca de cliente define classes como `Index`, `Field` e `Document`, e operações como `Indexes.Create` e `Documents.Search` nas classes `SearchServiceClient` e `SearchIndexClient`. Essas classes são organizadas nos namespaces a seguir:
+O principal pacote NuGet é `Microsoft.Azure.Search`, o que é um pacote meta que inclui todos os outros pacotes, como dependências. Use esse pacote se você estiver apenas começando ou se você souber que seu aplicativo precisará de todos os recursos do Azure Search.
+
+Os outros pacotes NuGet no SDK são:
+ 
+  - `Microsoft.Azure.Search.Data`: use este pacote se você estiver desenvolvendo um aplicativo .NET usando o Azure Search e você só precisa consultar ou atualizar documentos em seus índices. Se você também precisa criar ou atualizar índices, mapas de sinônimo ou outros recursos de nível de serviço, use o `Microsoft.Azure.Search` pacote em vez disso.
+  - `Microsoft.Azure.Search.Service`: use este pacote se você estiver desenvolvendo automação no .NET para gerenciar índices do Azure Search, mapas de sinônimo, indexadores, fontes de dados ou outros recursos de nível de serviço. Se você precisar apenas consultar ou atualizar em seus índices, use o `Microsoft.Azure.Search.Data` pacote em vez disso. Se você precisar de toda a funcionalidade do Azure Search, use o `Microsoft.Azure.Search` pacote em vez disso.
+  - `Microsoft.Azure.Search.Common`: Tipos comuns necessários para as bibliotecas .NET do Azure Search. Você não precisa usar esse pacote diretamente em seu aplicativo; somente é destinada a ser usado como uma dependência.
+
+A diversas bibliotecas de clientes definem classes como `Index`, `Field` e `Document`, e operações como `Indexes.Create` e `Documents.Search` nas classes `SearchServiceClient` e `SearchIndexClient`. Essas classes são organizadas nos namespaces a seguir:
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
 A versão atual do SDK .Net do Azure Search está disponível para o público geral. Se você quer fornecer comentários para que possamos incorporar na próxima versão, visite nossa [página de comentários](https://feedback.azure.com/forums/263029-azure-search/).
 
-O SDK do .NET dá suporte à versão `2016-09-01` da [API REST da Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Agora, essa versão inclui suporte para analisadores personalizados e suporte para indexador de Tabela do Azure e Blob do Azure. Os recursos de versão prévia que *não* fazem parte dessa versão, como o suporte para indexação de arquivos JSON e CSV, estão em [versão prévia](search-api-2016-09-01-preview.md) e disponíveis por meio da [versão 4.0.1-preview do SDK do .NET](https://aka.ms/search-sdk-preview).
+O SDK do .NET dá suporte à versão `2017-11-11` da [API REST da Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Essa versão agora inclui suporte para sinônimos, bem como aprimoramentos incrementais para indexadores. Os recursos de versão prévia que *não* fazem parte dessa versão, como o suporte para indexação de arquivos CSV e matrizes JSON, estão em [versão prévia](search-api-2016-09-01-preview.md) e disponíveis por meio da [versão 4.0-preview do SDK do .NET](https://aka.ms/search-sdk-preview).
 
 Esse SDK não oferece suporte a [Operações de Gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/), como criar e dimensionar os serviços do Search e gerenciar chaves de API. Se você precisar gerenciar seus recursos de Pesquisa a partir de um aplicativo .NET, é possível usar o [SDK de Gerenciamento do .NET da Azure Search](https://aka.ms/search-mgmt-sdk).
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>Atualizando para a última versão do SDK
-Se você já estiver usando uma versão mais antiga do SDK do .NET do Azure Search e quiser atualizar para a versão disponível para o público geral, [este artigo](search-dotnet-sdk-migration.md) explicará como fazer isso.
+Se você já estiver usando uma versão mais antiga do SDK do .NET do Azure Search e quiser atualizar para a versão disponível para o público geral, [este artigo](search-dotnet-sdk-migration-version-5.md) explicará como fazer isso.
 
 ## <a name="requirements-for-the-sdk"></a>Requisitos para o SDK
 1. Visual Studio 2017.
 2. Seu próprio serviço de Azure Search. Para usar o SDK, você precisará do nome do serviço e de uma ou mais chaves de API. [Criar um serviço no portal](search-create-service-portal.md) ajudará você com estas etapas.
-3. Baixe o [pacote NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) do SDK do .NET do Azure Search usando "Gerenciar pacotes NuGet" no Visual Studio. Basta procurar o nome do pacote `Microsoft.Azure.Search` em NuGet.org.
+3. Baixe o [pacote NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) do SDK do .NET do Azure Search usando "Gerenciar pacotes NuGet" no Visual Studio. Basta procurar o nome do pacote `Microsoft.Azure.Search` em NuGet.org (ou um dos outros nomes de pacote acima se você precisar somente de um subconjunto da funcionalidade).
 
-O SDK do .NET do Azure Search oferece suporte a aplicativos voltados para o .NET Framework 4.6 e o .NET Core.
+O SDK do .NET do Azure Search oferece suporte a aplicativos voltados para o .NET Framework 4.5.2 e superior, além do .NET Core.
 
 ## <a name="core-scenarios"></a>Principais cenários
 Há várias coisas que você precisará fazer em seu aplicativo de pesquisa. Neste tutorial, abordaremos os principais cenários:

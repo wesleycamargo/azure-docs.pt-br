@@ -3,8 +3,8 @@ title: Criar uma máquina virtual do Azure com Rede Acelerada | Microsoft Docs
 description: Saiba como criar uma máquina virtual Linux com Rede Acelerada.
 services: virtual-network
 documentationcenter: ''
-author: jdial
-manager: jeconnoc
+author: gsilva5
+manager: gedegrac
 editor: ''
 ms.assetid: ''
 ms.service: virtual-network
@@ -13,22 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
-ms.author: jimdial
-ms.openlocfilehash: 995f40599c059434c419bea95019f8700f756ad8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: gsilva
+ms.openlocfilehash: de69cdf69f30639d048dccd7d433c86f6cb9db7b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894170"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual do Windows com Rede Acelerada
 
-> [!IMPORTANT]
-> Máquinas virtuais devem ser criadas com a Rede Acelerada habilitada. Este recurso não pode ser habilitado em máquinas virtuais existentes. Conclua as etapas a seguir para habilitar a rede acelerada:
->   1. Excluir a máquina virtual
->   2. Recriar uma máquina virtual com rede acelerada habilitada
->
-
-Neste tutorial, você aprenderá a criar uma VM (máquina virtual) do Windows com Rede Acelerada. Rede acelerada permite SR-IOV (virtualização de E/S de raiz única) para uma VM, melhorando muito seu desempenho de rede. Esse caminho de alto desempenho ignora o host do caminho de dados, reduzindo a latência, a tremulação e a utilização da CPU para uso com as cargas de trabalho de rede mais exigentes nos tipos de VM compatíveis. A figura abaixo mostra a comunicação entre duas VMs com e sem rede acelerada:
+Neste tutorial, você aprenderá a criar uma VM (máquina virtual) do Windows com Rede Acelerada. Para criar uma VM Linux com Rede Acelerada, consulte [Criar uma VM Linux com Rede Acelerada](create-vm-accelerated-networking-cli.md). Rede acelerada permite SR-IOV (virtualização de E/S de raiz única) para uma VM, melhorando muito seu desempenho de rede. Esse caminho de alto desempenho ignora o host do caminho de dados, reduzindo a latência, a tremulação e a utilização da CPU para uso com as cargas de trabalho de rede mais exigentes nos tipos de VM compatíveis. A figura abaixo mostra a comunicação entre duas VMs com e sem rede acelerada:
 
 ![Comparação](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -43,23 +38,30 @@ Os benefícios da rede acelerada aplicam-se somente à VM em que ela está habil
 * **Tremulação reduzida:** processamento de comutador virtual depende da quantidade de política que precisa ser aplicada e da carga de trabalho da CPU que está fazendo o processamento. O descarregamento da imposição de política para o hardware remove essa variabilidade ao entregar pacotes diretamente à VM, removendo a comunicação do host para a VM e todas as interrupções e mudanças de contexto de software.
 * **Menor utilização da CPU:** ignorar o comutador virtual no host resulta em menor utilização da CPU para processar o tráfego de rede.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
-Microsoft Windows Server 2012 R2 Datacenter e Windows Server 2016.
+## <a name="limitations-and-constraints"></a>Limitações e Restrições
 
-## <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
-A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 4 ou mais vCPUs. Em instâncias como D/DSv3 ou E/ESv3 que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 8 ou mais vCPUs. As séries compatíveis são: D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2 e Ms/Mms.
+### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+As seguintes distribuições têm suporte imediato da Galeria do Azure: 
+* **Windows Server 2016 Datacenter** 
+* **Windows Server 2012 R2 Datacenter** 
+
+### <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
+A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs.  Essas séries com suporte são: D/DSv2 e F/Fs
+
+Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. As séries compatíveis são: D/DSv3, E/ESv3, Fsv2 e Ms/Mms
 
 Para obter mais informações sobre instâncias de VM, consulte [Tamanhos de VM do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="regions"></a>Regiões
+### <a name="regions"></a>Regiões
 Disponível em todas as regiões do Azure públicas e na Nuvem do Azure Governamental.
 
-## <a name="limitations"></a>Limitações
-Existem as seguintes limitações ao usar essa funcionalidade:
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Habilitando Rede Acelerada em uma VM em execução
+Um tamanho de VM suportado sem rede acelerada habilitada só pode ter o recurso habilitado quando ele for interrompido e desalocado.
 
-* **Criação de interface de rede:** rede acelerada só pode ser habilitada para uma NIC nova. Não pode ser habilitada para uma NIC existente.
-* **Criação da VM:** uma NIC com rede acelerada habilitada somente poderá ser conectada a uma VM quando a VM for criada. A NIC não pode ser anexada a uma VM existente. Se adicionar a máquina virtual a um grupo de disponibilidades definida, todas as VMs no conjunto de disponibilidades também deverão a rede acelerada habilitada.
-* **Implantação somente por meio do Azure Resource Manager:** máquinas virtuais (clássicas) não podem ser implantadas com Rede Acelerada.
+### <a name="deployment-through-azure-resource-manager"></a>Implantação por meio do Azure Resource Manager
+Máquinas virtuais (clássicas) não podem ser implantadas com Rede Acelerada.
+
+## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Criar uma VM do Windows com Rede Acelerada do Azure
 
 Embora este artigo forneça etapas para criar uma máquina virtual com a rede acelerada usando o Azure PowerShell, você também pode [criar uma máquina virtual com a rede acelerada usando o Portal do Azure](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, em **Configurações**, selecione **Habilitado** em **Rede acelerada**. A opção de habilitar a rede acelerada não aparecerá no portal, a menos que você tenha selecionado um [sistema operacional compatível](#supported-operating-systems) e o [tamanho de VM](#supported-vm-instances). Após a criação da máquina virtual, será necessário completar as instruções em [Confirmar se o driver está instalado no sistema operacional](#confirm-the-driver-is-installed-in-the-operating-system).
 
@@ -210,3 +212,91 @@ Depois de criar a VM no Azure, conecte-se à VM e verifique se o driver está in
     ![Gerenciador de Dispositivos](./media/create-vm-accelerated-networking/device-manager.png)
 
 A Rede Acelerada agora está habilitada para sua VM.
+
+## <a name="enable-accelerated-networking-on-existing-vms"></a>Habilitar Rede Acelerada em VMs existentes
+Se você tiver criado uma VM sem Rede Acelerada, será possível habilitar esse recurso em uma VM existente.  A VM deve dar suporte à Rede Acelerada atendendo aos pré-requisitos a seguir que também estão descritos acima:
+
+* A VM deve ser um tamanho com suporte para Rede Acelerada
+* A VM deve ser uma imagem da Galeria do Azure com suporte (e a versão de kernel do Linux)
+* Todas as VMs em um conjunto de disponibilidade ou VMSS devem ser interrompido/desalocadas antes de se habilitar Rede Acelerada em uma NIC
+
+### <a name="individual-vms--vms-in-an-availability-set"></a>VMs individuais e VMs em um conjunto de disponibilidade
+Primeiro interrompa/desaloque a VM ou, se for um Conjunto de Disponibilidade, todas as VMs no conjunto:
+
+```azurepowershell
+Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
+    -Name "myVM"
+```
+
+Importante: observe que se sua VM tiver sido criada individualmente, sem um conjunto de disponibilidade, você só precisará parar/desalocar a VM individual para habilitar a Rede Acelerada.  Se sua VM tiver sido criada com um conjunto de disponibilidade, todas as VMs contidas no conjunto de disponibilidade precisarão ser interrompidas/desalocadas antes de habilitar a Rede Acelerada em qualquer uma das NICs. 
+
+Uma vez interrompida, habilite a Rede Acelerada na NIC de sua VM:
+
+```azurepowershell
+$nic = Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+    -Name "myNic"
+
+$nic.EnableAcceleratedNetworking = $true
+
+$nic | Set-AzureRmNetworkInterface
+```
+
+Reinicie a VM ou, se em um Conjunto de Disponibilidade, todas as VMs no conjunto, e confirme se a Rede Acelerada está habilitada: 
+
+```azurepowershell
+Start-AzureRmVM -ResourceGroup "myResourceGroup" `
+    -Name "myVM"
+```
+
+### <a name="vmss"></a>VMSS
+O VMSS é ligeiramente diferente, mas segue o mesmo fluxo de trabalho.  Em primeiro lugar, interrompa as VMs:
+
+```azurepowershell
+Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+    -VMScaleSetName "myScaleSet"
+```
+
+Depois que as VMs forem interrompidas, atualize a propriedade de Rede Acelerada na interface de rede:
+
+```azurepowershell
+$vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet"
+
+$vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
+
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
+```
+
+Observe que um VMSS tem upgrades de VM que aplicam atualizações usando três diferentes configurações: automática, sem interrupção e manual.  Nessas instruções, a política é definida como automática para que o VMSS acompanhe as alterações imediatamente após a reinicialização.  Para defini-la como automática para que as alterações sejam aplicadas imediatamente: 
+
+```azurepowershell
+$vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
+```
+
+Finalmente, reinicie o VMSS:
+
+```azurepowershell
+Start-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+    -VMScaleSetName "myScaleSet"
+```
+
+Após você reiniciar, aguarde o término dos upgrades. Após a conclusão, o VF será exibido dentro da VM.  (Verifique se você está usando um tamanho de VM e um sistema operacional com suporte)
+
+### <a name="resizing-existing-vms-with-accelerated-networking"></a>Redimensionar VMs existentes com Rede Acelerada
+
+VMs com Rede Acelerada habilitada só podem ser redimensionadas para VMs com suporte para Rede Acelerada.  
+
+Uma VM com Rede Acelerada habilitada não pode ser redimensionada para uma instância de VM que não oferece suporte a Rede Acelerada usando a operação de redimensionamento.  Em vez disso, para redimensionar uma dessas VMs: 
+
+* Interrompa/desaloque a VM ou, em um conjunto de disponibilidade/VMSS, pare/desaloque todas as VMs no conjunto/VMSS.
+* A Rede Acelerada deve ser desabilitada na NIC da VM ou, se em um conjunto de disponibilidade/VMSS, todas as VMs no conjunto/VMSS.
+* Quando a Rede Acelerada é desabilitada, a VM/o conjunto de disponibilidade/o VMSS podem ser movidos para um novo tamanho que não oferece suporte para Rede Acelerada e reiniciados.  
+
+
+

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: f58fb5090aba3c5052d1bbdec76225d0ae50e8f2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777070"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -57,10 +58,11 @@ Se você não tiver certeza de que o certificado é proveniente, você pode tent
 
 Se você não conseguir encontrar certificados autoassinados usando as etapas anteriores, entre em contato conosco por meio da ferramenta de comentários para obter mais ajuda. Como alternativa, você pode optar por iniciar o Gerenciador de Armazenamento na linha de comando com o `--ignore-certificate-errors` sinalizador. Quando iniciado com esse sinalizador, o Gerenciador de Armazenamento irá ignorar erros de certificado.
 
-## <a name="sign-in-issues"></a>Problemas de entrada
+## <a name="sign-in-issues"></a>Problemas de credenciais
 
 Se você não conseguir entrar, tente os seguintes métodos:
 
+* Se você estiver usando macOS e a janela de logon não aparecer na caixa de diálogo "Aguardando para autenticação...", tente [estas etapas](#Resetting-the-Mac-Keychain)
 * Reiniciar o Gerenciador de Armazenamento
 * Se a janela de autenticação estiver em branco, aguarde pelo menos um minuto antes de fechar a caixa de diálogo de autenticação.
 * Certifique-se de que as configurações de proxy e de certificado estão configuradas adequadamente no seu computador e no Gerenciador de Armazenamento
@@ -96,7 +98,8 @@ Se não for possível remover uma conta anexada ou um recurso de armazenamento p
 
 Primeiro, certifique-se de que as seguintes informações inseridas estejam corretas:
 
-*O URL do proxy e o número de porta *Nome de usuário e senha, caso seja solicitado pelo proxy
+* A URL do proxy e o número da porta
+* Nome de usuário e senha, caso seja solicitado pelo proxy
 
 ### <a name="common-solutions"></a>Soluções comuns
 
@@ -129,7 +132,7 @@ Se as configurações de proxy estiverem corretas, talvez seja necessário entra
 
 Se você estiver conectado ao Azure por meio de um proxy, verifique se as configurações do proxy estão corretas. Se você tiver recebido acesso a um recurso do proprietário da assinatura ou conta, verifique se você tem permissões de leitura ou de lista para esse recurso.
 
-### <a name="issues-with-sas-url"></a>Problemas com a URL SAS
+## <a name="issues-with-sas-url"></a>Problemas com a URL SAS
 Se você estiver se conectando a um serviço usando uma URL SAS e enfrentando este erro:
 
 * Verifique se a URL fornece as permissões necessárias para ler ou lista recursos.
@@ -152,6 +155,19 @@ Para distribuições Linux diferentes do Ubuntu 16.04, talvez seja necessário i
 * GCC atualizado
 
 Dependendo da sua distribuição, talvez seja necessário instalar outros pacotes. O Gerenciador de Armazenamento[Notas de Versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contém etapas específicas para algumas distribuições.
+
+## <a name="resetting-the-mac-keychain"></a>Redefinindo o conjunto de chaves do Mac
+O conjunto de chaves do macOS, às vezes, pode entrar em um estado que causa problemas para a biblioteca de autenticação do Gerenciador de Armazenamento. Para obter o conjunto de chaves fora desse estado, tente as seguintes etapas:
+1. Feche o Gerenciador de Armazenamento.
+2. Abra o conjunto de chaves (**cmd + espaço**, digite conjunto de chaves, clique enter).
+3. Selecione o conjunto de chaves "logon".
+4. Clique no ícone de cadeado para bloquear o conjunto de chaves (o cadeado será animado para uma posição bloqueada quando concluído, pode levar alguns segundos, dependendo de quais aplicativos que você tiver aberto).
+
+    ![imagem](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Inicie o Gerenciador de Armazenamento.
+6. Um pop up deve aparecer dizendo algo como "Hub do serviço quer acessar o conjunto de chaves", digite sua senha de conta de administrador do Mac e clique em **Permitir sempre** (ou **Permitir** se **Permitir sempre** não estiver disponível).
+7. Tente entrar.
 
 ## <a name="next-steps"></a>Próximas etapas
 

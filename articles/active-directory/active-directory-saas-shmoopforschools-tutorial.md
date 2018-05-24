@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Shmoop for Schools | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Shmoop for Schools."
+title: 'Tutorial: Integração do Azure Active Directory com o Shmoop for Schools | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Shmoop for Schools.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 48db70834f96adbb7097457caca8489ea1a57da5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e824fe7a74c4adc619f7fa324aa6fa28dacecf24
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integração do Azure Active Directory com o Shmoop for Schools
 
@@ -32,7 +33,7 @@ A integração do Shmoop for Schools ao Azure AD oferece os seguintes benefício
 
 Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Shmoop for Schools, você precisa dos seguintes itens:
 
@@ -51,7 +52,7 @@ Para testar as etapas neste tutorial, é recomendável:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Shmoop for Schools a partir da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="add-shmoop-for-schools-from-the-gallery"></a>Adicionar Shmoop for Schools da galeria
 Para configurar a integração do Shmoop for Schools ao Azure AD, você precisará adicionar o Shmoop for Schools a partir da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -79,8 +80,6 @@ Para configurar a integração do Shmoop for Schools ao Azure AD, você precisar
 Nesta seção, você configurará e testará o logon único do Azure AD com o Shmoop for Schools, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Shmoop for Schools é equivalente a um usuário do Azure AD. Em outras palavras, você precisa estabelecer um vínculo entre um usuário do Azure AD e o usuário relacionado no Shmoop For Schools.
-
-No Shmoop For Schools, dê ao valor **Username** o mesmo valor do **nome de usuário** no Azure AD. Agora você estabeleceu a relação de vinculação.
 
 Para configurar e testar o logon único do Azure AD com o Shmoop for Schools, conclua os seguintes blocos de construção:
 
@@ -146,31 +145,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. Para gerar a URL de **Metadados**, execute as seguintes etapas:
+7. Na seção **Certificado de Autenticação SAML** clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
 
-    a. Selecione **Registros do Aplicativo**.
-    
-    ![Configurar o logon único](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appregistrations.png)
-   
-    b. Para abrir a caixa de diálogo **Pontos de Extremidade**, selecione **Pontos de Extremidade**.  
-    
-    ![Configurar o logon único](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpointicon.png)
+    ![O link de download do Certificado](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
-    c. Clique no botão Copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no Bloco de Notas.
-    
-    ![Configurar o logon único](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpoint.png)
-     
-    d. Vá para a página de propriedades do **Shmoop For Schools**. Em seguida, copie a **ID do aplicativo** usando o botão **Copiar**. Cole no Bloco de Notas.
- 
-    ![Configurar o logon único](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.   
-
-8. Para configurar o logon único no lado do **Shmoop For Schools**, é necessário enviar a **URL de Metadados** para a [equipe de suporte do Shmoop For Schools](mailto:support@shmoop.com).
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com) enquanto você estiver configurando o aplicativo. Depois de adicionar esse aplicativo a partir da seção **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único** e acesse a documentação inserida na seção **Configuração**, na parte inferior. Você pode ler mais sobre o recurso de documentação inserida na [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+8. Para configurar o logon único no lado do **Shmoop For Schools**, é necessário enviar a **URL de Metadados da Federação de Aplicativo** para a [equipe de suporte do Shmoop For Schools](mailto:support@shmoop.com).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

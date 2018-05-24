@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffa60e24b93caaaefcab70c99fa2c76065d97233
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187701"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Arquitetura de replicação do Azure para o Azure
 
@@ -46,7 +47,7 @@ Ao habilitar a replicação de VM do Azure, os seguintes recursos são criados a
 
 **Recurso** | **Detalhes**
 --- | ---
-**Grupo de recursos de destino** | O grupo de recursos ao qual as VMs replicadas pertencem após o failover.
+**Grupo de recursos de destino** | O grupo de recursos ao qual as VMs replicadas pertencem após o failover. O local desse grupo de recursos pode ser em qualquer região do Azure exceto a região do Azure em que as máquinas virtuais de origem estão hospedadas.
 **Rede virtual de destino** | A rede virtual na qual as VMs replicadas estão localizadas após o failover. Um mapeamento de rede é criado entre redes virtuais de origem e de destino e vice-versa.
 **Contas de armazenamento de cache** | Antes que as alterações nas VMs de origem sejam replicadas para uma conta de armazenamento de destino, elas são rastreadas e enviadas para a conta de armazenamento de cache no local de origem. Essa etapa garante um impacto mínimo sobre os aplicativos de produção em execução na VM.
 **Contas de armazenamento de destino (a VM de origem não usa discos gerenciados)**  | Contas de armazenamento no local de destino para as quais os dados são replicados.

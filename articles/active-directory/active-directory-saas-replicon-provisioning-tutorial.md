@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: v-ant
-ms.openlocfilehash: 8d612012505ea43a3635650c6a38fe993b8e57f6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b6f536ba1711076eab0eb9dcbea7d357e9cebf3d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34345588"
 ---
 # <a name="tutorial-configure-replicon-for-automatic-user-provisioning"></a>Tutorial: Configurar o Replicon para o provisionamento automático de usuário
 
@@ -105,7 +106,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 5. Na seção **Credenciais de Administrador**, insira o **Nome de Usuário Administrador**, **Senha de Administrador** **CompanyId** e **Domínio** da conta do Replicon. Exemplos desses valores são:
 
-    *   No campo **Nome de Usuário Administrador**, popule o nome de usuário da conta do administrador no Locatário do Replicon. Exemplo: contosoadmin.
+    *   No campo **Nome de Usuário Administrador**, popule o nome de usuário da conta do administrador no locatário do Replicon. Exemplo: contosoadmin.
 
     *   No campo **Senha de Administrador**, preencha a senha correspondente ao nome de usuário do administrador.
 
@@ -158,7 +159,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-enterprise-apps-manage-provisioning.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

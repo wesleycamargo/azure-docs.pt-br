@@ -10,11 +10,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187667"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos de Banco de Dados SQL
 Este artigo apresenta as considerações básicas sobre as quais um desenvolvedor deve estar ciente ao escrever código para se conectar ao Banco de Dados SQL do Azure.
@@ -34,7 +35,7 @@ Você pode aproveitar as ferramentas de software livre, como [cheetah](https://g
 ## <a name="resource-limitations"></a>Limitações de recursos
 O Banco de Dados SQL do Azure gerencia os recursos disponíveis para um banco de dados usando dois mecanismos diferentes: Governança de Recursos e Imposição de Limites.
 
-* Mais informações: [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
+* Mais informações: [Limites de modelo de recurso baseado em DTU do Banco de Dados SQL do Azure](sql-database-dtu-resource-limits.md) e [limites de modelo de recurso baseado em vCore do Banco de Dados SQL do Azure (versão prévia)](sql-database-vcore-resource-limits.md).
 
 ## <a name="security"></a>Segurança
 O Banco de Dados SQL do Azure fornece recursos para limitar o acesso, proteger os dados e monitorar atividades em um Banco de Dados SQL.

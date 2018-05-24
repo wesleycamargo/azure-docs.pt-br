@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940180"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o Portal do Azure
 
@@ -120,7 +121,7 @@ Configure o pool de IPs de front-end no balanceador de carga para cada site (con
 
 4. Selecione o balanceador de carga (**mylb**) ao qual você deseja adicionar o pool de IPs de front-end.
 
-5. Em **Configurações**, selecione **Pools de Front-end**. No próximo painel, selecione **Adicionar** na parte superior.
+5. Em **Configurações**, selecione **configuração IP de Front-end**. No próximo painel, selecione **Adicionar** na parte superior.
 
 6. Digite um nome para o endereço IP de front-end (por exemplo, **contosofe** ou **fabrikamfe**).
 
@@ -128,7 +129,7 @@ Configure o pool de IPs de front-end no balanceador de carga para cada site (con
 
 8. Crie o segundo endereço IP de front-end repetindo a <a href="#step3-3">etapa 3</a> até a <a href="#step3-7">etapa 7</a> nesta seção.
 
-Depois que o pool de front-end estiver configurado, os endereços IP serão exibidos nas configurações de **Pool de IP de front-end** do balanceador de carga. 
+Depois que o pool de front-end estiver configurado, os endereços IP serão exibidos nas configurações de **configuração de IP de front-end** do balanceador de carga. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>Etapa 4: Configurar o pool de back-end
 

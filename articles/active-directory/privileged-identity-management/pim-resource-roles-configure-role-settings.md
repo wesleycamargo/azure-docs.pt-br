@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management para Recursos do Azure - Definir configurações de função | Microsoft Docs
+title: Definir configurações de função usando recursos do Azure usando Privileged Identity Management | Microsoft Docs
 description: Descreve como definir configurações de função para o PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,17 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 0fe986d8cdace301fde4045b16d299ba8395457d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 05546be87aec3ec2f44b876a97eeab2121383d61
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32148804"
 ---
-# <a name="privileged-identity-management---resource-roles---configure"></a>Privileged Identity Management - Funções de recurso - Configurar
+# <a name="configure-role-settings-by-using-for-azure-resources-by-using-privileged-identity-management"></a>Definir configurações de função usando recursos do Azure usando Privileged Identity Management 
 
-Definir as configurações de função define os padrões aplicados às atribuições no ambiente de PIM. Para defini-los para o seu recurso, selecione a guia Configurações de função do painel de navegação esquerdo ou no botão de configurações de função na barra de ação em qualquer função para exibir as opções atuais.
+Ao definir as configurações de função, você pode definir as configurações padrão que são aplicadas às atribuições no ambiente de PIM (Privileged Identity Management). Para definir essas configurações para o recurso, selecione a guia **Configurações de função** no painel esquerdo. Você também pode selecionar o botão de configurações de função na barra de ação (em qualquer função) para exibir as opções atuais.
 
 
 ## <a name="select-a-role"></a>Selecione uma função
-Selecione uma função na qual gostaria de fazer uma alteração. Em seguida, selecione Editar para fazer alterações em quaisquer configurações existentes.
+Selecione uma função na qual gostaria de fazer uma alteração. Em seguida, selecione **Editar** para fazer alterações em quaisquer configurações existentes.

@@ -9,11 +9,12 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 87cd4c565a7429ffb7096034823a1f5ff49df195
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1fe162beca258fe8ec3d03ce2844c1abe3176dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188966"
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gerenciar recursos para um banco de dados individual no Banco de Dados SQL do Azure
 
@@ -109,6 +110,6 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre as camadas de serviço, níveis de desempenho e quantidades de armazenamento em [Camadas de serviço](sql-database-service-tiers.md).
+- Saiba mais sobre as camadas de serviço, níveis de desempenho e quantidades de armazenamento, consulte [[Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md).
 - Saiba mais sobre pools elásticos em [Pools elásticos](sql-database-elastic-pool.md).
 - Saiba mais sobre a [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md)

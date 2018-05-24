@@ -12,11 +12,12 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311124"
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Limites de Cota do Azure Data Lake Analytics
 
@@ -24,9 +25,13 @@ Saiba como ajustar e aumentar os limites de cota nas contas do ADLA (Azure Data 
 
 ## <a name="azure-subscriptions-limits"></a>Limites das assinaturas do Azure
 
-**Número máximo de contas do ADLA por assinatura:**5
+**Número máximo de contas do ADLA por assinatura por região:** 5
 
-Esse é o número máximo de contas ADLA que você pode criar por assinatura, por região. Você recebe o erro "Você atingiu o número máximo de contas do Data Lake Analytics permitidas (5) na região sob o nome da assinatura" ao tentar criar a sexta conta do ADLA. Nessa situação, é possível escolher outra região, se adequado, ou excluir qualquer conta ADLA não usada na mesma região ou contatar o suporte do Azure [abrindo um tíquete de suporte](#increase-maximum-quota-limits) para solicitar um aumento de cota.
+Você recebe o erro "Você atingiu o número máximo de contas do Data Lake Analytics permitidas (5) na região sob o nome da assinatura" ao tentar criar a sexta conta do ADLA. 
+
+Se você deseja ultrapassar esse limite, tente estas opções:
+* escolha outra região, se adequado
+* entre em contato com o suporte do Azure [abrindo um tíquete de suporte](#increase-maximum-quota-limits) para solicitar um aumento de cota.
 
 ## <a name="adla-account-limits"></a>Limites da conta do ADLA
 

@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management para recursos do Azure - Ativar funções | Microsoft Docs
+title: Ativar funções para recursos do Azure usando Privileged Identity Management | Microsoft Doc
 description: Descreve como ativar funções no PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,38 +13,40 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 3e5456e7a632639cb82d7ba2b2e073938b1798ef
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a985e67cc566cc45b3ee6b8dc98e91a8f34abd1b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151103"
 ---
-# <a name="privileged-identity-management---resource-roles---activate"></a>Privileged Identity Management - Funções de recurso - Ativar
-A ativação de funções para o Azure Resources apresenta uma nova experiência que permite aos membros qualificados de uma função agendar a ativação para uma data/hora futura e selecionar uma duração de ativação específica dentro do limite máximo (configurado pelos administradores). Saiba como [ativar funções do Azure AD aqui](../active-directory-privileged-identity-management-how-to-activate-role.md).
+# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Ativar funções para recursos do Azure usando Privileged Identity Management
+O Privileged Identity Management (PIM) apresenta uma nova experiência em ativar funções para recursos do Azure. Membros de função qualificados podem agendar a ativação para uma data e hora no futuro. Eles também podem selecionar uma duração de ativação específica até o valor máximo (configurado pelos administradores). Para obter mais informações, consulte [Como ativar ou desativar funções no Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ## <a name="activate-roles"></a>Ativar funções
-Navegue até a seção Minhas funções na barra de navegação à esquerda. Clique em "Ativar" para a função que você deseja ativar.
-![](media/azure-pim-resource-rbac/rbac-roles.png)
+Navegue até a seção **Minhas funções** no painel esquerdo. Selecione **Ativar** para a função que você deseja ativar.
 
-No menu de Ativações, insira a data de início desejada e a hora para ativar a função. Você pode optar por diminuir a duração da ativação (o período de tempo durante o qual a função está ativa) e inserir uma justificativa se necessário; clique em Ativar.
+![Guia "Funções qualificadas" no painel "Minhas funções".](media/azure-pim-resource-rbac/rbac-roles.png)
 
-Se a data de início e a hora não forem modificadas, a função será ativada após alguns segundos. Você verá uma mensagem de notificação de função na fila para ativação na página Minhas funções. Clique no botão para atualizar e essa mensagem será eliminada.
+No menu de **Ativações**, insira a data e a hora de início para ativar a função. Você pode optar por diminuir a duração da ativação (o período de tempo durante o qual a função está ativa) e inserir uma justificativa se necessário. Em seguida, selecione **Ativar**.
 
-![](media/azure-pim-resource-rbac/rbac-activate-notification.png)
+Se a data de início e a hora não forem modificadas, a função será ativada em alguns segundos. No painel **Minhas funções**, uma mensagem do cabeçalho mostra que uma função está na fila para ativação. Selecione o botão para atualizar e essa mensagem será eliminada.
 
-Se a ativação for agendada para uma data e hora futuras, a solicitação pendente será exibida na guia Solicitações pendentes do menu de navegação esquerdo. Caso a ativação de função não seja mais necessária, o usuário pode cancelar a solicitação clicando no botão Cancelar no lado direito da página.
+![Painel de "Minhas funções" com uma mensagem de cabeçalho e uma notificação sobre uma aprovação pendente](media/azure-pim-resource-rbac/rbac-activate-notification.png)
 
-![](media/azure-pim-resource-rbac/rbac-activate-pending.png)
+Se a ativação for agendada para uma data e hora futuras, a solicitação pendente será exibida na guia **Solicitações pendentes** do painel esquerdo. Se a ativação de função não for mais necessária, você pode cancelar a solicitação selecionando o botão **Cancelar**.
+
+![Lista de solicitações pendentes com os botões "Cancelar"](media/azure-pim-resource-rbac/rbac-activate-pending.png)
 
 
-## <a name="just-enough-administration"></a>Administração Just Enough
+## <a name="apply-just-enough-administration-practices"></a>Aplicar as práticas Administração Just Enough
 
-Usar as práticas recomendadas da Administração Just Enough (JEA) nas suas atribuições de função de recurso é simples com o PIM para Azure Resources. Usuários e membros de grupo com atribuições nas Assinaturas ou Grupos de recursos do Azure podem ativar sua atribuição de função existente em escopo reduzido. 
+Usar as práticas recomendadas da Administração Just Enough (JEA) nas suas atribuições de função de recurso é simples com o PIM para recursos do Azure. Usuários e membros de grupo com atribuições nas assinaturas ou grupos de recursos do Azure podem ativar sua atribuição de função existente em escopo reduzido. 
 
 Na página de pesquisa, localize o recurso subordinado que você precisa gerenciar.
 
-![](media/azure-pim-resource-rbac/azure-resources-02.png)
+![Selecionando um recurso](media/azure-pim-resource-rbac/azure-resources-02.png)
 
-Selecione Minhas funções no menu de navegação esquerdo e escolha a função apropriada para ativação. Observe que o tipo de atribuição é Herdada, já que a função foi atribuída para a assinatura, e não para o grupo de recursos, conforme mostrado abaixo.
+Selecione **Minhas funções** no painel esquerdo e escolha a função apropriada para ativação. O tipo de atribuição é **Herdada**, pois a função foi atribuída na assinatura e não para no grupo de recursos.
 
-![](media/azure-pim-resource-rbac/my-roles-02.png)
+![Lista de atribuições de função qualificada, com o tipo de atribuição realçado](media/azure-pim-resource-rbac/my-roles-02.png)

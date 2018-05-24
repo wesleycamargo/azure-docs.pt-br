@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 5933448b40a590b39df5ae4cf07fd858bebcd28f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 602f4c9b7108c0116e83e302bd73838e0902a7f0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157714"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Aprofundamento no autoatendimento de redefinição de senha no Azure AD
 
@@ -49,7 +50,7 @@ Leia as etapas abaixo para saber mais sobre a lógica por trás da página de re
        * Se o desafio do usuário não estiver configurado, o usuário deverá entrar em contato com o administrador para redefinir sua senha.
      * Se a política exige dois desafios, fica garantido que o usuário tem os dados apropriados definidos em pelo menos dois dos desafios habilitados pela política do administrador.
        * Se o desafio do usuário não estiver configurado, o usuário deverá entrar em contato com o administrador para redefinir sua senha.
-   * Verifica se a senha do usuário é gerenciada no local (federado ou sincronizada com hash de senha).
+   * Verifica se a senha do usuário é gerenciada no local (federado, autenticação de passagem ou sincronizada com hash de senha).
      * Se o write-back estiver implantado e a senha do usuário for gerenciada localmente, o usuário poderá continuar a autenticação e a redefinição de sua senha.
      * Se o write-back não estiver implantado e a senha do usuário for gerenciada localmente, o usuário deverá contatar o administrador para redefinir sua senha.
 4. Se for determinado que o usuário pode redefinir sua senha com êxito, ele será orientado pelo processo de redefinição.
@@ -224,8 +225,8 @@ Esta página fornece um status rápido do cliente de write-back local de uma das
 
 Este controle determina se o write-back de senha está habilitado para este diretório. Se o write-back estiver ativado, ele indica o status do serviço de write-back local. Isso será útil se você desejar desabilitar o write-back de senha temporariamente sem precisar reconfigurar o Azure AD Connect.
 
-* Se a opção estiver definida para **Sim**, o write-back será habilitado e os usuários federados e sincronizados com hash de senha poderão redefinir suas senhas.
-* Se a opção estiver definida para **Não**, o write-back será desabilitado e os usuários federados e sincronizados com hash de senha não poderão redefinir suas senhas.
+* Se a opção estiver definida para **Sim**, o write-back será habilitado e os usuários federados, com autenticação de passagem ou sincronizados com hash de senha poderão redefinir suas senhas.
+* Se a opção estiver definida para **Não**, o write-back será habilitado e os usuários federados, com autenticação de passagem ou sincronizados com hash de senha não poderão redefinir suas senhas.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir aos usuários desbloquear contas sem redefinir a senha
 

@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25dcbad8607a651a7dd4b79f4f418cc473a2bf0e
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166482"
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Estender (copiar) alertas do Portal do OMS para o Azure
 O Portal do OMS (Microsoft Operations Management Suite) mostra apenas alertas do Log Analytics.  A nova experiência de alertas agora integrou a experiência de alertas em vários serviços e partes no Microsoft Azure. A nova experiência disponível como **Alertas** no Azure Monitor no Portal do Azure contém alertas de log de atividades, alertas de métrica e alertas de log para o Log Analytics e o Application Insights. 
@@ -36,7 +37,10 @@ Além do benefício acumulado de não precisar navegar fora do Portal do Azure, 
 ## <a name="process-of-extending-your-alerts"></a>Processo de extensão dos alertas
 O processo de extensão de alertas do Portal do OMS para o Azure **não** envolve a alteração de sua definição, consulta ou configuração de alertas de nenhuma forma. A única alteração necessária é que, no Azure, todas as ações, como notificação por email, chamada de webhook, execução de runbook de automação ou conexão com a ferramenta ITSM, são feitas por meio de Grupo de Ação. Portanto, se o grupo de ação apropriado for associado ao seu alerta, ele se tornará estendidos para o Azure.
 
-Como o processo de extensão não é destrutivo e não possui interrupções, a Microsoft estenderá automaticamente os alertas criados no Portal do OMS para os alertas do Azure - a partir de **14 de maio de 2018**. A partir deste dia, a Microsoft começará a programar a extensão dos alertas para o Azure e, gradualmente, disponibilizará todos os alertas no Portal do OMS, gerenciáveis a partir do Portal do Azure. 
+Como o processo de extensão não é destrutivo e não possui interrupções, a Microsoft estenderá automaticamente os alertas criados no Portal do OMS para os alertas do Azure - a partir de **14 de maio de 2018**. A partir deste dia, a Microsoft começará a programar a extensão dos alertas para o Azure e, gradualmente, disponibilizará todos os alertas no Portal do OMS, gerenciáveis a partir do Portal do Azure também. 
+
+> [!NOTE]
+> A partir de 14 de maio de 2018 - a Microsoft iniciará o processo de estender automaticamente os alertas para o Azure. Nem todos os espaços de trabalho e alertas serão estendidos nesse dia; em vez disso, o Microsoft começará a estender alertas automaticamente em partes nas próximas semanas. Portanto, alertas no portal do OMS não serão autoestendidos no Azure imediatamente em 14 de maio de 2018, e o usuário poderá ainda [manualmente estender seus alertas](monitoring-alerts-extend-tool.md) durante esse tempo.
 
 Quando os alertas em um espaço de trabalho do Log Analytics forem agendados para estender para o Azure, eles continuarão a funcionar e **não** comprometerão o monitoramento. Quando agendados, os alertas podem ficar indisponíveis para modificação/edição temporariamente; mas novos alertas do Azure podem continuar a ser criados neste breve período. Nesse breve período, se qualquer edição ou criação de alerta for feita no Portal do OMS, os usuários terão a opção de continuar no Log Analytics do Azure ou nos Alertas do Azure.
 
@@ -61,7 +65,7 @@ Para qualquer operação em alertas como edição ou criação feito no portal d
 > [!NOTE]
 > Como os usuários serão transparentemente direcionados para o Azure, em qualquer ação de adição ou edição em um alerta no OMS, certifique-se de que os usuários sejam mapeados corretamente com as devidas [permissões para usar o Azure Monitor e Alertas](monitoring-roles-permissions-security.md)
 
-A criação de alertas continuará na [API do Log Analytics](../log-analytics/log-analytics-api-alerts.md) existente como antes, com algumas pequenas alterações depois que os alertas forem estendidos para o Azure - grupos de ação precisariam estar associados na programação.
+A criação de alertas continuará na [API do Log Analytics](../log-analytics/log-analytics-api-alerts.md) e no [Modelo de Recursos do Log Analytics](../monitoring/monitoring-solutions-resources-searches-alerts.md) existentes como antes, com algumas pequenas alterações depois que os alertas forem estendidos para o Azure - grupos de ação precisariam estar associados na programação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

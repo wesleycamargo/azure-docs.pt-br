@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 095b0cba8f7d22920203e5e3c4bcd83666188023
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a39cabeb35450e98cc7d7d64645642959aacde0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194981"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejado com os modelos do Azure Resource Manager
 
@@ -33,7 +34,7 @@ Este artigo descreve o modelo do Azure Resource Manager para o [manipulador de e
 
 O trecho a seguir vai na seção **Recursos** do modelo.
 A extensão de DSC herda propriedades de extensão padrão.
-Para obter mais informações, consulte a [classe VirtualMachineExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Para obter mais informações, consulte a [classe VirtualMachineExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
 {
@@ -83,7 +84,7 @@ Um nó de conjunto de dimensionamento de máquinas virtuais tem uma seção **pr
 Em **extensões**, adicione os detalhes para a extensão de DSC.
 
 A extensão de DSC herda propriedades de extensão padrão.
-Para obter mais informações, consulte a [classe VirtualMachineScaleSetExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Para obter mais informações, consulte a [classe VirtualMachineScaleSetExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
@@ -197,7 +198,7 @@ Para obter uma lista de argumentos disponíveis para o script de configuração 
 
 ## <a name="default-configuration-script"></a>Script de configuração padrão
 
-Para obter mais informações sobre os seguintes valores, consulte [Configurações Básicas do Local Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+Para obter mais informações sobre os seguintes valores, consulte [Configurações Básicas do Local Configuration Manager](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings).
 Você pode usar o script de configuração padrão de extensão DSC para configurar apenas as propriedades do LCM que são listadas na tabela a seguir.
 
 | Nome da propriedade | type | DESCRIÇÃO |
@@ -361,7 +362,7 @@ Certifique-se de que todas as URLs resolvem para locais válidos que a extensão
 
 ### <a name="invalid-configurationargument-type"></a>Tipo ConfigurationArgument inválido
 
-"Tipo configurationArguments inválido {0}"
+"Tipo configurationArgument inválido {0}"
 
 **Problema**: a propriedade *ConfigurationArguments* não pode resolver um objeto **Hashtable**.
 

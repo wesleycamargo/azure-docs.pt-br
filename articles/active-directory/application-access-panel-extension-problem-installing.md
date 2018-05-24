@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8db0c28b0ea6b6f78ef86c773ff24f9d22fe3ecd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34353867"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
 
@@ -83,6 +84,12 @@ Você também pode baixar a extensão para o Chrome e para o Microsoft Edge dire
    3. Pesquise por um aplicativo que esteja disponível no portal Meus aplicativos.
    4. Na lista de resultados de pesquisa, selecione o aplicativo.  
        Os três aplicativos que você usou são exibidos na lista de atalho **Usados recentemente**.
+       
+* Para usar URLs internas da empresa ao remoto, faça o seguinte:
+    1. [Configurar Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) no seu locatário
+    2. [Publicar o aplicativo](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) e a URL por meio do Application Proxy
+    3. Instale a extensão, conecte-se a ela selecionando Conectar-se para começar
+    4. Agora você pode navegar para a URL interna da empresa, mesmo em remoto
 
 > [!NOTE]
 > As opções acima estão disponíveis apenas para Microsoft Edge, Chrome e Firefox.
@@ -118,4 +125,4 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 -   Rastreamentos do Fiddler
 
 ## <a name="next-steps"></a>Próximas etapas
-[O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

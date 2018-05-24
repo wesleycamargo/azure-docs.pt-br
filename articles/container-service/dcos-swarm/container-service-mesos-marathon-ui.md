@@ -1,19 +1,20 @@
 ---
-title: "Gerenciar cluster DC/OS do Azure com interface do usuário do Marathon"
-description: "Implante contêineres para um serviço de cluster do Serviço de Contêiner do Azure usando a interface do usuário da Web do Marathon."
+title: Gerenciar cluster DC/OS do Azure com interface do usuário do Marathon
+description: Implante contêineres para um serviço de cluster do Serviço de Contêiner do Azure usando a interface do usuário da Web do Marathon.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b1c5fc223105b1dae0ce07f242a6b42b34fd2ab3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 43407d40db0aab2772cb1baeab3471be68aee2ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32166976"
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Gerenciar um cluster de DC/SO do Serviço de Contêiner do Azure por meio da interface do usuário Web do Marathon
 
@@ -22,7 +23,7 @@ O DC/OS fornece um ambiente de implantação e dimensionamento de cargas de trab
 Embora haja estruturas disponíveis para várias cargas de trabalho populares, este documento descreve como você começar a implantar contêineres com o Marathon. 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de trabalhar nos exemplos, você precisará de um cluster DC/OS configurado no Serviço de Contêiner do Azure. Você também precisa ter conectividade remota com esse cluster. Para saber mais sobre esses itens, confira os artigos a seguir:
 
 * [Implantar um cluster do Serviço de Contêiner do Azure](container-service-deployment.md)
@@ -38,7 +39,7 @@ Com um túnel SSH (Secure Shell) [estabelecido](../container-service-connect.md)
 ![Interface do usuário do DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Explorar a interface do usuário do Marathon
-Para ver a Interface do usuário do Marathon, navegue até http://localhost/marathon. Nessa tela, você pode iniciar um novo contêiner ou outro aplicativo no cluster DC/OS do Serviço de Contêiner do Azure. Você também pode ver informações sobre a execução de aplicativos e de contêineres.  
+Para ver a interface do usuário do Marathon, navegue até http://localhost/marathon. Nessa tela, você pode iniciar um novo contêiner ou outro aplicativo no cluster DC/OS do Serviço de Contêiner do Azure. Você também pode ver informações sobre a execução de aplicativos e de contêineres.  
 
 ![Interface do usuário do Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 

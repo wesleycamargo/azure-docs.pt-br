@@ -10,11 +10,12 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ae974162a460289a34443879a9e78224684d94ed
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 213a0e7cebda6a8b89ef460799cbec477b487a64
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166107"
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Implantar o Azure IoT Edge em um dispositivo simulado no Windows – versão prévia
 
@@ -42,7 +43,7 @@ Este tutorial pressupõe que você esteja usando um computador ou uma máquina v
    * Windows 10 
    * Windows Server
 2. Instale o [Docker para Windows][lnk-docker] e verifique se ele está em execução.
-3. Instale o [Python 2.7 no Windows][lnk-python] e verifique se você pode usar o comando Pip.
+3. Instale o [Python no Windows][lnk-python] e verifique se você pode usar o comando pip. Este tutorial foi testado com o Python versões >=2.7.9 e >=3.5.4.  
 4. Execute o comando a seguir para baixar o script de controle do IoT Edge.
 
    ```cmd

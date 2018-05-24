@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153119"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao usar qualquer linguagem de programação que seja compatível com chamadas REST, você pode executar operações de atualização de dados assíncronas em seus modelos de tabela do Azure Analysis Services. Isso inclui a sincronização de réplicas somente leitura para expansão de consulta. 
@@ -198,7 +199,7 @@ Aqui está um exemplo de código em C# para você começar, [RestApiSample on Gi
 1.  Clone ou baixe o repositório. Abra a solução RestApiSample.
 2.  Localize a linha **client.BaseAddress = …** e forneça sua [URL base](#base-url).
 
-O exemplo de código pode usar um logon interativo, nome de usuário/senha, ou uma [entidade de serviço](#service-principle).
+O exemplo de código pode usar um logon interativo, nome de usuário/senha, ou uma [entidade de serviço](#service-principal).
 
 #### <a name="interactive-login-or-usernamepassword"></a>Logon interativo ou nome de usuário/senha
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2245fcdaa8b7e85ea37e9af9c939cd188c4d7ed9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157135"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
 
@@ -187,13 +188,13 @@ Agora que você concluiu as etapas anteriores, você pode testar e confirmar se 
 
    ![Captura de tela de Live Metrics Stream](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
 
-   (Se seu script do PowerShell está em execução ainda, você deverá ver as métricas em tempo real, se interrompeu, execute o script novamente com o Live Stream aberto.)
+   (Se seu script do PowerShell está em execução ainda, você deverá ver as métricas em tempo real, se tiver sido interrompido, execute o script novamente com o Live Stream aberto.)
 
 ## <a name="app-insights-sdk-comparison"></a>Comparação SDK do App Insights
 
 O grupo do produto do Application Insights vem trabalhando duro para alcançar a paridade de recursos mais próxima possível entre o [SDK do .NET Framework completo](https://github.com/Microsoft/ApplicationInsights-dotnet) e o SDK do .Net Core. A versão 2.2.0 do [SDK do ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore) para o Application Insights cobriu amplamente a lacuna de recursos.
 
-Para saber mais sobre as diferenças e as compensações entre [.NET e .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+Para saber mais sobre as diferenças e as compensações entre [.NET e .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
    | Comparação SDK | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
@@ -203,7 +204,7 @@ Para saber mais sobre as diferenças e as compensações entre [.NET e .NET Core
    | **Chamadas de Dependência SQL**     | **+** |**-** | **+**|
    | **Contadores de Desempenho*** | **+** | **-**| **-**|
 
-_Contadores de Desempenho_ neste contexto refere-se a [contadores de desempenho do servidor](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) como processador, memória e utilização de disco.
+_Contadores de Desempenho_ neste contexto refere-se a [contadores de desempenho do servidor](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) como processador, memória e utilização de disco.
 
 ## <a name="open-source-sdk"></a>SDK do código-fonte aberto
 [Ler e contribuir para o código](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)

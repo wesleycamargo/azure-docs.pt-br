@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - Autenticação de Passagem - conformidade com GDPR | Microsoft Docs
+title: Privacidade do usuário e autenticação de passagem do Azure Active Directory | Microsoft Docs
 description: Este artigo trata da Autenticação de Passagem do Microsoft Azure AD (Azure Active Directory) e da conformidade com GDPR.
 services: active-directory
 keywords: A Autenticação de Passagem do Azure AD Connect, GDPR, requer componentes necessários para o Microsoft Azure AD, SSO, Logon Único
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/28/2018
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 21874c961163e3efba45c2ee8557c03135987f95
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150616"
 ---
-# <a name="azure-active-directory-pass-through-authentication-gdpr-compliance"></a>Autenticação de Passagem do Azure Active Directory: conformidade com GDPR
+# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidade do usuário e autenticação de passagem do Azure Active Directory
+
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Visão geral
-
-A partir de maio de 2018, entra em vigor uma legislação de privacidade europeia, o [Regulamento Geral de Proteção de Dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm). O GDPR impõe novas regras às empresas, órgãos governamentais, organizações sem fins lucrativos e outras organizações que oferecem bens e serviços para pessoas da União Europeia (UE) ou que coletam e analisam dados vinculados a residentes da UE. O GDPR se aplica independentemente de onde você está localizado. 
-
-Os produtos e serviços da Microsoft estão disponíveis atualmente para ajudá-lo a atender aos requisitos do GDPR. Leia mais sobre a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
 
 A Autenticação de Passagem do Microsoft Azure AD cria os tipos de log a seguir, os quais podem conter o EUII:
 
@@ -35,7 +35,7 @@ A Autenticação de Passagem do Microsoft Azure AD cria os tipos de log a seguir
 - Arquivos de log de rastreamento do Agente de Autenticação.
 - Arquivos de log de Eventos do Windows.
 
-A conformidade com GDPR para a Autenticação de Passagem pode ser alcançada de duas maneiras:
+Privacidade do usuário para a Autenticação de Passagem pode ser alcançada de duas maneiras:
 
 1.  Mediante solicitação, extraia dados de uma pessoa e remova os dados dessa pessoa das instalações.
 2.  Certifique-se de que nenhum dado é retido além de 48 horas.
@@ -104,4 +104,5 @@ Para agendar esse script para ser executado a cada 48 horas, siga estas etapas:
 Se o log de auditoria estiver habilitado, esse produto poderá gerar logs de segurança para os Controladores de Domínio. Para saber mais sobre como configurar políticas de auditoria, leia este [artigo](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
+* [Revise a Política de Privacidade da Microsoft na Central de Confiabilidade](https://www.microsoft.com/trustcenter)
 - [**Solução de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – Saiba como resolver problemas comuns do recurso.

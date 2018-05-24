@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: a83a9f9332d81e02a83efc019ad56027316301ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 94791e4dc3d3c841dde4685d34d4e3fdaf7d9af7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185953"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWUs (Unidades do Data Warehouse) cDWUs (Unidades do Data Warehouse de computação)
 Recomendações sobre como escolher o número ideal de unidades do data warehouse (DWUs, cDWUs) para otimizar o preço e o desempenho, e como alterar o número unidades. 
@@ -36,19 +37,19 @@ Aumento de DWUs:
 - Aumenta o número máximo de consultas simultâneas e slots de simultaneidade.
 
 ## <a name="service-level-objective"></a>Objetivo de nível de serviço
-O Objetivo de nível de serviço (SLO) é a configuração de escalabilidade que determina o nível de custo e desempenho do data warehouse. Os níveis de serviço para a escala de nível de desempenho Otimizado para computação são medidos em unidades de Computação do data warehouse (cDWU), por exemplo DW2000c. O nível de serviço Otimizado para Elasticidade é medido em DWUs, por exemplo DW2000. 
+O Objetivo de nível de serviço (SLO) é a configuração de escalabilidade que determina o nível de custo e desempenho do data warehouse. Os níveis de serviço para Gen2 são medidos em unidades de computação do data warehouse (cDWU), por exemplo DW2000c. O nível de serviço Gen1 é medido em DWUs, por exemplo DW2000. 
 
 No T-SQL, a configuração SERVICE_OBJECTIVE determina o nível de serviço e o nível de desempenho para o data warehouse.
 
 ```sql
---Optimized for Elasticity
+--Gen1
 CREATE DATABASE myElasticSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000'
 )
 ;
 
---Optimized for Compute
+--Gen2
 CREATE DATABASE myComputeSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000c'
@@ -60,12 +61,12 @@ WITH
 
 Cada nível de desempenho usa uma unidade de medida ligeiramente diferente para suas unidades de data warehouse. Essa diferença é refletida na fatura à medida que a unidade de escala é convertida diretamente para cobrança.
 
-- O nível de desempenho otimizado para elasticidade é medido em unidades de data warehouse (DWUs).
-- O nível de desempenho otimizado para computação é medido em unidades de data warehouse de computação (cDWUs). 
+- Data warehouses do Gen1 são medidos em Unidades do Data Warehouse (DWUs).
+- Data warehouses do Gen2 são medidos em Unidades do Data Warehouse (DWUs) de computação. 
 
-DWUs e cDWUs oferecem suporte ao dimensionamento vertical ou horizontal de computação e à pausa da computação quando você não precisar usar o data warehouse. Todas essas operações são sob demanda. O nível de desempenho otimizado para computação também usa um cache local baseado em disco em nós de computação para melhorar o desempenho. Quando você dimensiona ou pausa o sistema, o cache é invalidado e, portanto, é necessário um período de aquecimento de cache antes que o desempenho ideal seja obtido.  
+DWUs e cDWUs oferecem suporte ao dimensionamento vertical ou horizontal de computação e à pausa da computação quando você não precisar usar o data warehouse. Todas essas operações são sob demanda. O Gen2 usa um cache local baseado em disco em nós de computação para melhorar o desempenho. Quando você dimensiona ou pausa o sistema, o cache é invalidado e, portanto, é necessário um período de aquecimento de cache antes que o desempenho ideal seja obtido.  
 
-À medida que você aumenta as unidades de data warehouse, estará aumentando linearmente os recursos de computação. O nível de desempenho otimizado para computação fornece o melhor desempenho de consulta e a escala mais alta, mas tem um preço de entrada mais alto. Ele é destinado a empresas que têm uma demanda constante por desempenho. Esses sistemas fazem o melhor uso do cache. 
+À medida que você aumenta as unidades de data warehouse, estará aumentando linearmente os recursos de computação. O Gen2 fornece o melhor desempenho de consulta e a escala mais alta, mas tem um preço de entrada mais alto. Ele é destinado a empresas que têm uma demanda constante por desempenho. Esses sistemas fazem o melhor uso do cache. 
 
 ### <a name="capacity-limits"></a>Limites de capacidade
 Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma cota de [Unidade de Transação de Banco de Dados (DTU)](../sql-database/sql-database-what-is-a-dtu.md) que permite um número específico de unidades de depósito de dados. Para mais informações, consulte o [limites de capacidade de gerenciamento de carga de trabalho](sql-data-warehouse-service-capacity-limits.md#workload-management).
@@ -76,10 +77,9 @@ O número ideal de unidades de data warehouse depende muito de sua carga de trab
 
 Etapas para encontrar a melhor DWU para sua carga de trabalho:
 
-1. Durante o desenvolvimento, comece selecionando uma DWU menor usando o nível de desempenho otimizado para elasticidade.  Como a preocupação neste estágio é a validação funcional, o nível de desempenho otimizado para elasticidade é uma opção razoável. Um bom ponto de partida é DW200. 
+1. Comece selecionando um DWU menor. 
 2. Monitore o desempenho do seu aplicativo à medida que testa as cargas de dados no sistema, observando o número de DWUs selecionadas comparado ao desempenho que você observar.
-3. Identifique quaisquer requisitos adicionais para períodos de atividade de pico temporários. Se a carga de trabalho demonstrar picos e ciclos significativos na atividade e houver um bom motivo para dimensionar com frequência, então, favoreça o nível de desempenho otimizado para elasticidade.
-4. Se você precisar de mais de 1000 DWUs, então favoreça o nível de desempenho otimizado para computação já que ele oferece o melhor desempenho.
+3. Identifique quaisquer requisitos adicionais para períodos de atividade de pico temporários. Se a carga de trabalho demonstrar picos e ciclos significativos na atividade e houver um bom motivo para dimensionar com frequência.
 
 O SQL Data Warehouse é um sistema de dimensionamento horizontal que pode provisionar várias quantidades de dados dimensionáveis de computação e consulta. Para ver seus verdadeiros recursos para dimensionamento, especialmente em DWUs maiores, é recomendável dimensionar o conjunto de dados ao dimensionar para garantir que você tenha dados suficientes para alimentar as CPUs. Para testar o dimensionamento, é recomendável usar pelo menos 1 TB.
 

@@ -1,25 +1,27 @@
 ---
-title: Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
-description: Como listar um aplicativo que oferece suporte a logon único na galeria de aplicativos do Azure Active Directory
+title: Listar seu aplicativo na galeria de aplicativos do Azure Active Directory | Microsoft Docs
+description: Saiba como listar um aplicativo que oferece suporte a logon único na galeria de aplicativos do Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
-ms.author: bryanla
+ms.date: 05/09/2018
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: e02c60d46fe709c8d418ea4743ba383147e9ddac
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354445"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
 
@@ -49,9 +51,27 @@ Para listar um aplicativo na galeria de aplicativos do Azure Active Directory, p
 
 *   **OpenID Connect**: crie o aplicativo multilocatário no Azure Active Directory e implemente a [estrutura de consentimento do Azure Active Directory](active-directory-integrating-applications.md#overview-of-the-consent-framework) para seu aplicativo. Envie a solicitação de logon para um ponto de extremidade comum para que qualquer cliente possa dar consentimento ao aplicativo. É possível controlar acesso de usuário com base na ID do locatário e o UPN do usuário recebido no token. Para integrar o aplicativo com o Azure Active Directory, siga as [instruções do desenvolvedor](active-directory-authentication-scenarios.md).
 
+    ![TimeLine de listagem de aplicativos OpenID Connect na galeria](./media/active-directory-app-gallery-listing/openid.png)
+
+    * Se você desejar adicionar o aplicativo à lista na galeria usando OpenID Connect, selecione **OpenID Connect & OAuth 2.0** como acima.
+
+    * Se você tiver algum problema relacionado ao acesso, contate a [Equipe de Integração de SSO do Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **SAML 2.0** ou **WS-Fed**: seu aplicativo deve ter a capacidade de fazer a integração de SSO do SAML/WS-Fed no modo IDP ou SP. Se o aplicativo fornecer suporte para SAML 2.0, você poderá integrá-lo diretamente com um locatário do Azure Active Directory, usando as [instruções para adicionar uma aplicativo personalizado](../active-directory-saas-custom-apps.md).
 
-*   **SSO de senha**: crie um aplicativo Web que tem uma página de entrada HTML para configurar o [logon único baseado em senha](../active-directory-appssoaccess-whatis.md). O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários, nos quais vários usuários precisam compartilhar uma única conta, como contas de aplicativo de mídia social da sua organização.
+    ![TimeLine de listagem de aplicativos SAML 2.0 ou WS-Fed na galeria](./media/active-directory-app-gallery-listing/saml.png)
+
+    * Se você desejar adicionar o aplicativo à lista na galeria usando **SAML 2.0** ou **WS-Fed**, selecione **SAMl 2.0, WS-Fed** como acima.
+
+    * Se você tiver algum problema relacionado ao acesso, contate a [Equipe de Integração de SSO do Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
+*   **SSO de senha**: crie um aplicativo Web que tem uma página de entrada HTML para configurar o [logon único baseado em senha](../manage-apps/what-is-single-sign-on.md). O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários, nos quais vários usuários precisam compartilhar uma única conta, como contas de aplicativo de mídia social da sua organização.
+
+    ![TimeLine de listagem de aplicativos SSO de Senha na galeria](./media/active-directory-app-gallery-listing/passwordsso.png)
+
+    * Se você desejar adicionar o aplicativo à lista na galeria usando SSO de Senha, selecione **SSO de Senha** como acima.
+
+    * Se você tiver algum problema relacionado ao acesso, contate a [Equipe de Integração de SSO do Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##  <a name="updateremove-existing-listing"></a>Atualizar/remover listagem existente
 
@@ -60,7 +80,7 @@ Para atualizar ou remover um aplicativo existente na galeria de aplicativos do M
 * Selecione a opção apropriada na imagem abaixo
 
     ![TimeLine de listagem de aplicativos SAML na galeria](./media/active-directory-app-gallery-listing/updateorremove.png)
-
+    
     * Se você deseja atualizar um aplicativo existente, selecione **Atualizar listagem de aplicativo existente**.
 
     * Se você quiser remover um aplicativo existente da galeria do Microsoft Azure AD, selecione **Remover a listagem de aplicativo existente**
@@ -86,6 +106,10 @@ A linha do tempo para o processo de listagem de um aplicativo WS-Fed ou SAML 2.0
 A linha do tempo para o processo de listagem de um aplicativo OpenID Connect na galeria é 2 a 5 dias úteis.
 
    ![TimeLine de listagem de aplicativos SAML na galeria](./media/active-directory-app-gallery-listing/timeline2.png)
+
+A linha do tempo para o processo de listagem do aplicativo na galeria com suporte ao provisionamento de usuário é de 40-45 dias úteis.
+
+   ![TimeLine de listagem de aplicativos SAML na galeria](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Escalonamentos
 

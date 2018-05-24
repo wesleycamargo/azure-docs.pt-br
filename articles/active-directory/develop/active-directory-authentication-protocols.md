@@ -1,25 +1,27 @@
 ---
-title: "Protocolos de Autenticação do Azure Active Directory | Microsoft Docs"
-description: "Uma visão geral dos protocolos de autenticação suportados pelo Azure Active Directory (AD)"
+title: Protocolos de autenticação do Azure Active Directory | Microsoft Docs
+description: Uma visão geral dos protocolos de autenticação suportados pelo Azure Active Directory (AD)
 documentationcenter: dev-center-name
-author: priyamohanram
+author: CelesteDG
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 1387ce5f3f16301786cf4111a081a5486788fa77
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71b12b848b1be309823bac46a219c0bb25e26092
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156510"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Protocolos de autenticação do Azure Active Directory
 O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos de autenticação e autorização mais usados. Os tópicos nesta seção descrevem os protocolos suportados e sua implementação no Azure AD. Os tópicos incluem uma revisão dos tipos de declarações com suporte, uma introdução ao uso de metadados de federação, documentação detalhada de referência dos protocolos OAuth 2.0. e SAML 2.0 e uma seção de solução de problemas.
@@ -34,7 +36,7 @@ O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos 
 * [Serviço para Chamadas de Serviço com Fluxo Em Nome De](active-directory-protocols-oauth-on-behalf-of.md) – Saiba como utilizar o fluxo de Em Nome De OAuth 2.0 para chamadas de serviços.
 * [Referência de protocolo SAML](active-directory-saml-protocol-reference.md) - Saiba mais sobre os perfis de logon único e logout único SAML do Azure AD.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
 
 [Exemplos de código do Active Directory](active-directory-code-samples.md)

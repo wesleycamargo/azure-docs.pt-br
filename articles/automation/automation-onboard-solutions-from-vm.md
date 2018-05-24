@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f8c9cb33eb90232f5eb241add284f7ea7b64bc05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 39febc947f4ab6dc406290273e5e1fc1c58a59e2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053417"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário a partir de uma Máquina Virtual do Azure
 
@@ -42,7 +43,13 @@ Navegue para as outras soluções e clique em **habilitar**, as caixas suspensas
 
 Cada solução usa uma Configuração de Escopo dentro do espaço de trabalho para direcionar os computadores que recebem a solução. A Configuração de Escopo é um grupo de uma ou mais pesquisas salvas utilizada para limitar o escopo da solução em computadores específicos. Para acessar as Configurações de Escopo, em sua conta de Automação, em **RECURSOS RELACIONADOS**, selecione **Espaço de Trabalho**, em seguida, no espaço de trabalho em **FONTES DE DADOS DO ESPAÇO DE TRABALHO**, selecione **Configurações de Escopo**.
 
-As duas configurações de escopo criadas por padrão são **MicrosoftDefaultScopeConfig-ChangeTracking** e **MicrosoftDefaultScopeConfig-Updates**.
+Se o espaço de trabalho selecionado não tiver as soluções de Gerenciamento de Atualizações ou Controle de Alterações ainda, as seguintes configurações de escopo serão criadas:
+
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+Se o espaço de trabalho selecionado já tiver solução. A solução não é reimplantada, e a configuração de escopo não é adicionada a isso.
 
 Clique nas reticências (...) em qualquer uma das configurações e selecione **Editar**. Na página **Editar configuração de escopo**, selecione **Selecionar Grupos de Computadores** para abrir a página **Grupos de Computadores**. Esta página mostra as pesquisas salvas que são utilizadas para criar a Configuração de Escopo.
 

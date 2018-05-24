@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas de segurança para MFA | Microsoft Docs
-description: Este documento fornece as práticas recomendadas sobre o uso do Azure MFA com contas do Azure
+title: Orientação de segurança para MFA | Microsoft Docs
+description: Este documento fornece as diretrizes sobre o uso do Azure MFA com contas do Azure
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -15,19 +15,20 @@ ms.date: 06/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 0fd90c4e59fa64c24ecfa6d7d8f23e025210e078
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 50e6cd3c067e09ebf9ace442894d5d066141e0b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32152291"
 ---
-# <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Práticas recomendadas de segurança para o uso da Autenticação Multifator do Azure com contas do AD do Azure
+# <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Diretrizes de segurança para o uso da Autenticação Multifator do Azure com contas do Microsoft Azure Active Directory
 
 A verificação em duas etapas é a opção preferencial para a maioria das organizações que desejam aprimorar o processo de autenticação. O MFA (Autenticação Multifator do Azure) ajuda as empresas a atenderem aos seus requisitos de segurança e conformidade, ao mesmo tempo que fornece uma experiência de conexão simples para seus usuários. Este artigo fornece algumas dicas que você deve considerar ao planejar a adoção do MFA do Azure.
 
 ## <a name="deploy-azure-mfa-in-the-cloud"></a>Implantar o MFA do Azure na nuvem
 
-Há duas maneiras de habilitar a MFA do Azure para todos os usuários.
+Há duas maneiras de [habilitar a MFA do Azure para todos os usuários](howto-mfa-getstarted.md).
 
 * Comprar licenças para cada usuário (o MFA do Azure, Azure AD Premium, ou Enterprise Mobility + Security)
 * Criar um provedor de autenticação multifator e pagamento por usuário ou por autenticação
@@ -46,12 +47,12 @@ Ao configurar a Autenticação Multifator, considere estas dicas:
 ### <a name="multi-factor-auth-provider"></a>Provedor de Multi-Factor Authentication
 ![Provedor de Multi-Factor Authentication](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
-Se você não tiver licenças que incluem o MFA do Azure, poderá criar um Provedor de Autenticação do MFA. 
+Se você não tiver licenças que incluem o MFA do Azure, poderá [criar um Provedor de Autenticação do MFA](concept-mfa-authprovider.md).
 
 Ao criar o Provedor de Autenticação, você precisará selecionar um diretório e considerar os seguintes detalhes:
 
-* Você não precisa de um diretório do Azure AD para criar um Provedor de Autenticação Multifator, mas obtém mais funcionalidade com um. Os seguintes recursos são habilitados quando você associa o provedor de autenticação um diretório do Azure AD:  
-  * Estender a verificação em duas etapas para todos os usuários  
+* Você não precisa de um diretório do Azure AD para criar um Provedor de Autenticação Multifator, mas obtém mais funcionalidade com um. Os seguintes recursos são habilitados quando você associa o provedor de autenticação um diretório do Azure AD:
+  * Estender a verificação em duas etapas para todos os usuários
   * Os administradores globais oferecem recursos adicionais, como o portal de gerenciamento, saudações personalizadas e relatórios.
 * Se você sincronizar o ambiente do Active Directory local com um diretório do Azure AD, precisará do DirSync ou do AAD Sync. Se você usa apenas um diretório do AD do Azure que não está sincronizado com uma instância local do Active Directory, não haverá necessidade do DirSync ou AAD Sync.
 * Escolha o modelo de consumo mais adequada para sua empresa. Depois de selecionar o modelo de uso, não é possível alterá-lo. Os dois modelos são:
@@ -65,7 +66,7 @@ Como a maioria dos usuários estão acostumados a usar apenas senhas para a aute
 * Considere o [IPs confiáveis recurso](howto-mfa-mfasettings.md#trusted-ips) no Azure MFA como uma maneira de minimizar verificação em duas etapas. Com este recurso, os administradores de um locatário gerenciado ou federado podem ignorar a verificação em duas etapas para usuários que entram pela intranet local da empresa. Os recursos estão disponíveis para locatários do Azure AD que tenham licenças do Azure AD Premium, Enterprise Mobility Suite ou Autenticação Multifator do Azure.
 
 ## <a name="best-practices-for-an-on-premises-deployment"></a>Práticas recomendadas para a implantação no local
-Se a sua empresa decidiu aproveitar sua própria infraestrutura para habilitar o MFA, você precisará implantar um Servidor de Autenticação Multifator do Azure localmente. Os componentes do Servidor MFA são mostrados no seguinte diagrama:
+Se a sua empresa decidiu aproveitar sua própria infraestrutura para habilitar o MFA, você precisará [implantar um Servidor de Autenticação Multifator do Azure localmente](howto-mfaserver-deploy.md). Os componentes do Servidor MFA são mostrados no seguinte diagrama:
 
 ![Componentes padrão do Servidor MFA: console, mecanismo de sincronização, portal de gerenciamento, serviço de nuvem](./media/multi-factor-authentication-security-best-practices/server.png) \*Não instalado por padrão \**Instalado, mas não habilitado por padrão
 
@@ -112,4 +113,3 @@ Embora este artigo destaque algumas práticas recomendadas para o Azure MFA, há
 * [Relatórios na Autenticação Multifator do Azure](howto-mfa-reporting.md)
 * [A experiência de registro de verificação em duas etapas](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
 * [Perguntas frequentes sobre a Autenticação Multifator do Azure](multi-factor-authentication-faq.md)
-

@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 6531e6c8c97bfadac898c4aa4943855dcd32bdfe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b7529b0942cd86b0d9e657d8d0f61313aa7f0a66
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140488"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Tutorial: integração do Active Directory do Azure ao Clever
 
@@ -110,12 +111,12 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://clever.com/in/<companyname>`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://clever.com/<companyname>`
+    b. Na caixa de texto **Identificador**, digite a URL: `https://clever.com/oauth/saml/metadata.xml`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Clever](https://clever.com/about/contact/) para obter esses valores.
+    > O valor da URL de logon não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Clever](https://clever.com/about/contact/) para obter esse valor.
 
-4. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+4. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no Bloco de Notas.
     
     ![Configurar o logon único](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
 
@@ -129,7 +130,8 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     | Nome do atributo  | Valor do atributo |
     | --------------- | -------------------- |
-    | clever.student.credentials.district\_nome de usuário  | user.userprincipalname |
+    | clever.teacher.credentials.district_username|user.userprincipalname|
+    | clever.student.credentials.district_username| user.userprincipalname |
     | Firstname  | user.givenname |
     | Sobrenome  | user.surname |
 
@@ -157,19 +159,22 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Logon Instantâneo](./media/active-directory-saas-clever-tutorial/ic798984.png "Logon Instantâneo")
 
+    > [!NOTE]
+    > Antes de testar o logon único, você precisa entrar em contato com a [equipe de suporte de Clever Client](https://clever.com/about/contact/) para habilitar o SSO do Office 365 no back-end.
+
 10. Na página **Logon Instantâneo** , execute as seguintes etapas:
-      
+    
       ![Logon Instantâneo](./media/active-directory-saas-clever-tutorial/ic798985.png "Logon Instantâneo")
-      
+    
       a. Digite a **URL de Logon**.
-      
+    
       >[!NOTE]
       >A **URL de Logon** é um valor personalizado. Contate a [equipe de suporte ao cliente do Clever](https://clever.com/about/contact/) para obter esse valor.
-      
+    
       b. Para **Sistema de Identidade**, selecione **ADFS**.
 
       c. Na caixa de texto **URL de Metadados**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure.
-      
+    
       d. Clique em **Salvar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD

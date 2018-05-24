@@ -2,29 +2,24 @@
 title: Redefinição de senha por autoatendimento da licença – Azure Active Directory
 description: Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: cebfc1dcaca562d26eb9e85d9b8bf0fa14e5edc9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33864644"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD
 
-Para a redefinição de senhas do Azure AD (Azure Active Directory) funcionar, você *deve ter pelo menos uma licença atribuída na sua organização*. Não impomos licenciamento por usuário na experiência de redefinição da senha. Para manter a conformidade com o contrato de licenciamento da Microsoft, você precisa atribuir licenças a todos os usuários que usam recursos premium.
+Para a redefinição de senhas do Azure AD (Azure Active Directory) funcionar, você *deve ter pelo menos uma licença atribuída na sua organização*. Não impomos licenciamento por usuário na experiência de redefinição da senha. Uma licença apropriada é necessária se um usuário se beneficia direta ou indiretamente de qualquer recurso coberto por essa licença.
 
 * **Somente usuários de nuvem**: Qualquer SKU pago do Office 365 ou Azure AD Basic
 * Usuários na **nuvem** ou **locais**: Azure AD Premium P1 ou P2, Enterprise Mobility + Security (EMS) ou Microsoft 365
@@ -37,8 +32,9 @@ Para usar o write-back de senha, você deve ter uma das licenças a seguir atrib
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Microsoft 365 (plano E3)
-* Microsoft 365 (plano E5)
+* Microsoft 365 E3
+* Microsoft 365 E5
+* Microsoft 365 F1
 
 > [!WARNING]
 > Os planos de licenciamento do Standalone Office 365 *não dão suporte ao write-back de senha* e exigem que você tenha um dos planos anteriores para que essa funcionalidade funcione.
