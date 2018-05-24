@@ -16,11 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f0f577e2ff18645cfa93763f2345ef4230907e09
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6f3c0e93b20bbc570f4715318a49b502549ff295
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257542"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para desenvolvedores
 
@@ -55,7 +56,6 @@ Esses guias orientam você entre algumas das tarefas mais comuns no Azure Active
 |[Registro de aplicativo](active-directory-integrating-applications.md)           | Como registrar um aplicativo no Azure AD. |
 |[Aplicativos multilocatários](active-directory-devhowto-multi-tenant-overview.md)    | Como entrar em qualquer conta corporativa da Microsoft. |
 |[Protocolos OAuth e OpenID Connect](active-directory-protocols-openid-connect-code.md)| Como conectar usuários e chamar APIs Web usando os protocolos de autenticação da Microsoft. |
-|[Guias adicionais](active-directory-developers-guide-index.md#guides)        |  Uma lista de guias que estão disponíveis para o Azure AD. |
 |  |  |
 
 ## <a name="reference-topics"></a>Tópicos de referência
@@ -66,7 +66,6 @@ Os artigos a seguir fornecem informações detalhadas sobre as APIs, as mensagen
 | [Bibliotecas de autenticação (ADAL)](active-directory-authentication-libraries.md)   | Uma visão geral das bibliotecas e SDKs fornecidos pelo Azure AD. |
 | [Exemplos de código](active-directory-code-samples.md)                                  | Uma lista de todos os exemplos de código do Azure AD. |
 | [Glossário](active-directory-dev-glossary.md)                                      | Terminologia e definições de palavras usadas em toda esta documentação. |
-| [Tópicos de referência adicionais](active-directory-developers-guide-index.md#reference)| Uma lista de tópicos de referência que estão disponíveis para o Azure AD. |
 |  |  |
 
 

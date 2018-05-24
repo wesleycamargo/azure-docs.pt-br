@@ -15,6 +15,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305286"
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Criar e implementar um aplicativo gerenciado pelo Azure com a CLI do Azure
 
