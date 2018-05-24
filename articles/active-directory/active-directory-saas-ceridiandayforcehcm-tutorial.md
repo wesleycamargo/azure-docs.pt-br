@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Ceridian Dayforce HCM | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Ceridian Dayforce HCM."
+title: 'Tutorial: integração do Azure Active Directory com o Ceridian Dayforce HCM | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Ceridian Dayforce HCM.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 9b87fe59f2761c26319ce9e13168dc6c4bf95f8b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 09f9d6d096944453d28a588de4d73dc3c95fc695
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Tutorial: integração do Azure Active Directory ao Ceridian Dayforce HCM
 
@@ -30,9 +30,9 @@ A integração do Ceridian Dayforce HCM ao Azure AD oferece os seguintes benefí
 - Você pode permitir que seus usuários façam logon automaticamente no Ceridian Dayforce HCM (logon único) com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Ceridian Dayforce HCM, você precisa dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Ceridian Dayforce HCM a partir da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-ceridian-dayforce-hcm-from-the-gallery"></a>Adição do Ceridian Dayforce HCM a partir da galeria
 Para configurar a integração do Ceridian Dayforce HCM ao Azure AD, você precisa adicionar o Ceridian Dayforce HCM à sua lista de aplicativos SaaS gerenciados desde a galeria.
@@ -106,7 +106,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 3. Na seção **URLs e Domínio do Ceridian Dayforce HCM**, realize as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_url.png)
     
     a. Na caixa de texto **URL de Entrada** , digite a URL usada pelos usuários para fazer logon em seu aplicativo do Ceridian Dayforce HCM.
     
@@ -138,19 +138,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 5. Seu aplicativo Ceridian Dayforce HCM espera as declarações SAML em um formato específico. Trabalhe com a [equipe de suporte do Ceridian Dayforce HCM](https://www.ceridian.com/contact-us/index.html) primeiro para verificar o identificador de usuário correto. A Microsoft recomenda usar o atributo **"name"** como identificador de usuário. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. A captura de tela a seguir mostra um exemplo disso.  
 
-    ![Configurar Logon Único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
+    ![Configurar o logon único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
 
 6. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
     
     | Nome do atributo  | Valor do atributo |
     | --------------- | -------------------- |    
-    | name  | user.extensionattribute2 |    
+    | Nome  | user.extensionattribute2 |    
 
     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_attribute_04.png)
 
-    ![Configurar Logon Único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_attribute_05.png)
+    ![Configurar o logon único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_attribute_05.png)
     
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -222,7 +222,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, escolha **Ceridian Dayforce HCM**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -276,7 +276,7 @@ Ao clicar no bloco Ceridian Dayforce HCM no Painel de Acesso, você deve fazer l
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

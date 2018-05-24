@@ -9,16 +9,16 @@ editor: subramar,zhol
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: dd8042620b6b9829e49f3124ecdee1c038f8c12f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c90231d58ca8eb562aadb916c8667e2bee700b3a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Fazer backup e restaurar Reliable Services e Reliable Actors
 O Azure Service Fabric é uma plataforma de alta disponibilidade que replica o estado em vários nós a fim de manter essa alta disponibilidade.  Portanto, mesmo se um nó do cluster falhar, os serviços continuarão disponíveis. Embora essa redundância interna fornecida pela plataforma possa ser suficiente para algumas pessoas, em certos casos é recomendável fazer o backup dos dados do serviço (em um repositório externo).
@@ -263,5 +263,5 @@ Primeiro, `RestoreAsync` descarta todos os estados existentes na réplica primá
   - [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuração do Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-  - [Backup e restauração periódicos do Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
+  - [Backup e restauração periódicos no Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 

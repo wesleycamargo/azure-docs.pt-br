@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 103cdd24ca5f47ee12196cd153d528f19bb35b20
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c1ba6cb5b01c86c64fd6134c592829050bbb226d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Segurança da Internet das Coisas desde o princípio
 
@@ -44,7 +44,7 @@ Os sistemas da Microsoft oferecem detecção e previsão de intrusão contínua,
 
 Os aceleradores de solução tiram proveito da segurança e da privacidade incorporadas à plataforma do Azure juntamente com os processos de SDL e OSA para o desenvolvimento e a operação com segurança de todos os softwares da Microsoft. Esses procedimentos fornecem proteção da infraestrutura, proteção da rede e recursos de gerenciamento e identidades fundamentais para a segurança de qualquer solução.
 
-O [Hub IoT do Azure](../articles/iot-hub/iot-hub-what-is-iot-hub.md) nos [aceleradores de solução de IoT](../articles/iot-suite/iot-suite-what-is-azure-iot.md) oferece um serviço completamente gerenciado que habilita uma comunicação bidirecional confiável e segura entre os dispositivos de IoT e os serviços do Azure, como o [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) e o [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md), ao usar as credenciais de segurança por dispositivo e o controle de acesso.
+O [Hub IoT do Azure](../articles/iot-hub/iot-hub-what-is-iot-hub.md) nos [aceleradores de solução de IoT](../articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md) oferece um serviço completamente gerenciado que habilita uma comunicação bidirecional confiável e segura entre os dispositivos de IoT e os serviços do Azure, como o [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) e o [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md), ao usar as credenciais de segurança por dispositivo e o controle de acesso.
 
 Para comunicar melhor os recursos de segurança e privacidade incorporados aos aceleradores de solução de IoT do Azure, este artigo divide o pacote em três áreas de segurança principais.
 

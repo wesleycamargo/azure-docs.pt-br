@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Central Desktop | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e a Área de Trabalho Central."
+title: 'Tutorial: Integração do Azure Active Directory ao Central Desktop | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Active Directory do Azure e a Área de Trabalho Central.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 94c67bef7a0c6ba60fc9c7a60c79a23bf7984fb1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 92c24688cf3d9baefcedcf22c915752b2d29b53c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Active Directory do Azure ao Central Desktop
 
@@ -30,7 +30,7 @@ A integração da Área de Trabalho Central ao Azure AD oferece os seguintes ben
 - Você pode permitir que os usuários façam logon automaticamente na Área de Trabalho Central com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local: o novo Portal do Azure.
 
-Para obter mais detalhes sobre a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais detalhes sobre a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -196,7 +196,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
  
 ### <a name="create-a-central-desktop-test-user"></a>Criar um usuário de teste da Área de Trabalho Central
 
@@ -268,7 +268,7 @@ Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

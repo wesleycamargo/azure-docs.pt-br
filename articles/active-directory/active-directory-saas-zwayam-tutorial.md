@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Zwayam | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Zwayam."
+title: 'Tutorial: Integração do Azure Active Directory ao Zwayam | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Zwayam.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: jeedes
-ms.openlocfilehash: e56f6c1cf61a0db684aac2190ae5ddf4e689f8a3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b0b6b5ddb8bc8b95c7c5294a52c02c4604e63465
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zwayam"></a>Tutorial: Integração do Azure Active Directory ao Zwayam
 
@@ -30,7 +30,7 @@ Integrar o Zwayam ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que usuários façam logon automaticamente no Zwayam (logon único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Zwayan da galeria
+1. Adicionar o Zwayan da galeria
 2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-zwayam-from-the-gallery"></a>Adicionar o Zwayan da galeria
@@ -207,7 +207,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

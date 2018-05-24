@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Questetra BPM Suite | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Questetra BPM Suite."
+title: 'Tutorial: Integração do Azure Active Directory com o Questetra BPM Suite | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Active Directory do Azure e o Questetra BPM Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: e2515d571aa1615f14b597ef82b1087df3827f82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 122473da723cb101e0f0f9226b34aa3294477657
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integração do Active Directory do Azure com o Questetra BPM Suite
 
@@ -30,9 +30,9 @@ A integração do Questetra BPM Suite ao Azure AD oferece os seguintes benefíci
 - Você pode habilitar seus usuários a fazerem logon automaticamente no Questetra BPM Suite (logon único) com suas contas do AD do Azure
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do AD do Azure com o Questetra BPM Suite, você precisa dos seguintes itens:
 
@@ -64,11 +64,11 @@ Para configurar a integração do Questetra BPM Suite com o AD do Azure, você p
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Questetra BPM Suite**, selecione **Questetra BPM Suite** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
@@ -97,7 +97,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 1. No Portal do Azure, na página de integração do aplicativo **Questetra BPM Suite**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
@@ -144,7 +144,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 11. No seu site de empresa **Questetra BPM Suite**, execute as seguintes etapas: 
    
-    ![Configurar Logon Único][15]
+    ![Configurar o logon único][15]
    
     a. Selecione **Habilitar Logon Único**.
    
@@ -255,7 +255,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

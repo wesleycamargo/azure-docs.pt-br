@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d7df167bd5988c297f4ff338bfecf49bdc941797
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 77009d51dae3213525e1c6ec78228d4023a1ada4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Tutorial: Integração do Azure Active Directory ao YardiOne
 
@@ -30,7 +30,7 @@ A integração do YardiOne com o Azure Active Directory fornece os seguintes ben
 - Você pode permitir que seus usuários façam logon automaticamente no YardiOne (logon único) com as contas do Azure Active Directory deles.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -113,7 +113,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente YardiOne](https://clientcentral.yardi.com) para obter esses valores.
      
-4. Na seção **Certificado de Autenticação SAML** clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas. 
+4. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas. 
 
     ![O link de download do Certificado](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_certificate.png) 
  
@@ -202,7 +202,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

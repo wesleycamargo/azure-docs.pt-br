@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 5/8/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28c8ec09ad02e5c1175312f2735cd6f900f88cab
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: aa5ac4d95d11a2dfec1b2c6394b7e2e9cf747f5a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/10/2018
 
 <tr><td>**Baixar o SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência da API do Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
 
 <tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação do SDK do Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
 

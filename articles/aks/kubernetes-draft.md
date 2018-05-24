@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bb80d68d7ac37c8930626b5163597dc0e492a0d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usar Rascunho com o AKS (Serviço de Kubernetes do Azure)
 
@@ -38,7 +38,7 @@ A CLI do Rascunho é um cliente executado no sistema de desenvolvimento e que pe
 > [!NOTE]
 > Se você instalou o Rascunho antes da versão 0.12, primeiro exclua o Rascunho do cluster usando `helm delete --purge draft` e, em seguida, remova a configuração local executando `rm -rf ~/.draft`. Se estiver no MacOS, execute `brew upgrade draft`.
 
-Para instalar a CLI do Rascunho em um Mac, use `brew`. Para obter opções adicionais de instalação, consulte [Guia de instalação do Rascunho][install-draft].
+Para instalar a CLI do Rascunho em um Mac, use `brew`. Para obter opções adicionais de instalação, consulte [Guia de instalação do Rascunho][draft-documentation].
 
 ```console
 brew tap azure/draft
@@ -288,7 +288,6 @@ Para obter mais informações sobre o uso do Rascunho, consulte a documentação
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
-[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
 [kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
