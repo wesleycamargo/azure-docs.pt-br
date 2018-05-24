@@ -1,8 +1,8 @@
 ---
-title: "Configurar o LDAP Seguro (LDAPS) nos Serviços de Domínio do Azure AD |Microsoft Docs"
-description: "Configurar o LDAP Seguro (LDAPS) para um domínio gerenciado dos Serviços de Domínio do Azure AD"
+title: Configurar o LDAP Seguro (LDAPS) nos Serviços de Domínio do Azure AD |Microsoft Docs
+description: Configurar o LDAP Seguro (LDAPS) para um domínio gerenciado dos Serviços de Domínio do Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8da03990ace37b527553b0fe3ff0032515e1b812
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o LDAPS (LDAP Seguro) para um domínio gerenciado do Azure AD Domain Services
 
@@ -105,7 +105,7 @@ A tabela a seguir ilustra um exemplo de NSG que você pode configurar para bloqu
 
 ![Exemplo de NSG para acesso LDAPS seguro pela Internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**Mais informações** - [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+**Mais informações** - [Grupos de segurança de rede](../virtual-network/security-overview.md).
 
 <br>
 
@@ -128,5 +128,5 @@ Se você ainda tiver problemas para se conectar com o domínio gerenciado usando
 * [Serviços de Domínio do Azure AD - guia de Introdução](active-directory-ds-getting-started.md)
 * [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Administrar a política de grupo em um domínio gerenciado do Azure AD Domain Services](active-directory-ds-admin-guide-administer-group-policy.md)
-* [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md)
+* [Grupos de segurança de rede](../virtual-network/security-overview.md)
 * [Criar um Grupo de Segurança de Rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Adobe Experience Manager | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Adobe Experience Manager."
+title: 'Tutorial: integração do Azure Active Directory com o Adobe Experience Manager | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Adobe Experience Manager.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: c366e314b77cd3344a90826b22b96a45e35b0b4e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: d63ee16df9b49517c93cdc405cd2525f578d2a7f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Tutorial: integração do Azure Active Directory com o Adobe Experience Manager
 
@@ -30,7 +30,7 @@ A integração do Azure Experience Manager ao Azure AD oferece os seguintes bene
 - É possível permitir que os usuários entrem automaticamente no Adobe Experience Manager com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local: o novo Portal do Azure.
 
-Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -129,7 +129,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Link da seção de configuração](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_configure.png) 
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
     ![Configurar o botão salvar do logon único](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_general_400.png)
 
@@ -197,7 +197,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     i. Na caixa **URL de Logoff**, insira o valor da **URL de Logoff** que você copiou do Portal do Azure.
 
-    j. Selecione **Salvar**.
+    j. Clique em **Salvar**.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com) enquanto você estiver configurando o aplicativo. Depois de adicionar este aplicativo por meio da seção **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único**. Em seguida, acesse a documentação inserida por meio da seção **Configuração** na parte inferior. Você pode ler mais sobre o recurso de documentação inserida na [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -232,7 +232,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     c. Selecione a caixa de seleção **Mostrar Senha**. Em seguida, anote o valor exibido na caixa **Senha**.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
   
 ### <a name="create-an-adobe-experience-manager-test-user"></a>Criar um usuário de teste do Adobe Experience Manager
 
@@ -281,7 +281,7 @@ Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

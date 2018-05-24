@@ -1,8 +1,8 @@
 ---
-title: "Tutorial: Configurar Pingboard para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
-description: "Saiba como configurar o Azure Active Directory para provisionar e desprovisionar contas de usuário automaticamente para o Pingboard."
+title: 'Tutorial: Configurar Pingboard para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar contas de usuário automaticamente para o Pingboard.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: sakula
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: b1d2e5468aa5b6a10b93ea118969d66789a17f50
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8fa98ff4cee206894c35f84cca3f3b4c43e2e5ce
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para provisionamento automático de usuário
 
@@ -83,7 +83,7 @@ Esta seção orienta você sobre como conectar o Azure AD à API de provisioname
 
 7. Insira o endereço de email de uma pessoa ou um grupo que você deseja que receba notificações de erro de provisionamento no campo **Email de Notificação**. Marque a caixa de seleção logo abaixo.
 
-8. Selecione **Salvar**. 
+8. Clique em **Salvar**. 
 
 9. Na seção **Mapeamentos**, selecione **Sincronizar usuários do Azure Active Directory com o Pingboard**.
 
@@ -100,5 +100,5 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerenciar provisionamento de conta de usuário para aplicativos empresariais](active-directory-enterprise-apps-manage-provisioning.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar Logon Único](active-directory-saas-pingboard-tutorial.md)

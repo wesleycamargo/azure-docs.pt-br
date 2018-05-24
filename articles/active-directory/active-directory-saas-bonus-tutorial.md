@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Bonusly | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Bonusly."
+title: 'Tutorial: Integração do Azure Active Directory ao Bonusly | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Bonusly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b69cf1c42cbc6aedb064378271e2c631b4be39f3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8133ec95bf0cbf6a9ce4ca1ad224d03ac593c940
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: integração do Azure Active Directory ao Bonusly
 
@@ -30,9 +30,9 @@ A integração do Bonusly ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no Bonusly (Logon único) com as contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Bonusly, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Bonusly da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-bonusly-from-the-gallery"></a>Adicionando o Bonusly da galeria
 Para configurar a integração do Bonusly ao Azure AD, você precisa adicionar o Bonusly da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -97,7 +97,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. No Portal do Azure, na página de integração de aplicativos do **Bonusly**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
@@ -263,7 +263,7 @@ Quando você clicar no bloco Bonusly no Painel de Acesso, deverá ser automatica
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

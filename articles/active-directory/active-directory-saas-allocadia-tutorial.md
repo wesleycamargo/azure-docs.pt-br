@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Allocadia | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Allocadia."
+title: 'Tutorial: Integração do Azure Active Directory com o Allocadia | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Allocadia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 0fad672f9337f7bd10b154dc6ece76879da68fbd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 80f9a95715e1e6fff7fa3a48abd3b5a542ba629f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Tutorial: Integração do Azure Active Directory ao Allocadia
 
@@ -29,9 +29,9 @@ A integração do Allocadia ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no Allocadia (logon único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Allocadia, você precisará dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Allocadia da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-allocadia-from-the-gallery"></a>Adicionar o Allocadia da galeria
 Para configurar a integração do Allocadia ao Azure AD, você precisará adicionar o Allocadia da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do Allocadia ao Azure AD, você precisará adicio
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Allocadia**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do Allocadia ao Azure AD, você precisará adicio
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configura e testa o logon único do Azure AD com o Allocadia, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Allocadia é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Allocadia.
@@ -86,11 +86,11 @@ No Allocadia, atribua o valor do **nome de usuário** no Azure AD como o valor d
 
 Para configurar e testar o logon único do Azure AD com o Allocadia, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criando um usuário de teste do Allocadia](#creating-an-allocadia-test-user)** – para ter um equivalente de Brenda Fernandes no Allocadia que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração do aplicativo do **Allocadia**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_samlbase.png)
 
 3. Na seção **Domínio e URLs do Allocadia**, realize as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_url.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL usando os seguintes padrões: 
        
@@ -127,7 +127,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 4. O aplicativo Allocadia espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo dessa configuração. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_attributes.png)
+    ![Configurar o logon único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_attributes.png)
     
 5. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir:
     
@@ -139,7 +139,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-allocadia-tutorial/tutorial_attribute_04.png)
+    ![Configurar o logon único](./media/active-directory-saas-allocadia-tutorial/tutorial_attribute_04.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -158,9 +158,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 7. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-allocadia-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-allocadia-tutorial/tutorial_general_400.png)
 
-8. Para configurar o logon único no lado do **Allocadia**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Allocadia](mailTo:support@allocadia.com). Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.
+8. Para configurar o logon único no lado do **Allocadia**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Allocadia](mailTo:support@allocadia.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -215,7 +215,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 2. Na lista de aplicativos, selecione **Allocadia**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -241,7 +241,7 @@ Para obter mais informações sobre o Painel de Acesso, consulte [Introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 
