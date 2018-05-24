@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: 499f363dd6241612553e94e43dd56de6cfc8f71f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0946d5234292cfb69a7e9b5bc7846e6acf94dff4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072616"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Proteger novamente computadores do Azure para um site local
 
@@ -39,6 +40,8 @@ Se você usou um modelo para criar suas máquinas virtuais, verifique se cada m�
 - Certifique-se de abrir as portas a seguir para failover e failback.
 
     ![Portas para failover e failback](./media/vmware-azure-reprotect/failover-failback.png)
+
+- Você pode ler todos os pré-requisitos em portas e lista branca de URL [aqui](vmware-azure-deploy-configuration-server.md#prerequisites)
 
 ## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor em processo no Azure
 
@@ -77,7 +80,8 @@ Após criar um servidor de destino mestre, faça o seguinte:
     - O volume de retenção padrão para o Windows é o volume R.
     - O volume de retenção padrão para o Linux é /mnt/retention.
 - Você precisará adicionar uma nova unidade se estiver usando um servidor de processo/computador de servidor de configuração existente ou uma escala ou um servidor de processo/computador de servidor de destino mestre. A nova unidade deve atender aos requisitos anteriores. Se a unidade de retenção não estiver presente, ela não aparecerá na lista suspensa de seleção no portal. Depois de adicionar uma unidade ao destino mestre local, levará até 15 minutos para que a unidade apareça na seleção no portal. Você também poderá atualizar o servidor de configuração se a unidade não aparecer depois de 15 minutos.
-- Instalar ferramentas do VMware no servidor de destino mestre. Sem as ferramentas do VMware, os armazenamentos de dados no host de ESXi do destino mestre não podem ser detectados.
+- Instale as ferramentas do VMware ou o open-vm-tools no servidor de destino principal. Sem as ferramentas, os datastores no host ESXi do destino mestre não podem ser detectados.
+
 - Defina a configuração `disk.EnableUUID=true` nos parâmetros de configuração da máquina virtual de destino mestre no VMware. Se essa linha não existir, adicione-a. Essa configuração é necessária para fornecer um UUID consistente para o VMDK (disco de máquina virtual) para que ele monte corretamente.
 - O host ESX em que o destino mestre é criado deve ter pelo menos um datastore VMFS anexado a ele. Se não houver nenhum, a entrada do **Repositório de Dados** na página de nova proteção estará vazia e você não poderá continuar.
 - O servidor de destino mestre não pode ter instantâneos nos discos. Se houver instantâneos, a nova proteção e o failback falharão.

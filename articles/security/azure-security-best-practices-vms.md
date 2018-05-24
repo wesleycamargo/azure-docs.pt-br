@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 409ed4618b8ddf022cfc3457851cf434ba810b94
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160539"
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Práticas recomendadas para a segurança de VM do Azure
 
@@ -55,7 +56,7 @@ Quando você habilita as políticas do Gerenciador de recursos e o RBAC para con
 
 - [Colaborador de Máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): pode gerenciar VMs, mas não a rede virtual nem a conta de armazenamento à qual ele está conectado.
 - [Colaborador de Máquina Virtual Clássica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): pode gerenciar VMs criadas usando o modelo de implantação clássica, mas não a rede ou armazenamento de conta virtual para o qual as VMs estão conectadas.
-- [Gerente de Segurança](../role-based-access-control/built-in-roles.md#security-manager): pode gerenciar componentes de segurança, políticas de segurança e VMs.
+- [Administrador de Segurança](../role-based-access-control/built-in-roles.md#security-admin): pode gerenciar componentes de segurança e políticas de segurança.
 - [Usuário do DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): pode exibir tudo e se conectar a VMs, iniciá-las, reiniciá-las e desligá-las.
 
 Não compartilhe contas e senhas entre administradores nem reutilize senhas em várias contas de usuário ou serviços, particularmente, as senhas destinadas à mídia social ou outras atividades não administrativas. O ideal é que você use modelos do [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar suas VMs com segurança. Ao usar essa abordagem, é possível fortalecer as opções de implantação e impor configurações de segurança em toda a implantação.

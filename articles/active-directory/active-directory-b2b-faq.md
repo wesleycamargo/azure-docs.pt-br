@@ -2,25 +2,20 @@
 title: Perguntas frequentes sobre a colaboração B2B do Azure Active Directory | Microsoft Docs
 description: Obtenha respostas para as perguntas frequentes sobre a colaboração B2B do Azure Active Directory.
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/06/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77dc239385261c9544b00cf2cf2e450136dce0ae
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076566"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
@@ -37,9 +32,6 @@ Sim. Para obter mais informações sobre como usar o recurso de upload de arquiv
 
 ### <a name="how-can-i-customize-my-invitation-emails"></a>Como posso personalizar meus emails de convite?
 É possível personalizar quase tudo no processo do emissor do convite usando as [APIs de convite B2B](active-directory-b2b-api.md).
-
-### <a name="can-an-invited-external-user-leave-the-organization-after-being-invited"></a>Um usuário externo convidado pode deixar a organização depois de ser convidado?
-O administrador da organização emissora do convite pode excluir um usuário convidado de colaboração B2B do seu diretório, mas o usuário convidado não pode deixar o diretório da organização emissora do convite sozinho. 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>Os usuários convidados podem redefinir seu método de autenticação multifator?
 Sim. Os usuários convidados podem redefinir seu método de autenticação multifator da mesma forma que os usuários comuns.
@@ -105,9 +97,7 @@ Estamos constantemente ouvindo seus comentários para melhorar a colaboração B
 Também convidamos você a enviar ideias e votar em recursos futuros em [Ideias para a Colaboração B2B](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>Podemos enviar um convite resgatado automaticamente, de forma que o usuário simplesmente esteja “pronto para começar”? Ou o usuário sempre deve clicar na URL de resgate?
-Os convites enviados por um usuário da organização emissora do convite, que também é membro da organização parceira, não exigem o resgate do usuário B2B.
-
-Recomendamos convidar um usuário da organização parceira para participar da organização emissora do convite. [Adicione esse usuário à função de emissor do convite para convidado na organização do recurso](active-directory-b2b-add-guest-to-role.md). Esse usuário pode convidar outros usuários na organização parceira usando a interface do usuário de conexão, scripts do PowerShell ou APIs. Em seguida, os usuários de colaboração B2B dessa organização não precisarão resgatar seus convites.
+Um emissor do convite pode convidar outros usuários na organização parceira usando a interface do usuário, scripts do PowerShell ou APIs. Em seguida, o emissor do convite pode enviar ao usuário convidado um link direto para um aplicativo compartilhado. Na maioria dos casos, não há mais necessidade de abrir o convite por email e clicar em uma URL de resgate. Para obter mais informações, consulte [Resgate do convite de colaboração do Azure Active Directory B2B](active-directory-b2b-redemption-experience.md).
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>Como funciona a colaboração B2B quando o parceiro convidado estiver utilizando federação para adicionar sua própria autenticação local?
 Se o parceiro tiver um locatário do Azure AD que está federado à infraestrutura de autenticação local, o SSO (logon único) local será feito automaticamente. Se o parceiro não tiver um locatário do Azure AD, uma conta do Azure AD será criada para novos usuários. 
@@ -129,16 +119,5 @@ Para obter informações sobre as licenças que sua organização precisa usar n
 
 ### <a name="next-steps"></a>Próximas etapas
 
-Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
+- [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Como os administradores do Azure AD adicionam usuários de colaboração B2B?](active-directory-b2b-admin-add-users.md)
-* [Como os operadores de informação adicionam usuários de colaboração B2B?](active-directory-b2b-iw-add-users.md)
-* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md) (Os elementos do email de convite para colaboração B2B)
-* [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
-* [Licenciamento da colaboração B2B do Azure AD](active-directory-b2b-licensing.md)
-* [Solução de problemas da colaboração do Azure AD B2B](active-directory-b2b-troubleshooting.md)
-* [API e personalização da colaboração do Azure AD B2B](active-directory-b2b-api.md)
-* [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
-* [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
-* [Índice de artigos sobre gerenciamento de aplicativos no Azure AD](active-directory-apps-index.md)

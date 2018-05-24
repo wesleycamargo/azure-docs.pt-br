@@ -10,11 +10,12 @@ ms.custom: security
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 18afebefaee9117244767e0a00e293a297bbf9af
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 375142b0e55c741e6ab914e969751833f989d2fb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161066"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Descoberta e Classificação de Dados do Banco de Dados SQL do Azure
 A Descoberta e Classificação de Dados (atualmente em versão prévia) fornece recursos internos avançados no Banco de Dados SQL do Microsoft Azure para **descobrir**, **classificar**, **rotular** & **proteger** os dados confidenciais em seus bancos de dados.
@@ -22,6 +23,9 @@ Descobrir e classificar seus dados mais confidenciais (negócios/financeiros, se
 * Ajudar a cumprir os padrões de privacidade de dados e os requisitos de conformidade a normas, como GDPR.
 * Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
 * Controlar o acesso e proteção da segurança de bancos de dados contendo dados altamente confidenciais.
+
+> [!NOTE]
+> Este documento está relacionado apenas ao Banco de Dados SQL do Azure. Para o SQL Server (no local), consulte [Descoberta e Classificação de Dados SQL](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Visão geral
 A Descoberta e Classificação de Dados apresenta um conjunto de serviços avançados e novos recursos SQL, formando um novo paradigma de Proteção de Informações do SQL, visando proteger os dados e não apenas o banco de dados:
@@ -42,7 +46,7 @@ A classificação inclui dois atributos de metadados:
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 
-2. Navegue até a configuração  **Descoberta e classificação de dados (versão prévia)**  no seu Banco de Dados SQL.
+2. Navegue até a configuração **Descoberta e classificação de dados (versão prévia)** no seu Banco de Dados SQL.
 
     ![Painel de navegação][1]
 

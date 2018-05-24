@@ -1,111 +1,127 @@
 ---
-title: Acesso elevado de administrador de locatários — Azure AD | Microsoft Docs
-description: Este tópico descreve as funções internas para o RBAC (controle de acesso baseado em função).
+title: Elevar o acesso de um Administrador global no Azure Active Directory | Microsoft Docs
+description: Descreve como elevar o acesso de um Administrador global no Azure Active Directory usando o portal do Azure ou a API REST.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/30/2017
+ms.date: 05/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 7b4625bff277851fb9002e54b26485b948981252
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b671ff6b473093e59bce18c7bf98b32e9849bbb0
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077200"
 ---
-# <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Elevar o acesso como um administrador de locatários com Controle de Acesso Baseado em Função
+# <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevar o acesso de um Administrador global no Azure Active Directory
 
-O Controle de Acesso Baseado em Função ajuda os administradores de locatários a obter elevações temporárias no acesso para que eles possam conceder permissões mais elevadas que o normal. Os administradores de locatários podem elevar a si mesmos para a função de Administrador de Acesso do Usuário quando necessário. Essa função fornece aos administradores de locatários permissões para conceder a si mesmos ou a outras funções no escopo "/".
+Caso você seja um [Administrador global](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) no Azure Active Directory (Azure AD), pode haver momentos em que você deseje fazer o seguinte:
 
-Esse recurso é importante porque permite que o administrador de locatários veja todas as assinaturas que existem em uma organização. Isso também permite aos aplicativos de automação (como faturamento e auditoria) acessar todas as assinaturas e fornecer uma exibição precisa do estado da organização em termos de gerenciamento de ativos ou cobrança.  
+- Recuperar o acesso a uma assinatura do Azure quando um usuário tiver perdido o acesso
+- Conceder que acesso a uma assinatura do Azure a outro usuário ou a si mesmo
+- Ver todas as assinaturas do Azure em uma organização
+- Permitir o acesso de um aplicativo de automação (como um aplicativo de faturamento ou de auditoria) a todas as assinaturas do Azure
 
-## <a name="use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Usar elevateAccess para acesso de locatário com o centro de administração do Azure AD
+Por padrão, as funções de administrador do Azure AD e as funções de RBAC (controle de acesso baseado em função) do Azure não se estendem ao Azure AD e Azure. No entanto, caso você seja um Administrador global no Azure AD, pode elevar seu acesso para gerenciar assinaturas do Azure e grupos de gerenciamento. Ao elevar o acesso, você receberá a função de [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) (uma função de RBAC) em todas as assinaturas de um locatário específico. A função de Administrador de Acesso do Usuário permite que você conceda a outros usuários o acesso aos recursos do Azure no escopo raiz (`/`).
 
-1. Vá para o [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) e faça logon com suas credenciais.
+Essa elevação deve ser temporária e só deve ser feita quando for necessário.
 
-2. Escolha **Propriedades** no menu à esquerda do Azure AD.
+## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Elevar o acesso de um Administrador global usando o portal do Azure
 
-3. Localize **Administrador global pode gerenciar assinaturas do Azure**, escolha **Sim** e **Salve**.
-    > [!IMPORTANT] 
-    > Quando você escolhe **Sim**, a função **Administrador de Acesso do Usuário** na Raiz "/" (Escopo Raiz) é atribuída ao usuário com o qual você está conectado no momento no Portal. **Isso permite que o usuário veja todas as outras assinaturas do Azure.**
-    
-    > [!NOTE] 
-    > Quando você escolhe **Não**, a função **Administrador de Acesso do Usuário** na Raiz "/" (Escopo Raiz) é removida do usuário com o qual você está conectado no momento no Portal.
+1. Entre no [portal do Azure](https://portal.azure.com) ou no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com).
 
-> [!TIP] 
-> A impressão é que essa é uma Propriedade Global para o Azure Active Directory, no entanto, ela funciona por usuário para o usuário conectado no momento. Quando você tiver direitos de Administrador Global no Azure Active Directory, poderá invocar o recurso elevateAccess para o usuário com o qual você está conectado no momento no Centro de Administração do Azure Active Directory.
+1. Na lista de navegação, clique em **Azure Active Directory**, depois clique em **Propriedades**.
 
-![Centro de Administração do Microsoft Azure AD - Propriedades - Administrador global pode gerenciar a Assinatura do Azure - captura de tela](./media/elevate-access-global-admin/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+   ![Azure Active Directory – captura de tela](./media/elevate-access-global-admin/aad-properties.png)
 
-## <a name="view-role-assignments-at-the--scope-using-powershell"></a>Visualize a atribuição de função no escopo "/" usando o PowerShell
-Para visualizar a atribuição do **Administrador de acesso do usuário** no **/** escopo, use o `Get-AzureRmRoleAssignment` cmdlet do PowerShell.
-    
-```powershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_.SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
+1. Em **Administrador global pode gerenciar Assinaturas do Azure e Grupos de Gerenciamento**, selecione a opção **Sim**.
+
+   ![O Administrador global pode gerenciar Assinaturas do Azure e Grupos de Gerenciamento – captura de tela](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
+
+   Ao selecionar a opção **Sim**, sua conta de Administrador global (conectada no usuário no momento) é adicionada à função de Administrador de Acesso do Usuário no Azure RBAC no escopo raiz (`/`), o que lhe concede acesso de visualização e relatório em todas as assinaturas do Azure associadas ao seu locatário do Azure AD.
+
+   Ao selecionar a opção **Não**, sua conta de Administrador global (conectada no usuário no momento) é removida da função de Administrador de Acesso do Usuário no Azure RBAC. Não é possível ver todas as assinaturas do Azure associadas ao locatário do Azure AD, sendo possível visualizar e gerenciar apenas as assinaturas do Azure às quais você recebeu acesso.
+
+1. Clique em **Salvar**, para salvar suas configurações.
+
+   Essa configuração não é uma propriedade global, aplicando-se somente ao usuário conectado no momento.
+
+1. Execute as tarefas que você precisa fazer com o acesso elevado. Ao terminar, retorne a opção para **Não**.
+
+## <a name="list-role-assignment-at-the-root-scope--using-powershell"></a>Listar a atribuição de função no escopo raiz (/) usando o PowerShell
+
+Para listar a atribuição de função de Administrador de Acesso do Usuário para um usuário no escopo raiz (`/`), use o comando [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+
+```azurepowershell
+Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+  -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
-**Saída de exemplo**:
-```
-RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
-Scope              : /    
-DisplayName        : username    
-SignInName         : username@somedomain.com    
-RoleDefinitionName : User Access Administrator    
-RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
-ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
-ObjectType         : User    
-```
-
-## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>Exclua a atribuição de função no escopo "/" usando o Powershell:
-Você pode excluir a atribuição usando o seguinte cmdlet do PowerShell:
-
-```powershell
-Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
+```Example
+RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0
+Scope              : /
+DisplayName        : username
+SignInName         : username@example.com
+RoleDefinitionName : User Access Administrator
+RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9
+ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
+ObjectType         : User
 ```
 
-## <a name="use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Usar elevateAccess para fornecer acesso de locatário com a API REST
+## <a name="delete-a-role-assignment-at-the-root-scope--using-powershell"></a>Excluir a atribuição de função no escopo raiz (/) usando o PowerShell
 
-O processo básico funciona com as seguintes etapas:
+Para excluir a atribuição de função de Administrador de Acesso do Usuário para um usuário no escopo raiz (`/`), use o comando [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
 
-1. Usando REST, chame *elevateAccess*, que concede a você a função Administrador de Acesso do Usuário no escopo "/".
+```azurepowershell
+Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+  -RoleDefinitionName "User Access Administrator" -Scope "/"
+```
 
-    ```
-    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
-    ```
+## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Elevar o acesso de um Administrador global usando a API REST
 
-2. Crie uma [atribuição de função](/rest/api/authorization/roleassignments) para atribuir qualquer função em qualquer escopo. O exemplo a seguir mostra as propriedades para atribuir a função Leitor no escopo "/":
+Use as etapas básicas a seguir para elevar o acesso de um Administrador global usando a API REST
 
-    ```json
-    { 
-      "properties": {
-        "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionID}",
-        "principalId": "{objectID}",
-        "scope": "/"
-      },
-      "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
-    }
-    ```
+1. Usando a REST, chame `elevateAccess`, que lhe concede a função de Administrador de Acesso do Usuário no escopo raiz (`/`).
 
-3. Enquanto um Administrador de Acesso do Usuário, você também pode excluir a atribuição de função no escopo "/".
+   ```http
+   POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
+   ```
 
-4. Revogue seus privilégios de Administrador de Acesso do Usuário até que sejam necessários novamente.
+1. Crie uma [atribuição de função](/rest/api/authorization/roleassignments) para atribuir qualquer função em qualquer escopo. O exemplo a seguir mostra as propriedades para atribuir a função {roleDefinitionID} no escopo raiz (`/`):
+
+   ```json
+   { 
+     "properties": {
+       "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionID}",
+       "principalId": "{objectID}",
+       "scope": "/"
+     },
+     "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
+     "type": "Microsoft.Authorization/roleAssignments",
+     "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
+   }
+   ```
+
+1. Enquanto Administrador de Acesso do Usuário, você também pode excluir atribuições de função no escopo (`/`).
+
+1. Revogue seus privilégios de Administrador de Acesso do Usuário até que sejam necessários novamente.
 
 
 ## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Como desfazer a ação elevateAccess com a API REST
 
-Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo, de modo que para revogar esses privilégios é preciso excluir a atribuição.
+Ao chamar `elevateAccess`, você cria uma atribuição de função para si mesmo, de modo que, para revogar esses privilégios, é preciso excluir a atribuição.
 
-1.  Chame GET roleDefinitions, em que roleName = Administrador de Acesso do Usuário, para determinar o GUID do nome da função de Administrador de Acesso do Usuário.
-    ```
+1. Chame [GET roleDefinitions](/rest/api/authorization/roledefinitions/get), em que `roleName` é igual a Administrador de Acesso do Usuário, para determinar a ID do nome da função de Administrador de Acesso do Usuário.
+
+    ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User Access Administrator'
     ```
 
@@ -144,19 +160,18 @@ Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo
     }
     ```
 
-    Salve o GUID do parâmetro *name*, neste caso **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
+    Salve a ID do parâmetro `name`, nesse caso: `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
-2. Você também precisa listar a atribuição de função de administrador de locatário no escopo de locatário. Liste todas as atribuições no escopo de locatário para a PrincipalId do TenantAdmin que fez a chamada de elevação de acesso. Isso listará todas as atribuições no locatário para a ObjectID.
+2. Também é preciso listar a atribuição de função de administrador de locatário no escopo de locatário. Liste todas as atribuições do escopo de locatário de `principalId` do administrador de locatário que fez a chamada de elevação de acesso. Isso listará todas as atribuições do objectid no locatário.
 
-    ```
+    ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
     ```
     
     >[!NOTE] 
-    >Um administrador de locatário não deve ter muitas atribuições. Se a consulta anterior retornar atribuições demais, você também poderá consultar por todas as atribuições apenas no nível de escopo de locatário e, em seguida, filtrar os resultados: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
-    
+    >Um administrador de locatário não deve ter muitas atribuições. Se a consulta anterior retornar atribuições demais, você também poderá consultar todas as atribuições apenas no nível de escopo de locatário e, em seguida, filtrar os resultados: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. As chamadas anteriores retornam uma lista de atribuições de função. Localize a atribuição de função em que o escopo é "/" e a RoleDefinitionId termina com o GUID de nome da função encontrado na etapa 1 e a PrincipalId corresponde à ObjectId do administrador de locatário. 
+    2. As chamadas anteriores retornam uma lista de atribuições de função. Localize a atribuição de função em que o escopo é "/", `roleDefinitionId` termina com a ID de nome da função encontrada na etapa 1 e `principalId` corresponde à objectId do administrador de locatário. 
     
     Atribuição de função de amostra:
 
@@ -182,16 +197,15 @@ Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo
         }
         ```
         
-    Novamente, salve o GUID do parâmetro *name* parâmetro, neste caso **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+    Novamente, salve a ID do parâmetro `name`, nesse caso: e7dd75bc-06f6-4e71-9014-ee96a929d099.
 
-    3. Por fim, use a **ID de RoleAssignment** realçada para excluir a atribuição adicionada por Elevate Access:
+    3. Por fim, use a ID da atribuição de função para excluir a atribuição adicionada por `elevateAccess`:
 
-    ```
+    ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [como gerenciar o Controle de Acesso Baseado em Função com REST](role-assignments-rest.md)
-
-- [Gerenciar atribuições de acesso](role-assignments-users.md) no Portal do Azure
+- [Controle de acesso baseado em função com REST](role-assignments-rest.md)
+- [Gerenciar atribuições de acesso](role-assignments-users.md)

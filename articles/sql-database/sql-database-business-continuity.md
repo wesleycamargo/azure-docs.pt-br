@@ -12,11 +12,12 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46236c11b15f86c26be5e8c1311ba35e8bdd90f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5c64ed51fd7c36b1c2cb3b5d98df18b82e08cc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192383"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 
@@ -37,7 +38,7 @@ A tabela a seguir compara o ERT e o RPO para cada camada de serviço para os tr�
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Use a recuperação pontual para recuperar um banco de dados
 
-O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco a dez minutos para proteger sua empresa contra a perda de dados. Esses backups são armazenados no armazenamento RA-GRS por 35 dias para bancos de dados nas camadas de serviço Standard e Premium e 7 dias para bancos de dados na camada de serviço Básico. Nas camadas Uso Geral e de Comercialmente Crítico (versão prévia), a retenção de backups é configurável em até 35 dias. Para saber mais, consulte [Camadas de serviço](sql-database-service-tiers.md). Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-service-tiers.md). Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md).
+O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco a dez minutos para proteger sua empresa contra a perda de dados. Se você estiver usando o [modelo de compra com base em DTU](sql-database-service-tiers-dtu.md), esses backups são armazenados no armazenamento RA-GRS por 35 dias para bancos de dados nas camadas de serviço Standard e Premium e 7 dias para bancos de dados na camada de serviço Básico. Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model). Se você estiver usando o [modelo de compra com base em vCore (versão prévia)](sql-database-service-tiers-vcore.md), a retenção de backups é configurável em até 35 dias nas camadas crítica de Negócios e uso geral. Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md).
 
 Se o período máximo de retenção de PITR com suporte não for suficiente para o aplicativo, será possível estendê-lo configurando uma política LTR (retenção de longo prazo) para o(s) banco(s) de dados. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 
@@ -81,7 +82,7 @@ Use a replicação geográfica ativa e os grupos de failover automático (em ver
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Recuperar um banco de dados após um erro de usuário ou de aplicativo
 
-*Ninguém é perfeito! Um usuário pode acidentalmente excluir alguns dados, remover uma tabela importante inadvertidamente ou até mesmo um banco de dados inteiro. Ou, um aplicativo pode acidentalmente substituir dados corretos por incorretos por causa de um defeito.
+Ninguém é perfeito! Um usuário pode acidentalmente excluir alguns dados, remover uma tabela importante inadvertidamente ou até mesmo um banco de dados inteiro. Ou, um aplicativo pode acidentalmente substituir dados corretos por incorretos por causa de um defeito.
 
 Neste cenário, estas são as opções de recuperação.
 
@@ -97,8 +98,7 @@ Para obter mais informações e as etapas detalhadas para restaurar um banco de 
 
 > [!IMPORTANT]
 > Se o servidor lógico for excluído, você não poderá recuperar um banco de dados excluído.
->
->
+
 
 ### <a name="restore-backups-from-long-term-retention"></a>Restaurar backups de retenção de longo prazo
 

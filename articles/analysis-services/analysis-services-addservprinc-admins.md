@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f1cc563cc13a9102dbdac7bd505b4dd844ff8247
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149256"
 ---
-# <a name="add-a-service-principle-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
+# <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
 
  Para automatizar tarefas do PowerShell autônomas, uma entidade de serviço deve ter privilégios de **administrador do servidor** no servidor do Analysis Services sendo gerenciado. Este artigo descreve como adicionar uma entidade de serviço à função de administradores do servidor em um servidor do AS do Azure.
 
@@ -27,7 +28,7 @@ Antes de concluir essa tarefa, você deverá ter uma entidade de serviço regist
 ## <a name="required-permissions"></a>Permissões necessárias
 Para concluir essa tarefa, você deve ter permissões de [administrador do servidor](analysis-services-server-admins.md) no servidor do AS do Azure. 
 
-## <a name="add-service-principle-to-server-administrators-role"></a>Adicionar entidade de serviço à função de administradores do servidor
+## <a name="add-service-principal-to-server-administrators-role"></a>Adicionar entidade de serviço à função de administradores do servidor
 
 1. No SSMS, conecte o servidor do AS do Azure.
 2. Em **Propriedades do Servidor** > **Segurança**, clique em **Adicionar**.

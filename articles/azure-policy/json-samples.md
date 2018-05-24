@@ -1,26 +1,20 @@
 ---
-title: Exemplos de modelos de política | Microsoft Docs
+title: Amostras de modelo de política
 description: Exemplos de JSON para o Azure Policy
 services: azure-policy
-documentationcenter: ''
 author: DCtheGeek
 manager: carmonm
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: na
-ms.topic: samples
-ms.tgt_pltfrm: ''
-ms.workload: ''
+ms.topic: sample
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4b9096c1fb0d9ee74849e259a6e0af2486c5d29b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195117"
 ---
 # <a name="templates-for-azure-policy"></a>Modelos para o Azure Policy
 
@@ -79,6 +73,9 @@ A tabela a seguir contém links para modelos json do Azure Policy. Esses exemplo
 | [Tipos de recursos permitidos](scripts/allowed-res-types.md) | Assegura que apenas os tipos de recurso aprovados sejam implantados. Especifique uma matriz de tipos de recursos permitidos.  |
 | [SKUs de conta de armazenamento permitidas](scripts/allowed-stor-acct-skus.md) | Exige que contas de armazenamento usem uma SKU aprovada. Especifique uma matriz de SKUs aprovados. |
 | [Aplicar marca e seu valor padrão](scripts/apply-tag-def-val.md) | Acrescentará um nome e um valor de marca especificados se a marca não for indicada. Especifique o nome e o valor da marca a serem aplicados.  |
+| [Auditar criptografia do Banco de Dados SQL](scripts/sql-database-encryption-audit.md) | Audita se o banco de dados SQL não tem a Transparent Data Encryption habilitada. |
+| [Auditar as configurações de auditoria do SQL Server](scripts/sql-server-audit.md) | Audita o SQL Server para verificar se as configurações de auditoria estão habilitadas. |
+| [Exigir a criptografia do Data Lake Store](scripts/enforce-datalakestore-encryption.md) | Nega as contas do Data Lake Store que não tem a criptografia habilitada. |
 | [Impor marca e seu valor](scripts/enforce-tag-val.md) | Exige um nome e um valor de marca especificados. Especifique o nome e o valor da marca a serem impostos.  |
 | [Tipos de recursos não permitidos](scripts/not-allowed-res-type.md) | Proíbe a implantação dos tipos de recursos especificados. Especifique uma matriz de tipos de recursos a ser bloqueada.  |
 | [Exigir SQL Server versão 12.0](scripts/req-sql-12.md) | Exige que servidores SQL usem a versão 12.0.  |

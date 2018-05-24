@@ -1,45 +1,42 @@
 ---
-title: Criar políticas por meio de programação e exibir dados de conformidade com o Azure Policy | Microsoft Docs
+title: Criar políticas por meio de programação e exibir dados de conformidade com o Azure Policy
 description: Este artigo orienta você na criação e gerenciamento por meio de programação de políticas no Azure Policy.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2018
-ms.topic: article
+ms.date: 05/07/2018
+ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: ''
-ms.openlocfilehash: bd0dbb1b6b44b34fc86b8c73fa586b1b4cf880f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5405566b5254c553eac584acc1653449b51ddffc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195872"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas por meio de programação e exibir dados de conformidade
 
-Este artigo orienta você na criação e gerenciamento por meio de programação de políticas. Ele também mostra como exibir estados de conformidade do recurso e as políticas. As definições de políticas impõem diferentes regras e ações em seus recursos. A imposição garante que os recursos permaneçam em conformidade com seus padrões empresariais e contratos de nível de serviço.
+Este artigo orienta você na criação e gerenciamento por meio de programação de políticas. Ele também mostra como exibir estados de conformidade do recurso e as políticas. As definições de políticas impõem diferentes regras e efeitos em seus recursos. A imposição garante que os recursos permaneçam em conformidade com seus padrões empresariais e contratos de nível de serviço.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, verifique se os seguintes pré-requisitos são cumpridos:
 
 1. Caso ainda não tenha feito, instale o [ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta que envia solicitações HTTP para APIs baseadas no Azure Resource Manager.
-2. Atualize seu módulo do PowerShell do AzureRM para a versão mais recente. Para obter mais informações sobre a versão mais recente, consulte o Azure PowerShell https://github.com/Azure/azure-powershell/releases.
+2. Atualize seu módulo do PowerShell do AzureRM para a versão mais recente. Para obter mais informações sobre a versão mais recente, consulte o Azure PowerShell [.
 3. Registre o provedor de recursos de Informações de Política usando Azure PowerShell para garantir que sua assinatura funcione com o provedor de recursos. Para registrar um provedor de recursos, você deve ter permissão para executar a operação de ação de registro para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Execute o seguinte comando para registrar o provedor de recursos:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
   Para saber mais sobre como registrar e exibir provedores de recursos, consulte [Provedores de recursos e tipos](../azure-resource-manager/resource-manager-supported-services.md).
-4. Se ainda não fez, instale a CLI do Azure. Você pode obter a versão mais recente em [Instalar a CLI 2.0 do Azure no Windows](/azure/install-azure-cli-windows?view=azure-cli-latest).
+4. Se ainda não fez, instale a CLI do Azure. Você pode obter a versão mais recente em [Instalar a CLI 2.0 do Azure no Windows](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-and-assign-a-policy-definition"></a>Criar e atribuir uma definição de política
 
 A primeira etapa para obter melhor visibilidade de seus recursos é criar e atribuir políticas sobre seus recursos. A próxima etapa é aprender a criar e atribuir uma política por meio de programação. O exemplo de política realiza auditoria nas contas de armazenamento que estão abertas para todas as redes públicas usando PowerShell, CLI do Azure e solicitações HTTP.
-
-Os seguintes comandos criam definições de política para a camada Standard. A camada Standard ajuda você a obter correção, avaliação de conformidade e gerenciamento em escala. Para obter mais informações sobre os tipos de preços, consulte [Preços do Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>Criar e atribuir uma definição de política com o PowerShell
 
@@ -68,7 +65,7 @@ Os seguintes comandos criam definições de política para a camada Standard. A 
 2. Execute o seguinte comando para criar uma definição de política usando os arquivos AuditStorageAccounts.json.
 
   ```azurepowershell-interactive
-  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
   ```
 
   O comando cria uma definição de política denominada _Auditar Contas de Armazenamento Abertas para Redes Públicas_. Para obter mais informações sobre outros parâmetros que você pode usar, consulte [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
@@ -76,10 +73,8 @@ Os seguintes comandos criam definições de política para a camada Standard. A 
 
   ```azurepowershell-interactive
   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-
   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-
-  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
+  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
   ```
 
   Substitua _ContosoRG_ pelo nome do grupo de recursos desejado.
@@ -140,10 +135,6 @@ Use o procedimento a seguir para criar uma atribuição de política e atribuir 
           "parameters": {},
           "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
           "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-      },
-      "sku": {
-          "name": "A1",
-          "tier": "Standard"
       }
   }
   ```
@@ -192,7 +183,7 @@ az policy definition create --name 'audit-storage-accounts-open-to-public-networ
 3. Use o comando a seguir para criar uma atribuição de política. Substitua as informações de exemplo nos símbolos &lt;&gt; pelos seus próprios valores.
 
   ```azurecli-interactive
-  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
   ```
 
 Você pode obter a ID de definição da política usando o PowerShell com o seguinte comando:
@@ -211,38 +202,37 @@ Para obter mais informações sobre como gerenciar políticas de recursos com a 
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos sem conformidade
 
-Em uma atribuição, um recurso não está em conformidade se ele não segue as regras de iniciativa ou política. A tabela a seguir mostra como as diferentes ações da política funcionam com a avaliação da condição para o estado de conformidade resultante:
+Em uma atribuição, um recurso não está em conformidade se ele não segue as regras de iniciativa ou política. A tabela a seguir mostra como os diferentes efeitos da política funcionam com a avaliação da condição para o estado de conformidade resultante:
 
-| **Estado do recurso** | **Ação** | **Avaliação da política** | **Estado de conformidade** |
+| Estado do recurso | Efeito | Avaliação da política | Estado de conformidade |
 | --- | --- | --- | --- |
 | Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Sem conformidade |
 | Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Em conformidade |
 | Novo | Auditoria, AuditIfNotExist\* | True | Sem conformidade |
 | Novo | Auditoria, AuditIfNotExist\* | Falso | Em conformidade |
 
-\* As ações de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE. As ações também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
+\* Os efeitos de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE. Os efeitos também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
 
 Para entender melhor como os recursos são sinalizados como sem conformidade, vamos usar o exemplo de atribuição de política criado anteriormente.
 
 Por exemplo, suponha que você tenha um grupo de recursos – ContsoRG, com algumas contas de armazenamento (realçadas em vermelho) que são expostas para redes públicas.
 
-![Contas de armazenamento expostas a redes públicas](./media/policy-insights/resource-group01.png)
+![Contas de armazenamento expostas a redes públicas](media/policy-insights/resource-group01.png)
 
 Neste exemplo, você precisa estar atento aos riscos de segurança. Agora que você criou uma atribuição de política, ela é avaliada em relação a todas as contas de armazenamento no grupo de recursos ContosoRG. Ela realiza auditoria nas três contas de armazenamento sem conformidade, consequentemente alterando seus estados para **sem conformidade**.
 
-![Auditoria de contas de armazenamento sem conformidade](./media/policy-insights/resource-group03.png)
+![Auditoria de contas de armazenamento sem conformidade](media/policy-insights/resource-group03.png)
 
 Use o procedimento a seguir para identificar recursos em um grupo de recursos que não estejam em conformidade com a atribuição de política. No exemplo, os recursos são contas de armazenamento no grupo de recursos ContosoRG.
 
 1. Obtenha a ID de atribuição da política executando os seguintes comandos:
 
   ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
-
+  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
   $policyAssignment.PolicyAssignmentId
   ```
 
-  Para saber mais sobre a obtenção da ID de atribuição da política, consulte [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
+  Para saber mais sobre a obtenção da ID de atribuição da política, consulte [Get-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
 
 2. Execute o seguinte comando para obter as IDs de recurso dos recursos sem conformidade copiados para um arquivo JSON:
 
@@ -302,16 +292,6 @@ Seus resultados devem se parecer com o exemplo a seguir:
 ```
 
 Como os estados de política, você só pode exibir eventos de política com solicitações HTTP. Para obter mais informações sobre como consultar os eventos de política, consulte o artigo de referência de [Eventos de Política](/rest/api/policy-insights/policyevents).
-
-## <a name="change-a-policy-assignments-pricing-tier"></a>Alterar o tipo de preço de uma atribuição de política
-
-Você pode usar o cmdlet do PowerShell *Set-AzureRmPolicyAssignment* para atualizar o tipo de preço para Standard ou Gratuito em uma atribuição de política existente. Por exemplo: 
-
-```azurepowershell-interactive
-Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
-```
-
-Para obter mais informações sobre o cmdlet, consulte [Set-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment).
 
 ## <a name="next-steps"></a>Próximas etapas
 

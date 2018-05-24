@@ -1,30 +1,27 @@
 ---
-title: "Adicionar usuários de colaboração B2B como uma função de trabalho de informação - Azure Active Directory | Microsoft Docs"
-description: "A colaboração B2B permite que os operadores de informações adicionem usuários de sua organização ao Azure AD para acesso | Microsoft Docs"
+title: Adicionar usuários de colaboração B2B como uma função de trabalho de informação - Azure Active Directory | Microsoft Docs
+description: A colaboração B2B permite que os operadores de informações adicionem usuários de sua organização ao Azure AD para acesso | Microsoft Docs
 services: active-directory
-documentationcenter: 
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: curtand
-tags: 
-ms.assetid: 
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 05/23/2017
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 37660311d74bd6230dd6c229e4160e4d68d467a3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3ab78d6530bb792ad01a04c6774fe680579251db
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34074973"
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Como os operadores de informação adicionam usuários de colaboração B2B ao Azure Active Directory?
 
 Os operadores de informações podem usar o [Painel de Acesso do Aplicativo](http://myapps.microsoft.com) para adicionar usuários de colaboração B2B a aplicativos e grupos os quais administram.
+
+Depois de um usuário ser adicionado ao diretório, a função de trabalho de informação poderá enviar ao usuário convidado um link direto para um aplicativo compartilhado, ou o usuário convidado poderá clicar na URL de resgate no email de convite. Para obter mais informações sobre o processo de resgate, consulte [Regaste de convite de colaboração B2B](active-directory-b2b-redemption-experience.md).
 
 ## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>Operadores de informação adicionando usuários de colaboração B2B a um aplicativo
 Atribua usuários de colaboração B2B a um aplicativo como um operador de informações em uma organização parceira, conforme mostrado no vídeo a seguir:
@@ -40,16 +37,9 @@ Os operadores de informação podem adicionar usuários de colaboração B2B de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
+Consulte os seguintes artigos na colaboração B2B do Azure AD:
 
-* [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B?](active-directory-b2b-admin-add-users.md)
-* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md) (Os elementos do email de convite para colaboração B2B)
-* [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
-* [Licenciamento da colaboração B2B do Azure AD](active-directory-b2b-licensing.md)
-* [Solução de problemas de colaboração B2B do Azure Active Directory](active-directory-b2b-troubleshooting.md)
-* [Perguntas frequentes sobre a colaboração B2B do Azure Active Directory](active-directory-b2b-faq.md)
-* [API e personalização da colaboração B2B do Azure Active Directory](active-directory-b2b-api.md)
-* [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
-* [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
-* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B?](active-directory-b2b-admin-add-users.md)
+- [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
+- [Licenciamento da colaboração B2B do Azure AD](active-directory-b2b-licensing.md)

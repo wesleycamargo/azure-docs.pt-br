@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 30b3fbd415fac1e11a77b3905cb01e5935a62839
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34350858"
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>O que há de novo no gerenciamento de aplicativos empresariais no Azure Active Directory 
 
@@ -34,11 +35,11 @@ A seguir estão alguns dos aprimoramentos do Azure AD no [Portal do Azure](https
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Melhorias à Galeria de Aplicativos do Azure Active Directory
 
-Adicione seus aplicativos favoritos, sejam eles da [galeria de aplicativos](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), aplicativos personalizados que você está estendendo para a nuvem ou novos aplicativos que você está desenvolvendo.  Você pode começar com esta nova experiência clicando em **Adicionar** nas folhas da visão geral dos **Aplicativos Empresariais** ou **Todos os aplicativos**.
+Adicione seus aplicativos favoritos, sejam eles da [galeria de aplicativos](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), aplicativos personalizados que você está estendendo para a nuvem ou novos aplicativos que você está desenvolvendo.  Você pode começar com esta nova experiência clicando em **Adicionar** sob **Aplicativos Empresariais** ou **Todos os aplicativos**.
  
   ![Adicionando um aplicativo](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 
-Uma vez na galeria, você verá todos os nossos aplicativos em destaque, o que auxilia no provisionamento do usuário com sua exibição na frente e no centro.  Você pode procurar todos os tipos de categorias diferentes para detalhar os aplicativos importantes, ou pode usar a experiência de pesquisa para localizar rapidamente os aplicativos que você deseja integrar.
+Uma vez na galeria, você verá todos os aplicativos em destaque, o que auxilia no provisionamento do usuário com sua exibição na frente e no centro. Você pode procurar todos os tipos de categorias diferentes para detalhar os aplicativos importantes, ou pode usar a experiência de pesquisa para localizar rapidamente os aplicativos que você deseja integrar.
 
   ![A galeria de aplicativos](./media/active-directory-enterprise-apps-whats-new-azure-portal/02.png)
 
@@ -64,7 +65,7 @@ Além de adicionar aplicativos pré-integrados da galeria, todas as experiência
 ### <a name="developing-new-applications"></a>Desenvolver novos aplicativos
 
 1. Se você estiver desenvolvendo um novo aplicativo, há uma maneira fácil de acessar o Registro de Aplicativo à direita da galeria:
-2. Clique na opção **adicionar seu próprio** na Galeria de Aplicativos, selecione a opção **desenvolver um aplicativo existente** e você verá um link à direita para a experiência de adição de aplicativo.
+2. Clique na opção **adicionar seu próprio** na Galeria de Aplicativos, selecione **desenvolver um aplicativo existente** e você verá um link à direita para a experiência de adição de aplicativo.
 
   ![Adicionar um aplicativo recém-desenvolvido em alguns cliques](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
@@ -75,25 +76,25 @@ Além de adicionar aplicativos pré-integrados da galeria, todas as experiência
   ![Gerenciamento do acesso a seu novo aplicativo em Aplicativos Empresariais](./media/active-directory-enterprise-apps-whats-new-azure-portal/06.png)
 
 
-## <a name="quick-start-get-going-with-your-new-application-right-away"></a>Início rápido: Começar a usar seu novo aplicativo imediatamente 
+## <a name="quickstart-get-going-with-your-new-application-right-away"></a>Início Rápido: Começar a usar seu novo aplicativo imediatamente 
 
 Depois de adicionar um aplicativo, independentemente de ser pré-integrado ou seu próprio aplicativo, criamos uma experiência personalizada de início rápido para ajudá-lo a começar a usar rapidamente o novo aplicativo. Se você seguir sistematicamente cada opção, vamos conduzi-lo por meio da interface do isuário e mostraremos como começar com um piloto do seu novo aplicativo o mais rápido possível. 
  
   ![Experiência de início rápido de novos aplicativos](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
 
- Você pode visitar esta nova experiência de início rápido, a qualquer momento e de qualquer aplicativo, clicando em **Início rápido** no menu de navegação à esquerda do aplicativo.
+ Você pode visitar esta nova experiência de início rápido, a qualquer momento e de qualquer aplicativo, clicando em **Início Rápido** no menu de navegação à esquerda do aplicativo.
 
 
 ## <a name="updated-application-proxy-configuration"></a>Configuração de proxy de aplicativo atualizada
 Agora, digamos que um dos novos aplicativos que você adicionou esteja em execução no seu ambiente local e você deseja integrá-lo ao Azure AD.  Uma das novidades interessantes sobre a nova experiência de configuração de aplicativo no novo portal do Azure AD é que ao dividir o modo de logon do aplicativo da configuração de proxy de aplicativo, agora você pode facilmente expor os aplicativos de SSO com senha ou federados executados em sua rede corporativa diretamente na nuvem, sem a necessidade de criar várias instâncias do aplicativo.
 
-Além disso, agora também é possível configurar qualquer um dos novos aplicativos que você adicionou para uso com o direito de Proxy de Aplicativo do Azure AD do novo portal, incluindo os aplicativos que oferecem suporte a experiências nativas de autenticação do Windows.
+Também é possível configurar qualquer um dos novos aplicativos que você adicionou para uso com o direito de Proxy de Aplicativo do Azure AD do novo portal, incluindo os aplicativos que oferecem suporte a experiências nativas de autenticação do Windows.
 
   ![Configurar um aplicativo para usar a opção de logon de Autenticação Integrada do Windows](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
 
 Para começar a configurar um aplicativo nativo de autenticação do Windows com o Proxy de Aplicativo:
-1. Clique no item de navegação Logon Único e escolha **Autenticação Integrada do Windows** da folha configurações de logon e defina as configurações de sua preferência.
+1. Clique no item de navegação Logon Único e escolha **Autenticação Integrada do Windows** das configurações de logon e defina as configurações de sua preferência.
 2. Sobre o suporte a esses novos modos de autenticação, agora você pode também carregar certificados de domínios personalizados para oferecer suporte a aplicativos executados em pontos de extremidade seguros dentro da sua organização.  
  
    ![Carregar um certificado a ser usado com o Proxy de Aplicativo](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
@@ -102,28 +103,28 @@ Para começar a configurar um aplicativo nativo de autenticação do Windows com
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>Configuração avançada de logon único federado
 
-Para aqueles que utilizam aplicativos federados hoje, há muitos novos recursos na folha de configuração de logon único baseado em SAML. Para começar, agora você pode personalizar, adicionar, remover e mapear totalmente os atributos de usuário existentes emitidos como declarações em tokens SAML.
+Para aqueles que utilizam aplicativos federados hoje, há muitos novos recursos na configuração de logon único baseado em SAML. Para começar, agora você pode personalizar, adicionar, remover e mapear totalmente os atributos de usuário existentes emitidos como declarações em tokens SAML.
  
   ![Personalizar os atributos de usuário do token SAML passado para um aplicativo federado](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
 
 Para conferir a nova configuração de SSO federado:
-1. Abra a folha **logon único** de um aplicativo federado no menu de navegação esquerdo e verifique se o modo '*Logon Único Baseado em SAML** está selecionado. 
+1. Abra **logon único** de um aplicativo federado no menu de navegação esquerdo e verifique se o modo '*Logon Único Baseado em SAML** está selecionado. 
 2. Uma vez lá, habilite a caixa de seleção no título **Atributos de Usuário** para modificar todos os atributos incluídos no token SAML passado para esse aplicativo.
 
-Você pode também criar, substituir e gerenciar os certificados usados para logon único federado, bem como editar quem será notificado quando o certificado estiver prestes a expirar. Você verá essas novas opções no título **Certificados** na mesma folha Logon único.
+Você pode também criar, substituir e gerenciar os certificados usados para logon único federado, bem como editar quem será notificado quando o certificado estiver prestes a expirar. Você verá essas novas opções no título **Certificados** no mesmo painel de Logon único.
  
   ![Criar um novo certificado, personalizando o email de notificação de expiração e opções de assinatura de certificado](./media/active-directory-enterprise-apps-whats-new-azure-portal/11.png)
 
-### <a name="relay-state-paramenter"></a>Parâmetro de estado de retransmissão
-Por fim, também ampliamos o conjunto de parâmetros de URL do SAML, oferecemos suporte para incluir o **parâmetro Estado de Retransmissão**, que é a página em que os usuários aterrissarão em um aplicativo federado depois que a entrada for concluída. Essa é uma configuração muito útil para configurar se deseja enviar os usuários para um local específico dentro do aplicativo para que eles comecem a usar rapidamente.
+### <a name="relay-state-parameter"></a>Parâmetro de estado de retransmissão
+Por fim, também ampliamos o conjunto de parâmetros de URL do SAML, oferecemos suporte para incluir o **parâmetro Estado de Retransmissão**, que é a página em que os usuários aterrissarão em um aplicativo federado depois que a entrada for concluída. Essa é uma configuração útil para configurar se deseja enviar os usuários para um local específico dentro do aplicativo para que eles comecem a usar rapidamente.
 
   ![Definição do parâmetro Estado de Retransmissão de SAML](./media/active-directory-enterprise-apps-whats-new-azure-portal/12.png)
  
 **Para definir o parâmetro de estado de retransmissão**:
 
-1. Habilite a caixa de seleção **Mostrar configurações avançadas de URL** sob o título **Domínio e URLs** na folha de configuração do logon único. 
-2. Depois de fazer isso, você verá um conjunto de novas caixas de entrada de URL que permitirá a definição dessas e de outras configurações de URL de SAML.
+1. Habilite a caixa de seleção **Mostrar configurações avançadas de URL** sob o título **Domínio e URLs** no painel de configuração do logon único. 
+2. Um conjunto de novas caixas de entrada de URL aparece que permite que você defina este parâmetro e outras configurações de URL de SAML.
 
 ## <a name="bring-your-own-password-sso-applications"></a>Aplicativos SSO BYOP
 
@@ -133,7 +134,8 @@ Sabemos que nem todos os aplicativos dão suporte à federação nativamente. Po
 
 **Para conferir o recurso ‘BYOA’**:
 
-1. Depois de definir o modo de logon único para um novo aplicativo personalizado que você adicionou ao **Logon Único Baseado em Senha**, digite a URL onde o aplicativo processa sua tela de logon e clique em **Salvar**.  
+1. Depois de definir o modo de logon único para um novo aplicativo personalizado que você adicionou ao **Logon Único Baseado em Senha**, digite a URL onde o aplicativo processa sua tela de logon e 
+2. Clique em **Salvar**.  
 2. Depois de fazer isso, vamos extrair automaticamente essa URL para uma caixa de entrada de nome de usuário e de senha e permitir que você use o Azure AD para transmitir com segurança as senhas para o aplicativo usando a extensão de navegador de painel de acesso.
 
 ## <a name="configure-self-service-application-access"></a>Configurar o acesso ao aplicativo de autoatendimento
@@ -153,7 +155,7 @@ Esperamos que você goste de usar a experiência aprimorada do Azure AD. Continu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais detalhes, confira [Gerenciamento de aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md).
+Para obter mais detalhes, confira [Gerenciamento de aplicativos com o Azure Active Directory](manage-apps/what-is-application-management.md).
 
 
 

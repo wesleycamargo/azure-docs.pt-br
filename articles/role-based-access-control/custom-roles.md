@@ -6,121 +6,176 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/11/2017
+ms.date: 05/12/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c886655f0f9469b742532fa940519176a773ad41
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161049"
 ---
-# <a name="create-custom-roles-for-azure-role-based-access-control"></a>Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure
-Crie uma função personalizada no RBAC (Controle de Acesso Baseado em Função) do Azure se nenhuma das funções internas atende às suas necessidades de acesso específicas. É possível criar funções personalizadas usando o [Azure PowerShell](role-assignments-powershell.md), a [CLI (interface de linha de comando) do Azure](role-assignments-cli.md) e a [API REST](role-assignments-rest.md). Assim como as funções internas, é possível atribuir funções personalizadas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso. As funções personalizadas são armazenadas em um locatário do Azure AD e podem ser compartilhadas entre assinaturas.
+# <a name="create-custom-roles-in-azure"></a>Criar funções personalizadas no Azure
 
-Cada locatário pode criar até 2000 funções personalizadas. 
+Se as [funções internas](built-in-roles.md) não atenderem às suas necessidades específicas de acesso, você pode criar suas próprias funções personalizadas. Assim como as funções internas, é possível atribuir funções personalizadas a usuários, grupos e entidades de serviço na assinatura, no grupo de recursos e nos escopos de recurso. As funções personalizadas são armazenadas em um locatário do Azure Active Directory (Azure AD) e podem ser compartilhadas entre assinaturas. É possível criar funções personalizadas usando o Azure PowerShell, a CLI do Azure ou a API REST. Este artigo descreve um exemplo de como começar a criar funções personalizadas usando o PowerShell e a CLI do Azure.
 
-O seguinte exemplo mostra uma função personalizada para monitorar e reiniciar máquinas virtuais:
+## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>Crie uma função personalizada para abrir as solicitações de suporte usando o PowerShell
+
+Para criar uma função personalizada, você pode começar com uma função interna, editá-la e, em seguida, criar uma nova função. Neste exemplo, a função [Leitor](built-in-roles.md#reader) interno é personalizada para criar uma função personalizada chamada "Nível de acesso de tíquetes de suporte do leitor". Ele permite que o usuário veja tudo na assinatura e também as solicitações de suporte abertas.
+
+> [!NOTE]
+> Apenas duas funções internas que permitem que um usuário abra solicitações de suporte são [Proprietário](built-in-roles.md#owner) e [Colaborador](built-in-roles.md#contributor). Para um usuário poder abrir solicitações de suporte, ele deve receber uma função no escopo de assinatura, porque todas as solicitações de suporte são criadas com base em uma assinatura do Azure.
+
+No PowerShell, use o comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para exportar a função [Leitor](built-in-roles.md#reader) no formato JSON.
+
+```azurepowershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
+```
+
+O exemplo a seguir mostra a saída JSON para a função [Leitor](built-in-roles.md#reader). Uma função típica é composta por três seções principais, `Actions`, `NotActions` e `AssignableScopes`. A seção `Actions` lista todas as operações permitidas para a função. Para excluir as operações de `Actions`, você as adiciona ao `NotActions`. As permissões efetivas são calculadas subtraindo as operações `NotActions` das operações `Actions`.
 
 ```json
 {
-  "Name": "Virtual Machine Operator",
-  "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624",
-    "/subscriptions/34370e90-ac4a-4bf9-821f-85eeedeae1a2"
-  ]
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
 }
 ```
-## <a name="actions"></a>Ações
-A propriedade **Actions** de uma função personalizada especifica as operações do Azure às quais a função concede acesso. É uma coleção de cadeias de operação que identificam as operações protegíveis dos provedores de recursos do Azure. Cadeias de caracteres de operação seguem o formato de `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. As cadeias de operação que contêm caracteres curinga (\*) permitem acesso a todas as operações que correspondem à cadeia de operação. Por exemplo:
 
-* `*/read` concede acesso a operações de leitura a todos os tipos de recursos de todos os provedores de recursos do Azure.
-* `Microsoft.Compute/*` concede acesso a todas as operações a todos os tipos de recursos no provedor de recursos Microsoft.Compute.
-* `Microsoft.Network/*/read` concede acesso a operações de leitura a todos os tipos de recursos no provedor de recursos Microsoft.Network do Azure.
-* `Microsoft.Compute/virtualMachines/*` concede acesso a todas as operações de máquinas virtuais e seus tipos de recursos filhos.
-* `Microsoft.Web/sites/restart/Action` concede acesso para reinicialização de sites.
+Em seguida, você pode editar a saída JSON para criar a função personalizada. Nesse caso, para criar tíquetes de suporte, a operação `Microsoft.Support/*` deve ser adicionada. Cada operação é disponibilizada por um provedor de recursos. Para obter uma lista de operações para um provedor de recursos, você pode usar o comando [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) ou consultar [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md).
 
-Use `Get-AzureRmProviderOperation` (no PowerShell) ou `azure provider operations show` (na CLI do Azure) para listar as operações dos provedores de recursos do Azure. Você também pode usar esses comandos para verificar se uma cadeia de operação é válida e para expandir as cadeias de operação curinga.
+É obrigatório que a função contenha as IDs de assinatura explícitos no local em que ela é usada. As IDs de assinatura são listadas sob `AssignableScopes`, caso contrário, você não poderá importar a função para sua assinatura.
 
-```powershell
-Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
+Por fim, você deve definir a propriedade `IsCustom` para `true` para especificar que se trata de uma função personalizada.
 
-Get-AzureRMProviderOperation Microsoft.Network/*
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
+
+                   ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
 ```
 
-![PowerShell screenshot - Get-AzureRMProviderOperation](./media/custom-roles/1-get-azurermprovideroperation-1.png)
+Para criar a nova função personalizada, use o comando [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) e forneça o arquivo de definição da função JSON atualizado.
+
+```azurepowershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+Após executar [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition), a nova função personalizada está disponível no Portal do Azure e pode ser atribuída aos usuários.
+
+![captura de tela de função personalizada importada no Portal do Azure](./media/custom-roles/18.png)
+
+![captura de tela da atribuição de função personalizada importada ao usuário no mesmo diretório](./media/custom-roles/19.png)
+
+![captura de tela de permissões para a função personalizada importada](./media/custom-roles/20.png)
+
+Usuários com esta função personalizada podem criar novas solicitações de suporte.
+
+![captura de tela de função personalizada criando solicitações de suporte](./media/custom-roles/21.png)
+
+Usuários com esta função personalizada não podem executar outras ações, como criar VMs ou criar grupos de recursos.
+
+![captura de tela de função personalizada que não pode criar VMs](./media/custom-roles/22.png)
+
+![captura de tela de função personalizada que não pode criar novos RGs](./media/custom-roles/23.png)
+
+## <a name="create-a-custom-role-to-open-support-requests-using-azure-cli"></a>Crie uma função personalizada para abrir as solicitações de suporte usando a CLI do Azure
+
+As etapas para criar uma função personalizada usando a CLI do Azure são semelhantes ao uso do PowerShell, exceto pela saída JSON que é diferente.
+
+Neste exemplo, você pode iniciar com a função interna [Leitor](built-in-roles.md#reader). Para listar as ações da função [Leitor](built-in-roles.md#reader), use o comando [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
 ```azurecli
-azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
-
-azure provider operations show "Microsoft.Network/*"
+az role definition list --name "Reader" --output json
 ```
 
-![Captura de tela da CLI do Azure – as operações do provedor do Azure mostram "Microsoft.Compute/virtualMachines/\*/action" ](./media/custom-roles/1-azure-provider-operations-show.png)
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "notActions": [],
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
 
-## <a name="notactions"></a>NotActions
-Use a propriedade **NotActions** se o conjunto de operações que você deseja permitir fica definido mais facilmente pela exclusão das operações restritas. A permissão de acesso concedida por uma função personalizada é computada subtraindo as operações **NotActions** das operações **Actions**.
+Crie um arquivo JSON com o seguinte formato. A operação `Microsoft.Support/*` foi adicionada nas seções `Actions` para que esse usuário possa abrir solicitações de suporte enquanto continua sendo um leitor. Você precisa adicionar a ID de assinatura em que essa função será usada na seção `AssignableScopes`.
 
-> [!NOTE]
-> Se um usuário for atribuído a uma função que exclui uma operação em **NotActions** e for atribuído a uma segunda função que concede acesso à mesma operação, ele terá permissão para executar essa operação. **NotActions** não é uma regra de negação, é simplesmente uma maneira conveniente de criar um conjunto de operações permitidas quando for necessário excluir operações específicas.
->
->
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-## <a name="assignablescopes"></a>AssignableScopes
-A propriedade **AssignableScopes** da função personalizada especifica os escopos (assinaturas, grupos de recursos ou recursos) nos quais a função personalizada ficará disponível para a atribuição. Você pode disponibilizar a função personalizada para atribuição apenas nas assinaturas ou grupos de recursos que a exijam e não sobrecarregar a experiência do usuário nas assinaturas ou grupos de recursos restantes.
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
+```
 
-Exemplos de escopos válidos que podem ser atribuídos incluem:
+Para criar uma nova função personalizada, use o comando [az role definition create](/cli/azure/role/definition#az_role_definition_create).
 
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624” – disponibiliza a função para atribuição em duas assinaturas.
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e” – disponibiliza a função para atribuição em uma única assinatura.
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network” – disponibiliza a função para atribuição apenas no Grupo de recursos de rede.
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
+```
 
-> [!NOTE]
-> Você deve usar pelo menos uma assinatura, grupo de recursos ou ID de recurso.
->
->
+A nova função personalizada agora está disponível no Portal do Azure e o processo para usar essa função é o mesmo que na seção PowerShell anterior.
 
-## <a name="custom-roles-access-control"></a>Controle de acesso de funções personalizadas
-A propriedade **AssignableScopes** da função personalizada também controla quem pode exibir, modificar e excluir a função.
+![Captura de tela do Portal do Azure da função personalizada criada usando a CLI 1.0](./media/custom-roles/26.png)
 
-* Quem pode criar uma função personalizada?
-    Os Proprietários (e os Administradores de acesso do usuário) de assinaturas, grupos de recursos e recursos podem criar funções personalizadas para uso nesses escopos.
-    O usuário que está criando a função precisa ser capaz de executar a operação `Microsoft.Authorization/roleDefinition/write` em todos os **AssignableScopes** da função.
-* Quem pode modificar uma função personalizada?
-    Os Proprietários (e os Administradores de acesso do usuário) de assinaturas, grupos de recursos e recursos podem modificar funções personalizadas nesses escopos. Os usuários precisam poder executar a operação `Microsoft.Authorization/roleDefinition/write` em todos os **AssignableScopes** de uma função personalizada.
-* Quem pode exibir funções personalizadas?
-    Todas as funções internas no RBAC do Azure permitem a visualização de funções disponíveis para atribuição. Os usuários que podem executar a operação `Microsoft.Authorization/roleDefinition/read` em um escopo podem exibir as funções de RBAC disponíveis para atribuição nesse escopo.
 
 ## <a name="see-also"></a>Consulte também
-* [Controle de Acesso Baseado em Função](role-assignments-portal.md): introdução ao RBAC no portal do Azure.
-* Para obter uma lista de operações disponíveis, consulte [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md).
-* Saiba como gerenciar o acesso com:
-  * [PowerShell](role-assignments-powershell.md)
-  * [CLI do Azure](role-assignments-cli.md)
-  * [API REST](role-assignments-rest.md)
-* [Funções internas](built-in-roles.md): obtenha detalhes sobre as funções que são incluídas por padrão no RBAC.
+- [Compreender as definições de função](role-definitions.md)
+- [Gerenciar o controle de acesso baseado em função com o Azure PowerShell](role-assignments-powershell.md)
+- [Gerenciar o controle de acesso baseado em função com a CLI do Azure](role-assignments-cli.md)
+- [Gerenciar o controle de acesso baseado em função com a API REST](role-assignments-rest.md)

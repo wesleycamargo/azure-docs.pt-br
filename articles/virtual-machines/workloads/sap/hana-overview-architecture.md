@@ -14,11 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ceeec6991aaac64211301313c1bb8dc5f5faa1c0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e3342f3057917202d81359a27accf47ba288b128
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077616"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Visão geral e arquitetura do SAP HANA (Instâncias Grandes) no Azure
 
@@ -68,7 +69,7 @@ Várias definições comuns são amplamente usadas no guia de implantação téc
 - **Locatário**: um cliente implantado no carimbo do SAP HANA em Instâncias Grandes é isolado em um *locatário.* Um locatário é isolado de outros locatários na camada de rede, de armazenamento e de computação. As unidades de computação e armazenamento atribuídas aos diferentes locatários não podem visualizar umas às outras nem comunicarem entre si no nível de carimbo do SAP HANA em Instâncias Grandes. Um cliente pode escolher ter implantações em diferentes locatários. Mesmo assim, não há nenhuma comunicação entre locatários no nível de selo de Instância Grande do HANA.
 - **Categoria de SKU**: para o SAP HANA em Instâncias Grandes, são oferecidas as duas categorias de SKUs a seguir:
     - **Classe do tipo I:** S72, S72m, S144, S144m, S192 e S192m
-    - **Classe do tipo II:** S384, S384m, S384xm, S576, S768 e S960
+    - **Classe do tipo II**: S384, S384m, S384xm, S576m, S768m e S960m
 
 
 Uma variedade de recursos adicionais está disponível sobre como implantar uma carga de trabalho do SAP na nuvem. Se você planeja executar uma implantação do SAP HANA do Azure, é necessário ter experiência e estar ciente dos princípios do IaaS do Azure e da implantação das cargas de trabalho do SAP no IaaS do Azure. Antes de continuar, consulte [Usar as soluções SAP nas máquinas virtuais do Azure ](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações. 
@@ -144,9 +145,9 @@ Desde julho de 2017, o SAP HANA no Azure (Instâncias Grandes) está disponível
 |---| SAP HANA no Azure S192m<br /> – 4 x processadores Intel® Xeon® E7-8890 v4<br /> 96 núcleos de CPU e 192 threads de CPU  |  4,0 TB |  16 TB | Disponível |
 |---| SAP HANA no Azure S384m<br /> – 8 x processadores Intel® Xeon® E7-8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  6,0 TB |  18 TB | Disponível |
 |---| SAP HANA no Azure S384xm<br /> – 8 x processadores Intel® Xeon® E7-8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  8,0 TB |  22 TB |  Disponível |
-|---| SAP HANA no Azure S576<br /> – 12 x processadores Intel® Xeon® E7-8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12,0 TB |  28 TB | Disponível |
-|---| SAP HANA no Azure S768<br /> – 16 x processadores Intel® Xeon® E7-8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  16,0 TB |  36 TB | Disponível |
-|---| SAP HANA no Azure S960<br /> – 20 x processadores Intel® Xeon® E7-8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20,0 TB |  46 TB | Disponível |
+|---| SAP HANA no Azure S576m<br /> – 12 x processadores Intel® Xeon® E7-8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12,0 TB |  28 TB | Disponível |
+|---| SAP HANA no Azure S768m<br /> – 16 x processadores Intel® Xeon® E7-8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  16,0 TB |  36 TB | Disponível |
+|---| SAP HANA no Azure S960m<br /> – 20 x processadores Intel® Xeon® E7-8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20,0 TB |  46 TB | Disponível |
 
 - Núcleos de CPU = soma de núcleos de CPU não-hyper-threading da soma dos processadores da unidade do servidor.
 - Threads de CPU = soma de threads de computação fornecidos pelos núcleos de CPU não-hyper-threading da soma dos processadores da unidade do servidor. Todas as unidades são configuradas por padrão para usar a tecnologia Hyper-Threading.
@@ -157,7 +158,7 @@ As configurações específicas de escolhido dependem da carga de trabalho, recu
 A base de hardware para todas as ofertas é certificada por TDI do SAP HANA. Duas classes diferentes de hardware dividem as SKUs em:
 
 - S72, S72m, S144, S144m, S192 e S192m, que são referidos como "Classe Tipo I" de SKUs.
-- S384, S384m, S384xm, S576, S768 e S960, que são referidos como "Classe Tipo II" de SKUs.
+- S384, S384m, S384xm, S576m, S768m, and S960m, que chamamos de "classe Tipo II" de SKUs.
 
 Um carimbo do SAP HANA em Instâncias Grandes completo não é alocado exclusivamente para uso de um único cliente. Esse fato se aplica aos racks de recursos de computação e armazenamento conectados por meio de uma malha de rede implantada no Azure também. A infraestrutura do SAP HANA em Instâncias Grandes, como o Azure, implanta &quot;locatários&quot; diferentes do cliente isolados uns dos outros nos três níveis a seguir:
 
@@ -304,6 +305,8 @@ Estes são os requisitos para execução SAP HANA no Azure (Instâncias Grandes)
 
 Para a matriz de suporte das diferentes versões do SAP HANA com as diferentes versões do Linux, consulte [Nota SAP nº 2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
+Para a matriz de compatibilidade do sistema operacional e as versões de firmware/driver HLI, consulte [Atualização do sistema operacional para HLI](os-upgrade-hana-large-instance.md).
+
 
 **Banco de dados**
 
@@ -344,9 +347,9 @@ Consulte a tabela a seguir em termos de alocação de armazenamento. A tabela li
 | S384 | 11.520 GB | 1.536 GB | 1.792 GB | 1.536 GB |
 | S384m | 12.000 GB | 2.050 GB | 2.050 GB | 2.040 GB |
 | S384xm | 16.000 GB | 2.050 GB | 2.050 GB | 2.040 GB |
-| S576 | 20.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
-| S768 | 28.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
-| S960 | 36.000 GB | 4.100 GB | 2.050 GB | 4.100 GB |
+| S576m | 20.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
+| S768m | 28.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
+| S960m | 36.000 GB | 4.100 GB | 2.050 GB | 4.100 GB |
 
 
 Os volumes implantados reais podem variar com base na implantação e na ferramenta utilizada para mostrar os tamanhos do volume.
