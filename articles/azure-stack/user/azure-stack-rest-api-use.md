@@ -3,55 +3,57 @@ title: Use a API da pilha do Azure | Microsoft Docs
 description: Saiba como recuperar uma autenticação do Azure para fazer solicitações de API para a pilha do Azure.
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.reviewer: sijuman
-ms.openlocfilehash: 2bbfe4f829ad5c42a5742fdf08f2d185af627f42
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: HT
+ms.reviewer: thoroet
+ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
-<!--  cblackuk and charliejllewellyn -->
+<!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="use-the-azure-stack-api"></a>Use a API da pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Você pode usar a API de pilha do Azure para automatizar operações como distribuir itens do marketplace.
+Você pode usar a Interface do Azure pilha programação de aplicativo (API) para automatizar operações como distribuir itens do marketplace.
 
-Usando a API requer que seu cliente autenticar o ponto de extremidade de logon do Microsoft Azure. O ponto de extremidade retorna um token a ser usado no cabeçalho de cada solicitação enviada para a API de pilha do Azure. (Microsoft Azure usa Oauth 2.0.)
+A API requer que o cliente autenticar o ponto de extremidade de logon do Microsoft Azure. O ponto de extremidade retorna um token a ser usado no cabeçalho de cada solicitação enviada para a API de pilha do Azure. O Microsoft Azure usa Oauth 2.0.
 
-Este artigo fornece exemplos que usam o utilitário de rotação para criar solicitações de pilha do Azure. Esses exemplos percorrer o processo de recuperar um token para acessar a API de pilha do Azure. A maioria das linguagens de programação fornecem bibliotecas Oauth 2.0, que têm robustas tarefas de gerenciamento e o identificador de token tais o token de atualização.
+Este artigo fornece exemplos que usam o **cURL** utilitário para criar solicitações de pilha do Azure. O aplicativo, rotação, é uma ferramenta de linha de comando com uma biblioteca para a transferência de dados. Esses exemplos percorrer o processo de recuperar um token para acessar a API de pilha do Azure. A maioria das linguagens de programação fornecem bibliotecas Oauth 2.0, que têm robustas tarefas de gerenciamento e o identificador de token tais o token de atualização.
 
-Examinar todo o processo de usar a API de REST de pilha do Azure com um cliente REST genérico como rotação pode ajudá-lo a entender subjacente solicitações e mostra o que você pode esperar receber em uma carga de resposta.
+Examinar todo o processo de usar a API de REST de pilha do Azure com um cliente REST genérico, como **cURL**, para ajudá-lo a entender subjacente solicitações e mostra o que você pode esperar receber em uma carga de resposta.
 
-Este artigo não explorar todas as opções disponíveis para recuperar tokens, como o logon interativo ou criação de IDs de aplicativo dedicado. Para obter mais informações, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).
+Este artigo não explorar todas as opções disponíveis para recuperar tokens, como o logon interativo ou criação de IDs de aplicativo dedicado. Para obter informações sobre esses tópicos, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Obter um token do Azure
 
-Criar uma solicitação de *corpo* formatado usando o tipo de conteúdo x-www-form-urlencoded para obter um token de acesso. POSTE sua solicitação para o ponto de extremidade de autenticação de REST do Azure e de logon.
+Crie um corpo de solicitação formatado usando o tipo de conteúdo x-www-form-urlencoded para obter um token de acesso. POSTE sua solicitação para o ponto de extremidade de autenticação de REST do Azure e de logon.
 
-```
+### <a name="uri"></a>URI
+
+```bash  
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 ```
 
 **ID do locatário** é:
 
-* Seu domínio de locatário, como fabrikam.onmicrosoft.com
-* Sua ID de locatário, como 8eaed023-2b34-4da1-9baa-8bc8c9d6a491
-* Valor padrão para chaves independente de locatário: comuns
+ - Seu domínio de locatário, como `fabrikam.onmicrosoft.com`
+ - ID de seu locatário, como `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+ - Valor padrão para chaves independente de locatário: `common`
 
 ### <a name="post-body"></a>Corpo do POST
 
-```
+```bash  
 grant_type=password
 &client_id=1950a258-227b-4e31-a9cf-717495945fc2
 &resource=https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
@@ -62,32 +64,25 @@ grant_type=password
 
 Para cada valor:
 
-  **grant_type**
+ - **grant_type**  
+    O tipo de esquema de autenticação que você irá usar. Neste exemplo, o valor é `password`
 
-  O tipo de esquema de autenticação que você irá usar. Neste exemplo, o valor é:
+ - **recurso**  
+    O recurso acesse o token. Você pode encontrar o recurso consultando o ponto de extremidade de metadados de gerenciamento de pilha do Azure. Examine o **audiências** seção
 
-  ```
-  password
-  ```
+ - **Azure ponto de extremidade de gerenciamento de pilha**  
+    ```
+    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+    ```
 
-  **recurso**
-
-  O recurso acesse o token. Você pode encontrar o recurso consultando o ponto de extremidade de metadados de gerenciamento de pilha do Azure. Examine o **audiências** seção
-
-  O ponto de extremidade de gerenciamento da pilha do Azure:
-
-  ```
-  https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
-  ```
-
- > [!NOTE]
- > Se você for um administrador tentar acessar a API de locatário, você deve certificar-se de usar o ponto de extremidade de locatário, por exemplo: 'https://adminmanagement.{region}.{Azure domínio pilha} metadados/pontos de extremidade? api-version = 2015-01-011
+  > [!NOTE]  
+  > Se você for um administrador tentar acessar a API de locatário, em seguida, você deve verificar a usar o ponto de extremidade de locatário, por exemplo: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   Por exemplo, com o Kit de desenvolvimento de pilha do Azure como um ponto de extremidade:
 
-  ```
-  curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
-  ```
+    ```bash
+    curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
+    ```
 
   Resposta:
 
@@ -175,13 +170,13 @@ Depois de obter o token de acesso, você precisa adicioná-lo como um cabeçalho
 
 Solicitação:
 
-```
+```bash  
 curl -H "Authorization: Bearer eyJ0eXAiOi...truncated for readability..." 'https://adminmanagement.local.azurestack.external/subscriptions?api-version=2016-05-01'
 ```
 
 Resposta:
 
-```
+```bash  
 offerId : /delegatedProviders/default/offers/92F30E5D-F163-4C58-8F02-F31CFE66C21B
 id : /subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8
 subscriptionId : 800c4168-3eb1-406b-a4ca-919fe7ee42e8

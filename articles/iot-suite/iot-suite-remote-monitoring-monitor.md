@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e6bf1962115c4ee9212ae73eb98f664efa3b6a2d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Executar o monitoramento avançado usando a solução de monitoramento remoto
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 
 Para seguir este tutorial, você precisará de uma instância implantada de solução de monitoramento remoto na sua assinatura do Azure.
 
-Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Implantar o acelerador de solução de monitoramento remoto](iot-suite-remote-monitoring-deploy.md).
+Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Implantar o acelerador de solução de monitoramento remoto](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="choose-the-devices-to-display"></a>Escolha os dispositivos a serem exibidos
 
@@ -115,7 +115,7 @@ Este tutorial mostrou como usar a página **Painel** para filtrar e monitorar os
 
 Agora que você aprendeu a monitorar seus dispositivos, as próximas etapas sugeridas são aprender como:
 
-* [Detectar problemas usando regras baseadas em limites](./iot-suite-remote-monitoring-automate.md).
+* [Detectar problemas usando regras baseadas em limites](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Gerenciar e configurar seus dispositivos](./iot-suite-remote-monitoring-manage.md).
 * [Solucionar e corrigir problemas de dispositivo](./iot-suite-remote-monitoring-maintain.md).
 * [Testar sua solução com dispositivos simulados](iot-suite-remote-monitoring-test.md).

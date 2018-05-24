@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Notas de versão
       items:
+        - name: 1804 atualização
+          href: azure-stack-update-1804.md
         - name: atualização 1803
           href: azure-stack-update-1803.md
         - name: atualização 1802
           href: azure-stack-update-1802.md
         - name: atualização de 1712
           href: azure-stack-update-1712.md
-        - name: atualização 1711
-          href: azure-stack-update-1711.md
 - name: Guia de início rápido
   expanded: true
   items:
@@ -156,6 +156,8 @@
               href: azure-stack-backup-enable-backup-powershell.md
             - name: Fazer backup do Azure pilha
               href: azure-stack-backup-back-up-azure-stack.md
+            - name: Fazer backup de arquivos e aplicativos na pilha do Azure
+              href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
             - name: Recuperação de perda de dados catastrófica
               href: azure-stack-backup-recover-data.md
             - name: Práticas recomendadas de backup
@@ -245,6 +247,8 @@
               href: azure-stack-app-service-configure-deployment-sources.md
             - name: Serviço de aplicativo no Azure pilha update 1 notas
               href: azure-stack-app-service-release-notes-update-one.md
+            - name: Serviço de aplicativo em notas de versão de atualização 2 de pilha do Azure
+              href: azure-stack-app-service-release-notes-update-two.md
         - name: Preencher o marketplace
           items:
             - name: Visão geral do Marketplace
