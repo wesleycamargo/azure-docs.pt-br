@@ -2,24 +2,20 @@
 title: Visão geral da redefinição de senha de autoatendimento do Azure AD | Microsoft Docs
 description: O que a redefinição de senha de autoatendimento no Azure AD faz para sua organização?
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866661"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Redefinição de senha de autoatendimento no Azure AD para o profissional de TI
 
@@ -32,6 +28,8 @@ Com a redefinição de senha de autoatendimento (SSPR) do Azure Active Directory
    * Envie um email para uma conta de email secundária validada.
    * Respostas para as perguntas de segurança.
 * **Desbloqueio de conta de autoatendimento**: O usuário não consegue entrar com sua senha e foi bloqueado. O usuário deseja desbloquear suas contas sem a intervenção do administrador usando os métodos de autenticação.
+
+> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
 
 ## <a name="why-choose-azure-ad-sspr"></a>Por que escolher o Azure AD SSPR
 
@@ -50,7 +48,7 @@ O Azure AD SSPR está disponível em três camadas, dependendo de sua assinatura
 
 * **Azure AD Gratuito**: os administradores somente de nuvem podem redefinir suas próprias senhas.
 * **Azure AD Basic** ou qualquer **assinatura paga do Office 365**: os usuários somente de nuvem podem redefinir suas próprias senhas.
-* **Azure AD Premium**: qualquer usuário ou administrador, incluindo somente nuvem, federado ou usuários com sincronização de senha, pode redefinir sua própria senha. As senhas locais exigem a habilitação do write-back de senha.
+* **Azure Active Direcotry Premium**: qualquer usuário ou administrador, incluindo somente nuvem, federado, autenticação pass-through ou usuários com sincronização hash de senha, pode redefinir sua própria senha. As senhas locais exigem a habilitação do write-back de senha.
 
 ## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Preços do Azure AD, SLA, atualizações e roteiro
 

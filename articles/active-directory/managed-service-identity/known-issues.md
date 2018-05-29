@@ -8,27 +8,25 @@ manager: mtillman
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33930979"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Problemas conhecidos e perguntas frequentes com Identidade do Serviço Gerenciado (MSI) para o Azure Active Directory
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (FAQs)
-
-### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>Há um programa de versão prévia privada disponível para recursos e integrações futuros do MSI?
-
-Sim. Caso queira se registrar para a versão prévia privada do programa, [visite nossa página de inscrição](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>O MSI funciona com os Serviços de Nuvem do Azure?
 
@@ -53,7 +51,7 @@ Ao usar o MSI com VMs, recomendamos que você usando o ponto de extremidade MSI 
 
 A extensão de VM do MSI ainda está disponível para ser usada hoje. No entanto, mais adiante, usaremos como o padrão o ponto de extremidade IMDS. Em breve, a extensão de VM do MSI será iniciada em um plano de reprovação. 
 
-Para obter mais informações sobre o Serviço de Metadados de Instância do Azure, confira [Documentação do IMDS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+Para obter mais informações sobre o Serviço de Metadados de Instância do Azure, confira [Documentação do IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quais são as distribuições Linux com suporte?
 
@@ -91,7 +89,7 @@ Quando a Identidade de Serviço Gerenciado é habilitada em uma VM, o erro a seg
 
 A extensão de VM de Identidade de Serviço Gerenciado atualmente não dá suporte à capacidade de exportar seu esquema para um modelo de grupo de recursos. Como resultado, o modelo gerado não mostra parâmetros de configuração para habilitar a Identidade de Serviço Gerenciado no recurso. Estas seções podem ser adicionadas manualmente seguindo os exemplos em [Configurar uma Identidade de Serviço Gerenciado da VM usando um modelo](qs-configure-template-windows-vm.md).
 
-Quando a funcionalidade de exportação de esquema estiver disponível para a extensão da VM de MSI, ela será listada em [Exportar Grupos de Recursos que contenham extensões de VM](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+Quando a funcionalidade de exportação de esquema estiver disponível para a extensão da VM de MSI, ela será listada em [Exportar Grupos de Recursos que contenham extensões de VM](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>A folha Configuração não aparece no portal do Azure
 
@@ -122,3 +120,16 @@ Depois que a VM for iniciada, a marca poderá ser removida usando o seguinte com
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## <a name="known-issues-with-user-assigned-identities"></a>Problemas conhecidos com Identidades de Atribuídas pelo Usuário
+
+- Atribuições de Identidade Atribuída pelo Usuário estão disponíveis apenas para VM e VMSS. IMPORTANTE: atribuições de Identidade Atribuída pelo Usuário serão alteradas nos próximos meses.
+- Identidades Atribuídas pelo Usuário duplicadas na mesma VM/VMSS farão com que a VM/VMSS falhe. Isso inclui as identidades que são adicionadas com maiúsculas de minúsculas. Por exemplo, MinhaIdentidadeAtribuídaPeloUsuário e minhaidentidadeatribuídapelousuário. 
+- O provisionamento da extensão de VM para uma VM pode falhar devido a falhas de pesquisa de DNS. Reinicie a VM e tente novamente. 
+- Adicionar uma identidade atribuída pelo usuário 'não existente' fará com que a VM falhe. 
+- Não há suporte para a criação de uma identidade atribuída pelo usuário com caracteres especiais (isto é, sublinhado) no nome.
+- Nomes de identidades atribuídas pelo usuário são restritos a 24 caracteres para o cenário de ponta a ponta. As identidades atribuídas pelo usuário com nomes com mais de 24 caracteres falharão em serem atribuídas.  
+- Ao adicionar uma segunda identidade atribuída pelo usuário, o clientID pode não estar disponível para solicitar tokens para a extensão de VM. Como mitigação, reinicie a extensão de VM da MSI com os dois seguintes comandos bash:
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
+- Quando uma VM tem uma identidade atribuída pelo usuário, mas nenhuma identidade atribuída pelo sistema, a interface do usuário do portal exibirá a MSI como desabilitada. Para habilitar a identidade atribuída pelo sistema, use um modelo do Azure Resource Manager, uma CLI do Azure ou um SDK.

@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931257"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Solucionar problemas de acesso e uso do portal Meus aplicativos
 
@@ -55,11 +56,11 @@ Verifique se você está cumprindo os seguintes requisitos de navegador:
 - **Edge**: no Windows 10 Anniversary Edition ou posterior.
 - **Chrome**: no Windows 7 ou posterior e no Mac OS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
-- **Internet Explorer 8, 9, 10 ou 11**: no Windows 7 ou posterior (suporte limitado).
+- **Internet Explorer 11**: no Windows 7 ou posterior (suporte limitado).
 
-Também é possível baixar a extensão para Chrome e Microsoft Edge diretamente nos sites a seguir:
+Você também pode baixar a extensão para o Chrome e para o Microsoft Edge diretamente dos seguintes sites:
 
-- [Extensão para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+- [Extensão do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 - [Extensão para Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 Se você instalou a extensão e ainda está enfrentando problemas, tente o seguinte:
@@ -71,23 +72,23 @@ Se você instalou a extensão e ainda está enfrentando problemas, tente o segui
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Usar a Extensão de Entrada Segura dos Meus Aplicativos
 * Caso esteja usando uma URL dos Meus Aplicativos diferente de `https://myapps.microsoft.com`, configure sua URL padrão fazendo o seguinte:
-   1. Enquanto *não* estiver conectado à extensão, clique com o botão direito do mouse no ícone da extensão.
+   1. Enquanto você *não* estiver conectado à extensão, clique com o botão direito do mouse no ícone de extensão.
    2. No menu, selecione **URL dos Meus aplicativos**.
    3. Selecione a URL padrão.
-   4. Selecione o ícone da extensão.
-   5. Para conectar-se à extensão, selecione **Entrar para começar**.
+   4. Selecione o ícone de extensão.
+   5. Para conectar-se à extensão, selecione **Conectar-se para começar**.
 
-* Para entrar diretamente em um aplicativo a partir do navegador, faça o seguinte:
-   1. Depois de instalar a extensão, entre nela selecionando **Entrar para começar**.
-   2. Entre no aplicativo com a URL de logon.  
-       A URL de logon geralmente é a URL do aplicativo que exibe o formulário de inscrição.
-      A extensão deve alterar o estado e lhe informar que a senha está disponível.
-   3. Para entrar, selecione o ícone da extensão.
+* Para conectar-se diretamente a um aplicativo no navegador, faça o seguinte:
+   1. Depois de instalar a extensão, conecte-se a ela selecionando **Conectar-se para começar**.
+   2. Entrar no aplicativo com a URL de logon.  
+       A URL de logon geralmente é a URL do aplicativo que exibe o formulário para iniciar sessão.
+      A extensão deve alterar o estado e permite que você saiba que uma senha está disponível.
+   3. Para conectar-se, selecione o ícone de extensão.
 
 * Para iniciar um aplicativo a partir da extensão, faça o seguinte:
-   1. Depois de instalar a extensão, entre nela selecionando **Entrar para começar**.
-   2. Selecione o ícone da extensão para abrir o menu.
-   3. Pesquise um aplicativo disponível no portal Meus aplicativos.
+   1. Depois de instalar a extensão, conecte-se a ela selecionando **Conectar-se para começar**.
+   2. Selecione o ícone de extensão para abrir o menu.
+   3. Pesquise por um aplicativo que esteja disponível no portal Meus aplicativos.
    4. Na lista de resultados de pesquisa, selecione o aplicativo.  
        Os três últimos aplicativos usados são exibidos na lista de atalhos **Usados Recentemente**.
 

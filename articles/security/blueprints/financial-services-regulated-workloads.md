@@ -3,7 +3,7 @@ title: Projeto de Segurança e de Conformidade do Azure – cargas de trabalho r
 description: Projeto de Segurança e de Conformidade do Azure – cargas de trabalho regulamentadas pelos serviços financeiros FFIEC
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 17794288-9074-44b5-acc8-1dacceb3f56c
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 497c5a987753cbbe577c1d042d6bf61be9d905ab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: f1339af22132d19f14ea8ebb72fe0e6bd45b7fad
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895547"
 ---
 # <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Projeto de Segurança e de Conformidade do Azure – cargas de trabalho regulamentadas pelos serviços financeiros FFIEC
 
@@ -42,7 +43,7 @@ A arquitetura é composta dos seguintes componentes e usa os recursos de implant
 - **Modelos de implantação** Nessa implantação, os [modelos do Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) são usados para implantar os componentes da arquitetura automaticamente no Microsoft Azure especificando parâmetros de configuração durante a instalação.
 - **Scripts de implantação automatizada**. Esses scripts ajudam a implantar a solução de ponta a ponta. Os scripts consistem em:
     - Uma instalação do módulo e um script de configuração de [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) são usados para instalar e verificar se os módulos do PowerShell obrigatórios e as funções de administrador global foram configuradas corretamente. 
-    - Um script de instalação do PowerShell é usada para implantar a solução completa, fornecida por meio de um arquivo .zip e um arquivo .bacpac que contêm um aplicativo Web de demonstração criado previamente com o [conteúdo de exemplo de banco de dados SQL](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código-fonte desta solução está disponível para análise no [repositório de código do plano gráfico de processamento de pagamento][code-repo]. 
+    - Um script de instalação do PowerShell é usada para implantar a solução completa, fornecida por meio de um arquivo .zip e um arquivo .bacpac que contêm um aplicativo Web de demonstração criado previamente com o [conteúdo de exemplo de banco de dados SQL](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código-fonte desta solução está disponível para análise [repositório do código Bluprint de Processamento de Pagamento][código-reposição] 
 
 ## <a name="architectural-diagram"></a>Diagrama de arquitetura
 
@@ -305,7 +306,7 @@ A implantação padrão destina-se a fornecer uma linha de base de recomendaçõ
 
 ## <a name="deploy-the-solution"></a>Implantar a solução
 
-Os componentes para implantar esta solução estão disponíveis no [Repositório de código do projeto][code-repo]. A implantação da arquitetura fundamental requer várias etapas executadas por meio do Microsoft PowerShell v5. Para conectar-se ao site, você deve fornecer um nome de domínio personalizado (por exemplo, contoso.com). Isso é especificado usando a opção `-customHostName` na etapa 2. Para saber mais, confira [Comprar um nome de domínio personalizado Aplicativos Web do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implantar e executar a solução com êxito, mas não será possível se conectar ao site para fins de demonstração.
+Os componentes para implantar essa solução estão disponíveis no [repositório de código Blueprint] [código-reposição]. A implantação da arquitetura fundamental requer várias etapas executadas por meio do Microsoft PowerShell v5. Para conectar-se ao site, você deve fornecer um nome de domínio personalizado (por exemplo, contoso.com). Isso é especificado usando a opção `-customHostName` na etapa 2. Para saber mais, confira [Comprar um nome de domínio personalizado Aplicativos Web do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implantar e executar a solução com êxito, mas não será possível se conectar ao site para fins de demonstração.
 
 Os scripts adicionam usuários de domínio ao locatário do Azure AD que você especifica. A Microsoft recomenda criar um novo locatário do Azure AD para ser usado como um teste.
 
@@ -388,8 +389,3 @@ Os clientes são responsáveis por manter uma cópia da [Matriz de Resumo de Res
 - Todos os nomes de cliente, registros de transações e dados relacionados nesta página são fictícios, criados para essa arquitetura fundamental e meramente ilustrativos. Nenhuma associação ou conexão real é intencional ou deve ser inferida.  
 - Esta solução foi desenvolvida em conjunto pela Microsoft e a Avyan Consulting e está disponível de acordo com a [Licença MIT](https://opensource.org/licenses/MIT).
 
-### <a name="document-authors"></a>Autores de documentos
-
-* *Frank Simorjay (Microsoft)*  
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Repositório do código"

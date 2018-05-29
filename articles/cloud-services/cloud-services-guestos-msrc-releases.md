@@ -12,16 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/6/2018
+ms.date: 5/4/2018
 ms.author: raiye
-ms.openlocfilehash: df5844ff53d8196eb1143913b420d933ba43920f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ea7c01075d9f65ed262681c216f5770d19466507
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33765825"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## <a name="april-guest-os"></a>SO convidado de abril
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| Rel 18-04 | [4093119] |Segurança do Windows 10 |5.18 |10 de abril de 2018 |
+| Rel 18-04 | [4093108] |Somente Segurança do Windows |2.73 |10 de abril de 2018 |
+| Rel 18-04 | [4093122] |Somente Segurança do Windows |3.60 |10 de abril de 2018 |
+| Rel 18-04 | [4093115] |Somente Segurança do Windows |4.53 |10 de abril de 2018 |
+| Rel 18-04 | [4092946] |Internet Explorer |2.73, 3.60, 4.53 |10 de abril de 2018 |
+| Rel 18-04 | [4093110] |Piscando |3.60, 4.53, 5.18 |10 de abril de 2018 |
+| N/D | [4088875] |Rollup não relacionado à segurança de março |2.73 |13 de março de 2018 |
+| N/D | [4099950] |Pré-requisitos do pacote cumulativo de atualizações de segurança não de março|2.73 |13 de março de 2018 |
+| N/D | [4088877] |Rollup não relacionado à segurança de março |3.60 |13 de março de 2018 |
+| N/D | [4088876] |Rollup não relacionado à segurança de março |4.53 |13 de março de 2018 |
 
 ## <a name="march-guest-os"></a>SO convidado de março
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -613,6 +628,18 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[3007054] |Opção de impressão protegida por PIN sempre mostra quando você imprime um documento em um aplicativo da Windows Store no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2999802] |Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2896881] |Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
+
+
+[4093119]: http://support.microsoft.com/kb/4093119
+[4093108]: http://support.microsoft.com/kb/4093108 
+[4093122]: http://support.microsoft.com/kb/4093122
+[4093115]: http://support.microsoft.com/kb/4093115
+[4092946]: http://support.microsoft.com/kb/4092946
+[4093110]: http://support.microsoft.com/kb/4093110
+[4088875]: http://support.microsoft.com/kb/4088875
+[4099950]: http://support.microsoft.com/kb/4099950
+[4088877]: http://support.microsoft.com/kb/4088877
+[4088876]: http://support.microsoft.com/kb/4088876
 
 [4088787]: http://support.microsoft.com/kb/4088787
 [4088776]: http://support.microsoft.com/kb/4088776 
