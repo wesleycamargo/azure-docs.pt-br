@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cd4313efb5d08842ba12ec00e6e5160214800d56
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055610"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Como preencher campos específicos para um aplicativo personalizado
 
@@ -43,7 +44,7 @@ Este artigo oferece uma breve descrição de todos os campos disponíveis no for
 | |**Nativo**: um aplicativo que pode ser instalado no dispositivo ou no computador de um usuário           |
 | URL de logon      | A URL em que os usuários podem entrar para usar o aplicativo                                  |
 
-Após você preencher os campos acima, o aplicativo será registrado no portal do Azure e você será redirecionado para a página do aplicativo. O botão **Configurações** no painel do aplicativo abre a página Configurações, que tem mais campos para você personalizar seu aplicativo. A tabela a seguir descreve todos os campos na página Configurações. Observe que você verá apenas um subconjunto desses campos, dependendo tipo de aplicativo que você criou, um aplicativo Web ou um aplicativo nativo.
+Após você preencher os campos acima, o aplicativo é registrado no portal do Azure e você é redirecionado para a página do aplicativo. O botão **Configurações** no painel do aplicativo abre a página Configurações, que tem mais campos para você personalizar seu aplicativo. A tabela a seguir descreve todos os campos na página Configurações. Observe que você verá apenas um subconjunto desses campos, dependendo tipo de aplicativo que você criou, um aplicativo Web ou um aplicativo nativo.
 
 | Campo           | DESCRIÇÃO                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -58,4 +59,4 @@ Após você preencher os campos acima, o aplicativo será registrado no portal d
 | simétricas            | Você pode criar chaves para acessar programaticamente APIs Web protegidas pelo Azure AD sem interação do usuário. Na página \*\*Chaves\*\*, insira uma descrição da chave e a data de validade e salve para gerar a chave. Certifique-se de salvá-la em algum lugar seguro, pois você não poderá acessá-la depois.             |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Gerenciando aplicativos com o Azure Active Directory](manage-apps/what-is-application-management.md)

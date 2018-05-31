@@ -1,31 +1,32 @@
 ---
-title: "Adicionar um Firewall do Aplicativo Web na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar as recomendações da Central de Segurança do Azure **Adicionar um firewall do aplicativo Web** e **Finalizar a proteção do aplicativo**."
+title: Adicionar um Firewall do Aplicativo Web na Central de Segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar as recomendações da Central de Segurança do Azure **Adicionar um firewall do aplicativo Web** e **Finalizar a proteção do aplicativo**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 05/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 4454d18893d698e49f118048eca0bfc94df315a5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e28a1f6b865dae3abe2cb9dfac2921c6a2034491
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203512"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Adicionar um Firewall do Aplicativo Web na Central de Segurança do Azure
 A Central de Segurança do Azure pode recomendar que você adicione um WAF (Firewall do Aplicativo Web) de um parceiro da Microsoft para proteger seus aplicativos Web. Este documento guiará você por um exemplo de como realizar essa recomendação.
 
 Uma recomendação WAF é mostrada para qualquer IP voltado para uso público (IP de nível de instância ou IP de balanceamento de carga) que tem um grupo de segurança de rede associado com portas de entrada da Web abertas (80,443).
 
-A Central de Segurança recomenda que você provisione um WAF para ajudar a proteger contra ataques direcionados a seus aplicativos Web em máquinas virtuais e nos Ambientes externos do Serviço de Aplicativo. Um ASE (Ambiente do Serviço de Aplicativo) é uma opção do plano de serviço [Premium](https://azure.microsoft.com/pricing/details/app-service/) do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo do Azure. Para saber mais sobre o ASE, consulte a [Documentação do Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md).
+A Central de Segurança recomenda que você provisione um WAF para ajudar a proteger contra ataques direcionados a seus aplicativos Web em máquinas virtuais e nos Ambientes externos do Serviço de Aplicativo implantados no plano de serviço [Isolado](https://azure.microsoft.com/pricing/details/app-service/windows/). O plano Isolado hospeda aplicativos em um ambiente particular e dedicado do Azure, ideal para aplicativos que exigem conexões seguras a sua rede local ou desempenho e escala adicionais. Além de seu aplicativo estar em um ambiente isolado, seu aplicativo precisa ter um balanceador de carga de endereço IP externo. Para saber mais sobre o ASE, consulte a [Documentação do Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md).
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo.  Este documento não é um guia passo a passo.
@@ -39,7 +40,7 @@ A Central de Segurança recomenda que você provisione um WAF para ajudar a prot
    ![Adicione um firewall do aplicativo Web][2]
 3. Você pode optar por usar um Firewall do Aplicativo Web existente, se disponível, ou criar um novo. Neste exemplo, não existem WAFs disponíveis, por isso vamos criar um novo.
 4. Para criar um WAF, selecione uma solução da lista dos parceiros integrados. Neste exemplo, selecionamos **Barracuda Web Application Firewall**.
-5. O **Firewall do Aplicativo Web da Barracuda** é aberto, fornecendo informações sobre a solução do parceiro. Selecione **Criar**.
+5. O **Firewall do Aplicativo Web da Barracuda** é aberto, fornecendo informações sobre a solução do parceiro. Clique em **Criar**.
 
    ![Folha Informações do firewall][3]
 

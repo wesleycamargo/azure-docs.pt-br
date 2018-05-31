@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 130b3ea0012c5fb21766b26ce2c3e589f0916736
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df3d843516bce30253c23080716e606dfb56f25e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211554"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 
@@ -80,6 +81,10 @@ Exiba os backups que são mantidos para um banco de dados específico com uma po
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Usar o PowerShell para configurar políticas de retenção de longo prazo e restaurar backups
 
 As seções a seguir mostram como usar o PowerShell para configurar a retenção de backup de longo prazo, exibir backups no armazenamento do SQL do Azure e restaurar a partir de um backup no armazenamento do SQL do Azure.
+
+> [!IMPORTANT]
+> Você precisa usar o powershell do AzureRM mais recente para configurar diretivas LTR V2. A versão atual é [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview), esta é uma versão de visualização, use esse comando para instalá-lo: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
+> Para obter orientação sobre como instalar a versão de pré-lançamento, consulte o módulo [ Obter PowerShellGet](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). A versão de maio de 2018 do powershell AzureRM estará disponível em alguns dias (deve ser 18/5/2018), você pode ignorar a opção - AllowPrelease ao instalar a versão de lançamento quando estiver disponível e use o seguinte comando" `Install-Module -Name AzureRM.Sql -Force`.
 
 ### <a name="create-an-ltr-policy"></a>Criar uma política LTR
 

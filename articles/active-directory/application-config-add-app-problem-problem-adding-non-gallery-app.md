@@ -2,10 +2,10 @@
 title: Problema ao adicionar um aplicativo inexistente na galeria | Microsoft Docs
 description: Compreenda os problemas comuns que as pessoas enfrentam ao adicionar aplicativos personalizados inexistentes na galeria
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 9abc05dd835d2ec803e32351c75534ebe628a8d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3d54a9bccdf3f940959c2cbe3f85bd5fddff68e1
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053548"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problema ao adicionar um aplicativo inexistente na galeria
 
@@ -25,7 +26,7 @@ Este artigo ajuda você a compreender os problemas comuns que as pessoas enfrent
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "adicionar" e meu aplicativo demorou muito para aparecer
 
-Em algumas circunstâncias, pode demorar de 1 ou 2 minutos (às vezes mais) para um aplicativo aparecer após ser adicionado ao diretório. Embora esse não seja o desempenho normal esperado, você pode ver que a adição do aplicativo está em andamento clicando no ícone **Notificações** (o sino) no canto superior direito do [Portal do Azure](https://portal.azure.com/) e procurando uma notificação **Em Andamento** ou **Concluído** rotulada **Criar aplicativo**.
+Em algumas circunstâncias, pode demorar de 1 ou 2 minutos (às vezes mais) para um aplicativo aparecer após ser adicionado ao diretório. Embora esse não seja o desempenho normal esperado, você pode ver que a adição do aplicativo está em andamento clicando no ícone **Notificações** (o sino) no canto superior direito do [portal do Azure](https://portal.azure.com/) e procurando uma notificação **Em Andamento** ou **Concluído** rotulada **Criar aplicativo**.
 
 Se seu aplicativo nunca for adicionado, ou se você encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notificação** em um estado de **Erro**. Se quiser mais detalhes sobre o erro para saber mais ou para compartilhar com um engenheiro de suporte, você poderá ver mais informações sobre o erro seguindo as etapas na seção [Como ver os detalhes de uma notificação do portal](#how-to-see-the-details-of-a-portal-notification).
 
@@ -52,9 +53,7 @@ Veja os detalhes de qualquer notificação do portal executando as etapas abaixo
    >
    >
 
-3.  Isso abre a folha **Detalhes da Notificação**.
-
-4.  Use essas informações para saber mais detalhes sobre o problema.
+4.  Use as informações em **Detalhes da Notificação** para saber mais detalhes sobre o problema.
 
 5.  Se ainda precisar de ajuda, você também poderá compartilhar essas informações com um engenheiro de suporte ou com o grupo de produtos para obter ajuda com o problema.
 
@@ -66,7 +65,7 @@ Veja os detalhes de qualquer notificação do portal executando as etapas abaixo
 
 ## <a name="notification-details-explained"></a>Detalhes da notificação explicados
 
-Abaixo, explicamos mais sobre o significado de cada item de notificação e fornecemos exemplos de cada um deles.
+Veja as descrições a seguir para mais detalhes sobre as notificações.
 
 ### <a name="essential-notification-items"></a>Itens de notificação essenciais
 
@@ -97,11 +96,11 @@ Abaixo, explicamos mais sobre o significado de cada item de notificação e forn
 
    *  Exemplo – **tperkins@f128.info**
 
--   **Id do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
+-   **ID do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
 
    *  Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Id de objeto de usuário** – a ID exclusiva do usuário que realizou a operação
+-   **ID de objeto de usuário** – a ID exclusiva do usuário que realizou a operação
 
  *  Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -115,20 +114,21 @@ Abaixo, explicamos mais sobre o significado de cada item de notificação e forn
 
    *  Exemplo – **Falha**
 
--   **Id do Objeto** – **(pode estar vazio)** a ID do objeto em que a operação foi executada
+-   **ID do Objeto** – **(pode estar vazio)** a ID do objeto em que a operação foi executada
 
    *  Exemplo – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
 -   **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
 
-   *  Exemplo – **A URL interna 'http://bing.com/' é inválida, uma vez que está sendo utilizada**
+   *  Exemplo – **URL interna 'http://bing.com/' é inválida porque já está em uso**
 
--   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos
+-   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um suporte ou grupo de produtos 
+-   engenheiro
 
    *  Exemplo ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Próximas etapas
-[Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Gerenciando aplicativos com o Azure Active Directory](manage-apps/what-is-application-management.md)
 
 
 

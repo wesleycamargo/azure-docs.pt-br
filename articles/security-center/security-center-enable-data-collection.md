@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 90a73545afa82276256a021588eaa594b95ee8da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203964"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
 A Central de Segurança coleta dados de suas VMs (máquinas virtuais) do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu espaço de trabalho para serem analisados. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O Microsoft Monitoring Agent também copia os arquivos de despejo de memória para seu espaço de trabalho.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Habilitar o provisionamento automático do Microsoft Monitoring Agent     
-Quando o provisionamento automático está habilitado, a Central de Segurança provisiona o Microsoft Monitoring Agent em todas as VMs do Azure com suporte, bem como em quaisquer novas VMs que forem criadas. O provisionamento automático é altamente recomendável, mas a instalação manual do agente também está disponível. [Saiba como instalar a extensão do Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
+O provisionamento automático é desativado por padrão. Quando o provisionamento automático está habilitado, a Central de Segurança provisiona o Microsoft Monitoring Agent em todas as VMs do Azure com suporte, bem como em quaisquer novas VMs que forem criadas. O provisionamento automático é altamente recomendável, mas a instalação manual do agente também está disponível. [Saiba como instalar a extensão do Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
 > Desabilitar o provisionamento automático limita o monitoramento de segurança dos seus recursos. Para obter mais informações, consulte [desabilitar o provisionamento automático](security-center-enable-data-collection.md#disable-automatic-provisioning) neste artigo. Os instantâneos de disco da VM e a coleção de artefatos ficam habilitados mesmo que o provisionamento automático esteja desabilitado.
@@ -32,13 +33,16 @@ Quando o provisionamento automático está habilitado, a Central de Segurança p
 >
 
 Para habilitar o provisionamento automático do Microsoft Monitoring Agent:
-1. No menu principal da Central de Segurança, selecione **Política de Segurança**.
+1. No menu principal da Central de segurança, selecione **Política de segurança**.
 2. Selecione a assinatura.
-3. Em **Política de segurança**, selecione **Coleta de Dados**.
-4. Em **Integração**, selecione **Ativar** para habilitar o provisionamento automático.
-5. Selecione **Salvar**.
 
-![Habilitar o provisionamento automático][1]
+  ![Escolha a assinatura][7]
+
+3. Em **Política de segurança**, selecione **Coleta de Dados**.
+4. Em **Provisionamento Automático**, selecione **Ativar** para habilitar o provisionamento automático.
+5. Clique em **Salvar**.
+
+  ![Habilitar o provisionamento automático][1]
 
 ## <a name="default-workspace-configuration"></a>Configuração do espaço de trabalho padrão
 Os dados coletados pela Central de Segurança são armazenados no espaço do Log Analytics.  Você pode optar por ter os dados coletados de VMs do Azure armazenados em espaços de trabalho criados pela Central de Segurança ou em um espaço de trabalho existente que você criou.
@@ -49,18 +53,18 @@ Para usar o espaço de trabalho existente do Log Analytics:
 
 Para selecionar um espaço de trabalho existente do Log Analytics:
 
-1. Em **Política de segurança – Coleta de dados**, selecione **Usar outro espaço de trabalho**.
+1. Em **Configuração do espaço de trabalho padrão**, selecione **Usar outro espaço de trabalho**.
 
    ![Selecionar um espaço de trabalho existente][2]
 
 2. No menu suspenso, selecione um espaço de trabalho para armazenar os dados coletados.
 
-> [!NOTE]
-> No menu suspenso, são mostrados apenas os espaços de trabalho aos quais você tem acesso e que estejam em sua assinatura do Azure.
->
->
+  > [!NOTE]
+  > No menu suspenso, todos os espaços de trabalho em todas as suas inscrições estão disponíveis. Consulte a [seleção de espaço de trabalho de assinatura cruzada](security-center-enable-data-collection.md#cross-subscription-workspace-selection) para obter mais informações.
+  >
+  >
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 4. Ao selecionar **Salvar**, você será questionado se deseja reconfigurar as VMs monitoradas.
 
    - Selecione **Não** se quiser que as novas configurações de espaço de trabalho sejam aplicadas somente às novas VMs. As novas configurações de espaço de trabalho se aplicam somente a novas instalações de agente: VMs recém-descobertas que não têm o Microsoft Monitoring Agent instalado.
@@ -73,7 +77,15 @@ Para selecionar um espaço de trabalho existente do Log Analytics:
 
    - Selecione **Cancelar** para cancelar a operação.
 
-   ![Selecionar um espaço de trabalho existente][3]
+     ![Selecionar um espaço de trabalho existente][3]
+
+## <a name="cross-subscription-workspace-selection"></a>Seleção de espaço de trabalho de assinatura cruzada
+Ao selecionar um espaço de trabalho para armazenar os dados, todos os espaços de trabalho em todas as assinaturas estarão disponíveis. A seleção da área de trabalho de assinatura cruzada permite coletar dados de máquinas virtuais em execução em assinaturas diferentes e armazená-las no espaço de trabalho de sua escolha. Esse recurso funciona para ambas as máquinas virtuais em execução no Linux e no Windows.
+
+> [!NOTE]
+> A seleção de espaço de trabalho de assinatura cruzada faz parte da Camada Gratuita da Central de Segurança do Azure. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
+>
+>
 
 ## <a name="data-collection-tier"></a>Camada de coleta de dados
 A Central de Segurança pode reduzir o volume de eventos, mantendo, ao mesmo tempo, eventos suficientes para investigação, auditoria e detecção de ameaças. Você pode escolher a política de filtragem correta para as suas assinaturas e espaços de trabalho dentre quatro conjuntos de eventos a serem coletados pelo agente.
@@ -84,7 +96,8 @@ A Central de Segurança pode reduzir o volume de eventos, mantendo, ao mesmo tem
 - **Nenhum** – desabilitar a coleta de eventos de segurança da segurança e dos logs do AppLocker. Para clientes que escolherem esta opção, os painéis de segurança apresentarão somente os logs do Firewall do Windows e as avaliações proativas, como antimalware, linha de base e atualização.
 
 > [!NOTE]
-> Esses conjuntos foram projetados para lidar com cenários típicos. Avalie qual atende às suas necessidades antes de implementá-los.
+> Esses conjuntos de eventos de segurança estão disponíveis apenas na Camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
+Esses conjuntos foram projetados para lidar com cenários típicos. Avalie qual atende às suas necessidades antes de implementá-los.
 >
 >
 
@@ -115,8 +128,8 @@ Aqui está um detalhamento completo das IDs de eventos de Segurança e do AppLoc
 >
 
 Para escolher a política de filtragem:
-1. Na folha **Configurações e política de segurança**, selecione a política de filtragem em **Eventos de Segurança**.
-2. Selecione **Salvar**.
+1. Na folha **Política de Segurança – Coleta de Dados**, selecione a política de filtragem em **Eventos de Segurança**.
+2. Clique em **Salvar**.
 
    ![Escolher a política de filtragem][5]
 
@@ -129,12 +142,13 @@ Você pode desabilitar o provisionamento automático de recursos a qualquer mome
 >
 
 1. Retorne ao menu principal da Central de Segurança e selecione a Política de segurança.
-
-   ![Desabilitar o provisionamento automático][6]
-
 2. Selecione a assinatura em que você deseja desabilitar o provisionamento automático.
-3. Na folha **Política de segurança – Coleta de Dados**, em **Integração** selecione **Desativar** para desabilitar o provisionamento automático.
-4. Selecione **Salvar**.  
+3. Na folha **Política de Segurança – Coleta de Dados** em **Provisionamento Automático** selecione **Desativar**.
+4. Clique em **Salvar**.
+
+  ![Desabilitar o provisionamento automático][6]
+
+Quando o provisionamento automático estiver desabilitado (desativado), a seção de configuração do espaço de trabalho padrão não será exibida.
 
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo mostrou como a coleta de dados e o provisionamento automático na Central de Segurança funcionam. Para saber mais sobre a Central de Segurança, confira o seguinte:
@@ -153,4 +167,5 @@ Este artigo mostrou como a coleta de dados e o provisionamento automático na Ce
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
+[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
+[7]: ./media/security-center-enable-data-collection/select-subscription.png

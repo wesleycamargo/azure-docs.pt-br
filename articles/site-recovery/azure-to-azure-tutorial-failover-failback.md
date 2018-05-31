@@ -1,21 +1,22 @@
 ---
-title: "Fazer failover e failback de VMs do Azure replicadas para uma região do Azure secundária com o Azure Site Recovery (versão prévia)"
-description: "Saiba como fazer failover e failback da replicação de VMs do Azure para uma região do Azure secundária com o Azure Site Recovery"
+title: Fazer failover e failback de VMs do Azure replicadas para uma região do Azure secundária com o Azure Site Recovery
+description: Saiba como fazer failover e failback da replicação de VMs do Azure para uma região do Azure secundária com o Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209266"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Fazer failover e failback de VMs do Azure entre regiões do Azure (versão prévia)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Fazer failover e failback de VMs do Azure entre regiões do Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de recuperação de desastre ao gerenciar e orquestrar a replicação, o failover e o failback de computadores locais e de VMs (máquinas virtuais) do Azure.
 
@@ -26,6 +27,8 @@ Este tutorial descreve como fazer failover de uma única VM do Azure para uma re
 > * Proteger novamente a VM do Azure secundária para que ela seja replicada para a região primária
 > * Fazer failback da VM secundária
 > * Proteger novamente a VM primária de volta para a região secundária
+
+A replicação de Azure para Azure está atualmente em versão prévia.
 
 ## <a name="prerequisites"></a>pré-requisitos
 

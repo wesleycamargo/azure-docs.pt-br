@@ -11,16 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166175"
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Como estender (copiar) alertas do OMS para o Azure
 A partir de **14 de maio de 2018**, todos os clientes que usam alertas que estão configurados no [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) serão estendidos para o Azure. Os alertas que são estendidos para o Azure comportam-se da mesma maneira que no OMS. O monitoramento de recursos permanece intacto. Estender os alertas criados no OMS para o Azure fornece muitos benefícios. Para saber mais sobre as vantagens e o processo de estender alertas do OMS para o Azure, veja [Estender alertas do OMS para o Azure](monitoring-alerts-extend.md).
+
+> [!NOTE]
+> A partir de 14 de maio de 2018 a Microsoft iniciará o processo de estender automaticamente os alertas para o Azure. Nem todos os espaços de trabalho e alertas serão estendidos nesse dia; em vez disso, a Microsoft começará a estender alertas automaticamente em partes nas próximas semanas. Portanto, alertas no portal do OMS não serão estendidos automaticamente no Azure imediatamente em 14 de maio de 2018, e o usuário poderá ainda estender manualmente seus alertas usando as opções detalhadas abaixo.
 
 Os clientes que desejam mover seus alertas do OMS para o Azure imediatamente podem fazer isso usando uma das opções indicadas.
 
@@ -236,6 +240,14 @@ As etapas de correção para cada erro são listadas abaixo:
     a. Quando o Bloqueio de Escopo está habilitado, restringindo qualquer alteração na assinatura ou grupo de recursos que contenha o espaço de trabalho do Log Analytics (OMS); o sistema não consegue estender (copiar) alertas ao Azure e criar grupos de ações necessários.
     
     b. Para resolver, exclua o bloqueio *ReadOnly* na sua assinatura ou grupo de recursos que contenha o espaço de trabalho; usando o Portal do Azure, o Powershell, a CLI do Azure ou a API. Para saber mais, veja o artigo sobre o [uso do bloqueio de recurso](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Depois de resolvidos de acordo com as etapas ilustradas no artigo, o OMS estenderá seus alertas ao Azure na execução agendada do dia seguinte; sem a necessidade de qualquer ação ou o iniciação.
+
+3. **Erro: a política está presente no nível do grupo de recursos/assinatura**: ![Página de Configurações de Alerta do portal do OMS com a mensagem de Erro Política](./media/monitor-alerts-extend/ErrorPolicy.png)
+
+    a. Quando a [Azure Policy](../azure-policy/azure-policy-introduction.md) é aplicada, restringindo qualquer novo recurso na assinatura ou grupo de recursos que contenha o espaço de trabalho do Log Analytics (OMS), o sistema não consegue estender (copiar) alertas para o Azure e criar grupos de ações necessários.
+    
+    b. Para resolver, edite a política que está causando o erro *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, que evita a criação de novos recursos em sua assinatura ou grupo de recursos contendo o espaço de trabalho. Usando o Portal do Azure, o Powershell, a CLI do Azure ou uma API, é possível auditar ações para localizar a política apropriada que está causando a falha. Para saber mais, exiba o artigo em [exibindo logs de atividades para auditar as ações](../azure-resource-manager/resource-group-audit.md). 
     
     c. Depois de resolvidos de acordo com as etapas ilustradas no artigo, o OMS estenderá seus alertas ao Azure na execução agendada do dia seguinte; sem a necessidade de qualquer ação ou o iniciação.
 
