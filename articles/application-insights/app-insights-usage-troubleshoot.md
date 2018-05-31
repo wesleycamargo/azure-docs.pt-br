@@ -1,9 +1,9 @@
 ---
-title: "Solucionar problemas de análise de uso no Azure Application Insights"
-description: "Guia de solução de problemas - analisando o uso do aplicativo e site com o Application Insights."
+title: Solucionar problemas de análise de uso no Azure Application Insights
+description: Guia de solução de problemas - analisando o uso do aplicativo e site com o Application Insights.
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: cb5f3052301b23eb10cd6b84ab6fae98bcc7ea18
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: mbullwin;daviste
+ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867561"
 ---
 # <a name="troubleshoot-usage-analytics-in-application-insights"></a>Solucionar problemas de análise de uso no Application Insights
 Dúvidas sobre as [ferramentas de análise de uso no Application Insights](app-insights-usage-overview.md): [Usuários, Sessões, Eventos](app-insights-usage-segmentation.md), [Funis](usage-funnels.md), [Fluxos do Usuário](app-insights-usage-flows.md), [Retenção](app-insights-usage-retention.md), ou Coortes? Aqui estão algumas respostas.
@@ -37,7 +38,7 @@ Atualmente, as ferramentas de análise de uso não oferecem suporte à contagem 
 ## <a name="naming-events"></a>Nomeando Eventos
 **Meu aplicativo tem milhares de exibições de página e nomes de evento personalizado diferentes. É difícil distingui-los, e as ferramentas de análise de uso normalmente não respondem. Como corrigir esses problemas de nomenclatura?**
 
-A exibição de página e os nomes de eventos personalizados são usados nas ferramentas de análise de uso. Nomear bem os eventos é essencial para obter valor dessas ferramentas. A meta é um equilíbrio entre ter poucos nomes extremamente genéricos ("botão clicado") e ter muitos nomes extremamente específicos ("Editar botão clicado em http://www.contoso.com/index").
+A exibição de página e os nomes de eventos personalizados são usados nas ferramentas de análise de uso. Nomear bem os eventos é essencial para obter valor dessas ferramentas. A meta é um equilíbrio entre ter poucos nomes excessivamente genéricos ("Botão clicado") e ter muitos nomes excessivamente específicos ("Editar botão clicado http://www.contoso.com/index").
 
 Para fazer alterações no modo de exibição de página e nos nomes de evento personalizado que seu aplicativo está enviando, você precisa alterar o código-fonte e a reimplantação do seu aplicativo. **Todos os dados de telemetria no Application Insights são armazenados por 90 dias e não podem ser excluídos**; portanto, as alterações feitas aos nomes de evento levarão 90 dias para se manifestarem completamente. A 90 dias depois de fazer as alterações no nome, ambos os nomes de evento antigo e novo serão mostrados em sua telemetria, então ajuste as consultas e se comunique com suas equipes adequadamente.
 

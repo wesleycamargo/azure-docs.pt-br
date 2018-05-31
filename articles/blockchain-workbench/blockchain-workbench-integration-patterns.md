@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0fe4816dbafc28974796c7d9cd307b04fdb9d6d4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a6a44e30fe58617b43c5491a72fc882015bc9591
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886056"
 ---
 # <a name="smart-contract-integration-patterns"></a>Padrões de integração e contratos inteligentes
 
@@ -78,7 +79,7 @@ Esta seção analisa padrões focados nos aspectos da API baseada em mensagens q
 
 Nesse cenário, um evento ocorre dentro de um contrato inteligente, por exemplo, uma alteração de estado ou a execução de um tipo específico de transação. Esse evento é transmitido por meio de uma Grade de Eventos para consumidores de downstream e os consumidores, em seguida, executam as ações apropriadas.
 
-Um exemplo deste cenário é que quando a transação ocorre, um consumidor pode ser alertado e pode executar ações, tais como registrar a informação em um banco de dados SQL ou no Common Data Service. Este é o mesmo padrão que o Workbench segue para preenchê-lo no seu banco de dados SQL *off chain*.
+Um exemplo deste cenário é que quando a transação ocorre, um consumidor pode ser alertado e pode executar ações, tais como registrar a informação em um banco de dados SQL ou no Common Data Service. Esse é o mesmo padrão que o Workbench segue para preencher o SQL DB *off chain*.
 
 Outra seria se um contrato inteligente faz a transição para um estado específico, por exemplo, quando um contrato entra em um *OutOfCompliance*. Quando essa alteração de estado ocorre, ele pode disparar um alerta que será enviado para o celular do administrador.
 
@@ -207,13 +208,13 @@ Além de REST e a API baseada em mensagem, o Azure Blockchain Workbench também 
 
 A integração de dados é bem conhecida:
 
--   O Azure Blockchain Workbench armazena metadados sobre aplicativos, fluxos de trabalho, contratos e transações como parte do seu comportamento de operação normal.
+-   O Azure Blockchain Workbench armazena metadados sobre aplicativos, fluxos de trabalho, contratos e transações como parte do comportamento de operação normal.
 -   Os sistemas externos ou ferramentas fornecem uma ou mais caixas de diálogo para facilitar a coleta de informações sobre o banco de dados, como nome do servidor de banco de dados, o nome do banco de dados, o tipo de autenticação, as credenciais de logon e exibições de banco de dados a serem utilizadas.
 -   As consultas são gravadas em exibições de banco de dados SQL para facilitar o consumo de downstream por sistemas externos, serviços, relatórios, ferramentas de desenvolvedor e ferramentas de produtividade da empresa.
 
 ## <a name="storage-integration"></a>Integração de armazenamento
 
-Muitos cenários podem exigir a necessidade de incorporar arquivos que podem ser comprovados. Por vários motivos, é inadequada colocar arquivos em um blockchain. Em vez disso, uma abordagem comum é executar um hash unidirecional em um arquivo e compartilhar esse hash em uma razão distribuída. Executar o hash novamente a qualquer momento futuro deve retornar o mesmo resultado. Se o arquivo é modificado, mesmo que apenas um pixel seja modificado em uma imagem, o hash retornará um valor diferente.
+Muitos cenários podem exigir a necessidade de incorporar arquivos que podem ser comprovados. Por vários motivos, é inadequada colocar arquivos em um blockchain. Em vez disso, uma abordagem comum é executar um hash criptográfico (por exemplo, SHA-256) em um arquivo e compartilhar esse hash em um razão distribuído. Executar o hash novamente a qualquer momento futuro deve retornar o mesmo resultado. Se o arquivo é modificado, mesmo que apenas um pixel seja modificado em uma imagem, o hash retornará um valor diferente.
 
 ![Integração de armazenamento](media/blockchain-workbench-integration-patterns/storage-integration.png)
 
