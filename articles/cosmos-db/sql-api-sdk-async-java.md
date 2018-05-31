@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/18/2018
 ms.author: sngun
-ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9dae401bc007b78d8ee3c6993735650e3b26b9d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359519"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java Assíncrono SQL do Azure Cosmos DB para a API SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -42,7 +43,7 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 
 <tr><td>**Documentação da API**</td><td>[Documentação de referência de API Java](https://azure.github.io/azure-cosmosdb-java/)</td></tr>
 
-<tr><td>**Contribuir para o SDK**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
+<tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
 <tr><td>**Introdução**</td><td>[Introdução ao SDK Java Assíncrono](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
 
@@ -54,6 +55,18 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
+* Suporte adicionado para Política de Índice Exclusivo.
+* Suporte adicionado para limitação do tamanho do token de continuação do resposta em opções de feed.
+* Suporte adicionado para a Divisão de Partição na consulta de Partição Cruzada.
+* Correção de bug na Serialização de carimbo de data/hora Json ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Correção de bug na serialização enum Json.
+* Correção de bug no gerenciamento de documentos de tamanho de 2MB ([github 33 #](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Dependência com.fasterxml.jackson.core:jackson-databind atualizado para 2.9.5 devido a um bug ([jackson databind: github 1599 #](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Dependência rxjava-extras atualizado para 0.8.0.17 devido a um bug ([rxjava extras: github 30 #](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* A descrição de metadados no arquivo pom atualizada para estar embutido com o restante da documentação.
+* Aperfeiçoamento de sintaxe ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github 40 #](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Suporte de pressão contrária adicionado na consulta.
@@ -79,6 +92,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.0.2](#1.0.2) |18 de maio de 2018|--- |
 | [1.0.1](#1.0.1) |20 de abril de 2018|--- |
 | [1.0.0](#1.0.0) |27 de fevereiro de 2018|--- |
 

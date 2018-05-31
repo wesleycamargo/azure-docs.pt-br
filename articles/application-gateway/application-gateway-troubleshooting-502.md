@@ -1,11 +1,11 @@
 ---
-title: "Solucionar problemas de erros de Gateway de Aplicativo inválido (502) do Gateway de Aplicativo do Azure | Microsoft Docs"
+title: Solucionar problemas de erros de Gateway de Aplicativo inválido (502) do Gateway de Aplicativo do Azure | Microsoft Docs
 description: Saiba como solucionar problemas de erros 502 do Gateway de Aplicativo
 services: application-gateway
 documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
 ms.service: application-gateway
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356028"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solução de problemas de erros de gateway incorreto no Application Gateway
 
@@ -89,10 +90,10 @@ Os erros 502 também podem ser indicadores frequentes de que a investigação de
 
 * Verifique se um site padrão está configurado e está escutando em 127.0.0.1.
 * Se BackendHttpSetting especificar uma porta diferente de 80, o site padrão deverá ser configurado para escutar nessa porta.
-* A chamada para http://127.0.0.1:porta. deve retornar um código de resultado de HTTP 200. Ele deve ser retornado dentro do período de tempo limite de 30 segundos.
+* A chamada para http://127.0.0.1:port deve retornar um código de resultado de HTTP 200. Ele deve ser retornado dentro do período de tempo limite de 30 segundos.
 * Verifique se a porta configurada está aberta e se não há regras de firewall ou Grupos de Segurança de Rede do Azure que bloqueiam o tráfego de entrada ou de saída na porta configurada.
 * Se VMs clássicas do Azure ou o Serviço de Nuvem forem usados com FQDN ou IP Público, verifique se o [ponto de extremidade](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondente está aberto.
-* Se a VM for configurada por meio do Azure Resource Manager e estiver fora da rede virtual em que o Gateway de Aplicativo está implantado, o [Grupo de Segurança de Rede](../virtual-network/virtual-networks-nsg.md) deverá ser configurado para permitir o acesso na porta desejada.
+* Se a VM for configurada por meio do Azure Resource Manager e estiver fora da rede virtual em que o Gateway de Aplicativo está implantado, o [Grupo de Segurança de Rede](../virtual-network/security-overview.md) deverá ser configurado para permitir o acesso na porta desejada.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemas com a investigação de integridade personalizada
 

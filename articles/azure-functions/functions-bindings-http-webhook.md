@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 3ee70c3784205a70f455bd7ef147467e4547d167
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d15c5556325284dd3b0b6f11a080c9abc263286c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356317"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associações HTTP e de webhook do Azure Functions
 
@@ -37,11 +38,13 @@ As associações de HTTP são fornecidas no pacote NuGet [Microsoft.Azure.WebJob
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="trigger"></a>Gatilho
 
 Um gatilho de HTTP permite invocar uma função com uma solicitação HTTP. Você pode usar um gatilho de HTTP para criar APIs sem servidor e responder a webhooks. 
 
-Por padrão, um gatilho HTTP responderá à solicitação com um código de status HTTP 200 OK e um corpo vazio. Para modificar a resposta, configure uma [associação de saída de HTTP](#http-output-binding).
+Por padrão, um gatilho HTTP retorna HTTP 200 OK com um corpo vazio em funções de 1. x ou HTTP 204 sem conteúdo com um corpo vazio em funções 2. x. Para modificar a resposta, configure uma [associação de saída de HTTP](#http-output-binding).
 
 ## <a name="trigger---example"></a>Gatilho - exemplo
 
@@ -54,7 +57,7 @@ Consulte o exemplo específico a um idioma:
 
 ### <a name="trigger---c-example"></a>Gatilho - exemplo C#
 
-O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que procura por um parâmetro `name` na cadeia de caracteres de consulta ou no corpo da solicitação HTTP.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que procura por um parâmetro `name` na cadeia de caracteres de consulta ou no corpo da solicitação HTTP. Observe que o valor de retorno é usado para a associação de saída, mas um atributo de valor de retorno não é necessário.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -85,15 +88,29 @@ public static async Task<HttpResponseMessage> Run(
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função de script de C#](functions-reference-csharp.md) que usa a associação. A função procura um parâmetro `name` na cadeia de consulta ou no corpo da solicitação HTTP.
 
-Aqui estão os dados de associação no arquivo *function.json*:
+Aqui está o arquivo *function.json*:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 A seção [configuração](#trigger---configuration) explica essas propriedades.
@@ -145,15 +162,25 @@ public class CustomObject {
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função F#](functions-reference-fsharp.md) que usa a associação. A função procura um parâmetro `name` na cadeia de consulta ou no corpo da solicitação HTTP.
 
-Aqui estão os dados de associação no arquivo *function.json*:
+Aqui está o arquivo *function.json*:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 A seção [configuração](#trigger---configuration) explica essas propriedades.
@@ -201,15 +228,25 @@ Você precisa de um arquivo `project.json` que usa o NuGet para fazer referênci
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função procura um parâmetro `name` na cadeia de consulta ou no corpo da solicitação HTTP.
 
-Aqui estão os dados de associação no arquivo *function.json*:
+Aqui está o arquivo *function.json*:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 A seção [configuração](#trigger---configuration) explica essas propriedades.
@@ -222,7 +259,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -261,15 +298,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 O exemplo a seguir mostra uma associação de gatilho de webhook em um arquivo *function.json* e uma [função C# script](functions-reference-csharp.md) que usa a associação. A função registra em log comentários sobre problemas do GitHub.
 
-Aqui estão os dados de associação no arquivo *function.json*:
+Aqui está o arquivo *function.json*:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 A seção [configuração](#trigger---configuration) explica essas propriedades.
@@ -301,15 +348,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 O exemplo a seguir mostra uma associação de gatilho de webhook em um arquivo *function.json* e uma [função F#](functions-reference-fsharp.md) que usa a associação. A função registra em log comentários sobre problemas do GitHub.
 
-Aqui estão os dados de associação no arquivo *function.json*:
+Aqui está o arquivo *function.json*:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 A seção [configuração](#trigger---configuration) explica essas propriedades.
@@ -345,11 +402,21 @@ Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 A seção [configuração](#trigger---configuration) explica essas propriedades.
@@ -384,7 +451,6 @@ Para ver um exemplo completo, consulte [Gatilho – exemplo de C#](#trigger---c-
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `HttpTrigger`.
-
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -470,13 +536,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -547,35 +613,24 @@ O arquivo [host.json](functions-host-json.md) contém configurações que contro
 
 ## <a name="output"></a>Saída
 
-Use a associação de saída HTTP para responder ao remetente da solicitação HTTP. Essa associação requer um gatilho HTTP e permite que você personalize a resposta associada à solicitação do gatilho. Se a associação de saída HTTP não for fornecida, um gatilho HTTP retornará HTTP 200 OK com um corpo vazio. 
+Use a associação de saída HTTP para responder ao remetente da solicitação HTTP. Essa associação requer um gatilho HTTP e permite que você personalize a resposta associada à solicitação do gatilho. Se uma saída HTTP vinculada não é fornecida, um gatilho HTTP retorna HTTP 200 OK com um corpo vazio em funções de 1. x ou HTTP 204 sem conteúdo com um corpo vazio em funções 2. x.
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-Para bibliotecas de classes C#, não há propriedades de configuração de associação de saída específica. Para enviar uma resposta HTTP, faça com que o tipo de retorno da função seja `HttpResponseMessage` ou `Task<HttpResponseMessage>`.
-
-Para outras linguagens, uma associação de saída HTTP é definida por um objeto JSON na matriz `bindings` de function.json, como mostrado no exemplo a seguir:
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json*.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json*. Para a classe de c# não há propriedades de atributo que correspondem a essas propriedades *function.json*. 
 
 |Propriedade  |DESCRIÇÃO  |
 |---------|---------|
 | **tipo** |Deve ser definido como `http`. |
 | **direction** | Deve ser definido como `out`. |
-|**name** | O nome da variável usada no código de função para a resposta. |
+|**name** | O nome da variável usada no código de função para a resposta, ou `$return` para usar o valor de retorno. |
 
 ## <a name="output---usage"></a>Saída - uso
 
-Você pode usar o parâmetro de saída para responder ao chamador HTTP ou webhook. Você também pode usar os padrões de resposta de padrão do idioma. Para ver exemplos de respostas, consulte o [exemplo de gatilho](#trigger---example) e o [exemplo de webhook](#trigger---webhook-example).
+Para enviar uma resposta HTTP, use os padrões de resposta padrão do idioma. Em c# ou script c#, faça o tipo de retorno da função retorno `HttpResponseMessage` ou `Task<HttpResponseMessage>`. Em c#, um atributo de valor de retorno não é necessário.
+
+Para ver exemplos de respostas, consulte o [exemplo de gatilho](#trigger---example) e o [exemplo de webhook](#trigger---webhook-example).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
+[Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

@@ -8,11 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 34c5d1999625d1728e884adb794af235ba415c26
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366453"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador do Azure Search ao SQL Server em uma VM do Azure
 Conforme observado em [Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), é possível criar indexadores no **SQL Server em VMs do Azure** (ou **VMs do SQL Azure**) usando o Azure Search, mas há alguns pré-requisitos relacionados à segurança que precisam ser verificados primeiro. 
@@ -55,11 +56,11 @@ Em particular, consulte a seção em cada artigo para "conectando pela internet"
 Os links a seguir fornecem instruções sobre a configuração de NSG para implantações de VM. Use estas instruções para a ACL de um ponto de extremidade do Azure Search com base em seu endereço IP.
 
 > [!NOTE]
-> Para saber mais, consulte [O que é um Grupo de Segurança de Rede?](../virtual-network/virtual-networks-nsg.md)
+> Para saber mais, consulte [O que é um Grupo de Segurança de Rede?](../virtual-network/security-overview.md)
 > 
 > 
 
-* Para uma VM do **Gerenciador de Recursos** , consulte [Como criar NSGs para implantações de ARM](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+* Para uma VM do **Gerenciador de Recursos** , consulte [Como criar NSGs para implantações de ARM](../virtual-network/tutorial-filter-network-traffic.md). 
 * Para uma VM **Clássica** , consulte [Como criar NSGs para implantações Clássicas](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
 
 O endereçamento IP pode apresentar alguns desafios que são facilmente superados se você estiver ciente do problema e possíveis soluções alternativas. As seções restantes fornecem recomendações para lidar com problemas relacionados a endereços IP na ACL.

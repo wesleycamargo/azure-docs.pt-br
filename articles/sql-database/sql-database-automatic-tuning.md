@@ -9,11 +9,12 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: jovanpop
-ms.openlocfilehash: 1d80d199e21222be973fa6f5a06e6e80a505f164
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7707a40a39e429333ff1c20fb7884a1fb7ee2162
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365960"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático no Banco de Dados SQL do Microsoft Azure
 
@@ -61,13 +62,13 @@ Para uma visão geral de como o ajuste automático funciona em cenários de uso 
 ## <a name="automatic-tuning-options"></a>Opções de ajuste automático
 
 As opções de ajuste automático disponíveis no Banco de Dados SQL do Azure são:
- 1. **CREATE INDEX** que identifica os índices que podem melhorar o desempenho da carga de trabalho, cria os índices e verifica que eles melhoram o desempenho das consultas.
- 2. **DROP INDEX** que identifica os índices duplicados e redundantes e índices que não foram usados em um longo período de tempo.
- 3. **FORCE LAST GOOD PLAN** que identifica as consultas SQL que estão usando o plano de execução que são mais lentas do que o plano bom anterior e usa o último plano bom conhecido, em vez do plano retornado.
+ 1. **CREATE INDEX** – identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente se houve melhoria no desempenho de consultas. A configuração padrão do Azure para essa opção é habilitada.
+ 2. **DROP INDEX** – identifica os índices redundantes e duplicados e os índices que não foram usados por um longo período. Observe que, no momento, a opção é incompatível com os aplicativos que usam comutação de partição e dicas de índice. A configuração padrão do Azure para essa opção é desabilitada.
+ 3. **FORCE LAST GOOD PLAN** – identifica as consultas SQL que usam um plano de execução mais lento do que o plano bom anterior e as consultas que usam o último plano bom conhecido, em vez do plano regredido. A configuração padrão do Azure para essa opção é habilitada.
 
 O Banco de Dados SQL do Microsoft Azure identifica recomendações **CREATE INDEX**, **DROP INDEX** e **FORCE LAST GOOD PLAN** que podem otimizar seu banco de dados e as mostra no Portal do Azure. Encontre mais informações sobre a identificação de índices que devem ser alterados em [Encontrar recomendações de índice no portal do Azure](sql-database-advisor-portal.md). Você pode aplicar manualmente as recomendações usando o portal ou permitir que o Banco de Dados SQL do Microsoft Azure aplique automaticamente as recomendações, monitore a carga de trabalho após a alteração e verifique se a recomendação melhorou o desempenho da carga de trabalho.
 
-As opções de ajuste automático podem ser ativadas ou desativadas de forma independente por banco de dados, ou podem ser configuradas no servidor lógico e aplicadas em cada banco de dados que herda as configurações do servidor. Configurar as opções de Ajuste automático no servidor e herdar as configurações nos bancos de dados no servidor é um método recomendável para configurar o ajuste automático, pois simplifica o gerenciamento das opções de ajuste automático em um grande número de bancos de dados.
+As opções de ajuste automático podem ser ativadas ou desativadas de forma independente por banco de dados, ou podem ser configuradas no servidor lógico e aplicadas em cada banco de dados que herda as configurações do servidor. Os servidores lógicos podem herdar os padrões do Azure para as configurações de Ajuste automático. Configurar as opções de Ajuste automático no servidor e herdar as configurações nos bancos de dados no servidor é um método recomendável para configurar o ajuste automático, pois simplifica o gerenciamento das opções de ajuste automático em um grande número de bancos de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

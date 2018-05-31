@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f25c39b602449be3ab9d1cd7e67d6fcfc78afb17
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32176279"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitorar uso e custos estimados
 
@@ -39,12 +40,11 @@ Aqui está outro uso semelhante e resumo de custo. Este exemplo mostra uma assin
 
 ## <a name="new-pricing-model"></a>Novo modelo de preços
 
-Em abril de 2018, um novo modelo de preços de monitoramento foi liberado. Apresenta preços com base no consumo e é amigável para a nuvem. Você paga apenas pelo que usa, sem compromissos baseados em nó. Os detalhes do novo modelo de preços estão disponíveis para [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
+Em abril de 2018, um [novo modelo de preços de monitoramento foi liberado](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Este apresenta preços com base no consumo e é amigável para nuvem. Você paga apenas pelo que usa, sem compromissos baseados em nó. Os detalhes do novo modelo de preços estão disponíveis para [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-Para clientes que começaram a usar o Log Analytics ou o Application Insights após 2 de abril de 2018, o novo modelo de preços é a única opção. Para clientes que já utilizam esses serviços, a mudança para o novo modelo de preços é opcional.
+Para clientes que participam do Log Analytics ou do Application Insights após 2 de abril de 2018, o novo modelo de preços é a única opção. Para clientes que já utilizam esses serviços, a mudança para o novo modelo de preços é opcional.
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Avaliar o impacto do novo modelo de preços
-
 O novo modelo de preços terá impactos diferentes para cada cliente com base nos padrões de uso de monitoramento. Para os clientes que estavam usando o Log Analytics ou o Application Insights antes de 2 de abril de 2018, a página **Uso e custo estimados** no Azure Monitor calcula qualquer alteração nos custos se elas são movidas para o novo modelo de preços. Ele fornece a maneira de mover uma assinatura para o novo modelo. Para a maioria dos clientes, o novo modelo de preços será vantajoso. Para clientes com padrões de alto uso de dados ou em regiões de custo mais elevados, é possível que este não seja o caso.
 
 Para ver uma estimativa dos custos para as assinaturas que você selecionou na página **Uso e custos estimados**, selecione a faixa azul perto da parte superior da página. É recomendável fazer uma assinatura por vez, pois esse é o nível no qual o novo modelo de preços pode ser adotado.
@@ -71,11 +71,30 @@ Há outra alteração nos dados ingeridos no Log Analytics ou no Application Ins
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Novo modelo de preços e direitos de inscrição do Operations Management Suite
 
-Clientes que adquiriram o Microsoft Operations Management Suite E1 e E2 estão qualificados para direitos de ingestão de dados por nó para [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Para receber esses direitos para espaços de trabalho Log Analytics ou recursos Application Insights em uma determinada assinatura, o modelo de preços de assinatura deve permanecer no modelo de preços antes de abril de 2018. Que é onde o modelo de preços do Log Analytics "Por nó (OMS)" e o modelo de preços do Application Insights "Empresarial" estão disponíveis. Dependendo do número de nós do conjunto que sua organização adquiriu, mover algumas assinaturas para o novo modelo de preços ainda pode ser vantajoso. Mas isso requer uma consideração cuidadosa.
+Clientes que adquiriram o Microsoft Operations Management Suite E1 e E2 estão qualificados para direitos de ingestão de dados por nó para [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Para receber esses direitos para espaços de trabalho Log Analytics ou recursos Application Insights em uma determinada assinatura: 
+
+- O modelo de preços da assinatura deve permanecer no modelo de pré-abril 2018.
+- Espaços de trabalho do Log Analytics devem usar o tipo de preço "por nó (OMS)".
+- Recursos do Application Insights devem usar o plano de preços "Enterprise".
+
+Dependendo do número de nós do conjunto que sua organização adquiriu, mover algumas assinaturas para o novo modelo de preços poderia ser vantajoso, mas isso requer uma consideração cuidadosa. Em geral, é aconselhável simplesmente permanecer no modelo pré-abril 2018, conforme descrito acima.
+
+> [!WARNING]
+> Se sua organização adquiriu o Microsoft Operations Management Suite E1 e E2, é melhor manter suas assinaturas no modelo de preços de pré-abril 2018. 
+>
 
 ## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Alterações ao mudar para o novo modelo de preços
 
-Mover uma assinatura para o novo modelo de preços irá alterar a camada de preços de cada Log Analytics para uma nova camada Por GB e moverá todos (chamado “pergb2018” no Azure Resource Manager). Essa mudança também alterará todos os recursos do Application Insights no plano Enterprise para o plano Básico. A estimativa de custo mostra os efeitos dessas alterações.
+O novo modelo de preços simplifica as opções de preço do Log Analytics e Application Insights em um único tipo (ou plano). Mover uma assinatura para o novo de modelo de preços:
+
+- Alterará o tipo de preços para cada Log Analytics para um novo tipo por GB (chamado de "pergb2018" no Azure Resource Manager)
+- Todos os recursos do Application Insights no plano Enterprise são alterados para o plano Básico.
+
+A estimativa de custo mostra os efeitos dessas alterações.
+
+> [!WARNING]
+> Aqui uma observação importante se você usa o Azure Resource Manager ou o PowerShell para implantar [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) ou [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) em uma assinatura que você alterou para o novo modelo de preços. Se você especificar um tipo/plano de preço diferente de "pergb2018" para o Log Analytics ou "Básico" para o Application Insights, em vez de falha na implantação devido à especificação inválida do tipo/plano de preços, ela terá êxito, **mas usará apenas o tipo/plano de preços válido**. 
+>
 
 ## <a name="moving-to-the-new-pricing-model"></a>Mover para o novo modelo de preços
 

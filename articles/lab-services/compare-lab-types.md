@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/30/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3b2fd59444f50f4ac5da6bf569cb0247f3a36943
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22a1c90dd1a1ca305431d91a801e5293a6d08703
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361175"
 ---
-# <a name="compare-managed-and-custom-labs-in-azure-lab-services"></a>Comparar laboratórios personalizados e gerenciados no Azure Lab Services
+# <a name="compare-managed-and-devtest-labs-in-azure-lab-services"></a>Comparar laboratórios gerenciados e de DevTest no Azure Lab Services
 Você pode criar dois tipos de laboratórios, **laboratórios gerenciados** com o Azure Lab Services, e **laboratórios personalizados** com o Azure DevTest Labs. Se você quiser apenas inserir o que precisa em um laboratório e permitir que o serviço configure e gerencie a infraestrutura necessária para o laboratório, escolha entre um dos **laboratórios gerenciados**. Atualmente, o **laboratório de sala de aula** é o único tipo de laboratório gerenciado que você pode criar com o Azure Lab Services. Se você quiser gerenciar sua própria infraestrutura, crie um **laboratório personalizado** usando o Azure DevTest Labs.
 
 As seções a seguir fornecem mais detalhes sobre esses laboratórios. 
@@ -37,10 +38,10 @@ Aqui estão alguns dos **casos de uso dos laboratórios gerenciados**:
 - Provisione rapidamente um laboratório de máquinas virtuais para hospedar um hackathon. Exclua o laboratório com um único clique quando terminar. 
 
 
-## <a name="custom-labs"></a>Laboratórios personalizados
+## <a name="devtest-labs"></a>Laboratórios de desenvolvimento/teste
 Pode haver situações nas quais você deseja gerenciar toda a infraestrutura e configuração por conta própria, dentro da sua própria assinatura. Para fazer isso, você pode criar um laboratório personalizado com o Azure DevTest Labs no Portal do Azure. Para esses laboratórios, não é necessário criar uma conta de laboratório. Esses laboratórios não aparecem na conta de laboratório (que existe para os laboratórios gerenciados).  
 
-Aqui estão alguns dos **casos de uso dos laboratórios personalizados**: 
+Aqui estão alguns dos **casos de uso dos laboratórios de DevTest**: 
 
 - Provisione rapidamente um laboratório de máquinas virtuais para hospedar um hackathon ou uma sessão prática em uma conferência. Exclua o laboratório com um único clique quando terminar. 
 - Crie um pool de VMs configuradas com o seu aplicativo e permita que sua equipe use facilmente uma VM para correção de bugs.  
@@ -50,10 +51,10 @@ Aqui estão alguns dos **casos de uso dos laboratórios personalizados**:
 - Ofereça sessões de treinamento aos clientes com um laboratório configurado com a versão mais recente do produto. Dê a que cada cliente um número limitado de horas para uso do laboratório. 
 
 
-## <a name="managed-labs-vs-custom-labs"></a>Laboratórios gerenciados versus laboratórios personalizados
+## <a name="managed-labs-vs-devtest-labs"></a>Laboratórios gerenciados X Laboratórios de desenvolvimento/teste
 A tabela a seguir compara dois tipos de laboratórios que têm suporte dos Azure Lab Services: 
 
-| Recursos | Laboratórios gerenciados | laboratórios personalizados |
+| Recursos | Laboratórios gerenciados | Laboratórios de desenvolvimento/teste |
 | -------- | ----------------  | ---------- |
 | Gerenciamento da infraestrutura do Azure no laboratório. |  Gerenciada automaticamente pelo serviço | Você gerencia a sua própria  |
 | Resiliência interna para problemas de infraestrutura | Tratada automaticamente pelo serviço | Você gerencia a sua própria  |

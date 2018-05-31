@@ -1,11 +1,11 @@
 ---
 title: Gerenciar as capturas de pacotes com o Observador de Rede do Azure - portal do Azure | Microsoft Docs
-description: "Esta página explica como gerenciar o recurso de captura de pacotes do Observador de Rede usando o portal do Azure"
+description: Esta página explica como gerenciar o recurso de captura de pacotes do Observador de Rede usando o portal do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 508b9e7eef757277d4bc0e93a26f3a63045f31e4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187524"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
 
@@ -142,7 +143,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
 
-Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](network-watcher-check-ip-flow-verify-portal.md)
+Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
 [1]: ./media/network-watcher-packet-capture-manage-portal/figure1.png
