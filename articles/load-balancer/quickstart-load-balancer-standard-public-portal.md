@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: dc7d8a4cc5b755504c2430be187d3ab2b46c51d1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 07700ecb8a31e6ee724f27e247f377eb869e6c39
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305133"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga padrão para VMs usando o Portal do Azure
 
@@ -128,7 +129,7 @@ Nesta seção, você definirá as configurações do balanceador de carga para u
 
 ### <a name="create-a-backend-address-pool"></a>Criar um pool de endereços de back-end
 
-Para distribuir o tráfego para as máquinas virtuais, um pool de endereços de back-end contém os endereços IP das NICs virtuais conectadas ao balanceador de carga. Crie o pool de endereços de back-end *myBackendPool* para incluir *VM1* e *VM2*.
+Para distribuir o tráfego entre as VMs, um pool de endereços de back-end contém os endereços IP dos NICs virtuais conectados ao balanceador de carga. Crie o pool de endereços de back-end *myBackendPool* para incluir *VM1* e *VM2*.
 
 1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** na lista de recursos.
 2. Em **Configurações**, clique em **Pools de back-end** e clique em **Adicionar**.
@@ -161,7 +162,7 @@ Para permitir que o balanceador de carga monitore o status de seu aplicativo, us
 
 ### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
-Uma regra de balanceador de carga é usada para definir como o tráfego é distribuído para as VMs. Definir a configuração de IP de front-end para o tráfego de entrada e o pool de IP de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Crie uma regra do balanceador de carga *myLoadBalancerRuleWeb* para escutar a porta 80 no front-end *FrontendLoadBalancer* e enviar o tráfego de rede com carga balanceada ao pool de endereços de back-end *myBackEndPool* também usando a porta 80. 
+Uma regra de balanceador de carga é usada para definir como o tráfego é distribuído para as VMs. Defina a configuração de IP de front-end para o tráfego de entrada e o pool de IPs de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Crie uma regra do balanceador de carga *myLoadBalancerRuleWeb* para escutar a porta 80 no front-end *FrontendLoadBalancer* e enviar o tráfego de rede com carga balanceada ao pool de endereços de back-end *myBackEndPool* também usando a porta 80. 
 
 1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** na lista de recursos.
 2. Em **Configurações**, clique em **Regras de balanceamento de carga** e em **Adicionar**.
@@ -189,4 +190,7 @@ Quando não forem mais necessários, exclua o grupo de recursos, o balanceador d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md).
+Neste início rápido, você criou um Load Balancer Standard, anexou VMs a ele, configurou a regra de tráfego do balanceador de carga, a investigação de integridade e testou o balanceador de carga. Para saber mais sobre o Azure Load Balancer, continue nos tutoriais do Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Tutoriais do Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 263cb6e588c9714504a5bb5d9a064f5c4be73e9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304912"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando a CLI 2.0 do Azure
 
@@ -262,4 +263,7 @@ Quando não for mais necessário, você pode usar o comando [az group delete](/c
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste início rápido você criou o balanceador de carga, anexou VMs, configurou a regra de tráfego do balanceador de carga, investigação de integridade e em seguida, testou o balanceador de carga. Para saber mais sobre os balanceadores de carga e seus recursos associados, continue para os artigos de instrução.
+Neste início rápido você criou o Load Balancer Básico, anexou VMs, configurou a regra de tráfego do balanceador de carga, investigação de integridade e em seguida, testou o balanceador de carga. Para saber mais sobre o Azure Load Balancer, continue nos tutoriais do Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Tutoriais do Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

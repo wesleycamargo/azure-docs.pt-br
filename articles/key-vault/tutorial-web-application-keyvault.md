@@ -1,5 +1,5 @@
 ---
-title: Configurar um aplicativo Web do Azure para ler um segredo do Cofre de Chaves | Microsoft Docs
+title: Tutorial para configurar um aplicativo Web do Azure para ler um segredo do Cofre de Chaves | Microsoft Docs
 description: 'Tutorial: Configurar um aplicativo ASP.NET Core para ler um segredo do Cofre de Chaves'
 services: key-vault
 documentationcenter: ''
@@ -8,15 +8,16 @@ manager: mbaldwin
 ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 146ea04081a4adebe4a6e9249bb1fe34ba76e3a4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305167"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Tutorial: Configurar um aplicativo Web do Azure para ler um segredo do Cofre de Chaves
 
@@ -48,24 +49,22 @@ Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_gr
 O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
 ```azurecli
-az group create --name ContosoResourceGroup --location eastus
+# To list locations: az account list-locations --output table
+az group create --name "ContosoResourceGroup" --location "East US"
 ```
 
 O grupo de recursos que você acabou de criar é usado ao longo deste tutorial.
 
 ## <a name="create-an-azure-key-vault"></a>Criar um Cofre de chaves do Azure
 
-Em seguida, você cria um Cofre de Chaves no grupo de recursos criado na etapa anterior. É necessário fornecer algumas informações:
-
->[!NOTE]
-> Embora “ContosoKeyVault” seja utilizado como o nome do Cofre de Chaves ao longo deste tutorial, você deverá usar um nome exclusivo.
+Em seguida, você cria um Cofre de Chaves no grupo de recursos criado na etapa anterior. Embora “ContosoKeyVault” seja utilizado como o nome do Key Vault ao longo deste tutorial, você deverá usar um nome exclusivo. Forneça as seguintes informações:
 
 * Nome do cofre **ContosoKeyVault**.
 * Nome do grupo de recursos **ContosoResourceGroup**.
 * O local **Leste dos EUA**.
 
 ```azurecli
-az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East US"
 ```
 
 A saída deste comando mostra as propriedades do Cofre de Chaves criado recentemente. Anote as duas propriedades listadas abaixo:
@@ -78,23 +77,23 @@ A saída deste comando mostra as propriedades do Cofre de Chaves criado recentem
 
 Nesse ponto, sua conta do Azure é a única autorizada a executar qualquer operação nesse novo cofre.
 
-## <a name="add-a-secret-to-key-vault"></a>Adicione um segredo ao Cofre de Chaves
+## <a name="add-a-secret-to-key-vault"></a>Adicione um segredo ao cofre de chaves
 
 Estamos adicionando um segredo para ajudar a ilustrar como isso funciona. Você pode estar armazenando uma cadeia de conexão SQL ou qualquer outra informação que precise manter com segurança, mas disponibilizar para o aplicativo. Neste tutorial, a senha será chamada **AppSecret** e armazenará o valor de **MySecret** nela.
 
 Digite os comandos abaixo para criar um segredo no Cofre de Chaves chamado **AppSecret** que armazenará o valor **MySecret**:
 
 ```azurecli
-az keyvault secret set --vault-name '<YourKeyVaultName>' --name 'AppSecret' --value 'MySecret'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "AppSecret" --value "MySecret"
 ```
 
 Para exibir o valor contido no segredo como texto sem formatação:
 
 ```azurecli
-az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
+az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 ```
 
-Este comando mostra as informações secretas, incluindo o URI. Após concluir essas etapas, você deverá ter um URI para um segredo em um Cofre de Chaves do Azure. Anote essa informação. Ela será necessária em uma etapa posterior.
+Este comando mostra as informações secretas, incluindo o URI. Após concluir essas etapas, você deverá ter um URI para um segredo em um Azure Key Vault. Anote essa informação. Ela será necessária em uma etapa posterior.
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
@@ -212,9 +211,9 @@ Há dois pacotes do NuGet que o aplicativo Web precisa ter instalado. Para insta
 ## <a name="publish-the-web-application-to-azure"></a>Publicar o aplicativo Web no Azure
 
 1. Acima do editor, selecione **WebKeyVault**.
-2. selecione **Publicar**.
-3. selecione **Publicar** novamente.
-4. selecione **Criar**.
+2. Selecione **Publicar**, em seguida, **Iniciar**.
+3. Crie um novo **Serviço de Aplicativo**, selecione **Publicar**.
+4. Clique em **Criar**.
 
 >[!IMPORTANT]
 > Uma janela do navegador será aberta e você verá um 502.5 - Mensagem de falha de processo. Isso é esperado. Você precisará conceder os direitos de identidade do aplicativo para ler os segredos do Cofre de Chaves.
@@ -227,11 +226,11 @@ O Azure Key Vault fornece uma maneira de armazenar com segurança as credenciais
 2. Execute o comando assign-identity para criar a identidade para esse aplicativo:
 
 ```azurecli
-az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegroup
+az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResourcegroup"
 ```
 
 >[!NOTE]
->Isso é o equivalente de ir para o portal e alternar **Identidade de serviço gerenciada** para **On** nas propriedades do aplicativo Web.
+>Esse comando é o equivalente de ir para o portal e alternar **Identidade de serviço gerenciada** para **On** nas propriedades do aplicativo Web.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Conceder direitos à identidade do aplicativo
 
@@ -241,16 +240,16 @@ Usando o Portal do Azure, vá para as políticas de acesso do Cofre de Chaves e 
 2. Selecione **Políticas de acesso**.
 3. Selecione **Adicionar Novo**, na seção **Permissões do segredo**, selecione **Obter** e **Listar**.
 4. Selecione **Selecionar entidade de segurança** e adicione a identidade do aplicativo. O nome será o mesmo do aplicativo.
-5. Escolha **OK**
+5. Escolha **Ok**.
 
-Agora, a conta no Azure e a identidade do aplicativo têm direitos para ler informações do Cofre de Chaves. Se você atualizar a página, deverá ver a página de aterrissagem do site. Se você selecionar **Sobre**. Você verá o valor que foi armazenado no Cofre de Chaves.
+Agora, a conta no Azure e a identidade do aplicativo têm direitos para ler informações do Cofre de Chaves. Ao atualizar a página, deverá ver a página de aterrissagem do site. Se selecionar **Sobre**, você verá o valor que foi armazenado no Key Vault.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Para excluir um grupo de recursos e todos os seus recursos, use o comando **az group delete**.
 
   ```azurecli
-  az group delete -n ContosoResourceGroup
+  az group delete -n "ContosoResourceGroup"
   ```
 
 ## <a name="next-steps"></a>Próximas etapas

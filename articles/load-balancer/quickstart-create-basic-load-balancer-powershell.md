@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: 2e80a090d003770f47d28dfaacf7ba5140f7b41f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bc9883ee64f2d682a6b7b69bd1fb168cddd60001
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304558"
 ---
 # <a name="get-started"></a>Início Rápido: Criar um balanceador de carga público usando o Azure PowerShell
 Este início rápido mostra como criar um Balanceador de Carga Básico usando o Azure PowerShell. Para testar o balanceador de carga, implante duas VMs (máquinas virtuais) que executam o Windows Server e balanceie a carga de um aplicativo Web entre as VMs.
@@ -85,7 +86,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig `
   ```
 
 ### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
-Uma regra de balanceador de carga é usada para definir como o tráfego é distribuído para as VMs. Definir a configuração de IP de front-end para o tráfego de entrada e o pool de IP de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Para ter certeza de que apenas VMs íntegras recebem tráfego, defina também a investigação de integridade a ser usada.
+Uma regra de balanceador de carga é usada para definir como o tráfego é distribuído para as VMs. Defina a configuração de IP de front-end para o tráfego de entrada e o pool de IPs de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Para ter certeza de que apenas VMs íntegras recebem tráfego, defina também a investigação de integridade a ser usada.
 
 Crie uma regra de balanceador de carga com [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). O seguinte exemplo cria uma regra de balanceador de carga chamada *myLoadBalancerRule* e faz o balanceamento de carga do tráfego na porta *TCP* *80*:
 
@@ -331,4 +332,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroupLB
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Saiba mais sobre o Azure Load Balancer](load-balancer-overview.md)
+
+Neste início rápido você criou o Load Balancer Básico, anexou VMs, configurou a regra de tráfego do balanceador de carga, investigação de integridade e em seguida, testou o balanceador de carga. Para saber mais sobre o Azure Load Balancer, continue nos tutoriais do Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Tutoriais do Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)
