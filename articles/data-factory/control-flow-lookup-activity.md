@@ -11,44 +11,30 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b6c2e2b685855455550612abb58ada6a694bbdff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011519"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
-Você pode usar a atividade de pesquisa para ler ou procurar um registro, nome de tabela ou valor de qualquer fonte externa. Essa saída pode referenciada pelas atividades com êxito. 
 
-A atividade de pesquisa é útil quando você deseja recuperar dinamicamente uma lista de arquivos, registros ou tabelas de um arquivo de configuração ou uma fonte de dados. A saída da atividade pode ser mais usada por outras atividades para executar o processamento específico apenas nesses itens.
+Atividade de pesquisa pode ser usada para recuperar um conjunto de dados de qualquer fonte de dados com suporte ADF.  Ela pode ser usada nos seguintes cenários:
+- Determinar dinamicamente em quais objetos (arquivos, tabelas, etc) operar em uma atividade subsequente, em vez de hard-coding o nome do objeto
+
+Atividade de pesquisa pode ler e retornar o conteúdo de um arquivo de configuração, uma tabela de configuração ou o resultado de executar uma consulta ou um procedimento armazenado.  A saída da atividade de Pesquisa pode ser usada em uma cópia subsequente ou atividade de transformação se isso tiver um valor de singleton, ou usada em uma atividade ForEach se isso for uma matriz de atributos.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Documentação do Data Factory versão 1](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Atualmente, há suporte para as seguintes fontes de dados para a pesquisa:
+As seguintes fontes de dados têm suporte para pesquisa. O número máximo de linhas que pode ser retornadas pela atividade de pesquisa é **5000**e até **2MB** em tamanho. E atualmente a duração máxima para atividade de Pesquisa antes do tempo limite é de uma hora.
 
-- Amazon Redshift
-- Armazenamento de Blobs do Azure
-- Azure Cosmos DB
-- Repositório Azure Data Lake
-- Armazenamento de arquivos do Azure
-- Banco de Dados SQL do Azure
-- SQL Data Warehouse do Azure
-- Armazenamento da tabela do Azure
-- Dynamics 365
-- Dynamics CRM
-- Sistema de Arquivos
-- PostgreSQL
-- Salesforce
-- Salesforce Service Cloud
-- SFTP
-- SQL Server
-
-O número máximo de linhas retornadas pela atividade de pesquisa é **5000**e até **10MB** em tamanho.
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -77,10 +63,11 @@ dataset | Fornece a referência de conjunto de dados para a pesquisa. Obtenha de
 fonte | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade de cópia. Obtenha detalhes da seção "Copiar as propriedades da atividade" em cada artigo de conector correspondente. | Pares chave/valor | sim
 firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | BOOLEAN | Nº O padrão é `true`.
 
-Observe os seguintes pontos:
+**Observe os seguintes pontos:**
 
 1. Não há suporte para a coluna de origem com o tipo de ByteArray.
 2. Não há suporte para a estrutura do Conjunto de Dados. Para arquivos de formato de texto especificamente, você pode usar a linha de cabeçalho para fornecer o nome da coluna.
+3. Se a sua fonte de pesquisa for um(ns) arquivo(s) JSON, a configuração `jsonPathDefinition` para remodelar o objeto JSON não possui suporte, todos os objetos serão recuperados.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Usar o resultado da atividade de pesquisa em uma atividade subsequente
 

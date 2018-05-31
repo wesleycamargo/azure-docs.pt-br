@@ -1,21 +1,26 @@
 ---
 title: Usar servidores NPS existentes para fornecer recursos ao Azure MFA| Microsoft Docs
-description: Adicionar funcionalidades de verificação de duas etapas baseada em nuvem à infraestrutura de autenticação existente
+description: A extensão do Servidor de Políticas de Rede para a Autenticação Multifator do Azure é uma solução simples para adicionar recursos de verificação em duas etapas baseados em nuvem à sua infraestrutura de autenticação existente.
 services: multi-factor-authentication
-ms.service: active-directory
-ms.component: authentication
+documentationcenter: ''
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.assetid: ''
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.custom: H1Hack27Feb2017; it-pro
+ms.openlocfilehash: d1b598dc19882a91143515e954f7dc9cdce7c384
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868323"
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770246"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
 
