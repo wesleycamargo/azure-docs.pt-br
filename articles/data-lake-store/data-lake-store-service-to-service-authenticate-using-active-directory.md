@@ -1,8 +1,8 @@
 ---
-title: "Autenticação de serviço a serviço: Data Lake Store com o Azure Active Directory | Microsoft Docs"
-description: "Saiba como obter a autenticação de serviço a serviço com o Data Lake Store usando o Azure Active Directory"
+title: 'Autenticação de serviço a serviço: Data Lake Store com o Azure Active Directory | Microsoft Docs'
+description: Saiba como obter a autenticação de serviço a serviço com o Data Lake Store usando o Azure Active Directory
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b3f19bb92d1eeb214150bf118d546cd1c67cd78
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58f269fa9c153a37a792d9d4efdaf0bd74eb265a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771306"
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticação de serviço a serviço com o Data Lake Store usando o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -35,7 +36,7 @@ As duas opções resultam no fornecimento de um token OAuth 2.0 ao seu aplicativ
 
 Este artigo explica como criar um **aplicativo Web do Azure AD para autenticação serviço a serviço**. Para obter instruções sobre a configuração de aplicativo do Azure AD para autenticação de usuário final, consulte [Autenticação de usuário final com o Data Lake Store usando o Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>Etapa 1: Criar um aplicativo Web do Active Directory
@@ -77,6 +78,9 @@ Ao fazer logon por meio de programação, você precisa da ID para seu aplicativ
 7. Na folha **Adicionar Acesso Personalizado**, clique em **OK**. O grupo recém-adicionado, com as permissões associadas, está listado na folha **Acesso**.
    
     ![Atribuir permissões ao grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Atribuir permissões ao grupo")
+
+> [!NOTE]
+> Se você planeja restringir o seu aplicativo do Azure Active Directory a uma pasta específica, você também precisará dar a esse aplicativo do Azure Active Directory a mesma permissão **Executar** para a raiz para permitir o acesso de criação de arquivo por meio do SDK do .NET.
 
 > [!NOTE]
 > Se quiser usar os SDKs para criar uma conta do Data Lake Store, você deve atribuir o aplicativo Web do Azure AD como uma função para o Grupo de recursos no qual você criará a conta do Azure Data Lake Store.

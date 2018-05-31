@@ -1,28 +1,23 @@
 ---
 title: Integração do Gateway de Área de Trabalho Remota com a extensão do Azure MFA NPS | Microsoft Docs
-description: Este artigo aborda a integração da infraestrutura do seu Gateway de Área de Trabalho Remota com a Autenticação Multifator do Azure usando a extensão do Servidor de Políticas de Rede (NPS) para o Microsoft Azure.
-services: active-directory
-keywords: Azure MFA, integrar o Gateway de Área de Trabalho Remota, Azure Active Directory, extensão do Servidor de Políticas de Rede
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
+description: Integrar sua infraestrutura de Gateway de Área de Trabalho Remota ao Azure MFA usando a extensão Servidor de Políticas de Rede para o Microsoft Azure
+services: multi-factor-authentication
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 0c050ee237650be7d43be2454a2bc3c07f096b8c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932091"
 ---
-#  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
+# <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
 
 Este artigo fornece os detalhes para integração da infraestrutura do seu Gateway de Área de Trabalho Remota com a Autenticação Multifator do Azure (MFA) usando a extensão do Servidor de Políticas de Rede (NPS) para o Microsoft Azure. 
 
@@ -150,8 +145,8 @@ Se você quiser usar seus próprios certificados, será necessário associar a c
 Para usar o script, forneça a extensão com suas credenciais de administrador do Azure AD e a ID de locatário do Azure AD que você copiou anteriormente. Execute o script em cada servidor NPS onde você instalou a extensão NPS. Faremos o seguinte:
 
 1. Abra um prompt do Windows PowerShell administrativo.
-2. No prompt do PowerShell, digite **cd 'c:\Program Files\Microsoft\AzureMfa\Config'** e pressione **ENTER**.
-3. Digite _.\AzureMfsNpsExtnConfigSetup.ps1_ e pressione **ENTER**. O script verifica se o módulo do Azure Active Directory PowerShell está instalado. Se não estiver instalado, o script instala o módulo para você.
+2. No prompt do PowerShell, digite `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’` e clique em **ENTER**.
+3. Digite`.\AzureMfsNpsExtnConfigSetup.ps1`, e aperte **ENTER**. O script verifica se o módulo do Azure Active Directory PowerShell está instalado. Se não estiver instalado, o script instala o módulo para você.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   

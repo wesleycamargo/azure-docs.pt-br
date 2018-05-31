@@ -2,18 +2,20 @@
 title: Criar políticas por meio de programação e exibir dados de conformidade com o Azure Policy
 description: Este artigo orienta você na criação e gerenciamento por meio de programação de políticas no Azure Policy.
 services: azure-policy
+keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/07/2018
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5405566b5254c553eac584acc1653449b51ddffc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.custom: ''
+ms.openlocfilehash: 5737c33fc4c139e3b0a5535d371ef7cc1d11b9e6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195872"
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936993"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas por meio de programação e exibir dados de conformidade
 

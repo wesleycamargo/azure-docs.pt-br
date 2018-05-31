@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2fbf7bd736a59cbcd6231fa8325a084f54927467
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940180"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261448"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o Portal do Azure
 
@@ -173,7 +173,7 @@ Configure uma investigação de integridade para o balanceador de carga:
 
 Configure as regras de balanceamento de carga para cada site (contoso.com e fabrikam.com):
     
-1. <a name="step6-1"></a>Em **Configurações**, selecione **Investigação de integridade**. No próximo painel, selecione **Adicionar** na parte superior. 
+1. <a name="step6-1"></a>Em **Configurações**, selecione ** Regras de balanceamento de carga**. No próximo painel, selecione **Adicionar** na parte superior. 
 
 2. Para **Nome**, digite um nome para a regra de balanceamento de carga (por exemplo, **HTTPc** para Contoso ou **HTTPf** para Fabrikam).
 
