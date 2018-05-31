@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/16/2018
 ms.author: sujayt
-ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 55eed1afa9d9dbf2c16643cf9186a7e6dafa847e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312620"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211014"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informações sobre rede para replicação do Azure para o Azure
 
@@ -32,7 +32,7 @@ O diagrama a seguir ilustra um ambiente típico do Azure para aplicativos em exe
 
 ![ambiente do cliente](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Se você estiver usando uma conexão VPN ou o Azure ExpressRoute da rede local do Azure, o ambiente terá a seguinte aparência:
+Caso você esteja usando o Azure ExpressRoute ou uma conexão VPN na rede local com o Azure, o ambiente terá a seguinte aparência:
 
 ![ambiente do cliente](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 

@@ -12,20 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c44546ffe65a0849b485fb0d2dd169e4216ae80a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261361"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Exibir dados analíticos de métricas entre todos os recursos do aplicativo Web do Azure
 
 ![Símbolo dos Aplicativos Web](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
 
 > [!NOTE]
-> A solução de Análise de Aplicativos Web do Azure foi preterida.  Os clientes que já têm instalada a solução podem continuar a usá-la, mas a Análise de Aplicativos Web do Azure não pode ser adicionada a nenhum novo espaço de trabalho.
+> A solução de Análise de Aplicativos Web do Azure foi preterida.  Os clientes que já têm instalada a solução podem continuar a usá-la, mas a Análise de Aplicativos Web do Azure não pode ser adicionada a nenhum novo espaço de trabalho.  Para monitorar seu aplicativo web, é recomendável que você use o [Application Insights](../application-insights/app-insights-overview.md). 
 
 A solução Análise de Aplicativos Web do Azure (Versão Prévia) fornece informações sobre seus [Aplicativos Web do Azure](../app-service/app-service-web-overview.md) coletando diferentes métricas entre todos os recursos do aplicativo Web do Azure. Com a solução, você pode analisar e pesquisar dados de métricas de recursos de aplicativos Web.
 
