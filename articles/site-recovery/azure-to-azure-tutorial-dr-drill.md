@@ -1,21 +1,22 @@
 ---
-title: "Fazer uma simulação de recuperação de desastre para VMs do Azure para uma região do Azure secundária com o Azure Site Recovery (versão prévia)"
-description: "Saiba como fazer uma simulação de recuperação de desastre para VMs do Azure para uma região do Azure secundária usando o serviço Azure Site Recovery."
+title: Fazer uma simulação de recuperação de desastre para VMs do Azure para uma região do Azure secundária com o Azure Site Recovery
+description: Saiba como fazer uma simulação de recuperação de desastre para VMs do Azure para uma região do Azure secundária usando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fb1c41e6fe254fbcbee8cb91a177777ed4e37fbb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208967"
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Realizar uma simulação de recuperação de desastre para VMs do Azure para uma região do Azure secundária (versão prévia)
+# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Realizar uma simulação de recuperação de desastre para VMs do Azure para uma região do Azure secundária
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) por manter seus aplicativos de negócios em execução e disponíveis durante interrupções planejadas e não planejadas. O Site Recovery gerencia e orquestra a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
 
@@ -24,6 +25,8 @@ Este tutorial mostra a você como realizar uma simulação de recuperação de d
 > [!div class="checklist"]
 > * Verificar os pré-requisitos
 > * Executar um failover de teste para uma VM
+
+A replicação de Azure para Azure está atualmente em versão prévia.
 
 ## <a name="prerequisites"></a>pré-requisitos
 

@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: DevOps com o Portal do Azure | Microsoft Docs'
-description: "Aprenda os vários fluxos de trabalho de DevOps no Portal do Azure."
+description: Aprenda os vários fluxos de trabalho de DevOps no Portal do Azure.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
 editor: mlearned
@@ -11,17 +11,18 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: d2c059fe415b743e4b2265d6dda492878307be93
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 7fb3de72e28b19f9ca30968b267bf985ae384275
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164832"
 ---
-# <a name="tutorial-devops-with-the-azure-portal"></a>Tutorial: DevOps com o Portal do Azure
-A plataforma do Azure está repleta de fluxos de trabalho flexíveis do DevOps. Neste tutorial, você aprenderá a aproveitar os recursos do Portal do Azure para desenvolver, testar, implantar, solucionar problemas, monitorar e gerenciar aplicativos em execução. Este tutorial se concentra no seguinte:
+# <a name="tutorial-devops-with-the-azure-portal"></a>Tutorial: DevOps com o portal do Azure
+A plataforma do Azure está repleta de fluxos de trabalho flexíveis do DevOps. Neste tutorial, você aprenderá a aproveitar os recursos do portal do Azure para desenvolver, testar, implantar, solucionar problemas, monitorar e gerenciar aplicativos em execução. Este tutorial se concentra no seguinte:
 
 1. Criar um aplicativo Web e habilitar a implantação contínua
 2. Desenvolver e testar aplicativos
@@ -31,7 +32,7 @@ A plataforma do Azure está repleta de fluxos de trabalho flexíveis do DevOps. 
 ## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Criar um aplicativo Web e habilitar a implantação contínua
 Crie um aplicativo Web com o [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/), que você usará no restante deste tutorial. Inicialmente, você habilitará a implantação contínua de seu repositório de código fonte em nosso ambiente do Azure em execução.
 
-1. Entrar no Portal do Azure
+1. Entrar no portal do Azure
 2. Escolha **Serviços de Aplicativos** &gt; **ícone Adicionar** e insira um nome, escolha sua assinatura e crie um novo grupo de recursos para servir como contêiner para o serviço.
    
    Os grupos de recurso permitem que você gerencie vários aspectos da solução, por exemplo, cobrança, implantações e monitoramento, tudo como um único grupo por meio do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
@@ -43,7 +44,7 @@ Crie um aplicativo Web com o [Serviço de Aplicativo do Azure](https://azure.mic
 4. Clique na URL. Observe as diversas opções disponíveis para ferramentas e repositórios. Você também pode usar as linguagens e estruturas que preferir, incluindo .NET, Java e Ruby.
    
    ![image3][image3]    
-5. O Portal do Azure torna a implantação contínua um processo simples que envolve apenas algumas etapas simples. No Portal do Azure, escolha as configurações do ícone para o serviço de aplicativo que você acabou de criar.
+5. O Portal do Azure torna a implantação contínua um processo simples que envolve apenas algumas etapas simples. No Portal do Azure, escolha as configurações do ícone para o serviço de aplicativo que você criou.
    
    ![image4][image4]
    
@@ -62,7 +63,7 @@ Crie um aplicativo Web com o [Serviço de Aplicativo do Azure](https://azure.mic
 9. Depois de escolher o projeto e a ramificação, clique em ok. Você começará a ver notificações de uma implantação.
    
    ![image9][image9]
-10. Navegue de volta até o GitHub para ver o webhook criado para integrar o repositório de controle da fonte no Azure. O Portal do Azure permite a integração com o GitHub com apenas algumas etapas simples.
+10. Navegue de volta até o GitHub para ver o webhook criado para integrar o repositório de controle da fonte no Azure. O portal do Azure permite a integração com o GitHub com apenas algumas etapas simples.
     
     ![image10][image10]
 11. Para demonstrar a implantação contínua, adicione rapidamente algum conteúdo ao repositório. Para ter um exemplo simples, adicione um arquivo de texto de exemplo a um repositório GitHub. Fique à vontade para usar .NET, Ruby, Python ou algum outro tipo de aplicativo com o Serviço de Aplicativo. Adicionar também se quiser um arquivo de texto, ASP.NET MVC, Java ou aplicativo Ruby ao repositório de sua escolha.
@@ -71,7 +72,7 @@ Crie um aplicativo Web com o [Serviço de Aplicativo do Azure](https://azure.mic
 12. Depois de confirmar as alterações em seu repositório, você verá uma nova implantação ser iniciada na área de notificações do portal. Clique em Sincronizar, se você não vir rapidamente as alterações após a confirmação de seu repositório.
     
     ![image12][image12]
-13. Neste ponto, se você tentar carregar a página do serviço de aplicativo, poderá receber um erro 403. Neste exemplo, isso ocorre porque não há uma configuração típica de documento padrão para a página, por exemplo, um arquivo como index.htm ou default.html. Você pode corrigir isso rapidamente com as ferramentas do Portal do Azure.  No Portal do Azure, escolha Configurações &gt; Configurações do Aplicativo.
+13. Neste ponto, se você tentar carregar a página do serviço de aplicativo, poderá receber um erro 403. Neste exemplo, isso ocorre porque não há uma configuração típica de documento padrão para a página, por exemplo, um arquivo como index.htm ou default.html. Você pode corrigir isso rapidamente com as ferramentas do portal do Azure.  No portal do Azure, escolha Configurações &gt; Configurações do Aplicativo.
     
      ![image13][image13]
 14. Uma folha será aberta para as configurações do aplicativo. Insira o nome da página "SamplePage.html" e clique em Salvar. Reserve alguns minutos para explorar as outras configurações.
@@ -81,18 +82,18 @@ Crie um aplicativo Web com o [Serviço de Aplicativo do Azure](https://azure.mic
     
     ![Imagem15][image15]
     
-    É fácil habilitar a implantação contínua com o Portal do Azure. Você também pode compilar pipelines de liberação mais complexos e usar muitas outras técnicas com os sistemas existentes de controle de origem e integração contínua para implantação no Azure, por exemplo, aproveitando os sistemas automatizados de gerenciamento de compilação e liberação.
+    É fácil habilitar a implantação contínua com o portal do Azure. Você também pode compilar pipelines de liberação mais complexos e usar muitas outras técnicas com os sistemas existentes de controle de origem e integração contínua para implantação no Azure, por exemplo, aproveitando os sistemas automatizados de gerenciamento de compilação e liberação.
 
 ## <a name="develop-and-test-an-app"></a>Desenvolver e testar aplicativos
 Depois, faça algumas alterações no código base e implante rapidamente essas alterações. Você também configurará alguns testes de desempenho para o aplicativo Web.
 
-1. No Portal do Azure, escolha Serviços de Aplicativos no painel de navegação e localize seu Serviço de Aplicativo.
+1. No portal do Azure, escolha Serviços de Aplicativos no painel de navegação e localize seu Serviço de Aplicativo.
    
    ![Imagem16][image16]
 2. Clique em Ferramentas
    
    ![Imagem17][image17]
-3. Observe a categoria de desenvolver em Ferramentas. Aqui, há várias ferramentas úteis que nos permitem trabalhar com aplicativos sem sair do Portal do Azure. Clique em Console.
+3. Observe a categoria de desenvolver em Ferramentas. Aqui, há várias ferramentas úteis que nos permitem trabalhar com aplicativos sem sair do portal do Azure. Clique em Console.
    
    ![Imagem18][image18]
 4. Na janela do console, você pode emitir comandos ao vivo para seu aplicativo. Digite o comando dir e pressione enter. Observe que os comandos que exigem privilégios elevados não funcionam.
@@ -141,7 +142,7 @@ Depois, faça algumas alterações no código base e implante rapidamente essas 
     Após a conclusão do teste, clique no resultado para mostrar mais detalhes.
     
     ![Imagem33][image33]
-16. Neste exemplo, você criou uma pequena execução de teste, então há uma quantidade limitada para análise, mas é possível ver diversas métricas e executar novamente o teste a partir dessa perspectiva. O Portal do Azure facilita a criação, execução e análise de testes de desempenho da Web. As capturas de tela a seguir exibem os dados de desempenho.
+16. Neste exemplo, você criou uma pequena execução de teste, então há uma quantidade limitada para análise, mas é possível ver diversas métricas e executar novamente o teste a partir dessa perspectiva. O portal do Azure facilita a criação, execução e análise de testes de desempenho da Web. As capturas de tela a seguir exibem os dados de desempenho.
     
     ![Imagem34][image34]
     
@@ -152,7 +153,7 @@ Depois, faça algumas alterações no código base e implante rapidamente essas 
 ## <a name="monitoring-and-troubleshooting-an-app"></a>Monitorar e solucionar problemas de um aplicativo
 O Azure oferece muitos recursos de monitoramento e solução de problemas de aplicativos em execução.
 
-1. No Portal do Azure de nosso aplicativo Web, escolha Ferramentas.
+1. No portal do Azure do aplicativo Web, escolha Ferramentas.
    
    ![Imagem37][image37]
 2. Na categoria Solução de Problemas, observe as diversas opções de uso das ferramentas para solucionar possíveis problemas com um aplicativo em execução. Você pode fazer coisas como monitorar o tráfego Live HTTP, habilitar a autorrecuperação, exibir view e muito mais.
@@ -175,7 +176,7 @@ O Azure oferece muitos recursos de monitoramento e solução de problemas de apl
    Ao clicar no arquivo de Despejo de Memória, você pode baixar e analisar um relatório de análise de DebugDiag para ajudar a localizar possíveis problemas.
    
    ![Imagem43][image43]
-6. Para exibir mais dados, você precisa habilitar mais registro em log. No Portal do Azure, navegue até o aplicativo Web e escolha Configurações.
+6. Para exibir mais dados, você precisa habilitar mais registro em log. No portal do Azure, navegue até o aplicativo Web e escolha Configurações.
    
    ![Imagem44][image44]
 7. Role a tela para baixo até a categoria de recursos e escolha Logs de diagnóstico.
@@ -193,10 +194,10 @@ O Azure oferece muitos recursos de monitoramento e solução de problemas de apl
 11. Clicando no log de arquivo HTML, você produz um relatório detalhado baseado no navegador, a fim de obter mais informações.
     
     ![Imagem49][image49]
-12. Volta para a seção de ferramentas no Portal do Azure do aplicativo. Role até a seção Ferramentas e escolha o Gerenciador de Processos.
+12. Volta para a seção de ferramentas no portal do Azure do aplicativo. Role até a seção Ferramentas e escolha o Gerenciador de Processos.
     
     ![Imagem50][image50]
-13. Ao escolher Gerenciador de Processos, é possível exibir detalhes sobre os processos em execução. Perceba abaixo que você pode detalhar, e até mesmo interromper, os processos, tudo do Portal do Azure.
+13. Ao escolher Gerenciador de Processos, é possível exibir detalhes sobre os processos em execução. Perceba abaixo que você pode detalhar, e até mesmo interromper, os processos, tudo do portal do Azure.
     
     ![Imagem51][image51]
     
@@ -210,7 +211,7 @@ O Azure oferece muitos recursos de monitoramento e solução de problemas de apl
     
     ![Imagem55][image55]
     
-    O Portal do Azure ajuda a fornecer experiências com as ferramentas conhecidas e avançadas, para ajudar a monitorar e a solucionar problemas com os aplicativos em execução. Você também é capaz de agir rapidamente executando tarefas como processos de reciclagem, habilitação e desabilitação de diversas coletas de dados e até mesmo a integração com o suporte profissional da Microsoft.
+    O portal do Azure ajuda a fornecer experiências com as ferramentas conhecidas e avançadas, para ajudar a monitorar e a solucionar problemas com os aplicativos em execução. Você também é capaz de agir rapidamente executando tarefas como processos de reciclagem, habilitação e desabilitação de diversas coletas de dados e até mesmo a integração com o suporte profissional da Microsoft.
 
 ## <a name="general-application-management"></a>Gerenciamento geral de aplicativos
 Frequentemente, ao gerenciar aplicativos, você precisa executar várias atividades, como configuração de estratégias de backup, implementação e gerenciamento de provedores de identidade e configuração de controle de acesso baseado em função. Assim como ocorre com as outras experiências de DevOps, a plataforma do Azure integra essas tarefas diretamente no portal.
@@ -248,13 +249,13 @@ Frequentemente, ao gerenciar aplicativos, você precisa executar várias ativida
 11. Na folha à direita, escolha Autenticação do Serviço de Aplicativo. Observe as várias opções que podem ser configuradas com provedores populares.
     
      ![Imagem66][image66]
-12. Escolha o provedor de sua escolha e observe as opções para o escopo. Você pode fornecer uma ID do Aplicativo e o Segredo do Aplicativo e habilitar rapidamente a autenticação do Facebook para o aplicativo. O Portal do Azure permite a autenticação como uma solução completa para aplicativos.
+12. Escolha o provedor de sua escolha e observe as opções para o escopo. Você pode fornecer uma ID do Aplicativo e o Segredo do Aplicativo e habilitar rapidamente a autenticação do Facebook para o aplicativo. O portal do Azure permite a autenticação como uma solução completa para aplicativos.
     
      ![Imagem67][image67]
 13. Volte para a folha Configurações e escolha Usuários na categoria Gerenciamento de Recursos.
     
      ![Imagem68][image68]
-14. Na folha à direita, examine as várias opções para adição de usuários e funções. O Portal do Azure permite que você controle facilmente o RBAC (controle de acesso baseado em função) para o aplicativo.
+14. Na folha à direita, examine as várias opções para adição de usuários e funções. O portal do Azure permite que você controle facilmente o RBAC (controle de acesso baseado em função) para o aplicativo.
     
      ![Imagem69][image69]
 

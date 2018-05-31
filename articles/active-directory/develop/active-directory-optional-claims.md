@@ -2,23 +2,26 @@
 title: Saiba como fornecer declarações opcionais para o aplicativo Azure AD | Microsoft Docs
 description: Um guia para adicionar declarações adicionais ou personalizadas aos tokens SAML 2.0 e JSON Web Tokens (JWT) emitidos pelo Azure Active Directory.
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
-ms.author: hirsin
+ms.date: 04/24/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 76e7be62caae7e33caefc3f90a5e57c5f71a31d3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c4670a7e957970acea54ff69d56edcd45092c8fe
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157224"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Declarações opcionais no Azure AD (versão prévia)
 
@@ -65,11 +68,9 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 | `fwd`                      | Endereço IP.  Adiciona o endereço IPv4 original do cliente solicitante (quando dentro de uma VNET)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | O país do usuário                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | País do locatário de recursos                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `is_device_known`          | Indica se o dispositivo ingressou no local de trabalho. Relacionado à Política de Acesso Condicional                                                                                                                 | SAML       |           | Para JWTs, convergido em signin_state                                                                                                                                                                                                                                                   |
-| `is_device_managed`        | Indica se o dispositivo tem MDM instalado. Relacionado à Política de Acesso Condicional.                                                                                                                  | SAML       |           | Para JWTs, convergido em signin_state                                                                                                                                                                                                                                                   |
-| `is_device_compliant`      | Indica que o MDM determinou que o dispositivo está em conformidade com as políticas de segurança de dispositivo da organização.                                                                                  | SAML       |           | Para JWTs, convergido em signin_state                                                                                                                                                                                                                                                   |
-| `kmsi`                     | Indica se o usuário escolheu a opção Manter-me conectado.                                                                                                                                    | SAML       |           | Para JWTs, convergido em signin_state                                                                                                                                                                                                                                                   |
+| `acct`    | Status da conta de usuários no locatário.  Se o usuário for um membro do locatário, o valor será `0`.  Se eles forem convidado, o valor é `1`.  | JWT, SAML | | |
 | `upn`                      | Declaração UserPrincipalName.  Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado. | JWT, SAML  |           | Propriedades adicionais: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### <a name="v20-optional-claims"></a>Declarações opcionais V2.0
 Essas declarações são sempre incluídas em tokens da v1.0, mas são removidas de tokens da v2.0, a menos que solicitado.  Essas declarações só são aplicáveis a JWTs (tokens de ID e Tokens de Acesso).  
 

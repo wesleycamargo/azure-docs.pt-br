@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203385"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço no Azure Search
 Os limites máximos de armazenamento, cargas de trabalho e quantidades de índices, documentos e outros objetos dependem de você [provisionar o Azure Search](search-create-service-portal.md) nos tipos de preço **Gratuito**, **Básico** ou **Standard**.
@@ -44,10 +45,13 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Índices máximos |3 |5 ou 15 |50 |200 |200 |1000 por partição ou 3000 por serviço |
 | Máximo de campos por índice |1000 |100 |1000 |1000 |1000 |1000 |
-| Máximo de perfis de pontuação por índice |100 |100 |100 |100 |100 |100 |
+| Número máximo de [encarregados da sugestão](https://docs.microsoft.com/rest/api/searchservice/suggesters) por índice |1 |1 |1 |1 |1 |1 |
+| Número máximo de [perfis de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) por índice |100 |100 |100 |100 |100 |100 |
 | Máximo de funções por perfil |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Os serviços básicos criados no final de 2017 têm um limite aumentado de 15 índices, fontes de dados e indexadores. Serviços criados anteriormente têm 5. A camada tipo Básico é a única SKU com um limite inferior de 100 campos por índice.
+
+<a name="document-limits"></a>
 
 ## <a name="document-limits"></a>Limites do documento 
 
@@ -87,12 +91,13 @@ Para reduzir o tamanho do documento, lembre-se de excluir dados não consultáve
 
 ## <a name="indexer-limits"></a>Limites de indexador
 
-Os serviços básicos criados no final de 2017 têm um limite aumentado de 15 índices, fontes de dados e indexadores.
+Os serviços básicos criados após o final de 15 têm um limite aumentado de 15 índices, fontes de dados, conjuntos de habilidades e indexadores.
 
 | Recurso | Gratuito&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/D |
 | Máximo de fontes de dados |3 |5 ou 15 |50 |200 |200 |N/D |
+| Número máximo de conjuntos de habilidades <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/D |
 | Carga de indexação máxima por invocação |10.000 documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |N/D |
 | Tempo de execução máximo | 1 a 3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |
 | Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |256 |N/D  |
@@ -103,6 +108,8 @@ Os serviços básicos criados no final de 2017 têm um limite aumentado de 15 í
 <sup>2</sup> Os serviços básicos criados após o final de 2017 têm um limite aumentado de 15 índices, fontes de dados e indexadores. Serviços criados anteriormente têm 5.
 
 <sup>3</sup> Os serviços do S3 HD não incluem suporte ao indexador.
+
+<sup>4</sup> Máximo de 30 habilidades por conjunto de habilidades.
 
 ## <a name="queries-per-second-qps"></a>Consultas por segundo (QPS)
 

@@ -10,13 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 05/07/2018
 ms.author: douglasl
-ms.openlocfilehash: 2372b6bd91dfb1c33456b42e91aa2496532796ef
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2bb6491a470e7041568bb6b9183e996d2a9119d9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939901"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
 Una o IR (tempo de execução de integração) do Azure-SSIS a uma rede virtual do Azure nos cenários a seguir: 
@@ -32,8 +33,14 @@ Una o IR (tempo de execução de integração) do Azure-SSIS a uma rede virtual 
 ## <a name="access-to-on-premises-data-stores"></a>Acessar armazenamentos de dados locais
 Se os pacotes SSIS acessam apenas os armazenamentos de dados de nuvem pública, não é necessário unir o IR do Azure-SSIS em uma rede virtual. Se os pacotes SSIS acessarem armazenamentos de dados locais, será necessário unir o IR do Azure-SSIS a uma rede virtual conectada à rede local. 
 
-Se o catálogo do SSIS estiver hospedado em uma instância do Banco de Dados SQL do Azure que não está na rede virtual, será necessário abrir portas apropriadas. 
+Alguns pontos importantes a serem considerados: 
 
+- Se não houver uma rede virtual conectada existente à sua rede local, primeiro crie uma [rede virtual do Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) ou uma [rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para o tempo de execução de integração do Azure-SSIS a unir. Em seguida, configure uma [conexão de gateway de VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) site a site ou conexão [ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) dessa rede virtual à sua rede local.
+- Se houver um Azure Resource Manager existente ou uma rede virtual clássica conectada à sua rede local no mesmo local do IR do Azure-SSIS, será possível unir o IR nessa rede virtual.
+- Se houver uma rede virtual clássica existente conectada à rede local em um local diferente do IR do Azure-SSIS, será possível primeiro criar uma [rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para o IR do Azure-SSIS a unir. Em seguida, configure uma conexão entre [redes virtuais clássicas](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md). Ou você poderá criar uma [rede virtual do Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) para o tempo de execução de integração do Azure-SSIS a unir. Em seguida, configure uma conexão entre [rede virtual clássica e Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+- Se houver uma rede virtual do Azure Resource Manager existente conectada à sua rede local em um local diferente do IR do Azure-SSIS, você poderá primeiro criar uma [rede virtual do Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) para unir o IR do Azure-SSIS a ela. Em seguida, configure uma conexão de rede virtual do Azure Resource Manager para o Azure Resource Manager. Ou você pode criar uma [rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para unir o IR do Azure-SSIS a ela. Em seguida, configure uma conexão entre [rede virtual clássica e Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+
+## <a name="host-the-ssis-catalog-database-on-azure-sql-database-managed-instance"></a>Hospedar o banco de dados de catálogo do SSIS na instância gerenciada do Azure SQL Database 
 Se o catálogo do SSIS estiver hospedado na Instância Gerenciada do Banco de Dados SQL (versão prévia) em uma rede virtual, será possível unir um IR do Azure-SSIS para:
 
 - A mesma rede virtual.
@@ -43,27 +50,97 @@ A rede virtual pode ser implantada através do modelo de implantação clássico
 
 As seções a seguir apresentam mais detalhes.
 
-Alguns pontos importantes a serem considerados: 
+## <a name="requirements-for-virtual-network-configuration"></a>Salvando a configuração de rede virtual
 
-- Se não houver uma rede virtual conectada existente à sua rede local, primeiro crie uma [rede virtual do Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) ou uma [rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para o tempo de execução de integração do Azure-SSIS a unir. Em seguida, configure uma [conexão de gateway de VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) site a site ou conexão [ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) dessa rede virtual à sua rede local.
-- Se houver um Azure Resource Manager existente ou uma rede virtual clássica conectada à sua rede local no mesmo local do IR do Azure-SSIS, será possível unir o IR nessa rede virtual.
-- Se houver uma rede virtual clássica existente conectada à rede local em um local diferente do IR do Azure-SSIS, será possível primeiro criar uma [rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para o IR do Azure-SSIS a unir. Em seguida, configure uma conexão entre [redes virtuais clássicas](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md). Ou você poderá criar uma [rede virtual do Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) para o tempo de execução de integração do Azure-SSIS a unir. Em seguida, configure uma conexão entre [rede virtual clássica e Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
-- Se houver uma rede virtual do Azure Resource Manager existente conectada à sua rede local em um local diferente do IR do Azure-SSIS, você poderá primeiro criar uma [rede virtual do Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) para unir o IR do Azure-SSIS a ela. Em seguida, configure uma conexão de rede virtual do Azure Resource Manager para o Azure Resource Manager. Ou você pode criar uma [rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para unir o IR do Azure-SSIS a ela. Em seguida, configure uma conexão entre [rede virtual clássica e Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+-   Verifique se `Microsoft.Batch` é um provedor registrado sob a assinatura da sua sub-rede da rede virtual que hospeda o IR de SSIS do Azure. Se você estiver usando a rede virtual clássica, una também `MicrosoftAzureBatch` para a função de Colaborador clássico de máquina Virtual para essa rede virtual.
 
-## <a name="domain-name-services-server"></a>Servidor de Serviços de Nome de Domínio 
-Se for necessário usar seu próprio servidor DNS (Serviços de Nomes de Domínio) em uma rede virtual unida pelo tempo de execução de integração do Azure-SSIS, siga as diretrizes na seção "Resolução de nomes usando seu próprio servidor DNS" do artigo [Resolução de nomes para instâncias de função e máquinas virtuais](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+-   Selecione a sub-rede correta para hospedar o IV de SSIS do Azure. Selecione a [Sub-rede](#subnet).
 
-## <a name="network-security-group"></a>Grupo de segurança de rede
+-   Se você estiver usando seu próprio servidor de Serviço de Nomes de Domínio (DNS) em uma rede virtual, consulte [servidor de Serviço de Nomes de Domínio](#dns_server).
+
+-   Se você estiver usando um Grupo de Segurança de Rede (NSG) na sub-rede, consulte [Grupo de segurança de rede](#nsg)
+
+-   Se você estiver usando o Microsoft Azure ExpressRout ou a configuração User Rota Definida pelo Usuário (UDR), consulte [Usar Azure ExpressRoute ou Rota Definida pelo Usuário](#route).
+
+-   Verifique se o grupo de recursos da rede virtual pode criar e excluir determinados recursos de Rede do Azure. Consulte [Requisitos para o Grupo de Recursos](#resource-group).
+
+### <a name="subnet"></a>Selecione a Sub-rede.
+-   Não selecione GatewaySubnet para implantar um Microsoft Integration Runtime do Azure-SSIS, porque ele é dedicado para gateways de rede virtual.
+
+-   Verifique se a sub-rede que você selecionar tem espaço de endereço disponível suficiente para o IR do Azure-SSIS usar. Deixe pelo menos 2 * número de nós do IR em endereços IP disponíveis. O Azure reserva alguns endereços IP em cada sub-rede, os quais não podem ser usados. O primeiro e o último endereço IP das sub-redes são reservados para fins de conformidade de protocolo, juntamente com três outros endereços usados para os serviços do Azure. Para saber mais, veja [Existem restrições quanto ao uso de endereços IP dentro dessas sub-redes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+
+-   Não use uma sub-rede que está ocupada exclusivamente por outros serviços do Azure (por exemplo, Instância Gerenciada do Banco de Dados SQL do Azure, Serviço de Aplicativo).
+
+### <a name="dns_server"></a>Servidor de Serviços de Nome de Domínio 
+Se você precisar usar seu próprio servidor de Serviço de Nomes de Domínio (DNS) em uma rede virtual unida por seu tempo de execução de integração do Azure SSIS, certifique-se que isso pode resolver nomes de host público do Microsoft Azure (por exemplo, um nome de blob de Armazenamento do Microsoft Azure, `<your storage account>.blob.core.windows.net`).
+
+As seguintes etapas são recomendadas:
+
+-   Configurar o DNS personalizado para encaminhar solicitações para o DNS do Microsoft Azure. Você pode encaminhar os registros DNS não resolvidos para o endereço IP de resolvedores de recursiva do Microsoft Azure (168.63.129.16) em seu próprio servidor DNS.
+
+-   Configurar o DNS personalizado como primário e do Azure como secundário para a rede virtual. Registre o endereço IP de resolvedores de recursiva do Microsoft Azure (168.63.129.16) como um servidor DNS secundário no caso de seu próprio servidor DNS não estar disponível.
+
+Para obter mais informações, consulte [Resolução de nome usando seu próprio servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+
+### <a name="nsg"></a>Grupo de Segurança de Rede
 Se você precisar implementar o NSG (Grupo de Segurança de Rede) em uma rede virtual ingressada por seu tempo de execução de integração do Azure-SSIS, permita o tráfego de entrada/saída pelas portas a seguir:
 
-| Portas | Direção | Protocolo de transporte | Finalidade | Origem da entrada/destino da saída |
-| ---- | --------- | ------------------ | ------- | ----------------------------------- |
-| 10100, 20100, 30100 (se você unir o IR a uma rede virtual clássica)<br/><br/>29876, 29877 (se você unir o IR a uma rede virtual do Azure Resource Manager) | Entrada | TCP | Os serviços do Azure usam essas portas para comunicarem-se com os nós de seu tempo de execução de integração do Azure-SSIS na rede virtual. | Internet | 
-| 443 | Saída | TCP | Os nós do tempo de execução de integração do Azure-SSIS na rede virtual usam essa porta para acessar os serviços do Azure, como o Armazenamento do Microsoft Azure e Hubs de Eventos do Azure. | Internet | 
-| 1433<br/>11000-11999<br/>14000-14999  | Saída | TCP | Os nós do tempo de execução de integração do Azure-SSIS na rede virtual usam essas portas para acessar o SSISDB hospedado pelo 	servidor do Banco de Dados SQL do Microsoft Azure (essa finalidade não é aplicável ao SSISDB hospedado pela Instância Gerenciada do Banco de Dados SQL (versão prévia).) | Internet | 
+| Direção | Protocolo de transporte | Fonte | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
+|---|---|---|---|---|---|---|
+| Entrada | TCP | Internet | * | VirtualNetwork | 29876, 29877 (se você unir o IR a uma rede virtual do Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se você unir o IR a uma rede virtual clássica)| Os serviços do Azure Data Factory usam essas portas para comunicarem-se com os nós de seu tempo de execução de integração do Azure-SSIS na rede virtual. |
+| Saída | TCP | VirtualNetwork | * | Internet | 443 | Os nós do tempo de execução de integração do Azure-SSIS na rede virtual usam essa porta para acessar os serviços do Azure, como o Armazenamento do Microsoft Azure e Hubs de Eventos do Azure. |
+| Saída | TCP | VirtualNetwork | * | Internet ou Sql | 1433, 11000-11999, 14000-14999 | Os nós do tempo de execução de integração do Azure-SSIS na rede virtual usam essas portas para acessar o SSISDB hospedado pelo 	servidor do Banco de Dados SQL do Microsoft Azure. (essa finalidade não é aplicável ao SSISDB hospedado pela Instância Gerenciada do Banco de Dados SQL.)) |
+||||||||
+
+### <a name="route"></a> Usar o Azure ExpressRoute ou Rota Definida pelo Usuário
+
+Você pode conectar um circuito do [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) à sua infraestrutura de rede virtual para estender a rede local até o Azure. 
+
+Uma configuração comum é usar o túnel forçado (anunciar um roteamento BGP, 0.0.0.0/0 para a rede virtual) que força o tráfego de Internet de saída do fluxo da rede virtual para o dispositivo da rede local para inspeção e registro em log. Este fluxo de tráfego quebra a conectividade entre o IR do Azure-SSIS na rede virtual com os serviços dependentes do Azure Data Factory. A solução é definir uma (ou mais) [UDRs (rotas definidas pelo usuário)](../virtual-network/virtual-networks-udr-overview.md) na sub-rede que contém o IR do Azure-SSIS. Uma UDR define rotas específicas de sub-rede que são consideradas no lugar da rota BGP.
+
+Ou você pode definir as rotas definidas pelo usuário (UDRs) para forçar o tráfego de Internet de saída da sub-rede que hospeda o IR do Azure-SSIS para outra sub-rede, que hospeda o IR do Azure-SSIS como firewall ou uma hospedagem DMZ para inspeção e registro em log.
+
+Em ambos os casos, aplique uma rota 0.0.0.0/0 com o tipo de próximo salto como **Internet** na sub-rede que hospeda o IV SSIS do Azure, para que a comunicação entre o serviço de fábrica de dados e o IR do Azure SSIS pode ter êxito. 
+
+![Adicionar uma rota](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
+
+Se você estiver preocupado em perder a capacidade de inspecionar o tráfego de Internet de saída dessa sub-rede, também poderá adicionar uma regra NSG na sub-rede para restringir os destinos de saída para [Endereços IP do data center do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Veja [este script do PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) para obter um exemplo. Você precisa executar o script semanalmente para manter atualizada a lista de endereços IP do data center do Azure.
+
+### <a name="resource-group"></a>Requisitos para o Grupo de Recursos
+O IR do Azure-SSIS precisa criar determinados recursos de rede no mesmo grupo de recursos como VNet, incluindo um balanceador de carga do Azure e um grupo de segurança de trabalho de rede.
+
+-   Certifique-se de que você não tem nenhum bloqueio de recurso no grupo de recursos ou assinatura à qual pertence a rede virtual. Se você configurar um bloqueio de somente leitura ou um bloqueio de exclusão, iniciar e parar o IR pode falhar ou suspender.
+
+-   Certifique-se de que você não tem uma política do Azure que impede que os recursos a seguir sejam criados sob o grupo de recursos ou a assinatura à qual pertence a VNet:
+    -   Microsoft.Network/LoadBalancers
+    -   Microsoft.Network/NetworkSecurityGroups
+    -   Microsoft.Network/PublicIPAddresses
 
 ## <a name="azure-portal-data-factory-ui"></a>Portal do Azure (Interface do usuário do Data Factory)
 Esta seção mostra como unir um tempo de execução do Azure-SSIS existente a uma rede virtual (clássica ou do Azure Resource Manager) usando o Portal do Azure e a interface do usuário do Data Factory. Primeiro, é necessário configurar a rede virtual corretamente antes de unir o IR do Azure-SSIS a ela. Percorra uma das próximas duas seções com base no tipo de sua rede virtual (clássica ou Azure Resource Manager). Em seguida, continue na terceira seção para unir o IR do Azure-SSIS à rede virtual. 
+
+### <a name="use-the-portal-to-configure-an-azure-resource-manager-virtual-network"></a>Usar o portal para configurar uma rede virtual do Azure Resource Manager
+Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azure-SSIS a ela.
+
+1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, a interface do usuário do Data Factory tem suporte apenas nesses navegadores da Web.
+2. Entre no [Portal do Azure](https://portal.azure.com).
+3. Escolha **Mais serviços**. Filtre e selecione **Redes virtuais**.
+4. Filtre e selecione sua rede virtual na lista. 
+5. Na página **Rede virtual**, selecione **Propriedades**. 
+6. Selecione o botão de cópia para que a **ID DO RECURSO** copie a ID do recurso da rede virtual para a área de transferência. Salve a ID da área de transferência no OneNote ou em um arquivo.
+7. Selecione **Sub-redes** no menu esquerdo. Certifique-se de que o número de **endereços disponíveis** seja maior do que os nós no tempo de execução de integração do Azure-SSIS.
+8. Verifique se o provedor do Lote do Azure está registrado na assinatura do Azure que possui a rede virtual. Ou, registre o fornecedor do Lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure. (Se você criar o IR do Azure-SSIS no portal do Azure Data Factory,  o provedor do lote do Microsoft Azure é registrado automaticamente para você.)
+
+   a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo.
+
+   b. Selecione sua assinatura. 
+   
+   c. Selecione **Provedores de recurso** à esquerda e confirme se **Microsoft.Batch** é um provedor registrado.     
+      ![Confirmação do status "Registrado"](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+
+   Se você não visualizar **Microsoft.Batch** na lista, para registrá-lo [crie uma conta do Lote do Azure vazia](../batch/batch-account-create-portal.md) na sua assinatura. Você pode excluí-lo depois.
 
 ### <a name="use-the-portal-to-configure-a-classic-virtual-network"></a>Usar o portal para configurar uma rede virtual clássica
 Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azure-SSIS a ela.
@@ -93,7 +170,7 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
     d. Confirme se você visualiza o **Lote do Microsoft Azure** na lista de colaboradores.  
        ![Confirmar acesso ao Lote do Azure](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 
-5. Verifique se o provedor do Lote do Azure está registrado na assinatura do Azure que possui a rede virtual. Ou, registre o fornecedor do Lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure.
+5. Verifique se o provedor do Lote do Azure está registrado na assinatura do Azure que possui a rede virtual. Ou, registre o fornecedor do Lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure. (Se você criar o IR do Azure-SSIS no portal do Azure Data Factory,  o provedor do lote do Microsoft Azure é registrado automaticamente para você.)
 
    a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo.
 
@@ -104,29 +181,7 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
 
    Se você não visualizar **Microsoft.Batch** na lista, para registrá-lo [crie uma conta do Lote do Azure vazia](../batch/batch-account-create-portal.md) na sua assinatura. Você pode excluí-lo depois. 
 
-### <a name="use-the-portal-to-configure-an-azure-resource-manager-virtual-network"></a>Usar o portal para configurar uma rede virtual do Azure Resource Manager
-Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azure-SSIS a ela.
-
-1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, a interface do usuário do Data Factory tem suporte apenas nesses navegadores da Web.
-2. Entre no [Portal do Azure](https://portal.azure.com).
-3. Escolha **Mais serviços**. Filtre e selecione **Redes virtuais**.
-4. Filtre e selecione sua rede virtual na lista. 
-5. Na página **Rede virtual**, selecione **Propriedades**. 
-6. Selecione o botão de cópia para que a **ID DO RECURSO** copie a ID do recurso da rede virtual para a área de transferência. Salve a ID da área de transferência no OneNote ou em um arquivo.
-7. Selecione **Sub-redes** no menu esquerdo. Certifique-se de que o número de **endereços disponíveis** seja maior do que os nós no tempo de execução de integração do Azure-SSIS.
-8. Verifique se o provedor do Lote do Azure está registrado na assinatura do Azure que possui a rede virtual. Ou, registre o fornecedor do Lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure.
-
-   a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo.
-
-   b. Selecione sua assinatura. 
-   
-   c. Selecione **Provedores de recurso** à esquerda e confirme se **Microsoft.Batch** é um provedor registrado.     
-      ![Confirmação do status "Registrado"](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
-
-   Se você não visualizar **Microsoft.Batch** na lista, para registrá-lo [crie uma conta do Lote do Azure vazia](../batch/batch-account-create-portal.md) na sua assinatura. Você pode excluí-lo depois.
-
 ### <a name="join-the-azure-ssis-ir-to-a-virtual-network"></a>Unir o IR do Azure-SSIS a uma rede virtual
-
 
 1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, a interface do usuário do Data Factory tem suporte apenas nesses navegadores da Web.
 2. No [portal do Azure](https://portal.azure.com), selecione **Data factories** no menu à esquerda. Se não visualizar **Fábricas de dados** no menu, selecione **Mais serviços** e, em seguida, selecione **Fábricas de dados** na seção **INTELIGÊNCIA + ANÁLISE**. 
@@ -134,7 +189,7 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
    ![Lista de fábricas de dados](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. Selecione o data factory com o tempo de execução de integração do Azure-SSIS na lista. Você verá a home page do seu data factory. Selecione o bloco **Criar & Implantar**. Você visualiza a interface do usuário do Data Factory em uma guia separada. 
 
-   ![Página inicial da data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
+   ![Página inicial do data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 3. Na interface de usuário do Data Factory, alterne para a guia **Editar**, selecione **Conexões** e alterne para a guia **Tempos de execução de integração**. 
 
    ![Guia "tempos de execução de integração"](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
@@ -173,6 +228,7 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
 
 ```powershell
 # Register to the Azure Batch resource provider
+# Make sure to run this script against the subscription to which the VNet belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
@@ -213,11 +269,6 @@ $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
 ```
 
-#### <a name="guidelines-for-selecting-a-subnet"></a>Diretrizes para selecionar uma sub-rede
--   Não selecione GatewaySubnet para implantar um Microsoft Integration Runtime do Azure-SSIS, porque ele é dedicado para gateways de rede virtual.
--   Verifique se a sub-rede que você selecionar tem espaço de endereço disponível suficiente para o IR do Azure-SSIS usar. Deixe pelo menos 2 * número de nós do IR em endereços IP disponíveis. O Azure reserva alguns endereços IP em cada sub-rede, os quais não podem ser usados. O primeiro e o último endereço IP das sub-redes são reservados para fins de conformidade de protocolo, juntamente com três outros endereços usados para os serviços do Azure. Para saber mais, veja [Existem restrições quanto ao uso de endereços IP dentro dessas sub-redes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
-
-
 ### <a name="stop-the-azure-ssis-ir"></a>Interrompa o IR do Azure-SSIS
 Pare o tempo de execução de integração do Azure-SSIS antes de uni-lo a uma rede virtual. Esse comando libera todos os nós e para a cobrança:
 
@@ -228,9 +279,10 @@ Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNam
                                              -Force 
 ```
 ### <a name="configure-virtual-network-settings-for-the-azure-ssis-ir-to-join"></a>Configurar as configurações de rede virtual para o IR do Azure-SSIS a unir
-Registre o provedor de recursos do lote do Azure:
 
 ```powershell
+# Register to the Azure Batch resource provider
+# Make sure to run this script against the subscription to which the VNet belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
@@ -270,22 +322,6 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 
 ```
 Esse comando demora de 20 a 30 minutos para concluir.
-
-## <a name="use-azure-expressroute-with-the-azure-ssis-ir"></a>Usar o ExpressRoute do Azure com o IR do Azure-SSIS
-
-Você pode conectar um circuito do [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) à sua infraestrutura de rede virtual para estender a rede local até o Azure. 
-
-Uma configuração comum é usar o túnel forçado (anunciar um roteamento BGP, 0.0.0.0/0 para a rede virtual) que força o tráfego de Internet de saída do fluxo da rede virtual para o dispositivo da rede local para inspeção e registro em log. Este fluxo de tráfego quebra a conectividade entre o IR do Azure-SSIS na rede virtual com os serviços dependentes do Azure Data Factory. A solução é definir uma (ou mais) [UDRs (rotas definidas pelo usuário)](../virtual-network/virtual-networks-udr-overview.md) na sub-rede que contém o IR do Azure-SSIS. Uma UDR define rotas específicas de sub-rede que são consideradas no lugar da rota BGP.
-
-Se for possível, use a seguinte configuração:
--   A configuração de ExpressRoute anuncia 0.0.0.0/0 e, por padrão, encapsula à força todo o tráfego de saída no local.
--   O UDR aplicado à sub-rede que contém o IR do Azure-SSIS define a rota 0.0.0.0/0 com o tipo do próximo salto para 'Internet'.
-- 
-O efeito combinado dessas etapas é que a UDR do nível de sub-rede tem precedência sobre o túnel forçado do ExpressRoute, garantindo acesso de Internet de saída do IR do Azure-SSIS.
-
-Se você estiver preocupado em perder a capacidade de inspecionar o tráfego de Internet de saída dessa sub-rede, também poderá adicionar uma regra NSG na sub-rede para restringir os destinos de saída para [Endereços IP do data center do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-
-Veja [este script do PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) para obter um exemplo. Você precisa executar o script semanalmente para manter atualizada a lista de endereços IP do data center do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o tempo de execução do Azure-SSIS, consulte os tópicos a seguir: 

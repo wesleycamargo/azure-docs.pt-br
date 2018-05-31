@@ -15,11 +15,12 @@ ms.workload: na
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fbbce06653e60cd914c2ed4d5990aac78ef53a8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1e6f52da6f7524828cef928c2ee5d5cd92a1de1e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201067"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Entender e usar módulos gêmeos no Hub IoT
 
@@ -27,7 +28,7 @@ Este artigo pressupõe que você leu [Entender e usar dispositivos gêmeos no Hu
 
 No lado do dispositivo, os SDKs do dispositivo do Hub IoT permitem criar módulos que abrem cada um uma conexão independente para o Hub IoT. Isso permite que você use namespaces separados para diferentes componentes em seu dispositivo. Por exemplo, você tem uma máquina de vendas com três sensores diferentes. Cada sensor é controlado por diferentes departamentos na sua empresa. Você pode criar um módulo para cada sensor. Dessa forma, cada departamento só é capaz de enviar trabalhos ou métodos diretos para o sensor controlado por ele, evitando conflitos e erros de usuário.
 
- A identidade do módulo e o módulo gêmeo fornecem os mesmos recursos da identidade do dispositivo e do dispositivo gêmeo, mas em melhor granularidade. Essa melhor granularidade permite que dispositivos habilitados, como dispositivos baseados em sistema operacional ou dispositivos de firmware, isolem configurações e condições para cada um desses componentes. A identidade do módulo e os módulos gêmeos fornecem uma separação de problemas do gerenciamento ao trabalhar com dispositivos IoT que têm componentes de software modular. Nosso objetivo é dar suporte a toda a funcionalidade de dispositivos gêmeos no nível dos módulos gêmeos por meio da disponibilidade de módulos gêmeos para o público geral. 
+ A identidade do módulo e o módulo gêmeo fornecem os mesmos recursos que a identidade do dispositivo e o dispositivo gêmeo, mas com granularidade mais refinada. Essa melhor granularidade permite que dispositivos habilitados, como dispositivos baseados em sistema operacional ou dispositivos de firmware, isolem configurações e condições para cada um desses componentes. A identidade do módulo e os módulos gêmeos fornecem uma separação de problemas do gerenciamento ao trabalhar com dispositivos IoT que têm componentes de software modular. Nosso objetivo é dar suporte a toda a funcionalidade de dispositivos gêmeos no nível dos módulos gêmeos por meio da disponibilidade de módulos gêmeos para o público geral. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
