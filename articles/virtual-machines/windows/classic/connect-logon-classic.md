@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ecc65d2d4802ae826f3260b66b26e0bbe414e6
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012352"
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Faça logon em uma máquina virtual do Windows usando o Portal do Azure.
 No Portal do Azure, você usará o botão **Conectar** para iniciar uma sessão de Área de Trabalho Remota e fazer logon em uma VM do Windows.
@@ -42,20 +43,22 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 
     ![Virtual-machine-locations](./media/connect-logon/azureportaldashboard.png)
 
-3. Clique em **Conectar** na barra de comando acima do painel da máquina virtual.
-
-    ![Ícone Conectar para a máquina virtual](./media/connect-logon/virtualmachine_dashboard_connect.png)
-
-<!-- Don't know if this still applies
-     I think we can zap this.
-> [!TIP]
-> If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
->
->
--->
-
-## <a name="log-on-to-the-virtual-machine"></a>Faça logon na máquina virtual
-[!INCLUDE [virtual-machines-log-on-win-server](../../../../includes/virtual-machines-log-on-win-server.md)]
+1. Clique no botão **Conectar** na página de propriedades da máquina virtual. 
+2. Na página **Conectar à máquina virtual**, mantenha selecionadas as opções apropriadas e clique em **Fazer o download do arquivo RDP**.
+2. Abra o arquivo RDP baixado e clique em **Conectar** quando solicitado. 
+2. Você receberá um aviso de que o arquivo `.rdp` é proveniente de um editor desconhecido. Isso é normal. Na janela de Área de Trabalho Remota, clique em **Conectar** para continuar.
+   
+    ![Captura de tela de um aviso sobre um editor desconhecido.](./media/connect-logon/rdp-warn.png)
+3. Na janela **Segurança do Windows**, selecione **Mais opções** e **Usar uma conta diferente**. Digite as credenciais de uma conta na máquina virtual e clique em **OK**.
+   
+     **Conta local** - normalmente, são o nome de usuário e a senha da conta local especificados por você no momento da criação da máquina virtual. Nesse caso, o domínio é o nome da máquina virtual e é inserido como *nomedavm*&#92;*nome de usuário*.  
+   
+    **VM Ingressada no Domínio** – se a VM pertencer a um domínio, digite o nome de usuário no formato *Domínio*&#92;*Nome de usuário*. A conta precisa estar no grupo Administradores ou ter privilégios de acesso remoto concedidos à VM.
+   
+    **Controlador de domínio** - se a VM for um controlador de domínio, digite o nome de usuário e a senha da conta de administrador para esse domínio.
+4. Clique em **Sim** para verificar a identidade da máquina virtual e concluir o logon.
+   
+   ![Captura de tela mostrando uma mensagem sobre como verificar a identidade da VM.](./media/connect-logon/cert-warning.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Se o botão **Conectar** estiver inativo, ou se você estiver enfrentando outros problemas com a conexão de Área de Trabalho Remota, tente redefinir a configuração. Clique em **Redefinir acesso remoto** no painel da máquina virtual.
