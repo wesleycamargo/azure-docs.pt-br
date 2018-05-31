@@ -1,9 +1,9 @@
 ---
 title: Funções de linguagem de definição de fluxo de trabalho – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Conheça as funções que você pode usar nas definições de fluxo de trabalho do aplicativo lógico
+description: Saiba mais sobre as funções para a criação de aplicativos lógicos com a Linguagem de Definição de Fluxo de Trabalho
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 0155e35641a0407fe48c4da07400fa188152b0af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182246"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886605"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Referência de funções de linguagem de definição de fluxo de trabalho para Aplicativos Lógicos do Azure
 
-Este artigo descreve as funções que podem ser usadas ao criar fluxos de trabalho com [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md). Para obter mais definições sobre aplicativo lógico, consulte [Workflow Definition Language for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md) (Linguagem de definição de fluxo de trabalho para Aplicativos Lógicos do Azure). 
+Este artigo descreve as funções que podem ser usadas ao criar fluxos de trabalho com [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md). Para saber mais sobre funções nas definições de aplicativo lógico, consulte [Linguagem de Definição de Fluxo de Trabalho para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
 
 > [!NOTE]
 > Na sintaxe das definições de parâmetro, um ponto de interrogação (?) exibido após um parâmetro significa que ele é opcional. Por exemplo, consulte [getFutureTime()](#getFutureTime).
