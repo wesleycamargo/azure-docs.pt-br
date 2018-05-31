@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770614"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Condições de acesso condicional do Azure Active Directory 
 
@@ -38,24 +39,32 @@ A combinação de suas condições e seus controles de acesso representa uma pol
 
 ![Controle](./media/active-directory-conditional-access-conditions/61.png)
 
-Este artigo fornece uma visão geral das condições e de como elas são usadas em uma política de acesso condicional. 
 
+Condições que você não configurou em uma política de acesso condicional não são aplicadas. Algumas condições foram [obrigatórias](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) para aplicar uma política de acesso condicional para um ambiente. 
+
+Este artigo fornece uma visão geral das condições e de como elas são usadas em uma política de acesso condicional. 
 
 ## <a name="users-and-groups"></a>Usuários e grupos
 
 A condição de usuários e grupos é obrigatória em uma política de acesso condicional. Em sua política, você pode selecionar **Todos os usuários** ou escolher usuários e grupos específicos.
 
-![Controle](./media/active-directory-conditional-access-conditions/02.png)
+![Controle](./media/active-directory-conditional-access-conditions/111.png)
 
 Ao selecionar:
 
 - **Todos os usuários**, sua política é aplicada a todos os usuários no diretório. Isso inclui usuários convidados.
 
-- **Selecionar usuários e grupos**, você pode especificar conjuntos de usuários. Por exemplo, pode selecionar um grupo que contém todos os membros do departamento de RH quando tiver um aplicativo de RH selecionado como o aplicativo de nuvem. 
+- **Selecione usuários e grupos**, você pode definir as seguintes opções:
 
-- Um grupo pode ser qualquer tipo de grupo no Microsoft Azure Active Directory, incluindo grupos de segurança e de distribuição dinâmicos ou atribuídos.
+    - **Todos os usuários convidados** -permite que você direcione uma política para usuários convidados de B2B. Essa condição corresponde a qualquer conta de usuário com o atributo *userType* definido como *convidado*. É possível usar essa configuração em casos em que uma política precisa ser aplicada, assim que a conta é criada em um fluxo de convite no Microsoft Azure Active Directory.
 
-Você também pode excluir usuários ou grupos específicos de uma política. Um caso de uso comum é para contas de serviço, caso sua política imponha a autenticação multifator. 
+    - **Funções de diretório** - permite que você direcione uma política com base na atribuição de função do usuário. Essa condição dá suporte a funções de diretório, como *Administrador Global* ou *Administrador de Senha*.
+
+    - **Usuários e Grupos** - permite segmentar os conjuntos de usuários específicos. Por exemplo, pode selecionar um grupo que contém todos os membros do departamento de RH quando tiver um aplicativo de RH selecionado como o aplicativo de nuvem.
+
+Um grupo pode ser qualquer tipo de grupo no Microsoft Azure Active Directory, incluindo grupos de segurança e de distribuição dinâmicos ou atribuídos
+
+Você também pode excluir usuários ou grupos específicos de uma política. Um caso de uso comum é para contas de serviço, caso sua política imponha a autenticação multifator (MFA). 
 
 Especificar determinados conjuntos de usuários é útil para a implantação de uma nova política. Em uma nova política, você deve ter como destino apenas um conjunto inicial de usuários para validar o comportamento da política. 
 
@@ -104,7 +113,18 @@ A plataforma de dispositivo é caracterizada pelo sistema operacional que está 
 Para obter uma lista completa das plataformas de dispositivo com suporte, consulte [Condição de plataforma de dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
-Um caso de uso comum para essa condição é uma política que restringe o acesso aos seus aplicativos de nuvem para [dispositivos confiáveis](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). Para ver mais cenários, incluindo a condição de plataforma do dispositivo, confira [Acesso condicional com base em aplicativo do Azure Active Directory](active-directory-conditional-access-mam.md).
+Um caso de uso comum para essa condição é uma política que restringe o acesso aos seus aplicativos de nuvem para [dispositivos gerenciados](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Para ver mais cenários, incluindo a condição de plataforma do dispositivo, confira [Acesso condicional com base em aplicativo do Azure Active Directory](active-directory-conditional-access-mam.md).
+
+
+
+## <a name="device-state"></a>Estado do dispositivo
+
+A condição do estado do dispositivo permite que o Hybrid Azure AD e os dispositivos marcos como confiáveis sejam excluídos da política de acesso condicional. Isso é útil quando uma política só deve ser aplicada a dispositivo não gerenciado para fornecer segurança adicional de sessão. Por exemplo, apenas impor o controle de sessão do Microsoft Cloud App Security quando um dispositivo não é gerenciado. 
+
+
+![Condições](./media/active-directory-conditional-access-conditions/112.png)
+
+Se você deseja bloquear o acesso de dispositivos não gerenciados, você deve implementar [acesso condicional baseado em dispositivo](active-directory-conditional-access-policy-connected-applications.md).
 
 
 ## <a name="locations"></a>Locais
