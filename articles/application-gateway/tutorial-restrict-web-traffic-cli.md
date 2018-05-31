@@ -1,5 +1,5 @@
 ---
-title: Restringir o tráfego da web com um firewall do aplicativo Web - CLI do Azure
+title: Ativar firewall do aplicativo Web - CLI do Azure
 description: Aprenda a restringir o tráfego da web com um firewall do aplicativo Web em um gateway de aplicativo usando a CLI do Azure.
 services: application-gateway
 author: vhorne
@@ -10,15 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 64de501c2e7912cb4cbbae4b194d6c686a1efe67
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ca00dd3b359d9aff1b987a3bef5b27732678b0a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356215"
 ---
-# <a name="tutorial-restrict-web-traffic-with-a-web-application-firewall-using-the-azure-cli"></a>Tutorial: Restringir o tráfego da web com um firewall do aplicativo Web usando a CLI do Azure
+# <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Tutorial: Ativar firewall do aplicativo Web usando a CLI do Azure
 
-Você pode restringir o tráfego em [um gateway de aplicativo](overview.md) com um [firewall do aplicativo web](waf-overview.md) (WAF). O WAF usa as regras de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger o seu aplicativo. Essas regras incluem proteção contra ataques, como injeção de SQL, ataques de script entre sites e sequestros de sessão. 
+Você pode restringir tráfego em um [gateway de aplicativo](overview.md) com um [firewall de aplicativo de web](waf-overview.md) (WAF). O WAF usa as regras de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger o seu aplicativo. Essas regras incluem proteção contra ataques, como injeção de SQL, ataques de script entre sites e sequestros de sessão. 
 
 Neste tutorial, você aprenderá como:
 
@@ -134,7 +135,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Criar uma conta de armazenamento e configurar diagnósticos

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2c06c2220d3a3ed0a27b4f0febb4de95b2137ddc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771391"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gerenciar preços e volume de dados no Application Insights
 
@@ -25,7 +26,7 @@ Os preços do [Azure Application Insights][start] baseiam-se no volume de dados 
 
 O Application Insights oferece dois planos de preços: Básico e Enterprise. O plano de preços Básico é o padrão. Ele inclui todos os recursos do plano Enterprise, sem nenhum custo adicional. O plano Básico cobra principalmente o volume de dados ingeridos. 
 
-O plano Enterprise tem um custo por nó, e cada nó recebe um limite diário de dados. No plano de preços Enterprise, você é cobrado pelos dados ingeridos acima do limite incluído. Se você usar o Operations Management Suite, você deve escolher o plano Enterprise. 
+O plano Enterprise tem uma encargo por nó e cada nó recebe uma permissão diária de dados. No plano de preços Enterprise, você é cobrado pelos dados ingeridos acima do limite incluído. Se você usar o Operations Management Suite, você deve escolher o plano Enterprise. 
 
 Se tiver dúvidas sobre como os preços são aplicados ao Application Insights, você poderá postar uma pergunta em nosso [fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights).
 
@@ -40,11 +41,8 @@ Para ver os preços atuais em sua moeda e região, consulte [Preços do Applicat
 
 O plano Básico é o plano de preços padrão quando um novo recurso do Application Insights é criado. O plano Básico é ideal para todos os clientes, exceto aqueles que têm uma assinatura do Operations Management Suite.
 
-* No plano Básico, você é cobrado por volume de dados. O volume de dados é o número de bytes de telemetria recebidos pelo Application Insights. 
-    
-    O volume de dados é medido como o tamanho do pacote de dados JSON descompactado recebido pelo Application Insights do seu aplicativo.
-
-    Para [dados tabulares importados para o Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), o volume de dados é medido como o tamanho descompactado de arquivos enviados ao Application Insights.
+* No plano Básico, você é cobrado por volume de dados. O volume de dados é o número de bytes de telemetria recebidos pelo Application Insights. O volume de dados é medido como o tamanho do pacote de dados JSON descompactado recebido pelo Application Insights do seu aplicativo. Para [dados tabulares importados para o Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), o volume de dados é medido como o tamanho descompactado de arquivos enviados ao Application Insights.
+* Seus encargos de volume de dados do seu aplicativo agora são relatados em um novo medidor de cobrança denominado **Ingestão de Dados** a partir de abril de 2018. Este novo medidor é compartilhado entre tecnologias de monitoramento, como Applications Insights e Log Analytics e está atualmente no nome do serviço **Serviços de Aplicativos** (e em breve será alterado para **Log Analytics**). 
 * Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contatos para fins de preços.
 * [Exportação contínua](app-insights-export-telemetry.md) e [conector do Azure Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) estarão disponíveis sem nenhum custo adicional no plano Básico a partir de abril de 2018.
 

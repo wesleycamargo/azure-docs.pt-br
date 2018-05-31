@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33780221"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introdução ao fornecimento de conteúdo sob demanda usando o SDK do .NET
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -154,7 +155,7 @@ No Serviços de Mídia, você carrega (ou ingere) seus arquivos digitais em um a
 
 O método **UploadFile** definido abaixo chama **CreateFromFile** (definido em extensões do SDK .NET). **CreateFromFile** cria um novo ativo no qual o arquivo de origem especificado é carregado.
 
-O método **CreateFromFile** contém **AssetCreationOptions, o que permite especificar uma das seguintes opções de criação de ativos:
+O método **CreateFromFile** contém \*\*AssetCreationOptions, o que permite especificar uma das seguintes opções de criação de ativos:
 
 * **None** - nenhuma criptografia é usada. Esse é o valor padrão. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento.
   Se você pretende enviar um MP4 usando o download progressivo, use essa opção.

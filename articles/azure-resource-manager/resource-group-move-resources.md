@@ -11,14 +11,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360080"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -156,6 +157,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Máquinas virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 * Conjuntos de Dimensionamento de Máquinas Virtuais – consulte [Limitações de máquinas virtuais](#virtual-machines-limitations)
 * Redes virtuais – consulte [Limitações de redes virtuais](#virtual-networks-limitations)
+* Visual Studio Team Services - as aquisições de contas do VSTS com extensão não Microsoft deverão [cancelar suas aquisições](https://go.microsoft.com/fwlink/?linkid=871160) antes da migração da conta entre assinaturas.
 * Gateway de VPN
 
 ## <a name="services-that-cannot-be-moved"></a>Serviços que não podem ser movidos
@@ -170,10 +172,10 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Migrações para Azure
 * Serviços do BizTalk
 * Certificados - Os certificados do Serviço de Aplicativo podem ser movidos, mas os certificados carregados têm [limitações](#app-service-limitations).
-* Serviço do Kubernetes
 * Laboratórios DevTest – mover para um novo grupo de recursos na mesma assinatura está habilitado, mas a troca entre assinaturas está desabilitado.
 * Dynamics LCS
 * ExpressRoute
+* Serviço do Kubernetes
 * Load Balancers - consulte [Limitações do Load Balancer](#lb-limitations)
 * Aplicativos gerenciados
 * Managed Disks – veja [Limitações das máquinas virtuais](#virtual-machines-limitations)

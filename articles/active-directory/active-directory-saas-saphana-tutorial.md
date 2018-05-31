@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o SAP HANA | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o SAP HANA."
+title: 'Tutorial: integração do Azure Active Directory com o SAP HANA | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o SAP HANA.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 855525e2c1d3c33cc7134bbc1cd9b53ca59e1a70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 626dfe07c13c90686157dea710715b333a378136
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352881"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutorial: integração do Azure Active Directory com o SAP HANA
 
@@ -30,9 +31,9 @@ Quando você integra SAP HANA com Azure Active Directory, você obtém os seguin
 - Você pode permitir que os usuários façam logon automaticamente no SAP HANA com as suas contas do Azure Active Directory.
 - Você pode gerenciar suas contas em um único local: o novo Portal do Azure.
 
-Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao SAP HANA, você precisa dos seguintes itens:
 
@@ -53,7 +54,7 @@ Para testar as etapas neste tutorial, siga estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o SAP HANA da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="add-sap-hana-from-the-gallery"></a>Adicionar o SAP HANA da galeria
 Para configurar a integração do SAP HANA ao Azure Active Directory, adicione o SAP HANA da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -144,7 +145,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     > [!NOTE]
     > Na configuração padrão, a URL redireciona a solicitação para uma tela de logon, o que exige as credenciais de um usuário de banco de dados SAP HANA autenticado. O usuário que faz logon deve ter permissões para executar tarefas de administração do SAML.
 
-9. Na Interface da Web XSA, acesse **Provedor de identidade do SAML**. A partir daí, selecione o botão  **+**  na parte inferior da tela para exibir o painel **Adicionar informações do provedor de identidade**. Em seguida, execute as etapas a seguir:
+9. Na Interface da Web XSA, acesse **Provedor de identidade do SAML**. A partir daí, selecione o botão **+** na parte inferior da tela para exibir o painel **Adicionar informações do provedor de identidade**. Em seguida, execute as etapas a seguir:
 
     ![Adicionar Provedor de Identidade](./media/active-directory-saas-saphana-tutorial/sap1.png)
 
@@ -202,7 +203,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     c. Selecione **Mostrar Senha** e anote o valor da senha.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
  
 ### <a name="create-a-sap-hana-test-user"></a>Criar um usuário de teste SAP HANA
 
@@ -276,7 +277,7 @@ Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

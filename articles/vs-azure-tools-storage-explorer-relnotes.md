@@ -14,17 +14,113 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32778998"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 
-Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Azure 0.9.6 (Versão Prévia), bem como notas de versão para versões anteriores.
+Este artigo contém as notas de versão do Gerenciador de Armazenamento do Azure 1.0.0, bem como notas de versão das versões anteriores.
 
 O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
+
+## <a name="version-100"></a>Versão 1.0.0
+16/04/2018
+
+### <a name="download-azure-storage-explorer-100"></a>Baixar o Gerenciador de Armazenamento do Azure 1.0.0
+- [Gerenciador de Armazenamento do Azure 1.0.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de Armazenamento do Azure 1.0.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de Armazenamento do Azure 1.0.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Novo
+* Autenticação aprimorada que permite que o Gerenciador de Armazenamento use o mesmo repositório de contas que o Visual Studio 2017. Para usar esse recurso, você precisará fazer logon novamente em suas contas e definir novamente as assinaturas filtradas.
+* Para contas do Azure Stack com suporte do AAD, o Gerenciador de Armazenamento agora recupera as assinaturas do Azure Stack quando “Azure Stack de Destino” é habilitado. Você não precisa mais criar um ambiente de logon personalizado.
+* Vários atalhos foram adicionados para permitir a navegação mais rápida. Eles incluem a alternância entre vários painéis e o movimento entre editores. Consulte o Menu Exibir para obter mais detalhes.
+* Os comentários do Gerenciador de Armazenamento agora ficam no GitHub. Você pode acessar nossa página de problemas clicando no botão Comentários no canto inferior esquerdo ou acessando [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). Fique à vontade para fazer sugestões, relatar problemas, fazer perguntas ou deixar qualquer outro tipo de comentário.
+* Se estiver com problemas relacionados ao Certificado SSL e não conseguir identificar o certificado responsável, agora você poderá iniciar o Gerenciador de Armazenamento na linha de comando com o sinalizador `--ignore-certificate-errors`. Quando iniciado com esse sinalizador, o Gerenciador de Armazenamento ignora erros de certificado SSL.
+* Agora há uma opção de 'Download' no menu de contexto para itens de arquivo e blob.
+* Acessibilidade aprimorada e suporte para leitor de tela. Se você usa recursos de acessibilidade, confira nossa [documentação de acessibilidade](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) para obter mais informações.
+* O Gerenciador de Armazenamento agora usa o Electron 1.8.3
+
+### <a name="breaking-changes"></a>Alterações significativas
+* O Gerenciador de Armazenamento passou a usar uma nova biblioteca de autenticação. Como parte da mudança para a biblioteca, você precisará fazer logon novamente em suas contas e definir novamente as assinaturas filtradas
+* O método usado para criptografar dados confidenciais foi alterado. Isso pode fazer com que alguns de seus itens de Acesso Rápido precisem ser adicionados novamente e/ou que alguns de seus recursos anexados precisam ser anexados novamente.
+
+### <a name="fixes"></a>Correções
+* Alguns usuários por trás de proxies tinham uploads ou downloads de blobs em grupo interrompidos por uma mensagem de erro “Não é possível resolver”. Esse problema foi corrigido.
+* Se fosse necessário se conectar usando um link direto, clicar no prompt “Entrar” faria surgir uma caixa de diálogo em branco. Esse problema foi corrigido.
+* No Linux, se o Gerenciador de Armazenamento não puder ser iniciado devido a uma falha no processo de GPU, você será informado da falha, instruído a usar a opção '--disable-gpu' e o Gerenciador de Armazenamento será reiniciado automaticamente com a opção habilitada.
+* Políticas de acesso inválidas eram difíceis de identificar na caixa de diálogo Políticas de Acesso. IDs de política de acesso inválidas agora são realçadas em vermelho para melhorar a visibilidade.
+* O log de atividades, às vezes, tinha grandes áreas de espaço em branco entre as diferentes partes de uma atividade. Esse problema foi corrigido.
+* No editor de consulta de tabela, se você deixasse uma cláusula de carimbo de data/hora em um estado inválido e, em seguida, tentasse modificar outra cláusula, o editor congelaria. Agora, o editor restaura a cláusula de carimbo de data/hora para seu último estado válido quando uma alteração em outra cláusula é detectada.
+* Se você pausasse ao digitar sua consulta de pesquisa no modo de exibição de árvore, a pesquisa começaria e foco seria tirado da caixa de texto. Agora, você precisa começar a pesquisar explicitamente pressionando a tecla “Enter” ou clicando no botão Iniciar pesquisa.
+* Às vezes, o comando 'Obter Assinatura de Acesso Compartilhado' era desabilitado quando você clicava com o botão direito do mouse em um arquivo em um compartilhamento de arquivos. Esse problema foi corrigido.
+* Se o nó da árvore de recursos com foco fosse filtrado durante a pesquisa, você não consegueria acessar a árvore de recursos nem usar as teclas de direção para navegar nela. Agora, se o nó da árvore de recursos em foco estiver oculto, o primeiro nó da árvore de recursos será focado automaticamente.
+* Às vezes, um separador extra ficava visível na barra de ferramentas do editor. Esse problema foi corrigido.
+* Às vezes, a caixa de texto de trilha estourava. Esse problema foi corrigido.
+* Às vezes, os editores de Compartilhamento de Arquivos e Blob eram atualizados constantemente ao carregar muitos arquivos por vez. Esse problema foi corrigido.
+* O recurso 'Estatísticas de Pasta' não tinha nenhuma finalidade no modo de exibição de Gerenciamento de Instantâneos do Compartilhamento de Arquivos. Ele foi desabilitado.
+* No Linux, o menu Arquivo não era exibido. Esse problema foi corrigido.
+* Ao carregar uma pasta em um Compartilhamento de Arquivos, por padrão, somente o conteúdo da pasta era carregado. Agora, o comportamento padrão é carregar o conteúdo da pasta em uma pasta correspondente no Compartilhamento de Arquivos.
+* A ordem dos botões em várias caixas de diálogo foi revertida. Esse problema foi corrigido.
+* Diversas correções relacionadas à segurança.
+
+### <a name="known-issues"></a>Problemas conhecidos
+* Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui. 
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Versão 0.9.6](#version-096)
+* [Versão 0.9.5](#version-095)
+* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versão 0.9.2](#version-092)
+* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>Versão 0.9.6
 28/02/2018
@@ -66,30 +162,6 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 0.9.5](#version-095)
-* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versão 0.9.2](#version-092)
-* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Versão 0.9.5
 06/02/2018
@@ -227,7 +299,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 * Se você tentasse abrir ou baixar um blob com um nome de arquivo inválido do Windows, essa operação falharia. O Gerenciador de Armazenamento agora detecta se um nome de blob é inválido e pergunta se você deseja codificá-lo ou ignorar o blob. O Gerenciador de Armazenamento também detecta se um nome de arquivo parece ser codificado e pergunta se você deseja decodificá-lo antes do carregamento.
 * Durante o upload de blob, o editor do contêiner de blobs de destino não era atualizado corretamente durante o upload de blobs. Esse problema foi corrigido.
 * O suporte para várias formas de cadeias de conexão e URIs de SAS voltou. Resolvemos todos os problemas conhecidos, mas envie-nos comentários se você encontrar outros problemas.
-* A notificação de atualização foi interrompida para alguns usuários em 0.9.0. Esse problema foi corrigido e, para aqueles afetados pelo bug, é possível baixar manualmente a versão mais recente do Gerenciador de Armazenamento [aqui](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* A notificação de atualização foi interrompida para alguns usuários em 0.9.0. Esse problema foi corrigido e, para aqueles afetados pelo bug, é possível baixar manualmente a versão mais recente do Gerenciador de Armazenamento [aqui](https://azure.microsoft.com/features/storage-explorer/).
 
 ### <a name="known-issues"></a>Problemas conhecidos
 * O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
@@ -281,7 +353,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 * Se você tentasse abrir ou baixar um blob com um nome de arquivo inválido do Windows, essa operação falharia. O Gerenciador de Armazenamento agora detecta se um nome de blob é inválido e pergunta se você deseja codificá-lo ou ignorar o blob. O Gerenciador de Armazenamento também detecta se um nome de arquivo parece ser codificado e pergunta se você deseja decodificá-lo antes do carregamento.
 * Durante o upload de blob, o editor do contêiner de blobs de destino não era atualizado corretamente durante o upload de blobs. Esse problema foi corrigido.
 * O suporte para várias formas de cadeias de conexão e URIs de SAS voltou. Resolvemos todos os problemas conhecidos, mas envie-nos comentários se você encontrar outros problemas.
-* A notificação de atualização foi interrompida para alguns usuários em 0.9.0. Esse problema foi corrigido e, para aqueles afetados pelo bug, é possível baixar manualmente a versão mais recente do Gerenciador de Armazenamento [aqui](https://azure.microsoft.com/en-us/features/storage-explorer/)
+* A notificação de atualização foi interrompida para alguns usuários em 0.9.0. Esse problema foi corrigido e, para aqueles afetados pelo bug, é possível baixar manualmente a versão mais recente do Gerenciador de Armazenamento [aqui](https://azure.microsoft.com/features/storage-explorer/)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 * O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
