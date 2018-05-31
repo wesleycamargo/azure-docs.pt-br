@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362304"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Visão geral do Azure Load Balancer Standard
 
@@ -119,7 +120,7 @@ Revisão [da discussão detalhada de Portas de alta disponibilidade](load-balanc
 
 O Load Balancer Standard é totalmente integrado à rede virtual.  A rede virtual é uma rede privada, fechada.  Como os Load Balancers Standard e os endereços de IP público são projetados para permitir que essa rede virtual seja acessada de fora da rede virtual, esses recursos agora são padrão para fechado, a menos que você os abra. Isso significa que os Grupos de Segurança de Rede (NSGs) são usados para permitir explicitamente e tráfego permitido de lista branca.  Você pode criar seu data center virtual inteiro e decidir por meio do NSG o que e quando deve estar disponível.  Se você não tiver um NSG em uma sub-rede ou NIC do recurso de máquina virtual, nós não permitiremos que tráfego acesse esse recurso.
 
-Para saber mais sobre NSGs e como aplicá-los para seu cenário, consulte [Grupos de segurança de rede no Azure](../virtual-network/virtual-networks-nsg.md).
+Para saber mais sobre NSGs e como aplicá-los para seu cenário, consulte [Grupos de segurança de rede no Azure](../virtual-network/security-overview.md).
 
 ### <a name="outbound"></a>Conexões de saída
 
@@ -218,11 +219,14 @@ O Load Balancer Standard é um produto cobrado com base no número de regras de 
 
 ## <a name="limitations"></a>Limitações
 
-- No momento, as instâncias de back-end do Load Balancer não podem ser localizadas em redes virtuais emparelhadas. Todas as instâncias de back-end devem estar na mesma região.
 - Os SKUs não são mutáveis. Você não pode alterar a SKU de um recurso existente.
 - Um recurso de máquina virtual padrão, recurso de conjunto de disponibilidade ou recurso de conjunto de dimensionamento da máquina virtal podem referenciar um SKU, nunca ambos.
-- [Alertas do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são compatíveis no momento.
+- Uma regra de Balanceador de Carga não pode abranger duas redes virtuais.  Front-ends e suas instâncias de back-end relacionadas devem estar localizados na mesma rede virtual.  
+- Os front-ends do balanceador de carga não estão acessíveis no emparelhamento de rede virtual global.
 - [Mover as operações de assinatura](../azure-resource-manager/resource-group-move-resources.md) não têm suporte para recursos de PIP e LB SKU Standard.
+- Funções de trabalho sem uma rede virtual e outros serviços da plataforma Microsoft podem ser acessados quando apenas um Standard Load Balancer interno é usado devido a um efeito colateral de como os serviços pré-VNet e outros serviços da plataforma funcionam. Não confie nisso como o respectivo serviço em si ou a plataforma subjacente a pode ser alterada sem aviso prévio. Você sempre deve supor que precisa criar [conectividade de saída](load-balancer-outbound-connections.md) explicitamente se desejado ao usar um Standard Load Balancer interno apenas.
+- O Load Balancer é um produto de TCP ou UDP para balanceamento de carga e encaminhamento de porta para esses protocolos IP específicos.  As regras de balanceamento de carga e as regras de NAT de entrada são compatíveis com TCP e UDP, mas não com outros protocolos IP, incluindo ICMP. O Load Balancer não encerra, responde ou, de outra forma, interage com a carga de um fluxo UDP ou TCP. Ele não é um proxy. A validação bem-sucedida da conectividade com um front-end deve ocorrer na banda, com o mesmo protocolo usado em uma regra de NAT de entrada ou de balanceamento de carga (TCP ou UDP) _e_ pelo menos uma de suas máquinas virtuais deve gerar uma resposta para um cliente para ver uma resposta de um front-end.  Não receber uma resposta na banda do front-end do balanceador de carga indica que nenhuma máquina virtual foi capaz de responder.  Não é possível interagir com um front-end do Load Balancer sem que uma máquina virtual possa responder.  Isso também se aplica a conexões de saída em que o [SNAT de representação de porta](load-balancer-outbound-connections.md#snat) é compatível apenas com TCP e UDP; outros protocolos IP, incluindo ICMP, também falharão.  Atribua um endereço IP público em nível da instância para mitigar esse problema.
+- Diferente dos balanceadores de carga públicos que fornecem [conexões de saída](load-balancer-outbound-connections.md) durante a transição de endereços IP privados dentro da rede virtual para endereços IP públicos, os balanceadores de carga internos não convertem conexões originárias da saída para o front-end de um balanceador de carga interno, uma vez que ambos estão em um espaço de endereços IP privado.  Isso evita o potencial de esgotamento de SNAT dentro de espaços de endereço IP internos exclusivos, em que a conversão não é necessária.  O efeito colateral é que, se um fluxo de saída de uma VM no pool de back-end tentar estabelecer um fluxo para o front-end do balanceador de carga interno no pool em que reside _e_ for mapeado de volta para si mesmo, os dois lados do fluxo não serão correspondentes e o fluxo falhará.  Se o fluxo não tiver sido mapeado de volta para a mesma VM no pool de back-end que criou o fluxo para o front-end, ele será bem-sucedido.   Quando o fluxo é mapeado de volta para si mesmo, o fluxo de saída parece ser originado da VM para o front-end e o fluxo de entrada correspondente parece ser originado da VM para si mesmo. Do ponto de vista do SO convidado, as partes de entrada e de saída do mesmo fluxo não são correspondentes dentro da máquina virtual. A pilha TCP não reconhece essas metades do mesmo fluxo como parte do mesmo fluxo, pois a origem e o destino não são correspondentes.  Quando o fluxo é mapeado para qualquer outra VM no pool de back-end, as metades do fluxo são correspondentes e a VM pode responder ao fluxo com êxito.  O sintoma desse cenário são tempos limite de conexão intermitentes. Há várias soluções alternativas comuns para alcançar esse cenário de forma confiável (originar fluxos de um pool de back-end para seu respectivo front-end de balanceador de carga interno), que incluem a inserção de um proxy de terceiros por trás do balanceador de carga interno ou o [uso de regras de estilo de DSR](load-balancer-multivip-overview.md).  Embora você possa usar um balanceador de carga público para mitigar esse problema, o cenário resultante será propenso ao [esgotamento de SNAT](load-balancer-outbound-connections.md#snat) e deverá ser evitado, a menos que seja gerenciado atentamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -234,7 +238,7 @@ O Load Balancer Standard é um produto cobrado com base no número de regras de 
 - Saiba mais sobre [o Load Balancer Standard com as regras de balanceamento das Portas de Alta Disponibilidade](load-balancer-ha-ports-overview.md)
 - Saiba mais sobre como usar o [Balanceador de Carga com vários Front-ends](load-balancer-multivip-overview.md)
 - Saiba mais sobre as [Redes Virtuais](../virtual-network/virtual-networks-overview.md).
-- Saiba mais sobre [Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md).
+- Saiba mais sobre [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
 - Saiba mais sobre [Pontos de Extremidade de Serviço de VNET](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) no Azure.
 - Saiba mais sobre o [Azure Load Balancer](load-balancer-overview.md).

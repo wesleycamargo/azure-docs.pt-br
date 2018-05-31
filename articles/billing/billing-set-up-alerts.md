@@ -4,8 +4,8 @@ description: Descreve como você pode configurar alertas na sua conta do Azure p
 keywords: alerta de crédito, alerta de cobrança
 services: ''
 documentationcenter: ''
-author: vikdesai
-manager: tonguyen
+author: adpick
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/9/2017
-ms.author: vikdesai
+ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8606efc4e0d3050ddd72b6bf8ec87f6ddd84fa2e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fa7d1853226647917925e8c75e01a1c83d84daeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359043"
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Configurar alertas de cobrança ou de crédito para assinaturas do Microsoft Azure
 Caso seja o Administrador da Conta de uma assinatura do Azure, você poderá usar o Serviço de Alerta de Cobrança do Azure para criar alertas personalizados de cobrança que ajudam a monitorar e gerenciar a atividade de cobrança de suas contas do Azure.
 
 Esse serviço está no modo preview, de modo que você precisa habilitá-lo primeiro na página Recursos do Preview.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="set-the-alert-threshold-and-email-recipients"></a>Definir os alertas de limite e destinatários de email
 1. Visite [a página Recursos do Preview](https://account.windowsazure.com/PreviewFeatures) e habilite **Serviço de Alerta de Cobrança**.
@@ -49,7 +52,7 @@ O Azure é compatível com qualquer endereço de email, mas não verifica se est
 Depois de configurar os alertas, o Centro de Contas lista e mostra quantos mais você pode configurar. Para cada alerta, você verá a data e a hora de envio, se é um alerta do Total de Cobrança ou de Crédito Monetário e o limite definido. O formato de data e hora é 24 horas - Hora Universal Coordenada (UTC) e a data usa o formato aaaa-mm-dd. Clique no sinal de adição de um alerta na lista para editá-lo ou clique na lixeira para excluí-lo.
 
 ## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Alertas de cobrança para clientes do EA (Enterprise Agreement)
-Os clientes do EA podem obter alertas para cada departamento em um registro configurando cotas de gasto. Para começar, confira [Cotas de Gasto por Departamento](https://ea.azure.com/helpdocs/departmentSpendingQuotas) no portal do EA.
+As assinaturas do EA não são suportadas por este serviço, em vez disso, os clientes do EA podem obter alertas para cada departamento em um registro configurando cotas de gasto. Para começar, confira [Cotas de Gasto por Departamento](https://ea.azure.com/helpdocs/departmentSpendingQuotas) no portal do EA.
 
 ## <a name="learn-more-about-azure-cost-management"></a>Saiba mais sobre o gerenciamento de custos do Azure
 - Faça uma estimativa dos custos usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/), a [calculadora do custo total de propriedade](https://aka.ms/azure-tco-calculator) e quando você adiciona um serviço.

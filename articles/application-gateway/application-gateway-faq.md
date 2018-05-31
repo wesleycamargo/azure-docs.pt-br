@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355830"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -53,7 +54,7 @@ Pools de back-end podem ser formados por NICs, conjuntos de dimensionamento de m
 
 **P. Em quais regiões o serviço está disponível?**
 
-O Gateway de Aplicativo está disponível em todas as regiões do Azure global. Ele também está disponível no [Azure China](https://www.azure.cn/) e no [Azure Governamental](https://azure.microsoft.com/en-us/overview/clouds/government/)
+O Gateway de Aplicativo está disponível em todas as regiões do Azure global. Ele também está disponível no [Azure China](https://www.azure.cn/) e no [Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)
 
 **P. Ele é uma implantação dedicada à minha assinatura ou é compartilhado entre os clientes?**
 
@@ -155,7 +156,7 @@ Esse cenário pode ser feito usando os NSGs na sub-rede de Gateway de Aplicativo
 
 * Permitir solicitações de entrada de todas as fontes para portas 65534 65503 para [comunicação de integridade de back-end](application-gateway-diagnostics.md).
 
-* Permitir entradas investigações do Azure Load Balancer (marca AzureLoadBalancer) e tráfego de rede virtual entrada (marca VirtualNetwork) no [NSG](../virtual-network/virtual-networks-nsg.md).
+* Permitir entradas investigações do Azure Load Balancer (marca AzureLoadBalancer) e tráfego de rede virtual entrada (marca VirtualNetwork) no [NSG](../virtual-network/security-overview.md).
 
 * Bloquear todo o outro tráfego de entrada com um Negar todas as regras.
 
@@ -178,6 +179,11 @@ Não, mas o Gateway de Aplicativo tem uma métrica de taxa de transferência que
 **P. A escala/redução vertical causa tempo de inatividade?**
 
 Não há tempo de inatividade, as instâncias são distribuídas entre domínios de atualização e domínios de falha.
+
+**P. O Gateway de Aplicativo oferece suporte para descarregamento de conexão?**
+
+Sim. Você pode configurar o descarregamento de conexão para alterar os membros dentro de um pool de back-end sem interrupções. Isso permitirá conexões existentes para continuar a ser enviado ao seu destino anterior até que essa conexão é fechada ou expira um tempo limite configurável. Observe que esse descarregamento de conexão somente espera para concluir as conexões atuais em curso. O Gateway de Aplicativo não está ciente do estado de sessão do aplicativo.
+
 
 **P. Posso alterar o tamanho da instância de média para grande sem interrupções?**
 
@@ -329,4 +335,4 @@ O motivo mais comum é o bloqueio ao acesso do back-end por um NSG ou DNS person
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o Gateway de Aplicativo, visite [Introdução ao Gateway de Aplicativo](application-gateway-introduction.md).
+Para saber mais sobre o Gateway de Aplicativo, visite [O que é o Gateway de Aplicativo do Azure?](overview.md)

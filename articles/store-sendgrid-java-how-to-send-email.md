@@ -14,11 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: dbd9d01a00522a0a55828284cd6c0e78a26d9102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cadd771a516270faf23f18a36f54fa9a1541e6d5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364892"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Como enviar emails usando o SendGrid com Java
 Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são gravadas em Java. Os cenários abordados incluem a **construção de emails**, o **envio de emails**, a **adição de anexos**, o **uso de filtros** e a **atualização de propriedades**. Para obter mais informações sobre o SendGrid e o envio de emails, consulte a seção [Próximas etapas](#next-steps) .
@@ -158,7 +159,7 @@ O SendGrid fornece a funcionalidade adicional de email por meio do uso de *filtr
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Como atualizar as propriedades do email
-Algumas propriedades de email podem ser substituídas usando **set*Property*** ou acrescentado usando **add*Property***.
+Algumas propriedades de email podem ser substituídas usando **set Property** ou acrescentado usando **add Property**.
 
 Por exemplo, para especificar endereços para **ReplyTo** , use o seguinte:
 

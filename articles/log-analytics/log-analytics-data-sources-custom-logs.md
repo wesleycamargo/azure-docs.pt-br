@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361882"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Logs personalizados no Log Analytics
 A fonte de dados de logs personalizados no Log Analytics permite que você colete eventos de arquivos de texto em computadores com Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog.  Depois de coletados, você pode analisar cada registro no logon em campos individuais usando o recurso [Campos Personalizados](log-analytics-custom-fields.md) do Log Analytics.
@@ -29,7 +30,7 @@ Os arquivos de log a serem coletados devem corresponder aos critérios a seguir.
 
 - O log deve ter uma única entrada por linha ou usar um carimbo de data/hora correspondente a um dos formatos a seguir no início de cada entrada.
 
-    AAAA-MM-DD HH:MM:SS <br>M/D/AAAA HH:MM:SS AM/PM <br>Mês DD,AAAA HH:MM:SS
+    AAAA-MM-DD HH:MM:SS <br>M/D/AAAA HH:MM:SS AM/PM<br>Seg DD, AAAA HH:MM:SS<br />aaMMdd hh<br />ddMMaa HH:mm:ss<br />aaMMdd hh<br />dd/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-ddTHH:mm:ssK
 
 - O arquivo de log não deve permitir log circular ou rotação de log, em que o arquivo é substituído por novas entradas.
 - O arquivo de log deve usar a codificação ASCII ou UTF-8.  Não há suporte para outros formatos, como UTF-16.

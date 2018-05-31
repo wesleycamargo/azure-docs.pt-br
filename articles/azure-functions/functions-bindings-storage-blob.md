@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356402"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -31,14 +32,18 @@ Este artigo explica como trabalhar com associações de armazenamento de blob do
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+> [!NOTE]
+> Use o gatilho de Grade de Eventos em vez do disparador do armazenamento de Blob apenas para contas de armazenamento de blob, para alta escala, ou para evitar atrasos de inicialização a frio. Para saber mais, veja a seção [Gatilho](#trigger) a seguir. 
+
 ## <a name="packages"></a>Pacotes
 
 As associações de armazenamento de Blobs são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-> [!NOTE]
-> Use o gatilho de Grade de Eventos em vez do disparador do armazenamento de Blob apenas para contas de armazenamento de blob, para alta escala, ou para evitar atrasos de inicialização a frio. Para saber mais, veja a seção a seguir **Gatilho**. 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>Gatilho
 
@@ -769,7 +774,7 @@ Em script C# e C#, é possível associar os tipos a seguir para gravar blobs:
 * `CloudPageBlob`<sup>2</sup>
 * `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> Requer associação "in" `direction` em *function.json* ou `FileAccess.Read` em uma biblioteca de classes C#.
+<sup>1</sup> Requer associação "in" `direction` em *function.json* ou `FileAccess.Read` em uma biblioteca de classes C#. No entanto, você pode usar o objeto de contêiner que o tempo de execução fornece para operações de gravação, como carregar blobs no contêiner.
 
 <sup>2</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
 

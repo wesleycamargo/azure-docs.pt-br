@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 325b8853065df19f8c3b1c7cbc0b466f835ec601
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3c4b3f32ce2a66a3b0fccea1f9d73ce685750bb2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206197"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34339648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutorial: integração do Microsoft Azure Active Directory com o Manabi Pocket.
 
@@ -31,7 +31,7 @@ A integração do Core Directory ao Microsoft Azure Active Directory oferece os 
 - Você pode permitir que seus usuários façam logon automaticamente no Manabi Pocket (logon único) com suas contas do Microsoft Azure Active Directory.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -206,7 +206,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

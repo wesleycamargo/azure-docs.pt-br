@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 227ea446a75c167be27128b15de1d3c216e6856d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363369"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar a auditoria do NSG com a exibição de grupo de segurança do Observador de Rede do Azure
 
 Os clientes normalmente enfrentam o desafio de verificar a postura de segurança de sua infraestrutura. Esse desafio não é diferente para as VMs no Azure. É importante ter um perfil de segurança semelhante com base nas regras do NSG (Grupo de Segurança de Rede) aplicadas. Com a exibição do Grupo de segurança, agora você pode obter a lista de regras aplicadas a uma VM dentro de um NSG. Você pode definir um perfil de ouro de segurança do NSG e iniciar a Exibição do grupo de segurança com uma cadência semanal e comparar a saída para o perfil de ouro e criar um relatório. Dessa forma, você pode identificar com facilidade todas as VMs que não estão de acordo com o perfil de segurança recomendado.
 
-Se você estiver familiarizado com os Grupos de segurança de rede, visite [Visão geral de segurança de rede](../virtual-network/virtual-networks-nsg.md)
+Se você estiver familiarizado com os Grupos de segurança de rede, consulte [Visão geral de segurança de rede](../virtual-network/security-overview.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
