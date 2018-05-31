@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4334a438f09d7c18912262e9c70bfffbcdeb1d9e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311124"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34199017"
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Limites de Cota do Azure Data Lake Analytics
 
@@ -33,29 +33,33 @@ Se você deseja ultrapassar esse limite, tente estas opções:
 * escolha outra região, se adequado
 * entre em contato com o suporte do Azure [abrindo um tíquete de suporte](#increase-maximum-quota-limits) para solicitar um aumento de cota.
 
-## <a name="adla-account-limits"></a>Limites da conta do ADLA
+## <a name="default-adla-account-limits"></a>Limites padrão da conta do ADLA
 
-**Número máximo de AUs (Unidades de Análise) por conta:** 250
+**Número máximo de AUs (Unidades de Análise) por conta:** 32
 
 Esse é o número máximo de AUs que podem ser executadas simultaneamente em sua conta. Se o número total de AUs em execução em todos os trabalhos exceder esse limite, novos trabalhos serão colocados na fila automaticamente. Por exemplo: 
 
-* Caso você possua apenas um trabalho em execução com 250 AUs, ao adicionar um segundo trabalho ele permanecerá na fila até que o primeiro trabalho esteja concluído.
-* Caso você já possua cinco trabalhos em execução e cada um estiver utilizando 50 AUs, ao adicionar um sexto trabalho que necessite de 20 AUs ele permanecerá na fila até que 20 AUs se tornem disponíveis.
+* Caso você tenha um só trabalho em execução com 32 AUs, ao enviar um segundo trabalho, ele permanecerá na fila até que o primeiro trabalho seja concluído.
+* Se você já tiver quatro trabalhos em execução e cada um deles estiver usando 8 AUs, ao adicionar um quinto trabalho que precise de 8 AUs, ele permanecerá na fila até que 8 AUs fiquem disponíveis.
+
+**Número máximo de AUs (Unidades de Análise) por trabalho:** 32
+
+Esse é o número máximo padrão de AUs que cada trabalho individual pode receber em sua conta. Os trabalhos que recebem mais do que esse limite serão rejeitados, a menos que o remetente seja afetado por uma política de computação (limite de envio de trabalho) que forneça uma quantidade maior de AUs por trabalho. O limite superior desse valor é o limite de AU da conta.
 
 **Número máximo de trabalhos U-SQL simultâneos por conta:**  20
 
 Esse é o número máximo de trabalhos que podem ser executados simultaneamente em sua conta. Exceder esse valor faz com que os trabalhos mais recentes sejam enfileirados automaticamente.
 
-## <a name="adjust-adla-quota-limits-per-account"></a>Ajustar os limites de cota do ADLA por conta
+## <a name="adjust-adla-account-limits"></a>Ajustar os limites da conta do ADLA
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Escolha uma conta ADLA que você já criou.
 3. Clique em **Propriedades**.
-4. Ajuste **Paralelismo** e **Trabalhos simultâneos** para atender às suas necessidades.
-
-    ![Página do portal do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+4. Ajuste os valores de **Número máximo de AUs**, **Número máximo de trabalhos em execução** e **Limites de envio de trabalho** de acordo com suas necessidades.
 
 ## <a name="increase-maximum-quota-limits"></a>Aumente os limites máximos de cota
+
+Encontre mais informações sobre os limites do Azure na [documentação sobre os limites específicos do serviço do Azure](../azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Abra uma solicitação de suporte no Portal do Azure.
 
