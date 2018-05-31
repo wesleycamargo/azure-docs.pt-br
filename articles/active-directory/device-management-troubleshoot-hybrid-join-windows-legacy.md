@@ -11,18 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770733"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior 
 
-Este tópico é aplicável apenas aos seguintes dispositivos: 
+Este aplicativo é aplicável apenas aos seguintes dispositivos: 
 
 - Windows 7 
 - Windows 8.1 
@@ -33,7 +34,7 @@ Este tópico é aplicável apenas aos seguintes dispositivos:
 
 Para Windows 10 ou Windows Server 2016, confira [Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos do Windows 10 e do Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md).
 
-Este tópico pressupõe que você tenha [dispositivos configurados e ingressados no Azure Active Directory híbrido](device-management-hybrid-azuread-joined-devices-setup.md) para dar suporte aos seguintes cenários:
+Este artigo pressupõe que você tenha [dispositivos configurados e ingressados no Azure Active Directory híbrido](device-management-hybrid-azuread-joined-devices-setup.md) para dar suporte aos seguintes cenários:
 
 - Acesso condicional com base em dispositivo
 
@@ -45,7 +46,7 @@ Este tópico pressupõe que você tenha [dispositivos configurados e ingressados
 
 
 
-Este tópico fornece orientação para solução de possíveis problemas.  
+Este artigo fornece orientação para solução de possíveis problemas.  
 
 **O que você deve saber:** 
 
@@ -53,15 +54,17 @@ Este tópico fornece orientação para solução de possíveis problemas.
 
 - O registro inicial/ingresso de dispositivos está configurado para executar uma tentativa de logon ou de bloqueio/desbloqueio. Pode haver um atraso de cinco minutos disparado por uma tarefa do agendador de tarefas. 
 
-- Uma reinstalação do sistema operacional, ou um cancelamento manual do registro seguido por um novo registro, pode criar um novo registro no Azure AD, e resultará em várias entradas na guia Informações do USUÁRIO no Portal do Azure. 
+- Reinstalar o sistema operacional ou novos registros manuais podem criar um novo registro no Microsoft Azure Active Directory em várias entradas na guia de informações do USUÁRIO no portal do Azure. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Etapa 1: Recuperar o status do registro 
 
 **ara verificar o status do registro:**  
 
-1. Abra o prompt de comando como administrador 
+1. Logon com a conta de usuário que executou uma associação do Microsoft Azure Active Directory híbrido.
 
-2. Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
+2. Abra o prompt de comando como administrador 
+
+3. Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
 Esse comando exibe uma caixa de diálogo que fornece mais detalhes sobre o status do ingresso.
 
@@ -84,16 +87,11 @@ Se o ingresso no Azure AD híbrido não tiver sido bem-sucedido, a caixa de diá
     
     Há algumas razões diferentes pelas quais isso pode ocorrer:
     
-    1. Se o usuário conectado não for um usuário de domínio (por exemplo, um usuário local). O ingresso no Azure AD Híbrido em dispositivos de nível inferior tem suporte apenas para usuários do domínio.
+    - O usuário conectado não é um usuário de domínio (por exemplo, um usuário local). O ingresso no Azure AD Híbrido em dispositivos de nível inferior tem suporte apenas para usuários do domínio.
     
-    2. Se, por qualquer motivo, o Autoworkplace.exe não puder autenticar silenciosamente com o Azure Active Directory ou o AD FS. Algumas razões possíveis podem ser problemas de conectividade de rede de saída para URLs do Azure Active Directory (verifique os pré-requisitos) ou se a MFA está habilitada/configurada para o usuário, mas WIAORMUTLIAUTHN não está configurado no servidor de federação (verifique as etapas de configuração). Outra possibilidade é que a página de HRD (descoberta de realm inicial) esteja aguardando interação do usuário, impedindo o Autoworkplace.exe obter silenciosamente um token.
+    - O Autoworkplace.exe não pode autenticar silenciosamente com o Microsoft Azure Active Directory ou o AD FS. Isso pode ser devido a um problemas de conectividade de rede de saída para as URLs do Microsoft Azure Active Directory (Verifique os pré-requisitos). Também é possível que a autenticação multifator (MFA) esteja habilitada/configurada para o usuário e WIAORMUTLIAUTHN não está configurada no servidor de federação (etapas de configuração de verificação). Outra possibilidade é que a página de descoberta de domínio doméstico (HRD) está aguardando a interação do usuário, que evita que o **autoworkplace.exe** obtenha um token silenciosamente.
     
-    3. Se a organização estiver usando Logon Único Contínuo do Azure Active Directory, a URL a seguir não estará presente nas configurações de intranet do IE do dispositivo:
-    
-       - https://autologon.microsoftazuread-sso.com
-
-    
-       e a configuração "Permitir atualizações da barra de status via script" deve estar habilitada para a zona da Intranet.
+    - Sua organização usa o Logon Único Contínuo do Microsoft Azure Active Directory `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não está presente nas configurações de intranet do Internet Explorer do dispositivo, e **Permitir atualizações à barra de status por meio de script** não está habilitada para a zona da Intranet.
 
 - Você atingiu uma cota
 
@@ -103,11 +101,11 @@ Se o ingresso no Azure AD híbrido não tiver sido bem-sucedido, a caixa de diá
 
     ![Workplace Join para Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/05.png)
 
-Também é possível encontrar informações de status no log de eventos em **Log de Aplicativos e Serviços\Microsoft-Workplace Join**.
+Também é possível encontrar informações de status no log de eventos em: **Log de Aplicativos e Serviços\Microsoft-Workplace Join**
   
 **As causas mais comuns para a falha do ingresso do Azure AD híbrido são:** 
 
-- O computador não está na rede interna da organização, ou está em uma VPN sem uma conexão com um controlador de domínio do AD local.
+- O computador não está conectado na rede interna da organização nem a uma VPN sem uma conexão ao controlador de domínio do Active Directory local.
 
 - Você está conectado ao computador com uma conta de computador local. 
 
@@ -115,7 +113,7 @@ Também é possível encontrar informações de status no log de eventos em **Lo
 
   - O servidor de Federação foi configurado para oferecer suporte a **WIAORMULTIAUTHN**. 
 
-  - Não há nenhum objeto de Ponto de Conexão de Serviço que aponta para o seu nome de domínio verificado no Azure AD na floresta do AD à qual o computador pertence.
+  - A floresta do seu computador não tem objeto de Ponto de Conexão de Serviço que aponta o seu nome de domínio verificado no Microsoft Azure Active Directory 
 
   - Um usuário atingiu o limite de dispositivos. 
 

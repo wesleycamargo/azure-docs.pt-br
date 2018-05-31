@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33771228"
 ---
 # <a name="azure-cosmos-db-faq"></a>Perguntas frequentes do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceitos básicos do Azure Cosmos DB
@@ -232,8 +233,8 @@ Particularmente para o SDK do .NET em, há algumas classes e métodos para os qu
 
 | Classe | Método sem suporte |
 |-------|-------- |
-| CloudTableClient | \*ServiceProperties* |
-|                  | \*ServiceStats* |
+| CloudTableClient | \*ServiceProperties\* |
+|                  | \*ServiceStats\* |
 | CloudTable | SetPermissions* |
 |            | GetPermissions* |
 | TableServiceContext | * (essa classe é, na verdade, preterida) |

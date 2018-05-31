@@ -1,11 +1,11 @@
 ---
-title: "Restringir o acesso por meio de pontos de extremidade para a Internet na Central de Segurança do Azure | Microsoft Docs"
-description: "Este artigo mostrou como implementar a recomendação da Central de Segurança do Azure **Restringir o acesso por meio de ponto de extremidade para a Internet**."
+title: Restringir o acesso por meio de pontos de extremidade para a Internet na Central de Segurança do Azure | Microsoft Docs
+description: Este artigo mostrou como implementar a recomendação da Central de Segurança do Azure **Restringir o acesso por meio de ponto de extremidade para a Internet**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92906d31f4db21f37094f192dadd080e28cc6e8e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363046"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restringir o acesso por meio de pontos de extremidade para a Internet na Central de Segurança do Azure
 A Central de Segurança do Azure recomendará que você restrinja o acesso por meio de pontos de extremidade para a Internet se qualquer um dos seus grupos de segurança de rede (NSGs) tiver uma ou mais regras de entrada que permitam acesso de "qualquer" endereço IP de origem. Abrir o acesso a "qualquer" um pode permitir que os invasores acessem seus recursos. A Central de Segurança recomendará que você edite essas regras de entrada para restringir o acesso a endereços IP de origem que realmente precisem de acesso.
@@ -44,18 +45,18 @@ Essa recomendação é gerada para qualquer porta que não seja da Web que tenha
 
    ![Regras de segurança de entrada][4]
 
-   Observe que você também pode selecionar **Regras padrão** para ver o conjunto de regras padrão contidas em todos os NSGs. As regras padrão não podem ser excluídas, mas como recebem uma prioridade mais baixa, elas podem ser substituídas pelas regras que você criar. Saiba mais sobre [regras padrão](../virtual-network/virtual-networks-nsg.md#default-rules).
+   Observe que você também pode selecionar **Regras padrão** para ver o conjunto de regras padrão contidas em todos os NSGs. As regras padrão não podem ser excluídas, mas como recebem uma prioridade mais baixa, elas podem ser substituídas pelas regras que você criar. Saiba mais sobre [regras padrão](../virtual-network/security-overview.md#default-security-rules).
 
    ![Regras padrão][5]
-5. Na folha **AllowWeb**, edite as propriedades da regra de entrada para que a **Origem** seja um endereço IP ou bloco de endereços IP. Para saber mais sobre as propriedades da regra de entrada, consulte [Regras de NSG](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+5. Na folha **AllowWeb**, edite as propriedades da regra de entrada para que a **Origem** seja um endereço IP ou bloco de endereços IP. Para saber mais sobre as propriedades da regra de entrada, consulte [Regras de NSG](../virtual-network/security-overview.md#security-rules).
 
    ![Editar regra de entrada][6]
 
 ## <a name="see-also"></a>Consulte também
 Este artigo mostrou como implementar a recomendação da Central de Segurança "Restringir o acesso por meio de ponto de extremidade para a Internet". Para saber mais sobre como habilitar NSGs e regras, confira o seguinte:
 
-* [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
-* [Como gerenciar NSGs usando o portal do Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [O que é um NSG (grupo de segurança de rede)?](../virtual-network/security-overview.md)
+* [Gerenciar um grupo de segurança de rede](../virtual-network/manage-network-security-group.md)
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361940"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -40,11 +41,11 @@ Há vários [cenários de saída](#scenarios). É possível combinar esses cená
 
 O Azure Load Balancer e os recursos relacionados são explicitamente definidos ao utilizar o [Azure Resource Manager](#arm).  Atualmente, o Azure fornece três métodos diferentes para alcançar a conectividade de saída para recursos do Azure Resource Manager. 
 
-| Cenário | Método | DESCRIÇÃO |
-| --- | --- | --- |
-| [1. VM com um endereço IP Público em Nível de Instância (com ou sem Load Balancer)](#ilpip) | SNAT, disfarce de porta não usado |O Azure usa o IP público atribuído à configuração de IP do NIC da instância. A instância possui todas as portas efêmeras disponíveis. |
-| [2. Load Balancer público associado a uma VM (sem endereço IP Público em Nível de Instância)](#lb) | SNAT com PAT (disfarce de porta) usando front-ends do Load Balancer |O Azure compartilha o endereço IP público dos front-ends do Load Balancer público com vários endereços IP privados. O Azure usa os portas efêmeras dos front-ends para PAT. |
-| [3. VM autônomo (sem Load Balancer, nenhum endereço IP Público em Nível de Instância) ](#defaultsnat) | SNAT com disfarce de porta (PAT) | O Azure designa automaticamente um endereço IP público para SNAT, compartilha esse endereço IP público com vários endereços IP privados do conjunto de disponibilidade e usa portas efêmeras desse endereço IP público. Este é um cenário de fallback para os cenários anteriores. Não é recomendável se você precisar de visibilidade e controle. |
+| Cenário | Método | Protocolos IP | DESCRIÇÃO |
+| --- | --- | --- | --- |
+| [1. VM com um endereço IP Público em Nível de Instância (com ou sem Load Balancer)](#ilpip) | SNAT, disfarce de porta não usado | TCP, UDP, ICMP, ESP | O Azure usa o IP público atribuído à configuração de IP do NIC da instância. A instância possui todas as portas efêmeras disponíveis. |
+| [2. Load Balancer público associado a uma VM (sem endereço IP Público em Nível de Instância)](#lb) | SNAT com PAT (disfarce de porta) usando front-ends do Load Balancer | TCP, UDP |O Azure compartilha o endereço IP público dos front-ends do Load Balancer público com vários endereços IP privados. O Azure usa os portas efêmeras dos front-ends para PAT. |
+| [3. VM autônomo (sem Load Balancer, nenhum endereço IP Público em Nível de Instância) ](#defaultsnat) | SNAT com disfarce de porta (PAT) | TCP, UDP | O Azure designa automaticamente um endereço IP público para SNAT, compartilha esse endereço IP público com vários endereços IP privados do conjunto de disponibilidade e usa portas efêmeras desse endereço IP público. Este é um cenário de fallback para os cenários anteriores. Não é recomendável se você precisar de visibilidade e controle. |
 
 Se você não quiser que uma VM comunique-se com os pontos de extremidade fora do Azure no espaço de endereço IP público, poderá usar NSGs (grupos de segurança de rede) para bloquear o acesso conforme necessário. A seção [Impedir conectividade de saída](#preventoutbound) descreve sobre os NSGs mais detalhadamente. As diretrizes sobre a projeto, implementação e gerenciamento de uma rede virtual sem qualquer acesso de saída estão fora do escopo deste artigo.
 
@@ -119,7 +120,7 @@ Ao usar o [Load Balancer Standard com Zonas de Disponibilidade](load-balancer-st
 
 ### <a name="pat"></a>Disfarce de porta SNAT (PAT)
 
-Quando um recurso público do Load Balancer estiver associado a instâncias VM, cada fonte de conexão de saída será reescrita. A origem é regravada do espaço do endereço IP privado da rede virtual para o endereço IP Público de front-end do balanceador de carga. No espaço de endereço IP público, as 5 tuplas do fluxo (endereço IP de origem, porta de origem, protocolo de transporte IP, endereço IP de destino, porta de destino) devem ser exclusivas.  
+Quando um recurso público do Load Balancer estiver associado a instâncias VM, cada fonte de conexão de saída será reescrita. A origem é regravada do espaço do endereço IP privado da rede virtual para o endereço IP Público de front-end do balanceador de carga. No espaço de endereço IP público, as 5 tuplas do fluxo (endereço IP de origem, porta de origem, protocolo de transporte IP, endereço IP de destino, porta de destino) devem ser exclusivas.  O SNAT simulado de porta pode ser usado com protocolos TCP ou IP UDP.
 
 As portas efêmeras (portas SNAT) são usadas para conseguir isso após a regravação do endereço IP de origem privada, já que vários fluxos originam-se de um único endereço IP público. 
 
@@ -235,18 +236,19 @@ Usando o comando nslookup, você pode enviar uma consulta DNS para o nome myip.o
     nslookup myip.opendns.com resolver1.opendns.com
 
 ## <a name="preventoutbound"></a>Impedir conectividade de saída
-Às vezes, não é desejável que uma VM tenha permissão para criar um fluxo de saída. Ou pode haver um requisito para gerenciar quais destinos podem ser alcançados com os fluxos de saída ou quais destinos podem começar os fluxos de entrada. Nesse caso, é possível usar os [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) para gerenciar os destinos que a VM pode acessar. Você também pode usar NSGs para gerenciar qual destino público pode iniciar os fluxos de entrada. 
+Às vezes, não é desejável que uma VM tenha permissão para criar um fluxo de saída. Ou pode haver um requisito para gerenciar quais destinos podem ser alcançados com os fluxos de saída ou quais destinos podem começar os fluxos de entrada. Nesse caso, é possível usar os [grupos de segurança de rede](../virtual-network/security-overview.md) para gerenciar os destinos que a VM pode acessar. Você também pode usar NSGs para gerenciar qual destino público pode iniciar os fluxos de entrada.
 
-Ao aplicar um NSG a uma VM com balanceamento de carga, atente-se às [marcações padrão](../virtual-network/virtual-networks-nsg.md#default-tags) e [regras padrão](../virtual-network/virtual-networks-nsg.md#default-rules). Certifique-se de que a VM possa receber solicitações de investigação de integridade do Azure Load Balancer. 
+Ao aplicar um NSG a uma VM com balanceamento de carga, atente-se às [marcas de serviço](../virtual-network/security-overview.md#service-tags) e às [regras de segurança padrão](../virtual-network/security-overview.md#default-security-rules). Certifique-se de que a VM possa receber solicitações de investigação de integridade do Azure Load Balancer. 
 
 Se um NSG bloquear solicitações de investigação de integridade da marcação padrão AZURE_LOADBALANCER, o teste de integridade da VM falhará e a VM será reduzida. O Balanceador de Carga interrompe o envio de novos fluxos para a VM.
 
 ## <a name="limitations"></a>Limitações
 - DisableOutboundSnat não está disponível como uma opção ao configurar uma regra de balanceamento de carga no portal.  Ao invés disso, utilize ferramentas de cliente, modelo ou REST.
+- Funções de trabalho sem uma rede virtual e outros serviços da plataforma Microsoft podem ser acessados quando apenas um Standard Load Balancer interno é usado devido a um efeito colateral de como os serviços pré-VNet e outros serviços da plataforma funcionam. Não confie nesse efeito colateral, pois o respectivo serviço ou a plataforma subjacente pode ser alterado sem aviso prévio. Você sempre deve supor que precisa criar conectividade de saída explicitamente se desejado ao usar apenas um Standard Load Balancer interno. O cenário [SNAT padrão](#defaultsnat) 3 descrito neste artigo não está disponível.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Azure Load Balancer](load-balancer-overview.md).
 - Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md).
-- Saiba mais sobre [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+- Saiba mais sobre [grupos de segurança de rede](../virtual-network/security-overview.md).
 - Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) no Azure.

@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: ff26ab122e920d6ca8dbf837a2229f8728a471ce
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9f8175742adc5c543b637ab69b3a9583f251da04
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360182"
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introdução ao armazenamento de Tabelas do Azure usando o .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -102,7 +103,7 @@ Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
 >
 
 ### <a name="determine-your-target-environment"></a>Determinar o ambiente de destino
-Você tem duas opções de ambiente para executar os exemplos neste guia:
+Você tem três opções de ambiente para executar os exemplos neste guia:
 
 * Você pode executar o código em uma conta de Armazenamento do Azure na nuvem. 
 * Você pode executar o código em uma conta do Azure Cosmos DB.

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 245bd348b9eb5b434360d734e219efd7c663a406
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d7abfd1ac6f914c75297ff49462590e5b6169dbd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310007"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas Frequentes
 
@@ -254,15 +255,37 @@ Permita que o servidor Web envie telemetria para os pontos de extremidade https:
 
 ### <a name="proxy"></a>Proxy
 
-Encaminhar o tráfego de seu servidor para um gateway na sua intranet, configurando-o em ApplicationInsights.config:
+Encaminhar o tráfego de seu servidor para um gateway na sua intranet, sobrescrevendo essas configurações no exemplo ApplicationInsights.config. Se essas propriedades de "Ponto de extremidade" não estão presentes na sua configuração, essas classes usarão os valores padrão mostrados no exemplo a seguir.
 
-```XML
-<TelemetryChannel>
-    <EndpointAddress>your gateway endpoint</EndpointAddress>
-</TelemetryChannel>
+#### <a name="example-applicationinsightsconfig"></a>Exemplo ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <TelemetryChannel>
+         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+    </TelemetryChannel>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
 ```
 
-O gateway deve rotear o tráfego para https://dc.services.visualstudio.com:443/v2/track
+_Observe que ApplicationIdProvider está disponível a partir do v2.6.0_
+
+O gateway deve rotear o tráfego para https://dc.services.visualstudio.com:443
+
+Substitua os valores acima por: `http://<your.gateway.address>/<relative path>`
+ 
+Exemplo: 
+```
+http://<your.gateway.endpoint>/v2/track 
+http://<your.gateway.endpoint>/api/profiles/{0}/apiId
+```
+
+
+
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>É possível executar testes na Web de Disponibilidade em um servidor de intranet?
 

@@ -11,11 +11,12 @@ ms.workload: Active
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 37bbbf8ea5a5d8439b300d0740e4f1a048e98e91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189061"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre backups automáticos de Banco de Dados SQL
 
@@ -44,8 +45,11 @@ Os backups de banco de dados completos ocorrem semanalmente, os backups de banco
 A replicação geográfica do armazenamento de backup ocorre com base no agendamento de replicação do Armazenamento do Azure.
 
 ## <a name="how-long-do-you-keep-my-backups"></a>Por quanto tempo meus backups são armazenados?
-Cada backup do Banco de Dados SQL tem um período de retenção que se baseia na [camada de serviço](sql-database-service-tiers.md) do banco de dados. O período de retenção para um banco de dados na:
+Cada backup de Banco de Dados SQL tem um período de retenção com base na camada de serviço do banco de dados e faz a diferenciação entre o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md). 
 
+
+### <a name="database-retention-for-dtu-based-purchasing-model"></a>Retenção de banco de dados para o modelo de compra baseado em DTU.
+O período de retenção para um banco de dados no modelo de compra baseado em DTU depende da camada de serviço. O período de retenção para um banco de dados para a:
 
 * A camada de serviço Básico é de 7 dias.
 * Camada de serviço Standard é de 35 dias.
@@ -63,7 +67,13 @@ Se você excluir um banco de dados, o Banco de Dados SQL manterá os backups da 
 
 > [!IMPORTANT]
 > Se você excluir o SQL Server do Azure que hospeda Bancos de Dados SQL, todos os bancos de dados que pertencem a esse servidor também serão excluídos e não poderão ser recuperados. Você não pode restaurar um servidor excluído.
-> 
+
+### <a name="database-retention-for-the-vcore-based-purchasing-model-preview"></a>Retenção de banco de dados para o modelo de compra baseado em vCore (versão prévia)
+
+O armazenamento para backups de banco de dados é alocado para dar suporte aos recursos PITR (Recuperação Pontual) e LTR (Retenção em Longo Prazo) do Banco de Dados SQL. Esse armazenamento é alocado separadamente para cada banco de dados e cobrado como dois encargos separados por banco de dados. 
+
+- **PITR**: os backups de banco de dados individuais são copiados para o armazenamento RA-GRS automaticamente. O tamanho do armazenamento aumenta dinamicamente conforme os novos backups são criados.  O armazenamento é usado por backups completos semanais, backups diferenciais diários e backups de log de transações copiados a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração do banco de dados e do período de retenção. É possível configurar um período de retenção separado para cada banco de dados entre 7 e 35 dias. Um valor de armazenamento mínimo igual a 1x de tamanho de dados é fornecido sem nenhum custo adicional. Para a maioria dos bancos de dados, esse valor é suficiente para armazenar 7 dias de backups. Para obter mais informações, consulte [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **LTR**: o Banco de Dados SQL oferece a opção de configurar a retenção em longo prazo de backups completos por até 10 anos. Se a política de LTR estiver habilitada, esses backups serão armazenados no armazenamento RA-GRS automaticamente, mas você poderá controlar com que frequência os backups serão copiados. Para atender a diferentes requisitos de conformidade, é possível selecionar diferentes períodos de retenção para backups semanais, mensais e/ou anuais. Essa configuração definirá quanto armazenamento será usado para os backups de LTR. É possível usar a calculadora de preços de LTR para estimar o custo do armazenamento LTR. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Como estender o período de retenção de backup?
 

@@ -1,25 +1,26 @@
 ---
-title: "Implantar e monitorar módulos do Azure IoT Edge | Microsoft Docs"
-description: "Gerenciar os módulos executados em dispositivos de borda"
+title: Implantar e monitorar módulos do Azure IoT Edge | Microsoft Docs
+description: Gerenciar os módulos executados em dispositivos de borda
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 6d024dfdd661d6bebe7d163b96659d6e169cc5cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33770599"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implantar e monitorar módulos do IoT Edge em escala – versão prévia
 
 O Azure IoT Edge possibilita mover a análise para a borda e fornece uma interface de nuvem, de modo que você possa gerenciar e monitorar seus dispositivos IoT Edge sem a necessidade de acessar cada um deles fisicamente. A capacidade de gerenciar dispositivos remotamente é cada vez mais importante, à medida que as soluções da Internet das Coisas ficam cada vez maiores e mais complexas. O Azure IoT Edge foi projetado para dar suporte a suas metas de negócios, independentemente de quantos dispositivos você adicionar.
 
-Gerencie dispositivos individuais e implante módulos neles um de cada vez. No entanto, se desejar fazer alterações nos dispositivos em grande escala, crie uma **implantação do IoT Edge**. Implantações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos ao mesmo tempo, acompanhar o status e a integridade dos módulos e fazer alterações, quando necessário. 
+Gerencie dispositivos individuais e implante módulos neles um de cada vez. No entanto, se você quiser fazer alterações em dispositivos em grande escala, você pode criar uma **implantação automática de IoT Edge**, que faz parte do gerenciamento de dispositivo automático no Hub IoT. Implantações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos ao mesmo tempo, acompanhar o status e a integridade dos módulos e fazer alterações, quando necessário. 
 
 ## <a name="identify-devices-using-tags"></a>Identificar dispositivos usando marcações
 
@@ -149,7 +150,7 @@ Para modificar uma implantação, use as seguintes etapas:
    * Condição de destino 
    * Rótulos 
    * Prioridade 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Siga as etapas em [Monitorar uma implantação][anchor-monitor] para observar as alterações serem distribuídas. 
 
 ## <a name="delete-a-deployment"></a>Excluir uma implantação
