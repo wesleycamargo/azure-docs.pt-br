@@ -4,15 +4,15 @@ description: Leia um white paper de visão geral sobre como migrar seus data cen
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 04/08/2018
+ms.topic: conceptual
+ms.date: 04/21/2018
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: be322596da0c3e5ba18aa64285c437cdb823fc4b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8ba490998ea5f20efca591327716a6e39e9c1ba8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32167748"
 ---
 # <a name="migrating-your-on-premises-workloads-to-azure"></a>Migrando as cargas de trabalho locais para o Azure
 
@@ -27,11 +27,11 @@ Esta série de artigos de migração mostra como planejar e criar uma estratégi
 
 **Cenário** | **Solução** | **Serviços** | **Artigo** 
 --- | --- | --- | ---
-[Cenário 1: detecção e avaliação](migrate-scenarios-assessment.md) | Descobrir e avaliar aplicativos e dados locais que devem ser migrados para o Azure | Assistente de Migração de Dados, serviço Migrações para Azure  | Disponível agora
-**Cenário 2: migração fácil** | Servir de host novamente para aplicativos internos no Azure. Otimize no Azure após a migração. | Azure Site Recovery, Serviço de Migração de Banco de Dados do Azure, Instância Gerenciada SQL do Azure | Disponível agora
-**Cenário 3: refatorar e migrar** | Modernizar e refatorar aplicativos de cliente locais durante a migração para o Azure. | Em planejamento | Planejado
-**Cenário 4: refazer a arquitetura e migrar** | Refazer a arquitetura e migrar sites transacionais do cliente durante a migração para o Azure. | Em planejamento | Planejado
-**Cenário 5: recompilar** |Recriar e migrar o aplicativo e os dados do cliente para o Azure | Em planejamento | Planejado
+[Cenário 1: detecção e avaliação](migrate-scenarios-assessment.md) | Descobrir e avaliar aplicativos, dados e infraestruturas locais que devem ser migrados para o Azure | Assistente de Migração de Dados, serviço Migrações para Azure  | Disponível agora
+**[Cenário 2: hospedar novamente o aplicativo](migrate-scenarios-lift-and-shift.md)** | Migrar aplicativos para o Azure. | Azure Site Recovery, Serviço de Migração de Banco de Dados do Azure, Instância Gerenciada SQL do Azure | Disponível agora
+**Cenário 3: refatorar o aplicativo** | Refatorar aplicativos durante a migração para o Azure. | Em planejamento | Planejado
+**Cenário 3: refazer a arquitetura do aplicativo** | Refazer a arquitetura de aplicativos durante a migração para o Azure. | Em planejamento | Planejado
+**Cenário 5: recompilar o aplicativo** |Recompilar aplicativos durante a migração para o Azure. | Em planejamento | Planejado
 
 
 

@@ -3,20 +3,20 @@ title: Solucionar problemas de erros de exclusão de recursos de armazenamento e
 description: Como solucionar problemas ao excluir os recursos de armazenamento que contém o VHDs anexados.
 keywords: conexão ssh recusada, erro de ssh, ssh do azure, falha de conexão SSH
 services: virtual-machines-windows
-author: genlin
-manager: cshepard
+author: tamram
+manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: genli
-ms.openlocfilehash: ba2876919540d4d6c0853ca1e8bf0d88855b951b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: tamram
+ms.openlocfilehash: 21ae23fafa3a4a7787bae5424babf70ef928c8da
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364532"
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779621"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solucionar problemas de erros de exclusão de recursos de armazenamento
 

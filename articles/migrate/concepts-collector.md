@@ -4,14 +4,15 @@ description: Fornece uma visão geral do dispositivo Coletor e como configurá-l
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 05/03/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99f34bce942626cd931c9270192766cc76105f5b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777824"
 ---
 # <a name="collector-appliance"></a>Dispositivo Coletor
 
@@ -89,7 +90,7 @@ O Coletor deve ser sincronizado com o servidor de horário de internet para gara
 
 O serviço Coletor de Migrações para Azure deve estar em execução na máquina. Esse serviço é iniciado automaticamente quando o computador é inicializado. Se o serviço não estiver em execução, você poderá iniciar o serviço do *Coletor de Migrações para Azure* por meio do painel de controle. O serviço do Coletor é responsável pela conexão com o servidor vCenter, pela coleta dos metadados e dos dados de desempenho do computador e pelo seu envio ao serviço.
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5 
+### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
 
 O módulo do powershell do VMware PowerCLI precisa ser instalado para que o Coletor possa se comunicar com o servidor do vCenter e consultar os detalhes do computador e seus dados de desempenho. O módulo do powershell é baixado e instalado automaticamente como parte da verificação de pré-requisito. O download automático requer algumas URLs na lista de permissões. Em caso de falha, será necessário fornecer acesso colocando-as na lista de permissões ou instalando o módulo manualmente.
 
@@ -103,7 +104,7 @@ Instale o módulo manualmente seguindo estas etapas:
 
 O Coletor deve se conectar ao vCenter Server e ser capaz de consultar as máquinas virtuais, seus metadados e seus contadores de desempenho. Esses dados são usados pelo projeto para calcular uma avaliação.
 
-1. Para se conectar ao vCenter Server, uma conta somente leitura com permissões conforme indicado na tabela a seguir pode ser usada para executar a descoberta. 
+1. Para se conectar ao vCenter Server, uma conta somente leitura com permissões conforme indicado na tabela a seguir pode ser usada para executar a descoberta.
 
     |Tarefa  |Função/conta necessária  |Permissões  |
     |---------|---------|---------|
@@ -118,13 +119,13 @@ O Coletor deve se conectar ao vCenter Server e ser capaz de consultar as máquin
 > Somente o vCenter Server versões 5.5, 6.0 e 6.5 têm suporte oficialmente.
 
 > [!IMPORTANT]
-> Recomendamos que você defina o nível mais alto comum (3) como o nível de estatísticas para que todos os contadores sejam coletados corretamente. Se você tiver definido o vCenter em um nível inferior, apenas alguns contadores poderão ser coletados completamente e o restante deles será definido como 0. A avaliação poderá então mostrar dados incompletos. 
+> Recomendamos que você defina o nível mais alto comum (3) como o nível de estatísticas para que todos os contadores sejam coletados corretamente. Se você tiver definido o vCenter em um nível inferior, apenas alguns contadores poderão ser coletados completamente e o restante deles será definido como 0. A avaliação poderá então mostrar dados incompletos.
 
 ### <a name="selecting-the-scope-for-discovery"></a>Seleção do escopo para descoberta
 
 Após a conexão com o vCenter, você poderá selecionar um escopo de descoberta. Selecionar um escopo resulta na descoberta de todas as máquinas virtuais do caminho especificado do estoque do vCenter.
 
-1. O escopo pode ser um datacenter, uma pasta ou um host ESXi. 
+1. O escopo pode ser um datacenter, uma pasta ou um host ESXi.
 2. Você só pode selecionar um escopo de cada vez. Para selecionar mais máquinas virtuais, você pode concluir uma descoberta e reiniciar o processo de descoberta com um novo escopo.
 3. Você só pode selecionar um escopo que tenha *menos de 1500 máquinas virtuais*.
 
@@ -141,14 +142,15 @@ Depois de iniciada a descoberta, as máquinas virtuais do vCenter serão descobe
 
 ### <a name="what-data-is-collected"></a>Quais dados são coletados?
 
-O trabalho de coleta descobre os seguintes metadados estáticos sobre as máquinas virtuais selecionadas. 
+O trabalho de coleta descobre os seguintes metadados estáticos sobre as máquinas virtuais selecionadas.
 
 1. Nome de exibição da VM (no vCenter)
 2. Caminho de inventário da VM (host/pasta no vCenter)
 3. Endereço IP
 4. Endereço MAC
+5. Sistema operacional
 5. Número de núcleos, discos, NICs
-6. RAM, tamanhos de disco
+6. Tamanho da memória, tamanhos de disco
 7. E contadores de desempenho de VM, disco e rede, conforme listado na tabela a seguir.
 
 A tabela a seguir lista os contadores de desempenho que são coletados e também lista os resultados da avaliação que serão afetados se um determinado contador não for coletado.
@@ -190,7 +192,7 @@ Também recomendamos as seguintes etapas para proteger seu dispositivo
 2. Para garantir que o hotfix baixado é seguro, abra a janela de comando do Administrador e execute o comando a seguir para gerar o hash do arquivo ZIP. O hash gerado deve corresponder ao hash mencionado em relação à versão específica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
+
     (exemplo de uso C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
 3. Copie o arquivo zip para a máquina virtual do Coletor de Migrações para Azure (dispositivo do coletor).
 4. Clique com o botão direito do mouse no arquivo zip e selecione Extrair Tudo.

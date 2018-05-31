@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 77fac23286d536903e32140b554304e72c16097f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b2660a98139068a8472c018de5cfbd29d6867c5a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778487"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexação de documentos no Armazenamento de Blobs do Azure com o Azure Search
 Este artigo mostra como usar o Azure Search para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar.
@@ -49,7 +50,7 @@ Para a indexação de blobs, a fonte de dados deve ter as seguintes propriedades
 
 Para criar uma fonte de dados:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +82,7 @@ O índice especifica os campos em um documento, atributos e outras construções
 
 Veja como criar um índice com um campo `content` pesquisável para armazenar o texto extraído dos blobs:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +101,7 @@ Um indexador conecta uma fonte de dados a um índice de pesquisa de destino e fo
 
 Uma vez que o índice e a fonte de dados forem criados, será possível criar o indexador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -171,7 +172,7 @@ Para este exemplo, vamos escolher o campo `metadata_storage_name` como a chave d
 
 Para unir tudo isso, veja como você pode adicionar mapeamentos de campo e habilitar a codificação das chaves em base-64 para um indexador existente:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -197,7 +198,7 @@ Para unir tudo isso, veja como você pode adicionar mapeamentos de campo e habil
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexe apenas os blobs com extensões de arquivo específicas
 Você pode indexar apenas os blobs com as extensões do nome de arquivo especificadas usando o parâmetro de configuração do indexador `indexedFileNameExtensions`. O valor é uma cadeia de caracteres que contém uma lista separada por vírgulas das extensões de arquivo (com um ponto à esquerda). Por exemplo, para indexar apenas blobs de .PDF e .DOCX, faça o seguinte:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -209,7 +210,7 @@ Você pode indexar apenas os blobs com as extensões do nome de arquivo especifi
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Excluir blobs com extensões de arquivo específicas
 Você pode excluir os blobs com extensões do nome de arquivo específicas da indexação usando o parâmetro de configuração `excludedFileNameExtensions`. O valor é uma cadeia de caracteres que contém uma lista separada por vírgulas das extensões de arquivo (com um ponto à esquerda). Por exemplo, para indexar todos os blobs, exceto aqueles com as extensões .PNG e .JPEG, faça o seguinte:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -231,7 +232,7 @@ Você pode controlar quais partes dos blobs são indexadas usando o parâmetro d
 
 Por exemplo, para indexar apenas os metadados de armazenamento, use:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -254,7 +255,7 @@ Os parâmetros de configuração descritos acima se aplicam a todos os blobs. À
 
 Por padrão, o indexador de blobs é interrompido assim que encontra um blob com um tipo de conteúdo sem suporte (por exemplo, uma imagem). Evidentemente, você pode usar o parâmetro `excludedFileNameExtensions` para ignorar alguns tipos de conteúdo. No entanto, talvez você precise indexar blobs sem conhecer todos os possíveis tipos de conteúdo com antecedência. Para continuar a indexação quando um tipo de conteúdo sem suporte é encontrado, defina o parâmetro de configuração `failOnUnsupportedContentType` como `false`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -292,7 +293,7 @@ Para dar suporte à exclusão de documentos, use uma abordagem de "exclusão rev
 
 Por exemplo, a política a seguir considerará que um blob foi excluído se tiver uma propriedade de metadados `IsDeleted` com o valor `true`:
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -339,7 +340,7 @@ Para que isso funcione, todos os indexadores e outros componentes precisam conco
 
 Se todos os seus blobs contiverem texto sem formatação na mesma codificação, você poderá melhorar significativamente o desempenho de indexação usando o **modo de análise de texto**. Para usar o modo de análise de texto, defina a propriedade de configuração `parsingMode` como `text`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
