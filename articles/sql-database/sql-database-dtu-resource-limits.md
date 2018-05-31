@@ -9,11 +9,12 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 6602a4ab8f6081c1b96c7da3bc94291d05d79862
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fb5c2e16e696ba9eecf4346a0c4e7bc05aacf39f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194740"
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Limites de recursos baseados em DTU do Banco de Dados SQL do Azure
 
@@ -32,7 +33,6 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 | Opções de espaço de armazenamento máximo (GB) | 2 |
 | Armazenamento máximo OLTP na memória (GB) |N/D |
 | Máximo de trabalhos simultâneos (solicitações) | 30 |
-| Máximo de logons simultâneos | 30 |
 | Máximo de sessões simultâneas | 300 |
 |||
 
@@ -44,7 +44,6 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 | Opções de espaço de armazenamento máximo (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |
 | Máximo de trabalhos simultâneos (solicitações)| 60 | 90 | 120 | 200 |
-| Máximo de logons simultâneos | 60 | 90 | 120 | 200 |
 | Máximo de sessões simultâneas |600 | 900 | 1.200 | 2400 |
 ||||||
 
@@ -56,7 +55,6 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 | Opções de espaço de armazenamento máximo (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |N/D |
 | Máximo de trabalhos simultâneos (solicitações)| 400 | 800 | 1600 | 3200 |6000 |
-| Máximo de logons simultâneos | 400 | 800 | 1600 | 3200 |6000 |
 | Máximo de sessões simultâneas |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
@@ -68,15 +66,14 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 | Opções de espaço de armazenamento máximo (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
 | Armazenamento máximo OLTP na memória (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Máximo de trabalhos simultâneos (solicitações)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Máximo de logons simultâneos | 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Máximo de sessões simultâneas | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
 
 > [!IMPORTANT]
-> \* Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+> - Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Central do Canadá, Leste do Canadá, Centro dos EUA, França Central, Centro da Alemanha, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> - Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, EUA Central, França Central, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, US Gov – Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
 
@@ -140,7 +137,6 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 | Armazenamento máximo OLTP na memória por pool (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
 | Número máximo de BDs por pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhos simultâneos (solicitações) por pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Máximo de logons simultâneos por pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
 | Opções de mínimo de eDTUs por banco de dados | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | Opções de máximo de eDTUs por banco de dados | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
@@ -156,7 +152,6 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 | Armazenamento máximo OLTP na memória por pool (GB) | N/D | N/D | N/D | N/D | N/D | N/D | 
 | Número máximo de BDs por pool | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Máximo de trabalhos simultâneos (solicitações) por pool | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Máximo de logons simultâneos por pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opções de mínimo de eDTUs por banco de dados | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Opções de máximo de eDTUs por banco de dados | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
@@ -172,7 +167,6 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 | Armazenamento máximo OLTP na memória por pool (GB) | N/D | N/D | N/D | N/D | N/D | 
 | Número máximo de BDs por pool | 500 | 500 | 500 | 500 | 500 | 
 | Máximo de trabalhos simultâneos (solicitações) por pool | 2400 | 3200 | 4000 | 5.000 | 6000 |
-| Máximo de logons simultâneos por pool | 2400 | 3200 | 4000 | 5.000 | 6000 |
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Opções de mínimo de eDTUs por banco de dados | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Opções de máximo de eDTUs por banco de dados | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
@@ -188,7 +182,6 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 | Armazenamento máximo OLTP na memória por pool (GB) | 1 | 2 | 4 | 10 | 12 | 
 | Número máximo de BDs por pool | 50 | 100 | 100 | 100 | 100 | 
 | Máximo de trabalhos simultâneos por pool (solicitações) | 200 | 400 | 800 | 1600 | 2400 | 
-| Máximo de logons simultâneos por pool | 200 | 400 | 800 | 1600 | 2400 |
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Mínimo de eDTUs por banco de dados | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
 | Máximo de eDTUs por banco de dados | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
@@ -204,7 +197,6 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 | Armazenamento máximo OLTP na memória por pool (GB) | 16 | 20 | 24 | 28 | 32 |
 | Número máximo de BDs por pool | 100 | 100 | 100 | 100 | 100 | 
 | Máximo de trabalhos simultâneos (solicitações) por pool | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Máximo de logons simultâneos por pool | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Opções de mínimo de eDTUs por banco de dados | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
 | Opções de máximo de eDTUs por banco de dados | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
@@ -212,9 +204,9 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 ||||||||
 
 > [!IMPORTANT]
-> \* Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+> -  Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Central do Canadá, Leste do Canadá, Centro dos EUA, França Central, Centro da Alemanha, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> -  Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, EUA Central, França Central, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, US Gov - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 >
 
 Se todas as DTUs de um pool elástico forem usadas, cada banco de dados no pool receberá uma quantidade igual de recursos para processar as consultas. O serviço de Banco de Dados SQL fornece integridade de compartilhamento de recursos entre os bancos de dados ao garantir fatias iguais de tempo de computação. A integridade de compartilhamento de recursos do pool elástico é adicional a qualquer quantidade de recursos garantidos de outra forma a cada banco de dados quando o mínimo de DTUs por banco de dados é definido com um valor diferente de zero.

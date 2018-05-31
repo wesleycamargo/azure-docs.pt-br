@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 94b3c1e812bdf3345d5fb1f7308fb7a55be8f922
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771357"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -28,11 +29,13 @@ ms.lasthandoff: 03/29/2018
 > [!NOTE]
 > Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [monitorar e gerenciar pipelines do Data Factory na versão 2](../monitor-visually.md).
 
+Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o portal do Azure e o PowerShell.
+
 > [!IMPORTANT]
 > O aplicativo de monitoramento e gerenciamento fornece um melhor suporte para monitorar e gerenciar seus pipelines de dados e solucionar os problemas. Para obter detalhes sobre como usar o aplicativo, consulte [Monitorar e gerenciar os pipelines do Data Factory usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md). 
 
-
-Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o portal do Azure e o PowerShell.
+> [!IMPORTANT]
+> O Azure Data Factory versão 1 agora usa a nova [infraestrutura de alerta do Azure Monitor](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). A infraestrutura de alerta antiga foi preterida. Como resultado, os alertas existentes configurados para data factories versão 1 deixará de funcionar. Os alertas existentes para data factories v1 não são migrados automaticamente. Você precisa recriar esses alertas na nova infraestrutura de alerta. Faça logon no portal do Azure e selecione **Monitor** para criar novos alertas em métricas (como execuções com falha ou execuções com êxito) para a data factories versão 1.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Entenda os pipelines e os estados de atividade
 No Portal do Azure, você pode:
@@ -45,7 +48,7 @@ Esta seção também descreve como uma fatia do conjunto de dados faz a transiç
 
 ### <a name="navigate-to-your-data-factory"></a>Navegue até sua data factory
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Data factories** no menu à esquerda. Se você não o vir, clique em **Mais serviços >**e clique em **Data factories** na categoria **INTELIGÊNCIA + ANÁLISE**.
+2. Clique em **Data factories** no menu à esquerda. Se você não o vir, clique em **Mais serviços >** e clique em **Data factories** na categoria **INTELIGÊNCIA + ANÁLISE**.
 
    ![Procurar tudo > Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Na folha **Data factories**, selecione o data factory no qual você está interessado.
@@ -196,7 +199,8 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## <a name="debug-pipelines"></a>Depurar pipelines
 O Azure Data Factory fornece recursos avançados para depurar e solucionar problemas com pipelines usando do Portal do Azure e o Azure PowerShell.
 
-> [!NOTE] É muito mais fácil resolver erros usando o Aplicativo de Monitoramento e Gerenciamento. Para obter detalhes sobre como usar o aplicativo, consulte o artigo [Monitorar e gerenciar os pipelines do Data Factory usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md). 
+> [!NOTE] 
+> É muito mais fácil resolver erros usando o Aplicativo de Monitoramento e Gerenciamento. Para obter detalhes sobre como usar o aplicativo, consulte o artigo [Monitorar e gerenciar os pipelines do Data Factory usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md). 
 
 ### <a name="find-errors-in-a-pipeline"></a>Localizar erros em um pipeline
 Se a execução da atividade falhar em um pipeline, o conjunto de dados produzido pelo pipeline ficará em um estado de erro devido à falha. Você pode depurar e solucionar erros no Azure Data Factory usando os seguintes métodos.
@@ -296,6 +300,35 @@ UpdateType é definido como UpstreamInPipeline, o que significa que o status de 
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
+## <a name="create-alerts-in-the-azure-portal"></a>Criar alertas no portal do Azure
+
+1.  Faça logon no portal do Azure e selecione **Monitor -> alertas** para abrir a página Alertas.
+
+    ![Abra a página Alertas.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+
+2.  Selecione **+ Nova regra de alerta** para criar um novo alerta.
+
+    ![Criar um novo alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+
+3.  Definir a **Condição de alerta**. (Certifique-se de selecionar **Data factories** no campo **Filtrar por tipo de recurso**.) Você também pode especificar valores para **Dimensões**.
+
+    ![Definir a condição de alerta - Selecionar destino](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+
+    ![Definir a condição de alerta - Adicionar critérios de alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+
+    ![Definir a condição de alerta - Adicionar lógica de alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+
+4.  Defina os **detalhes do Alerta**.
+
+    ![Defina os Detalhes do Alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+
+5.  Defina o **Grupo de Ação**.
+
+    ![Definir o Grupo de Ação - criar um novo Grupo de Ação](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+
+    ![Definir o Grupo de Ação - definir prioridades](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+
+    ![Definir o Grupo de Ação - novo grupo de ação criado](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Mover um data factory para outro grupo de recursos ou assinatura
 Você pode mover um data factory para outro grupo de recursos ou assinatura diferente usando o botão **Mover** da barra de comandos na home page do seu data factory.
