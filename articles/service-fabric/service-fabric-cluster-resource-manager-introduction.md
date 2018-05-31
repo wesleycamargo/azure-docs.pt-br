@@ -1,24 +1,25 @@
 ---
-title: "Introdução ao Resource Manager de Cluster do Service Fabric | Microsoft Docs"
-description: "Uma introdução ao Gerenciador de Recursos de Cluster do Service Fabric."
+title: Introdução ao Resource Manager de Cluster do Service Fabric | Microsoft Docs
+description: Uma introdução ao Gerenciador de Recursos de Cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3e8cd4dc8e960e38ba0e4a9a195b2f61d9ec1924
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f25a422385abfcdb7020eb7477c0ae2ee55cd8fb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210589"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introdução ao Gerenciador de Recursos de Cluster do Service Fabric
 Tradicionalmente, gerenciar sistemas de TI ou serviços online significava dedicar computadores ou máquinas virtuais específicas a esses serviços ou sistemas específicos. Os serviços foram projetados como camadas. Deveria haver uma camada da "Web" e uma camada de "dados" ou "armazenamento". Os aplicativos teriam uma camada de mensagens, em que solicitações de entrada e de saída fluíam, bem como um conjunto de computadores dedicados ao cache. Cada camada ou tipo de carga de trabalho tinha computadores específicos dedicados: o banco de dados tinha dois computadores dedicados a ele, enquanto os servidores Web contavam com alguns. Se um tipo específico de carga de trabalho fizesse com que os computadores em que ele estava tivessem utilização alta demais, você adicionaria mais computadores com a mesma configuração a essa camada. No entanto, nem todas as cargas de trabalho podiam ser dimensionadas tão facilmente – especialmente com a camada de dados, normalmente você substituiria os computadores por computadores maiores. Fácil. Se uma máquina falhava, essa parte do aplicativo geral era executada com menor capacidade até que o computador pudesse ser restaurado. Ainda assim, relativamente fácil (mesmo que não necessariamente divertido).
@@ -43,7 +44,7 @@ O Gerenciador de Recursos de Cluster é o componente de sistema que lida com a o
 2. Otimização do seu ambiente
 3. Ajudando com outros processos
 
-Para ver como o Cluster Resource Manager funciona, assista ao seguinte vídeo do Microsoft Virtual Academy:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
+Para ver como o Gerenciador de Recursos do Cluster funciona, assista ao seguinte vídeo do Microsoft Virtual Academy:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
 <img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 

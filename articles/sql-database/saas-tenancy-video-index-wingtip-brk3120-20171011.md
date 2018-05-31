@@ -2,20 +2,21 @@
 title: Vídeo indexado, aplicativo SQL Saas do Azure | Microsoft Docs
 description: Este artigo indexa várias marcações de tempo em nosso vídeo de 81 minutos sobre o design do aplicativo de locação SaaS BD, da conferência Ignite que ocorreu em 11 de outubro de 2017. Você pode pular o vídeo para a parte de seu interesse. Pelo menos 3 padrões são descritos. São descritos recursos do Azure que simplificam o desenvolvimento e o gerenciamento.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 05/14/2018
 ms.service: sql-database
 ms.reviewer: billgib
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.openlocfilehash: 7dcd4681833f227f32534ae3053b7b482bb813bc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4ea62855b61cb7439b19204564cbc2d7fcdbd0fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211286"
 ---
-# <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado e anotado para aplicativo SaaS multilocatário usando o Banco de Dados SQL do Azure
+# <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado e anotado para aplicativo SaaS multilocatário usando o Banco de Dados SQL do Azure
 
 Este artigo é um índice anotado para os locais de tempo de vídeo de 81 minutos sobre modelos de locação SaaS ou padrões. Este artigo permite que você avance ou recue o vídeo para a parte que for de seu interesse. O vídeo explica as principais opções de design para uma aplicação multilocatária no banco de dados SQL do Azure. O vídeo inclui demonstrações, explicações passo a passo sobre código de gerenciamento, e por vezes explicações mais detalhadas sobre experiências que podem estar em nossa documentação escrita.
 

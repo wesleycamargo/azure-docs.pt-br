@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 300367ee4e4bdb412bf4e5f25ba6cea067e18ed3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 341142222fb1440cf5118e6d10f5a254e73d53d9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258100"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
 
@@ -140,6 +141,15 @@ Essa configuração funciona com todos os navegadores. No entanto, para satisfaz
 #### <a name="chrome-support"></a>Suporte ao Chrome
 
 Para obter suporte ao Chrome, na **Atualização do Windows 10 para Criadores (versão 1703)** ou posterior, instale [essa extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Para implantar automaticamente essa extensão para os navegadores Chrome, crie a seguinte chave do registro:
+
+|    |    |
+|--- | ---|
+|Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+|NOME | 1 |
+|type | REG_SZ (String) |
+|Dados | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx
 
 Para obter suporte ao Chrome no **Windows 8.1 e 7**, crie a seguinte chave do registro:
 
