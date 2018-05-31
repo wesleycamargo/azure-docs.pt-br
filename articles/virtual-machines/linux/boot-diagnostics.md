@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 0183da348a515787d9382df6db3df8524d584d93
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 38cc806cb77af60cda10f3aeac2e5ed13b445b8c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941846"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Como usar o diagnóstico de inicialização para solucionar problemas de máquinas virtuais Linux no Azure
 
@@ -44,13 +45,18 @@ Esses dois recursos têm suporte em máquinas virtuais do Azure em todas as regi
 - [Erros de FSTAB](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Habilitar o diagnóstico em uma nova máquina virtual
-1. Ao criar uma nova máquina virtual no Portal de Versão Prévia, selecione **Azure Resource Manager** no menu suspenso do modelo de implantação:
+1. Ao criar uma nova máquina virtual no Portal do Azure, selecione **Azure Resource Manager** no menu suspenso do modelo de implantação:
  
     ![Gerenciador de Recursos](./media/boot-diagnostics/screenshot3.jpg)
 
-2. Configure a opção de monitoramento para selecionar a conta de armazenamento em que você deseja colocar esses arquivos de diagnóstico.
+2. Em **Configurações**, habilite os **Diagnósticos de inicialização**e, em seguida, selecione uma conta de armazenamento que deseja colocar esses arquivos de diagnósticos.
  
-    ![Criar VM](./media/boot-diagnostics/screenshot4.jpg)
+    ![Criar VM](./media/boot-diagnostics/create-storage-account.png)
+
+    > [!NOTE]
+    > O recurso de diagnóstico de inicialização não oferece suporte à conta de armazenamento premium. Se você usar a conta de armazenamento premium para o diagnóstico de inicialização, você poderá receber o erro StorageAccountTypeNotSupported quando você iniciar a VM. 
+    >
+    > 
 
 3. Se você estiver implantando um modelo do Azure Resource Manager, navegue até seu recurso de máquina virtual e acrescente a seção de diagnóstico do perfil. Lembre-se de usar o cabeçalho de versão de API "2015-06-15".
 
@@ -74,11 +80,19 @@ Esses dois recursos têm suporte em máquinas virtuais do Azure em todas as regi
         }
     ```
 
-## <a name="update-an-existing-virtual-machine"></a>Atualizar uma máquina virtual existente
+Para implantar um exemplo de máquina virtual com o diagnóstico de inicialização habilitado, confira nosso repositório aqui.
 
-Para habilitar o diagnóstico de inicialização no portal, você também pode atualizar uma máquina virtual existente pelo portal. Selecione a opção Diagnóstico de inicialização e salve. Reinicie a VM para que entre em vigor.
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Habilitar o diagnóstico de inicialização na máquina virtual existente 
 
-![Atualizar VM existente](./media/boot-diagnostics/screenshot5.png)
+Para habilitar o diagnóstico de inicialização em uma máquina virtual existente, siga estas etapas:
+
+1. Faça logon no [portal do Azure](https://portal.azure.com) e selecione a máquina virtual.
+2. Em **Suporte + solução de problemas**, selecione **Diagnósticos de inicialização** > **Configurações**, altere o status para **Ligado**e, em seguida, selecione uma conta de armazenamento. 
+4. Verifique se a opção diagnóstico de inicialização está selecionada e, em seguida, salve as alterações.
+
+    ![Atualizar VM existente](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. Reinicie a VM para que entre em vigor.
 
 ## <a name="next-steps"></a>Próximas etapas
 
