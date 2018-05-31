@@ -13,6 +13,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31531048"
 ---
 A seguir, os cenários de alocação comuns que fazem com que uma solicitação de alocação seja fixada. Vamos nos aprofundar em cada cenário posteriormente neste artigo.
 
@@ -79,7 +80,7 @@ Se for aceitável usar um VIP diferente, exclua as VMs originais paradas (desalo
 ## <a name="stagingproduction-deployments-platform-as-a-service-only"></a>Implantações de preparo/produção (apenas plataforma como serviço)
 **Erro**
 
-New_General* ou New_VMSizeNotSupported*
+New_General* ou New_VMSizeNotSupported\*
 
 **Causa de fixação de cluster**
 
@@ -92,7 +93,7 @@ Exclua a primeira implantação e o serviço de nuvem original e reimplante o se
 ## <a name="affinity-group-vmservice-proximity"></a>Grupo de afinidades (proximidade de serviço/VM)
 **Erro**
 
-New_General* ou New_VMSizeNotSupported*
+New_General* ou New_VMSizeNotSupported\*
 
 **Causa de fixação de cluster**
 
@@ -105,7 +106,7 @@ Se um grupo de afinidades não for necessário, não use o grupo de afinidades o
 ## <a name="affinity-group-based-virtual-network"></a>Rede virtual com base em grupo de afinidade
 **Erro**
 
-New_General* ou New_VMSizeNotSupported*
+New_General* ou New_VMSizeNotSupported\*
 
 **Causa de fixação de cluster**
 

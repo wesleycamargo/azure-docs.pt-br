@@ -9,11 +9,12 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b4f8388fdf104253aad07de77e89c30df4e4b128
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195161"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias In-Memory no Banco de Dados SQL
 
@@ -43,7 +44,7 @@ O Banco de Dados SQL do Azure conta com as seguintes tecnologias em memória:
 
 Tanto os índices columnstore quanto o OLTP In-Memory integram o produto SQL Server desde 2012 e 2014, respectivamente. O Banco de Dados SQL do Azure e o SQL Server compartilham a mesma implementação de tecnologias In-Memory. Daqui em diante, os novos recursos para essas tecnologias serão lançados primeiro no Banco de Dados SQL do Azure, antes de serem lançados no SQL Server.
 
-Este tópico descreve aspectos do OLTP In-Memory e dos índices Columnstore específicos ao Banco de Dados SQL do Azure, além de também incluir exemplos:
+Este artigo descreve aspectos do OLTP In-Memory e dos índices Columnstore específicos ao Banco de Dados SQL do Azure, além de também incluir exemplos:
 - Você verá o impacto dessas tecnologias no armazenamento e dos limites de tamanho dos dados.
 - Você verá como gerenciar a movimentação dos bancos de dados que utilizam essas tecnologias entre os diferentes tipos de preço.
 - Você verá dois exemplos que ilustram o uso do OLTP In-Memory, bem como dos índices columnstore, no Banco de Dados SQL do Azure.
@@ -92,7 +93,7 @@ Com os pools elásticos, o armazenamento do OLTP in-memory é compartilhado entr
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Tamanho dos dados e armazenamento para índices columnstore
 
-Os índices columnstore não precisam caber na memória. Portanto, o único limite para o tamanho dos índices é o tamanho máximo do banco de dados geral, que está documentado no artigo [Camadas de serviço do Banco de Dados SQL](sql-database-service-tiers.md).
+Os índices columnstore não precisam caber na memória. Portanto, o único limite para o tamanho dos índices é o tamanho máximo do banco de dados geral, que está documentado nos artigos [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md).
 
 Ao usar os índices columnstore clusterizados, a compactação vertical é usada para o armazenamento de tabelas base. Essa compactação pode reduzir consideravelmente o volume de armazenamento dos dados do usuário, o que significa que você pode colocar mais dados no banco de dados. E a compactação pode ser ainda maior com a [compactação de arquivamento vertical](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). A quantidade de compactação que pode ser obtida depende da natureza dos dados, mas uma compactação de 10 vezes não é incomum.
 
@@ -223,8 +224,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 A única diferença entre os dois *procedimentos armazenados* a seguir é que o primeiro procedimento usa versões com otimização de memória das tabelas, enquanto o segundo procedimento usa as tabelas em disco regulares:
 
-- SalesLT**.**usp_InsertSalesOrder**_inmem**
-- SalesLT**.**usp_InsertSalesOrder**_ondisk**
+- SalesLT **.** usp_InsertSalesOrder **_inmem**
+- SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
 Nesta seção, você verá como usar o utilitário **ostress.exe** para executar os dois procedimentos armazenados em níveis estressantes. Você pode comparar quanto tempo as duas execuções demoram para serem concluídas.
