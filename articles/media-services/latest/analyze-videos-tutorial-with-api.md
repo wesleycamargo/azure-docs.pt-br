@@ -12,11 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 54c49645722b6545d8ae872151b9b82674d44523
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0fdc8c6dc9fae96a79e2ab2b05b7db3012834c1e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362287"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: Analisar vídeos com os Serviços de Mídia do Azure 
 
@@ -66,7 +67,7 @@ Para começar a usar a APIs de Serviços de Mídia do Azure com o .NET, é neces
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Criar um ativo de saída para armazenar o resultado de um trabalho 
 
-O ativo de saída armazena o resultado do seu trabalho. O projeto define a função **DownloadResults** que faz o download dos resultados desse ativo de saída para a pasta de "saída", para que você possa ver o que tem.
+O [Ativo](https://docs.microsoft.com/rest/api/media/assets) de saída armazena o resultado do seu trabalho. O projeto define a função **DownloadResults** que faz o download dos resultados desse ativo de saída para a pasta de "saída", para que você possa ver o que tem.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
@@ -76,7 +77,7 @@ Ao codificar ou processar o conteúdo nos Serviços de Mídia do Microsoft Azure
 
 #### <a name="transform"></a>Transformar
 
-Ao criar um novo exemplo de **Transformação**, você precisa especificar o que deseja produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**, como mostrado no código acima. Cada **TransformOutput** contém um **Predefinição**. **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que serão usadas para gerar o **TransformOutput** desejado. Neste exemplo, a predefinição **VideoAnalyzerPreset** é usada e o idioma ("en-US") é passado para o construtor. Esta predefinição permite extrair várias informações de áudio e vídeo de um vídeo. Você pode usar a predefinição **AudioAnalyzerPreset** se você precisa extrair as várias ideias de áudio de um vídeo. 
+Ao criar um novo exemplo de [Transformação](https://docs.microsoft.com/rest/api/media/transforms), você precisa especificar o que deseja produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**, como mostrado no código acima. Cada **TransformOutput** contém um **Predefinição**. **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que serão usadas para gerar o **TransformOutput** desejado. Neste exemplo, a predefinição **VideoAnalyzerPreset** é usada e o idioma ("en-US") é passado para o construtor. Esta predefinição permite extrair várias informações de áudio e vídeo de um vídeo. Você pode usar a predefinição **AudioAnalyzerPreset** se você precisa extrair as várias ideias de áudio de um vídeo. 
 
 Ao criar uma **Transformação**, você deverá verificar primeiro se já existe uma usando o método **Get**, conforme mostrado no código a seguir.  Em Serviços de Mídia v3, os métodos **Get** em entidades retornam **nulo** se a entidade não existe (uma verificação de maiúsculas e minúsculas no nome).
 
@@ -84,7 +85,7 @@ Ao criar uma **Transformação**, você deverá verificar primeiro se já existe
 
 #### <a name="job"></a>Trabalho
 
-Conforme mecionado acima, o objeto de **Transformação** é a receita e um **Trabalho** é a solicitação real para os Serviços de Mídia para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. O **Trabalho** especifica informações como o local da entrada vídeo e o local da saída. Você pode especificar o local do seu vídeo usando: URLs HTTPS, URLs da SAS ou ativos que estão em sua conta de Serviço de Mídia. 
+Conforme mecionado acima, o objeto de [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e um [Trabalho](https://docs.microsoft.com/en-us/rest/api/media/jobs) é a solicitação real para os Serviços de Mídia para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. O **Trabalho** especifica informações como o local da entrada vídeo e o local da saída. Você pode especificar o local do seu vídeo usando: URLs HTTPS, URLs da SAS ou ativos que estão em sua conta de Serviço de Mídia. 
 
 Neste exemplo, a entrada de trabalho é um vídeo local.  
 
@@ -92,7 +93,7 @@ Neste exemplo, a entrada de trabalho é um vídeo local.
 
 ### <a name="wait-for-the-job-to-complete"></a>Aguarde a conclusão do trabalho
 
-Este trabalho levará algum tempo para concluir e quando você desejar ser notificado. Há diferentes opções para ser notificado sobre a conclusão do trabalho. A opção mais simples (que é mostrada aqui) é usar a sondagem. 
+Este trabalho levará algum tempo para concluir e quando você desejar ser notificado. Há diferentes opções para ser notificado sobre a conclusão do [Trabalho](https://docs.microsoft.com/en-us/rest/api/media/jobs). A opção mais simples (que é mostrada aqui) é usar a sondagem. 
 
 Sondagem não é uma prática recomendada para aplicativos de produção devido à latência potencial. A sondagem pode ser acelerada, se houver uso excessivo em uma conta. Os desenvolvedores devem usar a Grade de Eventos.
 
@@ -104,7 +105,7 @@ O **Trabalho** normalmente passa pelos seguintes estados: **Agendado**, **Em fil
 
 ### <a name="download-the-result-of-the-job"></a>Faça o download do resultado do trabalho
 
-A função a seguir realiza os downloads dos resultados do ativo de saída para a pasta de "saída", para que você possa examinar os resultados do trabalho. 
+A função a seguir realiza os downloads dos resultados do [Ativo](https://docs.microsoft.com/rest/api/media/assets) de saída para a pasta de "saída", para que você possa examinar os resultados do trabalho. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 

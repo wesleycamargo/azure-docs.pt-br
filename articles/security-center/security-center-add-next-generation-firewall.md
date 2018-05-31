@@ -1,11 +1,11 @@
 ---
-title: "Adicionar um Firewall de Última Geração na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Adicionar um Firewall de Última Geração** e **Rotear o tráfego somente por meio do NGFW**."
+title: Adicionar um Firewall de Última Geração na Central de Segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar as recomendações da Central de Segurança do Azure para **Adicionar um Firewall de Última Geração** e **Rotear o tráfego somente por meio do NGFW**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f70cb03a26fd5bea7e1e034c653ece8e0b8c349
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363682"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Adicionar um Firewall de Última Geração na Central de Segurança do Azure
 A Central de Segurança do Azure pode recomendar que você adicione um firewall de última geração (NGFW) de um parceiro da Microsoft para aumentar suas proteções de segurança. Este documento guiará você por um exemplo de como fazer isso.
@@ -49,11 +50,11 @@ Volte para a folha **Recomendações** . Uma nova entrada foi gerada após a adi
    ![Rotear o tráfego apenas através do NGFW][7]
 2. Isso abrirá a folha **Rotear o tráfego somente por meio do NGFW**, que lista as VMs pelas quais você pode rotear o tráfego. Selecione uma VM na lista.
    ![Selecionar uma máquina virtual][8]
-3. Uma folha para a VM selecionada é aberta, exibindo as regras de entrada relacionadas. Uma descrição fornece a você mais informações sobre as próximas etapas possíveis. Selecione **Editar regras de entrada** para prosseguir com a edição de uma regra de entrada. A expectativa é que **Fonte** não esteja definido como **Qualquer** para os pontos de extremidade voltados para a Internet vinculados com o NGFW. Para saber mais sobre as propriedades da regra de entrada, consulte [Regras de NSG](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+3. Uma folha para a VM selecionada é aberta, exibindo as regras de entrada relacionadas. Uma descrição fornece a você mais informações sobre as próximas etapas possíveis. Selecione **Editar regras de entrada** para prosseguir com a edição de uma regra de entrada. A expectativa é que **Fonte** não esteja definido como **Qualquer** para os pontos de extremidade voltados para a Internet vinculados com o NGFW. Para saber mais sobre as propriedades da regra de entrada, consulte [regras de segurança](../virtual-network/security-overview.md#security-rules).
    ![Configurar regras para limitar o acesso][9]
    ![Editar regra de entrada][10]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 Este documento mostrou como implementar a recomendação da Central de Segurança para "Adicionar um Firewall de Última Geração". Para saber mais sobre NGFWs e a solução de parceiro da Check Point, consulte:
 
 * [Firewall de Última Geração](https://en.wikipedia.org/wiki/Next-Generation_Firewall)

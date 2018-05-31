@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: db847d5fa3d5f5b2b2f0293f1756226870a8b47e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7914bce6ca71b1b3f00c69fb6f33154f0f52dc7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362170"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerenciar aplicativos lógicos com Visual Studio
 
@@ -46,7 +47,7 @@ Embora seja possível criar, editar, gerenciar e implantar aplicativos lógicos 
     Você pode baixar e instalar as Ferramentas de Aplicativo Lógico do Azure diretamente do Visual Studio Marketplace ou aprender a <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank"> instalar essa extensão de dentro do Visual Studio</a>. 
     Reinicie o Visual Studio após concluir a instalação.
 
-* Acesso à Web ao usar o Designer do Aplicativo Lógico incorporado
+* Acesso à Web durante o uso do Designer de Aplicativos Lógicos inserido
 
   O Designer requer uma conexão de Internet para criar recursos no Azure e ler as propriedades e os dados dos conectores em seu aplicativo lógico. 
   Por exemplo, se você utilizar o conector do Dynamics CRM Online, o Designer verifica sua instância CRM para propriedades padrão e personalizadas disponíveis.
@@ -84,7 +85,7 @@ No Visual Studio, é possível abrir aplicativos lógicos previamente criados e 
 
   ![Abrir o aplicativo lógico implantado do Portal do Azure](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   Depois que o aplicativo lógico for aberto no 	Designer do Aplicativo Lógico, na parte inferior do designer será possível escolher **Exibir Código** para poder analisar a estrutura de definição de aplicativo lógico subjacente. 
+   Depois que o aplicativo lógico for aberto no Designer de Aplicativos Lógicos, na parte inferior do designer, você poderá escolher **Exibir Código** para examinar a estrutura de definição de aplicativo lógico subjacente. 
    Se você quiser criar um modelo de implantação para o aplicativo lógico, saiba [como baixar um modelo do Azure Resource Manager ](#download-logic-app) para esse aplicativo lógico. Saiba mais sobre [modelos do Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
 <a name="download-logic-app"></a>

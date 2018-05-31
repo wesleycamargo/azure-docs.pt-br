@@ -1,24 +1,21 @@
 ---
-title: Introdução ao Azure Data Lake Analytics usando o Portal do Azure | Microsoft Docs
-description: 'Saiba como usar o portal do Azure para criar uma conta do Data Lake Analytics, criar um trabalho do Data Lake Analytics usando o U-SQL e enviar o trabalho. '
+title: Introdução ao Azure Data Lake Analytics usando o Portal do Azure
+description: Saiba como usar o portal do Azure para criar uma conta do Data Lake Analytics, criar um trabalho do Data Lake Analytics usando o U-SQL e enviar o trabalho.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
+ms.author: saveenr
 manager: kfile
-editor: cgronlun
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-ms.author: saveenr
-ms.openlocfilehash: 34967a9853f907c61494e72229d75af1c625ea8f
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358278"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Introdução ao Azure Data Lake Analytics usando o Portal do Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -64,11 +61,11 @@ OUTPUT @a
 
 ## <a name="submit-a-u-sql-job"></a>Enviar um trabalho do U-SQL
 
-1. Na conta do Data Lake Analytics, clique em **Novo Trabalho**.
-2. Cole o texto do script U-SQL mostrado acima. 
-3. Clique em **Enviar Trabalho**.   
-4. Aguarde até que o status do trabalho seja alterado para **Êxito**.
-5. Clique na guia **Saída** e em `data.csv`. 
+1. Na conta do Data Lake Analytics, selecione **Novo Trabalho**.
+2. Cole o texto do script U-SQL anterior. Dê um nome para o trabalho. 
+3. Selecione o botão **Enviar** para iniciar o trabalho.   
+4. Monitore o **Status** do trabalho e aguarde até que o status do trabalho mude para **Bem-sucedido**.
+5. Selecione a guia **Dados** e, em seguida, selecione a guia **Saídas**. Selecione o arquivo de saída denominado `data.csv` e exiba os dados de saída.
 
 ## <a name="see-also"></a>Consulte também
 
