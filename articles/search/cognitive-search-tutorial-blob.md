@@ -9,11 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 023e55724124afb9c97d01540c6319a775681c84
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366742"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar cognitivas pesquisar APIs (visualização)
 
@@ -23,7 +24,7 @@ Neste tutorial, você deve fazer chamadas da API REST para executar as seguintes
 
 > [!div class="checklist"]
 > * Criar um pipeline de indexação que enriquece dados de origem em rota para um índice
-> * Usar o reconhecimento de entidade interna, a detecção de idioma, manipulação de texto e as habilidades de extração de frase-chave em um conjunto de dados de exemplo
+> * Usar qualificações internas nos dados de exemplo: o reconhecimento de entidade, a detecção de idioma, manipulação de texto e extração de frase-chave
 > * Saiba como encadear habilidades mapeando entradas para saídas em um conjunto de qualificações
 > * Executar solicitações e analisar resultados
 > * Redefinir o índice e indexadores para desenvolvimento futuro
@@ -42,7 +43,7 @@ Use o [portal do Azure](https://portal.azure.com/) para criar serviços usados e
 
 ### <a name="set-up-azure-search"></a>Configurar o Azure Search
 
-Primeiro, inscreva-se para o serviço do Azure Search. 
+Primeiro, inscreva-se no serviço do Azure Search. 
 
 1. Acesse o [Portal do Azure](https://portal.azure.com) e entre usando sua conta do Azure.
 
@@ -84,7 +85,7 @@ O pipeline de enriquecimento extrai de fontes de dados do Azure. Fonte de dados 
   A cadeia de conexão de armazenamento deve ser uma URL semelhante ao seguinte exemplo:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIabcd562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
       ```
 
 Existem outras maneiras de especificar a cadeia de caracteres de conexão, como fornecer uma assinatura de acesso compartilhado. Para saber mais sobre as credenciais de fonte de dados, consulte [indexação armazenamento de BLOBs do Azure](search-howto-indexing-azure-blob-storage.md#Credentials).

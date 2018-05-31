@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894214"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou excluir um Grupo de Segurança de Rede
 
@@ -34,6 +35,8 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 - Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial requer o módulo do Azure PowerShell versão 5.4.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.28 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
+A conta que você realizou o logon, ou conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
+
 ## <a name="work-with-network-security-groups"></a>Trabalhar com grupos de segurança de rede
 
 Você pode criar, [exibir todos](#view-all-network-security-groups), [exibir os detalhes](#view-details-of-a-network-security-group), [alterar](#change-a-network-security-group) e [excluir](#delete-a-network-security-group) um Grupo de Segurança de Rede. Você também pode [associar ou desassociar](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) um Grupo de Segurança de Rede de um adaptador de rede ou sub-rede.
@@ -44,7 +47,7 @@ Há um limite para o número de grupos de segurança de rede que podem ser criad
 
 1. No canto superior esquerdo do Portal, selecione **+ Criar um recurso**.
 2. Selecione **Redes** e selecione **Grupo de Segurança de Rede**.
-3. Insira um **Nome** para o Grupo de Segurança de Rede, selecione sua **Assinatura**, crie um novo **Grupo de recursos** ou escolha um grupo de recursos existente, escolha um **Local** e, em seguida, selecione **Criar**. 
+3. Insira um **Nome** para o Grupo de Segurança de Rede, selecione sua **Assinatura**, crie um novo **Grupo de recursos** ou escolha um grupo de recursos existente, escolha um **Local** e, em seguida, selecione **Criar**.
 
 **Comandos**
 
@@ -67,7 +70,7 @@ Na caixa de pesquisa na parte superior do portal, digite *grupos de segurança d
 3. Para saber mais sobre as configurações comuns do Azure listadas, veja as seguintes informações:
     *   [Log de atividade](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Controle de acesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-    *   [Marcas](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+    *   [Marcas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Bloqueios](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script de automação](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -211,7 +214,7 @@ Embora seja possível alterar algumas configurações como marcas e permissões 
 
 ### <a name="delete-an-application-security-group"></a>Excluir um grupo de segurança de aplicativo
 
-Não será possível excluir um grupo de segurança de aplicativo se ele tiver algum adaptador de rede associado. É necessário remover todos os adaptadores de rede do grupo de segurança de aplicativo alterando as configurações de adaptador de rede ou excluir os adaptadores de rede. Para ver mais detalhes, consulte [Adicionar ou remover um adaptador de rede de grupos de segurança de aplicativo](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) ou [Excluir um adaptador de rede](virtual-network-network-interface.md#delete-a-network-interface).
+Não será possível excluir um grupo de segurança de aplicativo se ele tiver algum adaptador de rede associado. Remova todos os adaptadores de rede do grupo de segurança de aplicativo alterando as configurações de adaptador de rede ou excluir os adaptadores de rede. Para ver mais detalhes, consulte [Adicionar ou remover um adaptador de rede de grupos de segurança de aplicativo](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) ou [Excluir um adaptador de rede](virtual-network-network-interface.md#delete-a-network-interface).
 
 **Comandos**
 
@@ -222,16 +225,31 @@ Não será possível excluir um grupo de segurança de aplicativo se ele tiver a
 
 Para executar tarefas em grupos de segurança de rede, regras de segurança e grupos de segurança de aplicativo, sua conta precisa estar atribuída à função de [colaborador da rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma função [personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) à qual são atribuídas as permissões apropriadas listadas na tabela a seguir:
 
-|Operação                                                       |   Nome da operação                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/ruleTables/read                              |   Obter Grupo de Segurança de Rede                              |
-|Microsoft.Network/ruleTables/write                             |   Criar ou atualizar um Grupo de Segurança de Rede                 |
-|Microsoft.Network/ruleTables/delete                            |   Excluir Grupo de Segurança de Rede                           |
-|Microsoft.Network/ruleTables/join/action                       |   Unir Grupo de Segurança de Rede                             |
-|Microsoft.Network/ruleTables/rules/read                       |   Obter regra                                    |
-|Microsoft.Network/ruleTables/rules/write                      |   Criar ou atualizar regra                       |
-|Microsoft.Network/ruleTables/rules/delete                     |   Excluir regra                                 |
-|Microsoft.Network/networkInterfaces/effectiveruleTable/action  |   Grupo de Segurança de Rede Obter adaptador de rede em vigor  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   Obtém o próximo salto de uma VM                  |
+### <a name="network-security-groups"></a>Grupos de segurança de rede
 
-A operação *Unir Grupo de Segurança de Rede* é necessária para associar um Grupo de Segurança de Rede a uma sub-rede.
+| Ação                                                        |   NOME                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/ruleTables/read                             |   Obter Grupo de Segurança de Rede                                          |
+| Microsoft.Network/ruleTables/write                            |   Criar ou atualizar um Grupo de Segurança de Rede                             |
+| Microsoft.Network/ruleTables/delete                           |   Excluir Grupo de Segurança de Rede                                       |
+| Microsoft.Network/ruleTables/join/action                      |   Associar um grupo de segurança de rede a uma interface de sub-rede ou rede |
+| Microsoft.Network/ruleTables/rules/read                       |   Obter regra                                                            |
+| Microsoft.Network/ruleTables/rules/write                      |   Criar ou atualizar regra                                               |
+| Microsoft.Network/ruleTables/rules/delete                     |   Excluir regra                                                         |
+| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Grupo de Segurança de Rede Obter adaptador de rede em vigor              |
+| Microsoft.Network/networkWatchers/nextHop/action              |   Obtém o próximo salto de uma VM                                         |
+
+### <a name="application-security-groups"></a>Grupos de segurança do aplicativo
+
+| Ação                                                                     | NOME                                                     |
+| --------------------------------------------------------------             | -------------------------------------------              |
+| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Entrar uma configuração IP a um grupo de segurança do aplicativo|
+| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Entrar em uma regra de segurança aos grupos de segurança de aplicativo    |
+| Microsoft.Network/applicationSecurityGroups/read                           | Obter um grupo de segurança de aplicativo                        |
+| Microsoft.Network/applicationSecurityGroups/write                          | Criar ou atualizar um grupo de segurança de aplicativo           |
+| Microsoft.Network/applicationSecurityGroups/delete                         | Excluir um grupo de segurança de aplicativo                     |
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Criar uma rede ou grupo de segurança do aplicativo usando [PowerShell](powershell-samples.md) ou os scripts de exemplo da [CLI do Azure](cli-samples.md) ou usando os modelos do [Azure Resource Manager](template-samples.md)
+- Criar e aplicar a [Política do Azure](policy-samples.md) para redes virtuais

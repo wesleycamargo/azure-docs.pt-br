@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 67ffe826ba13576578e8f09e36f84128f4ceb0f2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366487"
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Solucionar problemas de grupos de segurança de rede usando o Portal do Azure
 > [!div class="op_single_selector"]
@@ -30,9 +31,9 @@ ms.lasthandoff: 05/14/2018
 
 Se você configurou NSGs (grupos de segurança de rede) em sua VM (máquina virtual) e está tendo problemas de conectividade com a VM, este artigo fornece uma visão geral dos recursos de diagnóstico para NSGs a fim de ajudar a solucionar outros problemas.
 
-Os NSGs permitem que você controle os tipos de tráfego que fluem para dentro e fora de suas VMs (máquinas virtuais). Os NSGs podem ser aplicados a sub-redes em uma VNet (rede virtual) do Azure, à NIC (adaptadores de rede) ou ambas. As regras em vigor aplicadas a uma NIC são uma agregação das regras que existem nos NSGs aplicados a uma NIC e à sub-rede à qual ela está conectada. As regras nesses NSGs podem, às vezes, entrar em conflito umas com as outras e afetar a conectividade de rede de uma VM.  
+Os NSGs permitem que você controle os tipos de tráfego que fluem para dentro e fora de suas VMs (máquinas virtuais). Os NSGs podem ser aplicados a sub-redes em uma VNet (rede virtual) do Azure, à NIC (adaptadores de rede) ou ambas. As regras em vigor aplicadas a uma NIC são uma agregação das regras que existem nos NSGs aplicados a uma NIC e à sub-rede à qual ela está conectada. As regras nesses NSGs podem, às vezes, entrar em conflito umas com as outras e afetar a conectividade de rede de uma VM.
 
-Você pode ver todas as regras de segurança em vigor em seus NSGs, conforme aplicado nas NICs da sua VM. Este artigo mostra como solucionar problemas de conectividade da VM usando essas regras no modelo de implantação do Azure Resource Manager. Se você não estiver familiarizado com conceitos de VNet e NSG, leia os artigos de visão geral de [Rede virtual](virtual-networks-overview.md) e [Grupos de segurança de rede](virtual-networks-nsg.md).
+Você pode ver todas as regras de segurança em vigor em seus NSGs, conforme aplicado nas NICs da sua VM. Este artigo mostra como solucionar problemas de conectividade da VM usando essas regras no modelo de implantação do Azure Resource Manager. Caso não esteja familiarizado com os conceitos de VNET e NSG, confira [Visão geral da rede virtual](virtual-networks-overview.md) e [Visão geral dos grupos de segurança de rede](security-overview.md).
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>Usando regras de segurança em vigor para solucionar problemas de fluxo de tráfego da VM
 O cenário a seguir é um exemplo de um problema de conexão comum:
@@ -66,7 +67,7 @@ Você pode exibir uma lista completa das regras de segurança em vigor em uma NI
    * **Escopo:** defina a VM selecionada na etapa 3 como *VM1*.
    * **Adaptador de rede:** *VM1-NIC1* foi selecionado. Uma VM pode ter vários adaptadores de rede (NIC). Cada NIC pode ter regras de segurança em vigor únicas. Ao solucionar problemas, talvez seja necessário exibir as regras de segurança em vigor para cada NIC.
    * **NSGs associados:** os NSGs podem ser aplicados tanto à NIC quanto à sub-rede à qual a NIC está conectada. Na imagem, um NSG foi aplicado à NIC e à sub-rede na qual ela está conectada. Você pode clicar nos nomes do NSG para modificar diretamente as regras nos NSGs.
-   * **Guia VM1-nsg:** a lista de regras exibidas na imagem é para o NSG aplicado à NIC. Várias regras padrão são criadas pelo Azure sempre que um NSG é criado. Não é possível remover as regras padrão, mas você pode substituí-las por regras com prioridade mais alta. Para saber mais sobre regras padrão, leia o artigo [Visão geral do NSG](virtual-networks-nsg.md#default-rules) .
+   * **Guia VM1-nsg:** a lista de regras exibidas na imagem é para o NSG aplicado à NIC. Várias regras padrão são criadas pelo Azure sempre que um NSG é criado. Não é possível remover as regras padrão, mas você pode substituí-las por regras com prioridade mais alta. Saiba mais sobre as [regras de segurança padrão](security-overview.md#default-security-rules).
    * **Coluna DESTINO:** algumas regras têm texto na coluna, enquanto outras têm prefixos de endereço. O texto é o nome de marcações padrão aplicadas à regra de segurança quando ela foi criada. As marcações são identificadores fornecidos pelo sistema que representam vários prefixos. A seleção de uma regra com uma marcação, como *AllowInternetOutBound*, lista os prefixos na folha **Prefixos de endereços** .
    * **Baixar:** a lista de regras pode ser longa. Você pode baixar um arquivo. csv das regras para análise offline clicando em **Baixar** e salvando o arquivo.
    * **AllowRDP** : essa regra possibilita conexões RDP com a VM.
