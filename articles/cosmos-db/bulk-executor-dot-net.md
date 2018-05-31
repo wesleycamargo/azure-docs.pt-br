@@ -10,15 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e559b7ebb5f9efefed194f87e73219fecd1e6ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887235"
 ---
 # <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Usando a biblioteca .NET BulkExecutor para executar operações em massa no Azure Cosmos DB
 
-Este tutoria fornece instruções sobre como usar a biblioteca BulkExecutor .NET do Azure Cosmos DB para importar e atualizar documentos em coleções do Azure Cosmos DB. Este tutorial irá orientá-lo por um aplicativo .NET de exemplo que importa em massa documentos gerados aleatoriamente para uma coleção do Azure Cosmos DB. Após a importação, ele mostra como você pode atualizar em massa os dados importados, especificando os patches como operações a serem executadas em campos de documento específicos.
+Este tutoria fornece instruções sobre como usar a biblioteca BulkExecutor .NET do Azure Cosmos DB para importar e atualizar documentos em coleções do Azure Cosmos DB. Para saber mais sobre a biblioteca BulkExecutor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da Biblioteca BulkExecutor](bulk-executor-overview.md). Este tutorial irá orientá-lo por um aplicativo .NET de exemplo que importa em massa documentos gerados aleatoriamente para uma coleção do Azure Cosmos DB. Após a importação, ele mostra como você pode atualizar em massa os dados importados, especificando os patches como operações a serem executadas em campos de documento específicos.
 
 ## <a name="prerequisites"></a>pré-requisitos
 

@@ -1,26 +1,21 @@
 ---
-title: Orientação de segurança para MFA | Microsoft Docs
+title: Diretrizes de segurança para a Autenticação Multifator do Azure
 description: Este documento fornece as diretrizes sobre o uso do Azure MFA com contas do Azure
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: 3be7d968-96bb-4320-8701-869fd04a2595
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 50e6cd3c067e09ebf9ace442894d5d066141e0b6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 76e622f500ee954852d7b42268318d35bb2133a4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32152291"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868791"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Diretrizes de segurança para o uso da Autenticação Multifator do Azure com contas do Microsoft Azure Active Directory
 

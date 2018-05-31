@@ -1,9 +1,9 @@
 ---
-title: "Criar uma métrica de alerta com um modelo do Resource Manager | Microsoft Docs"
-description: "Saiba como usar um modelo do Resource Manager para criar um alerta de métrica para receber notificações por email ou webhook."
+title: Criar um alerta clássico de métrica no Azure com um modelo do Resource Manager | Microsoft Docs
+description: Saiba como usar um modelo do Resource Manager para criar um alerta clássico de métrica para receber notificações por email ou webhook.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
@@ -12,16 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/21/2017
+ms.date: 4/27/2018
 ms.author: johnkem
-ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c83eeaf6c26aca3acdd43a767aa11357fa502544
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177292"
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
+# <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Gerenciador de Recursos
 Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métricas do Azure. Isso permite que você configure de modo automático alertas sobre os recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.
+
+> [!NOTE]
+> 
+> Este artigo descreve como criar **alertas clássicos de métrica** usando modelos do Resource Manager. Se você estiver procurando criar [alertas de métrica novos](monitoring-near-real-time-metric-alerts.md) usando modelos, [este artigo](monitoring-create-metric-alerts-with-templates.md) fornece os detalhes.
+>
+
 
 Estas são as etapas básicas:
 
@@ -30,7 +37,7 @@ Estas são as etapas básicas:
 
 A seguir, descrevemos como criar um modelo do Resource Manager pela primeira vez para um alerta apenas, em seguida, para um alerta durante a criação de outro recurso.
 
-## <a name="resource-manager-template-for-a-metric-alert"></a>Modelo do Resource Manager para um alerta de métrica
+## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Modelo do Resource Manager para um alerta clássico de métrica
 Para criar um alerta usando um modelo do Resource Manager, você cria um recurso do tipo `Microsoft.Insights/alertRules` e preenche todas as propriedades relacionadas. Abaixo está um modelo que cria uma regra de alerta.
 
 ```json
@@ -180,7 +187,7 @@ Para criar um alerta usando um modelo do Resource Manager, você cria um recurso
 
 Uma explicação do esquema e das propriedades para uma regra de alerta [está disponível aqui](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>Modelo do Resource Manager para um recurso com um alerta
+## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Modelo do Resource Manager para um recurso com alerta clássico de métrica
 Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um alerta durante a criação de um recurso. Por exemplo, você talvez queira garantir que uma regra "CPU % > 80" esteja configurada sempre que implantar uma Máquina Virtual. Para tanto, você pode adicionar a regra de alerta como um recurso no conjunto de recursos para o modelo de VM e adicionar uma dependência usando a propriedade `dependsOn` à ID do recurso da VM. Aqui está um exemplo completo que cria uma VM do Windows e adiciona um alerta que notifica os administradores da assinatura quando a utilização da CPU fica acima de 80%.
 
 ```json

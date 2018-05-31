@@ -2,20 +2,25 @@
 title: Visão geral da redefinição de senha de autoatendimento do Azure AD | Microsoft Docs
 description: O que a redefinição de senha de autoatendimento no Azure AD faz para sua organização?
 services: active-directory
-ms.service: active-directory
-ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.assetid: ''
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/11/2018
+ms.author: joflore
+ms.custom: it-pro
+ms.openlocfilehash: 6c722bd3fae7f6ed7450e0259f9dff0ee465d158
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866661"
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201140"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Redefinição de senha de autoatendimento no Azure AD para o profissional de TI
 
