@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 02c380c78fa773b56a3c8b666e890836a3d8e54b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942045"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configurar e usar o Log Analytics com um aplicativo SaaS multilocatário do Banco de Dados SQL
 
@@ -65,7 +66,7 @@ Os scripts e o código-fonte do aplicativo SaaS de banco de dados multilocatári
 
 O Log Analytics é um serviço separado que precisa ser configurado. O Log Analytics coleta dados de log, telemetria e métrica em um espaço de trabalho do Log Analytics. Assim como outros recursos no Azure, o espaço de trabalho do Log Analytics deve ser criado. O espaço de trabalho não precisa ser criado no mesmo grupo de recursos que os aplicativos que ele está monitorando. Mas isso geralmente faz mais sentido. Para o aplicativo Wingtip Tickets, use um único grupo de recursos para garantir que o espaço de trabalho seja excluído com o aplicativo.
 
-1. No ISE do PowerShell, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Módulos de Aprendizado\\Gerenciamento e Monitoramento do Desempenho\\Log Analytics\\**Demo-LogAnalytics.ps1***.
+1. No ISE do PowerShell, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Módulos de Aprendizado\\Gerenciamento e Monitoramento do Desempenho\\Log Analytics\\Demo-LogAnalytics.ps1*.
 2. Para executar o script, pressione F5.
 
 Agora você pode abrir o Log Analytics no portal do Azure ou no portal do Operations Management Suite. Leva alguns minutos para coletar a telemetria no espaço de trabalho do Log Analytics e para torná-la visível. Quanto mais tempo você deixa o sistema coletando dados, mais interessante é a experiência. 

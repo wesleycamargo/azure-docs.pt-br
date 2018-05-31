@@ -7,13 +7,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939014"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
@@ -25,31 +26,30 @@ Cada região do Azure é emparelhada com outra região na mesma área geográfic
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Figura 1 – Diagrama do par da região do Azure
+Figura 1 – Pares regionais do Azure
 
 | painel Geografia do app&#39;s selecionado | Regiões emparelhadas |  |
 |:--- |:--- |:--- |
 | Ásia |Ásia Oriental |Sudeste Asiático |
 | Austrália |Leste da Austrália |Sudeste da Austrália |
+| Brasil |Sul do Brasil (2) |Centro-Sul dos Estados Unidos |
 | Canadá |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
+| Europa |Norte da Europa |Europa Ocidental |
+| Alemanha |Alemanha Central |Nordeste da Alemanha |
 | Índia |Índia Central |Sul da Índia |
 | Índia |Índia Ocidental (1) |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
 | Coreia |Coreia Central |Sul da Coreia |
-| América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
 | América do Norte |Leste dos EUA |Oeste dos EUA |
 | América do Norte |Leste dos EUA 2 |Centro dos EUA |
-| América do Norte |Oeste dos EUA 2 |Centro-Oeste dos EUA |
-| Europa |Norte da Europa |Europa Ocidental |
-| Japão |Leste do Japão |Oeste do Japão |
-| Brasil |Sul do Brasil (2) |Centro-Sul dos Estados Unidos |
+| América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
+| América do Norte |Oeste dos EUA 2 |Centro-Oeste dos EUA 
+| Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
+| Departamento de Defesa dos EUA |DoD do Leste dos EUA |DoD Central dos EUA |
+| Governo dos EUA |Governo dos EUA do Arizona |Governo dos EUA do Texas |
 | Governo dos EUA |Gov. EUA - Iowa (3) |Gov. dos EUA – Virgínia |
 | Governo dos EUA |Gov. EUA - Virgínia (4) |Governo dos EUA do Texas |
-| Governo dos EUA |Governo dos EUA do Arizona |Governo dos EUA do Texas |
-| Departamento de Defesa dos EUA |DoD do Leste dos EUA |DoD Central dos EUA |
-| Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
-| Alemanha |Alemanha Central |Nordeste da Alemanha |
 
 Tabela 1 – mapeamento de pares regionais do Azure
 

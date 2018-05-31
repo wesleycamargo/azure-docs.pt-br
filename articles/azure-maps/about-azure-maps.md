@@ -12,14 +12,15 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e84580c4023be87ebfc1988c631af0b76e213987
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193944"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Uma introdução aos Mapas do Azure
-Os Mapas do Azure são um portfólio de serviços geoespaciais que inclui APIs de serviço para Mapas, Pesquisa, Roteamento, Tráfego e Fusos Horários. O portfólio de serviços em conformidade com OneAPI do Azure permite que você use ferramentas conhecidas para desenvolver rapidamente soluções de escala que integram informações de localização em suas soluções do Azure. Os Mapas do Azure fornecem aos desenvolvedores de todos os setores recursos avançados geoespaciais, contendo os novos dados de mapeamento fundamentais para fornecer um contexto geográfico para aplicativos Web e móveis. Os Mapas do Azure são um conjunto de APIs REST acompanhado por um controle JavaScript baseado na Web para tornar o desenvolvimento fácil, flexível e portátil em várias mídias. 
+Os Mapas do Azure são um portfólio de serviços geoespaciais que inclui APIs de serviço para Mapas, Pesquisa, Roteamento, Tráfego e Fusos Horários. O portfólio de serviços permite que você use ferramentas conhecidas para desenvolver rapidamente soluções de escala que integram informações de localização às soluções do Azure. Os Mapas do Azure fornecem aos desenvolvedores de todos os setores recursos avançados geoespaciais, contendo os novos dados de mapeamento fundamentais para fornecer um contexto geográfico para aplicativos Web e móveis. Os Mapas do Azure são um conjunto de APIs REST acompanhado por um controle JavaScript baseado na Web para tornar o desenvolvimento fácil, flexível e portátil em várias mídias. 
 
 O vídeo a seguir apresenta os Mapas do Azure:
 
@@ -87,7 +88,7 @@ A meta da Microsoft é fornecer opções à comunidade de desenvolvedores em ter
 | Cenário | Use os Mapas do Azure ao… | Use o Bing Maps quando… |
 | ------------- | ------------- | ------------- |
 | Ambiente de desenvolvimento | Criar ou coordenar com outros serviços do Azure | Usar uma nuvem de terceiros ou outro ambiente de desenvolvedor |
-| Estágio de desenvolvimento  | Como os Mapas do Azure estão atualmente em Visualização Pública, ele são otimizados para o estágio inicial de teste e desenvolvimento de Prova de Conceito | Um SLA de nível empresarial é necessário para um ambiente de produção |
+| Estágio de desenvolvimento  | O Azure Mapas é otimizado para testes iniciais e desenvolvimento de prova de conceito | Um SLA de nível empresarial é necessário para um ambiente de produção |
 | Opções de preços | Opções preliminares de preço do desenvolvedor forem suficientes | Preços personalizados para nível corporativo forem necessários |
 | Ambiente de casos de uso | O uso dentro do veículo for necessário | O uso dentro do veículo não for necessário |
 | Cobertura geográfica | A cobertura na Índia, na China, no Japão e na Coreia do Sul não for necessária | A cobertura de mapa na Índia, na China, no Japão e na Coreia do Sul for necessária |

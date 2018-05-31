@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192948"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de Uso do Azure Active Directory
 Os Termos de Uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais.  Essa apresentação faz com que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais.
@@ -56,7 +57,7 @@ Depois de preparar os seus Termos de Uso, use o procedimento a seguir para adici
 4. Insira o **Nome de exibição**.  O cabeçalho é que os usuários visualizam quando entram.
 5. **Navegue** até o PDF com os seus termos de uso finalizados e selecione-o.  O tamanho de fonte recomendado é 24.
 6. **Selecione** um idioma para os termos de uso.  A opção de idioma permite carregar vários termos de uso, cada um com um idioma diferente.  A versão dos termos de uso que um usuário final verá terá base em suas preferências de navegador.
-7. Selecione ativar ou desativar para **Exigir que os usuários expandam os termos de uso**.  Se for ativado, os usuários finais precisarão ler os termos de uso antes de aceitá-los.
+7. Selecione ativar ou desativar para **Exigir que os usuários expandam os termos de uso**.  Se essa configuração for ativada, os usuários finais precisarão ler os termos de uso antes de aceitá-los.
 8. Em **Acesso Condicional**, você pode **Impor** os termos de uso carregados selecionando um modelo ou uma política de acesso condicional personalizada no menu suspenso.  As políticas de acesso condicional personalizadas permitem termos de uso granulares, para até um aplicativo de nuvem ou um grupo de usuários específicos.  Para obter mais informações, consulte [Configurando as políticas de acesso condicional personalizadas](active-directory-conditional-access-best-practices.md)
 9. Clique em **Criar**.
 10. Se você selecionou um modelo de acesso condicional personalizado, uma nova tela é exibida e permite que você personalize a política de autoridade de certificação.
@@ -120,6 +121,13 @@ Os usuários podem examinar e ver os termos de uso que eles tiverem aceitado.  P
 
 4.  A partir daí, você pode revisar os termos de uso aceitos. 
 
+## <a name="removing-users-from-an-active-terms-of-use"></a>Remover usuários de termos de uso ativos
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+Por padrão, um usuário excluído permanecerá excluído no Azure AD por 30 dias, durante os quais ele pode ser restaurado por um administrador se necessário.  Após 30 dias, esse usuário será excluído permanentemente.  Além disso, usando o portal do Azure Active Directory, um Administrador Global pode explicitamente [excluir permanentemente um usuário excluído recentemente](active-directory-users-restore.md) antes de atingir o período de tempo.  Após um usuário ter sido excluído permanentemente, os dados posteriores sobre o usuário serão removidos dos termos de uso ativos.  Auditar informações sobre usuários excluídos na trilha de auditoria.
+
+
 
 ## <a name="additional-information"></a>Informações adicionais
 As informações a seguir devem ser consideradas e podem ajudar na utilização dos termos de uso.
@@ -138,7 +146,7 @@ As informações a seguir devem ser consideradas e podem ajudar na utilização 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **P: Como ver quando/se um usuário aceitou os termos de uso?**</br>
-R: você pode simplesmente clicar no número abaixo de aceito ao lado dos termos de uso.  Para saber mais, confira [Exibindo o status atual do usuário](#viewing-current-user-status).  Além disso, um usuário que aceita os termos de uso é gravado no log de auditoria. Você pode pesquisar o log de auditoria do Azure AD para ver os resultados.  
+R: você pode clicar no número abaixo de aceito ao lado dos termos de uso.  Para saber mais, confira [Exibindo o status atual do usuário](#viewing-current-user-status).  Além disso, um usuário que aceita os termos de uso é gravado no log de auditoria. Você pode pesquisar o log de auditoria do Azure AD para ver os resultados.  
 
 **P: Se os termos de uso forem alterados, os usuários precisam aceitá-los novamente?**</br>
 R: sim, um administrador pode alterar os termos de uso e isso requer que os novos termos também sejam aceitos.

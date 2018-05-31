@@ -10,16 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168904"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198962"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Diretrizes de ajuste do desempenho para Hive no HDInsight e Azure Data Lake Store
 
@@ -47,9 +45,9 @@ Veja a seguir as configurações mais importantes a serem ajustadas para obter d
 
 **hive.tez.container.size** — o tamanho do contêiner determina quanto de memória está disponível para cada tarefa.  Essa é a entrada principal para controlar a simultaneidade no Hive.  
 
-**tez.grouping.min-size** – esse parâmetro permite definir o tamanho mínimo de cada mapeador.  Se o número de mapeadores que o Tez escolher for menor que o valor desse parâmetro, o Tez usará o valor definido aqui.  
+**tez.grouping.min-size** – esse parâmetro permite definir o tamanho mínimo de cada mapeador.  Se o número de mapeadores que o Tez escolher for menor que o valor desse parâmetro, o Tez usará o valor definido aqui.
 
-**tez.grouping.max-size** – o parâmetro permite definir o tamanho máximo de cada mapeador.  Se o número de mapeadores que o Tez escolher for maior que o valor desse parâmetro, o Tez usará o valor definido aqui.  
+**tez.grouping.max-size** – o parâmetro permite definir o tamanho máximo de cada mapeador.  Se o número de mapeadores que o Tez escolher for maior que o valor desse parâmetro, o Tez usará o valor definido aqui.
 
 **hive.exec.reducer.bytes.per.reducer** – esse parâmetro define o tamanho de cada redutor.  Por padrão, o tamanho de cada redutor é de 256 MB.  
 
@@ -76,9 +74,10 @@ Digamos que você tenha um cluster D14 de 8 nós.
     # of YARN containers = 768GB / 3072MB = 256
 
 ## <a name="limitations"></a>Limitações
+
 **Limitação do ADLS** 
 
-Se os limites de largura de banda fornecidos pelo ADLS fossem atingidos, você começaria a verificar as falhas de tarefa. Isso poderia ser identificado observando os erros de limitação nos logs de tarefa.  Você pode reduzir o paralelismo aumentando o tamanho do contêiner Tez.  Se precisar de mais simultaneidade para seu trabalho, entre em contato conosco.   
+Se os limites de largura de banda fornecidos pelo ADLS fossem atingidos, você começaria a verificar as falhas de tarefa. Isso poderia ser identificado observando os erros de limitação nos logs de tarefa.  Você pode reduzir o paralelismo aumentando o tamanho do contêiner Tez.  Se precisar de mais simultaneidade para seu trabalho, entre em contato conosco.
 
 Para verificar se há problemas de limitação, você precisa habilitar o log de depuração no lado do cliente. Veja como fazer isso:
 
