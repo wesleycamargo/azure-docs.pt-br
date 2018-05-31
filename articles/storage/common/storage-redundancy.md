@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076207"
 ---
 # <a name="azure-storage-replication"></a>Replicação de Armazenamento do Azure
 
@@ -31,14 +32,14 @@ Ao criar uma conta de armazenamento, você deve selecionar uma das seguintes op�
 
 A tabela a seguir fornece uma visão geral rápida do escopo de durabilidade e disponibilidade que cada estratégia de replicação fornecerá a você para um determinado tipo de evento (ou evento de impacto semelhante).
 
-| Cenário | LRS | ZRS | GRS | RA-GRS |
-|:--- |:--- |:--- |:--- |:--- |
-| Indisponibilidade de nó dentro de um datacenter |sim |sim |sim |sim
-| Um data center inteiro (zonal ou não zonal) fica indisponível |Não  |sim |sim |sim |
-| Uma interrupção em toda a região |Não  |Não  |sim |sim |
-| Acesso de leitura aos dados (em uma região remota e replicada geograficamente) no caso de indisponibilidade em toda a região |Não  |Não  |Não  |sim |
-| Projetado para fornecer ___ durabilidade de objetos em um determinado ano |no mínimo 99,999999999% (11 9's)|no mínimo 99,9999999999% (12 9's)|no mínimo 99,99999999999999% (16 9's)|no mínimo 99,99999999999999% (16 9's)|
-| Disponível em ___ tipos de conta de armazenamento |GPv1, GPv2, Blob |GPv2 |GPv1, GPv2, Blob |GPv1, GPv2, Blob
+| Cenário                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| Indisponibilidade de nó dentro de um datacenter                                                                 | sim                             | sim                              | sim                                  | sim                                  |
+| Um data center inteiro (zonal ou não zonal) fica indisponível                                           | Não                               | sim                              | sim                                  | sim                                  |
+| Uma interrupção em toda a região                                                                                     | Não                               | Não                                | sim                                  | sim                                  |
+| Acesso de leitura aos dados (em uma região remota e replicada geograficamente) no caso de indisponibilidade em toda a região | Não                               | Não                                | Não                                    | sim                                  |
+| Projetado para fornecer ___ durabilidade de objetos em um determinado ano                                          | no mínimo 99,999999999% (11 9's) | no mínimo 99,9999999999% (12 9's) | no mínimo 99,99999999999999% (16 9's) | no mínimo 99,99999999999999% (16 9's) |
+| Tipos de conta de armazenamento suportados                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 
 Consulte [Preços de Armazenamento do Microsoft Azure](https://azure.microsoft.com/pricing/details/storage/) para obter informações sobre preços nas diferentes opções de redundância.
 
@@ -49,7 +50,7 @@ Consulte [Preços de Armazenamento do Microsoft Azure](https://azure.microsoft.c
 É possível alterar a estratégia de replicação da sua conta de armazenamento usando o [Portal do Azure](https://portal.azure.com/), [Microsoft Azure Powershell](storage-powershell-guide-full.md), [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou uma das muitas [Bibliotecas de cliente do Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Alterar o tipo de replicação da sua conta de armazenamento não resulta em tempo de inatividade.
 
    > [!NOTE]
-   > Atualmente, você não pode usar o Portal ou a API para converter sua conta no ZRS. No entanto, planejamos dar suporte à migração para o ZRS a partir do LRS, GRS e RA-GRS após o ZRS estar geralmente disponível. Consulte [ZRS (Armazenamento com Redundância de Zona)](storage-redundancy-zrs.md) para obter detalhes.
+   > Atualmente, você não pode usar o Portal ou a API para converter sua conta no ZRS. Se você quiser converter a replicação da conta para ZRS, consulte [Armazenamento com redundância de zona (ZRS)](storage-redundancy-zrs.md) para mais detalhes.
     
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>Há algum custo para alterar a estratégia de replicação da minha conta?
 Depende do caminho de conversão. A ordenação da oferta de redundância mais barata para a mais cara é LRS, ZRS, GRS e RA-GRS. Por exemplo, se você escolher *partir de* LRS para qualquer outra, terá encargos adicionais porque você está transitando para um nível de redundância mais sofisticado. Escolher *para* GRS ou RA-GRS acarretará um encargo de largura de banda de saída porque os dados (em sua região primária) estão sendo replicados para a região secundária remota. Esse é um encargo único na configuração inicial. Depois que os dados forem copiados, não haverá mais encargos de conversão. Você será cobrado apenas para replicar qualquer novo ou atualizações em dados existentes. Para obter detalhes sobre taxas de largura de banda, visite a [página Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).

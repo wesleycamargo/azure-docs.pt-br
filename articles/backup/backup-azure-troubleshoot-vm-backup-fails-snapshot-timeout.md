@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196756"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -194,21 +195,6 @@ Esse problema é específico de VMs gerenciadas nas quais o usuário bloqueia o 
 
 #### <a name="solution"></a>Solução
 
-Para resolver o problema, realize as etapas a seguir para remover a coleção de pontos de restauração: <br>
- 
-1. Remova o bloqueio no grupo de recursos em que a VM está localizada. 
-2. Instale o ARMClient usando o Chocolatey: <br>
-   https://github.com/projectkudu/ARMClient
-3. Faça logon no ARMClient: <br>
-    `.\armclient.exe login`
-4. Obtenha a coleção de pontos de restauração que corresponde à VM: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-
-    Exemplo: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Exclua a coleção de pontos de restauração: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. O próximo backup agendado criará automaticamente a coleção de pontos de restauração e os novos pontos de restauração.
-
- 
-O problema voltará a ocorrer se você bloquear novamente o grupo de recursos. 
+Para resolver o problema, remova o bloqueio do grupo de recursos e permita que o serviço de Backup do Azure limpe a coleção do ponto de recuperação e os instantâneos subjacentes no próximo backup.
+Depois de concluir, você poderá bloquear novamente no grupo de recursos da VM. 
 

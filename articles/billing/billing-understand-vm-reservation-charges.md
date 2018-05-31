@@ -1,29 +1,30 @@
 ---
-title: "Entender a aplicação de desconto em Instâncias de Máquinas Virtuais Reservadas do Azure | Microsoft Docs"
-description: "Saiba como o desconto em Instâncias Reservadas de VM do Azure é aplicado às VMs em execução."
+title: Entender a aplicação de desconto em Instâncias de Máquinas Virtuais Reservadas do Azure | Microsoft Docs
+description: Saiba como o desconto em Instâncias Reservadas de VM do Azure é aplicado às VMs em execução.
 services: billing
-documentationcenter: 
-author: vikramdesai01
-manager: vikdesai
-editor: 
+documentationcenter: ''
+author: yashesvi
+manager: yashar
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
-ms.author: vikdesai
-ms.openlocfilehash: 2a3854077c7c8bdb20804c6b3e77500659c3c484
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: yashar
+ms.openlocfilehash: ddf6e6a869fb2961db6b626878f9433fdc00a55f
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34056645"
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Entender como é aplicado o desconto em Instâncias Reservadas de Máquina Virtual
 Após você adquirir uma Instância Reservada de VM, o desconto de reserva é aplicado automaticamente às máquinas virtuais correspondentes aos atributos e à quantidade da reserva. Uma reserva abrange os custos de infraestrutura das suas máquinas virtuais. A tabela a seguir ilustra os custos para sua máquina virtual após a compra de uma reserva. Em todos os casos, você é cobrado pelo uso de armazenamento e rede com as taxas normais.
 
 | Tipo de Máquina Virtual  | Encargos de reserva |    
-|-----------------------|--------------------------------------------| 
+|-----------------------|--------------------------------------------|
 |VMs Linux sem software adicional | A reserva abrange os custos de infraestrutura da sua VM.|
 |VMs Linux com encargos de software (por exemplo, Red Hat) | A reserva abrange os custos de infraestrutura. Você é cobrado por software adicional.|
 |VMs Windows sem software adicional |A reserva abrange os custos de infraestrutura. Você é cobrado por software Windows.|
@@ -43,17 +44,19 @@ Após você adquirir uma Instância Reservada de VM, o desconto de reserva é ap
 Para entender e exibir a aplicação das suas reservas nos relatórios de uso de cobrança, consulte [Entender o uso da Instância Reservada de VM](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Aplicação do desconto de reserva a VMs Windows
-Quando você executa instâncias de VM Windows, a reserva é aplicada para cobrir os custos de infraestrutura. A aplicação da reserva aos custos de infraestrutura de VMs é igual para máquinas virtuais Windows e não - Windows. Você é cobrado separadamente pelo software Windows por vCPU. Consulte [Custos do software Windows com reservas](https://go.microsoft.com/fwlink/?linkid=862756). É possível cobrir seu custos de licenciamento com [Benefício Híbrido do Azure para Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+Quando você executa instâncias de VM Windows, a reserva é aplicada para cobrir os custos de infraestrutura. A aplicação da reserva aos custos de infraestrutura de VMs é igual para máquinas virtuais Windows e não - Windows. Você é cobrado separadamente pelo software Windows por vCPU. Consulte [Custos do software Windows com reservas](https://go.microsoft.com/fwlink/?linkid=862756). Você pode cobrir os custos de licenciamento do Windows com [Benefício Híbrido do Azure para Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre as Instâncias de Máquina Virtual Reservada, consulte os artigos a seguir.
+Para saber mais sobre as Instâncias de Máquina Virtual Reservadas, confira os artigos a seguir.
 
 - [Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de VM Reservadas](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gerenciar Instâncias de Máquina Virtual Reservadas](billing-manage-reserved-vm-instance.md)
 - [Economizar dinheiro de máquinas virtuais com Instâncias de Máquinas Virtuais Reservadas](billing-save-compute-costs-reservations.md)
 - [Entender o uso da Instância Reservada na sua assinatura Paga pelo Uso](billing-understand-reserved-instance-usage.md)
 - [Entender o uso da Instância Reservada no seu registro de Empresa](billing-understand-reserved-instance-usage-ea.md)
+- [ Entenda o uso da Instância Reservada para assinaturas do CSP ](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Os custos de software do Windows não estão incluídos nas Instâncias Reservadas](billing-reserved-instance-windows-software-costs.md)
+
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

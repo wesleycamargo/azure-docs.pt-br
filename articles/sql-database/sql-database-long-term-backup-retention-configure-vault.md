@@ -7,18 +7,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0154ec9f08f81d2aa47c607c05f09309f7c23c7e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f26f9b6f1b0ddef348c39df5aa4badc5df93b725
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942421"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configurar e restaurar de uma retenção de backup de longo prazo do Banco de Dados SQL do Azure usando o Cofre dos Serviços de Recuperação do Azure
 
 Você pode configurar o cofre dos Serviços de Recuperação do Azure para armazenar backups do banco de dados SQL do Azure e, em seguida, recuperar um banco de dados usando os backups retidos no cofre usando o portal do Azure ou o PowerShell.
+
+> [!NOTE]
+> Como parte da versão inicial da versão prévia da retenção de backup em longo prazo em outubro de 2016, os backups foram armazenados no cofre do Serviço de Recuperação de Serviços do Azure. Esta atualização remove essa dependência, mas para haver compatibilidade com versões anteriores a API original terá suporte até 31 de maio de 2018. Se você precisar interagir com backups no cofre de Recuperação de Serviços do Azure, consulte [Retenção de backup de longo prazo usando o cofre de Serviço de Recuperação de Serviços do Azure](sql-database-long-term-backup-retention-configure-vault.md). 
+
 
 ## <a name="azure-portal"></a>Portal do Azure
 

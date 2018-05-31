@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/24/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209701"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrar VMs do Azure para outra região
 
@@ -102,7 +103,7 @@ O novo cofre é adicionado ao **Painel** em **Todos os recursos** e na página p
 ## <a name="select-the-source"></a>Selecione a origem
 
 1. Em cofres dos Serviços de Recuperação, clique em **ConsotoVMVault** > **+Replicate**.
-2. Em **fonte**, selecione **Azure - VISUALIZAÇÃO**.
+2. Em **Fonte**, selecione **Azure**.
 3. Em **Local de origem**, selecione a fonte de região do Azure em que suas VMs estão sendo executados.
 4. Selecione o modelo de implantação do Gerenciador de Recursos. Depois selecione o **Grupo de recursos de origem**.
 5. Clique em **OK** para salvar as configurações.
@@ -115,7 +116,7 @@ O Site Recovery recupera uma lista das VMs associadas à assinatura e ao grupo d
 
 1. No portal do Azure, clique em **Máquinas virtuais**.
 2. Selecione a VM que deseja migrar. Em seguida, clique em **OK**.
-3. Em **Configurações**, clique em **Recuperação de desastre (versão prévia)**.
+3. Em **Configurações**, clique em **Recuperação de desastre**.
 4. Em **Configurar a recuperação de desastre** > **Região de destino**, selecione a região de destino para a qual você replicará.
 5. Para este tutorial, aceite as outras configurações padrão.
 6. Clique em **Habilitar a replicação**. Isso inicia um trabalho para habilitar a replicação para a VM.
