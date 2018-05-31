@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 84988c815759a726abe93d931f73c284d771a5ba
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365817"
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33786705"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidades cognitivas OCR
 
@@ -186,14 +186,16 @@ O conjunto de qualificações do exemplo a seguir cria um campo *merged_text* pa
 O exemplo de conjunto de qualificações acima presume que existe um campo de imagens normalizado. Para gerar esse campo, defina a configuração *imageAction* na definição do indexador para *generateNormalizedImages* conforme mostrado abaixo:
 
 ```json
-{  
-   //...rest of your indexer definition goes here ... 
-  "parameters":{  
-      "configuration":{  
-         "dataToExtract":"contentAndMetadata",
-         "imageAction":"generateNormalizedImages"
-      }
-   }
+{
+  //...rest of your indexer definition goes here ...
+  "parameters":
+  {
+    "configuration": 
+    {
+        "dataToExtract": "contentAndMetadata",
+        "imageAction": "generateNormalizedImages"
+        }
+  }
 }
 ```
 
@@ -201,4 +203,3 @@ O exemplo de conjunto de qualificações acima presume que existe um campo de im
 + [Habilidades predefinidas](cognitive-search-predefined-skills.md)
 + [Habilidade de TextMerger](cognitive-search-skill-textmerger.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Criar Indexador (REST)](ref-create-indexer.md)
