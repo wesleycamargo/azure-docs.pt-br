@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777545"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitoramento dos aplicativos e recursos do Azure
 
@@ -69,7 +70,7 @@ Também é possível enviar essas métricas e registros do Azure Log Analytics p
 >
 >
 
-### <a name="azure-advisor"></a>Azure Advisor
+### <a name="azure-advisor"></a>Assistente do Azure
 O [Assistente do Azure](../advisor/advisor-overview.md) monitora constantemente sua telemetria de uso e configuração de recursos. Ele fornece recomendações personalizadas com base nas práticas recomendadas. Seguir essas recomendações irá ajudá-lo a melhorar o desempenho, a segurança e a disponibilidade dos recursos compatíveis com seus aplicativos.
 
 ### <a name="service-health"></a>Integridade do Serviço

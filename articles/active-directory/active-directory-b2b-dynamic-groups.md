@@ -2,25 +2,20 @@
 title: Grupos dinâmicos e Colaboração do Azure Active Directory B2B | Microsoft Docs
 description: Mostra como usar os grupos dinâmicos do Azure AD com a colaboração B2B do Azure Active Directory
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d96fefb859cba5db65382801fb1ac143df12b647
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 751502c2be84e9454c507f09a47b609d003ce2c5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927844"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupos dinâmicos e Colaboração do Azure Active Directory B2B
 
@@ -47,12 +42,7 @@ Como esse grupo poderia ser:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
-
-* [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Propriedades de usuário de colaboração B2B](active-directory-b2b-user-properties.md)
-* [Como adicionar um usuário de colaboração B2B a uma função](active-directory-b2b-add-guest-to-role.md)
-* [Delegação de convites de colaboração B2B](active-directory-b2b-delegate-invitations.md)
-* [Código de colaboração B2B e exemplos do PowerShell](active-directory-b2b-code-samples.md)
-* [Configurar aplicativos SaaS para colaboração B2B](active-directory-b2b-configure-saas-apps.md)
+- [Propriedades de usuário de colaboração B2B](active-directory-b2b-user-properties.md)
+- [Adicionar um usuário de colaboração B2B a uma função](active-directory-b2b-add-guest-to-role.md)
+- [Acesso condicional para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 

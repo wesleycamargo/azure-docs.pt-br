@@ -1,24 +1,21 @@
 ---
 title: Configurar a Autenticação Multifator do Azure | Microsoft Docs
-description: Este artigo descreve como definir as configurações da Autenticação Multifator do Azure para relatórios, alertas de fraude, bypasses avulsos, mensagens de voz personalizadas, cache, IPs confiáveis e senhas de aplicativo.
+description: Este artigo descreve como definir as configurações de Autenticação Multifator do Azure no portal do Azure
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: f587800d3b1d205107b6c8091ca424b01b9e67e6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 509df5274a5e44342390036511689fa8f8146807
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869794"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -68,7 +65,7 @@ Configure o recurso de _alerta de fraude_ para que os usuários possam relatar t
    ![Ativar alertas de fraude](./media/howto-mfa-mfasettings/fraudalert.png)
 
 3. Defina a configuração **Permitir que os usuários enviem alertas de fraude** como **Ativada**.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ### <a name="configuration-options"></a>Opções de configuração
 
@@ -176,7 +173,7 @@ Independentemente se o recurso IPs Confiáveis estiver habilitado, a verificaç�
 4. Insira um nome para o local.
 5. Selecione **Marcar como local confiável**.
 6. Insira o intervalo de IP em notação CIDR, como **192.168.1.1/24**.
-7. Selecione **Criar**.
+7. Clique em **Criar**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Habilitar o recurso IPs Confiáveis usando o acesso condicional
 
@@ -198,7 +195,7 @@ Independentemente se o recurso IPs Confiáveis estiver habilitado, a verificaç�
      
      Você pode inserir até 50 intervalos de endereço IP. Os usuários que acessam desses endereços IP ignoram verificação em duas etapas.
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Habilitar o recurso IPs Confiáveis, usando as configurações do serviço
 
@@ -221,7 +218,7 @@ Independentemente se o recurso IPs Confiáveis estiver habilitado, a verificaç�
      
      Você pode inserir até 50 intervalos de endereço IP. Os usuários que acessam desses endereços IP ignoram verificação em duas etapas.
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ![Habilitar IPs Confiáveis com configurações do serviço](./media/howto-mfa-mfasettings/trustedips3.png)
 
@@ -332,7 +329,7 @@ O recurso reduz o número de autenticações em aplicativos Web, que normalmente
    ![Lembrar a Autenticação Multifator para dispositivos confiáveis](./media/howto-mfa-mfasettings/remember.png)
 
 6. Defina o número de dias a permitir que os dispositivos confiáveis ignorem a verificação em duas etapas. O padrão é 14 dias.
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 ### <a name="mark-a-device-as-trusted"></a>Marcar um dispositivo como confiável
 
