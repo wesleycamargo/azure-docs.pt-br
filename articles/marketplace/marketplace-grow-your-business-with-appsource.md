@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0af34a725849acf6fbb6523f03e90a85ce5ba719
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940359"
 ---
 # <a name="grow-your-business-with-appsource"></a>Desenvolver seus negócios com o AppSource
 O Azure Marketplace e o AppSource são os pontos de lançamento para atividades de mercado conjuntas com a Microsoft e um impulso para o crescimento da sua empresa. Usando a promoção de lançamento, geração de demanda e marketing e vendas conjuntas, a oferta do marketplace pode ser o ponto central do seu mecanismo de negócios na nuvem. Não há taxas para a participação. Os clientes da Microsoft visitam nossos marketplaces na nuvem diariamente para encontrar os aplicativos e serviços certos para ajudar a impulsionar seus negócios. Nosso objetivo é conectar organizações com soluções e serviços da Microsoft e nosso ecossistema de parceiros. 
@@ -88,7 +89,7 @@ As tabelas a seguir detalham cada etapa de preenchimento do detalhe da oferta.
 **Detalhes da vitrine - Artefatos de marketing**
 | Configurações de vitrine       | Práticas recomendadas          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Logotipo de oferta (formato .png, 58x48)**    | Seu logotipo deve ser projetado e otimizado para uma mídia digital.<br>Carregue o logotipo no formato PNG na página de pesquisa da oferta. |
+| **Logotipo de oferta (formato .png, 48x48)**    | Seu logotipo deve ser projetado e otimizado para uma mídia digital.<br>Carregue o logotipo no formato PNG na página de pesquisa da oferta. |
 | **Logotipo da oferta (.png. 216 x 216)**     | Seu logotipo deve ser projetado e otimizado para uma mídia digital. <br>Carregue o logotipo no formato PNG na página de detalhe do aplicativo da oferta. |
 | **Saiba mais**   | Inclua o suporte a vendas e ativos de marketing em "Saiba mais", por exemplo, white papers, folhetos, listas de verificação, PowerPoints e assim por diante. Todos os arquivos devem estar no formato PDF. Não venda, instrua o cliente potencial. <br>Adicione o link para sua página de aterrissagem do aplicativo a todos os seus documentos e adicione parâmetros de URL para ajudá-lo a acompanhar os visitantes e as avaliações. |
 | **Vídeos**       | Carregue pelo menos um vídeo, até quatro vídeos são permitidos. O vídeo deve comunicar o valor da sua oferta. Certifique-se de que o cliente potencial seja o herói da história, e não a sua empresa. O vídeo deve falar sobre os principais desafios e metas da sua persona de tomador de decisões principal. <br>Duração recomendada: 60 a 90 segundos. Incorpore suas palavras-chave da pesquisa ao nome dos vídeos.<br>Considere a adição de outros vídeos, como um vídeo de instruções, um vídeo de introdução ou um vídeo de depoimentos de clientes. |
@@ -98,7 +99,7 @@ As tabelas a seguir detalham cada etapa de preenchimento do detalhe da oferta.
 
 Quando sua oferta for listada no AppSource, você ganhará o direito de exibir o selo "Disponível no AppSource" no seu site. 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![Notificação do AppSource](./media/marketplace-appsource/appsourcebadge.png)
     
 A adição desse selo ao seu site promove sua oferta no AppSource, e você pode vincular clientes potenciais diretamente à página de detalhes. O selo do AppSource está disponível em três tamanhos. Você pode baixar o selo juntamente com as diretrizes sobre como usá-lo em [Promover a disponibilidade do aplicativo no Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 

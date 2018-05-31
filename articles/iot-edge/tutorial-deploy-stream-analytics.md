@@ -6,14 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 05/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5d4c2b3bc55b94b08287a06125e15ac61013834a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362032"
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implantar o Azure Stream Analytics como um módulo do IoT Edge – versão prévia
 
@@ -57,7 +58,7 @@ Uma conta de Armazenamento do Azure é necessária para fornecer um ponto de ext
 
 1. No portal do Azure, vá para **Criar um recurso**, insira **Conta de armazenamento** na caixa de pesquisa e selecione **Conta de armazenamento - blob, arquivo, tabela, fila**.
 
-2. No painel **Criar conta de armazenamento**, digite um nome para sua conta de armazenamento, selecione o mesmo local em que o hub IoT está armazenado e selecione **Criar**. Anote o nome para usá-lo mais tarde.
+2. No painel **Criar conta de armazenamento**, insira um nome para sua conta de armazenamento, selecione o mesmo local em que o Hub IoT está armazenado, selecione o mesmo grupo de recursos do Hub IoT e, em seguida, selecione **Criar**. Anote o nome para usá-lo mais tarde.
 
     ![Criar uma conta de armazenamento][1]
 
@@ -82,34 +83,27 @@ Uma conta de Armazenamento do Azure é necessária para fornecer um ponto de ext
     > [!NOTE]
     > Atualmente, os trabalhos do Azure Stream Analytics no IoT Edge não têm suporte na região Oeste dos EUA 2. 
 
-3. Selecione **Criar**.
+3. Clique em **Criar**.
 
-4. No trabalho criado, em **Topologia do Trabalho**, selecione **Entradas** e selecione **Adicionar**.
-
-5. No painel **Nova entrada**, faça o seguinte:
-
-    a. Em **Alias de entrada**, digite **temperatura**.
-    
-    b. Na caixa **Tipo de Fonte**, selecione **Fluxo de dados**.
-    
-    c. Nos campos restantes, use os valores padrão.
+4. No trabalho criado, em **Topologia do Trabalho**, abra **Entradas**.
 
    ![Entrada do Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. Selecione **Criar**.
+5. Selecione **Adicionar entrada de fluxo** e, em seguida, **Hub do Edge**.
 
-7. Em **Topologia do Trabalho**, selecione **Saídas** e selecione **Adicionar**.
+5. No painel **Nova entrada**, insira **temperatura** como o alias de entrada. 
 
-8. No painel **Nova saída**, faça o seguinte:
+6. Clique em **Salvar**.
 
-    a. Na caixa **Alias de saída**, digite **alerta**.
-    
-    b. Nos campos restantes, use os valores padrão. 
-    
-    c. Selecione **Criar**.
+7. Em **Topologia do Trabalho**, abra **Saídas**.
 
    ![Saída do Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
+8. Selecione **Adicionar** e, em seguida, **Hub do Edge**.
+
+8. No painel **Nova saída**, insira **alerta** como o alias de saída. 
+
+9. Clique em **Criar**.
 
 9. Em **Topologia do Trabalho**, selecione **Consulta**e substitua o texto padrão pela seguinte consulta:
 
@@ -124,7 +118,7 @@ Uma conta de Armazenamento do Azure é necessária para fornecer um ponto de ext
     HAVING Avg(machine.temperature) > 70
     ```
 
-10. Selecione **Salvar**.
+10. Clique em **Salvar**.
 
 ## <a name="deploy-the-job"></a>Implantar o trabalho
 
@@ -143,7 +137,7 @@ Agora você está pronto para implantar o trabalho do Azure Stream Analytics em 
 
    d. Deixe as outras configurações inalteradas.
    
-   e. Selecione **Salvar**.
+   e. Clique em **Salvar**.
 
 3. Para adicionar seu trabalho Azure Stream Analytics Edge, selecione **Importar Módulo IoT Edge do Azure Stream Analytics**.
 

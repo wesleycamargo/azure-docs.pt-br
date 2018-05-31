@@ -4,13 +4,14 @@ description: Descreve como avaliar grandes números de computadores locais usand
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 05/18/2018
 ms.author: raynew
-ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c8943aec1c81abb34b646180df48bcc55764ca24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365324"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
@@ -33,13 +34,13 @@ Planeje suas descobertas e avaliações com base nos limites a seguir:
 | Descoberta  | 1.500             |
 | Avaliação | 1.500             |
 
-<!-- 
-- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+<!--
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments.
 - If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
 - If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one.
       -->
 
 ## <a name="plan-multiple-discoveries"></a>Planejar várias descobertas
@@ -88,6 +89,14 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
 
 3. Verifique se o hash gerado corresponde às configurações a seguir.
 
+    Para a versão OVA 1.0.9.8
+
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | b5d9f0caf15ca357ac0563468c2e6251
+    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+
     Para a versão OVA 1.0.9.7
 
     **Algoritmo** | **Valor de hash**
@@ -112,30 +121,6 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-    Para a versão OVA 1.0.8.59
-
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    Para a versão OVA 1.0.8.49
-
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    Para a versão OVA 1.0.8.40:
-
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 |afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
 ## <a name="create-the-collector-vm"></a>Criar a VM do coletor
 
 Importe o arquivo baixado para o vCenter Server:
@@ -149,7 +134,7 @@ Importe o arquivo baixado para o vCenter Server:
 4. Em **Host/Cluster**, especifique o host ou cluster no qual a VM do coletor será executada.
 5. No armazenamento, especifique o destino de armazenamento para a VM do coletor.
 6. Em **Formato de Disco**, especifique o tipo e o tamanho do disco.
-7. Em **Mapeamento de rede**, especifique a rede à qual a VM do coletor se conectará. A rede precisa de conectividade com a Internet para poder enviar metadados para o Azure. 
+7. Em **Mapeamento de rede**, especifique a rede à qual a VM do coletor se conectará. A rede precisa de conectividade com a Internet para poder enviar metadados para o Azure.
 8. Examine e confirme as configurações e selecione **Concluir**.
 
 ## <a name="identify-the-id-and-key-for-each-project"></a>Identificar a chave e a ID para cada projeto
@@ -157,13 +142,13 @@ Importe o arquivo baixado para o vCenter Server:
 Se você tiver vários projetos, não deixe de identificar a ID e a chave para cada um. Você precisará da chave ao executar o coletor para descobrir as VMs.
 
 1. No projeto, selecione **Introdução** > **Descobrir e Avaliar** > **Descobrir Máquinas**.
-2. Em **Copiar credenciais do projeto**, copie a ID e a chave do projeto. 
+2. Em **Copiar credenciais do projeto**, copie a ID e a chave do projeto.
     ![Copiar credenciais do projeto](./media/how-to-scale-assessment/copy-project-credentials.png)
 
 ## <a name="set-the-vcenter-statistics-level"></a>Definir o nível de estatísticas do vCenter
-Abaixo está a lista de contadores de desempenho coletados durante a descoberta. Os contadores estão, por padrão, disponíveis em vários níveis do vCenter Server. 
+Abaixo está a lista de contadores de desempenho coletados durante a descoberta. Os contadores estão, por padrão, disponíveis em vários níveis do vCenter Server.
 
-Recomendamos que você defina o nível mais alto comum (3) como o nível de estatísticas para que todos os contadores sejam coletados corretamente. Se você tiver definido o vCenter em um nível inferior, apenas alguns contadores poderão ser coletados completamente e o restante deles será definido como 0. A avaliação poderá então mostrar dados incompletos. 
+Recomendamos que você defina o nível mais alto comum (3) como o nível de estatísticas para que todos os contadores sejam coletados corretamente. Se você tiver definido o vCenter em um nível inferior, apenas alguns contadores poderão ser coletados completamente e o restante deles será definido como 0. A avaliação poderá então mostrar dados incompletos.
 
 A tabela a seguir também lista os resultados da avaliação que serão afetados se um determinado contador não for coletado.
 
@@ -203,7 +188,7 @@ Para cada descoberta que você precisa executar, execute o coletor para descobri
 5.  Em **Especificar detalhes do vCenter Server**, faça o seguinte:
     - Especifique o nome (FQDN) ou endereço IP do vCenter Server.
     - Em **Nome de usuário** e **Senha**, especifique as credenciais de conta de somente leitura que o coletor usará para descobrir VMs no vCenter Server.
-    - Em **Escopo de seleção**, selecione um escopo de descoberta de VM. O coletor só pode descobrir VMs dentro do escopo especificado. O escopo pode ser definido para uma pasta, datacenter ou cluster específicos. Ele não deve conter mais de 1.000 VMs. 
+    - Em **Escopo de seleção**, selecione um escopo de descoberta de VM. O coletor só pode descobrir VMs dentro do escopo especificado. O escopo pode ser definido para uma pasta, datacenter ou cluster específicos. Ele não deve conter mais de 1.000 VMs.
 
 6.  Em **Especificar projeto de migração**, especifique a ID e a chave do projeto. Se você não as copiou, abra o Portal do Azure da VM do coletor. Na página de **Visão geral** do projeto, selecione **Descobrir Máquinas** e copie os valores.  
 7.  Em **Visualizar progresso de coleção**, monitore o processo de descoberta e verifique se os metadados coletados das VMs estão no escopo. O coletor fornece um tempo aproximado de descoberta.
@@ -211,7 +196,7 @@ Para cada descoberta que você precisa executar, execute o coletor para descobri
 
 ### <a name="verify-vms-in-the-portal"></a>Verifique as VMs no portal
 
-O tempo de descoberta depende de quantas VMs estão sendo descobertas. Geralmente, para 100 VMs, a descoberta é concluída em torno de uma hora após a conclusão da execução do coletor. 
+O tempo de descoberta depende de quantas VMs estão sendo descobertas. Geralmente, para 100 VMs, a descoberta é concluída em torno de uma hora após a conclusão da execução do coletor.
 
 1. No projeto do Planejador de Migrações, selecione **Gerenciar** > **Máquinas**.
 2. Verifique se as VMs que você deseja descobrir aparecem no portal.

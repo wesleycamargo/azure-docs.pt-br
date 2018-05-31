@@ -3,7 +3,7 @@ title: Esquema de linguagem de definição de fluxo de trabalho - Aplicativo Ló
 description: Escreva definições de fluxo de trabalho personalizadas para os Aplicativos Lógicos do Azure usando a Linguagem de Definição de Fluxo de Trabalho
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: SyntaxC4
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 14b273841d1fc15df635eb3b41b02ad77cbef90d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886793"
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33775274"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definições de fluxo de trabalho dos Aplicativos Lógicos com o esquema de Linguagem de Definição de Fluxo de Trabalho
 
@@ -220,8 +220,7 @@ No caso de [expressões](#expressions) e [funções](#functions), os operadores 
 
 ## <a name="functions"></a>Funções
 
-Algumas expressões obtêm seus valores de ações de tempo de execução que podem ainda não existir quando o aplicativo lógico começa a ser executado. Para referenciar ou trabalhar com esses valores em expressões, você pode usar [*funções*](../logic-apps/workflow-definition-language-functions-reference.md). Por exemplo, é possível usar funções matemáticas para fazer cálculos, como a função [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), que retorna a soma de números inteiros ou floats. Para obter informações detalhadas sobre cada função, veja o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
-Ou continue aprendendo sobre as funções e seu uso geral.
+Algumas expressões obtêm seus valores de ações de tempo de execução que podem ainda não existir quando o aplicativo lógico começa a ser executado. Para referenciar ou trabalhar com esses valores em expressões, você pode usar *funções*. Por exemplo, é possível usar funções matemáticas para fazer cálculos, como a função [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), que retorna a soma de números inteiros ou floats. 
 
 Estas são apenas algumas tarefas de exemplo que podem ser executadas com funções: 
 

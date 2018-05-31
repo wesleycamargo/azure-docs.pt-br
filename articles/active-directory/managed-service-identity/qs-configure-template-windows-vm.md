@@ -1,46 +1,55 @@
 ---
 title: Como configurar o MSI em uma VM do Azure usando um modelo
-description: "Instruções passo a passo para configurar uma MSI (Identidade de Serviço Gerenciado) em uma VM do Azure usando um modelo do Azure Resource Manager."
+description: Instruções passo a passo para configurar uma MSI (Identidade de Serviço Gerenciado) em uma VM do Azure usando um modelo do Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 8f05c8c9dfcb5237886f641d933f3e6309943bc8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8c955e6ad9d47c6963a1c136600761fddee03835
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33930266"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar a Identidade de Serviço Gerenciado de um VM usando um modelo
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-A MSI (Identidade de Serviço Gerenciado) fornece aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD (Azure Active Directory). Você pode usar essa identidade para autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter as credenciais no seu código. 
+A Identidade de Serviço Gerenciado fornece aos serviços do Azure uma identidade gerenciada automaticamente no Active Directory do Azure. Você pode usar essa identidade para autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter as credenciais no seu código. 
 
-Neste artigo, você aprenderá a habilitar e a remover o MSI de uma VM do Windows Azure usando um modelo de implantação do Azure Resource Manager.
+Neste artigo, você aprenderá a executar as seguintes operações de Identidade de Serviço Gerenciada em uma VM do Azure usando o modelo de implantação do Azure Resource Manager:
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- Se você não estiver familiarizado com a Identidade de Serviço Gerenciada, consulte a [seção de visão geral](overview.md). **Verifique se examinou a [diferença entre uma identidade atribuída pelo sistema e uma atribuída pelo usuário](overview.md#how-does-it-work)**.
+- Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
-## <a name="enable-msi-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Habilitar o MSI durante a criação de uma VM do Azure ou em uma VM existente
+## <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
 
-Assim como com o portal do Azure e o script, os modelos do Azure Resource Manager permitem implantar recursos novos ou modificados definidos por um grupo de recursos do Azure. Há várias opções disponíveis para a edição e a implantação do modelo, tanto locais quanto baseadas em portal, incluindo:
+Assim como com o Portal do Azure e o script, os modelos do [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permitem implantar recursos novos ou modificados definidos por um grupo de recursos do Azure. Há várias opções disponíveis para a edição e a implantação do modelo, tanto locais quanto baseadas em portal, incluindo:
 
    - Use um [modelo personalizado do Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), que permite a criação de um modelo do zero ou use como base um modelo comum existente ou de [Início Rápido](https://azure.microsoft.com/documentation/templates/).
    - Derivar de um grupo de recursos existente, exportando um modelo da [implantação original](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history) ou do [estado atual da implantação](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
    - Usar um [editor JSON local (por exemplo, VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), depois carregar e implantar usando o PowerShell ou a CLI.
    - Usar o [projeto do Grupo de Recursos do Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) do Visual Studio para criar e implantar um modelo.  
 
-Independentemente da opção escolhido, a sintaxe do modelo será a mesma durante a implantação inicial e a reimplantação. Habilitar a MSI em uma VM nova ou existente é feito da mesma maneira. Além disso, por padrão, o Azure Resource Manager faz uma [atualização incremental](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) para implantações:
+Independentemente da opção escolhido, a sintaxe do modelo será a mesma durante a implantação inicial e a reimplantação. Habilitar uma identidade atribuída pelo sistema ou pelo usuário em uma VM nova ou existente é realizado da mesma maneira. Além disso, por padrão, o Azure Resource Manager faz uma [atualização incremental](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) para implantações.
+
+## <a name="system-assigned-identity"></a>Identidade atribuída pelo sistema
+
+Nesta seção, você habilitará e desabilitará uma identidade atribuída pelo sistema usando um modelo do Azure Resource Manager.
+
+### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Habilitar a identidade atribuída pelo sistema durante a criação de uma VM do Azure ou de uma VM existente
 
 1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual. Verifique também se a sua conta pertence a uma função que lhe dá permissões de gravação na VM (por exemplo, a função de “Colaborador da Máquina Virtual”).
 
@@ -52,7 +61,7 @@ Independentemente da opção escolhido, a sintaxe do modelo será a mesma durant
 
    ![Captura de tela do modelo – localizar VM](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
-3. Adicione a propriedade `"identity"` no mesmo nível que a propriedade `"type": "Microsoft.Compute/virtualMachines"`. Use a seguinte sintaxe:
+3. Para habilitar a identidade atribuída pelo sistema, adicione a propriedade `"identity"` no mesmo nível que a propriedade `"type": "Microsoft.Compute/virtualMachines"`. Use a seguinte sintaxe:
 
    ```JSON
    "identity": { 
@@ -60,7 +69,7 @@ Independentemente da opção escolhido, a sintaxe do modelo será a mesma durant
    },
    ```
 
-4. Depois, adicione a extensão da MSI da VM como um elemento `resources`. Use a seguinte sintaxe:
+4. (Opcional) Adicione a extensão da MSI da VM como um elemento `resources`. Esta etapa é opcional, uma vez que você pode usar o ponto de extremidade de identidade do serviço de metadados na instância (IMDS) do Azure para recuperar tokens também.  Use a seguinte sintaxe:
 
    >[!NOTE] 
    > O exemplo a seguir pressupõe que uma extensão de VM do Windows (`ManagedIdentityExtensionForWindows`) está sendo implantada. Você também pode configurar para Linux usando `ManagedIdentityExtensionForLinux` em vez disso, para os elementos `"name"` e `"type"`.
@@ -90,15 +99,69 @@ Independentemente da opção escolhido, a sintaxe do modelo será a mesma durant
 
 5. Quando terminar, seu modelo deverá ser semelhante ao seguinte:
 
-   ![Captura de tela do modelo após a atualização](../media/msi-qs-configure-template-windows-vm/template-file-after.png) 
+   ![Captura de tela do modelo após a atualização](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
-## <a name="remove-msi-from-an-azure-vm"></a>Remover o MSI de uma VM do Azure
+### <a name="disable-a-system-assigned-identity-from-an-azure-vm"></a>Desabilitar uma identidade atribuída pelo sistema de um VM do Azure
 
-Se você tiver uma VM que não precise mais de uma MSI:
+> [!NOTE]
+> Atualmente, não há suporte para desabilitar a Identidade de Serviço Gerenciada de uma de máquina virtual. Enquanto isso, você pode alternar entre usar identidades atribuídas pelo sistema ou pelo usuário.
+
+Se você tiver uma VM que não precise mais de uma máquina virtual:
 
 1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual. Verifique também se a sua conta pertence a uma função que lhe dá permissões de gravação na VM (por exemplo, a função de “Colaborador da Máquina Virtual”).
 
-2. Remova os dois elementos que foram adicionados na seção anterior: a propriedade da VM `"identity"` e o `"Microsoft.Compute/virtualMachines/extensions"` recurso.
+2. Altere o tipo de identidade para `UserAssigned`.
+
+## <a name="user-assigned-identity"></a>Identidade atribuída pelo usuário
+
+Nesta seção você atribui uma identidade atribuída pelo usuário a uma VM do Azure usando um modelo do Azure Resource Manager.
+
+> [!Note]
+> Para criar uma identidade atribuída pelo usuário usando um Modelo do Azure Resource Manager, consulte [Criar uma identidade atribuída pelo usuário](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
+
+ ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Atribuir uma identidade atribuída pelo usuário a uma VM do Azure
+
+1. No elemento `resources`, adicione a seguinte entrada para atribuir uma identidade atribuída pelo usuário à VM.  Certifique-se de substituir `<USERASSIGNEDIDENTITY>` pelo nome da identidade atribuída pelo usuário que você criou.
+    ```json
+    {
+        "apiVersion": "2017-12-01",
+        "type": "Microsoft.Compute/virtualMachines",
+        "name": "[variables('vmName')]",
+        "location": "[resourceGroup().location]",
+        "identity": {
+            "type": "userAssigned",
+            "identityIds": [
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITYNAME>)']"
+            ]
+        },
+    ```
+    
+2. (Opcional) Em seguida, no elemento `resources`, adicione a seguinte entrada para atribuir a extensão de identidade gerenciada para sua VM. Esta etapa é opcional, uma vez que você pode usar o ponto de extremidade de identidade do serviço de metadados na instância (IMDS) do Azure para recuperar tokens também. Use a seguinte sintaxe:
+    ```json
+    {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.ManagedIdentity",
+            "type": "ManagedIdentityExtensionForWindows",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                "port": 50342
+            }
+        }
+    }
+    ```
+    
+3.  Quando terminar, seu modelo deverá ser semelhante ao seguinte:
+
+      ![Captura de tela de identidade atribuída pelo usuário](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
+
 
 ## <a name="related-content"></a>Conteúdo relacionado
 

@@ -12,13 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361964"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop no HDInsight Usando o portal do Azure
 
@@ -68,7 +69,7 @@ Você deve especificar uma assinatura do Azure, quando você cria um cluster HDI
     1. Entre no [Portal do Azure](https://portal.azure.com).
     2. Clique em **Grupos de recursos** no menu à esquerda para listar os grupos de recursos.
     3. Clique no grupo de recursos que você deseja usar para criar o cluster do HDInsight.
-    4. Clique em **IAM (Controle de acesso)**e verifique se você (ou um grupo a que pertence) tem pelo menos o acesso de Colaborador para o grupo de recursos.
+    4. Clique em **IAM (Controle de acesso)** e verifique se você (ou um grupo a que pertence) tem pelo menos o acesso de Colaborador para o grupo de recursos.
 
 Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistration, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
@@ -125,7 +126,7 @@ Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionR
    * **Fonte de dados padrão**: o sistema de arquivos padrão do cluster.
    * **Tamanho dos nós de trabalho**: o tamanho selecionado da VM dos nós de trabalho.
    * **Tamanho dos nós de cabeçalho**: o tamanho selecionado da VM dos nós de cabeçalho.
-   * **Rede virtual**: o nome da rede virtual e da sub-rede na qual o cluster será implantado, se alguma tiver sido selecionada no tempo de implantação.
+   * **Rede virtual**: o nome da Rede Virtual na qual o cluster é implantado, caso uma tenha sido selecionada durante a implantação.
 
 ## <a name="delete-clusters"></a>Excluir clusters
 Excluir um cluster não excluirá a conta de armazenamento padrão, nem nenhuma conta de armazenamento vinculada. Você pode recriar o cluster usando as mesmas contas de armazenamento e as mesmas metastores. Recomendamos usar um novo contêiner de Blobs padrão ao recriar o cluster.

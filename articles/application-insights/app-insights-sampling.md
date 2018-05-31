@@ -3,7 +3,7 @@ title: Amostragem de telemetria no Azure Application Insights | Microsoft Docs
 description: Como manter o volume de telemetria sob controle.
 services: application-insights
 documentationcenter: windows
-author: vgorbenko
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: mbullwin
-ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: mbullwin; vitalyg
+ms.openlocfilehash: 53753a3202362c73356e8e39bfca9d813f6387e0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32309599"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869896"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -39,7 +39,7 @@ A amostragem reduz os custos de tráfego e de dados e ajuda a evitar a limitaç�
 ## <a name="types-of-sampling"></a>Tipos de amostragem
 Há três módulos de amostragem alternativos:
 
-* **amostragem adaptável** ajusta automaticamente o volume da telemetria enviada do SDK para seu aplicativo ASP.NET. Começando com o SDK v 2.0.0-beta3, esse é o método de amostragem padrão. A amostragem adaptável está disponível atualmente somente para telemetria ASP.NET do lado do servidor. Para aplicativos do Asp.NET Core direcionados a Framework completo, a amostragem adaptável está disponível na versão 1.0.0 do SDK Microsoft.ApplicationInsights.AspNetCore. Para aplicativos do Asp.NET Core direcionados a NetCore, a amostragem adaptável está disponível na versão 2.2.0-beta1 do SDK Microsoft.ApplicationInsights.AspNetCore.
+* **amostragem adaptável** ajusta automaticamente o volume da telemetria enviada do SDK para seu aplicativo ASP.NET. Começando com o SDK v 2.0.0-beta3, esse é o método de amostragem padrão. A amostragem adaptável está disponível atualmente somente para telemetria ASP.NET do lado do servidor. Para aplicativos ASP.NET Core direcionados à estrutura completa, a amostragem adaptável está disponível da versão 1.0.0 em diante do SDK Microsoft.ApplicationInsights.AspNetCore. Para aplicativos ASP.NET Core direcionados ao NetCore, a amostragem adaptável está disponível da versão 2.2.0-beta1 em diante do SDK Microsoft.ApplicationInsights.AspNetCore.
 
 * **amostragem de taxa fixa** reduz o volume de telemetria enviado do seu servidor ASP.NET ou servidor Java e dos navegadores dos seus usuários. Você define a taxa. O cliente e o servidor sincronizarão suas amostragens para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
 * A **amostragem de ingestão** funciona no portal do Azure. Ela descarta parte da telemetria que chega em seu aplicativo, na taxa de amostragem que você definir. Ela não reduz o tráfego de telemetria enviado do seu aplicativo, mas ajuda você a se manter em sua cota mensal. A principal vantagem da amostragem de ingestão é que você pode definir a taxa de amostragem sem reimplantar o aplicativo e ela funciona uniformemente para todos os servidores e clientes. 
