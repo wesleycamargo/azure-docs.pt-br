@@ -6,20 +6,21 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/17/2018
 ms.author: sujayt
-ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312620"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informações sobre rede para replicação do Azure para o Azure
 
 >[!NOTE]
 > Atualmente, a replicação do Site Recovery para máquinas virtuais do Azure está em versão prévia.
 
-Este artigo fornece diretrizes de rede para quando você está replicando e recuperando VMs do Azure de uma região para outra usando o [Azure Site Recovery](site-recovery-overview.md). 
+Este artigo fornece diretrizes de rede para quando você está replicando e recuperando VMs do Azure de uma região para outra usando o [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -31,7 +32,7 @@ O diagrama a seguir ilustra um ambiente típico do Azure para aplicativos em exe
 
 ![ambiente do cliente](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Se você estiver usando uma conexão VPN ou o Azure ExpressRoute da rede local do Azure, o ambiente terá esta aparência:
+Se você estiver usando uma conexão VPN ou o Azure ExpressRoute da rede local do Azure, o ambiente terá a seguinte aparência:
 
 ![ambiente do cliente](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
@@ -57,19 +58,18 @@ login.microsoftonline.com | Necessário para autorização e autenticação para
 
 Se você está usando regras de NSG ou de proxy de firewall baseadas em IP para controlar a conectividade de saída, os intervalos de IP a seguir precisam ser permitidos.
 
-- Todos os intervalos de endereços IP que correspondem ao local de origem.
-    - Você pode baixar os [intervalos de endereços IP](https://www.microsoft.com/download/confirmation.aspx?id=41653).
-    - Você precisa permitir esses endereços para que os dados possam ser gravados da VM para a conta de armazenamento de cache.
+- Todos os intervalos de endereços IP que correspondem às contas de armazenamento na região de origem
+    - Crie uma [marcação de serviço de armazenamento](../virtual-network/security-overview.md#service-tags) com base na regra NSG para a região de origem.
+    - Permita esses endereços para que os dados possam ser gravados da VM para a conta de armazenamento de cache.
 - Todos os intervalos de endereços IP que correspondam aos [pontos de extremidade de IP V4 de identidade e de autenticação](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) do Office 365.
     - Se novos endereços forem adicionados aos intervalos de IP do Office 365 no futuro, crie novas regras de NSG.
-- Endereços IP de ponto de extremidade de serviço do Site Recovery. Eles estão disponíveis em um [arquivo XML](https://aka.ms/site-recovery-public-ips) e dependem do seu local de destino.
--  Você pode [baixar e usar esse script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) para criar automaticamente as regras necessárias no NSG. 
+- Endereços IP de ponto de extremidade do Site Recovery - disponíveis em um [arquivo XML](https://aka.ms/site-recovery-public-ips) e dependem de seu local de destino.
+-  Você pode [baixar e usar esse script](https://aka.ms/nsg-rule-script) para criar automaticamente as regras necessárias no NSG.
 - É recomendável que você crie as regras de NSG necessárias em um NSG de teste e verifique se não há nenhum problema antes de criar as regras em um NSG de produção.
-- Para criar o número necessário de regras NSG, certifique-se de que sua assinatura está na lista de permissões. Entre em contato com o suporte do Azure para aumentar o limite de regras de NSG em sua assinatura.
 
-Os intervalos de endereços IP são como demonstrado a seguir:
 
->
+Os intervalos de endereços IP do Site Recovery são como os demonstrados a seguir:
+
    **Destino** | **IP do Site Recovery** |  **Monitoramento de Recuperação de site IP**
    --- | --- | ---
    Ásia Oriental | 52.175.17.132 | 13.94.47.61
@@ -99,74 +99,66 @@ Os intervalos de endereços IP são como demonstrado a seguir:
    Norte do Reino Unido | 51.142.209.167 | 13.87.102.68
    Coreia Central | 52.231.28.253 | 52.231.32.85
    Sul da Coreia | 52.231.298.185 | 52.231.200.144
-   
-   
-  
+   França Central | 52.143.138.106 | 52.143.136.55
+   Sul da França | 52.136.139.227 |52.136.136.62
+
 
 ## <a name="example-nsg-configuration"></a>Exemplo de Configuração do NSG
 
-Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada. 
+Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
-- Se você está usando regras de NSG para controlar a conectividade de saída, use regras de "Permitir HTTPS de saída" para todos os intervalos de endereços IP necessários.
-- O exemplo presume que o local de origem da VM é "Leste dos EUA" e que o local de destino é o "EUA Central".
+- Se você está usando regras de NSG para controlar a conectividade de saída, use regras de "Permitir HTTPS de saída" para a port:443 para todos os intervalos de endereços IP necessários.
+- O exemplo presume que o local de origem da VM é "Leste dos EUA" e que o local de destino é "EUA Central".
 
 ### <a name="nsg-rules---east-us"></a>Regras de NSG – Leste dos EUA
 
-1. Criar regras que correspondam aos [intervalos de endereços IP do Leste dos EUA](https://www.microsoft.com/download/confirmation.aspx?id=41653). Isso é necessário para que os dados possam ser gravados para a conta de armazenamento de cache da VM.
-2. Criar regras para todos os intervalos de endereços IP que correspondam aos [pontos de extremidade de IP V4 de identidade e de autenticação](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) do Office 365.
-3. Criar regras que correspondam ao local de destino:
+1. Crie uma regra de segurança HTTPS (443) de saída para "Storage.EastUS" no NSG conforme mostrado na captura de tela abaixo.
+
+      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+
+2. Crie regras HTTPS (443) de saída para todos os intervalos de endereços IP que correspondam aos [pontos de extremidade de IP V4 de identidade e de autenticação](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) do Office 365.
+3. Crie regras HTTPS (443) de saída para IPs do Site Recovery correspondentes ao local de destino:
 
    **Localidade** | **Endereço IP do Site Recovery** |  **Endereço IP de monitoramento do Site Recovery**
     --- | --- | ---
    Centro dos EUA | 40.69.144.231 | 52.165.34.144
 
-### <a name="nsg-rules---central-us"></a>Regras de NSG – EUA Central 
+### <a name="nsg-rules---central-us"></a>Regras de NSG – EUA Central
 
 Essas regras são necessárias para que a replicação possa ser ativada da região de destino para a região de origem após o failover:
 
-* Regras que correspondam aos [intervalos de IP do Centro dos EUA](https://www.microsoft.com/download/confirmation.aspx?id=41653). Isso é necessário para que os dados possam ser gravados para a conta de armazenamento de cache da VM.
+1. Crie uma regra de segurança HTTPS (443) de saída para "Storage.CentralUS" no NSG.
 
-* Regras para todos os intervalos IP que correspondam ao Office 365 [identidade e autenticação de pontos de extremidade do IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Crie regras HTTPS (443) de saída para todos os intervalos de endereços IP que correspondam aos [pontos de extremidade de IP V4 de identidade e de autenticação](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) do Office 365.
 
-* Regras que correspondam ao local de origem:
-    - Leste dos EUA
-    - Endereço IP do Site Recovery: 13.82.88.226
-    - Endereço IP de monitoramento do Site Recovery: 104.45.147.24
+3. Crie regras HTTPS (443) de saída para IPs do Site Recovery correspondentes ao local de origem:
 
+   **Localidade** | **Endereço IP do Site Recovery** |  **Endereço IP de monitoramento do Site Recovery**
+    --- | --- | ---
+   Centro dos EUA | 13.82.88.226 | 104.45.147.24
 
-## <a name="expressroutevpn"></a>ExpressRoute/VPN 
+## <a name="network-virtual-appliance-configuration"></a>Configuração da solução de virtualização de rede
 
-Se você tiver uma conexão de ExpressRoute ou VPN entre o seu local e o local do Azure, siga as diretrizes nesta seção.
+Se estiver usando NVAs (soluções de virtualização de rede) para controlar o tráfego de saída de rede das VMs, a solução poderá ficar limitada se todo o tráfego da replicação passar pela NVA. Recomendamos criar um ponto de extremidade de serviço de rede em sua rede virtual para "Armazenamento", para que o tráfego da replicação não acesse a NVA.
+
+### <a name="create-network-service-endpoint-for-storage"></a>Criar ponto de extremidade de serviço de rede para Armazenamento
+É possível criar um ponto de extremidade de serviço de rede em sua rede virtual para "Armazenamento" para que o tráfego da replicação não saia do limite do Azure.
+
+- Selecione sua Rede Virtual do Azure e clique em 'Pontos de extremidade de serviço'
+
+    ![storage-endpoint](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+
+- Clique em 'Adicionar' e a guia 'Adicionar pontos de extremidade de serviço' será aberta
+- Selecione 'Microsoft.Storage' em 'Serviço' e as sub-redes necessárias no campo 'Sub-redes' e clique em 'Adicionar'
+
+>[!NOTE]
+>Não restrinja o acesso à rede virtual às suas contas de armazenamento usadas para a ASR. Você deve permitir o acesso de 'Todas as redes'
 
 ### <a name="forced-tunneling"></a>Túnel forçado
 
-Normalmente, você define uma rota padrão (0.0.0.0/0) que força o tráfego de Internet de saída a fluir pelo local. Não recomendamos isso. O tráfego de replicação e comunicação de serviço de recuperação de Site não devem deixar o limite do Azure. A solução é adicionar rotas definidas pelo usuário (UDRs) para [esses intervalos IP](#outbound-connectivity-for-azure-site-recovery-ip-ranges) para que o tráfego de replicação não seja local.
-
-### <a name="connectivity"></a>Conectividade 
-
-Siga estas diretrizes para conexões entre o local de destino e o local:
-- Se seu aplicativo precisa se conectar a máquinas locais ou se houver clientes que se conectam ao aplicativo do local por VPN/ExpressRoute local, certifique-se de que você tenha pelo menos uma [conexão site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) entre o datacenter local e sua região do Azure de destino.
-
-- Se você estiver esperando muito tráfego fluindo entre o datacenter local e sua região do Azure de destino, você deve criar outra [conexão ExpressRoute](../expressroute/expressroute-introduction.md) entre a região do Azure de destino e o datacenter local.
-
-- Se você deseja manter IPs para as máquinas virtuais depois do failover, mantenha a conexão de site para site/ExpressRoute da região de destino em um estado desconectado. Isso é para certificar-se de que não há nenhum conflito de intervalo entre os intervalos de IP da região de origem e os intervalos de IP da região de destino.
-
-### <a name="expressroute-configuration"></a>Configuração do ExpressRoute
-Siga estas práticas recomendadas para configuração de ExpressRoute:
-
-- Crie um circuito de ExpressRoute nas regiões de origem e de destino. Em seguida, você precisa criar uma conexão entre:
-    - A rede virtual de origem e a rede local, por meio do circuito ExpressRoute na região de origem.
-    - A rede virtual de origem e a rede local, por meio do circuito ExpressRoute na região de destino.
-
-
-- Como parte do padrão de ExpressRoute, você pode criar circuitos na mesma região geopolítica. Para criar circuitos ExpressRoute em diferentes regiões geopolíticas, o Azure ExpressRoute Premium é necessário, o que envolve um custo incremental. (Se você já estiver usando o ExpressRoute Premium, não há nenhum custo extra.) Para obter mais detalhes, consulte o [documento de locais de ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e [preços do ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
-
-- É recomendável que você use intervalos IP diferentes em regiões de origem e destino. O circuito de ExpressRoute não será capaz de se conectar com duas redes virtuais do Azure de mesmo intervalo de IP ao mesmo tempo.
-
-- Você pode criar redes virtuais com os mesmos intervalos IP em ambas as regiões e, em seguida, criar circuitos de ExpressRoute em ambas as regiões. No caso de um evento de failover, desconecte o circuito da rede virtual de origem e conecte o circuito na rede virtual de destino.
-
- >[!IMPORTANT]
- > Se a região principal estiver completamente inativa, a operação de desconectar pode falhar. Que impedirá a rede virtual de destino de conseguir conectividade de ExpressRoute.
+Você pode substituir a rota de sistema padrão do Azure para o prefixo de endereço 0.0.0.0/0 com um [rota personalizados](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e desviar o tráfego VM para uma solução de virtualização de rede (NVA) local, mas essa configuração não é recomendada para a recuperação de Site replicação. Se você estiver usando rotas personalizadas, deverá [criar um ponto de extremidade de serviço de rede virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) em sua rede virtual para "Armazenamento" para que o tráfego de replicação não saia do limite do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
-Inicie a proteção de suas cargas de trabalho ao [replicar máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
+- Inicie a proteção de suas cargas de trabalho ao [replicar máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
+- Saiba mais sobre [retenção de endereço IP](site-recovery-retain-ip-azure-vm-failover.md) para failover de máquina virtual do Azure.
+- Saiba mais sobre a recuperação de desastres do [máquinas virtuais do Azure com o ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).

@@ -6,14 +6,15 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777003"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Banco de dados SQL do Microsoft Azure e de alta disponibilidade
 Desde o início da oferta de PaaS do Banco de Dados SQL do Azure, a Microsoft prometeu aos seus clientes de que a HA (Alta Disponibilidade) seria compilada no serviço e os clientes não seriam obrigados a operar, adicionar lógica especial ou tomar decisões em torno de HA. A Microsoft mantém o controle total sobre a configuração e operação do sistema de HA, oferecendo um SLA aos clientes. O SLA de HA aplica-se a um Banco de Dados SQL em uma região e não oferece proteção nos casos de uma falha total da região devido a fatores fora do controle razoável da Microsoft (por exemplo, desastre natural, guerra, atos de terrorismo, tumultos, ação governamental ou uma falha de rede ou dispositivo externa aos data centers da Microsoft, inclusive em sites de clientes ou entre sites de clientes e data center da Microsoft).
@@ -30,7 +31,7 @@ Os clientes estão mais interessados na resiliência de seus próprios bancos de
 
 Para dados, o Banco de Dados SQL usa armazenamento local (LS) com base em discos/VHDs anexados diretos e o armazenamento remoto (RS) com base em blobs de páginas de Armazenamento Premium do Azure. 
 - O armazenamento local é usado nos bancos de dados Premium ou Comercialmente Crítico (versão prévia) e pools elásticos, que são projetados para aplicativos de OLTP críticos com altos requisitos de IOPS. 
-- O armazenamento remoto é utilizado para camadas de serviço Básico e Standard, projetados para cargas de trabalho comerciais orientadas para o orçamento que exigem potência de computação e armazenamento para escalar de forma independente. Eles usam um único blob de páginas para arquivos de log e banco de dados, e mecanismos de replicação e failover de armazenamento interno.
+- O armazenamento remoto é utilizado para camadas de serviço Basic, Standard e General, que são projetadas para cargas de trabalho comerciais orientadas para o orçamento que exigem potência de computação e armazenamento para escalar de forma independente. Eles usam um único blob de páginas para arquivos de log e banco de dados, e mecanismos de replicação e failover de armazenamento interno.
 
 Em ambos os casos, os mecanismos de replicação, detecção de falhas e failover do Banco de Dados SQL são totalmente automatizados e operam sem intervenção humana. Essa arquitetura foi projetada para garantir que os dados confirmados nunca serão perdidos e que a durabilidade dos dados tenha prioridade sobre tudo.
 
@@ -56,7 +57,7 @@ O sistema de failover [Service Fabric](../service-fabric/service-fabric-overview
 
 ## <a name="remote-storage-configuration"></a>Configuração de armazenamento remoto
 
-Para configurações de armazenamento remoto (camadas Básico e Standard), exatamente uma cópia é mantida no armazenamento de blobs remoto, usando os recursos dos sistemas de armazenamento para detecção de bits corrompidos, redundância e durabilidade. 
+Para configurações de armazenamento remoto (camadas Básico, Standard ou Uso Geral), exatamente uma cópia é mantida no armazenamento de blobs remoto, usando os recursos dos sistemas de armazenamento para detecção de bits corrompidos, redundância e durabilidade. 
 
 A arquitetura de alta disponibilidade é ilustrada pelo diagrama a seguir:
  
@@ -89,7 +90,12 @@ Conforme descrito, as camadas de serviço Premium e Comercialmente Crítico (ver
 
 Para usar o recurso Expansão de leitura com um determinado banco de dados, você deve habilitá-lo ao criar o banco de dados ou posteriormente, alterando a configuração usando o PowerShell invocando os cmdlets [et-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ou por meio da API REST do Azure Resource Manager usando o método [Bancos de dados - Criar ou Atualizar](/rest/api/sql/databases/createorupdate).
 
-Após a Expansão de Leitura ser habilitada para um banco de dados, aplicativos que se conectam ao banco de dados serão direcionados para a réplica de leitura-gravação ou para uma réplica somente leitura desse banco de dados de acordo com a propriedade `ApplicationIntent` configurada na cadeia de conexão do aplicativo. Para obter informações sobre a propriedade `ApplicationIntent`, consulte [Especificando a intenção do aplicativo](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) 
+Após a Expansão de Leitura ser habilitada para um banco de dados, aplicativos que se conectam ao banco de dados serão direcionados para a réplica de leitura-gravação ou para uma réplica somente leitura desse banco de dados de acordo com a propriedade `ApplicationIntent` configurada na cadeia de conexão do aplicativo. Para obter informações sobre a propriedade `ApplicationIntent`, consulte [Especificando a intenção do aplicativo](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
+
+Se a expansão de leitura está desabilitada ou defina a propriedade ReadScale em uma camada de serviço sem suporte, todas as conexões são direcionadas para a réplica de leitura / gravação, independentemente da `ApplicationIntent` propriedade.  
+
+> [!NOTE]
+> É possível ativar a expansão de leitura em um banco de dados Básico, Standard ou Uso Geral, mesmo se não resultar no roteamento da sessão pretendia apenas leitura em uma réplica separada. Isso é feito para oferecer suporte a aplicativos existentes que são dimensionados para cima e para baixo entre as camadas de finalidade Standard/Uso Geral e Premium/Comercialmente Crítico.  
 
 O recurso de Expansão de Leitura dá suporte à consistência de nível de sessão. Se a sessão somente leitura reconectar após uma causa de erro de conexão pela indisponibilidade de réplica, ela poderá ser redirecionada para uma réplica diferente. Embora improvável, isso pode resultar no processamento do conjunto de dados que está obsoleto. Da mesma forma, se um aplicativo gravar dados usando uma sessão de leitura/gravação e a ler imediatamente usando a sessão somente leitura, é possível que os novos dados não fiquem imediatamente visíveis.
 

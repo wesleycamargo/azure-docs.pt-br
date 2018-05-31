@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 1cb31fa9a5c7fdcd4158c9c2d2ddccc7125ba3bd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f61ab05d2c89167eeef0cb930a734bfafeeded1c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34337836"
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33206196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutorial: integração do Azure Active Directory com a Adobe Captivate Prime
 
@@ -31,7 +31,7 @@ A integração da Adobe Captivate Prime ao Azure AD oferece os seguintes benefí
 - Você pode habilitar seus usuários para fazerem logon automaticamente no Adobe Captivate Prime (Logon Único) com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -201,7 +201,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 

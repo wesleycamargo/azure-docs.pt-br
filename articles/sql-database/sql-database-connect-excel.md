@@ -4,18 +4,18 @@ description: Saiba como conectar o Microsoft Excel ao banco de dados SQL do Azur
 services: sql-database
 keywords: conectar o excel ao sql, importar dados para o excel
 author: joseidz
-manager: craigg
+manager: jhubbard
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: craigg
-ms.openlocfilehash: 6f2894d65240580346b99d203f8289652d8e6618
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5d2d863c0266467a60eafa70f0ef3ecaa9736ac0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364083"
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188405"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Conectar o Excel a um Banco de Dados SQL do Azure e criar um relatório
 
