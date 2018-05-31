@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 0bc24fb0206455c723acf5e6f4b82d82002f727c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ba48a9072a85e7d8e6e9fb17957efbf27711df8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886828"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +104,7 @@ Para usar a autenticação de token do aplicativo AAD com base em entidade de se
     - Chave do aplicativo
     - ID do locatário
 
-2. **[Provisione um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** para seu Azure SQL Server usando o portal do Azure se ainda não fez isso. O administrador do AAD pode ser um usuário ou grupo do AAD. Se você conceder ao grupo com MSI uma função administrativa, ignore as etapas 3 e 4 abaixo, pois o administrador deve ter acesso completo ao banco de dados.
+2. **[Provisione um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para seu Azure SQL Server usando o portal do Azure se ainda não fez isso. O administrador do AAD pode ser um usuário ou grupo do AAD. Se você conceder ao grupo com MSI uma função administrativa, ignore as etapas 3 e 4 abaixo, pois o administrador deve ter acesso completo ao banco de dados.
 
 3. **Crie um usuário de banco de dados independente para a entidade de serviço**, conectando-se ao data warehouse de/para o qual você deseja copiar dados usando ferramentas como o SSMS, com uma identidade de AAD com pelo a permissão ALTER ANY USER, e execute o T-SQL a seguir. Saiba mais sobre o usuário de banco de dados independente [aqui](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -114,7 +115,7 @@ Para usar a autenticação de token do aplicativo AAD com base em entidade de se
 4. **Conceda as permissões necessárias para a entidade de serviço** como faria normalmente para usuários do SQL, por exemplo, executando abaixo:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. Em ADF, configure um serviço vinculado do SQL Data Warehouse do Azure.
@@ -151,6 +152,9 @@ Para usar a autenticação de token do aplicativo AAD com base em entidade de se
 
 Uma data factory pode ser associada a uma [identidade de serviço gerenciada (MSI)](data-factory-service-identity.md), que representa a data factory específica. Você pode usar essa identidade de serviço para autenticação do Azure SQL Data Warehouse, que permite que esta factory designada acesse e copie os dados de/para seu data warehouse.
 
+> [!IMPORTANT]
+> Observe que PolyBase atualmente não tem suporte para autenticação MSI.
+
 Para usar a autenticação de token do aplicativo AAD com base em MSI, siga estas etapas:
 
 1. **Crie um grupo no Azure AD e torne a MSI da factory um membro do grupo**.
@@ -163,7 +167,7 @@ Para usar a autenticação de token do aplicativo AAD com base em MSI, siga esta
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Provisione um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** para seu Azure SQL Server usando o portal do Azure se ainda não fez isso.
+2. **[Provisione um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para seu Azure SQL Server usando o portal do Azure se ainda não fez isso.
 
 3. **Crie um usuário de banco de dados independente para o grupo do AAD**, conectando-se ao data warehouse de/para o qual você deseja copiar dados usando ferramentas como o SSMS, com uma identidade de AAD com pelo a permissão ALTER ANY USER, e execute o T-SQL a seguir. Saiba mais sobre o usuário de banco de dados independente [aqui](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -174,7 +178,7 @@ Para usar a autenticação de token do aplicativo AAD com base em MSI, siga esta
 4. **Conceda as permissões necessárias para o grupo do AAD**  como faria normalmente para usuários do SQL, por exemplo, executando abaixo:
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. Em ADF, configure um serviço vinculado do SQL Data Warehouse do Azure.
@@ -381,7 +385,7 @@ Usar o **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase
 * Se o armazenamento de dados de origem e seu formato não tiver suporte originalmente no PolyBase, você poderá usar o recurso **[Cópia em etapas usando o PolyBase](#staged-copy-using-polybase)**. Ele também fornece uma melhor produtividade convertendo automaticamente os dados em um formato compatível com o PolyBase e armazenando os dados no armazenamento de Blobs do Azure. Em seguida, ele carrega os dados no SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Observação PolyBase só oferece suporte para autenticação SQL do Azure SQL Data Warehouse, mas não a autenticação do Active Directory do Azure.
+> Observe que PolyBase atualmente não tem suporte para MSI (Identidade de Serviço Gerenciada) baseada em autenticação de token do aplicativo AAD.
 
 ### <a name="direct-copy-using-polybase"></a>Cópia direta usando o PolyBase
 

@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 0896f2b23f9b74e12935c0a8b073b64dc743e6a8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940130"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Copiar dados do Netezza utilizando o Azure Data Factory (Beta)
 
@@ -50,6 +51,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do Netezza:
 | Tipo | A propriedade type deve ser definida como: **Netezza** | sim |
 | connectionString | Uma cadeia de conexão ODBC para conectar-se ao Netezza. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
+
+Uma cadeia de conexão válida é `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Mais propriedades que podem ser definidas por seu caso:
+
+| Propriedade | DESCRIÇÃO | Obrigatório |
+|:--- |:--- |:--- |:--- |
+| SecurityLevel | O nível de segurança SSL/TLS () que usa o driver para a conexão ao repositório de dados. Por exemplo `SecurityLevel=preferredSecured`. Os valores para os quais há suporte são:<br/>-Somente não segura (**onlyUnSecured**): O driver não usa SSL.<br/>- **Preferencial não segura (preferredUnSecured) (padrão)**: se o servidor fornece uma opção, o driver não usa SSL. <br/>- **Preferencial segura (preferredSecured) (padrão)**: se o servidor fornece uma opção, o driver usa SSL. <br/>- **Somente segura (onlySecured)**: o driver não se conecta a menos que uma conexão SSL esteja disponível | Não  |
+| CaCertFile | Caminho completo para o certificado SSL que é usado pelo servidor. Por exemplo `UseSystemTrustStore=<cert path>;`| Sim, se o SSL estiver habilitado |
 
 **Exemplo:**
 

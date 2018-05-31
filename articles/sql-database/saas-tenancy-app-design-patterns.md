@@ -10,11 +10,12 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: 3220c538e08753ed3515f42a5b8110df71745a63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941887"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
 
@@ -88,7 +89,7 @@ Banco de dados SQL do Azure fornece as ferramentas necessárias para configurar,
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Escala de operações para o banco de dados por locatário
 
-A plataforma de banco de dados de SQL Azure tem muitos recursos de gerenciamento projetados para um grande número de gerenciamento de bancos de dados em grande escala, como bancos de dados bem mais de 100.000.  Esses recursos tornam o padrão de banco de dados por locatário plausível.
+A plataforma de Banco de Dados SQL do Microsoft Azure tem muitos recursos de gerenciamento projetados para gerenciar grandes números de bancos de dados em escala, como mais de 100.000 bancos de dados.  Esses recursos tornam o padrão de banco de dados por locatário plausível.
 
 Por exemplo, suponha que um sistema tem um banco de dados de 1000 locatário como apenas um banco de dados.  O banco de dados pode ter 20 índices.  Se o sistema converter para ter bancos de dados de único locatário 1000, a quantidade de índices aumentará para 20.000.  No banco de dados SQL como parte do [ajuste automático][docu-sql-db-automatic-tuning-771a], os recursos de indexação automática estão habilitados por padrão.  A indexação automática gerencia para você, todos os índices de 20.000 e seus otimizações create e drop em andamento.  Essas ações automatizadas ocorrerem dentro de um banco de dados individual, e eles não são coordenados ou restrito a ações semelhantes em outros bancos de dados.  A indexação automática trata índices de forma diferente em um banco de dados ocupado que em um banco de dados menos ocupado.  Esse tipo de personalização de gerenciamento de índice seria impraticável em escala a banco de dados por locatário se essa tarefa de gerenciamento de grande tinha que ser feita manualmente.
 

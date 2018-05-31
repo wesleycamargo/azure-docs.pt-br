@@ -1,18 +1,19 @@
 ---
 title: Provisionar pools de Lote do Azure de imagens personalizadas | Microsoft Docs
-description: "Você pode criar um pool de Lote de computação de uma imagem personalizada para provisionar nós que contêm o software e os dados que você precisa para seu aplicativo. Imagens personalizadas são uma maneira eficiente para configurar nós de computação para executar suas cargas de trabalho do Lote."
+description: Você pode criar um pool de Lote de computação de uma imagem personalizada para provisionar nós que contêm o software e os dados que você precisa para seu aplicativo. Imagens personalizadas são uma maneira eficiente para configurar nós de computação para executar suas cargas de trabalho do Lote.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 78bc50a1189d8f42281f81643a5e907d94480082
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158605"
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais 
 
@@ -40,7 +41,7 @@ Usar uma imagem personalizada configurada para o seu cenário pode fornecer vár
 
     
 ## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
-Você pode preparar uma imagem gerenciada de um VHD, de uma VM do Azure com discos gerenciados ou de um instantâneo de VM. 
+Você pode preparar uma imagem gerenciada de um VHD, de uma VM do Azure com discos gerenciados ou de um instantâneo de VM. Para o Lote, é recomendável criar uma imagem gerenciada de uma VM com discos gerenciados ou um instantâneo de VM. A imagem gerenciada e o recurso subjacente devem existir para expandir os pools e podem ser removidos após a exclusão do pool. 
 
 Ao preparar sua imagem, tenha em mente os seguintes pontos:
 

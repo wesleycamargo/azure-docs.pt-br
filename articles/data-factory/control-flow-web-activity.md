@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/01/2018
 ms.author: shlo
-ms.openlocfilehash: e6846661370fcad139730fc0443d9df54fa12a70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58faed48f5031b26f1340f3766fdd8bdc6bd2ccb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770750"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade. 
@@ -78,6 +79,16 @@ linkedServices | Lista de serviços vinculados passado ao ponto de extremidade. 
 
 > [!NOTE]
 > Os pontos de extremidade REST que invoca a atividade da Web invoca devem retornar para uma resposta do JSON de tipo. A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade.
+
+A tabela a seguir mostra os requisitos para o conteúdo JSON:
+
+| Tipo de valor | Corpo da solicitação | Corpo da resposta |
+|---|---|---|
+|Objeto JSON | Com suporte | Com suporte |
+|Matriz JSON | Com suporte <br/>(No momento, matrizes JSON não funcionam como resultado de um bug. A correção está em andamento.) | Sem suporte |
+| Valor JSON | Com suporte | Sem suporte |
+| Tipo não-JSON | Sem suporte | Sem suporte |
+||||
 
 ## <a name="authentication"></a>Autenticação
 

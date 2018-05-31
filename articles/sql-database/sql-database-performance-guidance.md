@@ -9,26 +9,27 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c84104ac9094980d0e6d16b535dcf13c462a645a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195440"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ajustando o desempenho no Banco de Dados SQL do Azure
 
 O Banco de Dados SQL do Azure fornece [recomendações](sql-database-advisor.md) que podem ser usadas para melhorar o desempenho do banco de dados ou você pode permitir que o Banco de Dados SQL do Azure [adapte-se ao seu aplicativo automaticamente](sql-database-automatic-tuning.md) e aplique as alterações que melhorarão o desempenho da carga de trabalho.
 
 Se você não tiver nenhuma recomendação aplicável e ainda tiver problemas de desempenho, poderá usar os seguintes métodos para melhorar o desempenho:
-1. Aumentar as [camadas de serviço](sql-database-service-tiers.md) e fornecer mais recursos para o banco de dados.
-2. Ajustar o aplicativo e aplicar algumas melhores práticas que podem melhorar o desempenho. 
-3. Ajustar o banco de dados alterando índices e consultas para trabalhar com os dados de forma mais eficiente.
+- Aumentar as camadas de serviço no seu [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md) para fornecer mais recursos para seu banco de dados.
+- Ajustar o aplicativo e aplicar algumas melhores práticas que podem melhorar o desempenho. 
+- Ajustar o banco de dados alterando índices e consultas para trabalhar com os dados de forma mais eficiente.
 
-Esses são métodos manuais, porque você precisa decidir quais [camadas de serviço](sql-database-service-tiers.md) serão escolhidas ou precisa reescrever o código do aplicativo ou do banco de dados e implantar as alterações.
+Esses são os métodos manuais porque você precisa decidir quais [limites de recurso de modelo baseado em DTU](sql-database-dtu-resource-limits.md) e [limites de recurso de modelo baseado em vCore (versão prévia)](sql-database-vcore-resource-limits.md) atendem às suas necessidades. Caso contrário, você precisará reescrever o código do aplicativo ou do banco de dados e implantar as alterações.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumentando o nível de desempenho do banco de dados
 
-O Banco de Dados SQL do Azure oferece dois modelos de compra um modelo de compra baseado em DTU e um modelo de compra baseado em v-Core. Cada modelo tem várias [camadas de serviço](sql-database-service-tiers.md) que você pode escolher. Cada camada de serviço isola os recursos que o banco de dados SQL pode usar e garante um desempenho previsível para o nível de serviço em questão. Neste artigo, oferecemos orientações que podem ajudá-lo a escolher a camada de serviço para seu aplicativo. Também abordamos de que formas você pode ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure.
+O [Banco de Dados SQL do Azure ](sql-database-service-tiers-dtu.md) oferece dois modelos de compra, um modelo de compra baseado em DTU e um modelo de compra baseado em vCore (versão prévia), para você escolher. Cada camada de serviço isola os recursos que o banco de dados SQL pode usar e garante um desempenho previsível para o nível de serviço em questão. Neste artigo, oferecemos orientações que podem ajudá-lo a escolher a camada de serviço para seu aplicativo. Também abordamos de que formas você pode ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure.
 
 > [!NOTE]
 > Este artigo se concentra em fornecer orientações sobre o desempenho de bancos de dados únicos no Banco de Dados SQL do Azure. Para obter as diretrizes de desempenho relacionadas aos pools elásticos, consulte [Considerações de preço e desempenho para pools elásticos](sql-database-elastic-pool-guidance.md). No entanto, observe que você pode aplicar muitas das recomendações de ajuste neste artigo a bancos de dados em um pool elástico e obter benefícios de desempenho semelhantes.
@@ -48,7 +49,7 @@ O nível de serviço necessário para seu banco de dados SQL depende dos requisi
 
 ### <a name="service-tier-capabilities-and-limits"></a>Limites e recursos da camada de serviço
 
-Em cada camada de serviço, você define o nível de desempenho, de modo que você tem a flexibilidade de pagar apenas pela capacidade de que precisa. Você pode [ajustar a capacidade](sql-database-service-tiers.md), aumentando ou reduzindo-a, conforme a carga de trabalho mudar. Por exemplo, se a carga de trabalho do banco de dados for intensa durante a temporada de compras de volta às aulas, você poderá aumentar o nível de desempenho do banco de dados durante um período definido, de julho a setembro. Você pode reduzi-lo quando sua temporada de pico terminar. Você pode minimizar o que pagará otimizando seu ambiente de nuvem para a periodicidade dos seus negócios. Esse modelo também funciona bem para ciclos de lançamento de produto de software. Uma equipe de teste pode alocar capacidade ao executar testes e liberar essa capacidade quando os testes forem concluídos. Em um modelo de solicitação de capacidade, você paga pela capacidade conforme precisa dela e evita gastos com recursos dedicados que raramente são usados.
+Em cada camada de serviço, você define o nível de desempenho, de modo que você tem a flexibilidade de pagar apenas pela capacidade de que precisa. Você pode [ajustar a capacidade](sql-database-service-tiers-dtu.md), aumentando ou reduzindo-a, conforme a carga de trabalho mudar. Por exemplo, se a carga de trabalho do banco de dados for intensa durante a temporada de compras de volta às aulas, você poderá aumentar o nível de desempenho do banco de dados durante um período definido, de julho a setembro. Você pode reduzi-lo quando sua temporada de pico terminar. Você pode minimizar o que pagará otimizando seu ambiente de nuvem para a periodicidade dos seus negócios. Esse modelo também funciona bem para ciclos de lançamento de produto de software. Uma equipe de teste pode alocar capacidade ao executar testes e liberar essa capacidade quando os testes forem concluídos. Em um modelo de solicitação de capacidade, você paga pela capacidade conforme precisa dela e evita gastos com recursos dedicados que raramente são usados.
 
 ### <a name="why-service-tiers"></a>Por que usar camadas de serviço?
 Embora cada carga de trabalho de banco de dados possa ser diferente, a finalidade das camadas de serviço é fornecer previsibilidade de desempenho em vários níveis de desempenho. Clientes com requisitos de recursos de bancos de dados de grande escala podem trabalhar em um ambiente de computação mais dedicado.
@@ -270,7 +271,8 @@ Alguns aplicativos apresentam gravação intensa. Às vezes, você pode reduzir 
 Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. Camadas de cache podem reduzir a carga no banco de dados e, potencialmente, reduzir o nível de desempenho necessário para dar suporte a um banco de dados usando o Banco de Dados SQL do Azure. Com o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), se tiver uma carga de trabalho de leitura pesada, você poderá ler os dados de uma vez (ou talvez uma vez por computador da camada de aplicativo, dependendo de como estiver configurado) e armazenar esses dados fora do banco de dados SQL. Esta é uma forma de reduzir a carga do banco de dados (CPU e E/S de leitura), mas há um impacto na consistência transacional, porque os dados lidos do cache podem estar fora de sincronia com os dados no banco de dados. Embora em muitos aplicativos algum nível de inconsistência seja aceitável, isso não vale para todas as cargas de trabalho. É necessário compreender totalmente todos os requisitos do aplicativo antes de implementar uma estratégia de cache da camada do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter mais informações sobre as camadas de serviço, consulte [Opções e desempenho de Banco de Dados SQL](sql-database-service-tiers.md)
+* Para obter mais informações sobre as camadas de serviço baseadas em DTU, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [limites de recurso do modelo baseado em DTU](sql-database-dtu-resource-limits.md)
+* Para obter mais informações sobre as camadas de serviço baseadas em vCore, consulte [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md) e [limites de recurso baseados em vCore (versão prévia)](sql-database-vcore-resource-limits.md)
 * Para saber mais sobre pools elásticos, consulte [O que é um pool elástico do Azure?](sql-database-elastic-pool.md)
 * Para obter informações sobre desempenho e pools elásticos, consulte [Quando considerar um pool elástico](sql-database-elastic-pool-guidance.md)
 
