@@ -6,14 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 173e31e3b1f855d488f7f8baf6659b1521ea7aa5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2a96655c26e2df2534f420239b56ef0c3959319a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212867"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação de desastre de VMs VMware locais para o Azure
 
@@ -35,7 +36,7 @@ Antes de começar, é aconselhável [examinar a arquitetura](vmware-azure-archit
 
 ## <a name="select-a-replication-goal"></a>Selecione uma meta de replicação
 
-1. Em **Cofres dos Serviços de Recuperação**, selecione no nome do cofre **ContosoVMVault**.
+1. Em **Cofres dos Serviços de Recuperação**, selecione o nome do cofre. Estamos usando **ContosoVMVault** para este cenário.
 2. Em **Introdução**, selecione Site Recovery. Depois selecione **Preparar Infraestrutura**.
 3. Em **Objetivo de proteção** > **Onde os seus computadores estão localizados**, selecione **local**.
 4. Em **Para qual deseja replicar os seus computadores**, selecione **Para o Azure**.
@@ -139,7 +140,7 @@ Selecione e verifique os recursos de destino.
 1. Abra o [Portal do Azure](https://portal.azure.com) e selecione **Todos os recursos**.
 2. Selecione o cofre do Serviço de Recuperação chamado **ContosoVMVault**.
 3. Para criar uma política de replicação, selecione **Infraestrutura do Site Recovery** > **Políticas de Replicação** > **+Política de Replicação**.
-4. Em **Criar política de replicação**, insira o nome de política **VMwareRepPolicy**.
+4. Em **Criar política de replicação**, insira o nome de política. Estamos usando **VMwareRepPolicy** para este cenário.
 5. Em **Limite de RPO**, use o padrão de 60 minutos. Esse valor define a frequência em que são criados os pontos de recuperação. Um alerta será gerado se a replicação contínua exceder esse limite.
 6. Em **Retenção de ponto de recuperação**, use o padrão de 24 horas para a duração do período de retenção de cada ponto de recuperação. Neste tutorial, use 72 horas. VMs replicadas podem ser recuperadas para qualquer ponto em uma janela.
 7. Em **Frequência do instantâneo consistente com aplicativo**, use o padrão de 60 minutos para a frequência em que os instantâneos consistentes com o aplicativo são criados. Selecione **OK** para criar a política.

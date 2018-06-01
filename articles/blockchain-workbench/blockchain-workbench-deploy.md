@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/22/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 85a627678f862d783d47013d82bae8b485d7d4e9
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303936"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implantar o Azure Blockchain Workbench
 
@@ -23,6 +24,25 @@ O Azure Blockchain Workbench é implantado usando um modelo de solução no Azur
 Para obter mais informações sobre os componentes do Blockchain Workbench, consulte [Arquitetura do Azure Blockchain Workbench](blockchain-workbench-architecture.md).
 
 ## <a name="prepare-for-deployment"></a>Preparar para a implantação
+
+O Workbench Blockchain permite que você implante uma razão blockchain juntamente com um conjunto de serviços do Microsoft Azure relevante geralmente usado para criar um aplicativo baseado em blockchain. Implantar o Blockchain Workbench resulta nos seguintes serviços do Azure que estão sendo provisionados dentro de um grupo de recursos em sua assinatura do Azure.
+
+* 1 Tópico de Grade de Eventos do Azure
+* 1 Namespace do barramento de serviço
+* 1 Application Insights
+* 1 Banco de Dados SQL (Standard S0)
+* 2 Serviços de Aplicativos (Standard)
+* 2 Cofres de Chave do Microsoft Azure
+* 2 Contas de Armazenamento do Microsoft Azure (Standard LRS)
+* 2 Conjuntos de escala de Máquina Virtual (para nós de validação e de trabalho)
+* 2 redes virtuais (incluindo o balanceador de carga, o grupo de segurança de rede e o endereço IP público para cada rede virtual)
+* Opcional: Azure Monitor
+
+A seguir está um exemplo de implantação criado no grupo de recursos do **myblockchain**.
+
+![Exemplo de implantação](media/blockchain-workbench-deploy/example-deployment.png)
+
+O custo do Blockchain Workbench é uma agregação do custo de serviços subjacentes do Azure. Informações sobre preços para serviços do Azure podem ser calculadas usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/).
 
 O Azure Blockchain Workbench requer vários pré-requisitos antes da implantação. Os pré-requisitos incluem registros de configuração e aplicativo do Microsoft Azure Active Directory.
 
@@ -254,9 +274,18 @@ Quando o Azure Blockchain Workbench tiver sido implantado, a próxima etapa ser�
 
 7. Selecione **Salvar** para atualizar o registro do cliente.
 
+## <a name="remove-a-deployment"></a>Remove uma implantação
+
+Quando uma implantação não é mais necessária, você pode remover uma implantação, excluindo o grupo de recursos do Workbench Blockchain.
+
+1. No portal do Azure, navegue até **Grupo de recursos** no painel de navegação esquerdo e selecione o grupo de recursos que você deseja excluir. 
+2. Selecione **Excluir grupo de recursos**. Verifique a exclusão digitando o nome do grupo de recursos e selecione **Excluir**.
+
+    ![Excluir grupo de recursos](media/blockchain-workbench-deploy/delete-resource-group.png)
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo de procedimentos, você implantou o Azure Blockchain Workbench. Para saber como usar o aplicativo blockchain, continue no próximo artigo de instruções.
+Neste artigo de procedimentos, você implantou o Workbench do Azure Blockchain. Para saber como usar o aplicativo blockchain, continue no próximo artigo de instruções.
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo blockchain no Azure Blockchain Workbench](blockchain-workbench-create-app.md)

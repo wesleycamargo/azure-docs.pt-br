@@ -15,11 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 926f256de0974112c1571fe4d1d48b6e7f530362
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211789"
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -123,7 +124,7 @@ Um gateway de rede local pode trocar rotas com um gateway de rede virtual do Azu
 
 Ao trocar de rotas com o Azure usando o BGP, uma rota separada é adicionada à tabela de rotas de todas as sub-redes em uma rede virtual para cada prefixo anunciado. A rota é adicionada com o *Gateway de rede virtual* listado como a fonte e o tipo do próximo salto. 
 
-A propagação de rotas BGP pode ser desabilitada em uma sub-rede usando uma propriedade em uma tabela de rotas. Quando você troca rotas com o Azure usando o BGP, as rotas não são adicionadas à tabela de rotas das sub-redes com propagação BGP desabilitada. A conectividade com conexões VPN é feita usando rotas personalizadas](#custom-routes) com um tipo de VPN de próximo salto. Para obter detalhes, consulte [Como desabilitar a propagação de rotas BGP](manage-route-table.md#create-a-route-table).
+A propagação de rotas BGP pode ser desabilitada em uma sub-rede usando uma propriedade em uma tabela de rotas. Quando você troca rotas com o Azure usando o BGP, as rotas não são adicionadas à tabela de rotas das sub-redes com propagação BGP desabilitada. A conectividade com conexões VPN é feita usando [rotas personalizadas](#custom-routes) com um tipo de VPN de próximo salto. Para obter detalhes, consulte [Como desabilitar a propagação de rotas BGP](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Como o Azure seleciona uma rota
 
