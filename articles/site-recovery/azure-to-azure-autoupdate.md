@@ -1,23 +1,23 @@
 ---
 title: Atualização automática do Serviço de Mobilidade no Azure para a recuperação de desastres do Azure | Microsoft Docs
-description: Fornece uma visão geral da atualização automática do Serviço de Mobilidade, durante a replicação de VMs do Azure usando o Azure Site Recovery.
+description: Fornece uma visão geral da atualização automática do Serviço de Mobilidade, que é usado para a replicação de Máquinas Virtuais do Azure usando o Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/02/2018
 ms.author: rajanaki
-ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 45f2e2927f699769bb385038c04d4dd23e075a9a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209824"
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779617"
 ---
-# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do Serviço de Mobilidade no Azure para a replicação do Azure
+# <a name="automatic-update-of-mobility-service-extension-in-azure-to-azure-replication"></a>Atualização automática da extensão do Serviço de Mobilidade no Azure para a replicação do Azure
 
-O Azure Site Recovery tem um ritmo de lançamentos mensais nos quais são adicionados recursos novos ou melhorias a recursos existentes, assim como são corrigidos eventuais problemas conhecidos. Isso significa que, para permanecer atualizado com o serviço, você precisa planejar a implantação desses patches mensalmente. Para evitar a sobrecarga associada à atualização, os usuários podem escolher permitir que o Site Recovery gerencie as atualizações dos componentes. Conforme detalhado na [referência de arquitetura](azure-to-azure-architecture.md) do Azure para a recuperação de desastres do Azure, o Serviço de Mobilidade é instalado em todas as máquinas virtuais do Azure para que a replicação seja habilitada durante a replicação das máquinas virtuais de uma região do Azure para outra. Depois que você habilita a atualização automática, a extensão Serviço de mobilidade é atualizada a cada nova versão. Este documento detalha o seguinte:
+O Azure Site Recovery tem um ritmo de lançamentos mensais nos quais são adicionados recursos novos ou melhorias a recursos existentes, assim como são corrigidos eventuais problemas conhecidos. Isso significa que, para que permaneçam atualizados com o serviço, você precisa planejar a implantação desses patches em um ritmo mensal. Para evitar a sobrecarga associada à atualização, os usuários podem escolher permitir que o Site Recovery gerencie as atualizações dos componentes. Conforme detalhado na [referência de arquitetura](azure-to-azure-architecture.md) do Azure para a recuperação de desastres do Azure, o Serviço de Mobilidade é instalado em todas as máquinas virtuais do Azure para que a replicação seja habilitada durante a replicação das máquinas virtuais de uma região do Azure para outra. Este documento detalha o seguinte:
 
 - Como funciona o trabalho de atualização automática?
 - Habilitar as atualizações automáticas
@@ -26,9 +26,6 @@ O Azure Site Recovery tem um ritmo de lançamentos mensais nos quais são adicio
 ## <a name="how-does-automatic-update-work"></a>Como funciona o trabalho de atualização automática
 
 Quando você permite que o Site Recovery gerencie atualizações, um runbook global (que é usado pelos serviços do Azure) é implantado por meio de uma conta de automação, que é criada na mesma assinatura que o cofre. Uma conta de automação é usada para um cofre específico. O runbook verifica cada VM em um cofre para a qual são ativadas atualizações automáticas e inicia uma atualização da extensão do Serviço de Mobilidade se uma versão mais recente estiver disponível. O agendamento padrão do runbook ocorre diariamente às 12h00 de acordo com o fuso horário da localização geográfica da máquina virtual replicada. O agendamento do runbook também pode ser modificado pelo usuário por meio da conta de automação, se necessário. 
-
-> [!NOTE]
-> A habilitação de atualizações automáticas não exige a reinicialização das VMs do Azure nem afeta a replicação em andamento.
 
 ## <a name="enable-automatic-updates"></a>Habilitar as atualizações automáticas
 
