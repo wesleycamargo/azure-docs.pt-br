@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176279"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203770"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitorar uso e custos estimados
 
@@ -93,7 +93,7 @@ O novo modelo de preços simplifica as opções de preço do Log Analytics e App
 A estimativa de custo mostra os efeitos dessas alterações.
 
 > [!WARNING]
-> Aqui uma observação importante se você usa o Azure Resource Manager ou o PowerShell para implantar [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) ou [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) em uma assinatura que você alterou para o novo modelo de preços. Se você especificar um tipo/plano de preço diferente de "pergb2018" para o Log Analytics ou "Básico" para o Application Insights, em vez de falha na implantação devido à especificação inválida do tipo/plano de preços, ela terá êxito, **mas usará apenas o tipo/plano de preços válido**. 
+> Aqui uma observação importante se você usa o Azure Resource Manager ou o PowerShell para implantar [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) ou [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) em uma assinatura que você alterou para o novo modelo de preços. Se você especificar um tipo/plano de preço diferente de “pergb2018” para o Log Analytics ou “Básico” para o Application Insights, em vez de a implantação falhar devido à especificação de um tipo/plano de preço inválido, ela terá êxito, **mas usará apenas o tipo/plano de preço válido**. (Isso não se aplica à Camada gratuita do Log Analytics, na qual é gerada uma mensagem de tipo de preço inválido).
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>Mover para o novo modelo de preços

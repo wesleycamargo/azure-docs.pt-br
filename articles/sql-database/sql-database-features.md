@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 05/15/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 7e3b084f833b6d84e5c5102555eb586e306e9de8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8144f70737e5f78f568a8a6dd35ddc7d43ced0fd
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895564"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210048"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Banco de Dados SQL do Azure versus SQL Server 
 
@@ -83,7 +83,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [Restauração geográfica](sql-database-recovery-using-backups.md#geo-restore) | sim | Não – você pode restaurar backups completos COPY_ONLY feitos periodicamente – consulte [Diferenças de backup](sql-database-managed-instance-transact-sql-information.md#backup) e [Diferenças de restauração](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Replicação geográfica](sql-database-geo-replication-overview.md) | sim | Não  |
 | [Processamento de grafo](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | sim | sim |
-| [Otimização na memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sim - [Apenas camadas Premium e Comercialmente Crítico](sql-database-in-memory.md) | Não  |
+| [Otimização na memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sim – [Apenas camadas Premium e Comercialmente Crítico](sql-database-in-memory.md) | Não  |
 | [Suporte a dados JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Sim](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Sim](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
 | [Elementos de linguagem](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Maioria - veja elementos individuais |  Sim – consulte [Diferenças do T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Servidores vinculados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não - veja [Consulta elástica](sql-database-elastic-query-horizontal-partitioning.md) | Apenas para SQL Server e Banco de Dados SQL |
