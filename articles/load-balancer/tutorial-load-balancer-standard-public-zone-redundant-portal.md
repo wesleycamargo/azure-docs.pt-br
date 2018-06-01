@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304453"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear a carga de VMs entre zonas de disponibilidade com um Balanceador de Carga Standard usando o portal do Azure
 
@@ -37,6 +38,8 @@ O balanceamento de carga fornece um nível mais alto de disponibilidade, distrib
 > * Exibir um balanceador de carga em ação
 
 Para obter mais informações sobre o uso de Zonas de Disponibilidade com o Load Balancer Standard, consulte [Zonas de disponibilidade e Load Balancer Standard](load-balancer-standard-availability-zones.md).
+
+Se preferir, você pode concluir este tutorial usando a [CLI do Azure](load-balancer-standard-public-zone-redundant-cli.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
@@ -141,18 +144,21 @@ Crie máquinas virtuais em diferentes regiões (zona 1, zona 2 e zona 3) para a 
 1. Clique em **Todos os recursos** no menu esquerdo e, em seguida, na lista de recursos, clique em **myVM1** localizado no grupo de recursos *myResourceGroupLBAZ*.
 2. Na página **Visão geral**, clique em **Conectar** para o RDP na VM.
 3. Faça logon na VM com nome de usuário *azureuser*.
-4. Na área de trabalho do servidor, navegue até **Ferramentas Administrativas do Windows**>**Gerenciador do Servidor**.
-5. Na página de início rápido do Gerenciador do Servidor, clique em **Adicionar funções e recursos**.
-
-   ![Adicionando ao pool de endereços de back-end – ](./media/load-balancer-standard-public-availability-zones-portal/servermanager.png)    
-
-1. No **Assistente Adicionar Funções e Recursos**, use os seguintes valores:
-    - Na página **Selecionar tipo de instalação**, clique em **Instalação baseada em função ou em recurso**.
-    - Na página **Selecionar servidor de destino**, clique em **myVM1**.
-    - Na página **Selecionar função de servidor**, clique em **Servidor Web (IIS)**.
-    - Siga as instruções para concluir o restante do assistente.
-2. Feche a sessão RDP com a máquina virtual - *myVM1*.
-3. Repita as etapas de 1 a 7 para instalar o IIS nas VMs *myVM2* e *myVM3*.
+4. Na área de trabalho do servidor, navegue até **Ferramentas Administrativas do Windows**>**Windows PowerShell**.
+5. Na janela do PowerShell, execute os comandos a seguir para instalar o servidor IIS, remova o arquivo padrão iisstart.htm, e adicione um novo arquivo iisstart.htm que exibe o nome da VM:
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
+   ```
+6. Feche a sessão RDP com *myVM1*.
+7. Repita as etapas de 1 a 6 para instalar o IIS e o arquivo iisstart.htm atualizado em *myVM2* e *myVM3*.
 
 ## <a name="create-load-balancer-resources"></a>Criar recursos do balanceador de carga
 
@@ -215,7 +221,7 @@ Uma regra de balanceador de carga é usada para definir como o tráfego é distr
 
 2. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. A página padrão do servidor Web do IIS é exibida no navegador.
 
-      ![Servidor Web do IIS](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+      ![Servidor Web do IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 Para ver o balanceador de carga distribuir o tráfego entre as VMs distribuídas pela zona, você poderá forçar a atualização do navegador da Web.
 
