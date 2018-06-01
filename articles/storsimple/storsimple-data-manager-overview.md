@@ -1,12 +1,12 @@
 ---
-title: "Visão geral do Gerenciador de Dados do Microsoft Azure StorSimple | Microsoft Docs"
-description: "Fornece uma visão geral do serviço Gerenciador de Dados do StorSimple"
+title: Visão geral do Gerenciador de Dados do Microsoft Azure StorSimple | Microsoft Docs
+description: Fornece uma visão geral do serviço Gerenciador de Dados do StorSimple
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271897"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Visão geral da solução do Gerenciador de Dados do StorSimple
 
@@ -80,6 +81,11 @@ Essa chave é usada pelos recursos de computação para executar a transformaç�
 Se sua região do Gerenciador de Dados for diferente da sua região de definição de trabalho, é importante entender quais dados/metadados residem em cada uma dessas regiões. O diagrama a seguir ilustra o efeito de ter diferentes regiões para o Gerenciador de Dados e definição de trabalho.
 
 ![Definição de serviço e trabalho em regiões diferentes](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## <a name="gdpr-compliance"></a>Conformidade de GDPR
+
+O [GDPR (Regulamento Geral sobre a Proteção de Dados)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é uma lei de privacidade e proteção de dados da União Europeia (UE). O GDPR contém muitos requisitos sobre como coletar, armazenar e usar informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam da UE e coletam, analisam dados vinculados para residentes da UE. Você verá se o ícone do Gerenciador de Dados do StorSimple está em conformidade com o GDPR. O serviço do Gerenciador de Dados não coleta dados pessoais.
+Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Próximas etapas
 
