@@ -9,11 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e12010f225b5f8db247d1b751615cbedd413dfb3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271970"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -85,6 +86,12 @@ O armazenamento provisionado é a quantidade de capacidade de armazenamento disp
 Você pode adicionar mais capacidade de armazenamento durante e após a criação do servidor. A camada Básico não oferece garantia de IOPS. Nos tipos de preço Uso Geral e Otimizado para Memória, o IOPS é dimensionado com o tamanho de armazenamento provisionado a uma taxa de 3:1.
 
 Você pode monitorar o consumo de E/S no Portal do Azure ou usando os comandos da CLI do Azure. As métricas relevantes para monitorar são o [limite de armazenamento, porcentagem de armazenamento, armazenamento usado e porcentagem de E/S](concepts-monitoring.md).
+
+### <a name="reaching-the-storage-limit"></a>Alcançando o limite de armazenamento
+
+O servidor é marcado como somente leitura quando a quantidade de armazenamento livre atinge menos do que 5 GB ou 5% do armazenamento provisionado, o que for menor. Por exemplo, se você provisionou 100 GB de armazenamento e a utilização real for de 95 GB, o servidor é marcado como somente leitura. Como alternativa, se você tiver provisionado 5 GB de armazenamento, o servidor é somente leitura quando o repositório livre atingir menos de 250 MB.  
+
+Enquanto o serviço tenta tornar o servidor somente leitura, todas as novas solicitações de transação de gravação são bloqueadas e as transações ativas existentes continuarão a ser executadas. Quando o servidor é definido como somente leitura, todas as operações de gravação subsequente e a transação comentem falha. Consultas de leitura continuam a funcionar sem interrupções. Após aumentar o armazenamento provisionado, o servidor estará pronto para aceitar transações de gravação novamente.
 
 ## <a name="backup"></a>Backup
 

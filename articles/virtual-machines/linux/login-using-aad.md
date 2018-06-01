@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943986"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271953"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Fazer logon em uma máquina virtual do Linux no Azure usando a autenticação do Azure Active Directory (versão prévia)
 
@@ -35,6 +35,7 @@ Há muitos benefícios de usar a autenticação do Azure AD para fazer logon em 
   - Dependendo menos da contas de administrador local, você não precisa se preocupar com a perda ou o roubo de credenciais, credenciais fracas configuradas pelos usuários, etc.
   - As políticas de complexidade e de tempo de vida de senha configuradas para o diretório do Azure AD também ajudam a proteger as VMs do Linux.
   - Para proteger ainda mais o logon nas máquinas virtuais do Azure, você pode configurar a autenticação multifator.
+  - A capacidade de fazer logon em VMs do Linux com Azure Active Directory também funciona para clientes que usam os [Serviços de Federação](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
 
 - **Colaboração contínua:** com RBAC (controle de acesso baseado em função), você pode especificar quem pode entrar em uma determinada VM como um usuário normal ou com privilégios de administrador. Quando os usuários entram na equipe ou saem dela, você pode atualizar a política RBAC da VM para conceder acesso conforme o necessário. Essa experiência é muito mais simples do que ter que limpar as VMs para remover as chaves públicas SSH desnecessárias. Quando os funcionários saem da organização e a conta de usuário é desabilitada ou removida do Azure AD, eles deixam de ter acesso aos recursos.
 
@@ -50,14 +51,14 @@ No momento, há suporte para as seguintes distribuições do Linux durante a ver
 
 No momento, há suporte para as seguintes regiões do Azure durante a versão prévia desse recurso:
 
-- Todas as regiões públicas do Azure
+- Todas as regiões globais do Azure
 
 >[!IMPORTANT]
 > Para usar esse recurso de versão prévia, somente implante uma distribuição do Linux com suporte em uma região do Azure com suporte. Não há suporte para o recurso no Azure Governamental nem nas nuvens soberanas.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que a CLI do Azure versão 2.0.31 ou posterior esteja em execução. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual Linux
 
@@ -167,6 +168,10 @@ Ao concluir com êxito a etapa de autenticação em um navegador da Web, você p
 - Verifique se o nome de entrada especificado no prompt de SSH está correto. Um erro de digitação no nome de entrada pode causar uma incompatibilidade entre o nome de entrada especificado no prompt de SSH e a conta usada para entrar no Azure AD. Por exemplo, se você digitar *azuresuer@contoso.onmicrosoft.com* em vez de *azureuser@contoso.onmicrosoft.com*.
 - Se você tiver várias contas de usuário, não forneça uma conta de usuário diferente na janela do navegador ao entrar no Azure AD.
 - O Linux é um sistema operacional que diferencia maiúsculas de minúsculas. Há uma diferença entre 'Azureuser@contoso.onmicrosoft.com' e 'azureuser@contoso.onmicrosoft.com', que pode causar uma incompatibilidade. Especifique o UPN com a diferenciação correta de maiúsculas de minúsculas no prompt de SSH.
+
+## <a name="preview-feedback"></a>Comentários de visualização
+
+Compartilhe seus comentários sobre este recurso de visualização ou informe problemas usando-o no [Fórum de comentários do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
 ## <a name="next-steps"></a>Próximas etapas
 

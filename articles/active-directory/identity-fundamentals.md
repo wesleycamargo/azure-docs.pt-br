@@ -13,11 +13,12 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 7c00ccf214cfd683d04a76cc3cfad9bd27080561
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3603a1e91bc6bcf8a472b41bb0d0a276bf231d7c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302851"
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Fundamentos do gerenciamento de identidades do Azure
 
@@ -30,7 +31,7 @@ O Azure AD Premium é uma solução de gerenciamento de acesso e de identidades 
 Assista a este vídeo curto para obter uma visão geral da proteção e do gerenciamento de identidades do Azure AD:
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
-A Microsoft fornece não apenas a identidade que você usa em todos os lugares, mas também um conjunto de ferramentas para automatizar, ajudar a proteger e gerenciar TI em sua organização. Mesmo após o advento da computação em nuvem, ainda há demanda de gerenciar e controlar tarefas de TI como chamadas de assistência técnica para redefinir senhas de usuário, gerenciamento de grupo de usuários e solicitações do aplicativo. O que complica ainda mais as coisas, os funcionários estão agora levando seus dispositivos pessoais para o trabalho e usar aplicativos de SaaS prontamente disponíveis. Isso torna mantêm o controle sobre seus aplicativos em plataformas de nuvem pública e data centers corporativos um desafio significativo.
+A Microsoft fornece não apenas a identidade que você usa em todos os lugares, mas também um conjunto de ferramentas para automatizar, ajudar a proteger e gerenciar TI em sua organização. Mesmo após o advento da computação em nuvem, ainda há demanda de gerenciar e controlar tarefas de TI como chamadas de assistência técnica para redefinir senhas de usuário, gerenciamento de grupo de usuários e solicitações do aplicativo. Ao complicar as coisas ainda mais, os funcionários agora estão levando seus dispositivos pessoais para trabalhar e usando aplicativos SaaS prontamente disponíveis, o que torna a manutenção do controle sobre seus aplicativos em datacenters corporativos e plataformas de nuvem pública um desafio significativo.
 
 [!INCLUDE [identity](../../includes/azure-ad-licenses.md)]
 
@@ -40,7 +41,7 @@ As organizações que fizeram grandes investimentos no Active Directory local po
 O [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) é a única ferramenta necessária para fazer integração. O Azure AD Connect fornece os recursos para dar suporte às suas necessidades de sincronização de identidades e substitui as versões mais antigas das ferramentas de integração de identidade, como DirSync e Azure AD Sync. Com o Azure AD Connect, gerenciamento de identidade e a sincronização entre local e o Azure AD é habilitado por meio de:
 
 - Sincronização - esse componente é responsável pela criação de usuários, grupos e outros objetos. Também é responsável por garantir que as informações de identidade dos usuários e grupos locais correspondam às da nuvem. Write-back de senha também pode ser habilitado para a manutenção da sincronização de diretórios locais quando um usuário atualiza sua senha no AD do Azure.
-- AD FS – a federação é uma capacidade opcional oferecida pelo Azure AD Connect que pode ser usada para configurar um ambiente híbrido usando uma infraestrutura do AD FS local. A federação pode ser usada pelas organizações para lidar com implantações complexas, como logon único, imposição de política de conexão do AD e cartão inteligente ou MFA de terceiros.
+- AD FS – a federação é uma capacidade opcional oferecida pelo Azure AD Connect que pode ser usada para configurar um ambiente híbrido usando uma infraestrutura do AD FS local. A federação pode ser usada pelas organizações para lidar com implantações complexas como cartão inteligente ou MFA de terceiros.
 - Monitoramento de Integridade - o [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health) pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade.
 
 ## <a name="increase-productivity-and-reduce-helpdesk-costs-with-self-service-and-single-sign-on-experiences"></a>Aumentar a produtividade e reduzir os custos de assistência técnica com um únicos e autoatendimento experiências de logon

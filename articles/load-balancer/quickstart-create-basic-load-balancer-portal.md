@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 610aa8d5652b89f36aeb2a6ae517d378c5bfa666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304871"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga Básico público usando o portal do Azure
 
@@ -43,7 +44,7 @@ Nesta seção, você cria um balanceador de carga Básico público usando o port
    - **Público** para o tipo do balanceador de carga 
    - **myPublicIP** para o IP público que você precisa criar, com **SKU** definido como **Básico** e **Atribuição** definido como **Dinâmica**
    - **myResourceGroupLB** para o nome do novo grupo de recursos
-3. Selecione **Criar**.
+3. Clique em **Criar**.
    
 ![Criar um balanceador de carga](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
@@ -194,4 +195,7 @@ Exclua o grupo de recursos, o balanceador de carga e todos os recursos relaciona
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um grupo de recursos, recursos de rede e servidores back-end. Em seguida, você usou esses recursos para criar um balanceador de carga. Para saber mais sobre os balanceadores de carga e seus recursos associados, continue para os artigos de tutorial.
+Neste início rápido, você criou um grupo de recursos, recursos de rede e servidores back-end. Em seguida, você usou esses recursos para criar um Load Balancer Básico. Para saber mais sobre o Azure Load Balancer, continue nos tutoriais do Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Tutoriais do Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)
