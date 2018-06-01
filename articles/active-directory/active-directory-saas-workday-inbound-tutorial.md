@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8dbe995ac3c6799c2fa17d9faa8be0cb74d6ee23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258990"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
@@ -804,20 +805,13 @@ Para fazer isso, você deve usar o [Workday Studio](https://community.workday.co
 
 * Um problema antigo com logs de auditoria que não eram exibidos nos locatários do Azure AD localizados na União Europeia foi resolvido. No entanto, uma configuração de agente adicional é necessária para locatários do Azure AD na UE. Para obter detalhes, consulte [Parte 3: Configurar o agente de sincronização local](#Part 3: Configure the on-premises synchronization agent)
 
-## <a name="gdpr-compliance"></a>Conformidade de GDPR
+## <a name="gdpr-information"></a>Informações GDPR
 
 O [GDPR (Regulamento Geral sobre a Proteção de Dados)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é uma lei de privacidade e proteção de dados da União Europeia (UE). O GDPR impõe regras às empresas, órgãos governamentais, organizações sem fins lucrativos e outras organizações que oferecem bens e serviços para pessoas da UE ou que coletam e analisam dados vinculados a residentes da UE. 
 
-O serviço de provisionamento do Azure AD é compatível com GDPR, junto com o restante dos recursos e serviços da Microsoft. Para saber mais sobre a história do GDPR da Microsoft, confira os [termos de serviço](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+Para saber mais sobre a história do GDPR da Microsoft, confira os [termos de serviço](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-No entanto, como a solução de provisionamento da Workday para o Active Directory exige a instalação de um agente de sincronização em um servidor ingressado no domínio, será necessário monitorar alguns eventos para também permanecer compatível com GDPR.
- 
-O agente cria logs no **Log de eventos do Windows**, o que pode conter informações de identificação pessoal.
-
-Há duas maneiras de permanecer compatível com GDPR:
-
-1. Mediante solicitação, extraia dados de uma pessoa e remova os dados dessa pessoa dos logs de Eventos do Windows. 
-2. Mantenha a retenção dos logs de Eventos do Windows provenientes do processo AADSyncAgent abaixo de 48 horas
+Observe que a solução de provisionamento do Workday para o Active Directory requer um agente de sincronização a ser instalado em um servidor de domínio ingresso, e este agente cria os logs no **log de Eventos do Windows** que pode conter informações de identificação pessoal.
 
 Para saber mais sobre como configurar a retenção de dados para os logs de Eventos do Windows, confira as [Configurações dos logs de eventos](https://technet.microsoft.com/library/cc952132.aspx). Para obter informações gerais sobre o log de Eventos do Windows, confira [este artigo](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
@@ -827,4 +821,3 @@ Para saber mais sobre como configurar a retenção de dados para os logs de Even
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
 * [Saiba como configurar o logon único entre o Workday e o Azure Active Directory](active-directory-saas-workday-tutorial.md)
 * [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-

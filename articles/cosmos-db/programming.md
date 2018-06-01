@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3d7c94e8b1415a24427e1f90f5613d8c181608a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197986"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs
 
@@ -151,6 +152,21 @@ No exemplo acima, a chamada de torno lançará um erro se a operação falhar. C
 Esse procedimento armazenado pode ser modificado para assumir uma matriz de corpos de documentos como entrada e criá-los todos na mesma execução do procedimento armazenado ao invés de em várias solicitações para criar cada um deles individualmente. Esse procedimento armazenado pode ser usado para implementar um importador em massa eficiente para o Cosmos DB (abordado posteriormente neste tutorial).   
 
 O exemplo descrito demonstra como usar procedimentos armazenados. Em seguida, você aprenderá sobre gatilhos e funções definidas pelo usuário (UDFs) posteriormente no tutorial.
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+Ao definir um procedimento armazenado usando o Portal do Azure, os parâmetros de entrada são sempre enviados como uma cadeia para o procedimento armazenado. Mesmo se você passar uma matriz de cadeias de caracteres como uma entrada, a matriz será convertida em cadeia de caracteres e enviada para o procedimento armazenado. Para contornar esse problema, é possível definir uma função no procedimento armazenado para analisar a cadeia de caracteres como uma matriz. O código a seguir é um exemplo para analisar a cadeia de caracteres como uma matriz: 
+
+``` 
+function sample(arr) {
+    if (typeof arr === "string") arr = JSON.parse(arr);
+    
+    arr.forEach(function(a) {
+        // do something here
+        console.log(a);
+    });
+}
+```
 
 ## <a name="database-program-transactions"></a>Transações do programa de banco de dados
 A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação oferece **garantias ACID**. ACID é um acrônimo bastante conhecido que indica quatro propriedades: Atomicidade, Consistência, Isolamento e Durabilidade.  

@@ -8,11 +8,12 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 6d7ccd94243d7064008197518f6194d5837b17be
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261431"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Encaminhar eventos de armazenamento de Blobs para um ponto de extremidade da Web personalizado com PowerShell
 
@@ -21,7 +22,7 @@ A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo
 Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo mostrado neste artigo, os eventos são enviados para uma URL que apenas coleta as mensagens. Essa URL é criada usando a ferramenta de terceiros [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **Hookbin** não é destinado ao uso de alta taxa de transferência. O uso dessa ferramenta é meramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
+> **Hookbin** não é destinado ao uso de alta taxa de transferência. O uso dessa ferramenta é meramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta. Além disso, tenha em mente que o **Hookbin** obtém [tratamento especial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) pela Grade de Eventos do Azure. Para facilitar o teste, a Grade de Eventos envia eventos sem requerer uma resposta correta às solicitações de validação de assinatura (que aconteceria [caso contrário](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
 
 Quando você concluir as etapas descritas neste artigo, verá que os dados do evento foi enviados para um ponto de extremidade.
 

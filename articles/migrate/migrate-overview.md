@@ -4,14 +4,15 @@ description: Fornece uma visão geral do serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/03/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 869d426bc76d725cead9bedc73800a20531bb9ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202840"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -78,7 +79,7 @@ A tabela resume as portas necessárias para as comunicações das Migrações pa
 |Componente          |Para comunicar-se com     |Porta obrigatória  |Motivo   |
 |-------------------|------------------------|---------------|---------|
 |Coletor          |Serviço Migrações para Azure   |TCP 443        |O coletor se conecta ao serviço através da porta SSL 443|
-|Coletor          |vCenter Server          |Padrão 9443   | Por padrão, o coletor se conecta ao vCenter Server na porta 9443. Se o servidor escutar em uma porta diferente, ela deverá ser configurada como uma porta de saída na VM coletora. |
+|Coletor          |vCenter Server          |Padrão 443   | Por padrão, o coletor se conecta ao vCenter Server na porta 443. Se o servidor escutar em uma porta diferente, ela deverá ser configurada como uma porta de saída na VM coletora. |
 |VM local     | Espaço de trabalho do Log Analytics          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |O agente MMA usa TCP 443 para se conectar ao Log Analytics. Você só precisará dessa porta se estiver usando o recurso de visualização de dependência e estiver instalando o MMA (Microsoft Monitoring Agent). |
 
 

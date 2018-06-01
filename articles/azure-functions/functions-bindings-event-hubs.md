@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 44dbe4c3157b1b765004975a6f04e3a96b477846
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b3fb3ba0757744ba9f84280778be7e274d4ac5a2
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303834"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associações de Hubs de Eventos do Azure para o Azure Functions
 
@@ -33,6 +34,8 @@ Este artigo explica como trabalhar com associações de [Hubs de Eventos do Azur
 Para Azure Functions versão 1.x, as associações de Hubs de Eventos são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). Para Functions 2.x, use o pacote [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Gatilho
 
@@ -82,15 +85,29 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Para obter acesso aos metadados do evento, faça a associação a um objeto de [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requer uma instrução `using` para `Microsoft.ServiceBus.Messaging`).
+Para obter acesso aos [metadados](#trigger---event-metadata) no código da função, associe um objeto de [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requer o uso de uma instrução para `Microsoft.ServiceBus.Messaging`). Você também pode acessar as mesmas propriedades usando expressões de associação na assinatura do método.  O exemplo a seguir mostra duas formas de obter os mesmos dados:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, TraceWriter log)
+public static void Run(
+    [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, 
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
+
 Para receber eventos em um lote, faça `string` ou `EventData` uma matriz:
 
 ```cs
@@ -130,16 +147,29 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Para obter acesso aos metadados do evento, associe um objeto de [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requer o uso de uma instrução para `Microsoft.ServiceBus.Messaging`).
+Para obter acesso aos [metadados](#trigger---event-metadata) no código da função, associe um objeto de [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requer o uso de uma instrução para `Microsoft.ServiceBus.Messaging`). Você também pode acessar as mesmas propriedades usando expressões de associação na assinatura do método.  O exemplo a seguir mostra duas formas de obter os mesmos dados:
 
 ```cs
 #r "Microsoft.ServiceBus"
 using System.Text;
+using System;
 using Microsoft.ServiceBus.Messaging;
 
-public static void Run(EventData myEventHubMessage, TraceWriter log)
+public static void Run(EventData myEventHubMessage,
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
 
@@ -180,7 +210,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Gatilho - exemplo de JavaScript
 
-O exemplo a seguir mostra uma associação de gatilho de hub de eventos em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função registra o corpo da mensagem do gatilho de hub de eventos.
+O exemplo a seguir mostra uma associação de gatilho de hub de eventos em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função lê os [metadados de evento](#trigger---event-metadata) e registra a mensagem.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -197,8 +227,12 @@ Aqui estão os dados de associação no arquivo *function.json*:
 Aqui está o código JavaScript:
 
 ```javascript
-module.exports = function (context, myEventHubMessage) {
-    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
+module.exports = function (context, eventHubMessage) {
+    context.log('Event Hubs trigger function processed message: ', myEventHubMessage);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('SequenceNumber =', context.bindingData.sequenceNumber);
+    context.log('Offset =', context.bindingData.offset);
+     
     context.done();
 };
 ```
@@ -262,6 +296,22 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**conexão** |**Conexão** | É o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do [namespace](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), não no próprio hub de eventos. Essa cadeia de conexão deve ter, pelo menos, permissões de leitura para ativar o gatilho.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="trigger---event-metadata"></a>Gatilho: metadados de evento
+
+O gatilho dos Hubs de Evento fornece várias propriedades de [metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas são propriedades da classe [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata).
+
+|Propriedade|type|DESCRIÇÃO|
+|--------|----|-----------|
+|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|A instância `PartitionContext`.|
+|`EnqueuedTimeUtc`|`DateTime`|O tempo de enfileiramento no UTC.|
+|`Offset`|`string`|O deslocamento dos dados em relação ao fluxo de partição do Hub de Eventos. O deslocamento é um marcador ou um identificador para um evento dentro do fluxo do Hubs de Eventos. O identificador é exclusivo dentro de uma partição do fluxo de Hubs de Eventos.|
+|`PartitionKey`|`string`|A partição para os dados de evento deve ser enviada.|
+|`Properties`|`IDictionary<String,Object>`|Propriedades do usuário dos dados do evento.|
+|`SequenceNumber`|`Int64`|O número de sequência lógica do evento.|
+|`SystemProperties`|`IDictionary<String,Object>`|Propriedades do sistema, incluindo dos dados do evento.|
+
+Consulte [exemplos de código](#trigger---example) que usam essas propriedades neste artigo.
 
 ## <a name="trigger---hostjson-properties"></a>Gatilho - propriedades de host.json
 
