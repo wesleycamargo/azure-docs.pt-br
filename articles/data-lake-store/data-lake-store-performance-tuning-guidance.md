@@ -10,15 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196977"
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Ajustando o desempenho do Azure Data Lake Store
 
@@ -66,7 +65,7 @@ Normalmente os mecanismos de análise, tais como HDInsight e Azure Data Lake Ana
 
 Em geral, organize seus dados em arquivos de tamanhos maior para melhorar o desempenho.  Como regra geral, organize conjuntos de dados em arquivos de 256 MB ou maiores. Em alguns casos, como imagens e dados binários, não é possível processá-los em paralelo.  Nesses casos, é recomendável manter arquivos individuais abaixo de 2 GB.
 
-Às vezes, os pipelines de dados têm controle limitado sobre os dados brutos, que têm muitos arquivos pequenos.  É recomendável ter um processo de "cozinhar" que gera arquivos maiores para uso por aplicativos downstream.  
+Às vezes, os pipelines de dados têm controle limitado sobre os dados brutos, que têm muitos arquivos pequenos.  Recomenda-se ter um processo de "cooking" que gere arquivos maiores para usar em aplicativos downstream.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organizar os dados de série temporal em pastas
 
@@ -123,7 +122,7 @@ Há três camadas em um cluster HDInsight que podem ser ajustadas para aumentar 
 
 Dependendo de sua carga de trabalho, sempre haverá um tamanho de contêiner YARN mínimo necessário. Se você selecionar um contêiner muito pequeno, os trabalhos encontrarão problemas de falta de memória. Normalmente, contêineres YARN não devem ser menores que 1 GB. É comum ver contêineres YARN de 3 GB. Para algumas cargas de trabalho, talvez contêineres YARN maiores sejam necessários.  
 
-**Aumente os núcleos por contêiner YARN.**  Aumente o número de núcleos alocados para cada contêiner para aumentar o número de tarefas paralelas que são executadas em cada contêiner.  Isso funciona para aplicativos como Spark, que executam várias tarefas por contêiner.  Para aplicativos como o Hive, que executam um único thread de cada contêiner, é melhor ter mais contêineres em vez de mais núcleos por contêiner.   
+**Aumente os núcleos por contêiner YARN.**  Aumente o número de núcleos alocados para cada contêiner para aumentar o número de tarefas paralelas que são executadas em cada contêiner.  Isso funciona para aplicativos como Spark, que executam várias tarefas por contêiner.  Para aplicativos como o Hive, que executam um único thread de cada contêiner, é melhor ter mais contêineres em vez de mais núcleos por contêiner.
 
 ### <a name="workload-layer"></a>Camada de carga de trabalho
 

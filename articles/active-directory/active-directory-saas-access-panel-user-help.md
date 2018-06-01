@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0604007255d829cab0502e93895ca541da3b93a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931257"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260502"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Solucionar problemas de acesso e uso do portal Meus aplicativos
 
@@ -58,10 +58,11 @@ Verifique se você está cumprindo os seguintes requisitos de navegador:
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
 - **Internet Explorer 11**: no Windows 7 ou posterior (suporte limitado).
 
-Você também pode baixar a extensão para o Chrome e para o Microsoft Edge diretamente dos seguintes sites:
+Baixe também a extensão diretamente nos seguintes sites:
 
-- [Extensão do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Extensão para Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Se você instalou a extensão e ainda está enfrentando problemas, tente o seguinte:
 
@@ -85,7 +86,7 @@ Se você instalou a extensão e ainda está enfrentando problemas, tente o segui
       A extensão deve alterar o estado e permite que você saiba que uma senha está disponível.
    3. Para conectar-se, selecione o ícone de extensão.
 
-* Para iniciar um aplicativo a partir da extensão, faça o seguinte:
+* Para iniciar um aplicativo por meio da extensão, faça o seguinte:
    1. Depois de instalar a extensão, conecte-se a ela selecionando **Conectar-se para começar**.
    2. Selecione o ícone de extensão para abrir o menu.
    3. Pesquise por um aplicativo que esteja disponível no portal Meus aplicativos.
