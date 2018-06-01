@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8c052b45a0db42e2220c052b03f53f538de107ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c28d409bbdb7a4100f2bb9f00ff6f58a13855ea4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894999"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305048"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou excluir um endereço IP público
 
-Saiba mais sobre um endereço IP público e como criá-lo, alterá-lo e excluí-lo. Um endereço IP público é um recurso com suas próprias definições configuráveis. A atribuição de um endereço IP público a outros recursos do Azure permite:
-- Conectividade de entrada com a Internet para recursos como Máquinas Virtuais do Azure, Conjuntos de Dimensionamento de Máquinas Virtuais do Azure, Gateway de VPN do Azure, gateways de aplicativos e Azure Load Balancers voltados para a Internet. Os recursos do Azure não podem receber comunicação de entrada da Internet sem um endereço IP público atribuído. Embora alguns recursos do Azure sejam inerentemente acessíveis por meio de endereços IP públicos, outros recursos devem ter endereços IP públicos atribuídos a eles para serem acessíveis pela Internet.
-- Conectividade de saída à Internet usando um endereço IP previsível. Por exemplo, uma máquina virtual pode se comunicar pela saída com a Internet sem um endereço IP público atribuído a ela, mas seu endereço é o endereço de rede convertido pelo Azure em um endereço público imprevisível. Atribuir um endereço IP público a um recurso permite que você saiba qual endereço IP é usado para a conexão de saída. Embora previsível, o endereço pode mudar, dependendo do método de atribuição escolhido. Para saber mais, confira [Criar um endereço IP público](#create-a-public-ip-address). Para saber mais sobre conexões de saída usando recursos do Azure, leia o artigo [Entendendo as conexões de saída no Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Saiba mais sobre um endereço IP público e como criá-lo, alterá-lo e excluí-lo. Um endereço IP público é um recurso com suas próprias definições configuráveis. A atribuição de um endereço IP público a um recurso do Azure que dá suporte a endereços IP públicos permite:
+- A comunicação de entrada da Internet com o recurso, como VMs (Máquinas Virtuais) do Azure, Gateways de Aplicativo do Azure, Balanceadores de Carga do Azure, Gateways de VPN do Azure e outros. Você ainda pode se comunicar com alguns recursos, como VMs, da Internet, se uma VM não tem um endereço IP público atribuído a ela, desde que a VM faça parte de um pool de back-end do balanceador de carga e o balanceador de carga receba um endereço IP público. Para determinar se um recurso de um serviço específico do Azure pode receber um endereço IP público, ou se ele pode ser comunicado por meio do endereço IP público de outro recurso do Azure, confira a documentação do serviço. 
+- Conectividade de saída à Internet usando um endereço IP previsível. Por exemplo, uma máquina virtual pode se comunicar pela saída com a Internet sem um endereço IP público atribuído a ela, mas seu endereço é o endereço de rede convertido pelo Azure em um endereço público imprevisível, por padrão. Atribuir um endereço IP público a um recurso permite que você saiba qual endereço IP é usado para a conexão de saída. Embora previsível, o endereço pode mudar, dependendo do método de atribuição escolhido. Para saber mais, confira [Criar um endereço IP público](#create-a-public-ip-address). Para saber mais sobre as conexões de saída nos recursos do Azure, confira [Entender as conexões de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -37,7 +37,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 - Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
-A conta que você realizou o logon, ou conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
+A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
 
 Os endereços IP públicos têm um encargo nominal. Para ver os preços, acesse a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses). 
 
