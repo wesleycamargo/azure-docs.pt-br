@@ -47,7 +47,7 @@ Vamos examinar esses itens com mais detalhes.
 **Tipo de armazenamento:** o Managed Disks oferece dois níveis de desempenho: [Premium](../articles/virtual-machines/windows/premium-storage.md) (baseado em SSD) e [Standard](../articles/virtual-machines/windows/standard-storage.md) (baseado em disco rígido). A cobrança de um disco gerenciado depende de qual tipo de armazenamento você selecionou para o disco.
 
 
-**Tamanho do disco**: a cobrança do disco gerenciado depende do tamanho do disco provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima do Managed Disks, conforme especificado na tabela abaixo. Cada disco gerenciado será mapeado para um dos tamanhos provisionados com suporte e será cobrado adequadamente. Por exemplo, se você criar um disco gerenciado padrão e especificar um tamanho provisionado de 200 GB, será cobrado de acordo com o preço do tipo de disco S20.
+**Tamanho do disco**: a cobrança do disco gerenciado depende do tamanho do disco provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima do Managed Disks, conforme especificado na tabela abaixo. Cada disco gerenciado será mapeado para um dos tamanhos provisionados com suporte e será cobrado adequadamente. Por exemplo, se você criar um disco gerenciado padrão e especificar um tamanho provisionado de 200 GB, será cobrado de acordo com o preço do tipo de disco S15.
 
 Estes são os tamanhos de disco disponíveis para um disco gerenciado premium:
 
@@ -58,9 +58,9 @@ Estes são os tamanhos de disco disponíveis para um disco gerenciado premium:
 
 Estes são os tamanhos de disco disponíveis para um disco gerenciado padrão:
 
-| **Tipo de Standard Managed <br>Disk** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Tamanho do disco        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| **Tipo de Standard Managed <br>Disk** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Tamanho do disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 **Número de transações**: você será cobrado pelo número de transações executadas em um disco gerenciado padrão. Não há custo para transações de um disco gerenciado premium.
