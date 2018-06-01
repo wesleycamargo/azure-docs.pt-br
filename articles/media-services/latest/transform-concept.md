@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: d256d87548d54951cb77beffb88bba26a1a3de49
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b755e0573098d3dbed1bea18a40af634be609f76
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34272073"
 ---
 # <a name="transforms-and-jobs"></a>Transformações e Trabalhos
 
@@ -26,6 +27,40 @@ A versão mais recente da API REST dos Serviços de Mídia do Azure (v3) apresen
 O objeto **Transformação** é a receita e um **Trabalho** é a solicitação real para os Serviços de Mídia do Azure para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. O **Trabalho** especifica informações, como o local da entrada vídeo e o local da saída. Você pode especificar o local do seu vídeo usando: URLs HTTP(s), URLs SAS ou um caminho para arquivos localizados localmente ou no armazenamento de Blobs do Azure. Você pode ter até 100 Transformações em sua conta de Serviços de Mídia do Azure e enviar Trabalhos sob essas Transformações. Em seguida, você pode assinar a eventos como alterações de estado do Trabalho, usando Notificações, que se integram diretamente com o sistema de notificação de Grade de Eventos do Azure. 
 
 Como essa API é orientada pelo Gerenciador de Recursos do Azure, você pode usar modelos do Resource Manager para criar e implantar as Transformações em sua conta de Serviços de Mídia. O controle de acesso baseado na função também pode ser definido a nível de recurso nesta API, permitindo bloquear o acesso a recursos específicos, como Transformações.
+
+## <a name="transform-definition"></a>Definição de transformação
+
+A tabela a seguir mostra as propriedades da transformação e retorna suas definições.
+
+|NOME|type|DESCRIÇÃO|
+|---|---|---|
+|ID|string|ID de recurso totalmente qualificada para o recurso.|
+|Nome|string|O nome do recurso.|
+|properties.created |string|A data e hora UTC quando a transformação foi criada no formato “AAAA-MM-DDThh:mm:ssZ”.|
+|properties.description |string|Uma descrição detalhada opcional da transformação.|
+|properties.lastModified |string|A data e hora UTC quando a transformação foi atualizada no formato “AAAA-MM-DDThh:mm:ssZ”.|
+|properties.outputs |TransformOutput[]|Uma matriz de um ou mais TransformOutputs que a Transformação deve gerar.|
+|Tipo|string|Tipo do recurso.|
+
+Para a definição completa, consulte [Transformações](https://docs.microsoft.com/rest/api/media/transforms).
+
+## <a name="job-definition"></a>Definição de trabalho
+
+A tabela a seguir mostra as propriedades da trabalho e retorna suas definições.
+
+|NOME|type|DESCRIÇÃO|
+|---|---|---|
+|ID|string|ID de recurso totalmente qualificada para o recurso.|
+|Nome|string|O nome do recurso.|
+|properties.created |string|A data e hora UTC quando a transformação foi criada no formato “AAAA-MM-DDThh:mm:ssZ”.|
+|properties.description |string|Uma descrição detalhada opcional do trabalho.|
+|properties.lastModified |string|A data e hora UTC quando a transformação foi atualizada no formato “AAAA-MM-DDThh:mm:ssZ”.|
+|properties.outputs |JobOutput[]:JobOutputAsset[] |As saídas para o trabalho.|
+|properties.priority |Prioridade |Prioridade com que o trabalho deve ser processado. Trabalhos com prioridade mais alta são processados antes dos trabalhos de prioridade mais baixa. Se não for definido, o padrão é normal.
+|properties.state |JobState |Estado atual do trabalho.
+|Tipo|string|Tipo do recurso.|
+
+Para a definição completa, consulte [Trabalhos](https://docs.microsoft.com/rest/api/media/jobs).
 
 ## <a name="typical-workflow-and-example"></a>Fluxo de trabalho típico e exemplo
 

@@ -1,108 +1,175 @@
 ---
-title: Criar, vincular, excluir ou mover uma conta de integração no Aplicativo Lógico do Azure | Microsoft Docs
-description: Como criar uma conta de integração e vinculá-la aos seus aplicativos lógicos
+title: Criar e gerenciar contas de integração para soluções B2B – Aplicativo Lógico do Azure | Microsoft Docs
+description: Criar, vincular, mover e excluir contas de integração para soluções de B2B e integração empresarial com Aplicativos Lógicos do Azure
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: anneta
+documentationcenter: ''
+author: ecfan
+manager: cfowler
 editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/23/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: fb1d0ceb26c5ed792f22051e2af10a7572200bdc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/30/2018
+ms.author: estfan
+ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166226"
 ---
-# <a name="what-is-an-integration-account"></a>O que é uma conta de integração?
+# <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Criar e gerenciar contas de integração para soluções B2B com Aplicativos Lógicos
 
-Uma conta de integração fornece uma maneira para seus aplicativos de integração empresarial, especificamente aplicativos lógicos, acessar e gerenciar artefatos B2B, por exemplo, parceiros comerciais, contratos, mapas, esquemas, certificados, e assim por diante. Para fornecer esse acesso, vincule a conta de integração ao aplicativo lógico, após certificar-se de que a conta de integração e o aplicativo lógico têm um *mesmo local do Azure*.
+Antes de ser possível criar [soluções de B2B e integração empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md) com [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md), é necessário primeiro ter uma conta de integração, que é o local em que você cria, armazena e gerencia os artefatos B2B, como parceiros comerciais, contratos, mapas, esquemas, certificados e assim por diante. Antes de seu aplicativo lógico poder trabalhar com os artefatos na sua conta de integração e usar os conectores de Aplicativos Lógicos B2B, como a validação XML, é necessário [vincular a conta de integração](#link-account) ao aplicativo lógico. Para vinculá-los, sua conta de integração e seu aplicativo lógico devem ter a *mesma* localização ou região do Azure.
 
-## <a name="create-an-integration-account"></a>Criar uma conta de integração
+Este artigo mostra como executar estas tarefas:
 
-1. Entre no [portal do Azure](http://portal.azure.com "portal do Azure"). 
+* Criar sua conta de integração.
+* Vincular sua conta de integração a um aplicativo lógico.
+* Mover sua conta de integração para outra assinatura ou grupo de recursos do Azure.
+* Excluir sua conta de integração.
 
-2. No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesquisa, insira "integração" e selecione **Contas de integração**.
+Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>.
 
-   ![Criar conta de integração](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
 
-3. Na parte superior da página, escolha **Adicionar**.
+Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> com suas credenciais da conta do Azure.
 
-   ![Escolha Adicionar](./media/logic-apps-enterprise-integration-accounts/account-3.png)
+## <a name="create-integration-account"></a>Criar conta de integração
 
-4. Nomeie sua conta de integração e selecione a assinatura do Azure que você deseja usar. Você pode criar um novo **grupo de recursos** ou escolher um grupo de recursos existente. Selecione um **Local** para hospedar a conta de integração e um **Tipo de Preço**. Quando você estiver pronto, escolha **Criar**.
+1. No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesquisa, insira “contas de integração” como filtro e selecione **Contas de integração**.
 
-   ![Forneça detalhes para sua conta de integração](./media/logic-apps-enterprise-integration-accounts/account-4.png)
+   ![Localizar contas de integração](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
 
-   O Azure fornece a conta de integração no local selecionado, que deve ser concluído dentro de um minuto.
+2. Em **Contas de integração**, escolha **Adicionar**.
 
-5. Atualize a página. Você verá a nova conta de integração listada.
+   ![Escolha “Adicionar” para criar a conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
 
-   ![A nova conta de integração é exibida](./media/logic-apps-enterprise-integration-accounts/account-5.png) 
+3. Forneça informações sobre sua conta de integração: 
 
-Em seguida, vincule a conta de integração criada ao seu aplicativo lógico. 
+   ![Forneça detalhes para sua conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-## <a name="link-an-integration-account-to-a-logic-app"></a>Vincular uma conta de integração a um aplicativo lógico
+   | Propriedade | Obrigatório | Valor de exemplo | DESCRIÇÃO | 
+   |----------|----------|---------------|-------------|
+   | NOME | sim | test-integration-account | O nome da conta de integração. Para este exemplo, use o nome especificado. | 
+   | Assinatura | sim | <*Azure-subscription-name*> | O nome da assinatura do Azure a ser usado | 
+   | Grupo de recursos | sim | test-integration-account-rg | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Para este exemplo, crie um novo grupo de recursos com o nome especificado. | 
+   | Camada de preços | sim | Grátis | O tipo de preço que deseja usar. Para este exemplo, selecione **Gratuito**, mas para obter mais informações, consulte [Limites e configuração de Aplicativos Lógicos](../logic-apps/logic-apps-limits-and-config.md) e [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). | 
+   | Local padrão | sim | Oeste dos EUA | A região na qual armazenar os dados da conta de integração. Selecione a mesma localização do aplicativo lógico ou crie um aplicativo lógico na mesma localização da conta de integração. Para este exemplo, | 
+   | Log Analytics | Não  | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. | 
+   ||||| 
 
-Para que os aplicativos lógicos acessem artefatos B2B, como parceiros comerciais, contratos, mapas e esquemas em sua conta de integração, vincule a conta de integração ao aplicativo lógico. 
+4. Quando estiver pronto, selecione **Fixar no painel** e, em seguida, **Criar**.
 
-1. No portal do Azure, selecione seu aplicativo lógico e verifique o local dele.
+   Depois que o Azure implanta sua conta de integração na localização selecionada, o que geralmente termina dentro de um minuto, ele abre sua conta de integração.
 
-   ![Selecionar seu aplicativo lógico, verificar o local](./media/logic-apps-enterprise-integration-accounts/linkaccount-1.png)
+   ![O Azure abre sua conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-created.png)
 
-2. Em **Configurações**, selecione **Conta de Integração**.
+Agora, antes de seu aplicativo lógico poder usar a conta de integração, você precisa vincular a conta de integração ao aplicativo lógico.
 
-   ![Selecionar “Conta de Integração”](./media/logic-apps-enterprise-integration-accounts/linkaccount-2.png)
+<a name="link-account"></a>
 
-3. Na lista **Selecione a conta de integração**, selecione a conta de integração que você deseja vincular ao aplicativo lógico. Para concluir a vinculação, escolha **Salvar**.
+## <a name="link-to-logic-app"></a>Vincular ao aplicativo lógico
 
-   ![Selecione sua conta de integração](./media/logic-apps-enterprise-integration-accounts/linkaccount-3.png)
+Para conceder aos seus Aplicativos Lógicos o acesso a uma conta de integração que contém os artefatos B2B, como parceiros comerciais, contratos, mapas e esquemas, você precisa vincular sua conta de integração ao aplicativo lógico. 
 
-   Você verá uma notificação mostrando que sua conta de integração foi vinculada ao seu aplicativo lógico, e que todos os artefatos de sua conta de integração estão disponíveis para seu aplicativo lógico.
+> [!NOTE]
+> Sua conta de integração e o aplicativo lógico devem existir na mesma região.
 
-   ![Seu aplicativo lógico é vinculado à sua conta de integração](./media/logic-apps-enterprise-integration-accounts/linkaccount-5.png)
+1. No portal do Azure, encontre e abra seu aplicativo lógico.
 
-Agora que a conta de integração está vinculada ao aplicativo lógico, você poderá usar os conectores B2B no aplicativo lógico. Alguns conectores B2B comuns incluem a validação de XML e codificação/decodificação de arquivo simples.  
+2. No menu do aplicativo lógico, em **Configurações**, selecione **Configurações de fluxo de trabalho**. Na lista **Selecionar uma Conta de integração**, selecione a conta de integração a ser vinculada ao aplicativo lógico.
 
-## <a name="delete-your-integration-account"></a>Excluir sua conta de integração
+   ![Selecione sua conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/linkaccount-2.png)
 
-1. No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesquisa, insira "integração" e selecione **Contas de integração**.
+3. Para concluir a vinculação, escolha **Salvar**.
 
-   ![Localizar sua conta de integração](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+   ![Selecione sua conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/linkaccount-3.png)
 
-2. Selecione a conta de integração que você deseja excluir.
+   Quando sua conta de integração for vinculada com êxito, o Azure mostrará uma mensagem de confirmação. 
 
-    ![Selecionar conta de integração a ser excluída](./media/logic-apps-enterprise-integration-accounts/account-5.png)
+   ![O Azure confirma a vinculação com êxito](./media/logic-apps-enterprise-integration-create-integration-account/linkaccount-5.png)
 
-3. No menu, escolha **Excluir**.
+Agora seu aplicativo lógico pode usar todo e qualquer artefato em sua conta de integração, além dos conectores B2B, como a validação de XML e a codificação ou decodificação de arquivo simples.  
 
-    ![Clique em “Excluir”](./media/logic-apps-enterprise-integration-accounts/delete.png)
+## <a name="unlink-from-logic-app"></a>Desvincular do aplicativo lógico
 
-4. Confirme sua escolha para excluir a conta de integração.
+Para vincular seu aplicativo lógico a outra conta de integração ou não usar mais uma conta de integração com o aplicativo lógico, você pode excluir o link por meio do Azure Resource Explorer.
 
-## <a name="move-your-integration-account"></a>Selecionar sua conta de integração
+1. Em seu navegador, vá para <a href="https://resources.azure.com" target="_blank">Azure Resource Explorer (https://resources.azure.com)</a>. Certifique-se de que você esteja conectado com as mesmas credenciais do Azure.
 
-Para mover uma conta de integração para outro grupo de recursos ou de assinatura do Azure, siga estas etapas. Após mover a conta de integração, certifique-se de atualizar todos os scripts para usar as novas IDs do recurso.
+   ![Gerenciador de Recursos do Azure](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
 
-1. No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesquisa, insira "integração" e selecione **Contas de integração**.
+2. Na caixa de pesquisa, insira o nome do aplicativo lógico e localize e selecione seu aplicativo lógico.
 
-   ![Localizar sua conta de integração](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+   ![Localize e selecione o aplicativo lógico](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-find-logic-app.png)
 
-2. Selecione a conta de integração que você deseja mover. Em **Configurações**, escolha **Propriedades**.
+3. Na barra de título do gerenciador, escolha **Leitura/Gravação**.
 
-   ![Selecione a conta de integração a ser movida. Em Configurações, escolha Propriedades](./media/logic-apps-enterprise-integration-accounts/move.png)
+   ![Ativar o modo de "Leitura/Gravação"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-choose-read-write-mode.png)
 
-3. Altere o grupo de recursos ou a assinatura do Azure associada à sua conta de integração.
+4. Na guia **Dados**, escolha **Editar**.
 
-   ![Escolher Alterar grupo de recursos ou Alterar assinatura](./media/logic-apps-enterprise-integration-accounts/move-2.png)
+   ![Na guia “Dados”, escolha “Editar”](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-choose-edit.png)
+
+5. No editor, localize a propriedade `integrationAccount` da conta de integração e exclua essa propriedade, que tem esse formato:
+
+   ```json
+   "integrationAccount": {
+      "name": "<integration-account-name>",
+      "id": "<integration-account-resource-ID>",
+      "type": "Microsoft.Logic/integrationAccounts"  
+   },
+   ```
+
+   Por exemplo: 
+
+   ![Localize a definição da propriedade "integrationAccount"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
+
+6. Na guia **Dados**, escolha **Colocar** para salvar as alterações. 
+
+   ![Escolha "Colocar" para salvar alterações](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-save-changes.png)
+
+7. No portal do Azure, nas **Configurações de fluxo de trabalho** do aplicativo lógico, verifique se a propriedade **Conta de integração** agora aparece vazia.
+
+   ![Verifique se a conta de integração não está vinculada](./media/logic-apps-enterprise-integration-create-integration-account/unlinked-account.png)
+
+## <a name="move-integration-account"></a>Mover a conta de integração
+
+Você pode mover sua conta de integração para outra assinatura ou grupo de recursos do Azure.
+
+1. No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesquisa, insira “contas de integração” como filtro e selecione **Contas de integração**.
+
+   ![Localizar sua conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
+
+2. Em **Contas de integração**, selecione a conta de integração que deseja mover. No menu da conta de integração, em **Configurações**, escolha **Propriedades**.
+
+   ![Em “Configurações”, escolha “Propriedades”](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-properties.png)
+
+3. Altere a assinatura ou o grupo de recursos do Azure da sua conta de integração.
+
+   ![Escolha “Alterar grupo de recursos” ou “Alterar assinatura”](./media/logic-apps-enterprise-integration-create-integration-account/change-resource-group-subscription.png)
+
+4. Quando terminar, certifique-se de que atualizou todos os scripts com as novas IDs de recurso de seus artefatos.  
+
+## <a name="delete-integration-account"></a>Excluir conta de integração
+
+1. No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesquisa, insira “contas de integração” como filtro e selecione **Contas de integração**.
+
+   ![Localizar sua conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
+
+2. Em **Contas de integração**, selecione a conta de integração que deseja excluir. No menu de conta de integração, escolha **Visão Geral** e **Excluir**. 
+
+   ![Selecione conta de integração. Na página "Visão Geral", escolha "Excluir"](./media/logic-apps-enterprise-integration-create-integration-account/delete-integration-account.png)
+
+3. Para confirmar que deseja excluir sua conta de integração, escolha **Sim**.
+
+   ![Para confirmar a exclusão, escolha "Sim"](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba mais sobre os contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Saiba mais sobre os contratos de integração corporativa")  
-
+* [Criar os parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md)
+* [Criar contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md)

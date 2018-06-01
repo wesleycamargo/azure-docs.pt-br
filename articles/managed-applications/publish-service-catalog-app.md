@@ -1,20 +1,21 @@
 ---
-title: "Criar e publicar um aplicativo gerenciado do catálogo de serviços do Azure | Microsoft Docs"
-description: "Mostra como criar um aplicativo gerenciado do Azure destinado aos membros de sua organização."
+title: Criar e publicar um aplicativo gerenciado do catálogo de serviços do Azure | Microsoft Docs
+description: Mostra como criar um aplicativo gerenciado do Azure destinado aos membros de sua organização.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 11/02/2017
+ms.date: 05/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305303"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicar um aplicativo gerenciado para consumo interno
 
@@ -55,7 +56,7 @@ Adicione o seguinte JSON ao seu arquivo. Ele define os parâmetros para a criaç
         }
     },
     "variables": {
-        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString('storage'))]"
+        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -138,7 +139,7 @@ Adicione o seguinte JSON ao arquivo.
 }
 ```
 
-Salve o arquivo createUIDefinition.json.
+Salve o arquivo createUiDefinition.json.
 
 ## <a name="package-the-files"></a>Empacote os arquivos
 
@@ -152,8 +153,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 
@@ -173,7 +173,9 @@ A próxima etapa é selecionar um grupo de usuários ou um aplicativo para geren
 
 É necessário usar a ID de objeto do grupo de usuários para gerenciar os recursos. 
 
-![Obter a ID do grupo](./media/publish-service-catalog-app/get-group-id.png)
+```powershell
+$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+```
 
 ### <a name="get-the-role-definition-id"></a>Obter a ID de definição da função
 
@@ -203,41 +205,69 @@ New-AzureRmManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "<group-id>:$ownerID" `
+  -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## <a name="create-the-managed-application-by-using-the-portal"></a>Criar o aplicativo gerenciado usando o portal
+## <a name="create-the-managed-application"></a>Criar o aplicativo gerenciado
+
+Você pode implantar o aplicativo gerenciado por meio do portal, do PowerShell ou da CLI do Azure.
+
+### <a name="powershell"></a>PowerShell
+
+Primeiro, vamos usar o PowerShell para implantar o aplicativo gerenciado.
+
+```powershell
+# Create resource group
+New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
+
+# Get ID of managed application definition
+$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
+
+# Create the managed application
+New-AzureRmManagedApplication `
+  -Name storageApp `
+  -Location westcentralus `
+  -Kind ServiceCatalog `
+  -ResourceGroupName applicationGroup `
+  -ManagedApplicationDefinitionId $appid `
+  -ManagedResourceGroupName "InfrastructureGroup" `
+  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
+```
+
+Seu aplicativo gerenciado e infraestrutura gerenciada agora existem na assinatura.
+
+### <a name="portal"></a>Portal
 
 Agora, vamos usar o portal para implantar o aplicativo gerenciado. Você verá a interface do usuário que criou no pacote.
 
-1. Vá para o portal do Azure. Selecione **+ Novo** e pesquise pelo **catálogo de serviços**.
+1. Vá para o portal do Azure. Selecione **+ Criar um recurso** e procure pelo **catálogo de serviços**.
 
-   ![Pesquisar catálogo de serviços](./media/publish-service-catalog-app/select-new.png)
+   ![Pesquisar catálogo de serviços](./media/publish-service-catalog-app/create-new.png)
 
 1. Selecione **Aplicativo gerenciado do Catálogo de Serviços**.
 
-   ![Selecionar catálogo de serviços](./media/publish-service-catalog-app/select-service-catalog.png)
+   ![Selecionar catálogo de serviços](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
-1. Selecione **Criar**.
+1. Clique em **Criar**.
 
    ![Selecione criar](./media/publish-service-catalog-app/select-create.png)
 
-1. Localize o aplicativo gerenciado que você deseja criar na lista de soluções disponíveis e selecione-o. Selecione **Criar**.
+1. Localize o aplicativo gerenciado que você deseja criar na lista de soluções disponíveis e selecione-o. Clique em **Criar**.
 
    ![Localizar o aplicativo gerenciado](./media/publish-service-catalog-app/find-application.png)
 
 1. Forneça informações básicas necessárias para o aplicativo gerenciado. Especifique a assinatura e um novo grupo de recursos para conter o aplicativo gerenciado. Selecione **Centro-Oeste dos EUA** para local. Ao terminar, selecione **OK**.
 
-   ![Fornecer parâmetros do aplicativo gerenciado](./media/publish-service-catalog-app/provide-basics.png)
+   ![Fornecer parâmetros do aplicativo gerenciado](./media/publish-service-catalog-app/add-basics.png)
 
 1. Forneça valores que sejam específicos para os recursos do aplicativo gerenciado. Ao terminar, selecione **OK**.
 
-   ![Fornecer parâmetros de recurso](./media/publish-service-catalog-app/provide-resource-values.png)
+   ![Fornecer parâmetros de recurso](./media/publish-service-catalog-app/add-storage-settings.png)
 
 1. O modelo valida os valores fornecidos. Se a validação for bem-sucedida, selecione **OK** para iniciar a implantação.
 
-   ![Validar aplicativo gerenciado](./media/publish-service-catalog-app/validate.png)
+   ![Validar aplicativo gerenciado](./media/publish-service-catalog-app/view-summary.png)
 
 Depois que a implantação é concluída, o aplicativo gerenciado existe em um grupo de recursos denominado applicationGroup. A conta de armazenamento existe em um grupo de recursos denominado applicationGroup mais um valor de cadeia de caracteres com hash.
 
