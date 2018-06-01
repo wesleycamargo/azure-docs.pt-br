@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 52d0aeabab173caf4460827ca0d5984070688f0e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304718"
 ---
 # <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear a carga de VMs em uma zona de disponibilidade com um Balanceador de Carga Standard usando o portal do Azure
 
@@ -139,7 +140,7 @@ Nesta seção, você cria regras do NSG para permitir conexões de entrada usand
 2. Na página **Visão geral**, clique em **Conectar** para o RDP na VM.
 3. Faça logon na VM com o nome de usuário e senha que você especificou ao criar a VM (talvez seja necessário selecionar **Mais escolhas**, em seguida, **Usar uma conta diferente**, para especificar as credenciais inseridas ao criar a VM) e selecione **OK**. Você pode receber um aviso do certificado durante o processo de logon. Selecione **Sim** para prosseguir com a conexão.
 4. Na área de trabalho do servidor, navegue até **Ferramentas Administrativas do Windows**>**Windows PowerShell**.
-6. Na janela do PowerShell, execute os comandos a seguir para instalar o servidor IIS, remova o arquivo default.htm, adicione um novo com o arquivo default.htm que exibe o nome da VM:
+6. Na janela do PowerShell, execute os comandos a seguir para instalar o servidor IIS, remova o arquivo padrão iisstart.htm, e adicione um novo arquivo iisstart.htm que exibe o nome da VM:
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -147,10 +148,10 @@ Nesta seção, você cria regras do NSG para permitir conexões de entrada usand
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. Feche a sessão RDP com *myVM1*
-9. Repita as etapas de 1 a 8 para instalar o IIS no *myVM2*.
+7. Feche a sessão RDP com *myVM1*
+8. Repita as etapas de 1 a 7 para instalar o IIS no *myVM2*.
 
 ## <a name="create-load-balancer-resources"></a>Criar recursos do balanceador de carga
 
