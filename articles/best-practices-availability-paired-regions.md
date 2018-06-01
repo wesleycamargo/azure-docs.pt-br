@@ -9,12 +9,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2c288af881fa925c1680efdb0f86deec60b7510
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939014"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302671"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
@@ -32,6 +32,7 @@ Figura 1 – Pares regionais do Azure
 |:--- |:--- |:--- |
 | Ásia |Ásia Oriental |Sudeste Asiático |
 | Austrália |Leste da Austrália |Sudeste da Austrália |
+| Austrália |Austrália Central |Austrália Central (2) |
 | Brasil |Sul do Brasil (2) |Centro-Sul dos Estados Unidos |
 | Canadá |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
@@ -40,7 +41,7 @@ Figura 1 – Pares regionais do Azure
 | Índia |Índia Central |Sul da Índia |
 | Índia |Índia Ocidental (1) |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
-| Coreia |Coreia Central |Sul da Coreia |
+| Coreia do Sul |Coreia Central |Sul da Coreia |
 | América do Norte |Leste dos EUA |Oeste dos EUA |
 | América do Norte |Leste dos EUA 2 |Centro dos EUA |
 | América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
