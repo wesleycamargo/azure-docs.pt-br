@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: 5bc578d617edd093a3b7eec7903209bfdb9ebfce
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1965438e64af84d0c808b0684f9e81c797193bff
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34266854"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure
 
@@ -228,10 +229,10 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
        sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
        </code></pre>
        
-       Criar os volumes lógicos
+        Criar os volumes lógicos. O volume linear será criado ao usar lvcreate sem alternar. Sugerimos criar um volume distribuído para um melhor desempenho de E/S, o argumento i deve ser igual ao número de volume físico subjacente. Neste documento, 2 volumes físicos são usados para o volume de dados, para o argumento da opção -i é 2. O volume físico 1 é usado para o volume de log assim nenhuma alternação i é usado explicitamente. Use alternar i e substitua o número para o mesmo número de volume físico subjacente quando você estiver usando mais de 1 volume físico para cada dados, log ou volumes compartilhados.
 
        <pre><code>
-       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
        sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

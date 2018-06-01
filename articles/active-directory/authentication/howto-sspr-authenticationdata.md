@@ -2,25 +2,20 @@
 title: Requisitos de dados SSPR do Azure AD | Microsoft Docs
 description: Requisitos de dados para autoatendimento de redefinição de senha do Azure AD e como atendê-los
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 790ca2ccb2d365876e15ca57e1aa199ac519fd73
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257580"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
 
@@ -39,16 +34,27 @@ Para funcionarem adequadamente, os números de telefone devem estar no formato *
 
 Se você usar as configurações padrão no Azure AD Connect, serão realizados os seguintes mapeamentos:
 
-| Active Directory local | AD do Azure | Informações de contato para Autenticação do Azure AD |
-| --- | --- | --- |
-| telephoneNumber | Telefone comercial | Telefone alternativo |
-| Serviço Móvel | Telefone celular | Telefone |
+| Active Directory local | AD do Azure |
+| --- | --- |
+| telephoneNumber | Telefone comercial |
+| Serviço Móvel | Telefone celular |
 
-Esses campos podem aparecer vazios até que um usuário confirme seus dados de autenticação.
+Quando um usuário confirma o número de telefone celular, o campo de telefone em informações de Contato de autenticação no Microsoft Azure Active Directory também será populado com esse número.
 
-Um Administrador Global pode definir manualmente as informações de contato de autenticação para o usuário conforme exibido na captura de tela a seguir.
+## <a name="authentication-contact-info"></a>Informações de contato de autenticação
+
+Um Administrador Global pode definir manualmente as informações de contato de autenticação para um usuário conforme exibido na captura de tela a seguir.
 
 ![Contato][Contact]
+
+Se o campo de telefone for preenchido e o telefone celular estiver habilitado na política de SSPR, o usuário verá o número na página de registro de redefinição de senha e a senha durante a redefinição de fluxo de trabalho. 
+
+O campo de telefone alternativo não é usado para redefinição de senha.
+
+Se o campo de telefone for preenchido e o email estiver habilitado na política de SSPR, o usuário verá o email na página de registro de redefinição de senha e a senha durante a redefinição de fluxo de trabalho.
+
+Se o campo email alternativo for preenchido e o email estiver habilitado na política de SSPR, o usuário **não** verá o email na página de registro de redefinição de senha, mas ainda a verão durante a redefinição de fluxo de trabalho. 
+
 
 ## <a name="security-questions-and-answers"></a>Perguntas e respostas de segurança
 
