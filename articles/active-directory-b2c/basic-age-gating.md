@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
-ms.openlocfilehash: 9186579126525cc269f7e3f9e778e06902b30eb4
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 3d6804f7e546547d734f966656362111b31078a4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261275"
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33206193"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Usando restrição de idade no Azure AD B2C
 
@@ -48,22 +48,25 @@ Depois que o diretório estiver configurado para usar a restrição de idade, vo
 Depois que a restrição de idade é habilitada em seu fluxo de usuário, a experiência do usuário muda.  Na inscrição, passarão a ser solicitados a data de nascimento e o país de residência dos usuários, bem como os atributos do usuário configurados no fluxo de usuário.  Ao se conectarem, os usuários que não tiverem fornecido a data de nascimento e o país de residência anteriormente precisarão fornecer essas informações na próxima vez em que entrarem.  Usando esses dois valores, o Azure AD B2C identificará se o usuário é menor de idade e atualizará o campo `ageGroup`; o valor pode ser `null`, `Undefined`, `Minor`, `Adult` e `NotAdult`.  Em seguida, os campos `ageGroup` e `consentProvidedForMinor` são usados para calcular `legalAgeGroupClassification`. 
 
 ##<a name="age-gating-options"></a>Opções de restrição de idade
-Você pode optar por fazer com que o Active Directory AD B2C bloqueie menores que não tiverem consentimento dos pais ou permitir seu acesso e deixar que o aplicativo decida o que fazer com eles.  
+Você pode optar por fazer com que o Azure AD B2C bloqueio menores que não tiverem consentimento dos pais ou permitir seu acesso e deixar que o aplicativo decida o que fazer com eles.  
 
 ###<a name="allowing-minors-without-parental-consent"></a>Permitindo menores sem consentimento dos pais
-Para fluxos de usuário que permitem inscrição, entrada ou ambas, você pode optar por permitir a entrada de menores sem consentimento dos pais em seu aplicativo.  Para menores sem o consentimento dos pais, eles têm permissão para entrar ou se inscrever normalmente, e o Active Directory B2C emite um token de ID com a declaração `legalAgeGroupClassification`.  Usando essa declaração, você pode escolher a experiência desses usuários, como uma experiência com coleta do consentimento dos pais (e atualização do campo `consentProvidedForMinor`).
+Para fluxos de usuário que têm inscrição, entrada ou ambas, você pode optar por permitir a entrada de menores sem consentimento dos pais em seu aplicativo.  Para menores sem o consentimento dos pais, eles têm permissão para entrar ou se inscrever normalmente e é emitido um token de ID com a declaração `legalAgeGroupClassification`.  Usando essa declaração, você pode escolher a experiência desses usuários, como uma experiência com coleta do consentimento dos pais (e atualização do campo `consentProvidedForMinor`).
 
 ###<a name="blocking-minors-without-parental-consent"></a>Bloqueando menores sem consentimento dos pais
-Para fluxos de usuário que permitem inscrição, entrada ou ambas, você pode optar por bloquear a entrada de menores sem consentimento dos pais no aplicativo.  Há duas opções para lidar com usuários bloqueados no Azure AD B2C:
+Para fluxos de usuário que têm inscrição, entrada ou ambas, você pode optar por bloquear a entrada de menores sem consentimento dos pais em seu aplicativo.  Há duas opções para lidar com usuários bloqueados no Azure AD B2C:
 * Enviar um JSON de volta ao aplicativo – esta opção enviará uma resposta de volta para o aplicativo informando que um foi bloqueado.
 * Mostrar uma página de erro – o usuário verá uma página informando que ele não pode acessar o aplicativo
 
 ##<a name="known-issues"></a>Problemas conhecidos
+###<a name="customization-unavailable-for-new-pages"></a>Personalização indisponível para novas páginas
+Há duas novas páginas que podem ficar disponíveis em seu fluxo de usuário quando você habilita a restrição de idade.  Essas páginas para coletar o país e a data de nascimento ao entrar e a página de erro não podem ser usadas com personalização de idioma ou layout da página.  Essa opção estará disponível em uma atualização futura.
+
 ###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Formato da resposta quando um menor é bloqueado.
 Atualmente, a resposta não está formada corretamente. Esse bug será corrigido em uma atualização futura.
 
 ###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Excluir atributos específicos que foram adicionados durante a configuração pode impossibilitar seu diretório não de usar a restrição de idade.
-Na configuração de restrição de idade, você configurou o diretório por meio de uma opção em `Properties`.  Se você excluir `legalCountry` ou `dateOfBirth` usando o Graph, o diretório não poderá mais usar a restrição de idade, e essas propriedades não poderão ser recriadas.
+Na configuração de restrição de idade, você configurou o diretório por meio de uma opção em `Properties`.  Se você excluir `legalCountry` ou `dateOfBirth`, o locatário não poderá mais usar a restrição de idade e essas propriedades não poderão ser recriadas.
 
 ###<a name="list-of-countries-is-incomplete"></a>A lista de países está incompleta
 Atualmente, a lista de países para legalCountry está incompleta, adicionaremos o restante dos países em uma atualização futura.
