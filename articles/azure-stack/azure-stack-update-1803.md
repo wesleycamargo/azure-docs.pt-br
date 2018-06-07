@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 095356e76dc72c3e549c23ab3855962e9c2f1d26
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 1186776742562566be893c411a642d2feb819a86
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603937"
 ---
 # <a name="azure-stack-1803-update"></a>Atualização de pilha 1803 do Azure
 
@@ -56,7 +57,7 @@ Este artigo descreve as melhorias e correções no pacote de atualização de 18
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
 - Após a instalação do 1803, instale os Hotfixes aplicáveis. Para mais informações, consulte os seguintes artigos da base de dados de Conhecimento, bem como nosso [política manutenção](azure-stack-servicing-policy.md).
 
-  - [KB 4103348 - serviço de API do controlador de rede falha quando você tentar instalar uma atualização da pilha do Azure](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4294441 - operações nos recursos de locatário e inesperados compartilhamentos são criadas no mesmo locatário ou volume de infraestrutura](https://support.microsoft.com/en-us/help/4294441)
 
 - Depois de instalar esta atualização, examine a configuração de firewall para garantir [portas necessárias](azure-stack-integrate-endpoints.md) estão abertas. Por exemplo, esta atualização introduz o Monitor do Azure que inclui uma alteração de logs de auditoria para logs de atividade. Com essa alteração, a porta 13012 agora é usada e deve também ser aberta.  
 
@@ -110,6 +111,9 @@ Esta atualização inclui os seguintes aprimoramentos e correções para a pilha
 A seguir são problemas conhecidos de pós-instalação para compilação **20180323.2**.
 
 #### <a name="portal"></a>Portal
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Solução alternativa: Para resolver esse problema, depois de instalar esta atualização, use a etapa 3 do [na pilha do Azure de confiança do provedor de declarações de automação de gatilho para configurar](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedimento para redefinir o proprietário da assinatura do provedor padrão.   
+
 - A capacidade de [para abrir uma nova solicitação de suporte na lista suspensa](azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do administrador do portal não está disponível. Em vez disso, use o seguinte link:     
     - Para o Azure pilha sistemas integrados, use https://aka.ms/newsupportrequest.
 
@@ -131,7 +135,23 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
   Esse alerta pode ser ignorado. 
 
 
-<!-- #### Health and monitoring --> 
+#### <a name="health-and-monitoring"></a>Monitoramento e integridade
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alerta #1:
+   - NOME: Função de infraestrutura não íntegro
+   - SEVERIDADE: aviso
+   - COMPONENTE: Controlador de integridade
+   - Descrição: O Scanner de pulsação do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.  
+
+  Alerta #2:
+   - NOME: Função de infraestrutura não íntegro
+   - SEVERIDADE: aviso
+   - COMPONENTE: Controlador de integridade
+   - Descrição: O Scanner de falha do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.
+
+  Ambos os alertas podem ser ignorados. Ele será fechado automaticamente ao longo do tempo.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - Usuários podem procurar o marketplace completo sem uma assinatura e podem ver itens administrativos como planos e ofertas. Esses itens não estão funcionando para os usuários.
@@ -143,7 +163,7 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
 
 - Quando você cria uma conjunto de disponibilidade no portal do indo para **novo** > **de computação** > **conjunto de disponibilidade**, você pode criar apenas um conjunto de disponibilidade com um domínio de falha e o domínio de atualização de 1. Como alternativa, ao criar uma nova máquina virtual, crie a disponibilidade definida usando o PowerShell, CLI, ou de dentro do portal.
 
-- Ao criar máquinas virtuais no portal do usuário de pilha do Azure, o portal exibe um número incorreto de discos de dados que podem ser anexados a uma VM da série DS. As VMs da série DS podem acomodar quantos discos de dados como a configuração do Azure.
+- Ao criar máquinas virtuais no portal do usuário de pilha do Azure, o portal exibe um número incorreto de discos de dados que pode se conectar a uma série D VM. Todas as séries de D VMs com suporte podem acomodar quantos discos de dados como a configuração do Azure.
 
 - Quando uma imagem de VM Falha ao ser criado, um item com falha que você não pode excluir pode ser adicionado para a folha de computação de imagens VM.
 
@@ -264,6 +284,8 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Baixar ferramentas de pilha do Azure do GitHub
 - Ao usar o *invoke-webrequest* das ferramentas de cmdlet do PowerShell para baixar a pilha do Azure do Github, você receberá um erro:     

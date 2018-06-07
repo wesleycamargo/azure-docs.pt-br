@@ -3,7 +3,7 @@ title: Relatar dados de uso de pilha do Azure para o Azure | Microsoft Docs
 description: Saiba como configurar dados de uso de relatórios na pilha do Azure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: mabrigg
+ms.date: 05/30/2018
+ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: daaaf6c574c4b169c19ebec42ad68e2d818ca1cb
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603695"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Relatar dados de uso de pilha do Azure para o Azure 
 
@@ -42,7 +43,7 @@ Para configurar os relatórios de dados de uso, você deve [registrar sua instâ
 - **Quantidade** – a quantidade de uso de recursos.
 - **Local** – local em que o recurso do Azure pilha atual é implantado.
 - **URI de recurso** – totalmente qualificado o URI do recurso para o qual o uso está sendo relatado.
-- **ID da assinatura** – ID de assinatura do usuário a pilha do Azure. Esta é a assinatura de (pilha do Azure) local.
+- **ID da assinatura** – ID da assinatura do usuário do Azure pilha, que é a assinatura (pilha do Azure) local.
 - **Tempo** – hora de início e término dos dados de uso. Há algum atraso entre a hora quando esses recursos são consumidos na pilha do Azure e quando os dados de uso são relatados para comércio. Dados de uso de agregações pilha do Azure para a cada 24 horas e relatório dados de uso para o pipeline de comércio no Azure leva outro algumas horas. Portanto, uso ocorre logo antes da meia-noite pode aparecer no Azure no dia seguinte.
 
 ## <a name="generate-usage-data-reporting"></a>Gerar relatórios de dados de uso
@@ -68,7 +69,7 @@ Se você registrou a pilha do Azure usando qualquer tipo de assinatura, por exem
 
    ![fluxo de cobrança](media/azure-stack-usage-reporting/pricing-details.png)
 
-Para o Kit de desenvolvimento de pilha do Azure, os recursos da pilha do Azure não são cobrados isso, o preço é mostrado como $0,00. Quando vários nós de pilha do Azure se torna disponível, você pode ver o custo real para cada um desses recursos.
+Para o Kit de desenvolvimento de pilha do Azure, os recursos da pilha do Azure não são cobrados isso, o preço é mostrado como $0,00.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>As implantações de pilha do Azure são cobradas?
 
@@ -82,7 +83,7 @@ Os usuários só são cobrados pelas VMs que executam em assinaturas de locatár
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Tenho uma licença do Windows Server que deseja usar na pilha do Azure, como fazer isso?
 
-Usar as licenças existentes evita a geração metros de uso. Licenças existentes do Windows Server podem ser usadas na pilha do Azure, conforme descrito na seção "Usando o software existente com a pilha do Azure" de [guia de licenciamento do Azure pilha](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Os clientes precisam implantar suas máquinas virtuais de Windows Server, conforme descrito no [benefício híbrida de licença do Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) tópico para usar suas licenças existentes.
+Usar as licenças existentes evita a geração metros de uso. Licenças existentes do Windows Server podem ser usadas na pilha do Azure, conforme descrito na seção "Usando o software existente com a pilha do Azure" de [guia de licenciamento do Azure pilha](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Os clientes precisam implantar suas máquinas virtuais de Windows Server, conforme descrito no [benefício híbrida de licença do Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) artigo para usar suas licenças existentes.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Qual assinatura é cobrada para os recursos consumidos?
 A assinatura que é fornecida quando [Registrando a pilha do Azure com o Azure](azure-stack-register.md) é cobrado.
@@ -101,7 +102,7 @@ Os usuários podem ver os dados de uso da pilha do Azure no arquivo de detalhes 
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Por que o uso registrado na pilha do Azure não corresponde o relatório gerado a partir do Centro de contas do Azure?
 
-Sempre há um delaybetween os dados de uso relatados, o uso da pilha do Azure APIs e os dados de uso relatados pelo Centro de contas do Azure. Esse atraso é o tempo necessário para carregar dados de uso da pilha do Azure para comércio do Azure. Devido a esse atraso que ocorre logo antes da meia-noite pode aparecer no Azure no dia seguinte. Se você usar o [APIs de uso do Azure pilha](azure-stack-provider-resource-api.md)e compare os resultados com o uso de relatado no portal de cobrança do Azure, você pode ver uma diferença.
+Sempre há um atraso entre os dados de uso relatados pelo uso de pilha do Azure, APIs e os dados de uso relatados pelo Centro de contas do Azure. Esse atraso é o tempo necessário para carregar dados de uso da pilha do Azure para comércio do Azure. Devido a esse atraso que ocorre logo antes da meia-noite pode aparecer no Azure no dia seguinte. Se você usar o [APIs de uso do Azure pilha](azure-stack-provider-resource-api.md)e compare os resultados com o uso de relatado no portal de cobrança do Azure, você pode ver uma diferença.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,19 +1,20 @@
 ---
-title: Introdução às ferramentas de desenvolvimento de armazenamento de pilha do Azure
-description: Diretrizes para começar a usar as ferramentas de desenvolvimento de armazenamento de pilha do Azure
+title: Introdução às ferramentas de desenvolvimento de armazenamento de pilha do Azure | Microsoft Docs
+description: Diretrizes para começar a usar as ferramentas de desenvolvimento de armazenamento do Azure pilha
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0ceda393412f8217a893a347ec5f3a9ac03efa3d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604470"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Introdução às ferramentas de desenvolvimento de armazenamento de pilha do Azure
 
@@ -21,14 +22,14 @@ ms.lasthandoff: 05/16/2018
 
 A pilha do Microsoft Azure fornece um conjunto de serviços de armazenamento que inclui o blob, tabela e o armazenamento de fila.
 
-Use este artigo como um guia para começar a usar as ferramentas de desenvolvimento de armazenamento de pilha do Azure. Você pode encontrar informações mais detalhadas e código de exemplo nos tutoriais correspondentes do armazenamento do Azure.
+Use este artigo como um guia para começar a usar as ferramentas de desenvolvimento de armazenamento do Azure pilha. Você pode encontrar informações mais detalhadas e código de exemplo nos tutoriais correspondente do armazenamento do Azure.
 
->[!NOTE]
->Há diferenças entre o armazenamento de pilha do Azure e armazenamento do Azure, incluindo requisitos específicos para cada plataforma conhecidos. Por exemplo, há bibliotecas de cliente específico e requisitos de sufixo de ponto de extremidade específico para a pilha do Azure. Para obter mais informações, consulte [Azure pilha de armazenamento: diferenças e considerações](azure-stack-acs-differences.md).
+> [!NOTE]  
+> Há diferenças entre o armazenamento do Azure, incluindo requisitos específicos para cada plataforma e de armazenamento do Azure pilha conhecidos. Por exemplo, há bibliotecas de cliente específico e requisitos de sufixo de ponto de extremidade específico para a pilha do Azure. Para obter mais informações, consulte [armazenamento do Azure pilha: diferenças e considerações](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Bibliotecas de cliente do Azure
 
-As versões com suporte da API REST para o armazenamento do Azure pilha são 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 para a atualização de 1802 ou versões mais recentes e 2015-04-05 para versões anteriores. Os pontos de extremidade de pilha do Azure não tem paridade completa com a versão mais recente da API de REST do armazenamento do Azure. Para as bibliotecas de cliente de armazenamento, você precisa estar ciente da versão que seja compatível com a API REST.
+As versões com suporte da API REST para o armazenamento do Azure pilha são 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 para a atualização de 1802 ou versões mais recentes e 2015-04-05 para versões anteriores. Os pontos de extremidade de pilha do Azure não tem paridade completa com a versão mais recente do armazenamento do Azure API REST. Para as bibliotecas de cliente de armazenamento, você precisa estar ciente da versão que seja compatível com a API REST.
 
 ### <a name="1802-update-or-newer-versions"></a>1802 atualização ou versões mais recentes
 
@@ -209,4 +210,4 @@ Os seguintes tutoriais do armazenamento de tabela do Azure são aplicáveis a pi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Introdução ao Armazenamento do Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Introdução ao armazenamento do Microsoft Azure](../../storage/common/storage-introduction.md)

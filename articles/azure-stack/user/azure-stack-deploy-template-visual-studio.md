@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/24/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 4101567eff68789fe5d46a01de26f6a873b519fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6cd722fedc0483e37ce6ee491d74a7c985111353
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605116"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Implantar modelos no Azure Stack usando o Visual Studio
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/20/2018
 
 Você pode usar o Visual Studio para implantar modelos do Azure Resource Manager pilha do Azure.
 
-Para implantar um modelo:
+## <a name="to-deploy-a-template"></a>Para implantar um modelo
 
 1. [Instalar e conectar](azure-stack-install-visual-studio.md) com o Azure Stack com o Visual Studio.
 2. Abra o Visual Studio.

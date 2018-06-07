@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7084243c0fc84429b585c3e8fd9e5c64df469ec4
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604277"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um provedor de recursos do serviço de aplicativo para um ambiente desconectado do Azure pilha protegido pelo AD FS
 
@@ -81,6 +82,12 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
     1. Clique no **conectar** lado a **assinaturas de pilha do Azure** caixa.
         - Fornece sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Digite sua senha e clique em **entrar**.
     2. No **assinaturas do Azure pilha** caixa, selecione a **assinatura do provedor padrão**.
+    
+    > [!NOTE]
+    > Serviço de aplicativo só pode ser implantado no **assinatura do provedor padrão** neste momento.  Em uma atualização futura do serviço de aplicativo será implantado para a nova assinatura medição introduzido no Azure pilha 1804 e todas as implantações existentes serão migradas para essa nova assinatura também.
+    >
+    >
+    
     3. No **Azure pilha locais** , selecione o local que corresponde à região que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento de pilha do Azure.
     4. Clique em **Próximo**.
 
@@ -96,12 +103,12 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
 
     ![Instalador de serviço de aplicativo][5]
 
-9. Insira as informações para o compartilhamento de arquivo e, em seguida, clique em **próximo**. O endereço do compartilhamento de arquivos deve usar o nome de domínio totalmente qualificado ou o endereço IP do servidor de arquivos. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
+9. Insira as informações para o compartilhamento de arquivo e, em seguida, clique em **próximo**. O endereço do compartilhamento de arquivos deve usar o nome de domínio totalmente qualificado ou o endereço IP do servidor de arquivos. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites
 
-> [!NOTE]
-> O instalador tentará testar a conectividade com o compartilhamento de arquivos antes de continuar.  No entanto, se você optar por implantar em uma rede Virtual existente, o instalador não pode ser capaz de se conectar ao compartilhamento de arquivos e exibe um aviso perguntando se deseja continuar.  Verifique as informações de compartilhamento de arquivos e continuar se elas estão corretas.
->
->
+    > [!NOTE]
+    > O instalador tentará testar a conectividade com o compartilhamento de arquivos antes de continuar.  No entanto, se você optar por implantar em uma rede Virtual existente, o instalador não pode ser capaz de se conectar ao compartilhamento de arquivos e exibe um aviso perguntando se deseja continuar.  Verifique as informações de compartilhamento de arquivos e continuar se elas estão corretas.
+    >
+    >
 
    ![Instalador de serviço de aplicativo][8]
 
@@ -128,10 +135,10 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
 
 12. Insira os detalhes do SQL Server para a instância do servidor usada para hospedar os bancos de dados do provedor de recursos do serviço de aplicativo e, em seguida, clique em **próximo**. O instalador valida as propriedades de conexão SQL. Você **deve** digite o endereço ip interno ou o nome de domínio totalmente qualificado para o nome do SQL Server.
 
-> [!NOTE]
-> O instalador tentará testar a conectividade com o SQl Server antes de continuar.  No entanto, se você optar por implantar em uma rede Virtual existente, o instalador não pode ser capaz de se conectar ao SQL Server e exibe um aviso perguntando se deseja continuar.  Verifique as informações do SQL Server e continuar se elas estão corretas.
->
->
+    > [!NOTE]
+    > O instalador tentará testar a conectividade com o SQl Server antes de continuar.  No entanto, se você optar por implantar em uma rede Virtual existente, o instalador não pode ser capaz de se conectar ao SQL Server e exibe um aviso perguntando se deseja continuar.  Verifique as informações do SQL Server e continuar se elas estão corretas.
+    >
+    >
    
    ![Instalador de serviço de aplicativo][12]
 

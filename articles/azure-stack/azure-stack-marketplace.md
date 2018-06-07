@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 4ea23ed01e6432f24024d7e8cc07c2dfe42ac639
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605562"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Visão geral do Azure Marketplace de pilha
 
@@ -28,6 +29,9 @@ ms.lasthandoff: 05/17/2018
 O Marketplace é uma coleção de serviços, aplicativos e recursos personalizados para a pilha do Azure. Recursos incluem máquinas virtuais, redes, armazenamento e assim por diante. Os usuários se aqui para criar novos recursos e implantar novos aplicativos. Pense nisso como um catálogo de compra em que os usuários podem procurar e escolha os itens que desejam usar. Para usar um item do Marketplace, os usuários devem assinar uma oferta que lhe dá acesso ao item.
 
 Como um operador de pilha do Azure, você decide quais itens adicionará (publicação) para o Marketplace. Você pode publicar como bancos de dados, serviços de aplicativos e assim por diante. Publicação torna visível para todos os seus usuários. Você pode publicar itens personalizados que você criar. Você também pode publicar itens de um crescente [lista de itens do Azure Marketplace](azure-stack-marketplace-azure-items.md). Quando você publica um item para o Marketplace, os usuários podem vê-lo dentro de cinco minutos.
+
+> [!Caution]  
+> Todos os artefatos de item de galeria, conhecidos como imagens e arquivos json são acessíveis sem autenticação após tornando-os disponíveis no mercado de pilha do Azure. Para obter mais considerações ao publicar itens do marketplace personalizado, consulte [criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md).
 
 Para abrir o Marketplace, no console do administrador, selecione **novo**.
 

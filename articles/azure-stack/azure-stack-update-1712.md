@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/24/2018
 ms.author: brenduns
-ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b4c5b53a46792e31316f752f8902d7a05554b57d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604141"
 ---
 # <a name="azure-stack-1712-update"></a>Atualização de 1712 de pilha do Azure
 
@@ -116,7 +117,25 @@ Esta seção contém os problemas conhecidos de pós-instalação com compilaç�
 
 #### <a name="health-and-monitoring"></a>Monitoramento e integridade
 
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alerta #1:
+   - NOME: Função de infraestrutura não íntegro
+   - SEVERIDADE: aviso
+   - COMPONENTE: Controlador de integridade
+   - Descrição: O Scanner de pulsação do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.  
+
+  Alerta #2:
+   - NOME: Função de infraestrutura não íntegro
+   - SEVERIDADE: aviso
+   - COMPONENTE: Controlador de integridade
+   - Descrição: O Scanner de falha do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.
+
+  Ambos os alertas podem ser ignorados. Ele será fechado automaticamente ao longo do tempo.  
+
 - Se você reinicializar uma instância de função de infraestrutura, você receberá uma mensagem indicando que a reinicialização falhou. No entanto, a reinicialização teve êxito realmente.
+
+
 
 #### <a name="marketplace"></a>Marketplace
 - Alguns itens do marketplace estão sendo removidos nesta versão devido a questões de compatibilidade. Esses serão habilitados novamente após a validação adicional.

@@ -6,30 +6,34 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.reviewer: kivenkat
+ms.openlocfilehash: 967fcb86c1bf0c85517bc13c2066ed32e8fa28d9
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604124"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introdução às máquinas virtuais do Azure Stack
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-## <a name="overview"></a>Visão geral
-Uma pilha de máquina Virtual (VM) do Azure é um tipo de um recurso de computação sob demanda e dimensionável oferece pilha do Azure. Normalmente, você escolhe uma VM quando precisar de mais controle sobre o ambiente de computação do que as outras opções oferecem. Este artigo fornece informações sobre o que você deve considerar antes de criar uma VM, como criá-la e como gerenciá-la.
+A pilha do Azure oferece máquinas virtuais (VMs) como um tipo de um recurso de computação sob demanda e escalonável. Você pode escolher uma VM quando precisar de mais controle sobre o ambiente de computação que as outras opções. Este artigo fornece detalhes antes de criar sua VM.
 
 Uma VM de pilha do Azure oferece a flexibilidade da virtualização sem a necessidade de gerenciar clusters ou máquinas individuais. No entanto, você ainda precisa manter a VM, executando tarefas como configurar a aplicação de patch e instalar o software que será executado nele.
 
 Você pode usar máquinas virtuais de pilha do Azure de várias maneiras. Por exemplo: 
 
-* **Desenvolvimento e teste** – VMs de pilha do Azure oferecem uma rápida e a maneira fácil de criar um computador com uma configuração específica necessária para codificar e testar um aplicativo.
+- **Desenvolvimento e teste**  
+    Máquinas virtuais de pilha do Azure oferecem uma maneira rápida e fácil de criar um computador com uma configuração específica necessária para o código e testar um aplicativo.
 
-* **Aplicativos na nuvem** – porque a demanda para o seu aplicativo pode flutuar, pode fazer sentido econômico para executá-lo em uma VM na pilha do Azure. Você paga por VMs extras quando precisa delas e as desliga quando não são necessárias.
+- **Aplicativos na nuvem**  
+    Porque a demanda para o seu aplicativo pode flutuar, pode fazer sentido econômico para executá-lo em uma VM na pilha do Azure. Você paga por VMs extras quando precisa delas e as desliga quando não são necessárias.
 
-* **Estendido datacenter** – máquinas virtuais em uma rede virtual do Azure pilha facilmente pode ser conectado à rede da sua organização ou para o Azure.
+- **Datacenter estendido**  
+    Máquinas virtuais em uma rede virtual do Azure pilha facilmente pode ser conectadas à rede da sua organização ou para o Azure.
 
 As VMs que o aplicativo usa pode aumentar ou expandir para tudo o que é necessário para atender às suas necessidades.
 
@@ -37,12 +41,12 @@ As VMs que o aplicativo usa pode aumentar ou expandir para tudo o que é necess�
 
 Sempre há várias considerações de design quando você cria uma infraestrutura de aplicativo na pilha do Azure. Esses aspectos de uma VM são importantes a considerar antes de começar a criar sua infraestrutura:
 
-* Os nomes de recursos do aplicativo.
-* O tamanho da VM.
-* O número máximo de máquinas virtuais que podem ser criadas.
-* O sistema operacional que executa a VM.
-* A configuração da VM após ele ser iniciado.
-* Os recursos relacionados a VM precisa.
+- Os nomes de recursos do aplicativo.
+- O tamanho da VM.
+- O número máximo de máquinas virtuais que podem ser criadas.
+- O sistema operacional que executa a VM.
+- A configuração da VM após ele ser iniciado.
+- Os recursos relacionados a VM precisa.
 
 ### <a name="naming"></a>Nomenclatura
 
@@ -78,9 +82,14 @@ Você pode optar por carregar e usar sua própria imagem. Se você fizer isso, o
 Extensões de VM oferecem os recursos adicionais de VM por meio de configuração de implantação de postagem e tarefas automatizadas.
 Estas tarefas comuns podem ser realizadas usando extensões:
 
-* Executar scripts personalizados – a extensão do Script personalizado ajuda você a configurar as cargas de trabalho na VM executando o script quando a VM é provisionada.
-* Implantar e gerenciar configurações – extensão o PowerShell desejado configuração de estado (DSC) ajuda você a configurar DSC em uma máquina virtual para gerenciar configurações e ambientes.
-* Dados de diagnóstico coleta – a extensão de diagnóstico do Azure ajudam você a configurar a VM para coletar dados de diagnóstico que podem ser usados para monitorar a integridade do seu aplicativo.
+- **Executar scripts personalizados**  
+    A extensão de Script personalizado ajuda você a configurar as cargas de trabalho na VM executando o script quando a VM é provisionada.
+
+- **Implantar e gerenciar as configurações**  
+    A extensão de configuração de estado de desejado (DSC) do PowerShell, você pode configurar o DSC em uma máquina virtual para gerenciar configurações e ambientes.
+
+- **Coletar dados de diagnóstico**  
+    A extensão de diagnóstico do Azure ajuda você a configurar a VM para coletar dados de diagnóstico que podem ser usados para monitorar a integridade do seu aplicativo.
 
 ### <a name="related-resources"></a>Recursos relacionados
 
@@ -96,7 +105,7 @@ Os recursos na tabela a seguir são usados para a máquina virtual e precisam ex
 |interface de rede|Sim|A VM precisa de interface de rede para se comunicar na rede.|
 |Discos de dados|Não |A VM pode incluir discos de dados para expandir os recursos de armazenamento.|
 
-## <a name="how-do-i-create-my-first-vm"></a>Como criar minha primeira VM?
+## <a name="create-your-first-vm"></a>Crie sua primeira máquina virtual
 
 Você tem várias opções para criar uma máquina virtual. Sua escolha depende do ambiente.
 A tabela a seguir fornece informações para ajudá-lo a iniciar a criação de sua VM.
@@ -109,16 +118,16 @@ A tabela a seguir fornece informações para ajudá-lo a iniciar a criação de 
 |PowerShell|[Criar uma máquina virtual do Windows usando o PowerShell na pilha do Azure](azure-stack-quick-create-vm-windows-powershell.md)<br>[Criar uma máquina virtual Linux usando o PowerShell na pilha do Azure](azure-stack-quick-create-vm-linux-powershell.md)|
 |CLI|[Criar uma máquina virtual do Windows usando a CLI na pilha do Azure](azure-stack-quick-create-vm-windows-cli.md)<br>[Criar uma máquina virtual Linux usando a CLI na pilha do Azure](azure-stack-quick-create-vm-linux-cli.md)|
 
-## <a name="how-do-i-manage-the-vm-that-i-created"></a>Como gerenciar a VM que criei?
+## <a name="manage-your-vm"></a>Gerenciar sua VM
 
 Você pode gerenciar máquinas virtuais usando um portal baseado em navegador, ferramentas de linha de comando com suporte para scripts ou diretamente por meio de APIs. Algumas tarefas típicas de gerenciamento que você pode executar são:
 
-* Obtendo informações sobre uma máquina virtual
-* Conectar-se a uma máquina virtual
-* Gerenciar a disponibilidade
-* Realização de backups
+- Obtendo informações sobre uma máquina virtual
+- Conectar-se a uma máquina virtual
+- Gerenciar a disponibilidade
+- Realização de backups
 
-### <a name="get-information-about-a-vm"></a>Obter informações sobre uma VM
+### <a name="get-information-about-your-vm"></a>Obter informações sobre sua VM
 
 A tabela a seguir mostra algumas das maneiras como você pode obter informações sobre uma máquina virtual.
 
@@ -129,10 +138,10 @@ A tabela a seguir mostra algumas das maneiras como você pode obter informaçõe
 |Azure PowerShell|Gerenciamento de máquinas virtuais é semelhante no Azure e a pilha do Azure. Para obter mais informações sobre como usar o PowerShell, consulte o seguinte tópico do Azure:<br>[Criar e gerenciar máquinas virtuais do Windows com o módulo PowerShell do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |SDKs do cliente|Usando o c# para gerenciar VMs é semelhante no Azure e a pilha do Azure. Para obter mais informações, consulte o seguinte tópico do Azure:<br>[Criar e gerenciar máquinas virtuais do Windows no Azure usando o c#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
-### <a name="connect-to-the-vm"></a>Conectar-se à VM
+### <a name="connect-to-your-vm"></a>Conectar-se à sua VM
 
 Você pode usar o **conectar** botão no portal de pilha do Azure para conectar-se à VM.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Considerações para máquinas virtuais na pilha do Azure](azure-stack-vm-considerations.md)
+- [Considerações para máquinas virtuais na pilha do Azure](azure-stack-vm-considerations.md)
