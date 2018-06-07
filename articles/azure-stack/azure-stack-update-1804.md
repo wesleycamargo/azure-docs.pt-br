@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: dde2783db08ec00696a70c0cad08ca211194a470
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 2c2813a7f2d909a23c8f5d4f5ac0280b3f932ba6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700117"
 ---
 # <a name="azure-stack-1804-update"></a>Atualização de pilha 1804 do Azure
 
@@ -38,12 +39,21 @@ Esta atualização inclui os seguintes aprimoramentos para a pilha do Azure.
 
 - <!-- 15028744 - IS -->  **Visual Studio support for disconnected Azure Stack deployments using AD FS**. Within Visual Studio you now can add subscriptions and authenticate using AD FS federated User credentials. 
  
-- <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](/user/azure-stack-vm-sizes.md). 
+- <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
 
-- <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are available after the update installs:
-  - *Padrão de assinatura do provedor de*. Use essa assinatura para somente a infraestrutura básica. Não implante recursos ou provedores de recursos nesta assinatura.
-  - *Assinatura de medição*. Use essa assinatura para implantação do provedor de recursos. Os recursos implantados nesta assinatura não serão cobrados.
-  - *Assinatura de consumo*. Use essa assinatura para qualquer outra carga de trabalho que você deseja implantar. Os recursos implantados aqui são cobrados preços de uso normal.
+- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. We will announce the availability to use these subscription types in with a future update. 
+
+  Se você atualizar a pilha do Azure versão 1804, dois novos tipos de assinatura não são visíveis. No entanto, sistemas integrados de novas implantações de pilha do Azure e instalações da versão do Kit de desenvolvimento de pilha do Azure 1804 ou posterior têm acesso a todos os tipos de assinatura de três.  
+
+  Esses novos tipos de assinatura são parte de uma alteração maior para proteger a assinatura do provedor padrão e para tornar mais fácil implantar recursos compartilhados, como servidores de hospedagem SQL. Como a pilha do Azure, adicionamos mais partes dessa alteração maior com atualizações futuras, recursos implantados sob esses novos tipos de assinatura podem ser perdidos. 
+
+  Os tipos de três assinatura agora visíveis são:  
+  - Padrão de assinatura do provedor: continuar a usar este tipo de assinatura. 
+  - Assinatura de medição: *não use este tipo de assinatura.*
+  - Assinatura de consumo: *não use este tipo de assinatura*
+
+  
+
 
 
 ## <a name="fixed-issues"></a>Problemas corrigidos
@@ -60,12 +70,11 @@ Esta atualização inclui os seguintes aprimoramentos para a pilha do Azure.
 A seguir agora está disponíveis, mas não requerem a atualização da pilha do Azure 1804.
 - **Atualizar para o pacote de monitoramento do Microsoft Azure pilha System Center Operations Manager**. Uma nova versão (1.0.3.0) do pacote Microsoft System Center Operations Manager monitoramento para a pilha do Azure está disponível para [baixar](https://www.microsoft.com/download/details.aspx?id=55184). Com esta versão, você pode usar entidades de serviço quando você adiciona uma implantação de pilha do Azure conectada. Esta versão também apresenta uma experiência de gerenciamento de atualização que permite que você realizar uma ação de correção diretamente de dentro do Operations Manager. Também há novos painéis que exibem provedores de recursos, unidade de escala e nós de unidade de escala.
 
-- **Novo Azure pilha Admin PowerShell versão 1.2.12**.  O Azure PowerShell pilha 1.2.12 agora está disponível para instalação. Esta versão fornece comandos para todos os provedores de recursos de administração gerenciar a pilha do Azure.  Com esta versão, alguns tipos de conteúdo serão substituído do GitHub de ferramentas de pilha do Azure [repositório](https://github.com/Azure/AzureStack-Tools). 
+- **Novo Azure pilha Admin PowerShell versão 1.3.0**.  O Azure PowerShell pilha 1.3.0 agora está disponível para instalação. Esta versão fornece comandos para todos os provedores de recursos de administração gerenciar a pilha do Azure.  Com esta versão, alguns tipos de conteúdo serão substituído do GitHub de ferramentas de pilha do Azure [repositório](https://github.com/Azure/AzureStack-Tools). 
 
-   Para obter detalhes de instalação, execute o [instruções](azure-stack-powershell-install.md) ou [ajuda](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.2.12) conteúdo para o módulo do Azure pilha 1.2.12. 
+   Para obter detalhes de instalação, execute o [instruções](azure-stack-powershell-install.md) ou [ajuda](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) conteúdo para o módulo do Azure pilha 1.3.0. 
 
-- **Versão da referência de Rest de API do Azure pilha inicial**. A referência de API para todas as provedor de recursos do Azure pilha administrador agora está publicada.
-
+- **Versão da referência de Rest de API do Azure pilha inicial**. O [referência de API para todos os provedores de recursos de administração do Azure pilha](https://docs.microsoft.com/rest/api/azure-stack/) agora está publicada. 
 
 
 ## <a name="before-you-begin"></a>Antes de começar    
@@ -74,9 +83,10 @@ A seguir agora está disponíveis, mas não requerem a atualização da pilha do
 - Instalar a pilha do Azure [atualizar 1803](azure-stack-update-1803.md) antes de aplicar a atualização 1804 de pilha do Azure.    
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização   
-- <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+- Durante a instalação da atualização 1804, você pode ver os alertas com o título *erro – o modelo para o FaultType UserAccounts.New está ausente.*  Você pode ignorar com segurança esses alertas. Esses alertas serão fechado automaticamente após a atualização 1804.   
  
-- <!-- 2328416 - IS --> During installation of the 1804 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
+- <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
 *Não há nenhuma etapa de pós-atualização para atualização 1804.*
@@ -87,6 +97,15 @@ A seguir agora está disponíveis, mas não requerem a atualização da pilha do
 A seguir são problemas conhecidos de pós-instalação para compilação **20180513.1**.
 
 #### <a name="portal"></a>Portal
+- <!-- 1272111 - IS --> After you install or update to this version of Azure Stack, you might not be able to view Azure Stack scale units in the Admin portal.  
+  Solução alternativa: Use o PowerShell para exibir informações sobre unidades de escala. Para obter mais informações, consulte o [ajuda](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) conteúdo 1.3.0 do módulo de pilha do Azure. 
+
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Solução alternativa: Para resolver esse problema, depois de instalar esta atualização, use a etapa 3 do [na pilha do Azure de confiança do provedor de declarações de automação de gatilho para configurar](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedimento para redefinir o proprietário da assinatura do provedor padrão.   
+
+- <!-- TBD - IS ASDK --> Some administrative subscription types are not available.  When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](#new-features) are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
+
+
 - <!-- TBD -  IS ASDK -->The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - Para o Azure pilha sistemas integrados, use https://aka.ms/newsupportrequest.
 
@@ -107,12 +126,46 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
   Esse alerta pode ser ignorado. 
 
 
+#### <a name="health-and-monitoring"></a>Monitoramento e integridade
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alerta #1:
+   - NOME: Função de infraestrutura não íntegro
+   - SEVERIDADE: aviso
+   - COMPONENTE: Controlador de integridade
+   - Descrição: O Scanner de pulsação do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.  
+
+  Alerta #2:
+   - NOME: Função de infraestrutura não íntegro
+   - SEVERIDADE: aviso
+   - COMPONENTE: Controlador de integridade
+   - Descrição: O Scanner de falha do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.
+
+  Ambos os alertas podem ser ignorados. Ele será fechado automaticamente ao longo do tempo.  
+ 
+
 #### <a name="compute"></a>Computação
+- <!-- TBD - IS --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
+  Como alternativa, use um dos métodos a seguir para implantar uma máquina virtual. Cada método, você precisa especificar o tamanho da VM que deseja usar.
+
+  - **Modelo do Gerenciador de recursos do Azure:** quando você usa um modelo, defina o *vmSize* no modelo para igualar o tamanho desejado da VM. Por exemplo, o seguinte é usado para implantar uma VM que usa o *F32s_v2* tamanho:  
+
+    ```
+        "properties": {
+        "hardwareProfile": {
+                "vmSize": "Standard_F32s_v2"
+        },
+    ```  
+  - **CLI do Azure:** você pode usar o [criar vm az](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) de comando e especifique o tamanho da VM como um parâmetro, semelhante ao `--size "Standard_F32s_v2"`.
+
+  - **PowerShell:** com o PowerShell, você pode usar [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) com o parâmetro que especifica o tamanho da VM, semelhante ao `-VMSize "Standard_F32s_v2"`.
+
+
 - <!-- TBD - IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
 - <!-- TBD - IS --> When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
-- <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+- <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a D series VM. All supported D series VMs can accommodate as many data disks as the Azure configuration.
 
 - <!-- TBD - IS ASDK --> When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
 
@@ -226,17 +279,17 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
 
 
 #### <a name="app-service"></a>Serviço de Aplicativo
-- <!-- TBD - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
+- <!-- 2352906 - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
 - <!-- TBD - IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
 
+- <!-- TBD - IS ASDK --> App Service can only be deployed into the **Default Provider Subscription** at this time.  In a future update App Service will deploy into the new Metering Subscription introduced in Azure Stack 1804 and all existing deployments will be migrated to this new subscription also.
 
 #### <a name="usage"></a>Uso  
 - <!-- TBD - IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 
 <!-- #### Identity -->
-<!-- #### Health and monitoring --> 
 <!-- #### Marketplace --> 
 
 

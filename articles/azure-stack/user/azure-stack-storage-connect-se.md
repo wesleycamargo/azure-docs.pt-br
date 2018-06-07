@@ -10,31 +10,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
-ms.author: mattbriggs
+ms.date: 05/21/2018
+ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a3a69f3cf91c0d202d54d0da5dc5fe0531ef9db1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714894"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Conecte-se o Gerenciador de armazenamento para uma assinatura do Azure pilha ou uma conta de armazenamento
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Neste artigo, você aprenderá como conectar-se às contas de armazenamento usando o Gerenciador de armazenamento e assinaturas de pilha do Azure. Azure Storage Explorer é um aplicativo autônomo que permite que você trabalhe facilmente com dados de armazenamento do Azure pilha no Linux, Windows e macOS.
+Neste artigo, você aprenderá como conectar-se às contas de armazenamento usando o Gerenciador de armazenamento e assinaturas de pilha do Azure. Gerenciador de armazenamento do Azure é um aplicativo autônomo que permite que você trabalhe facilmente com dados de armazenamento do Azure pilha no Linux, Windows e macOS.
 
->[!NOTE]
->Há várias ferramentas disponíveis para mover dados para e do armazenamento de pilha do Azure. Para obter mais informações, consulte [transferência de dados de ferramentas para o armazenamento do Azure pilha](azure-stack-storage-transfer.md).
+> [!NOTE]  
+> Há várias ferramentas disponíveis para mover dados para e do armazenamento do Azure pilha. Para obter mais informações, consulte [transferência de dados de ferramentas para o armazenamento do Azure pilha](azure-stack-storage-transfer.md).
 
 Se você ainda não instalou o Gerenciador de armazenamento ainda, [baixar o Gerenciador de armazenamento](http://www.storageexplorer.com/) e instalá-lo.
 
-Depois que você se conectar a uma assinatura do Azure pilha ou uma conta de armazenamento, você pode usar o [artigos Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) para trabalhar com os dados da pilha do Azure. 
+Depois que você se conectar a uma assinatura do Azure pilha ou uma conta de armazenamento, você pode usar o [artigos do Gerenciador de armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) para trabalhar com os dados da pilha do Azure. 
 
 ## <a name="prepare-for-connecting-to-azure-stack"></a>Preparar para conectar-se a pilha do Azure
 
-Você precisa ter acesso direto para a pilha do Azure ou uma conexão VPN para o Gerenciador de armazenamento para acessar a assinatura de pilha do Azure. Para saber como configurar uma conexão VPN ao Azure Stack, confira [Como conectar-se com o Azure Stack com VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Você precisa ter acesso direto para a pilha do Azure ou uma conexão VPN para o Gerenciador de armazenamento acessar a assinatura de pilha do Azure. Para saber como configurar uma conexão VPN ao Azure Stack, confira [Como conectar-se com o Azure Stack com VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 Para o Kit de desenvolvimento de pilha do Azure, você precisa exportar o certificado de raiz da autoridade de pilha do Azure.
 
@@ -75,9 +76,9 @@ Use as etapas a seguir para conectar o Gerenciador de armazenamento para uma ass
 
     ![Adicionar uma conta do Azure Stack](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. Na caixa de diálogo do armazenamento do Azure, conectar em **ambiente Azure**, selecione **Azure** ou **do Azure na China**, dependendo da conta de pilha do Azure que você está usando. Selecione **entrar** para entrar na conta de pilha do Azure que está associado a pelo menos uma assinatura ativa do Azure pilha.
+3. Na caixa de diálogo do armazenamento do Azure, conectar em **ambiente Azure**, selecione **Azure** ou **do Azure na China**, que depende da conta de pilha do Azure que está sendo usada, selecione **Entrar** entrar com a conta de pilha do Azure associada com pelo menos uma assinatura ativa do Azure pilha.
 
-    ![Conectar ao armazenamento do Azure](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
+    ![Conectar-se ao armazenamento do Azure](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
 4. Depois de entrar com êxito usando uma conta do Azure Stack, o painel esquerdo é preenchido com as assinaturas do Azure Stack associadas à conta. Selecione as assinaturas do Azure Stack que você deseja trabalhar e, então, selecione **Aplicar**. (Marcar ou desmarcar a caixa de seleção **Todas as assinaturas** seleciona todas ou nenhuma das assinaturas do Azure Stack listadas.)
 
@@ -115,5 +116,5 @@ Você também pode se conectar a uma conta de armazenamento do Azure pilha usand
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Gerenciador de armazenamento](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Armazenamento do Azure de pilha: as diferenças e considerações](azure-stack-acs-differences.md)
+* [Armazenamento do Azure de pilha: diferenças e considerações](azure-stack-acs-differences.md)
 * Para saber mais sobre o armazenamento do Azure, consulte [Introdução ao armazenamento do Microsoft Azure](../../storage/common/storage-introduction.md)

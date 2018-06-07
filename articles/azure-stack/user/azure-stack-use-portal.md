@@ -10,16 +10,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 06/01/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 2ebafc4249f8455bdbe45a07a5bf88aa8984d67a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7ca29ee359349f69c3d5ff21bd9db3f93358206a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724305"
 ---
-# <a name="using-the-azure-stack-portal"></a>Usando o portal de pilha do Azure
+# <a name="use-the-azure-stack-portal"></a>Usar o portal do Azure Stack
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
@@ -36,15 +37,15 @@ O operador de pilha do Azure (um provedor de serviço ou um administrador na sua
 
 ## <a name="customize-the-dashboard"></a>Personalizar o painel
 
-O painel contém um conjunto padrão de blocos. Você pode clicar em **Editar painel** para modificar o painel padrão ou clique em **novo painel** para criar um painel personalizado. Você pode personalizar facilmente um painel, adicionando ou removendo blocos. Por exemplo, para adicionar um bloco de computação, clique em **novo**. Clique com botão direito **de computação**e, em seguida, clique em **fixar no painel**.
+O painel contém um conjunto padrão de blocos. Você pode selecionar **Editar painel** para modificar o painel padrão ou selecione **novo painel** para criar um painel personalizado. Você pode personalizar facilmente um painel, adicionando ou removendo blocos. Por exemplo, para adicionar um bloco de computação, selecione **novo**. Clique com botão direito **de computação**e, em seguida, selecione **fixar no painel**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Criar assinatura e procurar recursos disponíveis
- 
+
 Se você ainda não tiver uma assinatura, a primeira coisa que você precisa fazer é assinar uma oferta. Depois disso, você pode procurar os recursos disponíveis. Para procurar e criar recursos, use qualquer uma das seguintes abordagens:
 
-- Clique o **Marketplace** bloco no painel.
-- Sobre o **todos os recursos** lado a lado, clique em **criar recursos**.
-- No painel de navegação esquerdo, clique em **novo**.
+- Selecione o **Marketplace** bloco no painel.
+- Sobre o **todos os recursos** lado a lado, selecione **criar recursos**.
+- No painel de navegação esquerdo, selecione **novo**.
 
 ## <a name="learn-how-to-use-available-services"></a>Saiba como usar os serviços disponíveis
 
@@ -52,15 +53,15 @@ Se você precisar de orientação sobre como usar os serviços disponíveis, pod
 
 - Sua organização ou um provedor de serviços pode fornecer sua própria documentação, que normalmente é o caso se eles oferecem aplicativos ou serviços personalizados.
 - Aplicativos de terceiros têm sua própria documentação.
-- Para serviços do Azure consistentes, é altamente recomendável que você primeiro examine a documentação de pilha do Azure. Para acessar a documentação de usuário de pilha do Azure, clique no ícone de Ajuda e, em seguida, clique em **ajuda + suporte**.
- 
-    ![Captura de tela da opção de Ajuda e suporte na interface de usuário](media/azure-stack-use-portal/HelpAndSupport.png)
+- Para serviços do Azure consistentes, é altamente recomendável que você primeiro examine a documentação de pilha do Azure. Para acessar a documentação de usuário de pilha do Azure, selecione o ícone de Ajuda e, em seguida, selecione **ajuda + suporte**.
+
+    ![Ajuda e suporte de opção na interface de usuário](media/azure-stack-use-portal/HelpAndSupport.png)
 
     Em particular, sugerimos que você analise os artigos a seguir para começar:
 
     - [Considerações de chave: usando os serviços ou criação de aplicativos para a pilha do Azure](azure-stack-considerations.md)
     - No **usar serviços** seção da documentação, há um artigo de considerações para cada serviço. A página considerações descreve as diferenças entre o serviço oferecido no Azure e o mesmo serviço oferecido na pilha do Azure. Para obter um exemplo, consulte [considerações de VM](azure-stack-vm-considerations.md). Pode haver outras informações no **usar serviços** seção que é exclusiva para a pilha do Azure.
-     
+
       Você pode usar a documentação do Azure como referência geral para um serviço, mas você deve estar atento essas diferenças. Entender que a documentação contém links no **tutoriais** bloco aponte para documentação do Azure.
 
 ## <a name="get-support"></a>Obtenha suporte
