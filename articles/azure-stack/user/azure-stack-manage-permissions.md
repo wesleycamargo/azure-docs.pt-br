@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 026c686b1d5654aa50dd63b9addd619dd5322da0
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808138"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gerenciar o acesso a recursos com controle de acesso Azure Stack Role-Based
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-A pilha do Azure oferece suporte a controle de acesso baseado em função (RBAC), o mesmo [modelo de segurança para gerenciamento de acesso](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) que usa o Microsoft Azure. Você pode usar o RBAC para gerenciar o acesso do aplicativo para assinaturas, recursos e serviços, grupo ou usuário.
+A pilha do Azure oferece suporte a controle de acesso baseado em função (RBAC), o mesmo [modelo de segurança para gerenciamento de acesso](https://docs.microsoft.com/azure/role-based-access-control/overview) que usa o Microsoft Azure. Você pode usar o RBAC para gerenciar o acesso do aplicativo para assinaturas, recursos e serviços, grupo ou usuário.
 
 ## <a name="basics-of-access-management"></a>Noções básicas de gerenciamento de acesso
 
-Controle de acesso baseado em função fornece controle de acesso refinado que você pode usar para proteger seu ambiente. Você dar aos usuários as permissões exatas necessárias ao atribuir uma função RBAC em um determinado escopo. O escopo da atribuição de função pode ser uma assinatura, um grupo de recursos ou um único recurso. Leitura de [controle de acesso baseado em função no portal do Azure](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) artigo para obter informações mais detalhadas sobre o gerenciamento de acesso.
+Controle de acesso baseado em função fornece controle de acesso refinado que você pode usar para proteger seu ambiente. Você dar aos usuários as permissões exatas necessárias ao atribuir uma função RBAC em um determinado escopo. O escopo da atribuição de função pode ser uma assinatura, um grupo de recursos ou um único recurso. Leitura de [controle de acesso baseado em função no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) artigo para obter informações mais detalhadas sobre o gerenciamento de acesso.
 
 ### <a name="built-in-roles"></a>Funções internas
 
@@ -59,7 +60,7 @@ Você pode atribuir mais de uma função a um usuário e cada função pode ser 
 * Atribua a função de leitor a TestUser-A assinatura-1.
 * Você pode atribuir função de proprietário o TestUser-A TestVM-1.
 
-O Azure [atribuições de função](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artigo fornece informações detalhadas sobre como exibir, atribuir e excluir funções.
+O Azure [atribuições de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artigo fornece informações detalhadas sobre como exibir, atribuir e excluir funções.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Herança e hierarquia de recursos
 
@@ -81,7 +82,7 @@ Você pode atribuir mais de uma função a um usuário e cada função pode ser 
 * Atribua a função de leitor a TestUser-A assinatura-1.
 * Você pode atribuir função de proprietário o TestUser-A TestVM-1.
 
-O Azure [atribuições de função](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artigo fornece informações detalhadas sobre como exibir, atribuir e excluir funções.
+O Azure [atribuições de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artigo fornece informações detalhadas sobre como exibir, atribuir e excluir funções.
 
 ## <a name="set-access-permissions-for-a-user"></a>Definir permissões de acesso para um usuário
 

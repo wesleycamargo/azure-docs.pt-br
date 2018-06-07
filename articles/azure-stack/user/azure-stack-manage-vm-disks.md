@@ -15,11 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 314c5b51608192719c77ce143b3530f0bb310bc2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: 6364c0bec8437ba0dfa195c6532b26ec506a2e90
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807424"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Provisionar o armazenamento de disco de máquina virtual na pilha do Azure
 
@@ -61,26 +62,26 @@ Depois de criar uma máquina virtual, você pode usar o portal para:
 Cada disco não gerenciado que você adicionar deve ser colocado em um contêiner separado.
 
 >[!NOTE]
->Os discos criados e gerenciados pelo Azure são chamados [discos gerenciado](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+>Os discos criados e gerenciados pelo Azure são chamados [discos gerenciado](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Usar o portal para criar e anexar um novo disco de dados
 
-1.  No portal, clique em **máquinas virtuais**.    
+1.  No portal, escolha **máquinas virtuais**.    
     ![Exemplo: Painel de máquina virtual](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Selecione uma máquina virtual que foram provisionada anteriormente.   
     ![Exemplo: Selecione uma máquina virtual no painel](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Para a máquina virtual, clique em **discos** > **anexar novos**.       
+3.  Para a máquina virtual, selecione **discos** > **anexar novos**.       
     ![Exemplo: Anexar um novo disco à vm](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  No **anexar novo disco** painel, clique em **local**. Por padrão, o local é definido no mesmo contêiner que contém o disco do sistema operacional.      
+4.  No **anexar novo disco** painel, selecione **local**. Por padrão, o local é definido no mesmo contêiner que contém o disco do sistema operacional.      
     ![Exemplo: Definir o local do disco](media/azure-stack-manage-vm-disks/disk-location.png)
 
-5.  Selecione o **conta de armazenamento** usar. Em seguida, selecione o **contêiner** onde você deseja colocar o disco de dados. Do **contêineres** página, você pode criar um novo contêiner se você quiser. Em seguida, você pode alterar o local para o novo disco ao seu próprio contêiner. Quando você usa um contêiner separado para cada disco, você pode distribuir o posicionamento do disco de dados que pode melhorar o desempenho. Clique em **selecione** para salvar a seleção.     
+5.  Selecione o **conta de armazenamento** usar. Em seguida, selecione o **contêiner** onde você deseja colocar o disco de dados. Do **contêineres** página, você pode criar um novo contêiner se você quiser. Em seguida, você pode alterar o local para o novo disco ao seu próprio contêiner. Quando você usa um contêiner separado para cada disco, você pode distribuir o posicionamento do disco de dados que pode melhorar o desempenho. Escolha **selecione** para salvar a seleção.     
     ![Exemplo: Selecione um contêiner](media/azure-stack-manage-vm-disks/select-container.png)
 
-6.  No **anexar novo disco** página, atualize o **nome**, **tipo**, **tamanho**, e **cache de Host** configurações do disco. Em seguida, clique em **Okey** para salvar a nova configuração de disco para a máquina virtual.  
+6.  No **anexar novo disco** página, atualize o **nome**, **tipo**, **tamanho**, e **cache de Host** configurações do disco. Em seguida, selecione **Okey** para salvar a nova configuração de disco para a máquina virtual.  
     ![Exemplo: Anexação de disco completo](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  Depois de pilha do Azure cria o disco e a anexa à máquina virtual, o novo disco está listado em configurações de disco da máquina virtual em **discos de dados**.   
@@ -94,22 +95,22 @@ Cada disco não gerenciado que você adicionar deve ser colocado em um contêine
   Você planeja usar um contêiner diferente para armazenar o arquivo. vhd que o contêiner que mantém o disco do sistema operacional.   
   ![Exemplo: Carregar um arquivo VHD](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.  Depois que o arquivo. vhd é carregado, você está pronto para anexar o VHD para uma máquina virtual. No menu à esquerda, clique em **máquinas virtuais**.  
+2.  Depois que o arquivo. vhd é carregado, você está pronto para anexar o VHD para uma máquina virtual. No menu à esquerda, selecione **máquinas virtuais**.  
  ![Exemplo: Selecione uma máquina virtual no painel](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-3.  Selecione a máquina virtual na lista.    
+3.  Escolha a máquina virtual da lista.    
   ![Exemplo: Selecione uma máquina virtual no painel](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.  Na página para a máquina virtual, clique em **discos** > **anexar existente**.   
+4.  Na página para a máquina virtual, selecione **discos** > **anexar existente**.   
   ![Exemplo: Anexar um disco existente](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
-5.  No **anexar o disco existente** , clique em **arquivo VHD**. O **contas de armazenamento** página será aberta.    
+5.  No **anexar o disco existente** página, selecione **arquivo VHD**. O **contas de armazenamento** página será aberta.    
   ![Exemplo: Selecione um arquivo VHD](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.  Em **contas de armazenamento**, selecione a conta a ser usada e, em seguida, selecione um contêiner que contém o arquivo. vhd que você carregou anteriormente. Selecione o arquivo. vhd e, em seguida, clique em **selecione** para salvar a seleção.    
+6.  Em **contas de armazenamento**, selecione a conta a ser usada e, em seguida, escolha um contêiner que contém o arquivo. vhd que você carregou anteriormente. Selecione o arquivo. vhd e, em seguida, escolha **selecione** para salvar a seleção.    
   ![Exemplo: Selecione um contêiner](media/azure-stack-manage-vm-disks/select-container2.png)
 
-7.  Em **anexar o disco existente**, o arquivo selecionado é listado em **arquivo VHD**. Atualização de **cache de Host** configuração do disco e, em seguida, clique em **Okey** para salvar a nova configuração de disco para a máquina virtual.    
+7.  Em **anexar o disco existente**, o arquivo selecionado é listado em **arquivo VHD**. Atualização de **cache de Host** configuração do disco e, em seguida, selecione **Okey** para salvar a nova configuração de disco para a máquina virtual.    
   ![Exemplo: Anexar o arquivo VHD](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  Depois de pilha do Azure cria o disco e a anexa à máquina virtual, o novo disco está listado em configurações de disco da máquina virtual em **discos de dados**.   

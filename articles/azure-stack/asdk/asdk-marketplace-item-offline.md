@@ -16,11 +16,12 @@ ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 325ef42d72970f4e0962a9b1a81b78bbd39585d4
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: a093e60718881b2fe9ca70df7596e8963dc55d9f
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808036"
 ---
 # <a name="tutorial-add-an-azure-stack-marketplace-item-from-a-local-source"></a>Tutorial: adicionar um item do marketplace do Azure pilha do local de origem
 
@@ -48,85 +49,82 @@ Você pode publicar a imagem do Windows Server 2016 no mercado de pilha do Azure
 
 Use esta opção se você tiver implantado pilha do Azure em um cenário de desconectado em cenários com conectividade limitada.
 
-1. Importar a pilha do Azure `Connect` e `ComputeAdmin` módulos do PowerShell incluídos no diretório de ferramentas do Azure pilha usando os seguintes comandos:
+1. [Instale o PowerShell para Azure pilha](../azure-stack-powershell-install.md).
 
-   ```powershell
-   Set-ExecutionPolicy RemoteSigned
+  ```PowerShell  
+    # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint $ArmEndpoint
 
-   # Import the Connect and ComputeAdmin modules.   
-   Import-Module .\Connect\AzureStack.Connect.psm1
-   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience $GraphAudience
 
-   ```
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+      -EnvironmentName AzureStackAdmin
 
-2. Execute um dos seguintes scripts de logon no computador de host ASDK dependendo se você implantou o seu ambiente de pilha do Azure usando o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS):
+    Add-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID
+  ```
 
-  - Comandos para **implantações do AD do Azure**: 
+2. Se usar **os serviços de Federação do Active Directory**, use o seguinte cmdlet:
 
-      ```PowerShell
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
+  ```PowerShell
+  # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $GraphAudience = "https://graph.windows.net/"
-      
-      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-      Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" `
-        -ArmEndpoint $ArmEndpoint
+  # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+  $GraphAudience = "<GraphAuidence endpoint for your environment>"
 
-      Set-AzureRmEnvironment `
-        -Name "AzureStackAdmin" `
-        -GraphAudience $GraphAudience
-
-      $TenantID = Get-AzsDirectoryTenantId `
-      # Replace the AADTenantName value to reflect your Azure AD tenant name.
-        -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-        -EnvironmentName AzureStackAdmin
-
-      Add-AzureRmAccount `
-        -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
-      ```
-
-  - Comandos para **implantações do AD FS**:
-      
-      ```PowerShell
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
-
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $GraphAudience = "https://graph.local.azurestack.external/"
-
-      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-      Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" `
-        -ArmEndpoint $ArmEndpoint
-
-      Set-AzureRmEnvironment `
-        -Name "AzureStackAdmin" `
-        -GraphAudience $GraphAudience `
-        -EnableAdfsAuthentication:$true
-
-      $TenantID = Get-AzsDirectoryTenantId `
-      -ADFS `
-      -EnvironmentName "AzureStackAdmin" 
-
-      Add-AzureRmAccount `
-        -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
-      ```
-   
-3. Adicione a imagem do Windows Server 2016 no mercado de pilha do Azure. (Substitua *fully_qualified_path_to_ISO* com o caminho para o Windows Server 2016 ISO que você baixou.)
-
-    ```PowerShell
-    $ISOPath = "<fully_qualified_path_to_ISO>"
-
-    # Add a Windows Server 2016 Evaluation VM image.
-    New-AzsServer2016VMImage `
-      -ISOPath $ISOPath
-
+  # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+  Add-AzureRMEnvironment `
+    -Name "AzureStackAdmin" `
+    -ArmEndpoint $ArmEndpoint
     ```
+
+3. Entre pilha do Azure como um operador. Para obter instruções, consulte [entrar pilha do Azure como um operador](../azure-stack-powershell-configure-admin.md).
+
+   ````PowerShell  
+    Add-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID
+  ````
+
+4. Adicione a imagem do Windows Server 2016 no mercado de pilha do Azure.
+
+    O **AzsPlatformimage adicionar** cmdlet usado para adicionar a imagem especifica valores usados pelos modelos de Gerenciador de recursos do Azure para fazer referência à imagem VM.
+    
+    Os valores incluem:
+    
+  - **publisher**  
+    Por exemplo: `Microsoft`  
+    O segmento de nome do publicador da imagem da VM que os usuários a usar ao implantar a imagem. Um exemplo é **Microsoft**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+  - **offer**  
+    Por exemplo: `WindowsServer`  
+    O segmento de nome de oferta da imagem da VM que os usuários a usar ao implantar a imagem VM. Um exemplo é **WindowsServer**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+  - **sku**  
+    Por exemplo: `Datacenter2016`  
+    O segmento de nome do SKU da imagem da VM que os usuários a usar ao implantar a imagem VM. Um exemplo é **Datacenter2016**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+  - **version**  
+    Por exemplo: `1.0.0`  
+    A versão da imagem da VM que os usuários a usar ao implantar a imagem VM. Esta versão está no formato  *\#.\#. \#*. Um exemplo é **1.0.0**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+  - **osType**  
+    Por exemplo: `Windows`  
+    OsType da imagem deve ser **Windows** ou **Linux**. Substituir *fully_qualified_path_to_ISO* com o caminho para o Windows Server 2016 ISO que você baixou. 
+  - **OSUri**  
+    Por exemplo: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
+    Você pode especificar um URI de armazenamento de blob para um `osDisk`. No seu caso, você especificará o local onde você armazenou a imagem que você baixou.
+
+    Para obter mais informações, consulte a referência do PowerShell para o [AzsPlatformimage adicionar](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet.
+
+    Abra o PowerShell com um prompt com privilégios elevados e execute:
+
+      ````PowerShell  
+        Add-AzsPlatformimage -publisher "Microsoft" -offer "WindowsServer" -sku "Datacenter2016" -version "1.0.0” -OSType "Windows" -OSUri "<fully_qualified_path_to_ISO>"
+      ````  
 
 ## <a name="verify-the-marketplace-item-is-available"></a>Verifique se que o item do marketplace está disponível
 Use estas etapas para verificar se a nova imagem VM está disponível no mercado de pilha do Azure.
