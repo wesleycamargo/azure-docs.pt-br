@@ -10,6 +10,8 @@
   items:
     - name: Criar um perfil e um ponto de extremidade
       href: cdn-create-new-endpoint.md
+    - name: Integrar uma conta de armazenamento
+      href: cdn-create-a-storage-account-with-cdn.md
 - name: Tutoriais
   items:
     - name: Adicionar CDN do Azure a um aplicativo Web
@@ -28,29 +30,21 @@
   items:
     - name: Como funciona o cache
       href: cdn-how-caching-works.md
+    - name: Entrega de conteúdo na China
+      href: cdn-china-delivery.md
+    - name: Suporte do HTTP/2
+      href: cdn-http2.md
 - name: Guias de instruções
   items:
-    - name: Integração
-      items:
-        - name: Armazenamento
-          items:
-            - name: Integrar uma conta de armazenamento
-              href: cdn-create-a-storage-account-with-cdn.md
-            - name: Suporte ao armazenamento de SAS
-              href: cdn-sas-storage-support.md
-        - name: Compartilhamento de recursos entre origens
-          href: cdn-cors.md
     - name: Otimizar conteúdo
+      href: cdn-optimization-overview.md
       items:
-        - name: Visão geral da otimização
-          href: cdn-optimization-overview.md
-          items:
-            - name: Otimização de arquivos grandes
-              href: cdn-large-file-optimization.md
-            - name: Otimização de streaming de mídia
-              href: cdn-media-streaming-optimization.md
-            - name: Aceleração de site dinâmica
-              href: cdn-dynamic-site-acceleration.md
+        - name: Otimização de arquivos grandes
+          href: cdn-large-file-optimization.md
+        - name: Otimização de streaming de mídia
+          href: cdn-media-streaming-optimization.md
+        - name: Aceleração de site dinâmica
+          href: cdn-dynamic-site-acceleration.md
     - name: Gerenciar
       items:
         - name: Gerenciar com o Azure PowerShell
@@ -61,8 +55,6 @@
           href: cdn-improve-performance.md
         - name: Controlar o comportamento do cache
           items:
-            - name: Como funciona o cache
-              href: cdn-how-caching-works.md
             - name: Controlar o comportamento do cache com regras de cache
               href: cdn-caching-rules.md
             - name: Armazenar o conteúdo em cache por cadeias de caracteres de consulta
@@ -83,35 +75,35 @@
               href: cdn-manage-expiration-of-blob-content.md
         - name: Autenticação de token
           href: cdn-token-auth.md
+        - name: Suporte ao armazenamento de SAS
+          href: cdn-sas-storage-support.md
+        - name: Compartilhamento de recursos entre origens
+          href: cdn-cors.md
         - name: Monitorar recursos
           href: cdn-resource-health.md
         - name: Substituir comportamento com regras
           href: cdn-rules-engine.md
-        - name: Obter alertas em tempo real
-          href: cdn-real-time-alerts.md
-        - name: Suporte do HTTP/2
-          href: cdn-http2.md
     - name: Analise
+      href: cdn-log-analysis.md
       items:
-        - name: Analisar os padrões de uso da CDN do Azure
-          href: cdn-log-analysis.md
+        - name: Logs de diagnóstico do Azure
+          href: cdn-azure-diagnostic-logs.md
+        - name: Ferramentas de análise do CDN do Azure da Verizon
           items:
-            - name: Logs de diagnóstico do Azure
-              href: cdn-azure-diagnostic-logs.md
-            - name: Ferramentas de análise do CDN do Azure da Verizon
-              items:
-                - name: Relatórios de núcleo da Verizon
-                  href: cdn-analyze-usage-patterns.md
-                - name: Relatórios personalizados da Verizon
-                  href: cdn-verizon-custom-reports.md
-            - name: Ferramentas de análise do CDN Premium do Azure da Verizon
-              items:
-                - name: Gerar relatórios HTTP avançados
-                  href: cdn-advanced-http-reports.md
-                - name: Exibir estatísticas em tempo real
-                  href: cdn-real-time-stats.md
-                - name: Analisar o desempenho do nó de borda
-                  href: cdn-edge-performance.md
+            - name: Relatórios de núcleo da Verizon
+              href: cdn-analyze-usage-patterns.md
+            - name: Relatórios personalizados da Verizon
+              href: cdn-verizon-custom-reports.md
+        - name: Ferramentas de análise do CDN Premium do Azure da Verizon
+          items:
+            - name: Gerar relatórios HTTP avançados
+              href: cdn-advanced-http-reports.md
+            - name: Exibir estatísticas em tempo real
+              href: cdn-real-time-stats.md
+            - name: Analisar o desempenho do nó de borda
+              href: cdn-edge-performance.md
+            - name: Obter alertas em tempo real
+              href: cdn-real-time-alerts.md
     - name: Desenvolver
       items:
         - name: .NET

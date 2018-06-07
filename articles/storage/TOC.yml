@@ -13,7 +13,7 @@
 - name: Filas
   href: ./queues/storage-queues-introduction.md
 - name: Tabelas
-  href: ../cosmos-db/table-storage-overview.md
+  href: ./tables/table-storage-overview.md
 - name: Discos
   items:
     - name: Windows
