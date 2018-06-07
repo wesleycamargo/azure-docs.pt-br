@@ -50,8 +50,6 @@
   items:
     - name: Gerenciar
       items:
-        - name: Atualizar um trabalho
-          href: stream-analytics-job-reliability.md
         - name: Atualizar credenciais
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Configurar alertas
@@ -60,6 +58,10 @@
           href: stream-analytics-test-query.md
         - name: Exibir resultados em um painel
           href: stream-analytics-power-bi-dashboard.md
+        - name: Limpar trabalho
+          href: stream-analytics-clean-up-your-job.md
+        - name: Emparelhar trabalhos para confiabilidade
+          href: stream-analytics-job-reliability.md
     - name: Compilar soluções
       items:
         - name: Análise de sentimento no Twitter
