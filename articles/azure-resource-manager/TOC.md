@@ -4,7 +4,7 @@
 ## [O que é o Resource Manager?](resource-group-overview.md)
 ## [Provedores e tipos de recursos](resource-manager-supported-services.md)
 ## [Resource Manager e a implantação clássica](resource-manager-deployment-model.md)
-## [Governança de assinatura](resource-manager-subscription-governance.md)
+## [Governança de assinatura](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Organizar recursos com grupos de gerenciamento](management-groups-overview.md)
 
 # Introdução
@@ -50,7 +50,6 @@
 ### [Criar assinaturas de EA de forma programática](programmatically-create-subscription.md)
 ### [Criar grupos de gerenciamento](management-groups-create.md)
 ### [Gerenciar seus grupos de gerenciamento](management-groups-manage.md)
-### [Exemplos de governança](resource-manager-subscription-examples.md)
 
 ## Controlar Acesso
 ### Criar uma entidade de serviço

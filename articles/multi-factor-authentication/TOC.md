@@ -54,6 +54,7 @@
 ### [Integração em aplicativos personalizados (SDK)](../active-directory/authentication/howto-mfa-sdk.md)
 
 ## [Relatórios](../active-directory/authentication/howto-mfa-reporting.md)
+### [Coleta de dados](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
 ## [Guia do usuário do MFA](./end-user/multi-factor-authentication-end-user.md)
 

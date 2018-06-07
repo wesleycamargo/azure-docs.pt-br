@@ -4,15 +4,14 @@
 ## [O que são Aplicativos Móveis?](app-service-mobile-value-prop.md)
 ## [Planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# Introdução
-## Criar aplicativos móveis
-### [Android](app-service-mobile-android-get-started.md)
-### [Cordova](app-service-mobile-cordova-get-started.md)
-### [iOS](app-service-mobile-ios-get-started.md)
-### [Windows](app-service-mobile-windows-store-dotnet-get-started.md)
-### [Xamarin.Android](app-service-mobile-xamarin-android-get-started.md)
-### [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
-### [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
+# Guia de início rápido
+## [Android](app-service-mobile-android-get-started.md)
+## [Cordova](app-service-mobile-cordova-get-started.md)
+## [iOS](app-service-mobile-ios-get-started.md)
+## [Windows](app-service-mobile-windows-store-dotnet-get-started.md)
+## [Xamarin.Android](app-service-mobile-xamarin-android-get-started.md)
+## [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
+## [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
 
 # Como
 
