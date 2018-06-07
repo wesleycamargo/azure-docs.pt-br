@@ -54,7 +54,7 @@
 ### [Suporte a vários domínios para federação](active-directory-aadconnect-multiple-domains.md)
 ### [Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Use um Provedor de Identidade (Idp) do SAML 2.0 para Logon Único](active-directory-aadconnect-federation-saml-idp.md)
-### [Sincronizar contas de usuários convidados que usam email para entrar](active-directory-aadconnect-guest-sync.md)
+
 
 
 ## Gerenciar a sincronização do Azure AD Connect
