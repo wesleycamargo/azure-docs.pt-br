@@ -1,5 +1,7 @@
 - name: Documentação do Data Factory V2
   href: index.yml
+- name: Alternar para a documentação versão 1
+  href: v1/data-factory-introduction.md
 - name: Visão geral
   items:
     - name: Introdução ao Data Factory
@@ -372,19 +374,21 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Executar pacotes SSIS no Azure
       items:
-        - name: Ingressar o tempo de execução de integração do Azure-SSIS a uma Rede virtual
+        - name: Ingressar o IR Azure-SSIS em uma VNet
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Configurar o alto desempenho para o tempo de execução de integração do Azure-SSIS
+        - name: Habilitar a autenticação do Azure AD para IR Azure-SSIS
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Configurar o alto desempenho para IR Azure-SSIS
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Provisionar a Enterprise Edition para o tempo de execução de integração do Azure-SSIS
+        - name: Provisionar a Enterprise Edition para IR Azure-SSIS
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Personalizar instalação do tempo de execução de integração do Azure-SSIS
+        - name: Personalizar instalação para IR Azure-SSIS
           href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Implantar componentes licenciados para o tempo de execução de integração do Azure-SSIS
+        - name: Instalar componentes licenciados para IR Azure-SSIS
           href: how-to-develop-azure-ssis-ir-licensed-components.md
-        - name: Executar pacotes SSIS com a atividade do SSIS
+        - name: Executar pacotes SSIS com a atividade Executar pacote do SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
-        - name: Executar pacotes SSIS com a atividade de procedimento armazenado
+        - name: Executar pacotes SSIS com a atividade de Procedimento Armazenado
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Agendar execução de integração do Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md

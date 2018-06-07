@@ -1,104 +1,116 @@
-- name: Documentação da Cobrança do Azure
+- name: Documentação da cobrança + gerenciamento de custos do Azure
   href: index.md
-- name: Introdução
+- name: Entender a cobrança do Azure
+  expanded: true
+  items:
+    - name: Entenda sua fatura
+      href: billing-understand-your-bill.md
+    - name: Obter fatura e dados de uso
+      href: billing-download-azure-invoice-daily-usage-date.md
+    - name: Encargos de serviço de terceiros
+      href: billing-understand-your-azure-marketplace-charges.md
+    - name: Termos de uso explicados
+      href: billing-understand-your-usage.md
+    - name: Termos da fatura explicados
+      href: billing-understand-your-invoice.md
+- name: Gerenciar os custos
   items:
     - name: Evitar custos inesperados
       href: billing-getting-started.md
-    - name: Criar serviços incluídos com a conta gratuita
-      href: billing-create-free-services-included-free-account.md
-    - name: Evitar cobranças para a conta gratuita
-      href: billing-avoid-charges-free-account.md
+    - name: Configurar alertas de cobrança
+      href: billing-set-up-alerts.md
+    - name: Calcular preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Usar marcações de recursos
+      href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
+    - name: Compreender limite de gastos
+      href: billing-spending-limit.md
+    - name: Salvar com instâncias de VM Reservadas
+      items:
+        - name: O que são instâncias reservadas?
+          href: billing-save-compute-costs-reservations.md
+        - name: Comprar uma instância reservada
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Como o desconto é aplicado
+          href: billing-understand-vm-reservation-charges.md
+        - name: Custos do software não incluídos
+          href: billing-reserved-instance-windows-software-costs.md
+        - name: Uso de Pagamento Conforme o Uso
+          href: billing-understand-reserved-instance-usage.md
+        - name: Uso do Enterprise
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Gerenciar instâncias reservadas
+          href: billing-manage-reserved-vm-instance.md
+- name: Gerenciar conta
+  items:
+    - name: Conta gratuita
+      items:
+        - name: Criar serviços gratuitos
+          href: billing-create-free-services-included-free-account.md
+        - name: Evitar encargos
+          href: billing-avoid-charges-free-account.md
+        - name: Verificar o uso
+          href: billing-check-free-service-usage.md
+        - name: Atualizar assinatura
+          href: billing-upgrade-azure-subscription.md
+        - name: Entender mapeamento do medidor
+          href: billing-understand-free-service-meter-mapping.md
+    - name: Editar perfil
+      href: billing-how-to-change-azure-account-profile.md
     - name: Conceder acesso à cobrança
       href: billing-manage-access.md
+    - name: Vincular ID do parceiro
+      href: billing-partner-admin-link-started.md
+    - name: Exibir contas de cobrança
+      href: billing-view-all-accounts.md
+    - name: Resolver saldo vencido
+      href: billing-azure-subscription-past-due-balance.md
     - name: Inscrever-se com conta do Office 365
       href: billing-use-existing-office-365-account-azure-subscription.md
     - name: Inscrever-se no Office 365 com a conta do Azure
       href: billing-use-existing-azure-account-for-office-365-subscription.md
-    - name: Organizar recursos com grupos de gerenciamento
-      href: billing-enterprise-mgmt-group-overview.md
-    - name: Poupar com as Instâncias Reservadas do Azure
-      href: billing-save-compute-costs-reservations.md
-      items:
-        - name: Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de Reservadas
-          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
-        - name: Gerenciar Instâncias Reservadas
-          href: billing-manage-reserved-vm-instance.md
-        - name: Compreender aplicativo de desconto para Instância Reservada
-          href: billing-understand-vm-reservation-charges.md
-        - name: Compreender uso da Instância Reservada para Pagamento Conforme o Uso
-          href: billing-understand-reserved-instance-usage.md
-        - name: Compreender uso da Instância Reservada para Empresas
-          href: billing-understand-reserved-instance-usage-ea.md
-        - name: Reservar custos do Windows para Instâncias
-          href: billing-reserved-instance-windows-software-costs.md
+- name: Gerenciar assinatura
+  items:
+    - name: Reativar a assinatura
+      href: billing-subscription-become-disable.md
+    - name: Transferir propriedade
+      href: billing-subscription-transfer.md
+    - name: Cancelar assinatura
+      href: billing-how-to-cancel-azure-subscription.md
+    - name: Mudar cartão de crédito
+      href: billing-how-to-change-credit-card.md
+    - name: Mudar administrador
+      href: billing-add-change-azure-subscription-administrator.md
+    - name: Alternar oferta de assinatura
+      href: billing-how-to-switch-azure-offer.md
+    - name: Pagar por fatura
+      href: billing-how-to-pay-by-invoice.md
+    - name: Criar grupos de gerenciamento
+      href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
+    - name: Mover recursos do Azure
+      href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
+    - name: Criar assinaturas do Enterprise
+      href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
+    - name: Exportar informações da assinatura
+      href: billing-export-subscriptions.md
+    - name: Link para locatário do Azure AD
+      href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: Limites e cotas
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
-- name: Como
+- name: Solucionar problemas
   items:
-    - name: Monitorar o uso e os custos
-      items:
-        - name: Obter fatura e uso
-          href: billing-download-azure-invoice-daily-usage-date.md
-        - name: Verificar uso dos serviços gratuitos
-          href: billing-check-free-service-usage.md
-        - name: Entenda sua fatura
-          href: billing-understand-your-bill.md
-        - name: Compreender os termos na fatura
-          href: billing-understand-your-invoice.md
-        - name: Compreender os termos na utilização
-          href: billing-understand-your-usage.md
-        - name: Entenda cobranças de serviço externo
-          href: billing-understand-your-azure-marketplace-charges.md
-        - name: Compreender mapeamento do medidor de serviço gratuito
-          href: billing-understand-free-service-meter-mapping.md
-        - name: Compreender limite de gastos
-          href: billing-spending-limit.md
-        - name: Configurar alertas de cobrança
-          href: billing-set-up-alerts.md
-        - name: Resolver saldo vencido
-          href: billing-azure-subscription-past-due-balance.md
-    - name: Gerenciar Assinaturas
-      items:
-        - name: Localizar assinatura ou grupo de gerenciamento
-          href: billing-enterprise-mgmt-grp-find.md
-        - name: Gerenciar funções de administrador
-          href: billing-add-change-azure-subscription-administrator.md
-        - name: Transferir a propriedade de assinatura
-          href: billing-subscription-transfer.md
-        - name: Reativar assinatura desabilitada
-          href: billing-subscription-become-disable.md
-        - name: Atualização de assinatura gratuita
-          href: billing-upgrade-azure-subscription.md
-        - name: Alternar oferta de assinatura
-          href: billing-how-to-switch-azure-offer.md
-        - name: Link para locatário do Azure AD
-          href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
-        - name: Cancelar assinatura
-          href: billing-how-to-cancel-azure-subscription.md
-    - name: Gerenciar conta
-      items:
-        - name: Editar perfil
-          href: billing-how-to-change-azure-account-profile.md
-        - name: Atualizar as informações de pagamento
-          href: billing-how-to-change-credit-card.md
-        - name: Pagar pelas assinaturas por fatura
-          href: billing-how-to-pay-by-invoice.md
-        - name: Vincular ID do parceiro
-          href: billing-partner-admin-link-started.md
-        - name: Exibir contas de cobrança
-          href: billing-view-all-accounts.md
-    - name: Solucionar problemas
-      items:
-        - name: Problemas de inscrição
-          href: 'https://support.microsoft.com/en-us/help/4042959'
-        - name: Cartão recusado
-          href: 'https://support.microsoft.com/en-us/help/4042960'
-        - name: Problemas de credenciais
-          href: 'https://support.microsoft.com/en-us/help/4042961'
-        - name: Nenhuma assinatura encontrada
-          href: billing-no-subscriptions-found.md
-        - name: Exibição do custo da empresa desabilitado
-          href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: Nenhuma assinatura encontrada
+      href: billing-no-subscriptions-found.md
+    - name: Cartão recusado
+      href: 'https://support.microsoft.com/en-us/help/4042960'
+    - name: Problemas na inscrição
+      href: 'https://support.microsoft.com/en-us/help/4042959'
+    - name: Problemas de entrada
+      href: 'https://support.microsoft.com/en-us/help/4042961'
+    - name: Exibição do custo da empresa desabilitado
+      href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: Contate o suporte
+      href: ../azure-supportability/how-to-create-azure-support-request.md
 - name: Referência
   items:
     - name: Visão Geral da API de Cobrança do Azure
@@ -116,10 +128,10 @@
           href: 'https://msdn.microsoft.com/library/azure/mt219005.aspx'
         - name: API REST do Uso
           href: 'https://msdn.microsoft.com/library/azure/mt219003.aspx'
-    - name: Visão Geral dos Relatórios da Empresa
+    - name: Visão geral dos relatórios do Enterprise
       href: billing-enterprise-api.md
       items:
-        - name: API REST dos Relatórios da Empresa
+        - name: API REST dos relatórios do Enterprise
           href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
     - name: Exemplos de código de cobrança
       items:
@@ -129,11 +141,3 @@
           href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
         - name: Exemplo de código da API do RateCard
           href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
-- name: Recursos
-  items:
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Contate o suporte
-      href: ../azure-supportability/how-to-create-azure-support-request.md
-    - name: Calculadora de preço
-      href: 'https://azure.microsoft.com/pricing/calculator/'

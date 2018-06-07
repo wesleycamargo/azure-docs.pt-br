@@ -24,6 +24,26 @@
           href: storage-ruby-how-to-use-queue-storage.md
         - name: PowerShell
           href: storage-powershell-how-to-use-queues.md
+- name: Conceitos
+  items:
+    - name: Autorização
+      href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      items:
+        - name: Autenticar com o Azure AD
+          href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          items:
+            - name: Gerenciar direitos de acesso com RBAC
+              href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Autenticar a partir de um aplicativo
+              href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Autenticar a partir de uma Identidade de Serviço Gerenciada
+              href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Usar uma identidade do Azure AD com CLI ou PowerShell
+              href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Autorizar com Chave Compartilhada
+          href: /rest/api/storageservices/authenticate-with-shared-key
+        - name: Autorizar com SAS
+          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Como
   items:
     - name: Planejar e projetar
@@ -101,13 +121,13 @@
         - name: Métricas e logs
           items:
             - name: Métricas no Azure Monitor
-              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Migrar para novas métricas
-              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Análise de Armazenamento
-              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Habilitar e exibir métricas (clássico)
-              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Exemplos
       href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=queue'
 - name: Referência
@@ -131,13 +151,13 @@
         - name: Gerenciador de Recursos
           href: 'https://docs.microsoft.com/java/api/overview/azure/storage/managementapi'
     - name: Node.js
-      href: 'http://azure.github.io/azure-storage-node'
+      href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
     - name: Ruby
       href: 'http://azure.github.io/azure-storage-ruby'
     - name: PHP
       href: 'http://azure.github.io/azure-storage-php/'
     - name: Python
-      href: 'https://azure-storage.readthedocs.io/en/latest/index.html'
+      href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
     - name: C++
       href: 'http://azure.github.io/azure-storage-cpp'
     - name: iOS
@@ -161,7 +181,7 @@
     - name: Fórum
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
     - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
+      href: 'https://azure.microsoft.com/pricing/details/storage/queues/'
     - name: Calculadora de preço
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Atualizações de serviço

@@ -89,6 +89,8 @@
               href: n-series-driver-setup.md
         - name: Computação de alto desempenho
           href: sizes-hpc.md
+        - name: Gerações anteriores
+          href: sizes-previous-gen.md
         - name: ACU (Unidades de computação do Azure)
           href: acu.md
         - name: Pontuações de parâmetro de comparação
@@ -140,6 +142,8 @@
           href: create-cli-complete.md
         - name: Como usar um modelo
           href: create-ssh-secured-vm-from-template.md
+        - name: Usar a API REST
+          href: create-vm-rest-api.md
         - name: Como copiar ou clonar uma VM
           href: copy-vm.md
     - name: Como proteger VMs
@@ -188,7 +192,12 @@
         - name: Marcar uma VM
           href: tag.md
         - name: Como executar scripts em uma VM
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Extensão de script personalizado
+              href: ../extensions/custom-script-linux.md
+            - name: Executar Comando
+              href: run-command.md
         - name: Usar Área de Trabalho Remota
           href: use-remote-desktop.md
         - name: Como unir uma VM ao Azure Active Directory
@@ -416,21 +425,7 @@
             - name: Como usar o DNS interno
               href: static-dns-name-resolution-for-linux-on-azure.md
     - name: Usar extensões de VM
-      items:
-        - name: Visão geral da Extensão de VM
-          href: extensions-features.md
-        - name: Extensão de script personalizado
-          href: extensions-customscript.md
-        - name: Extensão do Agente do OMS
-          href: extensions-oms.md
-        - name: Extensão de Diagnóstico Linux
-          href: diagnostic-extension.md
-        - name: Agente do observador de rede
-          href: extensions-nwa.md
-        - name: Extensão do VMAccess
-          href: using-vmaccess-extension.md
-        - name: Instalação da extensão restrita
-          href: ../extensions/extensions-rmpolicy-howto-cli.md
+      href: ../extensions/overview.md
     - name: Migrar VMs
       items:
         - name: Como migrar AWS e VMs locais
