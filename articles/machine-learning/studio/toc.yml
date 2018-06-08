@@ -63,6 +63,8 @@
               href: deploy-with-resource-manager-template.md
             - name: Criar em outra região
               href: multi-geo.md
+            - name: Exibir e excluir dados de conta do Studio
+              href: export-delete-personal-data-dsr.md
     - name: Adquirir e entender os dados
       items:
         - name: Importar dados de treinamento
@@ -215,6 +217,8 @@
           href: gallery-collections.md
         - name: Módulos personalizados
           href: gallery-custom-modules.md
+        - name: Exibir e excluir dados de conta
+          href: ai-gallery-control-personal-data-dsr.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

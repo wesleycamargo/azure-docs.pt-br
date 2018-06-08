@@ -1,5 +1,7 @@
 - name: Documentação do Data Factory V1
   href: null
+- name: Alternar para a documentação da versão atual
+  href: ../index.yml
 - name: Visão geral
   items:
     - name: Introdução à Fábrica de Dados do Azure
@@ -8,7 +10,7 @@
       items:
         - name: Pipelines e atividades
           href: data-factory-create-pipelines.md
-        - name: CONJUNTOS DE DADOS
+        - name: Conjunto de dados
           href: data-factory-create-datasets.md
         - name: Agendamento e execução
           href: data-factory-scheduling-and-execution.md
@@ -215,7 +217,7 @@
       href: 'https://azure.microsoft.com/updates/?product=data-factory'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-data-factory'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=data-factory'
     - name: Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
       href: data-factory-data-processing-using-batch.md

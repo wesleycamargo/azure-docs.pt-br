@@ -30,12 +30,14 @@
       href: render-coverage.md
     - name: Cobertura de roteamento
       href: routing-coverage.md
-    - name: Pesquisar categorias
-      href: search-categories.md
+    - name: Categorias de pesquisa com suporte
+      href: supported-search-categories.md
     - name: Idiomas com suporte
       href: supported-languages.md
     - name: Modelo de consumo
       href: consumption-model.md
+    - name: Estender geoJSON
+      href: extend-geojson.md
 - name: Guias de instruções
   items:
     - name: Gerenciar contas do Azure Mapas
@@ -70,17 +72,33 @@
           href: map-show-traffic.md
         - name: Interagir com eventos de mouse
           href: map-events.md
+        - name: Aplicativos de mapa acessíveis
+          href: map-accessibility.md
 - name: Referência
   items:
-    - name: API de Serviços - REST
-      href: 'https://docs.microsoft.com/rest/api/maps/'
-    - name: API do Controle de Mapeamento - Javascript
-      href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+    - name: REST
+      items:
+        - name: Serviço de Renderização
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/renderservice'
+        - name: Serviço de Roteamento
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/routeservice'
+        - name: Serviço Search
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/searchservice'
+        - name: Serviço de Fuso horário
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/timezoneservice'
+        - name: Serviço de Tráfego
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/trafficservice'
+        - name: Gerenciamento de contas de mapas
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps-management'
+    - name: JavaScript
+      items:
+        - name: Controle de mapa
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
 - name: Relacionados
   items:
     - name: Soluções
       items:
-        - name: Soluções pré-configuradas do IoT Suite
+        - name: Aceleradores de solução do IoT
           href: /azure/iot-suite
         - name: Central da IoT
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

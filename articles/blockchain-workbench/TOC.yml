@@ -50,3 +50,9 @@
       href: blockchain-workbench-messages-overview.md
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+    - name: Modelos de Solução
+      items:
+        - name: Ethereum consortium de prova de trabalho
+          href: ethereum-deployment-guide.md
+        - name: Consortium Hyperledger do Fabric
+          href: hyperledger-fabric-single-member-blockchain.md

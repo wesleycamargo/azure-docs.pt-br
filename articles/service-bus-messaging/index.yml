@@ -1,0 +1,96 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do sistema de mensagens do Barramento de Serviço do Azure
+metadata:
+  document_id: ''
+  title: Documentação do sistema de mensagens do Barramento de Serviço do Azure - tutoriais, guias de início rápido, referência de API
+  meta.description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
+  services: service-bus-messaging
+  author: sethmanheim
+  manager: timlt
+  ms.service: service-bus-messaging
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/16/2018
+  ms.author: sethm
+  ms.openlocfilehash: 7746b2259f4c4c411e52d236f9734825355750d5
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34648382"
+abstract:
+  description: O Barramento de Serviço do Azure é um serviço de mensagens na nuvem multilocatário que envia informações entre aplicativos e serviços. Operações assíncronas oferecem um sistema de mensagens agenciado e flexível, juntamente com recursos de mensagens PEPS (primeiro a entrar, primeiro a sair) e de publicação/assinatura.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/en-us/azure/service-bus-messaging/media/index/azure-messaging-and-event-based-architecture.png
+      width: 250
+    title: Mensagens do Azure e arquitetura baseada em evento (1:24:32)
+    href: https://azure.microsoft.com/en-us/resources/videos/build-2018-azure-messaging-and-event-based-architecture-in-the-real-world-lessons-learned-rebuilding-microsoft-s-supply-chain-on-azure-serverless/
+    width: 250
+sections:
+- title: Guia de início rápido de 5 minutos
+  items:
+  - type: paragraph
+    text: 'Saiba como enviar e receber mensagens de e para o Barramento de Serviço:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/service-bus-messaging/media/index/portal.svg
+      text: Portal do Azure
+      href: /azure/service-bus-messaging/service-bus-quickstart-portal?branch=release-mvc-service-bus
+    - image:
+        src: /azure/service-bus-messaging/media/index/cli.svg
+      text: CLI do Azure
+      href: /azure/service-bus-messaging/service-bus-quickstart-cli?branch=release-mvc-service-bus
+    - image:
+        src: /azure/service-bus-messaging/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/service-bus-messaging/service-bus-quickstart-powershell
+- title: Tutoriais Passo a Passo
+  items:
+  - type: paragraph
+    text: Aprenda a criar, gerenciar e enviar e receber mensagens, usando o Barramento de Serviço do Azure
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-cli">Use os tópicos e assinaturas para atualizar uma classificação de inventário usando a CLI do Azure</a>
+    - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-portal">Use os tópicos e assinaturas para atualizar uma classificação de inventário usando o portal do Azure</a>
+    - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-powershell">Use os tópicos e assinaturas para atualizar uma classificação de inventário usando o Azure PowerShell</a>
+- title: Treinamento em Vídeo Pluralsight gratuito
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Desenvolvendo com .NET no Azure
+      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+- title: Exemplos
+  items:
+  - type: paragraph
+    text: Encontre scripts para gerenciar tarefas comuns.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/Management">PowerShell do Azure</a>
+    - html: <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/Management">CLI do Azure</a>
+- title: Referência
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Linha de comando
+      html: <p><a href="/powershell/module/azurerm.servicebus/">PowerShell do Azure</a></p><p><a href="/cli/azure/servicebus">CLI do Azure</a></p>
+    - title: Linguagens
+      html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p><p><a href="/java/api/overview/azure/servicebus">Java</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/servicebus/">referência da API REST (a página pode estar em inglês)</a></p>

@@ -159,14 +159,12 @@
       items:
         - name: Galeria de Runbook
           href: automation-runbook-gallery.md
-        - name: Monitorar runbooks com logs de atividade
-          href: automation-alert-activity-log.md
+        - name: Monitorar runbooks com alertas de métrica
+          href: automation-alert-metric.md
         - name: Iniciar um runbook a partir de alertas do Azure
           href: automation-create-alert-triggered-runbook.md
         - name: Criar VM do Serviço Web da Amazon
           href: automation-scenario-aws-deployment.md
-        - name: Corrigir alerta da VM do Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Iniciar/parar VMs nos horários inativos
           href: automation-solution-vm-management.md
         - name: Remover grupo de recursos
@@ -215,16 +213,12 @@
   items:
     - name: Vídeo de introdução a automação
       href: 'https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/'
-    - name: Treinamento em Automação do Azure
-      href: 'https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382'
     - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
-    - name: Roteiro de aprendizagem
-      href: 'https://azure.microsoft.com/documentation/learning-paths/automation/'
+      href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
     - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation'
     - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/automation/)'
+      href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: Calculadora de preço
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Notas de versão
