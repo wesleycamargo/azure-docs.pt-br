@@ -21,6 +21,8 @@
       href: custom-event-quickstart-portal.md
     - name: Enviar eventos para o armazenamento de filas
       href: custom-event-to-queue-storage.md
+    - name: Enviar eventos para os Hubs de Eventos
+      href: custom-event-to-eventhub.md
 - name: Tutoriais
   items:
     - name: Enviar email quando houver alterações na VM
