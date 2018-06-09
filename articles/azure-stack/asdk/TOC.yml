@@ -7,14 +7,6 @@
       href: asdk-what-is.md
     - name: Notas de versão ASDK
       href: asdk-release-notes.md
-- name: Tutoriais
-  items:
-    - name: Assinar uma oferta
-      href: asdk-subscribe-services.md
-    - name: Ofertas de atualização e planos
-      href: asdk-update-offers.md
-    - name: Criar uma máquina virtual de um modelo
-      href: asdk-create-vm-template.md
 - name: Conceitos
   items:
     - name: Considerações de planejamento de implantação

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: faf85c34c527dd72889f0fcb5021925b79481163
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823842"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234834"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública de pilha do Azure
 
@@ -30,7 +30,7 @@ A pilha do Azure tem uma rede de infraestrutura pública usando externamente ace
 - O processo de obtenção de certificados, as especificações de correspondência
 - Como preparar, validar e usar esses certificados durante a implantação
 
-> [!NOTE]
+> [!Note]  
 > Durante a implantação, você deve copiar certificados para a pasta de implantação que coincide com o provedor de identidade que você está implantando contra (Azure AD ou AD FS). Se você usar um único certificado para todos os pontos de extremidade, você deve copiar esse arquivo de certificado para cada pasta de implantação, conforme descrito nas tabelas a seguir. A estrutura de pasta predefinida na máquina virtual de implantação e podem ser encontrada em: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
@@ -47,12 +47,12 @@ A lista a seguir descreve os requisitos de certificado que são necessários par
 - O certificado "emitido para:" campo não deve ser o mesmo que seu "emitido por:" campo.
 - As senhas para todos os arquivos pfx de certificado devem ser o mesmo no momento da implantação
 - Senha para o pfx de certificado deve ser uma senha complexa.
-- Certifique-se de que os nomes de entidade e entidade alternativa nomes de todos os certificados correspondem as especificações descritas neste artigo para evitar falhas de implantação.
+- Certifique-se de que os nomes de entidade e os nomes alternativos da entidade na correspondência de (x509v3_config) de extensão de nome alternativo de assunto. O campo de nome alternativo da entidade permite que você especifique nomes de host adicionais (sites, endereços IP, nomes comuns) a ser protegido por um único certificado de SSL.
 
-> [!NOTE]
+> [!NOTE]  
 > Não há suporte para certificados de autoatendimento assinado.
 
-> [!NOTE]
+> [!NOTE]  
 > Suporte para a presença de autoridades de certificação intermediária no IS de cadeia de relações de confiança do certificado. 
 
 ## <a name="mandatory-certificates"></a>Certificados obrigatórios

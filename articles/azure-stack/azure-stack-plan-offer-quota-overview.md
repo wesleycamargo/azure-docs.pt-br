@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2018
+ms.date: 06/07/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: fcf19f486ebdc739f3d5c7b25215ba8726462a56
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d8aef778807d3a8a61cf9eedaae24abce84a19ab
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248751"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Visão geral de plano, oferta, cotas e assinatura
 
@@ -27,20 +28,21 @@ ms.lasthandoff: 04/23/2018
 
 [A pilha do Azure](azure-stack-poc.md) permite que você fornecer uma ampla variedade de serviços, como máquinas virtuais, bancos de dados, SharePoint, Exchange e até mesmo [itens do Marketplace do Azure](azure-stack-marketplace-azure-items.md). Como um operador de pilha do Azure, configure e fornecem serviços na pilha do Azure usando planos, ofertas e cotas.
 
-As ofertas que contêm um ou mais planos, e cada plano inclui um ou mais serviços. Criando planos e combiná-las em diferentes ofertas, de controle
-- quais usuários de recursos e serviços podem acessar
-- o valor desses recursos que os usuários podem consumir
-- quais regiões têm acesso aos recursos
+As ofertas que contêm um ou mais planos, e cada plano inclui um ou mais serviços. Criando planos e combiná-las em diferentes ofertas, você pode gerenciar:
+
+- Quais serviços e recursos que os usuários podem acessar.
+- A quantidade de recursos que os usuários podem consumir.
+- Quais regiões têm acesso aos recursos.
 
 Ao fornecer um serviço, siga estas etapas de alto nível:
 
 1. Adicione um serviço que você deseja fornecer aos usuários.
-2. Crie um plano que contém um ou mais serviços. Ao criar um plano, selecione ou crie cotas que definem os limites de recursos de cada serviço no plano.
-3. Crie uma oferta que contém um ou mais planos (inclusive planos básico e planos de complemento opcional).
+2. Crie um plano que tem um ou mais serviços. Ao criar um plano, selecione ou crie cotas que definem os limites de recursos de cada serviço no plano.
+3. Crie uma oferta que contém um ou mais planos. A oferta pode incluir planos básico e planos de complemento opcional.
 
-Depois de criar a oferta, os usuários possam assiná-lo para acessar os serviços e recursos que ela fornece. Os usuários podem assinar a oferta de quantos desejar. O diagrama a seguir mostra um exemplo simples de um usuário que tenha se inscrito para duas ofertas. Cada oferta tem um plano ou dois, e cada plano oferece acesso a serviços.
+Depois de criar a oferta, os usuários possam assiná-lo para acessar os serviços e recursos que fornece a oferta. Os usuários podem assinar a oferta de quantos desejar. O diagrama a seguir mostra um exemplo simples de um usuário que tenha se inscrito para duas ofertas. Cada oferta tem um plano ou dois, e cada plano oferece acesso a serviços.
 
-![](media/azure-stack-key-features/image4.png)
+![Assinatura de locatário com ofertas e planos](media/azure-stack-key-features/image4.png)
 
 ## <a name="plans"></a>Planos
 
@@ -48,15 +50,18 @@ Os planos são agrupamentos de um ou mais serviços. Como um operador de pilha d
 
 ### <a name="quotas"></a>Cotas
 
-Para ajudá-lo a gerenciar a sua capacidade de nuvem, você pode selecionar ou cria uma cota para cada serviço em um plano. As cotas de definem os limites de recurso superior que uma assinatura de usuário pode provisionar ou consumir. Por exemplo, uma cota pode permitir que um usuário crie até cinco máquinas virtuais. Cotas podem limitar a uma variedade de recursos, como máquinas virtuais, RAM e CPU limites.
+Para ajudá-lo a gerenciar a sua capacidade de nuvem, você pode usar cotas pré-configuradas ou criar uma nova cota para cada serviço em um plano. As cotas de definem os limites de recurso superior que uma assinatura de usuário pode provisionar ou consumir. Por exemplo, uma cota pode permitir que um usuário crie até cinco (máquinas virtuais). Você definir cotas adicionais nas máquinas virtuais, como RAM e CPU núcleos.
 
-Cotas podem ser configuradas por região. Por exemplo, um plano que contém os serviços de computação da região um pode ter uma cota de duas máquinas virtuais, 4 GB de RAM e 10 núcleos de CPU. No Kit de desenvolvimento de pilha do Azure, apenas uma região (denominado *local*) está disponível.
+Você pode configurar as cotas por região. Por exemplo, um plano que fornece serviços de computação para região A poderia ter uma cota de duas VMs com 4 GB de RAM e 8 núcleos de CPU.
 
-Saiba mais sobre [tipos de cota na pilha do Azure](azure-stack-quota-types.md). 
+>[!NOTE]
+>No Kit de desenvolvimento de pilha do Azure, apenas uma região (denominado *local*) está disponível.
+
+Saiba mais sobre [tipos de cota na pilha do Azure](azure-stack-quota-types.md).
 
 ### <a name="base-plan"></a>Plano de base
 
-Ao criar uma oferta, o administrador de serviço pode incluir um plano de base. Esses planos de base são incluídos por padrão quando um usuário se inscreve para essa oferta. Quando um usuário assina, eles têm acesso a todos os provedores de recursos especificado nesses planos de base (com as cotas correspondentes).
+Ao criar uma oferta, o administrador de serviço pode incluir um plano de base. Esses planos de base são incluídos por padrão quando um usuário se inscreve para essa oferta. Quando um usuário assina, eles têm acesso a todos os provedores de recursos especificado nesses planos de base (com as cotas correspondentes.)
 
 ### <a name="add-on-plans"></a>Planos de complemento
 
@@ -64,19 +69,19 @@ Planos de complemento são planos opcionais que você adicionar a uma oferta. Pl
 
 ## <a name="offers"></a>Ofertas
 
-Ofertas são grupos de um ou mais planos que você criar para que os usuários podem assiná-los. Por exemplo, oferecer Alpha pode conter um plano de contendo um conjunto de serviços de computação e o plano B que contém um conjunto de serviços de armazenamento e rede. 
+Ofertas são grupos de um ou mais planos que você criar para que os usuários podem assiná-los. Por exemplo, oferecer Alpha pode conter um plano, que fornece um conjunto de serviços de computação e o plano B, que fornece um conjunto de serviços de armazenamento e rede.
 
 Quando você [criar uma oferta](azure-stack-create-offer.md), você deve incluir pelo menos um plano de base, mas você também pode criar planos de complemento que os usuários podem adicionar à sua assinatura.
 
-
 ## <a name="subscriptions"></a>Assinaturas
 
-Uma assinatura é como os usuários acessam suas ofertas. Se você for um operador de pilha do Azure em um provedor de serviço, os usuários (locatários) compram seus serviços assinando suas ofertas. Se você for um operador de pilha do Azure em uma organização, os usuários (funcionários) podem assinar os serviços que oferecem sem pagar. Cada combinação de um usuário com uma oferta é uma assinatura exclusiva. Assim, um usuário pode ter assinaturas várias ofertas, mas cada assinatura se aplica apenas a uma oferta. Planos, ofertas e cotas que se aplicam somente para cada assinatura exclusiva – eles não podem ser compartilhados entre assinaturas. Cada recurso que cria um usuário está associado uma assinatura.
+Uma assinatura é como os usuários acessam suas ofertas. Se você for um operador de pilha do Azure para um provedor de serviço, os usuários (locatários) compram seus serviços assinando suas ofertas. Se você for um operador de pilha do Azure em uma organização, os usuários (funcionários) podem assinar os serviços que oferecem sem pagar.
 
+Cada combinação de um usuário com uma oferta é uma assinatura exclusiva. Um usuário pode ter assinaturas várias ofertas, mas cada assinatura só se aplica a uma oferta. Planos, ofertas e cotas só se aplicam a uma assinatura exclusiva – eles não podem ser compartilhados entre assinaturas. Cada recurso que cria um usuário está associado uma assinatura.
 
 ### <a name="default-provider-subscription"></a>Assinatura do provedor de padrão
 
-A assinatura de provedor padrão é criada automaticamente quando você implanta o Kit de desenvolvimento de pilha do Azure. Esta assinatura pode ser usada para gerenciar a pilha do Azure, implantar mais provedores de recursos e criar planos e ofertas para os usuários. Por razões de licenciamento e de segurança, ele não deve ser usado para executar aplicativos e cargas de trabalho do cliente. 
+A assinatura de provedor padrão é criada automaticamente quando você implanta o Kit de desenvolvimento de pilha do Azure. Esta assinatura pode ser usada para gerenciar a pilha do Azure, implante provedores de recursos adicionais e criar planos e ofertas para os usuários. Por razões de licenciamento e de segurança, ele não deve ser usado para executar aplicativos e cargas de trabalho do cliente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

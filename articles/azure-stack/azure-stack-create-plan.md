@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2018
+ms.date: 06/07/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: b1bfff16c4f51a9fa53204930df78cbd2cf19b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1fa01d23108ce92fbd7c854442c0474b19395d25
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248696"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Criar um plano no Azure Stack
 
@@ -29,34 +30,46 @@ Os [planos](azure-stack-key-features.md) são agrupamentos de um ou mais serviç
 
 1. Entrar no portal do administrador do Azure pilha (https://adminportal.local.azurestack.external).
 
-2. Para criar um plano e a oferta que os usuários podem assinar, selecione **novo** > **oferece + planos** > **plano**.  
+2. Para criar um plano e a oferta que os usuários podem assinar, selecione **novo** > **oferece + planos** > **plano**.
+  
    ![Selecione um plano](media/azure-stack-create-plan/select-plan.png)
 
-3. No **novo plano** painel, preencha **nome de exibição** e **nome do recurso**. O nome de exibição é o nome amigável do plano do que os usuários veem. Somente o administrador pode ver o nome do recurso, que é o nome que os administradores utilizam para trabalhar com o plano como um recurso do Gerenciador de recursos do Azure.  
+3. Em **novo plano**, insira um **nome de exibição** e um **nome do recurso**. O nome de exibição é o nome amigável do plano do que os usuários podem ver. Somente o administrador pode ver o nome do recurso, quais os administradores usam para trabalhar com o plano como um recurso do Gerenciador de recursos do Azure.
+
    ![Especifique os detalhes](media/azure-stack-create-plan/plan-name.png)
 
-4. Criar um novo **grupo de recursos**, ou selecione um existente, como um contêiner para o plano.  
+4. Criar um novo **grupo de recursos**, ou selecione um existente, como um contêiner para o plano.
+
    ![Especifique o grupo de recursos](media/azure-stack-create-plan/resource-group.png)
 
-5. Selecione **serviços** e, em seguida, selecione a caixa de seleção **Microsoft. Compute**, **Network**, e **Microsoft**. Em seguida, escolha **selecione** para salvar a configuração. Caixas de seleção aparecem quando o mouse passa sobre cada opção.  
-   ![Selecionar Serviços](media/azure-stack-create-plan/services.png)
+5. Selecione **serviços** e, em seguida, selecione a caixa de seleção **Microsoft. Compute**, **Network**, e **Microsoft**. Em seguida, escolha **selecione** para salvar a configuração. Caixas de seleção aparecem quando o mouse passa sobre cada opção.
+  
+   ![Selecionar serviços](media/azure-stack-create-plan/services.png)
 
-6. Selecione **cotas**, **(local) do Microsoft**e, em seguida, escolha a cota padrão ou selecione **criar nova cota** para personalizar a cota.  
+6. Selecione **cotas**, **(local) do Microsoft**e, em seguida, escolha a cota padrão ou selecione **criar nova cota** para criar uma cota personalizada.
+  
    ![Cotas](media/azure-stack-create-plan/quotas.png)
 
-7. Se você estiver criando uma nova cota, insira um **nome** para a cota > especifique os valores de cota > selecione **Okey**. O **criar cota** painel é fechado.
+7. Se você estiver criando uma nova cota, insira um **nome** para a cota > especifique os valores de cota > selecione **Okey**. O **criar cota** caixa de diálogo é fechada.
+
    ![Nova cota](media/azure-stack-create-plan/new-quota.png)
 
-   Você, em seguida, selecione nova cota que você criou. Selecionando a cota atribui a ele e fecha o painel de seleção.  
+   Você, em seguida, selecione nova cota que você criou. Selecionando a cota atribui a ele e fecha a caixa de diálogo de seleção.
+  
    ![Atribuir a cota](media/azure-stack-create-plan/assign-quota.png)
 
-8. Repita as etapas 6 e 7 para criar e atribuir cotas para **Network (local)** e **Microsoft. Compute (local)**.  Quando todos os três serviços têm cotas atribuídas, eles aparecem semelhantes à imagem a seguir.  
+8. Repita as etapas 6 e 7 para criar e atribuir cotas para **Network (local)** e **Microsoft. Compute (local)**. Quando todos os três serviços tem cotas atribuídas, eles terão uma aparência semelhante ao exemplo seguinte.
+
    ![Atribuições de cota concluída](media/azure-stack-create-plan/all-quotas-assigned.png)
 
-9. No **cotas** painel, escolha **Okey**e, em seguida, no **novo plano** painel, escolha **criar** para criar o plano.  
+9. Em **cotas**, escolha **Okey**e, em seguida, em **novo plano**, escolha **criar** para criar o plano.
+
     ![Criar o plano](media/azure-stack-create-plan/create.png)
-10. Para ver o novo plano, selecione **todos os recursos**, em seguida, procure o plano e selecione seu nome. Se a lista de recursos for longa, use **pesquisa** para localizar seu plano por nome.  
+
+10. Para ver o novo plano, selecione **todos os recursos**, em seguida, procure o plano e selecione seu nome. Se a lista de recursos for longa, use **pesquisa** para localizar seu plano por nome.
+
    ![Examinar o plano](media/azure-stack-create-plan/plan-overview.png)
 
-### <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
+
 [Criar uma oferta](azure-stack-create-offer.md)
