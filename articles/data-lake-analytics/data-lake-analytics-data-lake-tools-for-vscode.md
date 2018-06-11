@@ -1,27 +1,21 @@
 ---
-title: 'Ferramentas do Azure Data Lake: Usar as Ferramentas do Azure Data Lake para Visual Studio Code | Microsoft Docs'
-description: 'Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio Code para criar, testar e executar scripts U-SQL. '
-Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
+title: Usar as Ferramentas do Azure Data Lake para Visual Studio Code
+description: Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio Code para criar, testar e executar scripts U-SQL.
 services: data-lake-analytics
-documentationcenter: ''
 author: Jejiang
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.author: jejiang
+manager: kfile
+editor: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.author: jejiang
-ms.openlocfilehash: f35aa14286874d7c152509a69bd171b95b19e22b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 4f5d51a2a34e89223f51f456f2c730835b1e2451
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011264"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735180"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio Code
 
@@ -39,14 +33,14 @@ MacOS e Linux:
 - [SDK 2.0 do .NET Core](https://www.microsoft.com/net/download/core). 
 - [Mono 5.2.x](http://www.mono-project.com/download/).
 
-## <a name="install-data-lake-tools"></a>Instalar as Ferramentas do Data Lake
+## <a name="install-azure-data-lake-tools"></a>Instalar Ferramentas do Azure Data Lake
 
-Após a instalação dos pré-requisitos, você pode instalar as Ferramentas do Data Lake para VS Code.
+Após a instalação dos pré-requisitos, você pode instalar as Ferramentas do Azure Data Lake para VS Code.
 
-**Para instalar as Ferramentas do Data Lake**
+**Para instalar Ferramentas do Azure Data Lake**
 
 1. Abra o Visual Studio Code.
-2. Clique em **Extensões** no painel esquerdo. Digite **Azure Data Lake** na caixa de pesquisa.
+2. Clique em **Extensões** no painel esquerdo. Digite **Ferramentas do Azure Data Lake** na caixa de pesquisa.
 3. Clique em **Instalar** ao lado de **Ferramentas do Azure Data Lake**. Depois de alguns segundos, o botão **Instalar** será alterado para **Recarregar**.
 4. Clique em **Recarregar** para ativar a extensão **Ferramentas do Azure Data Lake**.
 5. Clique na **Janela Recarregar** para confirmar. É possível ver as **Ferramentas do Azure Data Lake** no painel Extensões.
@@ -57,12 +51,14 @@ Após a instalação dos pré-requisitos, você pode instalar as Ferramentas do 
 ## <a name="activate-azure-data-lake-tools"></a>Ativar Ferramentas do Azure Data Lake
 Crie um novo arquivo .usql ou abra um arquivo .usql existente para ativar a extensão. 
 
-## <a name="open-the-sample-script"></a>Abrir o script de exemplo
-Abra a paleta de comandos (Ctrl + Shift + P) e insira **ADL: Abrir Script de Exemplo**. Isso abre outra instância deste exemplo. Você também pode editar, configurar e enviar o script nessa instância.
 
 ## <a name="work-with-u-sql"></a>Trabalhar com o U-SQL
 
 Você precisa abrir um arquivo U-SQL ou uma pasta para trabalhar com o U-SQL.
+
+**Para abrir o script de exemplo**
+
+Abra a paleta de comandos (Ctrl + Shift + P) e insira **ADL: Abrir Script de Exemplo**. Isso abre outra instância deste exemplo. Você também pode editar, configurar e enviar o script nessa instância.
 
 **Para abrir uma pasta para o projeto U-SQL**
 
@@ -143,10 +139,12 @@ Você precisa abrir um arquivo U-SQL ou uma pasta para trabalhar com o U-SQL.
 
     ![Arquivo de configuração das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
 
-## <a name="use-python-r-and-csharp-code-behind-file"></a>Usar o arquivo code-behind Python, R e CSharp
+
+## <a name="work-with-code-behind-file-csharp-python-and-r"></a>Trabalhar com o arquivo code-behind: CSharp, Python e R
+
 A Ferramenta Azure Data Lake é compatível com vários códigos personalizados. Veja as instruções em [Desenvolver U-SQL com Python, R e CSharp para o Azure Data Lake Analytics no VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
-## <a name="use-assemblies"></a>Usar assemblies
+## <a name="work-with-assemblies"></a>Trabalhar com assemblies
 
 Para obter informações sobre como desenvolver assemblies, confira [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md) (Desenvolver assemblies U-SQL para trabalhos do Azure Data Lake Analytics).
 
@@ -214,42 +212,80 @@ O código de U-SQL a seguir demonstra como chamar um assembly. No exemplo, o nom
             USING Outputters.Tsv();
 
 
+## <a name="u-sql-local-run-and-local-debug-for-windows-users"></a>Depuração local e execução local do U-SQL para usuários do Windows
+A execução local do U-SQL testa seus dados locais e valida o script localmente, antes que seu código seja publicado no Data Lake Analytics. O recurso de depuração local permite que você conclua as seguintes tarefas antes que seu código seja enviado ao Data Lake Analytics: 
+- Depure o code-behind em C#. 
+- Explore o código. 
+- Valide o script localmente.
+
+Para obter instruções sobre a execução e a depuração local, confira [Execução local do U-SQL e depuração local com o Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
+
+
 ## <a name="connect-to-azure"></a>Conecte-se ao Azure
 
 Antes de compilar e executar scripts U-SQL no Data Lake Analytics, você deve se conectar à sua conta do Azure.
 
-**Para se conectar ao Azure**
+<b id="sign-in-by-command">Para se conectar ao Azure usando comandos</b>
 
 1.  Selecione Ctrl + Shift + P para abrir a paleta de comandos. 
-2.  Digite **ADL: Logon**. As informações de logon são exibidas na área superior.
+2.  Digite **ADL: Logon**. As informações de logon são exibidas na parte inferior direita.
 
-    ![Paleta de comandos das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
-    ![Informações de logon do dispositivo das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3.  Clique em **Copiar e Abrir** para abrir a página da Web de logon com a URL: https://aka.ms/devicelogin. Cole o código **G567LX42V** na caixa de texto e, em seguida, selecione **Continuar**.
+    ![Paleta de comados das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
 
-   ![Ferramentas do Data Lake para Visual Studio Code colar código de logon](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
+    ![Informações de logon do dispositivo Data Lake Tools para Visual Studio](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
+
+3.  Clique em **Copiar e Abrir** para abrir a página da Web de logon com a URL: https://aka.ms/devicelogin. Cole o código na caixa de texto e selecione **Continuar**.
+
+    ![Ferramentas do Data Lake para Visual Studio Code colar código de logon](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )  
+     
 4.  Siga as instruções para entrar na página da Web. Quando você estiver conectado, o nome da conta do Azure será exibido na barra de status no canto inferior esquerdo da janela do **VS Code**. 
 
     > [!NOTE] 
-    >- A ferramenta Data Lake entra automaticamente da próxima vez, caso você tenha entrado anteriormente, mas ainda não tenha feito logout.
+    >- Se você entrou anteriormente, mas não fez logoff, a ferramenta Data Lake entrará automaticamente da próxima vez.
     >- Se sua conta tiver a autenticação por dois fatores habilitada, recomendamos o uso da autenticação por telefone em vez de usar um PIN.
 
 
 Para sair, insira o comando **ADL: Logout**.
 
-## <a name="list-your-data-lake-analytics-accounts"></a>Listar suas contas do Data Lake Analytics
+**Para se conectar ao Azure do explorer**
 
-Para testar a conexão, obtenha uma lista de suas contas do Data Lake Analytics.
+Para entrar pelo explorer, expanda **AZURE DATALAKE**, clique em **Entrar no Azure...**  e siga a etapa 3 e a etapa 4 de [ **Para se conectar ao Azure usando comandos**](#sign-in-by-command).
 
-**Para listar as contas do Data Lake Analytics em sua assinatura do Azure**
+![Conectar ao Azure pelo explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-sign-in-from-explorer.png )  
+
+Você não pode sair do explorer. Para sair, confira [ **Para se conectar ao Azure usando comandos**](#sign-in-by-command).
+
+
+## <a name="create-extract-script"></a>Criar script extract 
+Você pode criar script EXTRACT para arquivos .csv, .tsv, .txt usando o comando **ADL: Criar Script EXTRACT** ou no **AZURE DATALAKE** explorer.
+
+**Para criar script EXTRACT usando comandos**
+
+1. Selecione Ctrl+Shift+P para abrir a paleta de comandos e digite **ADL: Criar Script EXTRACT**.
+2. Especifique o caminho completo para um arquivo do armazenamento do Azure e pressione **Enter**.
+3. Selecione uma conta.
+4. Para o arquivo .txt, selecione um delimitador para extrair o arquivo. 
+
+    ![Criar processo de script extract](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-process.png)
+
+O script extract é gerado com base nas suas entradas. Para o script que não pode detectar as colunas, escolha uma das duas opções. Caso contrário, somente um script será gerado.
+
+![Criar resultado do script extract](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-result.png)
+
+**Para criar o script EXTRACT no explorer**
+
+Outra maneira de criar script EXTRACT é no menu de contexto, clicando com o botão direito do mouse nos arquivos .csv, .tsv, .txt no armazenamento do Data Lake ou no armazenamento de blobs.
+
+![Criar script extract no menu de contexto](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-from-context-menu.png)
+
+## <a name="integrate-with-azure-data-lake-analytics-through-command"></a>Integrar ao Azure Data Lake Analytics usando comandos
+
+Você pode acessar recursos do Azure Data Lake Analytics, incluindo contas da lista, metadados de acesso e exibição de trabalhos de análise. 
+
+**Para listar as contas do Azure Data Lake Analytics em sua assinatura do Azure**
 
 1. Selecione Ctrl + Shift + P para abrir a paleta de comandos.
 2. Insira **ADL: List Accounts**. As contas são exibidas no painel **Saída**.
-
-
-## <a name="access-the-data-lake-analytics-catalog"></a>Acessar o catálogo do Data Lake Analytics
-
-Depois que estiver conectado ao Azure, você poderá usar as seguintes etapas para acessar o catálogo do U-SQL.
 
 **Para acessar os metadados do Azure Data Lake Analytics**
 
@@ -258,9 +294,7 @@ Depois que estiver conectado ao Azure, você poderá usar as seguintes etapas pa
 3.  Selecione um dos bancos de dados do Data Lake Analytics.
 4.  Selecione um dos esquemas. Você pode ver a lista de tabelas.
 
-## <a name="view-data-lake-analytics-jobs"></a>Exibir trabalhos do Data Lake Analytics
-
-**Para exibir trabalhos do Data Lake Analytics**
+**Para exibir trabalhos do Azure Data Lake Analytics**
 1.  Abra a paleta de comandos (Ctrl+Shift+P) e escolha **ADL: Mostrar Trabalhos**. 
 2.  Selecione uma conta do Data Lake Analytics ou local. 
 3.  Aguarde a exibição da lista de trabalhos da conta.
@@ -268,7 +302,7 @@ Depois que estiver conectado ao Azure, você poderá usar as seguintes etapas pa
 
     ![Tipos de objeto do IntelliSense das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
 
-## <a name="azure-data-lake-storage-integration"></a>Integração do Armazenamento do Azure Data Lake
+## <a name="integrate-with-azure-data-lake-storage-through-command"></a>Integrar ao armazenamento do Azure Data Lake usando comandos
 
 Você pode usar comandos relacionados ao Armazenamento do Azure Data Lake:
  - Procure nos recursos do Armazenamento do Azure Data Lake. [Listar caminho de armazenamento](#list-the-storage-path). 
@@ -320,7 +354,7 @@ Ao mesmo tempo, é possível monitorar o [status do carregamento](#check-storage
 
 
 ### <a name="download-file"></a>Fazer download do arquivo 
-É possível baixar os arquivos inserindo os comandos **ADL: Baixar o Arquivo** ou **ADL: Baixar Arquivo (Avançado)**.
+Você pode baixar os arquivos inserindo os comandos **ADL: Baixar Arquivo** ou **ADL: Baixar Arquivo (Avançado)**.
 
 **Para baixar os arquivos por meio do comando ADL: Baixar Arquivo (Avançado)**
 1. Clique com o botão direito do mouse no editor de scripts e, depois, selecione **Baixar Arquivo (Avançado)**.
@@ -353,13 +387,10 @@ O status é exibido na parte inferior da barra de status quando o download e o c
 
    ![Verificar status de armazenamento das Ferramentas do Azure Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
-## <a name="vscode-explorer-integration-with-azure-data-lake"></a>Integração do VSCode Explorer com o Azure Data Lake
 
-**Integração do Azure** 
+## <a name="integrate-with-azure-data-lake-analytics-from-explorer"></a>Integrar ao Azure Data Lake Analytics pelo explorer
 
-- Antes de fazer logon no Azure, sempre é possível expandir **AZURE DATALAKE** e clicar em **Entrar no Azure** para fazer logon no Azure. Após o logon, você verá que todas as assinaturas em sua conta do Azure estão listadas no painel esquerdo do **AZURE DATALAKE**. 
-
-   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
+- Após o logon, você verá que todas as assinaturas em sua conta do Azure estão listadas no painel esquerdo do **AZURE DATALAKE**. 
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
@@ -381,33 +412,33 @@ O status é exibido na parte inferior da barra de status quando o download e o c
 
     ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
 
-**Integração do ADLS** 
+## <a name="integrate-with-azure-data-lake-storage-from-explorer"></a>Integrar ao Armazenamento do Azure Data Lake pelo explorer
 
 Navegue até o **Data Lake Store**
 
- - No nó de pasta, é possível **Atualizar**, **Excluir**, **Fazer upload**, **Fazer upload de pasta**, **Copiar caminho relativo** e **Copiar caminho completo** no menu de contexto com clicar com o botão direito do mouse.
+ - No nó de pasta, você pode **Atualizar**, **Excluir**, **Carregar**, **Carregar Pasta**, **Copiar Caminho Relativo** e **Copiar Caminho Completo** no menu de contexto que aparece após o clique com o botão direito do mouse.
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
- - No nó do arquivo, é possível **Baixar**, **Visualizar**, **Excluir**, **Copiar caminho relativo**, **Copiar caminho completo** no menu de contexto acessado com o botão direito do mouse. 
+- No nó do arquivo, você pode **Visualizar**, **Baixar**, **Excluir**, **Criar Script EXTRACT** (disponível apenas para arquivos CSV, TSV e TXT), bem como **Copiar Caminho Relativo** e **Copiar Caminho Completo** no menu de contexto.
 
-   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+    ![DataLake explorer – extract](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-extract.png)
 
-**Integração ao WASB**
+## <a name="integrate-with-azure-blob-storage-from-explorer"></a>Integrar ao Armazenamento de Blobs do Azure pelo explorer
 
 Navegue até o **Armazenamento de Blobs**
 
-- No nó do contêiner de blobs, é possível **Atualizar**, **Excluir o contêiner de blobs**, **Fazer upload de blobs** no menu de contexto acessado ao clicar com o botão direito do mouse.
+- No nó do contêiner de blobs, você pode **Atualizar**, **Excluir Contêiner de Blobs** e **Carregar Blob** no menu de contexto que aparece após o clique com o botão direito do mouse.
 
     ![Nó do contêiner de blobs do Armazenamento de Blobs](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
 
-- No nó da pasta, é possível **Atualizar**, **Fazer upload de blobs** no menu de contexto acessado ao clicar com o botão direito do mouse.
+- No nó da pasta, você pode **Atualizar** e **Carregar Blob** no menu de contexto que aparece após o clique com o botão direito do mouse.
 
     ![Nó da pasta do Armazenamento de Blobs](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
 
-- No nó do arquivo, é possível **Visualizar/Editar**, **Baixar**, **Excluir**, **Copiar caminho relativo**, **Copiar caminho completo** no menu de contexto acessado ao clicar com o botão direito do mouse.
+- No nó do arquivo, você pode **Visualizar/Editar**, **Baixar**, **Excluir**, **Criar Script EXTRACT** (disponível apenas para arquivos CSV, TSV e TXT), bem como **Copiar Caminho Relativo** e **Copiar Caminho Completo** no menu de contexto.
 
-    ![Nó do arquivo do Armazenamento de Blobs](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
+    ![Criar script extract no menu de contexto](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-from-context-menu-2.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>Abrir o gerenciador de armazenamento ADL no portal
 1. Selecione Ctrl + Shift + P para abrir a paleta de comandos.
@@ -415,14 +446,6 @@ Navegue até o **Armazenamento de Blobs**
 3. Selecione uma conta do Data Lake Analytics.
 
 As Ferramentas do Data Lake abrem o caminho de armazenamento do Azure no Portal do Azure. Você pode encontrar o caminho e visualizar o arquivo na Web.
-
-## <a name="local-run-and-local-debug-for-windows-users"></a>Depuração local e execução local para usuários do Windows
-A execução local do U-SQL testa seus dados locais e valida o script localmente, antes que seu código seja publicado no Data Lake Analytics. O recurso de depuração local permite que você conclua as seguintes tarefas antes que seu código seja enviado ao Data Lake Analytics: 
-- Depure o code-behind em C#. 
-- Explore o código. 
-- Valide o script localmente.
-
-Para obter instruções sobre a execução e a depuração local, confira [Execução local do U-SQL e depuração local com o Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 
 ## <a name="additional-features"></a>Recursos adicionais
 
@@ -450,17 +473,11 @@ As Ferramentas do Data Lake para VS Code dão suporte aos seguintes recursos:
 
     ![Destaques da sintaxe das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
-   >[!NOTE]
-   >Na preparação para a nova Regulação de Proteção a Dados Gerais (GDPR) que entra em vigor em 25 de maio de 2018, é recomendável que os usuários do Azure Data Lake Tools para Visual Studio Code atualizem para a versão 0.2.13 ou posterior. Esta versão inclui alterações com base nos requisitos de proteção de dados mais recentes. Observe que as versões anteriores não estão disponíveis para fazer o download e foram preteridas. 
- 
+   > [!NOTE]
+   > A Microsoft recomenda que você atualize para a versão 2.3.3000.4 ou posterior das Ferramentas do Azure Data Lake para Visual Studio. As versões anteriores não estão disponíveis para download e foram preteridas.  
    
 ## <a name="next-steps"></a>Próximas etapas
 - [Desenvolver U-SQL com Python, R e CSharp para Azure Data Lake Analytics no VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [Execução local e depuração local do U-SQL com o Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
 - [Tutorial: Introdução ao Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)
 - [Tutorial: Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-- [Desenvolver assemblies do U-SQL para trabalhos do Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md)
-
-
-
-

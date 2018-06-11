@@ -5,21 +5,17 @@ keywords: Perguntas de banco de dados, perguntas frequentes, documentdb, azure, 
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e20e360fc1bfb839476a1f4dccf6acf0f25174d2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771228"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735157"
 ---
 # <a name="azure-cosmos-db-faq"></a>Perguntas frequentes do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceitos básicos do Azure Cosmos DB
@@ -62,6 +58,9 @@ Não há limite para a quantidade total de dados que um contêiner pode armazena
 
 ### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>Quais são os limites de produtividade do Azure Cosmos DB?
 Não há limite para a quantidade total de produtividade para a qual um contêiner dá suporte no Azure Cosmos DB. A ideia principal é distribuir sua carga de trabalho aproximadamente de forma uniforme entre um número suficientemente grande de chaves de partição.
+
+### <a name="are-direct-and-gateway-connectivity-modes-encrypted-"></a>Os modos de conectividade Direta e Gateway são criptografados? 
+Sim, ambos os modos estão sempre totalmente criptografados. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Quanto custa o Azure Cosmos DB?
 Para obter detalhes, consulte a página [Detalhes de preço do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Os encargos pelo uso do Azure Cosmos DB são determinados pelo número de contêineres provisionados, pelo número de horas em que os contêineres estavam online e pela produtividade provisionada de cada contêiner. O termo *contêineres* refere-se aqui à coleção de API do SQL, grafo de API do Graph, coleção de API do MongoDB e tabelas de API de Tabela. 
@@ -165,6 +164,10 @@ Você pode fazer a inserção em massa documentos no Azure Cosmos DB de uma das 
 * A ferramenta de migração de dados, conforme descrito em [Ferramenta de migração de banco de dados para o Azure Cosmos DB](import-data.md).
 * Procedimentos armazenados, conforme descrito em [Programação de JavaScript do lado do servidor para o Azure Cosmos DB](programming.md).
 
+### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Configurei minha coleção para usar a indexação lenta e vejo que minhas consultas não retornam os resultados esperados. 
+Conforme explicado na seção de indexação, a indexação lenta pode resultar nesse comportamento. Você sempre deve usar indexação consistente para todos os aplicativos. 
+
+
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>A API do SQL dá suporte ao cache de link de recursos?
 Sim. Como o Azure Cosmos DB é um serviço RESTful, os links de recursos são imutáveis e podem ser armazenados em cache. Os clientes da API do SQL podem especificar um cabeçalho “If-None-Match” para leituras em qualquer documento semelhante a recurso ou coleção e atualizar suas cópias após a versão do servidor ser alterada.
 
@@ -172,7 +175,12 @@ Sim. Como o Azure Cosmos DB é um serviço RESTful, os links de recursos são im
 Sim. O [Emulador do Azure Cosmos DB](local-emulator.md) fornece uma emulação de alta fidelidade do serviço Cosmos DB. Ele dá suporte a uma funcionalidade idêntica ao Azure Cosmos DB, incluindo suporte para criar e consultar documentos JSON, provisionar e dimensionar coleções, bem como executar procedimentos armazenados e gatilhos. Você pode desenvolver e testar aplicativos usando o Emulador do Azure Cosmos DB e implanta-los no Azure em escala global fazendo uma única alteração de configuração no ponto de extremidade de conexão do Azure Cosmos DB.
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Por que os valores de ponto flutuante longos em um documento são arredondados quando exibidos no Data Explorer no portal. 
-Esta é a limitação do JavaScript. O JavaScript usa números de formato de ponto flutuante de precisão dupla conforme especificado em IEEE 754 e pode representar, com segurança, números entre -(253 - 1) e 253 – 1 (isto é, 9007199254740991) apenas.
+Esta é a limitação do JavaScript. O JavaScript usa números de formato de ponto flutuante de precisão dupla conforme especificado em IEEE 754 e pode representar, com segurança, apenas números entre -(253 - 1) e 253-1 (isto é, 9007199254740991).
+
+### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Onde as permissões são permitidas na hierarquia do objeto?
+
+A criação de permissões usando ResourceTokens é permitida no nível da coleção e seus descendentes (como documentos, anexos). Isso implica que, no momento, tentar criar uma permissão no nível do banco de dados ou da conta não é permitido.
+
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Desenvolver com a API para o MongoDB
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>O que é a API do Azure Cosmos DB para MongoDB?
@@ -233,8 +241,8 @@ Particularmente para o SDK do .NET em, há algumas classes e métodos para os qu
 
 | Classe | Método sem suporte |
 |-------|-------- |
-| CloudTableClient | \*ServiceProperties\* |
-|                  | \*ServiceStats\* |
+| CloudTableClient | \*ServiceProperties* |
+|                  | \*ServiceStats* |
 | CloudTable | SetPermissions* |
 |            | GetPermissions* |
 | TableServiceContext | * (essa classe é, na verdade, preterida) |
@@ -306,7 +314,7 @@ Sim, há suporte para a mesma API.
 Não, você pode criar e usar os ativos de armazenamento da Tabela do Azure sem nenhum tipo de interrupção. No entanto, se você não usar a API de Tabela, não poderá se beneficiar do índice automático, da opção de consistência adicional ou da distribuição global. 
 
 ### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-multiple-regions-of-azure"></a>Como faço para adicionar a replicação dos dados na API de Tabela em várias regiões do Azure?
-Você pode usar as [configurações de replicação global](tutorial-global-distribution-sql-api.md#portal) do portal do Azure Cosmos DB para adicionar regiões que são adequadas para seu aplicativo. Para desenvolver um aplicativo distribuído globalmente, você deve também adicionar seu aplicativo com as informações de PreferredLocation definidas como a região local, a fim de fornecer uma baixa latência de leitura. 
+Você pode usar as [configurações de replicação global](tutorial-global-distribution-sql-api.md#portal) do portal do Azure Cosmos DB para adicionar regiões que servem para o aplicativo. Para desenvolver um aplicativo distribuído globalmente, você deve também adicionar seu aplicativo com as informações de PreferredLocation definidas como a região local, a fim de fornecer uma baixa latência de leitura. 
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>Como faço para alterar a região de gravação primária da conta na API de Tabela?
 Você pode usar o painel do portal de replicação global do Azure Cosmos DB para adicionar uma região e, em seguida, fazer failover para a região desejada. Para obter instruções, consulte [Desenvolvendo com contas em várias regiões do Azure Cosmos DB](regional-failover.md). 

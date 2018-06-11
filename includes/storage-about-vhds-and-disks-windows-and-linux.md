@@ -2,24 +2,23 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: storage
-author: tamram
+author: rogara
 ms.service: storage
 ms.topic: include
 ms.date: 04/09/2018
-ms.author: tamram
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b8b61f2a512cca2a88274b93d04a1fdc8893a88f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f64645db782b055e1c544f257149411f29fc99d7
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34222906"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806308"
 ---
 ## <a name="about-vhds"></a>Sobre VHDs
-
 Os VHDs usados no Azure são arquivos .vhd armazenados como blobs de página em uma conta de armazenamento padrão ou premium no Azure. Para conhecer mais detalhes sobre os blobs, consulte [Noções Gerais sobre blobs de blocos e blobs de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Para obter detalhes sobre o armazenamento premium, veja [Armazenamento premium de alto desempenho e máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
 
-O Azure dá suporte aos discos fixos no formato VHD. O formato fixo dispõe o disco lógico linearmente dentro do arquivo, de forma que o deslocamento X do disco é armazenado no deslocamento X do blob. Um pequeno rodapé ao final do blob descreve as propriedades do VHD. Frequentemente, o formato fixo desperdiça espaço, porque muitos discos têm em si grandes intervalos não usados. No entanto, o Azure armazena arquivos .vhd em um formato livre, assim você obtém os benefícios de discos fixos e dinâmicos ao mesmo tempo. Para obter mais detalhes, consulte [Introdução aos discos rígidos virtuais](https://technet.microsoft.com/library/dd979539.aspx).
+O Azure dá suporte aos discos fixos no formato VHD. O formato fixo dispõe o disco lógico linearmente dentro do arquivo, de forma que o deslocamento X do disco é armazenado no deslocamento X do blob. Um pequeno rodapé ao final do blob descreve as propriedades do VHD. Frequentemente, o formato fixo desperdiça espaço, porque muitos discos têm em si grandes intervalos não usados. No entanto, o Azure armazena arquivos .vhd em um formato livre, assim você obtém os benefícios de discos fixos e dinâmicos ao mesmo tempo. Para saber mais, confira [Introdução aos discos rígidos virtuais](https://technet.microsoft.com/library/dd979539.aspx).
 
 Todos os arquivos VHD no Azure que você deseja usar como uma fonte para criar discos ou imagens são somente para leitura, exceto os arquivos. vhd carregados ou copiados para o Armazenamento do Azure pelo usuário (que pode ser leitura/gravação ou somente leitura). Quando você cria um disco ou uma imagem, o Azure faz cópias dos arquivos .vhd da fonte. Essas cópias podem ser somente leitura ou de leitura e gravação, dependendo de como você usar o VHD.
 
@@ -31,44 +30,39 @@ Antes de excluir um arquivo .vhd de origem, você precisará remover a concessã
 > Se você excluir um arquivo .vhd de origem do armazenamento ou excluir sua conta de armazenamento, a Microsoft não poderá recuperar esses dados para você.
 
 ## <a name="types-of-disks"></a>Tipos de discos 
-
 Os Discos do Azure foram projetados para oferecer uma disponibilidade de 99,999%. Os Discos do Azure forneceram consistentemente a durabilidade no nível empresarial, com uma Taxa de Falha Anual de ZERO% líder do setor.
 
-Há dois níveis de desempenho de armazenamento que você pode escolher ao criar seus discos – armazenamento Standard e Premium. Além disso, há dois tipos de discos--não gerenciado e gerenciado – e podem residir em qualquer nível de desempenho.
+Há três níveis de desempenho a escolher para o armazenamento na hora de criar seus discos: discos SSD Premium, SSD Standard (Versão prévia) e armazenamento HDD Standard. Além disso, há dois tipos de discos: não gerenciados e gerenciados.
 
+### <a name="standard-hdd-disks"></a>Discos HDD Standard
+Os discos HDD Standard tem o apoio de HDDs e apresentam armazenamento com bom custo-benefício. O armazenamento HDD padrão pode ser replicado localmente em um datacenter ou ser redundante geograficamente com centros de dados primários e secundários. Para saber mais sobre a replicação de armazenamento, confira [Replicação do Armazenamento do Azure](../articles/storage/common/storage-redundancy.md). 
 
-### <a name="standard-storage"></a>Armazenamento Standard 
+Para saber mais sobre como usar discos HDD Standard, confira [Armazenamento e discos Standard](../articles/virtual-machines/windows/standard-storage.md).
 
-Armazenamento padrão é apoiado por HDDs e oferece armazenamento econômico e eficaz. Armazenamento padrão pode ser replicado localmente em um data center ou ser redundante geograficamente com centros de dados primários e secundários. Para saber mais sobre a replicação de armazenamento, veja [Replicação do Armazenamento do Azure](../articles/storage/common/storage-redundancy.md). 
+### <a name="standard-ssd-disks-preview"></a>Discos SSD Standard (versão prévia)
+Discos SSD Standard são projetados para o mesmo tipo de cargas de trabalho dos discos HDD Standard, mas oferecem desempenho e confiabilidade mais consistentes do que o HDD. Os discos SSD Standard combinam elementos dos discos SSD Premium e HDD Standard para formar uma solução com bom custo-benefício mais adequada a usos como servidores Web que não precisam de IOPS alto nos discos. Quando disponíveis, os discos SSD Standard são a opção de implantação recomendada para a maioria das cargas de trabalho. Os discos SSD Standard só estão disponíveis como discos gerenciados e, durante a versão prévia, só estão disponíveis em [determinadas regiões](../articles/virtual-machines/windows/faq-for-disks.md) e com o tipo de resiliência LRS (armazenamento com redundância local).
 
-Para saber mais sobre como usar o armazenamento Standard com discos de VM, veja [Armazenamento Standard e discos](../articles/virtual-machines/windows/standard-storage.md).
-
-### <a name="premium-storage"></a>Armazenamento Premium 
-
-O Armazenamento Premium tem o suporte de SSDs e oferece suporte de disco de alto desempenho e baixa latência para VMs executando cargas de trabalho intensivas para entradas e saídas. Normalmente você pode usar o armazenamento Premium com tamanhos que incluem um "s" no nome da série. Por exemplo, há a série de Dv3 e a série Dsv3, a série Dsv3 pode ser usada com o Armazenamento Premium.  Para saber mais, veja [Armazenamento Premium](../articles/virtual-machines/windows/premium-storage.md).
+### <a name="premium-ssd-disks"></a>Discos SSD Premium 
+O Armazenamento Premium tem o suporte de SSDs e dá suporte de disco de alto desempenho e baixa latência a VMs executando cargas de trabalho intensivas para entradas e saídas. Normalmente você pode usar os discos SSD Premium com tamanhos que incluem um "s" no nome da série. Por exemplo, há a série de Dv3 e a série Dsv3; a série Dsv3 pode ser usada com discos SSD Premium.  Para saber mais, veja [Armazenamento Premium](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Discos não gerenciados
-
-Discos não gerenciados são do tipo tradicional de discos que foram usados por máquinas virtuais. Com isso, você cria sua própria conta de armazenamento e especifique a conta de armazenamento quando você criar o disco. Você precisa certificar-se de não colocar muitos discos na mesma conta de armazenamento, pois você pode exceder o [metas de escalabilidade](../articles/storage/common/storage-scalability-targets.md) da conta de armazenamento (20.000 IOPS, por exemplo), resultando em máquinas virtuais sendo limitadas. Com discos não gerenciados, você precisa descobrir como maximizar o uso de uma ou mais contas de armazenamento para obter o melhor desempenho do suas VMs.
+Discos não gerenciados são do tipo tradicional de discos que foram usados por máquinas virtuais. Com esses discos, você cria sua própria conta de armazenamento e especifica essa conta de armazenamento ao criar o disco. Não coloque muitos discos na mesma conta de armazenamento, pois você pode exceder as [metas de escalabilidade](../articles/storage/common/storage-scalability-targets.md) da conta de armazenamento (20.000 IOPS, por exemplo), resultando na limitação das máquinas virtuais. Com discos não gerenciados, você precisa descobrir como maximizar o uso de uma ou mais contas de armazenamento para obter o melhor desempenho do suas VMs.
 
 ### <a name="managed-disks"></a>Discos gerenciados 
+Gerenciado identificadores de discos de armazenamento de criação/gerenciamento em segundo plano de contas para você e garante que você não precisa se preocupar sobre os limites de escalabilidade da conta de armazenamento. Você simplesmente especifica o tamanho do disco e o nível de desempenho (Standard/Premium) e o Azure cria e gerencia o disco para você. À medida que você adiciona discos ou dimensiona a VM para cima e para baixo, não é preciso se preocupar com o armazenamento que está sendo usado. 
 
-Gerenciado identificadores de discos de armazenamento de criação/gerenciamento em segundo plano de contas para você e garante que você não precisa se preocupar sobre os limites de escalabilidade da conta de armazenamento. Você simplesmente especifica o tamanho do disco e o nível de desempenho (Standard/Premium) e o Azure cria e gerencia o disco para você. Mesmo que você adicione discos ou dimensionar a VM para cima e para baixo, você não precisa se preocupar sobre o armazenamento está sendo usado. 
-
-Você também pode gerenciar suas imagens personalizadas em uma conta de armazenamento por região do Azure e usá-las para criar centenas de VMs na mesma assinatura. Para saber mais sobre discos gerenciados, veja a [Visão geral de discos gerenciados](../articles/virtual-machines/windows/managed-disks-overview.md).
+Você também pode gerenciar suas imagens personalizadas em uma conta de armazenamento por região do Azure e usá-las para criar centenas de VMs na mesma assinatura. Para saber mais sobre os Managed Disks, confira a [Visão geral dos Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 É recomendável que você use Azure Managed Disks para novas VMs e converta os discos não gerenciados anteriores para discos gerenciados, para tirar proveito dos muitos recursos disponíveis nos Managed Disks.
 
 ### <a name="disk-comparison"></a>Comparação de disco
+A tabela a seguir fornece uma comparação do HDD Standard, do SSD Standard e do SSD Premium para discos gerenciados e não gerenciados, para que você possa decidir o que usar.
 
-A tabela a seguir fornece uma comparação do vs Premium padrão para discos gerenciados e não para ajudá-lo a decidir o que usar.
-
-|    | Disco Premium do Azure | Disco padrão do Azure |
-|--- | ------------------ | ------------------- |
-| Tipo de disco | Unidades de Estado Sólido (SSD) | Unidades de Disco Rígido (HDD)  |
-| Visão geral  | Suporte a disco com base em SSD de alto desempenho e baixa latência, para máquinas virtuais executando cargas de trabalho com uso intensivo de E/S ou hospedando ambiente de produção de missão crítica | Suporte a disco econômico com base em HDD para cenários de VM de desenvolvimento/teste |
-| Cenário  | Cargas de trabalho confidenciais produção e desempenho | Desenvolvimento e teste, não-crítico, <br>Acesso infrequente |
-| Tamanho do disco | P4: 32 GB (somente para discos gerenciados)<br>P6: 64 GB (somente para discos gerenciados)<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: GB 4095 | Discos não Gerenciados: 1 GB a 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: GB 4095| 
-| Taxa de Transferência Máxima por Disco | 250 MB/s | 60 MB/s | 
-| IOPS Máxima por Disco | 7500 IOPS | 500 IOPS | 
-
+|    | Disco Premium do Azure |Disco SSD Standard do Azure (versão prévia)| Disco HDD Standard do Azure 
+|--- | ------------------ | ------------------------------- | ----------------------- 
+| Tipo de disco | Unidades de Estado Sólido (SSD) | Unidades de Estado Sólido (SSD) | Unidades de Disco Rígido (HDD)  
+| Visão geral  | Suporte a disco com base em SSD de alto desempenho e baixa latência, para máquinas virtuais executando cargas de trabalho com uso intensivo de E/S ou hospedando ambiente de produção de missão crítica |Desempenho e confiabilidade mais consistentes do que com HDD. Otimizado para cargas de trabalho com baixo IOPS| Disco econômico baseado em HDD para acesso não frequente
+| Cenário  | Cargas de trabalho confidenciais produção e desempenho |Servidores Web, aplicativos corporativos pouco utilizados e Desenvolvimento/Teste| Backup, não crítico, acesso não frequente 
+| Tamanho do disco | P4: 32 GB (somente Managed Disks)<br>P6: 64 GB (somente Managed Disks)<br>P10: 128 GiB<br>P15: 256 GB (somente Managed Disks)<br>P20: 512 GiB<br>P30: 1024 GiB<br>P40: 2048 GiB<br>P50: 4095 GiB |Somente Managed Disks:<br>E10: 128 GiB<br>E15: 256 GiB<br>E20: 512 GiB<br>E30: 1024 GiB<br>E40: 2048 GiB<br>E50: 4095 GiB | Discos não gerenciados: 1 GiB – 4 TiB (4095 GiB) <br><br>Managed Disks:<br> S4: 32 GiB <br>S6: 64 GiB <br>S10: 128 GiB <br>S15: 256 GiB <br>S20: 512 GiB <br>S30: 1024 GiB <br>S40: 2048 GiB<br>S50: 4095 GiB
+| Taxa de Transferência Máxima por Disco | 250 MiB/s | Até 60 MiB/s | Até 60 MiB/s 
+| IOPS Máxima por Disco | 7500 IOPS | Até 500 IOPS | Até 500 IOPS 
