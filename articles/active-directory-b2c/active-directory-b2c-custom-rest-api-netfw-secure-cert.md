@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: proteger seu serviço RESTful usando certificados do cliente'
+title: Proteger seu serviço RESTful usando certificados do cliente no Azure Active Directory B2C | Microsoft Docs
 description: Proteja suas trocas de declarações da API REST personalizadas no Azure AD B2C usando certificados do cliente
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: fb5c8a48a676a2909cce3c4d126218e48a4c8ce2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 004577ead56befce02771b82ace088706e8f0c3c
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709199"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger seu serviço RESTful usando certificados do cliente
 
@@ -74,7 +74,7 @@ Depois de definir `clientCertEnabled` como *true*, a comunicação com a API RES
 
     ![Carregar chave de política](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
 
-7. Selecione **Criar**.
+7. Clique em **Criar**.
 
 8. Para exibir as chaves disponíveis no seu locatário e confirmar que você criou a chave `B2C_1A_B2cRestClientCertificate`, selecione **Chaves de política**.
 

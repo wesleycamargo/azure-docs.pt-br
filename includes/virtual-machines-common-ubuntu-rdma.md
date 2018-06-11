@@ -26,8 +26,10 @@
 4. Instalar a Intel MPI Library. [Comprar e baixe](https://software.intel.com/intel-mpi-library/) a biblioteca da Intel ou baixe a [versão de avaliação gratuita](https://registrationcenter.intel.com/en/forms/?productid=1740).
 
   ```bash
- wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/11595/l_mpi_2017.3.196.tgz
+ wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
    ```
+ 
+ Há suporte apenas para tempos de execução MPI Intel 5.x.
  
  Para saber as etapas de instalação, consulte o [Guia de instalação da Intel MPI Library](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 

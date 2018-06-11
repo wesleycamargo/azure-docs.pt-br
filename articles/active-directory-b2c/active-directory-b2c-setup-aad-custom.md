@@ -1,25 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: adicionar um provedor do Azure AD usando políticas personalizadas | Microsoft Docs'
-description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C
+title: Adicionar um provedor do Azure AD usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 31f0dfe5-1ad0-4a25-a53b-8acc71bcea72
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: parakhj
-ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: 9d010564aadcb6ea33312b7fb40854cfd0a97f1a
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140216"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709233"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: entrar usando contas do Azure AD
 
@@ -76,7 +72,7 @@ Você precisa armazenar a chave do aplicativo de contoso.com em seu locatário d
    * Para o **Nome**, escolha um nome que corresponda ao nome do locatário do Azure AD (por exemplo, `ContosoAppSecret`).  O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
    * Cole a chave do aplicativo na caixa de texto **Segredo**.
    * Selecione **Assinatura**.
-1. Selecione **Criar**.
+1. Clique em **Criar**.
 1. Confirme que você criou a chave `B2C_1A_ContosoAppSecret`.
 
 

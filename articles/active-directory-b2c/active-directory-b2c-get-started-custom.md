@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: introdução às políticas personalizadas | Microsoft Docs'
-description: Como começar a usar as políticas personalizadas do Azure Active Directory B2C
+title: Introdução às políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Como começar a usar as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 502f88bd08c05f71988763fedeba4d596aa409b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 8ff69942971950e2d4a274e7d3502379a26326c7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709284"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introdução às políticas personalizadas
 
@@ -42,7 +42,7 @@ Antes de prosseguir, verifique se você tem um locatário do Azure AD B2C, que �
     d. Para o **Tipo de chave**, use **RSA**.<br>
     e. Para as **Datas**, use os padrões. <br>
     f. Para o **Uso da chave**, use **Assinatura**.<br>
-    g. Selecione **Criar**.<br>
+    g. Clique em **Criar**.<br>
 4. Crie a B2C_1A_TokenEncryptionKeyContainer, se não existir:<br>
  a. Selecione **Adicionar**.<br>
  b. Selecione **Gerar**.<br>
@@ -51,7 +51,7 @@ Antes de prosseguir, verifique se você tem um locatário do Azure AD B2C, que �
  d. Para o **Tipo de chave**, use **RSA**.<br>
  e. Para as **Datas**, use os padrões.<br>
  f. Para o **Uso da chave**, use **Criptografia**.<br>
- g. Selecione **Criar**.<br>
+ g. Clique em **Criar**.<br>
 5. Crie o B2C_1A_FacebookSecret. <br>
 Se você já tiver um segredo do aplicativo Facebook, adicione-o como uma chave de política para o seu locatário. Caso contrário, você deve criar a chave com um valor de espaço reservado para que suas políticas passem na validação.<br>
  a. Selecione **Adicionar**.<br>
@@ -78,7 +78,7 @@ O Azure AD B2C exige o registro de dois aplicativos adicionais que são usados p
    * Para o **Nome**, use `IdentityExperienceFramework`.
    * Para o **Tipo de aplicativo**, use **Aplicativo Web/API**.
    * Para a **URL de Entrada**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, em que `yourtenant` é o nome de domínio do seu locatário do Azure AD B2C.
-5. Selecione **Criar**.
+5. Clique em **Criar**.
 6. Depois de concluir, selecione o aplicativo recém-criado **IdentityExperienceFramework**.<br>
    * Selecione **Propriedades**.<br>
    * Copie a ID do aplicativo e salve-a para mais tarde.
@@ -90,7 +90,7 @@ O Azure AD B2C exige o registro de dois aplicativos adicionais que são usados p
    * Para o **Nome**, use `ProxyIdentityExperienceFramework`.
    * Para o **Tipo de aplicativo**, use **Nativo**.
    * Para a **URI de Redirecionamento**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, em que `yourtenant` é o seu locatário do Azure AD B2C.
-1. Selecione **Criar**.
+1. Clique em **Criar**.
 1. Depois de ele ter sido criado, selecione o aplicativo **ProxyIdentityExperienceFramework**.<br>
    * Selecione **Propriedades**. <br>
    * Copie a ID do aplicativo e salve-a para mais tarde.

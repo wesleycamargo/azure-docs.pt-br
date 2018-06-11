@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: personalizar a interface do usuário do Azure AD B2C dinamicamente usando políticas personalizadas'
+title: Personalizar a interface do usuário do Azure AD B2C dinamicamente usando políticas personalizadas | Microsoft Docs
 description: Dar suporte a várias experiências de identidade visual com conteúdo HTML5/CSS que muda dinamicamente no tempo de execução.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 77f6ae1df8a364eecc5e7d6d6fe3a07dd215ac16
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: d01f7b884e03bb311350c508dc46f699cd6717c0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709335"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas
 
@@ -181,7 +181,7 @@ Localize o `<img>` elemento que contém o `ID` valor *background_background_imag
     * Insira a URL ou URLs das quais você deseja que as chamadas JavaScript venham.
     * Insira um asterisco ( * ) para especificar que todos os domínios de origem são aceitos.
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
     ![A janela CORS](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
 

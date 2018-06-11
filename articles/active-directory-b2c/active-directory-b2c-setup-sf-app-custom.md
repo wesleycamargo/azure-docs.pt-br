@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: adicionando um provedor SAML do Salesforce usando políticas personalizadas | Microsoft Docs'
+title: Adicionando um provedor SAML do Salesforce usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
 description: Saiba mais sobre como criar e gerenciar políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: davidmu
-ms.openlocfilehash: 1ccf5c58eab9df9016224a91ddda952a05457e2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: f4399730755c15fe5e171bf7fd5826c2b7ffea0a
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709641"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: entrar usando contas do Salesforce via SAML
 

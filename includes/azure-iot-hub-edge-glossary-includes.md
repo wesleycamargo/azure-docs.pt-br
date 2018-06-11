@@ -1,3 +1,6 @@
+## <a name="automatic-device-management"></a>Gerenciamento de Dispositivo Automático
+O gerenciamento automático do dispositivo no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de grande frotas de dispositivos sobre a totalidade de seu ciclo de vida. Com o gerenciamento automático do dispositivo, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e permitir que o Hub IoT atualize dispositivos sempre que entrem no escopo.  Consiste em [configurações de dispositivo automáticas](/articles/iot-hub/iot-hub-auto-device-config.md) e [implantações automáticas do IoT Edge](/articles/iot-edge/how-to-deploy-monitor.md).
+
 ## <a name="iot-edge"></a>IoT Edge
 O Azure IoT Edge permite a implantação orientada a nuvem do código específico da solução e de serviços do Azure para dispositivos locais. Os dispositivos IoT Edge podem agregar dados de outros dispositivos para realizar a computação e a análise antes de os dados serem enviados para a nuvem. Para obter mais informações, consulte [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/).
 
@@ -7,8 +10,8 @@ A parte do tempo de execução do IoT Edge responsável por implantar e monitora
 ## <a name="iot-edge-device"></a>Dispositivo IoT Edge
 Os dispositivos IoT Edge têm o tempo de execução do IoT Edge instalado e são sinalizados como “dispositivo IoT Edge” nos detalhes do dispositivo. Saiba como [implantar o Azure IoT Edge em um dispositivo simulado no Linux – versão prévia](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux).
 
-## <a name="iot-edge-deployment"></a>Implantação do IoT Edge
-Uma implantação do IoT Edge configura um conjunto de destino de dispositivos IoT Edge para executar um conjunto de módulos do IoT Edge. Cada implantação continuamente garante que todos os dispositivos que correspondem à sua condição de destino estejam executando o conjunto de módulos especificado, mesmo quando novos dispositivos são criados ou modificados para corresponder à condição de destino. Cada dispositivo IoT Edge recebe apenas a implantação de prioridade mais alta cuja condição de destino ele atende. Saiba mais sobre a [implantação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+## <a name="iot-edge-automatic-deployment"></a>Implantação automática do IoT Edge
+Uma implantação automática do IoT Edge configura um conjunto de destino de dispositivos IoT Edge para executar um conjunto de módulos do IoT Edge. Cada implantação continuamente garante que todos os dispositivos que correspondem à sua condição de destino estejam executando o conjunto de módulos especificado, mesmo quando novos dispositivos são criados ou modificados para corresponder à condição de destino. Cada dispositivo IoT Edge recebe apenas a implantação de prioridade mais alta cuja condição de destino ele atende. Saiba mais sobre [implantação automática do IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
 ## <a name="iot-edge-deployment-manifest"></a>Manifesto de implantação do IoT Edge
 Um documento Json que contém as informações a serem copiadas em um ou mais módulos gêmeos de dispositivos IoT Edge para implantar um conjunto de módulos, rotas e propriedades desejadas do módulo associado.
