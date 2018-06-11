@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: proteger seus serviços RESTful usando autenticação básica HTTP'
-description: Proteger suas trocas de declarações da API REST personalizadas no Azure AD B2C usando a autenticação básica HTTP
+title: Proteger seus serviços RESTful usando autenticação básica HTTP no Azure Active Directory B2C | Microsoft Docs
+description: Proteger suas trocas de declarações da API REST personalizadas no Azure AD B2C usando a autenticação básica HTTP.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 749157d16c1c394b173545dddb8751d58fdcfd56
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 18aeeef1aa2ef322f78e7e10118464d542926e59
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709787"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteja seus serviços RESTful usando a autenticação básica HTTP
 
@@ -239,7 +239,7 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
 
 7. Para o **Uso da chave**, selecione **Segredo**.
 
-8. Selecione **Criar**.
+8. Clique em **Criar**.
 
 9. Confirme que você criou a chave `B2C_1A_B2cRestClientId`.
 
@@ -259,7 +259,7 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
 
 7. Para o **Uso da chave**, selecione **Segredo**.
 
-8. Selecione **Criar**.
+8. Clique em **Criar**.
 
 9. Confirme que você criou a chave `B2C_1A_B2cRestClientSecret`.
 

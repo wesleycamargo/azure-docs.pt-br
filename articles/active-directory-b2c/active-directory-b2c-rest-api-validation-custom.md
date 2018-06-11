@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Trocas de declarações da API REST como validação | Microsoft Docs'
-description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
+title: Trocas de declarações da API REST como validação no Azure Active Directory B2C | Microsoft Docs
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: davidmu
-ms.openlocfilehash: 31ed69b669a92ad38c4ab7b2f54886e4ed6acf42
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 2c8b676ffff0f95a0966bfe18ce171de888265b9
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709165"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação na entrada do usuário
 

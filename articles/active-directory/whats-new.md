@@ -10,19 +10,20 @@ featureFlags:
 - clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/25/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b7ad535976508cb195991c374995b0a0b6e45e10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d0554aacf3f81231d9a09f1b20115fcf268f29af
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159861"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34713959"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -40,6 +41,286 @@ O Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os
 -   Planos de alterações
 
 Esta página é atualizada mensalmente; portanto, visite-a regularmente.
+
+
+## <a name="may-2018"></a>Maio de 2018
+ 
+
+
+### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>APIs do Microsoft Graph para cenários administrativos dos termos de uso
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** Termos de Uso  
+**Funcionalidade do produto:** experiência de desenvolvedor
+ 
+
+ Adicionamos APIs do Microsoft Graph API para a operação administrativa dos Termos de Uso do Azure AD. Você pode criar, atualizar e excluir o objeto Termos de Uso.
+
+---
+ 
+
+
+### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>Adicionar ponto de extremidade multilocatário do Azure AD como um provedor de identidade no Azure AD B2C
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** B2C - gerenciamento de identidades de consumidor  
+**Funcionalidade do produto:** B2B/B2C
+ 
+
+Agora, usando políticas personalizadas, você pode adicionar o ponto de extremidade comum do Azure AD como um provedor de identidade no Azure AD B2C. Isso permite que você tenha um único ponto de entrada para todos os usuários do Azure AD que estão entrando em seus aplicativos. Para saber mais, confira [Azure Active Directory B2C: Permitir que os usuários entrem em um provedor de identidade multilocatário do Azure AD usando políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom).
+
+ 
+
+---
+
+
+### <a name="use-internal-urls-to-access-apps-from-anywhere-with-our-my-apps-sign-in-extension-and-the-azure-ad-application-proxy"></a>Use URLs internas para acessar os aplicativos de qualquer lugar com nossa Extensão de Entrada Meus Aplicativos e o Proxy de Aplicativo do Azure AD
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** Meus Aplicativos  
+**Funcionalidade do produto:** SSO
+ 
+
+Os usuários agora podem acessar aplicativos por meio de URLs internas, mesmo de fora da rede corporativa, usando a Extensão Logon Protegido dos Meus aplicativos para Azure AD. Isso funcionará com qualquer aplicativo que você tenha publicado usando o Proxy de Aplicativo do Azure AD, em qualquer navegador que também tenha a extensão de navegador do Painel de Acesso instalada. A funcionalidade de redirecionamento de URL é habilitada automaticamente quando um usuário faz logon na extensão. A extensão está disponível para download no [Edge](https://go.microsoft.com/fwlink/?linkid=845176), no [Chrome](https://go.microsoft.com/fwlink/?linkid=866367) e no [Firefox](https://go.microsoft.com/fwlink/?linkid=866366).
+ 
+
+---
+ 
+
+
+### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Veja autenticações herdadas por meio dos logs de atividades de Entradas
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** relatórios  
+**Funcionalidade do produto:** monitoramento e relatórios
+ 
+
+Com a introdução de um campo chamado **Aplicativo Cliente** nos logs de atividades de entrada, os clientes agora podem ver os usuários que estão usando autenticações herdadas. Os clientes poderão acessar essas informações usando a API do MS Graph de entradas ou por meio dos logs de atividades de entrada no portal do Azure AD, onde você pode usar o controle **Aplicativo Cliente** para filtrar as autenticações herdadas. Confira a documentação para obter mais detalhes.
+ 
+
+---
+ 
+
+### <a name="azure-active-directory---data-in-europe-for-europe-customers"></a>Azure Active Directory – Dados na Europa para clientes europeus
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** outro  
+**Funcionalidade do produto:** GoLocal
+ 
+
+Os clientes na Europa exigem que seus dados permaneçam na Europa e não sejam replicados fora de datacenters europeus para o cumprimento da legislação europeia sobre privacidade. Este [artigo](https://go.microsoft.com/fwlink/?linkid=872328) fornece detalhes específicos sobre quais informações de identidade serão armazenadas na Europa e também sobre as informações que serão armazenadas fora dos datacenters europeus. 
+
+ 
+
+---
+ 
+
+### <a name="new-user-provisioning-saas-app-integrations---may-2018"></a>Novo usuário provisionando integrações de aplicativo SaaS – maio de 2018
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** provisionamento de aplicativos  
+**Funcionalidade do produto:** integração de terceiros
+ 
+
+O Azure AD permite que você automatize a criação, a manutenção e a remoção de identidades de usuário em aplicativos SaaS, como Dropbox, Salesforce, ServiceNow e muito mais. Em maio de 2018, adicionamos suporte ao provisionamento de usuários para os seguintes aplicativos na Galeria de aplicativo do Azure AD:
+
+- [BlueJeans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-bluejeans-provisioning-tutorial)
+
+- [Cornerstone OnDemand](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
+
+- [Zendesk](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-zendesk-provisioning-tutorial)
+
+Para obter uma lista de todos os aplicativos que dão suporte ao provisionamento de usuário na Galeria do Azure AD, confira [ https://aka.ms/appstutorial ](https://aka.ms/appstutorial).
+
+ 
+
+---
+ 
+
+### <a name="azure-ad-access-reviews-of-groups-and-app-access-now-provides-recurring-reviews"></a>O Azure AD acessa revisões de grupos e o acesso do aplicativo agora fornece revisões recorrentes
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** revisões de acesso  
+**Funcionalidade do produto:** governança
+ 
+
+As revisões de acesso de grupos e aplicativos agora estão disponíveis como parte do Azure AD Premium P2.  Os administradores poderão configurar revisões de acesso de membros de grupos e atribuições de aplicativo para que ocorram automaticamente em intervalos regulares, como mensal ou trimestralmente.
+ 
+
+---
+ 
+
+### <a name="azure-ad-activity-logs-sign-ins-and-audit-are-now-available-through-ms-graph"></a>Os logs de atividades do Azure AD (entradas e auditoria) agora estão disponíveis por meio do MS Graph
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** relatórios  
+**Funcionalidade do produto:** monitoramento e relatórios
+ 
+
+Os logs de atividade do Azure AD, que incluem Logs de entradas e de auditoria, agora estão disponíveis por meio do MS Graph. Expusemos dois pontos de extremidade por meio do MS Graph para acessar esses logs. Verifique nossos [documentos](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) sobre acesso programático às APIs de relatórios do Azure AD para começar. 
+ 
+
+---
+ 
+
+
+
+### <a name="improvements-to-the-b2b-redemption-experience-and-leave-an-org"></a>Aprimoramentos à experiência de resgate B2B e deixar uma organização
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** B2B  
+**Funcionalidade do produto:** B2B/B2C
+ 
+
+**Resgate Just-in-Time:** depois que você compartilha um recurso com um usuário convidado usando a API de B2B, não precisa enviar um email de convite especial. Na maioria dos casos, o usuário convidado pode simplesmente acessar o recurso e ser levado por meio da experiência de resgate Just-in-Time. Chega de consequências devido a emails não recebidos. Chega de perguntar aos convidados: "você clicou no link de resgate que o sistema enviou?". Isso significa que quando o SPO usa o gerenciador de convites, os anexos de nuvem podem ter a mesma URL canônica para todos os usuários, internos e externos, em qualquer estado do resgate.
+
+**Experiência de resgate moderna:** chega de página de aterrissagem de resgate em tela dividida. Os usuários verão uma experiência de consentimento moderna com a política de privacidade da organização que fez o convite, exatamente como fazem para aplicativos de terceiros.
+
+
+**Usuários convidados podem deixar a organização:** depois que uma relação de usuário com uma organização terminar, eles poderão deixar a organização usando autoatendimento. Não é mais necessário chamar o administrador da organização para “ser removido”; chega de criar tíquetes de suporte.
+ 
+
+---
+ 
+
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Novos Aplicativos Federados disponíveis na galeria de Aplicativos do Azure AD – maio de 2018
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** aplicativos empresariais  
+**Funcionalidade do produto:** integração de terceiros
+ 
+
+Em abril de 2018, adicionamos os 18 aplicativos novos abaixo a nossa Galeria de aplicativos com suporte para Federação:
+
+ 
+
+[AwardSpring](https://docs.microsoft.com/azure/active-directory/active-directory-saas-awardspring-tutorial), [Infogix Data3Sixty Govern](), [Yodeck](https://docs.microsoft.com/azure/active-directory/active-directory-saas-infogix-tutorial), [Jamf Pro](https://docs.microsoft.com/azure/active-directory/active-directory-saas-jamfprosamlconnector-tutorial), [KnowledgeOwl](https://docs.microsoft.com/azure/active-directory/active-directory-saas-knowledgeowl-tutorial), [Envi MMIS](https://docs.microsoft.com/azure/active-directory/active-directory-saas-envimmis-tutorial), [LaunchDarkly](https://docs.microsoft.com/azure/active-directory/active-directory-saas-launchdarkly-tutorial), [Adobe Captivate Prime](https://docs.microsoft.com/azure/active-directory/active-directory-saas-adobecaptivateprime-tutorial), [Montage Online](https://docs.microsoft.com/azure/active-directory/active-directory-saas-montageonline-tutorial), [まなびポケット](https://docs.microsoft.com/azure/active-directory/active-directory-saas-manabipocket-tutorial), OpenReel, [Arc Publishing - SSO](https://docs.microsoft.com/azure/active-directory/active-directory-saas-arc-tutorial), [PlanGrid](https://docs.microsoft.com/azure/active-directory/active-directory-saas-plangrid-tutorial), [iWellnessNow](https://docs.microsoft.com/azure/active-directory/active-directory-saas-iwellnessnow-tutorial), [Proxyclick](https://docs.microsoft.com/azure/active-directory/active-directory-saas-proxyclick-tutorial), [Riskware](https://docs.microsoft.com/azure/active-directory/active-directory-saas-riskware-tutorial), [Flock](https://docs.microsoft.com/azure/active-directory/active-directory-saas-flock-tutorial), [Reviewsnap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-reviewsnap-tutorial)
+
+ 
+
+Você pode encontrar a documentação de todos os aplicativos [aqui](https://aka.ms/appstutorial).
+
+Para listar seu aplicativo na Galeria de aplicativos do Azure AD, confira [Listar seu aplicativo na Galeria de aplicativos do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing). 
+
+ 
+
+---
+ 
+
+### <a name="deployment-plans---guidance-to-get-you-started-with-azure-active-directory"></a>Planos de Implantação – Diretrizes para você começar a usar o Azure Active Directory
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** outro  
+**Funcionalidade do produto:** diretório
+ 
+
+Procurando orientação passo a passo para implantar (SSPR, SSO, CA, Proxy de aplicativo, provisionamento de usuário, ADFS para PTA ou ADFS para PHS?). Temos planos de implantação para ajudar!
+
+Vá para [Aka.ms/DeploymentPlans](http://Aka.ms/DeploymentPlans), onde você pode acessar guias de ponta a ponta para começar a usufruir do valor desses recursos.
+
+
+
+- [Como obter os planos de implantação](http://Aka.ms/DeploymentPlans)? 
+
+- Forneça seus comentários [aqui](http://aka.ms/DeploymentPlanFeedback)
+
+- Perguntas? Fale com: [IDGitDeploy@microsoft.com](mailto:IDGitDeploy@microsoft.com)
+
+
+
+     
+
+ 
+
+---
+ 
+
+### <a name="enterprise-applications-search---load-more-apps"></a>Pesquisa de Aplicativos Empresariais – Carregar Mais Aplicativos
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** aplicativos empresariais  
+**Funcionalidade do produto:** SSO
+ 
+
+Problemas para localizar seus aplicativos/entidades de serviço? Adicionamos a capacidade de carregar mais aplicativos em sua lista Aplicativos corporativos – todos os aplicativos. Por padrão, mostramos 20 aplicativos. Você pode agora clicar em Carregar mais para exibir aplicativos adicionais. 
+ 
+
+---
+ 
+
+
+### <a name="public-preview-of-new-and-improved-sign-ins-user-experience-in-azure-portal"></a>Versão Prévia pública nova e aprimorada da experiência do usuário de entradas no Portal do Azure
+
+**Tipo:** recurso alterado  
+**Categoria de serviço:** relatórios  
+**Funcionalidade do produto:** monitoramento e relatórios
+ 
+
+Apresentamos a nova e aprimorada experiência de usuário Logs de entrada no portal do Azure AD. Com a nova experiência de usuário de entradas, os clientes agora podem ter o seguinte:
+
+- Maior latência, de 2 horas a até 5 minutos. Confira nossos documentos sobre [latência](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-latencies-azure-portal) para saber mais.
+
+- Capacidade de adicionar filtros dinamicamente usando o botão "Colunas". Adicionando colunas ao relatório Entradas na experiência do usuário, você pode vê-los automaticamente como filtros.
+
+- Capacidade de classificar por data, nome de usuário e aplicativo.
+
+- Inclusão de autenticações herdadas e capacidade de filtrar as autenticações herdadas usando a coluna "Aplicativo Cliente".
+
+- Inclusão de um script do PowerShell para download que é personalizado com base em condições de filtro escolhidas na experiência do usuário. Com esse script do PowerShell, você poderá obter as linhas de dados que quiser (com base nos seus critérios de filtro), que fornecerão a saída em um formato .csv.
+
+Para ver mais detalhes, confira a [Introdução aos relatórios de atividade de entrada no portal do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins).
+ 
+
+---
+ 
+
+
+### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>A versão de maio do AADConnect contém uma versão prévia pública da integração com PingFederate, atualizações de segurança importantes, muitas correções de bug e ótimas novas ferramentas de solução de problemas. 
+
+**Tipo:** recurso alterado  
+**Categoria de serviço:** AD Connect  
+**Funcionalidade do produto**: Gerenciamento do Ciclo de Vida da Identidade
+ 
+
+A versão de maio do AADConnect contém uma versão prévia pública da integração com PingFederate, atualizações de segurança importantes, muitas correções de bug e ótimas novas ferramentas de solução de problemas. Você pode encontrar as notas de versão [aqui](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
+
+ 
+
+---
+ 
+
+
+### <a name="azure-ad-access-reviews-auto-apply"></a>Revisões de acesso do Azure AD: aplicação automática
+
+**Tipo:** recurso alterado  
+**Categoria de serviço:** revisões de acesso  
+**Funcionalidade do produto:** governança
+ 
+
+As revisões de acesso de grupos e aplicativos agora estão disponíveis como parte do Azure AD Premium P2. Um administrador pode configurar para aplicar as alterações do revisor automaticamente a esse grupo ou aplicativo quando a revisão de acesso for concluída. O administrador também pode especificar o que acontece com o acesso contínuo do usuário se os revisores não responderem: o acesso é removido, mantido ou segue as recomendações do sistema. 
+
+ 
+
+---
+ 
+
+
+### <a name="id-tokens-can-no-longer-be-returned-using-the-query-responsemode-for-new-apps"></a>Os tokens de ID não podem ser mais retornados usando a consulta response_mode para novos aplicativos. 
+
+**Tipo:** recurso alterado  
+**Categoria de serviço:** autenticações (logons)  
+**Funcionalidade do produto:** autenticação de usuário
+ 
+
+Os aplicativos criados em 25/4/2018 ou após essa data não poderão solicitar um **id_token** usando o response_mode **query**.  Isso coloca o Azure AD de acordo com as especificações de OIDC e ajuda a reduzir a superfície de ataque dos aplicativos.  Os aplicativos criados antes de 25/4/2018 não serão impedidos de usar o response_mode **query** com um response_type **id_token**.  O erro retornado, ao solicitar um id_token do AAD, é **AADSTS70007: 'query' não é um valor de 'response_mode' para solicitar um token**.
+
+Os response_modes **fragment** e **form_post** continuam a funcionar na hora de criar novos objetos de aplicativo (por exemplo, para uso do Proxy de Aplicativo). Verifique se um desses response_modes estão sendo usados antes de criar um novo aplicativo.  
+ 
+
+---
+ 
+
 
 
 ## <a name="april-2018"></a>Abril de 2018
@@ -335,7 +616,7 @@ Para saber mais, veja [AzureAD](https://docs.microsoft.com/powershell/module/Azu
  
 O usuário que utiliza clientes nativos do Office 365 (versão 16.0.8730.xxxx e acima) obtém uma experiência de logon silencioso usando o SSO Contínuo. Esse suporte é fornecido com a adição de um protocolo não interativo (WS-Trust) ao Azure AD.
 
-Para saber mais, confira [Como entrar em um cliente nativo com o trabalho de SSO contínuo?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work).
+Para saber mais, confira [Como entrar em um cliente nativo com o trabalho de SSO contínuo?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work)
 
  
 ---
@@ -347,7 +628,7 @@ Para saber mais, confira [Como entrar em um cliente nativo com o trabalho de SSO
 **Categoria de serviço:** autenticações (logons)  
 **Funcionalidade do produto:** autenticação de usuário
  
-Os usuários terão uma experiência de logon silenciosa, com SSO contínuo, se um aplicativo (por exemplo, `https://contoso.sharepoint.com`) enviar solicitações de entrada para pontos de extremidade com locatários do Microsoft Azure AD, ou seja, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>`, em vez do ponto de extremidade comum do Microsoft Azure AD (`https://login.microsoftonline.com/common/<...>`).
+Os usuários terão uma experiência de logon silenciosa, com SSO contínuo, se um aplicativo (por exemplo, `https://contoso.sharepoint.com`) enviar solicitações de entrada para pontos de extremidade com locatários do Microsoft Azure AD, ou seja, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>`, em vez de enviar para o ponto de extremidade comum do Azure AD (`https://login.microsoftonline.com/common/<...>`).
 
 Para saber mais, confira [Logon Único Contínuo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
 
@@ -418,7 +699,7 @@ Para saber mais, confira [Declarações opcionais no Azure AD](https://docs.micr
  
 Os documentos do Azure AD foram atualizados para indicar o suporte para PKCE, que permite a comunicação mais segura durante o fluxo de concessão de Código de Autorização do OAuth 2.0.  Code_challenges S256 e o texto sem formatação têm suporte nos pontos de extremidade v1.0 e v2.0. 
 
-Para saber mais, confira Solicitar um código de autorização[](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code). 
+Para saber mais, confira [Solicitar um código de autorização](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code). 
 
  
 ---
@@ -667,12 +948,7 @@ Essa versão contém as alterações e atualizações a seguir:
 
 **Novos recursos e aprimoramentos**
 
-- Para o GDPR, é necessário indicar os tipos de dados do cliente que são compartilhados com a Microsoft (telemetria, integridade e etc.), conter links para a documentação detalhada online e fornecer uma maneira para alterar as preferências.  Esse check-in adiciona o seguinte:
-    - Compartilhamento de dados e notificação de privacidade na página dos termos de licença de instalação limpa.
 
-    - Compartilhamento de dados e notificação de privacidade na página de atualização.
-
-    - Uma tarefa adicional de **Configurações de Privacidade** onde o usuário pode alterar as preferências.
  
 - Telemetria de aplicativos - Os administradores podem ativar/desativar essa classe de dados.
 
