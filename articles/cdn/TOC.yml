@@ -116,6 +116,8 @@
           href: cdn-troubleshoot-endpoint.md
         - name: Compactação de arquivos
           href: cdn-troubleshoot-compression.md
+        - name: Autoridades de certificação habilitadas
+          href: cdn-troubleshoot-allowed-ca.md
 - name: Referência
   items:
     - name: Referência do mecanismo de regras

@@ -63,8 +63,6 @@
           items:
             - name: Preparar cargas de trabalho do Servidor de Backup do Azure no portal do Azure
               href: backup-azure-microsoft-azure-backup.md
-            - name: Instalar Servidor de Backup do Azure no Azure Stack
-              href: backup-mabs-install-azure-stack.md
             - name: Adicionar armazenamento ao Servidor de Backup do Azure
               href: backup-mabs-add-storage.md
             - name: Atualizar Servidor de Backup do Azure para v.2
@@ -83,10 +81,18 @@
               href: backup-azure-sql-mabs.md
             - name: Proteger o estado do sistema e recuperação bare-metal
               href: backup-mabs-system-state-and-bmr.md
-            - name: Arquivos e aplicativos no Azure Stack
-              href: backup-mabs-files-applications-azure-stack.md
         - name: Recuperar dados do Servidor de Backup do Azure
           href: backup-azure-alternate-dpm-server.md
+    - name: Servidor de Backup do Azure no Azure Stack
+      items:
+        - name: Instalar o Servidor de Backup do Azure
+          href: backup-mabs-install-azure-stack.md
+        - name: Proteger arquivos e aplicativos
+          href: backup-mabs-files-applications-azure-stack.md
+        - name: Proteger o farm do SharePoint
+          href: backup-mabs-sharepoint-azure-stack.md
+        - name: Proteger o banco de dados do SQL Server
+          href: backup-mabs-sql-azure-stack.md
     - name: Compartilhamentos de Arquivos do Azure
       items:
         - name: Backup de compartilhamentos de Arquivos do Azure

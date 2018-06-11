@@ -41,6 +41,8 @@
       href: traffic-manager-rum-overview.md
     - name: Exibição do Tráfego
       href: traffic-manager-traffic-view-overview.md
+    - name: Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
     - name: Perguntas frequentes
       href: traffic-manager-FAQs.md
 - name: Como
