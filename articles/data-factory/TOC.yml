@@ -27,7 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: Tutoriais
   items:
-    - name: 1 – Implantar pacotes do SSIS para o Azure
+    - name: 1 - Criar a execução de integração do Azure-SSIS
       items:
         - name: Interface do usuário (IU)
           href: tutorial-deploy-ssis-packages-azure.md
@@ -362,7 +362,7 @@
           href: monitor-integration-runtime.md
         - name: Monitorar tempo de execução de integração do Azure-SSIS
           href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
-        - name: Gerenciar tempo de execução de integração do Azure-SSIS
+        - name: Reconfigurar a execução de integração do Azure-SSIS
           href: manage-azure-ssis-integration-runtime.md
     - name: Criar tempo de execução de integração
       items:
@@ -374,7 +374,7 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Executar pacotes SSIS no Azure
       items:
-        - name: Ingressar o IR Azure-SSIS em uma VNet
+        - name: Unir o IR do Azure-SSIS a uma rede virtual
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Habilitar a autenticação do Azure AD para IR Azure-SSIS
           href: enable-aad-authentication-azure-ssis-ir.md

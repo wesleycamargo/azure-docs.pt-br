@@ -43,6 +43,8 @@
       href: storage-accounts.md
     - name: Usar relatórios do Gerenciamento de Custos
       href: use-reports.md
+    - name: Usar painéis
+      href: dashboards.md
 - name: Recursos
   items:
     - name: Vídeos de Gerenciamento de Custo

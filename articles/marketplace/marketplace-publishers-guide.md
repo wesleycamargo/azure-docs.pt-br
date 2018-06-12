@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: f84be4ec4d42b77e93cf0855d7fe4740256ed199
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 79e7d049ebf184e273e05250bd6f112d4c6be53d
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34715353"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34806863"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia do Editor do Azure Marketplace e do AppSource
 
@@ -144,7 +144,7 @@ Essa é a lista das opções de suporte para o Azure Marketplace:
 |Canal de suporte  |DESCRIÇÃO  |
 |---------|---------|
 |Fóruns MSDN: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Fórum Microsoft Developer Network.         |
-|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Ambiente do Stack Overflow para obter soluções e fazer perguntas sobre tudo relacionado ao Azure e ao Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Máquinas Virtuais do Azure](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
+|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Ambiente do Stack Overflow para obter soluções e fazer perguntas sobre tudo relacionado ao Azure e ao Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Máquinas Virtuais do Azure](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li><li>[Contêineres no Azure](https://stackoverflow.com/search?q=azure+container)</li></ul> |
 
 
 **Recursos de marketing**
@@ -215,7 +215,10 @@ Para obter mais informações sobre nossos benefícios de GTM e formas de desenv
 |**Requisito**  |**Detalhes** |**Opção de publicação**  |
 |---------|---------|---------|
 |**Cobrança e medição**   |  Seu contêiner deve dar suporte a modelos de cobrança gratuitos ou Traga sua própria licença.       |  Transação       |
-|**Imagem baseada em docker**    |   As imagens de contêiner devem estar baseadas no formato de imagem do Docker e devem ser extraídas dos Registros de Contêiner do Azure.      |  Transação       |
+|**Imagem criada a partir do Dockerfile**    |   As imagens de contêiner devem ser baseadas na especificação da imagem do Docker e devem ser criadas a partir de um Dockerfile. Saiba mais sobre a criação de imagens do docker [aqui].(https://docs.docker.com/engine/reference/builder/#usage)     |  Transação       |
+|**Hospedando no ACR**    |   As imagens de contêiner devem ser hospedadas em um repositório ACR (Registro de Contêiner do Azure). Saiba mais sobre como trabalhar com o ACR [aqui].(https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     |  Transação       |
+|**Marcação de imagem**    |   As imagens de contêiner devem conter pelo menos 1 marcação (máximo de marcações: 16). Saiba mais sobre a marcação de uma imagem [aqui]. (https://docs.docker.com/engine/reference/commandline/tag/)     |  Transação       |
+
 
 #### <a name="prerequisites-specific-to-transation-publishing-for-saas-app-subscriptions"></a>Pré-requisitos específicos à publicação de transação para assinaturas do aplicativo SaaS
 
@@ -223,8 +226,9 @@ Para obter mais informações sobre nossos benefícios de GTM e formas de desenv
 |---------|---------|---------|
 |**Cobrança e medição**    |   Sua oferta é estimada em uma taxa mensal de simples. No momento, não há suporte para recursos de adequação ("true-up") com base em uso e de preço com base em uso.      |   Transação      |
 |**Cancelamento**  |   Sua oferta é cancelável pelo cliente a qualquer momento.      |   Transação      |
-|**Página inicial da transação**     |   Você hospeda uma página inicial da transação de associação de marcas do Azure na qual os usuários podem criar e gerenciar suas contas de serviço de SaaS.      |    Transação     |
-|**API de Assinatura de SaaS**    |   Você expõe um serviço que pode interagir com a Assinatura de SaaS para criar, atualizar e excluir um plano de serviço e uma conta de usuário. As alterações críticas na API devem ter suporte em até 24 horas. As alterações não críticas de API serão lançadas periodicamente.      |     Transação    |
+|**Página de destino da transação**     |   Você hospeda uma página inicial da transação de associação de marcas do Azure na qual os usuários podem criar e gerenciar suas contas de serviço de SaaS.      |    Transação     |
+|**API de Assinatura**    |   Você expõe um serviço que pode interagir com a Assinatura de SaaS para criar, atualizar e excluir um plano de serviço e uma conta de usuário. As alterações críticas na API devem ter suporte em até 24 horas. As alterações não críticas de API serão lançadas periodicamente.      |     Transação    |
+
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Pré-requisitos específicos para publicação de Serviços de Consultoria
 

@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Terraform na Documentação do Azure"
+title: Terraform na Documentação do Azure
 metadata:
-  title: "Terraform na Documentação do Azure - Tutoriais e referência"
+  title: Terraform na Documentação do Azure - Tutoriais e referência
   meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
   services: terraform
   author: rloutlaw
@@ -13,15 +13,16 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/21/2017
   ms.author: routlaw
-  ms.openlocfilehash: 71ffbc2f8d6728a414a8e001198b8c9f9b36c485
-  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+  ms.openlocfilehash: b12e9b8f611bb456d0eda04a1b9e8d42d1256d0a
+  ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/16/2018
+  ms.lasthandoff: 06/11/2018
+  ms.locfileid: "35300602"
 abstract:
-  description: "Use o Terraform para a versão confiável e crie uma infraestrutura no Azure. Saiba como criar recursos, use os módulos do Azure Terraform e manter sua infraestrutura com o código usando nossos Guias de início rápido e tutoriais."
+  description: Use o Terraform para a versão confiável e crie uma infraestrutura no Azure. Saiba como criar recursos, use os módulos do Azure Terraform e manter sua infraestrutura com o código usando nossos Guias de início rápido e tutoriais.
 sections:
-- title: "Guia de início rápido"
+- title: Guia de início rápido
   items:
   - type: paragraph
     text: Configure o Terraform e use-o para criar uma VM do Linux no Azure.
@@ -39,29 +40,30 @@ sections:
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: "Saiba como criar a infraestrutura de computação e rede do Azure a partir do código com o Terraform."
+    text: Saiba como criar a infraestrutura de computação e rede do Azure a partir do código com o Terraform.
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"/azure/terraform/terraform-vm-msi\">Criar uma VM Terraform com autenticação de MSI habilitada usando uma imagem do Azure Marketplace</a>."
-    - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-module\">Crie um cluster de VMs com balanceamento de carga usando os módulos do Azure Terraform</a>."
+    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Criar um cluster Kubernetes com AKS e Terraform</a>.
+    - html: <a href="/azure/terraform/terraform-vm-msi">Criar uma VM Terraform com autenticação de MSI habilitada usando uma imagem do Azure Marketplace</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Crie um cluster de VMs com balanceamento de carga usando os módulos do Azure Terraform</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Crie um cluster de VMs com balanceamento de carga no Azure Cloud Shell</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configure um conjunto de dimensionamento de VMs com rede e armazenamento.</a>
     - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Provisionar conjunto de dimensionamento da VM a partir de uma imagem personalizada do Packer.</a>
 - title: Exemplos
   items:
   - type: paragraph
-    text: "Modelos de configuração de exemplo para tarefas comuns da implantação."
+    text: Modelos de configuração de exemplo para tarefas comuns da implantação.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">Github</a>
-- title: "Referência"
+    - html: <a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>
+- title: Referência
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Módulos do Azure Terraform"
-      html: "<p><a href=\"https://registry.terraform.io/modules/Azure/database/azurerm\">Azure RM para Banco de Dados</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/loadbalancer\">Azure RM para Balanceador de Carga</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/computegroup\">Grupo de Computação do Azure RM</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/network\">Rede do Azure RM</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/compute\">Computação do Azure RM</a></p>"
+    - title: Módulos do Azure Terraform
+      html: <p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM para Banco de Dados</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM para Balanceador de Carga</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Grupo de Computação do Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Rede do Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Computação do Azure RM</a></p>
