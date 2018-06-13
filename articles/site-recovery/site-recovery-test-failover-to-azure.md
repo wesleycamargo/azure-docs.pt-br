@@ -1,6 +1,6 @@
 ---
 title: Failover de teste para o Azure no Azure Site Recovery | Microsoft Docs
-description: "Aprenda sobre a execução de um failover de teste do local para o Azure usando o serviço Azure Site Recovery."
+description: Aprenda sobre a execução de um failover de teste do local para o Azure usando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bdbeee0e0caaa0e6db7249c2f4aeaa19d5d2ed0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643644"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Failover de teste para o Azure no Site Recovery
 
@@ -40,7 +41,7 @@ Este procedimento descreve como executar um failover de teste para um plano de r
 
     - O Site Recovery tenta criar VMs de teste em uma sub-rede com o mesmo nome e mesmo endereço IP fornecido nas configurações de **Computação e Rede** da VM.
     - Se uma sub-rede com o mesmo nome não estiver disponível na rede virtual do Azure usada para failover de teste, a VM de teste será criada na primeira sub-rede em ordem alfabética.
-    - Se o mesmo endereço IP não estiver disponível na sub-rede, a VM receberá outro endereço IP disponível na sub-rede. [Saiba mais](#creating-a-network-for-test-failover).
+    - Se o mesmo endereço IP não estiver disponível na sub-rede, a VM receberá outro endereço IP disponível na sub-rede. [Saiba mais](#create-a-network-for-test-failover).
 4. Se estiver fazendo failover no Azure e a criptografia de dados estiver habilitada, em **Chave de Criptografia**, selecione o certificado que foi emitido quando você habilitou a criptografia durante a instalação do provedor. Você pode ignorar essa etapa se a criptografia não está habilitada.
 5. Acompanhe o progresso do failover na guia **Trabalhos** . Você deve poder ver o computador de réplica de teste no portal do Azure.
 6. Para iniciar uma conexão de RDP com a VM do Azure, você precisa [adicionar um endereço IP público](https://aka.ms/addpublicip) no adaptador de rede da VM em que o failover foi feito. 
