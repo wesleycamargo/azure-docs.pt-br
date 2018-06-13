@@ -23,13 +23,12 @@
 ### [Visão geral sobre o Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Segurança
-### [Monitorar recursos](oms-security-monitoring-resources.md)
-### [Responder a alertas de segurança](oms-security-responding-alerts.md)
-### [Avaliação de linha de base](oms-security-baseline.md)
-### [Avaliação de malware](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Avaliação de atualização do sistema](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Conectar-se a produtos de segurança](oms-security-connect-products.md)
-### [Avaliação de linha de base](oms-security-web-baseline-assessment.md)
+### [Monitorar recursos](../security-center/security-center-monitoring.md)
+### [Responder a alertas de segurança](../security-center/security-center-managing-and-responding-alerts.md)
+### [Avaliação de linha de base](../security-center/security-center-customize-os-security-config.md)
+### [Avaliação de malware](../security-center/security-center-install-endpoint-protection.md)
+### [Conectar-se a produtos de segurança](../security-center/quick-security-solutions.md)
+### [Avaliação de linha de base](../security-center/security-center-customize-os-security-config.md)
 
 ## Use as soluções
 ### [Soluções de gerenciamento](../monitoring/monitoring-solutions.md)
@@ -46,7 +45,6 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Análise do Service Fabric](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Mapa do Serviço
-##### [Passo a passo](../monitoring/monitoring-walkthrough-servicemap.md)
 ##### [Uso](../monitoring/monitoring-service-map.md)
 ##### [Configurar](../monitoring/monitoring-service-map-configure.md)
 ##### [Integração com o Operations Manager](../monitoring/monitoring-service-map-scom.md)
