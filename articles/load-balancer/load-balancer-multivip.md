@@ -1,6 +1,6 @@
 ---
-title: "Vários VIPs para um serviço de nuvem"
-description: "Visão geral de vários VIPs e como definir vários VIPs em um serviço de nuvem"
+title: Vários VIPs para um serviço de nuvem
+description: Visão geral de vários VIPs e como definir vários VIPs em um serviço de nuvem
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23020841"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Configurar vários VIPs para um serviço de nuvem
 

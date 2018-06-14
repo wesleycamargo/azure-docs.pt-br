@@ -1,8 +1,8 @@
 ---
-title: "Integração com o OMS (Operations Management Suite) | Microsoft Docs"
-description: "Além de usar os recursos padrão do OMS, você pode integrá-los com outros aplicativos de gerenciamento e serviços para proporcionar um ambiente de gerenciamento híbrido, fornecer cenários de gerenciamento personalizado exclusivos em seu ambiente ou oferecer uma experiência de gerenciamento personalizada para seus clientes.  Este artigo proporciona uma visão geral das diferentes opções de integração com o OMS e links para artigos, fornecendo informações técnicas detalhadas."
+title: Integração com o OMS (Operations Management Suite) | Microsoft Docs
+description: Além de usar os recursos padrão do OMS, você pode integrá-los com outros aplicativos de gerenciamento e serviços para proporcionar um ambiente de gerenciamento híbrido, fornecer cenários de gerenciamento personalizado exclusivos em seu ambiente ou oferecer uma experiência de gerenciamento personalizada para seus clientes.  Este artigo proporciona uma visão geral das diferentes opções de integração com o OMS e links para artigos, fornecendo informações técnicas detalhadas.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039461"
 ---
 # <a name="integrating-with-operations-management-suite-oms"></a>Integração com o OMS (Operations Management Suite)
 O Microsoft Operations Management Suite é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e de nuvem.  Além de usar os recursos padrão do OMS, você pode integrá-los com outros aplicativos de gerenciamento e serviços para proporcionar um ambiente de gerenciamento híbrido, fornecer cenários de gerenciamento personalizado exclusivos em seu ambiente ou oferecer uma experiência de gerenciamento personalizada para seus clientes.  Este artigo proporciona uma visão geral das diferentes opções de integração com os serviços do OMS e links para artigos, fornecendo informações técnicas detalhadas. 

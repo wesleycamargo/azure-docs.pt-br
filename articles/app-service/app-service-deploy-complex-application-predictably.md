@@ -1,8 +1,8 @@
 ---
-title: "Provisionar e implantar microsserviços previsíveis no Azure"
-description: "Saiba como implantar um aplicativo composto por microsserviços no Serviço de Aplicativo do Azure como uma única unidade e de maneira previsível usando modelos de grupo de recursos JSON e scripts do PowerShell."
+title: Provisionar e implantar microsserviços previsíveis no Azure
+description: Saiba como implantar um aplicativo composto por microsserviços no Serviço de Aplicativo do Azure como uma única unidade e de maneira previsível usando modelos de grupo de recursos JSON e scripts do PowerShell.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987451"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar microsserviços previsíveis no Azure
 Este tutorial mostra como provisionar e implantar um aplicativo composto por [microsserviços](https://en.wikipedia.org/wiki/Microservices) no [Serviço de Aplicativo do Azure](/services/app-service/) como uma única unidade e de maneira previsível usando modelos do grupo de recursos JSON e scripts do PowerShell. 

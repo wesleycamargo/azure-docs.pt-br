@@ -1,12 +1,12 @@
 ---
-title: "Notas de versão da Matriz Virtual do StorSimple Atualização 0.5 | Microsoft Docs"
-description: "Descreve os problemas críticos em aberto e as resoluções para a Matriz Virtual do StorSimple que executa a Atualização 0.5."
+title: Notas de versão da Matriz Virtual do StorSimple Atualização 0.5 | Microsoft Docs
+description: Descreve os problemas críticos em aberto e as resoluções para a Matriz Virtual do StorSimple que executa a Atualização 0.5.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110224"
 ---
 # <a name="storsimple-virtual-array-update-05-release-notes"></a>Notas de versão da Matriz Virtual do StorSimple Atualização 0.5
 
