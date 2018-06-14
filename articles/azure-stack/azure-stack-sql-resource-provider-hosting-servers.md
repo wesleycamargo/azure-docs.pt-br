@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359417"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do SQL
 Você pode usar instâncias do SQL em máquinas virtuais dentro de seu [Azure pilha](azure-stack-poc.md), ou uma instância fora de seu ambiente de pilha do Azure, fornecido o provedor de recursos pode se conectar a ele. Os requisitos gerais são:

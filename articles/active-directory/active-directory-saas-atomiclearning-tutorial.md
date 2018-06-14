@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Tutorial: integração do Azure Active Directory ao Atomic Learning
 

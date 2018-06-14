@@ -1,11 +1,11 @@
 ---
-title: "Criar um aplicativo Android nos Aplicativos Móveis do Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Siga este tutorial para começar a usar back-ends de aplicativos móveis do Azure para desenvolvimento do Android"
+title: Criar um aplicativo Android nos Aplicativos Móveis do Serviço de Aplicativo do Azure | Microsoft Docs
+description: Siga este tutorial para começar a usar back-ends de aplicativos móveis do Azure para desenvolvimento do Android
 services: app-service\mobile
 documentationcenter: android
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
 ms.service: app-service-mobile
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27591956"
 ---
 # <a name="create-an-android-app"></a>Criar um aplicativo Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

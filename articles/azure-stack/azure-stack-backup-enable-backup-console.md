@@ -19,6 +19,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302249"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitar o backup para a pilha do Azure no portal de administração
 Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que a pilha do Azure pode gerar backups. Você pode usar esses backups para restaurar seu ambiente usando a nuvem de recuperação no caso de [uma falha catastrófica](.\azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é assegurar que seus operadores e os usuários podem fazer logon novamente no portal do após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, planos originais, ofertas e definida anteriormente computação, armazenamento e cotas de rede.
