@@ -1,11 +1,11 @@
 ---
 title: Perguntas frequentes sobre a nova pesquisa de logs do Log Analytics | Microsoft Docs
-description: "Este artigo fornece as perguntas frequentes sobre a atualização do Log Analytics para a nova linguagem de consulta."
+description: Este artigo fornece as perguntas frequentes sobre a atualização do Log Analytics para a nova linguagem de consulta.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993862"
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Perguntas frequentes e problemas conhecidos sobre a nova pesquisa de logs do Log Analytics
 

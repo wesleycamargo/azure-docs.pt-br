@@ -1,6 +1,6 @@
 ---
-title: "Cursos de segurança do Azure da Microsoft Virtual Academy | Microsoft Docs"
-description: "Este artigo fornece uma coleção estruturada de cursos relacionados à segurança do Azure oferecidos pela Microsoft Virtual Academy.  A Microsoft Virtual Academy oferece treinamento gratuito e online com a finalidade de ajudar Desenvolvedores, Profissionais de TI e de Dados, bem como alunos, a aprender a tecnologia mais avançada, desenvolver suas habilidades e impulsionar suas carreiras."
+title: Cursos de segurança do Azure da Microsoft Virtual Academy | Microsoft Docs
+description: Este artigo fornece uma coleção estruturada de cursos relacionados à segurança do Azure oferecidos pela Microsoft Virtual Academy.  A Microsoft Virtual Academy oferece treinamento gratuito e online com a finalidade de ajudar Desenvolvedores, Profissionais de TI e de Dados, bem como alunos, a aprender a tecnologia mais avançada, desenvolver suas habilidades e impulsionar suas carreiras.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540041"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Cursos de segurança do Azure da Microsoft Virtual Academy
 A Microsoft Virtual Academy oferece treinamento gratuito e online com a finalidade de ajudar Desenvolvedores, Profissionais de TI e de Dados, bem como alunos, a aprender a tecnologia mais avançada, desenvolver suas habilidades e impulsionar suas carreiras.

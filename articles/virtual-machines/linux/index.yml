@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33943688"
 abstract:
   description: As Máquinas Virtuais Linux do Azure fornecem infraestrutura sob demanda, de alta escala, segura e virtualizada usando Red Hat, Ubuntu ou a distribuição do Linux de sua escolha. Saiba como criar, configurar, gerenciar, atualizar e dimensionar VMs do Linux com nossos guias de início rápido, tutoriais e amostras.
   aside:
