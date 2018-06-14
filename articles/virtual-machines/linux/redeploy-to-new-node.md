@@ -1,6 +1,6 @@
 ---
-title: "Reimplantar Máquinas Virtuais Linux no Azure | Microsoft Docs"
-description: "Como reimplantar máquinas virtuais Linux no Azure para atenuar problemas de conexão SSH."
+title: Reimplantar Máquinas Virtuais Linux no Azure | Microsoft Docs
+description: Como reimplantar máquinas virtuais Linux no Azure para atenuar problemas de conexão SSH.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849300"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Reimplantar uma máquina virtual Linux em um novo nó do Azure
 Se você tiver dificuldades ao solucionar problemas de SSH ou de acesso do aplicativo a uma VM (máquina virtual) Linux no Azure, reimplantar a VM poderá ajudar. Quando você reimplanta uma VM, ela é movida para um novo nó dentro da infraestrutura do Azure e, depois, é ligada novamente. Todos os recursos associados e opções de configuração são mantidos. Este artigo mostra como reimplantar uma VM usando a CLI do Azure ou o Portal do Azure.

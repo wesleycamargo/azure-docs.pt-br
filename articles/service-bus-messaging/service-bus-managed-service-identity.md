@@ -1,12 +1,12 @@
 ---
-title: "Versão prévia da Identidade de Serviço Gerenciada com o Barramento de Serviço do Azure | Microsoft Docs"
-description: "Usar Identidades de Serviço Gerenciadas com o Barramento de Serviço do Azure"
+title: Versão prévia da Identidade de Serviço Gerenciada com o Barramento de Serviço do Azure | Microsoft Docs
+description: Usar Identidades de Serviço Gerenciadas com o Barramento de Serviço do Azure
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874645"
 ---
 # <a name="managed-service-identity-preview"></a>Identidade de Serviço Gerenciada (versão prévia)
 

@@ -1,11 +1,11 @@
 ---
-title: "Cliente de cobrança e estorno na pilha do Azure | Microsoft Docs"
-description: "Saiba como recuperar informações de uso do recurso da pilha do Azure."
+title: Cliente de cobrança e estorno na pilha do Azure | Microsoft Docs
+description: Saiba como recuperar informações de uso do recurso da pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877476"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Uso e a cobrança na pilha do Azure
 

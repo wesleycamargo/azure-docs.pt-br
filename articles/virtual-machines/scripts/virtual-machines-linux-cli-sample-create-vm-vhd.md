@@ -1,13 +1,13 @@
 ---
-title: "Exemplo de script da CLI do Azure – Criar uma VM com um VHD | Microsoft Docs"
-description: "Amostra de script da CLI do Azure – criar uma VM usando um disco rígido virtual."
+title: Exemplo de script da CLI do Azure – Criar uma VM com um VHD | Microsoft Docs
+description: Amostra de script da CLI do Azure – criar uma VM usando um disco rígido virtual.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
 manager: douge
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849334"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Criar uma VM com um disco rígido virtual
 

@@ -1,11 +1,11 @@
 ---
-title: "Replicar uma implantação do Dynamics AX de várias camadas usando o Azure Site Recovery | Microsoft Docs"
+title: Replicar uma implantação do Dynamics AX de várias camadas usando o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como replicar e proteger o Dynamics AX usando o Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: asgang
 manager: rochakm
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876949"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicar um aplicativo do Dynamics AX de várias camadas usando o Azure Site Recovery
 

@@ -1,5 +1,5 @@
 ---
-title: "Script da CLI do Azure – Restaurar um servidor do Banco de Dados do Azure para PostgreSQL"
+title: Script da CLI do Azure – Restaurar um servidor do Banco de Dados do Azure para PostgreSQL
 description: Esse script de exemplo de CLI do Azure mostra como restaurar um servidor de Banco de Dados do Azure para PostgreSQL e seus bancos de dados a um ponto anterior.
 services: postgresql
 author: rachel-msft
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29846257"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Restaurar um servidor do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 Esse script de exemplo do CLI restaura um servidor individual do Banco de Dados do Azure para PostgreSQL a um ponto anterior.
