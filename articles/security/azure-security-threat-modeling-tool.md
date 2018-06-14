@@ -1,6 +1,6 @@
 ---
 title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: "página principal da Ferramenta de modelagem de ameaças da Microsoft, contendo informações sobre como começar a usar a ferramenta, incluindo o processo de Modelagem de ameaça"
+description: página principal da Ferramenta de modelagem de ameaças da Microsoft, contendo informações sobre como começar a usar a ferramenta, incluindo o processo de Modelagem de ameaça
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23043351"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Ferramenta de modelagem de ameaças do Microsoft
 

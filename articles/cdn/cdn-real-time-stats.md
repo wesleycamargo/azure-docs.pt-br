@@ -1,11 +1,11 @@
 ---
-title: "Estatísticas em tempo real na CDN do Azure | Microsoft Docs"
-description: "As estatísticas em tempo real fornecem dados em tempo real sobre o desempenho da CDN do Azure ao fornecer conteúdo para os clientes."
+title: Estatísticas em tempo real na CDN do Azure | Microsoft Docs
+description: As estatísticas em tempo real fornecem dados em tempo real sobre o desempenho da CDN do Azure ao fornecer conteúdo para os clientes.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22997901"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Estatísticas em tempo real na CDN do Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]

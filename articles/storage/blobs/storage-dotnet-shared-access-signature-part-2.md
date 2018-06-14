@@ -2,7 +2,7 @@
 title: Criar e usar uma SAS (Assinatura de Acesso Compartilhado) com o Armazenamento de Blobs do Azure | Microsoft Docs
 description: Este tutorial mostra como criar assinaturas de acesso compartilhado para uso com o Armazenamento de Blobs e como consumi-las em seus aplicativos cliente.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23056791"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Assinaturas de Acesso Compartilhado, Parte 2: criar e usar uma SAS com o Armazenamento de Blobs
 
@@ -478,7 +479,7 @@ static void Main(string[] args)
 ```
 
 ### <a name="add-a-method-to-try-blob-operations-using-a-shared-access-signature"></a>Adicionar um método para testar operações de blob usando uma assinatura de acesso compartilhado
-Finalmente, adicionaremos um método que testará algumas operações de blob usando uma assinatura de acesso compartilhado no blob. Nesse caso, usamos o construtor **CloudBlockBlob(String)**passando a assinatura de acesso compartilhado para retornar uma referência ao blob. Nenhuma outra autenticação é obrigatória; ela se baseia na assinatura sozinha.
+Finalmente, adicionaremos um método que testará algumas operações de blob usando uma assinatura de acesso compartilhado no blob. Nesse caso, usamos o construtor **CloudBlockBlob(String)** passando a assinatura de acesso compartilhado para retornar uma referência ao blob. Nenhuma outra autenticação é obrigatória; ela se baseia na assinatura sozinha.
 
 Adicione o seguinte método ao Program.cs:
 

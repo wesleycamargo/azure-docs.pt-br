@@ -1,11 +1,11 @@
 ---
-title: "Como visualizar os padrões de tráfego de rede com ferramentas de software livre e observador de rede do Azure | Microsoft Docs"
-description: "Esta página descreve como usar a captura de pacote do observador de rede com CapAnalysis para visualizar os padrões de tráfego para e de suas VMs."
+title: Como visualizar os padrões de tráfego de rede com ferramentas de software livre e observador de rede do Azure | Microsoft Docs
+description: Esta página descreve como usar a captura de pacote do observador de rede com CapAnalysis para visualizar os padrões de tráfego para e de suas VMs.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036391"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Como visualizar padrões de tráfego de rede de e para suas VMs usando ferramentas de software livre
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23059881"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Como enviar emails usando o SendGrid do Node.js
 Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são gravadas usando a API do Node.js. Os cenários abordados incluem a **construção de emails**, o **envio de emails**, a **adição de anexos**, o **uso de filtros** e a **atualização de propriedades**. Para obter mais informações sobre o SendGrid e o envio de e-mails, consulte a seção [Próximas etapas](#next-steps) .

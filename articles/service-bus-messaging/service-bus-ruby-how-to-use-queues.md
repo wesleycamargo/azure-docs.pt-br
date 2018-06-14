@@ -1,11 +1,11 @@
 ---
-title: "Como usar as filas do Barramento de Serviço do Azure com Ruby | Microsoft Docs"
-description: "Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Ruby."
+title: Como usar as filas do Barramento de Serviço do Azure com Ruby | Microsoft Docs
+description: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Ruby.
 services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044281"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Como usar filas do Barramento de Serviço com Ruby
 

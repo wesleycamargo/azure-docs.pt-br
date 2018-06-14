@@ -13,5 +13,6 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31431730"
 ---
 Para obter instruções sobre como criar uma conta da API de Tabela do Azure Cosmos DB, consulte [Criar uma conta de API de Tabela](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account).
