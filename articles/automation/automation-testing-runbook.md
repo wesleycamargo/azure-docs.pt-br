@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192091"
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Testando um runbook na Automação do Azure
 Quando você testa um runbook, a [Versão de rascunho](automation-creating-importing-runbook.md#publishing-a-runbook) é executada e as ações que ela realiza são concluídas. Nenhum histórico de trabalho é criado, mas os fluxos [Saída](automation-runbook-output-and-messages.md#output-stream) e [Aviso e Erro](automation-runbook-output-and-messages.md#message-streams) são exibidos no Painel da saída de Teste. As mensagens para o [Fluxo Detalhado](automation-runbook-output-and-messages.md#message-streams) serão exibidas no Painel de Saída somente se a [variável $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) for definida para Continuar.

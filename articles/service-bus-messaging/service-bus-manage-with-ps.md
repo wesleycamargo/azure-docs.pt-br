@@ -1,12 +1,12 @@
 ---
-title: "Usar o PowerShell para gerenciar recursos do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Use o módulo do PowerShell para criar e gerenciar recursos do Barramento de Serviço"
+title: Usar o PowerShell para gerenciar recursos do Barramento de Serviço do Azure | Microsoft Docs
+description: Use o módulo do PowerShell para criar e gerenciar recursos do Barramento de Serviço
 services: service-bus-messaging
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159731"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o módulo do PowerShell para gerenciar recursos do Barramento de Serviço
 
