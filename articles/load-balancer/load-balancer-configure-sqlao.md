@@ -18,6 +18,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30262510"
 ---
 # <a name="configure-a-load-balancer-for-sql-server-always-on"></a>Configurar o Load Balancer para o Always On do Microsoft SQL Server
 

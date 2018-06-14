@@ -1,6 +1,6 @@
 ---
-title: "Exemplo de Script da CLI do Azure – Implantar um aplicativo gerenciado | Microsoft Docs"
-description: "Exemplo de Script da CLI do Azure – Implantar uma definição de aplicativo gerenciado | Microsoft Docs"
+title: Exemplo de Script da CLI do Azure – Implantar um aplicativo gerenciado | Microsoft Docs
+description: Exemplo de Script da CLI do Azure – Implantar uma definição de aplicativo gerenciado | Microsoft Docs
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847209"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Implantar um aplicativo gerenciado no catálogo de serviços com a CLI do Azure
 

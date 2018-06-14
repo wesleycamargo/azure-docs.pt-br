@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949524"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência para partes de visualização do Designer de Modos de Exibição do Log Analytics
 Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados do seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.

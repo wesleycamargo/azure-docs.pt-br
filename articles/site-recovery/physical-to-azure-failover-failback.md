@@ -1,6 +1,6 @@
 ---
-title: "Executar failover e failback de servidores físicos replicados para Azure com o Site Recovery | Microsoft Docs"
-description: "Saiba como executar failover de servidores físicos para o Azure e o failback para o site local, com o Azure Site Recovery"
+title: Executar failover e failback de servidores físicos replicados para Azure com o Site Recovery | Microsoft Docs
+description: Saiba como executar failover de servidores físicos para o Azure e o failback para o site local, com o Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876000"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Executar failover e failback de servidores físicos replicados para Azure
 
