@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "23632547"
 ---
 # <a name="azure-cli-samples"></a>Exemplos de CLI do Azure
 

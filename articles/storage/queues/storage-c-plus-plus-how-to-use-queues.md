@@ -1,6 +1,6 @@
 ---
 title: Como usar o armazenamento de filas (C++) | Microsoft Docs
-description: "Saiba como usar o serviço de armazenamento de filas no Azure. As amostras são escritas em C++."
+description: Saiba como usar o serviço de armazenamento de filas no Azure. As amostras são escritas em C++.
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059941"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Como usar o armazenamento de filas do C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
