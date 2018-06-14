@@ -1,6 +1,6 @@
 ---
 title: Banco de Dados do Azure para PostgreSQL | Microsoft Docs
-description: "Visão geral do conteúdo da Ajuda para Banco de Dados do Azure para PostgreSQL no portal do Azure"
+description: Visão geral do conteúdo da Ajuda para Banco de Dados do Azure para PostgreSQL no portal do Azure
 services: app-service
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073836"
 ---
 # <a name="azure-database-for-postgresql-documentation"></a>Banco de dados do Azure para obter a documentação do PostgreSQL
 
