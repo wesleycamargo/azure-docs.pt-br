@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31392724"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Criar um aplicativo de funções no portal do Azure
 

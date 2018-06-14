@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31522700"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Usando esquemas definidos pelo usuário no SQL Data Warehouse
 Dicas para usar esquemas definidos pelo usuário do T-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções.
