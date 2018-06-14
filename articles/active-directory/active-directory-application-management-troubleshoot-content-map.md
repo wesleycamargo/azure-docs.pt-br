@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927773"
 ---
 # <a name="troubleshoot-azure-active-directory-application-management"></a>Solucionar problemas de Gerenciamento de Aplicativos no Azure Active Directory
 Os links a seguir conduzirão a um mapa de conteúdo que irá ajudá-lo a resolver alguns dos problemas mais comuns enfrentados ao gerenciar os **Aplicativos Empresarias** no Azure Active Directory.

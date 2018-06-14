@@ -1,12 +1,12 @@
 ---
-title: "Considerações de integração de rede de conectividade para sistemas de pilha do Azure integradas da borda | Microsoft Docs"
-description: "Saiba o que você pode fazer para planejar a conectividade de rede do datacenter borda com vários nós do Azure pilha."
+title: Considerações de integração de rede de conectividade para sistemas de pilha do Azure integradas da borda | Microsoft Docs
+description: Saiba o que você pode fazer para planejar a conectividade de rede do datacenter borda com vários nós do Azure pilha.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919427"
 ---
 # <a name="border-connectivity"></a>Conectividade de borda 
 Planejamento de integração da rede é um pré-requisito importante para implantação de sistemas de pilha do Azure integradas com êxito, operação e gerenciamento. Planejamento de conectividade com a borda começa, escolha se deseja ou não usar o roteamento dinâmico com o protocolo de gateway de borda (BGP). Isso requer a atribuição de um número de sistema autônomo de BGP de 16 bits (público ou privado) ou usando o roteamento estático, em que uma rota estática padrão é atribuída para os dispositivos de borda.

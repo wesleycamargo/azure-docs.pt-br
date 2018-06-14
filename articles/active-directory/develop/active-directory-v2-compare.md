@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156799"
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>O que há de diferente no ponto de extremidade v2.0?
 Se você estiver familiarizado com o Azure Active Directory ou se tiver integrado aplicativos com o Azure AD anteriormente, poderá encontrar algumas diferenças inesperadas ponto de extremidade v2.0. Este documento chama a atenção para essas diferenças para sua compreensão.
