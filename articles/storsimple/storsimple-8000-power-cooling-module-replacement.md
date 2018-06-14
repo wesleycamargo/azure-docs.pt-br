@@ -1,12 +1,12 @@
 ---
-title: "Substituir um PCM em seu dispositivo StorSimple série 8000 | Microsoft Docs"
-description: "Explica como remover e substituir módulo de energia e resfriamento (PCM) em seu dispositivo StorSimple"
+title: Substituir um PCM em seu dispositivo StorSimple série 8000 | Microsoft Docs
+description: Explica como remover e substituir módulo de energia e resfriamento (PCM) em seu dispositivo StorSimple
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108594"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
