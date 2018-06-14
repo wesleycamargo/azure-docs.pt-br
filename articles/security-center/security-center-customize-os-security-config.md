@@ -1,12 +1,12 @@
 ---
-title: "Personalizar as configurações de segurança do sistema operacional na Central de Segurança do Azure (versão prévia) | Microsoft Docs"
-description: "Este artigo demonstra como personalizar as avaliações da Central de Segurança"
+title: Personalizar as configurações de segurança do sistema operacional na Central de Segurança do Azure (versão prévia) | Microsoft Docs
+description: Este artigo demonstra como personalizar as avaliações da Central de Segurança
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200003"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança do sistema operacional na Central de Segurança do Azure (versão prévia)
 
