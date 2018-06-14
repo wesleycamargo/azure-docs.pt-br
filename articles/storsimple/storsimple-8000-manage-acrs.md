@@ -2,11 +2,11 @@
 title: Gerenciar registros de controle de acesso no StorSimple | Microsoft Docs
 description: Descreve como usar os ACRs (registros de controle de acesso) para determinar quais hosts podem se conectar a um volume no dispositivo StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108334"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Usar o serviço StorSimple Manager para gerenciar registros de controle de acesso
 

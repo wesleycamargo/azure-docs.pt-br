@@ -1,12 +1,12 @@
 ---
-title: "Componentes de hardware e status do StorSimple série 8000 | Microsoft Docs"
-description: "Saiba como monitorar os componentes de hardware do dispositivo StorSimple por meio do serviço Gerenciador de Dispositivos do StorSimple."
+title: Componentes de hardware e status do StorSimple série 8000 | Microsoft Docs
+description: Saiba como monitorar os componentes de hardware do dispositivo StorSimple por meio do serviço Gerenciador de Dispositivos do StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110054"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar componentes e status de hardware
 ## <a name="overview"></a>Visão geral
