@@ -1,11 +1,11 @@
 ---
-title: "Adicionar notificações por push ao aplicativo Xamarin Android | Microsoft Docs"
-description: "Saiba como usar o Serviço de Aplicativo do Azure e os Hubs de notificação do Azure para enviar notificações por push para seu aplicativo Android.Xamarin"
+title: Adicionar notificações por push ao aplicativo Xamarin Android | Microsoft Docs
+description: Saiba como usar o Serviço de Aplicativo do Azure e os Hubs de notificação do Azure para enviar notificações por push para seu aplicativo Android.Xamarin
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 6f7e8517-e532-4559-9b07-874115f4c65b
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118268"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Adicionar notificações por push ao aplicativo Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]

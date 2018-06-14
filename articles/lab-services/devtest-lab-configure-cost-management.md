@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781945"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Exibir a tendência de custo estimado mensal do laboratório no Azure DevTest Labs
 O recurso de gerenciamento de custos dos Laboratórios de Desenvolvimento/Teste ajuda a rastrear o custo de laboratório. Este artigo ilustra como usar o gráfico **Tendência de custo estimado mensal** para exibir o custo estimado até a data do mês do calendário atual e o custo projetado do final do mês para o mês do calendário atual. Este artigo mostra como gerenciar melhor os custos de laboratório definindo metas e limites de gastos que, quando alcançadas, fazem com que os DevTest Labs relatem os resultados para você.
