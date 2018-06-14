@@ -1,7 +1,7 @@
 ---
 title: Envie alertas do Azure Application Insights | Microsoft Docs
 description: Tutorial para enviar alertas em resposta a erros em seu aplicativo usando o Azure Application Insights.
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23659339"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorar e alertar sobre a integridade do aplicativo com o Azure Application Insights
 

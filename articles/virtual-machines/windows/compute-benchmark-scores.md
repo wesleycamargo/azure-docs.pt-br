@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31424682"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Windows
 As pontuações de parâmetro de comparação SPECInt a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Windows Server. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 

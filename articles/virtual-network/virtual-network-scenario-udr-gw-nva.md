@@ -1,6 +1,6 @@
 ---
-title: "Conexão híbrida com o aplicativo de 2 camadas | Microsoft Docs"
-description: "Aprenda a implantar dispositivos virtuais e UDR para criar um ambiente de aplicativo de várias camadas no Azure"
+title: Conexão híbrida com o aplicativo de 2 camadas | Microsoft Docs
+description: Aprenda a implantar dispositivos virtuais e UDR para criar um ambiente de aplicativo de várias camadas no Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/31/2017
+ms.locfileid: "23643860"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de dispositivo virtual
 Um cenário comum entre os maiores clientes do Azure é a necessidade de fornecer um aplicativo de duas camadas exposto à Internet, permitindo acesso para a camada traseira de um datacenter local. Este documento explica um cenário usando UDR (Rotas Definidas pelo Usuário), um Gateway de VPN e dispositivos virtuais de rede para implantar um ambiente de duas camadas que atende aos seguintes requisitos:
