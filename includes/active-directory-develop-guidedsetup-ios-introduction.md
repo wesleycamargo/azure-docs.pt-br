@@ -5,7 +5,7 @@ Este guia mostra como um aplicativo iOS nativo (Swift) pode chamar as APIs que r
 
 Depois de concluir os exercícios neste guia, o aplicativo pode chamar uma API protegida de qualquer empresa ou organização que tem o Azure AD. Seu aplicativo pode fazer chamadas de API protegidas usando contas pessoais, como outlook.com, live.com e outros, bem como contas corporativas ou de estudante.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 - É necessário XCode versão 8.x para o exemplo criado neste guia. Você pode fazer o download do XCode na [URL de download do XCode](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "do site iTunes").
 - É necessário o gerenciador de dependência [Carthage](https://github.com/Carthage/Carthage) para o pacote de gerenciamento.
 
@@ -29,7 +29,7 @@ A MSAL gerencia o armazenamento em cache e a atualização de tokens de acesso p
 
 Este guia usa a seguinte biblioteca:
 
-|Biblioteca|Descrição|
+|Biblioteca|DESCRIÇÃO|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|Versão prévia da Biblioteca de Autenticação da Microsoft para iOS|
 
