@@ -1,12 +1,12 @@
 ---
-title: "Administração do serviço de Gerenciador de Dispositivos do StorSimple | Microsoft Docs"
-description: "Saiba como gerenciar o dispositivo StorSimple usando o serviço de Gerenciador de Dispositivos do StorSimple no portal do Azure."
+title: Administração do serviço de Gerenciador de Dispositivos do StorSimple | Microsoft Docs
+description: Saiba como gerenciar o dispositivo StorSimple usando o serviço de Gerenciador de Dispositivos do StorSimple no portal do Azure.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108564"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Usar o serviço de Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple
 

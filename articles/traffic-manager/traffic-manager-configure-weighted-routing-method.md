@@ -1,11 +1,11 @@
 ---
-title: "Configurar o método de roteamento de tráfego round robin ponderado usando o Gerenciador de Tráfego do Azure | Microsoft Docs"
-description: "Este artigo explica como balancear a carga do tráfego usando um método round robin no Gerenciador de Tráfego"
+title: Configurar o método de roteamento de tráfego round robin ponderado usando o Gerenciador de Tráfego do Azure | Microsoft Docs
+description: Este artigo explica como balancear a carga do tráfego usando um método round robin no Gerenciador de Tráfego
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111004"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configurar o método de roteamento de tráfego ponderado no Gerenciador de Tráfego
 

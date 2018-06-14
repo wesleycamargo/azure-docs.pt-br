@@ -1,11 +1,11 @@
 ---
-title: "Início rápido da Central de Segurança do Azure – integrar a assinatura do Azure à Central de Segurança Standard | Microsoft Docs"
-description: "Este guia de início rápido mostra como atualizar para o tipo de preço Standard doa Central de Segurança para obter mais segurança."
+title: Início rápido da Central de Segurança do Azure – integrar a assinatura do Azure à Central de Segurança Standard | Microsoft Docs
+description: Este guia de início rápido mostra como atualizar para o tipo de preço Standard doa Central de Segurança para obter mais segurança.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29531665"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início rápido: Integrar sua assinatura do Azure ao Centro de Segurança Standard
 A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto a camada Gratuita oferece segurança limitada para somente os recursos do Azure, a camada Standard estende esses recursos para o local e outras nuvens. A Central de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias.
