@@ -1,6 +1,6 @@
 ---
-title: "Como usar as filas do Barramento de Serviço do Azure com Java | Microsoft Docs"
-description: "Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Java."
+title: Como usar as filas do Barramento de Serviço do Azure com Java | Microsoft Docs
+description: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Java.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044251"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Como usar filas do Barramento de Serviço com Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
