@@ -1,8 +1,8 @@
 ---
 title: Coletar dados do CollectD no OMS Log Analytics | Microsoft Docs
-description: "CollectD é um daemon do Linux de software livre que coleta periodicamente dados de aplicativos e informações de nível de sistema.  Este artigo fornece informações sobre a coleta de dados do CollectD no Log Analytics."
+description: CollectD é um daemon do Linux de software livre que coleta periodicamente dados de aplicativos e informações de nível de sistema.  Este artigo fornece informações sobre a coleta de dados do CollectD no Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23020851"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Coletar dados do CollectD em agentes do Linux no Log Analytics
 O [CollectD](https://collectd.org/) é um daemon do Linux de software livre que coleta periodicamente métricas de desempenho de aplicativos e informações de nível de sistema. Exemplos de aplicativos incluem a Máquina Virtual Java (JVM), o MySQL Server e o Nginx. Este artigo fornece informações sobre a coleta de dados de desempenho do CollectD no Log Analytics.

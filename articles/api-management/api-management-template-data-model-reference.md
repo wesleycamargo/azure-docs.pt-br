@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29378149"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência de modelo de dados de modelo do Gerenciamento de API do Azure
 Este tópico descreve as representações de entidade e tipo para itens comuns usados nos modelos de dados para os modelos de portal do desenvolvedor no Gerenciamento de API do Azure.  

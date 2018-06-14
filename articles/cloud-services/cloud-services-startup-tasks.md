@@ -1,11 +1,11 @@
 ---
-title: "Executar Tarefas de Inicialização nos Serviços de Nuvem do Azure | Microsoft Docs"
-description: "As tarefas de inicialização ajudam a preparar o ambiente de serviço de nuvem para seu aplicativo. Isso mostra o funcionamento das tarefas de inicialização e como criá-las"
+title: Executar Tarefas de Inicialização nos Serviços de Nuvem do Azure | Microsoft Docs
+description: As tarefas de inicialização ajudam a preparar o ambiente de serviço de nuvem para seu aplicativo. Isso mostra o funcionamento das tarefas de inicialização e como criá-las
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886939be-4b5b-49cc-9a6e-2172e3c133e9
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22999131"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de inicialização para um serviço de nuvem
 Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração.

@@ -1,11 +1,11 @@
 ---
 title: Estender Grupos de Disponibilidade AlwaysOn locais para o Azure | Microsoft Docs
-description: "Este tutorial usa recursos criados com o modelo de implantação clássico e descreve como usar o assistente de Adição de Réplica no SSMS (SQL Server Management Studio) para adicionar uma réplica do grupo de disponibilidade AlwaysOn ao Azure."
+description: Este tutorial usa recursos criados com o modelo de implantação clássico e descreve como usar o assistente de Adição de Réplica no SSMS (SQL Server Management Studio) para adicionar uma réplica do grupo de disponibilidade AlwaysOn ao Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400470"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estender grupos de disponibilidade AlwaysOn locais para o Azure
 Os grupos de disponibilidade AlwaysOn fornecem alta disponibilidade para grupos de bancos de dados adicionando réplicas secundárias. Essas réplicas permitem o failover dos bancos de dados em caso de falha. Além disso, elas podem ser usadas para descarregar cargas de trabalho de leitura ou tarefas de backup.

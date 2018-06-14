@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Ambiente do Serviço de Aplicativo v1"
-description: "Saiba mais sobre o recurso de Ambiente do Serviço de Aplicativo v1 que fornece unidades de escala seguras, dedicadas e unidas por VNet para executar todos os seus aplicativos."
+title: Introdução ao Ambiente do Serviço de Aplicativo v1
+description: Saiba mais sobre o recurso de Ambiente do Serviço de Aplicativo v1 que fornece unidades de escala seguras, dedicadas e unidas por VNet para executar todos os seus aplicativos.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986691"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introdução ao Ambiente do Serviço de Aplicativo v1
 

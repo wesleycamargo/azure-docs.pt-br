@@ -1,11 +1,11 @@
 ---
-title: "Fluxos de trabalho para a configuração de um circuito da ExpressRoute | Microsoft Docs"
-description: "Esta página fornece uma orientação pelos fluxos de trabalho de configuração de emparelhamentos e circuito de ExpressRoute"
+title: Fluxos de trabalho para a configuração de um circuito da ExpressRoute | Microsoft Docs
+description: Esta página fornece uma orientação pelos fluxos de trabalho de configuração de emparelhamentos e circuito de ExpressRoute
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013121"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para provisionamento e estados do circuito
 Esta página fornece uma orientação de alto nível pelos fluxos de trabalho de provisionamento do serviço e de configuração do roteamento.

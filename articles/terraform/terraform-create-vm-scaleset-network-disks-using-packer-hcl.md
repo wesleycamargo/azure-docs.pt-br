@@ -1,7 +1,7 @@
 ---
-title: "Use o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure com base em uma imagem personalizada Packer"
-description: "Use o Terraform para configurar e controlar a versão de um conjunto de dimensionamento de máquinas virtuais do Azure com base em uma imagem personalizada gerada pelo Packer (completo com uma rede virtual e discos gerenciados anexados)."
-keywords: "terraform, devops, conjunto de dimensionamento, máquina virtual, rede, armazenamento, módulos, imagens personalizadas, packer"
+title: Use o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure com base em uma imagem personalizada Packer
+description: Use o Terraform para configurar e controlar a versão de um conjunto de dimensionamento de máquinas virtuais do Azure com base em uma imagem personalizada gerada pelo Packer (completo com uma rede virtual e discos gerenciados anexados).
+keywords: terraform, devops, conjunto de dimensionamento, máquina virtual, rede, armazenamento, módulos, imagens personalizadas, packer
 author: VaijanathB
 ms.author: tarcher
 ms.date: 10/29/2017
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23655388"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Use o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure com base em uma imagem personalizada Packer
 
