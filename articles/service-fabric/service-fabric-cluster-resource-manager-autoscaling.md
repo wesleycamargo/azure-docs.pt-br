@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213190"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
 O dimensionamento automático é uma funcionalidade adicional do Service Fabric para dimensionar dinamicamente seus serviços com base na carga que os serviços estão relatando ou com base no uso dos recursos. O dimensionamento automático fornece excelente elasticidade e permite o provisionamento de instâncias ou partições adicionais do seu serviço sob demanda. Todo o processo de dimensionamento automático é automatizado e transparente e, depois que você configurar as políticas em um serviço, não é necessário dimensionar as operações de dimensionamento manuais no nível do serviço. O dimensionamento automático pode ser ativado no momento da criação de serviço, ou a qualquer momento, atualizando o serviço.

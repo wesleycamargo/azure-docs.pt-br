@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206475"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços de Nuvem e o Service Fabric antes de migrar os aplicativos.
 O Service Fabric do Microsoft Azure é a plataforma de aplicativos de nuvem de última geração para aplicativos distribuídos altamente escalonáveis e altamente confiáveis. Ele apresenta muitos recursos novos para empacotamento, implantação, atualização e gerenciamento de aplicativos em nuvem distribuídos. 

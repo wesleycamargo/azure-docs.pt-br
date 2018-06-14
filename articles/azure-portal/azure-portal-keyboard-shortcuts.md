@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165410"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Atalhos de teclado no portal do Azure
 Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado.

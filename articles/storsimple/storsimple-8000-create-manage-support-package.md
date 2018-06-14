@@ -1,12 +1,12 @@
 ---
-title: "Criar um pacote de suporte do StorSimple da série 8000 | Microsoft Docs"
-description: "Saiba como criar, descriptografar e editar um pacote de suporte para o dispositivo StorSimple da série 8000."
+title: Criar um pacote de suporte do StorSimple da série 8000 | Microsoft Docs
+description: Saiba como criar, descriptografar e editar um pacote de suporte para o dispositivo StorSimple da série 8000.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743571"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerenciar um pacote de suporte do StorSimple da série 8000
 

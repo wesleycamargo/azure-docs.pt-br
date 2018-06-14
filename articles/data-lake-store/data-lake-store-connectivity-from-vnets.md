@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198116"
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Acessar o Azure Data Lake Store por VMs em uma Rede Virtual do Azure
 O Azure Data Lake Store é um serviço de PaaS executado em endereços de IP de Internet públicos. Em geral, qualquer servidor que pode se conectar à Internet pública também pode se conectar a pontos de extremidade do Azure Data Lake Store. Por padrão, todas as VMs que estão em Redes Virtuais do Azure podem acessar a Internet e, portanto, podem acessar o Azure Data Lake Store. No entanto, é possível configurar VMs em uma Rede Virtual para que ela não tenha acesso à Internet. Para essas VMs, o acesso ao Azure Data Lake Store também é restrito. O bloqueio do acesso à Internet pública para VMs em Redes Virtuais do Azure pode ser feito usando uma das abordagens a seguir:

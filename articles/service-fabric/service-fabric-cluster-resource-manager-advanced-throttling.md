@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205120"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Restringindo o Gerenciador de Recursos de Cluster do Service Fabric
 Mesmo se você tiver configurado o Gerenciador de Recursos do Cluster corretamente, o cluster poderá ser interrompido. Por exemplo, poderia haver falhas simultâneas no domínio de falha e no nó – o que aconteceria se isso ocorresse durante um upgrade? O Gerenciador de Recursos de Cluster sempre tenta corrigir tudo, consumindo recursos do cluster ao tentar reorganizar e corrigir o cluster. As restrições ajudam a construir uma barreira para que o cluster possa usar recursos para se estabilizar — os nós voltam, as partições de rede são corrigidas, os bits corrigidos são implantados.

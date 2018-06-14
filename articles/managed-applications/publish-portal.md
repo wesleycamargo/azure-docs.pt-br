@@ -15,6 +15,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305116"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicar um aplicativo de catálogo de serviços por meio do portal do Azure
 

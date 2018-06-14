@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34347587"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Tutorial: Integração do Azure Active Directory com o Achieve3000
 

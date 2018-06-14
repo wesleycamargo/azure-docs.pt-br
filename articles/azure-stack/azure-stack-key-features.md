@@ -20,6 +20,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198466"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Principais recursos e conceitos do Azure Stack
 Se ainda não estiver familiarizado com o Microsoft Azure Stack, esses termos e descrições de recursos poderão ser úteis.

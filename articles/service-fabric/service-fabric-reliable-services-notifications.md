@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207003"
 ---
 # <a name="reliable-services-notifications"></a>Notificações do Reliable Services
 As notificações permitem que os clientes controle as alterações que estão sendo feitas em um objeto no qual eles estão interessados. Dois tipos de objetos dão suporte a notificações: *Gerenciador de Estado Confiável* e *Dicionário Confiável*.

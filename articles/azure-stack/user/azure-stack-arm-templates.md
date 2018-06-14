@@ -20,6 +20,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301671"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Usar modelos do Gerenciador de Recursos do Azure no Azure Stack
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206648"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualize seu aplicativo Java de Service Fabric anterior para buscar bibliotecas Java do Maven
 Recentemente, movemos os binários de Java do Service Fabric do SDK de Java do Service Fabric para hospedagem do Maven. Agora você pode usar **mavencentral** para buscar as dependências mais recentes de Java do Service Fabric. Esse início rápido o ajuda a atualizar seus aplicativos Java existentes, que você criou anteriormente para ser usado com o SDK de Java do Service Fabric, usando qualquer modelo Yeoman ou Eclipse, para ser compatível com a compilação baseada em Maven.

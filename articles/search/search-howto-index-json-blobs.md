@@ -14,6 +14,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362995"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexando blobs JSON com o indexador de blobs do Azure Search
 Este artigo te mostra como configurar o indexador de blob do Azure Search para extrair o conteúdo estruturado de blobs que contêm JSON no armazenamento de Blob do Azure.

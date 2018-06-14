@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360411"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Serviço de aplicativo em notas de versão de atualização 2 de pilha do Azure
 

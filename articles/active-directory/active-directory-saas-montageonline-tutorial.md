@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 297602ec5dd80c92840969307f549bc8118c9f88
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e5cabbd26c978bc8bcdabeadfca31ae99c951558
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2018
-ms.locfileid: "32309378"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34342996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Tutorial: Integração do Azure Active Directory ao Montage Online
 
@@ -31,7 +31,7 @@ A integração do Montage Online ao Azure AD oferece os seguintes benefícios:
 - É possível permitir que os usuários se conectem automaticamente ao Montage Online (Logon Único) com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -212,7 +212,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

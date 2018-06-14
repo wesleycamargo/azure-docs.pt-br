@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192965"
 ---
 # <a name="managing-azure-automation-data"></a>Gerenciando dados da Automação do Azure
 Este artigo contém vários tópicos sobre o gerenciamento de um ambiente da Automação do Azure.

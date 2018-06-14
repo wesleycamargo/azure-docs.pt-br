@@ -19,6 +19,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34259848"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Habilitar o Backup para a pilha do Azure com o PowerShell
 

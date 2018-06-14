@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211058"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implantar um cluster do Service Fabric que usa o nome comum do certificado em vez de impressão digital
 Dois certificados não podem ter a mesma impressão digital, o que dificulta a substituição ou gerenciamento de certificados de cluster. Vários certificados, no entanto, podem ter o mesmo nome comum ou assunto.  Um cluster usando nomes comuns do certificado simplifica muito o gerenciamento de certificados. Este artigo descreve como implantar um cluster do Service Fabric para usar o nome comum do certificado em vez da impressão digital do certificado.

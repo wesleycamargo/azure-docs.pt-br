@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204807"
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Reduzir horizontalmente ou escalar horizontalmente um cluster do Service Fabric usando regra de dimensionamento automático ou manualmente
 Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Cada tipo de nó pode ser escalado ou reduzido horizontalmente de forma independente, ter conjuntos diferentes de portas abertas e métricas de capacidade diferentes. Leia mais sobre isso no documento [Tipos de nó do Service Fabric](service-fabric-cluster-nodetypes.md) . Como os tipos de nós do Service Fabric no cluster são compostos por conjuntos de dimensionamento de máquinas virtuais no back-end, é necessário configurar regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais.

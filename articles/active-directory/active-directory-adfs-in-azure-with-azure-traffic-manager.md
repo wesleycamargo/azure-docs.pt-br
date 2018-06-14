@@ -1,12 +1,12 @@
 ---
-title: "Implantação de alta disponibilidade entre fronteiras geográficas do AD FS no Azure com o Gerenciador de Tráfego do Azure | Microsoft Docs"
-description: "Neste documento, você aprenderá a implantar o AD FS no Azure para obter alta disponibilidade."
-keywords: "AD fs com Gerenciador de Tráfego do Azure, adfs com Gerenciador de Tráfego do Azure, fronteiras geográficas, vários datacenters, datacenters em fronteiras geográficas, datacenters em várias fronteiras geográficas, implantar o AD FS no azure, implantar adfs no azure, adfs do azure, azure ad fs, implantar ad fs, implantar o ad fs, adfs no azure, implantar o ad fsno azure, implantar ad fs no azure, adfs do azure, introdução ao AD FS, Azure, AD FS no Azure, iaas, ADFS, mover o adfs para o azure"
+title: Implantação de alta disponibilidade entre fronteiras geográficas do AD FS no Azure com o Gerenciador de Tráfego do Azure | Microsoft Docs
+description: Neste documento, você aprenderá a implantar o AD FS no Azure para obter alta disponibilidade.
+keywords: AD fs com Gerenciador de Tráfego do Azure, adfs com Gerenciador de Tráfego do Azure, fronteiras geográficas, vários datacenters, datacenters em fronteiras geográficas, datacenters em várias fronteiras geográficas, implantar o AD FS no azure, implantar adfs no azure, adfs do azure, azure ad fs, implantar ad fs, implantar o ad fs, adfs no azure, implantar o ad fsno azure, implantar ad fs no azure, adfs do azure, introdução ao AD FS, Azure, AD FS no Azure, iaas, ADFS, mover o adfs para o azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26604772"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Implantação do AD FS de alta disponibilidade entre fronteiras geográficas no Azure com o Gerenciador de Tráfego do Azure
 [implantação do AD FS no Azure](active-directory-aadconnect-azure-adfs.md) fornece orientação passo a passo sobre como você pode implantar uma infraestrutura do AD FS simples para sua organização no Azure. Este artigo fornece as etapas a seguir para criar uma implantação entre fronteiras geográficas do AD FS no Azure usando o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md). O Gerenciador de Tráfego do Azure ajuda a criar uma infraestrutura do AD FS de alto desempenho e alta disponibilidade entre fronteiras geográficas para sua organização, fazendo uso da gama de métodos de roteamento disponíveis para atender às diferentes necessidades da infraestrutura.

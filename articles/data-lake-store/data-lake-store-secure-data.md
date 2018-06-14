@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197028"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Protegendo os dados armazenados no repositório Azure Data Lake
 A proteção de dados no repositório Azure Data Lake é uma abordagem de três etapas.  Controle de acesso baseado em regra (RBAC) e listas de controle de acesso (ACLs) devem ser definidas para possibilitar o acesso completo a dados para usuários e grupos de segurança.

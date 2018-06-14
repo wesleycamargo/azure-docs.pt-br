@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204831"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induzir o Controlled Chaos em clusters do Service Fabric
 Os sistemas distribuídos em larga escala, como as infraestruturas de nuvem, não são confiáveis por natureza. O Azure Service Fabric permite aos desenvolvedores escrever serviços distribuídos confiáveis sobre uma infraestrutura não confiável. Para gravar serviços distribuídos robustos sobre uma infraestrutura não confiável, os desenvolvedores precisam poder testar a estabilidade de seus serviços enquanto a infraestrutura subjacente não confiável está passando por transições de estado complicadas devido a falhas.

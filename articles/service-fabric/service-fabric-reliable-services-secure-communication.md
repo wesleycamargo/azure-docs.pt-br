@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210266"
 ---
 # <a name="secure-service-remoting-communications-for-a-service"></a>Proteger as comunicações remotas do serviço para um serviço
 > [!div class="op_single_selector"]

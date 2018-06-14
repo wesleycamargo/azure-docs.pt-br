@@ -16,6 +16,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195158"
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Solução de problemas comuns na Automação do Azure 
 Este artigo fornece ajuda para solucionar erros comuns quem pode ser encontrados na Automação do Azure e sugere possíveis soluções para eles.

@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196042"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook da Automação do Azure
 A Automação do Azure dá suporte a vários tipos de runbooks descritos brevemente na tabela a seguir.  As seções abaixo fornecem mais informações sobre cada tipo, incluindo considerações sobre quando usar cada um.

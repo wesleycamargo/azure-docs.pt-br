@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34199051"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acessando os logs de diagnóstico do Azure Data Lake Store
 Saiba como habilitar o log de diagnóstico em sua conta do Data Lake Store e como exibir os logs coletados em sua conta.

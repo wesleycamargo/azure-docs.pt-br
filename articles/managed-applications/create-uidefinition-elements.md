@@ -18,6 +18,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305235"
 ---
 # <a name="createuidefinition-elements"></a>Elementos CreateUiDefinition
 Este artigo descreve o esquema e as propriedades de todos os elementos de um CreateUiDefinition com suporte. 

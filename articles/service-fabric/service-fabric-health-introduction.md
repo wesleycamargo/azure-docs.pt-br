@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207291"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
