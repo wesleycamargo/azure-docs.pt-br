@@ -1,8 +1,8 @@
 ---
-title: "Como fazer uma chamada telefônica do Twilio (PHP) | Microsoft Docs"
-description: "Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos são para o aplicativo PHP."
+title: Como fazer uma chamada telefônica do Twilio (PHP) | Microsoft Docs
+description: Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos são para o aplicativo PHP.
 documentationcenter: php
-services: 
+services: ''
 author: devinrader
 manager: twilio
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039261"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Como fazer uma chamada telefônica usando o Twilio em um aplicativo PHP no Azure
 O exemplo a seguir mostra como você pode usar a Twilio para fazer uma chamada de uma página da web PHP hospedada no Azure. O aplicativo resultante solicitará valores de chamada telefônica ao usuário, conforme mostrado na seguinte captura de tela.

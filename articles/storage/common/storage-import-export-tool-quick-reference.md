@@ -1,12 +1,12 @@
 ---
-title: "Referência rápida para comandos de trabalhos de importação da Ferramenta de Importação/Exportação do Azure | Microsoft Docs"
-description: "Referência de comandos da Ferramenta de Importação/Exportação do Azure para comandos de trabalho de importação usados com frequência."
+title: Referência rápida para comandos de trabalhos de importação da Ferramenta de Importação/Exportação do Azure | Microsoft Docs
+description: Referência de comandos da Ferramenta de Importação/Exportação do Azure para comandos de trabalho de importação usados com frequência.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059411"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>Referência rápida de comandos usados com frequência para trabalhos de importação
 

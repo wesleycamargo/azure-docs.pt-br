@@ -1,12 +1,12 @@
 ---
-title: "Introdução ao Armazenamento de filas do Azure | Microsoft Docs"
-description: "Introdução ao Armazenamento de filas do Azure"
+title: Introdução ao Armazenamento de filas do Azure | Microsoft Docs
+description: Introdução ao Armazenamento de filas do Azure
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059581"
 ---
 # <a name="introduction-to-queues"></a>Introdução às Filas
 

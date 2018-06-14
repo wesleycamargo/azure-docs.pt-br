@@ -1,6 +1,6 @@
 ---
-title: "Auditoria e Log - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
+title: Auditoria e Log - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs
+description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044401"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de segurança: Auditoria e log | Atenuações 
 | Produto/Serviço | Artigo |
