@@ -1,11 +1,11 @@
 ---
-title: "Série SKU não disponível | Microsoft Docs"
-description: "Algumas séries de SKU não estão disponíveis para a assinatura selecionada para essa região."
+title: Série SKU não disponível | Microsoft Docs
+description: Algumas séries de SKU não estão disponíveis para a assinatura selecionada para essa região.
 services: Azure Supportability
-documentationcenter: 
+documentationcenter: ''
 author: stevendotwang
 manager: rajatk
-editor: 
+editor: ''
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24870571"
 ---
 # <a name="region-or-sku-unavailable"></a>Região ou SKU não disponível
 Este artigo descreve como resolver o problema de uma assinatura do Azure sem acesso a uma região ou a um SKU de VM.
