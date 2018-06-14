@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23060181"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Visão geral

@@ -1,12 +1,12 @@
 ---
-title: "Introdução a tópicos e assinaturas do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Escreva um aplicativo de console em C# .NET Core que usa tópicos e assinaturas de mensagens do Barramento de Serviço."
+title: Introdução a tópicos e assinaturas do Barramento de Serviço do Azure | Microsoft Docs
+description: Escreva um aplicativo de console em C# .NET Core que usa tópicos e assinaturas de mensagens do Barramento de Serviço.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29396934"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Barramento de Serviço
 

@@ -1,12 +1,12 @@
 ---
-title: "Gerenciar as políticas de backup do StorSimple da série 8000 | Microsoft Docs"
-description: "Explica como você pode usar o serviço do Gerenciador de Dispositivos do StorSimple para criar e gerenciar backups manuais, agendas de backup e retenção de backup em um dispositivo StorSimple da série 8000."
+title: Gerenciar as políticas de backup do StorSimple da série 8000 | Microsoft Docs
+description: Explica como você pode usar o serviço do Gerenciador de Dispositivos do StorSimple para criar e gerenciar backups manuais, agendas de backup e retenção de backup em um dispositivo StorSimple da série 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108274"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple no Portal do Azure para gerenciar políticas de backup
 

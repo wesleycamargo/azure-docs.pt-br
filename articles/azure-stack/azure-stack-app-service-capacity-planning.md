@@ -1,12 +1,12 @@
 ---
-title: "Planejamento de capacidade para funções de servidor do serviço de aplicativo do Azure na pilha do Azure | Microsoft Docs"
-description: "Planejamento de capacidade para funções de servidor do serviço de aplicativo do Azure na pilha do Azure"
+title: Planejamento de capacidade para funções de servidor do serviço de aplicativo do Azure na pilha do Azure | Microsoft Docs
+description: Planejamento de capacidade para funções de servidor do serviço de aplicativo do Azure na pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388576"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planejamento de capacidade para funções de servidor do serviço de aplicativo do Azure na pilha do Azure
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*

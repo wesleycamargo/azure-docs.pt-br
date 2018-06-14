@@ -1,11 +1,11 @@
 ---
-title: "Protegendo seus aplicativos na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento endereça as recomendações na Central de Segurança do Azure que ajudam a proteger os recursos do Azure e cumprir as políticas de segurança."
+title: Protegendo seus aplicativos na Central de Segurança do Azure | Microsoft Docs
+description: Este documento endereça as recomendações na Central de Segurança do Azure que ajudam a proteger os recursos do Azure e cumprir as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: b5fc7a9e-24b1-415f-b3b5-62a53f5dd424
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040221"
 ---
 # <a name="protecting-your-applications-in-azure-security-center"></a>Protegendo seus aplicativos na Central de segurança do Azure
 A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários.  As recomendações se aplicam aos tipos de recursos do Azure: máquinas virtuais (VMs), rede, aplicativos e SQL.

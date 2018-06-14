@@ -1,6 +1,6 @@
 ---
-title: "Executar um failback em um site local para máquinas virtuais Hyper-V | Microsoft Docs"
-description: "O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre o failback do Azure para o datacenter local."
+title: Executar um failback em um site local para máquinas virtuais Hyper-V | Microsoft Docs
+description: O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre o failback do Azure para o datacenter local.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466742"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar um failback de VMs Hyper-V
 

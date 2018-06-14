@@ -1,11 +1,11 @@
 ---
-title: "Visualizando o uso da unidade de um trabalho de exportação do serviço de Importação/Exportação do Azure — v1 | Microsoft Docs"
-description: "Saiba como visualizar a lista de blobs selecionada para um trabalho de exportação no serviço de Importação/Exportação do Azure."
+title: Visualizando o uso da unidade de um trabalho de exportação do serviço de Importação/Exportação do Azure — v1 | Microsoft Docs
+description: Saiba como visualizar a lista de blobs selecionada para um trabalho de exportação no serviço de Importação/Exportação do Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059291"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Visualizando o uso da unidade de um trabalho de exportação
 Antes de criar um trabalho de exportação, você precisa escolher um conjunto de blobs a ser exportado. O serviço de Importação/Exportação do Microsoft Azure permite que você use uma lista de caminhos ou prefixos de blob para representar os blobs selecionados.  

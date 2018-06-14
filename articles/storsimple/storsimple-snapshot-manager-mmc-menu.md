@@ -1,11 +1,11 @@
 ---
-title: "Ações do menu MMC do StorSimple Snapshot Manager | Microsoft Docs"
-description: "Descreve como usar as ações de menu padrão do Console de Gerenciamento Microsoft (MMC) no StorSimple Snapshot Manager."
+title: Ações do menu MMC do StorSimple Snapshot Manager | Microsoft Docs
+description: Descreve como usar as ações de menu padrão do Console de Gerenciamento Microsoft (MMC) no StorSimple Snapshot Manager.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109964"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Usar as ações de menu do MMC no StorSimple Snapshot Manager
 

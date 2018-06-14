@@ -1,13 +1,13 @@
 ---
-title: "Visão geral do cache local do Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Este artigo descreve como habilitar, redimensionar e consultar o status do recurso de Cache Local do Serviço de Aplicativo do Azure"
+title: Visão geral do cache local do Serviço de Aplicativo do Azure | Microsoft Docs
+description: Este artigo descreve como habilitar, redimensionar e consultar o status do recurso de Cache Local do Serviço de Aplicativo do Azure
 services: app-service
 documentationcenter: app-service
 author: SyntaxC4
 manager: yochayk
-editor: 
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22985941"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do Serviço de Aplicativo do Azure
 O conteúdo dos aplicativos Web do Azure é armazenado no Armazenamento do Azure e exibido de forma duradoura como um compartilhamento de conteúdo. Esse design tem como objetivo trabalhar com vários aplicativos e tem os seguintes atributos:  

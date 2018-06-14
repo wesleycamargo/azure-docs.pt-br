@@ -1,11 +1,11 @@
 ---
 title: Usar o armazenamento de blobs para IIS e armazenamento de tabelas para eventos no Azure Log Analytics | Microsoft Docs
-description: "O Log Analytics pode ler os logs para os serviços do Azure que gravam o diagnóstico no armazenamento de tabelas, ou então logs do IIS gravados no Armazenamento de Blobs."
+description: O Log Analytics pode ler os logs para os serviços do Azure que gravam o diagnóstico no armazenamento de tabelas, ou então logs do IIS gravados no Armazenamento de Blobs.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23021341"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Usar o armazenamento de blobs do Azure para IIS e armazenamento de tabelas do Azure para eventos com o Log Analytics
 
