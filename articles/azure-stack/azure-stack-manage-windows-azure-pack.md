@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar máquinas virtuais de pacote do Windows Azure da pilha do Azure | Microsoft Docs"
-description: "Saiba como gerenciar máquinas virtuais do Windows Azure Pack (WAP) do portal do usuário na pilha do Azure."
+title: Gerenciar máquinas virtuais de pacote do Windows Azure da pilha do Azure | Microsoft Docs
+description: Saiba como gerenciar máquinas virtuais do Windows Azure Pack (WAP) do portal do usuário na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29735817"
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Gerenciar máquinas virtuais de pacote do Windows Azure da pilha do Azure
 

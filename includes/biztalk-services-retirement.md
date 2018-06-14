@@ -1,6 +1,6 @@
 ---
-title: "Arquivo de inclusão"
-description: "Arquivo de inclusão"
+title: Arquivo de inclusão
+description: Arquivo de inclusão
 services: biztalk-services
 author: MandiOhlinger
 ms.service: biztalk-services
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29765927"
 ---
 > [!IMPORTANT]
 > Os Serviços BizTalk do Microsoft Azure (MABS) estão sendo desativados e substituídos pelos Aplicativos Lógicos do Azure.

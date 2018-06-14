@@ -1,11 +1,11 @@
 ---
-title: "Atualizar para a camada Standard da Central de Segurança para segurança aprimorada | Microsoft Docs"
-description: "Este artigo fornece informações sobre os preços para a Central de Segurança do Azure."
+title: Atualizar para a camada Standard da Central de Segurança para segurança aprimorada | Microsoft Docs
+description: Este artigo fornece informações sobre os preços para a Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23473924"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para a camada Standard da Central de Segurança para segurança aprimorada
 A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens. Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudá-lo a acompanhar o ritmo veloz da evolução dos ataques cibernéticos.
