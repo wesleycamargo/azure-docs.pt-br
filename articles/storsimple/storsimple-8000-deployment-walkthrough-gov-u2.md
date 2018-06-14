@@ -1,12 +1,12 @@
 ---
-title: "Implantar o dispositivo StorSimple da série 8000 no Portal Governamental | Microsoft Docs"
-description: "Descreve as etapas e as práticas recomendadas para implantar o dispositivo StorSimple da série 8000 que executa a Atualização 3 e posterior e o serviço no Portal do Azure Governamental."
+title: Implantar o dispositivo StorSimple da série 8000 no Portal Governamental | Microsoft Docs
+description: Descreve as etapas e as práticas recomendadas para implantar o dispositivo StorSimple da série 8000 que executa a Atualização 3 e posterior e o serviço no Portal do Azure Governamental.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108744"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Implantar seu dispositivo StorSimple local no Portal Governamental
 

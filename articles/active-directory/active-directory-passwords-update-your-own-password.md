@@ -1,9 +1,9 @@
 ---
 title: 'Azure AD: redefinir sua senha | Microsoft Docs'
-description: "Usar a redefinição de senha de autoatendimento para recuperar o acesso à conta de usuário corporativa ou de estudante"
+description: Usar a redefinição de senha de autoatendimento para recuperar o acesso à conta de usuário corporativa ou de estudante
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29463771"
 ---
 # <a name="reset-your-work-or-school-password"></a>Redefinir sua senha corporativa ou de estudante
 
