@@ -1,11 +1,11 @@
 ---
-title: "Documentação do Agendador do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como usar o Agendador para agendar e invocar trabalhos, como ações recorrentes de aplicativo e manutenção de rotina. Tutoriais, referências de API e muito mais."
+title: Documentação do Agendador do Azure - Tutoriais, Referência de API | Microsoft Docs
+description: Saiba como usar o Agendador para agendar e invocar trabalhos, como ações recorrentes de aplicativo e manutenção de rotina. Tutoriais, referências de API e muito mais.
 services: scheduler
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: scheduler
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23071340"
 ---
 # <a name="scheduler-documentation"></a>Documentação do Agendador
 
