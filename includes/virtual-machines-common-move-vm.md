@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29958700"
 ---
 ## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Usar o portal para mover uma VM para uma assinatura diferente
 Você pode mover uma VM e recursos associados para uma assinatura diferente usando o portal.
