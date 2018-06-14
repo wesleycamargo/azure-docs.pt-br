@@ -1,13 +1,13 @@
 ---
-title: "Logs de diagnóstico dos Hubs de Eventos do Azure | Microsoft Docs"
-description: "Saiba como configurar logs de diagnóstico para hub de eventos no Azure."
-keywords: 
-documentationcenter: 
+title: Logs de diagnóstico dos Hubs de Eventos do Azure | Microsoft Docs
+description: Saiba como configurar logs de diagnóstico para hub de eventos no Azure.
+keywords: ''
+documentationcenter: ''
 services: event-hubs
 author: banisadr
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932708"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Logs de diagnóstico dos Hubs de Eventos
 

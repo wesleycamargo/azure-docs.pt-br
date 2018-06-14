@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155612"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Objetos de entidade de serviço e aplicativo no Azure Active Directory (Azure AD)
 Às vezes, o significado do termo "aplicativo" pode ser interpretado de forma errada quando usado no contexto do Azure AD. A meta deste artigo é esclarecer os aspectos conceituais e concretos de integração de aplicativos do Azure AD, seguidos de uma ilustração de registro e consentimento para um [aplicativo multilocatário](active-directory-dev-glossary.md#multi-tenant-application).

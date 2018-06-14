@@ -18,6 +18,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069520"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o logon único com senha para um aplicativo da Galeria do Azure AD
 

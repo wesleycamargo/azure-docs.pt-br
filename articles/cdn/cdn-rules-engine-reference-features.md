@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011417"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure
 Este artigo lista descrições detalhadas dos recursos disponíveis para o [Mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo) do Azure.

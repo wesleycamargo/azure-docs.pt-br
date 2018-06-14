@@ -1,6 +1,6 @@
 ---
-title: "Gerenciamento de Exceções - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
+title: Gerenciamento de Exceções - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs
+description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019578"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Quadro de Segurança: Gerenciamento de Exceções | Atenuações 
 | Produto/Serviço | Artigo |

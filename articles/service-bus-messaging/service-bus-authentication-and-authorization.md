@@ -1,11 +1,11 @@
 ---
-title: "Autenticação e Autorização do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Autentique aplicativos no Barramento de Serviço com a autenticação SAS (Assinatura de Acesso Compartilhado)."
+title: Autenticação e Autorização do Barramento de Serviço do Azure | Microsoft Docs
+description: Autentique aplicativos no Barramento de Serviço com a autenticação SAS (Assinatura de Acesso Compartilhado).
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24813922"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticação e autorização do Barramento de Serviço
 

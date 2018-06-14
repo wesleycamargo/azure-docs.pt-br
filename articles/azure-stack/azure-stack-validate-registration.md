@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937835"
 ---
 # <a name="validate-azure-registration"></a>Validar o registro do Azure 
 Use a ferramenta de verificador de preparação de pilha do Azure (AzsReadinessChecker) para validar a assinatura do Azure está pronta para uso com a pilha do Azure. Valide o registro antes de começar uma implantação de pilha do Azure. Valida o verificador de preparação:

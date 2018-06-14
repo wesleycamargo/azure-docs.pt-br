@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34058158"
 ---
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Criar relatórios de instantâneo do Cloud App Discovery
 

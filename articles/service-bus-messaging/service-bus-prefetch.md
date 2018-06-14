@@ -1,11 +1,11 @@
 ---
-title: "Mensagens de pré-busca do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Melhore o desempenho realizando a pré-busca de mensagens do Barramento de Serviço do Azure."
+title: Mensagens de pré-busca do Barramento de Serviço do Azure | Microsoft Docs
+description: Melhore o desempenho realizando a pré-busca de mensagens do Barramento de Serviço do Azure.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28928154"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Executar a pré-busca de mensagens do Barramento de Serviço do Azure
 

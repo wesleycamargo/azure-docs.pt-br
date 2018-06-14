@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937813"
 ---
 # <a name="azure-stack-validation-report"></a>Relatório de validação de pilha do Azure
 O verificador de preparação de pilha do Azure executa validações que oferecem suporte à implantação e manutenção de um ambiente de pilha do Azure. A ferramenta grava os resultados da validação para um arquivo de relatório. JSON. O relatório exibe dados resumidos e detalhados no estado de pré-requisitos para implantação da pilha do Azure e em rotação segredos para implantações de pilha do Azure existente.  

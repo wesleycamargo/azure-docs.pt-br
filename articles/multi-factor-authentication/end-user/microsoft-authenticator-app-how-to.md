@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200990"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Introdução ao aplicativo Microsoft Authenticator
 O aplicativo Microsoft Authenticator fornece um nível adicional de segurança em sua conta corporativa ou de estudante (por exemplo, bsimon@contoso.com) ou conta da Microsoft (por exemplo, bsimon@outlook.com).

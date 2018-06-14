@@ -1,11 +1,11 @@
 ---
-title: "Corrigir configurações de segurança na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure, “Corrigir configurações de segurança”."
+title: Corrigir configurações de segurança na Central de Segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar a recomendação da Central de Segurança do Azure, “Corrigir configurações de segurança”.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103924"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corrigir as configurações de segurança na Central de Segurança do Azure
 A Central de Segurança do Azure analisa diariamente o SO (sistema operacional) de suas VMs (máquinas virtuais) e computadores para verificar a existência de configuração que possa tornar as VMs e computadores mais vulneráveis a ataques. A Central de Segurança recomenda que você resolva as vulnerabilidades quando sua configuração do sistema operacional não corresponder às regras de configuração de segurança e recomenda alterações de configuração para resolver essas vulnerabilidades.

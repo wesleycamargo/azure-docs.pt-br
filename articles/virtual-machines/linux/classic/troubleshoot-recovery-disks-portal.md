@@ -18,6 +18,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072208"
 ---
 # <a name="troubleshoot-a-linux-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>Solucionar problemas de uma VM do Linux clássica anexando o disco do sistema operacional a uma VM de recuperação
 

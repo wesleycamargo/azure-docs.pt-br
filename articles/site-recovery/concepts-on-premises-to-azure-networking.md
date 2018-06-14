@@ -14,6 +14,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071630"
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurar o endereçamento IP para se conectar após o failover para o Azure
 

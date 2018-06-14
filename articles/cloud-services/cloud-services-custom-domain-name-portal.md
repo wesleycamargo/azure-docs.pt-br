@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "25946767"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurando um nome de domínio personalizado para um serviço de nuvem do Azure
 Quando você cria um Serviço de Nuvem, o Azure o atribui a um subdomínio do **cloudapp.net**. Por exemplo, se o Serviço de Nuvem for nomeado "contoso", os usuários poderão acessar o aplicativo usando uma URL como http://contoso.cloudapp.net. O Azure também fornece um endereço IP virtual.

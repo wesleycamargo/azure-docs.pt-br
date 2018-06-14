@@ -1,11 +1,11 @@
 ---
-title: "Tratamento de erro em políticas de Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba como responder às condições de erro que podem ocorrer durante o processamento de solicitações no Gerenciamento de API do Azure."
+title: Tratamento de erro em políticas de Gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como responder às condições de erro que podem ocorrer durante o processamento de solicitações no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26128219"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Tratamento de erro em políticas de Gerenciamento de API
 O Gerenciamento de API do Azure permite que os editores respondam a condições de erro que podem ocorrer durante o processamento de solicitações para o proxy fornecendo um objeto `ProxyError`. O objeto `ProxyError` é acessado por meio da propriedade [context.LastError](api-management-policy-expressions.md#ContextVariables) e pode ser usado por políticas na seção da política `on-error`. Este tópico fornece uma referência para os recursos de tratamento de erro no Gerenciamento de API do Azure.  

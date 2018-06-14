@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057988"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Notas de versão da Atualização 2 da série 8000 do StorSimple
 

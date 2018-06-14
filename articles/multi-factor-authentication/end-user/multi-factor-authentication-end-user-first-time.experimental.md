@@ -21,6 +21,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28201248"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar minha conta para verificação em duas etapas
 A verificação em duas etapas é uma etapa adicional de segurança que ajuda a proteger sua conta, tornando mais difícil para outras pessoas invadi-la. Se você está lendo este artigo, é provável que tenha um email de seu administrador do trabalho ou escola sobre Autenticação Multifator. Ou talvez você tenha tentado entrar e recebido uma mensagem pedindo para configurar uma verificação de segurança adicional. Se esse for o caso, **você não poderá entrar até concluir o processo de registro automático**.

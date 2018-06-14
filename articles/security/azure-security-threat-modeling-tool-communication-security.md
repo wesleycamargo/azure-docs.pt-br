@@ -1,6 +1,6 @@
 ---
-title: "Segurança de comunicações - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
+title: Segurança de comunicações - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019476"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Estrutura de segurança: Segurança de comunicações | Atenuações 
 | Produto/Serviço | Artigo |

@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157302"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Escopos, permissões e consentimento no ponto de extremidade v2.0 do Azure Active Directory
 Os aplicativos que se integram ao Azure AD (Azure Active Directory) seguem um modelo de autorização que fornece aos usuários controle sobre como um aplicativo pode acessar seus dados. A implementação v2.0 desse modelo de autorização foi atualizada e altera a maneira como um aplicativo deve interagir com o Azure AD. Este artigo aborda os conceitos básicos deste modelo de autorização, incluindo escopos, permissões e consentimento.
