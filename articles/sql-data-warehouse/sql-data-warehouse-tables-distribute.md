@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526246"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Diretrizes de design para tabelas distribuídas no SQL Data Warehouse do Azure
 Recomendações para a criação de tabelas distribuídas por hash e round-robin no SQL Data Warehouse do Azure.
