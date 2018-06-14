@@ -1,12 +1,12 @@
 ---
-title: "Configurações de porta da Retransmissão do Azure | Microsoft Docs"
-description: "Detalhes sobre os valores de porta da Retransmissão do Azure."
+title: Configurações de porta da Retransmissão do Azure | Microsoft Docs
+description: Detalhes sobre os valores de porta da Retransmissão do Azure.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28017368"
 ---
 # <a name="azure-relay-port-settings"></a>Configurações de porta de Retransmissão do Azure
 

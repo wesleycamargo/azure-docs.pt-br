@@ -1,6 +1,6 @@
 ---
 title: Usando ACR com um cluster DC/OS do Azure
-description: "Usar um Registro de Contêiner do Azure com um cluster DC/OS no Serviço de Contêiner do Azure"
+description: Usar um Registro de Contêiner do Azure com um cluster DC/OS no Serviço de Contêiner do Azure
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28922885"
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Usar ACR com um cluster DC/OS para implantar seu aplicativo
 

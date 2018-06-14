@@ -1,8 +1,8 @@
 ---
 title: Usar um MSI de VM do Windows para acessar o armazenamento do Azure usando uma credencial SAS
-description: "Um tutorial que mostra como usar uma MSI (Identidade de Serviço Gerenciada) da VM do Windows para acessar o armazenamento do Azure usando uma credencial SAS, em vez de uma chave de acesso da conta de armazenamento."
+description: Um tutorial que mostra como usar uma MSI (Identidade de Serviço Gerenciada) da VM do Windows para acessar o armazenamento do Azure usando uma credencial SAS, em vez de uma chave de acesso da conta de armazenamento.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28979979"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Usar a Identidade de Serviço Gerenciada da VM do Windows para acessar o Armazenamento do Azure por meio de uma credencial SAS
 
