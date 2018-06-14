@@ -1,8 +1,8 @@
 ---
-title: "Práticas Recomendadas para o Serviço de Aplicativo do Azure"
-description: "Aprenda as práticas recomendadas e solução de problemas do Serviço de Aplicativo do Azure."
+title: Práticas Recomendadas para o Serviço de Aplicativo do Azure
+description: Aprenda as práticas recomendadas e solução de problemas do Serviço de Aplicativo do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27868311"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Práticas Recomendadas para o Serviço de Aplicativo do Azure
 Este artigo resume as práticas recomendadas para usar o [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 

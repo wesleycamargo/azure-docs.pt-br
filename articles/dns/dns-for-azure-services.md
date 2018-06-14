@@ -1,11 +1,11 @@
 ---
-title: "Usando o DNS do Azure com outros serviços do Azure | Microsoft Docs"
-description: "Noções básicas sobre como usar o DNS do Azure a fim de resolver o nome para outros serviços do Azure"
+title: Usando o DNS do Azure com outros serviços do Azure | Microsoft Docs
+description: Noções básicas sobre como usar o DNS do Azure a fim de resolver o nome para outros serviços do Azure
 services: dns
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure dns
 ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
 ms.service: dns
@@ -21,6 +21,7 @@ ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/30/2017
+ms.locfileid: "25989836"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Como o Azure DNS funciona com outros serviços do Azure
 

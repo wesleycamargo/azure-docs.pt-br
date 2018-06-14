@@ -1,12 +1,12 @@
 ---
-title: "Clonar um volume no StorSimple da série 8000| Microsoft Docs"
-description: "Descreve os diferentes tipos de clone e seus usos, explicando como usar um conjunto de backup para clonar um volume individual em um dispositivo StorSimple da série 8000."
+title: Clonar um volume no StorSimple da série 8000| Microsoft Docs
+description: Descreve os diferentes tipos de clone e seus usos, explicando como usar um conjunto de backup para clonar um volume individual em um dispositivo StorSimple da série 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26333195"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple no Portal do Azure para clonar um volume
 
