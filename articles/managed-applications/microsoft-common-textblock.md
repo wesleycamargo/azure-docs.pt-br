@@ -18,6 +18,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260816"
 ---
 # <a name="microsoftcommontextblock-ui-element"></a>Elemento de interface do usuário Microsoft.Common.TextBlock
 Um controle que pode ser usado para adicionar texto à interface do portal.

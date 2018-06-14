@@ -1,13 +1,13 @@
 ---
-title: "Nomes de produto e identificadores de plano de serviço para licenciamento no Azure Active Directory | Microsoft Docs"
+title: Nomes de produto e identificadores de plano de serviço para licenciamento no Azure Active Directory | Microsoft Docs
 description: Mapa de identificador para gerenciar o licenciamento do Azure AD no portal do Azure, no portal do Office 365, no PowerShell ou no Microsoft Graph
 services: active-directory
-keywords: "Planos de serviço de licenciamento do Azure Active Directory"
-documentationcenter: 
+keywords: Planos de serviço de licenciamento do Azure Active Directory
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26609322"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomes de produtos e identificadores de plano de serviço para licenciamento
 

@@ -1,12 +1,12 @@
 ---
-title: "Transferir dados com a Biblioteca de Movimentação de Dados do Armazenamento do Microsoft Azure | Microsoft Docs"
-description: "Use a Biblioteca de Movimentação de Dados para mover ou copiar dados de ou para o conteúdo de blob e arquivo. Copie dados para o Armazenamento do Azure de arquivos locais ou copie dados dentro na mesma conta ou entre contas de armazenamento. Migre facilmente seus dados para o Armazenamento do Azure."
+title: Transferir dados com a Biblioteca de Movimentação de Dados do Armazenamento do Microsoft Azure | Microsoft Docs
+description: Use a Biblioteca de Movimentação de Dados para mover ou copiar dados de ou para o conteúdo de blob e arquivo. Copie dados para o Armazenamento do Azure de arquivos locais ou copie dados dentro na mesma conta ou entre contas de armazenamento. Migre facilmente seus dados para o Armazenamento do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/02/2018
+ms.locfileid: "27564732"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transferir dados com a Biblioteca de Movimentação de Dados do Armazenamento do Microsoft Azure
 

@@ -1,8 +1,8 @@
 ---
 title: Arquitetura do OMS (Operations Management Suite) | Microsoft Docs
-description: "O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem.  Este artigo identifica os diferentes serviços incluídos no OMS e fornece links para o conteúdo detalhado."
+description: O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem.  Este artigo identifica os diferentes serviços incluídos no OMS e fornece links para o conteúdo detalhado.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26683258"
 ---
 # <a name="oms-architecture"></a>Arquitetura do OMS
 O [OMS (Operations Management Suite)](https://azure.microsoft.com/documentation/services/operations-management-suite/) é uma coleção de serviços baseados em nuvem para gerenciar seus ambientes locais e na nuvem.  Este artigo descreve os diferentes componentes locais e na nuvem do OMS e sua arquitetura de computação em nuvem de alto nível.  Consulte a documentação de cada serviço para obter mais detalhes.

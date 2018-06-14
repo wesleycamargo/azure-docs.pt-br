@@ -1,11 +1,11 @@
 ---
-title: "Introdução às retransmissões WCF da Retransmissão do Azure no .NET | Microsoft Docs"
-description: "Saiba como usar as retransmissões WCF da Retransmissão do Azure para conectar dois aplicativos hospedados em locais diferentes."
+title: Introdução às retransmissões WCF da Retransmissão do Azure no .NET | Microsoft Docs
+description: Saiba como usar as retransmissões WCF da Retransmissão do Azure para conectar dois aplicativos hospedados em locais diferentes.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
 ms.service: service-bus-relay
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26856075"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Como usar as retransmissões WCF da Retransmissão do Azure com .NET
 Este artigo descreve como usar o serviço Retransmissão do Azure. Os exemplos são escritos em C# e usam a API da WCF (Windows Communication Foundation) com extensões contidas no assembly do Barramento de Serviço. Para obter mais informações sobre a retransmissão do Azure, consulte a [Visão geral da Retransmissão do Azure](relay-what-is-it.md).

@@ -1,8 +1,8 @@
 ---
-title: "Visão geral do OMS (Operations Management Suite) | Microsoft Docs"
-description: "O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem.  Este artigo descreve o valor do OMS, identifica os serviços e as ofertas diferentes incluídos no OMS e fornece links para conteúdo detalhado."
+title: Visão geral do OMS (Operations Management Suite) | Microsoft Docs
+description: O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem.  Este artigo descreve o valor do OMS, identifica os serviços e as ofertas diferentes incluídos no OMS e fornece links para conteúdo detalhado.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684007"
 ---
 # <a name="what-is-operations-management-suite-oms"></a>O que é Operations Management Suite (OMS)?
 Este artigo fornece uma introdução ao OMS (Operations Management Suite), incluindo uma visão geral sobre o valor de negócios que ele fornece, os serviços e as soluções de gerenciamento incluídos e as ofertas que reúnem serviços e soluções diferentes.  Há links para a documentação detalhada sobre como implantar e usar cada solução e serviço.

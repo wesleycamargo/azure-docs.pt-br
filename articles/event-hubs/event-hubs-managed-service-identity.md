@@ -1,12 +1,12 @@
 ---
-title: "Versão prévia da Identidade de Serviço Gerenciada com Hubs de Eventos do Azure | Microsoft Docs"
-description: "Usar Identidade de Serviço Gerenciada com Hubs de Eventos do Azure"
+title: Versão prévia da Identidade de Serviço Gerenciada com Hubs de Eventos do Azure | Microsoft Docs
+description: Usar Identidade de Serviço Gerenciada com Hubs de Eventos do Azure
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783311"
 ---
 # <a name="managed-service-identity-preview"></a>Identidade de Serviço Gerenciada (versão prévia)
 

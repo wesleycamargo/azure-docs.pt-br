@@ -1,9 +1,9 @@
 ---
-title: "Visão geral do Enterprise State Roaming | Microsoft Docs"
-description: "Fornece informações sobre as configurações do Enterprise State Roaming em dispositivos do Windows. O Enterprise State Roaming fornece aos usuários uma experiência unificada em seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo."
+title: Visão geral do Enterprise State Roaming | Microsoft Docs
+description: Fornece informações sobre as configurações do Enterprise State Roaming em dispositivos do Windows. O Enterprise State Roaming fornece aos usuários uma experiência unificada em seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo.
 services: active-directory
-keywords: "o que é o Enterprise State Roaming, sincronização de empresa, nuvem do windows"
-documentationcenter: 
+keywords: o que é o Enterprise State Roaming, sincronização de empresa, nuvem do windows
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614944"
 ---
 # <a name="enterprise-state-roaming-overview"></a>Visão geral do Enterprise State Roaming
 Com o Windows 10, os usuários do [Active Directory do Azure (AD do Azure)](active-directory-whatis.md) obtêm a capacidade de sincronizar com segurança suas configurações de usuário e seus dados de configurações do aplicativo com a nuvem. O Enterprise State Roaming fornece aos usuários uma experiência unificada em seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo. O Enterprise State Roaming funciona de maneira semelhante à [sincronização de configurações de consumidor](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) padrão, introduzida no Windows 8. Além disso, o Enterprise State Roaming oferece:

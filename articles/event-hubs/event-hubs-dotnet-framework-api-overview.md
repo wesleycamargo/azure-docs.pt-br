@@ -1,11 +1,11 @@
 ---
-title: "Visão geral das APIs do .NET Framework dos Hubs de Eventos do Azure | Microsoft Docs"
+title: Visão geral das APIs do .NET Framework dos Hubs de Eventos do Azure | Microsoft Docs
 description: Um resumo de algumas das principais APIs de cliente .NET Framework de Hubs de Eventos.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781887"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Visão geral da API do .NET Framework de Hubs de Eventos
 

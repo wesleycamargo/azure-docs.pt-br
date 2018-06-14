@@ -1,11 +1,11 @@
 ---
-title: "Recuperação de desastres de área geográfica de Hubs de Eventos do Azure | Microsoft Docs"
-description: "Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure"
+title: Recuperação de desastres de área geográfica de Hubs de Eventos do Azure | Microsoft Docs
+description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745887"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Recuperação de desastres de área geográfica dos Hubs de Eventos do Azure
 

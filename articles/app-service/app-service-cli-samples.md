@@ -1,6 +1,6 @@
 ---
-title: "Exemplos de CLI do Azure - Serviço de aplicativo | Microsoft Docs"
-description: "Exemplos de CLI do Azure - Serviço de aplicativo"
+title: Exemplos de CLI do Azure - Serviço de aplicativo | Microsoft Docs
+description: Exemplos de CLI do Azure - Serviço de aplicativo
 services: app-service
 documentationcenter: app-service
 author: syntaxc4
@@ -21,6 +21,7 @@ ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26658358"
 ---
 # <a name="azure-cli-samples"></a>Exemplos de CLI do Azure
 
