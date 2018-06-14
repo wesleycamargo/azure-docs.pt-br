@@ -1,8 +1,8 @@
 ---
-title: "Configurar o serviço de Gerenciamento de API usando o Git - Azure | Microsoft Docs"
-description: "Saiba como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git"
+title: Configurar o serviço de Gerenciamento de API usando o Git - Azure | Microsoft Docs
+description: Saiba como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
 editor: mattfarm
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117530"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 

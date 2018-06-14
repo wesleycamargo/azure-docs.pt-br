@@ -1,11 +1,11 @@
 ---
 title: Como configurar o MSI em uma VM do Azure usando o portal do Azure
-description: "Instruções passo a passo para configurar uma Identidade de Serviço Gerenciado (MSI) em uma VM do Azure usando o portal do Azure."
+description: Instruções passo a passo para configurar uma Identidade de Serviço Gerenciado (MSI) em uma VM do Azure usando o portal do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28979166"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configurar uma Identidade do Serviço Gerenciado (MSI) da VM usando a CLI do Azure
 

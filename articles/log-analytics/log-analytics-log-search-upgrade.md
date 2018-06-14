@@ -1,11 +1,11 @@
 ---
 title: Atualizar o Azure Log Analytics para nova pesquisa de logs | Microsoft Docs
-description: "A nova linguagem de consulta do Log Analytics está quase chegando e você pode participar da visualização pública.  Este artigo descreve as vantagens da nova linguagem e diz como converter seu espaço de trabalho."
+description: A nova linguagem de consulta do Log Analytics está quase chegando e você pode participar da visualização pública.  Este artigo descreve as vantagens da nova linguagem e diz como converter seu espaço de trabalho.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28983981"
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Atualização do Azure Log Analytics para a nova pesquisa de logs
 
