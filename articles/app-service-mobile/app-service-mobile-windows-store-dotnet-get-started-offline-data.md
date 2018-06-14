@@ -1,10 +1,10 @@
 ---
-title: "Habilitar sincronização offline para seu aplicativo UWP (Plataforma Universal do Windows) com os Aplicativos Móveis | Microsoft Docs"
-description: "Aprenda a usar um Aplicativo Móvel do Azure para armazenar em cache e sincronizar dados offline no seu aplicativo UWP (Plataforma Universal do Windows)."
+title: Habilitar sincronização offline para seu aplicativo UWP (Plataforma Universal do Windows) com os Aplicativos Móveis | Microsoft Docs
+description: Aprenda a usar um Aplicativo Móvel do Azure para armazenar em cache e sincronizar dados offline no seu aplicativo UWP (Plataforma Universal do Windows).
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594472"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Habilitar sincronização offline para o seu aplicativo do Windows
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

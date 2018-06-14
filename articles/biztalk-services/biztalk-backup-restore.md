@@ -1,11 +1,11 @@
 ---
-title: "Criar e restaurar um backup nos Serviços BizTalk | Microsoft Docs"
-description: "Os serviços BizTalk incluem backup e restauração. Saiba como criar e restaurar um backup e determinar do que é feito backup. MABS, WABS"
+title: Criar e restaurar um backup nos Serviços BizTalk | Microsoft Docs
+description: Os serviços BizTalk incluem backup e restauração. Saiba como criar e restaurar um backup e determinar do que é feito backup. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 59f91173-4683-48df-abd5-41262bfce6df
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102334"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>Serviços BizTalk: backup e restauração
 
