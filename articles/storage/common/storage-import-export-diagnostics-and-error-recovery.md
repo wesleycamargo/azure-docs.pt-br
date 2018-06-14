@@ -1,11 +1,11 @@
 ---
-title: "Diagnóstico e recuperação de erro para os trabalhos de Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba como habilitar o log detalhado para os trabalhos do serviço de Importação/Exportação do Microsoft Azure."
+title: Diagnóstico e recuperação de erro para os trabalhos de Importação/Exportação do Azure | Microsoft Docs
+description: Saiba como habilitar o log detalhado para os trabalhos do serviço de Importação/Exportação do Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 096cc795-9af6-4335-9fe8-fffa9f239a17
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059281"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Diagnóstico e recuperação de erro para trabalhos de Importação/Exportação do Azure
 Para cada unidade processada, o serviço de Importação/Exportação do Azure cria um log de erros na conta de armazenamento associada. Também é possível habilitar o log detalhado definindo a propriedade `LogLevel` como `Verbose` ao chamar as operações [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).

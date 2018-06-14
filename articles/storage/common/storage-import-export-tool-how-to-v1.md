@@ -1,11 +1,11 @@
 ---
-title: "Usando a Ferramenta de Importação/Exportação do Azure – v1 | Microsoft Docs"
-description: "Saiba como usar a Ferramenta de Importação/Exportação a fim de preparar os discos rígidos para um trabalho de importação, bem como para reparar um trabalho de importação ou exportação."
+title: Usando a Ferramenta de Importação/Exportação do Azure – v1 | Microsoft Docs
+description: Saiba como usar a Ferramenta de Importação/Exportação a fim de preparar os discos rígidos para um trabalho de importação, bem como para reparar um trabalho de importação ou exportação.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f77535bb-d577-438a-bdd3-e15a82e0c543
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059351"
 ---
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Usando a Ferramenta de Importação/Exportação do Azure (modelo de implantação clássico)
 
