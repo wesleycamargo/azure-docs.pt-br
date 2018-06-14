@@ -1,11 +1,11 @@
 ---
-title: "Introdução aos Aplicativos Móveis do Serviço de Aplicativo do Azure para aplicativos Xamarin.iOS | Microsoft Docs"
-description: "Siga este tutorial para começar a usar os Aplicativos Móveis para desenvolvimento do Xamarin.iOS."
+title: Introdução aos Aplicativos Móveis do Serviço de Aplicativo do Azure para aplicativos Xamarin.iOS | Microsoft Docs
+description: Siga este tutorial para começar a usar os Aplicativos Móveis para desenvolvimento do Xamarin.iOS.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27592704"
 ---
 # <a name="create-a-xamarinios-app"></a>Criar um aplicativo Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

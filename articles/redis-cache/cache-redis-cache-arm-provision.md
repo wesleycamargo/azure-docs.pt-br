@@ -2,10 +2,10 @@
 title: Provisionar um Cache Redis usando o Azure Resource Manager | Microsoft Docs
 description: Use o modelo do Gerenciador de Recursos do Azure para implantar um Cache Redis do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910734"
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Criar um Cache Redis usando um modelo
 Neste tópico, você aprende a criar um modelo do Aure Resource Manager que implanta um aplicativo Cache Redis do Azure. O cache pode ser usado com uma conta de armazenamento existente para manter os dados de diagnóstico. Você também aprende como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.

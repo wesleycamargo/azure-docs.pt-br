@@ -1,10 +1,10 @@
 ---
-title: "Habilitar sincronização offline para seu aplicativo móvel do Azure (Xamarin iOS)"
-description: "Aprenda a usar o aplicativo móvel do Serviço de Aplicativo para armazenar em cache e sincronizar dados offline no aplicativo iOS"
+title: Habilitar sincronização offline para seu aplicativo móvel do Azure (Xamarin iOS)
+description: Aprenda a usar o aplicativo móvel do Serviço de Aplicativo para armazenar em cache e sincronizar dados offline no aplicativo iOS
 documentationcenter: xamarin
 author: conceptdev
 manager: cfowler
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 828a287c-5d58-4540-9527-1309ebb0f32b
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594659"
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>Habilitar sincronização offline para seu aplicativo móvel Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

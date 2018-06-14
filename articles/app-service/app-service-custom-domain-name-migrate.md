@@ -1,8 +1,8 @@
 ---
-title: "Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como migrar um nome de domínio DNS personalizado que já está atribuído a um site ativo ao Serviço de Aplicativo do Azure sem nenhum tempo de inatividade."
+title: Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure | Microsoft Docs
+description: Saiba como migrar um nome de domínio DNS personalizado que já está atribuído a um site ativo ao Serviço de Aplicativo do Azure sem nenhum tempo de inatividade.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27566484"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure
 
