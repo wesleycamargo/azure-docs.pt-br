@@ -1,12 +1,12 @@
 ---
-title: "Integrar a Automação do Azure com a Grade de Eventos | Microsoft Docs"
-description: "Saiba como adicionar uma marcação automaticamente quando uma nova VM é criada e enviar uma notificação para o Microsoft Teams."
-keywords: "automação, runbook, teams, grade de eventos, máquina virtual, VM"
+title: Integrar a Automação do Azure com a Grade de Eventos | Microsoft Docs
+description: Saiba como adicionar uma marcação automaticamente quando uma nova VM é criada e enviar uma notificação para o Microsoft Teams.
+keywords: automação, runbook, teams, grade de eventos, máquina virtual, VM
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: eamonoreilly
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: automation
 ms.devlang: na
 ms.topic: tutorial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26349062"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrar a Automação do Azure à Grade de Eventos e ao Microsoft Teams
 
