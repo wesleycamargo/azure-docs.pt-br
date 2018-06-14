@@ -1,11 +1,11 @@
 ---
-title: "Listar todos os trabalhos de Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba como listar todos os trabalhos do serviço de Importação/Exportação do Azure em uma assinatura."
+title: Listar todos os trabalhos de Importação/Exportação do Azure | Microsoft Docs
+description: Saiba como listar todos os trabalhos do serviço de Importação/Exportação do Azure em uma assinatura.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f2e619be-1bbd-4a54-9472-9e2f70a83b64
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059381"
 ---
 # <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Enumerando trabalhos no serviço de Importação/Exportação do Azure
 Para enumerar todos os trabalhos em uma assinatura, chame a operação [List Jobs](/rest/api/storageimportexport/jobs#Jobs_List). `List Jobs` retorna uma lista de trabalhos, bem como os seguintes atributos:

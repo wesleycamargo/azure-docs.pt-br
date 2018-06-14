@@ -1,11 +1,11 @@
 ---
-title: "Habilitar a auditoria e detecção de ameaças em bancos de dados SQL na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Habilitar a auditoria e detecção de ameaças em bancos de dados SQL**."
+title: Habilitar a auditoria e detecção de ameaças em bancos de dados SQL na Central de Segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Habilitar a auditoria e detecção de ameaças em bancos de dados SQL**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 224b6755-2b36-4ecd-9af8-139a198e0df1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040101"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-databases-in-azure-security-center"></a>Habilitar a auditoria e detecção de ameaças em bancos de dados SQL na Central de Segurança do Azure
 A Central de Segurança do Azure recomendará que você ative a auditoria e detecção de ameaças para todos os bancos de dados SQL se isso ainda não tiver sido habilitado. A auditoria e a detecção de ameaças podem ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
