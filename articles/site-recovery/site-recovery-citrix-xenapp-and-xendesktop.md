@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559699"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar uma implantação do Citrix XenApp e XenDesktop de várias camadas usando o Azure Site Recovery
 

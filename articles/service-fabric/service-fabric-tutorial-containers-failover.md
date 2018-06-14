@@ -1,14 +1,14 @@
 ---
-title: "Fazer failover e dimensionar um aplicativo de contêineres do Azure Service Fabric | Microsoft Docs"
-description: "Neste tutorial, você aprende como o failover é manipulado em um aplicativo de contêineres do Azure Service Fabric.  Além disso, saiba como dimensionar os contêineres e os serviços em execução em um cluster."
+title: Fazer failover e dimensionar um aplicativo de contêineres do Azure Service Fabric | Microsoft Docs
+description: Neste tutorial, você aprende como o failover é manipulado em um aplicativo de contêineres do Azure Service Fabric.  Além disso, saiba como dimensionar os contêineres e os serviços em execução em um cluster.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, Contêineres, Microservices, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, Contêineres, Microservices, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29555473"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutorial: Demonstrar o failover e o dimensionamento de serviços de contêiner com o Service Fabric
 

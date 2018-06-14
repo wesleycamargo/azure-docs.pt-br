@@ -1,12 +1,12 @@
 ---
-title: "Substituição de componentes de hardware do StorSimple da série 8000 | Microsoft Docs"
-description: "Descreve como substituir com segurança PCMs, bateria, módulos de controlador, controladores do EBOD, unidades de disco e chassis de um dispositivo StorSimple."
+title: Substituição de componentes de hardware do StorSimple da série 8000 | Microsoft Docs
+description: Descreve como substituir com segurança PCMs, bateria, módulos de controlador, controladores do EBOD, unidades de disco e chassis de um dispositivo StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: 6de50c5031db59176bdf17ecc69b934559220f6a
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108444"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substituir um componente de hardware no dispositivo StorSimple série 8000
 
