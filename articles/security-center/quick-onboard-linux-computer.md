@@ -1,11 +1,11 @@
 ---
-title: "Início rápido da Central de Segurança do Azure – integrar seus computadores Linux à Central de Segurança | Microsoft Docs"
-description: "Este guia de início rápido mostra como integrar seus computadores Linux à Central de Segurança."
+title: Início rápido da Central de Segurança do Azure – integrar seus computadores Linux à Central de Segurança | Microsoft Docs
+description: Este guia de início rápido mostra como integrar seus computadores Linux à Central de Segurança.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29530159"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início rápido: integrar computadores com Linux à Central de Segurança do Azure
 Depois de integrar suas assinaturas do Azure, é possível habilitar a Central de Segurança para recursos Linux sendo executados fora do Azure, por exemplo, no local ou em outras nuvens, por meio do provisionamento do Agente do Linux.
