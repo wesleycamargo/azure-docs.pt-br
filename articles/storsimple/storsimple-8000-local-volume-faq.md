@@ -5,8 +5,8 @@ services: storsimple
 documentationcenter: NA
 author: manuaery
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109464"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volume localmente afixado do StorSimple: perguntas frequentes
 ## <a name="overview"></a>Visão geral
@@ -161,7 +162,7 @@ Mais informações sobre como [converter um volume em camadas em um volume local
 
 **P.** Posso alterar o tipo de um volume durante a restauração?
 
-**R.**Não, você não pode alterar o tipo de volume durante a restauração.
+**R.** Não, você não pode alterar o tipo de volume durante a restauração.
 
 * Os volumes excluídos são restaurados como o tipo armazenado no instantâneo.
 * Os volumes existentes são restaurados com base em seu tipo atual, independentemente do tipo armazenado no instantâneo (confira as duas perguntas anteriores).

@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246467"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais de zona única com o PowerShell
 Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Ubuntu em uma Zona de disponibilidade única. Após a execução do script, é possível acessar a máquina virtual por RDP.

@@ -12,6 +12,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31392894"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte
 

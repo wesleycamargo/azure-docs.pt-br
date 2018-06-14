@@ -1,5 +1,5 @@
 ---
-title: "Script do CLI do Azure – Baixar logs de servidor no Banco de Dados do Azure para PostgreSQL"
+title: Script do CLI do Azure – Baixar logs de servidor no Banco de Dados do Azure para PostgreSQL
 description: Esse exemplo de script de CLI do Azure mostra como habilitar e fazer o download dos logs do servidor de um servidor de Banco de Dados do Azure para PostgreSQL.
 services: postgresql
 author: rachel-msft
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849555"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Habilitar e fazer o download dos logs de consulta lenta de um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 Esse exemplo de script de CLI mostra como habilitar e fazer o download dos logs de consulta lenta de um único servidor de Banco de Dados do Azure para PostgreSQL.
