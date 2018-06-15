@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361940"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824992"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -141,7 +141,7 @@ O mesmo número de portas SNAT é pré-alocado respectivamente para TCP e UDP e 
 >[!IMPORTANT]
 >Programação SNAT de SKU Padrão por protocolo de transporte IP e derivada da regra de balanceamento de carga.  Se houver uma regra de balanceamento de carga TCP, apenas SNAT só estará disponível para TCP. Se você tiver apenas uma regra balanceamento de carga TCP e precisar de SNAT de saída para UDP, crie uma regra UDP do mesmo front-end para o mesmo pool de back-end de balanceamento de carga.  Isso vai ativar a programação SNAT para UDP.  Não é necessário uma regra de trabalho ou investigação de integridade.  A SNAT do SKU básico sempre programa a SNAT para ambos os protocolo de transporte IP, independentemente do protocolo de transporte especificado na regra de balanceamento de carga.
 
-O Azure pré-aloca as portas SNAT para a configuração IP do NIC de cada VM. Quando uma configuração IP é adicionada ao pool, as portas SNAT são pré-atribuídas para essa configuração de IP com base no tamanho do pool do back-end. Quando os fluxos de saída são criados, a [PAT](#pat) consome dinamicamente (até o limite pré-alocado) e libera essas portas quando o fluxo fecha ou ocorre [tempo limite ocioso](#ideltimeout).
+O Azure pré-aloca as portas SNAT para a configuração IP do NIC de cada VM. Quando uma configuração IP é adicionada ao pool, as portas SNAT são pré-atribuídas para essa configuração de IP com base no tamanho do pool do back-end. Quando os fluxos de saída são criados, a [PAT](#pat) consome dinamicamente (até o limite pré-alocado) e libera essas portas quando o fluxo fecha ou ocorre [tempo limite ocioso](#idletimeout).
 
 A tabela a seguir mostra as pré-alocações de porta SNAT para níveis de tamanhos de pool de back-end:
 

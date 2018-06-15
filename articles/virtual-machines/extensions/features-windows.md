@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88852fe7843e24fde50749e2f994bcfeb596305d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33945108"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809719"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -63,12 +63,12 @@ Algumas extensões não têm suporte em todos os sistemas de operacionais e pode
 
 #### <a name="network-access"></a>Acesso à rede
 
-Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se usar a versão com [suporte](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, você não precisará permitir o acesso ao Armazenamento do Azure na região da VM, já que poderá usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente. Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Azure nessa região por meio da VM.
+Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Microsoft Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se usar a versão com [suporte](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, você não precisará permitir o acesso ao Armazenamento do Microsoft Azure na região da VM, já que poderá usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente. Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
 
 > [!IMPORTANT]
 > Se você tiver bloqueado o acesso a *168.63.129.1* usando o firewall de convidado, as extensões falharão independentemente das informações acima.
 
-Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao Armazenamento do Microsoft Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao Armazenamento do Microsoft Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 O Agente de Convidado do Windows não tem suporte de servidor proxy para redirecionar solicitações de tráfego de agente por meio dele.
 
@@ -135,7 +135,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-O comando `Set-AzureRmVMExtension` pode ser usado para iniciar qualquer extensão de VM. Para saber mais, veja a [referência de Set-AzureRmVMExtension](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
+O comando `Set-AzureRmVMExtension` pode ser usado para iniciar qualquer extensão de VM. Para saber mais, veja a [referência de Set-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx).
 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -420,8 +420,8 @@ Você também pode remover uma extensão no portal do Azure da seguinte maneira:
 | Extensão de script personalizado para o Windows |Executar scripts em uma máquina virtual do Azure |[Extensão de script personalizado para o Windows](custom-script-windows.md) |
 | Extensão de DSC para o Windows |Extensão PowerShell DSC (Configuração de Estado Desejado) |[Extensão DSC para Windows](dsc-overview.md) |
 | Extensão de Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de Acesso à VM para Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de Acesso à VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre extensões de VM, confira [Visão geral de recursos e extensões de máquina virtual do Azure](overview.md).
+Para obter mais informações sobre extensões de VM, consulte [Visão geral de recursos e extensões de máquina virtual do Azure](overview.md).

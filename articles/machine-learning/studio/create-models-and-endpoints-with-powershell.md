@@ -9,16 +9,18 @@ manager: mwinkle
 editor: cgronlun
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: d8ab7151680546c9b4bf5aef8998e522a79d809c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 17354891b50138911f36314620f0c826db4b5dac
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833658"
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Criar vários modelos do Machine Learning e pontos de extremidade de serviço Web com base em um teste usando o PowerShell
 Este é um problema comum do aprendizado de máquina: você quer criar vários modelos que têm o mesmo fluxo de trabalho de treinamento e que usam o mesmo algoritmo. Mas quer que eles tenham conjuntos de dados de treinamento diferentes como entrada. Este artigo mostra como fazer isso em escala no Azure Machine Learning Studio usando apenas um único teste.

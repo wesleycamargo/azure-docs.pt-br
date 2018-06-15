@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: adhurwit
-ms.openlocfilehash: de8276b22377db37075c6793d0710bb18625446c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3a191c3ee7eea641aab81008a6da801b609fb4c5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802095"
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Usar cofre da chave do Azure em um aplicativo Web
 
@@ -260,7 +261,7 @@ Em vez de carregar o certificado diretamente no serviço de Aplicativo Web, voc�
 
 ## <a id="next"></a>Próximas etapas
 
-Para referências de programação, consulte [Referência de API do cliente C# do cofre da chave do Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Para referências de programação, consulte [Referência de API do cliente C# do cofre da chave do Azure](https://msdn.microsoft.com/en-us/library/azure/mt430941.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png

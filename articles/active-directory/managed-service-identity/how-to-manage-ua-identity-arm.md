@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: e5c5ff74ee94f8df03ceb5b469ad635bd80d5a11
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ce8221cd7bf427084e63f8b13dcf6f0f1cc7a35e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931020"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698995"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Criar, listar e excluir uma identidade atribuída pelo usuário usando o Azure Resource Manager
 
@@ -53,8 +53,7 @@ Assim como com o portal do Azure e o script, os modelos do Azure Resource Manage
 
 Para criar uma identidade atribuída pelo usuário, use o modelo a seguir. Substitua o valor `<USER ASSIGNED IDENTITY NAME>` por seus próprios valores:
 
-> [!IMPORTANT]
-> A criação de identidades atribuídas pelo usuário oferece suporte somente a caracteres alfanuméricos e hífen (0-9 ou a-z ou A-Z ou -). Além disso, o nome deve ter um limite de 24 caracteres para que a atribuição a VM/VMSS funcione corretamente. Procure novamente por atualizações. Para obter mais informações, consulte [Perguntas frequentes e problemas conhecidos](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```json
 {

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 4c9e7ec65db80e0af91645d70cea39bb1a396791
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ff658fd14700e9fdf66b9d929da133f7a3b3f3a0
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831778"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Visão geral das APIs de Relatórios para clientes Enterprise
 As APIs de Relatórios permitem que clientes Enterprise do Azure efetuem pull de modo programático dos dados de consumo e cobrança nas ferramentas preferidas de análise de dados. 
@@ -30,7 +31,7 @@ As APIs de Relatórios permitem que clientes Enterprise do Azure efetuem pull de
 
 |Chave de cabeçalho da solicitação | Valor|
 |-|-|
-|Autorização| Especifique o valor neste formato: **portador {API_KEY}** <br/> Exemplo: portador e... 09|
+|Autorização| Especifique o valor neste formato: **portador {API_KEY}** <br/> Exemplo: portador e... 09| 
 
 ## <a name="consumption-apis"></a>APIs de consumo
 Um ponto de extremidade Swagger está disponível [aqui](https://consumption.azure.com/swagger/ui/index) para as APIs descritas abaixo, que devem permitir a fácil introspecção da API e a capacidade de gerar SDKs de cliente usando [AutoRest](https://github.com/Azure/AutoRest) ou [Swagger CodeGen](http://swagger.io/swagger-codegen/). Os dados a partir de 1º de maio de 2014 estão disponíveis por essa API. 
@@ -50,7 +51,7 @@ ETags serão retornadas na resposta da API acima. Uma alteração no Etag indica
  **Listar Períodos de Cobrança**: a [API Períodos de Cobrança](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) retorna uma lista de períodos de cobrança que têm dados de consumo para o Registro especificado em ordem cronológica inversa. Cada período contém uma propriedade que aponta para a rota da API dos quatro conjuntos de dados: BalanceSummary, UsageDetails, Encargos do Marketplace e Price Sheet.
 
 
-## <a name="api-response-codes"></a>Códigos de resposta da API  
+## <a name="api-response-codes"></a>Códigos de resposta da API   
 |Código de status de resposta|Mensagem|DESCRIÇÃO|
 |-|-|-|
 |200| OK|Nenhum erro|

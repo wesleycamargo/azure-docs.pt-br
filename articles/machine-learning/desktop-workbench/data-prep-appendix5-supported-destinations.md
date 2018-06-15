@@ -7,16 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 5451a5f525da845f97141a97241efb53ec42ff58
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4aee24150524c270084ae8ec22f09df94b6e9f36
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831703"
 ---
 # <a name="supported-data-exports-for-this-preview"></a>Exportações de dados com suporte para essa versão prévia 
 É possível exportar para diversos formatos diferentes. Você pode usar esses formatos para manter os resultados intermediários de preparação de dados antes de integrar os resultados ao restante do fluxo de trabalho de Machine Learning.

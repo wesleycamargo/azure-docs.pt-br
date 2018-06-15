@@ -1,11 +1,11 @@
 ---
-title: "Plataformas com suporte na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento fornece uma lista de sistemas operacionais Windows e Linux com suporte na Central de Segurança do Azure."
+title: Plataformas com suporte na Central de Segurança do Azure | Microsoft Docs
+description: Este documento fornece uma lista de sistemas operacionais Windows e Linux com suporte na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756894"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas com suporte na Central de Segurança do Azure
 As recomendações e o monitoramento do estado de segurança estão disponíveis para VMs (máquinas virtuais), criadas usando ambos os modelos de implantação do Resource Manager e clássico, e computadores.
@@ -59,6 +60,6 @@ Também há suporte para VMs em execução em um serviço de nuvem. Apenas servi
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) – saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure
-- [Alertas de segurança por tipo na Central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) – Saiba mais sobre a análise comportamental da máquina virtual e análise de memória de despejo de memória na Central de Segurança
+- [Alertas de segurança por tipo na Central de segurança do Azure](security-center-alerts-type.md#virtual-machine-behavioral-analysis) – Saiba mais sobre a análise comportamental da máquina virtual e análise de memória de despejo de memória na Central de Segurança
 - [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure

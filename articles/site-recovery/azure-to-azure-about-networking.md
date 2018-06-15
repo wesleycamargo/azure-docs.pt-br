@@ -6,19 +6,18 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: sujayt
-ms.openlocfilehash: 55eed1afa9d9dbf2c16643cf9186a7e6dafa847e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e717d06aaaef6031a0a3b26c5caf76f0c8c11df
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211014"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715931"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informações sobre rede para replicação do Azure para o Azure
 
->[!NOTE]
-> Atualmente, a replicação do Site Recovery para máquinas virtuais do Azure está em versão prévia.
+
 
 Este artigo fornece diretrizes de rede para quando você está replicando e recuperando VMs do Azure de uma região para outra usando o [Azure Site Recovery](site-recovery-overview.md).
 

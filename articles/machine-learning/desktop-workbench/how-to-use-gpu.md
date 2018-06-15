@@ -7,14 +7,16 @@ ms.author: roastala
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 1bd8f28b472361470fa8020149a9af0c690fbc52
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: db0cfa1d91681d48a21ac160706dc4e8c72f81c2
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830904"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Como usar a GPU no Azure Machine Learning
 A GPU (Unidade de Processamento Gráfico) é amplamente usada para processar tarefas de computação intensa que geralmente podem acontecer durante o treinamento de alguns modelos de rede neural profunda. Ao usar as GPUs, você pode reduzir significativamente o tempo de treinamento dos modelos. Neste documento, você aprenderá a configurar o Azure ML Workbench para usar [DSVM (Máquina Virtual de Ciência de Dados)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) equipada com GPUs como destino de execução. 
