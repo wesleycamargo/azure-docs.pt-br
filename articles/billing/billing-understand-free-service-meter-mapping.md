@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201038"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Entender o serviço gratuito para mapeamento de medidor
 
