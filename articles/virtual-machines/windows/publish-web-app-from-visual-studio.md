@@ -13,10 +13,11 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: d9e2c1a941c25aedd9048f2784350106b8739dba
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "31797186"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicar um aplicativo Web ASP.NET para uma VM do Azure a partir do Visual Studio
 
@@ -118,7 +119,7 @@ Para configurar um pipeline de entrega contínua com o Visual Studio Team Servic
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png
 [VM Overview - DNS Configured]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSConfigured.png
 [Página Publicar – seta para a direita]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png
-[Publicar Página – Ícone da Máquina Virtual do Microsoft Azure]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
+[Página Publicar – Ícone da Máquina Virtual do Microsoft Azure]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
 [Seletor de Conta do Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectAccount.png
 [Seletor de VM do Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
 [Logon no WebDeploy]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
@@ -127,4 +128,4 @@ Para configurar um pipeline de entrega contínua com o Visual Studio Team Servic
 [Página Publicar – botão Publicar]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
 [Página Publicar – botão Configurações]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
 [Configurações da publicação – página Conexão]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png
-[Configurações de publicação – página Configurações]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png
+[Configurações da publicação – página Configurações]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png

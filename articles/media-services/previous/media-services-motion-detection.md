@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783615"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detectar movimentos com o Azure Media Analytics
 ## <a name="overview"></a>Visão geral

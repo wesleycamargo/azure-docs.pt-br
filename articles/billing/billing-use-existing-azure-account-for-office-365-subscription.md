@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203367"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Inscreva-se para obter uma assinatura do Office 365 com sua conta do Azure
 Se você for assinante do Azure, você poderá usar sua conta do Azure para se inscrever para obter uma assinatura do Office 365. Se você fizer parte de uma organização que tem uma assinatura do Azure, será possível criar uma assinatura do Office 365 para usuários em seu Azure AD (Azure Active Directory) existente. Inscreva-se no Office 365 usando uma conta com permissões de Administrador Global ou de Administrador de Cobrança no seu locatário do Azure Active Directory. Para obter mais informações, consulte [Check my account permissions in Azure AD (Verificar minhas permissões de conta no Azure AD)](#RoleInAzureAD) e [Atribuindo funções de administrador no Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
