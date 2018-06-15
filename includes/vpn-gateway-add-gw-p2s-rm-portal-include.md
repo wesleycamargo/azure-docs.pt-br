@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30929403"
 ---
 1. No portal, do lado esquerdo, clique em **+Criar um recurso** e digite "Gateway de Rede Virtual" na pesquisa. Localize **Gateway de rede virtual** na pesquisa, retorne e clique na entrada. Na página **Gateway da rede virtual**, clique em **Criar** na parte inferior da página para abrir a página **Criar gateway da rede virtual**.
 2. Na página **Criar gateway de rede virtual**, preencha os valores para seu gateway de rede virtual.

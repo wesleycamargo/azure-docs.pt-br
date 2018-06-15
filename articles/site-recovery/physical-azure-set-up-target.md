@@ -1,6 +1,6 @@
 ---
-title: "Preparar destino (Físico para Azure) | Microsoft Docs"
-description: "Este artigo descreve como preparar seu ambiente do Azure para iniciar a replicação de servidores físicos executando Windows ou Linux no Azure."
+title: Preparar destino (Físico para Azure) | Microsoft Docs
+description: Este artigo descreve como preparar seu ambiente do Azure para iniciar a replicação de servidores físicos executando Windows ou Linux no Azure.
 services: site-recovery
 author: bsiva
 manager: abhemraj
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811053"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparar destino (VMware para Azure)
 

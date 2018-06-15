@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 04/06/2018
+  ms.locfileid: "30922375"
 abstract:
   description: O Banco de Dados SQL do Azure é um banco de dados como serviço relacional usando o Mecanismo do Microsoft SQL Server. O Banco de dados SQL é um banco de dados seguro, confiável e de alto desempenho que você pode usar para criar aplicativos orientados a dados e sites na linguagem de programação de sua escolha, sem a necessidade de gerenciar a infra-estrutura. Saiba como usar o Banco de Dados SQL com nossos guias de início rápido, tutoriais e exemplos.
   aside:

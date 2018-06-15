@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915211"
 ---
 # <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opções de backup e restauração para máquinas virtuais no Azure
 Você pode proteger seus dados fazendo backups em intervalos regulares. Há várias opções de backup disponíveis para VMs, dependendo do caso de uso.

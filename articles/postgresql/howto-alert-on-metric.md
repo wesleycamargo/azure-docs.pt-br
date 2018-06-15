@@ -1,6 +1,6 @@
 ---
-title: "Configurar alertas de métricas para o Banco de Dados do Azure para PostgreSQL no Portal do Azure"
-description: "Este artigo descreve como configurar e acessar os alertas de métricas para o Banco de Dados do Azure para PostgreSQL usando o Portal do Azure."
+title: Configurar alertas de métricas para o Banco de Dados do Azure para PostgreSQL no Portal do Azure
+description: Este artigo descreve como configurar e acessar os alertas de métricas para o Banco de Dados do Azure para PostgreSQL usando o Portal do Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29690246"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Usar o Portal do Azure para configurar alertas de métricas no Banco de Dados do Azure para PostgreSQL 
 
