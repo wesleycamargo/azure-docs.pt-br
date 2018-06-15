@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157656"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293102"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
 
@@ -141,7 +141,7 @@ Tempo estimado para Conclusão: 60 minutos
 | --- | --- |
 | Ambiente de teste do aplicativo SaaS disponível. Neste guia, usamos o ServiceNow como um exemplo.<br/>É altamente recomendável usar uma instância de teste para minimizar fricção ao navegar na qualidade dos dados existentes e mapeamentos. | Vá para https://developer.servicenow.com/app.do#! / base para iniciar o processo de obtenção de uma instância de teste |
 | Acesso de administrador para o console de gerenciamento do ServiceNow | [Tutorial: Integração do Active Directory do Azure com o ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Conjunto de destino de usuários para atribuir o aplicativo. Recomenda-se um grupo de segurança que contém os usuários de prova de conceito. <br/>Se não for possível criar o grupo, então atribua os usuários diretamente ao aplicativo para a prova de conceito | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Conjunto de destino de usuários para atribuir o aplicativo. Recomenda-se um grupo de segurança que contém os usuários de prova de conceito. <br/>Se não for possível criar o grupo, então atribua os usuários diretamente ao aplicativo para a prova de conceito | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Etapas
 
@@ -149,13 +149,13 @@ Tempo estimado para Conclusão: 60 minutos
 | --- | --- |
 | Compartilhar o tutorial para todos os atores da Documentação da Microsoft  | [Tutorial: Integração do Active Directory do Azure com o ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Defina uma reunião de trabalho e siga as etapas do tutorial com cada ator. | [Tutorial: Integração do Active Directory do Azure com o ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Atribua o aplicativo para o grupo identificado nos pré-requisitos. Se a prova de conceito tiver acesso condicional no escopo, você poderá rever posteriormente e adicionar MFA e semelhantes. <br/>Observe que isso será iniciado no processo de provisionamento (se configurado) |  [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Criar um grupo e adicionar membros no Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Atribua o aplicativo para o grupo identificado nos pré-requisitos. Se a prova de conceito tiver acesso condicional no escopo, você poderá rever posteriormente e adicionar MFA e semelhantes. <br/>Observe que isso será iniciado no processo de provisionamento (se configurado) |  [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Criar um grupo e adicionar membros no Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Use o Portal de Gerenciamento do AD do Azure para adicionar o aplicativo de ServiceNow da Galeria| [Portal de Gerenciamento do Azure AD: Aplicativos Empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[O que há de novo no gerenciamento de Aplicativos Empresariais no Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | Na folha "Logon único" do Aplicativo ServiceNow, habilite "Logon único baseado em SAML" |  |
 | Preencha os campos "URL de Entrada" e "Identificador" com a URL de ServiceNow<br/>Marque a caixa para "Ativar novo certificado"<br/>e em Salvar configurações |  |
 | Abra a folha "Configurar ServiceNow" na parte inferior do painel para exibir instruções personalizadas para a configuração do ServiceNow |  |
 | Siga as instruções para configurar o ServiceNow |  |
-| Na folha "Provisionamento" do Aplicativo ServiceNow habilite o provisionamento "Automático" | [Gerenciamento de conta de usuário para aplicativos da empresa no novo portal do Azure](active-directory-enterprise-apps-manage-provisioning.md) |
+| Na folha "Provisionamento" do Aplicativo ServiceNow habilite o provisionamento "Automático" | [Gerenciamento de conta de usuário para aplicativos da empresa no novo portal do Azure](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Aguarde alguns minutos enquanto o provisionamento é concluído.  Enquanto isso, você pode verificar os relatórios de provisionamento |  |
 | Faça logon no https://myapps.microsoft.com/ como um usuário de teste que tem acesso | [O que é o Painel de Acesso?](active-directory-saas-access-panel-introduction.md) |
 | Clique no bloco do aplicativo que acabou de ser criado. Confirmar o acesso |  |
@@ -176,7 +176,7 @@ Tempo estimado para Conclusão: 15 minutos
 | --- | --- |
 | Ambiente de teste para aplicativos SaaS. Um exemplo de SSO de senha é HipChat e o Twitter. Para qualquer outro aplicativo, você precisa da URL exata da página com o formulário de entrada html. | [Twitter no Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat no Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Testar contas para os aplicativos. | [Inscrever-se para Twitter](https://twitter.com/signup?lang=en)<br/>[Inscreva-se para avaliação gratuita: HipChat](https://www.hipchat.com/sign_up) |
-| Conjunto de destino de usuários para atribuir o aplicativo. Recomenda-se um grupo de segurança que contém os usuários de prova de conceito. | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Conjunto de destino de usuários para atribuir o aplicativo. Recomenda-se um grupo de segurança que contém os usuários de prova de conceito. | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Acesso de administrador local em um computador para implantar a extensão do Painel de Acesso para o Internet Explorer, Chrome ou Firefox | [Extensão do Painel de Acesso do IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do Painel de Acesso do Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do Painel de Acesso do Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Etapas
@@ -185,8 +185,8 @@ Tempo estimado para Conclusão: 15 minutos
 | --- | --- |
 | Instalar a extensão do navegador | [Extensão do Painel de Acesso do IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do Painel de Acesso do Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do Painel de Acesso do Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurar um Aplicativo da Galeria | [O que há de novo no gerenciamento de Aplicativos Empresariais no Azure Active Directory: A nova e aprimorada galeria de aplicativos](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurar SSO de Senha | [Gerenciamento de logon único para aplicativos empresariais no novo portal do Azure: Logon baseado em senha ](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Atribua o aplicativo para o grupo identificado nos Pré-requisitos | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configurar SSO de Senha | [Gerenciamento de logon único para aplicativos empresariais no novo portal do Azure: Logon baseado em senha ](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Atribua o aplicativo para o grupo identificado nos Pré-requisitos | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Faça logon no https://myapps.microsoft.com/ como um usuário de teste que tem acesso |  |
 | Clique no bloco do aplicativo que acabou de ser criado. | [O que é o Painel de Acesso?: SSO baseado em senha sem provisionamento de identidade](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Forneça a credencial de aplicativo | [O que é o Painel de Acesso?: SSO baseado em senha sem provisionamento de identidade](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -211,7 +211,7 @@ Tempo estimado para Conclusão: 30 minutos
 | --- | --- |
 | A lista de aplicativos de destino e as URLs de entrada exatas antecipadamente. Por exemplo, você pode usar o Twitter. | [Twitter no Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Inscrever-se para Twitter](https://twitter.com/signup?lang=en) |
 | Credencial compartilhada para esse aplicativo SaaS. | [Compartilhando contas usando o Azure AD](active-directory-sharing-accounts.md)<br/>[Transferência de senha automatizada do Azure AD para Facebook, Twitter e LinkedIn agora na versão prévia! - Blog de Mobilidade e Segurança da Empresa] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
-| Credenciais para pelo menos dois membros da equipe que irá acessar a mesma conta. Eles devem ser parte de um grupo de segurança. | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Credenciais para pelo menos dois membros da equipe que irá acessar a mesma conta. Eles devem ser parte de um grupo de segurança. | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Acesso de administrador local em um computador para implantar a extensão do Painel de Acesso para o Internet Explorer, Chrome ou Firefox | [Extensão do Painel de Acesso do IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do Painel de Acesso do Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do Painel de Acesso do Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Etapas
@@ -220,8 +220,8 @@ Tempo estimado para Conclusão: 30 minutos
 | --- | --- |
 | Instalar a extensão do navegador | [Extensão do Painel de Acesso do IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do Painel de Acesso do Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do Painel de Acesso do Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurar um Aplicativo da Galeria | [O que há de novo no gerenciamento de Aplicativos Empresariais no Azure Active Directory: A nova e aprimorada galeria de aplicativos](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurar SSO de Senha | [Gerenciamento de logon único para aplicativos empresariais no novo portal do Azure: Logon baseado em senha ](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Atribua o aplicativo ao grupo identificado nos Pré-requisitos ao atribuir-lhes credenciais | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configurar SSO de Senha | [Gerenciamento de logon único para aplicativos empresariais no novo portal do Azure: Logon baseado em senha ](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Atribua o aplicativo ao grupo identificado nos Pré-requisitos ao atribuir-lhes credenciais | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Efetue login como diferentes usuários que acessam o aplicativo como a **mesma conta compartilhada.**  |  |
 | Opcionalmente, você pode verificar os relatórios de uso do aplicativo. Observe que há alguma latência, portanto, é necessário esperar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividades de entrada no portal do Azure Active Directory: Uso de aplicativo gerenciado](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md) |
 

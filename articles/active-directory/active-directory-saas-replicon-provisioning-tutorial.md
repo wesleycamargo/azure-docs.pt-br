@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: v-ant
-ms.openlocfilehash: b6f536ba1711076eab0eb9dcbea7d357e9cebf3d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0ff0bcffae506e593f8ddc95886142df30164e65
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34345588"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293272"
 ---
 # <a name="tutorial-configure-replicon-for-automatic-user-provisioning"></a>Tutorial: Configurar o Replicon para o provisionamento automático de usuário
 
@@ -73,7 +73,7 @@ O Azure Active Directory usa um conceito chamado "atribuições" para determinar
 
 Antes de configurar e habilitar o provisionamento automático de usuário, é necessário decidir quais usuários e/ou grupos no Azure AD precisam acessar o Replicon. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao Replicon seguindo estas instruções:
 
-*   [Atribuir um usuário ou um grupo a um aplicativo empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Atribuir um usuário ou um grupo a um aplicativo empresarial](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-replicon"></a>Dicas importantes para atribuir usuários ao Replicon
 
@@ -158,7 +158,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
