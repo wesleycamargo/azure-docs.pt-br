@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: solução de problemas de autenticação de passagem | Microsoft Docs"
-description: "Este artigo descreve como solucionar problemas de Autenticação de Passagem do Azure AD (Azure Active Directory)."
+title: 'Azure AD Connect: solução de problemas de autenticação de passagem | Microsoft Docs'
+description: Este artigo descreve como solucionar problemas de Autenticação de Passagem do Azure AD (Azure Active Directory).
 services: active-directory
-keywords: "Solução de problemas de Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único"
-documentationcenter: 
+keywords: Solução de problemas de Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 3296ee114d3e285e77070995156ef6a242c1fc87
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592190"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 

@@ -1,14 +1,15 @@
 ---
-title: "Ferramenta “E se” de acesso condicional do Azure Active Directory - versão prévia | Microsoft Docs"
-description: "Saiba como você pode testar a configuração das suas políticas de acesso condicional do Azure Active Directory."
+title: Ferramenta “E se” de acesso condicional do Azure Active Directory - versão prévia | Microsoft Docs
+description: Saiba como você pode testar a configuração das suas políticas de acesso condicional do Azure Active Directory.
 services: active-directory
-keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +17,12 @@ ms.workload: identity
 ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2c4ca3685d15ddd2446590e1ef297362f9aa52ee
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723823"
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Ferramenta “E se” de acesso condicional do Azure Active Directory - versão prévia
 
@@ -52,7 +54,7 @@ Terminada a avaliação, a ferramenta gera um relatório das políticas afetadas
 
 ## <a name="running-the-tool"></a>A execução da ferramenta
 
-Você pode encontrar a ferramenta **e se** na página  **[Acesso condicional - políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)**  no portal do Azure.
+Você pode encontrar a ferramenta **e se** na página **[Acesso condicional - políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** no portal do Azure.
 
 Para iniciar a ferramenta, na barra de ferramentas na parte superior da lista de políticas, clique em **E se**.
 

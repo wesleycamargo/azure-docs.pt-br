@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d026009151f85a01f14ce4dd8a510f60ff407da1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e6bb32c20ca9bb6c514cab462e94018543c3a702
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592605"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -148,7 +150,7 @@ O uso de extensões de Política de Grupo do Active Directory de terceiros para 
 
 #### <a name="known-browser-limitations"></a>Limitações conhecidas do navegador
 
-O SSO Contínuo não funciona no modo de navegação particular em navegadores Firefox e Microsoft Edge. Também não funciona no Internet Explorer se o navegador estiver em execução no modo de proteção aprimorada.
+O SSO Contínuo não funciona no modo de navegação particular em navegadores Firefox e Edge. Também não funciona no Internet Explorer se o navegador estiver em execução no modo de proteção aprimorada.
 
 ## <a name="step-4-test-the-feature"></a>Etapa 4: testar o recurso
 

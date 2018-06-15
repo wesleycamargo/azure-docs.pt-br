@@ -128,6 +128,8 @@
           href: azure-stack-monitor-health.md
         - name: Gerenciar recursos de rede
           href: azure-stack-viewing-public-ip-address-consumption.md
+        - name: Alterar o proprietário da assinatura usuário
+          href: azure-stack-change-subscription-owner.md
         - name: Gerenciar VMs do Microsoft Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
         - name: Iniciar e parar a pilha do Azure
@@ -189,6 +191,8 @@
               href: azure-stack-enable-multitenancy.md
         - name: Girar segredos
           href: azure-stack-rotate-secrets.md
+        - name: Atualização de antivírus
+          href: azure-stack-security-av.md
     - name: Oferecer serviços
       items:
         - name: Visão geral da oferta de serviços
@@ -216,7 +220,7 @@
           items:
             - name: Implantar o provedor de recursos do SQL Server
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Adicionar servidores de hospedagem
+            - name: Adicionar servidores de hospedagem SQL
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: Criar bancos de dados SQL
               href: azure-stack-sql-resource-provider-databases.md
@@ -227,7 +231,20 @@
             - name: Remover o provedor de recursos do SQL Server
               href: azure-stack-sql-resource-provider-remove.md
         - name: Oferecer MySQL como PaaS
-          href: azure-stack-mysql-resource-provider-deploy.md
+          href: azure-stack-mysql-resource-provider.md
+          items:
+            - name: Implantar o provedor de recursos do servidor MySQL
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: Adicionar servidores de hospedagem MySQL
+              href: azure-stack-mysql-resource-provider-hosting-servers.md
+            - name: Criar bancos de dados MySQL
+              href: azure-stack-mysql-resource-provider-databases.md
+            - name: Atualizar o provedor de recursos do servidor MySQL
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: Manter o provedor de recursos do servidor MySQL
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: Remover o provedor de recursos do servidor MySQL
+              href: azure-stack-mysql-resource-provider-remove.md
         - name: Oferta de Serviço de Aplicativo como PaaS
           items:
             - name: Serviço de Aplicativo na visão geral do Azure Stack

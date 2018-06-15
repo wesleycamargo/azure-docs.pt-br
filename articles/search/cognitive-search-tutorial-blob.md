@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366742"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757563"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar cognitivas pesquisar APIs (visualização)
 
@@ -85,7 +85,7 @@ O pipeline de enriquecimento extrai de fontes de dados do Azure. Fonte de dados 
   A cadeia de conexão de armazenamento deve ser uma URL semelhante ao seguinte exemplo:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 Existem outras maneiras de especificar a cadeia de caracteres de conexão, como fornecer uma assinatura de acesso compartilhado. Para saber mais sobre as credenciais de fonte de dados, consulte [indexação armazenamento de BLOBs do Azure](search-howto-indexing-azure-blob-storage.md#Credentials).
@@ -446,9 +446,9 @@ Você pode usar GET ou POST, dependendo do tamanho e complexidade de cadeia de c
 
 Pesquisa cognitiva permite que você veja a estrutura do documento enriquecida. Documentos enriquecidos são estruturas temporárias criado durante enriquecimento e excluído, em seguida, quando o processo for concluído.
 
-Para capturar um instantâneo do documento enriquecido criado durante a indexação, adicione um campo chamado ```enriched``` ao índice. O indexador automaticamente despejos de memória para o campo de uma representação de cadeia de caracteres de todos os enrichments para esse documento.
+Para capturar um instantâneo do documento enriquecido criado durante a indexação, adicione um campo chamado ```enriched``` ao índice. O indexador despeja automaticamente no campo uma representação de cadeia de caracteres de todos os enriquecimentos do documento.
 
-O ```enriched``` campo conterá uma cadeia de caracteres que é uma representação lógica do documento enriquecida na memória em JSON.  No entanto, o valor do campo é um documento válido de JSON. As aspas são ignoradas para que você precisará substituir `\"` com `"` para ver como o documento formatado JSON.  
+O campo ```enriched``` conterá uma cadeia de caracteres que é uma representação lógica do documento enriquecido na memória em JSON.  No entanto, o valor do campo é um documento JSON válido. As aspas são ignoradas para que você precisará substituir `\"` com `"` para ver como o documento formatado JSON.  
 
 O ```enriched``` campo destina-se para depuração, apenas para ajudá-lo a entender a forma lógica do conteúdo que expressões estão sendo avaliadas em relação. Pode ser uma ferramenta útil para entender e depurar seu conjunto de qualificações.
 
