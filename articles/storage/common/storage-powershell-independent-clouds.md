@@ -18,6 +18,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186897"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o PowerShell
 

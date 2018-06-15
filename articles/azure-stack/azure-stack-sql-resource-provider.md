@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33207259"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados SQL na pilha do Microsoft Azure
 Usar o adaptador de provedor de recursos do SQL Server para expor bancos de dados SQL como um serviço de [Azure pilha](azure-stack-poc.md). Depois de instalar o provedor de recursos e conectá-lo para uma ou mais instâncias do SQL Server, os usuários podem criar:

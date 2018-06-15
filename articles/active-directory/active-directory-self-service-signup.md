@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33760282"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>O que é inscrição por autoatendimento no Azure Active Directory?
 Este artigo explica a inscrição por autoatendimento e como dar suporte a ela no Azure AD (Azure Active Directory). Se você desejar assumir um nome de domínio de um locatário do Azure AD não gerenciado, consulte [Take over an unmanaged directory as administrator](domains-admin-takeover.md) (Assumir um diretório não gerenciado como administrador).

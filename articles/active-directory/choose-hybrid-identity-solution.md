@@ -1,23 +1,24 @@
 ---
-title: "Escolher uma solução de identidade híbrida do Azure | Microsoft Docs"
-description: "Obtenha uma compreensão básica das soluções de identidade híbridas disponíveis e das recomendações para tomar a melhor decisão de governança de identidade para sua organização."
-keywords: 
+title: Escolher uma solução de identidade híbrida do Azure | Microsoft Docs
+description: Obtenha uma compreensão básica das soluções de identidade híbridas disponíveis e das recomendações para tomar a melhor decisão de governança de identidade para sua organização.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: billmath
 ms.date: 03/02/2018
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
 ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
 ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800730"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Soluções de identidade híbrida da Microsoft
 As soluções de identidade híbridas do [Microsoft Azure AD (Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) permitem que você sincronize objetos de diretório locais com o Azure AD enquanto ainda está gerenciando seus usuários locais. A primeira decisão a tomar ao planejar sincronizar seu Windows Server Active Directory localmente com o Azure AD é se você deseja usar a identidade sincronizada ou a identidade federada. As identidades sincronizadas e, opcionalmente, os hashes de senha, permitem que os usuários usem a mesma senha para acessar os recursos organizacionais locais e baseados em nuvem. Para requisitos de cenário mais avançados, como SSO (logon único) ou MFA local, você precisa implantar os Serviços de Federação do Active Directory (AD FS) para federar as identidades. 

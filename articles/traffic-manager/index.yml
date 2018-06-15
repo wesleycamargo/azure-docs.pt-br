@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 05/01/2018
+  ms.locfileid: "32313101"
 abstract:
   description: Saiba como usar o Gerenciador de Tráfego do Azure. Guias de início rápido, tutoriais, exemplos e muito mais mostram como gerenciar o tráfego de entrada para ter um melhor desempenho dos aplicativos e como distribuir o tráfego para pontos de extremidade de serviço do Azure ou externos.
 sections:

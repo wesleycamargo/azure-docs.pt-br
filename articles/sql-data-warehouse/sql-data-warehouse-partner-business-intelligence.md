@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32191709"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Parceiros de business intelligence do SQL Data Warehouse
 Para criar uma solução completa de data warehouse, você pode escolher dentre uma ampla variedade de ferramentas líderes do setor.  Este artigo destaca empresas parceiras da Microsoft que têm soluções de BI (business intelligence) que dão suporte ao Azure SQL Data Warehouse.
