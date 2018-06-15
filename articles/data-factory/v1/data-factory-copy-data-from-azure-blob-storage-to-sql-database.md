@@ -1,31 +1,32 @@
 ---
 title: Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL - Azure | Microsoft Docs
-description: "Este tutorial mostra como usar a Atividade de Cópia em um pipeline do Azure Data Factory para copiar dados do Armazenamento de Blobs para um banco de dados SQL."
+description: Este tutorial mostra como usar a Atividade de Cópia em um pipeline do Azure Data Factory para copiar dados do Armazenamento de Blobs para um banco de dados SQL.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3135c8bf6316125a164c06630bc7607a92621b26
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6575a68423df97d7727401b79ded44545a43afca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621098"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
-> * [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -118,7 +119,7 @@ Agora, prepare seu armazenamento de blob do Azure e o banco de dados SQL do Azur
 Você concluiu os pré-requisitos. Você pode criar um data factory usando um dos caminhos a seguir. Clique em uma das opções na lista suspensa na parte superior ou nos links a seguir para executar o tutorial.     
 
 * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
-* [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+* [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)

@@ -1,23 +1,25 @@
 ---
-title: "Como usar o pacote de conteúdo do Power BI do Azure Active Directory | Microsoft Docs"
-description: "Aprenda a usar o Pacote de Conteúdo do Power BI do Azure Active Directory"
+title: Como usar o pacote de conteúdo do Power BI do Azure Active Directory | Microsoft Docs
+description: Aprenda a usar o Pacote de Conteúdo do Power BI do Azure Active Directory
 services: active-directory
-author: MarkusVi
+author: rolyon
 manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: get-started-article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 12/06/2017
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 503b3f4c576382d8ce965d1f90aadda32c819a0b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fd52f8a31d0fe54cce9b39d7de7eb45336efeb7c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588317"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como usar o Pacote de Conteúdo do Power BI do Azure Active Directory
 
@@ -86,9 +88,9 @@ Você pode analisar detalhes clicando em uma data ou um local específico.
 
 **Entradas de dispositivo**: veja o tipo de sistema operacional e navegadores usados por usuários em sua organização com informações detalhadas sobre os usuários, incluindo:
 
-- Nome de usuário
+- Nome do Usuário
 - Endereço IP
-- Local 
+- Local padrão 
 - Status de entrada 
 
 Com esse relatório, você pode entender os vários perfis de dispositivo usados em sua organização e determinar as políticas de dispositivo com base no que é usado

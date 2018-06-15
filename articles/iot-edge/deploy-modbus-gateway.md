@@ -1,25 +1,19 @@
 ---
 title: Implantar o Modbus no Azure IoT Edge | Microsoft Docs
-description: "Permitir que os dispositivos que usam o Modbus TCP se comuniquem com o Hub IoT do Azure por meio da criação de um dispositivo de gateway do IoT Edge"
-services: iot-Edge
-documentationcenter: 
+description: Permitir que os dispositivos que usam o Modbus TCP se comuniquem com o Hub IoT do Azure por meio da criação de um dispositivo de gateway do IoT Edge
 author: kgremban
 manager: timlt
-editor: chrisgmsft
-ms.assetid: 
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: kgremban
-ms.custom: 
-ms.openlocfilehash: e239bde48c3da0d899e3c78bdd39f520c4128b95
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d6e831cdd7cd18305beb617693ee1026bb6429e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631455"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway---preview"></a>Conectar dispositivos Modbus TCP por meio de um gateway de dispositivo do IoT Edge - versão prévia
 
@@ -31,7 +25,7 @@ Este artigo trata de como criar sua própria imagem de contêiner para um módul
 
 Este artigo pressupõe que você está usando o protocolo TCP Modbus. Para obter mais informações sobre como configurar o módulo para dar suporte ao Modbus RTU, consulte o projeto [Módulo Modbus do Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) no Github. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Um dispositivo do Azure IoT Edge. Para obter instruções sobre como configurar, veja [Implantar o Azure IoT Edge em um dispositivo simulado no Windows](tutorial-simulate-device-windows.md) ou [no Linux](tutorial-simulate-device-linux.md). 
 * A cadeia de caracteres de conexão de chave primária para o dispositivo IoT Edge.
 * Um dispositivo Modbus simulado ou físico que oferece suporte ao Modbus TCP.
@@ -81,7 +75,7 @@ Se quiser criar seu próprio módulo e personalizá-lo para o seu ambiente, há 
       }
       ```
 
-   6. Selecione **Salvar**.
+   6. Clique em **Salvar**.
 5. De volta à etapa **Adicionar módulos**, clique em **Avançar**.
 7. Na etapa **Especificar Rotas**, copie o JSON seguinte para a caixa de texto. Essa rota envia todas as mensagens coletadas pelo módulo Modbus ao Hub IoT. Nessa rota, ''modbusOutput'' é o ponto de extremidade usado pelo módulo do Modbus para gerar dados, e ''upstream'' é um destino especial que faz com que o Hub de Borda envie mensagens ao Hub IoT. 
    ```JSON

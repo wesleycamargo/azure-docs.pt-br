@@ -8,14 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: bf0d607d63a68a222a1d44d9cb05253497d12591
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fdfb35b0e1c52ad2aad164a38ae308f9142880a6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619619"
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Carregar dados no Azure Data Lake Store usando o Azure Data Factory
 
@@ -61,7 +62,7 @@ Este artigo mostra como usar a ferramenta de cópia de dados do Data Factory par
 3. Selecione **Criar**.
 4. Após a conclusão da criação, vá para o seu data factory. Você verá a home page **Data Factory** conforme mostrado na imagem a seguir: 
    
-   ![Página inicial da data factory](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
+   ![Página inicial do data factory](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
 
    Selecione o bloco **Autor & Monitor** para iniciar o aplicativo de integração de dados em uma guia separada.
 
