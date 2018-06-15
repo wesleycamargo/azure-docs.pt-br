@@ -6,7 +6,7 @@
       href: dns-overview.md
 - name: Guia de início rápido
   items:
-    - name: Criar zona DNS e registro - portal
+    - name: Resolução de nomes - portal
       href: dns-getstarted-portal.md
     - name: Criar zona DNS e registro - PowerShell
       href: dns-getstarted-powershell.md
@@ -14,12 +14,12 @@
       href: dns-getstarted-cli.md
 - name: Tutoriais
   items:
-    - name: Criar uma zona DNS e registro privados
-      href: private-dns-getstarted-powershell.md
-    - name: Delegar seu domínio ao DNS do Azure
+    - name: Hospede seu domínio no DNS do Azure
       href: dns-delegate-domain-azure-dns.md
     - name: Criar registros DNS personalizados para um aplicativo Web
       href: dns-web-sites-custom-domain.md
+    - name: Criar uma zona DNS e registro privados
+      href: private-dns-getstarted-powershell.md
 - name: Exemplos
   items:
     - name: CLI do Azure

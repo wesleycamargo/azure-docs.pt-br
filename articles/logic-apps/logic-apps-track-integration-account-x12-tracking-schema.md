@@ -2,7 +2,7 @@
 title: Esquemas de acompanhamento X12 para monitoramento B2B - Aplicativo Lógico do Azure | Microsoft Docs
 description: Use esquemas de acompanhamento X12 para monitorar mensagens de B2B de transações em sua Conta de Integração do Azure.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5a43b9bdf522b6b26f27c082f5cb623f7a76a8b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 385ff73d780f62f19af2face591cd0b2291ef396
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300966"
 ---
 # <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>Iniciar ou habilitar acompanhamento de mensagens X12 para monitorar o êxito, os erros e as propriedades da mensagem
 Você pode usar esses esquemas de acompanhamento X12 em sua conta de integração do Azure para ajudá-lo a monitorar transações B2B (entre empresas):

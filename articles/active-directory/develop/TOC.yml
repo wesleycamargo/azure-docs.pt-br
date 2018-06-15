@@ -259,6 +259,8 @@
               href: active-directory-v2-protocols-oauth-on-behalf-of.md
             - name: Credenciais de certificado
               href: active-directory-certificate-credentials.md
+            - name: Código de exemplo do OAuth 2.0
+              href: active-directory-protocols-oauth-get-jwt-token.md
         - name: Tokens
           href: active-directory-v2-tokens.md
         - name: Escopos e consentimento

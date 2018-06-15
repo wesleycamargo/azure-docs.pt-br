@@ -15,11 +15,13 @@
           href: tutorial-role-assignments-user-powershell.md
         - name: Conceder acesso a um grupo - PowerShell
           href: tutorial-role-assignments-group-powershell.md
+        - name: Criar uma função personalizada - PowerShell
+          href: tutorial-custom-role-powershell.md
+        - name: Criar uma função personalizada - CLI
+          href: tutorial-custom-role-cli.md
     - name: Gerenciar atribuições de função
       items:
-        - name: Usuário
-          href: role-assignments-users.md
-        - name: Recurso
+        - name: Portal
           href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
         - name: CLI do Azure
           href: role-assignments-cli.md

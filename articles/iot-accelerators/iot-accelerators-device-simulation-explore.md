@@ -1,23 +1,19 @@
 ---
 title: Começar a usar a solução de simulação de dispositivo – Azure | Microsoft Docs
 description: Os aceleradores de solução de IoT são uma ferramenta que pode ser usada para ajudar no desenvolvimento e no teste de uma solução de IoT. O serviço de simulação é uma oferta autônoma que pode ser usada em conjunto com outros aceleradores de solução ou com suas próprias soluções personalizadas.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/15/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 742998dce07f6ceef0ad906831c60f11a7d08bd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: c427f2640e605533324eb349579c6a40a2a6a47f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367518"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627118"
 ---
 # <a name="device-simulation-walkthrough"></a>Instruções passo a passo de simulação de dispositivo
 
@@ -40,7 +36,7 @@ Se você ainda não implantou a simulação de dispositivo, conclua o tutorial [
 
 ## <a name="configuring-device-simulation"></a>Configurando a simulação de dispositivo
 
-Você pode configurar e executar a simulação de dispositivo completamente usando o painel. Abra o painel na página [Soluções provisionadas](https://www.azureiotsuite.com/) dos aceleradores de solução de IoT. Clique em **Iniciar** em sua nova implantação da simulação de dispositivo.
+Você pode configurar e executar a simulação de dispositivo completamente usando o painel. Abra o painel na página [Soluções provisionadas](https://www.azureiotsolutions.com/) dos aceleradores de solução de IoT. Clique em **Iniciar** em sua nova implantação da simulação de dispositivo.
 
 ### <a name="target-iot-hub"></a>Hub IoT de destino
 
