@@ -31,6 +31,8 @@
   items:
     - name: Cotas e limites regionais
       href: container-service-quotas.md
+    - name: Migrar do ACS para AKS
+      href: acs-aks-migration.md
 - name: Guias de instruções
   items:
     - name: Operações de cluster
@@ -43,6 +45,13 @@
           href: upgrade-cluster.md
         - name: Excluir um cluster AKS
           href: delete-cluster.md
+        - name: AKS habilitado para Azure AD
+          href: aad-integration.md
+        - name: Usar Kubelet Virtual
+          href: virtual-kubelet.md
+        - name: Implantar AKS com Terraform
+          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          maintainContext: true
     - name: Configurar volumes de dados
       items:
         - name: Disco do Azure - Dinâmico
@@ -77,18 +86,26 @@
       items:
         - name: Executar aplicativos com Helm
           href: kubernetes-helm.md
+        - name: Desenvolver com o Dev Spaces
+          href: ../dev-spaces/azure-dev-spaces.md
+          maintainContext: true
         - name: Desenvolver aplicativos com Draft
           href: kubernetes-draft.md
         - name: Instalar o Open Service Broker para o Azure
           href: integrate-azure.md
-        - name: Implantação contínua do Jenkins
-          href: jenkins-continuous-deployment.md
         - name: Usando OpenFaaS com AKS
           href: openfaas.md
         - name: Executar trabalhos do Spark no AKS
           href: spark-job.md
         - name: Usando GPUs no AKS
           href: gpu-cluster.md
+    - name: DevOps em AKS
+      items:
+        - name: Implantação contínua do Jenkins
+          href: jenkins-continuous-deployment.md
+        - name: Projeto do Azure DevOps para AKS
+          href: 'https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks'
+          maintainContext: true
     - name: Noções básicas do Kubernetes
       items:
         - name: Usar painel do Kubernetes
@@ -105,6 +122,14 @@
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks
+    - name: Python
+      href: /python/api/overview/azure/containerservice
+    - name: Java
+      href: /java/api/overview/azure/containerservice
+    - name: Node.js
+      href: /javascript/api/overview/azure/container-service
+    - name: Modelo do Resource Manager
+      href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Recursos
   items:
     - name: Disponibilidade de região

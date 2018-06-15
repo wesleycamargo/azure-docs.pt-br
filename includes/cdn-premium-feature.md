@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814655"
 ---
 > [!IMPORTANT]
 > Esse é um recurso da **CDN Premium do Azure da Verizon** apenas e não está disponível com produtos da CDN Standard do Azure. Para obter uma comparação dos recursos de CDN, confira [Recursos do produto da CDN do Azure](../articles/cdn/cdn-features.md). 
