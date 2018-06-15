@@ -1,9 +1,9 @@
 ---
-title: "Criar uma função no Azure que é implantada a partir do GitHub | Microsoft Docs"
-description: "Criar um aplicativo de funções e implantar o código de função de um repositório GitHub usando o Azure Functions."
+title: Criar uma função no Azure que é implantada a partir do GitHub | Microsoft Docs
+description: Criar um aplicativo de funções e implantar o código de função de um repositório GitHub usando o Azure Functions.
 services: functions
 ms.service: functions
-keywords: 
+keywords: ''
 ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842721"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Criar um aplicativo de funções no Azure que é implantado no GitHub
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895442"
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>Requisitos de CHD para ambientes em conformidade com o PCI DSS
 ## <a name="pci-dss-requirement-3"></a>Requisito 3 de PCI DSS

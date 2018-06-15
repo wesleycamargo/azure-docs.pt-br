@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação do Serviço de Aplicativo no Linux"
+title: Documentação do Serviço de Aplicativo no Linux
 metadata:
   document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
-  title: "Documentação do Aplicativo Web para Contêineres do Azure - Tutoriais, Referência da API"
+  title: Documentação do Aplicativo Web para Contêineres do Azure - Tutoriais, Referência da API
   meta.description: Learn how to use App Service on Linux to build and host websites and web applications leveraging Docker.
   services: app-service
   author: syntaxc4
@@ -19,8 +19,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 11/03/2017
+  ms.locfileid: "23956439"
 sections:
-- title: "Guia de início rápido de 5 minutos"
+- title: Guia de início rápido de 5 minutos
   items:
   - type: list
     style: icon48
@@ -61,12 +62,12 @@ sections:
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: "Saiba como implantar, gerenciar e monitorar o aplicativo Web seguro no Serviço de Aplicativo do Linux"
+    text: Saiba como implantar, gerenciar e monitorar o aplicativo Web seguro no Serviço de Aplicativo do Linux
   - type: list
     style: ordered
     items:
     - html: Crie um aplicativo usando o <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core com o Banco de Dados SQL do Azure</a> ou o <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js com MongoDB</a>
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-custom-domain\">Mapeie um domínio personalizado existente para seu aplicativo </a>"
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Mapeie um domínio personalizado existente para seu aplicativo </a>
     - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Associar um certificado SSL existente ao seu aplicativo</a>
     - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Adicionar um CDN ao seu aplicativo</a>
 - title: Exemplos
@@ -79,7 +80,7 @@ sections:
     items:
     - html: <a href="/powershell/azureps-cmdlets-docs">PowerShell do Azure</a>
     - html: <a href="/cli/azure/appservice">CLI do Azure</a>
-- title: "Referência"
+- title: Referência
   items:
   - type: list
     style: cards
@@ -90,4 +91,4 @@ sections:
     - title: Linguagens
       html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/appservice\">referência da API REST (a página pode estar em inglês)</a></p>"
+      html: <p><a href="/rest/api/appservice">referência da API REST (a página pode estar em inglês)</a></p>
