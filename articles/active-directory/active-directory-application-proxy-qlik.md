@@ -3,20 +3,22 @@ title: Proxy de Aplicativo Azure AD e Qlik Sense | Microsoft Docs
 description: Ative o Proxy de Aplicativo no Portal do Azure e instale os Conectores para o proxy reverso.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.topic: article
-ms.date: 04/03/2018
-ms.author: markvi
+ms.date: 05/21/2018
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: ab029420ab9aa81b585c9b0315537bff2d9aaa6d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 350a43dbb96e900c48a4207c808add1484237ef6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589076"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de Aplicativo e Qlik Sense 
 O Proxy de Aplicativo do Azure Active Directory e a Qlik Sense fizeram uma parceria para garantir que você possa facilmente usar o Proxy de Aplicativo para fornecer acesso remoto para sua implantação do Qlik Sense.  

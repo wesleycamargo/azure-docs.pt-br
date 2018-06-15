@@ -3,16 +3,17 @@ title: Fontes de dados com suporte no Azure Analysis Services | Microsoft Docs
 description: Descreve as fontes de fonte de dados com suporte para modelos de dados no Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3b60a5b96d7b8a0c48aacc916b1ba933dcd83705
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a98f2ed2ce55f74ea3967dbb23a762fce566a2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595624"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -57,7 +58,7 @@ Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway
 |---------|---------|
 |Banco de Dados do Access     |  
 |Active Directory*     |  
-|Serviços de análise     |  
+|Analysis Services     |  
 |Analytics Platform System     |  
 |Dynamics CRM*     |  
 |Pasta de trabalho do Excel     |  
