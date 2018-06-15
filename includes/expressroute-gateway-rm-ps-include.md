@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31613612"
 ---
 As etapas para essa tarefa usam uma VNet com base nos valores na lista de referência de configuração a seguir. Nomes e configurações adicionais também são descritos nesta lista. Não usamos essa lista diretamente em nenhuma uma das etapas, embora adicionemos variáveis com base nos valores contidos nessa lista. É possível fazer uma cópia da lista para usá-la como referência, substituindo os valores pelos seus próprios.
 

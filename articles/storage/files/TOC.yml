@@ -16,7 +16,7 @@
       href: storage-how-to-use-files-windows.md
     - name: Montar no Linux
       href: storage-how-to-use-files-linux.md
-    - name: Montar no Mac
+    - name: Montar no macOS
       href: storage-how-to-use-files-mac.md
     - name: Gerenciar com portal do Azure
       href: storage-how-to-use-files-portal.md
@@ -103,7 +103,7 @@
         - name: Requer transferência segura
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Autenticação de chave compartilhada
-          href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
+          href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
         - name: SAS (Assinaturas de Acesso Compartilhado)
           href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Monitorar e solucionar problemas

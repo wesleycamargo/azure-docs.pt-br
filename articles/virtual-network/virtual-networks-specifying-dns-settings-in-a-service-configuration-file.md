@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790739"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Especificando as configurações de DNS em um arquivo de configuração de serviço
 ## <a name="dns-elements"></a>Elementos DNS

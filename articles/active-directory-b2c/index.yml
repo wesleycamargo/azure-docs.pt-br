@@ -16,6 +16,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 04/30/2018
+  ms.locfileid: "32308858"
 abstract:
   description: O Azure Active Directory (Azure AD) B2C é um serviço de gerenciamento de identidade que permite personalizar e controlar como os clientes se inscrevem, entram e gerenciam seus perfis ao usar seus aplicativos. Isso inclui aplicativos desenvolvidos para iOS, Android e .NET, entre outros. O Azure AD B2C habilita essas ações enquanto protege as identidades dos seus clientes ao mesmo tempo. Saiba como usar o Azure AD B2C com nossos inícios rápidos, tutoriais e exemplos.
   aside:

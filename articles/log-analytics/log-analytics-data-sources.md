@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792541"
 ---
 # <a name="data-sources-in-log-analytics"></a>Fontes de dados no Log Analytics
 O Log Analytics coleta dados de suas fontes conectadas e armazena-os no seu espaço de trabalho do Log Analytics.  Os dados que são coletados de cada uma são definidos pelas fontes de dados que você configurar.  Os dados no Log Analytics são armazenados como um conjunto de registros.  Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33883018"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implantar um cluster do Service Fabric na pilha do Azure
 

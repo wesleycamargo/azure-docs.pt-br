@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798702"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo com CI/CD em um cluster do Service Fabric
 Este tutorial é a quarta parte de uma série e descreve como configurar a integração e a implantação contínua de um aplicativo do Service Fabric do Azure usando o Visual Studio Team Services.  É necessário um aplicativo existente do Service Fabric e o aplicativo criado em [Criar um aplicativo .NET](service-fabric-tutorial-create-dotnet-app.md) é usado como exemplo.

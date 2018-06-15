@@ -33,7 +33,6 @@
 ### [Gerenciar suas VMs usando o Azure PowerShell](manage-psh-classic.md)
 ### [Sobre o agente e extensões de VM](agents-and-extensions-classic.md)
 ### [Gerenciar extensões de VM](manage-extensions-classic.md)
-### [Extensão de Script personalizado para VMs](extensions-customscript-classic.md)
 
 ## Gerenciar cargas de trabalho
 ### [HPC (Computação de Alto Desempenho)](../../virtual-machines-windows-hpcpack-cluster-options.md)

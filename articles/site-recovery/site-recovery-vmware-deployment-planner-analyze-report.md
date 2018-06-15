@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195491"
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Relatório do Planejador de Implantações do Azure Site Recovery
 O relatório gerado do Microsoft Excel contém as seguintes planilhas:
