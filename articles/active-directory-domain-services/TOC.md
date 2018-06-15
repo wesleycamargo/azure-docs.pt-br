@@ -1,4 +1,4 @@
-# [Documentação do Azure AD Domain Services](index.md)
+# [Documentação do Azure AD Domain Services](index.yml)
 
 # Visão geral
 ## [O que são os Serviços de Domínio do Azure AD?](active-directory-ds-overview.md)
@@ -59,7 +59,7 @@
 ## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Relacionados
-## [Azure Active Directory](../active-directory/active-directory-whatis.md)
+## [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Autenticação Multifator](../active-directory/authentication/multi-factor-authentication.md)
 

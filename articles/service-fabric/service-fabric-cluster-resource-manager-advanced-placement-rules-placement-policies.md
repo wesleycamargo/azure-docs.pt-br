@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bdf10f1d9199500d4f5bda3c5a05a3d67ff65541
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 66c51b08884c9d7a4d522c94f7b81774ec7a8bda
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641995"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de posicionamento para serviços do Service Fabric
 As políticas de posicionamento são regras adicionais que podem ser usadas para administrar o posicionamento de serviço em alguns cenários específicos, menos comuns. Alguns exemplos desses cenários são:
@@ -90,7 +91,7 @@ O Domínio Primário Preferencial especifica o domínio de falha no qual colocar
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();
 primaryDomain.DomainName = "fd:/EastUS/";
-serviceDescription.PlacementPolicies.Add(invalidDomain);
+serviceDescription.PlacementPolicies.Add(primaryDomain);
 ```
 
 Powershell:

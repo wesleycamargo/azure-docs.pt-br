@@ -15,21 +15,15 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: b66df55043e4fd29f352c6e9ec3b8674800bc4be
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b03139bda44886eba13892b23dc17fd3f030cc3f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639530"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-python"></a>Início Rápido: Como usar o Cache Redis do Azure com Python
-> [!div class="op_single_selector"]
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.js](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
-> 
-> 
+
 
 ## <a name="introduction"></a>Introdução
 
@@ -37,7 +31,7 @@ Este guia de início rápido mostra como se conectar a um Cache Redis do Azure c
 
 ![Teste Phyton concluído](./media/cache-python-get-started/cache-python-completed.png)
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -48,7 +42,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="install-redis-py"></a>Instale o redis-py.
+## <a name="install-redis-py"></a>Instale o redis-py
 
 [Redis py](https://github.com/andymccurdy/redis-py) é uma interface do Python para o Cache Redis. Use a ferramenta de pacotes do Python, *pip*, para instalar o pacote de py redis. 
 

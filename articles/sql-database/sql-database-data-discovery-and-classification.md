@@ -7,20 +7,20 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: giladm
-ms.openlocfilehash: b43b010a88f313930217289549448de30a82a070
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 673286c8dc9ec688199fe80cf5a763f249192de5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363801"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646772"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Descoberta e Classificação de Dados do Banco de Dados SQL do Azure
 A Descoberta e Classificação de Dados (atualmente em versão prévia) fornece recursos internos avançados no Banco de Dados SQL do Microsoft Azure para **descobrir**, **classificar**, **rotular** & **proteger** os dados confidenciais em seus bancos de dados.
 Descobrir e classificar seus dados mais confidenciais (negócios/financeiros, serviços de saúde, informações de identificação pessoal etc.) pode desempenhar uma função essencial na estatura de proteção das informações organizacionais. Pode servir como infraestrutura para:
-* Ajudar a cumprir os padrões de privacidade de dados e os requisitos de conformidade a normas, como GDPR.
+* Ajudar a cumprir os padrões de privacidade de dados e os requisitos de conformidade a normas.
 * Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
 * Controlar o acesso e proteção da segurança de bancos de dados contendo dados altamente confidenciais.
 
@@ -99,7 +99,7 @@ Um aspecto importante do paradigma da proteção de informações é a capacidad
 
 ## <a id="subheading-4"></a>Próximas etapas
 
-- Saiba mais sobre a [Proteção Avançada contra Ameaças ao SQL](sql-advanced-threat-protection.md).
+- Saiba mais sobre a [Proteção Avançada contra Ameaças do SQL](sql-advanced-threat-protection.md).
 - Considere configurar a [Auditoria do Banco de Dados SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) para monitorar e auditar o acesso aos seus dados confidenciais classificados.
 
 <!--Anchors-->
