@@ -17,6 +17,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30237372"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Fazer o download de grandes quantidades de dados aleatórios a partir do armazenamento do Microsoft Azure
 
