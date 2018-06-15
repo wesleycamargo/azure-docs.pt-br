@@ -1,4 +1,20 @@
-
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: app-service\mobile
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 05/25/2018
+ms.author: crdun
+ms.custom: include file
+ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34663994"
+---
 1. Clique no botão **Serviços de Aplicativos**, selecione seu back-end dos Aplicativos Móveis, selecione **Início Rápido**e selecione a plataforma cliente (iOS, Android, Xamarin, Cordova).
 
     ![Portal do Azure com Início Rápido de Aplicativos Móveis realçado][quickstart]
@@ -19,10 +35,10 @@
 
     ![Notificação no portal do Azure, "Você já tem uma conexão de dados"][already-connection]
 
-3. Em **2. Crie uma API de tabela**, selecione Node.js como **Linguagem de back-end**. 
- 
-4. Aceite a confirmação e selecione **Criar tabela TodoItem**.  
-    Essa ação cria uma nova tabela de item de tarefas pendentes no banco de dados. 
+3. Em **2. Crie uma API de tabela**, selecione Node.js como **Linguagem de back-end**.
+
+4. Aceite a confirmação e selecione **Criar tabela TodoItem**.
+    Essa ação cria uma nova tabela de item de tarefas pendentes no banco de dados.
 
     >[!IMPORTANT]
     > A alternância de um back-end existente para Node.js substitui todo o conteúdo. Em vez disso, para criar um back-end do .NET, confira [Trabalhar com o SDK de servidor de back-end para Aplicativos Móveis][instructions].

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 09b35483b5ace1523c88576cfe37dfc313b93036
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cdea020ad4c9c9e828d62fff8639acec2e3d6c74
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621914"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,10 +120,10 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 | &nbsp; | Sul da Índia | Índia Central |
 | Japão | Leste do Japão | Leste do Japão |
 | &nbsp; | Oeste do Japão | Leste do Japão |
-| Coreia | Coreia Central | Coreia Central |
+| Coreia do Sul | Coreia Central | Coreia Central |
 | &nbsp; | Sul da Coreia | Coreia Central |
 
-Como alternativa, você pode indicar explicitamente a região do serviço Data Factory a ser usada para realizar a cópia especificando a propriedade `executionLocation` em Atividade de Cópia `typeProperties`. Os valores com suporte para essa propriedade estão listados acima da coluna **Região usada para movimentação de dados**. Observe que seus dados passarão para essa região na transferência realizada durante a cópia. Por exemplo, para copiar entre os repositórios do Azure na Coreia, especifique `"executionLocation": "Japan East"` para rotear pela região do Japão (veja [exemplo de JSON](#by-using-json-scripts) como referência).
+Como alternativa, você pode indicar explicitamente a região do serviço Data Factory a ser usada para realizar a cópia especificando a propriedade `executionLocation` em Atividade de Cópia `typeProperties`. Os valores com suporte para essa propriedade estão listados acima da coluna **Região usada para movimentação de dados**. Observe que seus dados passarão para essa região na transferência realizada durante a cópia. Por exemplo, para copiar entre os repositórios do Azure na Coreia do Sul, especifique `"executionLocation": "Japan East"` para rotear pela região do Japão (veja [exemplo de JSON](#by-using-json-scripts) como referência).
 
 > [!NOTE]
 > Se a região do repositório de dados de destino não estiver na lista anterior ou não puder ser detectada, a Atividade de Cópia falhará em vez de passar por uma região alternativa, a menos que `executionLocation` seja especificado. A lista de regiões com suporte será expandida ao longo do tempo.

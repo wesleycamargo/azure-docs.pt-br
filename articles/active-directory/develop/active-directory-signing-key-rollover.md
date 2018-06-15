@@ -16,11 +16,12 @@ ms.date: 07/18/2016
 ms.author: celested
 ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 29ac254bf3b0e8decb26452fc36112af0a3970af
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 02d7cb28411e0baec20d334994b385dcd3b06451
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293374"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Substituição de chave de assinatura no Azure Active Directory
 Este artigo aborda o que você precisa saber sobre as chaves públicas que são usadas no Azure Active Directory (Azure AD) para assinar tokens de segurança. É importante observar que essas chaves são substituídas em intervalos periódicos e, em caso de emergência, podem ser substituídas imediatamente. Todos os aplicativos que usam o Azure AD devem ser capazes de manipular programaticamente o processo de substituição de chave ou estabelecer um processo de substituição manual periódica. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódica para tratar a substituição de chave, se necessário.
@@ -50,7 +51,7 @@ Como o seu aplicativo lida com a substituição de chave depende de variáveis c
 
 Esta diretriz **não** é aplicável:
 
-* Os aplicativos adicionados da Galeria de Aplicativos do Azure AD (incluindo os Personalizados) têm diretrizes separadas em relação às chaves de assinatura. [Mais informações.](../active-directory-sso-certs.md)
+* Os aplicativos adicionados da Galeria de Aplicativos do Azure AD (incluindo os Personalizados) têm diretrizes separadas em relação às chaves de assinatura. [Mais informações.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
 * Os aplicativos locais publicados por meio do proxy de aplicativo não precisam se preocupar com as chaves de assinatura.
 
 ### <a name="nativeclient"></a>Aplicativos cliente nativos que acessam recursos

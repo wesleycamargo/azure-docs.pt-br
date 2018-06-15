@@ -1,24 +1,19 @@
 ---
-title: Migrar alertas sobre eventos de gerenciamento para Alertas do Log de Atividades | Microsoft Docs
+title: Migrar alertas do Azure em eventos de gerenciamento para alertas do Log de Atividades
 description: Os alertas em eventos de gerenciamento serão removidos em 1º de outubro. Prepare-se migrando os alertas de migração existentes.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
-ms.openlocfilehash: 1cc02664a345da49c276a6876d5cdfaf5bdb8477
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: alerts
+ms.openlocfilehash: 9e4302b780d0c08afbc791a0aec6bfd806aba161
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263697"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrar alertas do Azure em eventos de gerenciamento para alertas do Log de Atividades
 

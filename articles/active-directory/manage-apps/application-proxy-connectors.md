@@ -15,11 +15,12 @@ ms.date: 10/12/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 16f008c6a6f97a791122a3b441c4c09eaf7eadde
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: dfbabb3bc2702e7c6ab5d0ba5c809a1bd04d0bbc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293000"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -164,6 +165,6 @@ Você pode examinar o estado do serviço na janela Serviços. O conector é comp
 
 * [Publicar aplicativos em redes e locais separados usando grupos de conectores](application-proxy-connector-groups.md)
 * [Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md)
-* [Solucionar erros do conector e do Proxy de Aplicativo](../active-directory-application-proxy-troubleshoot.md)
+* [Solucionar erros do conector e do Proxy de Aplicativo](application-proxy-troubleshoot.md)
 * [Como fazer uma instalação silenciosa do Conector de Proxy de Aplicativo Azure AD](application-proxy-register-connector-powershell.md)
 

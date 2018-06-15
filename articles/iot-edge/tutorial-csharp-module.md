@@ -1,19 +1,20 @@
 ---
 title: Módulo do Azure IoT Edge em C# | Microsoft Docs
 description: Criar um módulo do IoT Edge com código em C# e implantá-lo em um dispositivo de borda
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: 1caa887a13453ce2b2b07e83b74f0ed57535b026
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 1da3a246a2ad33a4563f491058f5d4d115f3954d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631064"
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desenvolver e implantar um módulo do IoT Edge em C# em seu dispositivo simulado - versão prévia
 
@@ -45,7 +46,7 @@ Você pode usar qualquer registro compatível com o Docker neste tutorial. Dois 
 
 1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Contêineres** > **Registro de Contêiner do Azure** .
 2. Nomeie seu registro, escolha uma assinatura, selecione um grupo de recursos e defina a SKU para **Básica**. 
-3. Clique em **Criar**.
+3. Selecione **Criar**.
 4. Depois que o registro de contêiner for criado, navegue até ele e selecione **Chaves de acesso**. 
 5. Alterne **Usuário administrador** para **Ativar**.
 6. Copie os valores para **Servidor de logon**, **Nome de usuário** e **Senha**. Você usará esses valores no tutorial posteriormente ao publicar a imagem do Docker no registro e ao adicionar as credenciais de registro para o tempo de execução do Edge. 

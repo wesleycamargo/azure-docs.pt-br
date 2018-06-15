@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c7e33a46940c9bf0cda5e48c07d42db9f0c7cd96
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 84fa3c5bd57e1f9f5b3eddf872307829f6c9c509
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292959"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configurar o Asana para provisionamento automático de usuário
 
@@ -42,7 +43,7 @@ O Azure AD usa um conceito chamado "atribuições" para determinar quais usuári
 
 Antes de configurar e habilitar o serviço de provisionamento, você deve decidir quais usuários, no Azure AD, precisam de acesso ao aplicativo Asana. Então, você pode atribuir esses usuários ao seu aplicativo Asana seguindo as instruções aqui:
 
-[Atribuir um usuário a um aplicativo empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+[Atribuir um usuário a um aplicativo empresarial](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-asana"></a>Dicas importantes para atribuir usuários ao Asana
 
@@ -99,6 +100,6 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciar provisionamento de conta de usuário para aplicativos empresariais](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gerenciar provisionamento de conta de usuário para aplicativos empresariais](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar Logon Único](active-directory-saas-asana-tutorial.md)

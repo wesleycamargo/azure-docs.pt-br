@@ -1,26 +1,28 @@
 ---
-title: "Chamar uma função do PowerApps | Microsoft Docs"
-description: "Crie um conector personalizado e, em seguida, chame uma função usando esse conector."
+title: Chamar uma função do PowerApps | Microsoft Docs
+description: Crie um conector personalizado e, em seguida, chame uma função usando esse conector.
 services: functions
-keywords: "aplicativos de nuvem, serviços de nuvem, PowerApps, processos de negócios, aplicativo de negócios"
-documentationcenter: 
-author: mgblythe
+keywords: aplicativos de nuvem, serviços de nuvem, PowerApps, processos de negócios, aplicativo de negócios
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 02cd491be5336abe708cce0f6e268b38514d4e88
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234947"
 ---
 # <a name="call-a-function-from-powerapps"></a>Chamar uma função do PowerApps
 A plataforma [PowerApps](https://powerapps.microsoft.com) destina-se a especialistas comerciais para o build de aplicativos sem código de aplicativo tradicional. Desenvolvedores profissionais podem usar o Azure Functions para estender os recursos do PowerApps e, ao mesmo tempo, proteger os construtores de aplicativo do PowerApps de detalhes técnicos.

@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ed1179663823bc5a16f3ef348a649731814cdd5a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293085"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artigos sobre gerenciamento de aplicativos no Active Directory do Azure
 Esta página fornece uma lista abrangente com todos os documentos escritos sobre os vários recursos relacionados ao aplicativo no Active Directory do Azure (AD do Azure).
@@ -32,7 +33,7 @@ Os artigos a seguir são bons pontos de partida para quem deseja apenas uma brev
 |:---:| --- |
 | Uma introdução aos problemas de gerenciamento de aplicativo solucionados pelo AD do Azure |[Gerenciando aplicativos com o AD do Azure (Active Directory do Azure)](manage-apps/what-is-application-management.md) |
 | Uma visão geral dos vários recursos no AD do Azure relacionados à habilitação do logon único, definição de quem tem acesso aos aplicativos e como os usuários iniciam os aplicativos |[Acesso aos aplicativos e logon único no Active Directory do Azure](manage-apps/what-is-single-sign-on.md) |
-| Um exame das diferentes etapas envolvidas na integração de aplicativos ao AD do Azure |[Integrando aplicativos com o Azure Active Directory](manage-apps/plan-an-application-integration.md)<br /><br />[Habilitar logon único para aplicativos SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Gerenciamento do acesso aos aplicativos](active-directory-managing-access-to-apps.md) |
+| Um exame das diferentes etapas envolvidas na integração de aplicativos ao AD do Azure |[Integrando aplicativos com o Azure Active Directory](manage-apps/plan-an-application-integration.md)<br /><br />[Habilitar logon único para aplicativos SaaS](manage-apps/configure-single-sign-on-portal.md)<br /><br />[Gerenciamento do acesso aos aplicativos](manage-apps/what-is-access-management.md) |
 | Uma explicação técnica de como os aplicativos são representados no AD do Azure |[Como e por que os aplicativos são adicionados ao AD do Azure](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Artigos de solução de problemas
@@ -42,7 +43,7 @@ Esta seção fornece acesso rápido às guias de solução de problemas relevant
 |:---:| --- |
 | Logon único federado |[Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md) |
 | Logon único baseado em senha |[Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
-| Proxy de Aplicativo |[Guia de solução de problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md) |
+| Proxy de Aplicativo |[Guia de solução de problemas de Proxy de Aplicativo](manage-apps/application-proxy-troubleshoot.md) |
 | Logon único entre o AD local e o AD do Azure |[Solução de Problemas de Sincronização de Senha](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Solucionar problemas de write-back de senha](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Associações de grupo dinâmico |[Solucionar problemas de associações a grupos dinâmicos](active-directory-accessmanagement-troubleshooting.md) |
 
@@ -57,7 +58,7 @@ O logon único permite aos usuários acessar vários aplicativos e serviços usa
 | Mais de 150 tutoriais de aplicativo sobre como configurar o logon único para aplicativos como [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md) e muito mais |[Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md) |
 | Como definir e personalizar manualmente a configuração do logon único |[Como configurar logon único federado para aplicativos que não estão na galeria de aplicativos do Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Como personalizar declarações emitidas no token SAML para aplicativos pré-integrados](active-directory-saml-claims-customization.md) |
 | Guia de solução de problemas para aplicativos federados que usam o protocolo SAML |[Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md) |
-| Como configurar a data de validade do certificado de seu aplicativo e como renovar os seus certificados |[Gerenciamento de certificados para logon único federado no Active Directory do Azure](active-directory-sso-certs.md) |
+| Como configurar a data de validade do certificado de seu aplicativo e como renovar os seus certificados |[Gerenciamento de certificados para logon único federado no Active Directory do Azure](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 O logon único federado está disponível para todas as edições do AD do Azure para até dez aplicativos por usuário. [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/) oferece suporte a uma quantidade ilimitada de aplicativos. Se sua organização tiver o [Azure AD Básico](https://azure.microsoft.com/pricing/details/active-directory/) ou o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), você poderá [usar grupos para atribuir acesso a aplicativos federados](#managing-access-to-applications).
 
@@ -82,7 +83,7 @@ Se você tiver aplicativos em sua rede privada que precisam ser acessados por us
 | Tutoriais sobre como configurar o Proxy de Aplicativo e como publicar seu primeiro aplicativo |[Como configurar o Proxy de aplicativo do Azure AD](manage-apps/application-proxy-enable.md)<br /><br />[Como instalar silenciosamente o conector de proxy de aplicativo](manage-apps/application-proxy-register-connector-powershell.md)<br /><br />[Como publicar aplicativos usando o proxy de aplicativo](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Como usar o seu próprio nome de domínio](manage-apps/application-proxy-configure-custom-domain.md) |
 | Como habilitar o logon único e o acesso condicional para aplicativos publicados com o Proxy de Aplicativo |[Logon único com Proxy de Aplicativo](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Acesso condicional e Proxy de Aplicativo](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Orientação sobre como usar o Proxy de Aplicativo para os seguintes cenários |[Como dar suporte a aplicativos cliente nativos](manage-apps/application-proxy-configure-native-client-application.md)<br /><br />[Como dar suporte a aplicativos com reconhecimento de declarações](manage-apps/application-proxy-configure-for-claims-aware-applications.md)<br /><br />[Como dar suporte a aplicativos publicados em redes e locais separados](manage-apps/application-proxy-connector-groups.md) |
-| Guia de solução de problemas de Proxy de Aplicativo |[Guia de solução de problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md) |
+| Guia de solução de problemas de Proxy de Aplicativo |[Guia de solução de problemas de Proxy de Aplicativo](manage-apps/application-proxy-troubleshoot.md) |
 
 O Proxy de Aplicativo está disponível para todas as edições do AD do Azure para até dez aplicativos por usuário. [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/) oferece suporte a uma quantidade ilimitada de aplicativos. Se sua organização tiver o [Azure AD Básico](https://azure.microsoft.com/pricing/details/active-directory/) ou o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), você poderá [usar grupos para atribuir acesso a aplicativos](#managing-access-to-applications).
 
@@ -136,7 +137,7 @@ Automatize a criação, a manutenção e a remoção de identidades de usuário 
 |:---:| --- |
 | Saiba mais sobre como isso funciona e encontre respostas para perguntas comuns |[Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md) |
 | Configurar como as informações são mapeadas entre o AD do Azure e seu aplicativo SaaS |[Personalizando mapeamentos de atributo](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Escrevendo expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
-| Como habilitar o provisionamento automatizado para qualquer aplicativo que ofereça suporte ao protocolo SCIM |[Configurar o provisionamento automatizado de usuário para qualquer aplicativo habilitado para SCIM](active-directory-scim-provisioning.md) |
+| Como habilitar o provisionamento automatizado para qualquer aplicativo que ofereça suporte ao protocolo SCIM |[Configurar o provisionamento automatizado de usuário para qualquer aplicativo habilitado para SCIM](manage-apps/use-scim-to-provision-users-and-groups.md) |
 | Como relatar e solucionar problemas de provisionamento do usuário |[Relatórios sobre o provisionamento automático de usuário](active-directory-saas-provisioning-reporting.md)<br><br>[Solução de problemas de provisionamento do usuário](active-directory-application-provisioning-content-map.md) |
 | Limitar quem recebe provisionamento para um aplicativo com base em seus valores de atributo |[Filtro de escopo](active-directory-saas-scoping-filters.md) |
 
@@ -159,7 +160,7 @@ Para ajudar você a gerenciar quem deve ter acesso a quais recursos, o Active Di
 
 | Guia de artigos |  |
 |:---:| --- |
-| Uma visão geral dos recursos de gerenciamento de acesso do AD do Azure |[Introdução ao gerenciamento do acesso a aplicativos](active-directory-managing-access-to-apps.md)<br /><br />[Como funciona o gerenciamento de acesso no Azure AD](active-directory-manage-groups.md)<br /><br />[Como usar grupos para gerenciar o acesso a aplicativos SaaS](active-directory-accessmanagement-group-saasapps.md) |
+| Uma visão geral dos recursos de gerenciamento de acesso do AD do Azure |[Introdução ao gerenciamento do acesso a aplicativos](manage-apps/what-is-access-management.md)<br /><br />[Como funciona o gerenciamento de acesso no Azure AD](active-directory-manage-groups.md)<br /><br />[Como usar grupos para gerenciar o acesso a aplicativos SaaS](active-directory-accessmanagement-group-saasapps.md) |
 | Habilitar o gerenciamento por autoatendimento de aplicativos e grupos |[Gerenciamento de aplicativos de autoatendimento](active-directory-self-service-application-access.md)<br /><br />[Gerenciamento de grupo de autoatendimento](active-directory-accessmanagement-self-service-group-management.md) |
 | Instruções para configuração de seus grupos no AD do Azure |[Como criar grupos de segurança](active-directory-groups-create-azure-portal.md)<br /><br />[Como designar proprietários de um grupo](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Como usar o grupo "Todos os Usuários"](active-directory-accessmanagement-dedicated-groups.md) |
 | Usar grupos dinâmicos para preencher automaticamente a associação de grupo usando regras de associação baseadas em atributo |[Associação de grupo dinâmico: regras avançadas](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Solucionar problemas de associações a grupos dinâmicos](active-directory-accessmanagement-troubleshooting.md) |
