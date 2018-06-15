@@ -1,12 +1,12 @@
 ---
 title: Adicionar mensagens a uma fila do Armazenamento do Azure usando Functions | Microsoft Docs
-description: "Use o Azure Functions para criar uma função sem servidor que é invocada por uma solicitação HTTP e cria uma mensagem em uma fila do Armazenamento do Azure."
+description: Use o Azure Functions para criar uma função sem servidor que é invocada por uma solicitação HTTP e cria uma mensagem em uma fila do Armazenamento do Azure.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387057"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions
 

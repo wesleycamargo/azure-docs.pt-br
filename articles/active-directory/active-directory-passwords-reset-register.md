@@ -1,13 +1,13 @@
 ---
-title: "Registrar para redefinição de senha por autoatendimento – Azure Active Directory"
-description: "Registrar dados de autenticação para redefinição de senha de autoatendimento do Azure AD"
+title: Registrar para redefinição de senha por autoatendimento – Azure Active Directory
+description: Registrar dados de autenticação para redefinição de senha de autoatendimento do Azure AD
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460468"
 ---
 # <a name="register-for-self-service-password-reset"></a>Registro de redefinição de senha de autoatendimento
 

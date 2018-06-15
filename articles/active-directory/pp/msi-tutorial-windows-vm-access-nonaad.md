@@ -1,8 +1,8 @@
 ---
 title: Use um MSI de VM do Windows para acessar o Azure Key Vault
-description: "Um tutorial que orienta o processo de usar uma Identidade de Serviço Gerenciado (MSI) de VM do Windows para acessar o Azure Key Vault."
+description: Um tutorial que orienta o processo de usar uma Identidade de Serviço Gerenciado (MSI) de VM do Windows para acessar o Azure Key Vault.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383776"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usar o MSI (Identidade de Serviço Gerenciada) da VM do Windows para acessar o Azure Key Vault 
 

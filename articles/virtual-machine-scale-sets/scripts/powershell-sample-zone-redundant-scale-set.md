@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31413620"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais de redundância de zona com o PowerShell
 Esse script cria conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 em várias Zonas de disponibilidade. Após a execução do script, é possível acessar a máquina virtual por RDP.

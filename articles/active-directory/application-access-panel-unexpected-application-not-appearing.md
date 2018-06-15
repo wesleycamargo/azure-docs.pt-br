@@ -1,11 +1,11 @@
 ---
-title: "Um aplicativo atribuído não aparece no painel de acesso | Microsoft Docs"
-description: "Solucionar problemas por que um aplicativo não aparece no Painel de Acesso"
+title: Um aplicativo atribuído não aparece no painel de acesso | Microsoft Docs
+description: Solucionar problemas por que um aplicativo não aparece no Painel de Acesso
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384109"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Um aplicativo atribuído não aparece no painel de acesso
 

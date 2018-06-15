@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32777172"
 abstract:
   description: Saiba como usar o Observador de Rede do Azure. Guias de início rápido, tutoriais e muito mais, mostram como ter uma noção da sua rede virtual do Azure com ferramentas como captura de pacote e logs de fluxos do NSG, para diagnosticar problemas com filtragem de tráfego e roteamento, assim como para monitorar as conexões.
 sections:

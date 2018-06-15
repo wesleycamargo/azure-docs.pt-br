@@ -1,11 +1,11 @@
 ---
 title: Configurar um ouvinte externo para grupos de disponibilidade AlwaysOn | Microsoft Docs
-description: "Este tutorial explica as etapas de criação de um ouvinte de grupo de disponibilidade AlwaysOn no Azure que é acessível externamente usando o endereço IP virtual público do serviço de nuvem associado."
+description: Este tutorial explica as etapas de criação de um ouvinte de grupo de disponibilidade AlwaysOn no Azure que é acessível externamente usando o endereço IP virtual público do serviço de nuvem associado.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398855"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurar um ouvinte externo para grupos de disponibilidade AlwaysOn no Azure
 > [!div class="op_single_selector"]
