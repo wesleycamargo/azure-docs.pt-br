@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 04/19/2018
+  ms.locfileid: "31590778"
 abstract:
   description: As Máquinas Virtuais de Ciência de Dados e de Aprendizado Profundo são imagens personalizadas de VM no Azure, carregadas com ferramentas de ciência de dados usadas para criar aplicativos inteligentes para análises avançadas.
 sections:

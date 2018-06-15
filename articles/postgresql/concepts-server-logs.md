@@ -1,6 +1,6 @@
 ---
 title: Logs de servidor no Banco de Dados do Azure para PostgreSQL
-description: "Este artigo descreve como o Banco de Dados do Azure para PostgreSQL gera logs de erros e consultas e como a retenção de log é configurada."
+description: Este artigo descreve como o Banco de Dados do Azure para PostgreSQL gera logs de erros e consultas e como a retenção de log é configurada.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29691086"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Logs de servidor no Banco de Dados do Azure para PostgreSQL 
 Banco de Dados do Azure para PostgreSQL gera logs de consulta e de erro. No entanto, não há suporte para acesso aos logs de transação. Os logs de erro e consulta podem ser usados para identificar, solucionar problemas e reparar erros de configuração e desempenho abaixo do ideal. Para saber mais, confira [Relatório de erros e registro em log](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).

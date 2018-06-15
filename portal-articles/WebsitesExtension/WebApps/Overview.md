@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31600890"
 ---
 # <a name="app-service-documentation"></a>Documentação do Serviço de Aplicativo
 O Serviço de Aplicativo do Azure permite criar e hospedar aplicativos Web na linguagem de programação de sua escolha, sem gerenciamento de infra-estrutura nem tempo de execução de estrutura da Web ou linguagem. Eles oferecem o dimensionamento automático e alta disponibilidade, compatível com Windows e Linux e permite implantações automatizadas do GitHub, Visual Studio Team Services ou qualquer repositório Git. Saiba como usar o Serviço de Aplicativo do Azure com nossos inícios rápidos, tutoriais e exemplos.
