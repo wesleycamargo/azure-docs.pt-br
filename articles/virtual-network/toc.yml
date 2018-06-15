@@ -205,17 +205,9 @@
     - name: Solucionar problemas
       items:
         - name: Grupos de segurança de rede
-          items:
-            - name: Portal do Azure
-              href: virtual-network-nsg-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-nsg-troubleshoot-powershell.md
+          href: diagnose-network-traffic-filter-problem.md
         - name: Rotas
-          items:
-            - name: Portal do Azure
-              href: virtual-network-routes-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-routes-troubleshoot-powershell.md
+          href: diagnose-network-routing-problem.md
         - name: Teste de taxa de transferência
           href: virtual-network-bandwidth-testing.md
         - name: Não é possível excluir as redes virtuais
