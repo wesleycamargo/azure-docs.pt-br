@@ -9,16 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: ba4e5996a87596c88822d96faf3e80e8243ad78b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a38eb1f291d00d942ff0a1579b20bca7e012991a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642930"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -96,7 +97,7 @@ Execute o comando `docker build` para criar a imagem que executa o seu aplicativ
 docker build -t helloworldapp .
 ```
 
-Esse comando cria a nova imagem usando as instruções no seu Dockerfile de nomeando (-t marcação) a imagem `helloworldapp`. Para criar uma imagem de contêiner, primeiro a imagem base é baixada do Hub do Docker ao qual o aplicativo foi adicionado. 
+Esse comando cria a nova imagem usando as instruções no seu Dockerfile de nomeando (marcação -t) a imagem `helloworldapp`. Para criar uma imagem de contêiner, primeiro a imagem base é baixada do Hub do Docker ao qual o aplicativo foi adicionado. 
 
 Depois de concluir o comando de compilação, execute o comando `docker images` para ver informações sobre a nova imagem:
 

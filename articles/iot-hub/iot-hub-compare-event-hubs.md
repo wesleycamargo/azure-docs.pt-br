@@ -1,24 +1,19 @@
 ---
 title: Comparar o Hub IoT do Azure ao Hubs de Eventos do Azure | Microsoft Docs
 description: Uma comparação dos serviços do Hub IoT e de Eventos do Azure destacando diferenças funcionais e casos de uso. A comparação inclui protocolos com suporte, gerenciamento de dispositivos, monitoramento e uploads de arquivos.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: aeddea62-8302-48e2-9aad-c5a0e5f5abe9
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: b86132b42aef981e6218b27e271e6db645d14071
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9ad95071de07777e38533ecec9e8558841d8b1ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633954"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Conectar Dispositivos IoT ao Azure: Hub IoT e Hubs de Eventos
 
@@ -32,7 +27,7 @@ Para resumir, embora ambas as soluções são projetadas para ingestão de dados
 
 A tabela a seguir fornece detalhes sobre como as duas camadas do Hub IoT comparam-se aos Hubs de Eventos quando avaliá-las para os recursos de IoT. Para obter mais informações sobre as camadas Standard e Básica do Hub IoT, consulte [Como escolher a camada certa do Hub IoT][lnk-scaling].
 
-| Funcionalidade do IoT | Camada Standard do Hub IoT | Camada Básica do Hub IoT | Hubs de evento |
+| Funcionalidade do IoT | Camada Standard do Hub IoT | Camada Básica do Hub IoT | Hubs de Eventos |
 | --- | --- | --- | --- |
 | Mensagens do dispositivo para a nuvem | ![Verificação][1] | ![Verificação][1] | ![Verificação][1] |
 | Protocolos: HTTPS, AMQP, AMQP sobre webSockets | ![Verificação][1] | ![Verificação][1] | ![Verificação][1] |

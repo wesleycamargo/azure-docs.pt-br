@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 84988c815759a726abe93d931f73c284d771a5ba
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786705"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640363"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidades cognitivas OCR
 
@@ -61,7 +61,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -186,16 +186,14 @@ O conjunto de qualificações do exemplo a seguir cria um campo *merged_text* pa
 O exemplo de conjunto de qualificações acima presume que existe um campo de imagens normalizado. Para gerar esse campo, defina a configuração *imageAction* na definição do indexador para *generateNormalizedImages* conforme mostrado abaixo:
 
 ```json
-{
-  //...rest of your indexer definition goes here ...
-  "parameters":
-  {
-    "configuration": 
-    {
-        "dataToExtract": "contentAndMetadata",
-        "imageAction": "generateNormalizedImages"
-        }
-  }
+{  
+   //...rest of your indexer definition goes here ... 
+  "parameters":{  
+      "configuration":{  
+         "dataToExtract":"contentAndMetadata",
+         "imageAction":"generateNormalizedImages"
+      }
+   }
 }
 ```
 
@@ -203,3 +201,4 @@ O exemplo de conjunto de qualificações acima presume que existe um campo de im
 + [Habilidades predefinidas](cognitive-search-predefined-skills.md)
 + [Habilidade de TextMerger](cognitive-search-skill-textmerger.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
++ [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
