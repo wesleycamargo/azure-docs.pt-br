@@ -16,6 +16,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30171896"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure usando a ferramenta Copy Data
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

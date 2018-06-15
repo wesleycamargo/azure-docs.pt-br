@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30185963"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificando a conectividade do ExpressRoute
 O ExpressRoute, que estende uma rede local para a Microsoft Cloud por uma conexão privada que é facilitada por um provedor de conectividade, envolve as três seguintes zonas da rede distintas:

@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/24/2018
+ms.locfileid: "30323619"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>ZRS (armazenamento com redundância de zona): aplicativos de Armazenamento do Microsoft Azure altamente disponíveis
 

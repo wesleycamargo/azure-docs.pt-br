@@ -1,11 +1,11 @@
 ---
 title: Exemplo DMZ - Criar um DMZ para proteger redes com um Firewall, uma UDR e um NSG | Microsoft Docs
-description: "Criar uma rede de perímetro com um Firewall, o Roteamento Definido pelo Usuário (UDR) e os Grupos de Segurança de Rede (NSG)"
+description: Criar uma rede de perímetro com um Firewall, o Roteamento Definido pelo Usuário (UDR) e os Grupos de Segurança de Rede (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: dc01ccfb-27b0-4887-8f0b-2792f770ffff
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23127154"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemplo 3 - Criar uma rede de perímetro para proteger as redes com um Firewall, um UDR e um NSG
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30284094"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra aos Aplicativos Lógicos do Azure
 
@@ -88,7 +89,7 @@ O Functions fornece uma ótima maneira de descarregar tarefas de processamento e
 
     ![Escolha o gatilho HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
 
-3. Digite um **Nome** para sua função, escolha `Function` para  **[Nível de autenticação](functions-bindings-http-webhook.md#http-auth)**e, em seguida, selecione **Criar**. 
+3. Digite um **Nome** para sua função, escolha `Function` para  **[Nível de autenticação](functions-bindings-http-webhook.md#http-auth)** e, em seguida, selecione **Criar**. 
 
     ![Criar a função disparada por HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
 

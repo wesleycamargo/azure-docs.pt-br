@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30182721"
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solução Integridade do Agente do OMS
 A solução Integridade do Agente do OMS ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho do OMS ou a um grupo de gerenciamento do System Center Operations Manager conectado ao OMS, quais estão respondendo e enviando dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    

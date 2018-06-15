@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30171556"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copie os dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure
 Neste tutorial, você usa a interface do usuário (IU) do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual move dados entre locais e armazenamentos de dados da nuvem.

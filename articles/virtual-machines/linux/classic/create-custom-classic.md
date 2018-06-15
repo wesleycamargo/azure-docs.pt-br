@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841428"
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>Como criar uma VM Clássica do Linux com a CLI do Azure 1.0
 > [!IMPORTANT] 

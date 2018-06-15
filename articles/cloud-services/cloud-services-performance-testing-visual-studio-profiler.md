@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30284550"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
 Várias técnicas e ferramentas estão disponíveis para testar o desempenho de serviços de nuvem.

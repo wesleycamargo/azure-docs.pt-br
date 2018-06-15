@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246450"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure 2.0
 Esse script cria um conjunto de dimensionamento de máquinas virtuais do Azure com sistema operacional Ubuntu e recursos de rede relacionados, incluindo um balanceador de carga. Depois de executar o script, é possível acessar instâncias de VM via SSH.

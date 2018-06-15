@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30171189"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Instalar o Kit de desenvolvimento de pilha do Azure (ASDK)
 Depois de [preparar o computador de host ASDK](asdk-prepare-host.md), o ASDK pode ser implantado em imagem CloudBuilder.vhdx usando as etapas a seguir neste artigo.

@@ -17,6 +17,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30232129"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões de política SSL e conjuntos de codificação no Gateway de Aplicativo
 

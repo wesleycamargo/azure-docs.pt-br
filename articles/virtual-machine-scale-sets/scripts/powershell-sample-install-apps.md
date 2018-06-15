@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246399"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Instalar aplicativos em um conjunto de dimensionamento de máquinas virtuais com o PowerShell
 Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 e usa a Extensão de Script Personalizado para instalar um aplicativo Web básico. Depois de executar o script, é possível acessar o aplicativo Web por meio de navegador da Web.

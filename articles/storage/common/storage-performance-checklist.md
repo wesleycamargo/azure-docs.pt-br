@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246212"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure
 ## <a name="overview"></a>Visão geral

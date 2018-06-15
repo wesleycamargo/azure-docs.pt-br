@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30181632"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagem: PEPS (primeiro a entrar, primeiro a sair) 
 

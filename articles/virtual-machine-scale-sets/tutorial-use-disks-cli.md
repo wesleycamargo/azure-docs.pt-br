@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246705"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: criar e usar discos com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure 2.0
 Conjuntos de dimensionamento de máquinas virtuais usam discos para armazenar o sistema operacional da instância de VM, aplicativos e dados. Ao criar e gerencia um conjunto de dimensionamento, é importante escolher um tamanho e uma configuração de disco apropriados para a carga de trabalho esperada. Este tutorial aborda como criar e gerenciar os discos de VM. Neste tutorial, você aprenderá a:
