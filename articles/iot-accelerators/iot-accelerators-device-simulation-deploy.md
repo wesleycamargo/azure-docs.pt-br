@@ -1,22 +1,19 @@
 ---
 title: Implantar a solução de simulação de dispositivo – Azure | Microsoft Docs
 description: Este tutorial mostra como provisionar a solução de simulação de dispositivo do azureiotsuite.com.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/18/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 4d468c527c658707da2b5f35f43676626baf5ca2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e96c0f16ca4b69d103674b7f895c52d197280ca5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626999"
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>Implantar a solução de simulação de dispositivo IoT do Azure
 
@@ -39,7 +36,7 @@ Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita e
 
 Antes de implantar a solução na sua assinatura do Azure, você deve escolher algumas opções de configuração:
 
-1. Entre no [azureiotsuite.com](https://www.azureiotsuite.com) usando as credenciais da sua conta do Azure e clique em **+** para criar uma nova solução:
+1. Entre no [azureiotsuite.com](https://www.azureiotsolutions.com) usando as credenciais da sua conta do Azure e clique em **+** para criar uma nova solução:
 
     ![Criar uma nova solução](./media/iot-accelerators-device-simulation-deploy/createnewsolution.png)
 
