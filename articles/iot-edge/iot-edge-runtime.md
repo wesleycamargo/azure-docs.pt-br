@@ -1,19 +1,19 @@
 ---
 title: Noções básicas sobre o tempo de execução do Azure IoT Edge | Microsoft Docs
 description: Saiba mais sobre o tempo de execução do Azure IoT Edge e como ele fortalece seus dispositivos de borda
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 02/15/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8bd725e2201cb08853f4fb63d156b6359427663b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+services: iot-edge
+ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632067"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Noções básicas sobre o tempo de execução do Azure IoT Edge e sua arquitetura - versão prévia
 
@@ -23,7 +23,7 @@ O tempo de execução do IoT Edge executa as seguintes funções em dispositivos
 
 * Instala e atualiza as cargas de trabalho no dispositivo.
 * Mantém os padrões de segurança do Azure IoT Edge no dispositivo.
-* Faz com que os dos [módulos do IoT Edge][lnk-modules] estejam sempre em execução.
+* Faz com que os [Ink-modules] dos [módulos do IoT Edge] estejam sempre em execução.
 * Fornece um relatório sobre a integridade do módulo para a nuvem para o monitoramento remoto.
 * Facilita a comunicação entre os dispositivos de folha de downstream e o dispositivo IoT Edge.
 * Facilita a comunicação entre os módulos e o dispositivo IoT Edge.

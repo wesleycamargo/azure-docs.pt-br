@@ -17,6 +17,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201820"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Criar um gateway de aplicativo usando a CLI do Azure
 
