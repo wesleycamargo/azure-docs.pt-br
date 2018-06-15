@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32187789"
 abstract:
   description: Saiba como usar a Rede Virtual do Azure. Início Rápido, tutoriais, exemplos e muito mais mostram como implantar uma rede virtual, controlar o tráfego de roteamento e filtragem e se conectar a uma rede virtual para outras redes virtuais.
 sections:

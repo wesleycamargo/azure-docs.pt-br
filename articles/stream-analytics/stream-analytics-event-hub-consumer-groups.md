@@ -14,6 +14,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312949"
 ---
 # <a name="troubleshoot-event-hub-receivers-in-azure-stream-analytics"></a>Solucionar problemas de receptores de Hub de Eventos no Azure Stream Analytics
 
