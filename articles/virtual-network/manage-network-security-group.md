@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894214"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658665"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou excluir um Grupo de Segurança de Rede
 
@@ -66,7 +66,7 @@ Na caixa de pesquisa na parte superior do portal, digite *grupos de segurança d
 ### <a name="view-details-of-a-network-security-group"></a>Exibir os detalhes de um Grupo de Segurança de Rede
 
 1. Na caixa de pesquisa na parte superior do portal, digite *grupos de segurança de rede*. Quando **grupos de segurança de rede** aparecer nos resultados da pesquisa, selecione esta opção.
-2. Selecione na lista o Grupo de Segurança de Rede cujos detalhes você deseja exibir. Em **CONFIGURAÇÕES**, é possível exibir as **Regras de segurança de entrada** e **Regras de segurança de saída**, os **Adaptadores de rede** e **Sub-redes** aos quais o Grupo de Segurança de Rede está associado. Você também pode habilitar ou desabilitar os **Logs de diagnóstico** e exibir as **Regras de segurança em vigor**. Para saber mais, consulte [Logs de diagnóstico](virtual-network-nsg-manage-log.md) e [Exibir as regras de segurança em vigor](virtual-network-nsg-troubleshoot-portal.md).
+2. Selecione na lista o Grupo de Segurança de Rede cujos detalhes você deseja exibir. Em **CONFIGURAÇÕES**, é possível exibir as **Regras de segurança de entrada** e **Regras de segurança de saída**, os **Adaptadores de rede** e **Sub-redes** aos quais o Grupo de Segurança de Rede está associado. Você também pode habilitar ou desabilitar os **Logs de diagnóstico** e exibir as **Regras de segurança em vigor**. Para saber mais, consulte [Logs de diagnóstico](virtual-network-nsg-manage-log.md) e [Exibir as regras de segurança em vigor](diagnose-network-traffic-filter-problem.md).
 3. Para saber mais sobre as configurações comuns do Azure listadas, veja as seguintes informações:
     *   [Log de atividade](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Controle de acesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)

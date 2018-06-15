@@ -1,16 +1,19 @@
 ---
 title: Recursos de solicitação de dados do cliente
+description: Resumo dos recursos de solicitação de dados do cliente
 author: dominicbetts
 ms.author: dobett
+manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: 3af76fe22e93b6c5d502733196994bda61b9a93e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+services: iot-hub
+ms.openlocfilehash: 73da48d449a7cc5cdca598c8aef176952909ed85
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361508"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634916"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 

@@ -1,27 +1,27 @@
 ---
 title: Como adicionar uma origem de evento do Hub de Eventos ao Azure Time Series Insights | Microsoft Docs
-description: "Este artigo descreve como adicionar uma origem do evento que está conectada a um Hub de Eventos ao ambiente do Time Series Insights."
-services: time-series-insights
+description: Este artigo descreve como adicionar uma origem do evento que está conectada a um Hub de Eventos ao ambiente do Time Series Insights.
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: c07c847784eb13c62e350e9c655e027e7df696a3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: ed151160bd8bd0f0241e1a728fab53570e33a201
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656010"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Como adicionar uma origem do evento do Hub de Eventos ao ambiente do Time Series Insights
 
 Este tutorial explica como usar o portal do Azure para adicionar uma origem do evento que leia de um Hub de Eventos para o ambiente do Time Series Insights.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 - Crie um ambiente do Time Series Insights. Para saber mais, veja [Criar um ambiente do Azure Time Series Insights](time-series-insights-get-started.md) 
 - Criar um Hub de Eventos. Para saber mais sobre os Hubs de Eventos, consulte [Criar um namespace do Hubs de Eventos e um hub de eventos usando o Portal do Azure](../event-hubs/event-hubs-create.md)
 - O Hub de Eventos precisa ter eventos de mensagem ativos enviados. Para saber mais, confira [Enviar eventos para Hubs de Eventos do Azure usando o .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
@@ -52,7 +52,7 @@ Este tutorial explica como usar o portal do Azure para adicionar uma origem do e
 
    ![Detalhes da assinatura e do Hub de Eventos](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
 
-   | Propriedade | Descrição |
+   | Propriedade | DESCRIÇÃO |
    | --- | --- |
    | ID da assinatura | Selecione a assinatura na qual esse hub de eventos foi criado.
    | Namespace do Barramento de Serviço | Selecione o namespace do Barramento de Serviço que contém o Hub de Eventos.
@@ -66,7 +66,7 @@ Este tutorial explica como usar o portal do Azure para adicionar uma origem do e
 
 9. Se você tiver selecionado a opção **Fornecer configurações do Hub de Eventos manualmente**, a tabela a seguir explica cada propriedade necessária:
 
-   | Propriedade | Descrição |
+   | Propriedade | DESCRIÇÃO |
    | --- | --- |
    | ID da assinatura | A assinatura na qual esse hub de eventos foi criado.
    | Grupo de recursos | O grupo de recursos no qual este hub de eventos foi criado.
