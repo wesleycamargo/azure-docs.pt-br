@@ -1,6 +1,6 @@
 ---
-title: Bancos de dados SQL na pilha do Azure | Microsoft Docs
-description: Saiba como você pode implantar bancos de dados SQL como um serviço na pilha do Azure e as etapas rápidas para implantar o adaptador de provedor de recursos do SQL Server.
+title: Removendo o provedor de recursos do SQL na pilha do Azure | Microsoft Docs
+description: Saiba como você pode remover o provedor de recursos do SQL de sua implantação de pilha do Azure.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,32 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c2686a2d5241af46e70263d1827028aa7e9b2138
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9f90201cad0f74923460c2f25eff4de98dc6690a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294773"
 ---
-# <a name="remove-the-sql-resource-provider"></a>Remover o provedor de recursos do SQL
+# <a name="removing-the-mysql-resource-provider"></a>Removendo o provedor de recursos MySQL  
+Antes de remover o provedor de recursos do SQL, é essencial para primeiro remova todas as dependências.
 
-Para remover o provedor de recursos do SQL, é essencial primeiro remova quaisquer dependências:
+## <a name="remove-the-mysql-resource-provider"></a>Remover o provedor de recursos MySQL 
 
-1. Certifique-se de que você tenha o pacote de implantação original que foi baixado para esta versão do adaptador de provedor de recursos do SQL.
+1. Verifique se você removeu quaisquer dependências de provedor de recursos existentes do SQL.
 
-2. Todos os bancos de dados de usuário devem ser excluídos do provedor de recursos. (Excluir os bancos de dados do usuário não exclui a dados). Essa tarefa deve ser executada pelos usuários.
+  > [!NOTE]
+  > Desinstalar o provedor de recursos SQL continuará mesmo que os recursos dependentes estão usando atualmente o provedor de recursos. 
+  
+2. Certifique-se de que você tenha o pacote de implantação original que foi baixado para esta versão do adaptador de provedor de recursos do SQL.
+3. Executar novamente o script de implantação usando os seguintes parâmetros:
+    - Use-desinstalar o parâmetro
+    - O endereço IP ou nome DNS do ponto de extremidade com privilégios.
+    - A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios.
+    - As credenciais para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure.
 
-3. O administrador deve excluir os servidores de hospedagem do adaptador de provedor de recursos de SQL.
-
-4. O administrador deve excluir todos os planos que referenciam o adaptador de provedor de recursos do SQL.
-
-5. O administrador deve excluir qualquer SKUs e cotas que estão associadas com o adaptador de provedor de recursos do SQL.
-
-6. Executar novamente o script de implantação com os seguintes elementos:
-    - -Desinstalar o parâmetro
-    - Os pontos de extremidade do Gerenciador de recursos do Azure
-    - O DirectoryTenantID
-    - As credenciais da conta de administrador de serviço
-
+## <a name="next-steps"></a>Próximas etapas
+[Oferecer serviços de aplicativos como PaaS](azure-stack-app-service-overview.md)

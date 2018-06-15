@@ -2,29 +2,26 @@
 title: Criação de um gatilho de HTTP com uma associação de entrada do Azure Cosmos DB | Microsoft Docs
 description: Saiba como usar o Azure Functions com gatilhos HTTP para consultar o Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ea102d56df1e47fd1d1c35bd23a3e987fa45145
+ms.sourcegitcommit: 00e875607372517b4b93ca4b6baa915cbbad8064
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818892"
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Como criar um gatilho HTTP do Azure Functions com uma associação de entrada do Azure Cosmos DB
 
 O Azure Cosmos DB é um banco de dados multimodelo distribuído globalmente, sem esquema e sem servidor. O Azure Function é um serviço de computação sem servidor que permite que você execute o código sob demanda. Ao emparelhar esses dois serviços do Azure, você obtém uma base para uma arquitetura sem servidor que permite que você se concentre em criar ótimos aplicativos sem se preocupar com provisionamento e manutenção de servidores para as necessidades do seu banco de dados e de computação.
 
-Este tutorial é baseado no código criado no [Início rápido da API do Graph para .NET](create-graph-dotnet.md). Este tutorial adiciona um Azure Function que contém um [gatilho HTTP](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). O gatilho HTTP usa uma [associação de entrada](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) do Azure Cosmos DB para recuperar dados do banco de dados de grafo criado no início rápido. Este gatilho HTTP específico aciona uma consulta de dados ao Azure Cosmos DB, mas as associações de entrada do Azure Cosmos DB podem ser usadas para recuperar valores de entradas de dados para tudo o que a sua função precisar.
+Este tutorial é baseado no código criado no [Início rápido da API do Graph para .NET](create-graph-dotnet.md). Este tutorial adiciona uma Azure Function que contém um [gatilho HTTP](../azure-functions/functions-bindings-http-webhook.md). O gatilho HTTP usa uma [associação de entrada](../azure-functions/functions-triggers-bindings.md) do Azure Cosmos DB para recuperar dados do banco de dados de grafo criado no início rápido. Este gatilho HTTP específico aciona uma consulta de dados ao Azure Cosmos DB, mas as associações de entrada do Azure Cosmos DB podem ser usadas para recuperar valores de entradas de dados para tudo o que a sua função precisar.
 
 Este tutorial cobre as seguintes tarefas:
 

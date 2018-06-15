@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1800db8cd25aa37bffb76adf00901e11c75d49fe
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 61c893848176a89b4b6ed8d7a46f27bdeff5cec1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604073"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294463"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Verifique seus modelos de pilha do Azure com a ferramenta de validação de modelo
 
@@ -32,8 +32,8 @@ Você pode usar a ferramenta de validação de modelo para verificar se o Gerenc
 
 Para validar um modelo, você precisa criar uma nuvem de recursos de arquivo primeiro e, em seguida, execute a ferramenta de validação. Você usa os seguintes módulos do PowerShell de ferramentas do Azure pilha:
 
-- No **TemplateValidator** pasta:<br>         AzureRM.CloudCapabilities.psm1 cria um arquivo JSON de recursos de nuvem que representa os serviços e as versões em uma nuvem de pilha do Azure.
-- No **CloudCapabilities** pasta:<br>
+- No **CloudCapabilities** pasta:<br>         AzureRM.CloudCapabilities.psm1 cria um arquivo JSON de recursos de nuvem que representa os serviços e as versões em uma nuvem de pilha do Azure.
+- No **TemplateValidator** pasta:<br>
 AzureRM.TemplateValidator.psm1 usa um arquivo JSON de recursos de nuvem para testar modelos de implantação na pilha do Azure.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Criar o arquivo de recursos de nuvem

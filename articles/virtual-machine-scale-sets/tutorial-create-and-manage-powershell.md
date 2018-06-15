@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 91174f14cb6a49e560504e01ba47e7121f869080
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7531ddce37b2f6d140cb277727d6168d8d98ba1e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366249"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802377"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento da máquinas virtuais usando o Azure PowerShell
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Neste tutorial, você aprenderá a:
@@ -146,7 +146,7 @@ Depois de conectado à instância de VM, você poderá executar algumas alteraç
 
 
 ## <a name="understand-vm-instance-images"></a>Entender imagens de instância de VM
-Quando você definiu a configuração de um conjunto de dimensionamento com [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) em uma etapa anterior, usou uma imagem do Windows Server 2016 Datacenter. O Azure Marketplace inclui muitas imagens que podem ser usadas para criar instâncias de VM. Para ver uma lista de fornecedores disponíveis, use o comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
+O Azure Marketplace inclui muitas imagens que podem ser usadas para criar instâncias de VM. Para ver uma lista de fornecedores disponíveis, use o comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"

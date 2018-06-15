@@ -4,7 +4,7 @@ description: Criar uma conexão com o Wunderlist e usar essa conexão para compi
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 4d1ae30724faa59dcdeffd21be9c67d280d574f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ed9b19700157abca6e5ac4265f1e8c99a3d846d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296366"
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Introdução ao conector do Wunderlist
 Wunderlist é um gerenciador de lista de tarefas para ajudar os usuários a concluir suas tarefas.  Se você estiver compartilhando uma lista de compras, trabalhando em um projeto ou planejando suas férias, o Wunderlist facilitará a captura, o compartilhamento e a concluir os itens da sua lista. O Wunderlist é sincronizado instantaneamente com seu telefone, tablet e computador, para que você possa acessar todas as tarefas de qualquer lugar.
