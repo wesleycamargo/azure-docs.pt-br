@@ -1,6 +1,6 @@
 ---
 title: Monitoramento no Banco de Dados do Azure para PostgreSQL
-description: "Este artigo descreve as métricas para monitoramento e alertas para Banco de Dados do Azure para PostgreSQL, incluindo CPU, armazenamento e estatísticas de conexão."
+description: Este artigo descreve as métricas para monitoramento e alertas para Banco de Dados do Azure para PostgreSQL, incluindo CPU, armazenamento e estatísticas de conexão.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687601"
 ---
 # <a name="monitoring-in-azure-database-for-postgresql"></a>Monitoramento no Banco de Dados do Azure para PostgreSQL
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para PostgreSQL oferece várias métricas que fornecem informações sobre o comportamento dos recursos compatíveis com o servidor PostgreSQL. 
