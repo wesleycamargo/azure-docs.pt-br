@@ -1,11 +1,11 @@
 ---
-title: "Encaminhamento automático de entidades de mensagens do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Como encadear uma fila ou assinatura do Barramento de Serviço em outra fila ou outro tópico."
+title: Encaminhamento automático de entidades de mensagens do Barramento de Serviço do Azure | Microsoft Docs
+description: Como encadear uma fila ou assinatura do Barramento de Serviço em outra fila ou outro tópico.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558085"
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Encadeando entidades do Barramento de Serviço com o encaminhamento automático
 

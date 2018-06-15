@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776118"
 ---
 # <a name="security-policies-overview"></a>Visão geral das políticas de segurança
 Este artigo apresenta uma visão geral das políticas de segurança na Central de Segurança.

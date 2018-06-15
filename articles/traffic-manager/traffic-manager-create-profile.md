@@ -1,12 +1,12 @@
 ---
-title: "Criar um perfil do Gerenciador de Tráfego no Azure | Microsoft Docs"
-description: "Este artigo descreve como criar um perfil do Gerenciador de Tráfego"
+title: Criar um perfil do Gerenciador de Tráfego no Azure | Microsoft Docs
+description: Este artigo descreve como criar um perfil do Gerenciador de Tráfego
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397563"
 ---
 # <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 

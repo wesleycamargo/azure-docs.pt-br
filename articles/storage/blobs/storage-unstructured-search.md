@@ -1,6 +1,6 @@
 ---
-title: "Pesquisar dados não estruturados no armazenamento em nuvem do Azure"
-description: "Pesquisando dados não estruturados usando o Azure Search."
+title: Pesquisar dados não estruturados no armazenamento em nuvem do Azure
+description: Pesquisando dados não estruturados usando o Azure Search.
 author: roygara
 manager: timlt
 services: storage
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23451633"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>Pesquisar dados não estruturados no armazenamento em nuvem
 
