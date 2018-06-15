@@ -3,22 +3,23 @@ title: Fluxo de trabalho de aprovação para funções de recursos do Azure no P
 description: Descreve o processo de fluxo de trabalho de aprovação para recursos do Azure.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7781c858a5c0e4db8593df0cf77b868b6fd23622
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de15a02e706ec7f7b4cff0af303ea30fc87b8f34
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151086"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233760"
 ---
 # <a name="approval-workflow-for-azure-resource-roles-in-privileged-identity-management"></a>Fluxo de trabalho de aprovação para funções de recursos do Azure no Privileged Identity Management
 

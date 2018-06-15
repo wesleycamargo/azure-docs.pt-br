@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abacea02ee40cf899b58ab1fe4ac454784ff7d18
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757188"
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web de Três Camadas UK-OFFICIAL
 
@@ -109,7 +110,7 @@ Conjuntos de Disponibilidade
 - (1) conjunto de VM de camada comercial - 2 VMs
 - (1) conjunto de VM de camada de dados - 2 VMs
 
-Balanceador de carga
+Load Balancer
 - (1) balanceador de carga da camada da Web
 - (1) balanceador de carga da camada comercial
 - (1) balanceador de carga da camada de dados
@@ -148,7 +149,7 @@ Armazenamento
 
 **Gateway de Internet e endereço IP público**: o gateway de Internet expõe os serviços de aplicativo aos usuários pela Internet. O tráfego de acesso a esses serviços é protegido usando um [Gateway de Aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) que oferece roteamento de Camada 7 e recursos de balanceamento de carga com proteção WAF (firewall do aplicativo Web).
 
-**Gerenciamento VNet**: essa [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) contém recursos que implementam recursos de gerenciamento e monitoramento para as cargas de trabalho em execução nas redes virtuais de produção.
+**Gerenciamento VNet**: essa [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) contém recursos que implementam recursos de gerenciamento e monitoramento para as cargas de trabalho em execução nas redes virtuais de produção.
 
 **Jumpbox**: também chamado de [host bastião](https://en.wikipedia.org/wiki/Bastion_host), que é uma VM de segurança na rede que os administradores usam para se conectarem às VMs em redes virtuais de produção. O jumpbox tem um NSG que permite o tráfego remoto apenas de endereços IP públicos em uma lista segura. Para permitir o tráfego RDP (área de trabalho remota), a origem do tráfego precisa ser definida no NSG. O gerenciamento de recursos de produção é via RDP usando uma VM Jumpbox protegida.
 

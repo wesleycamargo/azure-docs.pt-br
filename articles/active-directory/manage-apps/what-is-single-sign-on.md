@@ -14,12 +14,12 @@ ms.date: 09/11/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b185f53f8f13ebbe1efc57a99b7d65269f5559c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3f1225b71d16419a3dd100bfaccfbfa1e1c1c41c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354497"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292884"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicativos e logon único com o Azure Active Directory?
 Sign-on único significa poder acessar todos os aplicativos e recursos que você precisa para fazer negócios, inscrevendo-se apenas uma vez usando uma conta de usuário único. Depois de conectado, você pode acessar todos os aplicativos necessários sem a exigência de autenticação (por exemplo, digitar uma senha) uma segunda vez.
@@ -59,7 +59,7 @@ Nesse cenário, quando você já fez logon no Azure AD e quer acessar recursos q
 
 AD do Azure pode oferecer suporte ao logon único federado com aplicativos que oferecem suporte a protocolos de conexão WS-Federation, SAML 2.0 ou OpenID.
 
-Consulte também: [Gerenciar certificados para federados Single Sign-On](../active-directory-sso-certs.md)
+Consulte também: [Gerenciar certificados para federados Single Sign-On](manage-certificates-for-federated-single-sign-on.md)
 
 ### <a name="password-based-single-sign-on"></a>Logon único baseado em senha
 O logon único com base em senha permite aos usuários em sua organização entrar automaticamente em um aplicativo de SaaS de terceiros pelo AD do Azure usando as informações de conta de usuário do aplicativo SaaS de terceiros. Quando você habilita esse recurso, o Azure AD coleta e armazena com segurança as informações de conta de usuário e a senha relacionada.
@@ -194,7 +194,7 @@ Esses links usam os mesmos mecanismos de controle de acesso que o painel de aces
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](../active-directory-apps-index.md)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](../active-directory-saas-tutorial-list.md)
 * [Encontrando aplicativos em nuvem não autorizados com o Cloud App Discovery](cloud-app-discovery.md)
-* [Introdução ao gerenciamento do acesso a aplicativos](../active-directory-managing-access-to-apps.md)
+* [Introdução ao gerenciamento do acesso a aplicativos](what-is-access-management.md)
 * [Comparando recursos de gerenciamento de identidades externas no Azure AD](../active-directory-b2b-compare-b2c.md)
 
 

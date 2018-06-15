@@ -1,24 +1,20 @@
 ---
-title: "Esquema de configuração do Diagnóstico do Azure 1.0 | Microsoft Docs"
-description: "Relevante APENAS se você estiver usando o SDK do Azure 2.4 e abaixo com Máquinas Virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Service Fabric ou Serviços de Nuvem."
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: Esquema de Configuração do Azure Diagnostics 1.0
+description: Relevante APENAS se você estiver usando o SDK do Azure 2.4 e abaixo com Máquinas Virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Service Fabric ou Serviços de Nuvem.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: a8fdfb52d5091d3fc9779657737c7430fcfada51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: diagnostic-extension
+ms.openlocfilehash: 916e2123262402e23f35778e66683ecce2cec4b7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262578"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de Configuração do Azure Diagnostics 1.0
 > [!NOTE]
@@ -105,7 +101,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 Atributos:
 
-|Atributo  |Tipo   |Obrigatório| Padrão | Descrição|  
+|Atributo  |type   |Obrigatório| Padrão | DESCRIÇÃO|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Opcional | PT1M| Especifica o intervalo no qual o monitor de diagnóstico sonda em busca de alterações de configuração de diagnóstico.|  
 |**overallQuotaInMB**|unsignedInt|Opcional| 4000 MB. Se você fornecer um valor, ele não deverá exceder esse valor |A quantidade total de armazenamento de sistema de arquivos alocado para todos os buffers de registro em log.|  
@@ -117,7 +113,7 @@ Elemento pai: [elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfig
 
 Atributos:
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
@@ -130,7 +126,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
@@ -144,7 +140,7 @@ Elemento pai: [elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfig
 
 Atributos:  
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
@@ -156,7 +152,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -168,7 +164,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -180,7 +176,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -197,7 +193,7 @@ Atributos:
 
 Atributos:
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -209,10 +205,10 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**path**|string|Obrigatório. O caminho absoluto para o diretório a ser monitorado.|  
-|**expandEnvironment**|Booliano|Obrigatório. Se definido como **true**, as variáveis de ambiente no caminho serão expandidas.|  
+|**expandEnvironment**|booleano|Obrigatório. Se definido como **true**, as variáveis de ambiente no caminho serão expandidas.|  
 
 ## <a name="localresource-element"></a>Elemento LocalResource  
  Define um caminho relativo para um recurso local indicado na definição do serviço.
@@ -221,7 +217,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**name**|string|Obrigatório. O nome do recurso local que contém o diretório a ser monitorado.|  
 |**relativePath**|string|Obrigatório. O caminho relativo a um recurso local a ser monitorado.|  
@@ -234,7 +230,7 @@ Atributos:
 
  Atributos:  
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
@@ -246,7 +242,7 @@ Atributos:
 
  Atributos:  
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|string|Obrigatório. O caminho para coleta do contador de desempenho.|  
 |**sampleRate**|duration|Obrigatório. A taxa de coleta do contador de desempenho.|  
@@ -258,7 +254,7 @@ Atributos:
 
   Atributos:
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
@@ -271,6 +267,6 @@ Atributos:
 
  Atributos:
 
-|Atributo|Tipo|Descrição|  
+|Atributo|type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**name**|string|Obrigatório. Uma expressão XPath que especifica o log para coleta.|  
