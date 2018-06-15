@@ -1,11 +1,11 @@
 ---
-title: "Verificar uma conexão de Gateway de VPN | Microsoft Docs"
-description: "Este artigo mostra como verificar a conexão de Gateway de VPN de uma rede virtual."
+title: Verificar uma conexão de Gateway de VPN | Microsoft Docs
+description: Este artigo mostra como verificar a conexão de Gateway de VPN de uma rede virtual.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 7e3d1043-caa9-4472-96d3-832f4e2c91ee
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124944"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verificar uma conexão de Gateway de VPN
 
