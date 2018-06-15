@@ -1,6 +1,6 @@
 ---
-title: "Padrões e práticas recomendadas de segurança do Azure | Microsoft Docs"
-description: "O artigo fornece uma lista de padrões e práticas recomendadas de Segurança do Azure para diferentes recursos do Azure."
+title: Padrões e práticas recomendadas de segurança do Azure | Microsoft Docs
+description: O artigo fornece uma lista de padrões e práticas recomendadas de Segurança do Azure para diferentes recursos do Azure.
 services: azure-security
 documentationcenter: na
 author: TomShinder
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
-ms.author: 
+ms.author: ''
 ms.openlocfilehash: 6713580325450d7548e63c78af4d44c65653f884
 ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29802583"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Padrões e práticas recomendadas de segurança do Azure
 

@@ -56,8 +56,6 @@
     - name: Segurança de IaaS
       href: security-virtual-machines-overview.md
       items:
-        - name: Práticas recomendadas - VMs do Azure
-          href: azure-security-best-practices-vms.md
         - name: Práticas recomendadas - cargas de trabalho do IaaS
           href: azure-security-iaas.md
         - name: Imagens do Azure Marketplace

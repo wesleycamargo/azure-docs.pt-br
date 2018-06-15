@@ -47,6 +47,8 @@
           href: cdn-dynamic-site-acceleration.md
     - name: Gerenciar
       items:
+        - name: Criar um ponto de extremidade
+          href: cdn-create-endpoint-how-to.md
         - name: Gerenciar com o Azure PowerShell
           href: cdn-manage-powershell.md
         - name: Restringir o acesso por país

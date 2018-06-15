@@ -21,6 +21,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809862"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Passo a passo da infraestrutura do Azure de exemplo para VMs Windows
 Este artigo explica como criar uma infraestrutura de aplicativo de exemplo. Fornecemos detalhes de como projetar uma infraestrutura para um repositório online simples que reúne todas as diretrizes e decisões sobre convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e balanceadores de carga, bem como a implantação de fato das VMs (máquinas virtuais).
@@ -53,7 +54,7 @@ Todos os itens acima seguem estas convenções de nomenclatura:
 
 * A Adventure Works Cycles usa **[carga de trabalho de TI]-[localização]-[recurso do Azure]** como prefixo
   * Neste exemplo, “**azos**” (Repositório Online do Azure) é o nome da carga de trabalho de TI e “**use**” (Leste dos EUA 2) é a localização
-* As redes virtuais usam AZOS-USE-VN**[número]**
+* As redes virtuais usam AZOS-USE-VN **[número]**
 * Os conjuntos de disponibilidade usam azos-use-as-**[função]**
 * Os nomes de máquina virtual usam azos-use-vm-**[nomevm]**
 

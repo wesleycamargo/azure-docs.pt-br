@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/24/2018
+ms.locfileid: "30323729"
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>LRS (armazenamento com redundância local): redundância de dados de baixo custo para Armazenamento do Microsoft Azure
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33870015"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implantação rápida da redefinição da senha de autoatendimento do Azure AD
 

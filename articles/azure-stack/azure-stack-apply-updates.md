@@ -1,11 +1,11 @@
 ---
-title: "Aplicar as atualizações na pilha do Azure | Microsoft Docs"
-description: "Saiba como importar e instalar pacotes de atualização da Microsoft para um sistema de pilha do Azure integradas."
+title: Aplicar as atualizações na pilha do Azure | Microsoft Docs
+description: Saiba como importar e instalar pacotes de atualização da Microsoft para um sistema de pilha do Azure integradas.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29802644"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Aplicar as atualizações na pilha do Azure
 
