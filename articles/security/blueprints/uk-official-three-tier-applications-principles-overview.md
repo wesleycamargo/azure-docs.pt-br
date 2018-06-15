@@ -1,6 +1,6 @@
 ---
-title: "Automação de Aplicativos Web de Três Camadas UK-OFFICIAL – visão geral"
-description: "Automação de Aplicativos Web de Três Camadas UK-OFFICIAL – visão geral"
+title: Automação de Aplicativos Web de Três Camadas UK-OFFICIAL – visão geral
+description: Automação de Aplicativos Web de Três Camadas UK-OFFICIAL – visão geral
 services: security
 documentationcenter: na
 author: jomolesk
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29151371"
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Visão geral dos princípios de segurança na nuvem do National Cyber Security Centre
 

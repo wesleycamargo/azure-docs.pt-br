@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 04/19/2018
+  ms.locfileid: "31598754"
 abstract:
   description: Saiba como usar o Azure Machine Learning com seus serviços totalmente gerenciados para criar, implantar e gerenciar modelos de aprendizado de máquina e inteligência artificial na nuvem. Tutoriais, início rápido, referências e exemplos mostram como criar e implantar modelos para qualquer um de seus aplicativos.
 sections:

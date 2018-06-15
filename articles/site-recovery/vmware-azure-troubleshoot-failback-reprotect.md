@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941012"
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>Solucionar problemas de failback do Azure para VMware
 

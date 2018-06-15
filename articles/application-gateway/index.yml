@@ -16,6 +16,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32160249"
 abstract:
   description: Saiba como implantar o Gateway de Aplicativo, um ADC (controlador de entrega de aplicativos) como um serviço. Os tutoriais, as referências de API e outras documentações mostram como configurar o roteamento no nível do aplicativo e os serviços de balanceamento de carga que permitem criar um front-end Web escalonável e altamente disponível.
 sections:
