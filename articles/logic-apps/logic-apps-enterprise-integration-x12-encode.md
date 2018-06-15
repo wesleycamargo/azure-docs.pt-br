@@ -1,11 +1,11 @@
 ---
-title: "Codificar mensagens X12 - Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Validar EDI e converter mensagens codificadas XML com o codificador de mensagem X12 no Enterprise Integration Pack para Aplicativo Lógico do Azure"
+title: Codificar mensagens X12 - Aplicativo Lógico do Azure | Microsoft Docs
+description: Validar EDI e converter mensagens codificadas XML com o codificador de mensagem X12 no Enterprise Integration Pack para Aplicativo Lógico do Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f7408f240a1b05e0d53716764a9f8d1e19229ebe
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec350560f4aca4e9a0b4f00892b690012c9f08dd
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298995"
 ---
 # <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificar mensagens X12 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 

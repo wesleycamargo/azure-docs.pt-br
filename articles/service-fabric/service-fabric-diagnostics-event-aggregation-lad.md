@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 681a29776914263c62b9887e4d8dafb715cd14e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a8f58569618482ba94b0895b7e3149d77ef2f4fa
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849825"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Linux Azure
 > [!div class="op_single_selector"]
@@ -51,5 +52,5 @@ Isso configura o agente LAD para monitorar os arquivos de log especificados. Sem
 
 ## <a name="next-steps"></a>Próximas etapas
 
-1. Confira [Documentação do LTTng](http://lttng.org/docs) e [Usando o LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para entender mais detalhadamente quais eventos você deve examinar ao solucionar problemas.
+1. Confira [Documentação do LTTng](http://lttng.org/docs) e [Usando o LAD](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-linux) para entender mais detalhadamente quais eventos você deve examinar ao solucionar problemas.
 2. [Configurar o agente do Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) para ajudar a coletar métricas, monitorar Contêineres implantados em seu cluster e visualizar seus logs 

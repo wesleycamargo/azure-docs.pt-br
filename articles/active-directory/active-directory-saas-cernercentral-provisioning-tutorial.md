@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 060686089634eda5d15345da9668ff294d350012
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5440f9e747957a017eac109cddc4881244e506eb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34337105"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292680"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cerner Central para provisionamento automático de usuário
 
@@ -42,7 +42,7 @@ O Azure Active Directory usa um conceito chamado "atribuições" para determinar
 
 Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao Cerner Central. Depois de decidir, atribua esses usuários ao Cerner Central seguindo estas instruções:
 
-[Atribuir um usuário ou um grupo a um aplicativo empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+[Atribuir um usuário ou um grupo a um aplicativo empresarial](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Dicas importantes para atribuir usuários ao Cerner Central
 
@@ -74,7 +74,7 @@ Para provisionar contas de usuário no Cerner Central, você precisará solicita
 
 2.  Em seguida, será necessário criar uma conta do sistema para o Azure AD. Use as instruções a seguir para solicitar uma Conta do Sistema para seus ambientes de produção e de área restrita.
 
-   * Instruções  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Instruções:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
    * Área restrita: https://sandboxcernercentral.com/system-accounts/
 
@@ -130,7 +130,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 * [Cerner Central: Publicação de dados de identidade usando o Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Tutorial: Configurar o Cerner Central para logon único com o Azure Active Directory](active-directory-saas-cernercentral-tutorial.md)
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

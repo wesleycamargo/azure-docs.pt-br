@@ -4,7 +4,7 @@ description: Crie poderosas soluções na nuvem sem precisar pensar em infraestr
 keywords: ''
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 30c7dd36efca5ffcae770fe310a43a107d9136af
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 84ff855676215e6b69ec97a1527d14366e763b07
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299919"
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Visão geral do Azure Serverless com Funções e Aplicativos Lógicos
 

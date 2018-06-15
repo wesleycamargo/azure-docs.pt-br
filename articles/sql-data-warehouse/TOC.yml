@@ -6,6 +6,12 @@
       href: sql-data-warehouse-overview-what-is.md
     - name: Roteiro
       href: cheat-sheet.md
+- name: Notas de versão
+  items:
+    - name: Maio de 2018
+      href: release-notes-may-2018.md
+    - name: Abril de 2018
+      href: release-notes-april-2018.md
 - name: Guia de início rápido
   expanded: true
   items:

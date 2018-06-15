@@ -8,15 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 8bf5cd802198cba48a99c029d0c75c25dd5f6d84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31606515"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850164"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificação de imagens usando o Azure Machine Learning Workbench
 
@@ -243,15 +244,20 @@ Na primeira captura de tela, o refinamento de DNN leva a melhores precisões do 
 
 
 ### <a name="parameter-tuning"></a>Ajuste de parâmetro
+
 Assim como ocorre na maioria dos projetos de aprendizado de máquina, a obtenção de bons resultados para um novo conjunto de dados exige um ajuste cuidadoso de parâmetros, bem como a avaliação de diferentes decisões de design. Para ajudar com essas tarefas, todos os parâmetros importantes são especificados e uma breve explicação é fornecida em um único lugar: no arquivo `PARAMETERS.py`.
 
 Estas são algumas das oportunidades mais promissoras de melhorias:
 
 - Qualidade de dados: verifique se os conjuntos de treinamento e teste têm alta qualidade. Ou seja, as imagens são anotadas corretamente, as imagens ambíguas são removidas (por exemplo, itens de vestuário com listras e bolinhas) e os atributos são mutuamente exclusivos (ou seja, escolhidos de modo que cada imagem pertença a exatamente um atributo).
+
 - Se o objeto de interesse for pequeno na imagem, as abordagens de Classificação de imagens serão conhecidas por não funcionarem bem. Nesses casos, considere a possibilidade de usar uma abordagem de detecção de objeto, conforme descrito neste [tutorial](https://github.com/Azure/ObjectDetectionUsingCntk).
 - Refinamento de DNN: o parâmetro indiscutivelmente mais importante a ser ajustado corretamente é a taxa de aprendizagem `rf_lrPerMb`. Se a precisão no conjunto de treinamento (primeira figura da parte 2) não estiver próxima a 0-5%, provavelmente, isso é devido a uma taxa de aprendizagem incorreta. Os outros parâmetros que começam com `rf_` são menos importantes. Normalmente, o erro de treinamento deve diminuir exponencialmente e estar próximo a 0% depois do treinamento.
+
 - Resolução de entrada: a resolução de imagem padrão é de 224x224 pixels. O uso de uma resolução de imagem mais alta (parâmetro: `rf_inputResoluton`) de, por exemplo, 448x448 ou 896x896 pixels, geralmente melhora de forma significativa a precisão, mas reduz o refinamento de DNN. O **uso de uma resolução de imagem mais alta não tem praticamente nenhum custo e quase sempre aumenta a precisão**.
+
 - Ajuste excessivo de DNN: evite ter uma lacuna grande entre a precisão do treinamento e do teste durante o refinamento de DNN (primeira figura da parte 2). Essa lacuna pode ser reduzida usando taxas de abandono `rf_dropoutRate` de 0,5 ou mais e aumentando o peso do recurso `rf_l2RegWeight`. O uso de uma taxa alta de abandono pode ser especialmente útil se a resolução de imagem de entrada de DNN é alta.
+
 - Tente usar DNNs mais profundas alterando `rf_pretrainedModelFilename` de `ResNet_18.model` para `ResNet_34.model` ou `ResNet_50.model`. O modelo Resnet-50 não é apenas mais profundo, mas a saída da penúltima camada tem o tamanho de 2.048 flutuações (vs. 512 flutuações dos modelos ResNet-18 e ResNet-34). Essa dimensão maior pode ser especialmente útil durante o treinamento de um classificador de SVM.
 
 ## <a name="part-3---custom-dataset"></a>Parte 3 – Conjunto de dados personalizado
