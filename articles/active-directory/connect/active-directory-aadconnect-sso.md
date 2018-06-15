@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a106ba59f09ffc20f8461c5267ae06695df4cd0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 11a04d40a403231db728d6bf0caade5969bba84d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593652"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -60,7 +62,7 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 
 | Sistema operacional\Navegador |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|sim|Não|sim|Sim\*|N/D
+|Windows 10|sim|Não |sim|Sim\*|N/D
 |Windows 8.1|sim|N/D|sim|Sim\*|N/D
 |Windows 8|sim|N/D|sim|Sim\*|N/D
 |Windows 7|sim|N/D|sim|Sim\*|N/D

@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 086a2fde5905321da7d5689b6f1ee2f5139209ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140075"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588855"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (Visualização Pública)
 Especifique o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
@@ -279,7 +279,7 @@ Neste exemplo, crie uma política que exige dos usuários a autenticação mais 
 
 2.  Atribuir a política à entidade de serviço. Você também precisará da **ObjectId** de sua entidade de serviço. 
 
-    1.  Para ver todas as entidades de serviço de sua organização, consulte o [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Além disso, você pode testar isso no [Explorer do Azure AD Graph](https://graphexplorer.cloudapp.net/)e no [Explorer do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) usando sua conta do Azure AD.
+    1.  Para ver todas as entidades de serviço de sua organização, consulte o [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Além disso, você pode testar isso no [Explorer do Azure AD Graph](https://graphexplorer.azurewebsites.net/)e no [Explorer do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) usando sua conta do Azure AD.
 
     2.  Quando você tiver a **ObjectId** de sua entidade de serviço, execute o seguinte comando:
 

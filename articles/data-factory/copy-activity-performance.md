@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b0f576538f159155dcf602fe39b0ea67254e4c7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619245"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -360,11 +361,11 @@ Tenha cuidado com o número de conjuntos de dados e atividades de cópia que req
 
 ## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Cenário de exemplo: copiar de um SQL Server local para o armazenamento de Blobs
 
-**Cenário:**um pipeline é criado para copiar os dados de um SQL Server local para um armazenamento de Blobs no formato CSV. Para acelerar o trabalho de cópia, os arquivos CSV devem ser compactados no formato bzip2.
+**Cenário:** um pipeline é criado para copiar os dados de um SQL Server local para um armazenamento de Blobs no formato CSV. Para acelerar o trabalho de cópia, os arquivos CSV devem ser compactados no formato bzip2.
 
 **Análise e teste**: A taxa de transferência da Atividade de Cópia é menor que 2 MBps, que é muito mais lento do que o parâmetro de comparação de desempenho.
 
-**Análise e ajuste do desempenho:**para solucionar o problema de desempenho, vejamos como os dados são processados e movidos.
+**Análise e ajuste do desempenho:** para solucionar o problema de desempenho, vejamos como os dados são processados e movidos.
 
 1. **Ler dados**: o Integration Runtime abre uma conexão com o SQL Server e envia a consulta. SQL Server responde enviando o fluxo de dados para o Integration Runtime por meio da intranet.
 2. **Serializar e compactar dados**: o Integration Runtime serializa o fluxo de dados para o formato CSV e compacta os dados em um fluxo bzip2.
@@ -376,7 +377,7 @@ Como você pode ver, os dados estão sendo processados e movidos de forma sequen
 
 Um ou mais dos seguintes fatores pode causar o gargalo do desempenho:
 
-* **Origem:**o próprio SQL Server tem uma baixa taxa de transferência devido às cargas pesadas.
+* **Origem:** o próprio SQL Server tem uma baixa taxa de transferência devido às cargas pesadas.
 * **Integration Runtime auto-hospedado**:
   * **LAN**: o Integration Runtime está localizado longe do computador do SQL Server e tem uma conexão de baixa largura de banda.
   * **Integration Runtime**: o Integration Runtime atingiu suas limitações de carga para executar as seguintes operações:

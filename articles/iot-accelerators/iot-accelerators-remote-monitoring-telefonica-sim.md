@@ -1,23 +1,19 @@
 ---
 title: Integrar os dados do SIM na Solução de Monitoramento Remoto - Azure | Microsoft Docs
 description: Este artigo descreve como integrar os dados do SIM da Telefónica à solução de Monitoramento Remoto.
-services: iot-suite
-suite: iot-suite
 author: hegate
-manager: timlt
+manager: ''
 ms.author: hegate
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 590a24113d66edacc6edcfe988330f643f1aa57a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: ae8751f429cb4b11199bd8da9d8c2e08c0b98b35
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367548"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628276"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrar dados do SIM na solução de monitoramento remoto
 
@@ -39,12 +35,12 @@ Atualmente, esse recurso adicional de Monitoramento Remoto está em versão pré
 
 1. Preencha uma solicitação no [site da Telefónica](https://iot.Telefónica.com/contact), selecione a opção **Monitoramento Remoto do Azure**, incluindo seus dados de contato.
 2. A Telefónica ativará sua conta.
-3. Caso ainda não seja um cliente da Telefónica e deseje aproveitar esse ou outros serviços Prontos para a Nuvem de Conectividade IoT, visite o [site da Telefónica](https://iot.Telefónica.com/contact) e selecione a opção **Conectividade**.
+3. Caso ainda não seja um cliente da Telefónica e deseja aproveitar esse ou outros serviços Prontos para a Nuvem de Conectividade IoT, visite o [site da Telefónica](https://iot.Telefónica.com/contact) e selecione a opção **Conectividade**.
 
 ### <a name="telefnica-sim-setup"></a>Configuração do SIM da Telefónica
 A associação do SIM da Telefónica e da identificação do dispositivo gêmeo do Azure baseia-se na propriedade "alias" do SIM de IoT da Telefónica. 
 
-Navegue para o [Portal da Plataforma de Conectividade IoT da Telefónica](https://m2m-movistar-es.telefonica.com/) > Inventário de SIMs > selecione o SIM e atualize cada "alias" de SIM com a ID de Dispositivo gêmeo desejada. Essa tarefa também pode ser realizada em massa (veja os manuais do usuário da Plataforma de Conectividade IoT da Telefónica).
+Navegue para o [Portal da Plataforma de Conectividade IoT da Telefónica](https://m2m-movistar-es.telefonica.com/) > Inventário de SIM > selecione o SIM e atualize cada "alias" de SIM com a ID de Dispositivo gêmeo desejada. Essa tarefa também pode ser realizada em massa (consulte os manuais do usuário da Plataforma de Conectividade IoT da Telefónica).
 
 Essa tarefa também pode ser realizada em massa (consulte os manuais do usuário da plataforma de conectividade de IoT da Telefonica)
 
@@ -54,9 +50,9 @@ Para conectar seu dispositivo ao monitoramento remoto, você pode seguir esses t
 
 ## <a name="view-device-telemetry-and-sim-properties"></a>Exibir a telemetria do dispositivo e as propriedades do SIM
 
-Depois de configurar sua conta da Telefónica corretamente e conectar seu dispositivo, você poderá exibir os detalhes do dispositivo e os dados do SIM.
+Após configurar sua conta da Telefónica corretamente e conectar o dispositivo, você poderá exibir os detalhes do dispositivo e os dados do SIM.
 
-Os seguintes parâmetros de conectividade são publicados:
+Os parâmetros de conectividade a seguir são publicados:
 
 * ICCID
 * IP

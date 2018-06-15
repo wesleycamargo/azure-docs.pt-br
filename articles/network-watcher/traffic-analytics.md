@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7603d56a56e45771fa170c05ec62a0725ba367a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715815"
 ---
 # <a name="traffic-analytics"></a>Análise de tráfego
 
@@ -70,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 
 ### <a name="select-a-network-security-group"></a>Selecionar Grupo de Segurança de Rede 
 
-Antes de habilitar o log de fluxo do NSG, você deve ter um grupo de segurança de rede para registrar os fluxos. Se você não tiver um grupo de segurança de rede, consulte [Criar grupos de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) para criar um.
+Antes de habilitar o log de fluxo do NSG, você deve ter um grupo de segurança de rede para registrar os fluxos. Se você não tiver um grupo de segurança de rede, consulte [Criar grupos de segurança de rede](../virtual-network/manage-network-security-group.md#create-a-network-security-group) para criar um.
 
 No lado esquerdo do portal do Azure, selecione **Monitor**, em seguida, **Observador de Rede**e, em seguida, selecione **logs de fluxos do NSG**. Selecione o grupo de segurança de rede que você deseja habilitar um log de fluxo do NSG, conforme mostrado na figura a seguir:
 
@@ -108,7 +109,7 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 5. Selecione um espaço de trabalho do Log Analytics (OMS) existente ou selecione **Criar novo espaço de trabalho** para criar um novo. Um espaço de trabalho do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um espaço de trabalho existente, ele deve existir em uma das [regiões com suporte](#traffic-analytics-supported-regions) e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um espaço de trabalho existente ou não tem um espaço de trabalho em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     O espaço de trabalho do log analytics que hospeda a solução de Análise de Tráfego e os NSGs não precisa estar na mesma região. Por exemplo, você pode ter Análise de Tráfego em um espaço de trabalho na região Europa Ocidental e ter os NSGs no Leste dos EUA e Oeste dos EUA. Podem ser configurados vários NSGs no mesmo espaço de trabalho.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
     ![Seleção de conta de armazenamento, espaço de trabalho do Log Analytics e habilitação da Análise de Tráfego](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
 

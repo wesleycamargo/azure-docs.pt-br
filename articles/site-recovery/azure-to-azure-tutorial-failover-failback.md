@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cb9bfd000c377f63e99350d0615a7e92ba8bb8ef
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209266"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716237"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Fazer failover e failback de VMs do Azure entre regiões do Azure
 
@@ -28,7 +28,7 @@ Este tutorial descreve como fazer failover de uma única VM do Azure para uma re
 > * Fazer failback da VM secundária
 > * Proteger novamente a VM primária de volta para a região secundária
 
-A replicação de Azure para Azure está atualmente em versão prévia.
+
 
 ## <a name="prerequisites"></a>pré-requisitos
 
