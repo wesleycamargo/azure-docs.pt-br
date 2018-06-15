@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30922766"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início rápido: integrar computadores com Windows à Central de Segurança do Azure
 Depois de integrar suas assinaturas do Azure, é possível habilitar a Central de Segurança para recursos sendo executados fora do Azure, por exemplo, no local ou em outras nuvens, por meio do provisionamento do Microsoft Monitoring Agent.

@@ -3,7 +3,7 @@ title: Ações e gatilhos do fluxo de trabalho – Aplicativos Lógicos do Azure
 description: Saiba mais sobre gatilhos e ações em definições de fluxo de trabalho para Aplicativo Lógico do Azure
 services: logic-apps
 author: kevinlam1
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 5/8/2018
 ms.author: klam; LADocs
-ms.openlocfilehash: 88ee3d810a80bed418e8dbafa4f3e35ccf5e85b1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: f44de1a316a8375618cfef2e4a98d40c2b21e019
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886775"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300140"
 ---
 # <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Gatilhos e ações para definições de fluxo de trabalho em Aplicativo Lógico do Azure
 
@@ -1395,7 +1395,7 @@ Estes são alguns exemplos que mostram como você pode usar expressões em condi
 | `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | Dá suporte a funções de comparação. Por exemplo aqui, a ação é executada somente quando a saída de action1 é maior que o valor limite. | 
 | `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | Oferece suporte a funções lógicas para a criação de expressões boolianas aninhadas. Neste exemplo, a ação é executada somente quando a saída de action1 é maior que o limite ou menor que 100. | 
 | `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | Você pode usar as funções de matriz para verificar se uma matriz tem algum item. Neste exemplo, a ação é executada quando a matriz de erros está vazia. | 
-| `"expression": "parameters('hasSpecialAction')"` | Esta expressão causa um erro e não é uma condição válida. As condições devem usar o símbolo "@". | 
+| `"expression": "parameters('hasSpecialAction')"` | Esta expressão causa um erro e não é uma condição válida. As condições devem usar o símbolo "\@\". | 
 ||| 
 
 ## <a name="switch-action"></a>Ação Switch

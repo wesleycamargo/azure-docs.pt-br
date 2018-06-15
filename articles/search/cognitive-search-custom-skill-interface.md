@@ -8,12 +8,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: f415eb6080a02d25fc47c40b2719544d2ea99c5b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f21a56982189aa13745f27f0fae49310ae55aa0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786845"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640312"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Como adicionar uma habilidade personalizada a um pipeline de pesquisa cognitiva
 
@@ -147,5 +147,5 @@ Ao criar um enriquecedor da API da Web, você pode descrever parâmetros e cabe�
 
 + [Exemplo: Criando uma habilidade personalizada para a API de Tradução de Texto](cognitive-search-create-custom-skill-example.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Criar conjunto de qualificações (REST)](ref-create-skillset.md)
++ [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Como mapear campos enriquecidos](cognitive-search-output-field-mapping.md)

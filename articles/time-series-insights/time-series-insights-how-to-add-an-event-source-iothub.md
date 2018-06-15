@@ -1,26 +1,26 @@
 ---
 title: Como adicionar uma origem do evento do Hub IoT ao Azure Time Series Insights | Microsoft Docs
-description: "Este artigo descreve como adicionar uma origem do evento que está conectada a um Hub IoT ao ambiente do Time Series Insights"
-services: time-series-insights
+description: Este artigo descreve como adicionar uma origem do evento que está conectada a um Hub IoT ao ambiente do Time Series Insights
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 01ab5017a5f16a0c46ea2bc600cef6bbf81de963
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652518"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Como adicionar uma origem do evento do Hub IoT ao ambiente do Time Series Insights
 Este tutorial explica como usar o portal do Azure para adicionar uma origem do evento que leia de um Hub IoT para o ambiente do Time Series Insights.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 - Crie um ambiente do Time Series Insights. Para saber mais, veja [Criar um ambiente do Azure Time Series Insights](time-series-insights-get-started.md) 
 - Crie um Hub IoT. Para saber mais sobre Hubs IoT, veja [Criar um hub IoT usando o portal do Azure](../iot-hub/iot-hub-create-through-portal.md)
 - O Hub IoT precisa ter eventos de mensagem ativos enviados.
@@ -50,7 +50,7 @@ Este tutorial explica como usar o portal do Azure para adicionar uma origem do e
 
    ![Detalhes da assinatura e do Hub de Eventos](media/time-series-insights-how-to-add-an-event-source-iothub/3-new-event-source.png)
 
-   | Propriedade | Descrição |
+   | Propriedade | DESCRIÇÃO |
    | --- | --- |
    | ID da assinatura | Selecione a assinatura na qual esse Hub IoT foi criado.
    | Nome do Hub IoT | Selecione o nome do Hub IoT.
@@ -62,7 +62,7 @@ Este tutorial explica como usar o portal do Azure para adicionar uma origem do e
 
 9. Se você tiver selecionado a opção **Fornecer configurações do Hub IoT manualmente**, a tabela a seguir explica cada propriedade necessária:
 
-   | Propriedade | Descrição |
+   | Propriedade | DESCRIÇÃO |
    | --- | --- |
    | ID da assinatura | A assinatura na qual esse Hub IoT foi criado.
    | Grupo de recursos | O nome do grupo de recursos no qual este Hub IoT foi criado.

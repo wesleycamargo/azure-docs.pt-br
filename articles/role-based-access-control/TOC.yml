@@ -5,6 +5,16 @@
 - name: RBAC (Controle de Acesso Baseado em Função)
   href: overview.md
   items:
+    - name: Guia de início rápido
+      items:
+        - name: Conceder acesso a um usuário - Portal
+          href: quickstart-assign-role-user-portal.md
+    - name: Tutoriais
+      items:
+        - name: Conceder acesso a um usuário - PowerShell
+          href: tutorial-role-assignments-user-powershell.md
+        - name: Conceder acesso a um grupo - PowerShell
+          href: tutorial-role-assignments-group-powershell.md
     - name: Gerenciar atribuições de função
       items:
         - name: Usuário
@@ -17,11 +27,13 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
+    - name: Compreender as definições de função
+      href: role-definitions.md
     - name: Funções internas
       href: built-in-roles.md
     - name: Funções personalizadas
       href: custom-roles.md
-    - name: Atribuir funções personalizadas para usuários internos e externos
+    - name: Gerenciar as atribuições de função para usuários externos
       href: role-assignments-external-users.md
     - name: Logs de atividade
       href: change-history-report.md
