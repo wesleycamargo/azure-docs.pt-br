@@ -8,18 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d2aa3c8582227363e9365f213cdf351b9f4a81af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361362"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830530"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Ambiente de IA e Análise de Equipe com base em Máquina Virtual de Ciência de Dados 
 A DSVM ([Máquina Virtual de Ciência de Dados](overview.md)) fornece um ambiente rico no Azure Cloud com o software pré-integrado para análise de dados de IA. Tradicionalmente, a DSVM foi usado como área de trabalho de análise individual, e os cientistas de dados individuais ganham produtividade com essa noção compartilhada de seu ambiente de análise pré-integrado. À medida que as equipes de análise de grande porte planejam seus ambientes de análise para seus cientistas de dados e desenvolvedores de IA, um dos temas recorrentes é uma infraestrutura compartilhada de experimentação e desenvolvimento de análise, gerenciada de acordo com as políticas de TI da empresa, que também facilita a colaboração e a consistência entre as equipes de ciência de dados/análise. Uma infraestrutura compartilhada também permite que a TI utilize melhor o ambiente de análise. A infraestrutura de ciência de dados/análise baseada em equipes também é conhecida por algumas organizações como uma "Área restrita de análise", que permite aos cientistas de dados compreender rapidamente os dados, realizar experiências, validar hipóteses, criar modelos de previsão de uma maneira segura sem afetar o ambiente de produção, contando com acesso a vários ativos de dados. 
