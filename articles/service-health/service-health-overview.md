@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30262867"
 ---
 # <a name="service-health"></a>Integridade do Serviço
 A Integridade do Serviço oferece um painel personalizável que controla a integridade de seus serviços do Azure nas regiões onde você os usa. Nesse painel, você pode controlar os eventos ativos como problemas de serviço em curso, manutenção planejada futura ou comunicados de integridade relevantes. Quando os eventos se tornam inativos, eles são inseridos em seu histórico de integridade por até 90 dias. Por fim, você pode usar o painel de Integridade do Serviço para criar e gerenciar alertas de integridade do serviço que notificam proativamente quando problemas de serviço estão afetando você.
