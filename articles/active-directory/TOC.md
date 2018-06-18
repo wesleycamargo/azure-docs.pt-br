@@ -13,7 +13,7 @@
 
 # Introdução
 ## [Introdução ao Microsoft Azure Active Directory](fundamentals/get-started-azure-ad.md)
-## [Inscrever-se no Azure AD Premium](active-directory-get-started-premium.md)
+## [Inscrever-se no Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Como adicionar um nome de domínio personalizado](fundamentals/add-custom-domain.md)
 ## [Configurar a identidade visual da empresa](fundamentals/customize-branding.md)
 ## [Adicionar usuários ao Azure AD](fundamentals/add-users-azure-active-directory.md)
@@ -82,10 +82,10 @@
 
 ## [Gerenciar grupos e membros](fundamentals/active-directory-manage-groups.md)
 ### Gerenciar grupos
-#### [Portal do Azure](active-directory-groups-create-azure-portal.md)
+#### [Portal do Azure](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [PowerShell do Azure AD para Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
-### [Gerenciar membros do grupo](active-directory-groups-members-azure-portal.md)
+### [Gerenciar membros do grupo](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Gerenciar proprietários do grupo](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Gerenciar associação ao grupo](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Atribuir licenças usando os grupos](fundamentals/active-directory-licensing-whatis-azure-portal.md)
