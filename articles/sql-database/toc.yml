@@ -202,6 +202,30 @@
           href: sql-database-xevent-db-diff-from-svr.md
         - name: Monitorar na memória
           href: sql-database-in-memory-oltp-monitoring.md
+    - name: Trabalhos de Banco de Dados elástico
+      items:
+        - name: Visão geral
+          href: elastic-jobs-overview.md
+        - name: Criar e gerenciar (PowerShell)
+          href: elastic-jobs-powershell.md
+        - name: Criar e gerenciar (T-SQL)
+          href: elastic-jobs-tsql.md
+        - name: Migrar (de trabalhos Elásticos antigos)
+          href: elastic-jobs-migrate.md
+        - name: Trabalhos elásticos (preteridos)
+          items:
+            - name: Visão geral (preterido)
+              href: sql-database-elastic-jobs-overview.md
+            - name: Instalar trabalho elástico (preterido)
+              href: sql-database-elastic-jobs-service-installation.md
+            - name: Criar trabalho - Portal (preterido)
+              href: sql-database-elastic-jobs-create-and-manage.md
+            - name: Criar trabalho – Azure PowerShell (preterido)
+              href: sql-database-elastic-jobs-powershell.md
+            - name: Criar trabalho – Aplicativo de exemplo (preterido)
+              href: sql-database-elastic-jobs-getting-started.md
+            - name: Desinstalar trabalho elástico (preterido)
+              href: sql-database-elastic-jobs-uninstall.md
     - name: Expansão
       items:
         - name: Visão geral
@@ -212,8 +236,6 @@
           href: sql-database-elastic-query-overview.md
         - name: Transações elásticas
           href: sql-database-elastic-transactions-overview.md
-        - name: Trabalhos elásticos
-          href: sql-database-elastic-jobs-overview.md
         - name: Mapas de fragmentos
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Roteamento de consultas
@@ -276,16 +298,6 @@
       items:
         - name: Atualização da biblioteca de cliente do banco de dados elásticos
           href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Instalar trabalho elástico
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: Criar trabalho - Portal
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Criar trabalho – Azure PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: Criar trabalho - Aplicativo de exemplo
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Desinstalar trabalho elástico
-          href: sql-database-elastic-jobs-uninstall.md
         - name: Consulta de dados particionados verticalmente
           href: sql-database-elastic-query-getting-started-vertical.md
         - name: Relatório em toda camada de dados expandidos
@@ -454,8 +466,6 @@
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
-    - name: PowerShell (Banco de dados Elástico)
-      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: CLI do Azure 2.0
       href: /cli/azure/sql
     - name: .NET

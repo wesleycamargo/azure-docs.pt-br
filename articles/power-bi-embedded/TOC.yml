@@ -4,12 +4,14 @@
   items:
     - name: O que é o Power BI Embedded
       href: what-is-power-bi-embedded.md
-- name: Introdução
+- name: Tutoriais
+  items:
+    - name: Inserir o conteúdo de exemplo de clientes
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+- name: Conceitos
   items:
     - name: Introdução ao Power BI Embedded
       href: get-started.md
-    - name: Comece com uma amostra
-      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
 - name: Como
   items:
     - name: Gerenciar a capacidade

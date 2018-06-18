@@ -63,6 +63,8 @@
           href: sql-data-warehouse-overview-manage-security.md
         - name: Autenticação
           href: sql-data-warehouse-authentication.md
+        - name: Segurança ao nível da coluna
+          href: column-level-security.md
     - name: Migrar para SQL Data Warehouse
       items:
         - name: Visão geral
