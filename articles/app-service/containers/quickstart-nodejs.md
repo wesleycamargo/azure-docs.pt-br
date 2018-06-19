@@ -3,8 +3,8 @@ title: Criar um Node.js no Serviço de Aplicativo do Azure no Linux | Microsoft 
 description: Implante seu primeiro Olá, Mundo em Node.js no Serviço de Aplicativo do Azure no Linux em minutos.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: syntaxc4
+author: msangapu
+manager: cfowler
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/05/2017
-ms.author: cephalin
+ms.date: 06/07/2017
+ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: a2643e65b74f44ee05001d5df26c7c77a430fbb2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: eb1c769e034f37d05de63896f65290db79103637
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293897"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Web Node.js no Serviço de Aplicativo do Azure no Linux
 
@@ -27,114 +28,119 @@ ms.lasthandoff: 03/16/2018
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Linux. Para implantar o Serviço de aplicativo no _Windows_, consulte [Criar um aplicativo Web Node.js no Azure](../app-service-web-get-started-nodejs.md).
 >
 
-O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este guia de início rápido mostra como implantar um aplicativo Node.js no Serviço de Aplicativo no Linux usando uma imagem interna. Crie o aplicativo Web com imagem interna usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o Git para implantar o código Node.js no aplicativo Web.
+O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este início rápido mostra como implantar um aplicativo Node.js no Serviço de Aplicativo no Linux usando o [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+
+Você concluirá este início rápido no Cloud Shell, mas você também pode executar esses comandos localmente com [CLI do Azure](/cli/azure/install-azure-cli).
 
 ![Aplicativo de exemplo em execução no Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-Você pode seguir as etapas deste tutorial usando um computador Mac, Windows ou Linux. Você também pode acompanhar juntamente com [o vídeo](#video) que abrange a este artigo.
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Para concluir este guia de início rápido:
+## <a name="install-web-app-extension-for-cloud-shell"></a>Instalar a extensão do aplicativo Web para o Cloud Shell
 
-* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
-* <a href="https://nodejs.org/" target="_blank">Instalar o Node.js e o NPM</a>
+Para concluir este início rápido, você precisará adicionar a [az web app extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). Se a extensão já estiver instalada, você deve atualizá-la para a versão mais recente. Para atualizar a extensão do aplicativo Web, digite `az extension update -n webapp`.
+
+Para instalar a extensão webapp, execute o seguinte comando:
+
+```bash
+az extension add -n webapp
+```
+
+Quando a extensão tiver sido instalada, o Cloud Shell mostra as informações para o exemplo a seguir:
+
+```bash
+The installed extension 'webapp' is in preview.
+```
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
-Em uma janela de terminal no computador, execute o comando a seguir para clonar o repositório do aplicativo de exemplo para o computador local.
+No Cloud Shell, crie um diretório de início rápido e depois altere-o.
+
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Em seguida, execute o comando a seguir para clonar o repositório de aplicativos de exemplo ao seu diretório de início rápido.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
-Você pode usar essa janela de terminal para executar todos os comandos neste guia de início rápido.
-
-Altere para o diretório que contém o código de exemplo.
+Na execução, ele exibe informações semelhantes ao seguinte exemplo:
 
 ```bash
-cd nodejs-docs-hello-world
-```
-
-## <a name="run-the-app-locally"></a>Executar o aplicativo localmente
-
-Execute o aplicativo localmente abrindo uma janela do terminal e usando o script `npm start` para iniciar o servidor HTTP interno do Node.js.
-
-```bash
-npm start
-```
-
-Abra um navegador da Web e navegue até o aplicativo de exemplo em `http://localhost:1337`.
-
-Você vê a mensagem **Olá, Mundo** no aplicativo de exemplo exibido na página.
-
-![Aplicativo de exemplo em execução local](media/quickstart-nodejs/localhost-hello-world-in-browser.png)
-
-Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
-
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
-
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
+Cloning into 'nodejs-docs-hello-world'...
+remote: Counting objects: 40, done.
+remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
+Unpacking objects: 100% (40/40), done.
+Checking connectivity... done.
+````
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)]
+Altere para o diretório que contém o código de exemplo e execute o comando `az webapp up`.
 
-Navegue até o aplicativo Web recém-criado. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo web.
-
-```bash
-http://<app name>.azurewebsites.net
-```
-
-Seu novo aplicativo Web deve ficar assim:
-
-![Página de aplicativo Web vazia](media/quickstart-nodejs/app-service-web-service-created.png)
-
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
+No exemplo a seguir, substitua <app_name> por um nome de aplicativo exclusivo.
 
 ```bash
-Counting objects: 23, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (21/21), done.
-Writing objects: 100% (23/23), 3.71 KiB | 0 bytes/s, done.
-Total 23 (delta 8), reused 7 (delta 1)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'bf114df591'.
-remote: Generating deployment script.
-remote: Generating deployment script for node.js Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling node.js deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.js'
-remote: Copying file: 'package.json'
-remote: Copying file: 'process.json'
-remote: Deleting file: 'hostingstart.html'
-remote: Ignoring: .git
-remote: Using start-up script index.js from package.json.
-remote: Node.js versions available on the platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
-remote: Selected node.js version 6.9.1. Use package.json file to choose a different version.
-remote: Selected npm version 3.10.8
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
- * [new branch]      master -> master
+cd nodejs-docs-hello-world
+
+az webapp up -n <app_name>
 ```
+
+Esse comando pode demorar um pouco para ser executado. Na execução, ele exibe informações semelhantes ao seguinte exemplo:
+
+```json
+Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
+Resource group creation complete
+Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
+App service plan creation complete
+Creating app '<app_name>' ....
+Webapp creation complete
+Updating app settings to enable build after deployment
+Creating zip with contents of dir /home/username/quickstart/nodejs-docs-hello-world ...
+Preparing to deploy and build contents to app.
+Fetching changes.
+
+Generating deployment script.
+Generating deployment script.
+Generating deployment script.
+Running deployment command...
+Running deployment command...
+Running deployment command...
+Deployment successful.
+All done.
+{
+  "app_url": "https://<app_name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app_name>",
+  "os": "Linux",
+  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
+  "serverfarm": "appsvc_asp_Linux_CentralUS",
+  "sku": "STANDARD",
+  "src_path": "/home/username/quickstart/nodejs-docs-hello-world ",
+  "version_detected": "6.9",
+  "version_to_create": "node|6.9"
+}
+```
+
+O comando `az webapp up` realiza as seguintes ações:
+
+- Criar um grupo de recursos padrão.
+
+- Criar um plano de serviço de aplicativo padrão.
+
+- Criar um aplicativo com o nome especificado.
+
+- Arquivos [de implantação zip](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) do diretório de trabalho atual para o aplicativo Web.
 
 ## <a name="browse-to-the-app"></a>Navegar até o aplicativo
 
-Navegue até o aplicativo implantado usando o navegador da Web.
+Navegue até o aplicativo implantado usando o navegador da Web. Substitua <app_name> pelo nome exclusivo do seu aplicativo Web.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -148,20 +154,25 @@ O código de exemplo do Node.js está em execução em um aplicativo Web com ima
 
 ## <a name="update-and-redeploy-the-code"></a>Atualizar e reimplantar o código
 
-No diretório local, abra o arquivo `index.js` no aplicativo do Node.js e faça uma pequena alteração no texto na chamada para `response.end`:
+No Cloud Shell, digite `nano index.js` para abrir o editor de texto nano.
+
+![Nano index.js](media/quickstart-nodejs/nano-indexjs.png)
+
+ Faça uma pequena alteração no texto na chamada para `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");
 ```
 
-Confirme suas alterações no Git e, em seguida, envie as alterações de código por push para o Azure.
+Salve suas alterações e saia do nano. Use o comando `^O` para salvar e `^X` para sair.
+
+Agora você vai reimplantar o aplicativo. Substitua `<app_name>` pelo seu aplicativo Web.
 
 ```bash
-git commit -am "updated output"
-git push azure master
+az webapp up -n <app_name>
 ```
 
-Depois que a implantação for concluída, mude de volta para a janela do navegador aberta na etapa **Navegar até o aplicativo** e clique em Atualizar.
+Depois que a implantação for concluída, troque para a janela do navegador aberta na etapa **Navegar até o aplicativo** e atualize a página.
 
 ![Aplicativo de exemplo atualizado em execução no Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
 
@@ -173,17 +184,21 @@ No menu à esquerda, clique em **Serviços de Aplicativos** e então clique no n
 
 ![Navegação do portal para o aplicativo Web do Azure](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. 
+A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode concluir tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.
 
 ![Página Serviço de Aplicativo no portal do Azure](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 
-O menu à esquerda fornece páginas diferentes para configurar seu aplicativo. 
+O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+## <a name="clean-up-resources"></a>Limpar recursos
 
-## <a name="video"></a>Vídeo
+Nas etapas anteriores, você criou os recursos do Azure em um grupo de recursos. Se você não espera precisar desses recursos no futuro, exclua o grupo de recursos do Cloud Shell. Se você modificou a região, atualize o nome do grupo de recursos `appsvc_rg_Linux_CentralUS` ao grupo de recursos específico para seu aplicativo.
 
->[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
+```azurecli-interactive
+az group delete --name appsvc_rg_Linux_CentralUS
+```
+
+Esse comando pode demorar um pouco para ser executado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

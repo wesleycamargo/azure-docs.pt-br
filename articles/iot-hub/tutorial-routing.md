@@ -1,29 +1,24 @@
 ---
 title: Configurar roteamento de mensagens com o Hub IoT do Azure (.NET) | Microsoft Docs
 description: Configurar o roteamento de mensagens com o Hub IoT do Azure
-services: iot-hub
-documentationcenter: .net
 author: robinsh
 manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 0674ed033f77d7d2eca319d0b1e82171dfa4256d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ab354410ba3b0b37ae630a2b68daec63a9051555
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700818"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o roteamento de mensagens com o Hub IoT
 
-O roteamento de mensagem permite enviar dados de telemetria de seus dispositivos IoT para pontos de extremidade internos compatíveis com o Hub de Eventos ou pontos de extremidade personalizados, como o Armazenamento de Blob, Fila do Barramento de Serviço, Tópico de Barramento de Serviço e Hubs de Eventos. Ao configurar o roteamento de mensagem, você pode criar regras de roteamento para personalizar a rota que corresponde a um determinado tipo de regra. Uma vez configurado, os dados de entrada são roteados automaticamente para os pontos de extremidade pelo Hub IoT. 
+O roteamento de mensagens permite enviar dados de telemetria de seus dispositivos IoT para pontos de extremidade internos compatíveis com o Hub de Eventos ou pontos de extremidade personalizados, como o Armazenamento de Blob, Fila do Barramento de Serviço, Tópico de Barramento de Serviço e Hubs de Eventos. Ao configurar o roteamento de mensagens, você pode criar regras de roteamento para personalizar a rota que corresponde a um determinado tipo de regra. Uma vez configurado, os dados de entrada são roteados automaticamente para os pontos de extremidade pelo Hub IoT. 
 
 Neste tutorial, você aprenderá como configurar e usar regras de roteamento com o Hub IoT. Você irá rotear mensagens de um dispositivo IoT para um dos vários serviços, incluindo o Armazenamento de Blob e uma fila do Barramento de Serviço. As mensagens na fila do Barramento de Serviço serão escolhidas por um aplicativo lógico e enviadas por e-mail. As mensagens que não tenham roteamento especificamente configurado são enviadas para o ponto de extremidade padrão e exibidas em uma visualização do Power BI.
 
@@ -38,7 +33,7 @@ Neste tutorial, você executa as seguintes tarefas:
 > * Exiba os resultados...
 > * ... na fila do Barramento de Serviço e emails.
 > * ... na conta de armazenamento.
-> * ... na visualização do Power BI.
+> * ...na visualização do Power BI.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -46,7 +41,7 @@ Neste tutorial, você executa as seguintes tarefas:
 
 - Instalar o [Visual Studio para Windows](https://www.visualstudio.com/). 
 
-- Uma conta do Power BI para analisar a análise de fluxo do ponto de extremidade padrão. ([Experimente gratuitamente o Power BI](https://app.powerbi.com/signupredirect?pbi_source=web))
+- Uma conta do Power BI para analisar a análise de fluxo do ponto de extremidade padrão. ([Experimente o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).)
 
 - Uma conta do Office 365 para enviar e-mails de notificação. 
 
@@ -104,24 +99,24 @@ A maneira mais fácil de usar esse script é copiá-lo e colá-lo no Cloud Shell
 # You need it to create the device identity. 
 az extension add --name azure-cli-iot-ext
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 location=westus
 resourceGroup=ContosoResources
 iotHubConsumerGroup=ContosoConsumers
 containerName=contosoresults
 iotDeviceName=Contoso-Test-Device 
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-iotHubName=ContosoTestHub 
-storageAccountName=contosoresultsstorage 
-sbNameSpace=ContosoSBNamespace 
-sbQueueName=ContosoSBQueue
-
 # Create the resource group to be used
 #   for all the resources for this tutorial.
 az group create --name $resourceGroup \
     --location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+iotHubName=ContosoTestHub$RANDOM
+echo "IoT hub name = " $iotHubName
 
 # Create the IoT hub.
 az iot hub create --name $iotHubName \
@@ -131,6 +126,10 @@ az iot hub create --name $iotHubName \
 # Add a consumer group to the IoT hub.
 az iot hub consumer-group create --hub-name $iotHubName \
     --name $iotHubConsumerGroup
+
+# The storage account name must be globally unique, so add a random number to the end.
+storageAccountName=contosostorage$RANDOM
+echo "Storage account name = " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 az storage account create --name $storageAccountName \
@@ -154,11 +153,19 @@ az storage container create --name $containerName \
     --account-key $storageAccountKey \
     --public-access off 
 
+# The Service Bus namespace must be globally unique, so add a random number to the end.
+sbNameSpace=ContosoSBNamespace$RANDOM
+echo "Service Bus namespace = " $sbNameSpace
+
 # Create the Service Bus namespace.
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
     
+# The Service Bus queue name must be globally unique, so add a random number to the end.
+sbQueueName=ContosoSBQueue$RANDOM
+echo "Service Bus queue name = " $sbQueueName
+
 # Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
     --namespace-name $sbNameSpace \
@@ -183,23 +190,23 @@ A maneira mais fácil de usar esse script é abrir o [PowerShell ISE](/powershel
 # Log into Azure account.
 Login-AzureRMAccount
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 $location = "West US"
 $resourceGroup = "ContosoResources"
 $iotHubConsumerGroup = "ContosoConsumers"
 $containerName = "contosoresults"
 $iotDeviceName = "Contoso-Test-Device"
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-$iotHubName = "ContosoTestHub"
-$storageAccountName = "contosoresultsstorage"
-$serviceBusNamespace = "ContosoSBNamespace"
-$serviceBusQueueName  = "ContosoSBQueue"
-
-# Create the resource group to be used  
+# Create the resource group to be used 
 #   for all resources for this tutorial.
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+$iotHubName = "ContosoTestHub$(Get-Random)"
+Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
 New-AzureRmIotHub -ResourceGroupName $resourceGroup `
@@ -213,6 +220,10 @@ Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -Name $iotHubName `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
+
+# The storage account name must be globally unique, so add a random number to the end.
+$storageAccountName = "contosostorage$(Get-Random)"
+Write-Host "storage account name is " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 # Save the context for the storage account 
@@ -228,10 +239,20 @@ $storageContext = $storageAccount.Context
 New-AzureStorageContainer -Name $containerName `
     -Context $storageContext
 
+# The Service Bus namespace must be globally unique,
+#   so add a random number to the end.
+$serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
+Write-Host "Service Bus namespace is " $serviceBusNamespace
+
 # Create the Service Bus namespace.
 New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
+
+# The Service Bus queue name must be globally unique,
+#  so add a random number to the end.
+$serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
+Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
 New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
@@ -256,8 +277,6 @@ Em seguida, crie uma identidade de dispositivo e salve sua chave para uso poster
 
    ![Captura de tela mostrando os detalhes do dispositivo, incluindo as chaves.](./media/tutorial-routing/device-details.png)
 
-
-
 ## <a name="set-up-message-routing"></a>Configurar roteamento de mensagens
 
 Você vai para rotear mensagens para recursos diferentes com base nas propriedades anexadas à mensagem pelo dispositivo simulado. As mensagens que não são roteadas de forma personalizada são enviadas ao ponto de extremidade padrão (mensagens/eventos). 
@@ -278,7 +297,7 @@ Agora, configure o roteamento para a conta de armazenamento. Definir um ponto de
    
    **Tipo de ponto de extremidade**: Selecione **Contêiner de Armazenamento do Azure** na lista suspensa.
 
-   Clique em **Escolher um contêiner** para ver a lista de contas de armazenamento. Selecione sua conta de armazenamento. Este tutorial usa **contosoresultsstorage**. Em seguida, selecione o contêiner. Este tutorial usa **contosoresults**. Clique em **Selecionar**, que retorna para o painel Adicionar ponto de extremidade. 
+   Clique em **Escolher um contêiner** para ver a lista de contas de armazenamento. Selecione sua conta de armazenamento. Este tutorial usa **contosostorage**. Em seguida, selecione o contêiner. Este tutorial usa **contosoresults**. Clique em **Selecionar**, que retorna para o painel **Adicionar ponto de extremidade**. 
    
    ![Captura de tela mostrando a adição de um ponto de extremidade.](./media/tutorial-routing/add-endpoint-storage-account.png)
    
@@ -406,6 +425,8 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
    ![Captura de tela mostrando como criar o trabalho do stream analytics.](./media/tutorial-routing/stream-analytics-create-job.png)
 
+3. Clique em **Criar** para criar o trabalho. Para voltar ao trabalho, clique em **Grupos de recursos**. Este tutorial usa **ContosoResources**. Selecione o grupo de recursos, depois clique no trabalho do Stream Analytics na lista de recursos. 
+
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada ao trabalho do Stream Analytics
 
 1. Em **Topologia do Trabalho**, clique em **Entradas**.
@@ -434,7 +455,7 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
 1. Em **Topologia do Trabalho**, clique em **Saídas**.
 
-2. No painel **Saídas**, clique em **Adicionar**e, em seguida, selecione **PowerBI**. Na tela que aparece, preencha os seguintes campos:
+2. No painel **Saídas**, clique em **Adicionar** e, em seguida, selecione **Power BI**. Na tela que aparece, preencha os seguintes campos:
 
    **Alias de saída**: o alias exclusivo para a saída. Este tutorial usa **contosooutputs**. 
 
@@ -462,7 +483,7 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
 4. Clique em **Salvar**.
 
-5. Feche o painel de consulta.
+5. Feche o painel de consulta. Isso faz você voltar para a exibição dos recursos no Grupo de recursos. Clique no trabalho do Stream Analytics. Este tutorial o chama de **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics
 
@@ -474,7 +495,7 @@ Para configurar o relatório do Power BI, você precisa de dados, portanto você
 
 Anteriormente na seção de configuração do script, você configurou um dispositivo para simular usando um dispositivo de IoT. Nesta seção, você baixa um aplicativo do console do .NET que simula um dispositivo que envia mensagens do dispositivo para a nuvem para um hub IoT. Este aplicativo envia mensagens para cada um dos métodos de roteamentos diferentes. 
 
-Baixe a solução para a [Simulação de dispositivo IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Isso baixa um repositório com vários aplicativos nele; a solução que você está procurando está em Tutoriais/Roteamento/DispositivoSimulado/.
+Baixe a solução para a [Simulação de dispositivo IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Isso baixa um repositório com vários aplicativos nele; a solução que você está procurando está em iot-hub/Tutorials/Routing/SimulatedDevice/.
 
 Clique duas vezes no arquivo de solução (SimulatedDevice.sln) para abrir o código no Visual Studio, em seguida, abra o Program.cs. Substitua `{iot hub hostname}` pelo nome de host do Hub IoT. O formato de nome de host do hub IoT é **{iot-hub-name}.azure-devices.net**. Para este tutorial, o nome de host do hub é **ContosoTestHub.azure-devices.net**. Em seguida, substitua `{device key}` com a chave do dispositivo salvo anteriormente durante a configuração do dispositivo simulado. 
 
@@ -512,9 +533,9 @@ Isso significa o seguinte:
 
    * O roteamento para a conta de armazenamento está funcionando corretamente.
 
-Agora com o aplicativo ainda em execução, configure a visualização do Power BI para ver as mensagens recebidas por meio de roteamento padrão. 
+Agora, com o aplicativo ainda em execução, configure a visualização do Power BI para ver as mensagens recebidas por meio de roteamento padrão. 
 
-## <a name="set-up-the-powerbi-visualizations"></a>Configurar as visualizações do Power BI
+## <a name="set-up-the-power-bi-visualizations"></a>Configurar as visualizações do Power BI
 
 1. Entre na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
@@ -560,7 +581,7 @@ Você pode atualizar os gráficos para ver os dados mais recentes, clique no bot
 
 Se você quiser remover todos os recursos que você criou, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ele remove o Hub IoT, a fila e namespace do Barramento de Serviço, o aplicativo lógico, a conta de armazenamento e o próprio grupo de recursos. 
 
-### <a name="clean-up-resources-in-the-powerbi-visualization"></a>Limpar os recursos na visualização do Power BI
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
 
 Faça logon na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá até seu espaço de trabalho. Este tutorial usa **Meu Espaço de trabalho**. Para remover a visualização do Power BI, vá para conjuntos de dados e clique no ícone de Lixeira para excluir o conjunto de dados. Este tutorial usa **contosodataset**. Quando você remove o conjunto de dados, o relatório também será removido.
 
@@ -593,11 +614,11 @@ Neste tutorial, você aprendeu a usar o roteamento de mensagens para rotear mens
 > * Exiba os resultados...
 > * ... na fila do Barramento de Serviço e emails.
 > * ... na conta de armazenamento.
-> * ... na visualização do Power BI.
+> * ...na visualização do Power BI.
 
 Avance para o próximo tutorial para aprender a gerenciar o estado de um dispositivo IoT. 
 
 > [!div class="nextstepaction"]
-[Introdução aos dispositivos gêmeos do Hub IoT do Azure](iot-hub-node-node-twin-getstarted.md)
+[Configurar seus dispositivos de um serviço de back-end](tutorial-device-twins.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

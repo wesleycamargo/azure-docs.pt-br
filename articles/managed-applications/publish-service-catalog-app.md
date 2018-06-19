@@ -8,18 +8,18 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39d2979aad3aee80ba010d5fc3cf83ad486baf2d
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305303"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247873"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicar um aplicativo gerenciado para consumo interno
 
-Crie e publique [aplicativos gerenciados](overview.md) do Azure destinados aos membros de sua organização. Por exemplo, um departamento de TI pode publicar aplicativos gerenciados que garantem a conformidade com os padrões organizacionais. Esses aplicativos gerenciados estão disponíveis por meio do catálogo de serviços, não pelo Azure Marketplace.
+Crie e publique [aplicativos gerenciados](overview.md) do Azure destinados aos membros de sua organização. Por exemplo, um departamento de TI pode publicar aplicativos gerenciados que atendem aos padrões organizacionais. Esses aplicativos gerenciados estão disponíveis por meio do catálogo de serviços, não pelo Azure Marketplace.
 
 Para publicar um aplicativo gerenciado do catálogo de serviços, você deve:
 
@@ -31,9 +31,11 @@ Para publicar um aplicativo gerenciado do catálogo de serviços, você deve:
 
 Para este artigo, seu aplicativo gerenciado contém apenas uma conta de armazenamento. Sua finalidade é ilustrar as etapas da publicação de um aplicativo gerenciado. Para obter exemplos completos, consulte [Projetos de exemplo para aplicativos gerenciados pelo Azure](sample-projects.md).
 
+Os exemplos de PowerShell neste artigo exigem a versão 6.2 ou posterior do Azure PowerShell. Se necessário, [atualize sua versão](/powershell/azure/install-azurerm-ps).
+
 ## <a name="create-the-resource-template"></a>Criar o modelo de recurso
 
-Cada definição de aplicativo gerenciado contém um arquivo chamado **mainTemplate.json**. Nele, você pode definir os recursos do Azure que serão provisionados. O modelo não é diferente de um modelo normal do Resource Manager.
+Cada definição de aplicativo gerenciado contém um arquivo chamado **mainTemplate.json**. Nele, você pode definir os recursos do Azure que serão implantados. O modelo não é diferente de um modelo normal do Resource Manager.
 
 Crie um arquivo chamado **mainTemplate.json**. O nome diferencia maiúsculas de minúsculas.
 
@@ -209,6 +211,10 @@ New-AzureRmManagedApplicationDefinition `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
+### <a name="make-sure-users-can-see-your-definition"></a>Verifique se os usuários podem ver sua definição
+
+Você tem acesso à definição de aplicativo gerenciado, mas você deve certificar-se de que outros usuários na sua organização podem acessá-lo. Conceda a eles pelo menos a função de Leitor para a definição. Eles podem ter herdado esse nível de acesso da assinatura ou grupo de recursos. Para verificar quem tem acesso à definição e adicionar usuários ou grupos, consulte [Usar Controle de acesso baseado em função para gerenciar o acesso aos recursos da sua assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
+
 ## <a name="create-the-managed-application"></a>Criar o aplicativo gerenciado
 
 Você pode implantar o aplicativo gerenciado por meio do portal, do PowerShell ou da CLI do Azure.
@@ -249,13 +255,23 @@ Agora, vamos usar o portal para implantar o aplicativo gerenciado. Você verá a
 
    ![Selecionar catálogo de serviços](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
    ![Selecione criar](./media/publish-service-catalog-app/select-create.png)
 
-1. Localize o aplicativo gerenciado que você deseja criar na lista de soluções disponíveis e selecione-o. Clique em **Criar**.
+1. Localize o aplicativo gerenciado que você deseja criar na lista de soluções disponíveis e selecione-o. Selecione **Criar**.
 
    ![Localizar o aplicativo gerenciado](./media/publish-service-catalog-app/find-application.png)
+
+   Se você não conseguir ver a definição de aplicativo gerenciado por meio do portal, você talvez precise alterar suas configurações do portal. Selecione o **Filtro de Diretório e Assinatura**.
+
+   ![Selecione o filtro de assinatura](./media/publish-service-catalog-app/select-filter.png)
+
+   Verifique se o filtro de assinatura global inclui a assinatura que contém a definição do aplicativo gerenciado.
+
+   ![Verifique o filtro de assinatura](./media/publish-service-catalog-app/check-global-filter.png)
+
+   Depois de selecionar a assinatura, comece novamente criando o aplicativo gerenciado do catálogo de serviços. Você deverá vê-lo agora.
 
 1. Forneça informações básicas necessárias para o aplicativo gerenciado. Especifique a assinatura e um novo grupo de recursos para conter o aplicativo gerenciado. Selecione **Centro-Oeste dos EUA** para local. Ao terminar, selecione **OK**.
 

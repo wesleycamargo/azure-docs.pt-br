@@ -15,19 +15,19 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 86b20e0f317a14db415feff68b17aa99e1e42cb4
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 3f0ba3034c1ba9e68f83caaaf9aacb96134ca74b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258416"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235491"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
 > [!IMPORTANT]
-> Este recurso não está disponível com produtos **CDN Standard do Azure da Akamai**. Para obter uma comparação dos recursos de CDN, confira [Visão geral da CDN do Azure](cdn-features.md).
+> Este recurso não está disponível com produtos **CDN Standard do Azure da Akamai**. Para obter uma comparação dos recursos de Rede de Distribuição de Conteúdo (CDN) do Azure, consulte [Comparar recursos de produto da CDN do Azure](cdn-features.md).
 
-Este tutorial mostra como habilitar o protocolo HTTPS para um domínio personalizado que está associado um ponto de extremidade da Rede de Distribuição de Conteúdo (CDN) do Azure. Usando o protocolo HTTPS em seu domínio personalizado (por exemplo, https:\//www.contoso.com), você garante que seus dados confidenciais são fornecidos com segurança por meio da criptografia SSL quando ele são enviada pela Internet. HTTPS fornece confiabilidade, autenticação e protege seus aplicativos Web contra ataques. 
+Este tutorial mostra como habilitar o protocolo HTTPS para um domínio personalizado que está associado um ponto de extremidade da CDN do Azure. Usando o protocolo HTTPS em seu domínio personalizado (por exemplo, https:\//www.contoso.com), você garante que seus dados confidenciais são fornecidos com segurança por meio da criptografia TLS/SSL quando ele são enviada pela Internet. Quando seu navegador da Web é conectado a um site da Web via HTTPS, ele valida o certificado de segurança do site da Web e verifica se ele é emitido por uma autoridade de certificação legítima. Esse processo oferece segurança e protege seus aplicativos Web contra ataques.
 
 A CDN do Azure dá suporte a HTTPS em um nome do host do ponto de extremidade da CDN por padrão. Por exemplo, se você criar um ponto de extremidade da CDN (como https:\//contoso.azureedge.net), o HTTPS será habilitado automaticamente.  
 
@@ -94,7 +94,7 @@ Para habilitar HTTPS em um domínio personalizado, siga estas etapas:
 > Este recurso está disponível apenas com perfis de **CDN Standard do Azure da Microsoft**. 
 >
  
-Você pode usar seu próprio certificado para habilitar o recurs HTTPS. Esse processo é feito por meio de uma integração com o Azure Key Vault, que permite que você armazene os certificados com segurança. A CDN do Azure usa esse mecanismo seguro para obter o certificado e requer algumas etapas adicionais.
+Você pode usar seu próprio certificado para habilitar o recurs HTTPS. Esse processo é feito por meio de uma integração com o Azure Key Vault, que permite que você armazene os certificados com segurança. A CDN do Azure usa esse mecanismo seguro para obter o certificado e requer algumas etapas adicionais. Quando você cria o certificado SSL, você deve criá-lo com uma autoridade de certificação (CA) com permissão. Caso contrário, se você usar uma autoridade de certificação sem permissão, sua solicitação será rejeitada. Para obter uma lista das autoridades de certificação permitidas, consulte [Autoridades de certificação permitidas para habilitar HTTPS personalizado na CDN do Azure](cdn-troubleshoot-allowed-ca.md).
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparar a conta e o certificado do Azure Key Vault
  
@@ -123,9 +123,9 @@ Conceda à CDN do Azure permissão para acessar os certificados (segredos) em su
 
     ![Criar nova política de acesso](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-    ![Configurações de política de acesso](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
+2. Em **Selecionar entidade de segurança**, procure por **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** e escolha **Microsoft.Azure.Cdn**. Clique em **Selecionar**.
 
-2. Em **Selecionar entidade de segurança**, procure e selecione **CDN do Azure**.
+    ![Configurações de política de acesso](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
 3. Em **Permissões do segredo**, selecione **Obter** para permitir que a CDN execute essas permissões para obter e listar os certificados. 
 
@@ -188,7 +188,7 @@ A validação automática geralmente demora alguns minutos. Se você não vir o 
 
 Se a entrada do registro CNAME do ponto de extremidade não existir mais ou contiver o subdomínio cdnverify, siga o restante das instruções nesta etapa.
 
-Depois de habilitar o HTTPS em seu domínio personalizado, a AC (autoridade de certificação) do DigiCert valida a propriedade de seu domínio entrando em contato com o inscrito, de acordo com as informações do inscrito [WHOIS](http://whois.domaintools.com/) do domínio. O contato é feito pelo endereço de email (por padrão) ou pelo número de telefone listado no registro WHOIS. Conclua a validação completa de domínio antes de ativar o HTTPS no seu domínio personalizado. Você tem seis dias úteis para aprovar o domínio. As solicitações que não foram aprovadas em até seis dias úteis são canceladas automaticamente. 
+Depois de habilitar o HTTPS em seu domínio personalizado, a autoridade de certificação (CA) do DigiCert valida a propriedade de seu domínio entrando em contato com o inscrito, de acordo com as informações do inscrito [WHOIS](http://whois.domaintools.com/) do domínio. O contato é feito pelo endereço de email (por padrão) ou pelo número de telefone listado no registro WHOIS. Conclua a validação completa de domínio antes de ativar o HTTPS no seu domínio personalizado. Você tem seis dias úteis para aprovar o domínio. As solicitações que não foram aprovadas em até seis dias úteis são canceladas automaticamente. 
 
 ![Registro WHOIS](./media/cdn-custom-ssl/whois-record.png)
 
@@ -292,7 +292,7 @@ A tabela a seguir mostra o andamento da operação que ocorre quando você desab
 
 2. Você usa TLS/SSL de SNI ou baseado em IP?
 
-    A **CDN do Azure da Verizon** usa TLS/SSL baseado em IP. A **CDN Standard do Azure da Microsoft** usa TLS/SSL de SNI.
+    A **CDN do Azure da Verizon** usa TLS/SSL baseado em IP. A **CDN do Azure Padrão da Microsoft** usa TLS/SSL de SNI.
 
 3. *E se eu não receber o email de verificação de domínio do DigiCert?*
 
