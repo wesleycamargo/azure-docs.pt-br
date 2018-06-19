@@ -14,11 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 851f788adee46436bd4286c803427f49ce0ed89a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724091"
 ---
 #  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>O que é MSI (Identidade de Serviço Gerenciado) para recursos do Microsoft Azure?
 
@@ -26,12 +27,14 @@ ms.lasthandoff: 05/10/2018
 
 Um desafio comum ao criar aplicativos de nuvem é como gerenciar as credenciais que precisam estar em seu código para autenticar para serviços de nuvem. Manter essas credenciais seguras é uma tarefa importante. Idealmente, eles nunca aparecem em estações de trabalho do desenvolvedor ou são verificadas no controle do código-fonte. O Azure Key Vault fornece uma maneira de armazenar com segurança as credenciais e outras chaves e segredos, mas seu código precisa autenticar para o Key Vault para recuperá-los. A Identidade de Serviço Gerenciado (MSI) torna a solução desse problema mais simples, fornecendo aos serviços do Azure uma identidade gerenciada automaticamente no Azure Active Directory (Azure AD). Você pode usar essa identidade para autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter que todas as credenciais no seu código.
 
+A Identidade de Serviço Gerenciado vem com o Azure Active Directory Gratuito, que é o padrão para as assinaturas do Azure. Não há nenhum custo adicional para a Identidade de Serviço Gerenciado.
+
 ## <a name="how-does-it-work"></a>Como ele funciona?
 
 Há dois tipos de Identidades de Serviço Gerenciado: **Atribuída pelo Sistema** e **Atribuída pelo Usuário**.
 
 - Uma **Identidade Atribuída pelo Sistema** é habilitada diretamente em uma instância de serviço do Microsoft Azure. Quando habilitado, o Mirosoft Azure cria uma identidade para a instância de serviço no locatário do Azure Active Directory confiado para a assinatura da instância do serviço. Depois que a identidade é criada, suas credenciais serão fornecidas para a instância do serviço. O ciclo de vida de uma identidade atribuída ao sistema está diretamente relacionado à instância de serviço do Microsoft Azure na qual está habilitado. Se a instância de serviço é excluída, o Azure limpa automaticamente as credenciais e a identidade no Azure AD.
-- Uma  **Identidade Atribuída pelo Usuário** (visualização pública) é criada como recurso autônomo do Microsoft Azure. Por meio de um processo de criação, o Microsoft Azure cria uma identidade no locatário do Azure Active Directory confiado para a assinatura sendo usada. Depois que a identidade é criada, ela pode ser atribuída a uma ou mais instâncias de serviço do Azure. O ciclo de vida de uma identidade atribuída pelo usuário é gerenciado separadamente do ciclo de vida de instâncias de serviço do Microsoft Azure a que é atribuído.
+- Uma **identidade atribuída pelo usuário** é criada como um recurso autônomo do Azure. Por meio de um processo de criação, o Microsoft Azure cria uma identidade no locatário do Azure Active Directory confiado para a assinatura sendo usada. Depois que a identidade é criada, ela pode ser atribuída a uma ou mais instâncias de serviço do Azure. O ciclo de vida de uma identidade atribuída pelo usuário é gerenciado separadamente do ciclo de vida de instâncias de serviço do Microsoft Azure a que é atribuído.
 
 Como resultado, seu código pode usar uma identidade atribuída pelo sistema ou pelo usuário para solicitar os tokens de serviços que são compatíveis com a autenticação do Azure Active Direcotry. Enquanto isso, o Azure é responsável por reverter as credenciais usadas pela instância de serviço.
 
@@ -50,7 +53,7 @@ Aqui está um exemplo de como as Identidades Atribuídas pelo sistema funcionam 
     - Ponto de extremidade de identidade do Serviço de Metadados de Instância (IMDS) do Microsoft Azure: http://169.254.169.254/metadata/identity/oauth2/token (recomendado)
         - O parâmetro de recurso especifica o serviço ao qual o token é enviado. Por exemplo, se você quiser que seu código autentique para o Azure Resource Manager, você usaria resource=https://management.azure.com/.
         - O parâmetro de versão de API Especifica a versão IMDS, use a versão da API = 2018-02-01 ou superior.
-    - Ponto de Extremidade de VM da MSI http://localhost:50342/oauth2/token(substituição futura):
+    - Ponto de Extremidade de VM da MSI http://localhost:50342/oauth2/token(substituição futura){0}:
         - O parâmetro de recurso especifica o serviço ao qual o token é enviado. Por exemplo, se você quiser que seu código autentique para o Azure Resource Manager, você usaria resource=https://management.azure.com/.
 
 6. A chamada é feita ao Azure Active Directory solicitando acesso ao token conforme especificado na etapa 5, usando a ID do cliente e o certificado configurado na etapa 3. O Azure AD retorna um token de acesso do JSON Web Token (JWT).
@@ -103,17 +106,6 @@ Tente um tutorial de identidade de serviço gerenciado para saber os cenários d
 
 As identidades gerenciadas podem ser usadas para autenticar os serviços que são compatíveis com a autenticação do Azure Active Directory. Para obter uma lista de serviços do Microsoft Azure que oferece suporte a Identidade de Serviço Gerenciado, consulte o seguinte artigo:
 - [Serviços que oferecem suporte à Identidade de Serviço Gerenciada](services-support-msi.md)
-
-## <a name="how-much-does-managed-service-identity-cost"></a>Quanto custa a Identidade de Serviço Gerenciado?
-
-A Identidade de Serviço Gerenciado vem com o Azure Active Directory Gratuito, que é o padrão para as assinaturas do Azure. Não há nenhum custo adicional para a Identidade de Serviço Gerenciado.
-
-## <a name="support-and-feedback"></a>Suporte e comentários
-
-Adoraríamos ouvir o que você tem para nos dizer!
-
-* Faça perguntas sobre instruções no Stack Overflow com a marca [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Faça solicitações de recursos ou deixe comentários no [Fórum de comentários do Azure AD para desenvolvedores](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
 ## <a name="next-steps"></a>Próximas etapas
 

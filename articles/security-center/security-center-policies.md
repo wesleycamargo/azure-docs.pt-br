@@ -3,7 +3,7 @@ title: Definir políticas de segurança na Central de Segurança do Azure | Micr
 description: Este documento ajuda você a configurar políticas de segurança na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
-ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 06/05/2018
+ms.author: terrylan
+ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364379"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756984"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Configurar políticas de segurança na Central de Segurança do Azure
 Este artigo ajuda você a configurar políticas de segurança na Central de Segurança.
@@ -28,7 +28,7 @@ Este artigo ajuda você a configurar políticas de segurança na Central de Segu
 A Central de Segurança cria automaticamente uma política de segurança padrão para cada uma de suas assinaturas do Azure. Você pode editar a política e monitorar a conformidade de política na Central de Segurança.
 
 > [!NOTE]
-> Agora você pode estender as políticas da Central de Segurança usando o Azure Policy, que está em versão prévia limitada. Para se inscrever na versão prévia, vá até [Criar uma conta no Azure Policy](https://aka.ms/getpolicy). Para obter mais informações, confira [Integrar políticas de segurança da Central de Segurança com o Azure Policy](security-center-azure-policy.md).
+> Agora você pode estender as políticas da Central de Segurança usando o [Azure Policy](../azure-policy/azure-policy-introduction.md). Para obter mais informações, confira [Integrar políticas de segurança da Central de Segurança com o Azure Policy](security-center-azure-policy.md).
 
 Os requisitos de segurança para os recursos usados para desenvolvimento ou teste podem ser diferentes daqueles usados para os aplicativos de produção. Os aplicativos que usam dados regulamentados, como as informações de identificação pessoal, podem requerer um nível mais alto de segurança. As políticas de segurança habilitadas na Central de Segurança do Azure determinam as recomendações de segurança e o monitoramento para ajudar a identificar as potenciais vulnerabilidades e atenuar as ameaças. Para obter mais informações sobre como determinar a opção adequada para você, consulte [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md).
 
@@ -75,3 +75,5 @@ Neste artigo, você aprendeu como configurar políticas de segurança na Central
 * [Monitorar as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as respostas para as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre conformidade e segurança do Azure.
+
+Para saber mais sobre o Azure Policy, confira [O que é o Azure Policy?](../azure-policy/azure-policy-introduction.md)

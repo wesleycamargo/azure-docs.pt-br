@@ -1,23 +1,21 @@
 ---
 title: Início rápido de controle de um dispositivo do Hub IoT do Azure (.NET) | Microsoft Docs
 description: Neste início rápido, você executa dois aplicativos C# de exemplo. Um aplicativo é um aplicativo back-end que pode controlar remotamente os dispositivos conectados ao seu hub. O outro aplicativo simula um dispositivo conectado ao seu hub que pode ser controlado remotamente.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
+ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: d0233d2bd68397491e22cc7eb6993d0909f92218
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8eefb66e50b4dfd601428eec90784b0991276b5a
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807882"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Início Rápido: Controlar um dispositivo conectado a um hub IoT (.NET)
 
@@ -91,7 +89,7 @@ Anote a cadeia de conexão de serviço, que se parece com `Hostname=...=`. Você
 
 O aplicativo de dispositivo simulado se conecta a um ponto de extremidade específico do dispositivo em seu hub IoT, envia telemetria simulada e escuta chamadas de método direto de seu hub. Neste início rápido, a chamada de método direto do hub informa ao dispositivo para alterar o intervalo de envio da telemetria. O dispositivo simulado envia uma confirmação para o hub depois de executar o método direto.
 
-1. Em uma janela de terminal, navegue até a pasta raiz do projeto C# de exemplo. Em seguida, navegue até a pasta **Quickstarts\simulated-device-2**.
+1. Em uma janela de terminal, navegue até a pasta raiz do projeto C# de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\simulated-device-2**.
 
 1. Abra o arquivo **SimulatedDevice.cs** em seu editor de texto preferido.
 
@@ -117,7 +115,7 @@ O aplicativo de dispositivo simulado se conecta a um ponto de extremidade espec�
 
 O aplicativo de back-end se conecta a um ponto de extremidade do lado do serviço em seu Hub IoT. O aplicativo faz chamadas de método direto para um dispositivo por meio de seu hub IoT e espera confirmações. Um aplicativo de back-end do Hub IoT normalmente é executado na nuvem.
 
-1. Em outra janela de terminal, navegue até a pasta raiz do projeto C# de exemplo. Em seguida, navegue até a pasta **Quickstarts\back-end-application**.
+1. Em outra janela de terminal, navegue até a pasta raiz do projeto C# de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\back-end-application**.
 
 1. Abra o arquivo **BackEndApplication.cs** em seu editor de texto preferido.
 
@@ -156,4 +154,4 @@ Neste início rápido, você já chamou um método direto em um dispositivo de u
 Para saber como rotear mensagens de dispositivo para nuvem para destinos diferentes na nuvem, continue n próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Encaminhar a telemetria pontos de extremidade diferentes para processamento](iot-hub-csharp-csharp-process-d2c.md)
+> [Tutorial: Encaminhar a telemetria pontos de extremidade diferentes para processamento](tutorial-routing.md)

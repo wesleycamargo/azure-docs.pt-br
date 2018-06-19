@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/27/2018
+ms.date: 06/01/2018
 ms.author: babanisa
-ms.openlocfilehash: f1d235fe431cfe14019ffef7c043dfbc367bb2bc
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303970"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725234"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à Grade de Eventos do Azure
 
@@ -71,8 +71,6 @@ Atualmente, os serviços do Azure a seguir dão suporte para manipulação de ev
 * Armazenamento de Filas
 * WebHooks
 
-Ao usar o Azure Functions como o manipulador, use o gatilho Grade de Eventos em vez de gatilhos HTTP genéricos. A Grade de Eventos valida automaticamente os gatilhos de Função da Grade de Eventos. Com os gatilhos HTTP genéricos, você deve implementar a [resposta de validação](security-authentication.md#webhook-event-delivery).
-
 Para obter links para artigos que mostram como usar cada manipulador de evento, consulte [Manipuladores de evento na Grade de Eventos do Azure](event-handlers.md).
 
 ## <a name="concepts"></a>Conceitos
@@ -80,7 +78,7 @@ Para obter links para artigos que mostram como usar cada manipulador de evento, 
 Há cinco conceitos na Grade de Eventos do Azure para sua utilização:
 
 * **Eventos**: o que aconteceu.
-* **Fontes/publicadores de evento**: onde o evento ocorreu.
+* **Origens do evento** - Onde o evento ocorreu.
 * **Tópicos**: o ponto de extremidade onde os publicadores enviam eventos.
 * **Assinaturas de evento**: o ponto de extremidade ou o mecanismo interno para encaminhar eventos, às vezes, para vários manipuladores. As assinaturas também são usadas por manipuladores para filtrar de forma inteligente os eventos de entrada.
 * **Manipuladores de eventos**: o aplicativo ou serviço que reage ao evento.
@@ -126,7 +124,7 @@ A Grade de Eventos conecta seu aplicativo a outros serviços. Por exemplo, crie 
 
 ## <a name="how-much-does-event-grid-cost"></a>Quanto custa a Grade de Eventos?
 
-A Grade de Eventos do Azure usa um modelo de preço de pagamento por evento, para que você pague só pelo que usa. As primeiras 100.000 operações por mês são gratuitas. As operações são definidas como ingresso de evento, correspondência avançada, tentativa de entrega e chamadas de gerenciamento. Para obter detalhes, consulte a [página de preços](https://azure.microsoft.com/pricing/details/event-grid/).
+A Grade de Eventos do Azure usa um modelo de preço de pagamento por evento, para que você pague só pelo que usa. As primeiras 100.000 operações por mês são gratuitas. Operações são definidas como entrada de evento, tentativas de entrega de assinatura, chamadas de gerenciamento e filtragem pelo sufixo do assunto. Para obter detalhes, consulte a [página de preços](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

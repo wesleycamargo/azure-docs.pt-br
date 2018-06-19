@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824679"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -31,6 +32,7 @@ Este recurso está disponível para os seguintes serviços e regiões do Azure:
 - **Banco de Dados SQL do Azure**: Disponível Geralmente em todas as regiões do Azure
 - **Microsoft Azure Cosmos DB**: Disponível Geralmente em todas as regiões de nuvem pública do Azure 
 - **SQL Data Warehouse do Azure**: Visualização em todas as regiões de nuvem pública do Azure
+- **Serviços de banco de dados do Azure para PostgreSQL e MySQL**: Versão prévia em regiões do Azure em que o serviço de banco de dados está disponível.
 
 Para obter as notificações mais recentes, verifique a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -98,7 +100,7 @@ Quando os pontos de extremidade de serviço são configurados para um serviço e
   - Indica que uma conexão mais direta com o serviço está em vigor, comparada com rotas de túnel forçado
 
 >[!NOTE]
-> Rotas de ponto de extremidade de serviço substituem quaisquer rotas BGP ou UDR na correspondência do prefixo de endereço de um serviço do Azure. Saiba mais sobre [solução de problemas com rotas efetivas](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+> Rotas de ponto de extremidade de serviço substituem quaisquer rotas BGP ou UDR na correspondência do prefixo de endereço de um serviço do Azure. Saiba mais sobre [solução de problemas com rotas efetivas](diagnose-network-routing-problem.md)
 
 ## <a name="provisioning"></a>Provisionamento
 

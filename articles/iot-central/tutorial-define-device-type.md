@@ -1,21 +1,22 @@
 ---
 title: Definir um novo tipo de dispositivo no Azure IoT Central | Microsoft Docs
 description: Este tutorial mostra a você, como um construtor, como definir um novo tipo de dispositivo no seu aplicativo Azure IoT Central. Você define a telemetria, estado, propriedades e configurações para o seu tipo.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: e1488b708bbbee67362d834a9a703520d37bef37
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: 71ccae1951020a522fbbdddcdce0bbeeea5f1fb9
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201665"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235783"
 ---
-# <a name="1---define-a-new-device-type-in-your-azure-iot-central-application"></a>1 - Definir um novo tipo de dispositivo em seu aplicativo do Azure IoT Central
+# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo em seu aplicativo do Azure IoT Central
 
 Este tutorial mostra a você, como um construtor, como usar um modelo de dispositivo para definir um novo tipo de dispositivo no seu aplicativo Microsoft Azure IoT Central. Um modelo de dispositivo define a telemetria, estado, propriedades e configurações para o seu tipo de dispositivo.
 
@@ -43,27 +44,27 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para concluir este início rápido, você precisa de um aplicativo Azure IoT Central. Se você concluiu o início rápido [Criar um aplicativo Azure IoT Central](quick-deploy-iot-central.md), você pode reutilizar o aplicativo criado no início rápido. Caso contrário, conclua as seguintes etapas para criar um aplicativo Azure IoT Central vazio:
+Para concluir este tutorial, você precisa de um aplicativo Azure IoT Central. Se você concluiu o início rápido [Criar um aplicativo Azure IoT Central](quick-deploy-iot-central.md), você pode reutilizar o aplicativo criado no início rápido. Caso contrário, conclua as seguintes etapas para criar um aplicativo Azure IoT Central vazio:
 
 1. Navegue até a página do [Gerenciador de aplicativos](https://aka.ms/iotcentral) do Azure IoT Central.
 
-1. Digite o endereço de email e a senha que você usa para acessar sua assinatura do Azure:
+2. Digite o endereço de email e a senha que você usa para acessar sua assinatura do Azure:
 
    ![Insira a conta da sua organização](media/tutorial-define-device-type/sign-in.png)
 
-1. Para começar a criar um novo aplicativo Azure IoT Central, escolha **Novo aplicativo**:
+3. Para começar a criar um novo aplicativo Azure IoT Central, escolha **Novo aplicativo**:
 
     ![Página do Gerenciador de aplicativos do Azure IoT Central](media/tutorial-define-device-type/iotcentralhome.png)
 
-1. Para criar um novo aplicativo Azure IoT Central:
+4. Para criar um novo aplicativo Azure IoT Central:
 
-    1. Escolha um nome amigável do aplicativo, como **Ar-condicionados Contoso**. O Azure IoT Central gera um prefixo de URL exclusivo para você. Você pode alterar esse prefixo de URL para algo mais fácil de lembrar.
-    1. Escolha uma assinatura do Azure Active Directory e do Azure para serem usadas. Para obter mais informações sobre assinaturas e diretórios, consulte [Criar um aplicativo Azure IoT Central](howto-create-application.md).
-    1. Selecione um grupo de recursos existente ou crie um novo grupo de recursos com um nome de sua escolha. Por exemplo, **contoso-rg**.
-    1. Escolha a região geograficamente mais próxima de você.
-    1. Escolha o modelo de aplicativo **Aplicativo personalizado**.
-    1. Escolha o plano de pagamento **Avaliação gratuita de 30 dias de aplicativo**.
-    1. Depois, escolha **Criar**.
+    * Escolha um nome amigável do aplicativo, como **Ar-condicionados Contoso**. O Azure IoT Central gera um prefixo de URL exclusivo para você. Você pode alterar esse prefixo de URL para algo mais fácil de lembrar.
+    * Escolha uma assinatura do Azure Active Directory e do Azure para serem usadas. Para obter mais informações sobre assinaturas e diretórios, consulte [Criar um aplicativo Azure IoT Central](howto-create-application.md).
+    * Selecione um grupo de recursos existente ou crie um novo grupo de recursos com um nome de sua escolha. Por exemplo, **contoso-rg**.
+    * Escolha a região geograficamente mais próxima de você.
+    * Escolha o modelo de aplicativo **Aplicativo personalizado**.
+    * Escolha o plano de pagamento **Avaliação gratuita de 30 dias de aplicativo**.
+    * Escolha **Criar**.
 
     ![Página Criar aplicativo do Azure IoT Central](media/tutorial-define-device-type/iotcentralcreate.png)
 
@@ -85,15 +86,15 @@ As etapas a seguir mostram como criar um novo modelo de dispositivo de **Ar-cond
 
     ![Página Construtor do aplicativo, Criar modelo de dispositivo](media/tutorial-define-device-type/builderhomedevices.png)
 
-1. Na página **Modelos de dispositivo** escolha **Personalizado**. Um modelo de dispositivo **Personalizado** permite que você defina todas as características e comportamentos de seu ar-condicionado conectado:
+2. Na página **Modelos de dispositivo** escolha **Personalizado**. Um modelo de dispositivo **Personalizado** permite que você defina todas as características e comportamentos de seu ar-condicionado conectado:
 
     ![Dispositivos](media/tutorial-define-device-type/builderhomedevicescustom.png)
 
-1. Na página **Novo modelo de dispositivo**, insira **Ar-condicionado conectado** como o nome do seu dispositivo e, em seguida, escolha **Criar**. Você também pode carregar uma imagem do seu dispositivo que é visível para os operadores no Device Explorer:
+3. Na página **Novo modelo de dispositivo**, insira **Ar-condicionado conectado** como o nome do seu dispositivo e, em seguida, escolha **Criar**. Você também pode carregar uma imagem do seu dispositivo que é visível para os operadores no Device Explorer:
 
     ![Dispositivo personalizado](media/tutorial-define-device-type/createcustomdevice.png)
 
-1. No modelo de dispositivo **Ar-condicionado**, verifique se você está na página **Medidas** onde você define a telemetria. Cada modelo de dispositivo que você definir possui páginas separadas para você:
+4. No modelo de dispositivo **Ar-condicionado**, verifique se você está na página **Medidas** onde você define a telemetria. Cada modelo de dispositivo que você definir possui páginas separadas para você:
 
     * Especifica as medidas, como telemetria, evento e estado, enviadas pelo dispositivo.
     * Define as configurações usadas para controlar o dispositivo.
@@ -106,11 +107,11 @@ As etapas a seguir mostram como criar um novo modelo de dispositivo de **Ar-cond
     > [!NOTE]
     > Para alterar o nome do dispositivo ou do modelo de dispositivo, clique no texto na parte superior da página.
 
-1. Para adicionar a medida de telemetria de temperatura, escolha **Nova medida**. Em seguida, escolha **Telemetria** como o tipo de medida:
+5. Para adicionar a medida de telemetria de temperatura, escolha **Nova medida**. Em seguida, escolha **Telemetria** como o tipo de medida:
 
     ![Medidas do ar-condicionado conectado](media/tutorial-define-device-type/airconmeasurementsnew.png)
 
-1. Cada tipo de telemetria que você define para um modelo de dispositivo inclui [opções de configuração](howto-set-up-template.md) como:
+6. Cada tipo de telemetria que você define para um modelo de dispositivo inclui [opções de configuração](howto-set-up-template.md) como:
 
     * Opções de exibição.
     * Detalhes da telemetria.
@@ -131,22 +132,23 @@ As etapas a seguir mostram como criar um novo modelo de dispositivo de **Ar-cond
 
     ![Configurar a simulação de temperatura](media/tutorial-define-device-type/temperaturesimulation.png)
 
-1. Após um curto tempo, a página **Medidas** mostra um gráfico de telemetria de temperatura do dispositivo simulado de ar-condicionado conectado. Use os controles para gerenciar a visibilidade, agregação, ou para editar a definição de telemetria:
+7. Após um curto tempo, a página **Medidas** mostra um gráfico de telemetria de temperatura do dispositivo simulado de ar-condicionado conectado. Use os controles para gerenciar a visibilidade, agregação, ou para editar a definição de telemetria:
 
     ![Exibir a simulação de temperatura](media/tutorial-define-device-type/viewsimulation.png)
 
-1. Você também pode personalizar o gráfico usando os controles **Linha**, **Empilhado** e **Editar intervalo de tempo**:
+8. Você também pode personalizar o gráfico usando os controles **Linha**, **Empilhado** e **Editar intervalo de tempo**:
 
     ![Personalizar o gráfico](media/tutorial-define-device-type/customizechart.png)
 
 ## <a name="define-event-measurement"></a>Definir uma medida de evento
+
 Você pode usar o Evento para definir dados pontuais que são enviados pelo dispositivo para indicar algo significativo, como um erro ou falha de um componente. Assim como as medidas de telemetria, o Azure IoT Central pode simular eventos de dispositivo para que você possa testar o comportamento do seu aplicativo antes de conectar um dispositivo físico. Você define as medidas de evento para o tipo de dispositivo na exibição **Medidas**.
 
 1. Para adicionar a medida de evento **Erro de motor do ventilador**, escolha **Nova medida**. Em seguida, escolha **Evento** como o tipo de medida:
 
     ![Medidas do ar-condicionado conectado](media/tutorial-define-device-type/eventnew.png)
 
-1. Cada tipo de Evento que você define para um modelo de dispositivo inclui [opções de configuração](howto-set-up-template.md) como:
+2. Cada tipo de Evento que você define para um modelo de dispositivo inclui [opções de configuração](howto-set-up-template.md) como:
 
     * Nome de exibição.
     * Nome do campo.
@@ -164,7 +166,7 @@ Você pode usar o Evento para definir dados pontuais que são enviados pelo disp
 
     ![Configurar uma medida de evento](media/tutorial-define-device-type/eventconfiguration.png)
 
-1. Após um curto tempo, a página **Medidas** mostra um gráfico de eventos gerados aleatoriamente a partir do dispositivo simulado de ar-condicionado conectado. Use os controles para gerenciar a visibilidade ou para editar a definição de evento:
+3. Após um curto tempo, a página **Medidas** mostra um gráfico de eventos gerados aleatoriamente a partir do dispositivo simulado de ar-condicionado conectado. Use os controles para gerenciar a visibilidade ou para editar a definição de evento:
 
     ![Exibir evento simulado](media/tutorial-define-device-type/eventview.png)
 
@@ -172,15 +174,15 @@ Você pode usar o Evento para definir dados pontuais que são enviados pelo disp
 
     ![Exibir detalhes do evento](media/tutorial-define-device-type/eventviewdetail.png)
 
-
 ## <a name="define-state-measurement"></a>Definir medida de Estado
+
 Você pode usar o Estado para definir e visualizar o estado do dispositivo ou seu componente ao longo de um período de tempo. Assim como as medidas de telemetria, o Azure IoT Central pode simular o estado do dispositivo para que você possa testar o comportamento do seu aplicativo antes de conectar um dispositivo físico. Você define as medidas de estado para o seu tipo de dispositivo na exibição **Medidas**.
 
 1. Para adicionar a medida **Modo ventilação**, escolha **Nova medida**. Em seguida, escolha **Estado** como o tipo de medida:
 
     ![Medidas de estado do ar-condicionado conectado](media/tutorial-define-device-type/statenew.png)
 
-1. Cada tipo de Estado que você define para um modelo de dispositivo inclui [opções de configuração](howto-set-up-template.md) como:
+2. Cada tipo de Estado que você define para um modelo de dispositivo inclui [opções de configuração](howto-set-up-template.md) como:
 
     * Nome de exibição.
     * Nome do campo.
@@ -202,11 +204,11 @@ Você pode usar o Estado para definir e visualizar o estado do dispositivo ou se
 
     ![Configurar medida de Estado](media/tutorial-define-device-type/stateconfiguration.png)
 
-1. Após um curto tempo, a página **Medidas** mostra um gráfico de estados gerados aleatoriamente a partir do dispositivo simulado de ar-condicionado conectado. Use os controles para gerenciar a visibilidade ou para editar a definição de estado:
+3. Após um curto tempo, a página **Medidas** mostra um gráfico de estados gerados aleatoriamente a partir do dispositivo simulado de ar-condicionado conectado. Use os controles para gerenciar a visibilidade ou para editar a definição de estado:
 
     ![Exibir simulação de estado](media/tutorial-define-device-type/stateview.png)
 
-1. No caso, há muitos pontos de dados enviados pelo dispositivo dentro de uma pequena duração, a medida de estado é mostrada com um visual diferente, conforme mostrado abaixo. Se você clicar no gráfico, todos os pontos de dados dentro desse período de tempo serão exibidos em uma ordem cronológica. Também é possível reduzir o intervalo de tempo para ver a medida plotada no gráfico.
+4. No caso, há muitos pontos de dados enviados pelo dispositivo dentro de uma pequena duração, a medida de estado é mostrada com um visual diferente, conforme mostrado abaixo. Se você clicar no gráfico, todos os pontos de dados dentro desse período de tempo serão exibidos em uma ordem cronológica. Também é possível reduzir o intervalo de tempo para ver a medida plotada no gráfico.
 
     ![Exibir Detalhes do estado](media/tutorial-define-device-type/stateviewdetail.png)
 
@@ -215,12 +217,14 @@ Você pode usar o Estado para definir e visualizar o estado do dispositivo ou se
 Propriedades, propriedades do dispositivo e configurações são valores diferentes definidos em um modelo de dispositivo e associados a cada dispositivo individual:
 
 * Você usa _configurações_ para enviar dados de configuração para um dispositivo a partir de seu aplicativo. Por exemplo, um operador pode usar uma configuração para alterar o intervalo de telemetria do dispositivo de dois segundos para cinco segundos. Quando um operador altera uma configuração, a configuração é marcada como pendente na interface de usuário até que o dispositivo confirme que ele acionou a alteração de configuração.
+
 * Você usa _propriedades_ para registrar informações sobre seu dispositivo no seu aplicativo. Por exemplo, você pode usar propriedades para registrar o número de série do dispositivo ou o número de telefone do fabricante do dispositivo. Propriedades são armazenadas no aplicativo e não serão sincronizadas com o dispositivo. Um operador pode atribuir valores às propriedades.
+
 * Você usa _propriedades do dispositivo_ para habilitar um dispositivo para envio de valores de propriedade para o seu aplicativo. Essas propriedades só podem ser alteradas pelo dispositivo. Para um operador, as propriedades do dispositivo são somente leitura.
 
 ## <a name="use-settings"></a>Use as configurações
 
-Você usa _configurações_ para permitir que um operador envie dados de configuração para um dispositivo. Nesta seção, você adiciona uma configuração para o seu modelo de dispositivo de **Ar-condicionado conectado** que permite que um operador defina a temperatura de destino do ar-condicionado conectado.
+Você usa *configurações* para permitir que um operador envie dados de configuração para um dispositivo. Nesta seção, você adiciona uma configuração para o seu modelo de dispositivo de **Ar-condicionado conectado** que permite que um operador defina a temperatura de destino do ar-condicionado conectado.
 
 1. Navegue até a página **Configurações** para o seu modelo de dispositivo de **Ar-condicionado conectado**:
 
@@ -228,9 +232,9 @@ Você usa _configurações_ para permitir que um operador envie dados de configu
 
     Você pode criar configurações de tipos diferentes, como números ou texto.
 
-1. Escolha **Número** para adicionar uma configuração de número em seu dispositivo.
+2. Escolha **Número** para adicionar uma configuração de número em seu dispositivo.
 
-1. Para definir sua configuração de **Temperatura definida**, use as informações na tabela a seguir:
+3. Para definir sua configuração de **Temperatura definida**, use as informações na tabela a seguir:
 
     | Campo                | Valor           |
     | -------------------- | -----------     |
@@ -250,13 +254,13 @@ Você usa _configurações_ para permitir que um operador envie dados de configu
     > [!NOTE]
     > Quando o dispositivo confirmar a alteração da configuração, o status da configuração mudará para **sincronizado**.
 
-1. Você pode personalizar o layout da página **Configurações** movendo e redimensionando blocos de configurações:
+4. Você pode personalizar o layout da página **Configurações** movendo e redimensionando blocos de configurações:
 
     ![Personalizar layout das configurações](media/tutorial-define-device-type/settingslayout.png)
 
 ## <a name="use-properties"></a>Usar propriedades
 
-Você usa _propriedades_ para registrar informações sobre seu dispositivo no seu aplicativo. Nesta seção, você pode adicionar propriedades ao seu modelo de dispositivo de **Ar-condicionado conectado** para armazenar o número de série do dispositivo e a versão do firmware para cada dispositivo.
+Você usa *propriedades* para registrar informações sobre seu dispositivo no seu aplicativo. Nesta seção, você pode adicionar propriedades ao seu modelo de dispositivo de **Ar-condicionado conectado** para armazenar o número de série do dispositivo e a versão do firmware para cada dispositivo.
 
 1. Navegue até a página **Propriedades** para o seu modelo de dispositivo de **Ar-condicionado conectado**:
 
@@ -264,7 +268,7 @@ Você usa _propriedades_ para registrar informações sobre seu dispositivo no s
 
     Você pode criar propriedades de tipos diferentes, como números ou texto. Para adicionar uma propriedade de número de série para o modelo de dispositivo, escolha **Texto**.
 
-1. Para configurar sua propriedade de número de série, use as informações na tabela a seguir:
+2. Para configurar sua propriedade de número de série, use as informações na tabela a seguir:
 
     | Campo                | Valor                |
     | -------------------- | -------------------- |
@@ -279,9 +283,9 @@ Você usa _propriedades_ para registrar informações sobre seu dispositivo no s
 
     Depois escolha **Salvar**.
 
-1. Para adicionar uma propriedade de versão de firmware para o modelo de dispositivo, escolha **Texto**
+3. Para adicionar uma propriedade de versão de firmware para o modelo de dispositivo, escolha **Texto**
 
-1. Para configurar sua propriedade de versão de firmware, use as informações na tabela a seguir:
+4. Para configurar sua propriedade de versão de firmware, use as informações na tabela a seguir:
 
     | Campo                | Valor                   |
     | -------------------- | ----------------------- |
@@ -294,7 +298,7 @@ Você usa _propriedades_ para registrar informações sobre seu dispositivo no s
 
     Depois escolha **Salvar**.
 
-1. Você pode personalizar o layout da página **Propriedades** movendo e redimensionando blocos de propriedades:
+5. Você pode personalizar o layout da página **Propriedades** movendo e redimensionando blocos de propriedades:
 
     ![Personalizar o layout de propriedades](media/tutorial-define-device-type/propertieslayout.png)
 
@@ -306,11 +310,11 @@ Agora que você definiu seu modelo de dispositivo de **Ar-condicionado conectado
 
     ![Painéis de ar-condicionado conectado](media/tutorial-define-device-type/aircondashboards.png)
 
-1. Escolha **Gráfico de linhas** para adicionar o componente no **Painel**:
+2. Escolha **Gráfico de linhas** para adicionar o componente no **Painel**:
 
     ![Componentes do Painel](media/tutorial-define-device-type/dashboardcomponents1.png)
 
-1. Configure o componente **Gráfico de linhas** usando as informações na tabela a seguir:
+3. Configure o componente **Gráfico de linhas** usando as informações na tabela a seguir:
 
     | Configuração      | Valor       |
     | ------------ | ----------- |
@@ -322,7 +326,7 @@ Agora que você definiu seu modelo de dispositivo de **Ar-condicionado conectado
 
     Depois escolha **Salvar**.
 
-1. Configure o componente **Gráfico de Eventos** usando as informações na tabela a seguir:
+4. Configure o componente **Gráfico de Eventos** usando as informações na tabela a seguir:
 
     | Configuração      | Valor       |
     | ------------ | ----------- |
@@ -334,7 +338,7 @@ Agora que você definiu seu modelo de dispositivo de **Ar-condicionado conectado
 
     Depois escolha **Salvar**.
 
-1. Configure o componente **Gráfico de Estado** usando as informações na tabela a seguir:
+5. Configure o componente **Gráfico de Estado** usando as informações na tabela a seguir:
 
     | Configuração      | Valor       |
     | ------------ | ----------- |
@@ -346,11 +350,11 @@ Agora que você definiu seu modelo de dispositivo de **Ar-condicionado conectado
 
     Depois escolha **Salvar**.
 
-1. Para adicionar a configuração de temperatura definida ao painel, escolha **Configurações e propriedades**:
+6. Para adicionar a configuração de temperatura definida ao painel, escolha **Configurações e propriedades**:
 
     ![Componentes do Painel](media/tutorial-define-device-type/dashboardcomponents4.png)
 
-1. Configure o componente **Configurações e propriedades** usando as informações na tabela a seguir:
+7. Configure o componente **Configurações e propriedades** usando as informações na tabela a seguir:
 
     | Configuração                 | Valor         |
     | ----------------------- | ------------- |
@@ -361,11 +365,11 @@ Agora que você definiu seu modelo de dispositivo de **Ar-condicionado conectado
 
     Depois escolha **Salvar**.
 
-1. Para adicionar o número de série do dispositivo ao painel, escolha **Configurações e propriedades**:
+8. Para adicionar o número de série do dispositivo ao painel, escolha **Configurações e propriedades**:
 
     ![Componentes do Painel](media/tutorial-define-device-type/dashboardcomponents3.png)
 
-1. Configure o componente **Configurações e propriedades** usando as informações na tabela a seguir:
+9. Configure o componente **Configurações e propriedades** usando as informações na tabela a seguir:
 
     | Configuração                 | Valor         |
     | ----------------------- | ------------- |
@@ -376,11 +380,11 @@ Agora que você definiu seu modelo de dispositivo de **Ar-condicionado conectado
 
     Depois escolha **Salvar**.
 
-1. Para adicionar a versão de firmware do dispositivo ao painel, escolha **Configurações e propriedades**:
+10. Para adicionar a versão de firmware do dispositivo ao painel, escolha **Configurações e propriedades**:
 
     ![Componentes do Painel](media/tutorial-define-device-type/dashboardcomponents4.png)
 
-1. Configure o componente **Configurações e propriedades** usando as informações na tabela a seguir:
+11. Configure o componente **Configurações e propriedades** usando as informações na tabela a seguir:
 
     | Configuração                 | Valor            |
     | ----------------------- | ---------------- |
@@ -391,7 +395,7 @@ Agora que você definiu seu modelo de dispositivo de **Ar-condicionado conectado
 
     Depois escolha **Salvar**.
 
-1. Para visualizar o painel como um operador, desative **Modo de Design** na parte superior direita da página.
+12. Para visualizar o painel como um operador, desative **Modo de Design** na parte superior direita da página.
 
 ## <a name="next-steps"></a>Próximas etapas
 

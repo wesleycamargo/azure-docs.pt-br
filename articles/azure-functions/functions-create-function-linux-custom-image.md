@@ -11,11 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261314"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux usando uma imagem personalizada (versão prévia)
 
@@ -43,7 +44,7 @@ Para concluir este tutorial, você precisará:
 
 * [Git](https://git-scm.com/downloads)
 * Uma [assinatura ativa do Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Docker](https://docs.docker.com/install/)
 * Uma [conta do Hub do Docker](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
@@ -226,7 +227,7 @@ Neste tutorial, você aprendeu como:
 > * Implante um aplicativo de funções do Hub do Docker.
 > * Adicione configurações de aplicativo ao aplicativo de funções.
 
-Saiba mais sobre como desenvolver localmente Azure Functions usando as Ferramentas Básicas do Azure Functions.
+Saiba como habilitar a funcionalidade de integração contínua incorporada à plataforma central de Serviço de Aplicativo. É possível configurar seu aplicativo de funções para que o contêiner seja reimplantado quando você atualizar a imagem no Hub do Docker.
 
 > [!div class="nextstepaction"] 
-> [Codificar e testar o Azure Functions localmente](functions-run-local.md)
+> [Implantação contínua com o Aplicativo Web para Contêineres](../app-service/containers/app-service-linux-ci-cd.md)

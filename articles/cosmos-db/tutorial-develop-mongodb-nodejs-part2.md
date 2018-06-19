@@ -2,24 +2,22 @@
 title: Tutorial de MongoDB, Angular e Node para Azure - parte 2 | Microsoft Docs
 description: Parte 2 da série de tutoriais sobre como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 9d3c3209807a201f11d4d0a4ddd905f332a3951f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b35f003c18e19eafd3dfa9988409ceacb44e3bc4
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798059"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>Criar um aplicativo do MongoDB com Angular e Azure Cosmos DB - parte 2: criar um aplicativo Node.js Express com a CLI do Angular 
 
@@ -65,10 +63,10 @@ Este tutorial também requer:
 
 ## <a name="use-the-angular-cli-to-create-a-new-project"></a>Usar a CLI do Angular para criar um novo projeto
 
-1. No prompt de comando, altere para a pasta em que você deseja criar o novo projeto e execute o comando a seguir. Este comando cria uma nova pasta e o projeto chamado angular-cosmosdb e instala os componentes do Angular necessários para um novo aplicativo. Ele também instala o código-fonte na pasta src/client (-sd src/client), usa a configuração mínima (--minimal) e especifica que o projeto usa Sass (uma sintaxe semelhante a CSS com o sinalizador scss --style).
+1. No prompt de comando, altere para a pasta em que você deseja criar o novo projeto e execute o comando a seguir. Este comando cria uma nova pasta e o projeto chamado angular-cosmosdb e instala os componentes do Angular necessários para um novo aplicativo. Ele usa a configuração mínima (--minimal) e especifica que o projeto usa Sass (uma sintaxe semelhante a CSS com o sinalizador scss --style).
 
     ```bash
-    ng new angular-cosmosdb -sd src/client --minimal --style scss
+    ng new angular-cosmosdb --minimal --style scss
     ```
 
 2. Depois de concluir o comando, altere os diretórios na pasta src/client.
@@ -151,11 +149,9 @@ Este tutorial também requer:
 
 7. Salva todos os arquivos modificados. 
 
-8. No Visual Studio Code, clique no botão **Depurar** ![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), clique no botão de Engrenagem ![Botão de engrenagem no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png) e selecione **Node.js** para criar uma configuração.
+8. No Visual Studio Code, clique no botão **Depurar** ![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), clique no botão de Engrenagem ![Botão de engrenagem no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). O novo arquivo launch.json abre no Visual Studio Code.
 
-   O novo arquivo launch.json abre no Visual Studio Code.
-
-8. Na linha 11 do arquivo launch.json, altere `"program": "${file}"` para `"program": "${workspaceRoot}/src/server/index.js"` e salve o arquivo.
+8. Na linha 11 do arquivo launch.json, altere `"${workspaceFolder}\\server"` para `"program": "${workspaceRoot}/src/server/index.js"` e salve o arquivo.
 
 9. Clique no botão **Iniciar Depuração** ![ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) para executar o aplicativo.
 

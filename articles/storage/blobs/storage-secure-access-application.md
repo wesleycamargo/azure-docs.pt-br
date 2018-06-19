@@ -1,19 +1,20 @@
 ---
 title: Proteger o acesso aos dados de um aplicativo na nuvem com o Armazenamento do Azure | Microsoft Docs
-description: Use tokens SAS, criptografia e HTTPS para proteger os dados do aplicativo na nuvem
+description: Use tokens SAS, criptografia e HTTPS para proteger os dados do aplicativo na nuvem.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/06/2018
+ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 09a229d93ee8d5fec36a0cfa765e87bebaafc24d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bfc5085374759290701f49cdf25698827c0779e7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650087"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger o acesso aos dados de um aplicativo na nuvem
 
@@ -81,9 +82,6 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
     // Get reference to the container
     CloudBlobContainer container = blobClient.GetContainerReference(_storageConfig.ThumbnailContainer);
 
-    // Set the permission of the container to public
-    await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
-
     BlobContinuationToken continuationToken = null;
 
     BlobResultSegment resultSegment = null;
@@ -145,7 +143,7 @@ As classes, propriedades e métodos a seguir são usados na tarefa anterior:
 
 [A SSE (Criptografia do Serviço de Armazenamento) do Azure](../common/storage-service-encryption.md) ajuda a proteger seus dados. A SSE criptografa os dados em repouso, tratando da criptografia, descriptografia e gerenciamento de chaves. Todos os dados são criptografados usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, um dos codificadores de blocos mais potentes.
 
-A SSE criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Microsoft Azure (Blobs, Filas, Tabelas e Arquivos). 
+A SSE criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Azure (Blobs, Filas, Tabelas e Arquivos). 
 
 ## <a name="enable-https-only"></a>Habilitar o HTTPS apenas
 

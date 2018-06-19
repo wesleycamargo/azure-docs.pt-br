@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3508631336ac322268f12ff97e35827767ae1bb9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 27b8c9391de4014f45257e3808647b3e49c250b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651940"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Exemplos do Azure PowerShell para conjuntos de dimensionamento de máquinas virtuais
 
@@ -29,8 +30,9 @@ A tabela a seguir inclui links para scripts bash compilados usando o Azure Power
 | | |
 |---|---|
 |**Criar e gerenciar um conjunto de dimensionamento**||
-| [Criar um conjunto de dimensionamento de máquinas virtuais](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Cria um conjunto de dimensionamento de máquinas virtuais com configuração mínima. |
-| [Cria um conjunto de dimensionamento a partir de uma imagem de VM personalizada](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um conjunto de dimensionamento de máquinas virtuais que usa uma imagem de VM personalizada. |
+| [Criar um conjunto de dimensionamento de máquinas virtuais simples](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Cria um conjunto de dimensionamento de máquinas virtuais com configuração mínima. |
+| [Criar um conjunto de dimensionamento de máquinas virtuais completas](scripts/powershell-sample-create-complete-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Cria um conjunto de dimensionamento de máquinas virtuais e recursos associados com um arquivo de configuração. |
+| [Criar um conjunto de dimensionamento a partir de uma imagem de VM personalizada](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um conjunto de dimensionamento de máquinas virtuais que usa uma imagem de VM personalizada. |
 | [Instalar aplicativos em um conjunto de dimensionamento](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Use a Extensão de Script Personalizado do Azure para instalar um aplicativo Web básico em um conjunto de dimensionamento. |
 |**Gerenciar armazenamento**||
 | [Criar e anexar discos a um conjunto de dimensionamento](scripts/powershell-sample-attach-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria conjuntos de dimensionamento de máquina virtual com discos de dados anexados. |

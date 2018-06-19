@@ -1,26 +1,21 @@
 ---
-title: Fazer backup de VMs do Azure no Azure em escala | Microsoft Docs
+title: Fazer backup de VMs do Azure no Azure em escala
 description: Este tutorial oferece detalhes de como fazer backups de várias máquinas virtuais do Azure para um Cofre dos Serviços de Recuperação.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: backup de máquina virtual, fazer backup de máquina virtual, backup e recuperação de desastre
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/06/2017
-ms.author: trinadhk;jimpark;markgal;
+ms.author: trinadhk
 ms.custom: mvc
-ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 863960e012a8e345434459ad16526c8971f00b6b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606997"
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Fazer backup de máquinas virtuais do Azure no Azure em escala
 

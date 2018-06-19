@@ -5,26 +5,25 @@ keywords: Exemplos do Python
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: python
-ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
+ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 84b12ff3812803e3c1cb3b10cc939176303f1709
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 16c8f89218f735ed2c469ff03431dd35a9282e56
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831053"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python no Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [Exemplos do .NET](sql-api-dotnet-samples.md)
 > * [Exemplos de Java](sql-api-java-samples.md)
+> * [Exemplos de Async Java](sql-api-async-java-samples.md)
 > * [Exemplos do Node.js](sql-api-nodejs-samples.md)
 > * [Exemplos do Python](sql-api-python-samples.md)
 > * [Galeria de Exemplos de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

@@ -4,17 +4,17 @@ description: Este artigo orienta você quanto às etapas para criar uma definiç
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9b1cfd762d6f050994688d1cd6afd91f0e43bfc3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 43f069fbd8f4fcc13bbc4d9e75763fa98aec1065
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195770"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601455"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure
 
@@ -49,7 +49,7 @@ Neste guia de início rápido, você cria uma atribuição de política e atribu
    - Aplicar marca e seu valor
    - Requer o SQL Server versão 12.0
 
-    Para uma lista completa de todas as políticas internas disponíveis, veja [Modelos de política](json-samples.md).
+    Para ver uma lista completa de todas as políticas internas disponíveis, veja [Exemplos de política](json-samples.md).
 
 7. Pesquise a lista de definições de política para encontrar a definição *Auditar VMs que não usam discos gerenciados*. Clique na política e clique em **Selecionar**.
 

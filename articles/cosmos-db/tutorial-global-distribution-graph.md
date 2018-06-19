@@ -3,26 +3,24 @@ title: Tutorial de distribuição global do Azure Cosmos DB para a API do Graph 
 description: Saiba como configurar a distribuição global do Azure Cosmos DB usando a API do Graph.
 services: cosmos-db
 keywords: distribuição global, graph, gremlin
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
 editor: cgronlun
-ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 273b5aeafbf67016259da787f4dfef078ec0a669
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 61004a735f731cfd1303cf40b6e60cba496e942a
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763673"
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Como configurar a distribuição global do Azure Cosmos DB usando a API do Graph
+# <a name="set-up-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Configurar a distribuição global do Azure Cosmos DB usando a API do Graph
 
 Neste artigo, mostramos como usar o Portal do Azure para configurar a distribuição local do Azure Cosmos DB e, em seguida, conectar-se usando a API do Graph.
 

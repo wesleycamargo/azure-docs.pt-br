@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642692"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>Tutorial: dimensionar um cluster do Service Fabric
 
@@ -85,7 +86,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Agora que você está conectado, pode usar um comando para obter o status de cada nó no cluster. Para o PowerShell, use o comando `Get-ServiceFabricClusterHealth` e, para **sfctl**, use o comando `sfctl cluster select`.
+Agora que você está conectado, pode usar um comando para obter o status de cada nó no cluster. Para o **PowerShell**, use o comando `Get-ServiceFabricClusterHealth` e, para **sfctl**, use o comando `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Expansão
 
@@ -131,15 +132,15 @@ O cluster do service fabric precisa saber que este nó será removido. Você pre
 
 1. Desabilite o nó para que ele não seja mais uma replicação de dados.  
 PowerShell: `Disable-ServiceFabricNode`  
-sfcli: `sfctl node disable`
+sfctl: `sfctl node disable`
 
 2. Pare o nó de modo que o tempo de execução do service fabric seja desligado corretamente e o aplicativo obtenha uma solicitação de encerramento.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
-sfcli: `sfctl node transition --node-transition-type Stop`
+sfctl: `sfctl node transition --node-transition-type Stop`
 
 2. Remova o nó do cluster.  
 PowerShell: `Remove-ServiceFabricNodeState`  
-sfcli: `sfctl node remove-state`
+sfctl: `sfctl node remove-state`
 
 Depois que essas três etapas tiverem sido aplicadas ao nó, ele poderá ser removido do conjunto de dimensionamento. Se você estiver usando qualquer camada de durabilidade além [bronze][durability], estas etapas serão executadas para você quando a instância do conjunto de dimensionamento for removida.
 
