@@ -1,5 +1,5 @@
 ---
-title: Criar um ambiente de desenvolvimento Kubernetes na nuvem usando o .NET Core e o VS Code | Microsoft Docs
+title: Criar um espaço de desenvolvimento Kubernetes na nuvem usando o .NET Core e o VS Code | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: douge
-ms.openlocfilehash: a57118feb85a010e38d73b758ebfb84d1cc463fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bd42268c36f44dc20b88d27d19cbf378e848b82f
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361243"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823139"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Introdução ao Azure Dev Spaces com .NET Core
 
@@ -24,15 +24,15 @@ ms.locfileid: "34361243"
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
-Agora você está pronto para criar um ambiente de desenvolvimento baseado em Kubernetes no Azure.
+Agora você está pronto para criar um espaço de desenvolvimento baseado em Kubernetes no Azure.
 
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 ## <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
-O Azure Dev Spaces requer somente uma configuração mínima do computador local. A maior parte da configuração do seu ambiente de desenvolvimento é armazenada na nuvem e pode ser compartilhada com outros usuários. Comece baixando e executando a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+O Azure Dev Spaces requer somente uma configuração mínima do computador local. A maior parte da configuração do seu espaço de desenvolvimento é armazenada na nuvem e pode ser compartilhada com outros usuários. Comece baixando e executando a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
-> Se você já tiver a CLI do Azure instalada, verifique se está usando a versão 2.0.32 ou superior.
+> Se você já tiver a CLI do Azure instalada, verifique se está usando a versão 2.0.33 ou superior.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -40,9 +40,13 @@ O Azure Dev Spaces requer somente uma configuração mínima do computador local
 
 [!INCLUDE[](includes/install-vscode-extension.md)]
 
-Enquanto você aguarda o cluster ser criado, você pode iniciar o desenvolvimento do código.
+Você pode começar a desenvolver o código enquanto aguarda a criação do cluster.
 
-## <a name="create-an-aspnet-core-web-app"></a>Criar um aplicativo Web ASP.NET Core
+## <a name="create-a-web-app-running-in-a-container"></a>Criar um aplicativo Web em execução em um contêiner
+
+Nesta seção, você criará um aplicativo Web ASP.NET Core e o executará em um contêiner no Kubernetes.
+
+### <a name="create-an-aspnet-core-web-app"></a>Criar um aplicativo Web ASP.NET Core
 Se você tiver [.NET Core](https://www.microsoft.com/net) instalado, você pode criar rapidamente um aplicativo Web do ASP.NET Core em uma pasta chamada `webfrontend`.
     
 ```cmd
@@ -55,17 +59,17 @@ Ou, **baixar o código de exemplo do GitHub** navegando até https://github.com/
 
 [!INCLUDE[](includes/build-run-k8s-cli.md)]
 
-## <a name="update-a-content-file"></a>Atualizar um arquivo de conteúdo
-O Azure Dev Spaces não serve apenas para executar o código em Kubernetes, ele também serve para permitir que você veja as alterações de código entrarem em vigor de forma rápida e iterativa em um ambiente de Kubernetes na nuvem.
+### <a name="update-a-content-file"></a>Atualizar um arquivo de conteúdo
+O Azure Dev Spaces não serve apenas para executar o código em Kubernetes; ele também serve para permitir que você veja as alterações de código entrarem em vigor de forma rápida e iterativa em um ambiente Kubernetes na nuvem.
 
 1. Localize o arquivo `./Views/Home/Index.cshtml` e edite o HTML. Por exemplo, altere a linha 70 que lê `<h2>Application uses</h2>` para algo como: `<h2>Hello k8s in Azure!</h2>`
 1. Salve o arquivo. Em seguida, na janela do Terminal, você verá uma mensagem informando que um arquivo no contêiner em execução foi atualizado.
 1. Volte para o navegador e atualize a página. Você verá a página da Web exibir o HTML atualizado.
 
-O que aconteceu? Edições em arquivos de conteúdo, como HTML e CSS, não exigem a recompilação em um aplicativo Web do .NET Core, portanto um comando `azds up` ativo sincroniza automaticamente os arquivos de conteúdo modificados no contêiner em execução no Azure, assim você pode ver suas edições de conteúdo imediatamente.
+O que aconteceu? Edições em arquivos de conteúdo, como HTML e CSS, não exigem a recompilação em um aplicativo Web do .NET Core e, portanto um comando `azds up` ativo sincroniza automaticamente os arquivos de conteúdo modificados no contêiner em execução no Azure. Assim, você pode ver suas edições de conteúdo imediatamente.
 
-## <a name="update-a-code-file"></a>Atualizar um arquivo de código
-Atualizar os arquivos de código requer um pouco mais de trabalho, pois um aplicativo .NET Core precisa recompilar e produzir os binários do aplicativo atualizado.
+### <a name="update-a-code-file"></a>Atualizar um arquivo de código
+A atualização dos arquivos de código requer um pouco mais de trabalho, pois um aplicativo .NET Core precisa recompilar e produzir os binários do aplicativo atualizado.
 
 1. Na janela do terminal, pressione `Ctrl+C` (para parar `azds up`).
 1. Abra o arquivo de código chamado `Controllers/HomeController.cs` e edite a mensagem exibida na página Sobre: `ViewData["Message"] = "Your application description page.";`
@@ -85,7 +89,7 @@ Mas existe um *método ainda mais rápido* para desenvolver código, que você i
 
 
 ### <a name="select-the-azds-debug-configuration"></a>Selecionar a configuração de depuração AZDS
-1. Para abrir o modo de exibição Depuração, clique no ícone Depuração na **Barra de Atividades** no lado do VS Code.
+1. Para abrir o modo de exibição Depuração, clique no ícone Depuração na **Barra de Atividades** do lado do VS Code.
 1. Selecione **Inicialização do .NET Core (AZDS)** como a configuração de depuração ativa.
 
 ![](media/get-started-netcore/debug-configuration.png)
@@ -97,13 +101,13 @@ Mas existe um *método ainda mais rápido* para desenvolver código, que você i
 ### <a name="debug-the-container-in-kubernetes"></a>Depurar o contêiner no Kubernetes
 Pressione **F5** para depurar seu código no Kubernetes.
 
-Assim como acontece com o comando `up`, o código está sincronizado com o ambiente de desenvolvimento e um contêiner é criado e implantado no Kubernetes. Desta vez, é claro, o depurador está anexado ao contêiner remoto.
+Assim como acontece com o comando `up`, o código está sincronizado com o espaço de desenvolvimento e um contêiner é criado e implantado no Kubernetes. Desta vez, é claro, o depurador está anexado ao contêiner remoto.
 
 [!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
 
 Defina um ponto de interrupção em um arquivo de código do lado do servidor, por exemplo, dentro da função `Index()` no arquivo de origem `Controllers/HomeController.cs`. A atualização da página do navegador gera o ponto de interrupção.
 
-Você tem acesso completo às informações de depuração exatamente como teria se o código fosse executado localmente, por exemplo, a pilha de chamadas, as variáveis locais, as informações de exceção, etc.
+Você tem acesso completo às informações de depuração exatamente como teria se o código fosse executado localmente, por exemplo, a pilha de chamadas, as variáveis locais, as informações de exceção etc.
 
 ### <a name="edit-code-and-refresh"></a>Editar código e atualizar
 Com o depurador ativo, edite o código. Por exemplo, modifique a mensagem da página Sobre em `Controllers/HomeController.cs`. 
@@ -120,7 +124,7 @@ Salve o arquivo e, no **painel Ações de depuração**, clique no botão **Atua
 
 ![](media/get-started-netcore/debug-action-refresh.png)
 
-Em vez de recompilar e reimplantar uma nova imagem de contêiner sempre que são feitas edições de código, que geralmente demorarão um tempo considerável, o Azure Dev Spaces recompilará o código de forma incremental dentro do contêiner existente para fornecer um loop de edição/depuração mais rápido.
+Em vez de recompilar e reimplantar uma nova imagem de contêiner sempre que houver edições de código, o que geralmente levará um tempo considerável, o Azure Dev Spaces recompilará incrementalmente o código dentro do contêiner existente para fornecer um loop de edição/depuração mais rápido.
 
 Atualize o aplicativo Web no navegador e vá para a página Sobre. Sua mensagem personalizada deverá aparecer na interface de usuário.
 
@@ -138,7 +142,7 @@ Por economizar tempo, vamos baixar o código de exemplo de um repositório do Gi
 ### <a name="run-mywebapi"></a>Execute *mywebapi*
 1. Abra a pasta `mywebapi` em uma *janela separada do VS Code*.
 1. Pressione F5 e aguarde a criação e implantação do serviço. Você saberá que está pronto quando a barra de depuração do VS Code for exibida.
-1. Anote a URL do ponto de extremidade, ele será parecida com http://localhost:\<portnumber\>. **Dica: A barra de status do VS Code exibirá uma URL clicável.** Pode parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está em execução em nosso ambiente de desenvolvimento no Azure. O motivo para o endereço do localhost é porque `mywebapi` não definiu nenhum ponto de extremidade público e somente pode ser acessado de dentro da instância de Kubernetes. Para sua conveniência e para facilitar a interação com o serviço privado em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure.
+1. Anote a URL do ponto de extremidade, ele será parecida com http://localhost:\<portnumber\>. **Dica: A barra de status do VS Code exibirá uma URL clicável.** Pode parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está em execução no nosso espaço de desenvolvimento no Azure. O motivo para o endereço do localhost é porque `mywebapi` não definiu nenhum ponto de extremidade público e somente pode ser acessado de dentro da instância de Kubernetes. Para sua conveniência e para facilitar a interação com o serviço privado em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure.
 1. Quando `mywebapi` estiver pronto, abra seu navegador para o endereço do localhost. Acrescente `/api/values` na URL para invocar a API GET padrão para `ValuesController`. 
 1. Se todas as etapas foram bem-sucedidas, você poderá ver uma resposta do serviço `mywebapi`.
 
@@ -152,23 +156,25 @@ Vamos escrever código agora em `webfrontend`, que faz uma solicitação para `m
     {
         ViewData["Message"] = "Hello from webfrontend";
         
-        // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
-        // headers in the incoming request to any outgoing requests
-        using (var client = new HeaderPropagatingHttpClient(this.Request))
-        {
-            // Call *mywebapi*, and display its response in the page
-            var response = await client.GetAsync("http://mywebapi/api/values/1");
-            ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-        }
+        using (var client = new System.Net.Http.HttpClient())
+            {
+                // Call *mywebapi*, and display its response in the page
+                var request = new System.Net.Http.HttpRequestMessage();
+                request.RequestUri = new Uri("http://mywebapi/api/values/1");
+                if (this.Request.Headers.ContainsKey("azds-route-as"))
+                {
+                    // Propagate the dev space routing header
+                    request.Headers.Add("azds-route-as", this.Request.Headers["azds-route-as"] as IEnumerable<string>);
+                }
+                var response = await client.SendAsync(request);
+                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+            }
 
         return View();
     }
     ```
 
-Observe como a descoberta de serviço DNS dos Kubernetes é utilizada para referir-se ao serviço como `http://mywebapi`. **O código em seu ambiente de desenvolvimento está em execução da mesma forma que ele será executado em produção**.
-
-O exemplo de código acima também usa uma classe `HeaderPropagatingHttpClient`. Esta classe auxiliar foi adicionada à sua pasta de código no momento em que você executou `azds prep`. `HeaderPropagatingHttpClient` é derivada da famosa classe `HttpClient` e adiciona a funcionalidade para propagar cabeçalhos específicos de um objeto HttpRequest ASP.NET existente em um objeto HttpRequestMessage de saída. Veremos mais tarde como o uso dessa classe derivada facilita uma experiência de desenvolvimento mais produtiva em cenários de equipe.
-
+O exemplo de código anterior encaminha o cabeçalho `azds-route-as` da solicitação de entrada para a solicitação de saída. Você verá posteriormente como isso ajuda as equipes de desenvolvimento colaborativas.
 
 ### <a name="debug-across-multiple-services"></a>Depurar em vários serviços
 1. Neste ponto, `mywebapi` ainda deve estar em execução com o depurador anexado. Se não estiver, pressione F5 no projeto `mywebapi`.

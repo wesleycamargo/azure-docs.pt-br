@@ -1,23 +1,25 @@
 ---
-title: "Usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory | Microsoft Docs"
-description: "Saiba mais sobre os usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory"
+title: Usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory | Microsoft Docs
+description: Saiba mais sobre os usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory
 services: active-directory
-author: MarkusVi
-manager: femila
+author: rolyon
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/23/2018
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ed6201e9edcef39b14b948b6b2f6e0b5da01ec60
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 030a45335f06c4f15a5136842a7f6477bac8253b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588702"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Corrigir usuários sinalizados como de risco no portal do Azure Active Directory
 
@@ -29,12 +31,20 @@ A Microsoft está empenhada em ajudar a manter seus ambientes protegidos. Como p
 Se forem detectadas atividades incomuns que possam indicar o acesso não autorizado a algumas das suas contas de usuário, você receberá notificações permitindo a tomada de medidas. As notificações não significam que os próprios sistemas da Microsoft foram comprometidos.
  
 
-## <a name="azure-active-directory-report-access"></a>Acesso ao relatório do Azure Active Directory
+## <a name="access-the-users-flagged-for-risk-report"></a>Acesse os usuários sinalizados para o relatório de risco
 
-Você pode examinar os usuários sinalizados como de risco em um relatório online do Azure Active Directory. Se você não é um assinante do Azure, pode passar pelo processo de assinatura, sem nenhum custo, em [http://aka.ms/AccessAAD](http://aka.ms/AccessAAD).  
-Uma vez concluído, você pode usar suas credenciais do Office 365 para acessar o Centro de administração do Azure. Observe que, no nível de assinatura básica, a quantidade de detalhes fornecida é limitada. Outras análises e dados estão disponíveis para assinantes Premium do Azure. Para saber mais, confira o [Relatório de segurança de usuários sinalizados como de risco no portal do Azure Active Directory](active-directory-reporting-security-user-at-risk.md).
+Você pode examinar os usuários sinalizados como de risco através do [relatório](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) relacionado no Azure Active Directory (AD). Se você não é um assinante do Azure AD, você pode passar pelo processo de assinatura único, sem nenhum custo, em [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). Neste relatório você pode executar várias ações, como:
 
-Após ativar seu acesso ao Azure AD, você será redirecionado para o [portal do Azure AD](https://portal.azure.com). Para ir diretamente para o relatório, navegue até a seguinte URL: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk).
+- Gerar senha temporária
+- Exigir que o usuário redefina a senha de forma segura na próxima vez que ele se conectar
+- Ignorar o risco de usuário sem realizar nenhuma ação de correção.
+
+Para saber mais, confira [Relatório de segurança de usuários sinalizados como de risco no portal do Azure Active Directory](active-directory-reporting-security-user-at-risk.md).
+
+### <a name="azure-ad-subscription-for-office-365-customers"></a>Assinatura do Azure AD para clientes do Office 365
+
+Uma vez concluído, você pode usar suas credenciais do Office 365 para acessar o Centro de administração do Azure. Após ativar seu acesso ao Azure AD, você será redirecionado para o portal do Azure AD. No nível de assinatura básica, a quantidade de detalhes fornecida nos relatórios é limitada. Outras análises e dados estão disponíveis para assinantes Premium do Azure.
+
 
 **Para acessar os relatórios de Usuários sinalizados como de risco no Centro de administração do Office 365:**
 
@@ -45,7 +55,7 @@ Após ativar seu acesso ao Azure AD, você será redirecionado para o [portal do
 4.  No menu de navegação à esquerda, clique em **Azure Active Directory**. 
 5.  No painel de navegação, em **Segurança**, clique em **Usuários sinalizados como de risco**.
 
-Analise as informações exibidas aqui. Você deve redefinir a senha para as contas listadas aqui. 
+Analise as informações exibidas aqui. Você deve redefinir a senha para as contas listadas. 
 
 ## <a name="remediation-actions"></a>Ações de correção
 

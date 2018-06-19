@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 618ed0f72886fff1c2de11e2fd856f6cc065a7b3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657580"
 ---
 # <a name="network-security"></a>Segurança de rede
 
@@ -138,7 +139,7 @@ Não é possível remover as regras padrão, mas você pode substituí-las crian
 
 Os grupos de segurança de aplicativo permitem a você configurar a segurança de rede como uma extensão natural da estrutura de um aplicativo, permitindo o agrupamento de máquinas virtuais e a definição de políticas de segurança de rede com base nesses grupos. Esse recurso permite que você reutilize sua política de segurança em escala sem precisar manter endereços IP explícitos manualmente. A plataforma lida com a complexidade de endereços IP explícitos e vários conjuntos de regras, permitindo que você se concentre na sua lógica de negócios.
 
-Você pode especificar um grupo de segurança do aplicativo como a origem e o destino em uma regra de segurança. Quando a política de segurança é definida, você pode criar máquinas virtuais e atribuir os adaptadores de rede na máquina virtual a um grupo de segurança de aplicativo. A política é aplicada com base na associação do grupo de segurança de aplicativo de cada adaptador de rede em uma máquina virtual. O exemplo a seguir ilustra como você pode usar um grupo de segurança de aplicativo para todos os servidores Web na sua assinatura:
+Você pode especificar um grupo de segurança do aplicativo como a origem e o destino em uma regra de segurança. Você não pode especificar vários grupos de segurança de aplicativos na origem e no destino. Quando a política de segurança é definida, você pode criar máquinas virtuais e atribuir os adaptadores de rede na máquina virtual a um grupo de segurança de aplicativo. A política é aplicada com base na associação do grupo de segurança de aplicativo de cada adaptador de rede em uma máquina virtual. O exemplo a seguir ilustra como você pode usar um grupo de segurança de aplicativo para todos os servidores Web na sua assinatura:
 
 1. Crie um grupo de segurança de aplicativo chamado *WebServers*.
 2. Crie um grupo de segurança de rede chamado *MyNSG*.
@@ -152,7 +153,7 @@ Para saber mais sobre limites durante a criação de grupos de segurança de apl
 Os grupos de segurança do aplicativo têm as seguintes restrições:
 
 -   Todas as interfaces de rede atribuídas a um grupo de segurança do aplicativo devem existir na mesma rede virtual que a primeira interface de rede atribuída ao grupo de segurança que o aplicativo está. Por exemplo, se a primeira interface de rede atribuída a um grupo de segurança de aplicativo chamada *ASG1* estiver na rede virtual denominada *VNet1*, em seguida,todas as interfaces de rede subsequentes atribuídas *ASG1* devem existir no *VNet1*. Você não pode adicionar interfaces de rede de redes virtuais diferentes ao mesmo grupo de segurança do aplicativo.
-- Se você especificar grupos de segurança do aplicativo como a origem e o destino em uma regra de segurança, as interfaces de rede em ambos os grupos de segurança do aplicativo deverão existir na mesma rede virtual. Por exemplo, se ASG1 contiver interfaces de rede da VNet1 e se ASG2 contiver interfaces de rede da VNet2, você não poderá atribuir ASG1 como a origem e o ASG2 como o destino em uma regra, todas as interfaces de rede precisam existir em VNet1.
+- Se você especificar um grupo de segurança do aplicativo como a origem e o destino em uma regra de segurança, as interfaces de rede em ambos os grupos de segurança do aplicativo deverão existir na mesma rede virtual. Por exemplo, se ASG1 contiver interfaces de rede da VNet1 e se ASG2 contiver interfaces de rede da VNet2, você não poderá atribuir ASG1 como a origem e o ASG2 como o destino em uma regra. Todas as interfaces de rede precisam existir na VNet1.
 
 ## <a name="azure-platform-considerations"></a>Considerações sobre a plataforma do Azure
 

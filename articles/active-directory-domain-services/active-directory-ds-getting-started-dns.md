@@ -7,39 +7,39 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2017
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 972b995d3768e765b95c136b3cfbee91ab0a88ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4f76602d469766f75e7a3948ae1aed290bffb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588991"
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>Habilitar o Azure Active Directory Domain Services
 
 ## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Tarefa 4: atualizar as configurações do DNS para a rede virtual do Azure
-Nas tarefas de configuração anteriores, você habilitou o Azure Active Directory Domain Services para seu diretório com êxito. A próxima tarefa é garantir que os computadores na rede virtual possam se conectar e consumir esses serviços. Neste artigo, você atualiza as configurações do servidor DNS para sua rede virtual para apontar para os dois endereços IP em que o Azure Active Directory Domain Services fica disponível na rede virtual.
+Nas tarefas de configuração anteriores, você habilitou o Azure Active Directory Domain Services para seu diretório com êxito. Em seguida, permita que os computadores na rede virtual possam se conectar e consumir esses serviços. Neste artigo, você atualiza as configurações do servidor DNS para sua rede virtual para apontar para os dois endereços IP em que o Azure Active Directory Domain Services fica disponível na rede virtual.
 
-Para atualizar uma configuração do servidor DNS para a rede virtual na qual você tiver habilitado o Azure Active Directory Domain Services, conclua as seguintes etapas:
+Para atualizar as configurações do servidor DNS para a rede virtual na qual você tiver habilitado o Azure Active Directory Domain Services, conclua as seguintes etapas:
+
 
 1. A guia **Visão Geral** lista um conjunto de **etapas de configuração necessárias** que deverão ser executadas depois que o domínio gerenciado for totalmente provisionado. A primeira etapa de configuração é **Atualizar configurações do servidor DNS para sua rede virtual**.
 
-    ![Domain Services - guia Visão geral depois de totalmente provisionado](./media/getting-started/domain-services-provisioned-overview.png)
+    ![Serviços de Domínio - guia Visão Geral](./media/getting-started/domain-services-provisioned-overview.png)
 
-2. Quando o seu domínio está totalmente provisionado, dois endereços IP são exibidos neste bloco. Cada um do endereços IP representa um controlador de domínio para seu domínio gerenciado.
+    > [!TIP]
+    > Não está vendo essa etapa da configuração? Se as configurações do servidor DNS de sua rede virtual estiverem atualizadas, você não verá o bloco "Atualizar configurações do servidor DNS de sua rede virtual" na guia.
+    >
+    >
 
-3. Para copiar o primeiro endereço IP na área de transferência, clique no botão Copiar ao lado dele. Em seguida, clique no botão **Configurar servidores DNS**.
-
-4. Cole o primeiro endereço IP na caixa de texto **Adicionar servidor DNS** na folha **servidores DNS**. Role horizontalmente para a esquerda a fim de copiar o segundo endereço IP e cole-o na caixa de texto **Adicionar servidor DNS**.
-
-    ![Domain Services- atualizar o DNS](./media/getting-started/domain-services-update-dns.png)
-
-5. Clique em **Salvar** quando terminar de atualizar os servidores DNS para a rede virtual.
+2. Clique no botão **Configurar** para atualizar as configurações do servidor DNS da rede virtual.
 
 > [!NOTE]
 > As máquinas virtuais na rede só recebem as novas configurações de DNS após uma reinicialização. Se você precisar deles para obter as configurações de DNS atualizadas imediatamente, dispare uma reinicialização do portal, do PowerShell ou da CLI.

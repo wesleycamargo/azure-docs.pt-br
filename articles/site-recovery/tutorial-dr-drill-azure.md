@@ -5,41 +5,42 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 06/04/2018
 ms.author: raynew
-ms.openlocfilehash: 724144e8f2f2f76c4ad98b4c5cad84e69dadadbb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d1b6dec122672e4f6260105f7b50af2cd7369947
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209718"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737098"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Realizar uma análise detalhada da recuperação de desastre para o Azure
 
-Este tutorial mostra como executar uma análise detalhada da recuperação de desastre para máquinas locais no Azure usando um failover de teste. Uma análise detalhada valida sua estratégia de replicação, sem perda de dados. Neste tutorial, você aprenderá como:
+O [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) mantendo seus aplicativos de negócios em execução durante interrupções planejadas e não planejadas. O Site Recovery gerencia e orquestra a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
+
+- Este é o quarto tutorial em uma série que mostra como configurar a recuperação de desastres para o Azure para VMs VMware locais. Ele supõe que você concluiu os dois primeiros tutoriais:
+    - No [primeiro tutorial](tutorial-prepare-azure.md), configuramos os componentes do Azure necessários para a recuperação de desastres do VMware.
+    - No [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md) , preparamos os componentes locais para a recuperação de desastres e analisamos os pré-requisitos.
+    - No [terceiro tutorial](vmware-azure-tutorial.md) configuramos e habilitamos a replicação para nossa VM VMware local.
+- Os tutoriais destinam-se a mostrar o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. 
+
+
+Este artigo mostra como executar uma análise detalhada da recuperação de desastre para máquinas locais no Azure usando um failover de teste. Uma análise detalhada valida sua estratégia de replicação, sem perda de dados. Saiba como:
 
 > [!div class="checklist"]
 > * Configurar uma rede isolada para o failover de teste
 > * Preparar-se para conectar-se à VM do Azure após o failover
 > * Executar um failover de teste para um único computador
 
-Este é o quarto tutorial de uma série. Este tutorial presume que você já tenha concluído as tarefas nos tutoriais anteriores.
-
-1. [Preparar o Azure](tutorial-prepare-azure.md)
-2. [Preparar o VMware local](tutorial-prepare-on-premises-vmware.md)
-3. [Configurar a recuperação de desastre](tutorial-vmware-to-azure.md)
+Este tutorial configura a recuperação de desastres da VMware no Azure com as configurações mais simples. Se você quiser saber mais sobre as etapas de failover de teste em mais detalhes, leia o [Guia](site-recovery-test-failover-to-azure.md).
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
-Antes de executar um failover de teste, verifique as propriedades da VM e verifique se a VM Hyper-V[hyper-v-azure-support-matrix.md#replicated-vms], a [VM VMware ou o servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines) atende aos requisitos do Azure.
+Antes de executar um failover de teste, verifique as propriedades da VM VMware e verifique se a VM Hyper-V[hyper-v-azure-support-matrix.md#replicated-vms], a [VM VMware ou o servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines) atende aos requisitos do Azure.
 
-1. Em **Itens Protegidos**, clique em **Itens Replicados** > VM.
+1. Em **Itens Protegidos**, clique em **Itens Replicados** > e na VM.
 2. No painel **Item Replicado**, há um resumo das informações da VM, o status de integridade e os últimos pontos de recuperação disponíveis. Clique em **Propriedades** para exibir mais detalhes.
-3. Em **Computação e Rede**, você pode modificar o nome do Azure, o grupo de recursos, o tamanho do destino, o [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) e as configurações de disco gerenciado.
-   
-      >[!NOTE]
-      No momento, o failback para máquinas Hyper-V locais de VMs do Azure com discos gerenciados não é compatível. Você só deverá usar a opção de discos gerenciados para o failover se planejar migrar VMs do local para o Azure, sem fazer seu failback.
-   
+3. Em **Computação e Rede**, você pode modificar o nome do Azure, o grupo de recursos, o tamanho do destino, o conjunto de disponibilidade e as configurações de disco gerenciado.
 4. Você pode exibir ou modificar as configurações de rede, incluindo a rede/sub-rede na qual a VM do Azure estará localizada após o failover e o endereço IP que será atribuído a ela.
 5. Em **Discos**, é possível visualizar as informações sobre o sistema operacional e os discos de dados na VM.
 

@@ -1,24 +1,20 @@
 ---
-title: "Visão geral dos conceitos básicos do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Uma introdução ao uso do Barramento de Serviço para conectar os aplicativos do Azure a outro software."
+title: Visão geral dos conceitos básicos do Barramento de Serviço do Azure | Microsoft Docs
+description: Uma introdução ao uso do Barramento de Serviço para conectar os aplicativos do Azure a outro software.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/31/2018
+ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641315"
 ---
 # <a name="azure-service-bus"></a>Barramento de Serviço do Azure
 
@@ -37,14 +33,14 @@ O Service Bus é um serviço de nuvem de diversos clientes, o que significa que 
 Dentro de um namespace, você pode usar uma ou mais instâncias de três mecanismos de comunicação diferentes, cada um deles conecta aplicativos de uma maneira diferente. As opções são:
 
 * *Filas de*, que permitem a comunicação de um-direcional. Cada fila atua como um intermediário (às vezes chamado de um *agente*) que armazena mensagens enviadas até que eles são recebidos. Cada mensagem é recebida por um único destinatário.
-* *Tópicos*, que fornecem uma comunicação unidirecional usando *assinaturas* - um único tópico pode ter várias assinaturas. Como uma fila, um tópico age como um agente, mas cada assinatura pode, opcionalmente, usar um filtro para receber apenas as mensagens que correspondem a critérios específicos.
+* *Tópicos*, que fornecem comunicação unidirecional usando *assinaturas*. Um único tópico pode ter várias assinaturas. Como uma fila, um tópico age como um agente, mas cada assinatura pode, opcionalmente, usar um filtro para receber apenas as mensagens que correspondem a critérios específicos.
 * *Retransmissões*, que fornece comunicação bidirecional. Ao contrário das filas e dos tópicos, uma retransmissão não armazena as mensagens em trânsito. Ela não é um agente. Em vez disso, ele só as passa para o aplicativo de destino.
 
 Ao criar uma fila, um tópico ou uma retransmissão, você atribui um nome a ele/ela. Esse nome combinado com qualquer é chamado seu espaço para nome, cria um identificador exclusivo para o objeto. Os aplicativos podem fornecer esse nome ao Barramento de Serviço e usar essa fila, tópico ou retransmissão para se comunicar uns com os outros. 
 
 Para usar qualquer um desses objetos no cenário de retransmissão, os aplicativos do Windows podem usar o WCF (Windows Communication Foundation). Esse serviço é conhecido como [Retransmissão WCF](../service-bus-relay/relay-what-is-it.md). Para as filas e os tópicos, os aplicativos do Windows podem usar as APIs de mensagens definidas pelo Barramento de Serviço. Para tornar esses objetos mais fáceis de usar a partir de aplicativos que não são do Windows, a Microsoft fornece SDKs para Java, Node.js e outras linguagens. Você também pode acessar as filas e os tópicos usando as [APIs REST](/rest/api/servicebus/) no(s) HTTP(s). 
 
-É importante compreender que, embora o Barramento de Serviço em si seja executado na nuvem (ou seja, nos datacenters do Azure da Microsoft), os aplicativos que o utilizam podem ser executados em qualquer lugar. Você pode usar o Service Bus para conectar aplicativos em execução no Azure, por exemplo, ou aplicativos executados dentro de seu próprio datacenter. Também pode usá-lo para se conectar a um aplicativo em execução no Azure ou outra plataforma de nuvem com um aplicativo local ou tablets e telefones. Também é possível conectar os aparelhos domésticos, sensores e outros dispositivos a um aplicativo central, ou conectá-los uns com os outros. O Barramento de Serviço é um mecanismo de comunicação na nuvem, que é acessível a partir de praticamente qualquer lugar. Como você o usa depende do que os seus aplicativos precisam fazer.
+É importante compreender que, embora o Barramento de Serviço em si seja executado na nuvem (ou seja, nos datacenters do Microsoft Azure), os aplicativos que o utilizam podem ser executados em qualquer lugar. Você pode usar o Service Bus para conectar aplicativos em execução no Azure, por exemplo, ou aplicativos executados dentro de seu próprio datacenter. Também pode usá-lo para se conectar a um aplicativo em execução no Azure ou outra plataforma de nuvem com um aplicativo local ou com tablets e telefones. O Barramento de Serviço é um mecanismo de comunicação na nuvem, que é acessível a partir de praticamente qualquer lugar. Como você o usa depende do que os seus aplicativos precisam fazer.
 
 ## <a name="queues"></a>Filas
 
@@ -54,9 +50,9 @@ Suponha que você queira conectar dois aplicativos usando uma fila do Barramento
 
 **Figura 2: Filas do Barramento de Serviço fornecem o enfileiramento de mensagens assíncronas unidirecional.**
 
-Um remetente enviar uma mensagem para uma fila do Barramento de Serviço e um receptor pega essa mensagem em um momento posterior. Uma fila pode ter apenas um único destinatário, como a Figura 2 mostra. Ou vários aplicativos podem ler na mesma fila. Na última situação, cada mensagem é lida por apenas um destinatário. Para um serviço de vários casts, você deve usar um tópico.
+Um remetente envia uma mensagem para uma fila do Barramento de Serviço e um receptor consome essa mensagem em um momento posterior. Uma fila pode ter apenas um único destinatário, como a Figura 2 mostra. Ou vários aplicativos podem ler na mesma fila. Na última situação, cada mensagem é lida por apenas um destinatário. Para um serviço de vários casts, você deve usar um tópico.
 
-Cada mensagem tem duas partes: um conjunto de propriedades, cada um par chave/valor e uma carga de mensagem. A carga pode ser binária, texto ou até mesmo XML. Como eles são usados depende de que um aplicativo está tentando fazer. Por exemplo, um aplicativo de envio de uma mensagem sobre uma venda recente pode incluir as propriedades **Vendedor = "Ana"** e **Valor = 10000**. O corpo da mensagem pode conter uma imagem digitalizada do contrato assinado da venda ou, se não houver uma, permanecerá vazio.
+Cada mensagem tem duas partes: um conjunto de propriedades, um par chave/valor e um conteúdo de mensagem. A carga pode ser binária, texto ou até mesmo XML. Como eles são usados depende de que um aplicativo está tentando fazer. Por exemplo, um aplicativo de envio de uma mensagem sobre uma venda recente pode incluir as propriedades **Vendedor = "Ana"** e **Valor = 10000**. O corpo da mensagem pode conter uma imagem digitalizada do contrato assinado da venda ou, se não houver uma, permanecerá vazio.
 
 Um receptor pode ler uma mensagem de uma fila do Service Bus de duas maneiras diferentes. A primeira opção, chamada *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)*, recebe uma mensagem da fila e a exclui imediatamente. Essa opção é simples, mas se o receptor falhar antes de terminar de processar a mensagem, a mensagem será perdida. Porque ele é removido da fila, nenhum outro receptor pode acessá-lo. 
 
@@ -68,7 +64,7 @@ A segunda opção, *[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemod
 
 Observe o que pode acontecer aqui: A mesma mensagem pode ser entregue duas vezes, talvez para dois destinatários diferentes. Os aplicativos que usam filas do Barramento de Serviço devem estar preparados para isso. Para facilitar a detecção de duplicidades, cada mensagem tem uma propriedade [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId) exclusiva que, por padrão, permanece a mesma, independentemente de quantas vezes a mensagem é lida em uma fila. 
 
-Filas são úteis em algumas situações. Eles permitem que os aplicativos se comuniquem mesmo se ambos não forem executados ao mesmo tempo, algo que é especialmente útil com lotes e aplicativos móveis. Uma fila com vários receptores também fornece balanceamento de carga automático, desde que as mensagens enviadas sejam distribuídas entre esses receptores.
+Filas são úteis em algumas situações. Eles permitem que os aplicativos se comuniquem mesmo se ambos os aplicativos não forem executados ao mesmo tempo, algo que é especialmente útil com lotes e aplicativos móveis. Uma fila com vários receptores também fornece balanceamento de carga automático, desde que as mensagens enviadas sejam distribuídas entre esses receptores.
 
 ## <a name="topics"></a>Tópicos
 
@@ -78,11 +74,11 @@ Filas são úteis em algumas situações. Eles permitem que os aplicativos se co
 
 **Figura 3: Com base no filtro que especifica um aplicativo de assinatura, ele pode receber algumas ou todas as mensagens enviadas para um tópico do Barramento de Serviço.**
 
-Um *tópico* é semelhante, de muitas formas, a uma fila. Os remetentes enviam mensagens a um tópico da mesma maneira como enviam mensagens para uma fila e essas mensagens parecem com filas. A diferença é que os tópicos permitem que cada aplicativo receptor crie sua própria *assinatura* e, opcionalmente, defina um *filtro*. Um assinante vê apenas as mensagens que correspondem ao filtro. Por exemplo, a Figura 3 mostra um remetente e um tópico com três assinantes, cada um com seu próprio filtro:
+Um *tópico* é semelhante, de muitas formas, a uma fila. Os remetentes enviam mensagens a um tópico da mesma maneira como enviam mensagens para uma fila e essas mensagens parecem com filas. A diferença é que os tópicos permitem que cada aplicativo receptor crie sua própria *assinatura* e, opcionalmente, defina um *filtro*. Um assinante receba uma cópia de cada mensagem no tópico, mas usando um filtro pode, em seguida, receber apenas as mensagens que correspondem a esse filtro. Por exemplo, a Figura 3 mostra um remetente e um tópico com três assinantes, cada um com seu próprio filtro:
 
-* Assinante 1 recebe apenas as mensagens que contêm a propriedade *vendedor = "&amp;"*.
-* Assinante 2 recebe mensagens que contêm a propriedade *Vendedor = "Clara"* e/ou conter uma propriedade *Valor* cujo valor seja maior que 100.000. Talvez Elza seja a gerente de vendas e, portanto, ela deseja ver as próprias vendas e todas as vendas grandes independentemente de quem as realiza.
-* Assinante 3 definiu seu filtro como *True*, que significa que ele recebe todas as mensagens. Por exemplo, esse aplicativo pode ser responsável por manter uma trilha de auditoria e, portanto, ele precisa ver todas as mensagens.
+* Assinante 1 recebe apenas as mensagens que contêm a propriedade **vendedor = "&amp;"**.
+* Assinante 2 recebe mensagens que contêm a propriedade **Vendedor = "Clara"** e/ou conter uma propriedade **Valor** cujo valor seja maior que 100.000. Talvez Elza seja a gerente de vendas e, portanto, ela deseja ver as próprias vendas e todas as vendas grandes independentemente de quem as realiza.
+* Assinante 3 definiu seu filtro como **True**, que significa que ele recebe todas as mensagens. Por exemplo, esse aplicativo pode ser responsável por manter uma trilha de auditoria; portanto, ele precisa ver todas as mensagens.
 
 Assim como acontece com as filas, os assinantes de um tópico podem ler mensagens usando [ReceiveAndDelete ou PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). Ao contrário das filas, no entanto, uma única mensagem enviada a um tópico pode ser recebida por várias assinaturas. Essa abordagem, conhecida como *publicar e assinar* (ou *pub/sub*), é útil sempre que vários aplicativos estão interessados nas mesmas mensagens. Definindo o filtro à direita, cada assinante pode tocar na parte de fluxo de mensagens que precisa ver.
 
@@ -92,7 +88,7 @@ As filas e os tópicos fornecem uma comunicação unidirecional assíncrona por 
 
 ![][4]
 
-**Figura 4: a retransmissão do Barramento de Serviço fornece comunicação bidirecional síncrona entre os aplicativos.**
+**Figura 4: A retransmissão do Barramento de Serviço fornece comunicação bidirecional síncrona entre os aplicativos.**
 
 Esta é a questão óbvia para perguntar sobre retransmissões: por que usar um? Mesmo que eu não precise filas, por que tornar os aplicativos se comuniquem através de um serviço de nuvem, e não apenas interagem diretamente? A resposta é que falando diretamente pode ser mais difícil do que você imagina.
 

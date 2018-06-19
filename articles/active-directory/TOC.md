@@ -122,7 +122,6 @@
 ### Referência
 #### [Retenção](active-directory-reporting-retention.md)
 #### [Latências](active-directory-reporting-latencies-azure-portal.md)
-#### [Notificações](active-directory-reporting-notifications.md)
 #### [Referência das atividades de auditoria](active-directory-reporting-activity-audit-reference.md)
 #### [Códigos de erro da atividade de entrada](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Autenticação multifator](active-directory-reporting-activity-sign-ins-mfa.md)
@@ -152,6 +151,12 @@
 ### [Personalização de SSPR](authentication/concept-sspr-customization.md)
 ### [Requisitos de dados de SSPR](authentication/howto-sspr-authenticationdata.md)
 ### [Relatórios de SSPR](authentication/howto-sspr-reporting.md)
+### [Eliminar senhas fracas](authentication/concept-password-ban-bad.md)
+### [Configurar a lista de senhas proibidas](authentication/howto-password-ban-bad.md)
+### [Integração local](authentication/concept-password-ban-bad-on-premises.md)
+### [Implantar proteção de senha do Azure AD](authentication/howto-password-ban-bad-on-premises.md)
+### [Configurar proteção de senha do Azure AD](authentication/howto-password-ban-bad-on-premises-operations.md)
+### [Monitorar proteção de senha do Azure AD](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### Administradores de TI: redefinir senhas
 #### [Portal do Azure](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Licença SSPR](authentication/concept-sspr-licensing.md)
@@ -178,14 +183,14 @@
 ## Gerenciar aplicativos
 ### [Visão geral](manage-apps/what-is-application-management.md)
 ### [Guia de Introdução](manage-apps/plan-an-application-integration.md)
-### [Tutoriais de integração de aplicativos SaaS](active-directory-saas-tutorial-list.md)
+### [Tutoriais de integração de aplicativos SaaS](saas-apps/tutorial-list.md)
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Criar relatórios de instantâneo](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configurar relatório contínuo](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Usar um analisador de log personalizado](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [Provisionar e desprovisionar usuário para aplicativos SaaS](active-directory-saas-app-provisioning.md) 
-#### [Tutoriais de integração do aplicativo](active-directory-saas-tutorial-list.md) 
+#### [Tutoriais de integração do aplicativo](saas-apps/tutorial-list.md) 
 #### [Automatizar provisionamento para aplicativos habilitados para SCIM](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [Personalizar mapeamentos do atributo](active-directory-saas-customizing-attribute-mappings.md) 
 #### [Escrever expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
