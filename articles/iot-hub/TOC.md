@@ -1,4 +1,4 @@
-# [Conceitos básicos do Azure IoT](../iot-fundamentals/index.yml)
+# [Conceitos básicos do Azure IoT](/azure/iot-fundamentals)
 # [Documentação do Hub IoT](index.yml)
 
 # Visão geral
@@ -84,10 +84,10 @@
 ### [Usar o IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Usar o serializador](iot-hub-device-sdk-c-serializer.md)
 
-## [Segurança desde o início](iot-hub-security-ground-up.md)
-## [Práticas recomendadas de segurança](iot-hub-security-best-practices.md)
-## [Arquitetura de segurança](iot-hub-security-architecture.md)
-## [Proteger sua implantação de IoT](iot-hub-security-deployment.md)
+## [Segurança desde o início](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+## [Práticas recomendadas de segurança](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+## [Arquitetura de segurança](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+## [Proteger sua implantação de IoT](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## Proteger usando Certificado de Autoridade de Certificação X.509
 ### [Visão geral de segurança de Certificado de Autoridade de Certificação X.509](iot-hub-x509ca-overview.md)
 #### [Conceitos de segurança de Certificado de Autoridade de Certificação X.509](iot-hub-x509ca-concept.md)
