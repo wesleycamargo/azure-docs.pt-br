@@ -184,6 +184,8 @@
 ### [Visão geral](manage-apps/what-is-application-management.md)
 ### [Guia de Introdução](manage-apps/plan-an-application-integration.md)
 ### [Tutoriais de integração de aplicativos SaaS](saas-apps/tutorial-list.md)
+
+
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Criar relatórios de instantâneo](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configurar relatório contínuo](https://docs.microsoft.com/cloud-app-security/discovery-docker)
@@ -255,27 +257,110 @@
 #### [Restrições de locatário](manage-apps/tenant-restrictions.md)
 #### [Usar usuários de provisionamento de SCIM](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Solucionar problemas](active-directory-application-troubleshoot-content-map.md)
-#### [Desenvolvimento de Aplicativos](active-directory-application-dev-troubleshoot-content-map.md)
-##### [Configuração e Registro](active-directory-application-dev-config-content-map.md)
-##### [Desenvolvimento](active-directory-application-dev-development-content-map.md)
-#### [Gerenciamento de Aplicativos](active-directory-application-management-troubleshoot-content-map.md)
-##### [Configuração](active-directory-application-config-content-map.md)
-##### [Entrar](active-directory-application-sign-in-content-map.md)
-##### [Provisionamento](active-directory-application-provisioning-content-map.md)
 
-###### [Verificar um usuário provisionado](application-provisioning-when-will-provisioning-finish-specific-user.md) 
-###### [Provisionamento muito demorado](application-provisioning-when-will-provisioning-finish.md) 
-###### [Como configurar provisionamento do usuário](application-provisioning-config-how-to.md) 
-###### [Problema na configuração do provisionamento](application-provisioning-config-problem.md) 
-###### [Problema ao salvar credenciais do administrador](application-provisioning-config-problem-storage-limit.md) 
-###### [Nenhum usuário sendo provisionado](application-provisioning-config-problem-no-users-provisioned.md) 
-###### [Usuário errados sendo provisionados](application-provisioning-config-problem-wrong-users-provisioned.md) 
+### Solucionar problemas
 
-##### [Gerenciamento do Acesso](active-directory-application-access-content-map.md)
-##### [Painel de Acesso](active-directory-application-access-panel-content-map.md)
-##### [Proxy de Aplicativo](active-directory-application-proxy-content-map.md)
-##### [Acesso condicional](active-directory-application-conditional-access-content-map.md)
+
+
+#### Painel de acesso
+##### [Aplicativo não aparece](application-access-panel-unexpected-application-not-appearing.md)
+##### [Aplicativo inesperado aparece](application-access-panel-unexpected-application-appears.md)
+##### [Não é possível entrar](application-access-panel-web-sign-in-problem.md)
+##### [Erro ao instalar extensão do navegador](application-access-panel-extension-problem-installing.md)
+##### [Como usar o acesso ao aplicativo de autoatendimento](application-access-panel-self-service-applications-how-to.md)
+##### [Erro ao usar o acesso ao aplicativo de autoatendimento](application-access-panel-self-service-applications-problem.md)
+
+#### Adicionando um aplicativo
+##### [Escolher o tipo de aplicativo](application-config-add-app-problem-how-to-choose-application-type.md)
+##### [Problemas comuns - aplicativos da galeria](application-config-add-app-problem-problem-adding-gallery-app.md)
+##### [Problemas comuns - aplicativos não da galeria](application-config-add-app-problem-problem-adding-non-gallery-app.md)
+
+#### Proxy de Aplicativo
+##### [Problema ao exibir página do aplicativo](application-proxy-page-appearance-broken-problem.md)
+##### [O carregamento do aplicativo é muito longo](application-proxy-page-load-speed-problem.md)
+##### [Os links na página de aplicativo não funcionam](application-proxy-page-links-broken-problem.md)
+##### [Quais portas abrir para meu aplicativo](application-proxy-connectivity-ports-how-to.md)
+##### [Nenhum conector útil em um grupo de conectores para meu aplicativo](application-proxy-connectivity-no-working-connector.md)
+##### [Configurar no portal de administração](application-proxy-config-how-to.md)
+##### [Configurar logon único para meu aplicativo](application-proxy-config-sso-how-to.md)
+##### [Problema ao criar um aplicativo no portal de administração](application-proxy-config-problem.md)
+##### [Configurar a Delegação Restrita do Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+##### [Configurar com PingAccess](application-proxy-back-end-ping-access-how-to.md)
+##### [Erro "Não é Possível Acessar este Aplicativo Corporativo"](application-proxy-sign-in-bad-gateway-timeout-error.md)
+##### [Problema ao instalar o Conector de Agente de Proxy do Aplicativo](application-proxy-connector-installation-problem.md)
+
+
+#### Registro de aplicativo
+##### [Inserir campos para o objeto de aplicativo](application-dev-registration-config-specific-application-property-how-to.md)
+##### [Alterar os padrões de vida útil do token](application-dev-registration-config-change-token-lifetime-how-to.md)
+
+#### Autenticação
+##### [Configurar pontos de extremidade](application-dev-registration-config-how-to.md)
+
+#### Acesso Condicional
+##### [O cliente não atendeu aos pré-requisitos de Registro do Dispositivo](active-directory-conditional-access.md)
+##### [O locatário está sendo bloqueado devido à configuração incorreta de políticas de Acesso Condicional](active-directory-conditional-access-device-remediation.md)
+##### [Como e quando as regras de fora da rede corporativa entram vigor?](https://aka.ms/calocation)
+##### [Como aumentar o número de dispositivos que o usuário tem permissão para registrar no Azure AD?](active-directory-azureadjoin-setup.md)
+##### [Como configurar o Acesso Condicional para o Exchange Online?](https://aka.ms/csforexchange)
+##### [Como configurar o Acesso Condicional para dispositivos do Windows 7?](active-directory-conditional-access.md#device-based-conditional-access)
+##### [Quais aplicativos têm suporte com o acesso condicional?](active-directory-conditional-access-supported-apps.md)
+
+#### Localizar uma API
+##### [Localizar uma API](application-dev-api-find-an-api-how-to.md)
+
+#### Gerenciando o acesso
+##### [Atribuir usuários e grupos a um aplicativo](application-access-assignment-how-to-add-assignment.md)
+##### [Remover um acesso de usuários a um aplicativo](application-access-assignment-how-to-remove-assignment.md)
+##### [Configurar atribuição de aplicativos com autoatendimento](application-access-self-service-how-to.md)
+##### [Usuário inesperado atribuído](application-access-unexpected-user-assignment.md)
+##### [Aplicativo inesperado na lista de aplicativos](application-access-unexpected-application.md)
+
+#### Aplicativos multilocatário
+##### [Configurar um novo aplicativo](application-dev-setup-multi-tenant-app.md)
+##### [Adicionar à galeria de aplicativos](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+
+#### Permissões
+##### [Escolher permissões para uma API](application-dev-perms-for-given-api.md)
+##### [Conceder permissões a meu aplicativo](application-dev-registration-config-grant-permissions-how-to.md)
+##### [Permissões do aplicativo versus delegadas](application-dev-delegated-and-app-perms.md)
+##### [Consentimento de aplicativos](application-dev-consent-framework.md)
+
+#### Provisionamento
+##### [Quanto tempo demora](application-provisioning-when-will-provisioning-finish-specific-user.md)
+##### [Levando horas - aplicativo da galeria](application-provisioning-when-will-provisioning-finish.md)
+##### [Configurar provisionamento de usuários - aplicativo da galeria](application-provisioning-config-how-to.md)
+##### [Problema ao configurar provisionamento de usuários - aplicativo da galeria](application-provisioning-config-problem.md)
+##### [Problema para salvar as credenciais de administrador ao configurar o aplicativo da galeria para o provisionamento do usuário](application-provisioning-config-problem-storage-limit.md)
+##### [Os usuários não são provisionados - aplicativo da galeria](application-provisioning-config-problem-no-users-provisioned.md)
+##### [Usuários errados provisionados - aplicativo da galeria](application-provisioning-config-problem-wrong-users-provisioned.md)
+
+#### Logon único
+##### [Escolher um método](application-config-sso-how-to-choose-sign-on-method.md)
+##### [Configurar](application-dev-registration-config-sso-how-to.md)
+##### [Configurar federado - aplicativos da galeria](application-config-sso-how-to-configure-federated-sso-gallery.md)
+##### [Problemas comuns ao configurar federados - aplicativos da galeria](application-config-sso-problem-configure-federated-sso-gallery.md)
+##### [Configurar federado - aplicativos não da galeria](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+##### [Problemas comuns ao configurar federados - aplicativos não da galeria](application-config-sso-problem-configure-federated-sso-non-gallery.md)
+##### [Configurar senha - aplicativos da galeria](application-config-sso-how-to-configure-password-sso-gallery.md)
+##### [Problemas comuns ao configurar senha - aplicativos da galeria](application-config-sso-problem-configure-password-sso-gallery.md)
+##### [Configurar senha - aplicativos não da galeria](application-config-sso-how-to-configure-password-sso-non-gallery.md)
+##### [Problemas comuns ao configurar senha - aplicativos não da galeria](application-config-sso-problem-configure-password-sso-non-gallery.md)
+
+#### Problemas de entrada do usuário
+##### [Solicitação de consentimento inesperada](application-sign-in-unexpected-user-consent-prompt.md)
+##### [Erro de consentimento do usuário](application-sign-in-unexpected-user-consent-error.md)
+##### [Problemas para entrar no portal personalizado](application-sign-in-other-problem-deeplink.md)
+##### [Problemas para entrar no painel de acesso](application-sign-in-other-problem-access-panel.md)
+##### [Erro na página de entrada do aplicativo](application-sign-in-problem-application-error.md)
+##### [Problema de logon único com senha - aplicativo não da galeria](application-sign-in-problem-password-sso-non-gallery.md)
+##### [Problema de logon único com senha - aplicativo da galeria](application-sign-in-problem-password-sso-gallery.md)
+##### [Problema ao entrar em um aplicativo da Microsoft](application-sign-in-problem-first-party-microsoft.md)
+##### [Problema com logon único federado - aplicativo não da galeria](application-sign-in-problem-federated-sso-non-gallery.md)
+##### [Problema com logon único federado - aplicativo da galeria](application-sign-in-problem-federated-sso-gallery.md)
+##### [Problema com aplicativo desenvolvido personalizado](application-sign-in-problem-custom-dev.md)
+##### [Problema com aplicativo local - Proxy do Aplicativo](application-sign-in-problem-on-premises-application-proxy.md)
+
 ### [Desenvolver aplicativos](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Biblioteca de documentos](active-directory-apps-index.md)
 
