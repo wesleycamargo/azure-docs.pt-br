@@ -2,23 +2,20 @@
 title: 'Azure Cosmos DB: Recursos, SDK e API do Processador do Feed de Alterações do .NET | Microsoft Docs'
 description: Saiba tudo sobre o SDK e a API do processador de feed de alterações, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do processador de feed de alterações do .NET.
 services: cosmos-db
-documentationcenter: .net
 author: ealsur
 manager: kfile
-ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: reference
+ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a2770b9349dac8caa8e0611d77522ab56ca1bf07
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885129"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798856"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
 > [!div class="op_single_selector"]
@@ -45,6 +42,10 @@ ms.locfileid: "33885129"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="stable-builds"></a>Builds estáveis
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Adição de mais registros em log.
+* Correção de um vazamento de DocumentClient ao chamar a estimativa de trabalho pendente várias vezes.
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * Correções na estimativa de trabalho pendente.
@@ -108,6 +109,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.3.3](#1.3.3) |08 de maio de 2018 |--- |
 | [1.3.2](#1.3.2) |18 de abril de 2018 |--- |
 | [1.3.1](#1.3.1) |13 de março de 2018 |--- |
 | [1.2.0](#1.2.0) |31 de outubro de 2017 |--- |

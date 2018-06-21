@@ -12,21 +12,24 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/04/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: c1971e1eb3abc653ad8bdc6af772c699f8549019
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7c052f30e564700b0a99b76342dc6c34ec5983b7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "33901271"
 ---
 ## <a name="register-your-application"></a>Registre seu aplicativo
+
 Para registrar seu aplicativo e adicionar suas informações de registro de aplicativo à sua solução, você tem duas opções:
 
 ### <a name="option-1-express-mode"></a>Opção 1: modo Expresso
 
 Registre rapidamente seu aplicativo fazendo o seguinte:
+
 1. Registre o aplicativo por meio do [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure)
 2.  Insira um nome para o aplicativo e seu email
 3.  Verifique se a opção Instalação Guiada está marcada
@@ -38,20 +41,21 @@ Para registrar seu aplicativo e adicionar suas informações de registro de apli
 
 1. Acesse o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar um aplicativo
 2. Insira um nome para o aplicativo e seu email 
-3.  Verifique se a opção Instalação Guiada está desmarcada
-4.  Clique em `Add Platform` e selecione `Web`
-5.  Volte ao Visual Studio e, no Gerenciador de Soluções, selecione o projeto e examine a janela Propriedades (se uma janela Propriedades não for exibida, pressione F4)
-6.  Altere SSL habilitado para `True`
-7.  Copie a URL do SSL e adicione essa URL à lista de URLs de Redirecionamento na lista de URLs de Redirecionamento do Portal de Registro:<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-8.  Adicione o seguinte em `web.config` localizado na pasta raiz, na seção `configuration\appSettings`:
+3. Verifique se a opção Instalação Guiada está desmarcada
+4. Clique em `Add Platform` e selecione `Web`
+5. Volte ao Visual Studio e, no Gerenciador de Soluções, selecione o projeto e examine a janela Propriedades (se uma janela Propriedades não for exibida, pressione F4)
+6. Altere SSL habilitado para `True`
+7. Clique com o botão direito no projeto no Visual Studio e, em seguida, escolha **Propriedades**e a guia **Web**. Na seção *Servidores* altere a *Url do projeto* para ser a URL de SSL
+8. Copie a URL do SSL e adicione essa URL à lista de URLs de Redirecionamento na lista de URLs de Redirecionamento do Portal de Registro:<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+9. Adicione o seguinte em `web.config` localizado na pasta raiz, na seção `configuration\appSettings`:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="redirectUri" value="Enter_the_Redirect_URL_here" />
     <add key="Tenant" value="common" />
-    <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" /> 
+    <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" />
     ```
 
-9. Substitua `ClientId` pela ID do Aplicativo que você acabou de registrar
-10. Substitua `redirectUri` pela URL do SSL do projeto 
+10. Substitua `ClientId` pela ID do Aplicativo que você acabou de registrar
+11. Substitua `redirectUri` pela URL do SSL do projeto
 

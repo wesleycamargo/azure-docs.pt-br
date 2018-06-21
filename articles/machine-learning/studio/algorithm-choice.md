@@ -10,16 +10,18 @@ editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 79b2cc3951fa8a48282f42f7180ec831050508f8
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834375"
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure
 A resposta à pergunta "Qual algoritmo de aprendizado de máquina devo usar?" sempre será "Depende". Depende do tamanho, da qualidade e da natureza dos dados. Depende do que você deseja fazer com a resposta. Depende de como o cálculo do algoritmo foi traduzido em instruções para o computador que você está usando. E depende de quanto tempo você tem. Até mesmo os cientistas de dados mais experientes não podem determinar qual algoritmo terá o melhor desempenho antes de experimentá-lo.
@@ -138,7 +140,7 @@ Alguns algoritmos de aprendizado fazem suposições específicas sobre a estrutu
 
 **●** - mostra excelente precisão, tempos de treinamento pequenos e o uso de linearidade
 
-**○** - mostra boa precisão e tempos de treinamento moderados
+**○** - mostra boa precisão e tempo de treinamento moderado
 
 ## <a name="algorithm-notes"></a>Anotações sobre algoritmo
 ### <a name="linear-regression"></a>Regressão linear

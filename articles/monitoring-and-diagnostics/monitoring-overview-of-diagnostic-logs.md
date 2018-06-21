@@ -1,24 +1,19 @@
 ---
-title: Visão geral dos Logs de Diagnóstico do Azure | Microsoft Docs
+title: Visão Geral dos Logs de Diagnóstico
 description: Saiba quais são os logs de diagnóstico do Azure e como você pode usá-los para compreender os eventos que ocorrem dentro de um recurso do Azure.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/04/2018
-ms.author: johnkem; magoedte
-ms.openlocfilehash: 00b990181e5bb96f122ff1ae530dd027a772b210
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/07/2018
+ms.author: johnkem
+ms.component: logs
+ms.openlocfilehash: e361259bc5ce2dd946d3ea8bc1e69f743a40c6df
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264394"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Coletar e consumir dados de log dos recursos do Azure
 
@@ -45,6 +40,9 @@ Aqui estão algumas coisas que você pode fazer com os logs de diagnóstico de r
 
 Você pode usar uma conta de armazenamento ou um namespace de Hubs de Evento que não esteja na mesma assinatura que os logs emissores. O usuário que define a configuração deve ter o devido acesso RBAC para ambas as assinaturas.
 
+> [!NOTE]
+>  Atualmente, não é possível arquivar dados em uma conta de armazenamento que fica por trás de uma rede virtual protegida.
+
 ## <a name="resource-diagnostic-settings"></a>Configurações do Diagnóstico do recurso
 
 Os logs de diagnóstico do recurso para os recursos que não são de computação são configurados usando as configurações de diagnóstico do recurso. **Configurações de Diagnóstico do Recurso** para um controle de recursos:
@@ -54,7 +52,7 @@ Os logs de diagnóstico do recurso para os recursos que não são de computaçã
 * Quanto tempo cada categoria de log deve ser mantida em uma conta de armazenamento
     - Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647.
     - Se as políticas de retenção estiverem definidas, mas o armazenamento de logs em uma Conta de Armazenamento estiver desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou Log Analytics forem selecionadas), as políticas de retenção não terão efeito.
-    - As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
+    - As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos. A exclusão começa à meia-noite UTC, mas observe que pode levar até 24 horas para que os logs sejam excluídos da conta de armazenamento.
 
 Essas configurações são facilmente definidas por meio das configurações de diagnóstico para um recurso no Portal do Azure, via Azure PowerShell e comandos da CLI ou via [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 

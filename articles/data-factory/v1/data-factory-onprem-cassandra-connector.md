@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2d790b067630f15b96eba5e46ea12e1997a47c86
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 01ac558ec032d2da8026ce48923d839bd05e85c1
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235457"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de um banco de dados Cassandra local usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +34,7 @@ Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para m
 Você pode copiar dados de um armazenamento de dados local do Cassandra para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados Cassandra para outros armazenamentos de dados, mas não à movimentação de dados de outros armazenamentos de dados para um armazenamento de dados Cassandra. 
 
 ## <a name="supported-versions"></a>Versões com suporte
-O conector Cassandra dá suporte às seguintes versões do Cassandra: 2.X.
+O conector Cassandra é compatível com as seguintes versões do Cassandra: 2.X e 3.x. Para a atividade em execução no Integration Runtime Auto-hospedado, o Cassandra 3.x tem suporte desde o IR versão 3.7 e acima.
 
 ## <a name="prerequisites"></a>pré-requisitos
 Para que o serviço Azure Data Factory consiga se conectar ao seu banco de dados Cassandra local, é necessário instalar o Gateway de Gerenciamento de Dados no mesmo computador que hospeda o banco de dados ou em um computador separado para evitar a concorrência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um componente que conecta as fontes de dados locais aos serviços de nuvem de uma maneira segura e gerenciada. Confira o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter todos os detalhes sobre o Gateway de Gerenciamento de Dados. Consulte o artigo [Mover dados de pontos locais para a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções detalhadas sobre como configurar um pipeline de dados para o gateway a fim de mover dados.
@@ -74,6 +75,9 @@ A tabela a seguir fornece a descrição de elementos JSON específicos para o se
 | Senha |Especifique a senha para a conta de usuário. |Sim, se authenticationType for definida como Básica. |
 | gatewayName |O nome do gateway que é usado para se conectar ao servidor Cassandra local. |sim |
 | encryptedCredential |Credencial criptografada pelo gateway. |Não  |
+
+>[!NOTE]
+>Atualmente, não há suporte para a conexão ao Cassandra usando SSL.
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).

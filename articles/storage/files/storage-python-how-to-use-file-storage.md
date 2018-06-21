@@ -1,11 +1,11 @@
 ---
 title: Desenvolvimento para Arquivos do Azure com Python | Microsoft Docs
-description: "Saiba como desenvolver aplicativos e serviços Python que usam os Arquivos do Azure para armazenar dados de arquivo."
+description: Saiba como desenvolver aplicativos e serviços Python que usam os Arquivos do Azure para armazenar dados de arquivo.
 services: storage
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: tysonn
+author: wmgries
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
-ms.openlocfilehash: cee6ece907950724f6ad4a86c489a5f07dfcaaec
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1102fd516b5497b4c482986b64fa7c96e9ccc54a
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738254"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desenvolvimento para o Arquivos do Azure com Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -69,7 +70,7 @@ O objeto `FileService` permite que você trabalhe com compartilhamentos, diretó
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
-## <a name="create-an-azure-file-share"></a>Criar um Compartilhamento de Arquivos do Azure
+## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
 No exemplo de código a seguir, é possível usar um objeto `FileService` para criar o compartilhamento, se ele não existir.
 
 ```python

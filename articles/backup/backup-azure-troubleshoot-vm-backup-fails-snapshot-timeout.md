@@ -1,26 +1,20 @@
 ---
-title: 'Solucionar problemas de falha de Backup do Azure: indisponível no status de agente convidado | Microsoft Docs'
+title: 'Solucionar problemas de falha de Backup do Azure: indisponível no status de agente convidado'
 description: Sintomas, causas e resoluções para falhas do Backup do Azure relacionados a agente, extensão e discos.
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
 keywords: Backup do Azure; agente da VM; conectividade de rede;
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: genli
+ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196756"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606351"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -64,7 +58,7 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Falha no backup porque o agente de VM está sem resposta
 
-Mensagem de erro: "Não é possível executar a operação porque o Agente de VM está sem reposta" <br>
+Mensagem de erro: “Não pôde se comunicar com o agente VM para status do instantâneo” <br>
 Código de erro: "GuestAgentSnapshotTaskStatusError"
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:  
@@ -92,6 +86,16 @@ Devido ao requisito de implantação, a VM não tem acesso à Internet. Ou, talv
 
 Para funcionar corretamente, a extensão de Backup exige conectividade com endereços IP públicos do Azure. A extensão envia comandos para um ponto de extremidade de armazenamento do Azure (URL de HTTP) para gerenciar os instantâneos da VM. Se a extensão não tiver acesso à Internet pública, o backup, eventualmente, falhará.
 
+É possível implantar um servidor proxy para rotear o tráfego VM.
+##### <a name="create-a-path-for-http-traffic"></a>Criar um caminho para o tráfego HTTP
+
+1. Se você tiver alguma restrição de rede no local (um grupo de segurança de rede, por exemplo), implante um servidor proxy HTTP para rotear o tráfego.
+2. Para permitir o acesso à Internet por meio do servidor proxy HTTP, adicione regras ao grupo de segurança de rede, se você tiver um.
+
+Para saber como configurar um proxy HTTP para backups VM, veja [preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+
+A VM de backup ou o servidor proxy por meio do qual o tráfego é roteado requer acesso a endereços IP públicos do Azure
+
 ####  <a name="solution"></a>Solução
 Para resolver o problema, tente usar um dos seguintes métodos:
 
@@ -105,13 +109,6 @@ Para entender o procedimento passo a passo para configurar marcações de servi�
 
 > [!WARNING]
 > As marcas de serviço de armazenamento estão em versão prévia. Eles estão disponíveis somente em regiões específicas. Para obter a lista de regiões, consulte [Marcas de serviço para armazenamento](../virtual-network/security-overview.md#service-tags).
-
-##### <a name="create-a-path-for-http-traffic"></a>Criar um caminho para o tráfego HTTP
-
-1. Se você tiver alguma restrição de rede no local (um grupo de segurança de rede, por exemplo), implante um servidor proxy HTTP para rotear o tráfego.
-2. Para permitir o acesso à Internet por meio do servidor proxy HTTP, adicione regras ao grupo de segurança de rede, se você tiver um.
-
-Para saber como configurar um proxy HTTP para backups VM, veja [preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Se você usa o Managed Disks do Azure, pode ser necessário abrir outra porta (porta 8443) nos firewalls.
 
@@ -195,6 +192,19 @@ Esse problema é específico de VMs gerenciadas nas quais o usuário bloqueia o 
 
 #### <a name="solution"></a>Solução
 
-Para resolver o problema, remova o bloqueio do grupo de recursos e permita que o serviço de Backup do Azure limpe a coleção do ponto de recuperação e os instantâneos subjacentes no próximo backup.
-Depois de concluir, você poderá bloquear novamente no grupo de recursos da VM. 
+Para resolver o problema, remova o bloqueio do grupo de recursos e execute as etapas a seguir para remover a coleção de pontos de restauração: 
+ 
+1. Remova o bloqueio no grupo de recursos em que a VM está localizada. 
+2. Instale o ARMClient usando o Chocolatey: <br>
+   https://github.com/projectkudu/ARMClient
+3. Faça logon no ARMClient: <br>
+    `.\armclient.exe login`
+4. Obtenha a coleção de pontos de restauração que corresponde à VM: <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
+    Exemplo: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+5. Exclua a coleção de pontos de restauração: <br>
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+6. O próximo backup agendado criará automaticamente a coleção de pontos de restauração e os novos pontos de restauração.
+
+Depois de concluir, você poderá bloquear novamente no grupo de recursos da VM. 

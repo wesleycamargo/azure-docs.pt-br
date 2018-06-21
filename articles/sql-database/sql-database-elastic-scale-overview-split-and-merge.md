@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c70279bd52f7b0b0e0cbc27742eca93d9af5e630
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3c68b18a96ae79cd32cd3059eab837e6051847dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647411"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bancos de dados na nuvem escalados horizontalmente
 Se você for um desenvolvedor de Software como Serviço e seu aplicativo sofrer uma imensa demanda repentinamente, será necessário acomodar o crescimento. Por isso você adiciona mais bancos de dados (fragmentos). Como você redistribui os dados para novos bancos de dados sem afetar a integridade dos dados? Use a **ferramenta de divisão/mesclagem** para mover dados de bancos de dados restritos para novos bancos de dados.  
@@ -54,7 +55,7 @@ Com vários locatários por banco de dados, a alocação de shardlets para fragm
 ## <a name="concepts--key-features"></a>Principais recursos e conceitos
 **Serviços hospedados no cliente**
 
-A divisão/mesclagem é fornecida como um serviço hospedado no cliente. Você deve implantar e hospedar o serviço na sua assinatura do Microsoft Azure. O pacote que você baixou do NuGet contém um modelo de configuração para concluir as informações da sua implantação específica. Veja o [tutorial de ﻿divisão/mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obter mais detalhes. Uma vez que o serviço é executado na sua assinatura do Azure, você pode controlar e configurar a maioria dos aspectos de segurança do serviço. O modelo padrão inclui as opções para configurar o SSL, autenticação de cliente baseada no certificado, criptografia para credenciais armazenadas, proteção DoS e restrições de IP. Você pode encontrar mais informações sobre os aspectos de segurança no documento de [configuração de segurança de divisão/mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md)a seguir.
+A divisão/mesclagem é fornecida como um serviço hospedado no cliente. Você deve implantar e hospedar o serviço na sua assinatura do Microsoft Azure. O pacote que você baixou do NuGet contém um modelo de configuração para concluir as informações da sua implantação específica. Consulte o [tutorial divisão mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obter detalhes. Uma vez que o serviço é executado na sua assinatura do Azure, você pode controlar e configurar a maioria dos aspectos de segurança do serviço. O modelo padrão inclui as opções para configurar o SSL, autenticação de cliente baseada no certificado, criptografia para credenciais armazenadas, proteção DoS e restrições de IP. Você pode encontrar mais informações sobre os aspectos de segurança no documento de [configuração de segurança de divisão/mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md)a seguir.
 
 O serviço padrão implantado é executado com um operador e uma função web. Cada um usa o tamanho da VM A1 nos Serviços de Nuvem do Azure. Embora não seja possível modificar essas configurações durante a implantação do pacote, eles podem ser alterados após uma implantação bem-sucedida no serviço de nuvem em execução (por meio do portal do Azure). Observe que a função de trabalho não deve ser configurada para mais de uma única instância por motivos técnicos. 
 
@@ -102,11 +103,11 @@ As tabelas “region” e “nation” são definidas como tabelas de referênci
 
 **Integridade referencial**
 
-O serviço de ﻿divisão/mesclagem analisa as dependências entre as tabelas e usa relações FK-PK (chave estrangeira-chave primária) para preparar as operações para mover tabelas de referência e shardlets. Em geral, as tabelas de referência são copiadas primeiro em ordem de dependência, os shardlets são então copiados na ordem de suas dependências em cada lote. Isso é necessário para que as restrições FK-PK no fragmento de destino sejam respeitadas a medida que os novos dados chegam. 
+O serviço de divisão mesclagem analisa dependências entre as tabelas e usa as relações de chave estrangeira - chave primária para montar as operações para mover as tabelas de referência e shardlets. Em geral, as tabelas de referência são copiadas primeiro em ordem de dependência, os shardlets são então copiados na ordem de suas dependências em cada lote. Isso é necessário para que as restrições FK-PK no fragmento de destino sejam respeitadas a medida que os novos dados chegam. 
 
 **Consistência de mapa de fragmentos e eventual conclusão**
 
-Na presença de falhas, o serviço de ﻿divisão/mesclagem retoma as operações após qualquer interrupção e visa conclui-las nas solicitações de andamento. No entanto, podem haver situações irrecuperáveis (ex.: quando o fragmento de destino é perdido ou comprometido e não pode ser reparado). Sob tais circunstâncias, alguns shardlets que deveriam ser movidos podem continuar a residir no fragmento de origem. O serviço garante que os mapeamentos de shardlet são atualizados somente depois que os dados necessários tiverem sido copiados, com êxito, no destino. Shardlets só são excluídos na origem depois que todos os seus dados tiverem sido copiados para o destino e os mapeamentos correspondentes atualizados com êxito. A operação de exclusão ocorre em segundo plano quando o intervalo já está online no fragmento de destino. O serviço de divisão/mesclagem sempre garante a exatidão dos mapeamentos armazenados no mapa de fragmentos.
+Na presença de falhas, o serviço de divisão mesclagem retoma operações após qualquer interrupção e pretende concluir qualquer em solicitações de andamento. No entanto, podem haver situações irrecuperáveis (ex.: quando o fragmento de destino é perdido ou comprometido e não pode ser reparado). Sob tais circunstâncias, alguns shardlets que deveriam ser movidos podem continuar a residir no fragmento de origem. O serviço garante que os mapeamentos de shardlet são atualizados somente depois que os dados necessários tiverem sido copiados, com êxito, no destino. Shardlets só são excluídos na origem depois que todos os seus dados tiverem sido copiados para o destino e os mapeamentos correspondentes atualizados com êxito. A operação de exclusão ocorre em segundo plano quando o intervalo já está online no fragmento de destino. O serviço de divisão/mesclagem sempre garante a exatidão dos mapeamentos armazenados no mapa de fragmentos.
 
 ## <a name="the-split-merge-user-interface"></a>A interface do usuário de divisão/mesclagem
 O pacote de serviço de divisão/mesclagem inclui uma função de trabalho e uma função Web. A função Web é usada para enviar solicitações de divisão/mesclagem de forma interativa. Os componentes principais da interface do usuário são os seguintes:

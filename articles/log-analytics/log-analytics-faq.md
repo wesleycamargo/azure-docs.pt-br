@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637167"
 ---
 # <a name="log-analytics-faq"></a>Perguntas frequentes do Log Analytics
 Essas Perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Log Analytics no Microsoft Azure. Se você tiver alguma pergunta adicional sobre o Log Analytics, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -47,7 +48,7 @@ A atualização de cadeia de caracteres de texto para *OMS* está incluída em u
 
 ### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>P: Há uma versão local do Log Analytics?
 
-R: não. O Log Analytics é um serviço de nuvem escalonável que processa e armazena grandes quantidades de dados. 
+R: Não. O Log Analytics é um serviço de nuvem escalonável que processa e armazena grandes quantidades de dados. 
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>P. Como fazer para solucionar problemas se o Log Analytics não está mais coletando dados?
 
@@ -96,7 +97,7 @@ a. Não, não é possível ler de contêineres nem de tabelas arbitrárias no ar
 
 a. O serviço Log Analytics é baseado no Azure. Os endereços IP do Log Analytics estão nos [Intervalos IP do Datacenter do Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Conforme as implantações de serviço são feitas, os endereços IP reais do serviço de Log Analytics mudam. Os nomes DNS a permitir através do firewall são documentados em [requisitos do sistema](log-analytics-concept-hybrid.md#prerequisites).
+Conforme as implantações de serviço são feitas, os endereços IP reais do serviço de Log Analytics mudam. Os nomes DNS a permitir através do firewall são documentados em [requisitos da rede](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>P. Eu uso o ExpressRoute para me conectar ao Azure. O meu tráfego do Log Analytics usará minha conexão ExpressRoute?
 

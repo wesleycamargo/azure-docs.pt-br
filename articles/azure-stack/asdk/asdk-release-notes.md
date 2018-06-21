@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 06/20/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 185cd6f20cdb19531777ccb58e72be14ea656549
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: bbd9bb0d56dd61fd0a32531ac425a1dbc1aa8923
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850113"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295784"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Kit de desenvolvimento de pilha do Azure  
 Essas notas de versão fornecem informações sobre problemas conhecidos no Kit de desenvolvimento de pilha do Azure, correções e aprimoramentos. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -37,7 +37,7 @@ Essas notas de versão fornecem informações sobre problemas conhecidos no Kit 
 ### <a name="new-features"></a>Novos recursos 
 Esta compilação inclui os seguintes aprimoramentos e correções para a pilha do Azure.  
 
-- <!-- 2297790 - IS, ASDK --> **Azure Stack now includes a *Syslog* client** as a *preview feature*. This client allows the forwarding of audit and security logs related to the Azure Stack infrastructure to a Syslog server or security information and event management (SIEM) software that is external to Azure Stack. Currently, the Syslog client only supports unauthenticated UDP connections over default port 514. The payload of each Syslog message is formatted in Common Event Format (CEF). 
+- <!-- 2297790 - IS, ASDK --> **A pilha do Azure agora inclui um *Syslog* cliente** como um *recurso de visualização*. Esse cliente permite que o encaminhamento de logs de auditoria e segurança relacionada à infraestrutura de pilha do Azure, um Syslog server ou segurança informações e eventos (SIEM) software de gerenciamento externo a pilha do Azure. No momento, o cliente de Syslog só dá suporte a conexões UDP não autenticadas através da porta padrão 514. A carga de cada mensagem Syslog é formatada em comum formato de evento (CEF). 
 
   Para configurar o cliente de Syslog, use o **SyslogServer conjunto** cmdlet exposta no ponto de extremidade com privilégios. 
 
@@ -50,6 +50,7 @@ Esta compilação inclui os seguintes aprimoramentos e correções para a pilha 
 
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
+- Corrigimos o problema que bloqueados [abrir uma nova solicitação de suporte na lista suspensa](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do portal de administração. Essa opção agora funciona conforme o esperado. 
 
 - **Várias correções de** de desempenho, estabilidade, segurança e sistema operacional que é usado pela pilha do Azure
 
@@ -63,22 +64,26 @@ Esta compilação inclui os seguintes aprimoramentos e correções para a pilha 
 ### <a name="known-issues"></a>Problemas conhecidos
  
 #### <a name="portal"></a>Portal
-- <!-- 2551834 - IS, ASDK --> When you select **Overview** for a storage account in either the admin or user portals, the information from the *Essentials* pane does not display.  The Essentials pane displays information about the account like its *Resource group*, *Location*, and *Subscription ID*.  Other options for Overview  are accessible, like *Services* and *Monitoring*, as well as options to *Open in Explorer* or to *Delete storage account*.  
+- <!-- 2551834 - IS, ASDK --> Quando você seleciona **visão geral** para portais de administrador ou o usuário, as informações de uma conta de armazenamento a *Essentials* painel não será exibido.  O painel do Essentials exibe informações sobre a conta como seu *grupo de recursos*, *local*, e *ID da assinatura*.  Outras opções de visão geral são acessadas, como *serviços* e *monitoramento*, bem como as opções para *abrir no Gerenciador de* ou *excluir conta de armazenamento* .  
 
   Para exibir as informações disponíveis, use o [azureRMstorageaccount Get](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) cmdlet do PowerShell. 
 
-- <!-- TBD - IS ASDK --> Do not use the new administrative subscription types of *Metering subscription*, and *Consumption subscription*. These new subscription types were introduced with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
+- <!-- 2551834 - IS, ASDK --> Quando você seleciona **marcas** para uma conta de armazenamento, o administrador ou o usuário portais, as informações de falha ao carregar e não exibe.  
 
-- <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
+  Para exibir as informações disponíveis, use o [AzureRmTag Get](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0) cmdlet do PowerShell.
+
+- <!-- TBD - IS ASDK --> Não use os novos tipos de assinatura administrativo de *medição assinatura*, e *assinatura consumo*. Esses novos tipos de assinatura foram introduzidos com versão 1804 mas ainda não estão prontos para uso. Você deve continuar a usar o *provedor padrão* tipo de assinatura.  
+
+- <!-- 2403291 - IS ASDK --> Você não pode ter o uso da barra de rolagem horizontal na parte inferior dos portais de administrador e usuário. Se você não pode acessar a barra de rolagem horizontal, use a trilha para navegar até um blade anterior no portal do selecionando o nome da folha você deseja exibir na lista de trilha de navegação na parte superior esquerda do portal.
   ![Navegação estrutural](media/asdk-release-notes/breadcrumb.png)
 
-- <!-- TBD -  IS ASDK --> Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
+- <!-- TBD -  IS ASDK --> Excluir resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos do usuário ou o grupo de recursos inteiro e exclua assinaturas de usuário.
 
-- <!-- TBD -  IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
+- <!-- TBD -  IS ASDK --> Você não pode exibir as permissões para sua assinatura usando os portais de pilha do Azure. Como alternativa, use o PowerShell para verificar as permissões.
 
 
 #### <a name="health-and-monitoring"></a>Monitoramento e integridade
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+- <!-- 1264761 - IS ASDK -->  Você pode ver os alertas para o *controlador integridade* componente que tem os seguintes detalhes:  
 
    Alerta #1:
    - NOME: Função de infraestrutura não íntegro
@@ -94,17 +99,17 @@ Esta compilação inclui os seguintes aprimoramentos e correções para a pilha 
 
   Ambos os alertas podem ser ignorados com segurança e serão fechada automaticamente ao longo do tempo.  
 
-- <!-- 2392907 – ASDK -->   You might see a *critical* alert for **Low memory capacity**. This alert has the following description: *The region has consumed more than 95.00 % of available memory. Creating virtual machines with large amounts of memory may fail.*
+- <!-- 2392907 – ASDK -->   Você pode ver um *crítico* alerta para **baixa capacidade de memória**. Esse alerta tem a seguinte descrição: *a região consumiu mais de 95,00% da memória disponível. Criar máquinas virtuais com grandes quantidades de memória pode falhar.*
 
   Esse alerta pode ser gerado quando o Azure pilha incorretamente contas para uso de memória no kit de desenvolvimento da pilha do Azure.  
 
   Esse alerta pode ser ignorado e o problema não tem efeito sobre o posicionamento de máquinas virtuais. 
 
-- <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planne](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads. 
+- <!-- 2368581 - IS. ASDK --> Um operador de pilha do Azure, se você receber um alerta de memória insuficiente e máquinas virtuais de locatário Falha na implantação com um *erro de criação de malha VM*, é possível que o carimbo de pilha do Azure está fora da memória disponível. Use o [Planne de capacidade de pilha do Azure](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para entender melhor a capacidade disponível para suas cargas de trabalho. 
 
 
 #### <a name="compute"></a>Computação
-- <!-- TBD - IS, ASDK --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
+- <!-- TBD - IS, ASDK --> Ao selecionar um tamanho de máquina virtual para uma implantação de máquina virtual, alguns tamanhos de VM F-Series não são visíveis como parte do seletor de tamanho quando você cria uma máquina virtual. Os seguintes tamanhos VM não aparecem no seletor de: *F8s_v2*, *F16s_v2*, *F32s_v2*, e *F64s_v2*.  
   Como alternativa, use um dos métodos a seguir para implantar uma máquina virtual. Cada método, você precisa especificar o tamanho da VM que deseja usar.
 
   - **Modelo do Gerenciador de recursos do Azure:** quando você usa um modelo, defina o *vmSize* no modelo para igualar o tamanho da VM que deseja usar. Por exemplo, a seguinte entrada é usada para implantar uma VM que utilize o *F32s_v2* tamanho:  
@@ -120,58 +125,60 @@ Esta compilação inclui os seguintes aprimoramentos e correções para a pilha 
   - **PowerShell:** com o PowerShell, você pode usar [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) com o parâmetro que especifica o tamanho da VM, semelhante ao `-VMSize "Standard_F32s_v2"`.
 
 
-- <!-- TBD -  IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
+- <!-- TBD -  IS ASDK --> As configurações de escala para conjuntos de escala de máquinas virtuais não estão disponíveis no portal. Como alternativa, você pode usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Por causa das diferenças de versão do PowerShell, você deve usar o `-Name` parâmetro em vez de `-VMScaleSetName`.
 
-- <!-- TBD -  IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach a D series VM. All supported D series VMs can accommodate as many data disks as the Azure configuration.
+- <!-- TBD -  IS ASDK --> Ao criar máquinas virtuais no portal do usuário de pilha do Azure, o portal exibe um número incorreto de discos de dados que podem anexar uma série D VM. Todas as séries de D VMs com suporte podem acomodar quantos discos de dados como a configuração do Azure.
 
-- <!-- TBD -  IS ASDK --> When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
+- <!-- TBD -  IS ASDK --> Quando uma imagem de VM Falha ao ser criado, um item com falha que você não pode excluir pode ser adicionado para a folha de computação de imagens VM.
 
   Como alternativa, crie uma nova imagem VM com um VHD fictício que pode ser criado pelo Hyper-V (New-VHD-caminho C:\dummy.vhd-fixa - SizeBytes 1 GB). Esse processo deve corrigir o problema que impede a exclusão do item com falha. Em seguida, 15 minutos depois de criar a imagem fictícia, você poderá com êxito excluí-la.
 
   Você pode tentar, em seguida, faça download novamente a imagem VM que falhou anteriormente.
 
-- <!-- TBD -  IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
+- <!-- TBD -  IS ASDK --> Se uma extensão em uma implantação de VM de provisionamento leva muito tempo, os usuários devem permitir que o tempo limite de provisionamento em vez de tentar parar o processo para desalocar ou exclua a máquina virtual.  
 
-- <!-- 1662991 - IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings. 
+- <!-- 1662991 - IS ASDK --> Não há suporte para o diagnóstico de VM do Linux na pilha do Azure. Quando você implanta uma VM do Linux com o diagnóstico VM habilitado, a implantação falhará. A implantação também falhará se você habilitar as métricas básicas de VM do Linux por meio de configurações de diagnóstico. 
 
 #### <a name="networking"></a>Rede
-- <!-- 1766332 - IS, ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
+- <!-- TBD - IS ASDK --> Você não pode criar rotas definidas pelo usuário no portal do administrador ou usuário. Como alternativa, use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
 
-- <!-- 2388980 -  IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
+- <!-- 1766332 - IS, ASDK --> Em **rede**, se você clicar em **criar Gateway de VPN** para configurar uma conexão VPN, **com base na política** está listado como um tipo VPN. Não selecione essa opção. Somente o **rota com base em** opção tem suporte na pilha do Azure.
+
+- <!-- 2388980 -  IS ASDK --> Depois que uma máquina virtual é criada e associada a um endereço IP público, não é possível desassociar essa VM de endereço IP. Dissociação parece estar funcionando, mas o endereço IP público atribuído anteriormente permanecerá associado à VM original.
 
   No momento, você deve usar apenas novos endereços IP públicos para novas VMs que você criar.
 
   Esse comportamento ocorre mesmo se você reatribuir o endereço IP para uma nova VM (conhecido como um *permuta de VIP*). Todas as futuras tentativas de conexão por esse resultado do endereço IP em uma conexão para a máquina virtual original e não para o novo.
 
 
-- <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased. 
+- <!-- 2292271 - IS ASDK --> Se você gerar um limite de cota para um recurso de rede que faz parte de uma oferta e o plano está associado uma assinatura de locatário, o novo limite não é aplicado a essa assinatura. No entanto, o novo limite se aplicam a novas assinaturas que são criadas depois que a cota é aumentada. 
 
   Para contornar esse problema, use um plano de complemento para aumentar a cota de rede quando o plano já está associado uma assinatura. Para obter mais informações, consulte como [disponibilizar um plano de complemento](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
-- <!-- 2304134 IS ASDK --> You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription. 
+- <!-- 2304134 IS ASDK --> Você não pode excluir uma assinatura que tem recursos de tabela de rotas associados a ele ou zona DNS. Para a assinatura foi excluída com êxito, exclua primeiro os recursos de zona DNS e a tabela de rotas da assinatura de locatário. 
 
 
-- <!-- 1902460 -  IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
+- <!-- 1902460 -  IS ASDK --> A pilha do Azure oferece suporte a um único *gateway de rede local* por endereço IP. Isso é verdadeiro em todas as assinaturas de locatários. Após a criação da primeira conexão de gateway local de rede, subsequente tenta criar um recurso de gateway de rede local com o mesmo endereço IP são bloqueados.
 
-- <!-- 16309153 -  IS ASDK --> On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
+- <!-- 16309153 -  IS ASDK --> Em uma rede Virtual que foi criado com uma configuração de servidor DNS de *automáticas*, alteração de uma falha de servidor DNS personalizado. As configurações atualizadas não são propagadas para as VMs nessa rede virtual.
  
-- <!-- TBD -  IS ASDK --> Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
+- <!-- TBD -  IS ASDK --> Pilha do Azure não oferece suporte à adição de interfaces de rede adicionais para uma instância de VM depois que a VM for implantada. Se a VM requer mais de uma interface de rede, eles devem ser definidos no momento da implantação.
 
 
 #### <a name="sql-and-mysql"></a>SQL e MySQL 
-- <!-- TBD - ASDK --> The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
+- <!-- TBD - ASDK --> O banco de dados de servidores de hospedagem deve ser dedicado para uso pelas cargas de trabalho de usuário e provedor de recursos. Você não pode usar uma instância que está sendo usada por outro consumidor, incluindo serviços de aplicativos.
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers. 
+- <!-- IS, ASDK --> Caracteres especiais, incluindo espaços e pontos, não há suporte para o **família** nome quando você cria uma SKU para os provedores de recursos do SQL e MySQL. 
 
 #### <a name="app-service"></a>Serviço de Aplicativo
-- <!-- 2352906 - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
+- <!-- 2352906 - IS ASDK --> Os usuários devem registrar o provedor de recursos de armazenamento antes de criar sua primeira função do Azure na assinatura.
 
-- <!-- TBD - IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.  
+- <!-- TBD - IS ASDK --> Para expandir a infraestrutura (os operadores, gerenciamento, funções de front-end), você deve usar o PowerShell conforme descrito nas notas de versão para a computação.  
 
-- <!-- TBD - IS ASDK --> App Service can only be deployed into the *Default Provider subscription* at this time. In a future update, App Service will deploy into the new *Metering subscription* that was introduced in Azure Stack 1804. When Metering is supported for use, all existing deployments will be migrated to this new subscription type.
+- <!-- TBD - IS ASDK --> Serviço de aplicativo só pode ser implantado no *assinatura do provedor padrão* neste momento. Em uma atualização futura, o serviço de aplicativo será implantado para a nova *medição assinatura* que foi introduzido no Azure 1804 de pilha. Quando a medição é suportada para uso, todas as implantações existentes serão migradas para esse novo tipo de assinatura.
 
 #### <a name="usage"></a>Uso  
-- <!-- TBD -  IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
+- <!-- TBD -  IS ASDK --> Dados de medição de uso do endereço de IP público uso mostram a mesma *EventDateTime* valor para cada registro em vez do *TimeDate* carimbo que mostra quando o registro foi criado. No momento, você não pode usar esses dados para realizar as estatísticas precisas de uso de endereço IP público.
 
 <!-- #### Identity -->
 
@@ -182,7 +189,7 @@ Esta compilação inclui os seguintes aprimoramentos e correções para a pilha 
 ### <a name="new-features"></a>Novos recursos 
 Esta compilação inclui os seguintes aprimoramentos e correções para a pilha do Azure.  
 
-- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. We will announce the availability to use these subscription types in with a future update. 
+- <!-- 1759172 - IS, ASDK --> **Novas assinaturas administrativas**. Com 1804 há dois novos tipos de assinatura disponíveis no portal. Esses novos tipos de assinatura são além da assinatura do provedor padrão e visíveis em novas instalações de pilha do Azure começando com a versão 1804. *Não use esses novos tipos de assinatura com esta versão do Azure pilha*. Podemos anunciou a disponibilidade para usar esses tipos de assinatura com uma atualização futura. 
 
   Esses novos tipos de assinatura são visíveis, mas faz parte de uma alteração maior para proteger a assinatura do provedor padrão e para tornar mais fácil implantar recursos compartilhados, como servidores de hospedagem SQL. 
 
@@ -192,11 +199,11 @@ Esta compilação inclui os seguintes aprimoramentos e correções para a pilha 
   - Assinatura de consumo: *não use este tipo de assinatura*
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
-- <!-- IS, ASDK -->  In the admin portal, you no longer have to refresh the Update tile before it displays information. 
+- <!-- IS, ASDK -->  No portal de administração, você não precisa atualizar o bloco de atualização antes de exibir informações. 
 
-- <!-- 2050709 - IS, ASDK -->  You can now use the admin portal to edit storage metrics for Blob service, Table service, and Queue service.
+- <!-- 2050709 - IS, ASDK -->  Agora você pode usar o portal de administração para editar as métricas de armazenamento para o serviço Blob, o serviço de tabela e o serviço de fila.
 
-- <!-- IS, ASDK --> Under **Networking**, when you click **Connection** to set up a VPN connection, **Site-to-site (IPsec)** is now the only available option. 
+- <!-- IS, ASDK --> Em **rede**, quando você clica em **Conexão** para configurar uma conexão VPN, **Site a site (IPsec)** agora é a única opção disponível. 
 
 - **Várias correções de** de desempenho, estabilidade, segurança e sistema operacional que é usado pela pilha do Azure
 
@@ -214,23 +221,23 @@ A seguir agora está disponíveis, mas não requerem a atualização da pilha do
 ### <a name="known-issues"></a>Problemas conhecidos
  
 #### <a name="portal"></a>Portal
-- <!-- TBD - IS ASDK --> The ability [to open a new support request from the dropdown](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
+- <!-- TBD - IS ASDK --> A capacidade de [para abrir uma nova solicitação de suporte na lista suspensa](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do administrador do portal não está disponível. Em vez disso, use o seguinte link:     
     - Para o Kit de desenvolvimento de pilha do Azure, use https://aka.ms/azurestackforum.    
 
-- <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
+- <!-- 2403291 - IS ASDK --> Você não pode ter o uso da barra de rolagem horizontal na parte inferior dos portais de administrador e usuário. Se você não pode acessar a barra de rolagem horizontal, use a trilha para navegar até um blade anterior no portal do selecionando o nome da folha você deseja exibir na lista de trilha de navegação na parte superior esquerda do portal.
   ![Navegação estrutural](media/asdk-release-notes/breadcrumb.png)
 
-- <!-- TBD -  IS ASDK --> Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
+- <!-- TBD -  IS ASDK --> Excluir resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos do usuário ou o grupo de recursos inteiro e exclua assinaturas de usuário.
 
-- <!-- TBD -  IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
+- <!-- TBD -  IS ASDK --> Você não pode exibir as permissões para sua assinatura usando os portais de pilha do Azure. Como alternativa, use o PowerShell para verificar as permissões.
 
--   <!-- TBD -  IS ASDK --> In the admin portal, you might see a critical alert for the Microsoft.Update.Admin component. The Alert name, description, and remediation all display as:  
+-   <!-- TBD -  IS ASDK --> No portal de administração, você poderá ver um alerta crítico para o componente Microsoft.Update.Admin. O nome do alerta, descrição e correção toda a exibição como:  
     - *Erro - o modelo para o FaultType ResourceProviderTimeout está ausente.*
 
     Esse alerta pode ser ignorado. 
 
 #### <a name="health-and-monitoring"></a>Monitoramento e integridade
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+- <!-- 1264761 - IS ASDK -->  Você pode ver os alertas para o *controlador integridade* componente que tem os seguintes detalhes:  
 
    Alerta #1:
    - NOME: Função de infraestrutura não íntegro
@@ -250,55 +257,55 @@ A seguir agora está disponíveis, mas não requerem a atualização da pilha do
 - Os usuários podem procurar o marketplace completo sem uma assinatura e podem ver os itens administrativos como planos e ofertas. Esses itens não estão funcionando para os usuários.
  
 #### <a name="compute"></a>Computação
-- <!-- TBD -  IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
+- <!-- TBD -  IS ASDK --> As configurações de escala para conjuntos de escala de máquinas virtuais não estão disponíveis no portal. Como alternativa, você pode usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Por causa das diferenças de versão do PowerShell, você deve usar o `-Name` parâmetro em vez de `-VMScaleSetName`.
 
-- <!-- TBD -  IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+- <!-- TBD -  IS ASDK --> Ao criar máquinas virtuais no portal do usuário de pilha do Azure, o portal exibe um número incorreto de discos de dados que podem ser anexados a uma VM da série DS. As VMs da série DS podem acomodar quantos discos de dados como a configuração do Azure.
 
-- <!-- TBD -  IS ASDK --> When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
+- <!-- TBD -  IS ASDK --> Quando uma imagem de VM Falha ao ser criado, um item com falha que você não pode excluir pode ser adicionado para a folha de computação de imagens VM.
 
   Como alternativa, crie uma nova imagem VM com um VHD fictício que pode ser criado pelo Hyper-V (New-VHD-caminho C:\dummy.vhd-fixa - SizeBytes 1 GB). Esse processo deve corrigir o problema que impede a exclusão do item com falha. Em seguida, 15 minutos depois de criar a imagem fictícia, você poderá com êxito excluí-la.
 
   Você pode tentar, em seguida, faça download novamente a imagem VM que falhou anteriormente.
 
-- <!-- TBD -  IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
+- <!-- TBD -  IS ASDK --> Se uma extensão em uma implantação de VM de provisionamento leva muito tempo, os usuários devem permitir que o tempo limite de provisionamento em vez de tentar parar o processo para desalocar ou exclua a máquina virtual.  
 
-- <!-- 1662991 - IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings. 
+- <!-- 1662991 - IS ASDK --> Não há suporte para o diagnóstico de VM do Linux na pilha do Azure. Quando você implanta uma VM do Linux com o diagnóstico VM habilitado, a implantação falhará. A implantação também falhará se você habilitar as métricas básicas de VM do Linux por meio de configurações de diagnóstico. 
 
 #### <a name="networking"></a>Rede
-- <!-- 1766332 - IS, ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
+- <!-- 1766332 - IS, ASDK --> Em **rede**, se você clicar em **criar Gateway de VPN** para configurar uma conexão VPN, **com base na política** está listado como um tipo VPN. Não selecione essa opção. Somente o **rota com base em** opção tem suporte na pilha do Azure.
 
-- <!-- 2388980 -  IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
+- <!-- 2388980 -  IS ASDK --> Depois que uma máquina virtual é criada e associada a um endereço IP público, não é possível desassociar essa VM de endereço IP. Dissociação parece estar funcionando, mas o endereço IP público atribuído anteriormente permanecerá associado à VM original.
 
   No momento, você deve usar apenas novos endereços IP públicos para novas VMs que você criar.
 
   Esse comportamento ocorre mesmo se você reatribuir o endereço IP para uma nova VM (conhecido como um *permuta de VIP*). Todas as futuras tentativas de conexão por esse resultado do endereço IP em uma conexão para a máquina virtual original e não para o novo.
 
-- <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased. 
+- <!-- 2292271 - IS ASDK --> Se você gerar um limite de cota para um recurso de rede que faz parte de uma oferta e o plano está associado uma assinatura de locatário, o novo limite não é aplicado a essa assinatura. No entanto, o novo limite se aplicam a novas assinaturas que são criadas depois que a cota é aumentada. 
 
   Para contornar esse problema, use um plano de complemento para aumentar a cota de rede quando o plano já está associado uma assinatura. Para obter mais informações, consulte como [disponibilizar um plano de complemento](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
-- <!-- 2304134 IS ASDK --> You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription. 
+- <!-- 2304134 IS ASDK --> Você não pode excluir uma assinatura que tem recursos de tabela de rotas associados a ele ou zona DNS. Para a assinatura foi excluída com êxito, exclua primeiro os recursos de zona DNS e a tabela de rotas da assinatura de locatário. 
 
 
-- <!-- 1902460 -  IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
+- <!-- 1902460 -  IS ASDK --> A pilha do Azure oferece suporte a um único *gateway de rede local* por endereço IP. Isso é verdadeiro em todas as assinaturas de locatários. Após a criação da primeira conexão de gateway local de rede, subsequente tenta criar um recurso de gateway de rede local com o mesmo endereço IP são bloqueados.
 
-- <!-- 16309153 -  IS ASDK --> On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
+- <!-- 16309153 -  IS ASDK --> Em uma rede Virtual que foi criado com uma configuração de servidor DNS de *automáticas*, alteração de uma falha de servidor DNS personalizado. As configurações atualizadas não são propagadas para as VMs nessa rede virtual.
  
-- <!-- TBD -  IS ASDK --> Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
+- <!-- TBD -  IS ASDK --> Pilha do Azure não oferece suporte à adição de interfaces de rede adicionais para uma instância de VM depois que a VM for implantada. Se a VM requer mais de uma interface de rede, eles devem ser definidos no momento da implantação.
 
 
 #### <a name="sql-and-mysql"></a>SQL e MySQL 
-- <!-- TBD - ASDK --> The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
+- <!-- TBD - ASDK --> O banco de dados de servidores de hospedagem deve ser dedicado para uso pelas cargas de trabalho de usuário e provedor de recursos. Você não pode usar uma instância que está sendo usada por outro consumidor, incluindo serviços de aplicativos.
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers. 
+- <!-- IS, ASDK --> Caracteres especiais, incluindo espaços e pontos, não há suporte para o **família** nome quando você cria uma SKU para os provedores de recursos do SQL e MySQL. 
 
 #### <a name="app-service"></a>Serviço de Aplicativo
-- <!-- TBD -  IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
+- <!-- TBD -  IS ASDK --> Os usuários devem registrar o provedor de recursos de armazenamento antes de criar sua primeira função do Azure na assinatura.
 
-- <!-- TBD -  IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
+- <!-- TBD -  IS ASDK --> Para expandir a infraestrutura (os operadores, gerenciamento, funções de front-end), você deve usar o PowerShell conforme descrito nas notas de versão para a computação.
  
 #### <a name="usage"></a>Uso  
-- <!-- TBD -  IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
+- <!-- TBD -  IS ASDK --> Dados de medição de uso do endereço de IP público uso mostram a mesma *EventDateTime* valor para cada registro em vez do *TimeDate* carimbo que mostra quando o registro foi criado. No momento, você não pode usar esses dados para realizar as estatísticas precisas de uso de endereço IP público.
 
 <!--
 #### Identity
@@ -333,7 +340,7 @@ Os novos recursos e correções lançadas para a pilha do Azure versão sistemas
 - A capacidade de [para abrir uma nova solicitação de suporte na lista suspensa](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do administrador do portal não está disponível. Em vez disso, use o seguinte link:     
     - Para o Kit de desenvolvimento de pilha do Azure, use https://aka.ms/azurestackforum.    
 
-- <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.  
+- <!-- 2050709 --> No portal de administração, não é possível editar as métricas de armazenamento para o serviço Blob, o serviço de tabela ou o serviço de fila. Quando você vá para o armazenamento e, em seguida, selecione o blob, tabela ou bloco de serviço de fila, uma nova folha que exibe um gráfico de métricas para esse serviço é aberto. Se você selecionar Editar da parte superior do bloco de gráfico de métricas, a folha de editar gráfico abre, mas não exibir as opções para editar as métricas.  
 
 - Você verá um **ativação necessária** alerta de aviso que o aconselha a registrar seu Kit de desenvolvimento de pilha do Azure. Esse comportamento é esperado.
 
@@ -356,7 +363,7 @@ Os novos recursos e correções lançadas para a pilha do Azure versão sistemas
 
 
 #### <a name="health-and-monitoring"></a>Monitoramento e integridade
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+- <!-- 1264761 - IS ASDK -->  Você pode ver os alertas para o *controlador integridade* componente que tem os seguintes detalhes:  
 
    Alerta #1:
    - NOME: Função de infraestrutura não íntegro
@@ -391,7 +398,7 @@ Os novos recursos e correções lançadas para a pilha do Azure versão sistemas
 
 -  Se uma extensão em uma implantação de VM de provisionamento leva muito tempo, os usuários devem permitir que o tempo limite de provisionamento em vez de tentar parar o processo para desalocar ou exclua a máquina virtual.  
 
-- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings. 
+- <!-- 1662991 --> Não há suporte para o diagnóstico de VM do Linux na pilha do Azure. Quando você implanta uma VM do Linux com o diagnóstico VM habilitado, a implantação falhará. A implantação também falhará se você habilitar as métricas básicas de VM do Linux por meio de configurações de diagnóstico. 
 
 
 #### <a name="networking"></a>Rede
@@ -418,7 +425,7 @@ Os novos recursos e correções lançadas para a pilha do Azure versão sistemas
 
 - O banco de dados de servidores de hospedagem deve ser dedicado para uso pelas cargas de trabalho de usuário e provedor de recursos. Você não pode usar uma instância que está sendo usada por outro consumidor, incluindo serviços de aplicativos.
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** or **Tier** names when you create a SKU for the SQL and MySQL resource providers.
+- <!-- IS, ASDK --> Caracteres especiais, incluindo espaços e pontos, não há suporte para o **família** ou **camada** nomes quando você cria uma SKU para os provedores de recursos do SQL e MySQL.
 
 #### <a name="app-service"></a>Serviço de Aplicativo
 - Os usuários devem registrar o provedor de recursos de armazenamento antes de criar sua primeira função do Azure na assinatura.

@@ -1,6 +1,6 @@
 ---
 title: Usando a CLI 1.0 do Azure com o Armazenamento do Azure | Microsoft Docs
-description: "Saiba como usar a CLI (Interface de Linha de Comando) 1.0 do Azure com o Armazenamento do Azure para criar e gerenciar contas de armazenamento, bem como trabalhar com blobs e arquivos do Azure. A CLI do Azure é uma ferramenta de plataforma cruzada"
+description: Saiba como usar a CLI (Interface de Linha de Comando) 1.0 do Azure com o Armazenamento do Azure para criar e gerenciar contas de armazenamento, bem como trabalhar com blobs e arquivos do Azure. A CLI do Azure é uma ferramenta de plataforma cruzada
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a8866385c682e86e889ddf171cc640fe0bb8252d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737462"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Usando a CLI 1.0 do Azure com o Armazenamento do Azure
 

@@ -1,31 +1,73 @@
-1. Para exibir as marcas de um recurso ou grupo de recursos, selecione o ícone **Marcas**. 
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: azure-resource-manager
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: tomfitz
+ms.custom: include file
+ms.openlocfilehash: daa97c8ec0c2fd728e4d1eddf090afa17e87c31f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34675329"
+---
+1. Para exibir as marcas de um recurso ou um grupo de recursos, procura marcas existentes na visão geral. Se você não tiver aplicado marcas anteriormente, a lista estará vazia.
    
-     ![Selecione as marcas nas folhas de recurso e grupo de recursos](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. Confira as marcas existentes para o recurso. Se você não tiver aplicado marcas anteriormente, a lista estará vazia. 
+     ![Visualizar marcas para recurso ou grupo de recursos](./media/resource-manager-tag-resources/view-tags.png)
+1. Para adicionar uma marca, selecione **Clique aqui para adicionar marcas**.
 
-     ![Mostrar marcas existentes nas folhas de recurso e grupo de recursos](./media/resource-manager-tag-resources/existing-tags.png)
-3. Para adicionar uma marca, digite um nome e um valor, ou selecione um existente no menu suspenso. Selecione **Salvar**.
+1. Forneça um nome e valor. Selecione **+** para adicionar a marca.
+   
+     ![Adicionar marca](./media/resource-manager-tag-resources/add-tag.png)
+1. Continue adicionando marcas conforme necessário. Ao terminar, escolha **Salvar**.
+   
+     ![Salvar marcas](./media/resource-manager-tag-resources/save-tags.png)
+1. As marcas são exibidas agora na visão geral.
+   
+     ![Mostrar marcas](./media/resource-manager-tag-resources/view-new-tags.png)
+1. Para adicionar ou excluir uma marca, selecione **alterar**.
+   
+1. Para excluir uma marca, selecione o ícone de lixeira. Em seguida, selecione **Salvar**.
 
-     ![Adicionar nova marca](./media/resource-manager-tag-resources/tag-resources.png)
-3. Para exibir todos os recursos que têm valor de marca, selecione **>**(**Mais serviços**) e insira a palavra **Marcas** na caixa de texto de filtro. Selecione **Marcas** entre as opções disponíveis.
-   
-     ![Localizar marcas pelo hub Procurar](./media/resource-manager-tag-resources/browse-tags.png)
-4. Você verá um resumo das marcas em sua assinatura.
-   
-     ![Mostrar todas as marcas](./media/resource-manager-tag-resources/tag-taxonomy.png)
-5. Selecione qualquer uma dessas marcações para exibir os recursos e os grupos de recursos com essa marcação.
-   
-     ![Mostrar recursos marcados](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Selecione **Fixar folha ao painel** para obter um acesso rápido.
-   
-     ![Fixar marcas ao painel](./media/resource-manager-tag-resources/pin-tag.png)
-7. Você pode selecionar a marca fixada do painel para ver os recursos com essa marca.
-
-     ![Fixar marcas ao painel](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Excluir marca](./media/resource-manager-tag-resources/delete-tag.png)
 
 
 Para atribuir marcas em massa para vários recursos:
-1. Em qualquer lista de recursos (por exemplo, a visão geral de Todos os recursos, Grupo de recursos);
-2. Marque a caixa de seleção para os recursos aos quais você deseja atribuir a marca;
-3. Selecione a opção Atribuir marcas;
-4. Adicione os nomes e valores e selecione Atribuir.
+
+1. A partir de qualquer lista de recursos, selecione a caixa de seleção para os recursos aos quais você deseja atribuir a marca.
+
+     ![Selecionar vários recursos](./media/resource-manager-tag-resources/select-multiple-resources.png)
+
+1. Selecione **Atribuir marcas**
+
+     ![Atribuir marcas](./media/resource-manager-tag-resources/assign-tags.png)
+
+1. Depois de cada nome e valor, selecione **+**. Ao terminar, escolha **Atribuir**.
+
+     ![Selecione atribuir](./media/resource-manager-tag-resources/select-assign.png)
+
+Para exibir todos os recursos com uma marca:
+
+1. Selecione **Todos os serviços** e **Marcas**.
+
+     ![Localizar por marca](./media/resource-manager-tag-resources/find-tags.png)
+
+1. Selecione a marca para recursos de visualização.
+
+     ![Selecionar marca](./media/resource-manager-tag-resources/select-tag.png)
+
+1. Todos os recursos com essa marca são exibidos.
+
+     ![Visualizar recursos por marca](./media/resource-manager-tag-resources/view-resources-by-tag.png)
+
+1. Para acesso rápido, fixe a exibição ao painel.
+
+     ![Fixar no painel](./media/resource-manager-tag-resources/pin-to-dashboard.png)
+
+1. A exibição está disponível no painel.
+
+     ![painel](./media/resource-manager-tag-resources/dashboard.png)

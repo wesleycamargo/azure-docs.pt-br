@@ -1,35 +1,35 @@
 ---
 title: Comparação de recursos do Banco de Dados SQL do Azure | Microsoft Docs
-description: Este artigo compara os recursos do Banco de Dados SQL do Azure e as Instâncias Gerenciadas entre si e com o SQL Server.
+description: Este artigo compara os recursos do SQL Server disponíveis em diferentes tipos do Banco de Dados SQL do Azure.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
-ms.topic: article
-ms.date: 05/15/2018
+ms.topic: conceptual
+ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 8144f70737e5f78f568a8a6dd35ddc7d43ced0fd
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 09595c19622eaabe0838c52bc1226fcdfe60d4ba
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210048"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248802"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Banco de Dados SQL do Azure versus SQL Server 
 
-O Banco de Dados SQL do Azure compartilha uma base de código comum com o SQL Server. Os recursos do SQL Server compatíveis com o Banco de Dados SQL do Azure dependem do tipo de banco de dados SQL do Azure criado. Com o Banco de Dados SQL do Azure, você pode criar um banco de dados como parte de uma [instância gerenciada](sql-database-managed-instance.md) (atualmente, em visualização pública) ou criar um banco de dados que é um banco de dados individual ou um banco de dados que faz parte de um pool elástico. 
+O Banco de Dados SQL do Azure compartilha uma base de código comum com o SQL Server. Os recursos do SQL Server compatíveis com o Banco de Dados SQL do Azure dependem do tipo de banco de dados SQL do Azure criado. Com o Banco de Dados SQL do Azure, você pode criar um banco de dados como parte de uma [instância gerenciada](sql-database-managed-instance.md) (atualmente, em versão prévia pública) ou criar um banco de dados que faz parte do servidor lógico e está posicionado, opcionalmente, em um pool elástico. 
 
 A Microsoft continua adicionando recursos ao Banco de Dados SQL do Azure. Visite a página da Web Atualizações de serviço do Azure para obter as atualizações mais recentes usando estes filtros:
 
 * Filtrado para o [Serviço de Banco de Dados SQL](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtrado para disponibilidade geral [Anúncios (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) para recursos do Banco de Dados SQL.
 
-## <a name="sql-server-and-sql-database-feature-support"></a>Suporte ao recurso Banco de Dados SQL e SQL Server
+## <a name="sql-server-feature-support-in-azure-sql-database"></a>Suporte ao recurso do SQL Server no Banco de Dados SQL do Azure
 
 A tabela a seguir lista os principais recursos do SQL Server e fornece informações sobre se há suporte parcial ou completo para o recurso e um link para mais informações sobre o recurso. 
 
-| **Recurso do SQL** | **Com suporte no Banco de Dados SQL do Azure** | **Instância Gerenciada (versão prévia)** |
+| **Recurso do SQL** | **Com suporte no Banco de Dados SQL do Azure/servidor lógico** | **Com suporte no Banco de Dados SQL do Azure/Instância Gerenciada (versão prévia)** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sim - veja [Armazenamento de certificados](sql-database-always-encrypted.md) e [Cofre de chaves](sql-database-always-encrypted-azure-key-vault.md) | Sim - veja [Armazenamento de certificados](sql-database-always-encrypted.md) e [Cofre de chaves](sql-database-always-encrypted-azure-key-vault.md) |
 | [Grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | A [alta disponibilidade](sql-database-high-availability.md) é incluída em todos os bancos de dados. A recuperação de desastre é abordada em [Visão geral da continuidade de negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md) | A [alta disponibilidade](sql-database-high-availability.md) é incluída em todos os bancos de dados. A recuperação de desastre é abordada em [Visão geral da continuidade de negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md) |
@@ -40,7 +40,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [Ajuste automático (imposição de plano)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sim](sql-database-automatic-tuning.md)| [Sim](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Ajuste automático (índices)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sim](sql-database-automatic-tuning.md)| Não  |
 | [Arquivo BACPAC (exportação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sim, veja [Exportação do Banco de Dados SQL](sql-database-export.md) | sim |
-| [Arquivo BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sim - veja [Importação de Banco de Dados SQL](sql-database-import.md) | sim |
+| [Arquivo BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sim - veja [Importação de Banco de Dados SQL](sql-database-import.md) | Não  |
 | [Comando BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Não, somente backups automáticos iniciados pelo sistema – consulte [Backups automatizados](sql-database-automated-backups.md) | Backups automatizados iniciados pelo sistema e backups somente cópia iniciados pelo usuário – consulte [Diferenças de backup](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Funções internas](https://docs.microsoft.com/sql/t-sql/functions/functions) | Maioria - veja funções individuais | Sim – consulte [Diferenças entre procedimentos armazenados, funções e gatilhos](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Alterar captura de dados](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Não  | sim |
@@ -137,7 +137,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 |Detecção de ameaças|  [Sim](sql-database-threat-detection.md)|[Sim](sql-database-managed-instance-threat-detection.md)|
 | [Sinalizadores de rastreamento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Não  | Não  |
 | [Variáveis](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | sim | sim |
-| [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | sim | Não. Não em Visualização Pública |
+| [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | sim | Parcial, apenas com criptografia de serviços gerenciados |
 [Rede virtual](../virtual-network/virtual-networks-overview.md) | Parcial – consulte [Pontos de extremidade de VNET](sql-database-vnet-service-endpoint-rule-overview.md) | Sim, somente no modelo do Resource Manager |
 | [Clustering de Failover do Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | A [alta disponibilidade](sql-database-high-availability.md) é incluída em todos os bancos de dados. A recuperação de desastre é abordada em [Visão geral da continuidade de negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md) | A [alta disponibilidade](sql-database-high-availability.md) é incluída em todos os bancos de dados. A recuperação de desastre é abordada em [Visão geral da continuidade de negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md) |
 | [Índices XML](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | sim | sim |

@@ -2,22 +2,20 @@
 title: Guia de Design de tabela de armazenamento do Azure | Microsoft Docs
 description: Projete tabelas escalonáveis e de alto desempenho no Armazenamento de Tabelas do Azure
 services: cosmos-db
-documentationcenter: na
 author: SnehaGunda
 manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 667fef855238b2524c05bbc2f137d466c0e56de8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4f3cafd80c713697a8b8fdde56c021be1c5319fb
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824580"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design de tabela de armazenamento do Azure: projetando tabelas escalonáveis e de alto desempenho
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -525,7 +523,7 @@ Habilite comportamento eventualmente consistente entre limites de partição ou 
 #### <a name="context-and-problem"></a>Contexto e problema
 EGTs habilitam transações atômicas entre várias entidades que compartilham a mesma chave de partição. Por motivos de escalabilidade e desempenho, você pode optar por armazenar entidades que têm requisitos de consistência em partições separadas ou em um sistema de armazenamento separado: nesse cenário, você não pode usar EGTs para manter a consistência. Por exemplo, você pode ter um requisito para manter a consistência eventual entre:  
 
-* Entidades armazenadas em duas partições diferentes na mesma tabela em tabelas diferentes e em contas de armazenamento diferentes.  
+* Entidades armazenadas em duas partições diferentes na mesma tabela, em tabelas diferentes ou em diferentes contas de armazenamento.  
 * Uma entidade armazenada no serviço Tabela e um blob armazenado no serviço Blob.  
 * Uma entidade armazenada no serviço Tabela e um arquivo em um sistema de arquivos.  
 * Um repositório de entidades no serviço Tabela ainda indexado usando o serviço de Azure Search.  
@@ -720,7 +718,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 Recupere as *n* entidades adicionadas recentemente em uma partição usando um valor de **RowKey** que classifica em ordem de data e hora inversa.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Um requisito comum é ser capaz de recuperar as entidades criadas mais recentemente, por exemplo, os dez reembolsos de despesa mais recentes enviados por um funcionário. As consultas de tabela dão suporte a uma operação de consulta **$top** para retornar as primeiras *n* entidades de consulta de um conjunto: não há uma operação de consulta equivalente para retornar as últimas n entidades de um conjunto.  
+Um requisito comum é conseguir recuperar as entidades criadas mais recentemente, por exemplo, as dez solicitações de despesas mais recentes enviadas por um funcionário. As consultas de tabela dão suporte a uma operação de consulta **$top** para retornar as primeiras *n* entidades de consulta de um conjunto: não há uma operação de consulta equivalente para retornar as últimas n entidades de um conjunto.  
 
 #### <a name="solution"></a>Solução
 Armazene as entidades usando uma **RowKey** que classifica naturalmente em ordem inversa de data/hora. Fazendo isso, a entrada mais recente será sempre a primeira na tabela.  
@@ -1061,7 +1059,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 #### <a name="server-side-projection"></a>Projeção do lado do servidor
-Uma única entidade pode ter até 255 propriedades e até 1 MB de tamanho. Ao consultar a tabela e recuperar entidades, você talvez não precise de todas as propriedades e pode evitar a transferência desnecessária de dados (para ajudar a reduzir a latência e custo). Você pode usar a projeção do lado do servidor para transferir apenas as propriedades que precisa. O exemplo a seguir recupera apenas a propriedade **Email** (com **PartitionKey**, **RowKey**, **Timestamp** e **ETag**) das entidades selecionadas pela consulta.  
+Uma única entidade pode ter até 255 propriedades e até 1 MB de tamanho. Ao consultar a tabela e recuperar entidades, você talvez não precise de todas as propriedades e pode evitar a transferência desnecessária de dados (para ajudar a reduzir a latência e custo). Você pode usar a projeção do lado do servidor para transferir apenas as propriedades que precisa. O exemplo a seguir recupera apenas a propriedade **Email** (juntamente com **PartitionKey**, **RowKey**, **Timestamp**, e **ETag**) das entidades selecionadas pela consulta.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(

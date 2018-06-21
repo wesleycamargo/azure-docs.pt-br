@@ -1,25 +1,19 @@
 ---
-title: Alertas de log no Azure Monitor - Alertas | Microsoft Docs
+title: Alertas de log no Azure Monitor
 description: Acione emails, notificações, chame URLs de sites (webhooks) ou automação quando as condições de consulta analítica especificadas forem atendidas para os Alertas do Azure.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.component: alerts
+ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057314"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264367"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertas de log no Azure Monitor - Alertas 
 Este artigo fornece detalhes de alertas de Log, que são um dos tipos de alertas de suporte no novo [Alertas do Azure](monitoring-overview-unified-alerts.md) e permitem que os usuários usem a plataforma de análise do Azure como base para alertas. Para obter detalhes de Alertas de Métrica usando Logs, veja [Alertas de métrica quase em tempo real](monitoring-near-real-time-metric-alerts.md)
@@ -36,7 +30,7 @@ As regras de pesquisa de log são definidas pelos detalhes a seguir:
 - **Consulta de log**.  A consulta que é executada cada vez que a regra de alerta é acionada.  Os registros retornados por essa consulta serão usados para determinar se um alerta é criado. A consulta do *Application Insights no Azure* também pode incluir [chamadas entre aplicativos](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), desde que o usuário tenha direitos de acesso aos aplicativos externos. 
 
     > [!IMPORTANT]
-    > O suporte de [consultas entre aplicativos para o Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) está em modo de visualização - a funcionalidade e a experiência do usuário estão sujeitas a alterações. O uso de [consulta entre espaços de trabalho ](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) e [consulta de recursos cruzados para o Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) atualmente **não tem suporte** nos alertas do Azure.
+    > O suporte de [consultas entre aplicativos para o Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) está em versão prévia - a funcionalidade está limitada a dois ou mais aplicativos, e a experiência do usuário está sujeita a alterações. O uso de [consulta entre espaços de trabalho ](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) e [consulta de recursos cruzados para o Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) atualmente **não tem suporte** nos alertas do Azure.
 
 - **Período de tempo**.  Especifica o intervalo de tempo para a consulta. A consulta retorna somente os registros que foram criados dentro desse intervalo de tempo atual. O período de tempo restringe os dados buscados para consulta de log para evitar abusos e contorna qualquer comando de tempo (como atrás) usados na consulta de log. <br>*Por exemplo, se o período de tempo está definido para 60 minutos e a consulta é executada às 13h15, somente os registros criados entre 12h15 e 13h15 são retornados para executar a consulta de log. Agora, se a consulta de log usa a hora como o comando atrás (7d), a consulta de log deve ser executada somente para dados entre 12h15 e 13h15 - como se os dados existissem para somente os últimos 60 minutos. E não por sete dias de dados conforme especificado na consulta de log.*
 - **Frequência**.  Especifica a frequência com que a consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual a ou menor que o período de tempo.  Se o valor for maior que o período de tempo, haverá o risco de que registros sejam perdidos.<br>*Por exemplo, considere um período de tempo de 30 minutos e uma frequência de 60 minutos.  Se a consulta for executada à 1:00, retornará registros entre 12:30 e 1:00.  A próxima vez em que a consulta será executada é às 2:00, quando ela retornará registros entre 1:30 e 2:00.  Todos os registros criados entre 13h00 e 13h30 nunca seriam avaliados.*
@@ -126,7 +120,7 @@ As APIs fornecidas para os alertas de logs são RESTful e podem ser acessadas po
 
 Para obter mais detalhes, assim como exemplos sobre como usar a API REST, consulte:
 - [API REST de alerta do Log Analytics](../log-analytics/log-analytics-api-alerts.md) - para criar e gerenciar regras de alerta de pesquisa de log para o Log Analytics do Azure
-- [Azure Monitor agendou API REST de regras de consulta](https://docs.microsoft.com/en-us/rest/api/monitorr/scheduledqueryrules/) - para criar e gerenciar regras de alerta de pesquisa de log para o Azure Application Insights
+- [Azure Monitor agendou API REST de regras de consulta](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) - para criar e gerenciar regras de alerta de pesquisa de log para o Azure Application Insights
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 Os usuários também podem usar a flexibilidade fornecida pelo [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para criar e atualizar recursos - com a finalidade de criar ou atualizar alertas de Log.

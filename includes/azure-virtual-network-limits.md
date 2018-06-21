@@ -1,4 +1,21 @@
-<a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura.
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: networking
+author: jimdial
+ms.service: networking
+ms.topic: include
+ms.date: 06/12/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568119"
+---
+<a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
@@ -18,7 +35,7 @@
 | ACLs (Listas de Controle de Acesso de Pontos de Extremidade) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de Rede – Azure Resource Manager
-Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura.
+Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
@@ -58,7 +75,10 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Configurações de IP de front-end, Standard | 10 | 600 |
 | Pool de back-end, Básico | 100, um único conjunto de disponibilidade | 100, um único conjunto de disponibilidade |
 | Pool de back-end, Standard | 1000, única VNet | 1000, única VNet |
+| Recurso de back-end pelo Azure Load Balancer, Standard&ast; | 50 | 150 |
 | Portas de alta disponibilidade, Standard | 1 por front-end interno | 1 por front-end interno |
+
+&ast; Até Máquinas 150 máquinas virtuais autônomas, conjuntos recursos, qualquer combinação de máquinas virtuais autônomas, conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual.
 
 [Entre em contato com o suporte](../articles/azure-supportability/resource-manager-core-quotas-request.md ) caso precise aumentar esses limites.
 

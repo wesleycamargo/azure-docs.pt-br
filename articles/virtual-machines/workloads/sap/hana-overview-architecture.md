@@ -4,22 +4,22 @@ description: Visão geral da arquitetura de como implantar o SAP HANA do Azure (
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/02/2018
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3342f3057917202d81359a27accf47ba288b128
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: bfcab5a84d9e8b0bf164c666162636ede2e1b06f
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077616"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763775"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Visão geral e arquitetura do SAP HANA (Instâncias Grandes) no Azure
 
@@ -58,7 +58,7 @@ Várias definições comuns são amplamente usadas no guia de implantação téc
 - **PaaS:** plataforma como serviço.
 - **SaaS**: software como serviço.
 - **Componente do SAP**: um aplicativo do SAP individual, como ECC (Componente Central ERP), BW (Business Warehouse), Solution Manager ou EP (Portal Empresarial). Os componentes SAP podem ser baseados em tecnologias ABAP ou Java tradicionais ou em um aplicativo não baseado em NetWeaver, como o Business Objects.
-- **Ambiente do SAP**: um ou mais componentes do SAP agrupados logicamente para executar uma função de negócios como desenvolvimento, 	garantia de qualidade, treinamento, recuperação de desastre ou produção.
+- **Ambiente SAP:** um ou mais componentes SAP agrupados logicamente para executar uma função de negócios, como desenvolvimento, garantia de qualidade, treinamento, recuperação de desastre ou produção.
 - **Paisagem do SAP:** refere-se a todos os ativos do SAP no cenário de TI. A estrutura da SAP inclui todos os ambientes de produção e de não produção.
 - **SAP system**: a combinação da camada do DBMS e camada de aplicação de, por exemplo, um sistema de desenvolvimento SAP ERP, um sistema de teste SAP BW e um sistema de produção SAP CRM. As implantações do Azure não dão suporte à divisão dessas duas camadas entre local e Azure. Um sistema SAP é implantado no local ou é implantado no Azure. É possível implantar os diferentes sistemas de uma paisagem SAP no local ou no Azure. Por exemplo, você pode implantar os sistemas de desenvolvimento e teste do SAP CRM no Azure enquanto implanta o sistema de produção do SAP CRM no local. Para SAP HANA do Azure (Instâncias Grandes), pretende-se que você hospede a camada de aplicativo do SAP dos sistemas SAP em VMs e a instância do SAP HANA relacionada em uma unidade no carimbo do SAP HANA do Azure (Instâncias Grandes).
 - **Carimbo da Instância Grande**: uma pilha de infraestrutura de hardware com certificação TDI do SAP HANA e dedicada para executar instâncias do SAP HANA no Azure.
@@ -68,8 +68,8 @@ Várias definições comuns são amplamente usadas no guia de implantação téc
    Os usuários de domínio do domínio local podem acessar os servidores e executar serviços nessas VMs (como serviços de DBMS). A comunicação e a resolução de nomes entre VMs implantadas no local e VMs implantadas no Azure são possíveis. Esse cenário é típico da maneira como a maioria dos ativos do SAP é implantada. Para obter mais informações, consulte [Planejar e projetar para Gateway de VPN do Azure ](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [Criar uma rede virtual com uma conexão site a site usando o Portal do Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Locatário**: um cliente implantado no carimbo do SAP HANA em Instâncias Grandes é isolado em um *locatário.* Um locatário é isolado de outros locatários na camada de rede, de armazenamento e de computação. As unidades de computação e armazenamento atribuídas aos diferentes locatários não podem visualizar umas às outras nem comunicarem entre si no nível de carimbo do SAP HANA em Instâncias Grandes. Um cliente pode escolher ter implantações em diferentes locatários. Mesmo assim, não há nenhuma comunicação entre locatários no nível de selo de Instância Grande do HANA.
 - **Categoria de SKU**: para o SAP HANA em Instâncias Grandes, são oferecidas as duas categorias de SKUs a seguir:
-    - **Classe do tipo I:** S72, S72m, S144, S144m, S192 e S192m
-    - **Classe do tipo II**: S384, S384m, S384xm, S576m, S768m e S960m
+    - **Classe do tipo I**: S72, S72m, S144, S144m, S192, S192m e S192xm
+    - **Classe do tipo II**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm e S960m
 
 
 Uma variedade de recursos adicionais está disponível sobre como implantar uma carga de trabalho do SAP na nuvem. Se você planeja executar uma implantação do SAP HANA do Azure, é necessário ter experiência e estar ciente dos princípios do IaaS do Azure e da implantação das cargas de trabalho do SAP no IaaS do Azure. Antes de continuar, consulte [Usar as soluções SAP nas máquinas virtuais do Azure ](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações. 
@@ -148,7 +148,10 @@ Desde julho de 2017, o SAP HANA no Azure (Instâncias Grandes) está disponível
 |---| SAP HANA no Azure S576m<br /> – 12 x processadores Intel® Xeon® E7-8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12,0 TB |  28 TB | Disponível |
 |---| SAP HANA no Azure S768m<br /> – 16 x processadores Intel® Xeon® E7-8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  16,0 TB |  36 TB | Disponível |
 |---| SAP HANA no Azure S960m<br /> – 20 x processadores Intel® Xeon® E7-8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20,0 TB |  46 TB | Disponível |
-
+| Otimizado para OLTP**TDIv5**: SAP Business Suite<br /> no SAP HANA ou S/4HANA (OLTP),<br /> OLTP genérico | SAP HANA no Azure S192xm<br /> – 4 x processadores Intel® Xeon® E7-8890 v4<br /> 96 núcleos de CPU e 192 threads de CPU |  6,0 TB |  16 TB | Disponível |
+|---| SAP HANA no Azure S384xxm<br /> – 8 x processadores Intel® Xeon® E7-8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  12,0 TB |  28 TB | Disponível |
+|---| SAP HANA no Azure S576xm<br /> – 12 x processadores Intel® Xeon® E7-8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  18,0 TB |  41 TB | Disponível |
+|---| SAP HANA no Azure S768xm<br /> – 16 x processadores Intel® Xeon® E7-8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  24,0 TB |  56 TB | Disponível |
 - Núcleos de CPU = soma de núcleos de CPU não-hyper-threading da soma dos processadores da unidade do servidor.
 - Threads de CPU = soma de threads de computação fornecidos pelos núcleos de CPU não-hyper-threading da soma dos processadores da unidade do servidor. Todas as unidades são configuradas por padrão para usar a tecnologia Hyper-Threading.
 
@@ -157,8 +160,8 @@ As configurações específicas de escolhido dependem da carga de trabalho, recu
 
 A base de hardware para todas as ofertas é certificada por TDI do SAP HANA. Duas classes diferentes de hardware dividem as SKUs em:
 
-- S72, S72m, S144, S144m, S192 e S192m, que são referidos como "Classe Tipo I" de SKUs.
-- S384, S384m, S384xm, S576m, S768m, and S960m, que chamamos de "classe Tipo II" de SKUs.
+- S72, S72m, S144, S144m, S192, S192m e S192xm, que são chamados de "Classe Tipo I" de SKUs.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm e S960m, que são chamados de "Classe Tipo II" de SKUs.
 
 Um carimbo do SAP HANA em Instâncias Grandes completo não é alocado exclusivamente para uso de um único cliente. Esse fato se aplica aos racks de recursos de computação e armazenamento conectados por meio de uma malha de rede implantada no Azure também. A infraestrutura do SAP HANA em Instâncias Grandes, como o Azure, implanta &quot;locatários&quot; diferentes do cliente isolados uns dos outros nos três níveis a seguir:
 
@@ -338,17 +341,21 @@ O SAP HANA em Instâncias Grandes da classe do Tipo I é fornecido com quatro ve
 
 Consulte a tabela a seguir em termos de alocação de armazenamento. A tabela lista a capacidade aproximada dos diferentes volumes fornecidos com as diferentes unidades do SAP HANA Instâncias Grandes.
 
-| SKU de Instância Grande do HANA | hana/data | Hana/log | hana/shared | hana/log/backup |
+| SKU de Instância Grande do HANA | hana/data | Hana/log | hana/shared | hana/logbackups |
 | --- | --- | --- | --- | --- |
 | S72 | 1.280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3.328 GB | 768 GB |1.280 GB | 768 GB |
 | S192 | 4.608 GB | 1.024 GB | 1.536 GB | 1.024 GB |
 | S192m | 11.520 GB | 1.536 GB | 1.792 GB | 1.536 GB |
+| S192xm |  12.000 GB |  2.050 GB |  2.050 GB |  2.040 GB |
 | S384 | 11.520 GB | 1.536 GB | 1.792 GB | 1.536 GB |
 | S384m | 12.000 GB | 2.050 GB | 2.050 GB | 2.040 GB |
 | S384xm | 16.000 GB | 2.050 GB | 2.050 GB | 2.040 GB |
+| S384xxm |  20.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
 | S576m | 20.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
+| S576xm | 31.744 GB | 4.096 GB | 2.048 GB | 4.096 GB |
 | S768m | 28.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
+| S768xm | 40.960 GB | 6.144 GB | 4.096 GB | 6.144 GB |
 | S960m | 36.000 GB | 4.100 GB | 2.050 GB | 4.100 GB |
 
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234506"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicativos Web no Serviço de Aplicativo do Azure
 
@@ -67,6 +68,8 @@ Esta seção contém pares de nome/valor que seu aplicativo Web carregará na in
 * Para aplicativos .NET, essas configurações serão injetadas em sua configuração `AppSettings` em tempo de execução, substituindo as configurações existentes. 
 * Os aplicativos PHP, Python, Java e Nó podem acessar essas configurações como variáveis do ambiente em tempo de execução. Para cada configuração do aplicativo, são criadas duas variáveis; uma com o nome especificado pela entrada de configuração do aplicativo, e outra com um prefixo de APPSETTING_. Ambas contêm o mesmo valor.
 
+As configurações do aplicativo são sempre criptografadas quando armazenadas (criptografadas em repouso).
+
 ### <a name="connection-strings"></a>Cadeias de conexão
 Cadeia de conexão para recursos vinculados. 
 
@@ -80,6 +83,8 @@ Para aplicativos PHP, Python, Java e Nó essas configurações estarão disponí
 * Personalizado: `CUSTOMCONNSTR_`
 
 Por exemplo, se uma cadeia de conexão MySql fosse nomeado `connectionstring1`, ela seria acessada pela variável de ambiente `MYSQLCONNSTR_connectionString1`.
+
+As cadeias de conexão são sempre criptografadas quando armazenadas (criptografadas em repouso).
 
 ### <a name="default-documents"></a>Documentos padrão
 O documento padrão é a página da Web exibida na URL raiz de um site.  O primeiro arquivo correspondente na lista é usado. 

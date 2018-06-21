@@ -4,7 +4,7 @@ description: Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWe
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366351"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656186"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -540,9 +540,10 @@ Podemos encontrar alguns cenários em que você como cliente deseja mover uma VM
 Se você usar Managed Disks, poderá migrar para o Armazenamento Premium:
 
 1. Desalocar a máquina virtual
-2. Se necessário, redimensione a máquina virtual para um tamanho que dê suporte ao Armazenamento Premium (por exemplo, DS ou GS)
-3. Altere o tipo de conta do Disco Gerenciado para Premium (SSD)
-4. Inicie a máquina virtual
+1. Se necessário, redimensione a máquina virtual para um tamanho que dê suporte ao Armazenamento Premium (por exemplo, DS ou GS)
+1. Altere o tipo de conta do Disco Gerenciado para Premium (SSD)
+1. Altere o armazenamento em cache dos discos de dados conforme recomendado no capítulo [Cache para VMs e discos de dados][dbms-guide-2.1]
+1. Inicie a máquina virtual
 
 ### <a name="deployment-of-vms-for-sap-in-azure"></a>Implantação de VMs para SAP no Azure
 O Microsoft Azure oferece várias maneiras de implantar VMs e discos associados. Assim, é importante entender as diferenças, uma vez que as preparações das VMs podem ser diferentes dependendo da forma de implantação. Em geral, analisamos os cenários descritos nos capítulos a seguir.

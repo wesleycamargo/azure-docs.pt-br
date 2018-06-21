@@ -1,3 +1,20 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-machines
+author: sdwheeler
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/18/2018
+ms.author: kirpas;iainfou;sewhee
+ms.custom: include file
+ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323792"
+---
 ## <a name="overview"></a>Visão geral
 Quando você cria uma nova VM (máquina virtual) em um Grupo de Recursos implantando uma imagem do [Azure Marketplace](https://azure.microsoft.com/marketplace/), a unidade do sistema operacional padrão normalmente é 127 GB (algumas imagens têm tamanhos de disco de sistema operacional menores por padrão). Embora seja possível adicionar discos de dados à VM (a quantidade depende do SKU escolhido) e além de ser recomendável instalar aplicativos e cargas de trabalho que consomem bastante CPU nesses discos adicionados, muitas vezes, os clientes precisam expandir a unidade do sistema operacional para oferecer suporte a determinados cenários como estes:
 
@@ -106,7 +123,7 @@ Abra o ISE do PowerShell ou a janela do PowerShell no modo administrativo e siga
 ## <a name="summary"></a>Resumo
 Neste artigo, usamos os módulos do Azure Resource Manager do PowerShell para expandir a unidade do sistema operacional de uma máquina virtual IaaS. Foi reproduzido abaixo o script completo para sua referência para discos Não Gerenciados e Gerenciados:
 
-Discos Não Gerenciados:
+Discos não gerenciados:
 
 ```Powershell
 Connect-AzureRmAccount
@@ -134,7 +151,7 @@ Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="for-resizing-data-disks"></a>Para redimensionar os Discos de dados
 Embora neste artigo tenhamos focado basicamente a expansão do disco do sistema operacional Não Gerenciado/Gerenciado da VM, o script desenvolvido também pode ser usado para expandir os discos de dados conectados à VM. Por exemplo, para expandir o primeiro disco de dados conectado à VM, substitua o objeto ```OSDisk``` de ```StorageProfile``` pela matriz ```DataDisks``` e use um índice numérico para obter uma referência para o primeiro disco de dados conectado, como mostrado abaixo:
 
 Disco Não Gerenciado:

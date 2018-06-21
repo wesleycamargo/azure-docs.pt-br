@@ -1,24 +1,19 @@
 ---
-title: 'Backup do Azure: Usar o PowerShell para fazer backup de cargas de trabalho de DPM | Microsoft Docs'
+title: Backup do Azure - Use o PowerShell para fazer backup de cargas de trabalho do DPM
 description: Saiba como implantar e gerenciar o backup do Azure para o Data Protection Manager (DPM) usando o PowerShell
 services: backup
-documentationcenter: ''
 author: NKolli1
 manager: shreeshd
-editor: ''
-ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/23/2017
-ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 89dd965208cd473e47de9e0c9bdbfa3ab986c3d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: adigan
+ms.openlocfilehash: 4a74aa674bd80f3d1297e71873eb9d71e46fd4cb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606912"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
 Este artigo mostra como usar o Azure PowerShell para configurar o Backup do Azure em um servidor DPM e para gerenciar backups e recuperações.

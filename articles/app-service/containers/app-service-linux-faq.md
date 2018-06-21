@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/25/2018
+ms.author: msangapu
+ms.openlocfilehash: 162f9e4a6ad18cc95ccc0b14ce5d8c6318b86ba5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294004"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
@@ -35,7 +36,7 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 **Quais são os valores esperados para a seção Arquivo de Inicialização quando configuro a pilha de tempo de execução?**
 
-Para o Node.js, é possível especificar o arquivo de configuração PM2 ou o arquivo de script. Para o .NET Core, especifique o nome da DLL compilada. Para o Ruby, é possível especificar o script Ruby com o qual você deseja inicializar o aplicativo.
+Para o Node.js, é possível especificar o arquivo de configuração PM2 ou o arquivo de script. Para o .NET Core, especifique o nome da DLL compilada como `dotnet <myapp>.dll`. Para o Ruby, é possível especificar o script Ruby com o qual você deseja inicializar o aplicativo.
 
 ## <a name="management"></a>Gerenciamento
 
@@ -47,7 +48,7 @@ Esta ação é igual a um reinício do Docker.
 
 Sim, você pode fazer isso por meio do site de gerenciamento do controle de origem (SCM) .
 
-> [!NOTE] 
+> [!NOTE]
 > Você também pode se conectar ao contêiner de aplicativo diretamente do seu computador de desenvolvimento local usando SSH, SFTP ou Visual Studio Code (para aplicativos do Node.js de depuração ao vivo). Para obter mais informações, consulte [Depuração remota e SSH no Serviço de Aplicativo no Linux](https://aka.ms/linux-debug).
 >
 
@@ -113,7 +114,7 @@ Você pode definir a configuração de aplicativo `WEBSITES_ENABLE_APP_SERVICE_S
 
 **Meu contêiner personalizado demora para iniciar e a plataforma o reinicia antes que ele termine a inicialização.**
 
-Você pode configurar o tempo que a plataforma aguardará antes de reiniciar o contêiner. Para fazer isso, defina a configuração de aplicativo `WEBSITES_CONTAINER_START_TIME_LIMIT` como o valor desejado. O valor padrão é 230 segundos e o valor máximo permitido é 600 segundos.
+Você pode configurar o tempo que a plataforma aguardará antes de reiniciar o contêiner. Para fazer isso, defina a configuração de aplicativo `WEBSITES_CONTAINER_START_TIME_LIMIT` como o valor desejado. O valor padrão é 230 segundos e o valor máximo permitido é 1800 segundos.
 
 **Qual é o formato da URL do servidor do Registro privado?**
 

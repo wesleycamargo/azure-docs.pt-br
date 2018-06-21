@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 4c857af02e104940559cb86daa3ccd208d8e35a1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 956bd89a993a019d7a5a4dd28efec4116b174334
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297250"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um tempo de execução de integração no Azure Data Factory  
 O **tempo de execução de integração** é a infraestrutura de computação usada pelo Azure Data Factory para fornecer diversas funcionalidades de integração de dados entre diferentes ambientes de rede. São oferecidos três tipos de tempos de execução de integração pelo Data Factory:
@@ -166,7 +167,7 @@ O tempo de execução de integração do SSIS do Azure é um cluster totalmente 
 | CatalogAdminUserName | O nome de usuário do administrador do Banco de Dados do SQL Azure/servidor de Instância Gerenciada (versão prévia) existente. O serviço Data Factory usa essas informações para preparar e gerenciar o SSISDB por você. |
 | CatalogAdminPassword | A senha de administrador do servidor existente do Banco de Dados do Azure SQL/Instância Gerenciada (versão prévia). |
 | CatalogPricingTier | O tipo de preço do SSISDB hospedado por seu servidor existente de Banco de dados SQL do Azure.  Não aplicável à Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia) que hospeda o SSISDB. |
-| VNetId | A ID de recursos da rede virtual (VNet) para o tempo de execução de integração do Azure-SSIS ingressar. |
+| VNetId | A ID de recursos da rede virtual para o tempo de execução de integração do Azure-SSIS ingressar. |
 | Sub-rede | O nome da sub-rede para o tempo de execução de integração do Azure-SSIS ingressar. |
 | ID | A ID de recursos do seu tempo de execução de integração do Azure-SSIS. |
 | type | O tipo (Gerenciado/Auto-hospedado) de seu tempo de execução de integração do Azure-SSIS. |
@@ -199,9 +200,9 @@ Consulte os artigos a seguir para saber mais sobre o tempo de execução de inte
 
 - [Tempo de execução de integração do Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceituais sobre tempos de execução de integração em geral, incluindo o IR do Azure-SSIS. 
 - [Tutorial: implantar pacotes do SSIS para o Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo fornece instruções passo a passo para criar um IR do Azure-SSIS e usa um banco de dados SQL do Azure para hospedar o catálogo do SSIS. 
-- [Como: Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia) e associar o IR a uma VNet. 
+- [Como: Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do SQL do Azure (Versão Prévia) e unir o IR a uma rede virtual. 
 - [Gerencie um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md). Este artigo mostra como parar, iniciar ou remover um IR do Azure-SSIS. Ele também mostra como expandir o IR do Azure-SSIS adicionando mais nós ao IR. 
-- [Unir um IR do Azure-SSIS a uma VNet](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo fornece informações conceituais sobre como unir um IR do Azure-SSIS a uma rede virtual (VNet) do Azure. Ele também apresenta as etapas para usar o portal do Azure para configurar a VNet para que o IR do Azure-SSIS possa unir-se à VNet. 
+- [Unir um IR do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo fornece informações conceituais sobre como unir um IR do Azure-SSIS a uma rede virtual do Azure. Ele também apresenta as etapas para usar o portal do Azure para configurar a rede virtual para que o IR do Azure-SSIS possa se unir à rede virtual. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os artigos a seguir para monitorar os pipelines de maneiras diferentes: 

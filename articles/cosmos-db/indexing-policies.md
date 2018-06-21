@@ -3,22 +3,19 @@ title: Políticas de indexação do Azure Cosmos DB | Microsoft Docs
 description: Entenda como funciona a indexação no Azure Cosmos DB. Saiba como configurar e alterar a política de indexação para indexação automática e um melhor desempenho.
 keywords: como funciona a indexação, indexação automática, banco de dados de indexação
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298288"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
 
@@ -79,9 +76,9 @@ O Azure Cosmos DB dá suporte a três modos de indexação que são possíveis d
 
 A indexação consistente dá suporte a consultas consistentes ao custo de uma possível redução na taxa de transferência de gravação. Essa redução é uma função dos caminhos exclusivos que precisam ser indexados e do "nível de consistência." O modo de indexação consistente foi projetado para cargas de trabalho de "gravação rápida, consulta imediata”.
 
-**Lento**:  o índice é atualizado de forma assíncrona quando uma coleção do Azure Cosmos DB está inativa, ou seja, quando a capacidade de taxa de transferência da coleção não é totalmente utilizada para atender às solicitações do usuário. O modo de indexação Lento pode ser adequado para cargas de trabalho "ingerir agora, consultar depois" que exigem a ingestão de documentos. Observe que é possível obter resultados inconsistentes devido aos dados sendo ingeridos e indexados lentamente. Isso significa que suas consultas COUNT ou resultados de consulta específica podem não ser consistentes ou repetitivos em um determinado momento. 
+**Lento**:  o índice é atualizado de forma assíncrona quando uma coleção do Azure Cosmos DB está inativa, ou seja, quando a capacidade de taxa de transferência da coleção não é totalmente utilizada para atender às solicitações do usuário.  Observe que é possível obter resultados inconsistentes devido aos dados sendo ingeridos e indexados lentamente. Isso significa que suas consultas COUNT ou resultados de consulta específica podem não ser consistentes ou repetitivos em determinado momento. 
 
-O índice geralmente está em modo de atualização com dados ingeridos. Com indexação em modo Lento, as mudanças de vida útil resultam em que o índice seja ignorado e recriado. Isso torna o COUNT e os resultados da consulta inconsistentes por um período de tempo. Devido a isso, a maioria das contas do Azure Cosmos DB devem usar o modo de indexação Consistente.
+O índice geralmente está em modo de atualização com dados ingeridos. Com indexação em modo Lento, as mudanças de vida útil resultam em que o índice seja ignorado e recriado. Isso torna o COUNT e os resultados da consulta inconsistentes por um período de tempo. A maioria das contas do Azure Cosmos DB deve usar o modo de indexação Consistente.
 
 **Nenhum**: uma coleção que possui um modo de índice Nenhum não possui índices associados à coleção. Isso é comumente usado se o Azure Cosmos DB for usado como um armazenamento de chave-valor e os documentos são acessados apenas pela propriedade ID. 
 
@@ -229,11 +226,11 @@ O exemplo a seguir mostra como aumentar a precisão dos índices de Intervalo em
 
 Da mesma forma, será possível excluir completamente os caminhos da indexação. O próximo exemplo mostra como excluir uma seção inteira dos documentos (uma *subárvore*) da indexação, usando o operador curinga \*.
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 
 

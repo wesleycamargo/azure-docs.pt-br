@@ -1,26 +1,20 @@
 ---
-title: Perguntas frequentes do Backup do Azure | Microsoft Docs
+title: Backup do Azure - Perguntas frequentes
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: backup e recuperação de desastre; serviço de backup
-ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/9/2018
-ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: d16991d15d76caa496b2923c8d0210b6ccb10a9a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: markgal
+ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939191"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605817"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
 Este artigo responde às perguntas frequentes sobre componentes do Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você pode fazer perguntas sobre o Backup do Azure clicando em **comentários** (à direita). Os comentários aparecem na parte inferior deste artigo. Uma conta de Livefyre é necessária para o comentário. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).

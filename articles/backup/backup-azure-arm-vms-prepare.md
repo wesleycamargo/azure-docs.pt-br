@@ -1,26 +1,20 @@
 ---
-title: 'Backup do Azure: preparação para backup de máquinas virtuais | Microsoft Docs'
+title: 'Backup do Azure: preparação para backup de máquinas virtuais'
 description: Assegure-se de que o ambiente esteja preparado para fazer backup de máquinas virtuais no Azure.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: backups; fazendo backup;
-ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: markgal
+ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940563"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606629"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 
@@ -59,7 +53,8 @@ Antes de preparar seu ambiente, note as seguintes limitações:
 * Ao configurar o backup, certifique-se de que as configurações de **Firewalls e redes virtuais** da conta de armazenamento permitem o acesso de Todas as redes.
 * Para redes selecionadas, depois de configurar as definições de firewall e rede virtual para sua conta de armazenamento, selecione **Permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento** como uma exceção para habilitar o serviço de Backup do Microsoft Azure para acessar a conta de armazenamento restrita de rede. Não há suporte para a recuperação de nível de item para contas de armazenamento restritas de rede.
 * Você pode fazer backup de máquinas virtuais em todas as regiões públicas do Azure. (Veja a [lista](https://azure.microsoft.com/regions/#services) das regiões com suporte.) Se o suporte ainda não estiver disponível para região que você procura, ela não aparecerá na lista suspensa durante a criação de cofre.
-* A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Para saber mais, confira [Restauração de um controlador de domínio com vários DCs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Para saber mais, consulte [Restaurando um controlador de domínio com vários DCs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* O instantâneo no disco habilitado do Accelerator de Gravação não tem suporte. Essa restrição bloqueia a capacidade do serviço de Backup do Azure de executar um instantâneo consistente de todos os discos da máquina virtual.
 * Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. As VMs criadas por meio do fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restauração de VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Máquinas virtuais sob configuração do balanceador de carga (interno e externo)
   * Máquinas virtuais com vários endereços IP reservados
@@ -175,7 +170,9 @@ Se você tiver problemas ao registrar a máquina virtual, confira as seguintes i
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o agente de VM na máquina virtual
 Para a extensão de backup funcionar, o [agente de VM](../virtual-machines/extensions/agent-windows.md) do Azure deve ser instalado na máquina virtual do Azure. Se sua VM tiver sido criada por meio do Azure Marketplace, o agente de VM já estará presente na máquina virtual. 
 
-As informações a seguir são fornecidas para situações em que você *não* está usando uma VM criada por meio do Azure Marketplace. Por exemplo, você migrou uma VM de um datacenter local. Nesse caso, o agente de VM precisa ser instalado para proteger a máquina virtual.
+As informações a seguir são fornecidas para situações em que você *não* está usando uma VM criada por meio do Azure Marketplace. **Por exemplo, você migrou uma VM de um datacenter local. Nesse caso, o agente de VM precisa ser instalado para proteger a máquina virtual.**
+
+**Observação**: depois de instalar o agente de VM, você também deve usar o Azure PowerShell para atualizar a propriedade ProvisionGuestAgent para o Azure saber que a VM tem o agente instalado. 
 
 Se você tiver problemas para fazer backup da VM do Azure, use a tabela a seguir para verificar se o agente de VM do Azure está instalado corretamente na máquina virtual. A tabela fornece informações adicionais sobre o agente de VM para VMs Windows e Linux.
 

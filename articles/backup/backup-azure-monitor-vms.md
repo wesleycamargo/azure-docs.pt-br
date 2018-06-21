@@ -1,24 +1,19 @@
 ---
-title: Monitorar alertas de backup para máquinas virtuais do Azure | Microsoft Docs
+title: Monitorar alertas de backup para máquinas virtuais do Azure
 description: Monitore eventos e alertas de trabalhos de backup de máquina virtual do Azure. Envie um email com base em alertas.
 services: backup
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: fed32015-2db2-44f8-b204-d89f6fd1bea2
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: fbdce5c244d733a2978d473f01c8d875cbeaa65e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: markgal
+ms.openlocfilehash: 3783014738ec4e8f185531773b1259dc63e7f49f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606300"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorar alertas para os backups das máquinas virtuais do Azure
 Os alertas são respostas do serviço informando que um limite do evento foi atingido ou ultrapassado. Saber quando os problemas iniciam pode ser essencial para manter baixos os custos do negócio. Os alertas normalmente não ocorrem em um agendamento e é útil saber assim que possível após sua ocorrência. Por exemplo, quando um trabalho de backup ou de restauração falha, um alerta ocorre em até cinco minutos após a falha. No painel do cofre, o bloco Alertas de Backup exibe os eventos nos níveis Crítico e Aviso. Nas configurações Alertas de Backup, você pode exibir todos os eventos. Mas o que fazer se um alerta ocorrer quando você estiver trabalhando em um problema separado? Se você não sabe quando o alerta ocorre, pode ser uma inconveniência secundária ou pode comprometer os dados. Para verificar se as pessoas corretas estão cientes de um alerta, quando ele ocorre, configure o serviço para enviar notificações de alerta por email. Para obter detalhes sobre como configurar as notificações por email, confira [Configurar notificações](backup-azure-monitor-vms.md#configure-notifications).

@@ -4,7 +4,7 @@ description: Saiba mais sobre as cotas de vCPU do Azure.
 keywords: ''
 services: virtual-machines-linux
 documentationcenter: ''
-author: Drewm3
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
-ms.author: drewm
-ms.openlocfilehash: a4e0bbe1c6d9b121dfb422934cdd67ff19f80482
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 05/31/2018
+ms.author: cynthn
+ms.openlocfilehash: a880ee18bb13b2cd8471cc58157469555397b872
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716509"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Cotas de vCPU de máquina virtual
 
-As cotas de vCPU para máquinas virtuais e conjuntos de escala de máquinas virtuais são organizadas em duas camadas para cada assinatura, em cada região. A primeira camada é dos vCPUs Regionais Totais, e a segunda camada é dos vários núcleos de família de tamanho de VM, como vCPUs de Família D Padrão. Sempre que uma nova VM for implantada, os vCPUs para a VM implantada recentemente não devem exceder a cota de vCPU para a família de tamanho de VM específica ou a cota de vCPU regional total. Se qualquer uma das cotas for excedida, a implantação de VM não será permitida. Também há uma cota para o número total de máquinas virtuais na região. Os detalhes sobre cada uma dessas cotas podem ser vistos na seção **uso + cotas** da página de **assinatura** no [portal do Azure](https://portal.azure.com), ou você pode consultar os valores usando a CLI do Azure .
+As cotas de vCPU para máquinas virtuais e conjuntos de escala de máquinas virtuais são organizadas em duas camadas para cada assinatura, em cada região. A primeira camada é a vCPUs Total Regional e a segunda camada são os vários núcleos da família de tamanho da VM, como as vCPUs da série D. Sempre que uma nova VM é implantada a vCPUs para a máquina virtual não deve exceder a cota de vCPU para a família de tamanho VM ou a cota total vCPU regional. Se qualquer uma das cotas é excedida, a implantação de VM não será permitida. Também há uma cota para o número total de máquinas virtuais na região. Os detalhes sobre cada uma dessas cotas podem ser vistos no **uso + cotas** seção o **assinatura** página o [portal do Azure](https://portal.azure.com), ou você pode consultar os valores usando o Azure CLI.
 
 
 ## <a name="check-usage"></a>Verificar o uso
@@ -31,42 +32,36 @@ As cotas de vCPU para máquinas virtuais e conjuntos de escala de máquinas virt
 Você pode verificar o uso de cotas usando [az vm list-usage](/cli/azure/vm#az_vm_list_usage).
 
 ```azurecli-interactive
-az vm list-usage --location "East US"
-[
-  …
-  {
-    "currentValue": 4,
-    "limit": 260,
-    "name": {
-      "localizedValue": "Total Regional vCPUs",
-      "value": "cores"
-    }
-  },
-  {
-    "currentValue": 4,
-    "limit": 10000,
-    "name": {
-      "localizedValue": "Virtual Machines",
-      "value": "virtualMachines"
-    }
-  },
-  {
-    "currentValue": 1,
-    "limit": 2000,
-    "name": {
-      "localizedValue": "Virtual Machine Scale Sets",
-      "value": "virtualMachineScaleSets"
-    }
-  },
-  {
-    "currentValue": 1,
-    "limit": 10,
-    "name": {
-      "localizedValue": "Standard B Family vCPUs",
-      "value": "standardBFamily"
-    }
-  },
+az vm list-usage --location "East US" -o table
 ```
+
+A saída deve ser semelhante a esta:
+
+
+```
+Name                                CurrentValue    Limit
+--------------------------------  --------------  -------
+Availability Sets                              0     2000
+Total Regional vCPUs                          29      100
+Virtual Machines                               7    10000
+Virtual Machine Scale Sets                     0     2000
+Standard DSv3 Family vCPUs                     8      100
+Standard DSv2 Family vCPUs                     3      100
+Standard Dv3 Family vCPUs                      2      100
+Standard D Family vCPUs                        8      100
+Standard Dv2 Family vCPUs                      8      100
+Basic A Family vCPUs                           0      100
+Standard A0-A7 Family vCPUs                    0      100
+Standard A8-A11 Family vCPUs                   0      100
+Standard DS Family vCPUs                       0      100
+Standard G Family vCPUs                        0      100
+Standard GS Family vCPUs                       0      100
+Standard F Family vCPUs                        0      100
+Standard FS Family vCPUs                       0      100
+Standard Storage Managed Disks                 5    10000
+Premium Storage Managed Disks                  5    10000
+```
+
 ## <a name="reserved-vm-instances"></a>Instâncias de máquina virtual reservada
 Instâncias de máquina virtual reservada, que têm o escopo voltado para uma assinatura única, adicionarão um novo aspecto às cotas de vCPU. Esses valores descrevem o número de instâncias de tamanho indicado que devem ser implantadas na assinatura. Elas funcionam como um espaço reservado no sistema de cota para garantir que essa cota seja reservada para garantir que instâncias reservadas sejam implantadas na assinatura. Por exemplo, se uma assinatura específica tiver 10 instâncias reservadas Standard_D1, os limites de uso para as instâncias reservadas Standard_D1 será 10. Isso fará com que o Azure garanta que haja sempre pelo menos 10 vCPUs disponíveis na cota de vCPUs Regionais Totais para serem usados para instâncias Standard_D1 e pelo menos 10 VCPUs disponíveis na cota de vCPU Família D padrão para serem usados para as instâncias Standard_D1.
 

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
-ms.openlocfilehash: d7dea9a3d9eabdc9e4cdf21e6e584b745d22a54e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4c9c97f30801ff901677156b0ea37c1eeb348502
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808716"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +41,7 @@ Especificamente, este conector do MySQL dá suporte ao MySQL **versão 5.1 e sup
 Para usar esse conector do MySQL, você precisa:
 
 - Configurar um Integration Runtime auto-hospedado. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes.
-- Instalar o [MySQL Connector/Net para o Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) versão 6.6.5 ou superior no computador do Integration Runtime. Este driver de 32 bits é compatível com IR de 64 bits.
+- Instalar o [MySQL Connector/Net para o Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) versão entre 6.6.5 e 6.10.7 no computador do Integration Runtime. Este driver de 32 bits é compatível com IR de 64 bits.
 
 > [!TIP]
 > Se você encontrar o erro "A autenticação falhou porque a entidade remota fechou o fluxo de transporte.", considere atualizar o Conector do MySQL/Net para uma versão superior.

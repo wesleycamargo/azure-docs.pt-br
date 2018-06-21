@@ -6,15 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: carlrab
-ms.openlocfilehash: fb5c2e16e696ba9eecf4346a0c4e7bc05aacf39f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a6d347b707f9b58c5667c5d03d6374288e74267
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194740"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645116"
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Limites de recursos baseados em DTU do Banco de Dados SQL do Azure
 
@@ -73,9 +73,8 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 > [!IMPORTANT]
 > - Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
-> - Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, EUA Central, França Central, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, US Gov – Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-> 
-
+> - Mais de 1 TB de armazenamento na camada Premium está disponível em todas as regiões, exceto as seguintes: Norte do Reino Unido, Centra-oeste dos EUA, Sul do Reino 2, Leste da China, US DoD Central, Alemanha Central, US DoD Leste, US Gov Sudoeste, US Gov Centro-Sul, Nordeste da Alemanha, Norte da China, US Gov Leste. Há planos para uma disponibilidade mais ampla. Em outras regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Consulte [Limitações atuais de P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>
 
 ## <a name="single-database-change-storage-size"></a>Banco de dados individual: alterar o tamanho do armazenamento
 
@@ -109,7 +108,7 @@ A duração de todo o processo de expansão depende a camada tamanho e de servi�
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Banco de dados individual: limitações de P11 e P15 quando o tamanho máximo for superior a 1 TB
 
-Um tamanho máximo maior que 1 TB para o banco de dados P11 e P15 tem suporte nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Central do Canadá, Leste do Canadá, Centro dos EUA, França Central, Centro da Alemanha, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. As seguintes considerações e limitações se aplicam aos bancos de dados P11 e P15 com um tamanho máximo superior a 1 TB:
+Um tamanho máximo maior que 1 TB para o banco de dados P11 e P15 tem suporte nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, Centro dos EUA, França Central, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. As seguintes considerações e limitações se aplicam aos bancos de dados P11 e P15 com um tamanho máximo superior a 1 TB:
 
 - Se você escolher um tamanho máximo superior a 1 TB durante a criação de um banco de dados (usando um valor de 4 TB ou 4096 GB), o comando create falhará com um erro se o banco de dados for provisionado em uma região sem suporte.
 - Para bancos de dados P11 e P15 existentes localizados em uma das regiões com suporte, você pode aumentar o armazenamento máximo para além de 1 TB em incrementos de 256 GB até 4 TB. Para ver se há suporte para um tamanho maior em sua região, use a função [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) ou inspecione o tamanho do banco de dados no Portal do Azure. A atualização de um banco de dados existente P11 ou P15 só pode ser executada por um logon principal no nível de servidor ou por membros da função de banco de dados dbmanager. 
@@ -204,9 +203,9 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 ||||||||
 
 > [!IMPORTANT]
-> -  Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+> - Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> -  Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, EUA Central, França Central, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, US Gov - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> - Mais de 1 TB de armazenamento na camada Premium está disponível em todas as regiões, exceto as seguintes: Norte do Reino Unido, Centra-oeste dos EUA, Sul do Reino 2, Leste da China, US DoD Central, Alemanha Central, US DoD Leste, US Gov Sudoeste, US Gov Centro-Sul, Nordeste da Alemanha, Norte da China, US Gov Leste. Há planos para uma disponibilidade mais ampla. Em outras regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Consulte [Limitações atuais de P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 >
 
 Se todas as DTUs de um pool elástico forem usadas, cada banco de dados no pool receberá uma quantidade igual de recursos para processar as consultas. O serviço de Banco de Dados SQL fornece integridade de compartilhamento de recursos entre os bancos de dados ao garantir fatias iguais de tempo de computação. A integridade de compartilhamento de recursos do pool elástico é adicional a qualquer quantidade de recursos garantidos de outra forma a cada banco de dados quando o mínimo de DTUs por banco de dados é definido com um valor diferente de zero.

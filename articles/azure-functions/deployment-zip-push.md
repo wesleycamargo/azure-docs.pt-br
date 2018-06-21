@@ -1,24 +1,25 @@
 ---
-title: "Implantação por push do zip para o Azure Functions | Microsoft Docs"
-description: "Use os recursos de implantação de arquivo .zip do serviço de implantação do Kudu para publicar seu Azure Functions."
+title: Implantação por push do zip para o Azure Functions | Microsoft Docs
+description: Use os recursos de implantação de arquivo .zip do serviço de implantação do Kudu para publicar seu Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2017
+ms.date: 05/29/2018
 ms.author: glenga
-ms.openlocfilehash: faddb73522200f60f18294dc43e8d235943f8bbb
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 91c16ad5a6bf8babffc0b83d801626932688631e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699947"
 ---
 # <a name="zip-push-deployment-for-azure-functions"></a>Implantação por push do zip para o Azure Functions 
 Este artigo descreve como implantar seus arquivos de projeto de aplicativo de função para o Azure de um arquivo .zip (compactado). Você aprenderá a realizar uma implantação de envio por push, usando a CLI do Azure e usando as APIs REST. 
@@ -40,23 +41,33 @@ O arquivo .zip que você usa para a implantação de envio deve conter todos os 
 >[!IMPORTANT]
 > Quando você usa a implantação de envio de arquivos .zip, todos os arquivos de uma implantação existente que não são encontrados no arquivo .zip são excluídos do seu aplicativo de funções.  
 
-### <a name="function-app-folder-structure"></a>Estrutura de pastas do aplicativo de funções
-
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-### <a name="download-your-function-app-project"></a>Baixe o seu projeto de aplicativo de funções
+Um aplicativo de funções contém todos os arquivos e pastas no diretório `wwwroot`. Uma implantação de arquivo. zip inclui o conteúdo do diretório `wwwroot`, mas não o diretório em si.  
+
+## <a name="download-your-function-app-files"></a>Baixe seus arquivos de aplicativo de funções
 
 Quando você estiver desenvolvendo em um computador local, é fácil criar um arquivo .zip da pasta do projeto de aplicativo de funções no computador de desenvolvimento. 
 
-No entanto, você pode ter criado as suas funções usando o editor no Portal do Azure. Para baixar o seu projeto de aplicativo de funções do Portal: 
+No entanto, você pode ter criado as suas funções usando o editor no Portal do Azure. Você pode baixar um projeto de aplicativo de funções existente de uma das seguintes maneiras: 
 
-1. Conecte-se no [Portal do Azure](https://portal.azure.com) e, em seguida, vá para o seu aplicativo de funções.
++ **No Portal do Azure:** 
 
-2. Na guia **Visão Geral**, selecione **Baixar conteúdo do aplicativo**. Selecione as opções de download e, em seguida, selecione **Baixar**.     
+    1. Conecte-se no [Portal do Azure](https://portal.azure.com) e, em seguida, vá para o seu aplicativo de funções.
 
-    ![Baixe o projeto de aplicativo de funções](./media/deployment-zip-push/download-project.png)
+    2. Na guia **Visão Geral**, selecione **Baixar conteúdo do aplicativo**. Selecione as opções de download e, em seguida, selecione **Baixar**.     
 
-O arquivo .zip baixado está no formato correto para ser republicado no seu aplicativo de funções usando a implantação por push do .zip.
+        ![Baixe o projeto de aplicativo de funções](./media/deployment-zip-push/download-project.png)
+
+    O arquivo .zip baixado está no formato correto para ser republicado no seu aplicativo de funções usando a implantação por push do .zip. O download do portal também pode adicionar os arquivos necessários para abrir o aplicativo de funções diretamente no Visual Studio.
+
++ **Usando APIs REST:** 
+
+    Use a seguinte API GET de implantação para baixar os arquivos de seu projeto `<function_app>`: 
+
+        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+
+    Incluir `/site/wwwroot/` assegura que o arquivo zip inclua somente os arquivos de projeto do aplicativo de funções e não todo o site. Se ainda não tiver se conectado ao Azure, será solicitado que você faça isso. Observe que o envio de uma solicitação POST para a API `api/zip/` é desencorajado em favor do método de implantação do zip descrito neste tópico. 
 
 Você também pode baixar um arquivo .zip de um repositório do GitHub. Note que quando você baixa um repositório GitHub como um arquivo .zip, o GitHub adiciona um nível extra de pasta para o branch. Esse nível extra de pasta significa que você não pode implantar o arquivo .zip diretamente como baixou do GitHub. Se você estiver usando um repositório GitHub para manter seu aplicativo de funções, você deve usar a [integração contínua](functions-continuous-deployment.md) para implantar seu aplicativo.  
 

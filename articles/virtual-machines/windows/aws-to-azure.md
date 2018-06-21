@@ -13,19 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b7e794cb08647dde6fe59b6d4b06a9cbfab06e1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cb5b68e7bd0a1b247327e7147fe38eae19395f50
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726526"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Mover uma VM do Windows do AWS (Amazon Web Services) para o Azure usando o PowerShell
 
 Se você estiver avaliando máquinas virtuais do Azure para hospedar suas cargas de trabalho, poderá exportar uma instância existente de VM do Windows EC2 do AWS (Amazon Web Services) e carregar o VHD (disco rígido virtual) no Azure. Após o carregamento do VHD, você pode criar uma nova VM no Azure a partir do VHD. 
 
-Este tópico aborda a movimentação de uma VM individual do AWS para o Azure. Se você quiser migrar VMs do AWS para o Azure em escala, confira [Migrar máquinas virtuais no AWS (Amazon Web Services) para o Azure com o Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
+Este artigo aborda a movimentação de uma VM individual do AWS para o Azure. Se você quiser migrar VMs do AWS para o Azure em escala, confira [Migrar máquinas virtuais no AWS (Amazon Web Services) para o Azure com o Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
 
 ## <a name="prepare-the-vm"></a>Preparar a VM 
  
@@ -45,7 +46,7 @@ Você pode carregar VHDs generalizados e especializados no Azure. Cada tipo exig
 
 ## <a name="export-and-download-the-vhd"></a>Exportar e baixar o VHD 
 
-Exporte a instância do EC2 para um VHD em um bucket do Amazon S3. Execute as etapas descritas no tópico da documentação da Amazon [Exportar uma instância como VM usando Importação/Exportação de VM](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) e execute o comando [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) para exportar a instância do EC2 para um arquivo VHD. 
+Exporte a instância do EC2 para um VHD em um bucket do Amazon S3. Execute as etapas no tópico do artigo de documentação da Amazon [Exportar uma instância como VM usando Importação/Exportação de VM](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) e execute o comando [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) para exportar a instância do EC2 para um arquivo VHD. 
 
 O arquivo VHD exportado é salvo no bucket do Amazon S3 especificado. A sintaxe básica para exportar o VHD está abaixo, basta substituir o texto de espaço reservado em <brackets> por suas informações.
 

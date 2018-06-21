@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359196"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604328"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Seção de parâmetros dos modelos do Azure Resource Manager
 Na seção de parâmetros do modelo, você deve especificar os valores que você pode inserir ao implantar os recursos. Esses valores de parâmetro permitem personalizar a implantação fornecendo valores que são personalizados para um determinado ambiente (como desenvolvimento, teste e produção). Você não precisa fornecer parâmetros em seu modelo, mas sem parâmetros o modelo sempre implantaria os mesmos recursos com o mesmo nomes, locais e propriedades.

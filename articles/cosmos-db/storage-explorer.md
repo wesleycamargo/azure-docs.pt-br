@@ -3,25 +3,22 @@ title: Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure
 description: Aprenda como gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: Jejiang
 manager: omafnan
 editor: ''
 tags: Azure Cosmos DB
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3b870ed638656ee3b1b0e46fe9bac44e4436f154
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612836"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure
 
@@ -222,7 +219,7 @@ Antes de continuar, tente reiniciar o aplicativo e ver se os problemas podem ser
 
 Há alguns motivos que podem exibir esse erro. Os dois mais comuns são:
 
-+ Você está por trás de um "proxy transparente", o que significa que alguém (por exemplo, o departamento de TI) está interceptando o tráfego HTTPS, descriptografando-o e criptografando-o usando um certificado autoassinado.
++ Você está por trás de um *proxy transparente*, o que significa que alguém (por exemplo, o departamento de TI) está interceptando o tráfego HTTPS, descriptografando-o e criptografando-o usando um certificado autoassinado.
 
 + Você está executando software, por exemplo, um software antivírus, que está injetando certificados SSL autoassinados nas mensagens HTTPS recebidas.
 

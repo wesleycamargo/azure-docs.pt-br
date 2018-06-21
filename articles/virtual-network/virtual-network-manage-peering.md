@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 9a8e4e95f2f4de6475243de196519d94e87a9297
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85919ccdc13ab363b32e593159abe54498ca98c9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366538"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702026"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou excluir um emparelhamento da rede virtual
 
@@ -116,6 +116,7 @@ Se você deseja que as redes virtuais se comuniquem, às vezes, mas não sempre,
     - As redes virtuais podem existir em qualquer região de nuvem pública do Azure, mas não em nuvens nacionais do Azure.
     - Os recursos em uma rede virtual não podem se comunicar com o endereço IP de um balanceador de carga interno do Azure na rede virtual emparelhada. O balanceador de carga e os recursos que se comunicam com ele devem estar na mesma rede virtual.
     - Você não pode usar gateways remotos ou permitir o tráfego de gateway. Para usar gateways remotos ou permitir tráfego de gateway, ambas as redes virtuais no emparelhamento devem existir na mesma região. 
+    - Não há suporte para comunicação entre redes virtuais emparelhadas globalmente por meio dos tipos de VM a seguir: [Computação de alto desempenho](../virtual-machines/windows/sizes-hpc.md) e [GPU](../virtual-machines/windows/sizes-gpu.md). Isso inclui H, NC, NV, NCv2, NCv3 e VMs série ND.
 - As redes virtuais podem estar na mesma assinatura ou em assinaturas diferentes. Quando as redes virtuais estão em diferentes assinaturas, ambas as assinaturas devem ser associadas ao mesmo locatário do Azure Active Directory. Se você ainda não tiver um locatário do AD, [crie um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) rapidamente. Você pode usar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar duas redes virtuais que existem em diferentes assinaturas associadas a diferentes locatários do Active Directory.
 - As redes virtuais que você emparelhar devem ter espaços de endereço IP não sobrepostos.
 - Você não pode adicionar ou excluir intervalos de endereços do espaço de endereço de uma rede virtual após ela ser emparelhada com outra rede virtual. Para adicionar ou remover intervalos de endereço, exclua o emparelhamento, adicione ou remova os intervalos de endereço e, em seguida, recrie o emparelhamento. Para adicionar ou remover intervalos de endereços de redes virtuais, consulte [Gerenciar redes virtuais](manage-virtual-network.md).
@@ -162,6 +163,6 @@ Se sua conta não está atribuída a uma das funções anteriores, ela deve ser 
     |Um Resource Manager, um clássico  |[Idêntica](create-peering-different-deployment-models.md)|
     |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
-* Saiba como criar uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+* Saiba como criar uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * Criar um emparelhamento de rede virtual usando [PowerShell](powershell-samples.md) ou os scripts de exemplo da [CLI do Azure](cli-samples.md) ou usando os modelos do [Azure Resource Manager](template-samples.md)
 * Criar e aplicar a [Política do Azure](policy-samples.md) para redes virtuais

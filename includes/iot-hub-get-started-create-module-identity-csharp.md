@@ -9,11 +9,12 @@ ms.topic: include
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
-ms.openlocfilehash: a94a68d238a731388d8b13bd962b0db1007c5ca4
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d2b409c7454645893665b080b927998402056cdd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666901"
 ---
 ## <a name="create-a-module-identity"></a>Criar uma identidade de módulo
 
@@ -43,7 +44,16 @@ Nesta seção, você cria um aplicativo do console do .NET que cria uma identida
     const string moduleID = "myFirstModule";
     ```
 
-5. Adicione os seguintes métodos à classe **Programa**:
+5. Adicione o seguinte código para a classe **Principal**.
+    ```csharp
+    static void Main(string[] args)
+    {
+        AddDeviceAsync().Wait();
+        AddModuleAsync().Wait();
+    }
+    ```
+
+6. Adicione os seguintes métodos à classe **Programa**:
 
     ```csharp
     private static async Task AddDeviceAsync()
@@ -87,7 +97,7 @@ Nesta seção, você cria um aplicativo do console do .NET que cria uma identida
 
 [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-6. Execute este aplicativo e anote a chave do dispositivo e a chave do módulo.
+7. Execute este aplicativo e anote a chave do dispositivo e a chave do módulo.
 
 > [!NOTE]
 > O Registro de identidade do Hub IoT armazena apenas as identidades de dispositivo e módulo para habilitar o acesso seguro ao Hub IoT. O registro de identidade armazena IDs de dispositivo e chaves para usar como credenciais de segurança. O registro de identidade também armazena um sinalizador de habilitado/desabilitado para cada dispositivo que você pode usar para desabilitar o acesso ao dispositivo. Se seu aplicativo precisar armazenar outros metadados específicos do dispositivo, ele deverá usar um repositório específico do aplicativo. Não há nenhum sinalizador habilitado/desabilitado para as identidades do módulo. Para saber mais, confira [Guia de Desenvolvedor do Hub IoT][lnk-devguide-identity].

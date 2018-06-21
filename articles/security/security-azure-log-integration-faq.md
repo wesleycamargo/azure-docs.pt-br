@@ -1,6 +1,6 @@
 ---
-title: "Perguntas frequentes sobre a Integração de Logs do Azure | Microsoft Docs"
-description: "Este artigo de perguntas frequentes responde às perguntas sobre a Integração de Logs do Azure."
+title: Perguntas frequentes sobre a Integração de Logs do Azure | Microsoft Docs
+description: Este artigo de perguntas frequentes responde às perguntas sobre a Integração de Logs do Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,25 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 02/16/2018
-ms.author: TomSh
+ms.date: 06/07/2018
+ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bec62b8c6b70706fa6519cbc2fd59bf69f119e9d
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236256"
 ---
 # <a name="azure-log-integration-faq"></a>Perguntas frequentes sobre a Integração de Logs do Azure
 
 Este artigo responde as perguntas frequentes (FAQ) sobre a Integração de Logs do Azure.
 
 >[!IMPORTANT]
->É o método preferencial para integrar os logs do Azure usando o conector do Azure Monitor do seu fornecedor SIEM e seguindo estas [instruções](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para o Azure Monitor, você poderá usar a Integração de Logs do Azure como solução temporária (se o SIEM for compatível com a Integração de Logs do Azure) até que o conector esteja disponível.
+> O recurso Integração de log do Azure será preterido em 01/06/2019. Os downloads de AzLog serão desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer, veja a postagem [Usar o monitor do Azure para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 A Integração de Logs do Azure é um serviço do sistema operacional Windows que permite integrar logs brutos de recursos do Azure a seus sistemas locais de SIEM (Gerenciamento de Eventos e Informações de Segurança). Essa integração oferece um painel unificado para todos os seus ativos, locais ou na nuvem. Você pode então agregar, correlacionar, analisar e alertar sobre eventos de segurança associados a seus aplicativos.
 
+É o método preferencial para integrar os logs do Azure usando o conector do Azure Monitor do seu fornecedor SIEM e seguindo estas [instruções](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para o Azure Monitor, você poderá usar a Integração de Logs do Azure como solução temporária (se o SIEM for compatível com a Integração de Logs do Azure) até que o conector esteja disponível.
+
 ## <a name="is-the-azure-log-integration-software-free"></a>O software Integração de Log do Azure é gratuito?
+
 Sim. Não há nenhuma cobrança pelo software Integração de Log do Azure.
 
 ## <a name="where-is-azure-log-integration-available"></a>Onde a Integração de log do Azure está disponível?
@@ -38,6 +42,7 @@ Sim. Não há nenhuma cobrança pelo software Integração de Log do Azure.
 Atualmente, ela está disponível atualmente no Azure Comercial e o Azure Governamental e não está disponível na China nem na Alemanha.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Como posso ver as contas de armazenamento nas quais a Integração de Logs do Azure está efetuando pull para extrair os logs da VM do Azure?
+
 Execute o comando **AzLog source list**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Como saber de qual assinatura os logs de Integração de Logs do Azure são provenientes?
@@ -51,6 +56,7 @@ Logs de auditoria do Azure Active Directory incluem a ID do locatário como part
 Os logs de diagnóstico lidos de um hub de eventos não incluem a ID da assinatura como parte do nome. Em vez disso, eles incluem o nome amigável especificado como parte da criação da origem do hub de eventos. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Como atualizo a configuração de proxy?
+
 Se a configuração de proxy não permitir acesso ao armazenamento do Azure diretamente, abra o arquivo **AZLOG.EXE.CONFIG** em **c:\Arquivos de Programas\Integração de Log do Microsoft Azure**. Atualize o arquivo para incluir a seção **defaultProxy** com o endereço do proxy da sua organização. Depois que a atualização for concluída, pare e inicie o serviço usando os comandos **net stop AzLog** e **net start AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
@@ -61,7 +67,7 @@ Se a configuração de proxy não permitir acesso ao armazenamento do Azure dire
         </connectionManagement>
         <defaultProxy>
           <proxy usesystemdefault="true"
-          proxyaddress=http://127.0.0.1:8888
+          proxyaddress="http://127.0.0.1:8888"
           bypassonlocal="true" />
         </defaultProxy>
       </system.net>
@@ -70,6 +76,7 @@ Se a configuração de proxy não permitir acesso ao armazenamento do Azure dire
       </system.diagnostics>   
 
 ## <a name="how-can-i-see-the-subscription-information-in-windows-events"></a>Como posso ver as informações de assinatura nos eventos do Windows?
+
 Acrescente a ID da assinatura ao nome amigável ao adicionar a origem:
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
@@ -79,6 +86,7 @@ O evento XML tem os seguintes metadados, incluindo a ID da assinatura:
 
 ## <a name="error-messages"></a>Mensagens de erro
 ### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Quando executo o comando ```AzLog createazureid```, por que obtenho o seguinte erro?
+
 Erro:
 
   *Falha ao criar aplicativo AAD - Locatário 72f988bf-86f1-41af-91ab-2d7cd011db37 - Motivo = 'Proibido' - Mensagem = 'Privilégios insuficientes para concluir a operação.'*
@@ -86,6 +94,7 @@ Erro:
 O comando **azlog createazureid** tenta criar uma entidade de serviço em todos os locatários do Azure AD para as assinaturas nas quais o logon do Azure tem acesso. Se o logon do Azure for apenas um usuário Convidado nesse locatário do Azure AD, o comando falhará com “Privilégios insuficientes para concluir a operação”. Solicite ao administrador do locatário para adicionar sua conta como um usuário no locatário.
 
 ### <a name="when-i-run-the-command-azlog-authorize-why-do-i-get-the-following-error"></a>Ao executar o comando **azlog authorize**, por que obtenho o erro a seguir?
+
 Erro:
 
   *Aviso ao criar Atribuição de Função – AuthorizationFailed: O cliente janedo@microsoft.com' com a id de objeto 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' além do escopo '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
@@ -93,15 +102,18 @@ Erro:
 O comando **azlog authorize** tenta criar a função de leitor para a entidade de serviço do Azure AD (criada com **azlog createazureid**) para as assinaturas fornecidas. Se o logon do Azure não for um coadministrador nem um proprietário da assinatura, ele falhará com a mensagem de erro “Falha na Autorização”. O RBAC (Controle de Acesso Baseado em Função) do coadministrador ou proprietário é necessário para concluir essa ação.
 
 ## <a name="where-can-i-find-the-definition-of-the-properties-in-the-audit-log"></a>Onde posso encontrar a definição das propriedades no log de auditoria?
+
 Consulte:
 
 * [Operações de auditoria com o Azure Resource Manager](../azure-resource-manager/resource-group-audit.md)
 * [Listar os eventos de gerenciamento em uma assinatura na API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## <a name="where-can-i-find-details-on-azure-security-center-alerts"></a>Onde posso encontrar detalhes sobre alertas da Central de Segurança do Azure?
+
 Confira [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md).
 
 ## <a name="how-can-i-modify-what-is-collected-with-vm-diagnostics"></a>Como posso modificar o que é coletado com o diagnóstico da VM?
+
 Para obter detalhes sobre como obter, modificar e definir a configuração do Diagnóstico do Azure, veja [Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 O exemplo a seguir obtém a configuração do Diagnóstico do Azure:

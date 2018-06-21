@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716713"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupos de disponibilidade Sempre ativo na VM do Azure manualmente
 
@@ -57,7 +58,7 @@ Antes de iniciar o tutorial, você precisará [Concluir os pré-requisitos para 
 <a name="CreateCluster"></a>
 ## Criar o cluster
 
-Depois de concluir os pré-requisitos, a primeira etapa é criar um cluster de failover do Windows Server que inclui dois SQL Servers e um servidor testemunha.  
+Depois de concluir os pré-requisitos, a primeira etapa é criar um cluster de failover do Windows Server que inclui dois SQL Servers e um servidor testemunha.
 
 1. Faça RDP para o primeiro SQL Server usando uma conta de domínio que seja de administrador no SQL Server e no servidor testemunha.
 
@@ -85,7 +86,8 @@ Depois de concluir os pré-requisitos, a primeira etapa é criar um cluster de f
 
    ![Propriedades do Cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Selecione **Endereço IP estático** e especifique um endereço disponível da sub-rede onde o SQL Server está na caixa de texto Endereço. Em seguida, clique em **OK**.
+3. Selecione **Endereço IP Estático** e especifique um endereço disponível a partir do intervalo de Endereçamento IP Privado Automático (APIPA): 169.254.0.1 a 169.254.255.254 na caixa de texto do Endereço. Para este exemplo, você pode usar qualquer endereço nesse intervalo. Por exemplo, `169.254.0.1`. Em seguida, clique em **OK**.
+
 4. Na seção **Recursos Principais do Cluster**, clique com o botão direito do mouse no nome do cluster e clique em **Colocar Online**. Em seguida, aguarde até que ambos os recursos estejam online. Quando o recurso de nome de cluster fica online, ele atualiza o servidor DC com uma nova conta de computador do AD. Use essa conta do AD para executar o serviço clusterizado do Grupo de Disponibilidade posteriormente.
 
 ### <a name="addNode"></a>Adicionar o outro SQL Server ao cluster

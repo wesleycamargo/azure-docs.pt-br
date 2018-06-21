@@ -1,24 +1,19 @@
 ---
-title: Solucionar problemas de erros de backup com máquinas virtuais do Azure | Microsoft Docs
+title: Solucionar problemas de erros de backup com máquinas virtuais do Azure
 description: Solucionar problemas de backup e restauração de máquinas virtuais do Azure
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: trinadhk
+ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607252"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
 Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as informações listadas na tabela a seguir.
@@ -30,7 +25,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | O agente de VM não consegue se comunicar com o Serviço de Backup do Azure. - Verifique se a VM tem conectividade com a rede e se o agente da VM está em execução e é o mais recente. Para obter mais informações, consulte  http://go.microsoft.com/fwlink/?LinkId=800034 |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sobre depuração de problemas de instantâneo de VM.<br> Se o agente de VM não está causando problemas, reinicie a máquina virtual. Às vezes, um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado defeituoso". |
 | A VM está em Estado de Falha no Provisionamento – reinicie a VM e verifique se a VM está no estado Em execução ou Desligado para backup | Isso ocorre quando uma das falhas de extensão faz com que a VM fique no estado de falha no provisionamento. Vá até a lista de extensões e veja se há uma extensão com falha, remova essa extensão e tente reiniciar a máquina virtual. Se todas as extensões estiverem em estado de execução, verifique se o serviço de agente da VM está em execução. Caso contrário, reinicie o serviço de agente da VM. | 
 | Falha na operação de extensão VMSnapshot para os discos gerenciados – tente novamente a operação de backup. Se o problema repetir, siga as instruções em 'http://go.microsoft.com/fwlink/?LinkId=800034'. Se ocorrer uma nova falha, entre em contato com o suporte da Microsoft | Esse erro ocorre quando o serviço de Backup do Azure falha ao disparar um instantâneo. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) sobre como depurar problemas de instantâneo de VM. |
-| Não foi possível copiar o instantâneo da máquina virtual, porque o espaço livre na conta de armazenamento é insuficiente – verifique se a conta de armazenamento tem espaço livre equivalente aos dados existentes nos discos de armazenamento premium anexados à máquina virtual | No caso de VMs premium, copiamos o instantâneo para a conta de armazenamento. Isso é feito para garantir que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponível para o aplicativo usando discos premium. A Microsoft recomenda que você aloque apenas 50% do espaço de conta de armazenamento total, para que o serviço de Backup do Azure possa copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre. | 
+| Não foi possível copiar o instantâneo da máquina virtual, porque o espaço livre na conta de armazenamento é insuficiente – verifique se a conta de armazenamento tem espaço livre equivalente aos dados existentes nos discos de armazenamento premium anexados à máquina virtual | No caso de VMs premium na pilha de backup de VM V1, copiamos o instantâneo para a conta de armazenamento. Isso é feito para garantir que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponível para o aplicativo usando discos premium. A Microsoft recomenda que você aloque apenas 50% (17,5 TB) do espaço de conta de armazenamento total, para que o serviço de Backup do Azure possa copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre. | 
 | Não é possível executar a operação porque o agente de VM não está respondendo |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. Para VMs Windows, verifique o status do serviço do agente de VM em serviços e se o agente é exibido em programas no painel de controle. Tente remover o programa do painel de controle e reinstalar o agente, conforme mencionado [abaixo](#vm-agent). Depois de reinstalar o agente, dispare um backup ad hoc para confirmar. |
 | Falha na operação de extensão dos serviços de recuperação. -Certifique-se de que o agente de máquina virtual mais recente esteja presente na máquina virtual e o serviço do agente esteja em execução. Tente novamente a operação de backup e, se ele falhar, entre em contato com o suporte da Microsoft. |Esse erro é disparado quando o agente da VM está desatualizado. Consulte a seção "Atualização do agente da VM" logo abaixo para atualizar o agente da VM. |
 | A máquina virtual não existe. - Certifique-se de que a máquina virtual exista ou selecione uma máquina virtual diferente. |Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro:  <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem],<br>(OU)<br></li><li>Pare a proteção da máquina virtual sem excluir os dados de backup. [Mais detalhes:](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |

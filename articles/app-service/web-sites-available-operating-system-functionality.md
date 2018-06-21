@@ -1,8 +1,8 @@
 ---
-title: "Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure"
-description: "Saiba mais sobre a funcionalidade do sistema operacional disponível para aplicativos Web, back-ends de aplicativos móveis e aplicativos de API no Serviço de Aplicativo do Azure"
+title: Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure
+description: Saiba mais sobre a funcionalidade do sistema operacional disponível para aplicativos Web, back-ends de aplicativos móveis e aplicativos de API no Serviço de Aplicativo do Azure
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850147"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure
 Este artigo descreve a funcionalidade do sistema operacional de linha de base comum disponível a todos os aplicativos em execução no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Essa funcionalidade inclui acesso a arquivos, redes e registros, além de logs de diagnóstico e eventos. 
@@ -37,7 +38,7 @@ Como o Serviço de Aplicativo dá suporte a uma experiência de dimensionamento 
 ## <a name="development-frameworks"></a>Estruturas de desenvolvimento
 As camadas de preços do Serviço de Aplicativo controlam a quantidade de recursos de computação (CPU, armazenamento em disco, memória e egresso de rede) disponíveis para aplicativos. No entanto, a amplitude da funcionalidade da estrutura disponível para aplicativos permanece a mesma, independentemente das camadas de dimensionamento.
 
-O Serviço de Aplicativo dá suporte a várias estruturas de desenvolvimento, inclusive ASP.NET, ASP clássico, node.js, PHP e python, todas executadas como extensões no IIS. Para simplificar e normalizar a configuração de segurança, o Serviço de Aplicativo normalmente executa as diversas estruturas de desenvolvimento com suas configurações padrão. Uma abordagem para configurar os aplicativos poderia ser personalizar a área de superfície da API e a funcionalidade para cada estrutura de desenvolvimento individual. Em vez disso, o Serviço de Aplicativo utiliza uma abordagem mais genérica, habilitando uma linha de base comum de funcionalidade do sistema operacional, independentemente da estrutura de desenvolvimento do aplicativo.
+O Serviço de Aplicativo dá suporte a várias estruturas de desenvolvimento, inclusive ASP.NET, ASP clássico, node.js, PHP e Python, todas executadas como extensões no IIS. Para simplificar e normalizar a configuração de segurança, o Serviço de Aplicativo normalmente executa as diversas estruturas de desenvolvimento com suas configurações padrão. Uma abordagem para configurar os aplicativos poderia ser personalizar a área de superfície da API e a funcionalidade para cada estrutura de desenvolvimento individual. Em vez disso, o Serviço de Aplicativo utiliza uma abordagem mais genérica, habilitando uma linha de base comum de funcionalidade do sistema operacional, independentemente da estrutura de desenvolvimento do aplicativo.
 
 As seções a seguir resumem os tipos gerais de funcionalidade do sistema operacional disponíveis para aplicativos do Serviço de Aplicativo.
 
@@ -49,16 +50,22 @@ Existem diversas unidades dentro do Serviço de Aplicativo, incluindo unidades l
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Unidades locais
-Basicamente, o Serviço de Aplicativo é um serviço em execução na infraestrutura do Azure PaaS (plataforma como serviço). Dessa forma, as unidades locais "anexadas" a uma máquina virtual são dos mesmos tipos de unidade disponíveis para qualquer função de trabalho em execução no Azure. Isso inclui uma unidade do sistema operacional (a unidade D:\), uma unidade do aplicativo que contém arquivos cspkg de pacote do Azure usados exclusivamente pelo Serviço de Aplicativo (e inacessíveis para os clientes) e uma unidade do "usuário" (a unidade C:\), cujo tamanho varia dependendo do tamanho da VM. É importante monitorar a sua utilização de disco à medida que seu aplicativo cresce. Se a cota de disco for atingida, isso pode ter efeitos adversos para seu aplicativo.
+Basicamente, o Serviço de Aplicativo é um serviço em execução na infraestrutura do Azure PaaS (plataforma como serviço). Dessa forma, as unidades locais "anexadas" a uma máquina virtual são dos mesmos tipos de unidade disponíveis para qualquer função de trabalho em execução no Azure. Isso inclui:
+
+- Uma unidade do sistema operacional (a unidade D:\)
+- Uma unidade de aplicativo que contém os arquivos cspkg do pacote do Azure usada exclusivamente pelo Serviço de Aplicativo do Azure (e inacessível para os clientes)
+- Uma unidade de "usuário" (unidade C:\), cujo tamanho varia dependendo do tamanho da VM. 
+
+É importante monitorar a sua utilização de disco à medida que seu aplicativo cresce. Se a cota de disco for atingida, isso pode ter efeitos adversos para seu aplicativo.
 
 <a id="NetworkDrives"></a>
 
 ### <a name="network-drives-aka-unc-shares"></a>Unidades de rede (também conhecidas como compartilhamentos UNC)
-Um dos aspectos exclusivos do Serviço de Aplicativo que simplifica a implantação e a manutenção de aplicativos é que todo o conteúdo do usuário é armazenado em um conjunto de compartilhamentos UNC. Esse modelo é mapeado muito bem para o padrão comum de armazenamento de conteúdo usado por ambientes de hospedagem na Web local com vários servidores com balanceamento de carga. 
+Um dos aspectos exclusivos do Serviço de Aplicativo que simplifica a implantação e a manutenção de aplicativos é que todo o conteúdo do usuário é armazenado em um conjunto de compartilhamentos UNC. Esse modelo mapeia bem para o padrão comum de armazenamento de conteúdo usado por ambientes de hospedagem na Web local com vários servidores com balanceamento de carga. 
 
-No Serviço de Aplicativo, existem vários compartilhamentos UNC criados em cada datacenter. Uma porcentagem do conteúdo do usuário para todos os clientes em cada data center é alocada para cada compartilhamento UNC. Além disso, todo o conteúdo de arquivo de uma assinatura do cliente única é sempre colocado no mesmo compartilhamento UNC. 
+Dentro do Serviço de Aplicativo, existem vários compartilhamentos UNC criados em cada datacenter. Uma porcentagem do conteúdo do usuário para todos os clientes em cada data center é alocada para cada compartilhamento UNC. Além disso, todo o conteúdo de arquivo de uma assinatura do cliente única é sempre colocado no mesmo compartilhamento UNC. 
 
-Por conta da maneira como os serviços de nuvem funcionam, a máquina virtual específica responsável por hospedar um compartilhamento UNC mudará com o passar do tempo. Existe a garantia de que compartilhamentos UNC serão montados por máquinas virtuais diferentes à medida que elas forem ligadas e desligadas durante o curso normal das operações em nuvem. Por esse motivo, os aplicativos nunca devem fazer pressuposições codificadas de que as informações da máquina em um caminho de arquivo UNC permanecerão estáveis com o passar do tempo. Em vez disso, eles devem usar o caminho absoluto *faux* **D:\home\site** fornecido pelo Serviço de Aplicativo. Esse caminho absoluto faux oferece um método portátil, independente do aplicativo e do usuário, para se referir ao seu próprio aplicativo. Usando **D:\home\site**, uma pessoa pode transferir arquivos compartilhados de um aplicativo para outro sem que seja necessário configurar um novo caminho absoluto para cada transferência.
+Por conta da maneira como os serviços do Microsoft Azure funcionam, a máquina virtual específica responsável por hospedar um compartilhamento UNC mudará com o passar do tempo. Existe a garantia de que compartilhamentos UNC serão montados por máquinas virtuais diferentes à medida que elas forem ligadas e desligadas durante o curso normal das operações no Microsoft Azure. Por esse motivo, os aplicativos nunca devem fazer pressuposições codificadas de que as informações da máquina em um caminho de arquivo UNC permanecerão estáveis com o passar do tempo. Em vez disso, eles devem usar o caminho absoluto *faux* **D:\home\site** fornecido pelo Serviço de Aplicativo. Esse caminho absoluto faux oferece um método portátil, independente do aplicativo e do usuário, para se referir ao seu próprio aplicativo. Usando **D:\home\site**, uma pessoa pode transferir arquivos compartilhados de um aplicativo para outro sem que seja necessário configurar um novo caminho absoluto para cada transferência.
 
 <a id="TypesOfFileAccess"></a>
 
@@ -81,7 +88,7 @@ O diretório base apresenta o conteúdo de um aplicativo, e o código do aplicat
 ## <a name="network-access"></a>Acesso à rede
 O código do aplicativo pode usar protocolos com base em TCP/IP e UDP para estabelecer conexões de rede de saída com pontos de extremidade acessíveis pela Internet que expõem serviços externos. Os aplicativos podem usar esses mesmos protocolos para se conectar aos serviços dentro do Azure&#151; por exemplo, estabelecendo conexões HTTPS com o Banco de Dados SQL.
 
-Também existe uma capacidade limitada para que aplicativos estabeleçam uma conexão de loopback local e um aplicativo escute nesse soquete de loopback local. Esse recurso existe principalmente para permitir que os aplicativos escutem em soquetes de loopback locais como parte de sua funcionalidade. Observe que cada aplicativo vê uma conexão de loopback "particular"; o aplicativo "A" não pode escutar um soquete de loopback local estabelecido pelo aplicativo "B".
+Também existe uma capacidade limitada para que aplicativos estabeleçam uma conexão de loopback local e um aplicativo escute nesse soquete de loopback local. Esse recurso existe principalmente para permitir que os aplicativos escutem em soquetes de loopback locais como parte de sua funcionalidade. Cada aplicativo vê uma conexão de loopback "privada". O aplicativo "A" não consegue escutar um soquete de loopback local estabelecido pelo aplicativo "B".
 
 Os pipes nomeados também são compatíveis como um mecanismo de comunicação entre processos (IPC) entre processos diferentes que executam coletivamente um aplicativo. Por exemplo, o módulo FastCGI do IIS depende de pipes nomeados para coordenar os processos individuais que executam páginas PHP.
 

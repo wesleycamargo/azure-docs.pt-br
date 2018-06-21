@@ -1,24 +1,19 @@
 ---
-title: Usar o PowerShell para fazer backup do Windows Server no Azure | Microsoft Docs
+title: Usar o PowerShell para fazer backup do Windows Server no Azure
 description: Saiba como implantar e gerenciar o Backup do Azure usando o PowerShell
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: 65218095-2996-44d9-917b-8c84fc9ac415
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2016
-ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: 61bb58b2cf0d76f662144cb1911a6521394e92b6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.topic: conceptual
+ms.date: 5/24/2018
+ms.author: saurse
+ms.openlocfilehash: f69975fc30dfdfbcdd801bcdb552e8b4be948607
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606255"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
 Este artigo mostra como usar o PowerShell para configurar o Backup do Azure no Windows Server ou no cliente Windows, e como gerenciar backups e recuperações.
@@ -145,7 +140,7 @@ Este e outros cmdlets usados para backup, são do módulo MSONLINE que o AgentIn
 O instalador do agente não atualiza a variável $Env:PSModulePath. Isso significa que o carregamento automático do módulo falhará. Para resolver esse problema, você pode fazer o seguinte:
 
 ```
-PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules
+PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
 ```
 
 Como alternativa, você pode carregar manualmente o módulo em seu script da seguinte maneira:
@@ -159,8 +154,8 @@ Depois de carregar os cmdlets do Backup Online, você registra as credenciais do
 
 
 ```
-PS C:\> $cred = $credspath + $credsfilename
-PS C:\> Start-OBRegistration-VaultCredentials $cred -Confirm:$false
+
+PS C:\> Start-OBRegistration -VaultCredentials $credsfilename.FilePath -Confirm:$false
 CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
 ServiceResourceName: testvault

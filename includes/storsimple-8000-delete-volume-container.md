@@ -1,6 +1,25 @@
-<!--author=alkohli last changed: 01/23/18-->
-
-Se o contêiner de volume tiver volumes associados, coloque esses volumes offline primeiro. Siga as etapas em [Colocar um volume offline](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Depois que os volumes estiverem offline, você poderá excluí-los. Quando o contêiner de volume não tiver volumes associados, exclua o contêiner de volume. Execute o procedimento a seguir para excluir um contêiner de volume.
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: storsimple
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 06/08/2018
+ms.author: alkohli
+ms.custom: include file
+ms.openlocfilehash: e7f3f80c886f90a8bc3ae8c38e7d101c506439a6
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35250215"
+---
+Para excluir um contêiner de volume, você deve
+ - excluir os volumes no contêiner de volume. Se o contêiner de volume tiver volumes associados, coloque esses volumes offline primeiro. Siga as etapas em [Colocar um volume offline](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Depois que os volumes estiverem offline, você poderá excluí-los. 
+ - excluir as políticas de backup associadas e instantâneos na nuvem. Verifique se o contêiner de volume tem políticas de backup e instantâneos em nuvem associados. Nesse caso, em seguida, [exclua as políticas de backup](../articles/storsimple/storsimple-8000-manage-backup-policies-u2.md#delete-a-backup-policy). Isso também excluirá os instantâneos de nuvem. 
+ 
+Quando o contêiner de volume não possui nenhum volume associado, políticas de backup e instantâneos em nuvem, você poderá excluí-lo. Execute o procedimento a seguir para excluir um contêiner de volume.
 
 #### <a name="to-delete-a-volume-container"></a>Excluir um contêiner de volume
 1. Acesse o serviço Gerenciador de Dispositivo StorSimple e clique em **Dispositivos**. Selecione e clique no dispositivo e vá para **Configurações > Gerenciar > Contêineres de Volume**.
@@ -11,7 +30,7 @@ Se o contêiner de volume tiver volumes associados, coloque esses volumes offlin
 
     ![Excluir contêiner de volume](./media/storsimple-8000-delete-volume-container/deletevolumecontainer1.png)
 
-3. Se um contêiner de volume não tiver volumes associados, ele poderá ser excluído. Quando a confirmação for solicitada, examine e marque a caixa de seleção indicando o impacto da exclusão do contêiner de volume. Clique em **Excluir** para excluir o contêiner de volume.
+3. Se um contêiner de volume não possuir nenhum volume associado, políticas de backup e instantâneos em nuvem, você poderá excluí-lo. Quando a confirmação for solicitada, examine e marque a caixa de seleção indicando o impacto da exclusão do contêiner de volume. Clique em **Excluir** para excluir o contêiner de volume.
 
     ![Confirmar exclusão](./media/storsimple-8000-delete-volume-container/deletevolumecontainer2.png)
 

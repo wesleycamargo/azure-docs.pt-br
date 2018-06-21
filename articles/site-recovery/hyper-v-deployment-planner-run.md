@@ -1,6 +1,6 @@
 ---
-title: "Planejador de Implantações do Azure Site Recovery para Hyper-V para o Azure | Microsoft Docs"
-description: "Este artigo descreve o modo de execução do planejador de implantações do Azure Site Recovery quando você está mudando do Hyper-V para o Azure."
+title: Planejador de Implantações do Azure Site Recovery para Hyper-V para o Azure | Microsoft Docs
+description: Este artigo descreve o modo de execução do planejador de implantações do Azure Site Recovery quando você está mudando do Hyper-V para o Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: nisoneji
-ms.openlocfilehash: ae539f136578c6461ef7f680d553fbd76b10ae98
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 49243eaa4d3413509e569a88e1d7a2f6359d7876
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236222"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Executar o planejador de implantações do Azure Site Recovery para Hyper-V para o Azure
 
@@ -95,7 +96,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|O tipo de virtualização (Hyper-V ou VMware).|
 |-Directory|(Opcional) O caminho de diretório local ou UNC para armazenar os dados de criação de perfil gerados durante a criação de perfil. Se um nome não for especificado, o diretório chamado ProfiledData no caminho atual será usado como o diretório padrão.|
 |-Password|(Opcional) A senha para se conectar ao host do Hyper-V. Se você não especificá-la como um parâmetro, ela será solicitada quando você executar o comando.|
-|-StorageAccountName|(Opcional) O nome da conta de armazenamento que é usado para localizar a taxa de transferência possível para replicação de dados do local do Azure. A ferramenta carrega dados de teste nessa conta de armazenamento para calcular a taxa de transferência. A conta de armazenamento deve ser v1 de uso geral ou v2 de v2 de uso geral.|
+|-StorageAccountName|(Opcional) O nome da conta de armazenamento que é usado para localizar a taxa de transferência possível para replicação de dados do local do Azure. A ferramenta carrega dados de teste nessa conta de armazenamento para calcular a taxa de transferência. A conta de armazenamento deve ser do tipo v1 para fins gerais (GPv1).|
 |-StorageAccountKey|(Opcional) A chave que é usada para acessar a conta de armazenamento. Acesse o portal do Azure > **Contas de armazenamento** > *nome da conta de armazenamento* >  **Configurações** > **Chaves de acesso** > **Chave1** (ou a chave de acesso primária da conta de armazenamento clássico).|
 |-Ambiente|(Opcional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um dos três seguintes valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. O padrão é AzureCloud. Use o parâmetro quando a região de destino for o Governo dos EUA do Azure ou Azure China.|
 
@@ -277,7 +278,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughput |
 |-Virtualization|O tipo de virtualização (Hyper-V ou VMware).|
 |-Directory|(Opcional) A UNC o ou caminho do diretório local em que os dados com perfil gerado (arquivos gerados durante a criação de perfil) são armazenados. Esses dados são necessários para gerar o relatório. Se um nome não for especificado, o diretório chamado ProfiledData no caminho atual será usado como o diretório padrão.|
-| -StorageAccountName | O nome de conta de armazenamento usada para obter a largura de banda consumida para replicação de dados do local para o Azure. A ferramenta carrega dados de teste nessa conta de armazenamento para obter a largura de banda consumida. A conta de armazenamento deve ser v1 de uso geral ou v2 de v2 de uso geral.|
+| -StorageAccountName | O nome de conta de armazenamento usada para obter a largura de banda consumida para replicação de dados do local para o Azure. A ferramenta carrega dados de teste nessa conta de armazenamento para obter a largura de banda consumida. A conta de armazenamento deve ser do tipo v1 para fins gerais (GPv1).|
 | -StorageAccountKey | A chave da conta de armazenamento usada para acessar a conta de armazenamento. Vá para o portal do Azure > **Contas de armazenamento** > *nome da conta de armazenamento* > **Configurações** > **Chaves de acesso** > **Chave1**.|
 | -VMListFile | O arquivo que contém a lista de VMs para criação de perfil para calcular a largura de banda consumida. O caminho do arquivo pode ser absoluto ou relativo. Para o Hyper-V, esse é o arquivo de saída da operação GetVMList. Se você estiver preparando manualmente, o arquivo deverá conter um nome de servidor ou endereço IP, seguido pelo nome da VM (separado por uma \ por linha). O nome da VM especificado no arquivo deve ser o mesmo que o nome da VM no host do Hyper-V.<br><br>**Exemplo:** O arquivo VMList.txt contém as seguintes VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Ambiente|(Opcional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um dos três seguintes valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. O padrão é AzureCloud. Use o parâmetro quando a região do Azure de destino é o Governo dos EUA do Azure ou Azure China.|

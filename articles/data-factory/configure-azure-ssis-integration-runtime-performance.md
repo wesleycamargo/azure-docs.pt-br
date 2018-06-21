@@ -1,19 +1,21 @@
 ---
-title: Configurar o Microsoft Integration Runtime do Azure-SSIS para alto desempenho | Microsoft Docs
+title: Configurar o desempenho para o tempo de execução de integração do Azure-SSIS | Microsoft Docs
 description: Saiba como configurar as propriedades do Microsoft Integration Runtime do Azure-SSIS para alto desempenho
 services: data-factory
 ms.date: 01/10/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: data-factory
 ms.workload: data-services
-author: douglaslMS
-ms.author: douglasl
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ed5d1740f1d68db5ad42266c3fc2dcc983682774
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e0bbd504b47a3b599022049c984c6dd59a6d0a0b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266763"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurar o Microsoft Integration Runtime do Azure-SSIS para alto desempenho
 

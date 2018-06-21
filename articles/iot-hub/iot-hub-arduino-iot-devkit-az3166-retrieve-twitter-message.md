@@ -1,24 +1,20 @@
 ---
 title: Recuperar uma mensagem do Twitter com o Azure Functions | Microsoft Docs
-description: Use o sensor de movimento para detectar agitando e usar o Azure Functions para localizar um tweet aleatório com um hashtag que você especificar.
-services: iot-hub
-documentationcenter: ''
+description: Use o sensor de movimento para detectar agitando e usar o Azure Functions para localizar um tweet aleatório com um hashtag que você especificar
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0c3df0642d36aa1c4471c433fe9c1d3fa3b0880d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631754"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Shake, Shake para um tweet -- Recuperar uma mensagem do Twitter com o Azure Functions!
 

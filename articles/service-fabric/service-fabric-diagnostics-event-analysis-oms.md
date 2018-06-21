@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: b51f7dc43f390152b2b0be223541e381bbddd3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 184faa0f6171ff00ab3c2398f693e9c7ad015d33
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839581"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Visualização e análise de eventos com o Log Analytics
 
@@ -36,17 +37,15 @@ Depois que dados são recebidos pelo Log Analytics, o Azure tem várias *Soluç�
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Acesse a solução de Análise do Service Fabric
 
-1. Vá para o grupo de recursos em que você criou a solução Análise do Service Fabric. Selecione o recurso **ServiceFabric\<nomeDoEspaçodeTrabalhoOMS\>** e vá para a página de visão geral.
+1. No Portal do Azure, vá para o grupo de recursos em que você criou a solução Análise do Service Fabric.
 
-2. Na página de visão geral, clique no link na parte superior para ir para o portal do OMS
+2. Selecione o recurso **ServiceFabric\<nomeDoEspaçoDeTrabalhoOMS\>**.
 
-    ![Link do Portal do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms-portal-link.png)
+2. Quando você estiver usando o portal, verá um bloco na forma de um grafo para cada uma das soluções habilitadas, inclusive uma para Service Fabric. Clique no grafo do **Service Fabric** (primeira imagem abaixo) para prosseguir para a solução Análise do Service Fabric (segunda imagem abaixo).
 
-3. Você agora está no portal do OMS e pode ver as soluções habilitadas. Clique no gráfico intitulado Service Fabric (primeira imagem abaixo) para ser dirigido para a solução do Service Fabric (segunda imagem abaixo)
+    ![Solução de OMS SF](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![Solução de OMS SF](media/service-fabric-diagnostics-event-analysis-oms/oms-workspace-all-solutions.png)
-
-    ![Solução de OMS SF](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new.png)
+    ![Solução de OMS SF](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 A imagem acima é a home page da solução de Análise do Service Fabric. Este é um instantâneo do que está acontecendo em seu cluster. Se você habilitou o diagnóstico após a criação do cluster, você pode ver eventos para 
 
@@ -55,19 +54,19 @@ A imagem acima é a home page da solução de Análise do Service Fabric. Este �
 * [Eventos do modelo de programação Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->Além do canal operacional, eventos de sistema mais detalhados podem ser coletado por [Atualizando a configuração de sua extensão de diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
+>Além do canal operacional, os eventos de sistema mais detalhados podem ser coletados pela [atualização da configuração de sua extensão de diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
-### <a name="view-operational-events-including-actions-on-nodes"></a>Exibir eventos operacionais incluindo ações em nós
+### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Exibir eventos do Service Fabric, incluindo ações em nós
 
-1. Na página de Análise do Service Fabric no portal do OMS, clique no gráfico para o Canal Operacional
+1. Na página Análise do Service Fabric, clique no grafo para **Eventos do Service Fabric**.
 
-    ![Canal Operacional da Solução de OMS SF](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new-operational.png)
+    ![Canal Operacional da Solução de OMS SF](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-2. Clique na tabela para exibir os eventos em uma lista. Uma vez aqui, você verá todos os eventos do sistema que foram coletados. Para referência, esses são os de WADServiceFabricSystemEventsTable na conta de Armazenamento do Azure, e igualmente os eventos de atores e serviços confiáveis que você vê ao lado são dessas respectivas tabelas.
+2. Clique em **Lista** para exibir os eventos em uma lista. Uma vez aqui, você verá todos os eventos do sistema que foram coletados. Para referência, esses são os de WADServiceFabricSystemEventsTable na conta de Armazenamento do Azure, e igualmente os eventos de atores e serviços confiáveis que você vê ao lado são dessas respectivas tabelas.
     
-    ![Canal Operacional de Consulta do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
+    ![Canal Operacional de Consulta do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
-Como alternativa, você pode clicar na lupa à esquerda e usar a linguagem de consulta Kusto para localizar o que você está procurando. Por exemplo, para localizar todas as ações executadas em nós no cluster, você pode usar a consulta a seguir. As identificações de evento usadas abaixo são encontradas em [referência de eventos do canal operacional](service-fabric-diagnostics-event-generation-operational.md)
+Como alternativa, você pode clicar na lupa à esquerda e usar a linguagem de consulta Kusto para localizar o que você está procurando. Por exemplo, para localizar todas as ações executadas em nós no cluster, você pode usar a consulta a seguir. As IDs de evento usadas abaixo são encontradas em [referência de eventos do canal operacional](service-fabric-diagnostics-event-generation-operational.md).
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -78,15 +77,15 @@ Você pode consultar em vários outros campos como em nós específicos (computa
 
 ### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Exibir eventos dos Atores e Serviços Confiáveis do Service Fabric
 
-1. Na página de Análise do Service Fabric no portal do OMS, clique no gráfico para o Reliable Services
+1. Na página Análise do Service Fabric, clique no grafo para o **Reliable Services**.
 
-    ![Reliable Services da Solução OMS SF](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-reliable-services.png)
+    ![Reliable Services da Solução OMS SF](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
-2. Clique na tabela para exibir os eventos em uma lista. Aqui você pode ver eventos dos serviços confiáveis. Você pode ver eventos diferentes para quando o runasync de serviço é iniciado e concluído que normalmente acontece em implantações e atualizações. 
+2. Clique em **Lista** para exibir os eventos em uma lista. Aqui você pode ver eventos dos serviços confiáveis. Você pode ver eventos diferentes para quando o runasync de serviço é iniciado e concluído que normalmente acontece em implantações e atualizações. 
 
-    ![Reliable Services de Consulta do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms-query-reliable-services.png)
+    ![Reliable Services de Consulta do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
-Os eventos de ator confiável podem ser exibidos de forma semelhante. Para configurar os eventos mais detalhados para atores confiáveis, você precisa alterar o `scheduledTransferKeywordFilter` na configuração para a extensão de diagnóstico (mostrada abaixo). Detalhes sobre os valores para os mesmos estão em [referência de eventos de atores confiáveis](service-fabric-reliable-actors-diagnostics.md#keywords)
+Os eventos de ator confiável podem ser exibidos de forma semelhante. Para configurar os eventos mais detalhados para atores confiáveis, você precisa alterar o `scheduledTransferKeywordFilter` na configuração para a extensão de diagnóstico (mostrada abaixo). Detalhes sobre os valores deles estão em [referência de eventos de atores confiáveis](service-fabric-reliable-actors-diagnostics.md#keywords).
 
 ```json
 "EtwEventSourceProviderConfiguration": [
@@ -100,9 +99,9 @@ Os eventos de ator confiável podem ser exibidos de forma semelhante. Para confi
                 },
 ```
 
-A linguagem de consulta Kusto é eficiente. Outra consulta valiosa que você pode executar é descobrir quais nós estão gerando a maioria dos eventos. A consulta na captura de tela abaixo mostra os eventos de serviços confiáveis agregado com o nó e serviço específico
+A linguagem de consulta Kusto é eficiente. Outra consulta valiosa que você pode executar é descobrir quais nós estão gerando a maioria dos eventos. A consulta na captura de tela abaixo mostra os eventos operacionais do Service Fabric agregados ao serviço e ao nó específico.
 
-![Eventos de Consulta do OMS por nó](media/service-fabric-diagnostics-event-analysis-oms/oms-query-events-per-node.png)
+![Eventos de Consulta do OMS por nó](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

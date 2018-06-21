@@ -10,25 +10,24 @@ ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 05/30/2018
 ms.author: omidm
-ms.openlocfilehash: 6225bd824e3bcff24b84c79f39ce209f16caafd8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6c5e32f0ed39ce2e8c1e412dcfc6c04fb0f8bd7a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715251"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Uma introdução à segurança do Hadoop com clusters HDInsight ingressados no domínio
 
-O Azure HDInsight até hoje dava suporte apenas a um administrador local de usuário único. Isso funcionava bem para equipes de aplicativos ou departamentos menores. À medida que cargas de trabalho com base em Hadoop ganharam mais popularidade no setor corporativo, a necessidade de recursos de nível empresarial, como controle de acesso baseado em função, suporte a vários usuários e autenticação baseada no Active Directory tornou-se cada vez mais importante. Usando clusters de HDInsight do domínio, você pode criar um cluster HDInsight associado a um domínio do Active Directory, configurar uma lista de funcionários da empresa que podem se autenticar por meio do Azure Active Directory para fazer logon no cluster HDInsight. Qualquer pessoa fora da empresa não pode fazer logon nem acessar o cluster HDInsight. O administrador corporativo pode configurar o controle de acesso baseado em função de segurança do Hive utilizando o [Apache Ranger](http://hortonworks.com/apache/ranger/), restringindo assim o acesso a dados apenas tanto quanto necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e as alterações feitas às políticas de controle de acesso, atingindo assim um alto grau de controle de seus recursos corporativos.
+O Azure HDInsight até hoje dava suporte apenas a um administrador local de usuário único. Isso funcionava bem para equipes de aplicativos ou departamentos menores. À medida que cargas de trabalho com base em Hadoop ganharam mais popularidade no setor corporativo, a necessidade de recursos de nível empresarial, como controle de acesso baseado em função, suporte a vários usuários e autenticação baseada no Azure Active Directory tornou-se cada vez mais importante. Usando clusters de HDInsight do domínio, você pode criar um cluster HDInsight associado a um domínio do Active Directory, configurar uma lista de funcionários da empresa que podem se autenticar por meio do Azure Active Directory para fazer logon no cluster HDInsight. Qualquer pessoa fora da empresa não pode fazer logon nem acessar o cluster HDInsight. O administrador corporativo pode configurar o controle de acesso baseado em função de segurança do Hive utilizando o [Apache Ranger](http://hortonworks.com/apache/ranger/), restringindo assim o acesso a dados apenas tanto quanto necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e as alterações feitas às políticas de controle de acesso, atingindo assim um alto grau de controle de seus recursos corporativos.
 
 > [!NOTE]
-> Os novos recursos descritos neste artigo estão disponíveis apenas nos seguintes tipos de cluster: Hadoop, Spark e Interactive Query. As outras cargas de trabalho, como HBase, Storm e Kafka, serão habilitadas em versões futuras.
+> Os novos recursos descritos neste artigo estão disponíveis em versão prévia apenas nos tipos de cluster a seguir: Hadoop, Spark e Consulta Interativa.
 
 > [!IMPORTANT]
 > O Oozie não está habilitado no HDInsight ingressado no domínio.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="benefits"></a>Benefícios
 I Enterprise Security contém quatro pilares principais: segurança do perímetro, autenticação, autorização e criptografia.
@@ -36,10 +35,10 @@ I Enterprise Security contém quatro pilares principais: segurança do perímetr
 ![Pilares de benefícios de clusters HDInsight associados ao domínio](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
 
 ### <a name="perimeter-security"></a>Segurança de Perímetro
-A segurança de perímetro no HDInsight é obtida usando redes virtuais e serviço de Gateway. Hoje, um administrador de empresa pode criar um cluster HDInsight dentro de uma rede virtual e usar grupos de segurança de rede (regras de firewall de entrada ou saída) para restringir o acesso à rede virtual. Somente os endereços IP definidos nas regras de firewall de entrada serão capazes de se comunicar com o cluster HDInsight, fornecendo assim segurança de perímetro. Outra camada de segurança de perímetro é obtida com o serviço de Gateway. O Gateway é o serviço que atua como a primeira linha de defesa para qualquer solicitação de entrada para o cluster HDInsight. Ele aceita a solicitação, a valida e só então permite que a solicitação passe para os outros nós no cluster, fornecendo assim segurança de perímetro para outros nós de dados e nome no cluster.
+A segurança de perímetro no HDInsight é obtida usando redes virtuais e serviço de Gateway. Atualmente, um administrador corporativo pode criar um cluster HDInsight dentro de uma rede virtual e usar grupos de segurança de rede (regras de firewall) para restringir o acesso à rede virtual. Somente os endereços IP definidos nas regras de firewall de entrada serão capazes de se comunicar com o cluster HDInsight, fornecendo assim segurança de perímetro. Outra camada de segurança de perímetro é obtida com o serviço de Gateway. O Gateway é o serviço que atua como a primeira linha de defesa para qualquer solicitação de entrada para o cluster HDInsight. Ele aceita a solicitação, a valida e só então permite que a solicitação passe para os outros nós no cluster, fornecendo assim segurança de perímetro para outros nós de dados e nome no cluster.
 
 ### <a name="authentication"></a>Autenticação
-Um administrador de empresa pode criar um cluster HDInsight associado ao domínio em uma [rede virtual](https://azure.microsoft.com/services/virtual-network/). Os nós do cluster HDInsight serão adicionados ao domínio gerenciado pela empresa. Isso é feito com o uso de [Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). Todos os nós no cluster são associados a um domínio que a empresa gerencia. Com essa configuração, os funcionários da empresa podem fazer logon nos nós de cluster usando suas credenciais de domínio. Eles também podem usar suas credenciais de domínio para se autenticar em outros pontos de extremidade aprovados, como Hue, Ambari Views, ODBC, JDBC, PowerShell e APIs REST para interagir com o cluster. O administrador tem controle total sobre a limitação do número de usuários que interagem com o cluster por meio desses pontos de extremidade.
+Um administrador de empresa pode criar um cluster HDInsight associado ao domínio em uma [rede virtual](https://azure.microsoft.com/services/virtual-network/). Os nós do cluster HDInsight serão adicionados ao domínio gerenciado pela empresa. Isso é feito com o uso de [Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). Todos os nós no cluster são associados a um domínio que a empresa gerencia. Com essa configuração, os funcionários da empresa podem fazer logon nos nós de cluster usando suas credenciais de domínio. Eles também podem usar suas credenciais de domínio para se autenticar em outros pontos de extremidade aprovados, como, Ambari Views, ODBC, JDBC, PowerShell e APIs REST para interagir com o cluster. O administrador tem controle total sobre a limitação do número de usuários que interagem com o cluster por meio desses pontos de extremidade.
 
 ### <a name="authorization"></a>Autorização
 Uma prática recomendada, seguida pela maioria das empresas, é que nem todos os funcionário têm acesso a todos os recursos da empresa. Da mesma forma, com esta versão, o administrador pode definir políticas de controle de acesso baseado em função para os recursos de cluster. Por exemplo, o administrador pode configurar o [Apache Ranger](http://hortonworks.com/apache/ranger/) para definir políticas de controle de acesso para o Hive. Essa funcionalidade assegura que os funcionários possam acessar somente os dados de que precisam para serem bem-sucedidos em seus trabalhos. O acesso a SSH no cluster também é restrito somente ao administrador.
@@ -48,13 +47,12 @@ Uma prática recomendada, seguida pela maioria das empresas, é que nem todos os
 Além de proteger os recursos de cluster do HDInsight contra usuários não autorizados e proteger os dados, é necessário fazer a auditoria de todo o acesso a recursos de cluster e a dados para rastrear acesso não autorizado ou não intencional aos recursos. O administrador pode exibir e relatar todo o acesso aos recursos e dados de cluster do HDInsight. O administrador também pode exibir e relatar todas as alterações nas políticas de controle de acesso feitas nos pontos de extremidade do Apache Ranger com suporte. Um cluster HDInsight associado a um domínio usa a interface do usuário familiar do Apache Ranger para pesquisar logs de auditoria. No back-end, o Ranger usa o [Apache Solr](http://hortonworks.com/apache/solr/) para armazenar e pesquisar os logs.
 
 ### <a name="encryption"></a>Criptografia
-A proteção dos dados é importante para atender aos requisitos de conformidade e segurança organizacional e, além de restringir o acesso a dados de funcionários não autorizados, eles também devem ser protegidos por criptografia. Os repositórios de dados para clusters HDInsight, Blob de Armazenamento do Azure e Azure Data Lake Storage dão suporte a [criptografia de dados](../../storage/common/storage-service-encryption.md) transparente do lado do servidor em repouso. A proteção de clusters HDInsight funcionará perfeitamente com essa criptografia do lado do servidor de dados em capacidade em repouso.
+A proteção dos dados é importante para atender aos requisitos de conformidade e segurança organizacional e, além de restringir o acesso a dados de funcionários não autorizados, eles também devem ser protegidos por criptografia. Os repositórios de dados para clusters HDInsight, Blob de Armazenamento do Azure e Azure Data Lake Storage dão suporte a [criptografia de dados](../../storage/common/storage-service-encryption.md) transparente do lado do servidor em repouso. A proteção de clusters HDInsight funcionará perfeitamente com essa criptografia do lado do servidor dos dados de capacidade de dados em repouso.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para configurar um cluster HDInsight associado a um domínio, confira [Configurar clusters HDInsight associados a domínio](apache-domain-joined-configure.md).
-* Para gerenciar um cluster HDInsight associado a um domínio, confira [Gerenciar clusters HDInsight associados a domínio](apache-domain-joined-manage.md).
-* Para configurar políticas do Hive e executar consultas do Hive, confira [Configurar políticas do Hive para clusters HDInsight associados ao domínio](apache-domain-joined-run-hive.md).
-* Para executar consultas Hive usando SSH em clusters HDInsight adicionados ao domínio, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-* Para usar o VSCode para vincular ao cluster ingressado no domínio, consulte [Vincular ao cluster ingressado no domínio com o VSCode](../hdinsight-for-vscode.md#linkcluster).
-* Para usar o IntelliJ para vincular ao cluster ingressado no domínio, consulte [Vincular ao cluster ingressado no domínio com o IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#linkcluster).
-* Para usar o Eclipse para vincular ao cluster ingressado no domínio, consulte [Vincular ao cluster ingressado no domínio com o Eclipse](../spark/apache-spark-eclipse-tool-plugin.md#linkcluster).
+* [Planejar clusters HDInsight ingressados no domínio](apache-domain-joined-architecture.md).
+* [Configurar clusters HDInsight ingressados no domínio](apache-domain-joined-configure.md).
+* [Gerenciar clusters HDInsight ingressados no domínio](apache-domain-joined-manage.md).
+* [Configurar políticas do Hive para clusters HDInsight ingressados no domínio](apache-domain-joined-run-hive.md).
+* [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+

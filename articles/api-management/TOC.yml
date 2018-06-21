@@ -77,6 +77,8 @@
           href: edit-api.md
     - name: Provisionar e dimensionar
       items:
+        - name: Métrica de capacidade
+          href: api-management-capacity.md
         - name: Atualizar e dimensionar
           href: upgrade-and-scale.md
         - name: Configurar um domínio personalizado

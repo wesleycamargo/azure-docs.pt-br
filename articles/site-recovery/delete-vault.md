@@ -7,17 +7,18 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 06/11/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 1c069e8b09f71ac46017974dfd94945c404b16ba
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 80c479aa23da2a8471af3fd83879a2dbfc5d6195
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209885"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300564"
 ---
 # <a name="delete-a-site-recovery-vault"></a>Excluir um cofre do Site Recovery
-Dependências podem impedir a exclusão de um cofre do Azure Site Recovery. As ações necessárias variam de acordo com o cenário do Site Recovery: VMware para o Azure, Hyper-V (com e sem o System Center Virtual Machine Manager) para o Azure e Backup do Azure. Para excluir um cofre usado no Backup do Azure, consulte [Excluir um cofre de Backup no Azure](../backup/backup-azure-delete-vault.md).
+
+Dependências podem impedir a exclusão de um cofre do Azure Site Recovery. As ações que você precisa realizar variam de acordo com o cenário do Site Recovery. Para excluir um cofre usado no Backup do Azure, consulte [Excluir um cofre de Backup no Azure](../backup/backup-azure-delete-vault.md).
 
 
 
@@ -37,12 +38,12 @@ Para excluir o cofre, siga as etapas recomendadas para seu cenário.
 5. Exclua o cofre.
 
 
-### <a name="hyper-v-vms-with-virtual-machine-manager-to-azure"></a>VMs do Hyper-V (com o Virtual Machine Manager) para o Azure
-1. Exclua todas as VMs protegidas seguindo as etapas em [Desabilitar a proteção para uma máquina virtual Hyper-V que replica no Azure usando o cenário VMM do System Center para o Azure](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
+### <a name="hyper-v-vms-with-vmm-to-azure"></a>VMs do Hyper-V (com VMM) para Azure
+1. Exclua todas as VMs protegidas seguindo as etapas em [Desabilitar a proteção de uma VM Hyper-V (com VMM)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
 
 2. Desassocie e exclua todas as políticas de replicação navegando até seu Cofre –> **Infraestrutura do Site Recovery** –> **Para o VMM do System Center** -> **Políticas de replicação**
 
-3.  Exclua as referências aos servidores do Virtual Machine Manager seguindo as etapas em [Cancelar o registro de um servidor do VMM conectado](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
+3.  Exclua as referências aos servidores do VMM seguindo as etapas em [Cancelar o registro de um servidor do VMM conectado](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
 
 4.  Exclua o cofre.
 
@@ -51,7 +52,7 @@ Para excluir o cofre, siga as etapas recomendadas para seu cenário.
 
 2. Desassocie e exclua todas as políticas de replicação navegando até seu Cofre –> **Infraestrutura do Site Recovery** –> **Para Sites do Hyper-V** -> **Políticas de replicação**
 
-3. Exclua as referências aos servidores do Hyper-V seguindo as etapas em [Cancelar o registro de um host Hyper-V](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Exclua as referências aos servidores do Hyper-V seguindo as etapas em [Cancelar o registro de um host Hyper-V](/site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
 4. Exclua o site do Hyper-V.
 

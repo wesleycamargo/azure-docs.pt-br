@@ -5,19 +5,20 @@ services: cosmos-db
 author: rimman
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cc66b2f506d81a7ba10b26c3b24287472e890682
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724900"
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Vários mestres em escala global com o Azure Cosmos DB 
  
-O desenvolvimento de aplicativos distribuídos mundialmente que respondam com latências locais, ao mesmo tempo em que se mantém exibições de dados consistentes em todo o mundo, é um problema desafiador. Os clientes usam bancos de dados globalmente distribuídos, pois precisam melhorar a latência de acesso a dados, alcançar alta disponibilidade dos dados e garantir a recuperação de desastre e (4) para atender às suas necessidades de negócios. Vários mestres no Azure Cosmos DB fornecem altos níveis de disponibilidade (99,999%), latência menor que dez milissegundos para gravar dados e a escalabilidade com suporte interno para resolução de conflitos flexível e abrangente. Esses recursos simplificam significativamente o desenvolvimento de aplicativos distribuídos globalmente. Para aplicativos distribuídos globalmente, o suporte para vários mestres é crucial. 
+O desenvolvimento de aplicativos distribuídos mundialmente que respondam com latências locais, ao mesmo tempo em que se mantém exibições de dados consistentes em todo o mundo, é um problema desafiador. Os clientes usam bancos de dados distribuídos globalmente porque precisam melhorar a latência de acesso a dados, obter alta disponibilidade de dados, assegurar recuperação de desastre garantida e atender aos requisitos de negócios. Vários mestres no Azure Cosmos DB fornecem altos níveis de disponibilidade (99,999%), latência menor que dez milissegundos para gravar dados e a escalabilidade com suporte interno para resolução de conflitos flexível e abrangente. Esses recursos simplificam significativamente o desenvolvimento de aplicativos distribuídos globalmente. Para aplicativos distribuídos globalmente, o suporte para vários mestres é crucial. 
 
 ![Arquitetura de vários mestres](./media/multi-region-writers/multi-master-architecture.png)
 

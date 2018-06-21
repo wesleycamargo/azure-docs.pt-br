@@ -1,11 +1,11 @@
 ---
 title: Desenvolvimento para o Arquivos do Azure com C++ | Microsoft Docs
-description: "Saiba como desenvolver aplicativos e serviços C++ que usam o Arquivos do Azure para armazenar dados de arquivo."
+description: Saiba como desenvolver aplicativos e serviços C++ que usam o Arquivos do Azure para armazenar dados de arquivo.
 services: storage
 documentationcenter: .net
 author: renashahmsft
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737564"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desenvolvimento para o Arquivos do Azure com C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,15 +27,13 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Sobre este tutorial
-
 Neste tutorial, você aprenderá a executar operações básicas no Arquivos do Azure. Por meio de exemplos escritos em C++, você aprenderá a criar compartilhamentos e diretórios, carregar, listar e excluir arquivos. Se você for novo no Arquivos do Azure, será muito útil percorrer os conceitos nas seções a seguir para entender os exemplos.
-
 
 * Criar e excluir Compartilhamentos de Arquivos do Azure
 * Criar e excluir diretórios
 * Enumerar arquivos e diretórios em um Compartilhamento de Arquivos do Azure
 * Carregar, baixar e excluir um arquivo
-* Definir a cota (tamanho máximo) para o Compartilhamento de Arquivos do Azure
+* Definir a cota (tamanho máximo) para um compartilhamento de arquivos do Azure
 * Crie uma assinatura de acesso compartilhado (chave SAS) para um arquivo que usa uma política de acesso compartilhado definida no compartilhamento.
 
 > [!Note]  
@@ -78,7 +77,7 @@ azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="create-an-azure-file-share"></a>Criar um Compartilhamento de Arquivos do Azure
+## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
 Todos os arquivos e diretórios em um compartilhamento de Arquivos do Azure residem em um contêiner chamado **Compartilhamento**. Sua conta de armazenamento pode a quantidade de compartilhamentos que a capacidade da conta permitir. Para obter acesso a um compartilhamento e seu conteúdo, é necessário usar um cliente de Arquivos do Azure.
 
 ```cpp
@@ -255,7 +254,7 @@ azure::storage::cloud_file file =
 file.delete_file_if_exists();
 ```
 
-## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Definir a cota (tamanho máximo) para o Compartilhamento de Arquivos do Azure
+## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Definir a cota (tamanho máximo) para um compartilhamento de arquivos do Azure
 Você pode definir a cota (ou o tamanho máximo) de um compartilhamento de arquivo em gigabytes. Você também pode verificar a quantidade de dados atualmente armazenada no compartilhamento.
 
 Ao definir a cota para um compartilhamento, você pode limitar o tamanho total dos arquivos armazenados no compartilhamento. Se o tamanho total dos arquivos no compartilhamento ultrapassar a cota definida no compartilhamento, os clientes não poderão aumentar o tamanho dos arquivos existentes ou criar novos arquivos, a menos que eles estejam vazios.
@@ -357,6 +356,6 @@ if (share.exists())
 Para saber mais sobre o Armazenamento do Azure, explore estes recursos:
 
 * [Biblioteca do Cliente de Armazenamento para C++](https://github.com/Azure/azure-storage-cpp)
-* [Exemplos de Serviço de Arquivo do Armazenamento do Azure no C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [O armazenamento do azure exemplos de serviços de arquivo em C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Gerenciador de Armazenamento do Azure](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)

@@ -7,23 +7,36 @@ author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
+ms.reviewer: genemi
 ms.author: billgib
-ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941887"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737673"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
 
 Ao criar um aplicativo de SaaS multilocatário, você deve escolher cuidadosamente o modelo de aluguel que melhor atenda às necessidades do seu aplicativo.  Um modelo de aluguel determina como os dados de cada locatário são mapeados para o armazenamento.  A escolha do modelo de aluguel afeta o design de aplicativo e gerenciamento.  Alternar para um modelo diferente mais tarde, às vezes, é caro.
 
-Segue uma discussão de modelos de aluguel alternativo.
+Este artigo descreve os modelos de aluguel alternativo.
 
-## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>a. Como escolher o modelo apropriado de aluguel
+## <a name="a-saas-concepts-and-terminology"></a>a. Conceitos e terminologia de SaaS
+
+No Software como um modelo de serviço (SaaS), sua empresa não vende *licenças* com o seu software. Em vez disso, cada cliente faz alugar pagamentos à sua empresa, tornando a cada cliente um *locatário* da sua empresa.
+
+Em troca de pagamento de aluguel, cada locatário recebe acesso aos componentes do seu aplicativo SaaS, e tem seus dados armazenados no sistema de SaaS.
+
+O termo *modelo de locação* refere-se a como os dados armazenados dos locatários são organizados:
+
+- *Single-aluguel:* &nbsp; cada banco de dados armazena dados de apenas um locatário.
+- *Multilocação:* &nbsp; cada banco de dados armazena dados de vários locatários separados (com mecanismos para proteger a privacidade de dados).
+- Modelos de aluguel híbridos também estão disponíveis.
+
+## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Como escolher o modelo apropriado de aluguel
 
 Em geral, o modelo de aluguel não afeta a função de um aplicativo, mas provavelmente afeta outros aspectos da solução geral.  Os critérios a seguir são usados para avaliar cada um dos modelos:
 
@@ -51,7 +64,7 @@ Em geral, o modelo de aluguel não afeta a função de um aplicativo, mas provav
 
 A discussão de aluguel enfoca na camada de *dados*.  Mas considere por um momento a camada de *aplicativo*.  A camada de aplicativo é tratada como uma entidade monolítica.  Se você dividir o aplicativo em vários componentes pequenos, a escolha do modelo de aluguel pode ser alterada.  Você pode tratar alguns componentes diferentemente de outras pessoas sobre tanto aluguel e a tecnologia de armazenamento quanto a plataforma usada.
 
-## <a name="b-standalone-single-tenant-app-with-single-tenant-database"></a>B. Aplicativo de único locatário autônomo com o banco de dados único locatário
+## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Aplicativo de único locatário autônomo com o banco de dados único locatário
 
 #### <a name="application-level-isolation"></a>Isolamento do nível de aplicativo
 
@@ -67,7 +80,7 @@ Cada banco de dados de locatário é implantado como um banco de dados autônomo
 
 O fornecedor pode acessar todos os bancos de dados em todas as instâncias de aplicativo autônomo, mesmo se as instâncias do aplicativo estão instaladas em assinaturas de locatários diferentes.  O acesso é obtido por meio de conexões do SQL.  Esse acesso entre instâncias pode habilitar o fornecedor centralizar o gerenciamento de esquema e consulta de bancos de dados para fins de relatório ou análise.  Se esse tipo de gerenciamento centralizado é desejado, um catálogo deve ser mapeado identificadores de locatário para URIs de banco de dados implantado.  Banco de dados SQL do Azure fornece uma biblioteca de fragmentação que é usada junto com um banco de dados SQL para fornecer um catálogo.  A biblioteca de fragmentação é chamada formalmente o [biblioteca de cliente de Banco de Dados Elástico][docu-elastic-db-client-library-536r].
 
-## <a name="c-multi-tenant-app-with-database-per-tenant"></a>C. Aplicativo de multilocatário com o banco de dados por locatário
+## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Aplicativo de multilocatário com o banco de dados por locatário
 
 Esse padrão próximo usa um aplicativo multilocatário com muitos bancos de dados, todos os que estão sendo bancos de dados de único locatário.  Um novo banco de dados é provisionado para cada novo locatário.  A camada de aplicativo é dimensionada *backup* verticalmente, adicionando mais recursos por nó.  Ou o aplicativo é dimensionado *out* horizontalmente adicionando mais nós.  O dimensionamento é com base na carga de trabalho e é independente do número ou a escala dos bancos de dados individuais.
 
@@ -106,7 +119,7 @@ As operações de gerenciamento podem ser incluídos no script e oferecidas por 
 
 Por exemplo, você pode automatizar a recuperação de um único locatário em um ponto anterior no tempo.  A recuperação só precisa restaurar um único locatário banco de dados que armazena o locatário.  Essa restauração não tem nenhum impacto em outros locatários, que confirma que as operações de gerenciamento estão no nível granular eficiente de cada locatário individual.
 
-## <a name="d-multi-tenant-app-with-multi-tenant-databases"></a>D. Aplicativo de multilocatário com o banco de dados por locatário
+## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. Aplicativo de multilocatário com o banco de dados por locatário
 
 É outro padrão disponível para armazenar vários locatários em um banco de dados de vários locatários.  A instância do aplicativo pode ter qualquer número de bancos de dados de vários locatários.  O esquema de banco de dados multilocatário deve ter uma ou mais colunas de identificador de locatário para que os dados de qualquer determinado locatário podem ser recuperados seletivamente.  Além disso, o esquema pode exigir algumas tabelas ou colunas que são usadas por apenas um subconjunto de locatários.  No entanto, os dados de referência e de código estáticos são armazenados somente uma vez e são compartilhados por todos os locatários.
 
@@ -122,13 +135,13 @@ Em geral, bancos de dados multilocatários tem o mais baixo por locatário de cu
 
 Duas variações de um modelo de banco de dados multilocatário são discutidas os itens a seguir, com o modelo de multilocatário fragmentado, sendo a mais flexível e escalonável.
 
-## <a name="e-multi-tenant-app-with-a-single-multi-tenant-database"></a>E. Aplicativo de multilocatário com o banco de dados por locatário
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Aplicativo de multilocatário com o banco de dados por locatário
 
 O padrão de banco de dados multilocatário mais simples usa um banco de dados independente única para hospedar dados para todos os locatários.  À medida que mais locatários são adicionados, o banco de dados é dimensionado com mais recursos de computação e armazenamento.  Essa expansão pode ser tudo o que é necessário, embora sempre há um limite de escala principal.  No entanto, longa antes que o limite é atingido o banco de dados torna-se difíceis de gerenciar.
 
 Operações de gerenciamento que concentram-se em locatários individuais são mais complexas para implementar em um banco de dados de vários locatários.  E, em grande escala essas operações podem se tornar muito lentas.  Um exemplo é uma restauração point-in-time de dados para somente um locatário.
 
-## <a name="f-multi-tenant-app-with-sharded-multi-tenant-databases"></a>F. Aplicativo de multilocatário com o banco de dados por locatário
+## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. Aplicativo de multilocatário com o banco de dados por locatário
 
 A maioria dos aplicativos SaaS acessar os dados de locatário somente um por vez.  O padrão de acesso permite que os dados de locatário seja distribuída por vários bancos de dados ou fragmentos, onde todos os dados para um locatário está contido em um fragmento.  Um modelo fragmentado combinado com um padrão de banco de dados multilocatário, permite que a escala praticamente ilimitada.
 
@@ -152,7 +165,7 @@ Dependendo da abordagem de fragmentação usada, as restrições adicionais pode
 
 Bancos de dados multilocatários fragmentados podem ser colocados em pools elásticos.  Em geral, com muitos bancos de dados de único locatário em um pool é mais econômica como tendo vários locatários em alguns bancos de dados de vários locatários.  Bancos de dados de vários locatários são vantajosos quando há um grande número de locatários relativamente inativos.
 
-## <a name="g-hybrid-sharded-multi-tenant-database-model"></a>G. Modelo de bancos de dados multilocatários compartilhados, o híbrido
+## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. Modelo de bancos de dados multilocatários compartilhados, o híbrido
 
 No modelo híbrido, todos os bancos de dados tem o identificador do locatário em seu esquema.  Os bancos de dados são todos capazes de armazenar mais de um locatário e os bancos de dados podem ser fragmentados.  Portanto, no sentido de esquema, eles são todos os bancos de dados de vários locatários.  Ainda na prática, alguns desses bancos de dados contém apenas um locatário.  Independente disso, a quantidade de locatários armazenados em um determinado banco de dados não tem efeito sobre o esquema de banco de dados.
 
@@ -166,7 +179,7 @@ O modelo híbrido brilha quando há grandes diferenças entre as necessidades de
 
 Neste modelo híbrido, os bancos de dados de único locatário para locatários do assinante podem ser colocados em pools de recursos para reduzir os custos de banco de dados por locatário.  Isso também é feito no modelo de banco de dados por locatário.
 
-## <a name="h-tenancy-models-compared"></a>H. Modelos de aluguel em comparação comparados
+## <a name="i-tenancy-models-compared"></a>I. Modelos de aluguel em comparação comparados
 
 A tabela a seguir resume as diferenças entre o Functions e o WebJobs.
 

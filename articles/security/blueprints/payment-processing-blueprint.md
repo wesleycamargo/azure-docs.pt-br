@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895470"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301364"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Projeto de Segurança e Conformidade do Azure – ambientes de processamento do pagamento em conformidade com PCI DSS
 
@@ -44,7 +44,7 @@ A arquitetura fundamental consiste nos seguintes componentes:
 - **Modelos de implantação** Nessa implantação, os [modelos do Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) são usados para implantar os componentes da arquitetura automaticamente no Microsoft Azure especificando parâmetros de configuração durante a instalação.
 - **Scripts de implantação automatizada**. Esses scripts ajudam a implantar a solução de ponta a ponta. Os scripts consistem em:
     - Uma instalação do módulo e um script de configuração de [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) são usados para instalar e verificar se os módulos do PowerShell obrigatórios e as funções de administrador global foram configuradas corretamente.
-    - Um script de instalação do PowerShell é usada para implantar a solução completa, fornecida por meio de um arquivo .zip e um arquivo .bacpac que contêm um aplicativo Web de demonstração criado previamente com o [conteúdo de exemplo de banco de dados SQL](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código-fonte desta solução está disponível para análise [ repositório do código de Blueprint] [código repositório]. 
+    - Uma instalação de script do PowerShell é usada para implantar a solução de ponta a ponta, fornecida por meio de um arquivo .zip e um arquivo .bacpac que contém um aplicativo Web de demonstração criado previamente com conteúdo de [exemplo de banco de dados SQL](https://github.com/Microsoft/azure-sql-security-sample). O código-fonte para esta solução está disponível para revisão no [GitHub](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). 
 
 ## <a name="architectural-diagram"></a>Diagrama de arquitetura
 
@@ -169,8 +169,6 @@ Cada uma das camadas de rede tem um NSG (grupo de segurança de rede dedicado):
 - Um grupo de segurança de rede DMZ para firewall e WAF de Gateway de Aplicativo
 - Um NSG para jumpbox de gerenciamento (host bastião)
 - Um NSG para o ambiente do serviço de aplicativo
-
-Cada NSG tem portas e protocolos específicos abertos para o funcionamento seguro e correto da solução. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](#network-security-groups).
 
 Cada NSG tem portas e protocolos específicos abertos para o funcionamento seguro e correto da solução. Além disso, as seguintes configurações estão habilitadas para cada NSG:
 - Os [eventos e logs de diagnóstico](/azure/virtual-network/virtual-network-nsg-manage-log) habilitados são armazenados na conta de armazenamento 

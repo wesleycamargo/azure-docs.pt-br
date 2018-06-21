@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: c28d409bbdb7a4100f2bb9f00ff6f58a13855ea4
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 30b4a7ea0d3f68e48d02e5cb72e70de74dc2addf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305048"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658682"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou excluir um endereço IP público
 
@@ -70,7 +70,7 @@ Embora o portal forneça a opção de criar dois recursos de endereço IP públi
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Exibir, alterar as configurações ou excluir um endereço IP público
@@ -89,7 +89,7 @@ Embora o portal forneça a opção de criar dois recursos de endereço IP públi
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network public-ip-list](/cli/azure/network/public-ip#az_network_public_ip_list) para listar endereços IP públicos; [az network public-ip-show](/cli/azure/network/public-ip#az_network_public_ip_show) para mostrar as configurações; [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) para atualizar e [az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete) para excluir|
+|CLI|[az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list) para listar endereços IP públicos; [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) para mostrar as configurações; [az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) para atualizar e [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) para excluir|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para recuperar um objeto de endereço IP público e exibir suas configurações; [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress) para atualizar as configurações e [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) para excluir|
 
 ## <a name="permissions"></a>Permissões

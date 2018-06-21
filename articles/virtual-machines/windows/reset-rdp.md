@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: cynthn
-ms.openlocfilehash: 26a213d490ee3f661735ff5b893b0a5f5f9906da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b61b7501c94e9682a3b324488caf119ce4aad3df
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267196"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Como redefinir o serviço Área de Trabalho Remota ou sua senha de logon em uma VM do Windows
 Se não conseguir se conectar a uma máquina virtual do Windows (VM), você pode redefinir a senha de administrador local ou a configuração do serviço de Área de Trabalho Remota (sem suporte em Controladores de Domínio do Windows). Você pode usar o Portal do Azure ou a extensão VM Access no Azure PowerShell para redefinir a senha. Após conectar a VM, será necessário redefinir a senha para esse usuário.  
@@ -57,7 +58,7 @@ Selecione **Redefinir somente configuração** no menu suspenso e clique em **At
 Verifique se você tem o [último módulo do PowerShell instalado e configurado](/powershell/azure/overview) e se está conectado à sua assinatura do Azure com o cmdlet `Connect-AzureRmAccount`.
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Redefinir a senha da conta de administrador local**
-Redefina a senha ou o nome de usuário do administrador com o cmdlet [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) do PowerShell. 
+Redefina a senha ou o nome de usuário do administrador com o cmdlet [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) do PowerShell. O typeHandlerVersion deve ser 2.0 ou superior, pois a versão 1 foi preterida. 
 
 ```powershell
 $SubID = "<SUBSCRIPTION ID>" 

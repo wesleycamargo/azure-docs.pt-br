@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: af94e3270493f6967c4f8c484170751c098bf181
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 25db5075e2099dee354c4c5ef999b26c8e0c50c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642658"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurar o Log Analytics para um cluster
 
@@ -35,7 +36,7 @@ Se você deseja adicionar um espaço de trabalho do Log Analytics depois de impl
 
 2. Pesquise **Análise do Service Fabric**. Selecione o recurso que é exibido.
 
-3. Clique em **Criar**.
+3. Selecione **Criar**.
 
     ![Análise do OMS SF no Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
@@ -50,7 +51,7 @@ Se estiver usando o Windows, continue com as seguintes etapas para conectar o OM
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Conecte-se ao espaço de trabalho do Log Analytics para o cluster 
 
-1. O espaço de trabalho precisa estar conectado aos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos em que você criou a solução Análise do Service Fabric. Selecione **ServiceFabric\<nameOfWorkspace\>** e vá para a página de visão geral. A partir daí, você pode alterar as configurações da solução,as configurações do espaço de trabalho e acessar o portal do OMS.
+1. O espaço de trabalho precisa estar conectado aos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos em que você criou a solução Análise do Service Fabric. Selecione **ServiceFabric\<nameOfWorkspace\>** e vá para a página de visão geral. A partir daí, você pode alterar as configurações da solução,as configurações do espaço de trabalho e acessar o Espaço de Trabalho do OMS.
 
 2. No menu de navegação à esquerda, selecione **Logs das contas de armazenamento** em **Fontes de Dados de Espaço de Trabalho**.
 

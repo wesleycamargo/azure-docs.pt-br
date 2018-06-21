@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: eeb5fd765a6cad10be5706162566605feaa8af4c
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781156"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802554"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integração de rede virtual para os serviços do Azure
 
@@ -67,11 +67,7 @@ Você pode implantar um [Azure Load Balancer Interno](../load-balancer/load-bala
 
 ## <a name="service-endpoints-for-azure-services"></a>Pontos de extremidade de serviços do Azure
 
-Alguns serviços do Azure não podem ser implantados em redes virtuais. Você pode restringir o acesso a alguns dos recursos do serviço apenas para sub-redes de rede virtual específicas, se você escolher, habilitando um ponto de extremidade de serviço de rede virtual. Saiba mais sobre [pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md).
-
-Atualmente, os pontos de extremidade de serviço são compatíveis com os serviços a seguir: 
-- **Armazenamento do Azure**: [garantindo contas de Armazenamento do Azure para redes virtuais](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- **Banco de Dados SQL do Azure**: [garantindo Banco de dados SQL do Azure para redes virtuais](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Alguns serviços do Azure não podem ser implantados em redes virtuais. Você pode restringir o acesso a alguns dos recursos do serviço apenas para sub-redes de rede virtual específicas, se você escolher, habilitando um ponto de extremidade de serviço de rede virtual. Saiba mais sobre [ pontos de extremidade de serviços de rede virtual ](virtual-network-service-endpoints-overview.md) e os serviços para os quais os terminais podem ser ativados.
 
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>Integração de rede virtual entre vários serviços do Azure
 

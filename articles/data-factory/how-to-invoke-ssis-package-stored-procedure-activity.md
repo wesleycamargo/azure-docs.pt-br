@@ -1,6 +1,6 @@
 ---
-title: Executar um pacote do SSIS usando a Atividade de Procedimento Armazenado no Azure Data Factory | Microsoft Docs
-description: Este artigo descreve como executar um pacote SSIS (SQL Server Integration Services) de um pipeline do Azure Data Factory usando a Atividade de Procedimento Armazenado.
+title: Executar o pacotes SSIS com a atividade de Procedimento Armazenado – Azure | Microsoft Docs
+description: Este artigo descreve como executar um pacote SSIS (SQL Server Integration Services) em um pipeline do Azure Data Factory usando a Atividade de Procedimento Armazenado.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,17 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 283e1022abda083d73e8e4e5bca7872791cb4861
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e84197e30ed5fe45ee74783eb899b93d3b900f9a
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266841"
 ---
-# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Executar um pacote do SSIS usando a atividade de procedimento armazenado no Azure Data Factory
-Este artigo descreve como executar um pacote do SSIS de um pipeline do Azure Data Factory usando uma atividade de procedimento armazenado. 
+# <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Executar um pacote SSIS usando a atividade de Procedimento Armazenado no Azure Data Factory
+Este artigo descreve como executar um pacote SSIS em um pipeline do Azure Data Factory usando uma atividade de Procedimento Armazenado. 
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço do Data Factory, que está disponível, consulte [Chamar pacotes do SSIS usando atividade de procedimento armazenado na versão 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -133,7 +134,7 @@ Nesta seção, você dispara uma execução do pipeline e, em seguida, faz o mon
 
     ![Execuções de atividade](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
 
-4. É possível executar a seguinte **consulta** com relação ao banco de dados SSISDB em seu servidor SQL do Azure para verificar se o pacote foi executado. 
+4. É possível executar a seguinte **consulta** no banco de dados SSISDB em seu servidor SQL do Azure para verificar se o pacote foi executado. 
 
     ```sql
     select * from catalog.executions

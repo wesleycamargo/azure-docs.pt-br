@@ -1,25 +1,19 @@
 ---
-title: Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação do Backup do Azure | Microsoft Docs
+title: Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação do Backup do Azure
 description: Atualize o cofre de Backup para o cofre dos Serviços de Recuperação para obter novos recursos como backup de VMs do Resource Manager, segurança aprimorada, backup de VMs do VMware e backup do estado do sistema para servidores Windows
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: ''
-keyword: backup vault; upgrade vault; recovery services vault
-ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/10/2017
-ms.author: trinadhk, sogup
-ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: trinadhk
+ms.openlocfilehash: 358c7b0e61d1c85e236007c2495941a31502431a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606852"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Atualização de cofre de Backup para cofre dos Serviços de Recuperação
 Este artigo fornece uma visão geral do que é oferecido pelo sofre dos Serviços de Recuperação, perguntas frequentes sobre a atualização do cofre de Backup existente para o cofre dos Serviços de Recuperação e as etapas pós-atualização. Um cofre dos Serviços de Recuperação é o equivalente do Azure Resource Manager a um cofre de Backup que contém seus dados de backup. Os dados normalmente são cópias de dados ou informações de configuração de VMs (máquinas virtuais), cargas de trabalho, servidores ou estações de trabalho, sejam esses dados locais ou no Azure.

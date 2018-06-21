@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638340"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de Monitoramento de contêiner no Log Analytics
 
@@ -528,7 +529,7 @@ Você pode verificar se a solução de Monitoramento de contêiner está definid
 
 ## <a name="solution-components"></a>Componentes da solução
 
-Se você estiver usando agentes do Windows, o pacote de gerenciamento a seguir será instalado em cada computador que possui um agente quando você adicionar essa solução. Não é necessária nenhuma configuração nem manutenção do pacote de gerenciamento.
+No portal do OMS, navegue até a *Galeria de Soluções* e adicione a **Solução de Monitoramento de Contêiner**. Se você estiver usando agentes do Windows, o pacote de gerenciamento a seguir será instalado em cada computador que possui um agente quando você adicionar essa solução. Não é necessária nenhuma configuração nem manutenção do pacote de gerenciamento.
 
 - *ContainerManagement.xxx* instalado em C:\Arquivos de Programas\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
@@ -563,6 +564,7 @@ Os rótulos anexado aos tipos de dados *PodLabel* são seus próprios rótulos p
 
 ## <a name="monitor-containers"></a>Monitorar contêineres
 Depois de habilitar a solução no portal do Log Analytics, o bloco **Contêineres** mostrará informações resumidas sobre seus hosts de contêiner e os contêineres em execução nos hosts.
+
 
 ![Bloco Contêineres](./media/log-analytics-containers/containers-title.png)
 

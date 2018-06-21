@@ -1,24 +1,19 @@
 ---
-title: "Gerenciar backups de máquina virtual implantados pelo Resource Manager | Microsoft Docs"
-description: "Saiba como gerenciar e monitorar os backups da máquina virtual implantados pelo Gerenciador de Recursos"
+title: Gerenciar backups de máquina virtual implantados pelo Resource Manager
+description: Saiba como gerenciar e monitorar os backups da máquina virtual implantados pelo Gerenciador de Recursos
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: shreeshd
-editor: 
-ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk;markgal
-ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: trinadhk
+ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606334"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerenciar backups de máquinas virtuais do Azure
 
@@ -42,7 +37,7 @@ Muitas tarefas de gerenciamento com um backup da máquina virtual começam abrin
 ![Exibição completa com controle deslizante](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ### <a name="open-a-recovery-services-vault-in-the-dashboard"></a>Abra um cofre dos Serviços de Recuperação no painel:
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Cofre de Serviços de Recuperação**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)

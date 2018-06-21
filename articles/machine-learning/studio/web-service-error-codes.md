@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fbedf355c6b1c45d581408a962b875544838087f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836082"
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Códigos de Erro da API REST do Machine Learning
  
@@ -36,10 +38,10 @@ Essa classe de erros significa que um argumento fornecido em algum lugar foi inv
 | BadParameterValue | O valor do parâmetro fornecido não atende à regra de parâmetro no parâmetro |
 | BadSubscriptionId | A Id da assinatura usada para a pontuação não está presente no recurso |
 | BadVersionCall | Um parâmetro da versão inválido foi passado durante a chamada da API: {0}. Verifique a página de ajuda da API para passar a versão correta e tente novamente. |
-| BatchJobInputsNotSpecified | A(s) seguinte(s) entrada(s) necessária(s) não foi(foram) especificada(s) com a solicitação: {0}. Verifique se todos os dados de entrada estão especificados e tente novamente. |
-| BatchJobInputsTooManySpecified | A solicitação especificou mais entradas do que definido no serviço. Lista de entrada(s) aceita(s): {0}. Verifique se todos os dados de entrada estão especificados corretamente e tente de novo. |
+| BatchJobInputsNotSpecified | As seguintes entradas obrigatórias não foram especificadas com a solicitação: {0}. Verifique se todos os dados de entrada estão especificados e tente novamente. |
+| BatchJobInputsTooManySpecified | A solicitação especificou mais entradas do que definido no serviço. Lista de entradas aceitas: {0}. Verifique se todos os dados de entrada estão especificados corretamente e tente de novo. |
 | BlobNameTooLong | O caminho do armazenamento de blobs do Azure fornecido para a saída de diagnóstico é muito longo: {0}. Reduza o caminho e tente novamente. |
-| BlobNotFound | Não é possível acessar o blob do Azure fornecido - {0}.  Mensagem de erro do Azure: {1}. |
+| BlobNotFound | Não é possível acessar o blob do Azure fornecido – {0}.  Mensagem de erro do Azure: {1}. |
 | ContainerIsEmpty | Nenhum nome de contêiner de armazenamento do Azure foi fornecido. Forneça um nome de contêiner válido e tente novamente. |
 | ContainerSegmentInvalid | Nome do contêiner inválido. Forneça um nome de contêiner válido e tente novamente. |
 | ContainerValidationFailed | A validação do contêiner de blobs falhou com este erro: {0}. |
@@ -50,8 +52,8 @@ Essa classe de erros significa que um argumento fornecido em algum lugar foi inv
 | InputBlobRelativeLocationInvalid | Nenhum nome do blob de armazenamento do Azure fornecido. Forneça um nome de blob válido e tente novamente. |
 | InvalidBlob | Especificação de blob inválida para o blob: {0}. Verifique se a cadeia de conexão/caminho relativo ou especificação de token de SAS está correta e tente novamente. |
 | InvalidBlobConnectionString | A cadeia de conexão especificada para um dos blobs de entrada/saída é inválida: {0}. Corrija isso e tente novamente. |
-| InvalidBlobExtension | Referência do blob: {0} tem uma extensão de arquivo inválida ou ausente. O suporte para as extensões de arquivo desse tipo de saída são: "{1}". |
-| InvalidInputNames | Nome(s) de entrada de serviço inválido(s) especificado(s) na solicitação : {0}. Mapeie os dados de entrada para as entradas de serviço corretas e tente novamente. |
+| InvalidBlobExtension | A referência do blob: {0} tem uma extensão de arquivo inválida ou ausente. O suporte para as extensões de arquivo desse tipo de saída são: "{1}". |
+| InvalidInputNames | Nomes de entrada de serviço inválidos especificados na solicitação: {0}. Mapeie os dados de entrada para as entradas de serviço corretas e tente novamente. |
 | InvalidOutputOverrideName | Nome de substituição da saída inválido: {0}. O serviço não tem um nó de saída com esse nome. Passe um nome do nó de saída correto para substituir (aplica-se a diferenciação de letras maiúscula e minúscula). |
 | InvalidQueryParameter | Parâmetro de consulta inválido '{0}'. {1} |
 | MissingInputBlobInformation | Informações ausentes do blob de armazenamento do Azure. Forneça uma cadeia de conexão válida e o caminho relativo ou URI e tente novamente. |
@@ -193,7 +195,7 @@ A execução encontrou um erro interno.
 | ModuleLoadFailed |  |
 | ModuleObjectCloneFailed |  |
 | OutputConversionFailed |  |
-| PortDataTypeNotSupported | Id da porta={0} tem um tipo de dados sem suporte: {1}. |
+| PortDataTypeNotSupported | A id da porta={0} tem um tipo de dados sem suporte: {1}. |
 | ResourceDownload |  |
 | ResourceLoadFailed |  |
 | ServiceUrisNotFound |  |
@@ -239,7 +241,7 @@ O serviço está temporariamente indisponível.
 | Código do erro | Mensagem do usuário |
 | ---------- |--------------|
 | NoMoreResources | Nenhum recurso disponível para a solicitação. |
-| RequestThrottled | A solicitação foi restringida para o ponto de extremidade {0}. A concorrência máxima do ponto de extremidade é {1}. |
+| RequestThrottled | A solicitação foi restringida para o ponto de extremidade {0}. A simultaneidade máxima do ponto de extremidade é {1}. |
 | TooManyConcurrentRequests | Muitas solicitações simultâneas enviadas. |
 | TooManyHostsBeingInitialized | Muitos hosts sendo inicializados ao mesmo tempo. Considere limitar/tentar novamente. |
 | TooManyHostsBeingInitializedPerModel | Muitos hosts sendo inicializados ao mesmo tempo. Considere limitar/tentar novamente. |

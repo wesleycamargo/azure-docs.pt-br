@@ -2,30 +2,27 @@
 title: Expirar os dados no Azure Cosmos DB com a vida útil | Microsoft Docs
 description: Com a TTL, o Microsoft Azure Cosmos DB fornece a capacidade de limpar documentos automaticamente do sistema após determinado período.
 services: cosmos-db
-documentationcenter: ''
 keywords: vida útil
 author: SnehaGunda
 manager: kfile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615114"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções do Azure Cosmos DB automaticamente com a vida útil
 Os aplicativos podem gerar e armazenar grandes quantidades de dados. Alguns desses dados, como dados de evento, logs e informações da sessão do usuário gerados por computador, são úteis apenas por determinado período. Depois que os dados se tornam excedentes para as necessidades do aplicativo, é seguro limpar esses dados e reduzir as necessidades de armazenamento de um aplicativo.
 
 Com a “vida útil” ou TTL, o Microsoft Azure Cosmos DB fornece a capacidade de limpar documentos automaticamente do banco de dados após determinado período. A vida útil padrão pode ser definida no nível de coleção e substituída conforme o documento. Depois de definir a TTL como um padrão de coleta ou em um nível de documento, o Cosmos DB removerá automaticamente os documentos existentes após esse período, em segundos, desde sua última modificação.
 
-A vida útil no Cosmos DB usa um deslocamento em relação à data da última modificação do documento. Para fazer isso, ela usa o campo `_ts`, encontrado em todos os documentos. O campo _ts é um carimbo de data/hora de época estilo Unix que representa a data e a hora. O campo `_ts` é atualizado sempre que um documento é modificado. 
+A vida útil no Azure Cosmos DB usa um deslocamento em relação à data da última modificação do documento. Para fazer isso, ela usa o campo `_ts`, encontrado em todos os documentos. O campo _ts é um carimbo de data/hora de época estilo Unix que representa a data e a hora. O campo `_ts` é atualizado sempre que um documento é modificado. 
 
 ## <a name="ttl-behavior"></a>Comportamento de TTL
 O recurso TTL é controlado pelas propriedades TTL em dois níveis: o nível de coleção e o nível de documento. Os valores são definidos em segundos e tratados como um delta no `_ts` em que o documento foi modificado pela última vez.
@@ -33,8 +30,8 @@ O recurso TTL é controlado pelas propriedades TTL em dois níveis: o nível de 
 1. DefaultTTL da coleção
    
    * Se estiverem ausentes (ou definidos como nulos), os documentos não serão excluídos automaticamente.
-   * Se estiverem presentes e o valor for "-1" = infinito, os documentos não expirarão por padrão
-   * Se estiverem presentes e o valor for qualquer número ("n"), os documentos expirarão em "n" segundos após a última modificação
+   * Se estiverem presentes e o valor estiver definido como "-1" = infinito, os documentos não expirarão por padrão
+   * Se estiverem presentes e o valor estiver definido como qualquer número ("n"), os documentos expirarão em "n" segundos após a última modificação
 2. TTL dos documentos: 
    
    * A propriedade será aplicável somente se houver uma DefaultTTL para a coleção pai.

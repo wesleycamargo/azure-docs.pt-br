@@ -1,5 +1,5 @@
 ---
-title: Introdução ao WebJobs SDK - Azure
+title: Introdução ao SDK do Azure WebJobs
 description: Introdução ao WebJobs SDK para o processamento em segundo plano controlado por evento. Saiba como acessar dados em serviços do Azure e serviços de terceiros.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234505"
 ---
-# <a name="get-started-with-the-webjobs-sdk"></a>Introdução ao WebJobs SDK
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
-Este artigo mostra como criar um projeto do WebJobs SDK, executá-lo localmente e implantá-lo no Azure.
+Este artigo mostra como criar um projeto do SDK do Azure WebJobs, executá-lo localmente e implantá-lo no Serviço de Aplicativo do Azure.
 
 As instruções são para [Visual Studio 2017](https://www.visualstudio.com/vs/), mas as mesmas tarefas podem ser realizadas com outras ferramentas, como [Visual Studio Code](https://code.visualstudio.com/).
 
-## <a name="what-is-the-webjobs-sdk"></a>O que é o WebJobs SDK
+## <a name="what-is-the-azure-webjobs-sdk"></a>O que é o SDK de Trabalhos Web do Azure
 
 O Azure WebJobs SDK é uma estrutura que simplifica a tarefa de escrever o código de processamento em segundo plano que acessa dados em serviços do Azure. O SDK apresenta uma sintaxe declarativa para especificar os eventos que devem disparar uma função, como uma nova mensagem adicionada a uma fila. Um sintaxe declarativa semelhante controla a leitura e a gravação dos dados após o disparo de uma função. Este sistema de gatilhos e associações cuida da maioria das tarefas de codificação de nível inferior associadas ao acesso aos serviços de terceiros e do Azure.
 
@@ -195,7 +196,7 @@ O emulador do Armazenamento do Microsoft Azure executado localmente não tem tod
 
 3. Escolha a mesma **Região** em que você criou seu aplicativo Serviço de Aplicativo ou uma região perto de você.
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
    ![Criar Conta de Armazenamento](./media/webjobs-sdk-get-started/create-storage-account.png)
 

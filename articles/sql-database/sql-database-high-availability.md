@@ -5,16 +5,16 @@ services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 27f0c49913b424a6bd77b7cb6f7d6e97598c2157
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777003"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839802"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Banco de dados SQL do Microsoft Azure e de alta disponibilidade
 Desde o início da oferta de PaaS do Banco de Dados SQL do Azure, a Microsoft prometeu aos seus clientes de que a HA (Alta Disponibilidade) seria compilada no serviço e os clientes não seriam obrigados a operar, adicionar lógica especial ou tomar decisões em torno de HA. A Microsoft mantém o controle total sobre a configuração e operação do sistema de HA, oferecendo um SLA aos clientes. O SLA de HA aplica-se a um Banco de Dados SQL em uma região e não oferece proteção nos casos de uma falha total da região devido a fatores fora do controle razoável da Microsoft (por exemplo, desastre natural, guerra, atos de terrorismo, tumultos, ação governamental ou uma falha de rede ou dispositivo externa aos data centers da Microsoft, inclusive em sites de clientes ou entre sites de clientes e data center da Microsoft).
@@ -79,7 +79,7 @@ Por padrão, as réplicas do quorum para as configurações de armazenamento loc
 Como o quórum com redundância de zona tem réplicas em diferentes datacenters com alguma distância entre eles, a latência de rede aumentada pode aumentar o tempo de confirmação e, desse modo, afetar o desempenho de algumas cargas de trabalho OLTP. Sempre será possível retornar à configuração de única zona, desabilitando a configuração com redundância de zona. Esse processo é um tamanho de operação de dados e é semelhante à atualização do SLO (Objetivo do Nível de Serviço) regular. No final do processo, o pool ou banco de dados será migrado de um anel com redundância de zona para um anel de única zona ou vice-versa.
 
 > [!IMPORTANT]
-> Bancos de dados com redundância de zona e pools elásticos somente têm suporte nas camadas de serviço Premium e Comercialmente Crítico (versão prévia). Durante a visualização pública, os backups e registros de auditoria são armazenados no armazenamento RA-GRS e, portanto, podem não ser disponibilizados automaticamente no caso de uma interrupção de toda a zona. 
+> Os bancos de dados com redundância de zona e os pools elásticos só têm suporte no momento na camada de serviço Premium. Durante a visualização pública, os backups e registros de auditoria são armazenados no armazenamento RA-GRS e, portanto, podem não ser disponibilizados automaticamente no caso de uma interrupção de toda a zona. 
 
 A versão com redundância de zona da arquitetura de alta disponibilidade é ilustrada pelo diagrama a seguir:
  
@@ -92,7 +92,7 @@ Para usar o recurso Expansão de leitura com um determinado banco de dados, voc�
 
 Após a Expansão de Leitura ser habilitada para um banco de dados, aplicativos que se conectam ao banco de dados serão direcionados para a réplica de leitura-gravação ou para uma réplica somente leitura desse banco de dados de acordo com a propriedade `ApplicationIntent` configurada na cadeia de conexão do aplicativo. Para obter informações sobre a propriedade `ApplicationIntent`, consulte [Especificando a intenção do aplicativo](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
 
-Se a expansão de leitura está desabilitada ou defina a propriedade ReadScale em uma camada de serviço sem suporte, todas as conexões são direcionadas para a réplica de leitura / gravação, independentemente da `ApplicationIntent` propriedade.  
+Se a expansão de leitura está desabilitada ou você definir a propriedade ReadScale em uma camada de serviço sem suporte, todas as conexões são direcionadas para a réplica de leitura-gravação, independentemente da propriedade `ApplicationIntent`.  
 
 > [!NOTE]
 > É possível ativar a expansão de leitura em um banco de dados Básico, Standard ou Uso Geral, mesmo se não resultar no roteamento da sessão pretendia apenas leitura em uma réplica separada. Isso é feito para oferecer suporte a aplicativos existentes que são dimensionados para cima e para baixo entre as camadas de finalidade Standard/Uso Geral e Premium/Comercialmente Crítico.  

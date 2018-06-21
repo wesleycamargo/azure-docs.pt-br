@@ -10,18 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: douglasl
-ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7bffc7aed0c06267a39e2b0a2ee178806c071ab8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360318"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297787"
 ---
-# <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Como agendar o início e a parada de um tempo de execução de integração do Azure-SSIS 
-A execução de um IR (tempo de execução de integração) do Azure-SSIS (SQL Server Integration Services) tem uma carga associada a ele. Portanto, convém executar o IR somente quando você precisar executar pacotes SSIS no Azure e parar quando não for mais necessário. Você poderá usar a interface do usuário do Data Factory ou do Azure PowerShell para [iniciar ou parar manualmente um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md)). Este artigo descreve como agendar o início e a parada de um IR (tempo de execução de integração) do Azure-SSIS usando a Automação do Azure e o Azure Data Factory. A seguir, são apresentadas as etapas de alto nível descritas neste artigo:
+# <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o tempo de execução de integração do Azure-SSIS em um agendamento
+Este artigo descreve como agendar o início e a parada de um IR (tempo de execução de integração) do Azure-SSIS usando a Automação do Azure e o Azure Data Factory. A execução de um IR (tempo de execução de integração) do Azure-SSIS (SQL Server Integration Services) tem um custo associado a ele. Portanto, normalmente, você executa o IR somente quando precisar executar pacotes SSIS no Azure e para o IR quando não for mais necessário. Você poderá usar a interface do usuário do Data Factory ou do Azure PowerShell para [iniciar ou parar manualmente um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md)).
+
+Por exemplo, você pode criar atividades Web com webhooks para um runbook PowerShell da Automação do Azure e encadear uma atividade de Execução de Pacote do SSIS entre eles. As atividades Web podem iniciar e parar o IR do SSIS do Azure no momento antes e depois que o pacote é executado. Para saber mais sobre a atividade Execução de Pacote do SSIS, consulte [Executar um pacote do SSIS usando a Atividade do SSIS no Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).
+
+## <a name="overview-of-the-steps"></a>Visão geral das etapas
+
+A seguir, são apresentadas as etapas de alto nível descritas neste artigo:
 
 1. **Criar e testar um runbook de Automação do Azure.** Nesta etapa, você cria um runbook do PowerShell com o script que inicia ou para um IR do Azure-SSIS. Em seguida, você testa o runbook nos cenários INICIAR e PARAR e confirma se o IR inicia ou para. 
 2. **Criar dois agendamentos para o runbook.** Para o primeiro agendamento, você configura o runbook com INICIAR como a operação. Para o segundo agendamento, configura o runbook com PARAR como a operação. Para ambos os agendamentos é necessário especificar a cadência na qual o runbook executa. Por exemplo, você pode querer agendar o primeiro para ser executado às 8h00 todos os dias e o segundo para ser executado às 23h00 todos os dias. Quando o primeiro runbook é executado, ele inicia o IR do Azure-SSIS. Quando o segundo runbook é executado, ele para o IR do Azure-SSIS. 
@@ -58,7 +64,7 @@ Se você não possuir uma conta de Automação do Azure, crie uma seguindo as in
     4. Selecione um **local** para a conta de automação. 
     5. Confirme se **Criar Conta Executar como** está definida para **Sim**. Uma entidade de serviço é criada no seu Azure Active Directory. É adicionada à função **Colaborador** da sua assinatura do Azure
     6. Selecione **Fixar no Painel** para que você visualize no painel do portal. 
-    7. Clique em **Criar**. 
+    7. Selecione **Criar**. 
 
         ![Novo -> Monitoramento + Gerenciamento -> Automação](./media/how-to-schedule-azure-ssis-integration-runtime/add-automation-account-window.png)
 3. Você verá o **Status de Implantação** no painel de controle e nas notificações. 
@@ -74,11 +80,11 @@ Se você não possuir uma conta de Automação do Azure, crie uma seguindo as in
 
     ![Verificar os módulos necessários](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  Vá para a Galeria do PowerShell para o módulo [AzureRM.DataFactoryV2 0.5.2](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/0.5.2), selecione **Implantar à Automação do Azure**, selecione sua conta de Automação e, em seguida, selecione **Ok**. Volte a exibir os **Módulos** na seção **RECURSOS COMPARTILHADOS** no menu à esquerda e aguarde até que você veja o **STATUS** da alteração do módulo **AzureRM.DataFactoryV2 0.5.2**  para **Disponível**.
+2.  Vá para a Galeria do PowerShell para o módulo [AzureRM.DataFactoryV2](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/), selecione **Implantar na Automação do Azure**, selecione sua conta de Automação e, em seguida, clique em **OK**. Volte a exibir os **Módulos** na seção **RECURSOS COMPARTILHADOS** no menu à esquerda e aguarde até que você veja o **STATUS** da alteração do módulo **AzureRM.DataFactoryV2** para **Disponível**.
 
     ![Verifique o módulo do Data Factory](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-3.  Vá para a Galeria do PowerShell para o módulo [AzureRM.Profile 4.5.0](https://www.powershellgallery.com/packages/AzureRM.profile/4.5.0), clique em **Implantar à Automação do Azure**, selecione sua conta de Automação e, em seguida, selecione **Ok**. Volte a exibir os **Módulos** na seção **RECURSOS COMPARTILHADOS** no menu à esquerda e aguarde até que você veja o **STATUS** da alteração do módulo **AzureRM.Profile 4.5.0**  para **Disponível**.
+3.  Vá para a Galeria do PowerShell para o [módulo AzureRM.Profile](https://www.powershellgallery.com/packages/AzureRM.profile/), clique em **Implantar à Automação do Azure**, selecione sua conta de Automação e, em seguida, selecione **Ok**. Volte a exibir os **Módulos** na seção **RECURSOS COMPARTILHADOS** no menu à esquerda e aguarde até que você veja o **STATUS** da alteração do módulo **AzureRM.Profile** para **Disponível**.
 
     ![Verifique o módulo de perfil](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
@@ -92,7 +98,7 @@ O procedimento a seguir fornece as etapas para criar um runbook do PowerShell. O
 
     1. Para **Nome**, digite **StartStopAzureSsisRuntime**.
     2. Para **Tipo de runbook**, selecione **PowerShell**.
-    3. Clique em **Criar**.
+    3. Selecione **Criar**.
     
         ![Botão Adicionar um runbook](./media/how-to-schedule-azure-ssis-integration-runtime/add-runbook-window.png)
 3. Copie/cole o script a seguir na janela de script do runbook. Salve e, em seguida, publique o runbook usando os botões **Salvar** e **Publicar** na barra de ferramentas. 
@@ -184,7 +190,7 @@ Na seção anterior, você criou uma runbook de Automação do Azure que pode in
     4. No **Início da seção**, para a hora, especifique um tempo de alguns minutos após a hora atual. 
     5. Para **Recorrência**, selecione **Recorrente**. 
     6. Na seção **Repetir a cada**, selecione **Dia**. 
-    7. Clique em **Criar**. 
+    7. Selecione **Criar**. 
 
         ![Agendar para o início do IR do Azure-SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png)
 3. Alterne para a guia **Parâmetros e configurações de execução**. Especifique o nome do grupo de recursos, o nome de data factory e o nome do IR do Azure-SSIS. Para **OPERAÇÃO**, insira **INICIAR**. Selecione **OK**. Selecione **OK** novamente para visualizar o agendamento na página **Agendamentos** do runbook. 
@@ -240,7 +246,7 @@ Após criar e testar o pipeline, você cria um gatilho de agendamento e associa-
  
    O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você receber o erro a seguir, altere o nome do data factory (por exemplo, yournameMyAzureSsisDataFactory) e tente criar novamente. Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+       `Data factory name �MyAzureSsisDataFactory� is not available`
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory. 
 4. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
      
@@ -382,6 +388,9 @@ Como agora o pipeline está funcionando conforme o esperado, você poderá criar
     ![Execuções de gatilho](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
 
 ## <a name="next-steps"></a>Próximas etapas
+Consulte a postagem blog a seguir:
+-   [Modernizar e estender seus fluxos de trabalho ETL/ELT com atividades do SSIS nos pipelines do ADF](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
+
 Consulte os artigos a seguir na documentação do SSIS: 
 
 - [Implantar, executar e monitorar um pacote do SSIS no Azure](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   

@@ -8,14 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646449"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de dados SQL do Azure
 
@@ -123,7 +124,7 @@ Cada local obtém um aplicativo Web personalizado para listar seus eventos e ven
 Uma página da Web central do **Hub de Eventos** fornece uma lista de links para os locatários em sua implantação particular. Use as seguintes etapas para vivenciar a página da Web do **Hub de Eventos** e um aplicativo Web individual:
 
 1. Abra o **Hub de eventos** no navegador da web:
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Substitua  &lt;user&gt; pelo valor de usuário da implantação.)*
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Substitua &lt;user&gt; pelo valor de usuário da implantação.)*
 
     ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 

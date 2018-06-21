@@ -1,25 +1,20 @@
 ---
-title: Fazer backup de arquivos e pastas do Windows no Azure (Resource Manager) | Microsoft Docs
+title: Fazer backup de arquivos e pastas do Windows no Azure (Resource Manager)
 description: Saiba como fazer backup de arquivos e pastas do Windows no Azure em uma implantação do Resource Manager.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: como fazer backup; como fazer backup; backup de arquivos e pastas
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 8/15/2017
-ms.author: markgal;
-ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: markgal
+ms.openlocfilehash: 7abdf06d1b5a4361da9ddb75cec01d6fd1630d08
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606963"
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Introdução: fazer backup de arquivos e pastas na implantação do Resource Manager
 Este artigo explica como fazer backup de arquivos e pastas do Windows Server (ou computador Windows) para o Azure com o Backup do Azure usando uma implantação do Resource Manager. É um tutorial que pretende explicar os conceitos básicos. Se deseja obter uma introdução ao uso do Backup do Azure, você está no lugar certo.

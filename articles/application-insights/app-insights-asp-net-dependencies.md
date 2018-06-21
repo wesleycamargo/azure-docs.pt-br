@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/04/2017
+ms.topic: conceptual
+ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f2ebd2a021d3803b6e3f7d805b9253d181cb16c3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010457"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293632"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: acompanhamento de dependências
 Um *dependência* é um componente externo que é chamado por seu aplicativo. Normalmente, ele é um serviço chamado usando HTTP, um banco de dados ou um sistema de arquivos. O [Application Insights](app-insights-overview.md) mede por quanto tempo o aplicativo aguarda dependências e com que frequência uma chamada de dependência falha. Você pode investigar chamadas específicas e relacioná-las a solicitações e exceções.
@@ -49,7 +49,7 @@ As informações de dependência parciais são coletadas automaticamente pelo [S
 | Serviço de Nuvem do Azure |[Usar tarefa de inicialização](app-insights-cloudservices.md) ou [Instalar o .NET Framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>Onde encontrar dados de dependência
-* O [Mapa de Aplicativo](#application-map) visualiza as dependências entre seu aplicativo e os componentes de vizinhança.
+* O [Mapa do Aplicativo](#application-map) visualiza as dependências entre seu aplicativo e os componentes de vizinhança.
 * As [folhas de desempenho, de navegador e de falha](#performance-and-blades) mostram dados de dependência de servidor.
 * A [folha de navegadores](#ajax-calls) mostra chamadas AJAX de navegadores dos usuários.
 * [Clickthrough de solicitações com falha ou lentas](#diagnose-slow-requests) para verificar a dependência de chamadas.
@@ -191,6 +191,8 @@ Por exemplo, se você criar seu código com um assembly que não escreveu, poder
             {
                 timer.Stop();
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+                // The call above has been made obsolete in the latest SDK. The updated call follows this format:
+                // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
             }
 ```
 
@@ -201,12 +203,13 @@ Se desejar desativar o módulo padrão de acompanhamento de dependência, remova
 
 *Consulta SQL não mostrada por completo.*
 
-* Atualização para a última versão estável do Application Insights SDK.
+Veja a tabela a seguir e garanta que você escolheu a configuração correta para habilitar o monitoramento de dependência para o seu aplicativo.
 
- Se sua versão do .NET for inferior à 4.6:
-
-* Host IIS: instale o [Application Insights Agent](app-insights-monitor-performance-live-website-now.md) nos servidores de host.
-* Aplicativo Web do Azure: abra a guia Application Insights no painel de controle do aplicativo Web e instale o Application Insights.
+| Plataforma | Instalar |
+| --- | --- |
+| Servidor IIS |Você pode [instalar o Status Monitor no seu servidor](app-insights-monitor-performance-live-website-now.md). Ou [atualizar o aplicativo para .NET Framework 4.6 ou posterior](http://go.microsoft.com/fwlink/?LinkId=528259) e instalar o [SDK do Application Insights](app-insights-asp-net.md) no aplicativo. |
+| Aplicativo Web do Azure |No painel de controle do aplicativo Web, [abra a folha do Application Insights no seu painel de controle do aplicativo Web](app-insights-azure-web-apps.md) e escolha Instalar, se solicitado. |
+| Serviço de Nuvem do Azure |[Usar tarefa de inicialização](app-insights-cloudservices.md) ou [Instalar o .NET Framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="video"></a>Vídeo
 

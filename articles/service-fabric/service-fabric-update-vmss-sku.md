@@ -6,7 +6,6 @@ documentationcenter: .net
 author: v-rachiw
 manager: navya
 editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,26 +13,35 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/08/2018
 ms.author: v-rachiw
-ms.openlocfilehash: 8d5b560068a9e0bc0169bfdb98c5e939e34a3b8c
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 96956543a44b6d5d967e3bae3fd833b08baf3d6f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34274018"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642726"
 ---
 # <a name="upgrademigrate-the-sku-for-primary-node-type-to-higher-sku"></a>Atualizar/migrar a SKU para o tipo de nó primário para o SKU superior
 
 Este artigo descreve como atualizar/migrar o SKU do Tipo de Nó Primário do cluster do Service Fabric para SKU superior usando o Microsoft Azure PowerShell
 
-## <a name="add-a-new-virtual-machine-scale-set"></a>Adicione um novo conjunto de dimensionamento de máquina virtual 
+## <a name="add-a-new-virtual-machine-scale-set"></a>Adicione um novo conjunto de dimensionamento de máquina virtual
 
-Implante uma nova escola de máquina virtual com um Balanceador de Carga. A configuração da extensão do Service Fabric (especialmente o tipo de nó) do novo conjunto de escala de máquina virtual deve ser a mesma que o conjunto de escala antiga que você está tentando atualizar. Verifique no explorador SF se seus novos nós estão disponíveis. 
+Implante uma nova escola de máquina virtual com um Balanceador de Carga. A configuração da extensão do Service Fabric (especialmente o tipo de nó) do novo conjunto de escala de máquina virtual deve ser a mesma que o conjunto de escala antiga que você está tentando atualizar. Verifique no explorador Service Fabric se seus novos nós estão disponíveis
 
-### <a name="azure-powershell"></a>Azure PowerShell
+#### <a name="azure-powershell"></a>Azure PowerShell
+
 O exemplo a seguir usa o Microsoft Azure PowerShell para implantar o modelo do Gerenciador de Recursos atualizados *template.json* usando o grupo de recursos denominado *myResourceGroup*:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile \template\template.json 
+New-AzureRmResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile template.json -TemplateParameterFile parameters.json
+```
+
+#### <a name="azure-cli"></a>CLI do Azure
+
+O comando a seguir usa a CLI do Azure Service Fabric para implantar o modelo do Gerenciador de Recursos atualizados *template.json* usando o grupo de recursos denominado *myResourceGroup*:
+
+```CLI
+az group deployment create --resource-group myResourceGroup --template-file template.json --parameters parameters.json
 ```
 
 Consulte o seguinte exemplo para modificar o modelo json para adicionar o novo recurso de conjunto de escala de máquina virtual com o tipo de nó principal no cluster existente
@@ -214,43 +222,58 @@ Consulte o seguinte exemplo para modificar o modelo json para adicionar o novo r
         },
 ```
 
-
 ## <a name="remove-old-virtual-machine-scale-set"></a>Remover o conjunto de dimensionamento de máquinas virtuais
 
-Desabilitar as instâncias da VM do conjunto de dimensionamento de máquina virtual com a intenção de remover o nó. Essa operação pode demorar muito para ser concluída. Você pode desabilitar todas de uma vez e elas serão enfileiradas. Aguarde até que todos os nós estejam desabilitados. 
-
-### <a name="azure-powershell"></a>Azure PowerShell
+1. Desabilitar as instâncias da VM do conjunto de dimensionamento de máquina virtual com a intenção de remover o nó. Essa operação pode demorar muito para ser concluída. Você pode desabilitar todas de uma vez e elas serão enfileiradas. Aguarde até que todos os nós estejam desabilitados. 
+#### <a name="azure-powershell"></a>Azure PowerShell
 O exemplo a seguir usam o Powershell do Microsoft Azure Service Fabric para desabilitar a instância de nó denominada *NTvm1_0* do conjunto de dimensionamento da máquina virtual denominada *NTvm1*:
-
 ```powershell
-Disable-ServiceFabricNode -NodeName NTvm1_0 -Intent RemoveNode 
+Disable-ServiceFabricNode -NodeName NTvm1_0 -Intent RemoveNode
 ```
-
-Remova o conjunto completo de dimensionamento. Aguarde até que o estado de provisionamento do conjunto de escala seja bem-sucedido 
-
-### <a name="azure-powershell"></a>Azure PowerShell
+#### <a name="azure-cli"></a>CLI do Azure
+O comando a seguir usa a CLI do Azure Service Fabric para desabilitar a instância de nó denominada *NTvm1_0* do conjunto de dimensionamento da máquina virtual denominada *NTvm1*:
+```CLI
+sfctl node disable --node-name "_NTvm1_0" --deactivation-intent RemoveNode
+```
+2. Remova o conjunto completo de dimensionamento. Aguarde até que o estado de provisionamento do conjunto de escala seja bem-sucedido
+#### <a name="azure-powershell"></a>Azure PowerShell
 O exemplo a seguir usa o Microsoft Azure PowerShell para remover o conjunto de dimensionamento completo nomeado *NTvm1* do grupo de recursos denominado *myResourceGroup*:
-
 ```powershell
 Remove-AzureRmVmss -ResourceGroupName myResourceGroup -VMScaleSetName NTvm1
+```
+#### <a name="azure-cli"></a>CLI do Azure
+O comando a seguir usa a CLI do Azure Service Fabric para remover o conjunto de dimensionamento completo nomeado *NTvm1* do grupo de recursos denominado *myResourceGroup*:
+
+```CLI
+az vmss delete --name NTvm1 --resource-group myResourceGroup
 ```
 
 ## <a name="remove-load-balancer-related-to-old-scale-set"></a>Remover o Load Balancer relacionado ao antigo conjunto de dimensionamento
 
 Remova o Load Balancer relacionado ao antigo conjunto de dimensionamento. Esta etapa causará um breve período de tempo de inativade para o cluster
 
-### <a name="azure-powershell"></a>Azure PowerShell
+#### <a name="azure-powershell"></a>Azure PowerShell
+
 O exemplo a seguir usa o Microsoft Azure PowerShell para remover o balanceador de carga nomeado *LB-myCluster-NTvm1* relacionado ao conjunto de escala antigo do grupo de recursos nomeado *myResourceGroup*:
 
 ```powershell
 Remove-AzureRmLoadBalancer -Name LB-myCluster-NTvm1 -ResourceGroupName myResourceGroup
 ```
 
+#### <a name="azure-cli"></a>CLI do Azure
+
+O comando a seguir usa a CLI do Azure Service Fabric para remover o balanceador de carga nomeado *LB-myCluster-NTvm1* relacionado ao conjunto de escala antigo do grupo de recursos nomeado *myResourceGroup*:
+
+```CLI
+az network lb delete --name LB-myCluster-NTvm1 --resource-group myResourceGroup
+```
+
 ## <a name="remove-public-ip-related-to-old-scale-set"></a>Remova o IP público relacionado ao antigo conjunto de escala
 
 Armazenar as configurações de DNS do endereço IP público relacionadas à antiga escala definida na variável, em seguida, remova o endereço IP público
 
-### <a name="azure-powershell"></a>Azure PowerShell
+#### <a name="azure-powershell"></a>Azure PowerShell
+
 O exemplo a seguir usa o Microsoft Azure PowerShell para armazenar configurações de DNS do endereço IP público denominado *LBIP-myCluster-NTvm1* na variável e remove o endereço IP:
 
 ```powershell
@@ -260,27 +283,52 @@ $primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
 Remove-AzureRmPublicIpAddress -Name LBIP-myCluster-NTvm1 -ResourceGroupName myResourceGroup
 ```
 
+#### <a name="azure-cli"></a>CLI do Azure
+
+O comando a seguir usa a CLI do Azure Service Fabric para armazenar configurações de DNS do endereço IP público denominado *LBIP-myCluster-NTvm1* e remove o endereço IP:
+
+```CLI
+az network public-ip show --name LBIP-myCluster-NTvm1 --resource-group myResourceGroup
+az network public-ip delete --name LBIP-myCluster-NTvm1 --resource-group myResourceGroup
+```
+
 ## <a name="update-public-ip-address-related-to-new-scale-set"></a>Atualizar o endereço IP público relacionado ao novo conjunto de escala
 
 Atualizar as configurações de DNS do endereço IP público relacionadas a nova escala definida com as configurações de DNS do endereço IP público relacionadas ao antigo conjunto de escala
 
-### <a name="azure-powershell"></a>Azure PowerShell
+#### <a name="azure-powershell"></a>Azure PowerShell
 O exemplo a seguir usa o Microsoft Azure PowerShell para armazenar configurações de DNS do endereço IP público denominado *LBIP-myCluster-NTvm3* com as configurações DNS armazenadas em variáveis em uma etapa anterior:
 
 ```powershell
-$PublicIP = Get-AzureRmPublicIpAddress -Name LBIP-myCluster-NTvm1  -ResourceGroupName myResourceGroup
+$PublicIP = Get-AzureRmPublicIpAddress -Name LBIP-myCluster-NTvm3  -ResourceGroupName myResourceGroup
 $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
-Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP 
+Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
+```
+
+#### <a name="azure-cli"></a>CLI do Azure
+
+O comando a seguir usa a CLI do Azure Service Fabric para atualizar configurações de DNS do endereço IP público denominado *LBIP-myCluster-NTvm3* com as configurações de DNS do IP público antigo coletado na etapa anterior:
+
+```CLI
+az network public-ip update --name LBIP-myCluster-NTvm3 --resource-group myResourceGroup --dns-name myCluster
 ```
 
 ## <a name="remove-knowledge-of-service-fabric-node-from-fm"></a>Remover o conhecimento do nó de malha de serviço de FM
 
 Notificação do Service Fabric que os nós, que estão inativos foram removidos do cluster. (execute esse comando para VM de todas as instâncias do antigo conjunto de escalas da máquina virtual) (se o nível de durabilidade do conjunto de escala de máquina virtual antigo era prata ou ouro, esta etapa pode não ser necessária. Desde que essa etapa seja feita pelo sistema automaticamente.)
 
-### <a name="azure-powershell"></a>Azure PowerShell
+#### <a name="azure-powershell"></a>Azure PowerShell
 O exemplo a seguir usa o PowerShell do Microsoft Azure Service Fabric para notificar a Service Fabric para que o nó nomeado *NTvm1_0* foi removido:
 
 ```powershell
 Remove-ServiceFabricNodeState -NodeName NTvm1_0
+```
+
+#### <a name="azure-cli"></a>CLI do Azure
+
+O comando a seguir usa a CLI do Azure Service Fabric para notificar a Service Fabric para que o nó nomeado *NTvm1_0* foi removido:
+
+```CLI
+sfctl node remove-state --node-name _NTvm1_0
 ```
