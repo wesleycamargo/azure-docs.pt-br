@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f0def105997213ae5d356de89e6189b6441facbd
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824161"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291911"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definir estratégia de proteção de dados para sua solução de identidade híbrida
 Nesta tarefa, você definirá uma estratégia de proteção de dados para sua solução de identidade híbrida a fim de atender aos requisitos de negócios definidos em:
@@ -57,7 +57,7 @@ Dependendo de como você tiver respondido às perguntas em [Determinar requisito
 >
 
 ## <a name="define-content-management-options"></a>Definir opções de gerenciamento de conteúdo
-Uma vantagem de usar o AD do Azure para gerenciar uma infraestrutura de identidade híbrida é a total transparência do processo da perspectiva do usuário final. O usuário tenta acessar um recurso compartilhado, o recurso exige autenticação, o usuário tem que enviar uma solicitação de autenticação ao Azure Active Directory para obter o token e acessar o recurso. Todo esse processo ocorre em segundo plano, sem interação do usuário. Também é possível conceder permissão a um [grupo](active-directory-manage-groups.md#getting-started-with-access-management) de usuários para permitir que eles realizem determinadas ações comuns.
+Uma vantagem de usar o AD do Azure para gerenciar uma infraestrutura de identidade híbrida é a total transparência do processo da perspectiva do usuário final. O usuário tenta acessar um recurso compartilhado, o recurso exige autenticação, o usuário tem que enviar uma solicitação de autenticação ao Azure Active Directory para obter o token e acessar o recurso. Todo esse processo ocorre em segundo plano, sem interação do usuário. Também é possível conceder permissão a um [grupo](fundamentals/active-directory-manage-groups.md#getting-started-with-access-management) de usuários para permitir que eles realizem determinadas ações comuns.
 
 As organizações que se preocupam com a privacidade dos dados normalmente exigem a classificação de dados para sua solução. Se a infraestrutura local atual delas já estiver usando a classificação de dados, será possível usar o Azure Active Directory como o principal repositório para a identidade do usuário. Uma ferramenta comum que é usada no local para a classificação de dados é denominada [Kit de Ferramentas de Classificação de Dados](https://msdn.microsoft.com/library/Hh204743.aspx) para Windows Server 2012 R2. Essa ferramenta pode ajudar a identificar, classificar e proteger dados em servidores de arquivos na nuvem privada. Também é possível usar a [Classificação Automática de Arquivos](https://technet.microsoft.com/library/hh831672.aspx) no Windows Server 2012 para realizar essa tarefa.
 
@@ -131,12 +131,12 @@ Cada interação no diagrama mostrado na Figura X representa um cenário de cont
 
   3. Acesso condicional para aplicativos do Office 365 com o Microsoft Intune: os administradores de TI podem provisionar políticas de dispositivo de acesso condicional para proteger recursos corporativos e, simultaneamente, permitir que os operadores de informações em dispositivos em conformidade acessem os serviços. Para mais informações, consulte [Políticas de dispositivo de acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md).
 
-  4. Acesso Condicional para aplicativos SaaS: [esse recurso](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) permite configurar regras de acesso da autenticação multifator por aplicativo e a capacidade de bloquear o acesso de usuários que não estão em uma rede confiável. Você pode aplicar as regras de autenticação multifator a todos os usuários atribuídos ao aplicativo ou apenas aos usuários nos grupos de segurança especificados. Os usuários podem ser excluídos do requisito de autenticação multifator se estiverem acessando o aplicativo de um endereço IP de dentro da rede da organização.
+  4. Acesso Condicional para aplicativos SaaS: [esse recurso](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) permite configurar regras de acesso da autenticação multifator por aplicativo e a capacidade de bloquear o acesso de usuários que não estão em uma rede confiável. Você pode aplicar as regras de autenticação multifator a todos os usuários atribuídos ao aplicativo ou apenas aos usuários nos grupos de segurança especificados. Os usuários podem ser excluídos do requisito de autenticação multifator se estiverem acessando o aplicativo de um endereço IP de dentro da rede da organização.
 
 Como as opções de controle de acesso usam uma abordagem multicamada, a comparação entre essas opções não são aplicáveis para esta tarefa. Verifique se você está aproveitando todas as opções disponíveis para cada cenário que exige o controle de acesso aos recursos.
 
 ## <a name="define-incident-response-options"></a>Definir opções de resposta a incidentes
-O Azure Active Directory pode ajudar a TI a identificar possíveis riscos de segurança no ambiente, monitorando a atividade do usuário. A TI pode usar os relatórios de uso e de acesso do Azure Active Directory para obter visibilidade quanto à integridade e segurança do diretório da sua organização. Com essas informações, um administrador de TI pode determinar melhor onde podem estar os possíveis riscos à segurança, de modo que pode fazer planos adequados para reduzi-los.  [assinatura do Azure AD Premium](active-directory-get-started-premium.md) tem um conjunto de relatórios de segurança que podem permitir à TI obter essas informações. Os [relatórios do Azure Active Directory](active-directory-view-access-usage-reports.md) são categorizados como mostrado abaixo:
+O Azure Active Directory pode ajudar a TI a identificar possíveis riscos de segurança no ambiente, monitorando a atividade do usuário. A TI pode usar os relatórios de uso e de acesso do Azure Active Directory para obter visibilidade quanto à integridade e segurança do diretório da sua organização. Com essas informações, um administrador de TI pode determinar melhor onde podem estar os possíveis riscos à segurança, de modo que pode fazer planos adequados para reduzi-los.  [assinatura do Azure AD Premium](fundamentals/active-directory-get-started-premium.md) tem um conjunto de relatórios de segurança que podem permitir à TI obter essas informações. Os [relatórios do Azure Active Directory](active-directory-view-access-usage-reports.md) são categorizados como mostrado abaixo:
 
 * **Relatórios de anomalias**: contêm eventos de entrada que identificamos como anômalos. A meta é que você fique ciente dessas atividades e permitir que você tome uma decisão quanto a um evento ser suspeito ou não.
 * **Relatórios de aplicativos integrados**: fornecem um panorama de como os aplicativos em nuvem estão sendo usados na sua organização. O Active Directory do Azure oferece integração com milhares de aplicativos em nuvem.
@@ -145,9 +145,9 @@ O Azure Active Directory pode ajudar a TI a identificar possíveis riscos de seg
 * **Logs de atividades**: contêm um registro de todos os eventos auditados nas últimas 24 horas, nos últimos 7 dias ou últimos 30 dias, bem como alterações de atividades do grupo e atividades de registro e redefinição de senha.
 
 > [!TIP]
-> Outro relatório que também pode ajudar a equipe de Resposta a Incidentes a trabalhar em um caso é o relatório [Usuário com credenciais vazadas](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) . Esse relatório revela as correspondências entre a lista de credenciais vazadas e seu locatário.
+> Outro relatório que também pode ajudar a equipe de Resposta a Incidentes a trabalhar em um caso é o relatório [Usuário com credenciais vazadas](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) . Esse relatório revela as correspondências entre a lista de credenciais vazadas e seu locatário.
 >
->
+
 
 Outros relatórios internos importantes no Azure Active Directory que podem ser usados durante uma investigação de resposta a incidentes são:
 

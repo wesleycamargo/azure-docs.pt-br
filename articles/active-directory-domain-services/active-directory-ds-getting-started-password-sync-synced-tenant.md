@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: c26d8b23e0ccdf36863c0f97d593d9d83f682d65
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5e793608f92ba40f6df73fea06cedbe21ab42a0a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587919"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36216150"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Habilitar a sincronização de senhas para o Azure Active Directory Domain Services
 Nas tarefas anteriores, você habilitou o Azure Active Directory Domain Services para seu locatário do Azure AD (Azure Active Directory). A próxima tarefa é habilitar a sincronização de hashes de credencial necessários para a autenticação Kerberos e NTLM para o Azure AD Domain Services. Depois que a sincronização de credenciais é configurada, os usuários podem entrar no domínio gerenciado com suas credenciais corporativas.

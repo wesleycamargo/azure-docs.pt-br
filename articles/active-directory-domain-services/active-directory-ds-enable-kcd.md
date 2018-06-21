@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: maheshu
-ms.openlocfilehash: 504fc4cabdb7a2d24cba749f4ba2d2bd8f078212
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fc4e738e95799838c5761e8b1ee5973aefea7dc6
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587476"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36213831"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurar a KCD (delegação Restrita de Kerberos) em um domínio gerenciado
 Muitos aplicativos precisam acessar recursos no contexto do usuário. O Active Directory oferece suporte a um mecanismo chamado delegação de Kerberos, que permite que esse caso de uso. Além disso, você pode restringir a delegação para que somente recursos específicos possam ser acessados no contexto do usuário. Os domínios gerenciados do Azure AD Domain Services são diferentes dos domínios tradicionais do Active Directory, pois estão bloqueados com mais segurança.

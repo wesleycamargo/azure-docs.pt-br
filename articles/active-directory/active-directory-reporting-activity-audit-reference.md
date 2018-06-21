@@ -3,25 +3,25 @@ title: Referência de atividades de auditoria do Azure AD (Azure AD) | Microsoft
 description: Obtenha uma visão geral das atividades de auditoria que podem ser registradas em log nos seus logs de auditoria do Azure AD (Azure Active Directory).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 04/19/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1b96dfae5d03d46e183a5e0c3917bb1cd98e3fad
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e8959d93d6cc6085e1bb740ab6d5ea07c2ef57a2
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34589433"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36224514"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
 

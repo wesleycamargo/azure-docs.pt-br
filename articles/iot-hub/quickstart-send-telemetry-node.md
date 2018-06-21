@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: node
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 572ecbfee6a3c361a2940d74b560910fd85b344b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 17afdd4c57f58770ae82093c5e23e469d1109f6a
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635858"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284645"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT, e ler a telemetria do hub com um aplicativo de back-end (Node.js)
 
@@ -120,9 +120,7 @@ O aplicativo de back-end se conecta ao ponto de extremidade **Eventos** do lado 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você planeja concluir o próximo início rápido, mantenha o grupo de recursos e o hub IoT e reutilize-os posteriormente.
-
-Se você não precisar mais do hub IoT, exclua-o junto com o grupo de recursos no portal. Para isso, selecione o grupo de recursos **qs-iot-hub-rg** que contém o Hub IoT e clique em **Excluir**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

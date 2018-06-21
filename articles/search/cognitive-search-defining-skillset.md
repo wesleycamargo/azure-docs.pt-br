@@ -3,17 +3,18 @@ title: Criar um conjunto de habilidades em um pipeline de pesquisa cognitiva (Az
 description: Defina a extração de dados, o processamento de idioma natural ou as etapas de análise de imagem para enriquecer e extrair informações estruturadas de seus dados para uso no Azure Search.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 816951ac128fb76d748262cfbc5f064a44e6376c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640919"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268018"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Como criar um conjunto de habilidades em um pipeline de enriquecimento
 
@@ -106,11 +107,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -210,11 +211,11 @@ Lembre-se da estrutura do enriquecedor de Pesquisa de Entidade do Bing personali
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       }
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -228,9 +229,9 @@ Lembre-se da estrutura do enriquecedor de Pesquisa de Entidade do Bing personali
 
 Essa definição é uma habilidade personalizada que chama uma API Web como parte do processo de enriquecimento. Para cada organização identificada pelo reconhecimento de entidade nomeada, esta habilidade chama uma API Web para localizar a descrição da organização. A orquestração de quando chamar a API Web e como transmitir as informações recebidas é feita internamente pelo mecanismo de enriquecimento. No entanto, a inicialização necessária para chamar essa API personalizada deve ser fornecida no JSON (como URI, httpHeaders e as entradas esperadas). Para obter diretrizes sobre a criação de uma API Web personalizada para o pipeline de enriquecimento, confira [Como definir uma interface personalizada](cognitive-search-custom-skill-interface.md).
 
-Observe que o campo "context" está definido como ```"/document/content/organizations/*"``` com um asterisco, o que significa que a etapa de enriquecimento é chamada *para cada* organização em ```"/document/content/organizations"```. 
+Observe que o campo "context" está definido como ```"/document/organizations/*"``` com um asterisco, o que significa que a etapa de enriquecimento é chamada *para cada* organização em ```"/document/organizations"```. 
 
-A saída, nesse caso a descrição de uma empresa, é gerada para cada organização identificada. Ao fazer referência à descrição em uma etapa downstream (por exemplo, na extração de frases-chave), você usaria o caminho ```"/document/content/organizations/*/description"``` para fazer isso. 
+A saída, nesse caso a descrição de uma empresa, é gerada para cada organização identificada. Ao fazer referência à descrição em uma etapa downstream (por exemplo, na extração de frases-chave), você usaria o caminho ```"/document/organizations/*/description"``` para fazer isso. 
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Enriquecimentos criam estrutura em informações não estruturadas.
 

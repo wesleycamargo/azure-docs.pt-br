@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 6871127ac138fb0113af73ca5222e3e2c2f99d7e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0aadfd809fefa73af6869d496f6d88d6dc9df59e
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32202523"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269571"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Chamar a API do Microsoft Graph de um SPA (Aplicativo de Página Única) JavaScript
 
@@ -31,14 +31,14 @@ Este guia demonstra como um SPA (Aplicativo de Página Única) JavaScript pode e
 ![Como o aplicativo de exemplo gerado por este guia funciona](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.png)
 
 <!--start-collapse-->
-## <a name="more-information"></a>Mais informações
+### <a name="more-information"></a>Mais informações
 
 O aplicativo de exemplo criado por este guia permite que um SPA JavaScript consulte a API do Microsoft Graph ou uma API Web que aceita tokens do ponto de extremidade do Azure Active Directory v2. Para esse cenário, depois que um usuário se conecta, um token de acesso é adicionado às solicitações HTTP por meio do cabeçalho de autorização. A aquisição e a renovação de tokens são manipuladas pela MSAL (Biblioteca de Autenticação da Microsoft).
 
 <!--end-collapse-->
 
 <!--start-collapse-->
-## <a name="libraries"></a>Bibliotecas
+### <a name="libraries"></a>Bibliotecas
 
 Este guia usa a seguinte biblioteca:
 

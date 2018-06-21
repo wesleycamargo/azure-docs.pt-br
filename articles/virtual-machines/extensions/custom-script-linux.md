@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: 89b3f1184254964a32073c63de3fe69d8a51e292
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e614c78ca4e8ed7afbce0d3f2423ce137c5225b5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652950"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294957"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usar a Versão 2 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
 A Versão 2 da Extensão de Script Personalizado baixa e executa scripts em máquinas virtuais do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Você pode fazer o download de scripts a partir do Armazenamento do Microsoft Azure ou outro local acessível da internet, ou você pode fornecê-los para o tempo de execução da extensão. 
@@ -154,7 +154,7 @@ A conversão de dos2unix poderá ser ignorada ao definir o skipDos2Unix como tru
 ```json
 {
   "fileUris": ["<url>"],
-  "commandToExecute": "<command-to-execute>"
+  "commandToExecute": "<command-to-execute>",
   "skipDos2Unix": true
 }
 ```

@@ -33,7 +33,8 @@ As etapas a seguir mostram como configurar a autenticação de senha para um apl
    * **{Password}:** Uma senha que você usa para autenticar com o seu aplicativo.
      
      ```powershell
-     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
+     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
+     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. Anote o **ApplicationId** do aplicativo que você criou. Você precisa dessa informação mais tarde.
 5. Criar uma nova entidade de serviço usando o comando a seguir, substituindo **{MyApplicationId}** pelo **ApplicationId** da etapa anterior:

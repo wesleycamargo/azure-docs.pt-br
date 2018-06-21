@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648118"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215517"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma Instância Gerenciada (versão prévia)?
 
@@ -39,7 +39,7 @@ A tabela a seguir apresenta as principais diferenças e os cenários de uso prev
 
 | | Cenário de uso | 
 | --- | --- | 
-|Instância Gerenciada do Banco de Dados SQL |Para clientes que procuram migrar uma grande quantidade de aplicativos locais ou IaaS, auto-compilados, ou ISV fornecidos, com o menor esforço de migração possível, propõe-se a Instância Gerenciada. Utilizando o [DMS (Serviço de Migração de Dados) ](/sql/dma/dma-overview) totalmente automatizado no Azure, os clientes podem fazer lift-and-shift do SQL Server local para uma Instância Gerenciada que oferece compatibilidade com o SQL Server local e isolamento completo de instâncias do cliente com suporte nativo de VNET.  Com o Software Assurance, é possível trocar suas licenças existentes por tarifas com desconto em uma Instância Gerenciada do Banco de Dados SQL usando o [Benefício de uso híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  A Instância Gerenciada do Banco de Dados SQL é o melhor destino da migração na nuvem para instâncias do SQL Server que exigem alta segurança e uma superfície de programação avançada. |
+|Instância Gerenciada do Banco de Dados SQL |Para clientes que procuram migrar uma grande quantidade de aplicativos locais ou IaaS, auto-compilados, ou ISV fornecidos, com o menor esforço de migração possível, propõe-se a Instância Gerenciada. Utilizando o [DMS (Serviço de Migração de Dados) ](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) totalmente automatizado no Azure, os clientes podem fazer lift-and-shift do SQL Server local para uma Instância Gerenciada que oferece compatibilidade com o SQL Server local e isolamento completo de instâncias do cliente com suporte nativo de VNET.  Com o Software Assurance, é possível trocar suas licenças existentes por tarifas com desconto em uma Instância Gerenciada do Banco de Dados SQL usando o [Benefício de uso híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  A Instância Gerenciada do Banco de Dados SQL é o melhor destino da migração na nuvem para instâncias do SQL Server que exigem alta segurança e uma superfície de programação avançada. |
 |Banco de Dados SQL do Azure (único ou pool) |**Pools Elásticos**: para os clientes que desenvolvem novos aplicativos multilocatários SaaS ou intencionalmente transformando seus aplicativos locais existentes em um aplicativo multilocatário SaaS, propõe-se pools elásticos. Os benefícios desse modelo são: <br><ul><li>Conversão do modelo de negócios da venda de licenças para venda de assinaturas de serviços (para ISVs)</li></ul><ul><li>Isolamento de locatário fácil e à prova de marcador</li></ul><ul><li>Um modelo de programação centrada em banco de dados simplificado</li></ul><ul><li>O potencial para escalar horizontalmente atingir um limite rígido</li></ul>**Banco de dados individuais**: para clientes que desenvolvem novos aplicativos diferentes do multilocatário SaaS, cuja carga de trabalho é estável e previsível, propõe-se bancos de dados individuais. Os benefícios desse modelo são:<ul><li>Um modelo de programação centrada em banco de dados simplificado</li></ul>  <ul><li>Desempenho previsível para cada banco de dados</li></ul>|
 |Máquina virtual de IaaS do SQL|Para clientes que necessitam personalizar o sistema operacional ou o servidor de banco de dados, assim como clientes que possuem requisitos específicos em termos de execução de aplicativos de terceiros junto com SQL Server (na mesma VM), propõe-se IaaS/VMs do SQL como a solução ideal|
 |||
@@ -186,11 +186,10 @@ O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente ge
 
 A abordagem de migração aproveita backups do SQL para Azure Storage Blob. Backups armazenados no Azure Storage Blob podem ser restaurados diretamente na Instância Gerenciada. Para restaurar um banco de dados SQL existente para uma Instância Gerenciada, você pode:
 
-- Usar o [DMS (Serviço de Migração de Dados)](/sql/dma/dma-overview). Para obter um tutorial, consulte [Migrar para uma Instância Gerenciada usando o DMS (Serviço de Migração de Dados) do Azure](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um arquivo de backup do banco de dados
+- Usar o [DMS (Serviço de Migração de Dados)](../dms/dms-overview.md). Para obter um tutorial, consulte [Migrar para uma Instância Gerenciada usando o DMS (Serviço de Migração de Dados) do Azure](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um arquivo de backup do banco de dados
 - Use o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Para obter um tutorial mostrando como restaurar a Wide World Importers - Arquivo de backup do banco de dados padrão, consulte [Restaurar um arquivo de backup para uma instância gerenciada](sql-database-managed-instance-restore-from-backup-tutorial.md). Este tutorial mostra que você precisa carregar um arquivo de backup para o armazenamento de blog do Azure e o proteja usando uma Chave de assinatura de acesso compartilhado (SAS).
   - Para obter informações sobre restauração de URL, consulte [Restauração nativa de URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-- [Importar de um arquivo BACPAC](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>Recursos do SQL com suporte 
 

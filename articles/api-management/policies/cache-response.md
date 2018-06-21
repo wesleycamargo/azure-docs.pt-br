@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 3ae168473b4fa603afaf3dcf42516687b4dde33e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a019eb4556dc7cde34d51af6858f576e8ea9abcf
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933285"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284524"
 ---
 # <a name="add-capabilities-to-a-backend-service"></a>Adicionar recursos a um serviço de back-end
 
@@ -28,7 +28,7 @@ Este artigo mostra uma política de gerenciamento de API do Azure que demonstra 
 
 Cole o código no bloco de **entrada**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Call out to an HTTP endpoint and cache the response.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Call out to an HTTP endpoint and cache the response.policy.xml)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
