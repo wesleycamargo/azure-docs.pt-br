@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: d1bb3827036f0d8957ac0830f707da71dd4cd373
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d5a9bde85e894f2f4283348771dc5cacc7a08f23
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824648"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem de implantação dos recursos em modelos do Azure Resource Manager
 Para um determinado recurso, pode ser necessário que existam outros recursos antes que o recurso em questão seja implantado. Por exemplo, um SQL Server deve existir antes que você tente implantar um Banco de Dados SQL. Você define essa relação marcando um recurso como dependente do outro. Defina uma dependência com o elemento **dependsOn** ou usando a função **reference**. 
@@ -28,7 +29,7 @@ O Gerenciador de Recursos avalia as dependências entre os recursos e os implant
 ## <a name="dependson"></a>dependsOn
 No seu modelo, o elemento dependsOn permite definir um recurso como um dependente em um ou mais recursos. Seu valor pode ser uma lista de nomes de recurso separados por vírgula. 
 
-O exemplo a seguir mostra um conjunto de escala de máquina virtual que depende de um balanceador de carga, de uma rede virtual e de um loop que cria várias contas de armazenamento. Esses outros recursos não são mostrados no exemplo a seguir, mas precisariam existir em outro lugar no modelo.
+O exemplo a seguir mostra um conjunto de escala de máquina virtual que depende de um balanceador de carga, de uma rede virtual e de um loop que cria várias contas de armazenamento. Esses outros recursos não são mostrados no exemplo a seguir, mas precisam ser existe em outro lugar no modelo.
 
 ```json
 {
@@ -59,10 +60,10 @@ Ao definir dependências, você pode incluir o namespace do provedor de recurso 
 ]
 ``` 
 
-Embora você talvez queira usar o dependsOn para mapear as relações entre os seus recursos, é importante entender por que você está fazendo isso. Por exemplo, para documentar como os recursos são interconectados, o dependsOn não é a abordagem correta. Você não pode consultar quais recursos foram definidos no elemento dependsOn após a implantação. Ao usar o dependsOn, você potencialmente afeta o tempo de implantação, pois o Resource Manager não implanta paralelamente dois recursos que têm uma dependência. Para documentar relações entre recursos, use a [vinculação de recursos](/rest/api/resources/resourcelinks).
+Embora você talvez queira usar o dependsOn para mapear as relações entre os seus recursos, é importante entender por que você está fazendo isso. Por exemplo, para documentar a maneira como os recursos são interconectados, dependsOn não é a abordagem certa. Não é possível consultar os recursos que foram definidos no elemento dependsOn após a implantação. Usando o dependsOn, potencialmente afetar o tempo de implantação porque o Resource Manager - Gerenciador de recursos não implantar em paralelos dois recursos que têm uma dependência. Para documentar relações entre recursos, use a [vinculação de recursos](/rest/api/resources/resourcelinks).
 
 ## <a name="child-resources"></a>Recursos filho
-A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em cinco níveis de profundidade. É importante observar que não é criada uma dependência implícita entre um recurso filho e o pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn. 
+A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em cinco níveis de profundidade. É importante observar que uma dependência implícita não é criada entre um recurso filho e o pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn. 
 
 Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai. O nome do tipo de recurso de filho inclui o nome do tipo de recurso pai, assim como **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são ambos recursos filho do **Microsoft.Web/sites**.
 
@@ -106,11 +107,19 @@ O exemplo a seguir mostra um SQL Server e um Banco de Dados SQL. Observe que uma
 ]
 ```
 
-## <a name="reference-function"></a>Função reference
-A [função de referência](resource-group-template-functions-resource.md#reference) permite que uma expressão derive seu valor de outro nome JSON e de pares de valor ou de recursos de tempo de execução. Expressões de referência declaram de maneira implícita que um recurso depende de outro. O formato geral é:
+## <a name="reference-and-list-functions"></a>funções de referência e lista
+A [função de referência](resource-group-template-functions-resource.md#reference) permite que uma expressão derive seu valor de outro nome JSON e de pares de valor ou de recursos de tempo de execução. O [lista * funções](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) retornar valores para um recurso de uma operação de lista.  Expressões de referência e lista implicitamente declarar que um recurso depende de outro, quando o recurso referenciado é implantado no mesmo modelo e referenciado por seu nome (não a ID de recurso). Se você passar a ID de recurso para as funções de referência ou lista, não será criada uma referência implícita.
+
+O formato geral da função de referência é:
 
 ```json
 reference('resourceName').propertyPath
+```
+
+O formato geral de função do listKeys é:
+
+```json
+listKeys('resourceName', 'yyyy-mm-dd')
 ```
 
 No exemplo a seguir, um ponto de extremidade CDN depende explicitamente do perfil CDN e implicitamente de um aplicativo Web.
@@ -140,12 +149,12 @@ Ao decidir quais são as dependências a serem definidas, use as seguintes diret
 
 * Defina o mínimo de dependências possível.
 * Defina um recurso filho como dependente do recurso pai.
-* Use a função **reference** para definir as dependências implícitas entre os recursos que precisam compartilhar uma propriedade. Não adicione uma dependência explícita (**dependsOn**) quando você já definiu uma dependência implícita. Essa abordagem reduz o risco de ter dependências desnecessárias. 
-* Defina uma dependência quando um recurso não pode ser **criado** sem funcionalidades de outro recurso. Não defina uma dependência se os recursos interagem somente após a implantação.
-* Coloque as dependências em cascata sem defini-las explicitamente. Por exemplo, sua máquina virtual depende de uma interface de rede virtual e a interface de rede virtual depende de uma rede virtual e de endereços IP públicos. Portanto, a máquina virtual é implantada depois de todos os três recursos, mas não está definida explicitamente como dependente de todos os três recursos. Essa abordagem esclarece a ordem de dependência e facilita a alteração do modelo mais tarde.
-* Se um valor pode ser determinado antes da implantação, tente implantar o recurso sem uma dependência. Por exemplo, se um valor de configuração precisa do nome de outro recurso, talvez não seja necessário uma dependência. Essa orientação nem sempre funciona porque alguns recursos verificam a existência de outro recurso. Se você receber um erro, adicione uma dependência. 
+* Use o **referência** de função e transmitir o nome de recurso para definir dependências implícita entre os recursos que precisam compartilhar uma propriedade. Não adicione uma dependência explícita (**dependsOn**) quando você já tiver definido uma dependência implícita. Essa abordagem reduz o risco de ter dependências desnecessárias. 
+* Defina uma dependência quando um recurso não pode ser **criado** sem a funcionalidade de outro recurso. Não defina uma dependência se os recursos interagem somente após a implantação.
+* Coloque as dependências em cascata sem defini-las explicitamente. Por exemplo, sua máquina virtual depende de uma interface de rede virtual e a interface de rede virtual depende de uma rede virtual e de endereços IP públicos. Portanto, a máquina virtual é implantados depois que todos os três recursos, mas não definir explicitamente a máquina virtual como todos os três recursos dependentes. Essa abordagem esclarece a ordem de dependência e facilita a alteração do modelo mais tarde.
+* Se um valor pode ser determinado antes da implantação, tente implantar o recurso sem uma dependência. Por exemplo, se um valor de configuração precisa do nome de outro recurso, talvez não seja necessário uma dependência. Este guia nem sempre funciona porque alguns recursos verificar a existência de outro recurso. Se você receber um erro, adicione uma dependência. 
 
-O Resource Manager identifica dependências circulares durante a validação do modelo. Se você receber um erro indicando que existe uma dependência circular, avalie o modelo para ver se existem dependências desnecessárias que podem ser removidas. Se a remoção de dependências não funcionar, você pode evitar dependências circulares movendo algumas operações de implantação para recursos filhos que são implantados depois dos recursos que possuem a dependência circular. Por exemplo, suponha que você estiver implantando duas máquinas virtuais, mas você deve definir propriedades em cada um deles que se referem a outro. Você pode implantá-los na seguinte ordem:
+O Resource Manager identifica dependências circulares durante a validação do modelo. Se você receber um erro indicando que existe uma dependência circular, avalie o modelo para ver se qualquer dependência não é necessários e pode ser removida. Se remover dependências não funcionar, você pode evitar dependências circulares ao mover algumas operações de implantação em recursos filho que são implantados após os recursos que possuem a dependência circular. Por exemplo, suponha que você estiver implantando duas máquinas virtuais, mas você deve definir propriedades em cada um deles que se referem a outro. Você pode implantá-los na seguinte ordem:
 
 1. vm1
 2. vm2

@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: da24c0e616bbd5961edd4cfcb72040f66627c982
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568102"
 ---
 Ao criar uma VM (máquina virtual) do Azure, você deve criar uma [VNet](../articles/virtual-network/virtual-networks-overview.md) (rede virtual) ou usar uma VNet existente. Você também precisa decidir como suas VMs devem ser acessadas na VNet. É importante [planejar antes de criar recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e compreender os [limites de recursos de rede](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -170,4 +171,4 @@ Também existem tutoriais sobre como balancear a carga de VMs e criar aplicativo
 
 - Saiba como configurar [rotas definidas pelo usuário e encaminhamento IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Saiba como configurar [conexões de VNet para VNet](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- Saiba como [Solucionar problemas de rotas](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md).
+- Saiba como [Solucionar problemas de rotas](../articles/virtual-network/diagnose-network-routing-problem.md).

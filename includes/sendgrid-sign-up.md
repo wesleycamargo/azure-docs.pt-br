@@ -61,9 +61,9 @@ Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.
 
 Para gerenciar suas configurações de entrega de email, clique no **botão Gerenciar**. Você será redirecionado para o painel do SendGrid.
 
-    ![manage][manage]
+![gerenciar][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+Para obter mais informações sobre o envio de email por meio do SendGrid, visite a [Visão Geral da API Email][Email API Overview].
 
 <!--images-->
 

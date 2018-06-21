@@ -5,14 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 5/9/2018
+ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 4db9fe907ab6625fcad74ceae59f17115458a3ea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 21681a1af64754ef569f2ad4ff92f85a598007ac
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323775"
 ---
 # <a name="write-accelerator"></a>Acelerador de Gravação
 O Acelerador de Gravação é uma capacidade de disco máquinas virtuais (VMs) da Série M no Armazenamento Premium com Azure Managed Disks exclusivamente. Como o nome indica, o objetivo da funcionalidade é melhorar a latência de E/S das gravações no Armazenamento Premium do Azure. O Acelerador de Gravação é ideal para quando as atualizações do arquivo de log são necessárias para manter em disco em um modo de alto desempenho para bancos de dados modernos.
@@ -40,19 +41,21 @@ Habilitar o Acelerador e Gravação para discos do sistema operacional não deve
 ### <a name="restrictions-when-using-write-accelerator"></a>Restrições ao utilizar o Acelerador de Gravação
 Ao utilizar o Acelerador de Gravação para um VHD/disco do Azure, estas restrições são aplicáveis:
 
-- O armazenamento em cache do disco Premium precisa ser definido como 'Nenhum' ou ‘Somente leitura’. Todos os outros modos de armazenamento em cache não têm suporte.
+- O armazenamento em cache do disco Premium deve ser definido como 'Nenhum' ou ‘Somente leitura’. Todos os outros modos de armazenamento em cache não têm suporte.
 - O instantâneo no disco habilitado do Accelerator de Gravação ainda não tem suporte. Essa restrição bloqueia a capacidade do Serviço de Backup do Azure de executar um instantâneo consistente de todos os discos da máquina virtual.
-- Somente E/S menores (<=32KiB) estão tomando o caminho mais rápido. Em situações de carga de trabalho em que os dados estão sendo carregados em massa ou quando buffers de log de transação dos diferentes DBMS são preenchidos a um maior grau antes de serem retidos no armazenamento, é provável que a E/S gravada em disco não esteja fazendo o caminho mais rápido.
+- Somente E/S menores (<=32 KiB) estão tomando o caminho mais rápido. Em situações de carga de trabalho em que os dados estão sendo carregados em massa ou quando buffers de log de transação dos diferentes DBMS são preenchidos a um maior grau antes de serem retidos no armazenamento, é provável que a E/S gravada em disco não esteja fazendo o caminho mais rápido.
 
 Há limites de VHDs de Armazenamento Premium do Azure por VM que podem ter suporte pelo Acelerador de Gravação. Os limites atuais são:
 
 | SKU da VM | Número de discos do Acelerador de Gravação | IOPS do Disco Acelerador de Gravação por VM |
 | --- | --- | --- |
-| M128ms | 16 | 8000 |
-| M128s | 16 | 8000 |
-| M64ms | 8 | 4000 |
-| M64s | 8 | 4000 | 
+| M128ms, 128s | 16 | 8000 |
+| M64ms, M64ls, M64s | 8 | 4000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 2000 | 
+| M16ms, M16s | 2 | 1000 | 
+| M8ms, M8s | 1 | 500 | 
 
+São os limites de IOPS por VM e *não* por disco. Todos os discos do Acelerador de Gravação compartilham o mesmo limite IOPS por VM.
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Habilitar o Acelerador de Gravação em um disco específico
 As próximas seções descreverão como o Acelerador de Gravação pode ser habilitado nos VHDs do Armazenamento Premium do Azure.
 
@@ -63,29 +66,29 @@ Os pré-requisitos a seguir são aplicáveis ao uso do Acelerador de Gravação 
 - Os discos aos quais você deseja aplicar o Acelerador de Gravação do Azure precisam ser [discos gerenciados do Azure](https://azure.microsoft.com/services/managed-disks/) no Armazenamento Premium.
 - Você deve estar usando uma VM de Série M
 
-### <a name="enabling-through-power-shell"></a>Habilitar por meio do Powershell
+## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Habilitar o Acelerador de Gravação do Azure usando o Microsoft Azure PowerShell
 O módulo do PowerShell do Azure da versão 5.5.0 inclui as alterações nos cmdlets relevantes para habilitar ou desabilitar o Acelerador de Gravação para discos específicos do Armazenamento Premium do Azure.
 Para habilitar ou implantar discos com suporte pelo Acelerador de Gravação, os seguintes comandos do PowerShell foram alterados e estendidos para aceitar um parâmetro para o Acelerador de Gravação.
 
 Um novo parâmetro de opção, "WriteAccelerator" foi adicionado aos cmdlets a seguir: 
 
-- Set-AzureRmVMOsDisk
-- Add-AzureRmVMDataDisk
-- Set-AzureRmVMDataDisk
-- Add-AzureRmVmssDataDisk
+- [Set-AzureRmVMOsDisk](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-6.0.0)
+- [Add-AzureRmVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Add-AzureRmVMDataDisk?view=azurermps-6.0.0)
+- [Set-AzureRmVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVMDataDisk?view=azurermps-6.0.0)
+- [Add-AzureRmVmssDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Add-AzureRmVmssDataDisk?view=azurermps-6.0.0)
 
 Não fornecer o parâmetro define a propriedade como falso e implantará discos que não tenham suporte pelo Acelerador de Gravação.
 
 Um novo parâmetro de opção, "OsDiskWriteAccelerator" foi adicionado aos cmdlets a seguir: 
 
-- Set-AzureRmVmssStorageProfile
+- [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile?view=azurermps-6.0.0)
 
 Não fornecer o parâmetro define a propriedade como falso e entregará discos que não aproveitam o Acelerador de Gravação.
 
 Um novo parâmetro opcional booliano (não anulável), "OsDiskWriteAccelerator" foi adicionado aos cmdlets a seguir: 
 
-- Update-AzureRmVM
-- Update-AzureRmVmss
+- [Update-AzureRmVM](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVM?view=azurermps-6.0.0)
+- [Update-AzureRmVmss](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVmss?view=azurermps-6.0.0)
 
 Especifique se $true ou $false para controlar o suporte do Aelerador de Gravação do Azure com os discos.
 
@@ -158,26 +161,27 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 > [!Note]
 > Executar o script acima desanexará o disco especificado, habilitará o Acelerador de Gravação no disco e, em seguida, anexará o disco novamente
 
-### <a name="enabling-through-azure-portal"></a>Habilitação por meio do Portal do Azure
+### <a name="enabling-azure-write-accelerator-using-the-azure-portal"></a>Habilitar o Acelerador de Gravação do Azure usando o Portal do Azure
 
-Você pode habilitar o Acelerador de Gravação por meio do Portal onde pode especificar suas configurações de cache de disco: 
+Você pode habilitar o Acelerador de Gravação por meio do portal onde pode especificar suas configurações de cache de disco: 
 
 ![Acelerador de Gravação no Portal do Azure](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
-### <a name="enabling-through-azure-cli"></a>Habilitação por meio da CLI do Azure
+## <a name="enabling-through-azure-cli"></a>Habilitação por meio da CLI do Azure
 Você pode usar a [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) para habilitar o Acelerador de Gravação. 
 
-Para habilitar o Acelerador de Gravação em um disco existente, use o comando abaixo, substituindo o diskName, VMName e ResourceGroup para o seu próprio: 
+Para habilitar o Acelerador de Gravação em um disco existente, use [atualização az vm](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), você pode usar os seguintes exemplos, se você substituir o diskName, VMName e ResourceGroup para:
+ 
 ```
-az vm update -g group1 -n vm1 –write-accelerator 1=true
+az vm update -g group1 -n vm1 -write-accelerator 1=true
 ```
-Para anexar um disco com o Acelerador de Gravação habilitado, use o comando abaixo com seus valores:
+Para anexar um disco com o Acelerador de Gravação habilitado, use [anexar disco de vm az](https://docs.microsoft.com/en-us/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), você pode usar o exemplo a seguir, se você substituir em seus próprios valores:
 ```
-az vm disk attach -g group1 –vm-name vm1 –disk d1 --enable-write-accelerator
+az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator
 ```
-Para desabilitar o Acelerador de Gravação, defina a propriedade como false: 
+Para desativar a Aceleração de Gravação, use [atualização de vm az](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), definindo as propriedades como falsas: 
 ```
-az vm update -g group1 -n vm1 –write-accelerator 0=false 1=false
+az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false
 ```
 
 ### <a name="enabling-through-rest-apis"></a>Habilitar por meio de APIs REST

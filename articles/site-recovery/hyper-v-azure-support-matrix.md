@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: f8149d2af5542fb311ff83160d674e4d525289dc
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: c818ff0df5cb1f1b3d20c726b20b30c418f53061
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011366"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266954"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de suporte para replicação de Hyper-V no Azure
 
@@ -45,7 +45,7 @@ A tabela a seguir resume o suporte de VMs. O Site Recovery é compatível com qu
  **Componente** | **Detalhes**
 --- | ---
 Configuração da VM | VMs que são replicadas para o Azure devem atender aos [requisitos do Azure](#failed-over-azure-vm-requirements).
-Sistema operacional convidado | Qualquer SO convidado [compatível com o Azure](https://technet.microsoft.com/library/cc794868.aspx).<br/><br/> O Windows Server 2016 Nano Server não é compatível.
+Sistema operacional convidado | Qualquer SO convidado compatível com o Azure.<br/><br/> O Windows Server 2016 Nano Server não é compatível.
 
 
 

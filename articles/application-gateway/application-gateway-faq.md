@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/29/2018
+ms.date: 5/21/2018
 ms.author: victorh
-ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355830"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699896"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -83,6 +83,11 @@ Não, o Gateway de Aplicativo não oferece suporte a endereços IP públicos est
 **P. O Gateway de Aplicativo oferece suporte a vários IPs públicos no gateway?**
 
 Há suporte a apenas um endereço IP público em um Gateway de Aplicativo.
+
+**P. Com qual tamanho devo criar minha sub-rede do Gateway de Aplicativo?**
+
+O Gateway de Aplicativo consome um endereço IP privado por instância, além de outro endereço IP privado se uma configuração de IP de front-end privado for configurada. Além disso, o Azure reservará os quatro primeiros e o último endereço IP em cada sub-rede para uso interno.
+Por exemplo, se o Gateway de Aplicativo for definido como três instâncias e nenhum IP de front-end privado, um tamanho de sub-rede /29 ou maior será necessário. Nesse caso, o Gateway de Aplicativo usa três endereços IP. Se você tiver três instâncias e um endereço IP para a configuração de IP de front-end privado, um tamanho de sub-rede /28 ou maior será necessário, visto que quatro endereços IP são necessários.
 
 **P. O Gateway de Aplicativo oferece suporte a cabeçalhos x-forwarded-for?**
 
@@ -184,6 +189,21 @@ Não há tempo de inatividade, as instâncias são distribuídas entre domínios
 
 Sim. Você pode configurar o descarregamento de conexão para alterar os membros dentro de um pool de back-end sem interrupções. Isso permitirá conexões existentes para continuar a ser enviado ao seu destino anterior até que essa conexão é fechada ou expira um tempo limite configurável. Observe que esse descarregamento de conexão somente espera para concluir as conexões atuais em curso. O Gateway de Aplicativo não está ciente do estado de sessão do aplicativo.
 
+**P. Quais são os tamanhos de gateway de aplicativo?**
+
+O Gateway de Aplicativo atualmente é oferecido em três tamanhos: **Pequeno**, **Médio** e **Grande**. Os tamanhos de instância pequenos são destinados a cenários de desenvolvimento e teste.
+
+Você pode criar até 50 Gateways de Aplicativo por assinatura e cada um deles pode ter até 10 instâncias. Cada gateway de aplicativo pode consistir em 20 ouvintes http. Para obter uma lista completa de limites do gateway de aplicativo, consulte [Limites de serviço do Gateway de Aplicativo](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+A tabela a seguir mostra uma produtividade de desempenho médio para cada instância do gateway de aplicativo com o descarregamento SSL habilitado:
+
+| Tamanho médio de resposta de página de back-end | Pequena | Média | grande |
+| --- | --- | --- | --- |
+| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> Esses valores são valores aproximados para uma produtividade do Gateway de Aplicativo. A produtividade real depende de diversos detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para fornecer de uma página. Para obter números de desempenho exatos, você deve executar seus próprios testes. Esses valores são fornecidos apenas para a orientação do planejamento de capacidade.
 
 **P. Posso alterar o tamanho da instância de média para grande sem interrupções?**
 
