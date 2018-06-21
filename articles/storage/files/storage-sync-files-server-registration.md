@@ -4,21 +4,22 @@ description: Saiba como registrar e cancelar o registro de um Windows Server com
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738285"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Gerenciar servidores registrados com a Sincronização de arquivos do Azure (versão prévia)
 A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -113,14 +114,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Cancelar o registro de um servidor com o Serviço de Sincronização de Armazenamento
 Há várias etapas que são necessárias para cancelar o registro de um servidor com um Serviço de Sincronização de Armazenamento. Vamos analisar como cancelar o registro de um servidor corretamente.
 
-#### <a name="optional-recall-all-tiered-data"></a>(Opcional) Realizar o recall de todos os dados em camadas
-Quando habilitada para um ponto de extremidade do servidor, a definição de camadas de nuvem *colocará os arquivos em camadas* nos compartilhamentos de arquivos do Azure. Isso permite que os compartilhamentos de arquivos locais atuem como um cache, em vez de uma cópia completa do conjunto de dados, para utilizar o espaço no servidor de arquivos de forma eficiente. No entanto, se um ponto de extremidade do servidor for removido e ainda houver arquivos em camadas localmente no servidor, esses arquivos ficarão inacessíveis. Portanto, se o acesso contínuo ao arquivo for desejado, será necessário realizar o recall de todos os arquivos em camadas dos Arquivos do Azure antes de continuar com o cancelamento de registro. 
+> [!Warning]  
+> Não tente solucionar problemas com sincronização, hierarquização em nuvem ou qualquer outro aspecto do Azure File Sync - Sincronização de Arquivos do Azure cancelando o registro e o registro de um servidor ou removendo e recriando os pontos de extremidade do servidor, a menos que instruído explicitamente por um engenheiro da Microsoft. Cancelar o registro de um servidor e remover os terminais do servidor é uma operação destrutiva e os arquivos em camadas nos volumes com terminais do servidor não serão "reconectados" a seus locais no compartilhamento de arquivos do Azure depois que os pontos de extremidade do servidor e do servidor registrados forem recriados, o que resultará em sincronização erros. Observe também que os arquivos em camadas que existem fora de um namespace do terminal do servidor podem ser permanentemente perdidos. Os arquivos em camadas podem existir nos terminais do servidor, mesmo que a camada em nuvem nunca tenha sido ativada.
 
-Isso pode ser feito com o cmdlet do PowerShell como mostrado abaixo:
+#### <a name="optional-recall-all-tiered-data"></a>(Opcional) Realizar o recall de todos os dados em camadas
+Se você gostaria que os arquivos que estão atualmente em camadas para estar disponível após a remoção do Azure File Sync - Sincronização de Arquivos do Azure (ou seja, esse é um de produção, não um teste, o ambiente), lembre-se todos os arquivos em cada volume que contém os pontos de extremidade do servidor. Desabilitar nuvem camadas para todos os pontos de extremidade do servidor e, em seguida, execute o seguinte cmdlet do PowerShell:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  

@@ -14,14 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 06/05/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8b6d85fbfdde463352ae80cc8922025a7dcc03f3
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807526"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
@@ -43,10 +44,10 @@ Em um Plano do Serviço de Aplicativo, você pode dimensionar entre as camadas p
 
 ## <a name="consumption-plan"></a>Plano de consumo
 
-Ao usar um plano de Consumo, as instâncias do host do Azure Functions são adicionadas e removidas dinamicamente com base no número de eventos de entrada. Esse plano é escalado automaticamente, e você é cobrado pelos recursos de computação apenas durante a execução de suas funções. Em um plano de Consumo, uma função pode ser executada por no máximo 10 minutos. 
+Ao usar um plano de Consumo, as instâncias do host do Azure Functions são adicionadas e removidas dinamicamente com base no número de eventos de entrada. Esse plano é escalado automaticamente, e você é cobrado pelos recursos de computação apenas durante a execução de suas funções. Em um plano de consumo, a execução de uma função expire após um período configurável. 
 
 > [!NOTE]
-> O tempo limite padrão para funções em um plano de consumo é de 5 minutos. O valor pode ser aumentado para 10 minutos para o Aplicativo de funções, alterando a propriedade `functionTimeout` no arquivo de projeto [host.json](functions-host-json.md#functiontimeout).
+> O tempo limite padrão para funções em um plano de consumo é de 5 minutos. O valor pode ser aumentado para o App de Função até um máximo de 10 minutos, alterando a propriedade `functionTimeout` no arquivo de projeto [ host.json ](functions-host-json.md#functiontimeout).
 
 A cobrança baseia-se no número de execuções, no tempo de execução e na memória usada. A cobrança é agregada entre todas as funções em um aplicativo de funções. Para saber mais, confira a [página de preços do Azure Functions].
 
@@ -90,7 +91,7 @@ Para saber mais sobre os tipos de conta de armazenamento, consulte [Apresentando
 
 ## <a name="how-the-consumption-plan-works"></a>Como funciona o plano de consumo
 
-No plano de Consumo, o controlador de escala dimensiona automaticamente os recursos de CPU e memória adicionando outras instâncias do host do Functions de acordo com o número de eventos nos quais suas funções são disparadas. Cada instância do host do Funções é limitada a 1,5 GB de memória.  Uma instância do host é o Aplicativo de Funções, o que significa que todas as funções dentro de um Aplicativo de funções compartilham recursos em uma instância e uma escala ao mesmo tempo.
+No plano de Consumo, o controlador de escala dimensiona automaticamente os recursos de CPU e memória adicionando outras instâncias do host do Functions de acordo com o número de eventos nos quais suas funções são disparadas. Cada instância do host do Funções é limitada a 1,5 GB de memória.  Uma instância do host é o Aplicativo de Funções, o que significa que todas as funções dentro de um Aplicativo de funções compartilham recursos em uma instância e uma escala ao mesmo tempo. Aplicativos de função que compartilham o mesmo plano de consumo são dimensionados de forma independente.  
 
 Ao usar o plano de hospedagem de Consumo, os arquivos do código de função são armazenados em compartilhamentos dos Arquivos do Azure na conta de armazenamento principal da função. Quando você exclui a conta de armazenamento principal do aplicativo de funções, os arquivos de código de função são excluídos e não podem ser recuperados.
 
@@ -125,4 +126,4 @@ A cobrança do plano de Consumo é descrita detalhadamente na [página de preço
 * **Consumo de recursos em GB/s (gigabyte por segundo)**. Calculado como uma combinação do tamanho da memória e o tempo de execução para todas as funções dentro de um aplicativo de Funções. 
 * **Execuções**. Contadas toda vez que uma função é executada em resposta a um gatilho de evento.
 
-[página de preços do Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[Página de preços do Azure Functions]: https://azure.microsoft.com/pricing/details/functions
