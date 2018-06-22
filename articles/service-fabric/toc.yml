@@ -610,13 +610,13 @@
               href: service-fabric-diagnostics-event-aggregation-wad.md
             - name: Diagnóstico do Linux Azure
               href: service-fabric-diagnostics-event-aggregation-lad.md
-            - name: Configurar o Log Analytics do OMS
+            - name: Configurar Log Analytics
               href: service-fabric-diagnostics-oms-setup.md
-            - name: Monitorar com o OMS
+            - name: Monitorar com o Log Analytics
               href: service-fabric-diagnostics-event-analysis-oms.md
         - name: Monitorar infraestrutura
           items:
-            - name: Monitorar desempenho com Agente OMS
+            - name: Monitoramento de desempenho com o Agente Log Analytics
               href: service-fabric-diagnostics-oms-agent.md
             - name: Monitoramento do desempenho com WAD
               href: service-fabric-diagnostics-perf-wad.md

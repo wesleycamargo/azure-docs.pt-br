@@ -10,12 +10,12 @@ ms.service: multi-factor-authentication
 ms.workload: identity
 ms.topic: article
 ms.date: 05/01/2018
-ms.openlocfilehash: d28bb4b8e171ef6189f81acc337088b3c5499ccf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2281a35d1616aa88b0c646fb96cb9f95c3272536
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608101"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264361"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Coleta de dados de usuário da Autenticação Multifator do Microsoft Azure
 
@@ -41,7 +41,7 @@ Tentativas de autenticação (usadas para relatórios e solução de problemas):
 - Modo de mensagem de texto (OTP, OTP + PIN)
 - Modo de aplicativo móvel (Standard, PIN)
 - Modo de Token OATH (Standard, PIN)
-- Tipo de Autenticação
+- Tipo de autenticação
 - Nome do Aplicativo
 - Código do país da chamada primária
 - Número do telefone da chamada primária
@@ -151,39 +151,39 @@ Na linha de comando do Servidor MFA, execute o comando a seguir, alterando o cam
 
 ## <a name="gather-data-from-nps-extension"></a>Coletar dados da Extensão NPS
 
-Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) para fazer uma solicitação de exportação.
+Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) para fazer uma solicitação de exportação.
 
 - As informações do MFA estão incluídas na exportação, o que pode demorar horas ou dias para ser concluído.
 - As ocorrências do nome de usuário nos logs de eventos do AzureMfa/AuthN/AuthNOptCh, AzureMfa/AuthZ/AuthZAdminCh e AzureMfa/AuthZ/AuthZOptCh são consideradas operacionais e duplicadas para as informações fornecidas na exportação.
 
 ## <a name="delete-data-from-nps-extension"></a>Excluir dados da Extensão NPS
 
-Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) para fazer uma solicitação de Encerrar Conta para excluir todas as informações de serviço de nuvem do MFA coletadas para esse usuário.
+Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) para fazer uma solicitação de Encerrar Conta para excluir todas as informações de serviço de nuvem do MFA coletadas para esse usuário.
 
 - Pode demorar até 30 dias para que os dados sejam totalmente removidos.
 
 ## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Coletar dados do Adaptador AD FS do Azure MFA do Windows Server 2016
 
-Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) para fazer uma solicitação de exportação. 
+Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) para fazer uma solicitação de exportação. 
 
 - As informações do MFA estão incluídas na exportação, o que pode demorar horas ou dias para ser concluído.
 - Ocorrências do nome de usuário nos logs de eventos de Rastreamento/Depuração do AD FS (se habilitado) são consideradas operacionais e duplicadas para as informações fornecidas na exportação.
 
 ## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Excluir dados do Adaptador AD FS do Azure MFA do Windows Server 2016
 
-Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) para fazer uma solicitação de Encerrar Conta para excluir todas as informações de serviço de nuvem do MFA coletadas para esse usuário.
+Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) para fazer uma solicitação de Encerrar Conta para excluir todas as informações de serviço de nuvem do MFA coletadas para esse usuário.
 
 - Pode demorar até 30 dias para que os dados sejam totalmente removidos.
 
 ## <a name="gather-data-for-azure-mfa"></a>Coletar dados para Azure MFA
 
-Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) para fazer uma solicitação de exportação.
+Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) para fazer uma solicitação de exportação.
 
 - As informações do MFA estão incluídas na exportação, o que pode demorar horas ou dias para ser concluído.
 
 ## <a name="delete-data-for-azure-mfa"></a>Excluir dados para Azure MFA
 
-Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) para fazer uma solicitação de Encerrar Conta para excluir todas as informações de serviço de nuvem do MFA coletadas para esse usuário.
+Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) para fazer uma solicitação de Encerrar Conta para excluir todas as informações de serviço de nuvem do MFA coletadas para esse usuário.
 
 - Pode demorar até 30 dias para que os dados sejam totalmente removidos.
 

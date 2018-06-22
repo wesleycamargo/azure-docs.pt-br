@@ -1,24 +1,19 @@
 ---
-title: "Isolando aplicativos do Barramento de Serviço do Azure contra interrupções e desastres | Microsoft Docs"
-description: "Técnicas para proteger aplicativos contra uma potencial interrupção do Barramento de Serviço."
+title: Isolando aplicativos do Barramento de Serviço do Azure contra interrupções e desastres | Microsoft Docs
+description: Técnicas para proteger aplicativos contra uma potencial interrupção do Barramento de Serviço.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802299"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
@@ -34,7 +29,9 @@ O Barramento de Serviço usa vários repositórios de mensagens para armazenar m
 Todas as entidades de mensagens do Barramento de Serviço (filas, tópicos, retransmissões) residem em um namespace de serviço, que está associado a um datacenter. O Barramento de Serviço agora dá suporte à [*Recuperação de desastre em área geográfica* e à *Replicação geográfica*](service-bus-geo-dr.md) no nível do namespace.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protegendo filas e tópicos contra falhas do repositório de mensagens
-Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações na fila ou no tópico falharão. Uma fila particionada, por outro lado, consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. Se o repositório de mensagens correspondente não estiver disponível, o Barramento de Serviço grava a mensagem em um fragmento diferente, se possível. Para saber mais sobre entidades particionadas, confira [Entidades de mensagens particionadas][Partitioned messaging entities].
+Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações na fila ou no tópico falharão. Uma fila particionada, por outro lado, consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. Se o repositório de mensagens correspondente não estiver disponível, o Barramento de Serviço grava a mensagem em um fragmento diferente, se possível. As entidades particionadas não são mais compatíveis com a camada [SKU Premium](service-bus-premium-messaging.md). 
+
+Para obter mais informações sobre entidades particionadas, veja as [Entidades de Mensagens Particionadas][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Proteção contra interrupções ou desastres de datacenter
 Para permitir um failover entre dois datacenters, você poderá criar um namespace de serviço do Barramento de Serviço em cada datacenter. Por exemplo, o namespace de serviço do Barramento de Serviço **contosoPrimary.servicebus.windows.net** pode estar localizado na região Norte/Central dos Estados Unidos, e **contosoSecondary.servicebus.windows.net** pode estar localizado na região Sul/Central dos EUA. Se uma entidade de mensagens do Barramento de Serviço tiver de permanecer acessível em caso de falha do datacenter, você poderá criar essa entidade em ambos os namespaces.

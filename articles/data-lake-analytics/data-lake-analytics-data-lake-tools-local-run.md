@@ -1,28 +1,29 @@
 ---
-title: "Testar e depurar trabalhos do U-SQL usando execução local e o SDK para U-SQL do Azure Data Lake | Microsoft Docs"
-description: "Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio e o SDK para U-SQL do Azure Data Lake a fim de testar e depurar trabalhos do U-SQL em sua estação de trabalho local."
+title: Executar scripts U-SQL localmente usando o SDK do U-SQL do Azure Data Lake
+description: Este artigo descreve como usar as Ferramentas do Data Lake do Azure para Visual Studio para testar e depurar tarefas do U-SQL em sua estação de trabalho local.
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/15/2016
+author: mumian
 ms.author: yanacai
-ms.openlocfilehash: 771a96df5cc66bac46e7144785be8cc072b57b31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
+ms.topic: conceptual
+ms.date: 11/15/2016
+ms.openlocfilehash: 322278f00f49f718b1ba560e9d21d0af0be49b18
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735995"
 ---
-# <a name="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk"></a>Testar e depurar trabalhos do U-SQL usando execução local e o SDK para U-SQL do Azure Data Lake
+# <a name="runing-u-sql-scripts-locally"></a>Executando scripts do U-SQL localmente
 
-Você pode usar as Ferramentas do Azure Data Lake para Visual Studio e SDK para U-SQL do Azure Data Lake a fim de executar trabalhos de U-SQL na sua estação de trabalho da mesma forma que faz no serviço Azure Data Lake. Esses dois recursos de execução local economizam tempo no teste e na depuração de seus trabalhos de U-SQL.
+Em vez de executar o U-SQL no Azure, você pode executar o U-SQL em sua própria caixa. Isso é chamado de "execução local" ou "execução local". 
+
+O Local Run do U-SQL está disponível nestas ferramentas:
+* Ferramentas do Data Lake do Azure para o Visual Studio
+* SDK do U-SQL do Windows Data Lake
 
 ## <a name="understand-the-data-root-folder-and-the-file-path"></a>Compreender a pasta raiz de dados e o caminho do arquivo
 

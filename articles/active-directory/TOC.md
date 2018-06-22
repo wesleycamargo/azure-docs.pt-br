@@ -417,6 +417,7 @@
 #### Tutoriais
 ##### [Migrar política MFA clássica](active-directory-conditional-access-migration-mfa.md)
 #### Conceitos
+##### [Proteção da Linha de Base](active-directory-conditional-access-baseline-protection.md)
 ##### [Condições](active-directory-conditional-access-conditions.md)
 ##### [Condições de local](active-directory-conditional-access-locations.md)
 ##### [Controles](active-directory-conditional-access-controls.md)
