@@ -3,19 +3,19 @@ title: Dimensionar descoberta e avaliação usando o Migrações para Azure | Mi
 description: Descreve como avaliar grandes números de computadores locais usando o serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: c8943aec1c81abb34b646180df48bcc55764ca24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365324"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214684"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
-Este artigo descreve como avaliar grandes números de VMs (máquinas virtuais) locais usando o [Migrações para Azure](migrate-overview.md). O Migrações para Azure avalia essas máquinas para verificar se elas são adequadas para a migração para o Azure. O serviço fornece estimativas de dimensionamento e custo para a execução das máquinas no Azure.
+As Migrações para Azure têm um limite de 1500 computadores por projeto e este artigo descreve como avaliar um grande número de VMs (máquinas virtuais) locais usando as [Migrações para Azure](migrate-overview.md).   
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -24,7 +24,9 @@ Este artigo descreve como avaliar grandes números de VMs (máquinas virtuais) l
 - **Permissões**: no vCenter Server, você precisa de permissões para criar uma VM importando um arquivo no formato OVA.
 - **Configurações de estatísticas**: as configurações de estatísticas para o vCenter Server devem ser definidas para o nível 3 antes de se iniciar a implantação. Se o nível for inferior ao 3, a avaliação funcionará, mas os dados de desempenho para armazenamento e rede não serão coletados. As recomendações de tamanho nesse caso serão feitas com base nos dados de desempenho para CPU e memória e nos dados de configuração para os adaptadores de rede e de disco.
 
-## <a name="plan-azure-migrate-projects"></a>Planejar projetos do Migrações para Azure
+## <a name="plan-your-migration-projects-and-discoveries"></a>Planejar descobertas e projetos de migração
+
+Um único coletor das Migrações para Azure dá suporte para descoberta de vários servidores vCenter (um após o outro) e, também, dá suporte para descoberta em vários projetos de migração (um após o outro). O coletor funciona em um modelo fire-and-forget e, uma vez que uma descoberta for feita, será possível usar o mesmo coletor para coletar dados de um vCenter Server diferente ou enviá-lo para um projeto de migração diferente.
 
 Planeje suas descobertas e avaliações com base nos limites a seguir:
 
@@ -34,25 +36,35 @@ Planeje suas descobertas e avaliações com base nos limites a seguir:
 | Descoberta  | 1.500             |
 | Avaliação | 1.500             |
 
-<!--
-- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments.
-- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
-- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
-- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
-    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one.
-      -->
-
-## <a name="plan-multiple-discoveries"></a>Planejar várias descobertas
-
-Você pode usar o mesmo Coletor de Migrações para Azure para fazer várias descobertas para um ou mais projetos. Lembre-se dessas considerações de planejamento:
+Lembre-se dessas considerações de planejamento:
 
 - Quando você faz uma descoberta usando o Coletor de Migrações para Azure, você pode definir o escopo de descoberta para um datacenter, cluster, host ou pasta do vCenter Server.
 - Para fazer mais de uma descoberta, verifique no vCenter Server se as VMs que você deseja descobrir estão em pastas, datacenters, clusters ou hosts com suporte para limite de 1.500 máquinas.
 - Recomendamos que, para fins de avaliação, você mantenha máquinas com interdependências dentro dos mesmos projeto e avaliação. No vCenter Server, verifique se as máquinas dependentes estão na mesma pasta, datacenter ou cluster para a avaliação.
 
+Dependendo do cenário, será possível dividir as descobertas conforme abaixo:
 
-## <a name="create-a-project"></a>Criar um projeto
+### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Vários servidores vCenter com menos de 1500 VMs
+
+Se tiver vários vCenter Servers no ambiente e o número total de máquinas virtuais for menor que 1500, será possível usar um único coletor e um único projeto de migração para descobrir todas as máquinas virtuais em todos os vCenter Servers. Como o coletor descobre um vCenter Server por vez, você poderá executar o mesmo coletor em todos os vCenter Servers, um após o outro, e apontar o coletor para o mesmo projeto de migração. Depois que todas as descobertas estiverem concluídas, será possível criar avaliações para os computadores.
+
+### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Vários servidores vCenter com mais de 1500 VMs
+
+Se tiver vários vCenter Servers com menos de 1500 máquinas virtuais por vCenter Server, mas mais de 1500 VMs em todos os servidores vCenter, será necessário criar vários projetos de migração (um projeto de migração pode conter apenas 1500 VMs). É possível conseguir isso criando um projeto de migração por vCenter Server e dividindo as descobertas. Você pode usar um único coletor para descobrir cada vCenter Server (um após o outro). Caso queira que as descobertas iniciem ao mesmo tempo, também será possível implementar vários dispositivos e executar as descobertas em paralelo.
+
+### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Mais de 1500 computadores em um único vCenter Server
+
+Se tiver mais de 1500 máquinas virtuais em um único vCenter Server, será necessário dividir a descoberta em vários projetos de migração. Para dividir as descobertas, é possível aproveitar o campo Escopo no dispositivo e especificar o host, o cluster, a pasta ou o datacenter que deseja descobrir. Por exemplo, se tiver duas pastas no vCenter Server, uma com 1000 VMs (Pasta1) e outra com 800 VMs (Pasta2), será possível usar um único coletor e realizar duas descobertas. Na primeira descoberta, é possível especificar a Pasta1 como o escopo e apontá-la para o primeiro projeto de migração. Assim que a primeira descoberta for concluída, você poderá usar o mesmo coletor, alterar o escopo para Pasta2 e detalhes do projeto de migração para o segundo projeto de migração e fazer a segunda descoberta.
+
+### <a name="multi-tenant-environment"></a>Ambiente multilocatário
+
+Se você tiver um ambiente compartilhado entre locatários e não quiser descobrir as VMs de um locatário na assinatura de outro locatário, poderá usar o campo Escopo no coletor para escopo da descoberta. Se os locatários estiverem compartilhando hosts, crie uma credencial que tenha acesso somente leitura somente às VMs pertencentes ao locatário específico e, em seguida, use essa credencial no dispositivo do coletor e especifique o Escopo como o host a realizar a descoberta. Alternativamente, também é possível criar pastas no vCenter Server (ou seja, pasta1 para locatário1 e pasta2 para locatário2), no host compartilhado, mova as VMs para locatário1 na pasta1 e para locatário2 na pasta2 e, em seguida, especifique as descobertas no coletor especificando a pasta apropriada.
+
+## <a name="discover-on-premises-environment"></a>Descobrir ambiente local
+
+Quando estiver pronto com o plano, você poderá iniciar a descoberta das máquinas virtuais no local:
+
+### <a name="create-a-project"></a>Criar um projeto
 
 Crie um projeto Migrações para Azure de acordo com suas necessidades:
 
@@ -62,11 +74,11 @@ Crie um projeto Migrações para Azure de acordo com suas necessidades:
 4. Crie um novo grupo de recursos.
 5. Especifique o local no qual você deseja criar o projeto e, em seguida, selecione **Criar**. Observe que você ainda pode avaliar suas VMs para um local de destino diferente. O local especificado para o projeto é usado para armazenar os metadados coletados das VMs locais.
 
-## <a name="set-up-the-collector-appliance"></a>Configurar o dispositivo coletor
+### <a name="set-up-the-collector-appliance"></a>Configurar o dispositivo coletor
 
 O Migrações para Azure cria uma VM local conhecida como o dispositivo coletor. Essa VM descobre as VMs do VMware locais e envia os metadados sobre elas para o serviço Migrações para Azure. Para configurar o dispositivo coletor, você baixa um arquivo OVA e o importa para a instância local do vCenter Server.
 
-### <a name="download-the-collector-appliance"></a>Baixar o dispositivo coletor
+#### <a name="download-the-collector-appliance"></a>Baixar o dispositivo coletor
 
 Se você tiver vários projetos, você precisará baixar o dispositivo coletor somente uma vez no vCenter Server. Depois de baixar e configurar o dispositivo, execute-o para cada projeto e especifique a ID e a chave exclusivas do projeto.
 
@@ -75,7 +87,7 @@ Se você tiver vários projetos, você precisará baixar o dispositivo coletor s
 3. Em **Copiar credenciais do projeto**, copie a ID e a chave do projeto. Você precisará delas quando configurar o coletor.
 
 
-### <a name="verify-the-collector-appliance"></a>Verificar o dispositivo coletor
+#### <a name="verify-the-collector-appliance"></a>Verificar o dispositivo coletor
 
 Verifique se o arquivo OVA é seguro antes de implantá-lo:
 
@@ -121,7 +133,7 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-## <a name="create-the-collector-vm"></a>Criar a VM do coletor
+### <a name="create-the-collector-vm"></a>Criar a VM do coletor
 
 Importe o arquivo baixado para o vCenter Server:
 
@@ -137,7 +149,7 @@ Importe o arquivo baixado para o vCenter Server:
 7. Em **Mapeamento de rede**, especifique a rede à qual a VM do coletor se conectará. A rede precisa de conectividade com a Internet para poder enviar metadados para o Azure.
 8. Examine e confirme as configurações e selecione **Concluir**.
 
-## <a name="identify-the-id-and-key-for-each-project"></a>Identificar a chave e a ID para cada projeto
+### <a name="identify-the-id-and-key-for-each-project"></a>Identificar a chave e a ID para cada projeto
 
 Se você tiver vários projetos, não deixe de identificar a ID e a chave para cada um. Você precisará da chave ao executar o coletor para descobrir as VMs.
 
@@ -145,7 +157,7 @@ Se você tiver vários projetos, não deixe de identificar a ID e a chave para c
 2. Em **Copiar credenciais do projeto**, copie a ID e a chave do projeto.
     ![Copiar credenciais do projeto](./media/how-to-scale-assessment/copy-project-credentials.png)
 
-## <a name="set-the-vcenter-statistics-level"></a>Definir o nível de estatísticas do vCenter
+### <a name="set-the-vcenter-statistics-level"></a>Definir o nível de estatísticas do vCenter
 Abaixo está a lista de contadores de desempenho coletados durante a descoberta. Os contadores estão, por padrão, disponíveis em vários níveis do vCenter Server.
 
 Recomendamos que você defina o nível mais alto comum (3) como o nível de estatísticas para que todos os contadores sejam coletados corretamente. Se você tiver definido o vCenter em um nível inferior, apenas alguns contadores poderão ser coletados completamente e o restante deles será definido como 0. A avaliação poderá então mostrar dados incompletos.
@@ -166,7 +178,7 @@ A tabela a seguir também lista os resultados da avaliação que serão afetados
 > [!WARNING]
 > Se você configurou apenas um nível mais alto de estatísticas, levará até um dia para gerar os contadores de desempenho. Portanto, é recomendável que você execute a descoberta no dia seguinte.
 
-## <a name="run-the-collector-to-discover-vms"></a>Executar o coletor para descobrir VMs
+### <a name="run-the-collector-to-discover-vms"></a>Executar o coletor para descobrir VMs
 
 Para cada descoberta que você precisa executar, execute o coletor para descobrir VMs no escopo necessário. Execute as descobertas uma após a outra. Não há suporte para descobertas simultâneas e cada descoberta deve ter um escopo diferente.
 
@@ -194,7 +206,7 @@ Para cada descoberta que você precisa executar, execute o coletor para descobri
 7.  Em **Visualizar progresso de coleção**, monitore o processo de descoberta e verifique se os metadados coletados das VMs estão no escopo. O coletor fornece um tempo aproximado de descoberta.
 
 
-### <a name="verify-vms-in-the-portal"></a>Verifique as VMs no portal
+#### <a name="verify-vms-in-the-portal"></a>Verifique as VMs no portal
 
 O tempo de descoberta depende de quantas VMs estão sendo descobertas. Geralmente, para 100 VMs, a descoberta é concluída em torno de uma hora após a conclusão da execução do coletor.
 
