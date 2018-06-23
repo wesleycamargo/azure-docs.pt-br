@@ -1,19 +1,17 @@
 ---
 title: Mudança de host de um aplicativo de central de serviços da Contoso em Linux para o Azure e para o MySQL do Azure | Microsoft Docs
 description: Saiba como a Contoso muda o host de um aplicativo Linux local migrando-o para VMs do Azure e para o MySQL do Azure.
-services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 4367bf7cb02bb6a1e343dc3fb171be731e15c32b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 15a429c033cfd1598dd01b5c8cd2743c397dacdb
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300704"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36225510"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migração da Contoso: mudança de host de um aplicativo Linux local para VMs do Azure e para o Azure MySQL
 
@@ -375,9 +373,9 @@ A Contoso vai migrar o banco de dados usando backup e restauração com as ferra
 
 ## <a name="step-6-migrate-the-vms-with-site-recovery"></a>Etapa 6: Migrar VMs com o Site Recovery
 
-A Contoso executa um rápido failover de teste e migra a VM.
+A Contoso executa um failover de teste rápido e, em seguida, migra a VM.
 
-### <a name="run-a-test-failover"></a>Execute um failover de teste
+### <a name="run-a-test-failover"></a>Execute um teste de failover
 
 A execução de um failover de teste ajuda a verificar se tudo está funcionando como esperado antes da migração. 
 
