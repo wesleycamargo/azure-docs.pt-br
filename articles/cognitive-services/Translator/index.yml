@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/30/2017
   ms.author: v-jansko
-  ms.openlocfilehash: 55ec3147a07c5c76fe1f1b356d633a9afeb783cc
-  ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+  ms.openlocfilehash: 1995f8d58c47b8e098022ca672c7889195dd5328
+  ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/20/2018
-  ms.locfileid: "36286901"
+  ms.lasthandoff: 06/22/2018
+  ms.locfileid: "36319173"
 abstract:
   description: A API do Conversor de Texto da Microsoft é um serviço de tradução automática baseado em nuvem. Com essa API, você pode converter o texto quase em tempo real de qualquer aplicativo ou serviço por meio de uma chamada simples da API REST. A API usa a tecnologia de tradução automática neural mais moderna, bem como oferece a tecnologia de tradução automática estatística. Para obter a lista de idiomas com suporte para as traduções automáticas neural e estatística, consulte <a href="languages.md">Idiomas com Suporte</a>.
 sections:
@@ -46,26 +46,26 @@ sections:
       values:
       - href: quickstart-csharp-translate
       - href: quickstart-java-translate
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-translate
+      - href: quickstart-python-translate
     - title: Converter texto de um script em outro
       values:
       - href: quickstart-csharp-transliterate
       - href: quickstart-java-transliterate
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-transliterate
+      - href: quickstart-python-transliterate
     - title: Identificar idioma do texto
       values:
       - href: quickstart-csharp-detect
       - href: quickstart-java-detect
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-detect
+      - href: quickstart-python-detect
     - title: Obter traduções alternativas e uso
       values:
       - href: quickstart-csharp-dictionary
       - href: quickstart-java-dictionary
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-dictionary
+      - href: quickstart-python-dictionary
 - title: Referência
   items:
   - type: paragraph

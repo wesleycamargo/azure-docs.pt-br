@@ -27,8 +27,6 @@
       href: role-definitions.md
     - name: Funções internas
       href: built-in-roles.md
-    - name: Funções personalizadas
-      href: custom-roles.md
     - name: Operações de provedor de recursos
       href: resource-provider-operations.md
     - name: PIM (Privileged Identity Management) para RBAC
@@ -42,12 +40,21 @@
       items:
         - name: Portal
           href: role-assignments-portal.md
-        - name: CLI do Azure
-          href: role-assignments-cli.md
         - name: PowerShell
           href: role-assignments-powershell.md
-        - name: REST
+        - name: CLI do Azure
+          href: role-assignments-cli.md
+        - name: API REST
           href: role-assignments-rest.md
+    - name: Funções personalizadas
+      href: custom-roles.md
+      items:
+        - name: PowerShell
+          href: custom-roles-powershell.md
+        - name: CLI do Azure
+          href: custom-roles-cli.md
+        - name: API REST
+          href: custom-roles-rest.md
     - name: Exibir logs de atividade
       href: change-history-report.md
     - name: Elevar o acesso de Administrador global
