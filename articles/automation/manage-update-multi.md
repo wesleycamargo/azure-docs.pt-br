@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194012"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833712"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -35,31 +35,16 @@ Para usar o gerenciamento de atualizações, você precisa de:
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
-Há suporte para o gerenciamento de atualizações nos seguintes sistemas operacionais.
+O gerenciamento de atualizações é compatível com os seguintes sistemas operacionais:
 
-### <a name="windows"></a>Windows
-
-- Windows Server 2008 e superior e implantações de atualização no Windows Server 2008 R2 SP1 e superior. Não há suporte para o Nano Server.
-
-  O suporte à implantação de atualizações para o Windows Server 2008 R2 SP1 requer o .NET Framework 4.5 e Windows Management Framework 5.0 ou posterior.
-
-- Não há suporte para sistemas operacionais clientes do Windows.
-
-Os agentes do Windows devem ser configurados para se comunicar com um servidor WSUS (Windows Server Update Services) ou ter acesso ao Microsoft Update.
-
-> [!NOTE]
-> O System Center Configuration Manager não pode gerenciar o agente do Windows simultaneamente.
->
-
-### <a name="linux"></a>Linux
-
-- CentOS 6 (x86/x64) e 7 (x64)
-
-- Red Hat Enterprise 6 (x86/x64) e 7 (x64)
-
-- SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)
-
-- Ubuntu 12.04 LTS e posterior (x86/x64)
+|Sistema operacional  |Observações  |
+|---------|---------|
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Suporte apenas para avaliações de atualização         |
+|Windows Server 2008 R2 SP1 e superior     |O Windows PowerShell 4.0 ou superior é necessário ([faça o download do WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([faça o download do WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) é recomendado para aumentar a confiabilidade.         |
+|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
+|Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
+|SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Os agentes do Linux devem ter acesso a um repositório de atualização.         |
 
 > [!NOTE]
 > Para prevenir que atualizações sejam aplicadas fora de uma janela de manutenção no Ubuntu, reconfigure o pacote de atualização automática para desabilitar as atualizações automáticas. Para obter mais informações, consulte o [tópico de Atualizações automáticas no Guia do servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
@@ -152,6 +137,9 @@ No painel **Nova implantação de atualização**, especifique o seguinte:
   - Atualizações de definição
   - Ferramentas
   - Atualizações
+
+- **Atualizações a serem excluídas** – abre a página **Excluir**. Insira os KBs ou os nomes de pacote a serem excluídos.
+
 - **Configurações de agenda**: você pode aceitar a data e hora padrão, que é de 30 minutos após a hora atual. Ou você pode especificar uma hora diferente.
    Você também pode especificar se a implantação ocorre uma única vez ou em um agendamento recorrente. Para configurar um agendamento recorrente, selecione a opção **Recorrente** em **Recorrência**.
 

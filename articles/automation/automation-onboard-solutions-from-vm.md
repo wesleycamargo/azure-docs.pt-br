@@ -4,21 +4,21 @@ description: Saiba como integrar uma Máquina Virtual do Azure com soluções de
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2fbfd733a57d0e2f91d119b614917abf172b8379
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 675aebf35a6bee6e4cc4fd884204edb5bae4b848
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193087"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830554"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário a partir de uma Máquina Virtual do Azure
 
-A Automação do Azure fornece soluções para gerenciar atualizações de segurança do sistema operacional, controlar alterações e inventariar o que está instalado em seus computadores. Há várias maneiras de integrar computadores, por exemplo, você pode integrar a solução de uma máquina virtual [a partir da sua conta de Automação do Azure](automation-onboard-solutions-from-automation-account.md) ou por [runbook](automation-onboard-solutions.md). Este artigo aborda a integração dessas soluções a partir de uma Máquina Virtual do Azure.
+A Automação do Azure fornece soluções para gerenciar atualizações de segurança do sistema operacional, controlar alterações e inventariar o que está instalado em seus computadores. Há várias maneiras de integrar computadores, por exemplo, você pode integrar a solução de uma máquina virtual, [de sua conta de Automação](automation-onboard-solutions-from-automation-account.md), [procurando em vários computadores](automation-onboard-solutions-from-browse.md), ou por [runbook](automation-onboard-solutions.md). Este artigo aborda a integração dessas soluções a partir de uma Máquina Virtual do Azure.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -28,13 +28,13 @@ Fazer logon no Azure em https://portal.azure.com
 
 Navegue até uma máquina virtual existente e selecione **Gerenciamento de atualizações**, **Inventário** ou **Controle de Alterações** em **OPERAÇÕES**.
 
+Para habilitar a solução somente para a VM, certifique-se de que o botão de opção **Habilitar para esta VM** esteja selecionado, para integrar vários computadores à solução, selecione **Habilitar para VMs nesta assinatura** e clique em **Clique para selecionar os computadores a habilitar**. Confira [Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário](automation-onboard-solutions-from-automation-account.md) para exibir as etapas para integrar vários computadores ao mesmo tempo.
+
 Escolha o espaço de trabalho do Log Analytics e a conta de automação e clique em **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
 
 ![Integrar solução de atualização](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Navegue para as outras soluções e clique em **habilitar**, as caixas suspensas da conta de Automação, no Log Analytics, estão desabilitadas porque usam o mesmo espaço de trabalho e conta de automação como a solução anteriormente habilitada.
-
-![Integrar solução de atualização](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > **Controle de alterações** e **Inventário** usam a mesma solução, quando um está habilitado, o outro também está habilitado.

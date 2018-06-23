@@ -9,19 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2018
+ms.date: 06/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 19878b7fa023ecf0d9c2a62001a5ea93ca3eb6db
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0730fbd2df6c2a0a8b8d0930c86709c0e3012002
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257726"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248713"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
 
@@ -31,6 +32,7 @@ Segurança é uma grande preocupação para organizações que usam a nuvem. Um 
 ![Controle](./media/active-directory-conditional-access-azure-portal/81.png)
 
 Este artigo apresenta uma visão geral conceitual do acesso condicional no Azure AD.
+
 
 
 ## <a name="common-scenarios"></a>Cenários comuns
@@ -82,32 +84,8 @@ Com o acesso condicional do Azure AD, você pode controlar como os usuários aut
 
 Uma vantagem de usar uma abordagem baseada em política para proteger o acesso aos aplicativos de nuvem é poder começar esboçando os requisitos de política para o ambiente usando a estrutura descrita neste artigo, sem se preocupar com a implementação técnica. 
 
-## <a name="what-you-need-to-know"></a>O que você precisa saber
 
-### <a name="general-requirements-for-using-conditional-access"></a>Requisitos gerais para usar o acesso condicional
-
-Você pode usar o acesso condicional do Azure AD para proteger os aplicativos de nuvem quando uma tentativa de autenticação for proveniente de:
-
-- Um navegador da Web
-
-- Um aplicativo cliente que usa autenticação moderna
-
-- Exchange ActiveSync
-
-Para mais informações, consulte [aplicativos clientes](active-directory-conditional-access-conditions.md#client-apps).
-
-Alguns [aplicativos na nuvem](active-directory-conditional-access-conditions.md#cloud-apps) também fornecem suporte a protocolos de autenticação herdados. Isso se aplica, por exemplo, ao SharePoint Online e ao Exchange Online. Quando um aplicativo de cliente pode usar um protocolo de autenticação herdado para acessar um aplicativo de nuvem, o Azure AD não pode impor uma política de acesso condicional nessa tentativa de acesso. Para impedir que um aplicativo de cliente ignore a imposição de políticas, verifique se é possível habilitar a autenticação moderna apenas nos aplicativos de nuvem afetados.
-
-Entre os exemplos em que o acesso condicional de aplicativos de cliente não se aplica estão:
-
-- Office 2010 e versões anterior
-
-- Office 2013 quando a autenticação moderna não estiver habilitada
-
-Para obter mais informações, consulte [Configurar o SharePoint Online e o Exchange Online para acesso condicional do Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md).
-
-
-### <a name="license-requirements-for-using-conditional-access"></a>Requisitos de licença para usar o acesso condicional
+## <a name="license-requirements-for-using-conditional-access"></a>Requisitos de licença para usar o acesso condicional
 
 O uso do acesso condicional requer uma licença do Microsoft Azure AD Premium. Para localizar a licença correta para os requisitos, consulte [Comparar recursos geralmente disponíveis nas edições Gratuita, Básica e Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 

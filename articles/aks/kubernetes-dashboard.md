@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 66843a5dda9f7b31b2b4c79df895eaff904513e6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595573"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Painel do Kubernetes com o AKS (Serviço de Kubernetes do Azure)
 
@@ -37,7 +38,7 @@ Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kuberne
 
 ## <a name="run-an-application"></a>Executar um aplicativo
 
-No painel do Kubernetes, clique no botão **Criar** na janela superior direita. Dê o nome `nginx` para a implantação e digite `nginx:latest` para o nome das imagens. Em **Serviço**, selecione **Externo** e insira `80` para a porta e a porta de destino.
+No painel do Kubernetes, clique no botão **Criar** na janela superior direita. Dê o nome `nginx` para a implantação e insira `nginx:latest` para o nome da imagem de contêiner. Em **Serviço**, selecione **Externo** e insira `80` para a porta e a porta de destino.
 
 Quando estiver pronto, clique em **Implantar** para criar a implantação.
 

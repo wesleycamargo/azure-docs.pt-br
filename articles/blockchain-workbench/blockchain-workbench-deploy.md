@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: bcd08ac8563edfaf4297e26ad42ed8bc62d86918
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303936"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831628"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implantar o Azure Blockchain Workbench
 
@@ -73,7 +73,7 @@ A implantação do Blockchain Workbench exige o registro de um aplicativo do Mic
 Em seguida, você precisa modificar o manifesto do aplicativo para usar as funções de aplicativo no Microsoft Azure Active Directory para especificar administradores do Blockchain Workbench.  Para obter mais informações sobre manifestos de aplicativos, consulte [Manifesto de aplicativo do Microsoft Azure Active Directory](../active-directory/develop/active-directory-application-manifest.md).
 
 1. Para o aplicativo que você registrou, selecione **Manifesto** no painel de detalhes do aplicativo registrado.
-2. Gere um GUID. Você pode usar o comando do PowerShell `[guid]::NewGuid()` ou ferramentas on-line para gerar um GUID. 
+2. Gere um GUID. Você pode gerar um GUID usando o comando do PowerShell [guid] :: NewGuid () ou o cmdlet New-GUID. Outra opção é usar um site gerador de GUID.
 3. Você atualizará a seção **appRoles** do manifesto. No painel de Editar manifesto, selecione **Editar** e substitua `"appRoles": []` pelo JSON fornecido. Certifique-se de substituir o valor do campo **id** pelo GUID gerado. 
 
     ``` json
@@ -177,7 +177,7 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
     ![Resultados de pesquisa do Marketplace](media/blockchain-workbench-deploy/marketplace-search-results.png)
 
-4.  Clique em **Criar**.
+4.  Selecione **Criar**.
 5.  Conclua as configurações básicas.
 
     ![Criar Azure Blockchain Workbench](media/blockchain-workbench-deploy/blockchain-workbench-settings-basic.png)

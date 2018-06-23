@@ -2,24 +2,20 @@
 title: Limites e configuração – Aplicativos Lógicos do Azure | Microsoft Docs
 description: Valores de limites e de configuração do serviço para os Aplicativos Lógicos do Azure
 services: logic-apps
-documentationcenter: ''
 author: ecfan
-manager: cfowler
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 05/14/2018
+manager: jeconnoc
 ms.author: estfan
-ms.openlocfilehash: 8c2ac4b8f55d25d5d3fcfdd6a9bcb6f6c8cfc201
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.topic: article
+ms.date: 05/30/2018
+ms.service: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 2534210c903e77462ece91c577d731d9c8e3726f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166294"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299708"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -66,7 +62,7 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Alterar a duração de execução e a retenção de armazenamento
 
-Você pode alterar esse limite para um valor entre sete e 90 dias. No entanto, para exceder o limite máximo, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para obter ajuda com seus requisitos.
+Você pode alterar esse limite para um valor entre 7 e 90 dias. Para ultrapassar o limite máximo, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para obter ajuda com seus requisitos.
 
 1. No Portal do Azure, no menu do aplicativo lógico, escolha **Configurações de fluxo de trabalho**. 
 
@@ -84,7 +80,7 @@ Estes são os limites de execução de um único aplicativo lógico:
 | ---- | ----- | ----- | 
 | Iterações Until | 5.000 | | 
 | Itens ForEach | 100.000 | Você pode usar a [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maiores, conforme o necessário. | 
-| Paralelismo de ForEach | 50 | O padrão é 20. <p>Para definir um nível específico de paralelismo em um loop ForEach, defina a propriedade `runtimeConfiguration` na ação `foreach`. <p>Para executar em sequência um loop ForEach, defina a propriedade `operationOptions` como "Sequencial" na ação `foreach`. | 
+| Paralelismo de ForEach | 50 | O padrão é 20. <p>Para alterar o nível padrão em um loop ForEach, defina a propriedade `runtimeConfiguration` na ação `foreach`. <p>Para executar em sequência um loop ForEach, defina a propriedade `operationOptions` como "Sequencial" na ação `foreach`. | 
 | Itens SplitOn | 100.000 | | 
 |||| 
 
@@ -96,14 +92,14 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 | NOME | Limite | Observações | 
 | ----- | ----- | ----- | 
-| Execuções de ações a cada cinco minutos | 100.000 | Para aumentar o limite para 300.000, você pode executar um aplicativo lógico no modo `High Throughput`. Para configurar o modo de taxa de transferência no `runtimeConfiguration` do recurso de fluxo de trabalho, defina a propriedade `operationOptions` como `OptimizedForHighThroughput`. <p>**Nota**: O modo de alta taxa de transferência está em versão prévia. Você também pode distribuir uma carga de trabalho entre vários aplicativos conforme necessário. | 
-| Chamadas de saída simultâneas a ações | ~2.500 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
-| Ponto de extremidade de tempo de execução: chamadas de entrada simultâneas | ~1,000 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
-| Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos  | 60.000 | Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
-| Ponto de extremidade de tempo de execução: invoca chamadas por 5 minutos| 45,000 |Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
+| Execuções de ações a cada cinco minutos | 100.000 | Para aumentar o limite para 300.000, você pode executar um aplicativo lógico no modo `High Throughput`. Para configurar o modo de taxa de transferência no `runtimeConfiguration` do recurso de fluxo de trabalho, defina a propriedade `operationOptions` como `OptimizedForHighThroughput`. <p>**Nota**: O modo de alta taxa de transferência está em versão prévia. Você também pode distribuir uma carga de trabalho entre mais de um aplicativo conforme necessário. | 
+| Chamadas de saída simultâneas a ações | ~2.500 | Reduza o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
+| Ponto de extremidade de tempo de execução: chamadas de entrada simultâneas | ~1,000 | Reduza o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
+| Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos  | 60.000 | É possível distribuir uma carga de trabalho entre mais de um aplicativo conforme necessário. | 
+| Ponto de extremidade de tempo de execução: invoca chamadas por 5 minutos| 45,000 | É possível distribuir uma carga de trabalho entre mais de um aplicativo conforme necessário. | 
 |||| 
 
-Para exceder esses limites no processamento normal ou executar um teste de carga que possa exceder esses limites, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para que possam ajudá-lo com suas necessidades.
+Para ultrapassar esses limites no processamento normal ou executar um teste de carga que possa ultrapassar esses limites, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para que possam ajudá-lo com suas necessidades.
 
 <a name="request-limits"></a>
 
@@ -126,7 +122,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 | NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Tamanho da mensagem | 100 MB | Para contornar esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
-| Tamanho da mensagem com agrupamento | 1 GB | O limite é aplicado a ações que oferecem suporte nativo a agrupamento ou podem ter o suporte a agrupamento habilitado em sua configuração de execução. Para obter mais informações, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). | 
+| Tamanho da mensagem com agrupamento | 1 GB | Esse limite se aplica a ações com compatibilidade nativa com o agrupamento ou que permitem que você habilite o agrupamento na configuração de tempo de execução. Para obter mais informações, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). | 
 | Limite de avaliação da expressão | 131.072 caracteres | As expressões `@concat()`, `@base64()`, `@string()` não podem ser maiores do que esse limite. | 
 |||| 
 
@@ -159,9 +155,11 @@ Aqui estão os limites para conectores personalizados que você pode criar de AP
 
 ### <a name="artifact-limits-per-integration-account"></a>Limites de artefato por conta de integração
 
-Estes são os limites no número de artefatos para cada conta de integração. Para obter mais informações, consulte [Preços de Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
+Estes são os limites no número de artefatos para cada conta de integração. Para obter mais informações, consulte [Preços de Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 *Camada gratuita*
+
+Use a camada gratuita somente para cenários exploratórios, não cenários de produção. Esta camada restringe o uso e a taxa de transferência e não tem nenhum SLA (Contrato de Nível de Serviço).
 
 | Artefato | Limite | Observações | 
 |----------|-------|-------| 
@@ -208,10 +206,10 @@ Estes são os limites no número de artefatos para cada conta de integração. P
 | ---- | ----- | ----- | 
 | Esquema | 8 MB | Para carregar arquivos maiores que 2 MB, use o [URI do blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Mapa (arquivo XSLT) | 2 MB | | 
-| Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos | 60.000 | Você pode distribuir a carga de trabalho entre várias contas conforme necessário. | 
-| Ponto de extremidade de tempo de execução: invoca chamadas por 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre várias contas conforme necessário. | 
-| Ponto de extremidade do tempo de execução: acompanhando chamadas por 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre várias contas conforme necessário. | 
-| Ponto de extremidade de tempo de execução: bloqueando chamadas simultâneas | ~1,000 | Você pode diminuir o número de solicitações simultâneas ou reduzir a duração conforme necessário. | 
+| Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos | 60.000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
+| Ponto de extremidade de tempo de execução: invoca chamadas por 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
+| Ponto de extremidade do tempo de execução: acompanhando chamadas por 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
+| Ponto de extremidade de tempo de execução: bloqueando chamadas simultâneas | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
@@ -233,8 +231,7 @@ Estes são os limites que se aplicam a protocolos B2B:
 
 ### <a name="azure-logic-apps-service"></a>Serviço de Aplicativo Lógico do Azure
 
-Todos os aplicativos lógicos em uma região usam o mesmo intervalo de endereços IP.
-As chamadas que aplicativos lógicos fazem diretamente com [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) ou outras solicitações HTTP, provêm de endereços IP nessa lista. 
+Todos os aplicativos lógicos em uma região usam os mesmos intervalos de endereços IP. Para dar suporte às chamadas que os aplicativos lógicos fazem diretamente com [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) e outras solicitações HTTP, defina suas configurações de firewall para que elas incluam esses endereços IP de saída e de entrada, com base no local em que os aplicativos lógicos existem:
 
 | Região de Aplicativos Lógicos | IP de Saída |
 |-------------------|-------------|
@@ -265,7 +262,7 @@ As chamadas que aplicativos lógicos fazem diretamente com [HTTP](../connectors/
 | | |
 
 | Região de Aplicativos Lógicos | IP de entrada |
-|-------------------|-------------|
+|-------------------|------------|
 | Leste da Austrália | 3.75.153.66, 104.210.89.222, 104.210.89.244 |
 | Sudeste da Austrália | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
 | Sul do Brasil | 191.235.86.199, 191.235.95.229, 191.235.94.220 |
@@ -294,37 +291,41 @@ As chamadas que aplicativos lógicos fazem diretamente com [HTTP](../connectors/
 
 ### <a name="connectors"></a>Conectores
 
-As chamadas que [conectores](../connectors/apis-list.md) fazem são provenientes de endereços IP nessa lista.
+Para dar suporte às chamadas que os [conectores](../connectors/apis-list.md) fazem, defina suas configurações de firewall para que elas incluam esses endereços IP de saída, com base nas regiões em que os aplicativos lógicos existem.
 
-| Região de Aplicativos Lógicos | IP de Saída |
-|-------------------|-------------|
-| Leste da Austrália | 40.126.251.213 |
-| Sudeste da Austrália | 40.127.80.34 |
-| Sul do Brasil | 191.232.38.129 |
-| Canadá Central | 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 |
-| Leste do Canadá | 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 |
-| Índia Central | 104.211.98.164 |
-| Centro dos EUA | 40.122.49.51 |
-| Ásia Oriental | 23.99.116.181 |
-| Leste dos EUA | 191.237.41.52 |
-| Leste dos EUA 2 | 104.208.233.100 |
-| Leste do Japão | 40.115.186.96 |
-| Oeste do Japão | 40.74.130.77 |
-| Centro-Norte dos EUA | 65.52.218.230 |
-| Norte da Europa | 104.45.93.9 |
-| Centro-Sul dos Estados Unidos | 104.214.70.191 |
-| Sul da Índia | 104.211.227.225 |
-| Sudeste Asiático | 13.76.231.68 |
-| Europa Ocidental | 40.115.50.13 |
-| Índia Ocidental | 104.211.161.203 |
-| Oeste dos EUA | 104.40.51.248 |
-| Sul do Reino Unido | 51.140.80.51 |
-| Oeste do Reino Unido | 51.141.47.105 |
+> [!IMPORTANT]
+>
+> Se você tiver configurações existentes, atualize-as **assim que possível antes de 1º de setembro de 2018** para que elas incluam e correspondam aos endereços IP nessa lista para as regiões em que os aplicativos lógicos existem. 
+
+| Região de Aplicativos Lógicos | IP de Saída | 
+|-------------------|-------------|  
+| Leste da Austrália | 13.70.72.192 – 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
+| Sudeste da Austrália | 13.77.50.240 – 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
+| Sul do Brasil | 191.233.203.192 – 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
+| Canadá Central | 13.71.170.208 – 13.71.170.223, 13.71.170.224 – 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
+| Leste do Canadá | 40.69.106.240 – 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| Índia Central | 104.211.81.192 – 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
+| Centro dos EUA | 13.89.171.80 – 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
+| Ásia Oriental | 13.75.36.64 – 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
+| Leste dos EUA | 40.71.11.80 – 40.71.11.95, 40.71.249.205, 191.237.41.52 | 
+| Leste dos EUA 2 | 40.70.146.208 – 40.70.146.223, 52.232.188.154, 104.208.233.100 | 
+| Leste do Japão | 13.78.108.0 – 13.78.108.15, 13.71.153.19, 40.115.186.96 | 
+| Oeste do Japão | 40.74.100.224 – 40.74.100.239, 104.215.61.248, 40.74.130.77 | 
+| Centro-Norte dos EUA | 52.162.107.160 – 52.162.107.175, 52.162.242.161, 65.52.218.230 | 
+| Norte da Europa | 13.69.227.208 – 13.69.227.223, 52.178.150.68, 104.45.93.9 | 
+| Centro-Sul dos Estados Unidos | 104.214.19.48 – 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
+| Sul da Índia | 40.78.194.240 – 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
+| Sudeste Asiático | 13.67.8.240 – 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
+| Centro-Oeste dos EUA | 13.71.195.32 – 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| Europa Ocidental | 13.69.64.208 – 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
+| Índia Ocidental | 104.211.146.224 – 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
+| Oeste dos EUA | 40.112.243.160 – 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
+| Oeste dos EUA 2 | 13.66.140.128 – 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
+| Sul do Reino Unido | 51.140.148.0 – 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
+| Oeste do Reino Unido | 51.140.211.0 – 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
 | | | 
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-* [Criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
-* [Exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Vídeo: automatizar processos de negócios com Aplicativos Lógicos](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Vídeo: integrar seus sistemas com os Aplicativos Lógicos](http://channel9.msdn.com/Events/Build/2016/P462)
+* Saiba como [criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
+* Saiba mais sobre [exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)

@@ -1,22 +1,19 @@
 ---
 title: Esquema de dispositivo na solução de monitoramento remoto – Azure | Microsoft Docs
 description: Este artigo descreve o esquema JSON que define um dispositivo simulado na solução de monitoramento remoto.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 186eaee952435573a861d144195c3165e4940cc1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 1ba73d24aaa113a9124e17ea91946c205b21fba6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627426"
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema de modelo do dispositivo
 
@@ -26,7 +23,7 @@ Este artigo descreve o esquema de modelo do dispositivo que especifica os recurs
 
 Os artigos a seguir estão relacionados ao artigo atual:
 
-* [Implementar o comportamento de modelo do dispositivo](../iot-suite/iot-suite-remote-monitoring-device-behavior.md) descreve os arquivos JavaScript que são utilizados para implementar o comportamento de um dispositivo simulado.
+* [Implementar o comportamento de modelo do dispositivo](iot-accelerators-remote-monitoring-device-behavior.md) descreve os arquivos JavaScript que são utilizados para implementar o comportamento de um dispositivo simulado.
 * [Criar um novo dispositivo simulado](iot-accelerators-remote-monitoring-test.md) reúne tudo e mostra como implementar um novo tipo de dispositivo simulado para sua solução.
 
 Neste artigo, você aprenderá a:
@@ -39,7 +36,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="the-parts-of-the-device-model-schema"></a>As partes do esquema de modelo do dispositivo
 
-Cada modelo do dispositivo, como um resfriador ou caminhão, define um tipo de dispositivo simulado para se conectar à solução de monitoramento remoto. Cada modelo do dispositivo é armazenado em um arquivo JSON com o seguinte esquema de nível superior:
+Cada modelo do dispositivo, como um resfriador ou um caminhão, define um tipo de dispositivo simulado para se conectar à solução de monitoramento remoto. Cada modelo do dispositivo é armazenado em um arquivo JSON com o seguinte esquema de nível superior:
 
 ```json
 {
@@ -203,12 +200,12 @@ Para enviar mensagens de telemetria em intervalos diferentes, adicione vários t
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-Um dispositivo simulado pode responder a métodos de nuvem para dispositivo chamados da solução de monitoramento remoto. A seção `CloudToDeviceMethods` no arquivo de esquema de modelo do dispositivo:
+Um dispositivo simulado pode responder a métodos da nuvem para dispositivo, chamados da solução de monitoramento remoto. A seção `CloudToDeviceMethods` no arquivo de esquema de modelo do dispositivo:
 
 * Define os métodos aos quais o dispositivo simulado pode responder.
 * Identifica o arquivo JavaScript que contém a lógica a ser executada.
 
-O dispositivo simulado envia a lista de métodos que oferece suporta à solução de monitoramento remoto.
+O dispositivo simulado envia a lista de métodos que dá suporte à solução de monitoramento remoto.
 
 Para saber mais sobre o arquivo JavaScript que implementa o comportamento do dispositivo, consulte [Compreender o comportamento do modelo do dispositivo](iot-accelerators-remote-monitoring-device-behavior.md).
 
@@ -246,7 +243,7 @@ Este artigo descreveu como criar seu próprio modelo de dispositivo simulado per
 
 Agora que você aprendeu sobre o esquema JSON, a próxima etapa sugerida é saber como [implementar o comportamento do seu dispositivo simulado](iot-accelerators-remote-monitoring-device-behavior.md).
 
-Para obter informações para o desenvolvedor sobre a solução de monitoramento remoto, consulte:
+Para obter informações do desenvolvedor sobre a solução de Monitoramento Remoto, confira:
 
 * [Guia de Referência do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Guia de Solução de Problemas do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

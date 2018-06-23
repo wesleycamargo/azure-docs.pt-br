@@ -6,15 +6,15 @@ author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: e12010f225b5f8db247d1b751615cbedd413dfb3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.date: 05/18/2018
+ms.openlocfilehash: bbd38380370821c749a70d59a819a84ed06458a7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271970"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264790"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -24,7 +24,7 @@ Você pode criar um servidor do Banco de Dados do Azure para MySQL em um dos tr�
 |:---|:----------|:--------------------|:---------------------|
 | Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Memória por vCore | Linha de base | 2 x Básico | 2x Uso Geral |
+| Memória por vCore | 2 GB | 5 GB | 10 GB |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 2 TB | 5 GB a 2 TB |
 | Tipo de armazenamento | Armazenamento Standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Período de retenção do backup de banco de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
@@ -39,7 +39,7 @@ Para escolher um tipo de preço, use a tabela a seguir como ponto de partida.
 
 Depois de criar um servidor, o número de vCores pode ser aumentado ou reduzido (com a mesma camada de preços) em segundos. Você pode também, independentemente, ajustar a quantidade de armazenamento de backup e o período de retenção de backup para cima ou para baixo sem tempo de inatividade do aplicativo. Não será possível alterar o tipo de preço ou o tipo de armazenamento de backup depois que um servidor é criado. Para obter mais informações, consulte a seção [Recursos de dimensionamento](#scale-resources).
 
-## <a name="compute-generations-vcores-and-memory"></a>Gerações de computação, vCores e memória
+## <a name="compute-generations-and-vcores"></a>Gerações de computação e vCores
 
 Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. No momento, você pode escolher entre duas gerações de computação, Gen 4 e 5. As CPUs lógicas de 4ª geração são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4 GHz. As CPUs lógicas de 5ª geração são baseadas em processadores E5-2673 v4 (Broadwell) 2,3 GHz. As Gerações 4 e 5 estão disponíveis nas seguintes regiões (o "X" indica disponível). 
 
@@ -63,14 +63,12 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 | Sudeste Asiático | X | X |
 | Leste da Austrália |  | X |
 | Sudeste da Austrália |  | X |
-| Índia Central | X |  |
-| Índia Ocidental | X |  |
+| Índia Central | X | X |
+| Índia Ocidental | X | X |
 | Sul da Índia |  | X |
 | Leste do Japão | X | X |
 | Oeste do Japão | X | X |
 | Sul da Coreia |  | X |
-
-Dependendo do tipo de preço, cada vCore é configurado com uma quantidade específica de memória. Quando você aumenta ou reduz o número de vCores para o servidor, a memória aumenta ou diminui proporcionalmente. A camada de uso geral fornece o dobro da quantidade de memória por vCore comparada com a camada Básico. O nível de otimização de memória fornece o dobro da quantidade de memória comparado com a camada de uso geral.
 
 ## <a name="storage"></a>Armazenamento
 

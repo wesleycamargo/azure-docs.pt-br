@@ -1,30 +1,27 @@
 ---
 title: Gerenciamento de dispositivo na solução de monitoramento remoto – Azure | Microsoft Docs
 description: Este tutorial mostra como gerenciar dispositivos conectados à solução de monitoramento remoto.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3ad6de2a0ebcd257ca90ea3c5c69988d4c1afd7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 0f177c3a8746f801e52cdac6cb2189e9cc28e1e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627272"
 ---
 # <a name="manage-and-configure-your-devices"></a>Gerenciar e configurar dispositivos
 
-Este tutorial mostra os recursos de gerenciamento de dispositivo da solução de monitoramento remoto. Para apresentar esses recursos, o tutorial usa um cenário no aplicativo Contoso IoT.
+Este tutorial mostra os recursos de gerenciamento de dispositivo da solução de Monitoramento Remoto. Para apresentar esses recursos, o tutorial usa um cenário no aplicativo Contoso IoT.
 
-A Contoso solicitou novas máquinas para expandir uma de suas instalações a fim de aumentar os resultados. Enquanto espera a entrega das novas máquinas, você pode executar uma simulação para verificar o comportamento da solução. Como operador, você deseja gerenciar e configurar os dispositivos na solução de monitoramento remoto.
+A Contoso solicitou novas máquinas para expandir uma de suas instalações a fim de aumentar os resultados. Enquanto espera a entrega das novas máquinas, você pode executar uma simulação para verificar o comportamento da solução. Como operador, você quer gerenciar e configurar os dispositivos na solução de Monitoramento Remoto.
 
-Para fornecer uma maneira extensível de gerenciar e configurar dispositivos, a solução de monitoramento remoto usa recursos do Hub IoT como [trabalhos](../iot-hub/iot-hub-devguide-jobs.md) e [métodos diretos](../iot-hub/iot-hub-devguide-direct-methods.md). Para saber como um desenvolvedor de dispositivo implementa métodos em um dispositivo físico, consulte [Personalizar o acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize.md).
+Para fornecer uma maneira extensível de gerenciar e configurar dispositivos, a solução de Monitoramento Remoto usa recursos do Hub IoT como [trabalhos](../iot-hub/iot-hub-devguide-jobs.md) e [métodos diretos](../iot-hub/iot-hub-devguide-direct-methods.md). Para saber como um desenvolvedor de dispositivos implementa métodos em um dispositivo físico, confira [Personalizar o acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize.md).
 
 Neste tutorial, você aprenderá como:
 
@@ -36,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para seguir este tutorial, você precisará de uma instância implantada de solução de monitoramento remoto na sua assinatura do Azure.
+Para seguir este tutorial, você precisará de uma instância implantada da solução de Monitoramento Remoto na sua assinatura do Azure.
 
 Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Implantar o acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-deploy.md).
 
@@ -50,7 +47,7 @@ Deixe o número de dispositivos a serem provisionados definido como **1**. Escol
 
 ![Provisionar um dispositivo de mecanismo simulado](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine.png)
 
-Para saber como provisionar um dispositivo *físico*, consulte [Conectar seu dispositivo ao acelerador de solução de monitoramento remoto](iot-accelerators-connecting-devices-node.md).
+Para saber como provisionar um dispositivo *físico*, confira [Conectar seu dispositivo ao acelerador de solução de Monitoramento Remoto](iot-accelerators-connecting-devices-node.md).
 
 ## <a name="test-the-simulated-device"></a>Testar o dispositivo simulado
 
@@ -113,6 +110,6 @@ Agora que você aprendeu a gerenciar seus dispositivos, as próximas etapas suge
 
 * [Solucionar e corrigir problemas de dispositivo](iot-accelerators-remote-monitoring-maintain.md).
 * [Testar sua solução com dispositivos simulados](iot-accelerators-remote-monitoring-test.md).
-* [Conecte seu dispositivo ao acelerador de solução de monitoramento remoto](iot-accelerators-connecting-devices-node.md).
+* [Conectar seu dispositivo ao acelerador de solução de Monitoramento Remoto](iot-accelerators-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->

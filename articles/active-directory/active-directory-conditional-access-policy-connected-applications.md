@@ -8,19 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/07/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 07957d5ec843c414813d69b7084915bcd70a5a61
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1c21c915bc0a83cdafb221a2cd592890577437ee
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930850"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849518"
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory
 
@@ -51,7 +52,7 @@ Para obter um dispositivo registrado com o Microsoft Azure AD, você tem três o
 
 - **[Dispositivos registrados do Microsoft Azure AD](device-management-introduction.md#azure-ad-registered-devices)**  - para obter um dispositivo pessoal registrado com o Microsoft Azure AD
 
-- **[Dispositivos ingressados no Microsoft Azure AD](device-management-introduction.md#azure-ad-joined-devices)**  - para obter um dispositivo Windows 10 organizacional que não esteja associado a um AD local registrado com o Microsoft Azure AD registrado. 
+- **[Dispositivos ingressados no Azure AD](device-management-introduction.md#azure-ad-joined-devices)** – para obter um dispositivo Windows 10 organizacional que não esteja ingressado em um AD local registrado no Azure AD. 
 
 - **[Dispositivos ingressados no Microsoft Azure AD Híbrido](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - para obter um dispositivo Windows 10 que esteja associado a um AD local registrado com o Microsoft Azure AD.
 
@@ -67,7 +68,7 @@ Na política de acesso condicional, você pode selecionar **Exige dispositivo in
 
 ![Condições baseadas no dispositivo](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-Essa configuração aplica-se apenas a dispositivos Windows 10 que esteja ingressados em um Azure AD local. Só é possível registrar esses dispositivos com o Microsoft Azure AD usando uma junção do Microsoft Azure AD Híbrido, que é um [processo automatizado](device-management-hybrid-azuread-joined-devices-setup.md) para obter um dispositivo Windows 10 registrado. 
+Essa configuração aplica-se apenas a dispositivos Windows 10 ingressados em um AD local. Só é possível registrar esses dispositivos com o Microsoft Azure AD usando uma junção do Microsoft Azure AD Híbrido, que é um [processo automatizado](device-management-hybrid-azuread-joined-devices-setup.md) para obter um dispositivo Windows 10 registrado. 
 
 ![Condições baseadas no dispositivo](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 

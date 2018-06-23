@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/25/2018
 ms.author: sachins
-ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625331"
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Práticas recomendadas para usar o Azure Data Lake Store
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Store. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Store. Antes do Data Lake Store, trabalhar com big data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. Com o Data Lake Store, a maioria dos limites rígidos para tamanho e desempenho foram removidos. No entanto, ainda há algumas considerações que este artigo abrange para que seja possível obter o melhor desempenho com o Data Lake Store. 
@@ -65,9 +66,9 @@ As permissões POSIX e a auditoria no Data Lake Store vêm com uma sobrecarga qu
 * Cópia/replicação mais rápida
 * Menos arquivos para processar ao atualizar as permissões POSIX do Azure Data Lake Store 
 
-Dependendo de quais serviços e cargas de trabalho estão utilizando os dados, um intervalo adequado para considerar tamanhos dos arquivos é de 256 MB a 1 GB, idealmente, não abaixo de 100 MB nem acima de 2 GB. Se os tamanhos dos arquivos não puderem ser em lote ao descarregar no Data Lake Store, você poderá ter um trabalho de compactação separado que combine esses arquivos em arquivos maiores. Para obter mais informações e recomendações sobre o tamanho dos arquivos e organizar os dados no Data Lake Store, consulte [Estrutura o conjunto de dados](data-lake-store-performance-tuning-guidance.md#structure-your-data-set). 
+Dependendo de quais serviços e cargas de trabalho estão usando os dados, um bom tamanho a ser considerado para arquivos é 256 MB ou maior. Se os tamanhos dos arquivos não puderem ser em lote ao descarregar no Data Lake Store, você poderá ter um trabalho de compactação separado que combine esses arquivos em arquivos maiores. Para obter mais informações e recomendações sobre o tamanho dos arquivos e organizar os dados no Data Lake Store, consulte [Estrutura o conjunto de dados](data-lake-store-performance-tuning-guidance.md#structure-your-data-set).
 
-### <a name="large-file-sizes-and-potential-performance-impact"></a>Tamanhos de arquivos grandes e o impacto no desempenho 
+### <a name="large-file-sizes-and-potential-performance-impact"></a>Tamanhos de arquivos grandes e o impacto no desempenho
 
 Embora o Data Lake Store forneça suporte a arquivos grandes até petabytes em tamanho, para otimizar o desempenho e, dependendo do processo de leitura dos dados, não é indicado ultrapassar 2 GB em média. Por exemplo, ao usar **Distcp** para copiar dados entre diferentes contas de armazenamento e locais, os arquivos serão o melhor nível de granularidade usado para determinar as tarefas do mapa. Portanto, se você estiver copiando 10 arquivos de 1 TB cada, serão alocados 10 mapeadores no máximo. Além disso, se houver muitos arquivos com mapeadores atribuídos, inicialmente os mapeadores irão trabalhar em paralelo para mover arquivos grandes. No entanto, como o trabalho começa a reduzir, apenas alguns mapeadores permanecerão alocados e será possível ficar paralisado com um único mapeador atribuído a um arquivo grande. A Microsoft apresentou melhorias para Distcp resolver esse problema nas futuras versões de Hadoop.  
 

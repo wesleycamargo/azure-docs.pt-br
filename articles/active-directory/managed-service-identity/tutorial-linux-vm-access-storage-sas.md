@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 57d4a3767d0ad02f136686d95703817055566c33
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e5e08985f88c7cf3018ecadce2cabac743e4bd37
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303379"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594845"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Usar a Identidade de Serviço Gerenciada da VM do Linux para acessar o Armazenamento do Microsoft Azure por meio de uma credencial SAS
 
@@ -254,10 +254,7 @@ Resposta:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](overview.md).
-- Para saber como executar este mesmo tutorial usando uma chave de conta de armazenamento, consulte [Usar uma Identidade de Serviço Gerenciada da VM do Linux para acessar o Armazenamento do Azure](tutorial-linux-vm-access-storage.md)
-- Para obter mais informações sobre o recurso SAS da conta de Armazenamento do Azure, consulte:
-  - [Como usar SAS (assinaturas de acesso compartilhado)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Constructing a Service SAS (Criação de uma SAS de serviço)](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+Neste tutorial, você aprendeu a usar uma Identidade de Serviço Gerenciada para uma máquina virtual do Linux para acessar um Armazenamento do Azure usando uma credencial de SAS.  Para saber mais sobre SAS de Armazenamento do Azure, confira:
 
-Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
+> [!div class="nextstepaction"]
+>[Como usar SAS (assinaturas de acesso compartilhado)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

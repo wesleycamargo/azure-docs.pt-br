@@ -1,26 +1,23 @@
 ---
-title: Detectar problemas de dispositivos na solução de monitoramento remoto – Azure | Microsoft Docs
-description: Este tutorial mostra como usar regras e ações para detectar automaticamente os problemas do dispositivo relacionados ao limite na solução de monitoramento remoto.
-services: iot-suite
-suite: iot-suite
+title: Detectar problemas de dispositivos na solução de Monitoramento Remoto – Azure | Microsoft Docs
+description: Este tutorial mostra como usar regras e ações para detectar automaticamente os problemas do dispositivo relacionados ao limite na solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-suite
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: f3583b27b2fb9959e65a9c66a75c1174ebf3e238
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: df1ba7909c64e8ccc24bcf3584bd28b2629f49ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627306"
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Detectar problemas usando regras baseadas em limites
 
-Este tutorial mostra os recursos do mecanismo de regras na solução de monitoramento remoto. Para apresentar esses recursos, o tutorial usa um cenário no aplicativo Contoso IoT.
+Este tutorial mostra os recursos do mecanismo de regras na solução de Monitoramento Remoto. Para apresentar esses recursos, o tutorial usa um cenário no aplicativo Contoso IoT.
 
 A Contoso tem uma regra que gera um alerta crítico quando a pressão informada por um dispositivo **Resfriador** excede 250 PSI. Como um operador, pode ser útil identificar os dispositivos **Resfriadores** que podem apresentar problemas nos sensores buscando por picos de pressão. Para identificar esses dispositivos, crie uma regra para gerar um aviso quando a pressão exceder 150 PSI.
 
@@ -37,7 +34,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para seguir este tutorial, você precisará de uma instância implantada de solução de monitoramento remoto na sua assinatura do Azure.
+Para seguir este tutorial, você precisará de uma instância implantada da solução de Monitoramento Remoto na sua assinatura do Azure.
 
 Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Implantar o acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-deploy.md).
 

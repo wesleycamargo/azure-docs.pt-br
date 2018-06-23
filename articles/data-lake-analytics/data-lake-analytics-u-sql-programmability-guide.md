@@ -1,23 +1,21 @@
 ---
-title: Guia de programação do U-SQL para o Azure Data Lake | Microsoft Docs
-description: Saiba mais sobre o conjunto de serviços do Azure Data Lake que permite criar uma plataforma de big data baseada em nuvem.
+title: Guia de programação de U-SQL para o Azure Data Lake
+description: Saiba mais sobre o conjunto de serviços do Azure Data Lake Analytics que permite criar uma plataforma de Big Data baseada em nuvem.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/30/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 400057b5ce79cdcf6c7651462e9f497bf647e930
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
+ms.topic: conceptual
+ms.date: 06/30/2017
+ms.openlocfilehash: 9ebbecc22acf4be007672f3b52d30f0fec32a47d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623665"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação do U-SQL
 

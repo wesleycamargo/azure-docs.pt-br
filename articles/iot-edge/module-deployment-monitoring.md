@@ -1,20 +1,19 @@
 ---
 title: Implantar módulos no Azure IoT Edge | Microsoft Docs
 description: Saiba mais sobre como os módulos são implantados em dispositivos de borda
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166328"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725319"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala – versão prévia
 
@@ -26,7 +25,7 @@ Os dispositivos do IoT Edge seguem um [ciclo de vida do dispositivo] [ lnk-lifec
 
 O Azure IoT Edge fornece duas maneiras de configurar os módulos para execução nos dispositivos IoT Edge: uma para desenvolvimento e iterações rápidas em um único dispositivo (que é usado nos tutoriais do Azure IoT Edge) e outro para gerenciar grandes frotas de dispositivos IoT Edge. Essas duas abordagens estão disponíveis no Portal do Azure e programaticamente.
 
-Este artigo se concentra nos estágios de configuração e monitoramento para frotas de dispositivos, coletivamente chamados de implantações do IoT Edge. As etapas de implantação geral são as seguintes:   
+Este artigo se concentra nos estágios de configuração e monitoramento de frotas de dispositivos, coletivamente chamados de implantações automáticas do IoT Edge. As etapas de implantação geral são as seguintes:   
 
 1. Um operador define uma implantação que descreve um conjunto de módulos e os dispositivos de destino. Cada implantação tem um manifesto de implantação que reflete essa informação. 
 1. O serviço Hub IoT se comunica com todos os dispositivos de destino para configurá-los com os módulos desejados. 
@@ -37,7 +36,7 @@ Este artigo o orienta por meio de cada componente envolvido na configuração e 
 
 ## <a name="deployment"></a>Implantação
 
-Uma implantação atribui ao módulo do IoT Edge imagens para execução como instâncias em um conjunto de dispositivos IoT Edge de destino. Ele funciona com a configuração de um manifesto de implantação do IoT Edge para incluir uma lista de módulos com os parâmetros de inicialização. Uma implantação pode ser atribuída a um único dispositivo (normalmente com base na ID de dispositivo) ou a um grupo de dispositivos (com base em marcas). Depois que um dispositivo IoT Edge recebe um manifesto de implantação, ele baixa e instala as imagens de contêiner do módulo dos repositórios do respectivo contêiner e os configura adequadamente. Depois de criar uma implantação, um operador pode monitorar o status da implantação para ver se os dispositivos de destino estão configurados corretamente.   
+Uma implantação automática do IoT Edge atribui imagens do módulo do IoT Edge para execução como instâncias em um conjunto de dispositivos IoT Edge de destino. Ele funciona com a configuração de um manifesto de implantação do IoT Edge para incluir uma lista de módulos com os parâmetros de inicialização. Uma implantação pode ser atribuída a um único dispositivo (normalmente com base na ID de dispositivo) ou a um grupo de dispositivos (com base em marcas). Depois que um dispositivo IoT Edge recebe um manifesto de implantação, ele baixa e instala as imagens de contêiner do módulo dos repositórios do respectivo contêiner e os configura adequadamente. Depois de criar uma implantação, um operador pode monitorar o status da implantação para ver se os dispositivos de destino estão configurados corretamente.   
 
 Os dispositivos precisam ser provisionados como dispositivos IoT Edge para serem configurados com uma implantação. Os itens abaixo são pré-requisitos e não estão incluídos na implantação:
 * O sistema operacional base

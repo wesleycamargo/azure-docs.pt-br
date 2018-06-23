@@ -1,25 +1,22 @@
 ---
-title: "Saiba como usar o conector do MQ no Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Conectar-se a um local ou servidor MQ do Azure do seu fluxo de trabalho do aplicativo lógico para procurar, receber e enviar mensagens para o WebSphere MQ"
-services: logic-apps
+title: Conectar ao servidor MQ – Aplicativo Lógico do Azure | Microsoft Docs
+description: Enviar e recuperar mensagens com um servidor MQ do Azure ou local e o Aplicativo Lógico do Azure
 author: valthom
-manager: anneta
-documentationcenter: 
-editor: 
-tags: connectors
-ms.assetid: 
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: valthom
 ms.date: 06/01/2017
-ms.author: valthom; ladocs
-ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 6b34bd7b286ca3b206c611343217c90e0d57fbfb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295903"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Conectar-se a um servidor do IBM MQ de aplicativos lógicos usando o conector MQ 
 

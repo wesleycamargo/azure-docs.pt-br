@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 2c7dd89d9c2e5d50f2533101499a6e50e52047b3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636599"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 O Cofre da Chave do Azure permite aos usuários armazenar e usar chaves de criptografia no ambiente do Microsoft Azure. O Cofre de chaves dá suporte a vários tipos de chave e algoritmos e permite o uso de módulos de segurança de Hardware (HSM) para chaves de alto valor. Além disso, o Cofre de Chaves permite que os usuários armazenem segredos de forma segura. Os segredos são objetos de octetos de tamanho limitado sem semântica específica. O Cofre de Chaves também oferece suporte a certificados, que são criados sobre chaves e segredos e adicionam um recurso de renovação automática.
@@ -327,7 +328,7 @@ Os atributos de certificado são espelhados para atributos de chave endereçáve
 
 Um certificado do Cofre de Chaves tem os seguintes atributos:  
 
--   *habilitado*: booliano, opcional, o padrão é **true**. Esse atributo pode ser especificado para indicar se os dados de certificado podem ser recuperados como segredo ou operável como uma chave. Isso é usado em conjunto com *nbf* e *exp* quando ocorre uma operação entre *nbf* e exp, ele só será permitido se habilitado estiver definido como true. As operações fora da janela *nbf* e*exp* são automaticamente proibidas.  
+-   *habilitado*: booliano, opcional, o padrão é **true**. Esse atributo pode ser especificado para indicar se os dados de certificado podem ser recuperados como segredo ou operável como uma chave. Isso é usado em conjunto com *nbf* e *exp* quando ocorre uma operação entre *nbf* e *exp* e só será permitido se” habilitado” estiver definido como true. As operações fora da janela *nbf* e *exp* são proibidas automaticamente.  
 
 Há mais atributos somente leitura que são incluídos em resposta:
 

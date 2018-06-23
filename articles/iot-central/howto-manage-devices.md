@@ -1,19 +1,19 @@
 ---
 title: Gerenciar os dispositivos no aplicativo Azure IoT Central | Microsoft Docs
 description: Como um operador, saiba como gerenciar dispositivos no aplicativo Azure IoT Central.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 75472d701160e7cfd331d01efcdc1a19ae20fb2d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303572"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807468"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerenciar dispositivos no aplicativo Azure IoT Central
 
@@ -54,7 +54,7 @@ Para adicionar um dispositivo ao aplicativo Azure IoT Central:
 Para conectar um grande número de dispositivos ao aplicativo, o Azure IoT Central oferece dispositivos de importação em massa por meio de um arquivo CSV. 
 
 Requisitos de arquivo CSV:
-1. O arquivo CSV deve ter apenas uma coluna contendo as IDs dos Dispositivos.
+1. O arquivo CSV deve ter apenas uma coluna com as IDs dos Dispositivos.
 
 1. O arquivo não deve ter nenhum cabeçalho.
 
@@ -77,8 +77,33 @@ Para dispositivos de registro em massa no aplicativo:
 
     [![Importação em Massa com Êxito](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-Se a operação de importação do dispositivo falhar, um erro será exibido na grade do dispositivo. Um arquivo de log que captura todos os erros é gerado e pode ser baixado clicando na mensagem de erro.
+Se a operação de importação do dispositivo falhar, uma mensagem de erro será exibida na grade do dispositivo. Um arquivo de log que captura todos os erros é gerado e pode ser baixado clicando na mensagem de erro.
 
+## <a name="export-devices"></a>Exportar dispositivos
+
+Para provisionar dispositivos para se conectar à IoT Central, você precisará de uma cadeia de conexão do dispositivo gerada pela IoT Central. Você pode usar o recurso Exportar para obter as cadeias de conexão e outras propriedades dos dispositivos em massa do seu aplicativo. A exportação cria um arquivo CSV com a identidade do dispositivo, o nome do dispositivo e a cadeia de conexão principal de todos os dispositivos selecionados.
+
+Para exportar em massa os dispositivos do seu aplicativo:
+1. Escolha **Explorer** no menu de navegação esquerdo.
+
+1. No painel esquerdo, escolha o modelo de dispositivo para o qual você deseja exportar os dispositivos.
+
+1. Selecione os dispositivos que você deseja exportar e, em seguida, clique em **Exportar**.
+
+    [![Exportar](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+
+1. O processo de exportação será iniciado e você poderá acompanhar o status na parte superior da grade. 
+
+1. Quando a exportação for concluída, será mostrada uma mensagem com um link para baixar o arquivo gerado.
+
+1. Clique na **mensagem** para baixar o arquivo para uma pasta local no disco.
+
+    [![Exportação bem-sucedida](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+
+1. O arquivo CSV exportado terá as seguintes informações:
+    1. NOME
+    1. Id do Dispositivo
+    1. Cadeia de conexão primária
 
 
 ## <a name="delete-a-device"></a>Excluir um dispositivo

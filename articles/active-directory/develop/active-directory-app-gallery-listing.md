@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 ms.author: celested
+ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 22833851b85427dd8e9583f9c783fd55b9d31414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354445"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594068"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
 
@@ -34,20 +35,19 @@ O Azure Active Directory é um serviço de identidade baseado em nuvem. A [galer
 
 *  Os clientes encontram a melhor experiência de logon único possível.
 
-*  A configuração do aplicativo é simples e mínima. 
+*  A configuração do aplicativo é simples e mínima.
 
 *  Uma pesquisa rápida localiza seu aplicativo na galeria.
 
-*  Clientes do Azure Active Directory Premium, Básico e Gratuito podem usar essa integração. 
+*  Clientes do Azure Active Directory Premium, Básico e Gratuito podem usar essa integração.
 
-*  Os clientes mútuos recebem um tutorial de configuração passo a passo. 
+*  Os clientes mútuos recebem um tutorial de configuração passo a passo.
 
 *  Os clientes que usam SCIM podem usar o provisionamento para o mesmo aplicativo.
 
-
 ##  <a name="prerequisites-implement-federation-protocol"></a>Pré-requisitos: implementar protocolo de federação
 
-Para listar um aplicativo na galeria de aplicativos do Azure Active Directory, primeiro é necessário implementar um dos seguintes protocolos de federação com suporte pelo Azure Active Directory. Leia os termos e as condições da galeria de aplicativos do Azure AD aqui. 
+Para listar um aplicativo na galeria de aplicativos do Azure AD, primeiro é necessário implementar um dos seguintes protocolos de federação compatíveis com o Azure AD, além de concordar com os termos e condições da Galeria de aplicativos do Azure AD. Leia [aqui](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/) os termos e condições da galeria de aplicativos do Azure AD.
 
 *   **OpenID Connect**: crie o aplicativo multilocatário no Azure Active Directory e implemente a [estrutura de consentimento do Azure Active Directory](active-directory-integrating-applications.md#overview-of-the-consent-framework) para seu aplicativo. Envie a solicitação de logon para um ponto de extremidade comum para que qualquer cliente possa dar consentimento ao aplicativo. É possível controlar acesso de usuário com base na ID do locatário e o UPN do usuário recebido no token. Para integrar o aplicativo com o Azure Active Directory, siga as [instruções do desenvolvedor](active-directory-authentication-scenarios.md).
 

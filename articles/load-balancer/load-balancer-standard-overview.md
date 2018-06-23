@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362304"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261926"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Visão geral do Azure Load Balancer Standard
 
@@ -33,7 +33,7 @@ O Load Balancer Standard é um novo produto Balanceador de Carga para aplicativo
 
 É possível usar o Load Balancer Standard como um Load Balancer interno ou público. E uma máquina virtual pode ser conectada a um recurso de Balanceador de Carga público e um interno.
 
-As funções de recurso do Balanceador de Carga são expressas como um front-end, uma regra, uma investigação de integridade e uma definição de pool de back-end.  Um recurso pode conter várias regras. Você pode colocar as máquinas virtuais no pool de back-end, especificando o pool de back-end do recurso NIC da máquina virtual.  No caso de um conjunto de dimensionamento de máquina virtual, este parâmetros é passado por meio do perfil de rede e expandido.
+As funções de recurso do Balanceador de Carga são expressas como um front-end, uma regra, uma investigação de integridade e uma definição de pool de back-end.  Um recurso pode conter várias regras. Você pode colocar as máquinas virtuais no pool de back-end, especificando o pool de back-end do recurso NIC da máquina virtual.  Este parâmetro é passado por meio do perfil de rede e expandido ao usar Conjuntos de Dimensionamento de Máquinas Virtuais.
 
 Um aspecto importante é o escopo da rede virtual para o recurso.  Embora exista o Load Balancer Basic dentro do escopo de um conjunto de disponibilidade, um Standard Load Balancer está totalmente integrado com o escopo de uma rede virtual e todos os conceitos de rede virtual se aplicam.
 
@@ -72,7 +72,7 @@ Revisar [limites de serviço para o Balanceador de Carga](https://aka.ms/lblimit
 
 Os pools de back-end do Load Balancer Standard aumenta para qualquer recurso de máquina virtual em uma rede virtual.  Pode conter até 1000 instâncias de back-end.  Uma instância de back-end é uma configuração de IP, que é uma propriedade de um recurso NIC.
 
-O pool de back-end pode conter as máquinas virtuais autônomas, conjuntos de disponibilidade ou conjuntos de escala de máquina virtual.  Você pode misturar recursos no pool de back-end e pode conter qualquer combinação desses recursos até o total de 150.
+O pool de back-end pode conter as máquinas virtuais autônomas, conjuntos de disponibilidade ou conjuntos de escala de máquina virtual.  Você também pode combinar recursos no pool de back-end. Você pode combinar até 150 recursos no pool de back-end por recurso do Load Balancer.
 
 Ao considerar como projetar seu pool de back-end, você pode projetar o menor número de recursos do pool de back-end individuais para otimizar ainda mais a duração de operações de gerenciamento.  Não há nenhuma diferença no desempenho do plano de dados ou escala.
 
@@ -90,7 +90,7 @@ Revise a [discussão detalhada das habilidades relacionadas às Zonas de Disponi
 
 ### <a name="diagnostics"></a>Diagnóstico
 
-O Load Balancer Standard fornece métricas multidimensionais por meio do Azure Monitor.  Essas métricas podem ser filtradas, agrupadas e fornecem informações atuais e históricas de desempenho e integridade do seu serviço.  Também há suporte para a Integridade de Recursos.  A seguir está uma visão geral de diagnóstico com suporte:
+O Load Balancer Standard fornece métricas multidimensionais por meio do Azure Monitor.  Essas métricas podem ser filtradas, agrupadas e divididas para uma determinada dimensão.  Elas fornecem informações atuais e históricas de desempenho e integridade do seu serviço.  Também há suporte para a Integridade de Recursos.  A seguir está uma visão geral de diagnóstico com suporte:
 
 | Métrica | DESCRIÇÃO |
 | --- | --- |
@@ -118,7 +118,7 @@ Revisão [da discussão detalhada de Portas de alta disponibilidade](load-balanc
 
 ### <a name="securebydefault"></a>Segurança por padrão
 
-O Load Balancer Standard é totalmente integrado à rede virtual.  A rede virtual é uma rede privada, fechada.  Como os Load Balancers Standard e os endereços de IP público são projetados para permitir que essa rede virtual seja acessada de fora da rede virtual, esses recursos agora são padrão para fechado, a menos que você os abra. Isso significa que os Grupos de Segurança de Rede (NSGs) são usados para permitir explicitamente e tráfego permitido de lista branca.  Você pode criar seu data center virtual inteiro e decidir por meio do NSG o que e quando deve estar disponível.  Se você não tiver um NSG em uma sub-rede ou NIC do recurso de máquina virtual, nós não permitiremos que tráfego acesse esse recurso.
+O Load Balancer Standard é totalmente integrado à rede virtual.  A rede virtual é uma rede privada, fechada.  Como os Load Balancers Standard e os endereços de IP público são projetados para permitir que essa rede virtual seja acessada de fora da rede virtual, esses recursos agora são padrão para fechado, a menos que você os abra. Isso significa que os Grupos de Segurança de Rede (NSGs) são usados para permitir explicitamente e tráfego permitido de lista branca.  Você pode criar seu data center virtual inteiro e decidir por meio do NSG o que e quando deve estar disponível.  Se você não tiver um NSG em uma sub-rede ou NIC de seu recurso de máquina virtual, o tráfego não terá permissão para acessar o recurso.
 
 Para saber mais sobre NSGs e como aplicá-los para seu cenário, consulte [Grupos de segurança de rede no Azure](../virtual-network/security-overview.md).
 

@@ -4,7 +4,7 @@ description: O cache da cadeia de caracteres de consulta da CDN do Azure control
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
 ms.service: cdn
@@ -12,19 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
-ms.openlocfilehash: a1ef5f3e502b5383343dbec2c427d36054a3edc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 3777689af72f580645826a1ca4e31ca84bd65dab
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260827"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Controlar o comportamento de cache da CDN do Azure com cadeias de caracteres de consulta - camada Premium
 > [!div class="op_single_selector"]
 > * [Camada Standard](cdn-query-string.md)
 > * [Camada Premium](cdn-query-string-premium.md)
-> 
 > 
 
 ## <a name="overview"></a>Visão geral
@@ -63,6 +63,6 @@ Estão disponíveis três modos de cadeia de caracteres de consulta:
 3. Selecione um modo de cadeia de caracteres de consulta e clique em **Atualização**.
 
 > [!IMPORTANT]
-> Como é necessário um tempo para que o registro se propague através da CDN, as alterações nas configurações da cadeia de caracteres de cache poderão não estar visíveis imediatamente. Para perfis da **CDN Premium do Azure da Verizon**, a propagação normalmente é concluída em 90 minutos.
+> Como é necessário um tempo para que o registro se propague através da CDN, as alterações nas configurações da cadeia de caracteres de cache poderão não estar visíveis imediatamente. A propagação geralmente é concluída em até 10 minutos.
  
 

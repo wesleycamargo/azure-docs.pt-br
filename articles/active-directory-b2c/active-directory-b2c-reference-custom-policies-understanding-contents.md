@@ -1,27 +1,27 @@
 ---
-title: 'Azure Active Directory B2C: noções básicas sobre políticas personalizadas do pacote starter | Microsoft Docs'
-description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
+title: Noções básicas sobre políticas personalizadas do pacote de início no Azure Active Directory B2C | Microsoft Docs
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: eb78e4c2f2e27d59d7925ac9eaffd1cef0924463
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711572"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Noções básicas sobre as políticas personalizadas do pacote starter de política personalizada do Azure AD B2C
 
 Esta seção lista todos os principais elementos da política B2C_1A_base que acompanha o **pacote starter** e que é utilizada para criar suas próprias políticas por meio da herança da *política B2C_1A_base_extensions*.
 
-Dessa forma, ela concentra-se principalmente no tipo de declaração já definido, transformações de declarações, definições de conteúdo, provedores de declarações com seus perfis técnicos e os percursos do usuário principal.
+Dessa forma, ela se concentra principalmente no tipo de declaração já definido, nas transformações de declarações, nas definições de conteúdo, nos provedores de declarações com seus perfis técnicos e nos percursos do usuário principal.
 
 > [!IMPORTANT]
 > A Microsoft não faz garantias, expressas nem implícitas, quanto às informações fornecidas daqui em diante. As alterações podem ser introduzidas a qualquer momento, antes do tempo de GA, no momento da GA, ou depois.
@@ -88,7 +88,7 @@ As seguintes declarações são necessárias para passar parâmetros especiais (
 | *grant_type* | O parâmetro especial é passado para a autenticação de conta local para login.microsoftonline.com |
 | *scope* | O parâmetro especial é passado para a autenticação de conta local para login.microsoftonline.com |
 | *client_id* | O parâmetro especial é passado para a autenticação de conta local para login.microsoftonline.com |
-| *objectIdFromSession* | Parâmetro fornecido pelo provedor de gerenciamento de sessão padrão para indicar que o id de objeto foi recuperado em uma sessão SSO |
+| *objectIdFromSession* | Parâmetro fornecido pelo provedor de gerenciamento de sessão padrão para indicar que a ID do objeto foi recuperada em uma sessão de SSO |
 | *isActiveMFASession* | Parâmetro fornecido pelo gerenciamento de sessão de MFA para indicar que o usuário tem uma sessão ativa do MFA |
 
 ### <a name="additional-optional-claims-that-can-be-collected"></a>Declarações adicionais (opcional) que podem ser coletadas
@@ -193,7 +193,7 @@ Esta seção descreve os perfis técnicos já declarados por provedor de declara
 | *SM-SocialLogin* | |
 | *SM-MFA* | |
 
-### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Perfis técnicos para TechnicalProfiles do mecanismo da política do Trustframework
+### <a name="technical-profiles-for-the-trust-framework-policy-engine"></a>Perfis técnicos para o mecanismo da política da estrutura confiável
 
 Atualmente, nenhum perfil técnico está definido para o provedor de declarações do **TechnicalProfiles do mecanismo da política do Trustframework**.
 

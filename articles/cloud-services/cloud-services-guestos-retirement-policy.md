@@ -1,11 +1,11 @@
 ---
-title: "Guia de capacidade de suporte e política de desativação para SO convidado do Azure | Microsoft Docs"
-description: "Fornece informações sobre a que a Microsoft dará suporte como relação ao sistema operacional convidado do Azure usado pelos Serviços de Nuvem."
+title: Guia de capacidade de suporte e política de desativação para SO convidado do Azure | Microsoft Docs
+description: Fornece informações sobre a que a Microsoft dará suporte como relação ao sistema operacional convidado do Azure usado pelos Serviços de Nuvem.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 4bc2d57cf4c7d6e0981aa1a5c7c989860600b897
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfa3bac95b9827789950b4931e3198237de4a1fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608555"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Capacidade de suporte e política de desativação do SO convidado do Azure
 As informações nesta página se relacionam ao sistema operacional convidado do Azure[(SO Convidado)](cloud-services-guestos-update-matrix.md)para serviços de nuvem funções web e de trabalho (PaaS). Não se aplicam às Máquinas Virtuais (IaaS).
@@ -33,9 +34,7 @@ A política é
 
 Às vezes, pode haver suporte para mais de duas famílias ou versões. Informações de suporte oficiais do SO convidado serão exibidas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md).
 
-## <a name="when-a-guest-os-family-or-version-is-retired"></a>Quando uma família ou versão de sistemas operacionais convidados for desativada
-Uma nova **família** de SOs convidados é introduzida algum tempo após o lançamento de uma nova versão oficial do sistema operacional Windows Server. Sempre que uma nova família de sistemas operacionais convidados é introduzida, a Microsoft desativa a família mais antiga do sistema operacional convidado.
-
+## <a name="when-a-guest-os-version-is-retired"></a>Quando uma versão de SO convidado é desativada
 As novas **versões** do SO convidado são lançadas a cada mês para incorporar as atualizações mais recentes do MSRC. Devido às atualizações regulares mensais, uma versão do SO convidado é desabilitada normalmente cerca de 60 dias após seu lançamento. Essa atividade mantém pelo menos duas versões de sistema operacional convidado para cada família disponíveis para uso.
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>Processo durante a desativação de uma família de sistemas operacionais convidados

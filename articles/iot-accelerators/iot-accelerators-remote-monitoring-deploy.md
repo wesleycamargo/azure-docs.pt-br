@@ -1,26 +1,23 @@
 ---
-title: Implantar a solução de monitoramento remoto – Azure | Microsoft Docs
-description: Este tutorial mostra como provisionar a solução de monitoramento remoto do azureiotsuite.com.
-services: iot-suite
-suite: iot-suite
+title: Implantar a solução de Monitoramento Remoto – Azure | Microsoft Docs
+description: Este tutorial mostra como provisionar o acelerador da solução de Monitoramento Remoto do azureiotsuite.com.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 8738fbfc29f6776a091cdc2b872eab88abd195cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 42f6afcd3cb6880ba6c9cdd2a51e2a3e9ff2c2d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626846"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator"></a>Implantar o acelerador de solução de monitoramento remoto
+# <a name="deploy-the-remote-monitoring-solution-accelerator"></a>Implantar o acelerador da solução de monitoramento remoto
 
-Este tutorial mostra como provisionar o acelerador de solução de monitoramento remoto. Você pode implantar a solução do azureiotsuite.com. Você também pode implantar a solução usando a CLI. Para saber mais sobre essa opção, consulte [Implantar um acelerador de solução da linha de comando](iot-accelerators-remote-monitoring-deploy-cli.md).
+Este tutorial mostra como provisionar o acelerador da solução de Monitoramento Remoto. Você pode implantar a solução do azureiotsuite.com. Você também pode implantar a solução usando a CLI. Para saber mais sobre essa opção, consulte [Implantar um acelerador de solução da linha de comando](iot-accelerators-remote-monitoring-deploy-cli.md).
 
 Neste tutorial, você aprenderá como:
 
@@ -43,9 +40,9 @@ Antes de implantar o acelerador de solução em sua assinatura do Azure, escolha
 
 1. Clique em **Experimentar Agora** no bloco **Monitoramento Remoto**.
 
-    ![Escolher o monitoramento remoto](./media/iot-accelerators-remote-monitoring-deploy/remotemonitoring.png)
+    ![Escolha Monitoramento Remoto](./media/iot-accelerators-remote-monitoring-deploy/remotemonitoring.png)
 
-1. Na página **Criar solução de Monitoramento Remoto**, insira um **Nome da solução** para seu acelerador de solução de monitoramento remoto.
+1. Na página **Criar solução de Monitoramento Remoto**, insira um **Nome da solução** para seu acelerador de solução de Monitoramento Remoto.
 
 1. Selecione uma implantação do tipo **Básico** ou **Standard**. Se você estiver implantando a solução para saber como ela funciona ou para executar uma demonstração, escolha a opção **Básico** para minimizar os custos.
 
@@ -63,20 +60,20 @@ Para obter informações de solução de problemas, consulte [What to do when a 
 
 ## <a name="sign-in-to-the-solution-accelerator"></a>Entrar no acelerador de solução
 
-Após a conclusão do processo de provisionamento, você poderá entrar em seu acelerador de solução de monitoramento remoto.
+Após a conclusão do processo de provisionamento, você poderá se conectar a seu acelerador da solução de Monitoramento Remoto.
 
-1. Na página **Soluções provisionadas**, escolha sua nova solução de monitoramento remoto:
+1. Na página **Soluções provisionadas**, escolha sua nova solução de Monitoramento Remoto:
 
     ![Escolher a nova solução](./media/iot-accelerators-remote-monitoring-deploy/choosenew.png)
 
-1. Você pode exibir informações sobre sua solução de monitoramento remoto no painel que é exibido. Escolha **Painel da solução** para conectar-se à solução de monitoramento remoto.
+1. Você pode exibir informações sobre a solução de Monitoramento Remoto no painel exibido. Escolha **Painel da solução** para se conectar à solução de Monitoramento Remoto.
 
     > [!NOTE]
-    > Você poderá excluir sua solução de monitoramento remoto usando este painel quando não precisar mais dela.
+    > Você poderá excluir sua solução de Monitoramento Remoto usando este painel quando não precisar mais dela.
 
     ![Painel de solução](./media/iot-accelerators-remote-monitoring-deploy/solutionpanel.png)
 
-1. O painel da solução de monitoramento remoto será exibido no seu navegador.
+1. O painel da solução de Monitoramento Remoto será exibido em seu navegador.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -87,6 +84,6 @@ Neste tutorial, você aprendeu como:
 > * Implantar o acelerador de solução
 > * Entrar no acelerador de solução
 
-Agora que você implantou a solução de monitoramento remoto, a próxima etapa será [explorar os recursos do painel da solução](iot-accelerators-remote-monitoring-explore.md).
+Agora que você implantou a solução de Monitoramento Remoto, a próxima etapa será [explorar os recursos do painel da solução](iot-accelerators-remote-monitoring-explore.md).
 
 <!-- Next tutorials in the sequence -->

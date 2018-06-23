@@ -13,14 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/06/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30763f88a7d78678411abd7fe7cc6375e00cb6f6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158979"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824261"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 O assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
@@ -186,9 +187,9 @@ A conta também recebe permissões para arquivos, chaves do registro e outros ob
 ### <a name="azure-ad-service-account"></a>Conta de serviço do AD do Azure
 Uma conta no Azure AD é criada para uso do serviço de sincronização. Essa conta pode ser identificada com seu nome de exibição.
 
-![Conta do AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![Conta do AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-O nome do servidor em que a conta é usada em pode ser identificado na segunda parte do nome do usuário. Na figura, nome do servidor é FABRIKAMCON. Se você tiver servidores de teste, cada servidor terá sua própria conta.
+O nome do servidor em que a conta é usada em pode ser identificado na segunda parte do nome do usuário. Na imagem, o nome do servidor é DC1. Se você tiver servidores de teste, cada servidor terá sua própria conta.
 
 A conta de serviço é criada com uma senha longa e complexa que não expira. Ela recebe uma função especial **Contas de sincronização de diretório** que tem somente permissões para executar tarefas de sincronização de diretório. Essa função interna especial não pode ser concedida fora do assistente do Azure AD Connect. O Portal do Azure mostra essa conta com a função **Usuário**.
 

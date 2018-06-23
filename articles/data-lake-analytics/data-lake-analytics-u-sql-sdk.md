@@ -1,28 +1,24 @@
 ---
-title: Escalar a execução e o teste locais do U-SQL com o SDK do U-SQL do Azure Data Lake | Microsoft Docs
-description: Saiba como usar o SDK do U-SQL do Azure Data Lake para escalar a execução e o teste locais de trabalhos do U-SQL com a linha de comando e interfaces de programação na estação de trabalho local.
+title: Executar e testar trabalhos de U-SQL localmente usando o SDK do U-SQL do Azure Data Lake
+description: Saiba como executar e testar trabalhos de U-SQL localmente usando a linha de comando e as interfaces de programação na estação de trabalho local.
 services: data-lake-analytics
-documentationcenter: ''
-author: ''
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/01/2017
+author: yanacai
 ms.author: yanacai
-ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 03/01/2017
+ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737064"
 ---
-# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Escalar a execução e o teste locais do U-SQL com o SDK do U-SQL do Azure Data Lake
+# <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com o SDK do U-SQL do Azure Data Lake
 
-Ao desenvolver o script U-SQL, é comum executar e testá-lo localmente antes enviá-lo para a nuvem. O Azure Data Lake fornece um pacote NuGet chamado SDK do U-SQL do Azure Data Lake para este cenário, por meio do qual é possível escalar a execução e o teste locais do U-SQL com facilidade. Também é possível integrar esse teste do U-SQL ao sistema de CI (Integração Contínua) para automatizar a compilação e o teste.
+Ao desenvolver o script U-SQL, é comum executar e testá-lo localmente antes enviá-lo para a nuvem. O Azure Data Lake fornece um pacote NuGet chamado SDK do U-SQL do Azure Data Lake para este cenário, por meio do qual é possível escalar a execução e o teste do U-SQL com facilidade. Também é possível integrar esse teste do U-SQL ao sistema de CI (Integração Contínua) para automatizar a compilação e o teste.
 
 Se você se preocupa em como executar e depurar o script U-SQL no local manualmente com ferramentas de GUI, é possível usar as Ferramentas do Azure Data Lake para Visual Studio para essa finalidade. Saiba mais [aqui](data-lake-analytics-data-lake-tools-local-run.md).
 
@@ -212,12 +208,12 @@ O comando **execute** é usado para executar os resultados compilados.
 
 Estes são os argumentos opcionais para **execute**:
 
-|Argumento|DESCRIÇÃO|
-|--------|-----------|
-|-DataRoot [valor padrão '']|Raiz de dados para a execução de metadados. A variável de ambiente **LOCALRUN_DATAROOT** passa a ser o padrão.|
-|-MessageOut [valor padrão '']|Despeje as mensagens do console em um arquivo.|
-|-Parallel [valor padrão '1']|Indicador para executar as etapas de execução local geradas com o nível de paralelismo especificado.|
-|-Verbose [valor padrão 'False']|Indicador para mostrar saídas detalhadas do tempo de execução.|
+|Argumento|Valor padrão|DESCRIÇÃO|
+|--------|-------------|-----------|
+|-DataRoot | '' |Raiz de dados para a execução de metadados. A variável de ambiente **LOCALRUN_DATAROOT** passa a ser o padrão.|
+|-MessageOut | '' |Despeje as mensagens do console em um arquivo.|
+|-Parallel | '1' |Indicador para executar as etapas de execução local geradas com o nível de paralelismo especificado.|
+|-Verbose | 'False' |Indicador para mostrar saídas detalhadas do tempo de execução.|
 
 Aqui está um exemplo de uso:
 

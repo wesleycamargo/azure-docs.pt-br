@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9107464acefe75141950c0d07298c8ad946e0ddc
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260355"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, você define uma estratégia de adoção para sua solução de identidade híbrida para atender aos requisitos de negócios que abordamos nos tópicos:
@@ -32,7 +34,7 @@ Nesta tarefa, você define uma estratégia de adoção para sua solução de ide
 A primeira tarefa aborda como determinar as necessidades de negócios das organizações.  Isso é muito amplo e pode não atender aos objetivos, se você não atuar com precisão.  Mantenha a simplicidade no início, mas lembre-se sempre de planejar um design adequado para facilitar e ajustar as alterações no futuro.  O Active Directory do Azure é a plataforma de identidade da Microsoft usada para um design simples ou extremamente complexo, que tem suporte para o Office 365, o Microsoft Online Services e os aplicativos com reconhecimento de nuvem.
 
 ## <a name="define-an-integration-strategy"></a>Definir uma estratégia de integração
-A Microsoft tem três cenários básicos de integração: as identidades de nuvem, as identidades sincronizadas e as identidades federadas.  Planeje a adoção de uma dessas estratégias de integração.  A escolha da estratégia pode variar e as decisões na escolha envolvem: determinar o tipo de experiência de usuário que você pretende fornecer, saber se você já tem alguma infraestrutura no local e determinar qual é a mais eficiente.  
+A Microsoft tem três cenários básicos de integração: as identidades de nuvem, as identidades sincronizadas e as identidades federadas.  Planeje a adoção de uma dessas estratégias de integração.  A escolha da estratégia pode variar e as decisões na escolha envolvem: determinar o tipo de experiência de usuário que você pretende fornecer, saber se você já tem uma infraestrutura existente no local e determinar qual é a mais eficiente.  
 
 ![](./media/hybrid-id-design-considerations/integration-scenarios.png)
 
@@ -51,7 +53,7 @@ A tabela a seguir ajuda a determinar as vantagens e desvantagens de cada uma das
 
 | Estratégia | Vantagens | Desvantagens |
 | --- | --- | --- |
-| **Identidades de nuvem** |Mais fácil de gerenciar para as organizações de pequeno porte. <br> Nada para instalar no local. Sem necessidade de hardware adicional<br>Desativado facilmente se o usuário deixar a empresa |Os usuários deverão se conectar ao acessar cargas de trabalho na nuvem <br> As senhas podem ser as mesmas para as identidades locais ou de nuvem |
+| **Identidades de nuvem** |Mais fácil de gerenciar para as organizações de pequeno porte. <br> Nada a instalar localmente. Nenhum hardware adicional necessário<br>Desativado facilmente se o usuário deixar a empresa |Os usuários deverão se conectar ao acessar cargas de trabalho na nuvem <br> As senhas podem ser as mesmas para as identidades locais ou de nuvem |
 | **Identidades sincronizadas** |A senha local autentica ambos os diretórios locais e na nuvem <br>Mais fácil de gerenciar para organizações de pequeno, médio ou grande porte <br>Os usuários podem usar SSO (Logon único) para alguns recursos <br> Método preferido da Microsoft para sincronização <br> Mais fácil de gerenciar |Alguns clientes podem resistir em sincronizar seus diretórios na nuvem devido a determinadas políticas da empresa |
 | **Federado** |Os usuários podem fazer SSO  <br>Se um usuário for encerrado ou sair, a conta poderá ser imediatamente desabilitada e o acesso revogado,<br> Com suporte para cenários avançados que não podem ser realizados com sincronização |Mais etapas para definir e configurar <br> Maior manutenção <br> Pode exigir hardware adicional para a infra-estrutura do STS <br> Pode exigir hardware adicional para instalar o servidor de federação. Um software adicional será necessário se o AD FS for utilizado <br> Requer configuração ampla para SSO <br> Ponto de falha crítico se o servidor de federação estiver desativado, os usuários não conseguirão autenticar |
 
@@ -65,7 +67,7 @@ A estratégia adotada define a experiência de entrada do usuário.  A tabela a 
 | Navegadores da Web |Autenticação baseada em formulários |Às vezes requer logon único para fornecer a ID da organização |
 | Outlook |Solicita credenciais |Solicita credenciais |
 | Skype for Business (Lync) |Solicita credenciais |logon único para o Lync, solicitação de credenciais para o Exchange |
-| Skydrive Pro |Solicita credenciais |logon único |
+| OneDrive for Business |Solicita credenciais |logon único |
 | Assinatura do Office Pro Plus |Solicita credenciais |logon único |
 
 **Fontes externas ou não confiáveis**:
@@ -73,7 +75,7 @@ A estratégia adotada define a experiência de entrada do usuário.  A tabela a 
 |  | Identidade sincronizada | Identidade federada |
 | --- | --- | --- |
 | Navegadores da Web |Autenticação baseada em formulários |Autenticação baseada em formulários |
-| Outlook, Skype for Business (Lync), Skydrive Pro, assinatura do Office |Solicita credenciais |Solicita credenciais |
+| Outlook, Skype for Business (Lync), OneDrive for Business, assinatura do Office |Solicita credenciais |Solicita credenciais |
 | Exchange ActiveSync |Solicita credenciais |logon único para o Lync, solicitação de credenciais para o Exchange |
 | Aplicativos móveis |Solicita credenciais |Solicita credenciais |
 
@@ -119,7 +121,7 @@ Escolha a topologia que vai usar quando definir a estratégia de sincronização
 
 Cenário de topologia de várias florestas
 
-Se esse o caso, considere a topologia de várias florestas do AD do Azure, caso os itens a seguir sejam atendidos:
+Se esse for o caso, considere a topologia de várias florestas do Azure AD, caso os itens a seguir sejam atendidos:
 
 * Os usuários têm apenas 1 identidade para todas as florestas. A seção abaixo, exclusiva para identificação de usuários, descreve isso com mais detalhes.
 * O usuário se autentica na floresta em que sua identidade está localizada.

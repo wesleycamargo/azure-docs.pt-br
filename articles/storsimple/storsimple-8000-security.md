@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650930"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança de StorSimple
 
@@ -204,6 +205,18 @@ O StorSimple usa os seguintes algoritmos de criptografia para proteger os dados 
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
+## <a name="managing-personal-inforamation"></a>Gerenciando informações pessoais
+
+O StorSimple Device Manager para séries físicas e virtuais coleta informações pessoais nas seguintes instâncias principais:
+
+- Configurações de usuário de alerta em que os endereços de email dos usuários são configurados. Essas informações podem ser vistas e apagadas pelo administrador. Isso se aplica aos dispositivos da série StorSimple 8000 e Matrizes Virtual StorSimple.
+ * Para exibir e limpar as configurações de série 8000 StorSimple, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+ * Para exibir e limpar as configurações de série StorSimple Virtual Array, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+- Usuários que podem acessar os dados que residem nos compartilhamentos. Uma lista de usuários que podem acessar os dados de compartilhamento é exibida e pode ser vista. Essa lista também será excluída quando os compartilhamentos são excluídos. Isso se aplica somente a matrizes de Virtual do StorSimple.
+ * Para exibir a lista de usuário que pode acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos no StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
+
+Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
+
 ## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
 A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azure StorSimple.
@@ -268,19 +281,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **R:** Como todos os dados são criptografados no serviço e a chave privada é mantida com o dispositivo, a entidade governamental deverá solicitar os dados ao cliente.
 
-## <a name="gdpr-compliance"></a>Conformidade de GDPR
 
-O [GDPR (Regulamento Geral sobre a Proteção de Dados)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é uma lei de privacidade e proteção de dados da União Europeia (UE). O GDPR contém muitos requisitos sobre como coletar, armazenar e usar informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam da UE e coletam, analisam dados vinculados para residentes da UE. 
-
-O Gerenciador de Dispositivos de StorSimple para séries virtuais e físicas é compatível com GDPR. Há duas instâncias de chave, onde as informações pessoais são coletadas e exibidas no serviço:
-
-- Configurações de usuário de alerta em que os endereços de email dos usuários são configurados. Essas informações podem ser vistas e apagadas pelo administrador. Isso se aplica aos dispositivos da série StorSimple 8000 e Matrizes Virtual StorSimple.
- * Para exibir e limpar as configurações de série 8000 StorSimple, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Para exibir e limpar as configurações de série StorSimple Virtual Array, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
-- Usuários que podem acessar os dados que residem nos compartilhamentos. Uma lista de usuários que podem acessar os dados de compartilhamento é exibida e pode ser vista. Essa lista também será excluída quando os compartilhamentos são excluídos. Isso se aplica somente a matrizes de Virtual do StorSimple.
- * Para exibir a lista de usuário que pode acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos no StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
-
-Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,22 +1,19 @@
 ---
 title: Cobertura de geocodificação nos Mapas do Azure | Microsoft Docs
 description: Saiba mais sobre a cobertura de geocodificação nos Mapas do Azure
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: a7dc7a1dbf024b6d334ec374f78d5e912db3835c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6602453abd02bf91b135980b4d2c7f99ba60c236
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600282"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura da geocodificação dos Mapas do Azure
 
@@ -34,7 +31,7 @@ Quando você procura um local com o Mapas do Azure, o serviço de pesquisa usa o
 | Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Barbados                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Belize                                              |                 |                |              |      ✓     |          ✓         |
-| Bermuda                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Bermudas                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bolívia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bonaire, Santo Eustáquio e Saba|                 |                |              |      ✓     |          ✓         |
 | Brasil                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -136,7 +133,7 @@ Quando você procura um local com o Mapas do Azure, o serviço de pesquisa usa o
 | Taiwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tailândia                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Tokelau                                             |                 |                |              |      ✓     |          ✓         |
-| Tonga                                               |                 |                |              |      ✓     |          ✓         |
+| Tonganês                                               |                 |                |              |      ✓     |          ✓         |
 | Ilhas Turks e Caicos                            |                 |                |              |      ✓     |          ✓         |
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
@@ -161,7 +158,7 @@ Quando você procura um local com o Mapas do Azure, o serviço de pesquisa usa o
 | República Tcheca                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Dinamarca                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Estônia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Ilhas Faroés                                       |                 |                |              |      ✓     |          ✓         |
+| Ilhas Faroe                                       |                 |                |              |      ✓     |          ✓         |
 | Finlândia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | França                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Geórgia                                             |                 |                |              |      ✓     |          ✓         |
@@ -237,7 +234,7 @@ Quando você procura um local com o Mapas do Azure, o serviço de pesquisa usa o
 | República da Guiné Equatorial                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritreia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Etiópia                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Territórios Austrais Franceses|                 |                |              |      ✓     |          ✓         |
+| Territórios Franceses do Sul|                 |                |              |      ✓     |          ✓         |
 | Gabão                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Gâmbia                                              |                 |                |              |      ✓     |          ✓         |
 | Gana                                               |                 |                |       ✓      |      ✓     |          ✓         |

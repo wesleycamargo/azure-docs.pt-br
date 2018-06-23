@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço M
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/28/2018
 ms.author: raynew
-ms.openlocfilehash: be4fb15d96f5598d4b1ddbbaa4befe7f6530152c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203532"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639139"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -69,12 +69,12 @@ Sistemas operacionais de 32 bits | O computador pode ser inicializado no Azure, 
 
 ## <a name="sizing"></a>Dimensionamento
 
-Depois que uma máquina é marcada como pronta para o Azure, as Migrações para Azure dimensionam a VM e seus discos para o Azure. Se o critério de dimensionamento especificado nas propriedades de avaliação é para fazer o dimensionamento com base no desempenho, as Migrações para Azure consideram o histórico de desempenho do computador para identificar um tamanho de VM no Azure. Esse método é útil em cenários onde você alocou em excesso a VM local, mas a utilização é baixa e você deseja redimensionar as VMs no Azure para salvar o custo.
+Depois que uma máquina é marcada como pronta para o Azure, as Migrações para Azure dimensionam a VM e seus discos para o Azure. Se o critério de dimensionamento especificado nas propriedades de avaliação for de fazer o dimensionamento com base no desempenho, as Migrações para Azure considerarão o histórico de desempenho do computador para identificar o tamanho e o tipo de disco da VM no Azure. Esse método é útil em cenários onde você alocou em excesso a VM local, mas a utilização é baixa e você deseja redimensionar as VMs no Azure para salvar o custo.
 
 > [!NOTE]
 > As Migrações para Azure coletam o histórico de desempenho de máquinas virtuais locais do vCenter Server. Para garantir um redimensionamento correto, verifique se a configuração de estatísticas no vCenter Server está definida para o nível 3 e aguarde pelo menos um dia antes de iniciar a descoberta de máquinas virtuais locais. Se a configuração de estatísticas no vCenter Server for menor que o nível 3, os dados de desempenho de disco e de rede não são coletados.
 
-Se você não deseja considerar o histórico de desempenho para dimensionamento da VM e deseja levar a VM como está para o Azure, você pode especificar o critério de dimensionamento como *como local* e as Migrações para Azure dimensionarão as VMs com base na configuração local sem considerar os dados de utilização. Dimensionamento de disco, nesse caso, ainda se baseará nos dados de desempenho.
+Se você não deseja considerar o histórico de desempenho para dimensionamento da VM e deseja levar a VM como está para o Azure, você pode especificar o critério de dimensionamento como *como local* e as Migrações para Azure dimensionarão as VMs com base na configuração local sem considerar os dados de utilização. O dimensionamento de disco, nesse caso, será feito com base no tipo de armazenamento que você especificar nas propriedades de avaliação (disco Standard ou Premium)
 
 ### <a name="performance-based-sizing"></a>Dimensionamento com base no desempenho
 
@@ -103,25 +103,13 @@ Para dimensionamento com base no desempenho, as Migrações para Azure iniciam c
     - Se houver vários discos qualificados, será recomendado aquele com o menor custo.
 
 ### <a name="as-on-premises-sizing"></a>Como dimensionamento local
-Se o critério de dimensionamento é  *dimensionamento como local*, as Migrações para Azure não consideram o histórico de desempenho das VMs e alocam VMs de acordo com o tamanho alocado no local. No entanto, para o dimensionamento do disco, ele considera o histórico de desempenho de discos para recomendar discos Standard ou Premium.  
-- **Armazenamento**: as Migrações para Azure mapeiam todos os discos anexados à máquina para um disco no Azure.
-
-    > [!NOTE]
-    > As Migrações para Azure oferecem suporte somente a discos gerenciados para avaliação.
-
-    - Para obter a E/S de disco por segundo (IOPS) e a taxa de transferência (MBps) efetivas, as Migrações para Azure multiplicam o IOPS de disco e a taxa de transferência com o fator de conforto. Com base nos valores eficazes da taxa de transferência e IOPS, as Migrações para Azure identificam se o disco deve ser mapeado para um disco padrão ou premium no Azure.
-    - Se as Migrações para Azure não conseguirem encontrar um disco com a IOPS e a taxa de transferência necessárias, ele marcará a máquina como inadequada para o Azure. [Saiba mais](../azure-subscription-service-limits.md#storage-limits) sobre os limites do Azure por disco e VM.
-    - Se ele encontrar um conjunto de discos adequados, as Migrações para Azure selecionarão aqueles que dão suporte ao método de redundância de armazenamento e ao local especificado nas configurações de avaliação.
-    - Se houver vários discos qualificados, elas selecionarão os que têm o menor custo.
-    - Se os dados de desempenho de discos estiverem indisponíveis, todos os discos serão mapeados para os discos padrão no Azure.
-- **Rede**: Para cada adaptador de rede, é recomendado um adaptador de rede no Azure.
-- **Computação**: As Migrações para Azure analisam o número de núcleos e o tamanho da memória da VM local e recomenda uma VM do Azure com a mesma configuração. Se houver vários discos qualificados, será recomendado aquele com o menor custo. Dados de utilização de CPU e memória não são considerados para dimensionamento no local.
+Se o critério de dimensionamento for de *dimensionamento como local*, as Migrações para Azure não considerarão o histórico de desempenho das VMs e dos discos e alocarão uma SKU da VM no Azure de acordo com o tamanho alocado localmente. De forma semelhante ao dimensionamento de disco, elas examinam o tipo de armazenamento especificado nas propriedades de avaliação (Standard/Premium) e recomendam o tipo de disco de acordo com ele. O tipo de armazenamento padrão são os discos Premium.
 
 ### <a name="confidence-rating"></a>Classificação de confiança
 
 Cada avaliação das Migrações para Azure está associada a uma classificação de confiança que varia de 1 a 5 estrelas (1 estrela sendo a mais baixa e 5 estrelas sendo a mais alta). A classificação de confiança é atribuída a uma avaliação com base na disponibilidade de pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a estimar a confiabilidade das recomendações de tamanho fornecidas pelas Migrações para Azure.
 
-Para o dimensionamento baseado em desempenho da VM, as Migrações para Azure precisam dos dados de utilização da CPU e da memória. Além disso, para o dimensionamento de cada disco anexado à VM, é necessário ter a IOPS de leitura/gravação e a taxa de transferência. Da mesma forma, para cada adaptador de rede conectado à VM, as Migrações para Azure precisam da rede de entrada/saída para fazer o dimensionamento com base no desempenho. Se qualquer um dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelas Migrações para Azure pode não ser confiável. Dependendo da porcentagem de pontos de dados disponível, o nível de confiança para as avaliações é fornecido conforme abaixo:
+A classificação de confiança de uma avaliação é mais útil para avaliações com um critério de dimensionamento baseado em desempenho. Para o dimensionamento com base no desempenho, as Migrações para Azure precisam de dados de utilização da CPU e memória da VM. Além disso, para cada disco anexado à VM, é necessário ter os dados da taxa de transferência e a IOPS do disco. Da mesma forma, para cada adaptador de rede conectado à VM, as Migrações para Azure precisam da entrada/saída da rede para fazer o dimensionamento com base no desempenho. Se qualquer um dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelas Migrações para Azure pode não ser confiável. Dependendo da porcentagem de pontos de dados disponível, o nível de confiança para as avaliações é fornecido conforme abaixo:
 
    **Disponibilidade dos pontos de dados** | **Classificação de confiança**
    --- | ---

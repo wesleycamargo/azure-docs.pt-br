@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/12/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3baf616e448f1f6d5292161ae125502d72141940
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161049"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266587"
 ---
 # <a name="create-custom-roles-in-azure"></a>Criar funções personalizadas no Azure
 
-Se as [funções internas](built-in-roles.md) não atenderem às suas necessidades específicas de acesso, você pode criar suas próprias funções personalizadas. Assim como as funções internas, é possível atribuir funções personalizadas a usuários, grupos e entidades de serviço na assinatura, no grupo de recursos e nos escopos de recurso. As funções personalizadas são armazenadas em um locatário do Azure Active Directory (Azure AD) e podem ser compartilhadas entre assinaturas. É possível criar funções personalizadas usando o Azure PowerShell, a CLI do Azure ou a API REST. Este artigo descreve um exemplo de como começar a criar funções personalizadas usando o PowerShell e a CLI do Azure.
+Se as [funções internas](built-in-roles.md) não atenderem às suas necessidades específicas de acesso, você pode criar suas próprias funções personalizadas. Assim como as funções internas, é possível atribuir funções personalizadas a usuários, grupos e entidades de serviço na assinatura, no grupo de recursos e nos escopos de recurso. As funções personalizadas são armazenadas em um locatário do Azure Active Directory (Azure AD) e podem ser compartilhadas entre assinaturas. Cada locatário pode ter até 2000 funções personalizadas. É possível criar funções personalizadas usando o Azure PowerShell, a CLI do Azure ou a API REST.
+
+Este artigo descreve um exemplo de como começar a criar funções personalizadas usando o PowerShell e a CLI do Azure.
 
 ## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>Crie uma função personalizada para abrir as solicitações de suporte usando o PowerShell
 

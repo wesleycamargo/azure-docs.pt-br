@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 0303f16de143247ac30a7dd4773b4da11f29c9d3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736180"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar usuários e proprietários aos Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -60,25 +61,27 @@ A tabela a seguir ilustra as ações que podem ser executadas por usuários em c
 > 
 
 ## <a name="add-an-owner-or-user-at-the-lab-level"></a>Adicionar um usuário ou proprietário no nível do laboratório
-Os proprietários e os usuários podem ser adicionados no nível do laboratório por meio do portal do Azure. Isso inclui usuários externos com uma [Conta da Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account)válida.
+Os proprietários e os usuários podem ser adicionados no nível do laboratório por meio do portal do Azure. Um usuário pode ser externo com uma [Conta Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account)válida.
 As etapas a seguir vão orientá-lo durante o processo de adição de um proprietário ou de um usuário a um laboratório nos Azure DevTest Labs:
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado.
-4. Na folha do laboratório, selecione **Configuração**. 
-5. Na folha **Configuração**, selecione **Usuários**.
-6. Na folha **Usuários**, selecione **+Adicionar**.
-   
+4. Na folha do laboratório, selecione **Configuração e Políticas**. 
+5. Na página **Configuração e políticas**, selecione **Controle de acesso (IAM)** no menu à esquerda. 
+6. Selecione **Adicionar** na barra de ferramentas para adicionar um usuário a uma função.
+
     ![Adicionar usuário](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-7. Na folha **Selecionar uma função** , selecione a função desejada. A seção [Ações que podem ser executadas em cada função](#actions-that-can-be-performed-in-each-role) lista as diversas ações que podem ser executadas por usuários nas funções Proprietário, Usuário de DevTest e Colaborador.
-8. Na folha **Adicionar usuários** , insira o endereço de email ou o nome do usuário que você deseja adicionar à função especificada. Se o usuário não for encontrado, uma mensagem de erro explicará o problema. Se o usuário for encontrado, esse usuário será listado e selecionado. 
-9. Selecione **Selecionar**.
-10. Selecione **OK** para fechar a folha **Adicionar acesso**.
+1. Na janela **Adicionar permissões**, execute as ações a seguir: 
+    1. Selecione uma função (por exemplo, usuário do DevTest Labs). A seção [Ações que podem ser executadas em cada função](#actions-that-can-be-performed-in-each-role) lista as diversas ações que podem ser executadas por usuários nas funções Proprietário, Usuário de DevTest e Colaborador.
+    2. Selecione o usuário a ser adicionado à função. 
+    3. Clique em **Salvar**. 
+
+        ![Adicionar usuário à função](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. Quando você retornar para a folha **Usuários** , o usuário terá sido adicionado.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Adicionar um usuário externo a um laboratório usando o PowerShell
-Além de adicionar usuários no portal do Azure, você poderá adicionar um usuário externo ao seu laboratório usando um script do PowerShell. No exemplo a seguir, apenas modifique os valores de parâmetro no comentário **Valores a alterar** .
+Além de adicionar usuários no portal do Azure, você poderá adicionar um usuário externo ao seu laboratório usando um script do PowerShell. No exemplo a seguir, modifique os valores de parâmetro no comentário **Valores a serem alterados**.
 Você pode recuperar os valores `subscriptionId`, `labResourceGroup` e `labName` da folha do laboratório no portal do Azure.
 
 > [!NOTE]

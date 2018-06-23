@@ -1,13 +1,14 @@
 ---
-title: "Ingressar em um novo dispositivo Windows 10 com o Azure AD durante uma primeira execução | Microsoft Docs"
-description: "Um tópico que explica como os usuários podem configurar a Junção do Azure AD durante sua experiência de primeira execução."
+title: Ingressar em um novo dispositivo Windows 10 com o Azure AD durante uma primeira execução | Microsoft Docs
+description: Um tópico que explica como os usuários podem configurar a Junção do Azure AD durante sua experiência de primeira execução.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0341c5b65816cf1c54fe3f2f7781dde46bf084ad
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757385"
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Ingressar em um novo dispositivo Windows 10 com o Azure AD durante uma primeira execução
 
@@ -37,6 +39,8 @@ Não há suporte para o ingresso em um domínio local do AD (Active Directory) n
 ## <a name="before-you-begin"></a>Antes de começar
 
 Para ingressar em um dispositivo Windows 10, o serviço de registro do dispositivo deverá ser configurado para permitir que você registre dispositivos. Além de ter permissão para ingressar em dispositivos em seu locatário do Azure AD, você deverá ter menos dispositivos registrados que o máximo configurado. Para obter mais detalhes, confira [Configurar configurações do dispositivo](device-management-azure-portal.md#configure-device-settings).
+
+Além disso, se seu locatário for federado, seu provedor de identidade PRECISARÁ dar suporte aos pontos de extremidade de nome de usuário/senha WS-Fed e WS-Trust. Pode ser a versão 1.3 ou 2005. O suporte deste protocolo é necessário para ingressar o dispositivo no Azure AD e para fazer logon no dispositivo com senha.
 
 ## <a name="joining-a-device"></a>Ingressar em um dispositivo
 

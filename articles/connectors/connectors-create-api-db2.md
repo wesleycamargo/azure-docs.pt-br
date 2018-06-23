@@ -1,25 +1,22 @@
 ---
-title: "Adicionar o conector do DB2 nos Aplicativos Lógicos | Microsoft Docs"
-description: "Visão geral do conector do DB2 com parâmetros da API REST"
-services: 
-documentationcenter: 
+title: Conectar ao DB2 – Aplicativo Lógico do Azure | Microsoft Docs
+description: Gerenciar recursos com as APIs REST do DB2 e o Aplicativo Lógico do Azure
 author: gplarsen
-manager: erikre
-editor: 
-tags: connectors
-ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, estfan
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 507bc48b6b775d6a6fb5f855210d33520e187a74
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295084"
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introdução ao Conector do DB2
 O conector da Microsoft para DB2 conecta os Aplicativos Lógicos aos recursos armazenados em um banco de dados DB2 da IBM. Este conector inclui um cliente Microsoft para se comunicar com computadores de servidores DB2 remotos em uma rede TCP/IP. Isso inclui bancos de dados de nuvem, como IBM Bluemix dashDB ou IBM DB2 para Windows em execução na virtualização do Azure e bancos de dados locais usando o gateway de dados local. Veja a [lista](connectors-create-api-db2.md#supported-db2-platforms-and-versions) de plataformas e versões do IBM DB2 com suporte (neste tópico).
@@ -148,7 +145,7 @@ Você pode definir uma ação de aplicativo lógico para buscar todas as linhas 
     ![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
 10. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
 11. Opcionalmente, selecione **Mostrar opções avançadas** para especificar as opções de consulta.
-12. Selecione **Salvar**. 
+12. Clique em **Salvar**. 
     
     ![](./media/connectors-create-api-db2/Db2connectorGetRowsTableName.png)
 13. Na folha **Db2getRows**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
@@ -175,7 +172,7 @@ Você pode definir uma ação de aplicativo lógico para adicionar uma linha a u
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
 8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
 9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**, digite `Area 99999` e digite `102` para **REGIONID**. 
-10. Selecione **Salvar**.
+10. Clique em **Salvar**.
     
     ![](./media/connectors-create-api-db2/Db2connectorInsertRowValues.png)
 11. Na folha **Db2insertRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
@@ -203,7 +200,7 @@ Você pode definir uma ação de aplicativo lógico para buscar uma linha em uma
 8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
 9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**. 
 10. Opcionalmente, selecione **Mostrar opções avançadas** para especificar as opções de consulta.
-11. Selecione **Salvar**. 
+11. Clique em **Salvar**. 
     
     ![](./media/connectors-create-api-db2/Db2connectorGetRowValues.png)
 12. Na folha **Db2getRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
@@ -230,7 +227,7 @@ Você pode definir uma ação de aplicativo lógico para alterar uma linha em um
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
 8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
 9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**, digite `Updated 99999` e digite `102` para **REGIONID**. 
-10. Selecione **Salvar**. 
+10. Clique em **Salvar**. 
     
     ![](./media/connectors-create-api-db2/Db2connectorUpdateRowValues.png)
 11. Na folha **Db2updateRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).

@@ -8,19 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202126"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850001"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução ao gerenciamento de dispositivos no Azure Active Directory
 
@@ -31,9 +32,9 @@ Em um mundo que prioriza os dispositivos móveis e a nuvem, o Azure AD (Azure Ac
 
 Por meio de dispositivos, os usuários têm acesso aos ativos corporativos. Para proteger os ativos corporativos, como um administrador de TI, você quer ter controle sobre esses dispositivos. Desse modo, você tem a certeza de que os usuários estão acessando os recursos de dispositivos que atendem aos padrões de segurança e conformidade. 
 
-O gerenciamento de dispositivo também é a base para [acesso condicional com base no dispositivo](active-directory-conditional-access-policy-connected-applications.md). Com o acesso condicional com base no dispositivo, você pode garantir que o acesso a recursos em seu ambiente somente seja possível com dispositivos confiáveis.   
+O gerenciamento de dispositivo também é a base para [acesso condicional com base no dispositivo](active-directory-conditional-access-policy-connected-applications.md). Com o acesso condicional com base no dispositivo, você pode garantir que o acesso a recursos em seu ambiente somente seja possível com dispositivos gerenciados.   
 
-Este tópico explica como funciona o gerenciamento de dispositivo no Azure Active Directory.
+Este artigo explica como funciona o gerenciamento de dispositivo no Azure Active Directory.
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Colocando dispositivos sob controle do Azure AD
 
@@ -69,12 +70,16 @@ A meta dos dispositivos adicionados ao Azure AD é simplificar:
 
 - As implantações de dispositivos Windows que pertencem à organização 
 - O acesso a aplicativos e recursos organizacionais de qualquer dispositivo Windows
+- Gerenciamento baseado em nuvem de dispositivos empresariais
 
 ![Dispositivos registrados no Azure AD](./media/device-management-introduction/02.png)
 
+O Ingresso no Azure AD pode ser implantado usando um destes métodos: 
+ - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Implantação em massa](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Experiência de autoatendimento](device-management-azuread-joined-devices-frx.md) 
 
-Essas metas são atingidas proporcionando aos usuários uma experiência de autoatendimento de colocar dispositivos pertencentes à empresa sob controle do Azure AD.  
-A **Adição ao Azure AD** destina-se a organizações que desejam estar somente em nuvem ou priorizam a nuvem. Não há nenhuma restrição de tamanho ou o tipo de organizações que pode implantar a adição do Azure AD. A adição do Azure AD funciona bem até mesmo em um ambiente híbrido e pode permitir acesso aos recursos e aplicativos locais.
+O **Ingresso no Azure AD** foi desenvolvido para organizações que priorizam a nuvem (ou seja, que usam principalmente serviços de nuvem, com a meta de reduzir o uso de uma infraestrutura local) ou somente em nuvem (sem infraestrutura local). Não há restrições de tamanho ou tipo de organizações que podem implantar o Ingresso no Azure AD. O Ingresso no Azure AD funciona bem até mesmo em um ambiente híbrido, permitindo acesso aos recursos e aplicativos locais e de nuvem.
 
 A implementação de dispositivos adicionados ao Azure AD proporciona os seguintes benefícios:
 
@@ -88,10 +93,12 @@ A implementação de dispositivos adicionados ao Azure AD proporciona os seguint
 
 - **Restrição de acesso** a aplicativos somente de dispositivos que atendem à política de conformidade.
 
-- **Acesso direto aos recursos locais** quando o dispositivo tenha a linha de visão para o controlador de domínio local.
+- **Acesso direto aos recursos locais** quando o dispositivo tenha a linha de visão para o controlador de domínio local. 
 
 
-Embora a adição ao Azure AD se destine basicamente às organizações que não têm uma infraestrutura do Active Directory local para Windows Server, você certamente também pode usá-la em cenários em que:
+Embora a adição ao Azure AD se destine basicamente às organizações que não têm uma infraestrutura do Active Directory local para Windows Server, você certamente pode usá-la em cenários em que:
+
+- Você deseja fazer a transição para infraestrutura baseada em nuvem usando o Azure AD e um MDM como o Intune.
 
 - Não é possível usar um ingresso no domínio local, por exemplo, caso seja necessário colocar dispositivos móveis, como tablets e telefones, sob controle.
 
@@ -121,9 +128,9 @@ Se seu ambiente tiver um espaço local do AD e você também quiser se beneficia
 
 Você deverá usar dispositivos adicionados ao Azure AD híbrido se:
 
-- Tiver aplicativos Win32 implantados nesses dispositivos que usam NTLM/Kerberos.
+- Você tem aplicativos Win32 implantados nesses dispositivos que utilizam a autenticação de computador do Active Directory.
 
-- Precisar da GP ou do SCCM/DCM para gerenciar dispositivos.
+- Você precisa do GP para gerenciar dispositivos.
 
 - Você deseja continuar a usar soluções de geração de imagens para configurar dispositivos de seus funcionários.
 

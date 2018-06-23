@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c4570e43c23ff7a23b5d6a97ebd6da0244ed6fb2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 35391c8148246146eeb0c07bf57aea8a2a95d277
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34300719"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594927"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Tutorial: usar uma MSI (Identidade de Serviço Gerenciada) da VM do Windows para acessar o Azure Key Vault 
 
@@ -139,8 +139,9 @@ Primeiro, usamos o MSI da VM para obter um token de acesso para autenticar para 
     
 Depois de recuperar o segredo do Key Vault, você pode usá-lo para autenticar um serviço que requer um nome e uma senha. 
 
-## <a name="related-content"></a>Conteúdo relacionado
+## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](overview.md).
+Neste tutorial, você aprendeu a criar uma Identidade de Serviço Gerenciada para acessar o Azure Key Vault.  Para saber mais sobre o Azure Key Vault, confira:
 
-Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
+> [!div class="nextstepaction"]
+>[Cofre da Chave do Azure](/azure/key-vault/key-vault-whatis)

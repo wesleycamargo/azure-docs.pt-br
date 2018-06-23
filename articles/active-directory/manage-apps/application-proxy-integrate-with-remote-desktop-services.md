@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/11/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 4c3b88d9f522e28189bcb746905d35dced9d31cc
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5c6d6b9580b123dafb03af2acc885d2416ca2a56
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292534"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
@@ -49,6 +50,8 @@ Em uma implantação do RDS, a função Web da Área de Trabalho Remota e a fun�
 - Você já deverá ter [implantado o RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) e [habilitado o Proxy de Aplicativo](application-proxy-enable.md).
 
 - Esse cenário pressupõe que seus usuários finais passem pelo Internet Explorer em áreas de trabalho do Windows 7 ou do Windows 10 que se conectem por meio da página da Web de RD. Se você precisar de suporte a outros sistemas operacionais, consulte [Suporte a outras configurações de cliente](#support-for-other-client-configurations).
+
+- Ao publicar na Web do RD, é recomendável usar o mesmo FQDN interno e externo. Se os FQDNs interno e externo forem diferentes, você deverá desabilitar a Tradução do Cabeçalho de Solicitação para evitar que o cliente receba links inválidos. 
 
 - No Internet Explorer, habilite o complemento ActiveX do RDS.
 

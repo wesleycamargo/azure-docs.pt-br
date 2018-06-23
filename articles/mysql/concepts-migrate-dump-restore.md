@@ -6,14 +6,15 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/02/2018
+ms.openlocfilehash: c801426ad354a165ac749333ddd4671c13536edb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265836"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar seu banco de dados MySQL para o Banco de Dados do Azure para MySQL usando despejo e restauração
 Este artigo descreve duas maneiras comuns de fazer backup e restaurar bancos de dados no seu Banco de dados do Azure para MySQL
@@ -51,6 +52,7 @@ Para otimizar o desempenho, observe essas considerações ao despejar grandes ba
 -   Use tabelas particionadas, quando apropriado.
 -   Carregar dados em paralelo. Evite o excesso de paralelismo que poderá fazer com que você atinja um limite de recursos e monitore os recursos usando as métricas disponíveis no portal do Azure. 
 -   Use a opção `defer-table-indexes` em mysqlpump ao despejar bancos de dados, para que a criação de índice ocorra após os dados de tabelas que são carregados.
+-   Copie os arquivos de backup para um blob/armazenamento do Azure e execute a restauração de lá, o que deve ser muito mais rápido do que executar a restauração pela Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Criar um arquivo de backup a partir da linha de comando usando mysqldump
 Para fazer backup de um banco de dados MySQL no servidor local ou em uma máquina virtual, execute o seguinte comando: 
@@ -74,7 +76,6 @@ Para selecionar tabelas específicas em seu banco de dados para backup, liste os
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
-
 Para fazer backup de mais de um banco de dados ao mesmo tempo, use a opção --database e liste os nomes dos banco de dados separados por espaços. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
@@ -108,21 +109,22 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p test
 
 ## <a name="export-using-phpmyadmin"></a>Exportar usando PHPMyAdmin
 Para exportar, você pode usar a ferramenta phpMyAdmin que você pode já ter instalado localmente em seu ambiente. Para exportar o banco de dados MySQL usando PHPMyAdmin:
-- Abra o phpMyAdmin.
-- Selecione o banco de dados. Clique no nome do banco de dados na lista à esquerda. 
-- Clique no link **Exportar**. Aparece uma nova página para exibir o despejo do banco de dados.
-- Na área de Exportação, clique no link **Selecionar Tudo** para selecionar as tabelas no banco de dados. 
-- Na área de opções do SQL, clique nas opções apropriadas. 
-- Clique na opção **Salvar como arquivo** e na opção de compactação correspondente e, em seguida, clique no botão **Ir**. Uma caixa de diálogo deve aparecer solicitando que você salve o arquivo localmente.
+1. Abra o phpMyAdmin.
+2. Selecione o banco de dados. Clique no nome do banco de dados na lista à esquerda. 
+3. Clique no link **Exportar**. Aparece uma nova página para exibir o despejo do banco de dados.
+4. Na área de Exportação, clique no link **Selecionar Tudo** para selecionar as tabelas no banco de dados. 
+5. Na área de opções do SQL, clique nas opções apropriadas. 
+6. Clique na opção **Salvar como arquivo** e na opção de compactação correspondente e, em seguida, clique no botão **Ir**. Uma caixa de diálogo deve aparecer solicitando que você salve o arquivo localmente.
 
 ## <a name="import-using-phpmyadmin"></a>Importar usando PHPMyAdmin
 Importar o banco de dados é semelhante à exportação. As seguintes ações ocorrem:
-- Abra o phpMyAdmin. 
-- Na página de configuração do phpMyAdmin, clique em **Adicionar** para adicionar o Banco de dados do Azure para o servidor MySQL. Forneça os detalhes de conexão e informações de logon.
-- Crie um banco de dados com o nome adequado e selecione-o na lista à esquerda da tela. Para reconfigurar o banco de dados existente, clique no nome do banco de dados, selecione todas as caixas de seleção ao lado dos nomes da tabela e selecione **Soltar** para excluir as tabelas existentes. 
-- Clique no link **SQL** para mostrar a página onde você pode digitar os comandos SQL ou fazer upload do arquivo SQL. 
-- Use o botão **procurar** para localizar o arquivo do banco de dados. 
-- Clique no botão **Ir** para exportar o backup, execute os comandos SQL e recrie o banco de dados.
+1. Abra o phpMyAdmin. 
+2. Na página de configuração do phpMyAdmin, clique em **Adicionar** para adicionar o Banco de dados do Azure para o servidor MySQL. Forneça os detalhes de conexão e informações de logon.
+3. Crie um banco de dados com o nome adequado e selecione-o na lista à esquerda da tela. Para reconfigurar o banco de dados existente, clique no nome do banco de dados, selecione todas as caixas de seleção ao lado dos nomes da tabela e selecione **Remover** para excluir as tabelas existentes. 
+4. Clique no link **SQL** para mostrar a página onde você pode digitar os comandos SQL ou fazer upload do arquivo SQL. 
+5. Use o botão **procurar** para localizar o arquivo do banco de dados. 
+6. Clique no botão **Ir** para exportar o backup, execute os comandos SQL e recrie o banco de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Conectar aplicativos ao Banco de Dados do Azure para MySQL](./howto-connection-string.md)
+- [Conectar aplicativos ao Banco de Dados do Azure para MySQL](./howto-connection-string.md).
+- Para obter mais informações de como migrar bancos de dados para o Banco de Dados do Azure para MySQL, confira o [Guia de Migração de Banco de Dados](http://aka.ms/datamigration).

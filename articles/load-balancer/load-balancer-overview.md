@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 080a4e670b06544d84e3d34a0b04bdb91a95aff1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04fa1f9a23a7c93426b45305302e3f77d16ab8c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202434"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726254"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Azure Load Balancer?
 
@@ -94,7 +94,7 @@ O Azure Load Balancer fornece os seguintes recursos fundamentais para aplicativo
 
     - **Investigação personalizada de TCP**: esta investigação depende do estabelecimento de uma sessão de TCP bem-sucedida em uma porta de investigação definida. Enquanto o ouvinte especificado na VM existir, a investigação será bem-sucedida. Se a conexão for recusada, a investigação falhará. Essa investigação substitui a investigação de agente convidado padrão.
 
-    - **Investigação de agente convidado (somente em VMs de PaaS [plataforma como serviço])**: o balanceador de carga também pode utilizar o agente convidado dentro da VM. O agente convidado escuta e responde com uma resposta HTTP 200 OK somente quando a instância está no estado Pronto. Se o agente não responder com HTTP 200 OK, o balanceador de carga marcará a instância como sem resposta e interromperá o envio de tráfego para essa instância. O Azure Load Balancer continuará tentando alcançar a instância. Se o agente convidado responder com um HTTP 200, o Balanceador de Carga enviará o tráfego para essa instância novamente. As investigações de agente convidado são um último recurso e não são recomendadas quando configurações de investigação personalizada de HTTP ou TCP são possíveis. 
+    - **Investigação de agente convidado**: o balanceador de carga também pode utilizar o agente convidado dentro da VM. O agente convidado escuta e responde com uma resposta HTTP 200 OK somente quando a instância está no estado Pronto. Se o agente não responder com HTTP 200 OK, o balanceador de carga marcará a instância como sem resposta e interromperá o envio de tráfego para essa instância. O Azure Load Balancer continuará tentando alcançar a instância. Se o agente convidado responder com um HTTP 200, o Balanceador de Carga enviará o tráfego para essa instância novamente. Testes de agente convidado estão um _último recurso e não é recomendável_ quando são possíveis configurações de investigação personalizada de HTTP ou TCP. 
     
 * **Conexões de saída (SNAT)**
 

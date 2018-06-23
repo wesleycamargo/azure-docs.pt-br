@@ -2,19 +2,18 @@
 title: Estrutura de definição da Política do Azure
 description: Descreve como a definição de diretiva de recurso é usada pela Política do Azure para estabelecer convenções para recursos em sua organização, descrevendo quando a diretiva é aplicada e qual efeito tomar.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
-ms.topic: article
+ms.date: 05/24/2018
+ms.topic: conceptual
 ms.service: azure-policy
-ms.custom: ''
-ms.openlocfilehash: a56fa61c6d77ab50dc1342c5a7feeaf1c579697d
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+manager: carmonm
+ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057243"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260474"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -65,7 +64,7 @@ Por exemplo, o JSON a seguir mostra uma política que limita os locais em que os
 }
 ```
 
-Todos os exemplos de modelo do Azure Policy estão em [Modelos para o Azure Policy](json-samples.md).
+Todos os exemplos do Azure Policy estão em [Exemplos de política](json-samples.md).
 
 ## <a name="mode"></a>Mode
 
@@ -193,7 +192,7 @@ Uma condição avalia se um **campo** atende a determinados critérios. As condi
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Ao usar as condições **like** e **notLike**, você pode fornecer um curinga (*) no valor.
+Ao usar as condições **like** e **notLike**, você pode fornecer um curinga (*) no valor. O valor não deve conter mais do que 1 caractere curinga (*).
 
 Ao usar as condições **match** e **notMatch**, forneça `#` para representar um dígito, `?` para uma letra e outro caractere para representar o caractere real. Para exemplos, consulte [Permitir vários padrões de nome](scripts/allow-multiple-name-patterns.md).
 
@@ -205,7 +204,7 @@ Há suporte para os seguintes campos:
 
 - `name`
 - `fullName`
-  - Retorna o nome completo do recurso, incluindo quaisquer pais (por exemplo, "myServer / myDatabase")
+  - Retorna o nome completo do recurso. O nome completo de um recurso é o nome do recurso precedido dos nomes dos recursos pai (por exemplo, "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`
@@ -252,6 +251,8 @@ O valor pode ser uma cadeia de caracteres ou um objeto no formato JSON.
 
 Com **AuditIfNotExists** e **DeployIfNotExists**, você pode avaliar a existência de um recurso relacionado e aplicar uma regra e um efeito correspondente quando esse recurso não existir. Por exemplo, você pode exigir que um observador de rede seja implantado para todas as redes virtuais.
 Para obter um exemplo de como fazer auditoria quando uma extensão da máquina virtual não está implantada, consulte [Auditoria se não existir extensão](scripts/audit-ext-not-exist.md).
+
+Para obter detalhes completos sobre cada efeito, ordem de avaliação, propriedades e exemplos, confira [Compreendendo os efeitos da Política](policy-effects.md).
 
 ## <a name="aliases"></a>Aliases
 
@@ -393,4 +394,4 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine os exemplos de modelo do Azure Policy estão em [Modelos para o Azure Policy](json-samples.md).
+- Revisar mais exemplos em [exemplos do Azure Policy](json-samples.md).

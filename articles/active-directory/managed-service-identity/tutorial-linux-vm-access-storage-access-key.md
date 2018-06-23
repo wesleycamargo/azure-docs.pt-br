@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: af0ddebc79100cbe0ea55e46b825c35ab8a775b7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: be350ad153bfcc51eb1198a97eeba01593ccb34e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303749"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594237"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutorial: usar uma Identidade de Serviço Gerenciada de VM do Linux para acessar o Armazenamento do Azure por meio da chave de acesso
 
@@ -227,10 +227,7 @@ Resposta:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](overview.md).
-- Para saber como executar este mesmo tutorial usando uma credencial SAS de armazenamento, consulte [Usar uma Identidade de Serviço Gerenciado da VM do Linux para acessar o Armazenamento do Azure por meio de uma credencial SAS](tutorial-linux-vm-access-storage-sas.md)
-- Para obter mais informações sobre o recurso SAS da conta de Armazenamento do Azure, consulte:
-  - [Como usar SAS (assinaturas de acesso compartilhado)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Constructing a Service SAS (Criação de uma SAS de serviço)](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+Neste tutorial, você aprendeu a usar uma Identidade de Serviço Gerenciada para uma máquina virtual do Linux para acessar um Armazenamento do Azure usando uma chave de acesso.  Para saber mais sobre as chaves de acesso de Armazenamento do Azure, confira:
 
-Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
+> [!div class="nextstepaction"]
+>[Gerenciar suas chaves de acesso de armazenamento](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)

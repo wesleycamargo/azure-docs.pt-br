@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 1cfd85eda9ef59a2265a991cabe5f1b6ee83563d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594543"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de nomenclatura para o Office 365 no Azure Active Directory (versão prévia)
 
@@ -189,7 +190,7 @@ School Data Sync (SDS) | Grupos criados por meio de SDS estão em conformidade c
 Gerenciador de clientes do Outlook (OCM) | Gerenciador de clientes do Outlook está em conformidade com a política de nomenclatura, que é aplicada automaticamente para o grupo criado no Gerenciador de clientes do Outlook. Se uma palavra bloqueada personalizada for detectada, criação de grupo no OCM será bloqueada e o usuário será impedido de usar o aplicativo OCM.
 Aplicativo de sala de aula | Grupos criados no aplicativo de sala de aula estão em conformidade com a política de nomenclatura, mas a política de nomenclatura não é aplicada automaticamente, e a visualização de política de nomenclatura não é mostrada para os usuários ao inserir um nome de grupo de sala de aula. Os usuários devem digitar o nome imposto do grupo de sala de aula com prefixos e sufixos. Caso contrário, a operação para criar ou editar o grupo de sala de aula falhará com erros.
 Power BI | Espaços de trabalho do Power BI estão em conformidade com a política de nomenclatura.    
-Yammer | Grupos conectados do Yammer não impõem a política de nomenclatura configurada. Para organizações com política de nomenclatura habilitada, o Yammer cria grupos Yammer herdados que não estão conectados ao Office 365 para grupos que não estão de acordo com a política de nomenclatura.
+Yammer | Quando um usuário conectado ao Yammer com sua conta do Azure Active Directory criar um grupo ou editar o nome de um grupo, o nome do grupo estará em conformidade com a política de nomenclatura. Isso se aplica a grupos conectados do Office 365 e a todos os outros grupos do Yammer.<br>Se um grupo conectado do Office 365 tiver sido criado antes da política de nomenclatura ter entrado em vigor, o nome do grupo não seguirá automaticamente as políticas de nomenclatura. Quando um usuário editar o nome do grupo, será solicitado que adicione o prefixo e o sufixo.
 StaffHub  | Equipes de StaffHub não seguem a política de nomenclatura, mas o grupo do Office 365 subjacente a segue. O nome da equipe StaffHub não aplica os prefixos e sufixos e não verifica as palavras bloqueadas personalizadas. Mas o StaffHub aplica os prefixos e sufixos e remove as palavras bloqueadas do grupo do Office 365 subjacente.
 Exchange PowerShell | Cmdlets do Exchange PowerShell estão em conformidade com a política de nomenclatura. Os usuários recebem mensagens de erro apropriado com prefixos e sufixos sugeridos e palavras bloqueadas personalizadas se eles não seguem a política de nomenclatura no nome do grupo e o alias de grupo (mailNickname).
 Cmdlets do Azure Active Directory PowerShell | Cmdlets do Azure Active Directory PowerShell estão em conformidade com a política de nomenclatura. Os usuários recebem mensagens de erro apropriado com prefixos e sufixos sugeridos e palavras bloqueadas personalizadas se eles não seguem a convenção de nomenclatura nos nomes do grupo e o alias de grupo.

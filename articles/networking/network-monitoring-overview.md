@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850130"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitoramento de rede 
 
@@ -56,12 +57,13 @@ Para obter mais informações, consulte os seguintes artigos:
 
 ## <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
-NPM para o ExpressRoute oferece monitoramento abrangente de ExpressRoute para conexões de emparelhamento privadas. Você pode monitorar desempenho e conectividade E2E entre as filiais e o Azure por meio do ExpressRoute. Os principais recursos são:
+NPM para o ExpressRoute oferece monitoramento abrangente do ExpressRoute para conexões de emparelhamento da Microsoft e conexões de emparelhamento privadas do Azure. Você pode monitorar desempenho e conectividade E2E entre as filiais e o Azure por meio do ExpressRoute. Os principais recursos são:
 
 * Detecção automática de circuitos ER associados à sua assinatura
 * Detecção da topologia de rede do local para seus aplicativos de nuvem
-* Planejamento de capacidade, análise de utilização e utilização de largura de banda por Rede Virtual
+* Planejamento de capacidade, análise de utilização de largura de banda
 * Monitoramento e alertas em caminhos primários e secundários
+* Monitoramento de conectividade para serviços do Azure como Office 365, Dynamics 365,... via ExpressRoute
 * Detectar degradação de conectividade para VNets
 
 ![Mapa geográfico mostrando o tráfego entre as regiões](./media/network-monitoring-overview/expressroute-topology-map.png) 

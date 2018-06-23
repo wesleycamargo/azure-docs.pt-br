@@ -10,12 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/25/2018
-ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/08/2018
+ms.openlocfilehash: 0e10907ac3db2d792b73e0a37aa2d0f6a916d746
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850065"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Perguntas Frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure
 Este artigo lista as perguntas frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure junto com as respostas relacionadas.
@@ -35,11 +36,14 @@ O Serviço de Migração de Banco de Dados do Azure é o método preferencial pa
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-the-azure-migrate-offering"></a>P. Como o Serviço de Migração de Banco de Dados do Azure se compara à oferta de Migrações para Azure?
 O serviço de Migrações para Azure ajuda na migração de máquinas virtuais locais para o Azure IaaS. O serviço avalia a adequação da migração e o dimensionamento com base no desempenho, e fornece estimativas de custo para a execução das máquinas virtuais locais no Azure. As Migrações para Azure são úteis para migrações de lift-and-shift de cargas de trabalho baseadas em VM local para VMs de IaaS do Azure. No entanto, ao contrário do Serviço de Migração de Banco de Dados do Azure, as Migrações para Azure não são uma oferta de serviço de migração de banco de dados especializada para plataformas de banco de dados relacional de PaaS do Azure, como o Banco de Dados SQL do Azure ou SQL do Azure ou Instância Gerenciada do Banco de Dados SQL.
 
+### <a name="q-what-versions-of-sql-server-does-the-azure-database-migration-service-support-as-a-source"></a>P. Quais versões do SQL Server são compatíveis com o Serviço de Migração de Banco de Dados do Azure como fonte?
+Ao migrar do SQL Server, o Serviço de Migração de Banco de Dados do Azure dá suporte ao SQL Server 2005 por meio do SQL Server 2017.
+
 ### <a name="q-what-is-a-summary-of-the-steps-required-to-use-the-azure-database-migration-service-to-perform-a-database-migration"></a>P. O que é um resumo das etapas necessárias para usar o Serviço de Migração de Banco de Dados do Azure para executar uma migração de banco de dados?
 Durante uma migração de banco de dados típica e simples, você:
 1.  Cria um banco de dados de destino.
 2.  Migra o esquema do banco de dados usando o [Assistente de Migração de Dados](https://www.microsoft.com/en-us/download/details.aspx?id=53595).
-3.  Crie uma instância do Serviço de Migração de Banco de Dados do Azure.
+3.  Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
 4.  Cria um projeto de migração especificando os bancos de dados de origem, bancos de dados de destino e tabelas para migração.
 5.  Inicia a carga completa.
 6.  Escolhe a validação subsequente.
@@ -49,7 +53,7 @@ Durante uma migração de banco de dados típica e simples, você:
 Existem vários pré-requisitos necessários para garantir que o Serviço de Migração de Banco de Dados do Azure funcione sem problemas ao executar migrações de bancos de dados. Alguns dos pré-requisitos se aplicam em todos os cenários (pares de origem e destino) com suporte do serviço, enquanto outros pré-requisitos são exclusivos para um cenário específico.
 Os pré-requisitos do Serviço de Migração de Banco de Dados do Azure que são comuns a todos os cenários de migração compatíveis incluem a necessidade de:
 - Criar um VNET para o Serviço de Migração de Banco de Dados do Azure usando o modelo de implantação do Azure Resource Manager, que fornece conectividade site a site aos servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Verifique se as regras do Grupo de Segurança de Rede da VNET (Rede Virtual) do Azure não bloqueiam as portas de comunicação 443, 53, 9354, 445 e 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da Rede Virtual do Azure, consulte o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Verificar se as regras do Grupo de Segurança de Rede da VNET (Rede Virtual) do Azure não bloqueiam as portas de comunicação 443, 53, 9354, 445 e 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da Rede Virtual do Azure, consulte o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração.
  
 Para obter uma lista de todos os pré-requisitos necessários para competir com cenários de migração específicos usando o Serviço de Migração de Banco de Dados do Azure, consulte os tutoriais relacionados na [documentação](https://docs.microsoft.com/azure/dms/dms-overview) do Serviço de Migração de Banco de Dados do Azure em docs.microsoft.com.

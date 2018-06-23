@@ -6,45 +6,37 @@ author: kamathsun
 ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 3ec78b9aad45500a92a8f46f4bb2e654f97da8cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264877"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações no Banco de Dados do Azure para MySQL
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
 
-## <a name="service-tier-maximums"></a>Limites máximos da camada de serviço
-O Banco de Dados do Azure para MySQL tem vários níveis de serviço que podem ser escolhidos durante a criação de um servidor. Para saber mais, confira [Tipos de preço do Banco de Dados do Azure para MySQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Número máximo de conexões
+O número máximo de conexões por tipo de preço e vCores é o seguinte: 
 
-Há um número máximo de conexões, Unidades de Computação e armazenamento em cada camada de serviço, conforme a seguir: 
+|**Tipo de preço**|**vCore(s)**| **Máximo de conexões**|
+|---|---|---|
+|Basic| 1| 50|
+|Basic| 2| 100|
+|Uso geral| 2| 300|
+|Uso geral| 4| 625|
+|Uso geral| 8| 1250|
+|Uso geral| 16| 2500|
+|Uso geral| 32| 5.000|
+|Otimizado para memória| 2| 600|
+|Otimizado para memória| 4| 1250|
+|Otimizado para memória| 8| 2500|
+|Otimizado para memória| 16| 5.000|
 
-|**Tipo de preço**| **Geração de computação**|**vCore(s)**| **Máximo de conexões**|
-|---|---|---|---|
-|Basic| Gen 4| 1| 50|
-|Basic| Gen 4| 2| 100|
-|Basic| Gen 5| 1| 50|
-|Basic| Gen 5| 2| 100|
-|Uso geral| Gen 4| 2| 300|
-|Uso geral| Gen 4| 4| 625|
-|Uso geral| Gen 4| 8| 1250|
-|Uso geral| Gen 4| 16| 2500|
-|Uso geral| Gen 4| 32| 5.000|
-|Uso geral| Gen 5| 2| 300|
-|Uso geral| Gen 5| 4| 625|
-|Uso geral| Gen 5| 8| 1250|
-|Uso geral| Gen 5| 16| 2500|
-|Uso geral| Gen 5| 32| 5.000|
-|Otimizado para memória| Gen 5| 2| 600|
-|Otimizado para memória| Gen 5| 4| 1250|
-|Otimizado para memória| Gen 5| 8| 2500|
-|Otimizado para memória| Gen 5| 16| 5.000|
-
-Quando um número excessivo de conexões for atingido, você receberá o seguinte erro:
+Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > ERRO 1040 (08004): número excessivo de conexões
 
 ## <a name="storage-engine-support"></a>Suporte do mecanismo de armazenamento
@@ -85,8 +77,6 @@ Quando um número excessivo de conexões for atingido, você receberá o seguint
 ### <a name="point-in-time-restore"></a>Restauração pontual
 - Não é permitido restaurar para a camada de serviço diferente e/ou Unidades de computação e Tamanho do armazenamento.
 - Não há suporte para restaurar um servidor eliminado.
-
-## <a name="functional-limitations"></a>Limitações funcionais
 
 ### <a name="subscription-management"></a>Gerenciamento de assinaturas
 - Não há suporte para mover dinamicamente servidores criados previamente entre a assinatura e o grupo de recursos.

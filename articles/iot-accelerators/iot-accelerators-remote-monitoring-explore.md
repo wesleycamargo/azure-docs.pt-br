@@ -1,28 +1,25 @@
 ---
 title: Introdução à solução de monitoramento remoto – Azure | Microsoft Docs
 description: Este tutorial usa cenários simulados para apresentar o acelerador de solução de monitoramento remoto. Esses cenários são criados quando você implanta o acelerador de solução de monitoramento remoto pela primeira vez.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c8a055dd0dc8e2d9a9a64b492fb134caaacda489
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e354e110df8d168e153c50de6f7aad08dd416464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627800"
 ---
-# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Explorar os recursos do acelerador de solução de monitoramento remoto
+# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Explorar os recursos do acelerador da solução de Monitoramento Remoto
 
-Este tutorial mostra os principais recursos de solução de monitoramento remoto. Para apresentar esses recursos, o tutorial mostra cenários comuns de cliente usando um aplicativo de IoT simulado para uma empresa chamada Contoso.
+Este tutorial mostra os principais recursos de solução de Monitoramento Remoto. Para apresentar esses recursos, o tutorial mostra cenários comuns de cliente usando um aplicativo de IoT simulado para uma empresa chamada Contoso.
 
-O tutorial ajuda a compreender os cenários típicos de IoT que a solução de monitoramento remoto fornece para uso imediato.
+O tutorial ajuda a compreender os cenários típicos de IoT que a solução de Monitoramento Remoto fornece para uso imediato.
 
 Neste tutorial, você aprenderá como:
 
@@ -33,24 +30,24 @@ Neste tutorial, você aprenderá como:
 > * Organizar seus ativos
 > * Parar e iniciar os dispositivos simulados
 
-O vídeo a seguir mostra um passo a passo da solução de monitoramento remoto:
+O vídeo a seguir mostra um passo a passo da solução de Monitoramento Remoto:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para concluir este tutorial, você precisa de uma instância da solução de monitoramento remoto implantada na sua assinatura do Azure.
+Para concluir este tutorial, você precisa de uma instância da solução de Monitoramento Remoto implantada na sua assinatura do Azure.
 
 Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Implantar o acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="the-contoso-sample-iot-deployment"></a>A implantação de IoT de exemplo da Contoso
 
-Você pode usar a implantação de IoT de exemplo da Contoso para compreender os cenários básicos que a solução de monitoramento remoto fornece para uso imediato. Esses cenários são baseados em implantações de IoT reais. Provavelmente, você vai optar por personalizar a solução de monitoramento remoto para atender aos seus requisitos específicos, mas o exemplo da Contoso ajuda a aprender os conceitos básicos.
+Você pode usar a implantação de IoT de exemplo da Contoso para compreender os cenários básicos que a solução de Monitoramento Remoto fornece para uso imediato. Esses cenários são baseados em implantações de IoT reais. Provavelmente, você vai optar por personalizar a solução de Monitoramento Remoto para atender aos seus requisitos específicos, mas o exemplo da Contoso ajuda a aprender os conceitos básicos.
 
 > [!NOTE]
 > Se você usou o CLI para implantar o acelerador de solução, o arquivo `deployment-{your deployment name}-output.json` contém informações sobre implantação, como a URL para acessar a amostra implantada.
 
-O exemplo da Contoso provisiona um conjunto de dispositivos simulados e as regras que agem sobre eles. Depois de compreender os cenários básicos, você poderá continuar explorando mais os recursos da solução em [Perform advanced device monitoring using the remote monitoring solution](iot-accelerators-remote-monitoring-monitor.md) (Executar o monitoramento de dispositivos avançado usando a solução de monitoramento remoto).
+O exemplo da Contoso provisiona um conjunto de dispositivos simulados e as regras que agem sobre eles. Depois de compreender os cenários básicos, você poderá continuar explorando mais os recursos da solução em [Perform advanced device monitoring using the Remote Monitoring solution](iot-accelerators-remote-monitoring-monitor.md) (Executar o monitoramento avançado de dispositivos usando a solução de Monitoramento Remoto).
 
 A Contoso é uma empresa que gerencia uma variedade de ativos em diferentes ambientes. A Contoso planeja usar a eficiência dos aplicativos de IoT baseados em nuvem para monitorar e gerenciar remotamente vários ativos de um aplicativo centralizado. As seções a seguir fornecem um resumo da configuração inicial do exemplo da Contoso:
 
@@ -136,7 +133,7 @@ Por fim, confirme se os valores de telemetria do Resfriador voltaram ao normal.
 
 ## <a name="update-device-firmware"></a>Atualizar o firmware do dispositivo
 
-A Contoso está testando um novo tipo de dispositivo em campo. Como parte do ciclo de teste, você precisa garantir que as atualizações de firmware do dispositivo funcionem corretamente. As etapas a seguir mostram como usar a solução de monitoramento remoto para atualizar o firmware em vários dispositivos.
+A Contoso está testando um novo tipo de dispositivo em campo. Como parte do ciclo de teste, você precisa garantir que as atualizações de firmware do dispositivo funcionem corretamente. As etapas a seguir mostram como usar a solução de Monitoramento Remoto para atualizar o firmware em vários dispositivos.
 
 Para executar as tarefas de gerenciamento de dispositivo necessárias, use a página **Dispositivos**. Comece filtrando por todos os dispositivos de protótipo:
 
@@ -253,7 +250,7 @@ Neste tutorial, você aprendeu a:
 > * Organizar seus ativos
 > * Parar e iniciar os dispositivos simulados
 
-Agora que você já explorou a solução de monitoramento remoto, as próximas etapas sugeridas são saber mais sobre os recursos avançados da solução de monitoramento remoto:
+Agora que você já explorou a solução de Monitoramento Remoto, as próximas etapas sugeridas são saber mais sobre os recursos avançados da solução de Monitoramento Remoto:
 
 * [Monitorar seus dispositivos](./iot-accelerators-remote-monitoring-monitor.md).
 * [Gerenciar seus dispositivos](./iot-accelerators-remote-monitoring-manage.md).

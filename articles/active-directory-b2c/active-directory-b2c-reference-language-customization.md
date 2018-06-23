@@ -1,27 +1,23 @@
 ---
-title: Personalização de idioma no Azure AD B2C | Microsoft Docs
+title: Personalização de linguagem no Azure Active Directory B2C | Microsoft Docs
 description: Saiba como personalizar a experiência de idioma.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d0f1f2ffd02873df2e2e7eab9894d9c3421b0f7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: B2C
+ms.openlocfilehash: 72a2bd20d08cd12cc1965bd06090d2cd705fc111
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711929"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização de idioma no Azure Active Directory B2C
-
->[!NOTE]
->Esse recurso está em uma versão prévia.
->
 
 A personalização de idioma no Azure Active Directory B2C (Azure AD B2C) permite que sua política seja compatível com diferentes idiomas para atender às necessidades do cliente.  A Microsoft fornece as traduções para [36 idiomas](#supported-languages), mas você também pode fornecer suas próprias traduções para qualquer idioma. Mesmo que sua experiência seja fornecida apenas para um único idioma, você pode personalizar qualquer texto nas páginas.  
 
@@ -49,7 +45,7 @@ Ao habilitar a personalização de idioma em uma política você poderá control
 5. Leia as informações na caixa de diálogo e selecione **Sim**.
 
 ## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Selecione quais idiomas em seu percurso do usuário estão habilitados 
-Habilite um conjunto de idiomas para que o percurso do usuário seja traduzido quando o parâmetro `ui_locales` não for fornecido.
+Habilite um conjunto de idiomas para que o percurso do usuário seja traduzido quando solicitado pelo navegador sem o parâmetro `ui_locales`.
 1. Certifique-se de que a política tenha a personalização de idioma habilitada a partir das instruções anteriores.
 2. Na página **Editar política**, selecione **Personalização de idioma**.
 3. Selecione um idioma que você deseja fornecer suporte.
@@ -102,7 +98,7 @@ Substitua `<ExtensionAttribute>` pelo nome do seu atributo de usuário personali
 Substitua `<ExtensionAttributeValue>` por uma cadeia de caracteres nova a ser exibida.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Fornecer uma lista de valores usando LocalizedCollections
-Se você quiser fornecer uma lista configurada de valores para respostas, será necessário criar um atributo `LocalizedCollections`.  `LocalizedCollections` é uma matriz de pares `Name` e `Value`. Para adicionar `LocalizedCollections`, use o formato a seguir:
+Se você quiser fornecer uma lista configurada de valores para respostas, será necessário criar um atributo `LocalizedCollections`.  `LocalizedCollections` é uma matriz de pares `Name` e `Value`. A ordem dos itens será a ordem em que elas são exibidas.  Para adicionar `LocalizedCollections`, use o formato a seguir:
 
 ```JSON
 {
@@ -153,9 +149,9 @@ Você pode carregar a página em `fr`. Quando a página efetua pulls de conteúd
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-locales"></a>Adicionar localidades personalizadas
+## <a name="add-custom-languages"></a>Adicionar idiomas personalizados
 
-Também é possível adicionar idiomas para os quais a Microsoft atualmente não oferece traduções. Você precisará fornecer as traduções para todas as cadeias de caracteres da política.
+Também é possível adicionar idiomas para os quais a Microsoft atualmente não oferece traduções. Você precisará fornecer as traduções para todas as cadeias de caracteres da política.  Códigos de idioma e localidade são limitados a esses no padrão ISO 639-1. 
 
 1. Na página **Editar política**, selecione **Personalização de idioma**.
 2. Selecione **Adicionar idioma personalizado** a partir da parte superior da página.
@@ -165,6 +161,10 @@ Também é possível adicionar idiomas para os quais a Microsoft atualmente não
 6. Selecione **Habilitar** e a política agora poderá mostrar esse idioma aos usuários.
 7. Salve o idioma.
 
+>[!IMPORTANT]
+>Você precisa habilitar os idiomas personalizados ou carregar substituições para ele antes de salvar.
+>
+
 ## <a name="additional-information"></a>Informações adicionais
 
 ### <a name="page-ui-customization-labels-as-overrides"></a>Rótulos de personalização da interface do usuário da página como substituições
@@ -172,7 +172,7 @@ Ao habilitar a personalização de idioma, as edições anteriores para rótulos
 ### <a name="up-to-date-translations"></a>Atualizar traduções
 A Microsoft está comprometida em fornecer as traduções mais atualizadas para seu uso. A Microsoft aprimora continuamente as traduções e as mantém em conformidade para você. A Microsoft identificará bugs e alterações na terminologia global e fará atualizações que funcionarão perfeitamente no percurso do usuário.
 ### <a name="support-for-right-to-left-languages"></a>Suporte para idiomas da direita para a esquerda
-A Microsoft atualmente não fornece suporte para idiomas escritos da direita para a esquerda. Se você precisar desse recurso, vote para ele nos [Comentários do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+A Microsoft atualmente não fornece suporte para idiomas escritos da direita para a esquerda. Você pode fazer isso usando localidades personalizadas e CSS para alterar a maneira como as cadeias de caracteres são exibidas.  Se você precisar desse recurso, vote para ele nos [Comentários do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traduções de provedor de identidade social
 A Microsoft fornece o parâmetro OIDC `ui_locales` para logons sociais. Mas alguns provedores de identidade social, incluindo o Facebook e o Google, não os consideram. 
 ### <a name="browser-behavior"></a>Comportamento do navegador
@@ -197,7 +197,7 @@ Ambos Chrome e o Firefox solicitam o idioma definido. Se for um idioma com supor
 | Húngaro             | hu            |
 | Italiano               | it            |
 | Japonês              | ja            |
-| Kannada               | kn            |
+| Canarim               | kn            |
 | Coreano                | ko            |
 | Malaiala             | ml            |
 | Marati               | mr            |

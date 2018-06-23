@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bcd9ec44eafd586648ba964c5cba248a184a8ec3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591554"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: aprofundamento técnico
 
@@ -50,7 +52,7 @@ Quando essa configuração estiver concluída, o SSO Contínuo funcionará da me
 
 O fluxo de entrada em um navegador da Web é o seguinte:
 
-1. O usuário tenta acessar um aplicativo da Web (por exemplo, o Outlook Web App – https://outlook.office365.com/owa/) por meio de um dispositivo corporativo ingressado no domínio na sua rede corporativa.
+1. O usuário tenta acessar um aplicativo Web (por exemplo, o Outlook Web App – https://outlook.office365.com/owa/) de um dispositivo corporativo ingressado no domínio dentro da rede corporativa.
 2. Se o usuário ainda não tiver entrado, ele será redirecionado para a página de entrada do Azure AD.
 3. O usuário digita o nome de usuário na página de entrada do Azure AD.
 

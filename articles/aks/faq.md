@@ -3,16 +3,17 @@ title: Perguntas frequentes sobre o Serviço de Kubernetes do Azure
 description: Fornece respostas para algumas perguntas comuns sobre o Serviço de Kubernetes do Azure.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/14/2018
+ms.date: 6/08/2018
 ms.author: nepeters
-ms.openlocfilehash: 55006a3f0193c96849c52f87ab01dc13ac0c7a16
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 79236ae7134a27b9a5b89ee8151803befa7b51e1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260783"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -28,9 +29,7 @@ Este artigo aborda as perguntas frequentes sobre o AKS (Serviço de Kubernetes d
 - Leste do Canadá
 - Centro dos EUA
 - Leste dos EUA
-- Sudeste da Ásia
 - Europa Ocidental
-- Oeste dos EUA 2
 
 ## <a name="when-will-additional-regions-be-added"></a>Quando outras regiões serão adicionadas?
 
@@ -62,7 +61,7 @@ Não, o RBAC não há suporte atualmente para AKS, mas estará disponível em br
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Posso implantar AKS em minha rede virtual existente?
 
-Não, isso ainda não está disponível, mas estará disponível em breve.
+Sim, há suporte para isso por meio de [recursos de rede avançados](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>O Azure Key Vault é integrado com o AKS?
 
@@ -70,13 +69,17 @@ Não, mas essa integração está planejada. Enquanto isso, teste essa solução
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Posso executar contêineres do Windows Server no AKS?
 
-Não, o AKS atualmente não fornece nós de agente baseados no Windows Server, portanto você não pode executar contêineres do Windows Server. Se você precisar executar contêineres do Windows Server em Kubernetes no Azure, consulte a [documentação para acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Para executar contêineres do Windows Server, você precisa executar nós baseados no Windows Server. Nós baseados no Windows Server estão atualmente em [versão prévia](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). Se você precisar executar contêineres do Windows Server em Kubernetes no Azure fora da versão prévia, consulte a [documentação para acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que são criados dois grupos de recursos com o AKS?
 
-Cada implantação AKS abrange dois grupos de recursos. O primeiro é criado por você e contém somente o recurso AKS. O provedor de recursos AKS cria automaticamente um segundo durante a implantação com um nome como *MC_myResourceGRoup_myAKSCluster_eastus*. O segundo grupo de recursos contém todos os recursos de infraestrutura associados ao cluster, como VMs, rede e armazenamento. Ele é criado para simplificar a limpeza de recursos.
+Cada implantação AKS abrange dois grupos de recursos. O primeiro é criado por você e contém somente o recurso AKS. O provedor de recursos AKS cria automaticamente um segundo durante a implantação com um nome como *MC_myResourceGroup_myAKSCluster_eastus*. O segundo grupo de recursos contém todos os recursos de infraestrutura associados ao cluster, como VMs, rede e armazenamento. Ele é criado para simplificar a limpeza de recursos.
 
 Se você estiver criando recursos que serão usados com o cluster AKS, como contas de armazenamento ou o endereço IP público reservado, você deve colocá-los no grupo de recursos gerados automaticamente.
+
+## <a name="does-aks-offer-a-service-level-agreement"></a>O AKS oferece um contrato de nível de serviço?
+
+Em um SLA (Contrato de Nível de Serviço), o provedor concorda em reembolsar o cliente pelo custo do serviço caso o nível de serviço publicado não seja atendido. Como o AKS é gratuito, não há nenhum custo a reembolsar e, portanto, nenhum SLA formal. No entanto, procuramos manter uma disponibilidade de pelo menos 99,5% para o servidor da API do Kubernetes.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

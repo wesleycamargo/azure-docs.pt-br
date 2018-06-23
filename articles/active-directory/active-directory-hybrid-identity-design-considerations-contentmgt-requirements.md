@@ -1,24 +1,26 @@
 ---
-title: "Design de identidade híbrida - requisitos de gerenciamento de conteúdo do Azure | Microsoft Docs"
-description: "Fornece informações sobre como determinar os requisitos de gerenciamento de conteúdo da sua empresa. Normalmente quando o usuário tem seu próprio dispositivo, ele terá também várias credenciais que serão alternadas de acordo com o aplicativo que usa. É importante diferenciar o conteúdo que foi criado usando credenciais pessoais em comparação com aquelas criadas usando credenciais corporativas. Sua solução de identidade deve ser capaz de interagir com os serviços de nuvem para fornecer uma experiência perfeita ao usuário final ao garantir a sua privacidade e aumentar a proteção contra a perda de dados."
-documentationcenter: 
+title: Design de identidade híbrida - requisitos de gerenciamento de conteúdo do Azure | Microsoft Docs
+description: Fornece informações sobre como determinar os requisitos de gerenciamento de conteúdo da sua empresa. Normalmente quando o usuário tem seu próprio dispositivo, ele terá também várias credenciais que serão alternadas de acordo com o aplicativo que usa. É importante diferenciar o conteúdo que foi criado usando credenciais pessoais em comparação com aquelas criadas usando credenciais corporativas. Sua solução de identidade deve ser capaz de interagir com os serviços de nuvem para fornecer uma experiência perfeita ao usuário final ao garantir a sua privacidade e aumentar a proteção contra a perda de dados.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 71e33ec82c3db6fb7efa52dd12315e309658aab9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: b414a1e93d5a0f4be5be82011482b492fd9ce378
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800786"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de gerenciamento de conteúdo para sua solução de identidade híbrida
 Noções básicas sobre os requisitos de gerenciamento de conteúdo para a sua empresa direta podem afetar sua decisão sobre qual solução de identidade híbrida usar. Com a proliferação de vários dispositivos e a capacidade dos usuários para levar seus próprios dispositivos ([BYOD](https://aka.ms/byodcg)), a empresa precisa proteger seus próprios dados, mas também deve manter a privacidade do usuário intacta. Normalmente quando o usuário tem seu próprio dispositivo, ele terá também várias credenciais que serão alternadas de acordo com o aplicativo que usa. É importante diferenciar o conteúdo que foi criado usando credenciais pessoais em comparação com aquelas criadas usando credenciais corporativas. Sua solução de identidade deve ser capaz de interagir com os serviços de nuvem para fornecer uma experiência perfeita ao usuário final ao garantir a sua privacidade e aumentar a proteção contra a perda de dados. 
@@ -43,7 +45,7 @@ Em geral, os requisitos de gerenciamento de conteúdo aproveitará o sistema de 
 Quando planejar sua solução de identidade híbrida, certifique-se de que as seguintes perguntas serão respondidas de acordo com os requisitos da sua organização:
 
 * Sua empresa tem controles de segurança ativos para aplicar a privacidade dos dados?
-  * Em caso positivo, esses controles de segurança poderão integrar com a solução de identidade híbrida que você vai adotar?
+  * Em caso positivo, os controles de segurança poderão ser integrados à solução de identidade híbrida que você vai adotar?
 * Sua empresa usa a classificação de dados?
   * Em caso positivo, a solução atual é capaz de se integrar com a solução de identidade híbrida que você vai adotar?
 * Sua empresa atualmente tem qualquer solução de vazamento de dados? 
@@ -52,7 +54,7 @@ Quando planejar sua solução de identidade híbrida, certifique-se de que as se
   * Em caso afirmativo, que tipo de recursos?
   * Em caso afirmativo, qual nível de informação é necessário?
   * Em caso afirmativo, onde o log de auditoria deve residir? Local ou na nuvem?
-* Sua empresa precisa criptografar qualquer email que contêm dados confidenciais (SSNs, números de cartão de crédito, etc)?
+* Sua empresa precisa criptografar emails que contêm dados confidenciais (SSNs, números de cartão de crédito, etc)?
 * Sua empresa precisa criptografar todos os documentos/conteúdos compartilhados com parceiros comerciais externos?
 * Sua empresa precisa impor políticas corporativas em determinados tipos de emails (não responder a todos, não encaminhar)?
 

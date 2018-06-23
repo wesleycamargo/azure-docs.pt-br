@@ -1,29 +1,25 @@
 ---
-title: "Executar etapas com base no status da ação agrupada - Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Agrupar ações em escopos e executar as etapas com base no status do grupo"
+title: Adicionar escopos que executam ações com base no status do grupo – Aplicativo Lógico do Azure | Microsoft Docs
+description: Como criar escopos que executam ações de fluxo de trabalho com base no status da ação de grupo no Aplicativo Lógico do Azure
 services: logic-apps
-keywords: branches, processamento paralelo
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 052af45962f442e96ca28f05ffaa1b9814b2588b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 1258175eb3d28d39be8be08498ba8d2e0998aa43
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298807"
 ---
-# <a name="scopes-run-steps-based-on-group-status-in-logic-apps"></a>Escopos: executar etapas com base no status do grupo em aplicativos lógicos
+# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Criar escopos que executam ações de fluxo de trabalho com base no status do grupo no Aplicativo Lógico do Azure
 
-Para executar as etapas somente após um outro grupo de ações ter êxito ou falhar, coloque esse grupo dentro de um *escopo*. Essa estrutura é útil quando deseja organizar ações como um grupo lógico, avaliar o status desse grupo e executar ações baseadas no status do escopo. Depois que todas as ações em um escopo concluem a execução, o escopo também obtém seu próprio status. Por exemplo, é possível usar escopos quando você quiser implementar [tratamento de erro e exceção](../logic-apps/logic-apps-exception-handling.md#scopes). 
+Para executar ações somente após um outro grupo de ações ter êxito ou falhar, agrupe essas ações em um *escopo*. Essa estrutura é útil quando deseja organizar ações como um grupo lógico, avaliar o status desse grupo e executar ações baseadas no status do escopo. Depois que todas as ações em um escopo concluem a execução, o escopo também obtém seu próprio status. Por exemplo, é possível usar escopos quando você quiser implementar [tratamento de erro e exceção](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
 Para verificar o status de um escopo, é possível usar os mesmos critérios utilizados para determinar um status de execução de aplicativos lógicos, como "Com êxito", "Com falha", "Cancelado", e assim por diante. Por padrão, quando todas as ações do escopo são bem-sucedidas, o status do escopo é marcado como "Com êxito." Mas, quando qualquer ação no escopo apresenta falha ou é cancelada, o status do escopo é marcado como "Com falha." Para limites nos escopos, consulte [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
 

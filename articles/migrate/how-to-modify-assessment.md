@@ -4,14 +4,14 @@ description: Descreve como configurar e executar uma avaliação de migração d
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/31/2018
 ms.author: raynew
-ms.openlocfilehash: 5054da16a6a02dddb8539011d3baa18f2bb9914a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 73dab9c7eca53ecce44d43a9607fcc7426f9de8d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777038"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715499"
 ---
 # <a name="customize-an-assessment"></a>Personalizar uma avaliação
 
@@ -26,7 +26,7 @@ As [Migrações para Azure](migrate-overview.md) criam avaliações com configur
     **Configuração** | **Detalhes** | **Padrão**
     --- | --- | ---
     **Local de destino** | O local do Azure para o qual você deseja migrar.<br/><br/> Atualmente, as Migrações para Azure dão suporte a 30 regiões, incluindo Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, Índia Central, EUA Central, Leste da China, Norte da China, Ásia Oriental, Leste dos EUA, Alemanha Central, Nordeste da Alemanha, Leste dos EUA 2, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Sul do Reino Unido, Oeste do Reino Unido, US Gov – Arizona, US Gov – Texas, US Gov – Virgínia, Centro-Oeste dos EUA, Europa Ocidental, Índia Ocidental, Oeste dos EUA e Oeste dos EUA 2. |  Oeste dos EUA 2 é o local padrão.
-    **Redundância de armazenamento** | O tipo de redundância de armazenamento que as VMs do Azure usarão após a migração. | O [armazenamento com redundância local (LRS)](../storage/common/storage-redundancy-lrs.md) é o valor padrão. As Migrações para Azure só oferecem suporte a avaliações com base em discos gerenciados, e discos gerenciados só oferecem suporte ao LRS, portanto a propriedade atualmente só tem a opção de LRS.
+    **Tipo de armazenamento** | Você pode especificar o tipo dos discos que deseja alocar no Azure. Essa propriedade será aplicável quando o critério de dimensionamento for dimensionamento local. Especifique o tipo de disco de destino como discos gerenciados Premium ou Standard. Para o dimensionamento com base em desempenho, a recomendação de disco é feita automaticamente com base nos dados de desempenho das VMs. Observe que as Migrações para Azure são compatíveis apenas com discos gerenciados para avaliação de migração. | O valor padrão é discos gerenciados Premium (com o critério de dimensionamento *como dimensionamento local*).
     **Critério de dimensionamento** | O critério a ser usado pelas Migrações para Azure para redimensionar VMs para o Azure. Você pode fazer dimensionamento *com base no desempenho* ou dimensionar as VMs *como locais*, sem considerar o histórico de desempenho. | O dimensionamento com base no desempenho é a opção padrão.
     **Histórico de desempenho** | A duração a considerar para avaliar o desempenho das VMs. Essa propriedade só é aplicável quando o critério de dimensionamento é *dimensionamento com base no desempenho*. | O padrão é um dia.
     **Utilização de percentual** | O valor percentual da amostra de desempenho definido para ser considerado para o redimensionamento. Essa propriedade só é aplicável quando o critério de dimensionamento é *dimensionamento com base no desempenho*.  | O padrão é 95 por cento.

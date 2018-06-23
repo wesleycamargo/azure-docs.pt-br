@@ -2,7 +2,7 @@
 title: Conecte-se ao Azure Databricks do Excel, Python ou R | Microsoft Docs
 description: Saiba como usar o driver Simba para conectar o Azure Databricks para o Excel, Python ou R.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -11,13 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9daa7d30036d0a0f98d079e03a69c29d11e49664
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598871"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Conecte-se ao Azure Databricks do Excel, Python ou R
 
@@ -102,7 +103,7 @@ Uma vez que você tiver os dados na sua pasta de trabalho do Excel, você pode r
 Nesta seção, você deve usar uma linguagem R IDE para os dados de referência disponíveis no Azure Databricks. Antes de começar, você deve ter os itens a seguir instalados no seu computador.
 
 * Um IDE para a linguagem R. Este artigo usa RStudio para área de trabalho. Você pode instalá-lo a partir do [download do Studio R](https://www.rstudio.com/products/rstudio/download/).
-* Se você usar RStudio para a área de trabalho como seu IDE, instale também o Microsoft R Client a partir do link [http://aka.ms/rclient/](http://aka.ms/rclient/). 
+* Se você usa o RStudio para área de trabalho como seu IDE, instale também o Microsoft R Client [http://aka.ms/rclient/](http://aka.ms/rclient/). 
 
 Abra o RStudio e siga as etapas a seguir:
 

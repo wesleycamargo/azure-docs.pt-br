@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 424ea1eca637653c5e7cfed9dc4b970d5afd91ad
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164196"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713401"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiências de entrada com a proteção de identidade do Azure AD
 Com o Azure Active Directory Identity Protection, é possível:
@@ -28,9 +29,9 @@ Com o Azure Active Directory Identity Protection, é possível:
 * exigir o registro de usuários na autenticação multifator
 * lidar com entradas arriscadas e usuários comprometidos
 
-A resposta do sistema para esses problemas tem um impacto na experiência de entrada de um usuário, pois apenas entrar diretamente fornecendo um nome de usuário e uma senha não será mais possível. São necessárias etapas adicionais para fazer com que um usuário volte ao trabalho com segurança.
+A resposta do sistema para esses problemas tem um impacto na experiência de entrada de um usuário, pois entrar diretamente fornecendo um nome de usuário e uma senha não será mais possível. São necessárias etapas adicionais para fazer com que um usuário volte ao trabalho com segurança.
 
-Este tópico fornece uma visão geral da experiência de entrada de um usuário em relação a todos os casos que podem ocorrer.
+Este artigo fornece uma visão geral da experiência de entrada de um usuário em relação a todos os casos que podem ocorrer.
 
 **Autenticação multifator**
 
@@ -82,7 +83,7 @@ Os administradores podem optar por definir uma política de Entrada Arriscada pa
 ![Correção](./media/active-directory-identityprotection-flows/200.png "Correção")
 
 ## <a name="compromised-account-recovery"></a>Recuperação de conta comprometida
-Após configurar uma política de segurança de risco do usuário, os usuários que atendem o usuário nível de risco especificado na política (sendo, portanto, considerados comprometidos) devem passar pelo fluxo de recuperação de comprometimento de usuário antes de poderem entrar. 
+Após configurar uma política de segurança de risco do usuário, os usuários que atendem o nível de risco especificado na política (sendo, portanto, considerados comprometidos) devem passar pelo fluxo de recuperação de comprometimento de usuário antes de poderem entrar. 
 
 **O fluxo de recuperação de comprometimento do usuário tem três etapas:**
 

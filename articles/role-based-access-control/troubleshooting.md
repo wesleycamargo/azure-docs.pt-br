@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e1f9fa8e3abd3eee9d85c241000a07794af9d36b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5ca43fe3a8ff27ff4a811aeb26abf4a6f26d8b35
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267162"
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Solução de problemas no controle de acesso baseado em função do Azure 
 
@@ -74,7 +75,7 @@ Alguns recursos do [Azure Functions](../azure-functions/functions-overview.md) e
 
 ![Aplicativos de funções sem acesso](./media/troubleshooting/functionapps-noaccess.png)
 
-Um leitor pode clicar na guia **	Recursos da plataforma** e, em seguida, clicar em **Todas as configurações** para exibir algumas configurações relacionadas a um aplicativo de funções (semelhante a um aplicativo Web), mas não é possível modificar nenhuma dessas configurações.
+Um leitor pode clicar na guia **Recursos da plataforma** e, em seguida, clicar em **Todas as configurações** para exibir algumas configurações relacionadas a um aplicativo de funções (semelhante a um aplicativo Web), mas não pode modificar essas configurações.
 
 ## <a name="virtual-machine"></a>Máquina virtual
 Como muitos aplicativos Web, alguns recursos na folha da máquina virtual requerem o acesso de gravação para a máquina virtual ou a outros recursos no grupo de recursos.

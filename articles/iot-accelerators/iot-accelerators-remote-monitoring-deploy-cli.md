@@ -1,30 +1,27 @@
 ---
-title: Implantar a solução Java de monitoramento remoto – Azure | Microsoft Docs
-description: Este tutorial mostra como provisionar o acelerador de solução de monitoramento remoto usando a CLI.
-services: iot-suite
-suite: iot-suite
+title: Implantar a solução Java de Monitoramento Remoto – Azure | Microsoft Docs
+description: Este tutorial mostra como provisionar o acelerador de solução de Monitoramento Remoto usando a CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3178d51cd2c04f3be8d4a6284a4f1635845def8c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628116"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implantar o acelerador de solução de monitoramento remoto usando a CLI
+# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implantar o acelerador de solução de Monitoramento Remoto usando a CLI
 
-Este tutorial mostra como provisionar o acelerador de solução de monitoramento remoto. Implante a solução usando a CLI. Também é possível implantar a solução usando a interface do usuário na Web em azureiotsuite.com. Para saber mais sobre essa opção, consulte [Implantar o acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-deploy.md).
+Este tutorial mostra como provisionar o acelerador da solução de Monitoramento Remoto. Implante a solução usando a CLI. Também é possível implantar a solução usando a interface do usuário na Web em azureiotsuite.com. Para saber mais sobre essa opção, confira [Implantar o acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para implantar o acelerador de solução de monitoramento remoto, você precisará de uma assinatura ativa do Azure.
+Para implantar o acelerador de solução de Monitoramento Remoto, você precisará de uma assinatura ativa do Azure.
 
 Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -57,7 +54,7 @@ Há várias opções para configurar o processo de implantação ao implantar o 
 | SKU    | `basic`, `standard`, `local` | Uma implantação _básica_ destina-se a testes e demonstrações, e implanta todos os microsserviços em uma única máquina virtual. Uma implantação _padrão_ destina-se à produção e implanta os microsserviços em diversas máquinas virtuais. Uma implantação _local_ configura um contêiner do Docker para executar o microservices em seu computador local e usa os serviços do Azure, como armazenamento e o Cosmos DB, na nuvem. |
 | Tempo de execução | `dotnet`, `java` | Seleciona a implementação de linguagem dos microsserviços. |
 
-Para saber mais sobre como usar a implantação local, consulte [Executar a solução de monitoramento remota localmente](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
+Para saber mais sobre como usar a implantação local, confira [Executar a solução de Monitoramento Remota localmente](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## <a name="basic-vs-standard-deployments"></a>Implantações Basic vs. Standard
 
@@ -96,7 +93,7 @@ Criar uma solução Standard resultará no provisionamento dos seguintes serviç
 
 ### <a name="example-deploy-net-version"></a>Exemplo: implantar a versão .NET
 
-O exemplo a seguir mostra como implantar a versão .NET básica do acelerador de solução de monitoramento remoto:
+O exemplo a seguir mostra como implantar a versão .NET básica do acelerador de solução de Monitoramento Remoto:
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
@@ -104,7 +101,7 @@ pcs -t remotemonitoring -s basic -r dotnet
 
 ### <a name="example-deploy-java-version"></a>Exemplo: implantar a versão Java
 
-O exemplo a seguir mostra como implantar a versão Java básica do acelerador de solução de monitoramento remoto:
+O exemplo a seguir mostra como implantar a versão Standard em Java do acelerador de solução de Monitoramento Remoto:
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java
@@ -138,6 +135,6 @@ Neste tutorial, você aprendeu como:
 > * Implantar o acelerador de solução
 > * Entrar no acelerador de solução
 
-Agora que você implantou a solução de monitoramento remoto, a próxima etapa será [explorar os recursos do painel da solução](./iot-accelerators-remote-monitoring-deploy.md).
+Agora que você implantou a solução de Monitoramento Remoto, a próxima etapa será [explorar os recursos do painel da solução](./iot-accelerators-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

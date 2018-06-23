@@ -2,12 +2,13 @@
 title: Configurar dispositivos adicionados ao Azure Active Directory | Microsoft Docs
 description: Saiba como configurar dispositivos adicionados ao Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 791181f11af38e4b78743ddb372207bd21893a6b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260922"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Configurar dispositivos adicionados ao Azure Active Directory
 
@@ -47,10 +49,14 @@ Para ingressar em um dispositivo Windows 10, o serviço de registro do dispositi
 
 - Se você for um usuário federado, precisará entrar usando suas credenciais.
 
+- Se você for federado, seu provedor de identidade PRECISARÁ dar suporte aos pontos de extremidade de nome de usuário/senha WS-Fed e WS-Trust. Pode ser a versão 1.3 ou 2005. O suporte deste protocolo é necessário para ingressar o dispositivo no Azure AD e para fazer logon no dispositivo com senha. 
+
+
+
 
 ## <a name="joining-a-device"></a>Ingressar em um dispositivo
 
-Esta seção fornece as etapas para adicionar seu dispositivo Windows 10 ao Azure AD. Se você adicionou com êxito o dispositivo ao Azure AD, a caixa de diálogo **Acesso corporativo ou de estudante** indicará isso com uma entrada **Conectado ao \<seu Azure AD\>**.
+Esta seção fornece as etapas para adicionar seu dispositivo Windows 10 ao Azure AD. Um dispositivo adicionado com êxito aparece como **Conectado ao \<Azure AD\>**.
 
 ![Conectado](./media/device-management-azuread-joined-devices-setup/13.png)
 
@@ -119,7 +125,7 @@ Para obter mais informações, consulte [Localizar dispositivos](device-manageme
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, confira: 
+Para obter mais informações, consulte: 
 
 - A [Introdução ao gerenciamento de dispositivos no Azure Active Directory](device-management-introduction.md)
 - [Gerenciar dispositivos usando o portal do Azure](device-management-azure-portal.md)

@@ -1,25 +1,27 @@
 ---
-title: "Latências de relatórios do Azure Active Directory | Microsoft Docs"
-description: "Saiba quanto tempo leva para que os eventos de relatório sejam exibidos no seu portal do Azure"
+title: Latências de relatórios do Azure Active Directory | Microsoft Docs
+description: Saiba quanto tempo leva para que os eventos de relatório sejam exibidos no seu portal do Azure
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 12/15/2017
-ms.author: markvi;dhanyahk
+ms.author: rolyon;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f27efab05dc8580735c58eed20e9b48d8003dd17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589773"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências de relatórios do Azure Active Directory
 
@@ -37,10 +39,10 @@ Há duas áreas de relatórios de atividade:
 
 A tabela a seguir lista as informações de latência para relatórios de atividade.
 
-| Relatório | Mínimo | Média | Comentários |
-| :-- | --- | --- | :-- |
-| Logs de auditoria | 30 minutos  | 1 hora  |Em alguns casos, pode levar até 2 horas para que os dados de atividade de auditoria sejam exibidos.|
-| Entradas | 15 minutos  | 2 horas |Em alguns casos, pode levar até 24 horas para que os dados de atividade de entrada sejam exibidos. Isso inclui dados de atividade de entradas provenientes de aplicativos herdados do Office. |
+| Relatório | Latência (P95) |Latência (P99)|
+| :-- | --- | --- | 
+| Logs de auditoria | 2 minutos  | 5 min  |
+| Entradas | 2 minutos  | 5 min |
 
 
 

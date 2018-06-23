@@ -1,20 +1,21 @@
 ---
-title: "Configurar os parâmetros de serviço no Banco de Dados do Azure para MySQL"
-description: "Este artigo descreve como configurar os parâmetros de serviço no Banco de Dados do Azure para MySQL usando o utilitário da linha de comando da CLI do Azure."
+title: Configurar os parâmetros de serviço no Banco de Dados do Azure para MySQL
+description: Este artigo descreve como configurar os parâmetros de serviço no Banco de Dados do Azure para MySQL usando o utilitário da linha de comando da CLI do Azure.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 9caf6b164f2433ab3c1b701554f562211cc2de80
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4c04cb77513ec070edce739aa0a49447dc915a1b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265207"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Personalizar os parâmetros de configuração do servidor usando a CLI do Azure
 É possível listar, exibir e atualizar os parâmetros de configuração de um servidor de Banco de Dados do Azure para MySQL usando o utilitário da linha de comando da CLI do Azure. Um subconjunto de configurações de mecanismo é exposto no nível do servidor e pode ser modificado. 
@@ -36,14 +37,14 @@ Para obter a definição de cada um dos parâmetros listados, consulte a seção
 ## <a name="show-server-configuration-parameter-details"></a>Mostrar detalhes do parâmetro de configuração do servidor
 Para mostrar os detalhes sobre um parâmetro de configuração específico de um servidor, execute o comando [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_show).
 
-Este exemplo mostra detalhes do parâmetro de configuração de servidor **log de\_consultas\_lentas** para o servidor **mydemoserver.mysql.database.azure.com** no grupo de recursos **myresourcegroup.**
+Este exemplo mostra detalhes do parâmetro de configuração de servidor **slow\_query\_log** para o servidor **mydemoserver.mysql.database.azure.com** no grupo de recursos **myresourcegroup.**
 ```azurecli-interactive
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-a-server-configuration-parameter-value"></a>Modificar um valor do parâmetro de configuração do servidor
 Você também pode modificar o valor de determinados parâmetros de configuração, que atualiza o valor da configuração subjacente para o mecanismo do servidor MySQL. Para atualizar o valor de configuração execute o comando [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set). 
 
-Para atualizar o parâmetro de configuração de servidor **log de\_consultas\_lentas** do servidor **mydemoserver.mysql.database.azure.com** no grupo de recursos **myresourcegroup.**
+Para atualizar o parâmetro de configuração de servidor **slow\_query\_log** do servidor **mydemoserver.mysql.database.azure.com** no grupo de recursos **myresourcegroup.**
 ```azurecli-interactive
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 ```

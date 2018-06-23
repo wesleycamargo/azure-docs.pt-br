@@ -1,25 +1,20 @@
 ---
 title: O que é Azure IoT Edge | Microsoft Docs
 description: Visão geral do serviço Azure IoT Edge
-services: iot-Edge
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: chipalost
-ms.assetid: ''
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.reviewer: chipalost
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: ''
-ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 52956e9888d67e0502a9ea82657acb9728216111
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630690"
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>O que é Azure IoT Edge - versão prévia
 
@@ -69,7 +64,7 @@ O tempo de execução do Azure IoT Edge é executado em um grande conjunto de di
 
 Gerenciar o ciclo de vida de software para dispositivos corporativos é complicado. Gerenciar o ciclo de vida de software para milhões de dispositivos de IoT heterogêneos é ainda mais difícil. As cargas de trabalho devem ser criadas e configuradas para um tipo específico de dispositivo, implantadas na escala de milhões de dispositivos em sua solução e monitoradas para detectar todos os dispositivos com comportamento inadequado. Essas atividades não podem ser feitas por dispositivo e devem ser feitas em escala.
 
-O Azure IoT Edge se integra perfeitamente com o Azure IoT Suite para fornecer um plano de controle para as necessidades da sua solução. Os serviços de nuvem permitem aos usuários:
+O Azure IoT Edge integra-se perfeitamente aos aceleradores da solução Azure IoT para fornecer um plano de controle de acordo com as necessidades da sua solução. Os serviços de nuvem permitem aos usuários:
 
 * Criar e configurar uma carga de trabalho a ser executado em um tipo específico de dispositivo.
 * Enviar uma carga de trabalho para um conjunto de dispositivos.

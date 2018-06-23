@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236392"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -29,7 +30,14 @@ ms.lasthandoff: 04/18/2018
     - Logs de fluxo do NSG habilitados para os NSGs que deseja monitorar
     - Uma Conta de Armazenamento do Microsoft Azure para armazenar logs de arquivos brutos
     - Espaço de trabalho do Log Analytics (OMS), com acesso para gravação e leitura
-    - Sua conta deve ter as seguintes ações no provedor Microsoft. Network:
+    - O usuário deve ser atribuído com uma das seguintes funções no nível de assinatura:
+    
+            All permissions *
+            All Read permissions */read
+            All network permissions Microsoft.Network/*
+            All network read permissions Microsoft.Network/*/read
+
+    Ou, o usuário deve ser atribuído com todas as funções no nível de assinatura a seguir: 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
@@ -41,6 +49,19 @@ ms.lasthandoff: 04/18/2018
         - Microsoft.Network/routeTables/read
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
+        
+Para verificar as funções atribuídas a um usuário para uma assinatura, siga as etapas abaixo:
+
+Faça logon no Azure usando Login-AzureRmAccount 
+
+Selecione a assinatura exigida usando Select-AzureRmSubscription 
+
+Agora, liste todas as funções atribuídas a um usuário especificado usando Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators 
+
+Se você não estiver vendo nenhuma saída após a execução dos comandos, entre em contato com o respectivo administrador de assinatura a fim de obter acesso para executá-los.  
+
+Para saber mais detalhes, confira [Gerenciar o controle de acesso baseado em função com o Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+
 
 2.  Em quais regiões do Azure estão disponíveis a Análise de Tráfego?
 
@@ -106,11 +127,11 @@ ms.lasthandoff: 04/18/2018
 
 14. Posso Configurar a análise de tráfego usando o PowerShell ou um modelo do Gerenciador de recursos do Azure?
 
-    Não, as análises de tráfego só podem ser configuradas usando o Portal do Azure.
+Sim, configuração de análise de tráfego usando o Windows PowerShell é compatível com a versão 6.2.1 e posteriores; no entanto, o modelo do Azure Resource Manager não está disponível no momento. Para saber mais informações sobre como o PowerShell pode ser usado para configurar a análise de tráfego, confira a seguinte [documentação](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
 
 15.  Como a Análise de Tráfego é precificada?
 
-        A análise de tráfego é monitorada para melhorar a redução de logs e armazenar os logs avançados em um espaço de trabalho do Log Analytics. Enquanto estiver na visualização, a análise de tráfego não é cobrada para melhorar os logs de redução, no entanto, a retenção de dados em um espaço de trabalho está sujeita a cobrança em taxas publicadas. Essa resposta será atualizada quando os preços para análise de tráfego estiverem disponíveis.
+A análise de tráfego é medida em relação aos dados processados de log do fluxo pelo serviço e ao armazenamento resultante dos logs aprimorados em um espaço de trabalho do Log Analytics. Para saber mais sobre os preços do plano, [clique aqui](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
 
 16.  Como posso navegar usando o Teclado na Exibição do Mapa Geográfico?
 

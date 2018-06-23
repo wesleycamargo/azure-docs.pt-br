@@ -2,12 +2,13 @@
 title: Configurar dispositivos registrados no Azure Active Directory | Microsoft Docs
 description: Saiba como configurar dispositivos registrados no Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,22 +16,23 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2560e51d61506389e84288bf983b0ebcb5776ff2
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 541f37bb11c604567b356716db282d0e4e2f629b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713517"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Configurar dispositivos Windows 10 registrados no Azure Active Directory
 
-Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais detalhes, confira [Introdução ao gerenciamento de dispositivos no Azure Active Directory](device-management-introduction.md).
+Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais informações, confira [Introdução ao gerenciamento de dispositivos no Azure Active Directory](device-management-introduction.md).
 
-Se desejar habilitar o cenário **BYOD (traga seu próprio dispositivo)**, você poderá fazer isso configurando dispositivos registrados do Azure AD. No Azure AD, é possível configurar dispositivos registrados no Azure AD para Windows 10, iOS, Android e macOS. Esse tópico fornece as etapas relacionadas para dispositivos Windows 10. 
+Se desejar habilitar o cenário **BYOD (traga seu próprio dispositivo)**, você poderá fazer isso configurando dispositivos registrados do Azure AD. No Azure AD, é possível configurar dispositivos registrados no Azure AD para Windows 10, iOS, Android e macOS. Esse artigo fornece as etapas relacionadas para dispositivos Windows 10. 
 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para registrar um dispositivo Windows 10, o serviço de registro do dispositivo deverá ser configurado para permitir que você registre dispositivos. Além de ter permissão para registrar dispositivos em seu locatário do Azure AD, você deverá ter menos dispositivos registrados que o máximo configurado. Para obter mais detalhes, confira [Configurar configurações do dispositivo](device-management-azure-portal.md#configure-device-settings).
+Para registrar um dispositivo Windows 10, o serviço de registro do dispositivo deverá ser configurado para permitir que você registre dispositivos. Além disso, você precisa ter menos dispositivos registrados do que o máximo configurado. Para mais informações, consulte [Definir configurações do dispositivo](device-management-azure-portal.md#configure-device-settings).
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 
@@ -49,7 +51,7 @@ Ao registrar um dispositivo, você deve ter o seguinte em mente:
 
 ## <a name="registering-a-device"></a>Registrando um dispositivo
 
-Esta seção fornece as etapas para registrar seu dispositivo Windows 10 ao Azure AD. Se você registrou com êxito o dispositivo ao Azure AD, a caixa de diálogo **Acesso corporativo ou de estudante** indicará isso com uma entrada **Conta corporativa ou de estudante**.
+Esta seção fornece as etapas para registrar seu dispositivo Windows 10 ao Azure AD. Um dispositivo registrado com êxito é exibido com uma entrada de **Conta corporativa ou de estudante**.
 
 ![Registrar ](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
@@ -74,7 +76,7 @@ Esta seção fornece as etapas para registrar seu dispositivo Windows 10 ao Azur
     ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/04.png)
 
 
-5. Na caixa de diálogo **Configurar uma conta corporativa ou de estudante**, insira seu nome de conta (por exemplo: someone@example.com) e, em seguida, clique em **Avançar**.
+5. Na caixa de diálogo **Configurar uma conta corporativa ou de estudante**, insira o nome da conta (por exemplo, someone@example.com) e clique em **Avançar**.
 
     ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/06.png)
 
@@ -94,7 +96,7 @@ Para verificar se um dispositivo é associado ao seu Azure AD, examine a caixa d
 
 ![Registrar ](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
-Como alternativa, você também pode examinar as configurações do dispositivo no portal do Azure AD.
+Como alternativa, você pode examinar as configurações do dispositivo no portal do Azure AD.
 
 ![Registrar ](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
 
@@ -104,9 +106,9 @@ Como alternativa, você também pode examinar as configurações do dispositivo 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais detalhes, consulte a [Introdução ao gerenciamento de dispositivos no Azure Active Directory](device-management-introduction.md)
+- Para obter mais informações, confira a [introdução ao gerenciamento de dispositivos no Azure Active Directory](device-management-introduction.md).
 
-- Para obter mais detalhes sobre como gerenciar dispositivos no portal do Azure AD, consulte [Gerenciar dispositivos usando o portal do Azure](device-management-azure-portal.md).
+- Para obter mais informações sobre como gerenciar dispositivos no portal do Azure AD, confira [Gerenciar dispositivos usando o portal do Azure](device-management-azure-portal.md).
 
 
 
