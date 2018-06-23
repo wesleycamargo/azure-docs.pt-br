@@ -11,13 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.reviewer: thoroet
+ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36321266"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Conceder acesso de aplicativos aos recursos de pilha do Azure, Criando entidades de serviço
 
@@ -61,7 +63,7 @@ Verifique se você tem o [necessárias permissões do AD do Azure](../../azure-r
 
 Para criar uma entidade de serviço para seu aplicativo:
 
-1. Entre na sua conta do Azure por meio do [Portal do Azure](https://portal.azure.com).
+1. Entrar sua conta do Azure por meio de [portal do Azure](https://portal.azure.com).
 2. Selecione **Active Directory do Azure** > **registros do aplicativo** > **adicionar**.
 3. Forneça um nome e uma URL para o aplicativo. Selecione **aplicativo Web/API** ou **Nativo** para o tipo de aplicativo que você deseja criar. Depois de definir os valores, selecione **Criar**.
 
@@ -93,54 +95,7 @@ Se você implantou a pilha do Azure usando o AD FS como repositório de identida
 * Atribua a entidade de serviço a uma função.
 * Entre usando a identidade da entidade de serviço.
 
-### <a name="before-you-begin"></a>Antes de começar
-
-[Baixe as ferramentas de pilha do Azure necessárias para o computador local.](azure-stack-powershell-download.md)
-
-### <a name="import-the-identity-powershell-module"></a>Importe o módulo do PowerShell de identidade
-
-Navegue até a pasta de download para as ferramentas de pilha do Azure e importe o módulo do PowerShell de identidade usando o seguinte comando:
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-Quando você importa o módulo de identidade, você pode receber essa mensagem de erro: "AzureStack.Connect.psm1 não foi assinado digitalmente. O script não será executado no sistema".
-
-Para corrigir esse problema, você precisa configurar a política de execução para permitir a execução do script. Para definir a política de execução, execute o seguinte comando em uma sessão do PowerShell com privilégios elevados:
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### <a name="create-the-service-principal"></a>Criar a entidade de serviço
-
-Você pode criar uma entidade de serviço executando o comando a seguir, certificando-se de atualizar o **DisplayName** parâmetro:
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### <a name="assign-a-role"></a>Atribuir uma função
-
-Depois de criar a entidade de serviço, você deve [atribuí-la a uma função](azure-stack-create-service-principals.md#assign-role-to-service-principal).
-
-### <a name="sign-in-using-powershell"></a>Entrar usando o PowerShell
-
-Você pode entrar com a pilha do Azure executando o comando a seguir, certificando-se de atualizar o **EnvironmentName** parâmetro com o nome do seu aplicativo:
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+Para obter detalhes sobre como criar a entidade de serviço, consulte [criar entidade de serviço do AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Atribuir a entidade de serviço a uma função
 

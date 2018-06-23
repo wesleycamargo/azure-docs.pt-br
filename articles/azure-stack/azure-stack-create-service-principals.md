@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: dd43d567a9839ae38c5b5eb4cdb851f8b80dcfff
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: b505e0fa215b04a5b05ca1b4c3fa9548d8deb71f
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824563"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36321270"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso a aplicativos para o Azure Stack
 
@@ -45,7 +45,7 @@ Se você implantou o Azure pilha usando o Azure AD como repositório de identida
 ### <a name="create-service-principal"></a>Criar uma entidade de serviço
 Nesta seção, você criará um aplicativo (entidade de serviço) no AD do Azure que representa o aplicativo.
 
-1. Entre na sua conta do Azure por meio do [Portal do Azure](https://portal.azure.com).
+1. Entrar sua conta do Azure por meio de [portal do Azure](https://portal.azure.com).
 2. Selecione **Active Directory do Azure** > **registros do aplicativo** > **adicionar**   
 3. Forneça um nome e uma URL para o aplicativo. Selecione **aplicativo Web/API** ou **Nativo** para o tipo de aplicativo que você deseja criar. Depois de definir os valores, selecione **Criar**.
 
@@ -132,7 +132,7 @@ Depois que você tenha atribuído a uma função, você pode entrar pilha do Azu
 Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId ` 
+ -ApplicationId $servicePrincipal.ClientId ` 
  -TenantId $directoryTenantId
 ```
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 2c2813a7f2d909a23c8f5d4f5ac0280b3f932ba6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 9fc58d971db18db63e4dc76123ff1311b77e0191
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "34700117"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316426"
 ---
 # <a name="azure-stack-1804-update"></a>Atualização de pilha 1804 do Azure
 
@@ -89,7 +89,9 @@ A seguir agora está disponíveis, mas não requerem a atualização da pilha do
 
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
-*Não há nenhuma etapa de pós-atualização para atualização 1804.*
+Após a instalação do 1804, instale os Hotfixes aplicáveis. Para mais informações, consulte os seguintes artigos da base de dados de Conhecimento, bem como nosso [política manutenção](azure-stack-servicing-policy.md).  
+ - [KB 4341392 - Hotfix da pilha do Azure 1.0.180523.11](https://support.microsoft.com/en-us/help/4341392).
+
 
 
 
