@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: ce2bc8cc8d9b149b16aee9c5e601d9872621e277
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f486ce5c058286289873d87767f02bf92f91459e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701435"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
 ## <a name="overview"></a>Visão geral
@@ -105,7 +106,10 @@ O protocolo HTTPS fornece autenticação de servidor e também é usado para cri
 > [!NOTE]
 > O protocolo de um serviço não pode ser alterado durante a atualização do aplicativo. Se ele for alterado durante a atualização, será uma alteração significativa.
 > 
-> 
+
+> [!WARNING] 
+> Ao usar HTTPS, não use a mesma porta e o certificado de instâncias de serviço diferente (independentemente do aplicativo) implantados no mesmo nó. O upgrade de dois serviços diferentes usando a mesma porta em instâncias de aplicativo diferentes resultará em uma falha de upgrade. Para obter mais informações, consulte [Atualizando vários aplicativos com pontos de extremidade HTTPS](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+>
 
 Este está um exemplo de ApplicationManifest que precisa ser definido para HTTPS. Deve ser fornecida impressão digital para seu certificado. O EndpointRef é uma referência a EndpointResource no ServiceManifest, para o qual você definiu o protocolo HTTPS. Você pode adicionar mais de um EndpointCertificate.  
 
@@ -154,11 +158,11 @@ Para clusters do Linux, o **MEU** armazenar padroniza para a pasta **/var/lib/sf
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Substituição dos pontos de extremidade em ServiceManifest.xml
 
-No ApplicationManifest, adicione uma seção ResourceOverrides que será uma irmã da seção ConfigOverrides. Nessa seção, você pode especificar a substituição da seção Pontos de extremidade na seção de recursos especificada no Manifesto do serviço. A substituição de pontos de extremidade é compatível com o tempo de execução 5.7.217/SDK 2.7.217 e superior.
+Na seção ApplicationManifest, inclua ResourceOverrides, que será um irmão da seção ConfigOverrides. Nessa seção, é possível especificar a substituição da seção Pontos de Extremidade na seção de recursos especificada no Manifesto do serviço. A substituição de pontos de extremidade é compatível com o tempo de execução 5.7.217/SDK 2.7.217 e superior.
 
 Para substituir o Ponto de extremidade no ServiceManifest usando ApplicationParameters, altere o ApplicationManifest da seguinte forma:
 
-Na seção ServiceManifestImport, adicione uma nova seção "ResourceOverrides"
+Na seção ServiceManifestImport, adicione uma nova seção "ResourceOverrides".
 
 ```xml
 <ServiceManifestImport>
@@ -188,7 +192,7 @@ Nos Parâmetros, adicione o seguinte:
   </Parameters>
 ```
 
-Agora, durante e implantação do aplicativo, você pode passar esses valores como ApplicationParameters, por exemplo:
+Ao implantar o aplicativo, você poderá transmitir esses valores como ApplicationParameters.  Por exemplo: 
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}

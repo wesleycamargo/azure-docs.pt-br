@@ -1,36 +1,37 @@
 ---
-title: "Implantar um contêiner do Docker do Linux do ASP.NET Core em um host do Docker remoto | Microsoft Docs"
-description: "Saiba como usar as Ferramentas do Visual Studio para Docker para implantar um aplicativo Web do ASP.NET Core em um contêiner do Docker em execução em uma VM do Linux do Host do Docker do Azure"
+title: Implantar um contêiner do Docker do ASP.NET no ACR (Registro de Contêiner do Azure) | Microsoft Docs
+description: Saiba como usar as Ferramentas do Visual Studio para Docker para implantar um aplicativo Web do ASP.NET Core em um registro de contêiner
 services: azure-container-service
 documentationcenter: .net
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: e5e81c5e-dd18-4d5a-a24d-a932036e78b9
 ms.service: azure-container-service
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2016
+ms.date: 05/21/2018
 ms.author: mlearned
-ms.openlocfilehash: 60efffd9313f6972ae46fd1925d999597d3c6ba2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4442c1d763f4ed21a5efeedbe957727254e2a0b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658464"
 ---
-# <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Implantar um contêiner ASP.NET em um host remoto do Docker
+# <a name="deploy-an-aspnet-container-to-a-container-registry-using-visual-studio"></a>Implantar um contêiner do ASP.NET em um registro de contêiner usando o Visual Studio
 ## <a name="overview"></a>Visão geral
 O Docker é um mecanismo de contêiner leve, semelhante em alguns pontos a uma máquina virtual, que você pode usar para hospedar aplicativos e serviços.
-Este tutorial explica como usar a extensão [Ferramentas do Visual Studio para Docker](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker) para implantar um aplicativo ASP.NET Core em um host do Docker no Azure usando o PowerShell.
+Este tutorial orienta sobre o uso do Visual Studio para publicar o aplicativo em contêiner em um [Registro de Contêiner do Azure](https://azure.microsoft.com/en-us/services/container-registry).
 
-## <a name="prerequisites"></a>Pré-requisitos
-Os itens a seguir são necessários para concluir este tutorial:
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs) antes de começar.
 
-* Criar uma VM de Host do Docker no Azure, conforme descrito em [Como usar o computador Docker com o Azure](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Instalar a versão mais recente do [Visual Studio](https://www.visualstudio.com/downloads/)
-* Baixar o [SDK do Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122)
+## <a name="prerequisites"></a>pré-requisitos
+Para concluir este tutorial:
+
+* Instale a última versão do [Visual Studio 2017](https://azure.microsoft.com/en-us/downloads/) com a carga de trabalho "ASP.NET e desenvolvimento para a Web"
 * Instalar o [Docker para Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## <a name="1-create-an-aspnet-core-web-app"></a>1. Criar um aplicativo Web ASP.NET Core
@@ -38,51 +39,22 @@ As etapas a seguir guiam você na criação de um aplicativo básico ASP.NET Cor
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## <a name="2-add-docker-support"></a>2. Adicionar suporte ao Docker
-[!INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
+## <a name="2-publish-your-container-to-azure-container-registry"></a>2. Publicar o contêiner no Registro de Contêiner do Azure
+1. Clique com o botão direito no projeto em **Gerenciador de Soluções** e escolha **Publicar**.
+2. Na caixa de diálogo de destino de publicação, selecione a guia **Registro de Contêiner**.
+3. Escolha **Novo Registro de Contêiner do Azure** e clique em **Publicar**.
+4. Preencha os valores desejados em **Criar um novo Registro de Contêiner do Azure**.
 
-## <a name="3-use-the-dockertaskps1-powershell-script"></a>3. Use o Script do PowerShell DockerTask.ps1
-1. Abra um prompt do PowerShell para o diretório-raiz do seu projeto. 
-   
-   ```
-   PS C:\Src\WebApplication1>
-   ```
-2. Valide o host remoto em execução. Você deve ver o estado = Em execução 
-   
-   ```
-   docker-machine ls
-   NAME         ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER    ERRORS
-   MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
-   ```
-   
-3. Compilar o aplicativo usando o parâmetro -Build
-   
-   ```
-   PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
-   ```  
+    | Configuração      | Valor sugerido  | DESCRIÇÃO                                |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Prefixo DNS** | Nome globalmente exclusivo | Nome que identifica exclusivamente o registro de contêiner. |
+    | **Assinatura** | Escolha sua assinatura | A assinatura do Azure a utilizar. |
+    | **[Grupo de Recursos](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nome do grupo de recursos no qual criar o registro de contêiner. Escolha **Novo** para criar um novo grupo de recursos.|
+    | **[SKU](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus)** | Standard | Camada de serviço do registro de contêiner  |
+    | **Local do Registro** | Um local próximo | Escolha um Local em uma [região](https://azure.microsoft.com/regions/) próxima a você ou perto de outros serviços que usarão o registro de contêiner. |
+    ![Caixa de diálogo Criar um Registro de Contêiner do Azure do Visual Studio][0]
+5. Clique em **Criar**
 
-   > ```
-   > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
-   > ```  
-   > 
-   > 
-4. Executar o aplicativo usando o parâmetro -Run
-   
-   ```
-   PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
-   ```
-   
-   > ```
-   > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
-   > ```
-   > 
-   > 
-   
-   Quando o docker for concluído, você deverá ver resultados semelhantes ao seguinte:
-   
-   ![Exibir aplicativo][3]
+Agora, é possível extrair o contêiner do registro para qualquer host capaz de executar imagens do Docker, por exemplo [Instâncias de Contêiner do Azure](./container-instances/container-instances-tutorial-deploy-app.md).
 
-[0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/docker-props-in-solution-explorer.png
-[1]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png
-[2]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
-[3]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
+[0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/vs-acr-provisioning-dialog.png
