@@ -1,19 +1,19 @@
 ---
 title: Configurar um modelo de dispositivo em um aplicativo Azure IoT Central | Microsoft Docs
 description: Saiba como configurar um modelo de dispositivo com medidas, configurações, propriedades, regras e painel.
-services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 52c6c8fe4375354d650f92b73bffc288c9a2ccfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201502"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261977"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -161,6 +161,59 @@ Após escolher **Salvar**, a localização do dispositivo aparecerá como um blo
 > [!NOTE]
 > Após criar um novo bloco, você poderá alterar o valor da propriedade. Primeiro, desligue o modo de design no canto superior direito da tela.
 
+### <a name="create-a-location-property-powered-by-azure-maps"></a>Criar uma Propriedade de localização desenvolvida pelo Azure Mapas
+É possível fornecer contexto geográfico para seus dados de local no Azure IoT Central e mapear coordenadas de latitude e de longitude de um endereço ou simplesmente coordenadas de latitude e de longitude. Essa funcionalidade no Azure IoT Central é desenvolvida pelo Azure Mapas.
+
+Há dois tipos de propriedades de local que é possível adicionar:
+- **Local como uma propriedade de aplicativo** que será armazenado somente no aplicativo. O dispositivo não tem conhecimento das propriedades do aplicativo.
+- **Local como uma propriedade do dispositivo** que será relatado pelo dispositivo.
+
+####<a name="adding-location-as-an-application-property"></a>Adicionando local como uma propriedade de aplicativo 
+É possível criar uma propriedade de localização como uma propriedade de aplicativo usando o Azure Mapas em seu aplicativo Azure IoT Central. Por exemplo, é possível adicionar o endereço de instalação do dispositivo. 
+
+1. Navegue até a guia Propriedade do dispositivo; verifique se o modo de design está ativado.
+
+![Propriedade de localização](./media/howto-set-up-template/locationcloudproperty1.png)
+
+2. Na guia Propriedade, clique no Local.
+3. Configure o Nome de exibição, Nome do campo e o valor inicial do local opcionalmente. 
+
+![Formulário Propriedade de localização](./media/howto-set-up-template/locationcloudproperty2.png)
+
+Há dois formatos com suporte para adicionar um local:
+- **Local como um endereço**
+- **Local como coordenadas** 
+
+4. Clique em Salvar. 
+
+![Campo Propriedade de localização](./media/howto-set-up-template/locationcloudproperty3.png)
+
+Agora um operador pode atualizar o valor do local no formulário do campo de local. 
+
+####<a name="adding-location-as-a-device-property"></a>Adicionando local como uma propriedade do dispositivo 
+
+É possível criar uma propriedade de localização como uma propriedade do dispositivo relatada pelo dispositivo.
+Por exemplo, controle o local do dispositivo.
+
+1.  Navegue até a guia Propriedade do dispositivo; verifique se o modo de design está ativado.
+2.  Clique em Propriedade do dispositivo na biblioteca.
+
+![Campo Propriedade de localização](./media/howto-set-up-template/locationdeviceproperty1.png)
+
+3.  Configure o nome de exibição, o nome do campo e escolha "local" como um tipo de dados. 
+
+> [!NOTE]
+O nome do campo deve corresponder exatamente ao nome da propriedade relatada pelo dispositivo. 
+
+![Campo Propriedade de localização](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+![Exibição do operador Propriedade de localização](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+Agora que você configurou sua propriedade de localização, será possível adicionar um Mapa para visualizar a localização no painel do dispositivo. Confira como [Adicionar um Mapa do Azure de localização no painel](howto-set-up-template.md).
+
+
+
+
 ## <a name="rules"></a>Regras
 
 As regras permitem que os operadores monitorem os dispositivos quase em tempo real. As regras invocam **Ações** automaticamente, como enviar um email quando a regra for acionada. Atualmente, há um tipo de regra disponível:
@@ -178,6 +231,31 @@ Por exemplo, é possível adicionar um bloco **Configurações e Propriedades** 
 Quando um operador visualizar o painel, ele poderá ver esse bloco que exibirá as propriedades e configurações do dispositivo:
 
 ![Bloco do painel](./media/howto-set-up-template/dashboardtile.png)
+
+### <a name="add-location-azure-map-in-dashboard"></a>Adicionar um Mapa do Azure de localização no painel
+
+Se tiver configurado uma propriedade de localização como nas etapas [Criar uma Propriedade de localização desenvolvida pelo Azure Mapas]((howto-set-up-template.md), será possível visualizar a localização usando um mapa no painel do seu dispositivo.
+
+1.  Navegue até a guia Painel do dispositivo; certifique-se de que o modo de design está ativado.
+2.  No Painel do dispositivo, selecione o Mapa na Biblioteca. 
+
+![Selecionar Mapa do Azure de localização no Painel](./media/howto-set-up-template/locationcloudproperty4map.png)
+
+3.  Dê um título e escolha a propriedade de localização que você configurou anteriormente como parte da Propriedade de seu dispositivo.
+
+![Configurar Mapa do Azure de localização no Painel](./media/howto-set-up-template/locationcloudproperty5map.png)
+
+4.  Salve e você verá a peça de mapa exibindo a localização selecionada. 
+
+![Visualizar Mapa do Azure de localização no Painel](./media/howto-set-up-template/locationcloudproperty6map.png) 
+
+Será possível redimensionar o mapa para o tamanho desejado.
+
+Agora, quando um operador exibe o painel, ele pode ver todos os blocos do painel configurados, incluindo um Mapa de localização!
+
+![Painel do Mapa do Azure de localização no Painel](./media/howto-set-up-template/locationcloudproperty7map.png) 
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

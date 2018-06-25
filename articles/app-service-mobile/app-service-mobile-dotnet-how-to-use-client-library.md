@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: crdun
-ms.openlocfilehash: 2b7620611c4587d00612f98c86b5792984ff548b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 10ce9058fca0ec56640e9bedabcc82683046fe9f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598446"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como usar o cliente gerenciado para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -134,7 +135,7 @@ Esta seção descreve como emitir consultas para o back-end do Aplicativo Móvel
 > Um tamanho de página controlado por servidor é usado para impedir que todas as linhas sejam retornadas.  A paginação impede que as solicitações padrão de grandes conjuntos de dados prejudiquem o serviço.  Para retornar mais de 50 linhas, use os métodos `Skip` e `Take`, conforme descrito em [Retornar dados em páginas](#paging).
 
 ### <a name="filtering"></a>Como filtrar dados retornados
-O código a seguir ilustra como filtrar dados incluindo uma cláusula `Where` em uma consulta. Ele retorna todos os itens de `todoTable`, cuja propriedade `Complete` é igual a `false`. A função [Where] aplica um predicado de filtragem de linha à consulta na tabela.
+O código a seguir ilustra como filtrar dados incluindo uma cláusula `Where` em uma consulta. Ele retorna todos os itens de `todoTable`, cuja propriedade `Complete` é igual a `false`. A função [Onde] aplica um predicado de filtragem de linha à consulta na tabela.
 
 ```
 // This query filters out completed TodoItems and items without a timestamp.
@@ -245,7 +246,7 @@ Em um aplicativo de verdade, você pode usar consultas semelhantes ao exemplo an
 
 
 ### <a name="selecting"></a>Como selecionar colunas específicas
-Você pode especificar qual conjunto de propriedades incluir nos resultados adicionando uma cláusula [Select] à sua consulta. Por exemplo, o código a seguir mostra como selecionar apenas um campo e também como selecionar e formatar vários campos:
+Você pode especificar qual conjunto de propriedades incluir nos resultados adicionando uma cláusula [Selecionar] à sua consulta. Por exemplo, o código a seguir mostra como selecionar apenas um campo e também como selecionar e formatar vários campos:
 
 ```
 // Select one field -- just the Text
@@ -647,7 +648,7 @@ Veja exemplos para os seguintes padrões de autenticação de fluxo de cliente:
 #### <a name="adal"></a>Autenticar usuários com a Active Directory Authentication Library
 Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para iniciar a autenticação do usuário a partir do cliente usando a autenticação do Azure Active Directory.
 
-1. Configure o seu back-end de aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de Aplicativo para logon no Active Directory] . Complete a etapa opcional de registrar um aplicativo cliente nativo.
+1. Configure o seu back-end de aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de aplicativo para o logon do Active Directory] . Complete a etapa opcional de registrar um aplicativo cliente nativo.
 2. No Visual Studio ou Xamarin Studio, abra o projeto e adicione uma referência ao pacote NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory` . Ao pesquisar, inclua versões de pré-lançamento.
 3. Adicione o código a seguir ao seu aplicativo, de acordo com a plataforma que você está usando. Em cada um, faça as seguintes substituições:
 
@@ -794,7 +795,7 @@ private async Task AuthenticateAsync()
 ```
 
 #### <a name="client-livesdk"></a>Logon único usando a Conta da Microsoft com o Live SDK
-Para autenticar usuários, você deverá registrar seu aplicativo na Central de desenvolvedores da conta da Microsoft. Configure os detalhes do registro no back-end do Aplicativo Móvel. Para criar um registro de conta da Microsoft e conectá-lo ao back-end do Aplicativo Móvel., conclua as etapas em [Registrar seu aplicativo para usar um logon de conta da Microsoft]. Se você tiver as versões da Windows Store e do Windows Phone 8/Silverlight de seu aplicativo, registre a versão da Windows Store primeiro.
+Para autenticar usuários, você deverá registrar seu aplicativo na Central de desenvolvedores da conta da Microsoft. Configure os detalhes do registro no back-end do Aplicativo Móvel. Para criar um registro de conta da Microsoft e conectá-lo ao back-end do Aplicativo Móvel., conclua as etapas em [Registrar seu aplicativo para usar um logon de conta da Microsoft]. Se você tiver seu aplicativo nas versões da Microsoft Store e do Windows Phone 8/Silverlight, registre a versão da Microsoft Store primeiro.
 
 O código a seguir é autenticado usando o Live SDK e usa o token retornado para entrar no back-end do seu Aplicativo Móvel.
 
@@ -807,7 +808,7 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
     // Get the URL the Mobile App backend.
     var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
 
-    // Create the authentication client for Windows Store using the service URL.
+    // Create the authentication client for Microsoft Store using the service URL.
     LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
     //// Create the authentication client for Windows Phone using the client ID of the registration.
     //LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
@@ -883,7 +884,7 @@ Se você estiver usando um provedor de identidade além do Facebook, altere o va
 Em um fluxo de servidor, o Serviço de Aplicativo do Azure gerencia o fluxo de autenticação OAuth exibindo a página de entrada do provedor selecionado.  Depois que o provedor de identidade retorna, o Serviço de Aplicativo do Azure gera um token de autenticação do Serviço de Aplicativo. O método [LoginAsync] retorna um [MobileServiceUser], que fornece a [UserId] do usuário autenticado e o [MobileServiceAuthenticationToken] como um JWT (token da Web JSON). Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte [Armazenando o token de autenticação em cache](#caching).
 
 ### <a name="caching"></a>Armazenando o token de autenticação em cache
-Em alguns casos, a chamada para o método de logon pode ser evitada após a primeira autenticação bem-sucedida armazenando o token de autenticação do provedor.  Os aplicativos da Windows Store e UWP podem usar [PasswordVault] para armazenar em cache o token de autenticação atual após uma conexão bem-sucedida, da seguinte maneira:
+Em alguns casos, a chamada para o método de logon pode ser evitada após a primeira autenticação bem-sucedida armazenando o token de autenticação do provedor.  Aplicativos da Microsoft Store e UWP podem usar o [PasswordVault] para armazenar em cache o token de autenticação atual após uma conexão bem-sucedida, da seguinte maneira:
 
 ```
 await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
@@ -935,7 +936,7 @@ await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 Os tópicos a seguir abordam Notificações por Push:
 
 * [Registrar notificações por push](#register-for-push)
-* [Obter um SID do pacote da Windows Store](#package-sid)
+* [Obter um SID do pacote da Microsoft Store](#package-sid)
 * [Registrar com modelos de Plataforma cruzada](#register-xplat)
 
 ### <a name="register-for-push"></a>Como se registrar para receber notificações por push
@@ -952,17 +953,17 @@ private async void InitNotificationsAsync()
 }
 ```
 
-Se você estiver enviando WNS, DEVERÁ [obter um SID do pacote da Windows Store](#package-sid).  Para saber mais sobre os aplicativos do Windows, inclusive como se registrar para obter registros de modelo, confira [Adicionar notificações por push ao seu aplicativo].
+Se estiver enviando por push para o WNS, você PRECISARÁ [obter um SID de pacote da Microsoft Store](#package-sid).  Para saber mais sobre os aplicativos do Windows, inclusive como se registrar para obter registros de modelo, confira [Adicionar notificações por push ao seu aplicativo].
 
 A solicitação de marcas do cliente não tem suporte.  As solicitações de marca são descartadas silenciosamente do registro.
 Se você deseja registrar seu dispositivo com marcas, crie uma API personalizada que usa a API de Hubs de Notificação para realizar o registro em seu nome.  [Chame a API Personalizada](#customapi) em vez do método `RegisterNativeAsync()`.
 
-### <a name="package-sid"></a>Como obter um SID do pacote da Windows Store
-Um SID de pacote é necessário para habilitar notificações por push em aplicativos da Windows Store.  Registre seu aplicativo na Windows Store para receber um SID do pacote.
+### <a name="package-sid"></a>Como obter um SID de pacote da Microsoft Store
+Um SID de pacote é necessário para habilitar notificações por push em aplicativos da Microsoft Store.  Para receber um SID de pacote, registre seu aplicativo na Microsoft Store.
 
 Para obter esse valor:
 
-1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo da Windows Store, clique em **Armazenar** > **Associar Aplicativo à Store...**.
+1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo da Microsoft Store, clique em **Armazenar** > **Associar Aplicativo à Store...**.
 2. No assistente, clique em **Avançar**, entre com sua conta da Microsoft, digite um nome para seu aplicativo em **Reservar um novo nome de aplicativo** e clique em **Reservar**.
 3. Depois que o registro do aplicativo for criado com êxito, selecione o nome do aplicativo, clique em **Avançar** e em **Associar**.
 4. Faça logon na [Central de Desenvolvimento do Windows] usando a sua Conta da Microsoft. Em **Meus aplicativos**, clique no registro de aplicativo que você criou.
@@ -1093,10 +1094,10 @@ public class MyHandler : DelegatingHandler
 [12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
 [Adicionar autenticação ao seu aplicativo]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Sincronização de Dados Offline nos Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
+[Sincronização de dados offline nos Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
 [Adicionar notificações por push ao seu aplicativo]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Registrar seu aplicativo para usar um logon de conta da Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Como configurar o Serviço de Aplicativo para logon no Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Como configurar o Serviço de aplicativo para o logon do Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx
@@ -1116,12 +1117,12 @@ public class MyHandler : DelegatingHandler
 [OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
 [Take]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
-[Select]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
+[Selecionar]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
 [Ignorar]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[portal do Azure]: https://portal.azure.com/
+[Onde]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
+[Portal do Azure]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
