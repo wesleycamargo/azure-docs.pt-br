@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do reconhecimento Vocal (LUIS)
+metadata:
+  document_id: 
+  title: Reconhecimento vocal (LUIS) – Tutoriais, guias de início rápido, referência de API
+  description: Saiba como usar o serviço de reconhecimento vocal para permitir que seu aplicativo entenda o que uma pessoa quer com suas próprias palavras.
+  author: Kaiqb
+  manager: carolz
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/25/2018
+  ms.author: kamrani
+  ms.openlocfilehash: 7d529825733025335f27ce0fe477c117aeaf5c41
+  ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 06/08/2018
+  ms.locfileid: "35356622"
+abstract:
+  description: O serviço de reconhecimento vocal (LUIS) permite que seu aplicativo entenda o que uma pessoa quer com suas próprias palavras. O LUIS usa o aprendizado de máquina para permitir que desenvolvedores criem aplicativos que possam receber entradas do usuário em linguagem natural e extrair o significado disso.
+sections:
+- title: Guia de início rápido de 5 minutos
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="luis-get-started-create-app.md">Criar aplicativo para um domínio predefinido</a>
+    - html: <a href="luis-quickstart-intents-only.md">Criar aplicativo para um domínio personalizado</a>
+- title: Tutoriais passo a passo
+  items:
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="luis-quickstart-primary-and-secondary-data">Extrair dados de mensagem de um enunciado usando a entidade simples</a>
+    - html: <a href="luis-quickstart-intents-regex-entity">Extrair os números do artigo KB de um enunciado usando a entidade de expressão regular</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">Extrair informações de pedido de bebida de um enunciado usando a entidade de lista</a>
+    - html: <a href="luis-tutorial-pattern">Aumentar a precisão da previsão de intenção e da entidade com padrões</a>
+    - html: <a href="luis-tutorial-interchangeable-phrase-list">Melhorar a significância da palavra com uma lista de frases</a>
+    - html: <a href="luis-get-started-cs-get-intent">Enviar um enunciado ao LUIS e receber a resposta de previsão do ponto de extremidade – C#</a>
+    - html: <a href="luis-get-started-cs-add-utterance">Adicionar um enunciado de exemplo para um propósito e treinar o aplicativo LUIS – C#</a>
+- title: vídeos
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" > Azure Friday no Build 2018 – Serviços Cognitivos – Reconhecimento vocal (LUIS)</a>
+    - html: <a href="https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player" > Mostra da IA do Build 2018 – Novidades do serviço de reconhecimento vocal (LUIS)</a>
+    - html: <a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Sessão do Build 2018 – Práticas recomendadas da inteligência do bot, dos recursos de fala e de NLU</a>
+- title: Referência
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: APIs REST v2
+      html: <p><a href="https://aka.ms/luis-endpoint-apis"> API do ponto de extremidade</a></p><p><a href="https://aka.ms/luis-authoring-apis"> API de criação</a></p>
+    - title: SDKs
+      html: <p><a href="https://aka.ms/luis-endpoint-sdk"> SDK do ponto de extremidade do .NET</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> SDK de criação do .NET</a></p>
+    - title: Exemplos de código
+      html: <p><a href="https://aka.ms/luis-code-samples"> Exemplos de código</a></p>
