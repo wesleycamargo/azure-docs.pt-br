@@ -53,7 +53,7 @@
 ### [PowerShell do Azure](powershell-samples.md)
 
 ## Tutoriais
-### [VMs de balanceamento de carga](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [VMs de balanceamento de carga](../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conectar computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Referência

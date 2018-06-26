@@ -41,11 +41,11 @@
 # Referência
 ## [PowerShell do Azure](/powershell/module/azurerm.keyvault)
 ## [CLI do Azure](/cli/azure/keyvault)
-## [.NET](/dotnet/api/microsoft.azure.keyvault)
-## [Java](/java/api/com.microsoft.azure.keyvault)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)
+## [Java](/java/api/overview/azure/keyvault/client)
 ## Node.js
-### [Gerenciamento do cofre](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
-### [Gerenciamento de conteúdo do cofre](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
+### [Gerenciamento do cofre](https://docs.microsoft.com/en-us/javascript/api/overview/azure/keyvault/client?view=azure-node-latest)
+### [Gerenciamento de conteúdo do cofre](https://docs.microsoft.com/en-us/javascript/api/azure-arm-keyvault/index?view=azure-node-latest)
 ## [REST](/rest/api/keyvault)
 ## Desenvolver
 ### [Vídeo de início rápido do desenvolvedor](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
