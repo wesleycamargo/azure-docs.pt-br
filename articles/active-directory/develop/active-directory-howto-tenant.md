@@ -16,12 +16,12 @@ ms.topic: hero-article
 ms.date: 03/23/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 26d336c9d896859d8012b1eaad1a16d0cbd9b628
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ed0103b8ad8f23cd45a3a9ee94e01ce69e1e45b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596202"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287242"
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Como obter um locatário do Active Directory do Azure
 
@@ -36,7 +36,7 @@ Para permitir que os usuários do AD do Azure entrem no aplicativo, você deve r
 Muitos desenvolvedores já contam com locatários por meio de serviços ou assinaturas que estão vinculadas a locatários do Azure Active Directory como assinaturas do Office 365 ou do Azure. Para verificar se você já tem um locatário, entre no [Portal do Azure](https://portal.azure.com) com a conta que deseja usar para gerenciar o aplicativo e verifique o canto superior direito, no qual são exibidas as informações da conta. Se tiver um locatário, você será conectado a ele automaticamente e verá o nome do locatário diretamente abaixo do nome da conta. Se você passar o mouse sobre o nome da conta no canto superior direito do portal do Azure, você verá seu nome, email, diretório e ID de locatário (um GUID) e seu domínio. Se sua conta estiver associada a vários locatários, você pode selecionar o nome da sua conta para abrir um menu no qual você pode alternar entre locatários. Cada locatário tem sua própria ID exclusiva.
 
 > [!TIP]
-> Se você precisar localizar a ID de locatário, há várias maneiras de localizar essas informações. Você pode passar o nome da conta para obter a ID de locatário ou você pode selecionar **Microsoft Azure Active Directory > Propriedades > ID de Diretório** no portal do Azure.
+> Se você precisar localizar a ID de locatário, há várias maneiras de localizar essas informações. Você pode passar o mouse sobre o nome da conta para obter a ID de locatário ou você pode selecionar **Microsoft Azure Active Directory > Propriedades > ID de Diretório** no portal do Azure.
 
 Se não tiver um locatário existente associado à sua conta, você verá um GUID abaixo do nome da conta e não poderá executar ações como registrar aplicativos até [criar um novo locatário](#create-a-new-azure-ad-tenant).
 

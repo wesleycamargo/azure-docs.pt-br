@@ -1,0 +1,189 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do serviço de fala (versão prévia)
+metadata:
+  title: Documentação de serviço de fala – Tutoriais, Guias de início rápido, Referência da API – Serviços cognitivos | Microsoft Docs
+  meta.description: Speech SDK provides developers an easy way to create powerful speech-enabled features in their applications, such as voice command control and dialog, using natural speech conversation, speech transcription and dictation, and speech translation.
+  services: cognitive-services
+  author: noellelacharite
+  manager: nolachar
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.component: speech-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/01/2018
+  ms.author: nolachar
+  ms.openlocfilehash: ae9c5a62dd4f1b83f4d1317b54e5766b80d14245
+  ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 06/11/2018
+  ms.locfileid: "35356630"
+abstract:
+  description: O Serviço de fala e o SDK da Microsoft fornecem aos desenvolvedores uma maneira fácil de criar recursos avançados habilitados para fala em seus aplicativos, como controle por comando de voz, transcrição e ditado. Cortana, Microsoft Office e outros recursos usam a mesma tecnologia. Um diferenciador principal do serviço de fala da Microsoft é a capacidade de personalizar modelos acústicos e de linguagem de <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">conversão de fala em texto</a> para acomodar o vocabulário especializado, ambientes com ruídos e diferentes maneiras de fala. Na verdade, os recursos <a href="http://aka.ms/customvoice">conversão de texto em fala</a> e <a href="http://aka.ms/customtranslator">tradução de fala</a> personalizados também estão disponíveis.<br/><br/>Nosso SDK de fala está disponível em várias plataformas e em várias linguagens de programação para que você possa cuidar do gerenciamento de microfone em tempo real, transmissão em tempo real ou comunicação de arquivos baseados em lote, dependendo de suas necessidades de aplicativo.
+sections:
+- title: Guia de início rápido de 10 minutos – Novos SDKs
+  items:
+  - type: paragraph
+    text: 'Saiba como instalar e usar o SDK de fala com nossos guias de início rápido:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+    - image:
+        src: media/index/logo_cplusplus.svg
+    - image:
+        src: media/index/logo_java.jpg
+    rows:
+    - title: Windows
+      values:
+      - href: quickstart-csharp-windows
+      - href: cpp-windows
+      - href: 
+    - title: Linux
+      values:
+      - href: 
+      - href: cpp-linux
+      - href: 
+    - title: SDK de dispositivos (Android)
+      values:
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
+- title: Exemplos e referências
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Exemplos
+      html: <ul><li><a href="speech-to-text-sample.md">Reconhecimento de fala</a></li><li><a href="intent.md">Reconhecimento de intenção</a></li><li><a href="translation.md">Tradução</a></li></ul>
+    - title: Referência de API
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">API do C#</a></li><li><a href="https://aka.ms/csspeech/cppref">API do C++</a></li><li><a href="https://aka.ms/csspeech/javaref">API do Java (SDK de dispositivos)</a></li></ul>
+- title: Conversão de fala em texto
+  items:
+  - type: paragraph
+    text: Nossos SDK de fala oferece suporte para <b>conversão de fala em texto</b> (STT), ou reconhecimento de fala.  O SDK de fala transcreve transmissões de áudio em texto, o qual seu aplicativo pode aceitar como entrada. Seu aplicativo pode, por exemplo, inserir o texto em um documento ou agir nele como um comando.
+  - type: paragraph
+    text: A seguir estão casos de uso comuns para <b>conversão de fala em texto</b> por meio do SDK de fala&#58;
+  - type: list
+    style: unordered
+    items:
+    - text: Reconhecer um enunciado breve, como um comando, sem resultados intermediários.
+    - text: Transcrever um enunciado longo gravado anteriormente, como uma mensagem de voz.
+    - text: Transcrever fala transmitida em tempo real, com resultados parciais, para ditado.
+    - text: Determinar o que os usuários desejam fazer com base em uma solicitação de linguagem natural falada.
+  - type: paragraph
+    text: O SDK de fala dá suporte à transcrição de fala interativa com <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">conversão de fala em texto</a> contínua e em tempo real e com resultados intermediários. Ele também oferece suporte à detecção de final de fala, capitalização e pontuação automáticas opcionais, mascaramento de palavras de baixo calão e normalização de texto.
+  - type: paragraph
+    text: Um diferenciador principal do serviço de fala da Microsoft é a capacidade de personalizar modelos acústicos e de linguagem de <a href="http://aka.ms/customspeech">conversão de fala em texto</a> para acomodar o vocabulário especializado, ambientes com ruídos e diferentes maneiras de fala.
+- title: Tradução de fala
+  items:
+  - type: paragraph
+    text: O SDK de fala também pode ser usado para <a href="https://azure.microsoft.com/services/cognitive-services/speech-translation">tradução de fala</a>.  Com a <b>tradução de fala</b> transmitida por meio do SDK fala, o serviço retorna os resultados intermediários que podem ser exibidos para o usuário para indicar o progresso de tradução. Os resultados podem ser retornados como texto ou como voz.
+  - type: paragraph
+    text: Entre os casos de uso de <b>tradução de fala</b> por meio do SDK de fala estão os seguintes&#58;
+  - type: list
+    style: unordered
+    items:
+    - text: Implementar um dispositivo ou aplicativo móvel de tradução conversacional para viajantes.
+    - text: Fornecer traduções automáticas para colocação de legenda em gravações de áudio e vídeos.
+  - type: paragraph
+    text: Modelos de <b>tradução de fala</b> também podem ser <a href="http://aka.ms/customtranslator">personalizados</a>.
+- title: Conversão de texto em fala
+  items:
+  - type: paragraph
+    text: Atualmente, <a href="https://azure.microsoft.com/services/cognitive-services/text-to-speech">a conversão de texto em fala</a> (TTS), ou síntese de fala, tem suporte por meio de uma API REST que converte o texto sem formatação para uma fala que soe natural que é entregue ao aplicativo como um arquivo de áudio. Várias vozes, variando em gênero ou ênfase, estão disponíveis para vários idiomas.
+  - type: paragraph
+    text: Nosso SDK de fala fornece acesso à conversão de fala em texto e tradução de fala. A conversão de texto em fala emprega chamadas da REST POST via HTTP.
+  - type: paragraph
+    text: A API REST de <b>conversão de texto em fala</b> oferece suporte a marcas de <b>SSML (idioma com marcação de síntese de fala)</b>, para que você possa especificar a pronúncia fonética exata de palavras problemáticas. O SSML também pode indicar características de fala (incluindo ênfase, taxa, volume, gênero e tom) diretamente no texto.
+  - type: paragraph
+    text: Caso deseje um dialeto sem suporte ou uma voz exclusiva para seu aplicativo, você pode criar <a href="http://aka.ms/customvoice">fontes de voz personalizadas</a> com seus próprios exemplos de fala.
+  - type: paragraph
+    text: A seguir estão casos de uso comuns da API REST da <b>conversão de texto em fala</b>&#58;
+  - type: list
+    style: unordered
+    items:
+    - text: Saída de fala como uma saída de tela alternativa para usuários com deficiências visuais.
+    - text: Avisar de voz para aplicativos de carro, como navegação.
+    - text: Interfaces de usuário de conversação em conjunto com a API da <b>conversão de fala em texto</b>.
+- title: SDK de dispositivos de fala
+  items:
+  - type: paragraph
+    text: Com a introdução do serviço de fala unificado, a Microsoft e seus parceiros agora oferecem uma plataforma integrada de hardware/software que é otimizada para o desenvolvimento de dispositivos habilitados para fala&#58; o <b>SDK de dispositivos de fala</b>. Este SDK é adequado para o desenvolvimento de dispositivos de fala inteligentes para todos os tipos de aplicativos.
+  - type: paragraph
+    text: O <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">SDK de dispositivos de fala</a> permite que você crie seus próprios dispositivos de ambiente com uma palavra de ativação personalizada e exclusiva da sua marca, a qual dispara a captação de áudio. Ele também fornece processamento superior de áudio de fontes multicanais para um reconhecimento de fala mais preciso, incluindo a supressão de ruídos, voz de campo distante e beamforming.
+- title: SDKs mais antigos
+  items:
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/uwp.jpg
+    - image:
+        src: media/index/logo_java.jpg
+    - image:
+        src: media/index/logo_objc.jpg
+    - image:
+        src: media/index/logo_js.svg
+    - image:
+        src: media/index/logo_rest_sr.svg
+    - image:
+        src: media/index/logo_rest_tts.svg
+    rows:
+    - title: Windows
+      values:
+      - href: https://docs.microsoft.com/windows/uwp/design/input/speech-recognition
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: Android
+      values:
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjavaandroid
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: iOS
+      values:
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/get-started-objectivec-ios
+      - href: 
+      - href: 
+      - href: 
+    - title: Web
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjswebsockets
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
+- title: SDKs em consideração
+  items:
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_swift.jpg
+    - image:
+        src: media/index/logo_gopher.svg
+    - image:
+        src: media/index/c.jpg
+    rows:
+    - title: .
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 

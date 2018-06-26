@@ -5,38 +5,39 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: d1b6dec122672e4f6260105f7b50af2cd7369947
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: c706474018bd0751872381c6d28f0ad579ba772b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737098"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286572"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Realizar uma análise detalhada da recuperação de desastre para o Azure
 
-O [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) mantendo seus aplicativos de negócios em execução durante interrupções planejadas e não planejadas. O Site Recovery gerencia e orquestra a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
+Este artigo mostra como executar uma análise detalhada da recuperação de desastre para máquinas locais no Azure usando um failover de teste. Uma análise detalhada valida sua estratégia de replicação, sem perda de dados.
 
-- Este é o quarto tutorial em uma série que mostra como configurar a recuperação de desastres para o Azure para VMs VMware locais. Ele supõe que você concluiu os dois primeiros tutoriais:
+Este é o quarto tutorial em uma série que mostra como configurar a recuperação de desastres para o Azure para VMs VMware locais.
+
+Este tutorial presume que você concluiu os três primeiros tutoriais: 
     - No [primeiro tutorial](tutorial-prepare-azure.md), configuramos os componentes do Azure necessários para a recuperação de desastres do VMware.
     - No [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md) , preparamos os componentes locais para a recuperação de desastres e analisamos os pré-requisitos.
     - No [terceiro tutorial](vmware-azure-tutorial.md) configuramos e habilitamos a replicação para nossa VM VMware local.
-- Os tutoriais destinam-se a mostrar o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. 
+- Os tutoriais destinam-se a mostrar o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Todos os tutoriais configuram o Site Recovery com as configurações mais simples, usando padrões quando apropriado. Se você quiser saber mais sobre as etapas de failover de teste em mais detalhes, leia o [Guia](site-recovery-test-failover-to-azure.md).
 
-
-Este artigo mostra como executar uma análise detalhada da recuperação de desastre para máquinas locais no Azure usando um failover de teste. Uma análise detalhada valida sua estratégia de replicação, sem perda de dados. Saiba como:
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar uma rede isolada para o failover de teste
 > * Preparar-se para conectar-se à VM do Azure após o failover
 > * Executar um failover de teste para um único computador
 
-Este tutorial configura a recuperação de desastres da VMware no Azure com as configurações mais simples. Se você quiser saber mais sobre as etapas de failover de teste em mais detalhes, leia o [Guia](site-recovery-test-failover-to-azure.md).
+Este tutorial
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
-Antes de executar um failover de teste, verifique as propriedades da VM VMware e verifique se a VM Hyper-V[hyper-v-azure-support-matrix.md#replicated-vms], a [VM VMware ou o servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines) atende aos requisitos do Azure.
+Antes de executar um failover de teste, verifique as propriedades da VM VMware e verifique se a [VM Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) ou a [VM VMware/servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines) atende aos requisitos do Azure.
 
 1. Em **Itens Protegidos**, clique em **Itens Replicados** > e na VM.
 2. No painel **Item Replicado**, há um resumo das informações da VM, o status de integridade e os últimos pontos de recuperação disponíveis. Clique em **Propriedades** para exibir mais detalhes.

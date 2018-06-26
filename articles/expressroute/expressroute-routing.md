@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9542eedecaf8dc6d689bf6192f74eee15287ae99
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178748"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295419"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -67,6 +67,7 @@ Você deve usar endereços IP públicos que possui para configurar as sessões B
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Endereços IP usados para emparelhamento da Microsoft
 Você deve usar endereços IP públicos que possui para configurar as sessões BGP. A Microsoft deve ser capaz de verificar a propriedade dos endereços IP por meio de Registros da Internet de Roteamento e Registros de Roteamento da Internet.
 
+* Os IPs listados no portal para prefixos públicos anunciados para o Emparelhamento da Microsoft criarão ACLs para os roteadores de núcleo da Microsoft para permitir o tráfego de entrada desses IPs. 
 * Você deve usar uma sub-rede /29 (IPv4) ou /125 (IPv6) ou duas sub-redes /30 (IPv4) ou /126 (IPv6) para configurar o emparelhamento BGP para cada emparelhamento por circuito ExpressRoute(se houver mais de um).
 * Se uma sub-rede /29 for usada, ela será dividida em duas sub-redes /30.
 * A primeira sub-rede /30 é usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
@@ -193,7 +194,7 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Sul da Índia | 12076:51019 |
 | Oeste da Índia | 12076:51018 |
 | Centro da Índia | 12076:51017 |
-| **Coreia** | |
+| **Coreia do Sul** | |
 | Sul da Coreia | 12076:51028 |
 | Coreia Central | 12076:51029 |
 

@@ -4,15 +4,15 @@ description: Fornece uma visão geral do serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/08/2018
+ms.date: 06/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 68f335762e1fdd68296d7056ef5826f69c868d70
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236358"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285790"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -31,7 +31,7 @@ As Migrações para Azure ajudam você a:
 
 - No momento, só é possível avaliar as máquinas virtuais (VMs) VMware locais para migração para VMs do Azure. As VMs VMware devem ser gerenciadas por um vCenter Server (versão 5.5, 6.0 ou 6.5).
 - O suporte para Hyper-V está em nosso roteiro. Enquanto isso, recomendamos que você use o [Planejador de Implantações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para planejar a migração de cargas de trabalho do Hyper-V.
-- Você pode encontrar até 1.500 VMs em uma única descoberta e até 1.500 VMs em um único projeto. Além disso, pode estimar até 1.500 VMs em uma única avaliação.
+- Você pode encontrar até 1.500 VMs em uma única descoberta e até 1.500 VMs em um único projeto. Além disso, pode estimar até 1.500 VMs em uma única avaliação. Caso deseje descobrir um ambiente maior, você pode dividir a descoberta e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). As Migrações para Azure oferecem suporte a até 20 projetos por assinatura.
 - Você só pode criar um projeto de Migrações para Azure nas regiões Centro-Oeste ou Leste dos EUA. No entanto, isso não afeta sua capacidade de planejar a migração para um local de destino diferente do Azure. O local do projeto de migração é usado apenas para armazenar os metadados descobertos no ambiente local.
 - As Migrações para Azure são compatíveis com discos gerenciados apenas para avaliação de migração.
 
@@ -50,7 +50,10 @@ Uma avaliação ajuda a identificar a adequação do Azure de VMs locais, a obte
 **Local de destino** | O local do Azure para o qual você deseja migrar.<br/><br/>Atualmente, as Migrações para Azure dão suporte a 30 regiões, incluindo Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, Índia Central, EUA Central, Leste da China, Norte da China, Ásia Oriental, Leste dos EUA, Alemanha Central, Nordeste da Alemanha, Leste dos EUA 2, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Sul do Reino Unido, Oeste do Reino Unido, US Gov – Arizona, US Gov – Texas, US Gov – Virgínia, Centro-Oeste dos EUA, Europa Ocidental, Índia Ocidental, Oeste dos EUA e Oeste dos EUA 2. Por padrão, o local de destino é definido como Oeste dos EUA 2.
 **Tipo de armazenamento** | Você pode especificar o tipo de discos que deseja alocar no Azure. Essa propriedade é aplicável quando o critério de dimensionamento for dimensionamento local. Especifique o tipo de disco de destino como disco gerenciado Premium ou discos gerenciados Standard. O valor padrão é discos gerenciados Premium. Para o dimensionamento com base em desempenho, a recomendação de disco é feita automaticamente com base nos dados de desempenho das VMs. Observe que as Migrações para Azure são compatíveis apenas com discos gerenciados para avaliação de migração.
 **Critério de dimensionamento** | O critério a ser usado pelas Migrações para Azure para VMs do tamanho certo para o Azure. É possível fazer o dimensionamento com base em *histórico de desempenho* das VMs locais ou dimensionar as VMs *como locais* para o Azure sem considerar o histórico de desempenho. O valor padrão está como dimensionamento local.
-**Planos de preço** | Para cálculos de custo, uma avaliação leva em consideração se você tem software assurance e se está qualificados para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Também leva em consideração as [Ofertas do Azure](https://azure.microsoft.com/support/legal/offer-details/) às quais você deve se inscrever, além de permitir que você especifique quaisquer descontos (%) específicos à assinatura, que você pode obter com a oferta.
+**Oferta do Azure** | Você pode especificar o [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual está registrado, e as Migrações para Azure estimam o custo adequadamente.
+**Benefício Híbrido do Azure** | É possível especificar se você tem a garantia do software e é qualificado para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) para obter custos com desconto.
+**Instâncias reservadas** |  Você também pode especificar se tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure, e as Migrações para Azure estimarão o custo adequadamente.
+**Tempo de atividade da VM** | Se não suas VMs não vão ficar em execução 24x7 no Azure, é possível especificar sua duração de execução no Azure e as estimativas de custo serão feitas adequadamente.
 **Tipo de preços** | É possível especificar o [tipo de preço (Básico/Standard)](../virtual-machines/windows/sizes-general.md) das VMs de destino do Azure. Por exemplo, se você estiver planejando migrar um ambiente de produção, deve considerar a camada Standard, que fornece VMs com baixa latência, mas pode custar mais. Por outro lado, caso tenha um ambiente de desenvolvimento de teste, talvez você deva considerar a camada Básica, que tem VMs com latência maior e custos mais baixos. Por padrão, o tipo [Standard](../virtual-machines/windows/sizes-general.md) é usado.
 **Histórico de desempenho** | Por padrão, as Migrações para Azure avaliam o desempenho das máquinas locais usando o histórico de desempenho do último dia, com um valor de percentil de 95%. É possível modificar esses valores nas propriedades de avaliação.
 **Série de VM** | Você pode especificar a série de VM que deseja considerar para o dimensionamento correto. Por exemplo, se você tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série e o dimensionamento correto será feito apenas na série selecionada.  

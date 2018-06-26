@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2018
+ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715030"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293472"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -142,6 +142,8 @@ Os gatilhos são outra forma de realizar uma execução do pipeline. Os gatilhos
 
 - Gatilho de janela em cascata: um gatilho que opera em um intervalo periódico enquanto também mantém o estado. O Azure Data Factory atualmente não dá suporte a gatilhos com base em eventos. Por exemplo, o gatilho para uma execução do pipeline que responde a um evento de entrada de arquivo não tem suporte.
 
+- Gatilho baseado em eventos: um disparador que responde a um evento.
+
 Pipelines e gatilhos têm uma relação de muitos para muitos. Vários gatilhos podem disparar um único pipeline, ou um único gatilho pode disparar vários pipelines. Na definição de gatilho a seguir, a propriedade **pipelines** se refere a uma lista de canais que são disparados pelo gatilho específico. A definição da propriedade inclui valores para os parâmetros de pipeline.
 
 ### <a name="basic-trigger-definition"></a>Definição básica do gatilho
@@ -175,11 +177,6 @@ Pipelines e gatilhos têm uma relação de muitos para muitos. Vários gatilhos 
 Um gatilho de agendamento executa pipelines em um agendamento de hora de relógio. Esse gatilho dá suporte às opções de calendário periódicas e avançadas. Por exemplo, os gatilho dá suporte a intervalos como "semanalmente" ou "Segunda-feira às 17h e quinta-feira às 21h”. O gatilho de agendamento é flexível porque o padrão de conjunto de dados é independente e o gatilho não distingue entre os dados de série temporal e não temporal.
 
 Para saber mais sobre os gatilhos de agendamento e obter exemplos, confira [Criar um gatilho de agendamento](how-to-create-schedule-trigger.md).
-
-## <a name="tumbling-window-trigger"></a>Gatilho de janela em cascata
-Os gatilhos de janela em cascata são um tipo de gatilho acionado em um intervalo de tempo periódico a partir de uma hora de início especificada, enquanto mantém o estado. As janelas em cascata são uma série de intervalos de tempo de tamanho fixo, não sobrepostos e contíguos.
-
-Para saber mais sobre gatilhos de janela em cascata e obter exemplos, confira [Criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definição do gatilho de agenda
 Quando você cria um gatilho de agenda, especifica o agendamento e a recorrência usando uma definição JSON. 
@@ -322,6 +319,17 @@ A seguinte tabela descreve elementos **schedule** em detalhes:
 | **Dias da semana** | Dias da semana em que o gatilho será executado. O valor pode ser especificado apenas com uma frequência semanal.|<br />- Segunda-feira<br />- Terça-feira<br />- Quarta-feira<br />- Quinta-feira<br />- Sexta-feira<br />- Sábado<br />- Domingo<br />- Matriz de valores de dia (o tamanho máximo da matriz é 7)<br /><br />Os valores de dia não diferenciam maiúsculas de minúsculas|
 | **monthlyOccurences** | Dias do mês em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência mensal. |- Matriz de objetos **monthlyOccurence**: `{ "day": day,  "occurrence": occurence }`<br />- O atributo **day** é o dia da semana no qual o gatilho é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor de **day** igual a `{Sunday}` significa todo domingo do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência de **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores de **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.|
 | **Dias do mês** | Dia do mês em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência mensal. |- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31<br />- Matriz de valores|
+
+## <a name="tumbling-window-trigger"></a>Gatilho de janela em cascata
+Os gatilhos de janela em cascata são um tipo de gatilho acionado em um intervalo de tempo periódico a partir de uma hora de início especificada, enquanto mantém o estado. As janelas em cascata são uma série de intervalos de tempo de tamanho fixo, não sobrepostos e contíguos.
+
+Para saber mais sobre gatilhos de janela em cascata e obter exemplos, confira [Criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md).
+
+## <a name="event-based-trigger"></a>Gatilho baseado em eventos
+
+Um gatilho baseado em eventos executa pipelines em resposta a um evento, como a chegada ou a exclusão de um arquivo no armazenamento de Blobs do Azure.
+
+Para obter mais informações sobre gatilhos baseados em eventos, consulte [Criar um gatilho que executa um pipeline em resposta a um evento](how-to-create-event-trigger.md).
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exemplos de agendamentos de recorrência de gatilho
 Esta seção fornece exemplos de agendamentos de recorrência. Ela tem como foco o objeto **schedule** e seus elementos.

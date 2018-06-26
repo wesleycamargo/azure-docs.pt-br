@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8545b092adf939520e15d8118e60f906b59bf92f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ead3d9be5b23d53cdc0ae9ffa3baec4a3cd74b8b
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232615"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946101"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Marketplace do Azure disponíveis para a pilha do Azure
 
@@ -91,8 +91,8 @@ A pilha do Microsoft Azure oferece suporte a máquinas virtuais a seguir Azure M
 | ![Com base em centOS 6,9](media/azure-stack-marketplace-azure-items/roguewave.png) | [Com base em centOS 6,9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Essa distribuição de Linux baseia CentOS e é fornecida pelo Rogue Wave Software. | Software Rogue Wave (anteriormente conhecida como OpenLogic)  |
 | ![Com base em centOS 7.4](media/azure-stack-marketplace-azure-items/roguewave.png) | [Com base em centOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | Essa distribuição de Linux baseia CentOS e é fornecida pelo Rogue Wave Software. | Software Rogue Wave (anteriormente conhecida como OpenLogic) |
 | ![7.4-LVM baseado em centOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4-LVM baseado em centOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74LVM) | Essa distribuição de Linux baseia CentOS e é fornecida pelo Rogue Wave Software. | Software Rogue Wave (anteriormente conhecida como OpenLogic) |
-| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer11SP4BringYourOwnSubscription) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
-| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
+| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES?tab=PlansAndPrice) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
+| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES?tab=PlansAndPrice) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 
 ## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>BYOL de terceiros, livre e avaliação de imagens e modelos de solução
 
@@ -126,7 +126,7 @@ A pilha do Microsoft Azure oferece suporte a máquinas virtuais a seguir Azure M
 | ![eXo plataforma](media/azure-stack-marketplace-azure-items/exoplatform.png) | [eXo plataforma](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.exoplatform) | Código-fonte aberto, social software projetado para empresas. | Bitnami |
 | ![CRM livre FAT](media/azure-stack-marketplace-azure-items/fatfreecrm.png) | [CRM livre FAT](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.fatfreecrm) | Código-fonte aberto Ruby no CRM com base em trilhos. | Bitnami |
 | ![GitLab Community Edition](media/azure-stack-marketplace-azure-items/bitnami.png) | [GitLab Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.gitlab) | Proteger rápida, software de gerenciamento de Git. | Bitnami |
-| ![Ghost](media/azure-stack-marketplace-azure-items/ghost.png) | [Fantasma](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.ghost) | Uma plataforma dedicada para a publicação. | Bitnami |
+| ![Ghost](media/azure-stack-marketplace-azure-items/ghost.png) | [fantasma](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.ghost) | Uma plataforma dedicada para a publicação. | Bitnami |
 | ![O Hadoop](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | Estrutura para a computação distribuída, escalonável e confiável. | Bitnami |
 | ![HHVM](media/azure-stack-marketplace-azure-items/hhvm.png) | [HHVM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hhvmstack) | Ambiente de desenvolvimento totalmente integrada e pronta para ser executada. | Bitnami |
 | ![Horda Groupware Webmail](media/azure-stack-marketplace-azure-items/hordegroupwarewebmail.png) | [Horda Groupware Webmail](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hordegroupwarewebmail) | Livre, pacote de comunicação baseada em navegador pronto enterprise. | Bitnami |

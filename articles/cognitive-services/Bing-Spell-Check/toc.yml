@@ -1,0 +1,63 @@
+- name: Documentação da API de verificação ortográfica do Bing
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é API de Verificação Ortográfica do Bing?
+      href: proof-text.md
+- name: Guias de início rápido da API REST
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Guias de início rápido do SDK
+  items:
+    - name: 'Guia de início rápido do C# do SDK'
+      href: sdk-quickstart-spell-check.md
+    - name: Visão geral dos exemplos do SDK
+      href: sdk.md
+- name: Tutoriais
+  items:
+    - name: Compilar um aplicativo Web de verificação ortográfica
+      href: tutorials/spellcheck.md
+    - name: 'Código-fonte: aplicativo Web de verificação ortográfica'
+      href: tutorials/spellcheck-source.md
+- name: Guias de instruções
+  items:
+    - name: Requisitos de uso e exibição
+      href: UseAndDisplayRequirements.md
+    - name: Atualizar de v5 para v7
+      href: bing-spell-check-upgrade-guide-v5-to-v7.md
+- name: Referência
+  items:
+    - name: API de Verificação Ortográfica do Bing v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference'
+    - name: API de Verificação Ortográfica do Bing v5 (versão antiga)
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
+- name: Recursos
+  items:
+    - name: Perguntas frequentes
+      href: bing-spell-check-resource-faq.md
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-api'
+    - name: Idiomas com suporte
+      href: bing-spell-check-supported-languages.md
+    - name: Análise da API de Verificação Ortográfica do Bing
+      href: bing-spell-check-stats.md
+    - name: Chave de assinatura
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+    - name: Experimente!
+      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ec58b5ef2b9095ba420a4518b84c4e2e6200abc3
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714571"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293322"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: vincular um certificado SSL personalizado existente aos Aplicativos Web do Azure
 
@@ -32,9 +32,11 @@ Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Atualizar o tipo de preço do aplicativo
-> * Associar o certificado SSL personalizado ao Serviço de Aplicativo
-> * Impor HTTPS para seu aplicativo
-> * Automatizar a associação de certificado SSL com scripts
+> * Associar seu certificado personalizado ao Serviço de Aplicativo
+> * Renovar certificados
+> * Impor HTTPS
+> * Impor o TLS 1.1/1.2
+> * Automatizar o gerenciamento de TLS com scripts
 
 > [!NOTE]
 > Se você precisar obter um certificado SSL personalizado, você poderá obtê-lo diretamente no Portal do Azure e associá-lo ao seu aplicativo Web. Siga o [tutorial de Certificados do Serviço de Aplicativo](web-sites-purchase-ssl-web-site.md).
@@ -213,6 +215,14 @@ Agora, tudo o que resta fazer é certificar-se de que o HTTPS funcione com seu d
 
 <a name="bkmk_enforce"></a>
 
+## <a name="renew-certificates"></a>Renovar certificados
+
+Seu endereço IP de entrada pode ser alterado ao excluir uma associação, mesmo se essa associação for baseada em IP. Isso é especialmente importante quando você renova um certificado que já está em uma associação com base em IP. Para evitar uma alteração no endereço IP do seu aplicativo, siga estas etapas pela ordem:
+
+1. Carregar o novo certificado.
+2. Associe o novo certificado para o domínio personalizado que você deseja sem excluir o antigo. Essa ação substitui a associação em vez de remover a antiga.
+3. Exclua o certificado antigo. 
+
 ## <a name="enforce-https"></a>Impor HTTPS
 
 Por padrão, todos ainda podem acessar seu aplicativo Web usando HTTP. Você pode redirecionar todas as solicitações HTTP para a porta HTTPS.
@@ -236,14 +246,6 @@ Em sua página do aplicativo Web, na navegação esquerda, selecione **Configura
 ![Impor o TLS 1.1 ou 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 Após a conclusão da operação, seu aplicativo rejeitará todas as conexões com versões inferiores do TLS.
-
-## <a name="renew-certificates"></a>Renovar certificados
-
-Seu endereço IP de entrada pode ser alterado ao excluir uma associação, mesmo se essa associação for baseada em IP. Isso é especialmente importante quando você renova um certificado que já está em uma associação com base em IP. Para evitar uma alteração no endereço IP do seu aplicativo, siga estas etapas pela ordem:
-
-1. Carregar o novo certificado.
-2. Associe o novo certificado para o domínio personalizado que você deseja sem excluir o antigo. Essa ação substitui a associação em vez de remover a antiga.
-3. Exclua o certificado antigo. 
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
@@ -273,6 +275,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+O comando a seguir impõe a versão mínima do TLS como 1.2.
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 O comando a seguir carrega um arquivo PFX exportado e adiciona uma associação de SSL baseado em SNI.
@@ -297,9 +308,11 @@ Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
 > * Atualizar o tipo de preço do aplicativo
-> * Associar o certificado SSL personalizado ao Serviço de Aplicativo
-> * Impor HTTPS para seu aplicativo
-> * Automatizar a associação de certificado SSL com scripts
+> * Associar seu certificado personalizado ao Serviço de Aplicativo
+> * Renovar certificados
+> * Impor HTTPS
+> * Impor o TLS 1.1/1.2
+> * Automatizar o gerenciamento de TLS com scripts
 
 Vá para o próximo tutorial para saber como usar a Rede de Distribuição de Conteúdo do Azure.
 

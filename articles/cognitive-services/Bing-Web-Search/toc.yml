@@ -1,0 +1,98 @@
+- name: Documentação da Pesquisa na Web do Bing
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é a Pesquisa na Web do Bing?
+      href: overview.md
+- name: Guias de início rápido da API REST
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Go
+      href: quickstarts/go.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Guias de início rápido do SDK
+  items:
+    - name: Visão geral dos exemplos do SDK
+      href: sdk.md
+    - name: 'Guia de início rápido do C# do SDK da Pesquisa de Web'
+      href: web-search-sdk-quickstart.md
+    - name: Guia de início rápido do Node.js do SDK da Pesquisa de Web
+      href: web-search-sdk-node-quickstart.md
+    - name: Guia de início rápido do Python do SDK da Pesquisa de Web
+      href: web-sdk-python-quickstart.md
+    - name: Guia de início rápido do Java do SDK da Pesquisa de Web
+      href: web-sdk-java-quickstart.md
+- name: Tutoriais
+  items:
+    - name: Aplicativo Web de página única
+      href: tutorial-bing-web-search-single-page-app.md
+    - name: Aplicativo Web de página única (código-fonte)
+      href: tutorial-bing-web-search-single-page-app-source.md
+    - name: Aplicativo móvel de pesquisa visual
+      href: computer-vision-web-search-tutorial.md
+    - name: Aplicativo móvel de pesquisa visual (solução do Visual Studio)
+      href: 'https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/'
+      maintainContext: true
+- name: Exemplos
+  items:
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search'
+- name: Guias de instruções
+  items:
+    - name: Resultados de uso e exibição
+      href: UseAndDisplayRequirements.md
+    - name: Filtrar respostas
+      href: filter-answers.md
+    - name: Classificar resultados
+      href: rank-results.md
+    - name: Lidar com realce de ocorrências
+      href: hit-highlighting.md
+    - name: Percorrer resultados
+      href: paging-webpages.md
+    - name: Miniaturas de redimensionamento e corte
+      href: resize-and-crop-thumbnails.md
+    - name: Atualizar de v5 para v7
+      href: bing-web-upgrade-guide-v5-to-v7.md
+- name: Referência
+  items:
+    - name: API de Pesquisa na Web do Bing v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference'
+    - name: API de Pesquisa na Web do Bing v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference'
+- name: Recursos
+  items:
+    - name: Perguntas frequentes
+      href: bing-web-search-resource-faq.md
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-web-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+web+search'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Base de Dados de Conhecimento
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Obter chave de API
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
+    - name: Experimente!
+      href: 'https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/'
+    - name: Ponto de extremidade de Pesquisa na Web do Bing
+      href: web-search-endpoints.md
+    - name: Países e mercados com suporte
+      href: supported-countries-markets.md
+    - name: Análise da API de Pesquisa na Web do Bing
+      href: bing-web-stats.md

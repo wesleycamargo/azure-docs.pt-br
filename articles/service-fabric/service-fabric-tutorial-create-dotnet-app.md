@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: df455f46e5fbc6bc1a4a7f0c30eac1bb185dea3d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: a1197277b97c14e95bdab67f7c3d00b75a841f22
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312688"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267567"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: criar e implantar um aplicativo com um serviço de front-end de API Web do ASP.NET Core e um serviço de back-end com estado
 Este tutorial é a primeira parte de uma série.  Você aprenderá a criar um aplicativo do Azure Service Fabric com um front-end da API Web do ASP.NET Core e um serviço de back-end com estado para armazenar seus dados. Quando terminar, você terá um aplicativo de votação com um front-end da Web do ASP.NET Core que salva os resultados da votação em um serviço de back-end com estado do cluster. Se você não quiser criar manualmente o aplicativo de votação, [baixe o código-fonte](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) do aplicativo concluído e vá direto para [Percorrer o aplicativo de exemplo votação](#walkthrough_anchor).  Se preferir, você também pode assistir a um [vídeo de passo a passo](https://channel9.msdn.com/Events/Connect/2017/E100) deste tutorial.
@@ -74,9 +74,21 @@ Primeiro, crie o front-end da Web do aplicativo de votação usando o ASP.NET Co
    ![Gerenciador de Soluções após a criação de aplicativo com serviço da API Web do ASP.NET Core]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="add-angularjs-to-the-votingweb-service"></a>Adicionar AngularJS ao serviço VotaçãoWeb
-Adicione [AngularJS](http://angularjs.org/) ao seu serviço usando o [Suporte ao Bower](/aspnet/core/client-side/bower). Primeiro, adicione um arquivo de configuração Bower ao projeto.  No Gerenciador de Soluções, clique com o botão direito do mouse em **VotingWeb** e selecione **Adicionar->Novo item**. Selecione **Web** e, em seguida, **Arquivo de configuração Bower**.  O arquivo *bower.json* será criado.
+Adicione [AngularJS](http://angularjs.org/) ao seu serviço usando o [Suporte ao Bower](/aspnet/core/client-side/bower). Primeiro, adicione um arquivo de configuração *.bowerrc* ao projeto.  No Gerenciador de Soluções, clique com o botão direito do mouse em **VotingWeb** e selecione **Adicionar->Novo item**. Selecione **C#** e **arquivo JSON**.  Insira **.bowerrc** no campo *Nome* e clique em **Adicionar**.
 
-Abra *bower.json* e adicione entradas para angular e inicialização angular e depois salve suas alterações.
+Abra *.bowerrc* e substitua o conteúdo com o seguinte, que indica que o Bower instalará os ativos de pacote para o diretório *wwwroot/lib*.
+
+```json
+{
+ "directory": "wwwroot/lib"
+}
+```
+
+Salve suas alterações em *.bowerrc*.  Isso cria um arquivo *.bowerrc*. no seu projeto.  
+
+Depois, adicione um arquivo de configuração Bower ao projeto.  No Gerenciador de Soluções, clique com o botão direito do mouse em **VotingWeb** e selecione **Adicionar->Novo item**. Selecione **C#** e **arquivo JSON**.  Insira **bower.json** no campo *Nome* e clique em **Adicionar**.
+
+Abra *bower.json* e substitua o conteúdo pelas entradas a seguir para angular e inicialização angular e depois salve suas alterações.
 
 ```json
 {
@@ -92,7 +104,8 @@ Abra *bower.json* e adicione entradas para angular e inicialização angular e d
   }
 }
 ```
-Ao salvar o arquivo *bower.json*, Angular será instalado na pasta *wwwroot/lib* de seu projeto. Além disso, ele será listado dentro da pasta *Dependências/Bower*.
+
+Ao salvar o arquivo *bower.json*, o suporte para bower do Visual Studio instalará o Angular na pasta *wwwroot/lib* do seu projeto. Além disso, ele será listado dentro da pasta *Dependências/Bower*.
 
 ### <a name="update-the-sitejs-file"></a>Atualizar o arquivo site.js
 Abra o arquivo *wwwroot/js/site.js*.  Substitua seu conteúdo pelo JavaScript usado pelas exibições iniciais:
