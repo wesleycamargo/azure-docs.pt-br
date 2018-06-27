@@ -1,24 +1,26 @@
 ---
-title: Enterprise Edition do Microsoft Integration Runtime do Azure-SSIS | Microsoft Docs
-description: Este artigo descreve os recursos e a configuração do Enterprise Edition para o Microsoft Integration Runtime do Azure-SSIS
+title: Provisionar Enterprise Edition para o Integration Runtime do Azure-SSIS| Microsoft Docs
+description: Este artigo descreve os recursos do Enterprise Edition para o Integration Runtime do Azure-SSIS e como provisioná-lo
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: douglasl
-ms.openlocfilehash: 42c0c000ef661a1a256ebf49cd099a4cae2185c0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 73997345895bc54f54db1d66c0c6c24c24153dd2
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267838"
 ---
-# <a name="enterprise-edition-of-the-azure-ssis-integration-runtime"></a>Enterprise Edition do Microsoft Integration Runtime do Azure-SSIS
+# <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Provisionar Enterprise Edition para o Integration Runtime do Azure-SSIS
 
 A Enterprise Edition do Microsoft Integration Runtime do Azure-SSIS permite que você use os recursos avançados e premium a seguir:
 -   Componentes da Captura de Dados de Alterações (CDA)

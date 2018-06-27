@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: juliako
-ms.openlocfilehash: 4e644db12a74d6ef132a0c8d64ef517a0c2253cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658860"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292041"
 ---
 # <a name="migrate-from-media-services-v2-to-v3"></a>Migrar dos Serviços de Mídia v2 para v3
 
@@ -50,6 +50,10 @@ Este artigo descreve as alterações introduzidas no AMS (Serviços de Mídia do
 
 ## <a name="changes-from-v2"></a>Alterações da v2
 
+* Nos Serviços de Mídia v3, a criptografia de armazenamento (criptografia AES-256) somente tem suporte para compatibilidade com versões anteriores quando os Ativos foram criados com os Serviços de Mídia v2. Isso significa que o v3 funciona com recursos criptografados de armazenamento existentes, mas não permite a criação de novos recursos.
+
+    Para Ativos criados com v3, os Serviços de Mídia dão suporte para criptografia de armazenamento do servidor do [Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+    
 * Os SDKs dos Serviços de Mídia são desacoplados do SDK de Armazenamento, o que proporciona mais controle sobre o SDK de Armazenamento usado e evita problemas de versão. 
 * Na v3, todas as taxas de bits de codificação estão em bits por segundo. Isso é diferente das predefinições do Media Encoder Standard do REST v2. Por exemplo, a taxa de bits na v2 seria especificada como 128, mas em v3 seria 128000. 
 * AssetFiles, AccessPolicies, IngestManifests não existem na v3.
@@ -141,7 +145,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. Criar Política de Chave de Conteúdo
 2. Criar Ativo
 3. Carregar conteúdo ou usar Ativo como JobOutput
-4. Criar Localizador
+4. Criar StreamingLocator
 
 ## <a name="next-steps"></a>Próximas etapas
 

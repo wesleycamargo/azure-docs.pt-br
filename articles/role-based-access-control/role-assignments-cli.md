@@ -1,6 +1,6 @@
 ---
-title: Gerenciar RBAC (controle de acesso baseado em função) com a CLI do Azure | Microsoft Docs
-description: Saiba como gerenciar o RBAC (Controle de Acesso baseado em função) com a interface de linha de comando do Azure listando as funções e ações de função, e atribuindo funções às assinaturas e escopos de aplicativo.
+title: Gerenciar acesso usando RBAC e CLI do Azure| Microsoft Docs
+description: Saiba como gerenciar acesso de usuários, grupos e aplicativos usando RBAC (controle de acesso baseado em função) e CLI do Azure. Isso inclui o acesso à listagem, concessão de acesso e remoção de acesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,30 +14,24 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8b50d04bcbd067059bf4816468585e5d56a63d41
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 15ff519f5af7471d6adaae44e2af19422ad44fea
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266730"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294397"
 ---
-# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gerenciar o Controle de Acesso baseado em função com a Interface de Linha de Comando do Azure
+# <a name="manage-access-using-rbac-and-azure-cli"></a>Gerenciar o acesso usando RBAC e CLI do Azure
 
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [CLI do Azure](role-assignments-cli.md)
-> * [API REST](role-assignments-rest.md)
-
-
-Com o RBAC (controle de acesso baseado em função), você define o acesso para usuários, grupos e entidades de serviço, atribuindo funções em um escopo específico. Este artigo descreve como gerenciar atribuições de função usando a interface de linha de comando do Azure (CLI).
+O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Este artigo descreve como gerenciar o acesso de usuários, grupos e aplicativos usando o RBAC e a CLI do Azure.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
 Para usar a CLI do Azure para gerenciar CLI do Azure, é necessário ter os seguintes pré-requisitos:
 
-* [CLI 2.0 do Azure](/cli/azure). Você pode usá-lo no seu navegador com o [Azure Cloud Shell](../cloud-shell/overview.md) ou pode [instalá-lo](/cli/azure/install-azure-cli) no macOS, Linux e Windows e executá-lo da linha de comando.
+* [CLI do Azure](/cli/azure). Você pode usá-lo no seu navegador com o [Azure Cloud Shell](../cloud-shell/overview.md) ou pode [instalá-lo](/cli/azure/install-azure-cli) no macOS, Linux e Windows e executá-lo da linha de comando.
 
-## <a name="list-role-definitions"></a>Lista de definições de função
+## <a name="list-roles"></a>Listar funções
 
 Para listar todas as definições de função disponíveis, use [lista de definições de função az](/cli/azure/role/definition#az-role-definition-list):
 
@@ -94,7 +88,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role-definition"></a>Relacionar ações de uma definição de função
+### <a name="list-actions-of-a-role"></a>Relacionar ações de uma função
 
 Para listar as ações de uma definição de função, use [lista de definições de função az](/cli/azure/role/definition#az-role-definition-list):
 
@@ -182,7 +176,9 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## <a name="list-role-assignments"></a>Listar atribuições de função
+## <a name="list-access"></a>Relacionar acesso
+
+No RBAC, para listar o acesso, você lista as atribuições de função.
 
 ### <a name="list-role-assignments-for-a-user"></a>Listar as atribuições de função de um usuário
 
@@ -240,7 +236,9 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## <a name="create-role-assignments"></a>Criar atribuições de função
+## <a name="grant-access"></a>Conceder acesso
+
+No RBAC, para conceder acesso, você cria uma atribuição de função.
 
 ### <a name="create-a-role-assignment-for-a-user"></a>Criar uma atribuição de função para um usuário
 
@@ -290,9 +288,9 @@ O exemplo a seguir atribui a função *Colaborador da Máquina Virtual* a um apl
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-a-role-assignment"></a>Excluir uma atribuição de função
+## <a name="remove-access"></a>Remover acesso
 
-Para remover uma atribuição de função, use [excluir atribuição de função az](/cli/azure/role/assignment#az-role-assignment-delete):
+No RBAC, para remover o acesso, você remove uma atribuição de função usando [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103924"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285909"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corrigir as configurações de segurança na Central de Segurança do Azure
 A Central de Segurança do Azure analisa diariamente o SO (sistema operacional) de suas VMs (máquinas virtuais) e computadores para verificar a existência de configuração que possa tornar as VMs e computadores mais vulneráveis a ataques. A Central de Segurança recomenda que você resolva as vulnerabilidades quando sua configuração do sistema operacional não corresponder às regras de configuração de segurança e recomenda alterações de configuração para resolver essas vulnerabilidades.
@@ -51,7 +51,7 @@ Este exemplo abrange a recomendação “Corrigir configurações de segurança�
 
   - **CCEID**: o identificador exclusivo CCE da regra. A Central de Segurança usa a CCE (Common Configuration Enumeration) para atribuir identificadores exclusivos a regras de configuração.
   - **Nome**: o nome da regra com falha.
-  - **Tipo de regra**: o tipo de regra *Chave do Registro*, *Política de segurança* ou *Política de auditoria*.
+  - **Tipo de regra**: a *chave do Registro*, *política de Segurança*, *política de Auditoria* ou tipo de regra do *IIS*.
   - **Nº de VMs e computadores**: o número total de VMs e computadores aos quais a regra com falha se aplica.
   - **Severidade da regra**: o valor *Crítico*, *Importante* ou *Aviso* da CCE.
   - **Estado**: o estado atual da recomendação:
@@ -94,16 +94,16 @@ Este exemplo abrange a recomendação “Corrigir configurações de segurança�
    ![Informações detalhadas sobre o computador selecionado][6]
 
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo mostrou como implementar a recomendação da Central de Segurança para "Corrigir configurações de segurança". Para saber como personalizar avaliações de configuração de segurança, consulte [Personalizar configurações de segurança do sistema operacional na Central de Segurança do Azure (Versão Prévia)](security-center-customize-os-security-config.md).
+Este artigo mostrou como implementar a recomendação da Central de Segurança para "Corrigir configurações de segurança". Para saber como personalizar avaliações de configuração de segurança, consulte [Personalizar configurações de segurança do sistema operacional na Central de Segurança do Azure (versão prévia)](security-center-customize-os-security-config.md).
 
 Para examinar as configurações específicas que estão sendo monitoradas, veja a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). A Central de Segurança usa a CCE (Common Configuration Enumeration) para atribuir identificadores exclusivos a regras de configuração. Para obter mais informações, visite o site da [CCE](https://nvd.nist.gov/cce/index.cfm).
 
 Para saber mais sobre a Central de Segurança, confira os seguintes recursos:
 
-* Para obter uma lista de VMs Windows e Linux compatíveis, consulte [Plataformas com suporte na Central de Segurança do Azure](security-center-os-coverage.md). 
-* Para saber como configurar políticas de segurança para suas assinaturas e seus grupos de recursos do Azure, consulte [Definindo políticas de segurança na Central de Segurança do Azure](security-center-policies.md). 
-* Para saber como as recomendações ajudam você a proteger seus recursos do Azure, consulte [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md). 
-* Para saber como monitorar a integridade de seus recursos do Azure, consulte [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md). 
+* Para obter uma lista de VMs Windows e Linux compatíveis, consulte [Plataformas com suporte na Central de Segurança do Azure](security-center-os-coverage.md).
+* Para saber como configurar políticas de segurança para suas assinaturas e seus grupos de recursos do Azure, consulte [Definindo políticas de segurança na Central de Segurança do Azure](security-center-policies.md).
+* Para saber como as recomendações ajudam você a proteger seus recursos do Azure, consulte [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
+* Para saber como monitorar a integridade de seus recursos do Azure, consulte [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md).
 * Para saber como gerenciar e responder a alertas de segurança, consulte [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
 * Para saber como monitorar o status da integridade de suas soluções de parceiros, consulte [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md).
 * Para encontrar respostas para as perguntas frequentes sobre como usar o serviço, consulte [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md).

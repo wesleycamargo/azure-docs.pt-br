@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
+ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307559"
+ms.lasthandoff: 06/16/2018
+ms.locfileid: "35683042"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de VM Reservadas do Microsoft Azure
 
@@ -16,7 +16,14 @@ Você pode comprar Instâncias Reservadas do Microsoft Azure no [portal do Azure
 -   Para as assinaturas Enterprise, as compras de Instância Reservada devem estar habilitadas no [Portal EA](https://ea.azure.com).
 -   Para o programa do CSP (Provedor de Solução na Nuvem) somente os agentes administradores ou agentes de vendas podem comprar as Instâncias Reservadas.
 
-## <a name="buy-a-reserved-instance"></a>Comprar uma Instância Reservada
+[!IMPORTANT]
+Você deve usar um dos métodos descritos abaixo para identificar o tamanho correto da VM para uma compra de reserva.
+
+## <a name="determine-the-right-vm-size-before-purchase"></a>Determinar o tamanho correto da VM antes da compra
+1. Consulte o campo AdditionalInfo em seu arquivo de uso ou API de uso para determinar o tamanho correto da VM para uma compra de reserva. Não use os valores dos campos Subcategoria do Medidor ou Produto, pois esses campos não diferenciam as versões S e Não-S de uma VM.
+2. Você também pode obter informações precisas sobre o tamanho da VM usando o Powershell, o Azure Resource Manager ou os detalhes da VM no portal do Azure.
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>Comprar uma Instância de Máquinas Virtuais Reservadas do Azure
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione **Adicionar** para adquirir uma nova Instância Reservada.

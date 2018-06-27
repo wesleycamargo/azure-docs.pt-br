@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264333"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287830"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas usando o Azure Monitor  
 
@@ -148,7 +148,13 @@ Para **Alertas de Log**, os alertas podem ser baseados em:
 2. O **Painel de Alertas** é exibido, contendo todos os alertas do Azure unificados e exibidos em um painel singular ![Painel de Alerta](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. Na parte superior da esquerda para a direita, o painel mostra uma visão rápida do o seguinte, que pode ser clicado para exibir uma listagem detalhada:
     - *Alertas Disparados*: o número de alertas no momento que atenderam à lógica e estão no estado disparado
-    - *Total de Regras de Alerta*: o número de regras de alerta criadas e no subtexto, o número que está habilitado no momento
+    - *Total de Regras de Alerta*: o número de regras de alerta criadas e no subtexto, o número que está habilitado no momento 
+    
+
+        > [!NOTE]
+        > Para garantir um painel consistente com detalhes sobre todos os alertas acionados, incluindo alertas do log para insights de aplicativos e análises do log, o [Alerta unificado avançado (versão prévia)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) deverá ser usado
+  
+  
 4. É mostrada uma lista de todos os alertas disparados nos quais o usuário pode clicar para exibir detalhes
 5. Para ajudar a localizar especificações dos alertas, é possível usar as opções suspensas na parte superior para filtrar as especificações *assinatura, grupo de recursos e/ou recurso*. Além disso, para qualquer alerta não resolvido, é possível usar a opção *Filtrar alerta* para localizar a palavra-chave fornecida, alertas correspondentes específicos com *nome, critérios de alerta, grupo de recursos e recurso de destino*
 

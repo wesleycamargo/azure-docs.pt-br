@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas no controle de acesso baseado em função (RBAC) do Azure | Microsoft Docs
-description: Obtenha ajuda para problemas ou dúvidas sobre recursos do Controle de Acesso Baseado em Função.
+title: Solução de problemas de RBAC no Azure | Microsoft Docs
+description: Solucionar problemas com RBAC (controle de acesso baseado em função) do Azure.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,22 +15,22 @@ ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5ca43fe3a8ff27ff4a811aeb26abf4a6f26d8b35
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 557d3330ef155181c050a18b14d31b65ba1f2dcf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267162"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295380"
 ---
-# <a name="troubleshooting-azure-role-based-access-control"></a>Solução de problemas no controle de acesso baseado em função do Azure 
+# <a name="troubleshooting-rbac-in-azure"></a>Solução de problemas de RBAC no Azure
 
-Este artigo responde a perguntas comuns sobre os direitos de acesso específicos concedidos com as funções, para que você saiba o que esperar ao usar as funções no Portal do Azure e possa solucionar problemas de acesso. Estas três funções abrangem todos os tipos de recurso:
+Este artigo responde a perguntas comuns sobre o RBAC (controle de acesso baseado em função), para que você saiba o que esperar ao usar as funções no portal do Azure e possa solucionar problemas de acesso. Estas três funções abrangem todos os tipos de recurso:
 
 * Proprietário  
 * Colaborador  
 * Leitor  
 
-Os proprietários e colaboradores têm acesso completo a experiência de gerenciamento, mas um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas ficam um pouco mais interessantes com a função de leitor e é para ela que vamos dedicar algum tempo. Consulte o [Artigo de introdução ao Controle de Acesso Baseado em Função](role-assignments-portal.md) para obter detalhes sobre como conceder acesso.
+Os Proprietários e Colaboradores têm acesso completo a experiência de gerenciamento, mas um Colaborador não pode conceder acesso a outros usuários ou grupos. As coisas ficam um pouco mais interessantes com a função de Leitor e é para ela que vamos dedicar algum tempo. Para obter informações sobre como conceder acesso, consulte [Gerenciar o acesso usando o RBAC e o portal do Azure](role-assignments-portal.md).
 
 ## <a name="app-service"></a>Serviço de Aplicativo
 ### <a name="write-access-capabilities"></a>Recursos do acesso de gravação
@@ -97,9 +97,7 @@ Estes exigem acesso para **gravação** tanto na **Máquina virtual** quanto no 
 
 Se você não conseguir acessar nenhum desses blocos, solicite ao administrador o acesso de Colaborador ao Grupo de recursos.
 
-## <a name="see-more"></a>Veja mais
-* [Controle de Acesso Baseado em Função](role-assignments-portal.md): introdução ao RBAC no portal do Azure.
-* [Funções internas](built-in-roles.md): obter detalhes sobre as funções que são incluídas por padrão no RBAC.
-* [Funções personalizadas no Azure RBAC](custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
-* [Criar um relatório de histórico de alterações de acesso](change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
+## <a name="next-steps"></a>Próximas etapas
+* [Gerenciar acesso usando o RBAC e o Portal do Azure](role-assignments-portal.md)
+* [Exibir logs de atividades para alterações de RBAC](change-history-report.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Ferramenta “E se” de acesso condicional do Azure Active Directory - versão prévia | Microsoft Docs
-description: Saiba como você pode testar a configuração das suas políticas de acesso condicional do Azure Active Directory.
+title: Qual é a ferramenta “e se” de acesso condicional do Azure Active Directory? - versão prévia | Microsoft Docs
+description: Saiba como é possível reconhecer o impacto das políticas de acesso condicional no ambiente.
 services: active-directory
 keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 2c4ca3685d15ddd2446590e1ef297362f9aa52ee
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 661ada8de8821d489732e1f36dc2406eaa0ee4a7
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723823"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231819"
 ---
-# <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Ferramenta “E se” de acesso condicional do Azure Active Directory - versão prévia
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access---preview"></a>Qual é a ferramenta “e se” de acesso condicional do Azure Active Directory? - versão prévia
 
 [Acesso condicional](active-directory-conditional-access-azure-portal.md) é uma funcionalidade do Azure Active Directory (Azure AD) que permite controlar como os usuários autorizados acessam seus aplicativos de nuvem. Como você sabe o que esperar das políticas de acesso condicional em seu ambiente? Para responder essa pergunta, você pode usar o **a ferramenta de acesso condicional “e se”**.
 
@@ -121,7 +121,7 @@ Na lista de políticas que não se aplicam ao usuário, você pode também encon
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você quiser saber como configurar uma política de acesso condicional, veja [introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Se você quiser saber como configurar uma política de acesso condicional, consulte [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

@@ -1,24 +1,22 @@
 ---
 title: Planejador de Implantações do Azure Site Recovery para Hyper-V para o Azure | Microsoft Docs
-description: Este artigo descreve o modo de execução do planejador de implantações do Azure Site Recovery quando você está mudando do Hyper-V para o Azure.
-services: site-recovery
+description: Este artigo ensina como executar o planejador de implantação do Site Recovery para a replicação do Hyper-V para Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 06/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 49243eaa4d3413509e569a88e1d7a2f6359d7876
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0293ace13dbcd30988ce571c60f2d7c6a338e779
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236222"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287483"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Executar o planejador de implantações do Azure Site Recovery para Hyper-V para o Azure
 
-## <a name="modes-of-running-the-deployment-planner"></a>Modos de execução do planejador de implantações
-Você pode executar a ferramenta de linha de comando (ASRDeploymentPlanner.exe) em qualquer um dos quatro seguintes modos: 
+Você pode executar a ferramenta de linha de comando do planejador de implementação do Site Recovery (ASRDeploymentPlanner.exe) em qualquer um desses quatro modos: 
 -   [Obtenha a lista de máquinas virtuais (VMs)](#get-vm-list-for-profiling-hyper-v-vms)
 -   [Perfil](#profile-hyper-v-vms)
 -   [Gerar um relatório](#generate-report)
@@ -40,14 +38,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | O nome de usuário para se conectar ao host do Hyper-V ou ao cluster do Hyper-V. O usuário precisa ter acesso administrativo.|
-|-ServerListFile | O arquivo com a lista de servidores contendo as VMs para criação de perfil. O caminho do arquivo pode ser absoluto ou relativo. Esse arquivo deve conter uma das seguintes opões em cada linha:<ul><li>Nome do host ou endereço IP do Hyper-V</li><li>Nome do cluster ou endereço IP do Hyper-V</li></ul><br>**Exemplo:** ServerList.txt contém as seguintes servidores:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | O arquivo com a lista de servidores contendo as VMs para criação de perfil. O caminho do arquivo pode ser absoluto ou relativo. Esse arquivo deve conter uma das seguintes opões em cada linha:<ul><li>Nome do host ou endereço IP do Hyper-V</li><li>Nome do cluster ou endereço IP do Hyper-V</li></ul><br>**Exemplo:** ServerList.txt contém as seguintes servidores:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(Opcional) A UNC (convenção de nomenclatura universal) ou o caminho do diretório local para armazenar dados gerados durante essa operação. Se um nome não for especificado, o diretório chamado ProfiledData no caminho atual será usado como o diretório padrão.|
-|-OutputFile| (Opcional) O arquivo onde a lista de VMs obtida dos servidores específicos do Hyper-V é salvo. Se o nome não tiver sido mencionado, os detalhes são armazenados em "VMList.txt".  Use o arquivo para iniciar a criação de perfil depois de remover as VMs que não precisam de criação de perfil.|
+|-OutputFile| (Opcional) O arquivo com a lista de VMs obtidas dos servidores Hyper-V é salvo. Se o nome não tiver sido mencionado, os detalhes são armazenados em "VMList.txt".  Use o arquivo para iniciar a criação de perfil depois de remover as VMs que não precisam de criação de perfil.|
 |-Password|(Opcional) A senha para se conectar ao host do Hyper-V. Se você não especificá-la como um parâmetro, ela será solicitada quando você executar o comando.|
 
 ### <a name="getvmlist-discovery"></a>Descoberta de GetVMList
-**Cluster do Hyper-V**: Quando o nome do cluster Hyper-V for fornecido no arquivo de lista de servidores, a ferramenta localiza todos os nós do Hyper-V do cluster e obtém as VMs presentes em cada um dos hosts do Hyper-V.
 
+- **Cluster do Hyper-V**: Quando o nome do cluster Hyper-V for fornecido no arquivo de lista de servidores, a ferramenta localiza todos os nós do Hyper-V do cluster e obtém as VMs presentes em cada um dos hosts do Hyper-V.
 **Host do Hyper-V**: Quando o nome de host do Hyper-V for fornecido, a ferramenta verificará primeiro se ele pertence a um cluster. Em caso afirmativo, a ferramenta busca os nós que pertencem ao cluster. Em seguida, ele obterá as VMs de cada host do Hyper-V. 
 
 Também é possível listar em um arquivo os nomes amigáveis ou os endereços IP das VMs para as quais deseja criar o perfil manualmente.
@@ -154,7 +152,7 @@ Se o servidor no qual a ferramenta está sendo executada for reinicializado ou f
 
 Quando o nome da conta de armazenamento e a chave são passados, a ferramenta mede a taxa de transferência na última etapa de criação de perfil. Se a ferramenta for fechada antes da conclusão da criação de perfil, a taxa de transferência não será calculada. Para obter a taxa de transferência antes de gerar o relatório, você pode executar a operação GetThroughput no console de linha de comando. Caso contrário, o relatório gerado não conterá as informações de taxa de transferência.
 
-O Azure Site Recovery não oferece suporte a VMs que possuem discos de passagem e iSCSI. No entanto, a ferramenta não pode detectar e analisar discos de passagem e iSCSI anexados às VMs.
+O Azure Site Recovery não dá suporte para VMs que têm discos de passagem e iSCSI. A ferramenta não pode detectar e analisar discos de passagem e iSCSI anexados às VMs.
 
 ## <a name="generate-a-report"></a>Gerar um relatório
 A ferramenta gera um arquivo do Microsoft Excel com macros habilitadas (arquivo XLSM) como a saída de relatório. Ela resume todas as recomendações de implantação. O relatório é denominado DeploymentPlannerReport_*identificador numérico exclusivo*.xlsm e colocado no diretório especificado.

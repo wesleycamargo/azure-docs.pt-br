@@ -15,18 +15,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: b59173259aa86a429b9f926a8e5ffbfd046451a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c5e4c1569464d2e204edf13fe7534d80780524e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294870"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294951"
 ---
 # <a name="migrate-to-the-updated-batch-ai-api"></a>Migre para a API de AI atualizado do lote
 
-No futuro lote AI REST API versão 01-05-2018 e relacionados ao lote AI SDKs e ferramentas, novos recursos e alterações significativas são introduzidos.
+Na API REST de IA do Lote versão 2018-05-01 e nos SDKs e ferramentas de IA do Lote relacionados, foram introduzidos novos recursos e alterações significativas.
 
-Se você usou uma versão anterior da API do AI em lotes, este artigo explica como modificar seu código e scripts para trabalhar com a nova API. Fazer essas alterações somente depois que a nova API está disponível.
+Se você usou uma versão anterior da API do AI em lotes, este artigo explica como modificar seu código e scripts para trabalhar com a nova API. 
 
 ## <a name="whats-changing"></a>O que está sendo alterado?
 

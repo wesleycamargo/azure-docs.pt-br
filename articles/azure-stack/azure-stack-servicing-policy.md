@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: 77cc2f80588a104880e8149daccc6debd1ec43bc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c3cc8857373238079fee06c61faec962d7e3a6b2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796410"
 ---
 # <a name="azure-stack-servicing-policy"></a>Política de manutenção de pilha do Azure
 Este artigo descreve a política de serviço para sistemas de pilha do Azure integradas, e que você deve fazer para manter o sistema em um estado com suporte. 
@@ -37,10 +38,9 @@ Há dois tipos de pacotes de atualização para sistemas integrados:
 A Microsoft espera liberar os pacotes de atualização de software em um ritmo mensal. No entanto, é possível ter várias ou nenhuma versões de atualização em um mês. Fornecedores de hardware de OEM liberar suas atualizações em uma base conforme necessário. 
 
 Localizar a documentação sobre como planejar e gerenciar atualizações e como determinar a versão atual no [visão geral de atualizações de gerenciar](azure-stack-updates.md). Para obter informações sobre uma atualização específica, incluindo como baixá-lo, consulte as notas de versão para que a atualização: 
+- [Atualização de pilha 1805 do Azure](azure-stack-update-1805.md)
+- [Atualização de pilha 1804 do Azure](azure-stack-update-1804.md)
 - [Atualização de pilha 1803 do Azure](azure-stack-update-1803.md)
-- [Atualização de pilha 1802 do Azure](azure-stack-update-1802.md)
-- [Atualização de 1712 de pilha do Azure](azure-stack-update-1712.md)
-
 
 
 ## <a name="hotfixes"></a>Hotfixes

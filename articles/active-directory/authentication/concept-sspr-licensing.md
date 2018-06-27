@@ -10,30 +10,32 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33864644"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292552"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD
 
-Para a redefinição de senhas do Azure AD (Azure Active Directory) funcionar, você *deve ter pelo menos uma licença atribuída na sua organização*. Não impomos licenciamento por usuário na experiência de redefinição da senha. Uma licença apropriada é necessária se um usuário se beneficia direta ou indiretamente de qualquer recurso coberto por essa licença.
+Para que a redefinição de senha do Azure AD (Azure Active Directory) funcione, é necessário *ter pelo menos uma licença atribuída na organização* para esse usuário. Uma licença apropriada é necessária se um usuário se beneficia direta ou indiretamente de qualquer recurso coberto por essa licença.
 
 * **Somente usuários de nuvem**: Qualquer SKU pago do Office 365 ou Azure AD Basic
 * Usuários na **nuvem** ou **locais**: Azure AD Premium P1 ou P2, Enterprise Mobility + Security (EMS) ou Microsoft 365
 
-## <a name="licenses-required-for-password-writeback"></a>Licenças necessárias para write-back de senha
+## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento do write-back de senha
+
+**Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local é um recurso Premium do Azure AD**. Para obter mais informações sobre licenciamento, consulte o [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Para usar o write-back de senha, você deve ter uma das licenças a seguir atribuídas no locatário:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3
-* Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Enterprise Mobility + Security E3 ou A3
+* Enterprise Mobility + Security E5 ou A5
+* Microsoft 365 E3 ou A3
+* Microsoft 365 E5 ou A5
 * Microsoft 365 F1
 
 > [!WARNING]

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: f0501d4404375ee44b96ae4514c15e69b616d38a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7c4294947cba72b1638e77c2dd8de1f5ee37b62a
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285977"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorar a integridade do contêiner do AKS (Serviço do Kubernetes do Azure) (Versão prévia)
 
@@ -39,7 +40,7 @@ Antes de começar, examine os detalhes a seguir para compreender os pré-requisi
 - As seguintes versões do cluster do AKS têm suporte: 1.7.7 a 1.9.6.
 - Um agente do OMS em contêineres para Linux versão microsoft/oms:ciprod04202018 e posteriores. Esse agente é instalado automaticamente durante a integração da integridade do contêiner.  
 - Um espaço de trabalho do Log Analytics.  Ele pode ser criado quando você habilita o monitoramento do novo cluster do AKS, ou você pode criar um por meio do [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), do [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) ou do [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
-
+- Membro da função Colaborador do Log Analytics para habilitar o monitoramento de contêineres.  Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, consulte [Gerenciar espaços de trabalho](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Componentes 
 
@@ -49,8 +50,8 @@ Esse recurso depende da coleta de dados de eventos e desempenho, por um Agente d
 >Se você já tiver implantado um cluster do AKS, habilite o monitoramento usando um modelo do Azure Resource Manager fornecido, conforme demonstrado neste artigo. Não é possível usar `kubectl` para atualizar, excluir, implantar ou reimplantar o agente.  
 >
 
-## <a name="log-in-to-azure-portal"></a>Fazer logon no portal do Azure
-Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Habilitar monitoramento de integridade de contêiner em um novo cluster
 Você só pode habilitar o monitoramento do cluster do AKS quando o implanta no portal do Azure.  Siga as etapas no artigo de início rápido [Implantar um cluster do AKS (Serviço do Kubernetes do Azure)](../aks/kubernetes-walkthrough-portal.md).  Quando você estiver na página **Monitoramento**, selecione **Sim** na opção **Habilitar Monitoramento** para habilitá-lo e selecione um espaço de trabalho do Log Analytics existente ou crie um novo.  
@@ -65,7 +66,27 @@ Depois que o monitoramento for habilitado, todas as tarefas de configuração se
 Depois que o monitoramento for habilitado, poderá levar cerca de 15 minutos até que os dados operacionais para o cluster fiquem visíveis.  
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Habilitar monitoramento de integridade do contêiner em clusters gerenciados existentes
-A habilitação do monitoramento do contêiner do AKS já implantado não pode ser feita no portal; ela só pode ser executada usando o modelo do Azure Resource Manager fornecido com o cmdlet do PowerShell **New-AzureRmResourceGroupDeployment** ou com a CLI do Azure.  Um modelo JSON especifica a configuração para habilitar o monitoramento e o outro modelo JSON contém valores de parâmetro que você configura para especificar o seguinte:
+A habilitação do monitoramento do contêiner do AKS já implantado pode ser realizada no portal do Azure ou com o modelo fornecido do Azure Resource Manager usando o cmdlet do PowerShell **New-AzureRmResourceGroupDeployment** ou a Azure CLI.  
+
+
+### <a name="enable-from-azure-portal"></a>Habilitar a partir do portal do Azure
+Execute as etapas a seguir para habilitar o monitoramento do contêiner do AKS no portal do Azure.
+
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Contêineres**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Serviços de Kubernetes**.<br><br> ![Portal do Azure](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
+2. Na lista de contêineres, selecione um contêiner.
+3. Na página de visão geral do contêiner, selecione **Monitorar integridade do contêiner** e a página **Integração para logs e integridade do contêiner** aparece.
+4. Na página **Integração para logs e integridade do contêiner**, se você tiver um espaço de trabalho do Log Analytics existente na mesma assinatura do cluster, selecione-o na lista suspensa.  A lista seleciona previamente o espaço de trabalho e o local padrão no qual o contêiner do AKS está implantado na assinatura. Ou você pode selecionar **Criar Novo** e especificar um novo espaço de trabalho na mesma assinatura.<br><br> ![Habilitar o monitoramento de integridade do contêiner do AKS](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+
+    Se você selecionar **Criar Novo**, o painel **Criar novo espaço de trabalho** aparece. A **Região** é padronizada para a região em que o recurso de contêiner é criado e você pode aceitar o padrão ou selecionar uma região diferente e, em seguida, especificar um nome para o espaço de trabalho.  Clique em **Criar** para aceitar a sua seleção.<br><br> ![Definir espaço de trabalho para monitoramento de contêiner](./media/monitoring-container-health/create-new-workspace-01.png)  
+
+    >[!NOTE]
+    >No momento, não é possível criar um novo espaço de trabalho na região do Centro-Oeste dos EUA, somente é possível selecionar um espaço de trabalho existente nessa região.  Mesmo que você possa selecionar essa região na lista, a implantação será iniciada, mas falhará pouco tempo depois.  
+    >
+ 
+Depois que o monitoramento for habilitado, poderá levar cerca de 15 minutos até que os dados operacionais para o cluster fiquem visíveis. 
+
+### <a name="enable-using-azure-resource-manager-template"></a>Habilitar usando modelo do Azure Resource Manager
+Esse método inclui dois modelos JSON, um modelo especifica a configuração para habilitar o monitoramento e o outro modelo JSON contém valores de parâmetros que você configura para especificar o seguinte:
 
 * ID de recurso do contêiner do AKS 
 * Grupo de recursos em que o cluster foi implantado 
@@ -77,7 +98,7 @@ Se você não estiver familiarizado com os conceitos de implantação de recurso
 
 Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente.  É necessário executar a versão da CLI do Azure 2.0.27 ou posterior. Execute `az --version` para identificar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-### <a name="create-and-execute-template"></a>Criar e executar modelo
+#### <a name="create-and-execute-template"></a>Criar e executar modelo
 
 1. Copie e cole a seguinte sintaxe JSON em seu arquivo:
 
@@ -89,82 +110,82 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
       "aksResourceId": {
         "type": "string",
         "metadata": {
-           "description": "AKS Cluster resource id"
-        }
+           "description": "AKS Cluster Resource ID"
+           }
     },
     "aksResourceLocation": {
+    "type": "string",
+     "metadata": {
+        "description": "Location of the AKS resource e.g. \"East US\""
+       }
+    },
+    "workspaceResourceId": {
       "type": "string",
       "metadata": {
-        "description": "Location of the AKS resource e.g. \"East US\""
-        }
-      },
-      "workspaceId": {
-        "type": "string",
-        "metadata": {
-          "description": "Azure Monitor Log Analytics resource id"
-        }
-      },
-      "workspaceRegion": {
-        "type": "string",
-        "metadata": {
-          "description": "Azure Monitor Log Analytics workspace region"
-        }
+         "description": "Azure Monitor Log Analytics Resource ID"
+       }
+    },
+    "workspaceRegion": {
+    "type": "string",
+    "metadata": {
+       "description": "Azure Monitor Log Analytics workspace region"
       }
+     }
     },
     "resources": [
       {
-        "name": "[split(parameters('aksResourceId'),'/')[8]]",
-        "type": "Microsoft.ContainerService/managedClusters",
-        "location": "[parameters('aksResourceLocation')]",
-        "apiVersion": "2018-03-31",
-        "properties": {
-          "mode": "Incremental",
-          "id": "[parameters('aksResourceId')]",
-          "addonProfiles": {
-            "omsagent": {
-              "enabled": true,
-              "config": {
-                "logAnalyticsWorkspaceResourceID": "[parameters('workspaceId')]"
-              }
-            }
+    "name": "[split(parameters('aksResourceId'),'/')[8]]",
+    "type": "Microsoft.ContainerService/managedClusters",
+    "location": "[parameters('aksResourceLocation')]",
+    "apiVersion": "2018-03-31",
+    "properties": {
+      "mode": "Incremental",
+      "id": "[parameters('aksResourceId')]",
+      "addonProfiles": {
+        "omsagent": {
+          "enabled": true,
+          "config": {
+            "logAnalyticsWorkspaceResourceID": "[parameters('workspaceResourceId')]"
           }
-        }
-      },
-      {
-            "type": "Microsoft.Resources/deployments",
-            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-            "apiVersion": "2017-05-10",
-            "subscriptionId": "[split(parameters('workspaceId'),'/')[2]]",
-            "resourceGroup": "[split(parameters('workspaceId'),'/')[4]]",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "apiVersion": "2015-11-01-preview",
-                            "type": "Microsoft.OperationsManagement/solutions",
-                            "location": "[parameters('workspaceRegion')]",
-                            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-                            "properties": {
-                                "workspaceResourceId": "[parameters('workspaceId')]"
-                            },
-                            "plan": {
-                                "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-                                "product": "[Concat('OMSGallery/', 'ContainerInsights')]",
-                                "promotionCode": "",
-                                "publisher": "Microsoft"
-                            }
-                        }
-                    ]
-                },
-                "parameters": {}
-            }
          }
-      ]
+       }
+      }
+     },
+    {
+        "type": "Microsoft.Resources/deployments",
+        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+        "apiVersion": "2017-05-10",
+        "subscriptionId": "[split(parameters('workspaceResourceId'),'/')[2]]",
+        "resourceGroup": "[split(parameters('workspaceResourceId'),'/')[4]]",
+        "properties": {
+            "mode": "Incremental",
+            "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {},
+                "variables": {},
+                "resources": [
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "location": "[parameters('workspaceRegion')]",
+                        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+                        "properties": {
+                            "workspaceResourceId": "[parameters('workspaceResourceId')]"
+                        },
+                        "plan": {
+                            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+                            "product": "[Concat('OMSGallery/', 'ContainerInsights')]",
+                            "promotionCode": "",
+                            "publisher": "Microsoft"
+                        }
+                    }
+                ]
+            },
+            "parameters": {}
+        }
+       }
+     ]
     }
     ```
 
@@ -173,26 +194,26 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "$schema": "https://schema.management.azure.com/  schemas/2015-01-01/deploymentParameters.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {
-           "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
-        },
-        "aksResourceLocation": {
-          "value": "East US"
-        },
-        "workspaceId": {
-          "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
-        },
-        "workspaceRegion": {
-          "value": "eastus"
-        }
-      }
+           "value": "/subscriptions/<SubscroptiopnId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+       },
+       "aksResourceLocation": {
+         "value": "East US"
+       },
+       "workspaceResourceId": {
+         "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
+       },
+       "workspaceRegion": {
+         "value": "eastus"
+       }
+     }
     }
     ```
 
-4. Edite o valor de **aksResourceId** e **aksResourceLocation** com os valores que você pode encontrar na página **Visão geral do AKS** para o cluster do AKS.  O valor de **workspaceId** deve ser o nome de um espaço de trabalho do Log Analytics; especifique o local em que o espaço de trabalho foi criado para **workspaceRegion**.    
+4. Edite o valor de **aksResourceId** e **aksResourceLocation** com os valores que você pode encontrar na página **Visão geral do AKS** para o cluster do AKS.  O valor para **workspaceResourceId** é a ID do recurso completa do espaço de trabalho do Log Analytics, que inclui o nome do espaço de trabalho.  Especifique também o local do espaço de trabalho para **workspaceRegion**.    
 5. Salve esse arquivo como **existingClusterParam.json** em uma pasta local.
 6. Você está pronto para implantar o modelo. 
 
@@ -223,12 +244,12 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 Depois que o monitoramento for habilitado, poderá levar cerca de 15 minutos até que os dados operacionais para o cluster fiquem visíveis.  
 
 ## <a name="verify-agent-deployed-successfully"></a>Verifique se o agente fez a implantação com êxito
-Para verificar se o agente do OMS foi implantado corretamente, execute o seguinte comando: ` kubectl get ds omsagent -—namespace=kube-system`.
+Para verificar se o agente do OMS foi implantado corretamente, execute o seguinte comando: ` kubectl get ds omsagent --namespace=kube-system`.
 
 A saída deve ser semelhante ao que segue, indicando que ela foi implantada corretamente:
 
 ```
-User@aksuser:~$ kubectl get ds omsagent -—namespace=kube-system 
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
@@ -248,7 +269,7 @@ Você pode selecionar controladores ou contêineres na parte superior da página
 
 Por padrão, os dados de desempenho são baseados nas últimas seis horas, mas você pode alterar a janela de tempo na lista suspensa **intervalo de tempo** localizada no canto superior direito da página. Neste momento, a página não é atualizada automaticamente e, portanto, você precisa atualizá-la manualmente. 
 
-No exemplo a seguir, observe que para o nó *aks-agentpool-3402399-0*, o valor de **Containers** é 10, que é a acumulação do número total de contêineres implantado.<br><br> ![Exemplo de acumulação de contêineres por nó](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Isso pode ajudá-lo a identificar rapidamente se você não tem um número equilibrado de contêineres por nós no cluster.  
+No exemplo a seguir, observe que para o nó *aks-agentpool-3402399-0*, o valor de **Containers** é 10, que é a acumulação do número total de contêineres implantado.<br><br> ![Exemplo de acumulação de contêineres por nó](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Ele pode ajudá-lo a identificar rapidamente se você não tem um número equilibrado de contêineres por nós no cluster.  
 
 A tabela a seguir descreve as informações apresentadas quando você visualiza os nós.
 
@@ -314,19 +335,19 @@ A tabela a seguir mostra exemplos de registros coletados pela integridade do con
 
 | Tipo de dados | Tipo de dados na Pesquisa de Log | Campos |
 | --- | --- | --- |
-| Desempenho de hosts e contêineres | `Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
+| Desempenho de hosts e contêineres | `Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
 | Inventário de contêiner | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | Inventário de imagem de contêiner | `ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
 | Log do contêiner | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | Log do serviço de contêiner | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
 | Inventário de nós do contêiner | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Processo do contêiner | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Inventário de pods em um cluster Kubernetes | `KubePodInventory` | TimeGenerated, Computer, ClusterId , ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
+| Inventário de pods em um cluster Kubernetes | `KubePodInventory` | TimeGenerated, Computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
 | Inventário da parte de nós de um cluster Kubernetes | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Eventos de Kubernetes | `KubeEvents_CL` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
 | Serviços no cluster Kubernetes | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Métricas de desempenho para a parte de nós do cluster Kubernetes | Perf &#124; em que ObjectName == “K8SNode” | cpuUsageNanoCores, , memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes | 
-| Métricas de desempenho para a parte de contêineres do cluster Kubernetes | Perf &#124; em que ObjectName == “K8SContainer” | cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes | 
+| Métricas de desempenho para a parte de nós do cluster Kubernetes | Perf &#124; em que ObjectName == “K8SNode” | Computer, ObjectName, CounterName &#40;cpuUsageNanoCores, , memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;,CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Métricas de desempenho para a parte de contêineres do cluster Kubernetes | Perf &#124; em que ObjectName == “K8SContainer” | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;,CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 
 ## <a name="search-logs-to-analyze-data"></a>Pesquisar logs para analisar dados
 O Log Analytics pode ajudá-lo a procurar por tendências, diagnosticar afunilamentos, prever ou correlacionar dados que podem ajudar a determinar se a configuração do cluster atual está sendo executada corretamente.  Pesquisas de logs predefinidas são fornecidas para uso imediato ou para personalização a fim de retornar as informações como você desejar. 
@@ -363,7 +384,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
         "aksResourceId": {
            "type": "string",
            "metadata": {
-             "description": "AKS Cluster resource id"
+             "description": "AKS Cluster Resource ID"
            }
        },
       "aksResourceLocation": {
@@ -416,7 +437,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 
 4. Edite o valor de **aksResourceId** e **aksResourceLocation** com os valores do cluster do AKS, que podem ser encontrados na página **Propriedades** do cluster selecionado.<br><br> ![Página de propriedades do contêiner](./media/monitoring-container-health/container-properties-page.png)<br>
 
-    Enquanto você estiver na página **Propriedades**, copie também a **ID de recurso do espaço de trabalho**.  Esse valor será necessário se você decidir que deseja excluir o espaço de trabalho do Log Analytics mais tarde, o que não é feito como parte deste processo.  
+    Enquanto você estiver na página **Propriedades**, copie também a **ID do Recurso de Espaço de Trabalho**.  Esse valor será necessário se você decidir que deseja excluir o espaço de trabalho do Log Analytics mais tarde, o que não é feito como parte deste processo.  
 
 5. Salve esse arquivo como **OptOutParam.json** em uma pasta local.
 6. Você está pronto para implantar o modelo. 
@@ -429,7 +450,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
         New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
         ```
 
-        A alteração da configuração pode levar alguns minutos para ser concluída. Quando ela for concluída, você verá uma mensagem semelhante que inclui o resultado:
+        A alteração da configuração pode levar alguns minutos para ser concluída. Quando concluir, uma mensagem semelhante à seguinte, incluindo o resultado, será retornada:
 
         ```powershell
         ProvisioningState       : Succeeded
@@ -443,13 +464,13 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
         az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
         ```
 
-        A alteração da configuração pode levar alguns minutos para ser concluída. Quando ela for concluída, você verá uma mensagem semelhante que inclui o resultado:
+        A alteração da configuração pode levar alguns minutos para ser concluída. Quando concluir, uma mensagem semelhante à seguinte, incluindo o resultado, será retornada:
 
         ```azurecli
         ProvisioningState       : Succeeded
         ```
 
-Se o espaço de trabalho foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não souber como excluir um espaço de trabalho, confira [Excluir um espaço de trabalho do Azure Log Analytics com o portal do Azure](../log-analytics/log-analytics-manage-del-workspace.md).  Não se esqueça da **ID de recurso do espaço de trabalho** copiada anteriormente na etapa 4; você precisará dela.  
+Se o espaço de trabalho foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não souber como excluir um espaço de trabalho, confira [Excluir um espaço de trabalho do Azure Log Analytics com o portal do Azure](../log-analytics/log-analytics-manage-del-workspace.md).  Não se esqueça da **ID do Recurso de Espaço de Trabalho** copiada anteriormente na etapa 4; você precisará dela.  
 
 ## <a name="troubleshooting"></a>solução de problemas
 Esta seção fornece informações para ajudar a solucionar problemas com a integridade do contêiner.

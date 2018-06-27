@@ -3,25 +3,25 @@ title: Relatórios de atividade de entrada no portal do Azure Active Directory |
 description: Introdução aos relatórios de atividades de entrada no portal do Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/17/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6414be82e57741bf2af1de3650a3d9a28c4d6427
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d9c2f210204122947c24eb42f643450537f3b9a8
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588600"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231834"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -153,7 +153,7 @@ Você pode baixar os dados de atividade de entrada se desejar trabalhar com eles
 
 ![Baixar](./media/active-directory-reporting-activity-sign-ins/71.png "Baixar")
 
-Clicar em **Baixar** cria um arquivo CSV contendo os 5 mil registros mais recentes. Se você precisar de mais flexibilidade, você pode usar a solução de script. Clicar em **Script** cria um script que inclui todos os filtros que você definiu. Além da implementação técnica, o número de registros que você pode baixar também é restringido pelas [políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md).  
+Clicar em **Baixar** cria um arquivo CSV contendo os 5 mil registros mais recentes. Se você precisar de mais flexibilidade, você pode usar a solução de script. Clicar em **Script** cria um script do PowerShell que inclui todos os filtros que você definiu. Baixe e execute esse script no **modo de administrador** para gerar o arquivo CSV. Além da implementação técnica, o número de registros que você pode baixar também é restringido pelas [políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md).  
 
 
 

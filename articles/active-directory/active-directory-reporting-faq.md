@@ -3,24 +3,24 @@ title: Perguntas frequentes sobre relatórios do Azure Active Directory | Micros
 description: Perguntas frequentes sobre relatórios do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bf253e0b8451b3798360a657485289f089239c70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588583"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231836"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Perguntas frequentes sobre relatórios do Azure Active Directory
 
@@ -72,7 +72,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: Quantos registros posso baixar do Portal do Azure?**
 
-**R:** Você pode baixar até 120 mil registros do Portal do Azure. Os registros são classificados pelos *mais recentes* e, por padrão, você obterá os 120 mil registros mais recentes. 
+**R:** É possível baixar até 5000 registros do portal do Azure. Os registros são classificados por *mais recentes* e, por padrão, você obterá 5000 registros mais recentes. Para tamanhos de registro maiores que 5000, escolha as condições do filtro e clique no botão *Script* no portal do Azure. Isso baixará um script do PowerShell que você poderá executar para gerar um arquivo CSV de todos os registros que correspondem às condições do filtro. É necessário executar o script do PowerShell no *modo de administrador*. Para obter mais informações, consulte [Baixar atividades de entrada](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
 
 ---
 
@@ -84,7 +84,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: Como obtenho uma licença premium?**
 
-**A:** Consulte [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md) para obter uma resposta para essa pergunta.
+**A:** Consulte [Introdução ao Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) para obter uma resposta para essa pergunta.
 
 ---
 

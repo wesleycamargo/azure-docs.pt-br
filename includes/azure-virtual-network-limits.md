@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568119"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36297959"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -25,7 +25,7 @@ ms.locfileid: "35568119"
 | Endereços IP privados por rede virtual |4096 |4096 |
 | Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função |500K |500K |
 | Grupos de segurança de rede (NSG) |100 |200 |
-| Regras de NSG por NSG |200 |400 |
+| Regras de NSG por NSG |200 |1000 |
 | Tabelas de rota definida pelo usuário |100 |200 |
 | Rotas definidas pelo usuário por tabela de rotas |100 |400 |
 | Endereços IP públicos (dinâmicos) |5 |entrar em contato com o suporte |
@@ -50,7 +50,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Grupos de segurança de rede (NSG) |100 |5.000 |
 | Regras de NSG por NSG |1000** |1000 |
 | Endereços e intervalos IP especificados para a origem ou o destino em um grupo de segurança |2000 |4000 |
-| Grupos de segurança do aplicativo |200 |500 |
+| Grupos de segurança do aplicativo |500 |3000 |
 | Grupos de segurança do aplicativo por configuração de IP, por NIC |10 |20 |
 | Configurações de IP por grupo de segurança do aplicativo |1000 |4000 |
 | Os grupos de segurança do aplicativo que podem ser especificados em todas as regras de segurança de um grupo de segurança de rede |50 |100 |
@@ -64,6 +64,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 ***Esses limites padrão aplicam-se às assinaturas que anteriormente não tinham esses limites aumentados pelo suporte
 
 #### <a name="load-balancer"></a>Limites do Load Balancer
+Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura. Saiba como [exibir o uso de recursos atual em relação aos limites de assinatura](../articles/networking/check-usage-against-limits.md)
 
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |

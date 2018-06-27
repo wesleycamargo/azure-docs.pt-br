@@ -14,15 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 4555bc85489f557cf6b6b744df7063fc14b0602a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7147b282d9bcbf48391d60466c77d28eca396832
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590371"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294268"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: histórico de lançamento de versão
 A equipe do Active Directory do Azure atualiza regularmente o Azure AD Connect Health com novos recursos e funcionalidades. Este artigo lista as versões e os recursos que foram lançados.
+
+## <a name="june-2018"></a>Junho de 2018 
+**Novos recursos de visualização:** 
+* Azure AD Connect Health para Sincronização - Diagnosticar e corrigir erros de sincronização de atributos duplicados do portal 
+
+**Atualização do agente:** 
+*   Agente do Azure AD Connect Health para AD FS (versão 3.1.2.0)  
+   1. Correções de bugs e aprimoramentos para alertas 
+
 
 ## <a name="may-2018"></a>Maio de 2018
 **Atualização do agente:**
@@ -35,7 +44,7 @@ A equipe do Active Directory do Azure atualiza regularmente o Azure AD Connect H
  2. Melhoria da privacidade do agente  
  3. Correções de bugs e aprimoramentos gerais
 
-* Agente do Azure AD Connect Health para sincronização (versão 3.0.244.0)
+* Agente do Azure AD Connect Health para Sincronização (versão 3.0.164.0) lançado com o Azure AD Connect versão 1.1.819.0
  1. Melhoria da privacidade do agente  
  2. Correções de bugs e aprimoramentos gerais
 
@@ -98,7 +107,7 @@ A equipe do Active Directory do Azure atualiza regularmente o Azure AD Connect H
 ## <a name="october-2016"></a>Outubro de 2016
 **Atualização do agente:**
 
-* Agente do Azure AD Connect Health para AD FS \(versão 2.6.408.0\)
+* Agente do Azure AD Connect Health para AD FS (versão 2.6.408.0)
 1. Aprimoramento da detecção de endereços IP do cliente nas solicitações de autenticação
 2. Correções de bugs relacionados aos alertas
 * Agente do Azure AD Connect Health para AD DS (versão 2.6.408.0)

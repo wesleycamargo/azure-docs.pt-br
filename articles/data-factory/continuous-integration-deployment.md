@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 17fb10f4b39361a99d3f51ed753d333c6ec0bf15
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: febd43586ab3006303143ca04ce8a37941a6fd60
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618582"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267918"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração e implementação contínuas no Azure Data Factory
 
@@ -89,42 +89,9 @@ Estas são as etapas para configurar uma versão do VSTS para que você possa au
 
 4.  Insira o nome do seu ambiente.
 
-5.  Adicione um artefato de Git e selecione o mesmo repositório configurado com o Data Factory. Escolha `adf\_publish` como a branch padrão com a versão padrão mais recente.
+5.  Adicione um artefato de Git e selecione o mesmo repositório configurado com o Data Factory. Escolha `adf_publish` como a branch padrão com a versão padrão mais recente.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
-
-6.  Obtenha os segredos do Azure Key Vault. Há duas maneiras de lidar cos segredos:
-
-    a.  Adicione os segredos ao arquivo de parâmetros:
-
-       -   Crie uma cópia do arquivo de parâmetros que é carregado para o branch de publicação e defina os valores dos parâmetros que você deseja obter do cofre de chaves com o seguinte formato:
-
-        ```json
-        {
-            "parameters": {
-                "azureSqlReportingDbPassword": {
-                    "reference": {
-                        "keyVault": {
-                            "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-                        },
-                        "secretName": " < secret - name > "
-                    }
-                }
-            }
-        }
-        ```
-
-       -   Quando você usa esse método, o segredo é extraído do cofre de chaves automaticamente.
-
-       -   O arquivo de parâmetros também deve estar no branch de publicação.
-
-    b.  Adicione uma [tarefa do Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
-
-       -   Selecione a guia **Tarefas** guia, crie uma nova tarefa, procure **Azure Key Vault** e adicione-o.
-
-       -   Na tarefa do Key Vault, escolha a assinatura na qual você criou o cofre de chaves, forneça as credenciais se necessário e, em seguida, escolha o cofre de chaves.
-
-       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Adicione uma tarefa de Implantação do Azure Resource Manager:
 
@@ -134,7 +101,7 @@ Estas são as etapas para configurar uma versão do VSTS para que você possa au
 
     c.  Selecione a ação **Criar ou atualizar grupo de recursos**.
 
-    d.  Selecione **...** no campo “**Modelo**”. Procure o modelo do Gerenciador de Recursos (*ARMTemplateForFactory.json*) que foi criado pela ação de publicação no portal. Procure esse arquivo na pasta raiz do branch `adf\_publish`.
+    d.  Selecione **...** no campo **Modelo**. Procure o modelo do Gerenciador de Recursos (*ARMTemplateForFactory.json*) que foi criado pela ação de publicação no portal. Procure esse arquivo na pasta `<FactoryName>` do `adf_publish` branch.
 
     e.  Faça o mesmo para o arquivo de parâmetros. Escolha o arquivo correto, dependendo de se você criou uma cópia ou se está usando o arquivo padrão *ARMTemplateParametersForFactory.json*.
 
@@ -147,6 +114,43 @@ Estas são as etapas para configurar uma versão do VSTS para que você possa au
 9.  Crie uma nova versão dessa definição de versão.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
+
+### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Opcional - Obtenha os segredos do Azure Key Vault
+
+Se tiver segredos para passar em um modelo do Azure Resource Manager, é recomendável usar o Azure Key Vault com a versão do VSTS.
+
+Há duas maneiras de lidar cos segredos:
+
+1.  Adicione os segredos ao arquivo de parâmetros. Para obter mais informações, consulte [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+
+    -   Crie uma cópia do arquivo de parâmetros que é carregado para o branch de publicação e defina os valores dos parâmetros que você deseja obter do cofre de chaves com o seguinte formato:
+
+    ```json
+    {
+        "parameters": {
+            "azureSqlReportingDbPassword": {
+                "reference": {
+                    "keyVault": {
+                        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+                    },
+                    "secretName": " < secret - name > "
+                }
+            }
+        }
+    }
+    ```
+
+    -   Quando você usa esse método, o segredo é extraído do cofre de chaves automaticamente.
+
+    -   O arquivo de parâmetros também deve estar no branch de publicação.
+
+2.  Adicione uma [tarefa do Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) antes da Implantação do Azure Resource Manager descrita na seção anterior:
+
+    -   Selecione a guia **Tarefas** guia, crie uma nova tarefa, procure **Azure Key Vault** e adicione-o.
+
+    -   Na tarefa do Key Vault, escolha a assinatura na qual você criou o cofre de chaves, forneça as credenciais se necessário e, em seguida, escolha o cofre de chaves.
+
+    ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-vsts-agent"></a>Conceder permissões para o agente do VSTS
 A tarefa do Azure Key Vault pode falhar na primeira vez com um erro de Acesso Negado. Faça o download dos logs da versão e localize o arquivo `.ps1` com o comando para conceder permissões para o agente do VSTS. Você pode executar o comando diretamente ou pode copiar a ID de entidade de segurança do arquivo e adicionar a política de acesso manualmente no Portal do Azure. (*Obter* e *Listar* são as permissões mínimas necessárias).
@@ -161,14 +165,9 @@ A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para a
 3.  Escolha **Script Embutido** como tipo de script e, em seguida, forneça seu código. O exemplo abaixo interrompe os gatilhos:
 
     ```powershell
-    $armTemplate="$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json"
+    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $templateJson = Get-Content "$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json" | ConvertFrom-Json
-
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName
-    $DataFactoryName -ResourceGroupName $ResourceGroupName
-
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $\_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o RBAC (controle de acesso baseado em função) com o Azure PowerShell | Microsoft Docs
-description: Como gerenciar o RBAC com o Azure PowerShell, incluindo listagem e atribuição e funções, e exclusão de atribuições de funções.
+title: Gerenciar acesso usando RBAC e Azure PowerShell | Microsoft Docs
+description: Saiba como gerenciar acesso de usuários, grupos e aplicativos usando RBAC (controle de acesso baseado em função) e Azure PowerShell. Isso inclui o acesso à listagem, concessão de acesso e remoção de acesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,27 +14,23 @@ ms.workload: identity
 ms.date: 04/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 00646187da1f93c01c3a57b50905239afd5e2bc8
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 231f7b915c324a5af91564c80d17bbad335d658d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266791"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294761"
 ---
-# <a name="manage-role-based-access-control-with-azure-powershell"></a>Gerenciar o controle de acesso baseado em função com o Azure PowerShell
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [CLI do Azure](role-assignments-cli.md)
-> * [API REST](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-azure-powershell"></a>Gerenciar o acesso usando RBAC e Azure PowerShell
 
-Com o RBAC (controle de acesso baseado em função), você define o acesso para usuários, grupos e entidades de serviço, atribuindo funções em um escopo específico. Este artigo descreve como gerenciar o acesso usando o Microsoft Azure PowerShell.
+O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Este artigo descreve como gerenciar o acesso de usuários, grupos e aplicativos usando o RBAC e o Azure PowerShell.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
 Antes de poder usar o PowerShell para gerenciar o RBAC, é necessário um dos seguintes:
 
 * [PowerShell no Azure Cloud Shell](/azure/cloud-shell/overview)
-* [Azure PowerShell 5.1.0 ou posterior](/powershell/azure/install-azurerm-ps)
+* [PowerShell do Azure](/powershell/azure/install-azurerm-ps)
 
 ## <a name="list-roles"></a>Listar funções
 
@@ -146,9 +142,9 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 ...
 ```
 
-## <a name="see-who-has-access"></a>Veja quem tem acesso
+## <a name="list-access"></a>Relacionar acesso
 
-Para listar as atribuições de acesso do RBAC, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+No RBAC, para listar o acesso, você lista as atribuições de função.
 
 ### <a name="list-role-assignments-at-a-specific-scope"></a>Listar as atribuições de função em um escopo específico
 
@@ -174,7 +170,7 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-### <a name="list-roles-assigned-to-a-user"></a>Listar funções atribuídas a um usuário
+### <a name="list-role-assignments-for-a-user"></a>Listar as atribuições de função de um usuário
 
 Para listar todas as funções atribuídas a um usuário especificado, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
@@ -200,15 +196,17 @@ Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
 Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-### <a name="list-classic-service-administrator-and-coadmin-role-assignments"></a>Listar atribuições de função de administrador e coadministrador de serviços clássicos
+### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Listar atribuições de função para administradores e coadministradores de serviços clássicos
 
-Para listar atribuições de acesso para o administrador e os coadministradores de assinatura clássica, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment):
+Para listar atribuições de função para o administrador e os coadministradores de assinatura clássica, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment):
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 ```
 
 ## <a name="grant-access"></a>Conceder acesso
+
+No RBAC, para conceder acesso, você cria uma atribuição de função.
 
 ### <a name="search-for-object-ids"></a>Pesquisar IDs de objeto
 
@@ -228,7 +226,7 @@ Para obter a ID de objeto para um aplicativo ou uma entidade de serviço do Azur
 Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 ```
 
-### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>Atribuir uma função a um aplicativo no escopo da assinatura
+### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Criar uma atribuição de função para um aplicativo em um escopo da assinatura
 
 Para permitir acesso a um aplicativo no escopo da assinatura, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
@@ -250,7 +248,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Atribuir uma função ao usuário no escopo do grupo de recursos
+### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Criar uma atribuição de função para um usuário em um escopo de grupo de recursos
 
 Para permitir acesso a um usuário no escopo do grupo de recursos, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
@@ -274,7 +272,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Atribuir uma função a um grupo no escopo de recursos
+### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Criar uma atribuição de função para um grupo em um escopo de recurso
 
 Para permitir acesso a um grupo no escopo de recursos, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
@@ -307,7 +305,7 @@ CanDelegate        : False
 
 ## <a name="remove-access"></a>Remover acesso
 
-Para remover o acesso para usuários, grupos e aplicativos, use [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment):
+No RBAC, para remover o acesso, você remove uma atribuição de função usando [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment):
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
@@ -581,7 +579,7 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 * [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
 

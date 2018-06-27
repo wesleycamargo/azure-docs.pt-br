@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 97107bb5ca1a598906cac9adbf508b2d15668e7d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836368"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227229"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Tutorial de início rápido para a linguagem de programação R para o Azure Machine Learning
 
@@ -41,7 +41,7 @@ Dados de série temporal são dados em que os valores têm um índice de tempo. 
 
 Neste guia de início rápido, trabalharemos com a produção de derivados de leite e dados de preços na Califórnia. Esses dados incluem informações mensais sobre a produção de vários produtos derivados do leite e o preço da gordura do leite, uma mercadoria que é um parâmetro de comparação.
 
-Os dados usados neste artigo, assim como os scripts de R, podem ser [baixados aqui][download]. Esses dados foram originalmente sintetizados a partir das informações disponibilizadas pela Universidade de Wisconsin em http://future.aae.wisc.edu/tab/production.html.
+Os dados usados neste artigo, assim como os scripts de R, podem ser [baixados aqui](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). Esses dados foram originalmente sintetizados a partir das informações disponibilizadas pela Universidade de Wisconsin em https://dairymarkets.com.
 
 ### <a name="organization"></a>Organização
 Passaremos por várias etapas enquanto você aprende a criar, testar e executar o código R de manipulação de dados e análises no ambiente do Azure Machine Learning.  
@@ -123,7 +123,7 @@ O Azure Machine Learning vem com mais de 350 pacotes de linguagem R pré-instala
 Se você não entender a última linha do código no momento, continue lendo. No restante deste documento, discutiremos amplamente o uso de R no ambiente do Azure Machine Learning.
 
 ### <a name="introduction-to-rstudio"></a>Introdução ao RStudio
-O RStudio é um IDE amplamente utilizado para R. Usarei o RStudio para editar, testar e depurar parte do código R usado neste guia de início rápido. Depois que o código R for testado e estiver pronto, basta recortar do editor do RStudio e colar no módulo [Executar Script R][execute-r-script] do Machine Learning Studio.  
+O RStudio é um IDE amplamente usado para o R. Vou usar o RStudio para editar, testar e depurar alguns dos códigos R usados neste guia de início rápido. Quando o código R for testado e pronto, você pode simplesmente recortar e colar do editor do RStudio em um módulo [ Execute R Script ] [ execute-r-script] do Machine Learning Studio.  
 
 Se você não tiver a linguagem de programação R instalada em seu computador desktop, recomendo que você faça isso agora. Downloads gratuitos da linguagem R de software livre estão disponíveis na rede de arquivamento abrangente R (CRAN) em [http://www.r-project.org/](http://www.r-project.org/). Há downloads disponíveis para Windows, Mac OS e Linux/UNIX. Escolha um espelho próximo e siga as instruções de download. Além disso, CRAN contém uma grande quantidade de pacotes de manipulação de dados e análise úteis.
 
@@ -1241,7 +1241,7 @@ Existem muitos livros sobre R que podem ajudá-lo a começar. Aqui estão alguns
 * R Inferno, de Patrick Burns, é um livro surpreendentemente bem-humorado que lida com inúmeros tópicos complicados e difíceis que podem ser encontrados ao programar em R. O livro está disponível gratuitamente em http://www.burns-stat.com/documents/books/the-r-inferno/.
 * Se você quiser se aprofundar em tópicos avançados em R, consulte o livro Advanced R, de Hadley Wickham. A versão online deste livro está disponível gratuitamente em http://adv-r.had.co.nz/.
 
-Um catálogo de pacotes de série temporal de R pode ser encontrado no CRAN Task View para análise de série temporal: http://cran.r-project.org/web/views/TimeSeries.html. Para obter informações sobre pacotes de objetos de série temporal específicos, consulte a documentação do pacote.
+Um catálogo de pacotes de séries temporais R pode ser encontrado na Tarefa do CRAN para análise de séries temporais: http://cran.r-project.org/web/views/TimeSeries.html. Para obter informações sobre pacotes de objetos de série temporal específicos, consulte a documentação do pacote.
 
 O livro Introductory Time Series with R, de Paul Cowpertwait e Andrew Metcalfe, fornece uma introdução ao uso de R para análise de série temporal. Muitos textos mais teóricos fornecem exemplos de R.
 

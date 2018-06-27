@@ -3,15 +3,15 @@ title: Migrações para Azure - Perguntas frequentes (FAQ) | Microsoft Docs
 description: Apresenta respostas para perguntas frequentes sobre o Migrações para Azure
 author: snehaamicrosoft
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: snehaa
-ms.openlocfilehash: b18d2cecfd7556ad3f05d0f63435d16bc29ebab1
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: db47f774dd4f73692d0b6ab2c4a511f687864e37
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825759"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285698"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
@@ -21,7 +21,7 @@ Este artigo contém perguntas frequentes sobre o Migrações para Azure. Se voc�
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Como o Migrações para Azure é diferente do Azure Site Recovery?
 
-O Migrações para Azure é um serviço de avaliação que ajuda você a descobrir suas cargas de trabalho locais e planejar a migração para o Azure. O [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), além de ser uma solução de recuperação de desastre, ajuda a migrar cargas de trabalho locais para VMs de IaaS no Azure. 
+O Migrações para Azure é um serviço de avaliação que ajuda você a descobrir suas cargas de trabalho locais e planejar a migração para o Azure. O [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), além de ser uma solução de recuperação de desastre, ajuda a migrar cargas de trabalho locais para VMs de IaaS no Azure.
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Como o Migrações para Azure é diferente do Planejador de Implantações do Azure Site Recovery?
 
@@ -36,6 +36,10 @@ O Migrações para Azure é uma ferramenta de planejamento da migração e o Pla
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>O Migrações para Azure precisa do vCenter Server para descobrir um ambiente VMware?
 
 Sim, o Migrações para Azure precisa do vCenter Server para descobrir um ambiente VMware. Ele não oferece suporte à descoberta de hosts ESXi que não são gerenciados por um vCenter Server.
+
+### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Quais regiões do Azure têm suporte para Migrações para Azure?
+
+Atualmente, as Migrações para Azure dá suporte ao Leste dos EUA e Centro-oeste dos EUA como locais de projeto. Observe que, embora você possa criar apenas projetos de migração no Centro-oeste dos EUA e no Leste dos EUA, ainda é possível avaliar os computadores para [vários locais de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). O local do projeto é usado apenas para armazenar os dados descobertos.
 
 ## <a name="discovery"></a>Descoberta
 

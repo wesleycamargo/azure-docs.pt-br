@@ -168,6 +168,8 @@
           href: app-service-configure-premium-tier.md
         - name: Escalar horizontalmente em várias instâncias
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
+        - name: Hospedagem de alta densidade
+          href: app-service-high-density-hosting.md
     - name: Monitorar aplicativo
       items:
         - name: Cotas e alertas

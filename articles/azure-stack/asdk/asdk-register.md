@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: bc17045106b2656cdeb5f51037b3138aeac9ee0f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 08a300d0e2d1565428f282a2073d91b5dd08c060
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757460"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016992"
 ---
 # <a name="azure-stack-registration"></a>Registro de pilha do Azure
 Você pode registrar a instalação do Kit de desenvolvimento na pilha do Azure (ASDK) com o Azure para baixar itens do marketplace do Azure e configurar dados de comércio relatadas à Microsoft. Registro é necessário para dar suporte a funcionalidade completa da pilha do Azure, incluindo a distribuição do marketplace. Registro é recomendado porque ela permite que você teste funcionalidades importantes da pilha do Azure como distribuição de mercado e relatórios de uso. Depois de registrar a pilha do Azure, o uso é relatado para comércio do Azure. Você poderá ver isso na assinatura usado para registro. No entanto, usuários ASDK não são cobrados para qualquer uso que eles relatam.
@@ -83,4 +83,4 @@ Siga estas etapas para verificar se o registro ASDK com o Azure foi bem-sucedida
     ![](media/asdk-register/3.PNG)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Adicionar um item do marketplace de pilha do Azure](asdk-marketplace-item.md)
+[Adicionar um item do marketplace de pilha do Azure](.\.\azure-stack-marketplace.md)
