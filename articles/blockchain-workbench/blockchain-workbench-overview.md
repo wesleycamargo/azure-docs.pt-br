@@ -18,21 +18,21 @@ ms.lasthandoff: 05/12/2018
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>O que é o Azure Blockchain Workbench?
 
-O Azure Blockchain Workbench é uma coleção de serviços e recursos do Azure desenvolvidos para ajudar você a criar e implantar aplicativos de blockchain para compartilhar processos comerciais e dados com outras organizações. O Azure Blockchain Workbench oferece o scaffolding da infraestrutura para desenvolver aplicativos de blockchain, permitindo que os desenvolvedores foquem na criação de lógica de negócios e contratos inteligentes. Ele também facilita a criação de aplicativos de blockchain integrando vários recursos e serviços do Azure para ajudar a automatizar tarefas comuns de desenvolvimento.
+O Azure Blockchain Workbench é uma coleção de serviços e recursos do Azure desenvolvidos para ajudar você a criar e implantar Aplicações Blockchain para compartilhar processos comerciais e dados com outras organizações. O Azure Blockchain Workbench oferece os recursos de infraestrutura para desenvolver aplicativos de blockchain, permitindo que os desenvolvedores foquem na criação de lógica de negócios e contratos inteligentes. Ele também facilita a criação de aplicações blockchain integrando vários recursos e serviços do Azure para ajudar a automatizar tarefas comuns de desenvolvimento.
 
-## <a name="create-blockchain-applications"></a>Criar aplicativos de blockchain
+## <a name="create-blockchain-applications"></a>Criar aplicações blockchain
 
-Com o Blockchain Workbench, você pode definir aplicativos de blockchain usando a configuração e escrever o código de contrato inteligente. Você pode iniciar rapidamente o desenvolvimento de aplicativos de blockchain e focar em definir o seu contrato e escrever a lógica de negócios em vez de criar um scaffolding e configurar serviços de suporte.
+Com o Blockchain Workbench, você pode definir aplicações blockchain usando a configuração e escrever o código de contrato inteligente. Você pode iniciar rapidamente o desenvolvimento de aplicações blockchain e focar em definir o seu contrato e escrever a lógica de negócios em vez de criar a infraestrutura e configurar serviços de suporte.
 
 ## <a name="manage-applications-and-users"></a>Gerenciar aplicativos e usuários
 
-O Azure Blockchain Workbench fornece um aplicativo Web e APIs REST para o gerenciamento de usuários e aplicativos de blockchain. Os administradores do Blockchain Workbench podem gerenciar o acesso ao aplicativo e atribuir funções de aplicativo aos seus usuários. Os usuários do Azure AD são mapeados automaticamente para os membros no aplicativo.
+O Azure Blockchain Workbench fornece uma aplicação Web e APIs REST para o gerenciamento de usuários e aplicações blockchain. Os administradores do Blockchain Workbench podem gerenciar o acesso a aplicação e atribuir funções de aplicação aos seus usuários. Os usuários do Azure AD são mapeados automaticamente para os membros na aplicação.
 
-## <a name="integrate-blockchain-with-applications"></a>Integrar o blockchain com os aplicativos
+## <a name="integrate-blockchain-with-applications"></a>Integrar o blockchain com os aplicações
 
-Você pode usar as APIs REST do Blockchain Workbench e APIs com base em mensagens para se integrar a sistemas existentes. As APIs oferecem uma interface que permite a substituição ou o uso de várias tecnologias de Razão distribuído, armazenamento e ofertas de banco de dados.
+Você pode usar as APIs REST do Blockchain Workbench e message-based APIs para integrar com sistemas existentes. As APIs oferecem uma interface que permite a substituição ou o uso de várias tecnologias de Ledger distribuído, armazenamento e banco de dados ofertados.
 
-O Blockchain Workbench pode transformar as mensagens enviadas para a sua API baseada em mensagens para criar transações em um formato esperado pela API nativa do que blockchain.  O Workbench pode entrar e rotear transações para o blockchain apropriado. 
+O Blockchain Workbench pode transformar as mensagens enviadas para a sua message-based API para criar transações em um formato esperado pela API nativa do que blockchain.  O Workbench pode entrar e rotear transações para o blockchain apropriado. 
 
 O Workbench oferece automaticamente eventos para que o Barramento de Serviço e a Grade de Eventos enviem mensagens para clientes downstream. Os desenvolvedores podem se integrar a esses sistemas de mensagens para gerar transações e ver os resultados.
 
@@ -44,11 +44,11 @@ O Azure Blockchain Workbench simplifica a configuração do Consortium Blockchai
 
 Com os protocolos de blockchain existentes, as identidades de blockchain são representadas como um endereço na rede. O Azure Blockchain Workbench abstrai a identidade do blockchain, associando-a a uma identidade do Active Directory, simplificando a criação de aplicativos empresariais com as identidades do Active Directory.
 
-## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Sincronizar dados em cadeia com armazenamento fora da cadeia
+## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Sincronizar dados on-chain com armazenamento off-chain
 
-O Azure Blockchain Workbench facilita a análise dos dados e eventos de blockchain com a sincronização automática dos dados no blockchain para armazenamento fora da cadeia. Em vez de extrair dados diretamente do blockchain, você pode consultar os sistemas de banco de dados fora da cadeia como o SQL Server. Não é preciso experiência específica no blockchain para usuários finais que estejam realizando tarefas de análise de dados. 
+O Azure Blockchain Workbench facilita a análise de eventos e dados de blockchain, sincronizando automaticamente os dados no blockchain para o armazenamento off-chain. Em vez de extrair dados diretamente do blockchain, você pode consultar sistemas de banco de dados off-chain, como o SQL Server. Não é necessário conhecimento específico de Blockchain para usuários finais que estão executando tarefas de análise de dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Arquitetura do Blockchain Workbench](blockchain-workbench-architecture.md)
