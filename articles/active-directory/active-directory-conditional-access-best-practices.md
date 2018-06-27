@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c155e18ddc4f1713aa9c62a991f4e849e024c5da
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 88e6b1a64d4ceff64c1ee74a297e7af0c5a27379
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723653"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231872"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para o acesso condicional no Azure Active Directory
 
@@ -31,7 +31,7 @@ Com o [acesso condicional do Azure AD (Azure Active Directory)](active-directory
 - O que você deve saber 
 - O que deve é necessário evitar ao configurar as políticas de acesso condicional. 
 
-Este artigo assume que você está familiarizado com os conceitos e a terminologia descrita em [Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+Este artigo pressupõe que você conhece os conceitos e a terminologia descritos em [ O que é o acesso condicional no Active Directory do Azure? ](active-directory-conditional-access-azure-portal.md)
 
 
 
@@ -154,4 +154,4 @@ Para obter mais informações, consulte [Migrar políticas clássicas no portal 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser saber como configurar uma política de acesso condicional, veja [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+Se você quiser saber como configurar uma política de acesso condicional, consulte [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).

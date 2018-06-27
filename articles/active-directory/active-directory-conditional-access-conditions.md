@@ -1,6 +1,6 @@
 ---
-title: Condições de acesso condicional do Azure Active Directory | Microsoft Docs
-description: Saiba como as atribuições são usadas no acesso condicional do Azure Active Directory para disparar uma política.
+title: Quais são as condições no acesso condicional do Active Directory do Azure? | Microsoft Docs
+description: Saiba como as condições são usadas no acesso condicional do Active Directory do Azure para acionar uma política.
 services: active-directory
 keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735134"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231844"
 ---
-# <a name="conditions-in-azure-active-directory-conditional-access"></a>Condições de acesso condicional do Azure Active Directory 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quais são as condições no acesso condicional do Active Directory do Azure? 
 
 Com o [acesso condicional do Azure AD (Azure Active Directory)](active-directory-conditional-access-azure-portal.md), você pode controlar como os usuários autorizados acessam seus aplicativos de nuvem. Em uma política de acesso condicional, você define a resposta ("faça isso") para o motivo do acionamento de sua política ("quando isso acontecer"). 
 
@@ -140,7 +140,7 @@ Casos de uso comuns para essa condição são políticas que:
 
 - Bloquear o acesso para usuários que acessam um serviço de países ou regiões específicas. 
 
-Para saber mais, confira [Condições de local no acesso condicional do Azure Active Directory](active-directory-conditional-access-locations.md).
+Para obter mais informações, consulte [ Qual é a condição de local no acesso condicional do Active Directory do Azure? ](active-directory-conditional-access-locations.md)
 
 
 ## <a name="client-apps"></a>Aplicativos cliente
@@ -223,7 +223,7 @@ Qualquer condição pode ser configurada para "Outros clientes".
 
 **O Exchange ActiveSync dá suporte a todas as condições e controles?**
 
-Não. Aqui está o resumo do suporte ao EAS (Exchange ActiveSync):
+Nº Aqui está o resumo do suporte ao EAS (Exchange ActiveSync):
 
 - O EAS dá suporte apenas a direcionamento para usuário e grupo. Ele não dá suporte a convidados, funções. Se a condição do convidado/função estiver configurada, todos os usuários poderão ser bloqueados porque não podemos determinar se a política se aplica ao usuário ou não.
 
@@ -235,13 +235,13 @@ Não. Aqui está o resumo do suporte ao EAS (Exchange ActiveSync):
 
 **As políticas serão aplicadas a todos os aplicativos clientes por padrão no futuro?**
 
-Não. Não há nenhuma alteração no comportamento padrão da política. As políticas continuam a ser aplicáveis ao navegador e aos clientes de área de trabalho/aplicativos móveis por padrão.
+Nº Não há nenhuma alteração no comportamento padrão da política. As políticas continuam a ser aplicáveis ao navegador e aos clientes de área de trabalho/aplicativos móveis por padrão.
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você quiser saber como configurar uma política de acesso condicional, veja [introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Se você quiser saber como configurar uma política de acesso condicional, consulte [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

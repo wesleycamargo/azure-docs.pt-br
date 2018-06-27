@@ -12,14 +12,14 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/27/2018
+ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 38412713d625fc3c44e29444138675b98129f1fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 16c99c2c5524a321616ac9f0975f0c9b4255ca94
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643593"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215847"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Crie seu primeiro aplicativo Java de Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -221,6 +221,9 @@ Em seguida, expanda o nó **Aplicativos** e observe que agora há uma entrada pa
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Inicie o cliente de teste e execute um failover
 Atores não fazem nada por conta própria, eles precisam de outro serviço ou cliente para enviar mensagens. O modelo de ator inclui um script de teste simples que você pode usar para interagir com o serviço de ator.
+
+> [!Note]
+> O cliente de teste usa a classe ActorProxy para se comunicar com os atores, que devem ser executados no mesmo cluster que o serviço de agente ou compartilhar o mesmo espaço de endereço IP.  Você pode executar o cliente de teste no mesmo computador que o cluster de desenvolvimento local.  Para se comunicar com atores em um cluster remoto, no entanto, você deve implantar um gateway no cluster que lide com a comunicação externa com os atores.
 
 1. Execute o script usando o utilitário de inspeção para ver a saída do serviço de ator.  O script de teste chama o `setCountAsync()`método no ator para incrementar um contador, o `getCountAsync()` método no ator para obter o novo valor de contador e exibe o valor para o console.
 

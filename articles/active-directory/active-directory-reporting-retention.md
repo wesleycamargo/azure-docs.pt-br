@@ -3,30 +3,30 @@ title: Políticas de retenção de relatório do Azure Active Directory | Micros
 description: Políticas de retenção sobre dados de relatório no Active Directory do Azure
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
 ms.devlang: ''
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fac160d2d5916097afcbb9825bb82a52789e4a89
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edce7d1a633148cf361deec0c3d09ef4c16ac9b
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34589188"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36225171"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Políticas de retenção de relatório do Azure Active Directory
 
 
-Este tópico fornece respostas para as perguntas mais comuns em conjunto com a retenção de dados para os relatórios de atividade diferente no Azure Active Directory. 
+Este artigo fornece respostas para as perguntas mais comuns em conjunto com a retenção de dados para os diferentes relatórios de atividade no Active Directory do Azure. 
 
 ### <a name="q-how-can-you-get-the-collection-of-activity-data-started"></a>P: Como você pode iniciar a coleta de dados de atividade?
 
@@ -34,7 +34,7 @@ Este tópico fornece respostas para as perguntas mais comuns em conjunto com a r
 
 | Edição do Azure AD | Início da Coleta |
 | :--              | :--   |
-| Azure AD Premium P1 <br /> Azure AD Premium P2 | Quando você se inscreve para uma assinatura |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | Quando você se inscrever para uma assinatura |
 | AD do Azure Gratuito | Na primeira vez que você abrir a [folha do Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou usar as [APIs de relatório](https://aka.ms/aadreports)  |
 
 ---
@@ -42,8 +42,8 @@ Este tópico fornece respostas para as perguntas mais comuns em conjunto com a r
 
 **R:**
 
-- **Imediatamente** - se você já estiver trabalhando com relatórios no portal do Azure
-- **Em até 2 horas** - se você ainda não tiver ativado os relatórios no portal do Azure
+- **Imediatamente** - se você já estiver trabalhando com relatórios no portal do Azure.
+- **Dentro de 2 horas**: se você não tiver ativado os relatórios no portal do Azure.
 
 ---
 

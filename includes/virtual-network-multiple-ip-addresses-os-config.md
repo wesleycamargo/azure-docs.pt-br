@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 70762b720dcd55679d02de8e5064dc99353e06cb
+ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31434051"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "36206091"
 ---
 ## <a name="os-config"></a>Adicionar endereços IP em um sistema operacional da VM
 
@@ -110,7 +110,7 @@ ping -S 10.0.0.5 hotmail.com
 
     Você verá o endereço IP adicionado como parte da lista.
 
-### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS e outros)
+### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat, CentOS e outros)
 
 1. Abra uma janela de terminal.
 2. Verifique se você é o usuário raiz. Se não for, digite o seguinte comando:

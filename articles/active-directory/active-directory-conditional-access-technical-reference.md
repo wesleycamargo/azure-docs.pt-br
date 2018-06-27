@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0be34d3a0e9bccd6658b5285ddfe6da1e96ef19a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 239ece0f126e1c92c2e94206baa7026ac04d604f
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724917"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227982"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
 
@@ -237,7 +237,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral do acesso condicional, consulte [Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- Para obter uma visão geral do acesso condicional, consulte [ O que é acesso condicional no Active Directory do Azure? ](active-directory-conditional-access-azure-portal.md)
 - Se estiver pronto para configurar políticas de acesso condicional em seu ambiente, consulte as [práticas recomendadas para acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md).
 
 
