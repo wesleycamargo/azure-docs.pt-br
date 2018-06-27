@@ -17,12 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 299e0d4fa53f9b8a2aef2fc881b136aa41aacfe4
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5d7f0d1fc32f18991be6614bb7661b63570a8700
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157768"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264915"
 ---
 # <a name="azure-active-directory-code-samples-v1-endpoint"></a>Amostras de código do Azure Active Directory (terminal V1)
 
@@ -35,7 +35,7 @@ Esta seção fornece links para exemplos que você pode usar para aprender mais 
 > [!NOTE]
 > Se você estiver interessado nos exemplos de código do Azure AD V2, consulte [v 2.0 exemplos de código por cenário](active-directory-v2-code-samples.md).
 
-Para entender o cenário básico para cada tipo de exemplo, consulte Cenários de Autenticação do Azure AD.
+Para entender o cenário básico para cada tipo de exemplo, consulte [Cenários de Autenticação do Azure AD](active-directory-authentication-scenarios.md).
 
 Você também pode contribuir com nossas amostras no GitHub. Para saber como, consulte [Exemplos e documentação do Microsoft Azure Active Directory](https://github.com/Azure-Samples?page=3&query=active-directory).
 
@@ -109,9 +109,11 @@ ASP.NET 4.5 | [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/act
 
 Este exemplo mostra como escrever um aplicativo de página única protegido com o AD do Azure.
 
- Plataforma |  Chama o Microsoft Graph | Chama sua própria API
- -------- |  --------------------- | -------------------------
-JavaScript (Angular) / ASP.NET 4.x |  | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)
+ Plataforma |  Chama o Microsoft Graph | Chama sua própria API | Chama outra API da Web
+ -------- |  --------------------- | ------------------ | ----------------
+JavaScript / ASP.NET 4.x |  | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
+JavaScript (AngularJS) / ASP.NET 4.x |  | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) |
+JavaScript (AngularJS) / ASP.NET 4.x |  |  | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
 ## <a name="other-microsoft-graph-samples"></a>Outros exemplos do Microsoft Graph
 

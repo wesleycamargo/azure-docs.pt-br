@@ -2,7 +2,7 @@
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que é o Serviço de fala?
+    - name: O que é Serviço de fala?
       href: overview.md
       expanded: true
 - name: Guia de início rápido
@@ -12,31 +12,33 @@
     - name: 'Reconhecer fala no C#'
       href: quickstart-csharp-windows.md
     - name: Reconhecer fala no C++ para Windows
-      href: cpp-windows.md
+      href: quickstart-cpp-windows.md
     - name: Reconhecer fala no C++ para Linux
-      href: cpp-linux.md
+      href: quickstart-cpp-linux.md
     - name: Introdução ao SDK de dispositivos de fala
       href: speech-devices-sdk-qsg.md
-- name: Guias de instruções
+- name: Personalização
   items:
-    - name: Reconhecer fala
-      href: how-to-speech-to-text.md
     - name: Personalizar modelos de fala
       href: how-to-customize-speech-models.md
-    - name: Sintetizar fala
-      href: how-to-text-to-speech.md
     - name: Personalizar fontes de voz
       href: how-to-customize-voice-font.md
-    - name: Traduzir fala
-      href: how-to-translate-speech.md
     - name: Preparar transcrições
       href: prepare-transcription.md
     - name: Usar transmissões de áudio personalizados
       href: how-to-use-audio-input-streams.md
+    - name: Personalizar palavra de ativação do dispositivo (SKD de Dispositivos)
+      href: speech-devices-sdk-create-kws.md
+- name: Guias de instruções
+  items:
+    - name: Reconhecer fala
+      href: how-to-speech-to-text.md
+    - name: Sintetizar fala
+      href: how-to-text-to-speech.md
+    - name: Traduzir fala
+      href: how-to-translate-speech.md
     - name: Obter SDK dos dispositivos de fala
       href: get-speech-devices-sdk.md
-    - name: Personalizar a palavra de ativação do dispositivo
-      href: speech-devices-sdk-create-kws.md
     - name: Transcrição de lote (call centers)
       href: batch-transcription.md
 - name: Exemplos
@@ -73,8 +75,14 @@
       href: speech-synthesis-markup.md
 - name: Recursos
   items:
-    - name: Perguntas frequentes da conversão de fala em texto
-      href: faq-stt.md
+    - name: Perguntas frequentes
+      items:
+        - name: Perguntas frequentes da conversão de fala em texto
+          href: faq-stt.md
+        - name: Perguntas Frequentes da Conversão de Texto em Fala
+          href: faq-text-to-speech.md
+        - name: Perguntas Frequentes do Tradutor
+          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

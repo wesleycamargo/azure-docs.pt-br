@@ -452,7 +452,7 @@ Portanto, ao implantar em dispositivos do IoT Edge, há três ambientes principa
 Este tutorial demonstra como você pode usar os recursos de integração contínua e de implantação contínua do VSTS ou do TFS. 
 
 * Entenda a implantação do IoT Edge em [Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala](module-deployment-monitoring.md)
-* Siga as etapas para criar, atualizar ou excluir uma implantação em [Implantar e monitorar módulos do Azure IoT Edge][how-to-deploy-monitor.md].
+* Siga as etapas para criar, atualizar ou excluir uma implantação em [Implantar e monitorar módulos do Azure IoT Edge](how-to-deploy-monitor.md).
 
 
 

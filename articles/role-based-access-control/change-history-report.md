@@ -1,6 +1,6 @@
 ---
 title: Exibir logs de atividade para alterações RBAC no Azure | Microsoft Docs
-description: Exibir os logs de atividade para alterações de controle de acesso baseado em função para os últimos 90 dias.
+description: Exibir logs de atividades para alterações RBAC (controle de acesso baseado em função) dos últimos 90 dias.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03961de233861baf923402cc96ab8174b3233bd0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c82c24c6d652a65f5ba851de66a1f2fe595a46a5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266637"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293380"
 ---
-# <a name="view-activity-logs-for-role-based-access-control-changes"></a>Exibir os logs de atividade para alterações de controle de acesso baseado em função
+# <a name="view-activity-logs-for-rbac-changes"></a>Exibir logs de atividades para alterações de RBAC
 
 Às vezes, você precisa de informações sobre alterações de RBAC (controle de acesso baseado em função), como para fins de auditoria ou solução de problemas. Sempre que alguém faz alterações em definições de função ou definições de função dentro de suas assinaturas, as alterações são registradas no [Log de Atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Você pode exibir os logs de atividade para ver todas as alterações de RBAC dos últimos 90 dias.
 

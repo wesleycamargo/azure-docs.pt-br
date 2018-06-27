@@ -12,19 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 4b58f3496b25e4fc04761b9df6e27f8313b35fe9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ec5947bc68ba95a7b1e1588c444f4b28a7435f1c
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801528"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Pós-instalação de ASDK tarefas de configuração
-Depois de [instalando o ASDK](asdk-install.md), há algumas alterações de configuração de pós-instalação recomendada ser feita. 
 
-## <a name="install-azure-stack-powershell"></a>Instalar o PowerShell do Azure Stack 
+Depois de [instalando o Kit de desenvolvimento de pilha do Azure (ASDK)](asdk-install.md), você precisará fazer alterações de uma configuração de pós-instalação alguns recomendada.
+
+## <a name="install-azure-stack-powershell"></a>Instalar o PowerShell do Azure Stack
+
 Pilha do Azure compatíveis módulos do PowerShell do Azure são necessárias para trabalhar com a pilha do Azure.
 
 Comandos do PowerShell para Azure pilha são instalados por meio da Galeria do PowerShell. Para registrar o repositório PSGallery, abra uma sessão do PowerShell com privilégios elevados e execute o seguinte comando:
@@ -35,9 +38,9 @@ Set-PSRepository `
   -InstallationPolicy Trusted
 ```
 
- Módulos de AzureRM compatíveis pilha do Azure são instalados por meio de perfis de versão de API. A pilha do Azure exige que o perfil de versão de API de 2017-03-09-perfil, que está disponível ao instalar o módulo AzureRM.Bootstrapper. 
- 
- Você pode instalar o módulo mais recente da pilha do PowerShell do Azure com ou sem conectividade com a internet no computador de host ASDK:
+Você pode usar perfis de versão de API para especificar os módulos do Azure pilha compatíveis AzureRM.  Perfis de versão de API fornecem uma maneira de gerenciar as diferenças de versão entre o Azure e a pilha do Azure. Um perfil de versão de API é um conjunto de módulos do AzureRM PowerShell com versões específicas de API. O **AzureRM.Bootstrapper** módulo que está disponível por meio da Galeria do PowerShell fornece cmdlets do PowerShell que são necessárias para trabalhar com perfis de versão de API.
+
+Você pode instalar o módulo mais recente da pilha do PowerShell do Azure com ou sem conectividade com a Internet no computador de host ASDK:
 
 > [!IMPORTANT]
 > Antes de instalar a versão necessária, certifique-se de que você [desinstalar todos os módulos do PowerShell do Azure existentes](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
@@ -45,7 +48,7 @@ Set-PSRepository `
 - **Com uma conexão de internet** do computador host ASDK. Execute o seguinte script do PowerShell para instalar esses módulos em sua instalação do kit de desenvolvimento:
 
   ``` PowerShell
-  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
   Install-Module `
     -Name AzureRm.BootStrapper
 
@@ -53,10 +56,11 @@ Set-PSRepository `
   Use-AzureRmProfile `
     -Profile 2017-03-09-profile -Force
 
-  Install-Module `
-    -Name AzureStack `
-    -RequiredVersion 1.2.11
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
+  Install-Module -Name AzureStack -RequiredVersion 1.3.0 
+
   ```
+
   Se a instalação for bem-sucedida, os módulos AzureRM e AzureStack são exibidos na saída.
 
 - **Sem uma conexão de internet** do computador host ASDK. Em um cenário desconectado, você deve primeiro baixar os módulos do PowerShell para uma máquina que tenha conectividade com a internet usando os seguintes comandos do PowerShell:
@@ -78,11 +82,13 @@ Set-PSRepository `
     -Name AzureStack `
     -Path $Path `
     -Force `
-    -RequiredVersion 1.2.11
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
+    -RequiredVersion 1.3.0
   ```
+
   Em seguida, copie os pacotes baixados para o computador ASDK e registrar o local como o repositório padrão e instalar os módulos AzureRM e AzureStack deste repositório:
 
-    ```PowerShell
+    ```PowerShell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -99,6 +105,7 @@ Set-PSRepository `
     ```
 
 ## <a name="download-the-azure-stack-tools"></a>Baixar as ferramentas de pilha do Azure
+
 [Ferramentas de AzureStack](https://github.com/Azure/AzureStack-Tools) é um repositório do GitHub que hospeda os módulos do PowerShell para gerenciar e implantar recursos a pilha do Azure. Para obter essas ferramentas, clone o repositório GitHub ou baixar a pasta Ferramentas AzureStack executando o script a seguir:
 
   ```PowerShell
@@ -123,7 +130,7 @@ Set-PSRepository `
 ## <a name="validate-the-asdk-installation"></a>Validar a instalação ASDK
 Para garantir que a implantação de ASDK foi bem-sucedida, você pode usar o cmdlet Test-AzureStack seguindo estas etapas:
 
-1. Faça logon como AzureStack\CloudAdmin no computador host ASDK.
+1. Faça logon como AzureStack\AzureStackAdmin no computador host ASDK.
 2. Abra o PowerShell como administrador (não o PowerShell ISE).
 3. Execute: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. Execute: `Test-AzureStack`

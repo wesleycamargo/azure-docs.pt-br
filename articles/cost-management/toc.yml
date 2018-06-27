@@ -45,6 +45,8 @@
       href: use-reports.md
     - name: Usar painéis
       href: dashboards.md
+    - name: Gerenciar orçamentos
+      href: manage-budgets.md
 - name: Recursos
   items:
     - name: Vídeos de Gerenciamento de Custo

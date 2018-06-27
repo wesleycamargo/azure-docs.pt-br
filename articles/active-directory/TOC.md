@@ -250,7 +250,7 @@
 #### [Assinatura de certificados avançada para aplicativos SAML](manage-apps/certificate-signing-options.md)
 #### [Como remover um aplicativo da experiência de um usuário](manage-apps/hide-application-from-user-portal.md)
 ### [Configurar a aceleração automática da entrada usando a Política de HRD](manage-apps/configure-authentication-for-federated-users-portal.md)
-### [Migrar aplicativos AD FS para Azure AD](migrate-adfs-apps-to-azure.md) 
+### [Migrar aplicativos AD FS para Azure AD](manage-apps/migrate-adfs-apps-to-azure.md) 
 ### [Gerenciar o acesso aos aplicativos](manage-apps/what-is-access-management.md)
 #### [Acesso SSO](manage-apps/what-is-single-sign-on.md)
 #### [Certificados para SSO](manage-apps/manage-certificates-for-federated-single-sign-on.md)
@@ -386,13 +386,10 @@
 
 ## Delegar acesso aos recursos
 ### [Funções de administrador](active-directory-assign-admin-roles-azure-portal.md)
-#### [Atribuir função de administrador a um usuário](fundamentals/active-directory-users-assign-role-azure-portal.md) 
-#### [Comparar permissões de usuários membro e convidado](fundamentals/users-default-permissions.md) 
-### [Protegendo o acesso privilegiado](admin-roles-best-practices.md)  
-### [Criar contas administrativas de acesso de emergência](active-directory-admin-manage-emergency-access-accounts.md) 
-
-
-#### [Permissões de usuário padrão](fundamentals/users-default-permissions.md)
+#### [Atribuir função de administrador a um usuário](fundamentals/active-directory-users-assign-role-azure-portal.md)
+#### [Comparar permissões de usuários membro e convidado](fundamentals/users-default-permissions.md)
+### [Protegendo as funções de administrador](admin-roles-best-practices.md)  
+#### [Criar conta do administrador de acesso de emergência](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Configurar tempo de vida de tokens](active-directory-configurable-token-lifetimes.md)
 ### [Protegendo funções privilegiadas](admin-roles-best-practices.md)

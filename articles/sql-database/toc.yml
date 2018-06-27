@@ -74,9 +74,9 @@
       href: sql-database-powershell-samples.md
 - name: Conceitos
   items:
-    - name: Recursos e camadas de serviço
+    - name: Adquirir modelos e recursos
       items:
-        - name: Camadas de serviço
+        - name: Adquirir modelos
           href: sql-database-service-tiers.md
         - name: Modelo baseado em vCore
           href: sql-database-service-tiers-vcore.md
