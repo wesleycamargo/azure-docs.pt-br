@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 62856d4743d853d5685503b5c21faedc46575e55
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6f28df6f2faa78af90fb4b5e62f218e3b391000b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814791"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066077"
 ---
 # <a name="internet-of-things-security-architecture"></a>Arquitetura de segurança da Internet das Coisas
 
@@ -29,7 +29,7 @@ Muitas equipes de desenvolvimento fazem um excelente trabalho capturando os requ
 
 ### <a name="when-to-threat-model"></a>Quando fazer o modelo de risco
 
-A [modelagem de risco](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) oferece o valor máximo quando incorporada na fase de design. Ao realizar o design, você tem a maior flexibilidade para fazer alterações para eliminar as ameaças. A eliminação de ameaças por design é o resultado desejado. É muito mais fácil do que adicionar mitigações, testá-las e garantir que elas permaneçam atualizadas e, além disso, essa eliminação nem sempre é possível. Conforme o produto amadurece, fica mais difícil eliminar as ameaças, o que acaba exigindo mais trabalho e concessões muito mais complexas do que a modelagem de risco no início do desenvolvimento.
+A [modelagem de risco](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) oferece o valor máximo quando incorporada na fase de design. Ao realizar o design, você tem a maior flexibilidade para fazer alterações para eliminar as ameaças. A eliminação de ameaças por design é o resultado desejado. É muito mais fácil do que adicionar mitigações, testá-las e garantir que elas permaneçam atualizadas e, além disso, essa eliminação nem sempre é possível. Conforme o produto amadurece, fica mais difícil eliminar as ameaças, o que acaba exigindo mais trabalho e concessões muito mais complexas do que a modelagem de risco no início do desenvolvimento.
 
 ### <a name="what-to-threat-model"></a>O que incluir no modelo de risco
 

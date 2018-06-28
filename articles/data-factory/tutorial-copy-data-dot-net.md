@@ -13,24 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: bfbafa2edb1d9195760a99f63113d28d3a978a78
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c29bfd42a9e664d83a867debb6b984f3e99a5b7d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173127"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053000"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para o Banco de Dados SQL do Azure usando o Azure Data Factory
 Neste tutorial, você cria um pipeline de Data Factory que copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, consulte a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
-
 Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Crie serviços vinculados do Armazenamento do Azure e do Banco de Dados SQL do Azure.
 > * Crie conjuntos de dados do Blob do Azure e do Banco de Dados SQL do Azure.
 > * Crie um pipeline que contenha uma atividade de cópia.
@@ -295,7 +291,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, sqlDatasetName, s
 Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDataset, client.SerializationSettings));
 ```
 
-## <a name="create-a-pipeline"></a>Criar uma pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 
 Adicione o código a seguir, que cria um **pipeline com uma atividade de cópia**, ao método **Main**. Neste tutorial, o pipeline contém uma atividade: a atividade de cópia, que usa o conjunto de dados de Blob como origem e o conjunto de dados do SQL como coletor. Saiba mais em [Visão geral da atividade de cópia](copy-activity-overview.md), nos detalhes da atividade de cópia.
 
@@ -509,7 +505,7 @@ Checking copy activity run details...
   "throughput": 0.01,
   "errors": [],
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
-  "usedCloudDataMovementUnits": 2,
+  "usedDataIntegrationUnits": 2,
   "billedDuration": 2
 }
 
@@ -521,7 +517,7 @@ Press any key to exit...
 O pipeline nessa amostra copia dados de uma localização para outra em um Armazenamento de Blobs do Azure. Você aprendeu como: 
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Crie serviços vinculados do Armazenamento do Azure e do Banco de Dados SQL do Azure.
 > * Crie conjuntos de dados do Blob do Azure e do Banco de Dados SQL do Azure.
 > * Crie um pipeline que contenha uma atividade de cópia.
