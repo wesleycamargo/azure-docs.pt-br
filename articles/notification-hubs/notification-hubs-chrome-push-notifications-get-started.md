@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 5754a537b8a0bf0a93d6d54ba0ba78e5957ac87f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7bdc692104194bff4a25e6974ba72971af543cbf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777467"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028988"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Tutorial: Notificações por push para aplicativos Chrome com os Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "33777467"
 Este tutorial orienta você pela criação de um hub de notificação e pelo envio de notificações por push para um exemplo de aplicativo do Google Chrome usando [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). O aplicativo do Chrome é executado no contexto de um navegador Google Chrome e registra com o hub de notificação. 
 
 > [!NOTE]
-> As notificações por push do aplicativo Chrome não são notificações genéricas do navegador - elas são específicas do modelo de extensibilidade do navegador (veja [Visão geral de aplicativos Chrome] para obter detalhes). Além do navegador da área de trabalho, os aplicativos Chrome são executados em celulares (Android e iOS) por meio do Apache Cordova. Para saber mais, confira [Aplicativos do Chrome para celular].
+> As notificações por push do aplicativo Chrome não são notificações genéricas do navegador - elas são específicas do modelo de extensibilidade do navegador (veja [Visão geral de aplicativos Chrome] para obter detalhes). Além do navegador da área de trabalho, os aplicativos Chrome são executados em celulares (Android e iOS) por meio do Apache Cordova. Para saber mais, confira [Aplicativos do Chrome em Dispositivos móveis].
 
 Neste tutorial, você deve executar as seguintes etapas:
 
@@ -400,7 +400,7 @@ Para fins de teste, envie notificações por push do Chrome usando um aplicativo
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   Uma referência ao SDK do Barramento de Serviço do Microsoft Azure com o <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">pacote NuGet WindowsAzure.ServiceBus é adicionada automaticamente ao projeto.</a>
+   Uma referência ao SDK do Barramento de Serviço do Microsoft Azure com o <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">pacote NuGet WindowsAzure.ServiceBus é adicionada automaticamente ao projeto.</a>
 4. Abra `Program.cs` e adicione a seguinte instrução `using`:
    
         using Microsoft.Azure.NotificationHubs;
@@ -467,7 +467,7 @@ Neste tutorial, você envia notificações de transmissão para todos os cliente
 [Visão geral de aplicativos Chrome]: https://developer.chrome.com/apps/about_apps
 [Exemplo do GCM do Aplicativo Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
-[Aplicativos do Chrome para celular]: https://developer.chrome.com/apps/chrome_apps_on_mobile
+[Aplicativos do Chrome em Dispositivos móveis]: https://developer.chrome.com/apps/chrome_apps_on_mobile
 [Criar um registro da API REST NH]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [biblioteca crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
