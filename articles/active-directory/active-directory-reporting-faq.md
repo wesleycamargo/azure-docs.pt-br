@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231836"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335050"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Perguntas frequentes sobre relatórios do Azure Active Directory
 
@@ -72,7 +72,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: Quantos registros posso baixar do Portal do Azure?**
 
-**R:** É possível baixar até 5000 registros do portal do Azure. Os registros são classificados por *mais recentes* e, por padrão, você obterá 5000 registros mais recentes. Para tamanhos de registro maiores que 5000, escolha as condições do filtro e clique no botão *Script* no portal do Azure. Isso baixará um script do PowerShell que você poderá executar para gerar um arquivo CSV de todos os registros que correspondem às condições do filtro. É necessário executar o script do PowerShell no *modo de administrador*. Para obter mais informações, consulte [Baixar atividades de entrada](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
+**R:** É possível baixar até 5000 registros do portal do Azure. Os registros são classificados por *mais recentes* e, por padrão, você obterá 5000 registros mais recentes.
 
 ---
 

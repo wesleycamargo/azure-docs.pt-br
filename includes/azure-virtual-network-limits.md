@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 326da32f91b263bbd09a4c6f521c9ec72094820c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297959"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066060"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -44,7 +44,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Emparelhamentos de rede virtual por Rede Virtual |10 |50 |
 | Servidores DNS por rede virtual |9 |25 |
 | Endereços IP privados por rede virtual |16384** |16384 |
-| Endereços IP privados por interface de rede |256 |1024 |
+| Endereços IP privados por interface de rede |256 |256 |
 | Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função |500K |500K |
 | NIC (Interfaces de rede) |24000** |24.000 |
 | Grupos de segurança de rede (NSG) |100 |5.000 |

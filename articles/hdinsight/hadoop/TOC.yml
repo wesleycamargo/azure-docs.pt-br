@@ -202,9 +202,6 @@
         - name: Use Matiz
           href: ../hdinsight-hadoop-hue-linux.md
           maintainContext: true
-        - name: Usar R
-          href: ../hdinsight-hadoop-r-scripts-linux.md
-          maintainContext: true
         - name: Usar o Solr
           href: ../hdinsight-hadoop-solr-install-linux.md
           maintainContext: true
