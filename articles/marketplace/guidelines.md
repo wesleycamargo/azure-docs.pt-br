@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 135f934cd6b352dad9e4cea5a14406804f31b66b
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825736"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307478"
 ---
 # <a name="guidelines"></a>Diretrizes  
 
@@ -35,7 +35,7 @@ Se mais de uma pessoa requer acesso para a mesma ID da Microsoft usada para cria
 
 >[!IMPORTANT]
 >Para autorizar a vários usuários para acessar sua conta do Microsoft Developer Center (Centro de desenvolvimento), a Microsoft recomenda que você use o Azure Active Directory (Azure AD) para atribuir funções aos usuários individuais. Cada usuário deve acessar a conta entrando com credenciais individuais do Azure AD. Crie sua ID da Microsoft usando um endereço de email em um domínio registrado em sua empresa. A Microsoft sugere que o email não seja atribuído a um indivíduo. Um exemplo é `windowsapps@fabrikam.com`.  
->*   Para obter mais informações, visite a seção [Problema: ID da Microsoft em um domínio federado do Microsoft Azure AD](#issue:-microsoft-id-in-an-azure-ad-federated-domain).  
+>*   Para obter mais informações, visite a seção [Problema: ID da Microsoft em um domínio federado do Microsoft Azure AD](#issue-microsoft-id-in-an-azure-ad-federated-domain).  
 
 *   Limite o acesso à ID da Microsoft ao menor número possível de desenvolvedores. 
 *   Configure uma lista de distribuição (DL) de email corporativo que inclui todas as pessoas que devem acessar sua conta do Centro de Desenvolvimento. Adicione o endereço de email da DL às informações de segurança. A DL permite que todos os funcionários na lista recebam códigos de segurança quando solicitado e gerenciem as informações de segurança da sua ID da Microsoft. Se a configuração de uma lista de distribuição não for viável, o proprietário da conta de email individual deve estar disponível para acessar e compartilhar o código de segurança quando solicitado.  
@@ -73,6 +73,6 @@ A Microsoft recomenda uma solução alternativa. Siga estas etapas para criar um
 1.  A regra de encaminhamento envia todos os emails e comunicações recebidas na conta de email do Outlook para o endereço de email em um domínio registrado em sua empresa. O endereço de email `outlook.com` deve ser usado para autenticar-se no Centro de Desenvolvimento e no Portal do Cloud Partner.  
 
 ## <a name="next-steps"></a>Próximas etapas
-*   Visite a página [Guia do editor do Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  
+*   Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
  
 ---  

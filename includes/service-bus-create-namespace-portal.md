@@ -2,7 +2,7 @@ Para começar a usar as entidades de mensagens do Barramento de Serviço no Azur
 
 Para criar um namespace:
 
-1. Faça logon no [Portal do Azure][Azure portal].
+1. Entre no [Portal do Azure][Azure portal].
 2. No painel de navegação esquerdo do portal, clique em **+ Criar um recurso**, depois em **Integração Corporativa** e em **Barramento de Serviço**.
 3. Na caixa de diálogo **Criar um namespace** , digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 4. Depois de verificar se o nome do namespace está disponível, escolha o tipo de preço (Básico, Standard ou Premium).

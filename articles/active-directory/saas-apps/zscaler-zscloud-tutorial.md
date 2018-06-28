@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ccd0048eb2f1ab32e9fbf403b65f68b07ada480
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4fbb0e5512511842e020e5670f1290c6b6359305
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227370"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: integração do Azure Active Directory com o Zscaler ZSCloud
 
@@ -116,7 +116,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
      Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para se conectar ao aplicativo ZScaler ZSCloud.
     
     > [!NOTE] 
-    > Você precisa atualizar esse valor com a URL de Entrada real. Entre em contato com a [equipe de suporte ao cliente do Zscaler ZSCloud](https://support.zscaler.com/hc/articles/210172606-Zscaler-is-Expanding-Its-Zscloud-Global-Footprint) para obter esse valor. 
+    > Você precisa atualizar esse valor com a URL de Entrada real. Entre em contato com a [equipe de suporte ao cliente do Zscaler ZSCloud](https://help.zscaler.com/zia) para obter esse valor. 
  
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 

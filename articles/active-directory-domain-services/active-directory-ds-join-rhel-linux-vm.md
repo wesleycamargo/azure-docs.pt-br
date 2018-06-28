@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 93c96e71aea98598492ec32f13fddb0b0732196e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fceeb9655562d7abf6930cc484b4a9eb275ee81e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217044"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330794"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do Red Hat Enterprise Linux 7 em um domínio gerenciado
 Este artigo mostra como ingressar em uma máquina virtual do RHEL (Red Hat Enterprise Linux) 7 em um domínio gerenciado dos Serviços de Domínio do Azure AD.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para executar as tarefas listadas neste artigo, você precisa do seguinte:  
@@ -84,17 +86,17 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE] 
+     > [!NOTE]
      > **Solução de problemas:** se *realm discover* não puder localizar o domínio gerenciado:
      * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).
      * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
      * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.
      >
 
-2. Inicialize o Kerberos. No terminal SSH, digite o seguinte comando: 
+2. Inicialize o Kerberos. No terminal SSH, digite o seguinte comando:
 
-    > [!TIP] 
-    > * Certifique-se de especificar um usuário que pertence ao grupo 'Administradores do DC do AAD’. 
+    > [!TIP]
+    > * Certifique-se de especificar um usuário que pertence ao grupo 'Administradores do DC do AAD’.
     > * Especifique o nome de domínio em letras maiúsculas, caso contrário, o kinit falhará.
     >
 
@@ -102,9 +104,9 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     kinit bob@CONTOSO100.COM
     ```
 
-3. Ingresse a máquina no domínio. No terminal SSH, digite o seguinte comando: 
+3. Ingresse a máquina no domínio. No terminal SSH, digite o seguinte comando:
 
-    > [!TIP] 
+    > [!TIP]
     > Use a mesma conta de usuário especificada na etapa anterior ('kinit').
     >
 

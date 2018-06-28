@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265034"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300988"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações de rede para Serviços de Domínio do Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma rede virtual do Azure
@@ -107,7 +107,7 @@ Além disso, o NSG também ilustra como bloquear o acesso LDAP seguro pela Inter
 
 ![Exemplo de NSG para acesso LDAPS seguro pela Internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**Mais informações** - [Criar um grupo de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**Mais informações** - [Criar um grupo de segurança de rede](../virtual-network/manage-network-security-group.md).
 
 
 ## <a name="network-connectivity"></a>Conectividade de rede
@@ -145,4 +145,4 @@ Conecte as redes virtuais do Azure para usar o domínio gerenciado em qualquer u
 * [Emparelhamento de redes virtuais do Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Configurar uma conexão de rede virtual a rede virtual para o modelo de implantação clássica](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Grupos de Segurança de Rede do Azure](../virtual-network/security-overview.md)
-* [Criar um Grupo de Segurança de Rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Criar um Grupo de Segurança de Rede](../virtual-network/manage-network-security-group.md)
