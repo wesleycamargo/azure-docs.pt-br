@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 45183e51e9071647e07cfd0738522f0dfa28bd7b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: efdef681dd94cdb97d84de657668c49022b72d95
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33868995"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751489"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -54,25 +54,6 @@ Na experiência do portal do Azure, melhoramos a maneira de exibir a redefiniç�
 6. Para filtrar essa exibição somente para os eventos relacionados à redefinição de senha, selecione o botão **Filtrar** na parte superior do painel.
 7. No menu **Filtro**, selecione a lista suspensa **Categoria** e altere-a para o tipo de categoria **Gerenciamento de Senha de Autoatendimento**.
 8. Opcionalmente, filtre mais a lista escolhendo a **Atividade** específica em que você está interessado.
-
-## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Como recuperar eventos de gerenciamento de senhas da API de Relatórios e Eventos do Azure AD
-
-A API de Relatórios e Eventos do Azure AD é compatível com a recuperação de todas as informações incluídas nos relatórios de redefinição de senha e registro de redefinição de senha. Com essa API, você pode baixar eventos individuais de redefinição de senha e registro de redefinição de senha e integrá-los à tecnologia de relatórios de sua escolha.
-
-> [!IMPORTANT]
-> Atualmente, os Relatórios do Azure AD e a API de Eventos recuperam até *75.000 eventos individuais* dos tipos [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) e [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent). A API abrange os últimos 30 dias.
-> 
-> Se precisa recuperar ou armazenar dados além desta janela, sugerimos mantê-los em um banco de dados externo usando a API para consultar os deltas resultantes. É recomendável que você comece a recuperar esses dados quando começar a usar SSPR em sua organização. Mantenha-os externamente e, em seguida, continue a rastrear os deltas desse ponto em diante.
->
-
-### <a name="how-to-get-started-with-the-reporting-api"></a>Como começar a usar a API de relatórios
-
-Para acessar esses dados, você precisa gravar um aplicativo ou script pequeno para recuperá-los de nossos servidores. Para obter mais informações, confira [Introdução à API de relatórios do Azure AD](../active-directory-reporting-api-getting-started-azure-portal.md).
-
-Quando você tiver um script de trabalho, desejará examinar os eventos de registro e redefinição de senhas que podem ser recuperados para atender suas situações:
-
-* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): lista as colunas disponíveis para os eventos de redefinição de senhas.
-* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): lista as colunas disponíveis para os eventos do registro de redefinição de senhas.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
 

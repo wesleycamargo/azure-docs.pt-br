@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18b385edc7efed20d940be96670b8c40ce66ddfd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 806ebe80ad49f2f908bf46549bb4abc533a6d516
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264316"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936693"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmitir logs de diagnóstico do Azure para um hub de eventos
 Os **[logs de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)** podem ser transmitidos quase em tempo real a qualquer aplicativo usando a opção interna "Exportar para os Hubs de Eventos" no Portal, ou habilitando a ID da Regra de Autorização do Hub de Eventos em uma configuração de diagnóstico por meio de Cmdlets do Azure PowerShell ou da CLI 2.0 do Azure.
@@ -93,7 +93,7 @@ A ID de Regra da Autorização do Hub de Evento é uma cadeia de caracteres com 
 
 ### <a name="via-azure-cli-20"></a>Via CLI 2.0 do Azure
 
-Para habilitar streaming via [CLI 2.0 do Azure](insights-cli-samples.md), você pode usar o comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Para habilitar streaming via [CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), você pode usar o comando [az monitor diagnostic-settings create](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 37239a45cffe18478b8302ccf1ee95c8edd0423a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b36014057eb1713b2b056cd203a099c59d9b5d4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592153"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031763"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Entrada do usuário com autenticação de passagem do Azure Active Directory
 
@@ -49,7 +49,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 - *Proteger*
   - Senhas locais nunca são armazenadas na nuvem, em formato nenhum.
   - O agente estabelece conexões de saída apenas de dentro de sua rede. Portanto, não há nenhum requisito de instalar o agente em uma rede de perímetro, também conhecida como DMZ.
-  - Proteja suas contas de usuário trabalhando diretamente com as [Políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo a MFA (Autenticação Multifator), e [filtrando ataques de senha de força bruta](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
+  - Proteja suas contas de usuário trabalhando diretamente com as [Políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo a MFA (Autenticação Multifator), e [filtrando ataques de senha de força bruta](../authentication/howto-password-smart-lockout.md).
 - *Altamente disponível*
   - Agentes adicionais podem ser instalados em vários servidores locais para promover a alta disponibilidade de solicitações de entrada.
 
@@ -64,12 +64,12 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 - Ele pode ser habilitado por meio do [Azure AD Connect](active-directory-aadconnect.md).
 - Ele usa um agente local leve que escuta e responde a solicitações de validação de senha.
 - Instalar vários agentes fornece alta disponibilidade de solicitações de entrada.
-- Isso [protege](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) suas contas locais contra ataques de senha de força bruta na nuvem.
+- Isso [protege](../authentication/howto-password-smart-lockout.md) suas contas locais contra ataques de senha de força bruta na nuvem.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [**Início rápido**](active-directory-aadconnect-pass-through-authentication-quick-start.md) – instale e execute a autenticação de passagem do Azure AD.
-- [**Bloqueio Inteligente**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) – configura a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
+- [**Bloqueio Inteligente**](../authentication/howto-password-smart-lockout.md) – configura a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Saiba quais cenários têm suporte e quais não têm.
 - [**Aprofundamento técnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) – entenda como esse recurso funciona.
 - [**Perguntas frequentes**](active-directory-aadconnect-pass-through-authentication-faq.md) – respostas para perguntas frequentes.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0165de82850c0c80052564c5f31a5e5cf5effb11
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117530"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938301"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 
@@ -219,9 +219,9 @@ A configuração final, `$ref-policy`, é mapeada para o arquivo de instruções
 ### <a name="apis-folder"></a>pasta apis
 A pasta `apis` contém uma pasta para cada API na instância do serviço que contém os itens a seguir.
 
-* `apis\<api name>\configuration.json` - é a configuração da API e contém informações sobre a URL do serviço de back-end e as operações. Essas são as mesmas informações que retornariam se você chamasse [Obter uma API específica](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) com `export=true` no formato `application/json`.
-* `apis\<api name>\api.description.html` - é a descrição da API e corresponde à propriedade `description` da [entidade da API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
-* `apis\<api name>\operations\` - esta pasta contém os arquivos `<operation name>.description.html` que são mapeados para as operações na API. Cada arquivo contém a descrição de uma única operação na API que mapeia para a propriedade `description` da [entidade de operação](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) na API REST.
+* `apis\<api name>\configuration.json` - é a configuração da API e contém informações sobre a URL do serviço de back-end e as operações. Essas são as mesmas informações que retornariam se você chamasse [Obter uma API específica](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) com `export=true` no formato `application/json`.
+* `apis\<api name>\api.description.html` - é a descrição da API e corresponde à propriedade `description` da [entidade da API](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` - esta pasta contém os arquivos `<operation name>.description.html` que são mapeados para as operações na API. Cada arquivo contém a descrição de uma única operação na API que mapeia para a propriedade `description` da [entidade de operação](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) na API REST.
 
 ### <a name="groups-folder"></a>pasta groups
 A pasta `groups` contém uma pasta para cada grupo definido na instância do serviço.

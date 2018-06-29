@@ -3,22 +3,23 @@ title: Como configurar o logon único com senha para um aplicativo da Galeria do
 description: Como configurar um aplicativo para logon único baseado em senha quando ele já estiver listado na Galeria de Aplicativos do Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 8e1d8471d2feb838a6ba3eb08eedc3ca4d30ab07
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: 22a7a4e25a3df1e9f50b9b3038d4a6bd90ecd408
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069520"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335067"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o logon único com senha para um aplicativo da Galeria do Azure AD
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5c05c7c4c0f8f0b3619b36390c8a0224a03c900a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26633811"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063535"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão dos Serviços BizTalk do Azure
 
@@ -66,11 +66,11 @@ Você 'Compilou' a solução com êxito no Visual Studio. Em seguida, você 'Rec
   Não é possível copiar o arquivo <Path to DLL> para "bin\Debug\FileName.dll". O processo não pode acessar o arquivo 'bin\Debug\FileName.dll' porque ele está sendo usado por outro processo.  
 
 #### <a name="workaround"></a>Solução alternativa
-* Se o [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) for instalado, você terá as duas opções a seguir:
+* Se o [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) for instalado, você terá as duas opções a seguir:
   
   * Reiniciar o Visual Studio ou
   * Reiniciar a solução. Em seguida, execute apenas uma Compilação na solução.  
-* Se o [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) não estiver instalado, abra o Gerenciador de Tarefas, clique na guia Processos, clique no processo MSBuild.exe e clique no botão Encerrar Processo.  
+* Se o [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) não estiver instalado, abra o Gerenciador de Tarefas, clique na guia Processos, clique no processo MSBuild.exe e clique no botão Encerrar Processo.  
 
 ### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>O roteamento de pontes e do Portal dos Serviços BizTalk para os pontos de extremidade BasicHttpRelay não tem suporte se caracteres não imprimíveis forem promovidos como cabeçalhos HTTP
 Se você usar caracteres não imprimíveis como parte das propriedades promovidas para mensagens, essas mensagens não poderão ser roteadas para destinos de retransmissão que usam a associação BasicHttpRelay. Além disso, as propriedades promovidas que estão disponíveis como parte do rastreamento serão codificadas na URL para blobs e não codificadas para destinos.  

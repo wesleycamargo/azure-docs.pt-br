@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: 19e8c11a0051f9d13ef4be3d77fe828a272c3c77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c26019bad63a904f8ebd1241d2b58923d786e181
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423863"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937883"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Linux no Azure
 Este artigo descreve as diferentes maneiras de marcar uma máquina virtual do Linux no Azure por meio do modelo de implantação do Resource Manager. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure oferece suporte a até 15 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas tem suporte apenas para recursos criados por meio do modelo de implantação do Resource Manager.
@@ -29,8 +29,6 @@ Este artigo descreve as diferentes maneiras de marcar uma máquina virtual do Li
 
 ## <a name="tagging-with-azure-cli"></a>Marcando com a CLI do Azure
 Para começar, será necessário ter a [CLI 2.0 do Azure](/cli/azure/install-azure-cli) instalada e registrada em uma conta do Azure usando [az login](/cli/azure/reference-index#az-login).
-
-Você também pode executar essas etapas com a [CLI do Azure 1.0](tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 É possível exibir todas as propriedades de uma determinada Máquina Virtual, incluindo as marcas, usando este comando:
 

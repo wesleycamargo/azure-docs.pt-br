@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 0a8930da2d44714573155477d791dd9cb78d872a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 9ad6ab9e280762fbdb04ba0c1790cd6d01526556
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311685"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063435"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm usando o Python no HDInsight
 
@@ -38,7 +38,7 @@ O código para esse projeto está disponível em [https://github.com/Azure-Sampl
 
 * Maven 3
 
-* (Opcional) Um ambiente de desenvolvimento local do Storm. Um ambiente local do Storm só será necessário se você quiser executar a topologia localmente. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html).
+* (Opcional) Um ambiente de desenvolvimento local do Storm. Um ambiente local do Storm só será necessário se você quiser executar a topologia localmente. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
 
 ## <a name="storm-multi-language-support"></a>Suporte a várias linguagens no Storm
 
@@ -97,7 +97,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 ```
 
 > [!NOTE]
-> Esse comando requer um ambiente de desenvolvimento local do Storm. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html)
+> Esse comando requer um ambiente de desenvolvimento local do Storm. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](http://storm.apache.org/releases/1.0.6/Setting-up-development-environment.html)
 
 Uma vez que a topologia é iniciada, ela emite informações para o console local semelhantes ao texto a seguir:
 

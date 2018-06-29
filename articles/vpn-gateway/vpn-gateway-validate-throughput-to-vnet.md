@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 38ff1ee4c525d41e2a7446d5adc792c746504491
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191308"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754055"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência VPN para uma rede virtual
 
@@ -54,7 +54,7 @@ O diagrama a seguir mostra a conectividade lógica de uma rede local para uma re
 4.  Determine a largura de banda do Provedor de Serviços de Internet (ISP).
 5.  Calcule sua taxa de transferência esperada - Menor largura de banda de (VM, Gateway, ISP) * 0,8.
 
-Se a taxa de transferência calculada não atender aos requisitos de taxa de transferência de linha de base do aplicativo, será necessário aumentar a largura de banda do recurso identificado como o gargalo. Para redimensionar um Gateway de VPN do Azure, consulte [Alterar um SKU de gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para redimensionar uma máquina virtual, consulte [Redimensionar uma VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se não houver largura de banda de Internet esperada, também convém entrar em contato com seu ISP.
+Se a taxa de transferência calculada não atender aos requisitos de taxa de transferência de linha de base do aplicativo, será necessário aumentar a largura de banda do recurso identificado como o gargalo. Para redimensionar um Gateway de VPN do Azure, consulte [Alterar um SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para redimensionar uma máquina virtual, consulte [Redimensionar uma VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se não houver largura de banda de Internet esperada, também convém entrar em contato com seu ISP.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Validar a taxa de transferência de rede usando as ferramentas de desempenho
 

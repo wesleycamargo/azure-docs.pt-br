@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 604af54d034b6b51a96ff098827e2352a163be18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 693996595f1a1b963c96e5f59e72fe4c9ca80ff0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23125814"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753033"
 ---
 # <a name="reset-a-vpn-gateway"></a>Redefinir um Gateway de VPN
 
@@ -75,7 +75,7 @@ Ao receber um resultado de retorno, você poderá assumir que a redefinição do
 
 ### <a name="resetclassic"></a> Modelo de implantação clássico
 
-O cmdlet para redefinição de um gateway é **Reset-AzureVNetGateway**. Antes de realizar uma redefinição, certifique-se de que possui a última versão dos [cmdlets do PowerShell do Gerenciamento de Serviços (SM) ](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). O exemplo a seguir redefine o gateway para uma rede virtual nomeada "ContosoVNet":
+O cmdlet para redefinição de um gateway é **Reset-AzureVNetGateway**. Antes de realizar uma redefinição, certifique-se de que possui a última versão dos [cmdlets do PowerShell do Gerenciamento de Serviços (SM) ](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). O exemplo a seguir redefine o gateway para uma rede virtual nomeada "ContosoVNet":
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

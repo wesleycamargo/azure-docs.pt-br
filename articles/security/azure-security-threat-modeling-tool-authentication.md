@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d53ade1e5c31ca25636b95d4f8b9e0fe29f9d081
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019663"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031100"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Estrutura de segurança: autenticação | Atenuações 
 | Produto/Serviço | Artigo |
@@ -306,7 +306,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | Tipo de Credencial de Cliente - Nenhuma |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortalecer](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortalecer](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
 | **Etapas** | A ausência de autenticação significa que todos podem acessar o serviço. Um serviço que não autentica seus clientes permite acesso a todos os usuários. Configure o aplicativo para autenticação em relação às credenciais do cliente. Isso pode ser feito definindo a mensagem clientCredentialType para Windows ou Certificado. |
 
 ### <a name="example"></a>Exemplo
@@ -322,7 +322,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, .NET Framework 3 |
 | **Atributos**              | Tipo de Credencial de Cliente - Nenhuma |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortalecer](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortalecer](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **Etapas** | A ausência de autenticação significa que todos podem acessar o serviço. Um serviço que não autentica seus clientes permite que todos os usuários acessem sua funcionalidade. Configure o aplicativo para autenticação em relação às credenciais do cliente. Isso pode ser feito definindo o transporte clientCredentialType para Windows ou Certificado. |
 
 ### <a name="example"></a>Exemplo

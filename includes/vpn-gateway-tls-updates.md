@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 383c4a53913333a3e25006980dd7533b9e243a4a
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9a17f34333503436d3da340670abdde154e45ef6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236664"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36336019"
 ---
 Começando em 1 de julho de 2018, o suporte está sendo removido para TLS 1.0 e 1.1 do Gateway de VPN do Azure. O Gateway de VPN oferecerá suporte somente ao protocolo TLS 1.2. Para manter a conectividade e suporte do TLS para seus clientes ponto a site Windows 7 e Windows 8 que usam o TLS, recomendamos que instalar as seguintes atualizações:
 
@@ -27,4 +27,3 @@ Os seguintes algoritmos herdados também serão substituídos para TLS em 1 de j
 * DES (Algoritmo de criptografia de dados)
 * 3DES (Algoritmo triplo de criptografia de dados)
 * MD5 (Message Digest 5)
-* SHA-1 (Algoritmo de Hash de Assinatura1)

@@ -2,24 +2,22 @@
 title: Usar fluxos de trabalho do Hadoop Oozie no HDInsight baseado em Linux | Microsoft Docs
 description: Usar o Oozie do Hadoop no HDInsight baseado em Linux. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 8a25507ab076c4eecccea4e8a503d68ff1441ae5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/26/2018
+ms.author: omidm
+ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179071"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019258"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -37,8 +35,6 @@ Você também pode usar o Oozie para agendar trabalhos específicos para um sist
 > [!NOTE]
 > Outra opção para definir fluxos de trabalho com HDInsight é usar o Azure Data Factory. Para saber mais sobre o Data Factory, confira [Usar o Pig e o Hive com o Data Factory][azure-data-factory-pig-hive].
 
-> [!IMPORTANT]
-> O Oozie não está habilitado no HDInsight ingressado no domínio.
 
 ## <a name="prerequisites"></a>pré-requisitos
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 32fcd3171f1adcfd565c38ca1191342e7afaf5a9
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8c3980231404e5c8068dbd011d20759f207d7fff
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267689"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937947"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuração do Azure Diagnostics 1.2
 > [!NOTE]
@@ -109,12 +109,12 @@ Define as configurações para que os dados de telemetria sejam coletados. A tab
 |------------------|-----------------|  
 |**DiagnosticMonitorConfiguration**|Obrigatório. Os atributos opcionais são:<br /><br /> -                     **overallQuotaInMB** - a quantidade máxima de espaço em disco local que pode ser consumido pelos diversos tipos de dados de diagnóstico coletados pelo Diagnóstico do Azure. A configuração padrão é 5120MB.<br /><br /> -                     **useProxyServer** - configure o Diagnóstico do Azure para usar as configurações de servidor proxy como definido nas configurações do IE.|  
 |**CrashDumps**|Habilite a coleta de despejos de memória. Os atributos opcionais são:<br /><br /> -                     **containerName** - o nome do contêiner de blobs na sua conta do Armazenamento do Azure a ser usado para armazenar os despejos de memória.<br /><br /> -                     **crashDumpType** - configura o Diagnóstico do Azure para coletar minidespejos de memória ou despejos completos de memória.<br /><br /> -                     **directoryQuotaPercentage** - configura o percentual de **overallQuotaInMB** a ser reservado para despejos de memória na VM (Máquina Virtual).|  
-|**DiagnosticInfrastructureLogs**|Habilite a coleta de logs gerados pelo Diagnóstico do Azure. Os logs de infraestrutura de diagnóstico são úteis para solucionar problemas de sistema de diagnóstico. Os atributos opcionais são:<br /><br /> -                     **scheduledTransferLogLevelFilter** - configura o nível de severidade mínimo dos logs coletados.<br /><br /> -                     **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o Armazenamento do Azure arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**Diretórios**|Habilita a coleta do conteúdo de um diretório, logs de solicitação de acesso com falha do IIS e/ou logs do IIS. Atributo opcional:<br /><br /> **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**DiagnosticInfrastructureLogs**|Habilite a coleta de logs gerados pelo Diagnóstico do Azure. Os logs de infraestrutura de diagnóstico são úteis para solucionar problemas de sistema de diagnóstico. Os atributos opcionais são:<br /><br /> -                     **scheduledTransferLogLevelFilter** - configura o nível de severidade mínimo dos logs coletados.<br /><br /> -                     **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o Armazenamento do Azure arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**Diretórios**|Habilita a coleta do conteúdo de um diretório, logs de solicitação de acesso com falha do IIS e/ou logs do IIS. Atributo opcional:<br /><br /> **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**EtwProviders**|Configura a coleta de eventos ETW do EventSource e/ou os provedores baseados no Manifesto ETW.|  
 |**Métricas**|Este elemento permite gerar uma tabela de contador de desempenho otimizada para consultas rápidas. Cada contador de desempenho definido no elemento **PerformanceCounters** é armazenado na tabela Métricas e também na tabela Contador de Desempenho. Atributo obrigatório:<br /><br /> **resourceId** - esta é a ID de recurso da Máquina Virtual na qual você está implantando o Diagnóstico do Azure. Obtenha o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **Procurar** -> **Grupos de Recursos** -> **<Nome\>**. Clique no bloco **Propriedades** e copie o valor do campo **ID**.|  
-|**PerformanceCounters**|Habilita a coleta de contadores de desempenho. Atributo opcional:<br /><br /> **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**WindowsEventLog**|Habilita a coleta de Logs de Eventos do Windows. Atributo opcional:<br /><br /> **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**PerformanceCounters**|Habilita a coleta de contadores de desempenho. Atributo opcional:<br /><br /> **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**WindowsEventLog**|Habilita a coleta de Logs de Eventos do Windows. Atributo opcional:<br /><br /> **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 
 ## <a name="crashdumps-element"></a>Elemento CrashDumps  
  Habilita a coleta de despejos de memória. A tabela abaixo descreve os elementos filhos:  
@@ -154,8 +154,8 @@ Define as configurações para que os dados de telemetria sejam coletados. A tab
 
 |Nome do elemento|DESCRIÇÃO|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configura a coleta de eventos gerados desde a [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo obrigatório:<br /><br /> **provider** - o nome da classe do evento EventSource.<br /><br /> Os atributos opcionais são:<br /><br /> -                     **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> -                     **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML Tipo de Dados de Duração](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
-|**EtwManifestProviderConfiguration**|Atributo obrigatório:<br /><br /> **provider** - o GUID do provedor de eventos<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> -                     **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML Tipo de Dados de Duração](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**EtwEventSourceProviderConfiguration**|Configura a coleta de eventos gerados desde a [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo obrigatório:<br /><br /> **provider** - o nome da classe do evento EventSource.<br /><br /> Os atributos opcionais são:<br /><br /> -                     **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> -                     **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML Tipo de Dados de Duração](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**EtwManifestProviderConfiguration**|Atributo obrigatório:<br /><br /> **provider** - o GUID do provedor de eventos<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> -                     **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML Tipo de Dados de Duração](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>Elemento EtwEventSourceProviderConfiguration  
  Configura a coleta de eventos gerados desde a [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). A tabela abaixo descreve os elementos filhos:  
@@ -178,7 +178,7 @@ Define as configurações para que os dados de telemetria sejam coletados. A tab
 
 |Nome do elemento|DESCRIÇÃO|  
 |------------------|-----------------|  
-|**MetricAggregation**|Atributo obrigatório:<br /><br /> **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML Tipo de Dados de Duração](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**MetricAggregation**|Atributo obrigatório:<br /><br /> **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML Tipo de Dados de Duração](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
  Habilita a coleta de contadores de desempenho. A tabela abaixo descreve os elementos filhos:  

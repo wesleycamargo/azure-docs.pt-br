@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8363c49c4a52785fb5deacb3ac4998d38aca1430
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee467769b9653a9952b6e41e66a8777a4bac5e56
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593870"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028873"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -36,7 +36,7 @@ A Autenticação de Passagem é um recurso gratuito. Você não precisa de nenhu
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>A Autenticação de Passagem está disponível na [nuvem do Microsoft Azure Alemanha](http://www.microsoft.de/cloud-deutschland) e na [nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/)?
 
-Nº A Autenticação de Passagem está disponível apenas na instância mundial do Azure AD.
+Não. A Autenticação de Passagem está disponível apenas na instância mundial do Azure AD.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>O [acesso condicional](../active-directory-conditional-access-azure-portal.md) funciona com a Autenticação de Passagem?
 
@@ -48,7 +48,7 @@ Sim. A Autenticação de Passagem dá suporte a `Alternate ID` como nome de usu�
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A sincronização de hash de senha funciona como um fallback da Autenticação de Passagem?
 
-Nº A Autenticação de Passagem _não_ realiza o failover automaticamente para a sincronização de hash de senha. Ela funciona como fallback apenas para [cenários a que a Autenticação de Passagem não dá suporte atualmente](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar falhas de entrada do usuário, você deve configurar a Autenticação de Passagem para [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Não. A Autenticação de Passagem _não_ realiza o failover automaticamente para a sincronização de hash de senha. Ela funciona como fallback apenas para [cenários a que a Autenticação de Passagem não dá suporte atualmente](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar falhas de entrada do usuário, você deve configurar a Autenticação de Passagem para [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Eu posso instalar um conector de [Proxy de Aplicativo Azure AD](../manage-apps/application-proxy.md) no mesmo servidor que um Agente de Autenticação de Passagem?
 
@@ -66,7 +66,7 @@ Se você não tiver configurado o write-back de senha para um usuário específi
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Como a Autenticação de Passagem protege você contra ataques de senha de força bruta?
 
-Leia [Autenticação de passagem do Azure Active Directory: bloqueio inteligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) para obter mais informações.
+Leia [Autenticação de passagem do Azure Active Directory: bloqueio inteligente](../authentication/howto-password-smart-lockout.md) para obter mais informações.
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>O que os Agentes de Autenticação de Passagem comunicam pelas portas 80 e 443?
 
@@ -133,7 +133,7 @@ Se você desinstalar um Agente de Autenticação de Passagem de um servidor, ele
 ## <a name="next-steps"></a>Próximas etapas
 - [Limitações atuais](active-directory-aadconnect-pass-through-authentication-current-limitations.md): saiba quais cenários têm suporte e quais não têm.
 - [Início rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): instale e execute a Autenticação de Passagem do Azure AD.
-- [Bloqueio Inteligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): saiba como configurar a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
+- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [Análise técnica aprofundada](active-directory-aadconnect-pass-through-authentication-how-it-works.md): entenda como funciona o recurso de Autenticação de passagem.
 - [Solução de problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso de Autenticação de Passagem.
 - [Aprofundamento em segurança](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): obtenha informações técnicas avançadas sobre o recurso de Autenticação de passagem.

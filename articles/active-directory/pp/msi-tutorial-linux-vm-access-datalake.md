@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a70f02fca5ebf575bc009623c3af648a5a80fd70
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 358827722e8d77cd91410fae842ad2ba99967d98
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153737"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028890"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Usar uma MSI (Identidade do Serviço Gerenciado) de VM Linux para acessar o Azure Data Lake Store
 
@@ -190,7 +190,7 @@ Parabéns!  Você foi autenticado no sistema de arquivos do Data Lake Store usan
 - Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](msi-overview.md).
 - Para operações de gerenciamento, o Data Lake Store usa o Azure Resource Manager.  Para obter mais informações sobre como usar uma MSI de VM para autenticar-se no Resource Manager, leia [Usar uma MSI (Identidade de Serviço Gerenciado) de VM do Linux para acessar o Resource Manager](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Saiba mais sobre a [Autenticação com o Data Lake Store usando o Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
-- Saiba mais sobre [Operações do sistema de arquivos no Azure Data Lake Store usando a API REST](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) ou as [APIs do sistema de arquivos WebHDFS](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis.md).
+- Saiba mais sobre [Operações do sistema de arquivos no Azure Data Lake Store usando a API REST](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) ou as [APIs do sistema de arquivos WebHDFS](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Saiba mais sobre o [Controle de acesso no Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.

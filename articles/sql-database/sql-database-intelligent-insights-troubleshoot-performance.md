@@ -10,12 +10,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 68ccf6f64f90200359322f35ca081aa6b53493f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcc33eb7e5050c991c89b7f0998eec3707f62ebb
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648261"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751336"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure com Insights inteligentes
 
@@ -235,7 +235,7 @@ Para obter mais informações, consulte [Introdução às tabelas com otimizaç�
 
 Esse padrão de desempenho detectável indica uma degradação no desempenho de carga de trabalho de banco de dados atual em comparação à linha de base dos últimos sete dias. É devido à falta de DTUs disponíveis no pool elástico de sua assinatura. 
 
-Recursos no Banco de Dados SQL são geralmente conhecidos como [recursos de DTU](sql-database-what-is-a-dtu.md), que consistem em uma medida combinada de recursos de CPU e E/S (E/S de dados e log de transação). [Recursos de pool elástico do Azure](sql-database-elastic-pool.md) são usados como um pool de recursos disponíveis de eDTU compartilhados entre vários bancos de dados para fins de dimensionamento. Quando os recursos de eDTU disponíveis em seu pool elástico não forem suficientemente grandes para dar suporte a todos os bancos de dados no pool, um problema de desempenho de insuficiência de DTU no pool elástico será detectado pelo sistema.
+Recursos no Banco de Dados SQL são geralmente conhecidos como [recursos de DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus), que consistem em uma medida combinada de recursos de CPU e E/S (E/S de dados e log de transação). [Recursos de pool elástico do Azure](sql-database-elastic-pool.md) são usados como um pool de recursos disponíveis de eDTU compartilhados entre vários bancos de dados para fins de dimensionamento. Quando os recursos de eDTU disponíveis em seu pool elástico não forem suficientemente grandes para dar suporte a todos os bancos de dados no pool, um problema de desempenho de insuficiência de DTU no pool elástico será detectado pelo sistema.
 
 ### <a name="troubleshooting"></a>solução de problemas
 

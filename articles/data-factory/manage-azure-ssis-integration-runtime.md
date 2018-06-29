@@ -13,19 +13,15 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 91887bad9c3ca976612522c161663fb0b35f587c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 248967f736fcd10cf398917d3cd1e2760537df7c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266916"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051977"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfigurar o tempo de execução de integração do Azure-SSIS
 Este artigo descreve como reconfigurar um tempo de execução de integração existente do Azure-SSIS. Para criar um IR (tempo de execução de integração) do Azure-SSIS no Azure Data Factory, confira [Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md).  
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Documentação do Data Factory versão 1](v1/data-factory-introduction.md).
-
 
 ## <a name="data-factory-ui"></a>IU do Data Factory 
 Use a interface do usuário do Data Factory para parar, editar/reconfigurar ou excluir um IR do Azure SSIS. 

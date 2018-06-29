@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 95b0440dbec1a13096928bdefd31383d07a1f86d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f9f6d2e43fff9a3e57145f39863f66eed64869b2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618565"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048576"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copiar dados do SAP ECC usando o Azure Data Factory
 
 Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para copiar dados do SAP ECC (SAP Enterprise Central Component). Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Atividade de cópia na V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 

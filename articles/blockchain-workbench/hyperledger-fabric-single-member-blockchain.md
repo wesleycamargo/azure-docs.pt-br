@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7b60c086896506e5883607db48a64d2a2efbd967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28561f5f94044d19cfd07e99d7f7a736ec470cf1
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658811"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960348"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Rede de membro único do Hyperledger Fabric
 
@@ -89,8 +89,8 @@ Em seguida, em **Tamanho de rede e desempenho,** especifique entradas para o tam
 Nome do Parâmetro| DESCRIÇÃO| Valores Permitidos|Valor Padrão
 ---|---|---|---
 **Número de nós de associação**|O número de nós que executam o serviço de associação. Para obter detalhes adicionais sobre o serviço de associação, consulte Serviços de segurança e associação na [documentação do Hyperledger ](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf).<br /><br />Atualmente, este valor está restrito a 1 nó, mas planejamos dar suporte à escalabilidade por meio de cluster na próxima revisão.|1| 1
-**Número de nós do comprador** |O número de nós que ordenam (organizam) transações em um bloco .--> Esta declaração é expressiva e confusa. Para obter detalhes adicionais sobre o serviço de pedidos, visite a [documentação do Hyperledger ](http://hyperledger-fabric.readthedocs.io/en/latest/orderingservice.html).<br /><br />Este valor está atualmente restrito a 1 nó. |1 |1
-**Número de nós pares**| Nós que são de propriedade de membros do consórcio que executam transações e mantêm o estado e uma cópia do ledger.<br /><br />Para obter detalhes adicionais sobre o serviço de pedidos, visite a documentação do Hyperledger [ ](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|3| 3 - 9
+**Número de nós do comprador** |O número de nós que ordenam (organizam) transações em um bloco .--> Esta declaração é expressiva e confusa. Para obter detalhes adicionais sobre o serviço de pedidos, visite a [documentação do Hyperledger ](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html).<br /><br />Este valor está atualmente restrito a 1 nó. |1 |1
+**Número de nós pares**| Nós que são de propriedade de membros do consórcio que executam transações e mantêm o estado e uma cópia do ledger.<br /><br />Para obter detalhes adicionais sobre o serviço de pedidos, visite a [documentação do Hyperledger ](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|3| 3 - 9
 **desempenho de armazenamento**|O tipo de armazenamento que suporta cada um dos nós implementados. Para saber mais sobre armazenamento, visite [ Introdução ao Armazenamento do Microsoft Azure ](https://docs.microsoft.com/azure/storage/common/storage-introduction) e [ Armazenamento Premium ](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard ou Premium|Standard
 **Tamanho da máquina virtual** |O tamanho da máquina virtual usado para todos os nós na rede|Standard A,<br />Standard D,<br />Standard D-v2,<br />Standard F séries,<br />Standard DS,<br />e Standard FS|Standard D1_v2
 

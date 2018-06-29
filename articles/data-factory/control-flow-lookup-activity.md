@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: 032b14051c5c2b06fa23ee67858706fada545967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618650"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055271"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -26,9 +26,6 @@ Atividade de pesquisa pode ser usada para recuperar um conjunto de dados de qual
 - Determinar dinamicamente em quais objetos (arquivos, tabelas, etc) operar em uma atividade subsequente, em vez de hard-coding o nome do objeto
 
 Atividade de pesquisa pode ler e retornar o conteúdo de um arquivo de configuração, uma tabela de configuração ou o resultado de executar uma consulta ou um procedimento armazenado.  A saída da atividade de Pesquisa pode ser usada em uma cópia subsequente ou atividade de transformação se isso tiver um valor de singleton, ou usada em uma atividade ForEach se isso for uma matriz de atributos.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Documentação do Data Factory versão 1](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -61,7 +58,7 @@ NOME | DESCRIÇÃO | type | Obrigatório?
 ---- | ----------- | ---- | --------
 dataset | Fornece a referência de conjunto de dados para a pesquisa. Obtenha detalhes da seção "propriedades do conjunto de dados" em cada artigo de conector correspondente. | Pares chave/valor | sim
 fonte | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade de cópia. Obtenha detalhes da seção "Copiar as propriedades da atividade" em cada artigo de conector correspondente. | Pares chave/valor | sim
-firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | BOOLEAN | Nº O padrão é `true`.
+firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | BOOLEAN | Não. O padrão é `true`.
 
 **Observe os seguintes pontos:**
 

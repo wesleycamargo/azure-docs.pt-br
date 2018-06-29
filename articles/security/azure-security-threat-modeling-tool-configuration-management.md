@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cea96234083abd01cdf280129e6f75a1f69af9c6
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019816"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028975"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Estrutura de segurança: Gerenciamento de configurações | Atenuações 
 | Produto/Serviço | Artigo |
@@ -107,7 +107,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Folha de dados do OWASP sobre mecanismos de proteção contra furto de clique](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [Internals IE – Combatendo o furto de clique com X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-click-jacking-with-x-frame-options/) |
+| **Referências**              | [Folha de dados do OWASP sobre mecanismos de proteção contra furto de clique](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [Internals IE – Combatendo o furto de clique com X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
 | **Etapas** | <p>o furto de clique, também conhecido como "ataque de adulteração de interface do usuário", ocorre quando um invasor utiliza várias camadas transparentes ou opacas para fazer com que o usuário clique em um botão ou link de outra página enquanto, na verdade, ele pretendia clicar na página do nível superior.</p><p>Para aplicar essas camadas, é preciso criar uma página mal-intencionada com um iframe para carregar a página da vítima. Assim, o invasor é "sequestra" os cliques destinados a uma página e os encaminha para outra página, que provavelmente pertence a outro aplicativo, domínio ou ambos. Para evitar esse tipo de ataque, defina os cabeçalhos de resposta HTTP de X-Frame-Options adequados que instruem o navegador a não permitir enquadramentos de outros domínios</p>|
 
 ### <a name="example"></a>Exemplo

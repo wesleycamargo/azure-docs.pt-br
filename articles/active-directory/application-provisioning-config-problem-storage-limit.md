@@ -3,22 +3,24 @@ title: Problema para salvar as credenciais de administrador ao configurar o prov
 description: Como solucionar problemas comuns enfrentados ao configurar provisionamento do usuário para um aplicativo já listado na Galeria de aplicativos do Azure AD
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: asmalser
-ms.openlocfilehash: 8b23ea72a898dc5725c1c82ee2a5cbc06730b5aa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.author: barbkess
+ms.reviewer: asmalser
+ms.openlocfilehash: 1146df364a08128b5cd191ed1120198ae31b763e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292983"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337084"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory 
 
@@ -38,7 +40,7 @@ Quaisquer tokens secretos, URIs, endereços de email de notificação, nomes de 
 
 Há duas maneiras possíveis de contornar esse problema atualmente:
 
-1. **Use duas instâncias de aplicativo da galeria, uma para logon único e outra para o provisionamento de usuário** - Tomando o aplicativo da galeria [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md) como exemplo, você pode adicionar LinkedIn Elevate da galeria e configurá-lo para logon único. Para provisionamento, adicione outra instância do LinkedIn Elevate da galeria de aplicativos do Azure AD e nomeie-a como "LinkedIn Elevate (Provisionamento)". Para essa segunda instância, configurar [provisionamento](active-directory-saas-linkedinelevate-provisioning-tutorial.md), mas não logon único. Ao usar essa solução alternativa, os mesmos usuários e grupos precisam ser [atribuídos](manage-apps/assign-user-or-group-access-portal.md) para ambos os aplicativos. 
+1. **Use duas instâncias de aplicativo da galeria, uma para logon único e outra para o provisionamento de usuário** - Tomando o aplicativo da galeria [LinkedIn Elevate](saas-apps/linkedinelevate-tutorial.md) como exemplo, você pode adicionar LinkedIn Elevate da galeria e configurá-lo para logon único. Para provisionamento, adicione outra instância do LinkedIn Elevate da galeria de aplicativos do Azure AD e nomeie-a como "LinkedIn Elevate (Provisionamento)". Para essa segunda instância, configurar [provisionamento](saas-apps/linkedinelevate-provisioning-tutorial.md), mas não logon único. Ao usar essa solução alternativa, os mesmos usuários e grupos precisam ser [atribuídos](manage-apps/assign-user-or-group-access-portal.md) para ambos os aplicativos. 
 
 2. **Reduzir a quantidade de dados de configuração armazenados** - Todos os dados inseridos na seção [Credenciais de administrador](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) da guia de configuração são armazenados no mesmo local que o certificado SAML. Embora não seja possível reduzir o tamanho de todos esses dados, alguns campos de configuração opcionais, como o **Email de notificação** podem ser removidos.
 

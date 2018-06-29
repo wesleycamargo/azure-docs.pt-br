@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f8478a0aef52f8e573fa300a0b1328ea9ce5129f
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714928"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030991"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Dimensionar um aplicativo no Azure
 
@@ -98,7 +98,7 @@ Para uma tabela de limites de serviço, cotas, restrições e recursos com supor
   
     [Tamanhos de máquina virtual e de serviço de nuvem do Microsoft Azure][vmsizes]
   
-* Para obter informações sobre práticas recomendadas do Serviço de Aplicativo do Azure, incluindo a criação de uma arquitetura escalonável e flexível, consulte [Práticas recomendadas: Aplicativos Web do Serviço de Aplicativo do Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+* Para obter informações sobre práticas recomendadas do Serviço de Aplicativo do Azure, incluindo a criação de uma arquitetura escalonável e flexível, consulte [Práticas recomendadas: Aplicativos Web do Serviço de Aplicativo do Azure](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * Para assistir a vídeos sobre o dimensionamento de aplicativos do Serviço de Aplicativo, consulte os seguintes recursos:
   
   * [Quando dimensionar Sites do Azure - com Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

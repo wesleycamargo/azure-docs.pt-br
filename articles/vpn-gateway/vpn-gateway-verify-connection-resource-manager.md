@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: b2d702ecdd5e1fca342e7c84c6e75339097f0bcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 037c1c7dd73f668bd8ad95568743b223b1e11c79
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23124944"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750190"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verificar uma conexão de Gateway de VPN
 
@@ -49,7 +49,7 @@ Para verificar uma conexão de gateway de VPN para o modelo de implantação do 
 
 ## <a name="powershell-classic"></a>PowerShell (clássico)
 
-Para verificar sua conexão de gateway de VPN para o modelo de implantação clássico utilizando o PowerShell, instale as últimas versões dos cmdlets do Azure PowerShell. Certifique-se de baixar e instalar o módulo [Gerenciamento de Serviços](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). Utilize 'Add-AzureAccount' para entrar no modelo de implantação clássico.
+Para verificar sua conexão de gateway de VPN para o modelo de implantação clássico utilizando o PowerShell, instale as últimas versões dos cmdlets do Azure PowerShell. Certifique-se de baixar e instalar o módulo [Gerenciamento de Serviços](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Utilize 'Add-AzureAccount' para entrar no modelo de implantação clássico.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 

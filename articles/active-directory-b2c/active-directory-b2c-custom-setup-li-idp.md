@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0544daf310d40ea419cb6a46cbbf308ebc924715
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 889264dc06d1a6f10713ff5fcd7ff644c113bb45
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34709318"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752309"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: adicionar LinkedIn como um provedor de identidade usando políticas personalizadas
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -26,7 +26,7 @@ Este artigo mostra como habilitar a entrada para usuários de uma conta do Linke
 Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>Etapa 1: Criar um aplicativo de conta do LinkedIn
-Para usar o LinkedIn como provedor de identidade no Azure AD B2C (Azure Active Directory B2C), é necessário primeiro criar um aplicativo do LinkedIn e fornecê-lo com os parâmetros corretos. Você pode registrar um aplicativo do LinkedIn indo até a [página de inscrição do LinkedIn](https://LinkedIn.com/signup).
+Para usar o LinkedIn como provedor de identidade no Azure AD B2C (Azure Active Directory B2C), é necessário primeiro criar um aplicativo do LinkedIn e fornecê-lo com os parâmetros corretos. Você pode registrar um aplicativo do LinkedIn indo até a [página de inscrição do LinkedIn](https://www.linkedin.com/start/join).
 
 1. Vá para o site [Gerenciamento de aplicativos do LinkedIn](https://www.linkedin.com/secure/developer?newapp=), entre com suas credenciais de conta do LinkedIn e selecione **Criar Aplicativo**.
 
@@ -81,7 +81,7 @@ A federação com contas do LinkedIn exige um segredo do cliente para a conta do
 
 7. Para o **Uso da chave**, selecione **Criptografia**.
 
-8. Clique em **Criar**. 
+8. Selecione **Criar**. 
 
 9. Confirme que você criou a chave `B2C_1A_LinkedInSecret`.
 

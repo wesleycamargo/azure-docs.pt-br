@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 2febb0a358a27db3d83e95930b7a56e6a67b7e3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f5a98f0f28eba499b7ea3fa76944c21cf8bf8db
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615046"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958861"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Consultar o Azure Cosmos DB usando a API do SQL
 
@@ -122,14 +122,10 @@ A próxima consulta retorna todos os nomes dos filhos na família cuja identific
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.children.grade ASC
 
 **Resultados**
 
-    [
-      { "givenName": "Jesse" }, 
-      { "givenName": "Lisa"}
-    ]
+[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
 
 
 ## <a name="next-steps"></a>Próximas etapas

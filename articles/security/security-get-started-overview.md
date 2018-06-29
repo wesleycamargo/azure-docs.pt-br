@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 7cb6927b8de07566428050e06a981c8f3afabb05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d6117b5b071e780841f4450a205287d005e11801
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227516"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752173"
 ---
 # <a name="azure-security-overview"></a>Visão Geral de segurança do Azure
 
-O site Informações de Segurança do Microsoft Azure em Azure.com é o lugar onde você obterá respostas técnicas para suas perguntas sobre segurança do Azure. Se você estiver interessado na conformidade do Azure e como ele protege sua própria infraestrutura, visite a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/en-us/TrustCenter/).
+O site Informações de Segurança do Microsoft Azure em Azure.com é o lugar onde você obterá respostas técnicas para suas perguntas sobre segurança do Azure. Se você estiver interessado na conformidade do Azure e como ele protege sua própria infraestrutura, visite a [Central de Confiabilidade da Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 Sabemos que a segurança é o primeiro trabalho na nuvem e o quanto é importante que você encontre informações precisas e atualizadas sobre a segurança do Azure. Uma das melhores razões para usar o Azure para seus aplicativos e serviços é aproveitar a ampla variedade de ferramentas de segurança e recursos disponíveis. Essas ferramentas e recursos ajudam a tornar possível criar soluções seguras na plataforma segura do Azure.
 

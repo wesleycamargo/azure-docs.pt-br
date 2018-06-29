@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: b2b55c550a75be977b040070926953308c387639
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c1ca9c45a7bd070ba0dbcee3b428f986ebac47d3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834559"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062090"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Descobrir soluções específicas ao setor na Galeria de IA do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="industry-specific-cortana-intelligence-solutions"></a>Soluções do Cortana Intelligence específicas do setor
-A seção **[Setores](https://gallery.cortanaintelligence.com/industries)** da Galeria reúne vários recursos que são específicos de setores como
+A seção **[Setores](https://gallery.azure.ai/industries)** da Galeria reúne vários recursos que são específicos de setores como
 
-* [Varejo](https://gallery.cortanaintelligence-int.com/industries/retail) - encontre soluções de varejo, como previsão de vendas, previsão de variação de clientes e desenvolvimento de modelos de preço.
-* [Manufatura](https://gallery.cortanaintelligence-int.com/industries/manufacturing) - encontre soluções de manufatura, como antecipação da manutenção de equipamentos e previsão dos preços de serviços de energia.
-* [Serviços bancários](https://gallery.cortanaintelligence-int.com/industries/banking) - encontre soluções de serviços bancários, como previsão de risco de crédito e monitoramento de fraude online.
-* [Saúde](https://gallery.cortanaintelligence-int.com/industries/healthcare) - encontre soluções da área de saúde, como detecção de doenças e previsão de readmissões de hospital.
+* [Varejo](https://gallery.azure.ai/industries/retail) - encontre soluções de varejo, como previsão de vendas, previsão de variação de clientes e desenvolvimento de modelos de preço.
+* [Manufatura](https://gallery.azure.ai/industries/manufacturing) - encontre soluções de manufatura, como antecipação da manutenção de equipamentos e previsão dos preços de serviços de energia.
+* [Serviços bancários](https://gallery.azure.ai/industries/banking) - encontre soluções de serviços bancários, como previsão de risco de crédito e monitoramento de fraude online.
+* [Saúde](https://gallery.azure.ai/industries/healthcare) - encontre soluções da área de saúde, como detecção de doenças e previsão de readmissões de hospital.
 
 Esses recursos incluem testes, módulos personalizados, APIs, coleções e outros itens da Galeria que podem ajudar você a desenvolver soluções específicas ao setor no qual está trabalhando.
 

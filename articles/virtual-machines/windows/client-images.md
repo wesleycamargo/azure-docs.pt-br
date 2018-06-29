@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: aaab69f452db9d4f11af2b5cfd2cd9ff6ac79954
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: c1fdf3e95fe0026dcb1b47dd6537008921d461fe
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103669"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017527"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Usar o cliente do Windows no Azure para cenários de desenvolvimento/teste
 Use o Windows 7, Windows 8 ou Windows 10 Enterprise (x64) no Azure para cenários de desenvolvimento/teste, desde que você tenha uma assinatura apropriada do Visual Studio (anteriormente MSDN). Este artigo descreve os requisitos de qualificação para executar o Windows 7, Windows 8.1, Windows 10 Enterprise no Azure e o uso das imagens a seguir da Galeria do Azure.
@@ -48,7 +48,7 @@ A tabela a seguir fornece detalhes sobre as IDs de oferta que são qualificadas 
 | [Visual Studio Premium com MSDN (benefício)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
 | [Assinantes do Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
 | [Assinantes do Visual Studio Enterprise (BizSpark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
+| [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Verificar sua assinatura do Azure
 Se você não souber sua ID de oferta, poderá obtê-la por meio do portal do Azure ou de uma destas duas maneiras:  

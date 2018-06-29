@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 89fcd88643bd793935e7476ef32641ffa5ff4713
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6bc845e4ec329d308ed87770d0dec6a7d5e447c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299786"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030941"
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>Cenário: Disparar um aplicativo lógico usando o Azure Functions e o Barramento de Serviço do Azure
 
@@ -39,7 +39,7 @@ Neste exemplo, você terá uma função em execução para cada aplicativo lógi
 ## <a name="build-the-function"></a>Compilar a função
 Em seguida, crie uma função que atuará como o gatilho e ouvirá a fila.
 
-1. Abra o [Portal do Azure Functions](https://functions.azure.com/signin), escolha **Nova Função** e selecione o modelo **ServiceBusQueueTrigger - C#**.
+1. Abra o [Portal do Azure Functions](https://functions.azure.com/), escolha **Nova Função** e selecione o modelo **ServiceBusQueueTrigger - C#**.
    
     ![portal das Azure Functions][2]
 2. Configure a conexão com a fila do Barramento de Serviço, que usará o ouvinte de `OnMessageReceive()` do SDK do Barramento de Serviço.

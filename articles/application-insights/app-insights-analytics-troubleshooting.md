@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: eeda0fa6ad8faa05baf0a9344e958d298fb80d8e
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294152"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936676"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Solução de problemas do Analytics no Application Insights
 Problemas com a [Application Insights Analytics](app-insights-analytics.md)? Comece por aqui. A análise é a poderosa ferramenta de pesquisa do Azure Application Insights.
@@ -57,7 +57,7 @@ Ocorreu um erro de autenticação (durante a autenticação ou durante a geraç�
 4. Abra outra janela do navegador (comum) e vá para [Azure](https://portal.azure.com). Saia. Em seguida, abra o link e entre com as credenciais corretas.
 5. Os usuários do Microsoft Edge e do Internet Explorer também podem receber esse erro quando não há suporte para as configurações de zona confiável.
    
-    Verifique se o [portal Analytics](https://analytics.applicationinsights.io) e o [portal do Azure Active Directory](https://portal.azure.com) estão na mesma zona de segurança:
+    Verifique se o [portal Analytics](https://portal.azure.com) e o [portal do Azure Active Directory](https://portal.azure.com) estão na mesma zona de segurança:
    
    * No Internet Explorer, abra **Opções da Internet**, **Segurança**, **Sites Confiáveis**, **Sites**:
      

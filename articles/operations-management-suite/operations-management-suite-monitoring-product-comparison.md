@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
-ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6da876a0e6c1e98683caa864a4a2bcf85195cd10
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040291"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753312"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Comparação de produtos de monitoramento da Microsoft
 Este artigo fornece uma comparação entre o SCOM (System Center Operations Manager) e o Log Analytics no OMS (Operations Management Suite) em relação à arquitetura, a lógica usada para monitorar os recursos e a forma como realizam a análise dos dados coletados.  O objetivo é fornecer um entendimento básico de suas diferenças e seus pontos fortes relativos.  
 
 ## <a name="basic-architecture"></a>Arquitetura básica
 ### <a name="system-center-operations-manager"></a>System Center Operations Manager
-Todos os componentes do SCOM estão instalados em seu data center.  [agentes são instalados](http://technet.microsoft.com/library/hh551142.aspx) em computadores com Windows e Linux que são gerenciados pelo SCOM.  Os agentes se conectam ao [Servidores de Gerenciamento](https://technet.microsoft.com/library/hh301922.aspx) que se comunicam com o banco de dados e o data warehouse do SCOM.  Os agentes dependem da autenticação de domínio para se conectarem aos servidores de gerenciamento.  Aqueles que estão fora de um domínio confiável podem realizar uma autenticação de certificado ou se conectarem a um [Servidor de Gateway](https://technet.microsoft.com/library/hh212823.aspx).
+Todos os componentes do SCOM estão instalados em seu data center.  [agentes são instalados](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-console) em computadores com Windows e Linux que são gerenciados pelo SCOM.  Os agentes se conectam ao [Servidores de Gerenciamento](https://technet.microsoft.com/library/hh301922.aspx) que se comunicam com o banco de dados e o data warehouse do SCOM.  Os agentes dependem da autenticação de domínio para se conectarem aos servidores de gerenciamento.  Aqueles que estão fora de um domínio confiável podem realizar uma autenticação de certificado ou se conectarem a um [Servidor de Gateway](https://technet.microsoft.com/library/hh212823.aspx).
 
 O SCOM requer dois bancos de dados SQL, um para os dados operacionais e outro data warehouse para dar suporte aos relatórios e à análise de dados.  Um [Reporting Server](https://technet.microsoft.com/library/hh298611.aspx) executa o SQL Reporting Services para gerar relatórios sobre os dados do data warehouse. 
 
@@ -128,7 +128,7 @@ O SCOM e o Log Analytics fornecem recursos diferentes para análise dos dados co
 
 ### <a name="operations-manager"></a>Operations Manager
 #### <a name="views"></a>Modos de exibição
-As exibições no Console de Operações permitem exibir diferentes tipos de dados coletados pelo SCOM em formatos diferentes, geralmente, tabela para eventos, alertas e dados de estado, bem como gráficos de linhas para dados de desempenho.  As exibições realizam uma análise mínima ou consolidação dos dados, mas permitem a filtragem de acordo com critérios específicos. 
+As exibições no Console de Operações permitem exibir diferentes tipos de dados coletados pelo SCOM em formatos diferentes, geralmente, tabela para eventos, alertas e dados de estado, bem como grafos de linhas para dados de desempenho.  As exibições realizam uma análise mínima ou consolidação dos dados, mas permitem a filtragem de acordo com critérios específicos. 
 
 ![Modos de exibição](media/operations-management-suite-monitoring-product-comparison/scom-views.png)
 
@@ -139,7 +139,7 @@ As exibições são ideais para analisar o estado atual do ambiente, incluindo a
 #### <a name="dashboards"></a>Painéis
 Os painéis no Console de Operações funcionam principalmente com os mesmos dados que as exibições, mas são mais personalizáveis e podem incluir visualizações mais avançadas.  Um conjunto de painéis padrão que pode ser personalizado com facilidade está disponível para propósitos pessoais.  Você também pode usar um widget do PowerShell que pode exibir os dados retornados de uma consulta do PowerShell.
 
-![Painel](media/operations-management-suite-monitoring-product-comparison/scom-dashboard.png)
+![painel](media/operations-management-suite-monitoring-product-comparison/scom-dashboard.png)
 
 Os desenvolvedores têm a capacidade de adicionar componentes personalizados aos painéis incluídos em seus pacotes de gerenciamento.  Eles variam de altamente especializados até um aplicativo específico, como o painel no pacote de gerenciamento do SQL mostrado abaixo.  Este painel também pode ser usado como modelo para versões personalizadas.
 
