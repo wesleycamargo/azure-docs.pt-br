@@ -32,7 +32,7 @@ O Azure Blockchain Workbench fornece um aplicativo Web e APIs REST para o gerenc
 
 Você pode usar as APIs REST do Blockchain Workbench e APIs com base em mensagens para se integrar a sistemas existentes. As APIs oferecem uma interface que permite a substituição ou o uso de várias tecnologias de Razão distribuído, armazenamento e ofertas de banco de dados.
 
-O Blockchain Workbench pode transformar as mensagens enviadas para a sua API baseada em mensagens para criar transações em um formato esperado pela API nativa do que blockchain.  O Workbench pode entrar e rotear transações para o blockchain apropriado. 
+O Blockchain Workbench pode transformar as mensagens enviadas para a sua API baseada em mensagens para criar transações em um formato esperado pela API nativa do blockchain. O Workbench pode entrar e rotear transações para o blockchain apropriado.  
 
 O Workbench oferece automaticamente eventos para que o Barramento de Serviço e a Grade de Eventos enviem mensagens para clientes downstream. Os desenvolvedores podem se integrar a esses sistemas de mensagens para gerar transações e ver os resultados.
 
@@ -46,7 +46,7 @@ Com os protocolos de blockchain existentes, as identidades de blockchain são re
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Sincronizar dados em cadeia com armazenamento fora da cadeia
 
-O Azure Blockchain Workbench facilita a análise dos dados e eventos de blockchain com a sincronização automática dos dados no blockchain para armazenamento fora da cadeia. Em vez de extrair dados diretamente do blockchain, você pode consultar os sistemas de banco de dados fora da cadeia como o SQL Server. Não é preciso experiência específica no blockchain para usuários finais que estejam realizando tarefas de análise de dados. 
+O Azure Blockchain Workbench facilita a análise de eventos e dados de blockchain, sincronizando automaticamente os dados no blockchain para o armazenamento off-chain. Em vez de extrair dados diretamente do blockchain, você pode consultar sistemas de banco de dados off-chain, como o SQL Server. Não é necessário conhecimento específico de Blockchain para usuários finais que estão executando tarefas de análise de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
