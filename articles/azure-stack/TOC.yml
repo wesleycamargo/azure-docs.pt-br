@@ -294,15 +294,15 @@
             - name: Oferecer um Cluster Kubernetes
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Uso e cobrança
+          href: azure-stack-billing-and-chargeback.md
           items:
-            - name: Visão geral
-              href: azure-stack-billing-and-chargeback.md
             - name: Gerenciar o uso e cobrança como um CSP
               href: azure-stack-add-manage-billing-as-a-csp.md
-            - name: Adicionar locatários pelo uso e cobrança
-              href: azure-stack-csp-howto-register-tenants.md
-            - name: Gerenciar o registro do inquilino
-              href: azure-stack-csp-ref-operations.md
+              items:
+                - name: Adicionar locatários pelo uso e cobrança
+                  href: azure-stack-csp-howto-register-tenants.md
+                - name: Gerenciar o registro do inquilino
+                  href: azure-stack-csp-ref-operations.md
             - name: Uso e cobrança referência
               items:
                 - name: Relatórios de dados de uso
