@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 446df7922422ccfcf3fbb92ecf153c6dec2f6197
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e20670476f4549a06d80d5f85e2ebd8ab1f50b05
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26640371"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047234"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitorar a integridade e alertas na pilha do Azure
 
@@ -32,6 +32,17 @@ Pilha do Azure inclui recursos que permitem exibir a integridade e alertas para 
  ## <a name="understand-health-in-azure-stack"></a>Entender a integridade na pilha do Azure
 
  Integridade e os alertas são gerenciadas pelo provedor de recursos de integridade. Componentes da infraestrutura do Azure pilha registram com o provedor de recursos de integridade durante a configuração e implantação de pilha do Azure. Esse registro permite que a exibição de integridade e alertas para cada componente. Integridade na pilha do Azure é um conceito simple. Se existirem alertas para uma instância de um componente de registrado, o estado de integridade desse componente reflete a pior severidade do alerta ativa; Aviso ou crítico.
+
+## <a name="alert-severity-definition"></a>Definição de severidade do alerta
+
+Na pilha do Azure, alertas são gerados apenas dois severidades: **aviso** e **crítico**.
+
+**Aviso**  
+Um operador pode resolver o alerta de aviso de forma programada. Normalmente, o alerta não afeta cargas de trabalho do usuário.
+
+**Crítico**  
+Um operador deve resolver o alerta crítico com urgência. Esses são os problemas que causam impacto no momento ou em breve terá impacto sobre os usuários de pilha do Azure. 
+
  
  ## <a name="view-and-manage-component-health-state"></a>Exibir e gerenciar o estado de integridade do componente
  

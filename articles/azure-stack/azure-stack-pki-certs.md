@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9a43179998e8377dfbbb1a41ba7d46936d63aedd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234834"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030148"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública de pilha do Azure
 
@@ -76,20 +76,6 @@ Para sua implantação, [Região] e [externalfqdn] valores devem corresponder a 
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Filas | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Key Vault | cofre. &lt;região >. &lt;fqdn > |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) |  Keyvault interno |  adminvault. &lt;região >. &lt;fqdn > |
-
-### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Para o ambiente de pilha do Azure em versões anteriores 1803
-
-|Pasta de implantação|Entidade do certificado necessária e nomes alternativos da entidade (SAN)|Escopo (por região)|Namespace de subdomínio|
-|-----|-----|-----|-----|
-|Portal público|portal.*&lt;region>.&lt;fqdn>*|Portais|*&lt;region>.&lt;fqdn>*|
-|Portal de administração|adminportal.*&lt;region>.&lt;fqdn>*|Portais|*&lt;region>.&lt;fqdn>*|
-|Público do Gerenciador de recursos do Azure|gerenciamento.  *&lt;região >.&lt; FQDN >*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Administração do Gerenciador de recursos do Azure|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|Um certificado curinga do subdomínio de várias com nomes alternativos da entidade para:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Armazenamento|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL curinga)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL curinga)|Keyvault interno|adminvault.*&lt;region>.&lt;fqdn>*|
-|
-<sup>1</sup> certificado o ACS requer três SANs curinga em um único certificado. Curinga várias SANs em um único certificado pode não oferecer suporte para todas as autoridades de certificação pública. 
 
 Se você implantar a pilha do Azure usando o modo de implantação do AD do Azure, você precisa solicitar certificados listados na tabela anterior. No entanto, se você implantar a pilha do Azure usando o modo de implantação do AD FS, você também deve solicitar os certificados descritos na tabela a seguir:
 

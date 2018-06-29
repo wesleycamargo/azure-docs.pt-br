@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27473ce4057fdb06ab9faf0f46dede62b4ee2246
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157383"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048832"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicionar locatário para uso e cobrança para a pilha do Azure
 
@@ -64,7 +64,7 @@ Atualize o registro com a nova assinatura do cliente. Azure relatórios de uso d
 3. Na sessão do PowerShell, execute:
 
 ```powershell
-    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
 ### <a name="new-azurermresource-powershell-parameters"></a>Parâmetros do PowerShell New-AzureRmResource
 | Parâmetro | DESCRIÇÃO |
@@ -73,6 +73,7 @@ Atualize o registro com a nova assinatura do cliente. Azure relatórios de uso d
 | customerSubscriptionID | A assinatura do Azure (não pilha do Azure) que pertencem ao cliente a ser registrado. Deve ser criado na oferta do CSP; Na prática, isso significa, por meio do Centro de parceiros. Se um cliente tiver mais de um locatário do Active Directory do Azure, essa assinatura deve ser criada no locatário que será usado para fazer logon na pilha do Azure.
 | resourceGroup | O grupo de recursos no Azure no qual o registro está armazenado. 
 | registrationName | O nome do registro de pilha do Azure. É um objeto armazenado no Azure. | 
+| propriedades | Especifica as propriedades do recurso. Use esse parâmetro para especificar os valores das propriedades que são específicas para o tipo de recurso.
 
 
 > [!Note]  
