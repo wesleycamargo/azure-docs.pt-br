@@ -3,24 +3,24 @@ documentType: LandingData
 title: Documentação do Armazenamento do Azure
 metadata:
   title: Documentação do Armazenamento do Azure - Tutoriais, Referência de API | Microsoft Docs
-  description: O Armazenamento do Azure é um serviço de nuvem gerenciado pela Microsoft que fornece um armazenamento altamente disponível, seguro, durável, escalonável e redundante. O Armazenamento do Microsoft Azure consiste no armazenamento de Blobs, armazenamento de Arquivos e armazenamento de Filas.
+  description: O Armazenamento do Azure é um serviço de nuvem gerenciado pela Microsoft que fornece um armazenamento altamente disponível, seguro, durável, escalonável e redundante. O Armazenamento do Azure inclui Blobs do Azure, Armazenamento do Azure Data Lake Gen2, Arquivos, Filas e Tabelas do Azure.
   services: storage
   author: tamram
-  manager: jeconnoc
+  manager: twooley
   ms.service: storage
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/18/2018
+  ms.date: 06/27/2018
   ms.author: tamram
-  ms.openlocfilehash: 0e8c2b7048ff9e59612e13a87506bf1209036ca6
-  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+  ms.openlocfilehash: a2254967a9f7338e29105682ea6d496271bbbe75
+  ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/19/2018
-  ms.locfileid: "36266664"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37030284"
 abstract:
-  description: Armazenamento do Microsoft Azure é um serviço de nuvem gerenciado pela Microsoft que fornece armazenamento altamente disponível, seguro, durável, escalonável e redundante. O Armazenamento do Microsoft Azure consiste no armazenamento de Blobs, armazenamento de Arquivos e armazenamento de Filas.  Saiba como usar o Armazenamento do Microsoft Azure em seus aplicativos com tutoriais e guias de início rápido.
+  description: O Armazenamento do Azure é um serviço gerenciado pela Microsoft que fornece um armazenamento na nuvem altamente disponível, seguro, durável, escalonável e redundante. O Armazenamento do Azure inclui Blobs (objetos) do Azure, Armazenamento do Azure Data Lake Gen2, Arquivos, Filas e Tabelas do Azure. Saiba como usar o Armazenamento do Microsoft Azure em seus aplicativos com tutoriais e guias de início rápido.
 sections:
 - title: Guia de início rápido de 5 minutos
   items:
@@ -65,30 +65,25 @@ sections:
       - href: /azure/storage/blobs/storage-quickstart-blobs-java
       - href: /azure/storage/blobs/storage-quickstart-blobs-python
       - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
+    - title: Armazenamento do Data Lake Gen2
+      values:
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-the-azure-portal
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-powershell
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-azure-cli
+      - href: 
+      - href: 
+      - href: 
+      - href: 
 - title: Tutoriais Passo a Passo
   items:
-  - type: paragraph
-    text: Saiba como carregar e processar dados de imagem na nuvem.
   - type: list
-    style: unordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="/azure/storage/blobs/storage-upload-process-images">Carregar e recuperar dados de imagem na nuvem</a>
-    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Disparar o Azure Functions para processar blobs</a>
-    - html: <a href="/azure/storage/blobs/storage-secure-access-application">Proteger dados do aplicativo</a>
-    - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitorar e solucionar problemas de armazenamento</a>
-  - type: paragraph
-    text: Saiba como criar seu aplicativo para alta disponibilidade no Armazenamento do Azure.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Torne os dados do aplicativo altamente disponíveis</a>
-    - html: <a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simular uma falha ao acessar o armazenamento redundante com acesso de leitura</a>
-  - type: paragraph
-    text: Saiba como pesquisar os dados não estruturados no Armazenamento do Azure.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-unstructured-search">Pesquisar dados não estruturados no armazenamento em nuvem</a>
+    - title: Blobs
+      html: <p>Carregar e processar dados de imagem na nuvem</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">Carregar e recuperar dados de imagem na nuvem</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Disparar o Azure Functions para processar blobs</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">Proteger dados do aplicativo</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitorar e solucionar problemas de armazenamento</a></li></ul><p>Projetar aplicativo para a alta disponibilidade</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Torne os dados do aplicativo altamente disponíveis</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simular uma falha ao acessar o armazenamento redundante com acesso de leitura</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">Pesquisar dados não estruturados no Armazenamento do Azure</a></p>
+    - title: Armazenamento do Data Lake Gen2
+      html: <p><a href="/azure/storage/data-lake-storage/handle-data-using-databricks">Extrair, transformar e carregar dados usando o Azure Databricks</a></p><p><a href="/azure/storage/data-lake-storage/using-databricks-spark">Acessar dados de Armazenamento do Azure Data Lake Gen2 com DataBricks usando o Spark</a></p><p><a href="/azure/storage/data-lake-storage/tutorial-extract-transform-load-hive">Extrair, transformar e carregar dados usando o Apache Hive no HDInsight do Azure</a></p>
 - title: Exemplos
   items:
   - type: paragraph

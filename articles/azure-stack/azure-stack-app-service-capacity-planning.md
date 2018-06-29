@@ -12,20 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 06/28/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 8926955d5e0260b5971e07b6988bb21df9980847
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f54481fe59df21b500ee860d1e9a202ed32bdd87
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29388576"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097141"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planejamento de capacidade para funções de servidor do serviço de aplicativo do Azure na pilha do Azure
+
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Para provisionar uma implantação de produção pronto de serviço de aplicativo do Azure na pilha do Azure, você deve planejar a capacidade que você espera que o sistema ofereça suporte.  Aqui está a orientação sobre o número mínimo de instâncias e computação SKUs, você deve usar para qualquer implantação de produção.
+Para configurar uma implantação de produção pronto de serviço de aplicativo do Azure na pilha do Azure, você deve planejar a capacidade que você espera que o sistema ofereça suporte.  
+
+Este artigo fornece orientações para o número mínimo de instâncias de computação e computação SKUs, você deve usar para qualquer implantação de produção.
 
 Você pode planejar sua estratégia de capacidade do serviço de aplicativo usando essas diretrizes. Versões futuras da pilha do Azure fornecerá opções de alta disponibilidade para serviço de aplicativo.
 
@@ -52,23 +55,24 @@ O Front-End encaminha solicitações para Web Workers dependendo da disponibilid
 
 ## <a name="management-role"></a>Função de gerenciamento
 
-**Mínimo recomendado**: duas instâncias de A3
+**Mínimo recomendado**: duas instâncias do padrão A3
 
 A função de gerenciamento de serviço de aplicativo do Azure é responsável pelo aplicativo de serviço do Azure Resource Manager e pontos de extremidade de API, extensões portais (administrador, locatário, portal de funções) e o serviço de dados. A função de servidor de gerenciamento normalmente requer somente sobre 4 GB de RAM em um ambiente de produção. No entanto, ela pode apresentar níveis altos de consumo da CPU quando muitas tarefas de gerenciamento (como a criação de site da web) são executadas. Para alta disponibilidade, você deve ter mais de um servidor atribuído a essa função e, pelo menos dois núcleos pelo servidor.
 
 ## <a name="publisher-role"></a>Função de editor
 
-**Mínimo recomendado**: duas instâncias de A1
+**Mínimo recomendado**: duas instâncias de A1 padrão
 
-Se vários usuários estiverem publicando simultaneamente, a função publicador poderá apresentar grande utilização da CPU. Para alta disponibilidade, disponibilize mais de uma função do publicador.  O publicador só trata do tráfego FTP/FTPS.
+Se vários usuários estiverem publicando simultaneamente, a função publicador poderá apresentar uso intenso de CPU. Para alta disponibilidade, disponibilize mais de uma função do publicador.  O publicador só trata do tráfego FTP/FTPS.
 
 ## <a name="web-worker-role"></a>Função Web worker
 
-**Mínimo recomendado**: duas instâncias de A1
+**Mínimo recomendado**: duas instâncias de A1 padrão
 
-Para alta disponibilidade, você deve ter pelo menos quatro funções Web Worker, duas para o modo de site compartilhado e duas para cada camada de trabalhador dedicado que pretende oferecer. Os modos de computação dedicado e compartilhado fornecem níveis diferentes de serviço para locatários. Se você tiver muitos clientes, talvez seja necessário mais Web Workers:
- - usar camadas de trabalhador de modo de computação dedicado (que fazem uso intensivo de recursos)
- - em execução no modo de computação compartilhada.
+Para alta disponibilidade, você deve ter pelo menos quatro funções Web Worker, duas para o modo de site compartilhado e duas para cada camada de trabalhador dedicado que pretende oferecer. Os modos de computação dedicado e compartilhado fornecem níveis diferentes de serviço para locatários. Talvez seja necessário mais Web Workers se muitos clientes são:
+
+- Usar camadas de trabalhador de modo de computação dedicado (que fazem uso intensivo de recursos).
+- Em execução no modo de computação compartilhada.
 
 Depois que um usuário tenha criado um plano de serviço de aplicativo para um modo de computação dedicado SKU, o número de Web Workers especificado em que o plano de serviço de aplicativo não estará disponível para os usuários.
 
@@ -78,8 +82,8 @@ Ao decidir sobre o número de funções de Web Worker compartilhadas para usar, 
 
 - **Memória**: memória é o recurso mais importante para a função Web Worker. Memória insuficiente afeta o desempenho do site quando a memória virtual é alternada de disco. Cada servidor requer aproximadamente 1,2 GB de RAM para o sistema operacional. RAM acima desse limite pode ser usado para executar sites.
 - **Porcentagem de sites ativos**: normalmente, cerca de 5 por cento dos aplicativos em um serviço de aplicativo do Azure na implantação da pilha do Azure estão ativos. No entanto, a porcentagem de aplicativos que estão ativos a qualquer momento pode ser maior ou menor. Com uma taxa de aplicativo ativa de 5 por cento, o número máximo de aplicativos para colocar em um serviço de aplicativo do Azure na implantação do Azure pilha deve ser menor que:
-    - 20 vezes o número de sites ativos (5 x 20 = 100).
-- **Superfície média de memória**: A superfície média de memória para aplicativos observada em ambientes de produção é de aproximadamente 70 MB. Portanto, a memória alocada em todos os computadores com função Web Worker ou máquinas virtuais pode ser calculada da seguinte maneira:
+  - 20 vezes o número de sites ativos (5 x 20 = 100).
+- **Superfície média de memória**: A superfície média de memória para aplicativos observada em ambientes de produção é de aproximadamente 70 MB. Usando esse espaço, a memória alocada em todos os computadores com função Web Worker ou máquinas virtuais pode ser calculada da seguinte maneira:
 
     *Número de aplicativos provisionado * 70 MB * 5% - (número de funções Web Worker * 1044 MB)*
 
@@ -91,14 +95,17 @@ Ao decidir sobre o número de funções de Web Worker compartilhadas para usar, 
 
 ## <a name="file-server-role"></a>Função de servidor de arquivos
 
-Para a função de servidor de arquivos, você pode usar um servidor de arquivos autônomo para desenvolvimento e teste, por exemplo, ao implantar o serviço de aplicativo do Azure no Kit de desenvolvimento de pilha do Azure você pode usar esse modelo - https://aka.ms/appsvconmasdkfstemplate. Para fins de produção, você deve usar um servidor de arquivos pré-configurado do Windows ou um servidor de arquivos não Windows pré-configurado.
+Para a função de servidor de arquivos, você pode usar um servidor de arquivos autônomo para desenvolvimento e teste, por exemplo, ao implantar o serviço de aplicativo do Azure no Kit de desenvolvimento de pilha do Azure você pode usar esse modelo - <https://aka.ms/appsvconmasdkfstemplate>. Para fins de produção, você deve usar um servidor de arquivos pré-configurado do Windows ou um servidor de arquivos não Windows pré-configurado.
 
 Em ambientes de produção, a função de servidor de arquivos apresenta e/s intensiva de disco. Como ela abriga todo os conteúdo e arquivos de aplicativo para sites de usuário, você deve pré-configurar um destes procedimentos para esta função:
+
 - um servidor de arquivos do Windows
-- Cluster de servidor de arquivos
+- um Cluster de servidor de arquivos do Windows
 - um servidor de arquivos não-Windows
-- cluster de servidor de arquivos
-- Dispositivo NAS (Network Attached Storage) para obter mais informações, consulte [provisionar um servidor de arquivos](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+- um cluster de servidor de arquivos de não-Windows
+- um dispositivo NAS (Network Attached Storage)
+
+Para obter mais informações, consulte [provisionar um servidor de arquivos](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Próximas etapas
 

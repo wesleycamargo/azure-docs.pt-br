@@ -5,62 +5,38 @@
 - name: Visão geral
   items:
     - name: Sobre o Azure IoT Edge
-      href: how-iot-edge-works.md
+      href: about-iot-edge.md
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Implantar para o edge - Linux
+    - name: Implantar código para um dispositivo do Linux
       href: quickstart-linux.md
-    - name: Implantar a borda - Windows
+    - name: Implantar código para um dispositivo do Windows
       href: quickstart.md
 - name: Tutoriais
   items:
-    - name: Simular um dispositivo do Edge - Linux/Mac
-      href: tutorial-simulate-device-linux.md
-    - name: Simular um dispositivo de borda - Windows
-      href: tutorial-simulate-device-windows.md
-    - name: Implantar o código em um módulo
+    - name: Encontrar informações na borda
       items:
-        - name: 'C#'
-          href: tutorial-csharp-module.md
-        - name: Python
-          href: tutorial-python-module.md
-    - name: Implantar o Azure Stream Analytics
-      href: tutorial-deploy-stream-analytics.md
-    - name: Implantar o Azure Machine Learning
-      href: tutorial-deploy-machine-learning.md
-    - name: Implantar o Azure Functions
-      href: tutorial-deploy-function.md
-- name: Guias de instruções
-  items:
-    - name: Criar gateways
-      items:
-        - name: Criar um gateway transparente
-          href: how-to-create-transparent-gateway.md
-        - name: Gateway do Modbus
-          href: deploy-modbus-gateway.md
-    - name: Usar a extensão de IoT para a CLI do Azure 2.0
-      href: tutorial-create-deployment-with-cli-iot-extension.md
-    - name: Implantar e monitorar em escala
-      href: how-to-deploy-monitor.md
-    - name: Provisionar um dispositivo do IoT Core
-      href: how-to-install-iot-core.md
-    - name: Usar o VS Code para desenvolver soluções do IoT Edge
-      items:
-        - name: Trabalhar com vários módulos
-          href: tutorial-multiple-modules-in-vscode.md
-        - name: 'Depurar módulo de C#'
-          href: how-to-vscode-debug-csharp-module.md
-        - name: Depurar Azure Functions
-          href: how-to-vscode-debug-azure-function.md
-    - name: CI/CD no VSTS
-      href: how-to-ci-cd.md
-    - name: Armazenar dados na borda
-      href: sql-storage.md
-    - name: Solucionar problemas
-      href: troubleshoot.md
+        - name: Filtrar dados com o Azure Functions
+          href: tutorial-deploy-function.md
+        - name: Encontrar médias com ASA
+          href: tutorial-deploy-stream-analytics.md
+        - name: Pontuar dados com o Azure ML
+          href: tutorial-deploy-machine-learning.md
+        - name: Filtrar dados com código personalizado
+          items:
+            - name: 'C#'
+              href: tutorial-csharp-module.md
+            - name: Python
+              href: tutorial-python-module.md
+            - name: Node.js
+              href: tutorial-node-module.md
+    - name: Armazenar dados localmente com o SQL
+      href: tutorial-store-data-sql-server.md
 - name: Conceitos
   items:
+    - name: Tempo de execução do IoT Edge
+      href: iot-edge-runtime.md
     - name: Módulos do IoT Edge
       href: iot-edge-modules.md
       items:
@@ -70,16 +46,76 @@
           href: module-composition.md
         - name: Propriedades de hub e agente de borda
           href: module-edgeagent-edgehub.md
-    - name: Tempo de execução do IoT Edge
-      href: iot-edge-runtime.md
     - name: Implantações
       href: module-deployment-monitoring.md
     - name: Dispositivo do IoT Edge como um gateway
       href: iot-edge-as-gateway.md
     - name: Segurança
       href: security.md
+    - name: Suporte à plataforma
+      href: support.md
     - name: Glossário do IoT Edge
       href: iot-edge-glossary.md
+- name: Guias de instruções
+  items:
+    - name: Registrar um dispositivo Edge
+      items:
+        - name: Portal do Azure
+          href: how-to-register-device-portal.md
+        - name: CLI do Azure
+          href: how-to-register-device-cli.md
+        - name: Visual Studio Code
+          href: how-to-register-device-vscode.md
+    - name: Instalar execução do IoT Edge
+      items:
+        - name: No dispositivo Linux X64
+          href: how-to-install-iot-edge-linux.md
+        - name: No dispositivo Linux ARM32
+          href: how-to-install-iot-edge-linux-arm.md
+        - name: No Windows com contêineres do Windows
+          href: how-to-install-iot-edge-windows-with-windows.md
+        - name: No Windows com contêineres do Linux
+          href: how-to-install-iot-edge-windows-with-linux.md
+    - name: Desenvolver e depurar módulos
+      items:
+        - name: 'C#'
+          href: how-to-develop-csharp-module.md
+        - name: Node.js
+          href: how-to-develop-node-module.md
+        - name: Funções do Azure
+          href: how-to-develop-csharp-function.md
+        - name: Desenvolver módulos múltiplos
+          href: how-to-develop-multiple-modules-vscode.md
+        - name: Depurar módulos múltiplos
+          href: how-to-debug-multiple-modules-vscode.md
+    - name: Implantar módulos
+      items:
+        - name: Portal do Azure
+          href: how-to-deploy-modules-portal.md
+        - name: CLI do Azure
+          href: how-to-deploy-modules-cli.md
+        - name: Visual Studio Code
+          href: how-to-deploy-modules-vscode.md
+    - name: Implantar e monitorar em escala
+      items:
+        - name: Portal do Azure
+          href: how-to-deploy-monitor.md
+        - name: CLI do Azure
+          href: how-to-deploy-monitor-cli.md
+    - name: Usar dispositivos Edge como gateways
+      items:
+        - name: Gateway transparente (Linux)
+          href: how-to-create-transparent-gateway-linux.md
+        - name: Gateway transparente (Windows)
+          href: how-to-create-transparent-gateway-windows.md
+        - name: Gateway de protocolo Modbus
+          href: deploy-modbus-gateway.md
+    - name: Provisionar um dispositivo do IoT Core
+      href: how-to-install-iot-core.md
+    - name: CI/CD no VSTS
+      href: how-to-ci-cd.md
+    - name: Solucionar problemas
+      href: troubleshoot.md
 - name: Relacionados
   items:
     - name: Soluções
@@ -114,6 +150,10 @@
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Azure IoT Edge para VS Code
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge'
+    - name: Kit de ferramentas do Azure IoT para VS Code
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit'
     - name: ferramenta DeviceExplorer
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: ferramenta iothub-diagnostics

@@ -38,6 +38,7 @@
 #### [Tarefa 3: habilitar o LDAP seguro para o domínio gerenciado usando o portal do Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Criar uma UO em um domínio gerenciado](active-directory-ds-admin-guide-create-ou.md)
+### [Criar uma conta de serviço gerenciada do grupo em um domínio gerenciado](active-directory-ds-create-gmsa.md)
 ### [Administrar a política de grupo em um domínio gerenciado](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Selecionar uma rede virtual](active-directory-ds-networking.md)
 ## Implantar aplicativos

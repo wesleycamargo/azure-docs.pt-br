@@ -126,6 +126,10 @@
               href: service-bus-amqp-request-response.md
         - name: Recursos avançados
           items:
+            - name: Filtros IP de conexão
+              href: service-bus-ip-filtering.md
+            - name: Pontos de extremidade de serviço de Rede Virtual
+              href: service-bus-service-endpoints.md
             - name: Filas de mensagens mortas
               href: service-bus-dead-letter-queues.md
             - name: Mensagens de pré-busca

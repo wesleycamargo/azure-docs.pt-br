@@ -1,0 +1,72 @@
+- name: Documentação do Armazenamento do Azure
+  href: /azure/storage/
+- name: Trocar para documentação do Armazenamento do Data Lake Gen1
+  href: /azure/data-lake-store/
+- name: Visão geral
+  items:
+    - name: Introdução
+      href: introduction.md
+- name: Guia de início rápido
+  items:
+    - name: Criar uma conta de armazenamento compatível com Gen2 de Armazenamento do Data Lake
+      href: quickstart-create-account.md
+    - name: Criar/conectar conta Databricks
+      href: quickstart-create-databricks-account.md
+    - name: Crie um cluster HDInsight
+      href: quickstart-create-connect-hdi-cluster.md
+- name: Tutoriais
+  items:
+    - name: 'Extrair, transformar e carregar dados usando o Azure Databricks'
+      href: handle-data-using-databricks.md
+    - name: Acessar dados de Armazenamento do Data Lake com DataBricks usando o Spark
+      href: using-databricks-spark.md
+    - name: 'Extrair, transformar e carregar dados usando o Apache Hive no Azure HDInsight'
+      href: tutorial-extract-transform-load-hive.md
+- name: Conceitos
+  items:
+    - name: Driver do Sistema de Arquivos de Blob do Azure para Hadoop
+      href: abfs-driver.md
+    - name: Introdução ao URI do Sistema de Arquivos de Blob do Azure
+      href: introduction-abfs-uri.md
+    - name: Serviço de Namespace Hierárquico
+      href: namespace.md
+    - name: Segurança
+      items:
+        - name: Criptografia para dados em repouso
+          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+        - name: Criptografia para dados em repouso com chaves do cliente
+          href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+    - name: Avaliação do Armazenamento do Data Lake Gen2
+      href: evaluation.md
+- name: Guias de instruções
+  items:
+    - name: Usar o Armazenamento do Data Lake Gen2 com clusters do Azure HDInsight
+      href: use-hdi-cluster.md
+    - name: Usar a CLI do Sistema de Arquivos do Hadoop com o Armazenamento do Data Lake Gen2
+      href: use-hdfs-data-lake-storage.md
+    - name: Ingestão de dados
+      items:
+        - name: Copiar dados para o Armazenamento do Data Lake Gen2 usando Distcp
+          href: use-distcp.md
+        - name: Copiar dados para o Armazenamento do Data Lake Gen2 usando Azure Data Factory
+          href: ../../data-factory/load-azure-data-lake-storage-gen2.md
+    - name: Conectar Azure Databricks
+      href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=storage'
+    - name: Ferramentas de cliente do Armazenamento do Microsoft Azure
+      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+    - name: Fórum
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/storage/data-lake/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=storage'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'

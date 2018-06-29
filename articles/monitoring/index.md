@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento do Azure - monitoramento | Microsoft Docs
-description: O Azure tem vários serviços e ferramentas que funcionam em conjunto para fornecer gerenciamento completo para não apenas os aplicativos em execução no Azure, mas também em outras nuvens e locais.  Este artigo fornece uma descrição de alto nível das diferentes áreas do gerenciamento e links para conteúdo em ferramentas do Azure para gerenciar seus aplicativos em nuvem e recursos.
+title: Gerenciamento do Azure e Operations Management Suite (OMS) | Microsoft Docs
+description: Visão geral das áreas de gerenciamento de aplicativos do Azure e recursos com links para conteúdo sobre ferramentas de gerenciamento do Azure que foram anteriormente empacotadas como Operations Management Suite (OMS).
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8598e3528aa0a9fb171853e5f6554346ace937ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410287"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059943"
 ---
 # <a name="azure-management---monitoring"></a>Gerenciamento do Azure - monitoramento
 

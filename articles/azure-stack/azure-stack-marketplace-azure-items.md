@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 826daae9c5d9cf5cd169651ab8603cef938e6482
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 48723a68fcad79ab7c4c670da78c95de3ea5868f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030029"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100531"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Marketplace do Azure disponíveis para a pilha do Azure
 
@@ -204,7 +204,7 @@ A pilha do Microsoft Azure oferece suporte a máquinas virtuais a seguir Azure M
 | ![Fórum de máquinas simples](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Fórum de máquinas simples](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Software de fórum simples para criar sua comunidade online. | Bitnami |
 | ![Spree](media/azure-stack-marketplace-azure-items/spree.png) | [Contato](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.spree) | Plataforma de comércio eletrônico de fácil de usar. | Bitnami |
 | ![Subversion](media/azure-stack-marketplace-azure-items/subversion.png) | [Subversão](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.subversion) | Sistema de controle de versão do código-fonte aberto. | Bitnami |
-| ![SugarCRM](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.sugarcrm) | Solução de gerenciamento de relacionamento do cliente flexível. | Bitnami |
+| ![SugarCRM](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/marketplace/apps/aad.sugarcrm) | Solução de gerenciamento de relacionamento do cliente flexível. | Bitnami |
 | ![SuiteCRM](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.suitecrm) | Aplicativos populares de CRM de nível empresarial. | Bitnami |
 | ![TestLink](media/azure-stack-marketplace-azure-items/testlink.png) | [TestLink](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.testlink) | Testar o software de gerenciamento facilita a garantia de qualidade. | Bitnami |
 | ![O tiki Wiki CMS Groupware](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [O tiki Wiki CMS Groupware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tikiwikicmsgroupware) | Wiki repleto de plataforma. | Bitnami |
@@ -233,5 +233,5 @@ A pilha do Microsoft Azure oferece suporte a máquinas virtuais a seguir Azure M
 | ![Firewall do aplicativo PT](media/azure-stack-marketplace-azure-items/pt.png) | [Firewall do aplicativo PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Firewall do aplicativo PT detecta vulnerabilidades conhecidas & desconhecidas e impede ataques em aplicativos web. <b>Baixe os dois itens do Marketplace PT.</b> | Tecnologias positivas |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise permite automatizar o ciclo de vida de sua infraestrutura de pilha do Azure. <b>Baixe os dois itens do Marketplace do Puppet.</b> | Puppet |
 | ![Recuperação rápida de busca](media/azure-stack-marketplace-azure-items/quest.png) | [Núcleo de recuperação rápida de busca](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Recuperação rápida proteção de dados avançada unifica o backup, a replicação e a recuperação em uma solução de software fácil de usar. | Busca Software |
-| ![Proxy de Gerenciador de 3.0 SUSE (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [Proxy de Gerenciador de 3.0 SUSE (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Gerenciamento de infraestrutura do código-fonte aberto no melhor. | SUSE |
+| ![Proxy de Gerenciador de 3.0 SUSE (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [Proxy de Gerenciador de 3.0 SUSE (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | Gerenciamento de infraestrutura do código-fonte aberto no melhor. | SUSE |
 | ![Ferramenta de Software ZeroDown](media/azure-stack-marketplace-azure-items/zerodown.png) | [Ferramenta de Software ZeroDown ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | V 7.1 ferramenta de Software ZeroDown - migrar + HA. | ZeroDown Software |

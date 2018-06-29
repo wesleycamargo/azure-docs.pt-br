@@ -271,7 +271,7 @@
     - name: Data Lake Analytics
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
-    - name: Data Lake Store
+    - name: Armazenamento do Data Lake Gen1
       tocHref: /azure/data-lake-store/
       topicHref: /azure/data-lake-store/
     - name: Laboratório de Desenvolvimento/Teste
@@ -311,7 +311,7 @@
         - name: Segurança do Enterprise
           tocHref: /azure/hdinsight/domain-joined
           topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
-        - name: Servidor R
+        - name: ML Services
           tocHref: /azure/hdinsight/r-server
           topicHref: /azure/hdinsight/r-server-overview
         - name: Spark
@@ -518,6 +518,9 @@
         - name: Blobs
           tocHref: /azure/storage/blobs/
           topicHref: /azure/storage/blobs/storage-blobs-introduction
+        - name: Armazenamento do Data Lake Gen2
+          tocHref: /azure/storage/data-lake-storage-gen2/
+          topicHref: /azure/storage/data-lake-storage/introduction
         - name: Arquivos
           tocHref: /azure/storage/files/
           topicHref: /azure/storage/files/storage-files-introduction
