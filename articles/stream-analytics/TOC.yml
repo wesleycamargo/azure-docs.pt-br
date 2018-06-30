@@ -127,8 +127,6 @@
           href: stream-analytics-job-diagram-with-metrics.md
         - name: Logs de diagnóstico
           href: stream-analytics-job-diagnostic-logs.md
-        - name: Verificar integridade do recurso
-          href: stream-analytics-resource-health.md
         - name: Instrução SELECT INTO
           href: stream-analytics-select-into.md
         - name: Receptores de Hub de eventos
