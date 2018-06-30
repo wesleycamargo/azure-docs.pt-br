@@ -269,6 +269,8 @@
               href: azure-stack-app-service-release-notes-update-one.md
             - name: Serviço de aplicativo em notas de versão de atualização 2 de pilha do Azure
               href: azure-stack-app-service-release-notes-update-two.md
+        - name: Implantar Ethereum
+          href: azure-stack-ethereum.md
         - name: Preencher o marketplace
           items:
             - name: Visão geral do Marketplace

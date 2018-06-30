@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 06/29/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: d7384d8d1d8c0378e1a9dd68a4f7b71196330b8e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 0992846416ce77bccd23fda73f61568eb61c33fb
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736687"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127628"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure pilha datacenter integração - publicar pontos de extremidade
 A pilha do Azure configura endereços IP virtuais (VIPs) para suas funções de infraestrutura. Esses VIPs são alocados do pool de endereços IP público. Cada VIP é protegida com uma lista de controle de acesso (ACL) na camada de rede definida pelo software. As ACLs também são usadas entre os comutadores físicos (tes e BMC) para proteger ainda mais a solução. Uma entrada de DNS é criada para cada ponto de extremidade na zona de DNS externo especificado no momento da implantação.
@@ -56,6 +56,8 @@ A infraestrutura interna VIPs não são listados porque eles não são necessár
 |  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
 |  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Gerenciador de recursos do azure)|
 |  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-101000 (FTP)<br>990 (FTPS)|
+|Gateways VPN|     |     |[Consulte as perguntas Frequentes do gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
+|     |     |     |     |
 
 ## <a name="ports-and-urls-outbound"></a>Portas e URLs (saídas)
 
@@ -70,6 +72,9 @@ Pilha do Azure oferece suporte somente a servidores de proxy transparente. Em um
 |Registro|https://management.azure.com|HTTPS|443|
 |Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.NET|HTTPS|443|
 |O Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
+|NTP|     |UDP|123|
+|DNS|     |TCP<br>UDP|53|
+|     |     |     |     |
 
 
 

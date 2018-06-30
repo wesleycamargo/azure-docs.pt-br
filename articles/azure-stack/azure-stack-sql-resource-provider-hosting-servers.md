@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/29/2018
 ms.author: jeffgilb
-ms.openlocfilehash: af820f90c5d8822dbdaa768b16360d534fd47828
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 74d888ffe28e5428b47bfc73122518c22d0f0918
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060035"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128700"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do SQL
 
@@ -121,7 +121,8 @@ Configurar instâncias do SQL Always On requer etapas adicionais e requer três 
 > [!NOTE]
 > O provedor de recursos do adaptador SQL _somente_ oferece suporte a SQL 2016 SP1 Enterprise ou posterior instâncias para AlwaysOn. Essa configuração de adaptador requer novos recursos do SQL, como a propagação automática.
 
-Além disso, você deve habilitar [a propagação automática](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) em cada grupo de disponibilidade para cada instância do SQL Server.
+### <a name="automatic-seeding"></a>Propagação automática
+Você deve habilitar [a propagação automática](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) em cada grupo de disponibilidade para cada instância do SQL Server.
 
 Para habilitar a propagação automática em todas as instâncias, editar e, em seguida, execute o seguinte comando SQL para cada instância do:
 
@@ -136,6 +137,18 @@ Sobre as instâncias secundárias, editar e, em seguida, execute o seguinte coma
 
   ```
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
+
+### <a name="configure-contained-database-authentication"></a>Configurar a autenticação de banco de dados independente
+Antes de adicionar um banco de dados independente a um grupo de disponibilidade, certifique-se de que a opção de servidor de autenticação de banco de dados independente é definida como 1 em cada instância de servidor que hospeda uma réplica de disponibilidade do grupo de disponibilidade. Para obter mais informações, consulte [opção de configuração de servidor contained database authentication](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+
+Use esses comandos para definir a opção de servidor de autenticação de banco de dados independente para cada instância do:
+
+  ```
+  EXEC sp_configure 'contained database authentication', 1
+  GO
+  RECONFIGURE
   GO
   ```
 

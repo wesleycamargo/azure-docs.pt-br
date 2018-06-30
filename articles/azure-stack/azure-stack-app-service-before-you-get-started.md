@@ -14,62 +14,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: anwestg
-ms.openlocfilehash: ae21a7cc5c38fefd40a2676e15308b027c6f95d5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 37d6ee2f047768f08ea7a113b7d97911d58a46e2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796726"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110568"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de iniciar o serviço de aplicativo na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-> [!IMPORTANT]
-> Aplicar a atualização 1804 a seu sistema de pilha do Azure integradas ou implantar o kit de desenvolvimento de pilha do Azure mais recente antes de implantar 1.2 de serviço de aplicativo do Azure.
->
->
+Antes de implantar o serviço de aplicativo do Azure na pilha do Azure, você deve concluir as etapas de pré-requisito neste artigo.
 
-Antes de implantar o serviço de aplicativo do Azure na pilha do Azure, você deve concluir os pré-requisitos neste artigo.
+> [!IMPORTANT]
+> Aplicar a atualização 1804 a seu sistema de pilha do Azure integradas ou implantar o Kit de desenvolvimento de pilha de Azure mais recente (ASDK) antes de implantar 1.2 de serviço de aplicativo do Azure.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Baixe os scripts do instalador e auxiliar
 
 1. Baixe o [do serviço de aplicativo em scripts de auxiliar de implantação do Azure pilha](https://aka.ms/appsvconmashelpers).
 2. Baixe o [do serviço de aplicativo no instalador do Azure pilha](https://aka.ms/appsvconmasinstaller).
-3. Extraia os arquivos do arquivo. zip de scripts de auxiliar. A estrutura de pastas e arquivos a seguir aparecem:
+3. Extraia os arquivos do arquivo. zip de scripts de auxiliar. Os seguintes arquivos e pastas são extraídas:
+
    - Common.ps1
    - Create-AADIdentityApp.ps1
    - Create-ADFSIdentityApp.ps1
    - Create-AppServiceCerts.ps1
    - Get-AzureStackRootCert.ps1
    - Remove-AppService.ps1
-   - Módulos
+   - Pasta de módulos
      - GraphAPI.psm1
 
 ## <a name="high-availability"></a>Alta disponibilidade
 
-Devido à versão 1802 da pilha do Azure, que adicionou suporte para domínios de falha, novas implantações de serviço de aplicativo do Azure na pilha do Azure serão distribuídas em domínios de falha e fornecem tolerância a falhas.  Para as implantações existentes do serviço de aplicativo do Azure na pilha do Azure, que foram implantadas antes do lançamento da atualização 1802, consulte o [documentação](azure-stack-app-service-fault-domain-update.md) como rebalancear a implantação.
+A atualização do Azure pilha 1802 adicionado suporte para domínios de falha. Novas implantações de serviço de aplicativo do Azure na pilha do Azure serão distribuídas em domínios de falha e fornecem tolerância a falhas.
 
-Além disso, serviço de aplicativo do Azure na pilha do Azure para alta disponibilidade, implantar o servidor de arquivos necessários e a instância do SQL Server em uma configuração altamente disponível.
+Para as implantações existentes do serviço de aplicativo do Azure na pilha do Azure, que foram implantadas antes da atualização 1802, consulte o [reequilibrar um provedor de recursos do serviço de aplicativo em domínios de falha](azure-stack-app-service-fault-domain-update.md) artigo.
+
+Além disso, implante o servidor de arquivos necessários e instâncias do SQL Server em uma configuração altamente disponível.
 
 ## <a name="get-certificates"></a>Obter certificados
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Certificado de raiz de Gerenciador de recursos do Azure para a pilha do Azure
 
-Em uma sessão do PowerShell executando como azurestack\CloudAdmin em um computador, o que pode alcançar o ponto de extremidade com privilégios no sistema integrado de pilha do Azure ou Host de Kit de desenvolvimento de pilha do Azure, execute o script Get-AzureStackRootCert.ps1 da pasta onde você extraiu os scripts de auxiliar. O script cria um certificado raiz na mesma pasta que o script que precisa para criar certificados de serviço de aplicativo.
+Abra uma sessão do PowerShell com privilégios elevados em um computador que pode acessar o ponto de extremidade com privilégios no sistema integrado de pilha do Azure ou Host de Kit de desenvolvimento de pilha do Azure.
+
+Execute o *Get-AzureStackRootCert.ps1* script da pasta onde você extraiu os scripts de auxiliar. O script cria um certificado raiz na mesma pasta que o script que precisa para criar certificados de serviço de aplicativo.
+
+Quando você executar o seguinte comando do PowerShell, você terá que fornecer o ponto de extremidade com privilégios e as credenciais para o AzureStack\CloudAdmin.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
 ```
+
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Parâmetros do script Get-AzureStackRootCert.ps1
 
 | Parâmetro | Obrigatório ou opcional | Valor padrão | DESCRIÇÃO |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Obrigatório | AzS-ERCS01 | Ponto de extremidade com privilégios |
 | CloudAdminCredential | Obrigatório | AzureStack\CloudAdmin | Credencial da conta de domínio para que os administradores de nuvem de pilha do Azure |
 
-### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Certificados necessários para o Kit de desenvolvimento de pilha do Azure
+### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Certificados necessários para a implantação de ASDK de serviço de aplicativo do Azure
 
-O primeiro script funciona com a autoridade de certificação de pilha do Azure para criar quatro certificados que precisa do serviço de aplicativo:
+O *AppServiceCerts.ps1 criar* script funciona com a autoridade de certificação de pilha do Azure para criar quatro certificados que precisa do serviço de aplicativo.
 
 | Nome do arquivo | Uso |
 | --- | --- |
@@ -78,29 +85,32 @@ O primeiro script funciona com a autoridade de certificação de pilha do Azure 
 | ftp.appservice.local.azurestack.external.pfx | Certificado SSL do fornecedor de serviço de aplicativo |
 | sso.appservice.local.azurestack.external.pfx | Certificado do aplicativo de identidade de serviço de aplicativo |
 
-Execute o script no host do Kit de desenvolvimento de pilha do Azure e certifique-se de que você está executando o PowerShell como azurestack\CloudAdmin:
+Para criar os certificados, siga estas etapas:
 
-1. Em uma sessão do PowerShell executando como azurestack\AzureStackAdmin, execute o script de criação AppServiceCerts.ps1 da pasta onde você extraiu os scripts de auxiliar. O script cria quatro certificados na mesma pasta que o script que precisa para criar certificados de serviço de aplicativo.
-2. Insira uma senha para proteger os arquivos. pfx e anote-lo. Você deve inseri-lo no serviço de aplicativo no instalador de pilha do Azure.
+1. Entrar para o host do Kit de desenvolvimento de pilha do Azure usando a conta AzureStack\AzureStackAdmin.
+2. Abra uma sessão do PowerShell com privilégios elevados.
+3. Execute o *AppServiceCerts.ps1 criar* script da pasta onde você extraiu os scripts de auxiliar. Esse script cria quatro certificados na mesma pasta que o script que precisa para criar certificados de serviço de aplicativo.
+4. Insira uma senha para proteger os arquivos. pfx e anote-lo. Será necessário inseri-los no serviço de aplicativo no instalador de pilha do Azure.
 
-#### <a name="create-appservicecertsps1-parameters"></a>AppServiceCerts.ps1 criar parâmetros
-
-```PowerShell
-    Create-AppServiceCerts.ps1
-```
+#### <a name="create-appservicecertsps1-script-parameters"></a>AppServiceCerts.ps1 criar parâmetros de script
 
 | Parâmetro | Obrigatório ou opcional | Valor padrão | DESCRIÇÃO |
 | --- | --- | --- | --- |
 | pfxPassword | Obrigatório | Nulo | Senha que ajuda a proteger a chave privada do certificado |
 | DomainName | Obrigatório | local.azurestack.external | Sufixo de domínio e de região de pilha do Azure |
 
-### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Certificados necessários para uma implantação de produção do serviço de aplicativo do Azure na pilha do Azure
+### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Certificados necessários para a implantação de produção do Azure pilha de serviço de aplicativo do Azure
 
-Para operar o provedor de recursos em produção, você deve fornecer os seguintes quatro certificados:
+Para executar o provedor de recursos em produção, você deve fornecer os seguintes certificados:
+
+- Certificado de domínio padrão
+- Certificado de API
+- Certificado de publicação
+- Certificado de identidade
 
 #### <a name="default-domain-certificate"></a>Certificado de domínio padrão
 
-O certificado de domínio padrão é colocado na função de Front-End. Aplicativos de usuário para solicitações de domínio curinga ou padrão para o serviço de aplicativo do Azure usam este certificado. O certificado também é usado para operações de controle de origem (Kudu).
+O certificado de domínio padrão é colocado na função de Front-End. Aplicativos de usuário para a solicitação de domínio curinga ou padrão para o serviço de aplicativo do Azure usam este certificado. O certificado também é usado para operações de controle de origem (Kudu).
 
 O certificado deve estar no formato. pfx e deve ser um certificado curinga com três entidades. Esse requisito permite que um certificado cobrir o domínio padrão e o ponto de extremidade SCM para operações de controle de origem.
 
@@ -133,15 +143,15 @@ Permite que o certificado para o aplicativo de identidade:
 - Integração entre o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS) directory pilha do Azure e do serviço de aplicativo para oferecer suporte à integração com o provedor de recursos de computação.
 - Único cenários de logon para as ferramentas de desenvolvedor avançadas dentro do serviço de aplicativo do Azure na pilha do Azure.
 
-O certificado de identidade deve conter uma entidade que corresponda o seguinte formato:
+O certificado de identidade deve conter uma entidade que corresponde ao formato a seguir.
 
 | Formatar | Exemplo |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-## <a name="virtual-network"></a>Rede Virtual
+## <a name="virtual-network"></a>Rede virtual
 
-Serviço de aplicativo do Azure na pilha do Azure permite que você implante o provedor de recursos para um uma rede Virtual existente ou o serviço de aplicativo será criada como parte da implantação.  Usar uma rede Virtual existente permite o uso de IPs internos para se conectar ao servidor de arquivos e do SQL server necessárias pelo serviço de aplicativo do Azure na pilha do Azure.  A rede Virtual deve ser configurada com o intervalo de endereço e sub-redes a seguir antes de instalar o serviço de aplicativo do Azure na pilha do Azure:
+Serviço de aplicativo do Azure na pilha do Azure permite que você implante o provedor de recursos a uma rede virtual existente ou permite que você crie uma rede virtual como parte da implantação. Usar uma rede virtual existente permite o uso de IPs internos para se conectar ao servidor de arquivos e do SQL server necessárias pelo serviço de aplicativo do Azure na pilha do Azure. A rede virtual deve ser configurada com o intervalo de endereço e sub-redes a seguir antes de instalar o serviço de aplicativo do Azure na pilha do Azure:
 
 Rede virtual - /16
 
@@ -161,43 +171,51 @@ Para implantações somente no Kit de desenvolvimento de pilha do Azure, você p
 
 >[!IMPORTANT]
 > Se você optar por implantar o serviço de aplicativo em uma rede Virtual existente no servidor de arquivos deve ser implantado em uma sub-rede separada do serviço de aplicativo.
->
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Provisionar grupos e contas no Active Directory
 
 1. Crie os seguintes grupos de segurança global do Active Directory:
+
    - FileShareOwners
    - FileShareUsers
+
 2. Crie as seguintes contas do Active Directory como contas de serviço:
+
    - FileShareOwner
    - FileShareUser
 
-   Como prática recomendada, os usuários dessas contas (e para todas as funções web) deve ser diferentes entre si e ter forte nomes de usuário e senhas. Defina as senhas com as seguintes condições:
+   Como prática recomendada, os usuários dessas contas (e para todas as funções web) deve ser único e ter nomes fortes e senhas. Defina as senhas com as seguintes condições:
+
    - Habilitar **senha nunca expira**.
    - Habilitar **usuário não pode alterar a senha**.
    - Desabilitar **usuário deve alterar a senha no próximo logon**.
+
 3. Adicione as contas às associações de grupo, da seguinte maneira:
+
    - Adicionar **FileShareOwner** para o **FileShareOwners** grupo.
    - Adicionar **FileShareUser** para o **FileShareUsers** grupo.
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Provisionar grupos e contas em um grupo de trabalho
 
 >[!NOTE]
-> Quando você estiver configurando um servidor de arquivos, execute os seguintes comandos em uma janela de Prompt de comando administrativa. *Não use o PowerShell.*
+> Quando você estiver configurando um servidor de arquivos, execute todos os comandos a seguir em um **Prompt de comando do administrador**. <br>***Não use o PowerShell.***
 
 Quando você usa o modelo do Gerenciador de recursos do Azure, os usuários já são criados.
 
 1. Execute os seguintes comandos para criar as contas FileShareOwner e FileShareUser. Substituir `<password>` com seus próprios valores.
+
     ``` DOS
     net user FileShareOwner <password> /add /expires:never /passwordchg:no
     net user FileShareUser <password> /add /expires:never /passwordchg:no
     ```
 2. Defina as senhas para as contas para nunca expirar, executando os seguintes comandos WMIC:
+
     ``` DOS
     WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
     WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
     ```
 3. Crie os grupos locais FileShareUsers e FileShareOwners e adicione as contas na primeira etapa para eles:
+
     ``` DOS
     net localgroup FileShareUsers /add
     net localgroup FileShareUsers FileShareUser /add
@@ -318,7 +336,7 @@ Siga estas etapas:
 10. Selecione **registros do aplicativo**.
 11. Procure a ID do aplicativo retornada como parte da etapa 7. Um aplicativo de serviço de aplicativo está listado.
 12. Selecione **aplicativo** na lista.
-13. Clique em **Configurações**.
+13. Escolha a opção **Configurações**.
 14. Selecione **as permissões necessárias** > **conceder permissões** > **Sim**.
 
 ```PowerShell
