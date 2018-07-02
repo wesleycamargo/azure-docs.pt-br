@@ -158,7 +158,7 @@ Independentemente de se você usou o [PowerShell](#diangose-using-powershell), o
 
 Se você vir regras duplicadas listadas na saída, é porque um NSG está associado à interface de rede e a sub-rede. Ambos os NSGs têm as mesmas regras padrão e podem ter regras duplicadas adicionais, se você tiver criado suas próprias regras que são os mesmos em ambos os NSGs.
 
-A regra denominada **defaultSecurityRules / DenyAllInBound** é o que está impedindo a comunicação de entrada para a VM pela porta 80, da Internet, conforme descrito no cenário [ ](#scenario). Nenhuma outra regra com prioridade mais alta (número menor) permite a entrada da porta 80 a partir da Internet.
+A regra denominada **defaultSecurityRules / DenyAllInBound** é o que está impedindo a comunicação de entrada para a VM pela porta 80, da Internet, conforme descrito no [cenário](#scenario). Nenhuma outra regra com prioridade mais alta (número menor) permite a entrada da porta 80 a partir da Internet.
 
 ## <a name="resolve-a-problem"></a>Resolver um problema
 
