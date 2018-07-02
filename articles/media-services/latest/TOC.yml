@@ -35,6 +35,10 @@
   items:
     - name: Ativos
       href: assets-concept.md
+    - name: Proteção do conteúdo
+      items:
+        - name: Visão geral
+          href: content-protection-overview.md
     - name: Codificação
       items:
         - name: Visão geral
@@ -69,6 +73,10 @@
           href: job-input-from-http-how-to.md
         - name: De um arquivo local - .NET
           href: job-input-from-local-file-how-to.md
+    - name: Proteger conteúdo
+      items:
+        - name: Com AES-128 - .NET
+          href: protect-with-aes128.md
 - name: Referência
   items:
     - name: Especificação OpenAPI (Swagger)
@@ -87,6 +95,12 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Esquemas de evento
       href: media-services-event-schemas.md
+    - name: Esquemas de licença do DRM
+      items:
+        - name: Modelo de licença PlayReady
+          href: playready-license-template-overview.md
+        - name: Modelo de licença do Widevine
+          href: widevine-license-template-overview.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

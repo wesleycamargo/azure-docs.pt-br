@@ -7,6 +7,7 @@
 #### [Desenvolva seu negócio com o AppSource](./grow-your-business-with-appsource.md)  
 ##### [Compilar Sua Página de Destino](./build-your-landing-page.md)  
 ##### [Habilitar compartilhamento de clientes potenciais](./enable-lead-sharing.md)  
+##### [Soluções preferenciais](./preferred-solutions.md)
 ##### [Benefícios GTM no marketplace](./gtm-benefits.md)  
 ##### [Promover Seus Negócios com a Microsoft](./promote-your-business-with-microsoft.md)  
 #### [Aumentar sua empresa com o Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
