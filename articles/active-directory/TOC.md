@@ -151,6 +151,7 @@
 ### [Personalização de SSPR](authentication/concept-sspr-customization.md)
 ### [Requisitos de dados de SSPR](authentication/howto-sspr-authenticationdata.md)
 ### [Relatórios de SSPR](authentication/howto-sspr-reporting.md)
+### [Bloqueio inteligente](authentication/howto-password-smart-lockout.md)
 ### [Eliminar senhas fracas](authentication/concept-password-ban-bad.md)
 ### [Configurar a lista de senhas proibidas](authentication/howto-password-ban-bad.md)
 ### [Integração local](authentication/concept-password-ban-bad-on-premises.md)

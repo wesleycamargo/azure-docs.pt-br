@@ -11,36 +11,68 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/25/2018
+  ms.date: 06/28/2018
   ms.author: kamrani
-  ms.openlocfilehash: 7d529825733025335f27ce0fe477c117aeaf5c41
-  ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+  ms.openlocfilehash: f3ccbb033354afc01fa840b3129d305f04942ffd
+  ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/08/2018
-  ms.locfileid: "35356622"
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37095563"
 abstract:
   description: O serviço de reconhecimento vocal (LUIS) permite que seu aplicativo entenda o que uma pessoa quer com suas próprias palavras. O LUIS usa o aprendizado de máquina para permitir que desenvolvedores criem aplicativos que possam receber entradas do usuário em linguagem natural e extrair o significado disso.
 sections:
 - title: Guia de início rápido de 5 minutos
   items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="luis-get-started-create-app.md">Criar aplicativo para um domínio predefinido</a>
-    - html: <a href="luis-quickstart-intents-only.md">Criar aplicativo para um domínio personalizado</a>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_js.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_php.svg
+    - image:
+        src: media/index/logo_ruby.svg
+    rows:
+    - title: API do ponto de extremidade
+      values:
+      - href: luis-get-started-cs-get-intent
+      - href: luis-get-started-java-get-intent
+      - href: luis-get-started-js-get-intent
+      - href: luis-get-started-node-get-intent
+      - href: luis-get-started-python-get-intent
+      - href: luis-get-started-php-get-intent
+      - href: luis-get-started-ruby-get-intent
+    - title: API de criação
+      values:
+      - href: luis-get-started-cs-add-utterance
+      - href: luis-get-started-java-add-utterance
+      - href: luis-get-started-javascript-add-utterance
+      - href: luis-get-started-node-add-utterance
+      - href: luis-get-started-python-add-utterance
+      - href: luis-get-started-php-add-utterance
+      - href: luis-get-started-ruby-add-utterance
 - title: Tutoriais passo a passo
   items:
   - type: list
     style: ordered
     items:
-    - html: <a href="luis-quickstart-primary-and-secondary-data">Extrair dados de mensagem de um enunciado usando a entidade simples</a>
-    - html: <a href="luis-quickstart-intents-regex-entity">Extrair os números do artigo KB de um enunciado usando a entidade de expressão regular</a>
-    - html: <a href="luis-quickstart-intent-and-list-entity">Extrair informações de pedido de bebida de um enunciado usando a entidade de lista</a>
-    - html: <a href="luis-tutorial-pattern">Aumentar a precisão da previsão de intenção e da entidade com padrões</a>
-    - html: <a href="luis-tutorial-interchangeable-phrase-list">Melhorar a significância da palavra com uma lista de frases</a>
-    - html: <a href="luis-get-started-cs-get-intent">Enviar um enunciado ao LUIS e receber a resposta de previsão do ponto de extremidade – C#</a>
-    - html: <a href="luis-get-started-cs-add-utterance">Adicionar um enunciado de exemplo para um propósito e treinar o aplicativo LUIS – C#</a>
+    - html: <a href="luis-quickstart-intents-only">Compilar aplicativo para domínio de Recursos Humanos (RH)</a>
+    - html: <a href="luis-tutorial-prebuilt-intents-entities">Adicionar intenções e entidades predefinidas</a>
+    - html: <a href="luis-quickstart-intents-regex-entity">Adicionar entidade de expressão regular</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">Adicionar entidade de lista</a>
+    - html: <a href="luis-quickstart-intent-and-hier-entity">Adicionar entidade hierárquica</a>
+    - html: <a href="luis-quickstart-primary-and-secondary-data">Adicionar entidade simples e lista de frases</a>
+    - html: <a href="luis-quickstart-intent-and-key-phrase">Adicionar entidade keyPhrase</a>
+    - html: <a href="luis-quickstart-intent-and-sentiment-analysis">Adicionar análise de sentimento</a>
 - title: vídeos
   items:
   - type: list

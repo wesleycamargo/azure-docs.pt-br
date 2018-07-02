@@ -1,11 +1,11 @@
 - name: Documentação de Visual Computacional
   href: index.yml
 - name: Visão geral
+  expanded: true
   items:
     - name: O que é a Pesquisa Visual Computacional?
       href: Home.md
-- name: Guia de início rápido
-  expanded: true
+- name: Guias de início rápido da API
   items:
     - name: Resumo
       href: QuickStarts/quickstart-summary.md
@@ -97,6 +97,16 @@
           href: QuickStarts/ruby-thumb.md
         - name: Extrair texto impresso
           href: QuickStarts/ruby-print-text.md
+- name: Guias de início rápido do SDK
+  items:
+    - name: 'C#'
+      items:
+        - name: Analisar uma imagem
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: Gerar uma miniatura
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: Extrair texto escrito à mão
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: Guias de instruções
   items:
     - name: Primeiros aplicativos da Pesquisa Visual Computacional

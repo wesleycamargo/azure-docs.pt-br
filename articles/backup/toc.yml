@@ -61,13 +61,13 @@
           href: backup-mabs-protection-matrix.md
         - name: Instalar ou atualizar
           items:
-            - name: Preparar cargas de trabalho do Servidor de Backup do Azure no portal do Azure
+            - name: Instalar o Servidor de Backup do Azure
               href: backup-azure-microsoft-azure-backup.md
-            - name: Adicionar armazenamento ao Servidor de Backup do Azure
+            - name: Adicionar armazenamento
               href: backup-mabs-add-storage.md
-            - name: Atualizar Servidor de Backup do Azure para v.2
+            - name: Atualizar para v.2
               href: backup-mabs-upgrade-to-v2.md
-            - name: Instalação autônoma do Servidor de Backup do Azure
+            - name: Instalação autônoma
               href: backup-mabs-unattended-install.md
         - name: Proteger as cargas de trabalho
           items:
