@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: b1e7fa441dc52a647828c7d3785f09533af06fd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651249"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033483"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -76,7 +76,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 
@@ -260,14 +260,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como sincronizar informações de estado entre os dispositivos e o Hub IoT executando as seguintes tarefas:
-
-> [!div class="checklist"]
-> * Criar um Hub IoT e adicionar um dispositivo de teste ao registro de identidade.
-> * Usar as propriedades desejadas para enviar informações de estado ao dispositivo simulado.
-> * Usar as propriedades relatadas para receber informações de estado do dispositivo simulado.
-
-Avance para o próximo tutorial para aprender como usar dispositivos gêmeos para implementar um processo de atualização de firmware.
+Neste tutorial, você aprendeu a sincronizar informações de estado entre os dispositivos e o Hub IoT. Avance para o próximo tutorial para aprender como usar dispositivos gêmeos para implementar um processo de atualização de firmware.
 
 > [!div class="nextstepaction"]
-[Usar um dispositivo simulado para testar a conectividade com o hub IoT](tutorial-connectivity.md)
+[Implementar um processo de atualização de firmware do dispositivo](tutorial-firmware-update.md)

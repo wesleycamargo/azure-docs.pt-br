@@ -13,24 +13,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 65441882827ecb26405f74fb1389b6a21d99cf9c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1b7ce6078fcaedee3d9ed4151063816df937ac0f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055125"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 Neste tutorial, você deve criar um pipeline de Data Factory que apresente alguns dos recursos de fluxo de controle. Esse pipeline faz uma cópia simples de um contêiner no Armazenamento de Blobs do Azure para outro contêiner na mesma conta de armazenamento. Se a atividade de cópia for bem-sucedida, o pipeline enviará detalhes da operação de cópia bem-sucedida (tais como a quantidade de dados gravados) em um email de êxito. Se a atividade de cópia falhar, o pipeline enviará detalhes da falha de cópia (por exemplo, a mensagem de erro) em um email de falha. Ao longo do tutorial, você verá como passar parâmetros.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Uma visão geral de alto nível do cenário: ![Visão geral](media/tutorial-control-flow-portal/overview.png)
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Criar um serviço vinculado do Armazenamento do Azure.
 > * Criar um conjunto de dados do Blob do Azure
 > * Criar um pipeline que contém uma atividade de Cópia e uma atividade da Web
@@ -129,7 +127,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -147,7 +145,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
          
         Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selecione **V2 (Versão Prévia)** para a **versão**.
+4. Selecione **V2** para a **versão**.
 5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 6. Selecione **Fixar no painel**.     
 7. Clique em **Criar**.      
@@ -156,11 +154,11 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
     ![implantando bloco data factory](media/tutorial-control-flow-portal/deploying-data-factory.png)
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
-   ![Página inicial da data factory](./media/tutorial-control-flow-portal/data-factory-home-page.png)
+   ![Página inicial do data factory](./media/tutorial-control-flow-portal/data-factory-home-page.png)
 10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 
 
-## <a name="create-a-pipeline"></a>Criar uma pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas atividades da Web. Você pode usar os recursos a seguir para criar o pipeline:
 
 - Parâmetros para o pipeline acessado por conjuntos de dados. 
@@ -241,7 +239,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
         - Mensagem – passagem do valor de `@{activity('Copy1').output.dataWritten`. Acessa uma propriedade da atividade de cópia anterior e passa o valor de dataWritten. Em caso de falha, passe a saída de erro em vez de `@{activity('CopyBlobtoBlob').error.message`.
         - Nome do Data Factory – passagem do valor de `@{pipeline().DataFactory}` Essa é uma variável de sistema, permitindo que você acesse o nome do data factory correspondente. Para obter uma lista das variáveis de sistema, consulte o artigo [Variáveis de Sistema](control-flow-system-variables.md).
         - Nome do Pipeline – passagem do valor de `@{pipeline().Pipeline}`. Essa também é uma variável de sistema, permitindo que você acesse o nome do pipeline correspondente. 
-        - Destinatário – passagem do valor de "@pipeline(). parameters.receiver"). Acessando os parâmetros de pipeline.
+        - Destinatário – passagem do valor de "\@pipeline().parameters.receiver"). Acessando os parâmetros de pipeline.
     
         ![Configurações para a primeira atividade da Web](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Conecte a atividade **Cópia** à atividade da **Web** ao arrastar o botão verde ao lado da atividade de Cópia e soltar na atividade de Web. 
@@ -332,7 +330,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
 Neste tutorial, você realizará os seguintes procedimentos: 
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Criar um serviço vinculado do Armazenamento do Azure.
 > * Criar um conjunto de dados do Blob do Azure
 > * Criar um pipeline que contém uma atividade de cópia e uma atividade da Web

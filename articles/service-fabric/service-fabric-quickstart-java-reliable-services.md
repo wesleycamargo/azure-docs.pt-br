@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ae6ba28ba448591d58cc3963f5df9a563997ab0
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642386"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959538"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Início Rápido: implantar um aplicativo de serviços confiáveis do Service Fabric em Java no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços. 
@@ -120,13 +120,13 @@ Use o método com o qual você está mais familiarizado para importar o certific
 
 A impressão digital do certificado precisa ser adicionada ao seu aplicativo porque ele está usando modelos de programação do Service Fabric. 
 
-1. Você precisará da impressão digital do certificado no arquivo ```Voting/VotingApplication/ApplicationManiest.xml``` ao executar em um cluster seguro. Execute o comando a seguir para extrair a impressão digital do certificado.
+1. Você precisará da impressão digital do certificado no arquivo `Voting/VotingApplication/ApplicationManifest.xml` ao executar em um cluster seguro. Execute o comando a seguir para extrair a impressão digital do certificado.
 
     ```bash
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. Em ```Voting/VotingApplication/ApplicationManiest.xml```, adicione o trecho de código a seguir sob da marca **ApplicationManifest**. O **X509FindValue** deve ser a impressão digital da etapa anterior (sem ponto e vírgula). 
+2. No arquivo `Voting/VotingApplication/ApplicationManifest.xml`, adicione o trecho de código a seguir sob da marca **ApplicationManifest**. O **X509FindValue** deve ser a impressão digital da etapa anterior (sem ponto e vírgula). 
 
     ```xml
     <Certificates>
@@ -160,7 +160,7 @@ Agora que o aplicativo e o cluster estão prontos, você pode implantá-los no c
     ![Front-end do aplicativo em nuvem](./media/service-fabric-quickstart-java/runningcloud.png)
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicativos e serviços em um cluster
-Os serviços do Service Fabric podem ser facilmente colocados em escala em um cluster para acomodar uma alteração na carga dos serviços. Dimensione um serviço alterando o número de instâncias em execução no cluster. Existem várias maneiras de colocar seus serviços em escala, por exemplo, usando scripts ou comandos da CLI do Service Fabric (sfctl). Nas etapas a seguir, use o Service Fabric Explorer.
+Os serviços do Service Fabric podem ser facilmente colocados em escala em um cluster para acomodar uma alteração na carga dos serviços. Dimensione um serviço alterando o número de instâncias em execução no cluster. Existem várias maneiras de colocar seus serviços em escala, por exemplo, usando scripts ou comandos da CLI do Service Fabric (sfctl). As etapas a seguir usam o Service Fabric Explorer.
 
 O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acessado em um navegador, navegando para a porta de gerenciamento HTTP do cluster (19080), por exemplo, `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 

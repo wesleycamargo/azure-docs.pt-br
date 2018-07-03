@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603769"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752326"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -165,7 +165,7 @@ Para criar uma conta de armazenamento de uso geral v2 no portal do Azure, siga e
 1. No portal do Azure, expanda o menu à esquerda para abrir o menu de serviços e escolha **Todos os serviços**. Em seguida, role para baixo até **Armazenamento** e escolha **Contas de armazenamento**. Na janela **Contas de Armazenamento** que aparece, escolha **Adicionar**.
 2. Insira um nome para a conta de armazenamento.
 3. Definir o campo **Tipo de conta** para **StorageV2 (uso geral v2)**.
-4. Deixe o campo **Replicação** definido como **Armazenamento com redundância local (LRS)**. Como alternativa, você pode escolher **Armazenamento com redundância de zona (ZRS Versão prévia)**, **Armazenamento com redundância geográfica (GRS)**, ou **Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)**.
+4. Deixe o campo **Replicação** definido como **Armazenamento com redundância local (LRS)**. Como alternativa, você pode escolher **Armazenamento com redundância de zona (ZRS) (versão prévia)**, **Armazenamento com redundância geográfica (GRS)**, ou **Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)**.
 5. Deixe esses campos definidos com seus padrões: **Modelo de implantação**, **Desempenho**, **Transferência segura necessária**.
 6. Escolha a assinatura na qual você deseja criar a conta de armazenamento.
 7. Na seção **Grupo de recursos**, selecione **Usar existente**, depois escolha o grupo de recursos criado na seção anterior.
@@ -186,7 +186,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-Para criar uma conta de armazenamento de uso geral v2 com armazenamento com redundância de zona (ZRS Versão prévia), armazenamento com redundância geográfica (GRS) ou armazenamento com redundância geográfica com acesso de leitura (RA-GRS), substitua o valor desejado na tabela a seguir pelo parâmetro **SkuName**. 
+Para criar uma conta de armazenamento de uso geral v2 com armazenamento com redundância de zona (ZRS) (versão prévia), armazenamento com redundância geográfica (GRS) ou armazenamento com redundância geográfica com acesso de leitura (RA-GRS), substitua o valor desejado na tabela a seguir pelo parâmetro **SkuName**. 
 
 |Opção de replicação  |Parâmetro SkuName  |
 |---------|---------|
@@ -219,13 +219,7 @@ Para criar uma conta de armazenamento de uso geral v2 com armazenamento com redu
 
 ---
 
-> [!NOTE]
-> [Armazenamento com redundância de zona](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) está atualmente em versão prévia e está disponível apenas nos seguintes locais:
->    - Leste dos EUA 2
->    - Centro dos EUA
->    - França Central (Atualmente, essa região está em versão prévia. Consulte [A versão prévia do Microsoft Azure com zonas de disponibilidade do Azure agora está aberta na França](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) para solicitar o acesso.)
-    
-Para obter mais informações sobre os diferentes tipos de replicação disponíveis, consulte [Opções de replicação de armazenamento](storage-redundancy.md).
+Para saber mais sobre as opções de replicação disponíveis , veja [Opções de replicação de armazenamento](storage-redundancy.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

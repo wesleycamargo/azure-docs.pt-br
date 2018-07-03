@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293472"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048631"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Versão 1 – já disponível](v1/data-factory-scheduling-and-execution.md)
-> * [Versão 2 – Versão prévia](concepts-pipeline-execution-triggers.md)
+> * [Versão 1](v1/data-factory-scheduling-and-execution.md)
+> * [Versão atual](concepts-pipeline-execution-triggers.md)
 
-Uma _execução de pipeline_ na versão 2 do Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Nesse caso, há três execuções de pipeline separadas. Cada execução de pipeline possui uma ID de execução de pipeline exclusiva. A ID de execução é um GUID que define exclusivamente essa execução de pipeline específica. 
+Uma _execução de pipeline_ no Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Nesse caso, há três execuções de pipeline separadas. Cada execução de pipeline possui uma ID de execução de pipeline exclusiva. A ID de execução é um GUID que define exclusivamente essa execução de pipeline específica. 
 
 As execuções de pipeline normalmente são instanciadas por meio da passagem de argumentos para parâmetros definidos no pipeline. Você pode executar um pipeline manualmente ou usando um _gatilho_. Este artigo fornece detalhes sobre as duas maneiras de executar um pipeline.
-
-> [!NOTE]
-> Este artigo aplica-se ao Azure Data Factory versão 2, que atualmente está em versão prévia. Se estiver usando o Azure Data Factory versão 1, que está em GA (disponibilidade geral), consulte [Agendamento e execução no Azure Data Factory versão 1](v1/data-factory-scheduling-and-execution.md).
 
 ## <a name="manual-execution-on-demand"></a>Execução manual (sob demanda)
 A execução manual de um pipeline é também conhecida como execução _sob demanda_.
@@ -136,7 +133,7 @@ Para obter um exemplo completo, confira o [Início Rápido: criar um data factor
 > Você pode usar o SDK do .NET para invocar os pipelines do Data Factory a partir do Azure Functions, de seus próprios serviços Web, etc.
 
 <h2 id="triggers">Execução do gatilho</h2>
-Os gatilhos são outra forma de realizar uma execução do pipeline. Os gatilhos representam uma unidade de processamento que determina quando uma execução de pipeline precisa ser inicializada. Atualmente, o Data Factory dá suporte a dois tipos de gatilhos:
+Os gatilhos são outra forma de realizar uma execução do pipeline. Os gatilhos representam uma unidade de processamento que determina quando uma execução de pipeline precisa ser inicializada. Atualmente, o Data Factory dá suporte a três tipos de gatilhos:
 
 - Gatilho de agenda: um gatilho que invoca um pipeline em um agendamento de relógio.
 

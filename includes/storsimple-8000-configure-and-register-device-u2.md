@@ -9,7 +9,7 @@
 
 3. Você deverá escolher o idioma que deseja definir para seu dispositivo. Especifique a linguagem e pressione **Enter**.
 
-4. No menu do console serial apresentado, escolha a opção 1 para **efetuar logon com acesso completo**.
+4. No menu do console serial apresentado, escolha a opção 1 para **Fazer logon com acesso completo**.
      Conclua as etapas de 5 a 12 para definir as configurações de rede necessárias e mínimas para seu dispositivo. **Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo.** O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.
 
 5. No prompt de comando, digite sua senha. A senha do dispositivo padrão é **Senha1**.

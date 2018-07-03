@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/05/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 52695ba495b088d30a5ee039d3e24eb274957bff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234549"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937930"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -31,7 +31,7 @@ No Portal do Azure, você pode [criar um servidor](analysis-services-create-serv
 
 **Vídeo:** fazer check-out [Automatizar implantação](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) para saber mais sobre como é possível utilizar a Automação do Azure para acelerar a criação de servidor.
 
-O Azure Analysis Services integra-se com vários serviços do Azure, permitindo que você crie soluções sofisticadas de análise. A integração com o [Azure Active Directory](../active-directory/active-directory-whatis.md) fornece acesso seguro e baseado em função para seus dados críticos. Integre com pipelines do [Azure Data Factory](../data-factory/introduction.md), incluindo uma atividade que carrega dados no modelo. A [Automação do Azure](../automation/automation-intro.md) e o [Azure Functions](../azure-functions/functions-overview.md) podem ser usados para coordenação leve de modelos usando código personalizado. 
+O Azure Analysis Services integra-se com vários serviços do Azure, permitindo que você crie soluções sofisticadas de análise. A integração com o [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) fornece acesso seguro e baseado em função para seus dados críticos. Integre com pipelines do [Azure Data Factory](../data-factory/introduction.md), incluindo uma atividade que carrega dados no modelo. A [Automação do Azure](../automation/automation-intro.md) e o [Azure Functions](../azure-functions/functions-overview.md) podem ser usados para coordenação leve de modelos usando código personalizado. 
 
 ## <a name="the-right-tier-when-you-need-it"></a>A camada certa quando você precisa
 
@@ -72,39 +72,41 @@ Essa camada é para aplicativos de produção críticos, que exigem simultaneida
 
 ## <a name="availability-by-region"></a>Disponibilidade por região
 
-O Azure Analysis Services tem suporte em regiões do mundo todo. Garanta [alta disponibilidade](analysis-services-bcdr.md), implementando os modelos em servidores redundantes em várias regiões. As camadas com suporte e réplicas de consulta dependem da região escolhida. 
+O Azure Analysis Services tem suporte em regiões do mundo todo. Os planos com suporte e a réplica de consulta dependem da região escolhida. A disponibilidade de réplica do plano e da consulta pode mudar dependendo da necessidade e dos recursos disponíveis para cada região. 
 
 ### <a name="americas"></a>Américas
 
-|Região  | Camadas com suporte | Réplicas de consulta |
+|Região  | Planos com suporte | Consultar réplicas (somente planos Standard) |
 |---------|---------|:---------:|
 |Sul do Brasil     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Leste dos EUA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Leste dos EUA 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|Leste dos EUA 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
 |Centro-Norte dos EUA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centro dos EUA     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Centro dos EUA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro-Sul dos Estados Unidos     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centro-Oeste dos EUA   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
-|Oeste dos EUA     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
-|Oeste dos EUA 2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+|Centro-Oeste dos EUA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|Oeste dos EUA     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|Oeste dos EUA 2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
 
 ### <a name="europe"></a>Europa
 
-|Região  | Camadas com suporte | Réplicas de consulta |
+|Região  | Planos com suporte | Consultar réplicas (somente planos Standard) |
 |---------|---------|:---------:|
-|Norte da Europa     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|Norte da Europa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Sul do Reino Unido   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Europa Ocidental     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+|Europa Ocidental     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
 
 ### <a name="asia-pacific"></a>Pacífico Asiático 
 
-|Região  | Camadas com suporte | Réplicas de consulta |
+|Região  | Planos com suporte | Consultar réplicas (somente planos Standard) |
 |---------|---------|:---------:|
 |Sudeste da Austrália     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Leste do Japão  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
 |Índia Ocidental     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+
+Os planos S8, S9 do \* na camada Standard dão suporte a uma réplica de consulta.
 
 ## <a name="scale-to-your-needs"></a>Escalar de acordo com suas necessidades
 
@@ -116,7 +118,7 @@ Você pode fazer um upgrade, downgrade ou pausar o servidor. Use o portal do Azu
 
 Com escalar horizontalmente, as consultas do cliente são distribuídas entre várias *réplicas de consulta* em um pool de consulta. As réplicas de consulta possuem cópias sincronizadas dos seus modelos de tabela. Ao distribuir a carga de trabalho de consulta, os tempos de resposta durante cargas de trabalho de consulta altas podem ser reduzidos. As operações de processamento do modelo podem ser separadas do pool de consultas, garantindo que as consultas não são afetadas negativamente pelas operações de processamento. 
 
-Você pode criar um pool de consultas com até sete réplicas de consulta adicionais (total de oito, incluindo o servidor). O número de réplicas de consulta que você pode ter no pool depende da região escolhida. As réplicas de consulta não podem ser espalhadas fora da região do servidor. As réplicas de consulta são cobradas com a mesma taxa que o servidor.
+Você pode criar um pool de consultas com até sete réplicas de consulta adicionais (total de oito, incluindo o servidor). O número de réplicas de consulta que você pode ter no pool depende da região ou do plano escolhido. As réplicas de consulta não podem ser espalhadas fora da região do servidor. As réplicas de consulta são cobradas com a mesma taxa que o servidor.
 
 Assim como com a mudança de camadas, é possível escalar horizontalmente as réplicas de consulta, de acordo com suas necessidades. Configure para escalar horizontalmente no portal ou usando APIs REST. Para saber mais, consulte [Expansão do Azure Analysis Services](analysis-services-scale-out.md).
 
@@ -148,7 +150,7 @@ O Firewall do Azure Analysis Services bloqueia todas as conexões de clientes qu
 
 ### <a name="authentication"></a>Autenticação
 
-A autenticação do usuário é tratada pelo [ AAD (Azure Active Directory)](../active-directory/active-directory-whatis.md). Ao fazer logon, os usuários usam uma identidade de conta da organização com acesso baseado em função ao banco de dados. As identidades de usuário devem ser membros do Azure Active Directory padrão para a assinatura em que reside o servidor. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
+A autenticação do usuário é tratada pelo [ AAD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md). Ao fazer logon, os usuários usam uma identidade de conta da organização com acesso baseado em função ao banco de dados. As identidades de usuário devem ser membros do Azure Active Directory padrão para a assinatura em que reside o servidor. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
 
 ### <a name="data-security"></a>Segurança de dados
 

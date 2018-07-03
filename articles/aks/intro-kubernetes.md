@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/13/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4b2294d7816a92dccb14caaadc09a2797edeafe6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fdff52a1fa34fa2033db19690d20a1c2f417e646
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237359"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307784"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS (Serviço do Kubernetes do Azure)
 
@@ -60,7 +60,7 @@ Para obter mais informações, confira [Roteamento de aplicativo HTTP][aks-http-
 
 ## <a name="gpu-enabled-nodes"></a>Nós habilitados para GPU
 
-AKS oferece suporte à criação de pools de nó habilitados para GPU. Atualmente, o Azure fornece uma ou várias VMs habilitadas para GPU. As VMs habilitadas para GPU são projetadas para cargas de trabalho de visualização e com muita computação e muitos gráficos.
+AKS oferece suporte à criação de pools de nó habilitados para GPU. Atualmente, o Azure fornece uma ou várias VMs habilitasdas para GPU. As VMs habilitadas para GPU são projetadas para cargas de trabalho de visualização e com muita computação e muitos gráficos.
 
 Para obter mais informações, confira [Usando GPUs no AKS][aks-gpu].
 
@@ -104,7 +104,7 @@ O AKS (Serviço de Kubernetes do Azure) foi certificado pela CNCF como compatív
 
 ## <a name="regulatory-compliance"></a>Conformidade normativa
 
-O AKS (Serviço de Kubernetes do Azure) é compatível com SOC e HIPPA/ISO/HITRUST.
+O AKS (Serviço de Kubernetes do Azure) é compatível com SOC e HIPAA/ISO/HITRUST.
 
 ## <a name="next-steps"></a>Próximas etapas
 

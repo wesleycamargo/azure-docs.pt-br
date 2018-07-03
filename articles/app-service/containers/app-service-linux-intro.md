@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: dab9e7b4ee62624ba32b7b6b41d0dee5ac01af09
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e40283abd418552f296f7539e554e0ad5232e49a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598310"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031672"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo do Azure no Linux
 
@@ -76,7 +76,7 @@ O portal do Azure mostra somente os recursos que funcionam atualmente para o Apl
 
 Alguns recursos, como a integração de rede virtual, a autenticação do Azure Active Directory/de terceiros ou as extensões de site do Kudu, ainda não estão disponíveis. Quando esses recursos estiverem disponíveis, atualizaremos nossa documentação e nosso blog sobre as alterações.
 
-Só há suporte para o Serviço de Aplicativo no Linux nos planos de serviço de aplicativo [Básico e Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) e ele não tem um nível [Gratuito nem Compartilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). Você não pode criar o Aplicativo Web para Contêineres em um Plano do Serviço de Aplicativo que já esteja hospedando Aplicativos Web do Linux. Há uma limitação atual no que diz respeito a não misturar aplicativos do Windows e do Linux no mesmo grupo de recursos.
+O Serviço de Aplicativo no Linux só tem suporte com os planos de serviço de aplicativo [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem uma camada [Gratuita nem Compartilhada](https://azure.microsoft.com/pricing/details/app-service/plans/). [Linux em ASE (camada isolada)](https://blogs.msdn.microsoft.com/appserviceteam/2018/05/07/announcing-the-linux-on-app-service-environment-public-preview/) está na versão prévia e não tem suporte para cargas de trabalho de produção no momento. Não é possível criar o Aplicativo Web para Contêineres em um plano do Serviço de Aplicativo que já esteja hospedando Aplicativos Web não Linux. Também há uma limitação atual no que diz respeito à não misturar aplicativos Windows e Linux no mesmo grupo de recursos.
 
 ## <a name="troubleshooting"></a>solução de problemas
 

@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo multicontêiner (versão prévia) usando Aplicativo Web para Contêineres do Azure
+title: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
 description: Saiba como usar vários contêineres no Azure com os arquivos de configuração do Kubernetes e Docker Compose, com um aplicativo MySQL e WordPress.
 keywords: serviço de aplicativo do azure, aplicativo web, linux, docker, compose, multicontêiner, contêiner, kubernetes
 services: app-service
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 05/02/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 61158af0bc978665c3d914c8de3376b8f5d5c69f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651245"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751907"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
+# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>Tutorial: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
 
 O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornece uma maneira flexível de usar imagens do Docker. Neste tutorial, você aprenderá como criar um aplicativo multicontêiner usando WordPress e MySQL.
 
@@ -311,7 +311,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Atualizar aplicativo com nova configuração
 
-No terminal do prompt de comando local, reconfigure o [aplicativo Web](app-service-linux-intro.md) com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Substitua _\<app_name>_ pelo nome do aplicativo Web que você criou anteriormente.
+No terminal do prompt de comando local, reconfigure o [aplicativo Web](app-service-linux-intro.md) multicontêiner com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Substitua _\<app_name>_ pelo nome do aplicativo Web que você criou anteriormente.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -387,7 +387,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Atualizar aplicativo com nova configuração
 
-No terminal do prompt de comando local, reconfigure o [aplicativo Web](app-service-linux-intro.md) com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Substitua _\<app_name>_ por um nome exclusivo do aplicativo.
+No terminal do prompt de comando local, reconfigure o [aplicativo Web](app-service-linux-intro.md) multicontêiner com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Substitua _\<app_name>_ por um nome exclusivo do aplicativo.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -458,7 +458,7 @@ Quando a configuração do aplicativo for criada, a CLI do Azure mostrará infor
 
 ### <a name="update-app-with-new-configuration"></a>Atualizar aplicativo com nova configuração
 
-No terminal do prompt de comando local, reconfigure o [aplicativo Web](app-service-linux-intro.md) com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Substitua _\<app_name>_ por um nome exclusivo do aplicativo.
+No terminal do prompt de comando local, reconfigure o [aplicativo Web](app-service-linux-intro.md) multicontêiner com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Substitua _\<app_name>_ por um nome exclusivo do aplicativo.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -511,7 +511,7 @@ O WordPress conecta-se ao servidor de Redis. A conexão **status** aparece na me
 
 Nesta seção, você aprenderá como usar uma configuração do Kubernetes para implantar vários contêineres. Certifique-se de seguir as etapas anteriores para criar um [grupo de recursos](#create-a-resource-group) e um [Plano do Serviço de Aplicativo](#create-an-azure-app-service-plan). Como a maioria das etapas é semelhante à da seção de composição, o arquivo de configuração foi combinado para você.
 
-### <a name="supported-kubernetes-options-for-multi-container"></a>Opções do Kubernetes com suporte para vários contêineres
+### <a name="supported-kubernetes-options-for-multicontainer"></a>Opções do Kubernetes com suporte para vários contêineres
 
 * args
 * command
@@ -649,7 +649,7 @@ Quando a configuração do aplicativo for criada, a CLI do Azure mostrará infor
 ]
 ```
 
-### <a name="create-a-multi-container-app-kubernetes"></a>Criar um aplicativo multicontêiner (Kubernetes)
+### <a name="create-a-multicontainer-app-kubernetes"></a>Criar um aplicativo multicontêiner (Kubernetes)
 
 No terminal do prompt de comando local, crie um [aplicativo Web](app-service-linux-intro.md) multicontêiner no `myResourceGroup` grupo de recursos e o `myAppServicePlan` Plano do Serviço de Aplicativo com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Substitua _\<app_name>_ por um nome exclusivo do aplicativo.
 

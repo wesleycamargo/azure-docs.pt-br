@@ -11,25 +11,22 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 23d4afffbe108d439dd53d95ed81f7d9fc4246ef
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 4df392ec7e100ef0efcbb3876079710a6b9ca4fb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284565"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048019"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Use a ferramenta Copy Data para copiar dados 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Versão 2 – Versão prévia](quickstart-create-data-factory-copy-data-tool.md)
+> * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Versão atual](quickstart-create-data-factory-copy-data-tool.md)
 
 Neste guia de início rápido, você usa o Portal do Azure para criar um data factory. Em seguida, você usa a ferramenta Copy Data para criar um pipeline que copia dados de uma pasta no armazenamento de Blobs do Azure para outra pasta. 
 
 > [!NOTE]
 > Se você for novo no Azure Data Factory, confira a [Introdução ao Azure Data Factory](data-factory-introduction.md) antes de fazer este guia de início rápido. 
->
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço, que já está disponível (GA), consulte [introdução ao Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -52,7 +49,7 @@ Neste guia de início rápido, você usa o Portal do Azure para criar um data fa
    - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
          
    Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Para **Versão**, selecione **V2 (Versão prévia)**.
+4. Para **Versão**, selecione **V2**.
 5. Em **Local**, selecione uma localização para o data factory. 
 
    A lista mostra somente os locais com suporte. Os armazenamentos de dados (como o Armazenamento do Azure e Banco de Dados SQL do Azure) e serviços de computação (como o Azure HDInsight) usados pelo Data Factory podem estar em outros locais/regiões.
@@ -85,7 +82,7 @@ Neste guia de início rápido, você usa o Portal do Azure para criar um data fa
 
     ![Selecione o armazenamento de blob da galeria](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    c. Na página **Especificar a conta de armazenamento de Blobs do Azure**, selecione a conta de armazenamento a partir da lista **nome da conta de armazenamento** e selecione **Avançar**. 
+    c. Na página **Especificar a conta de armazenamento de Blobs do Azure**, selecione a conta de armazenamento a partir da lista **nome da conta de armazenamento** e selecione **Concluir**. 
 
    ![Configurar a conta de armazenamento de Blobs do Azure](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 

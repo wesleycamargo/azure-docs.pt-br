@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: c30d166335e31cdbf03283371da42fa6b7cda162
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a2d356afd33ddd2e641c6f9bc028f235623b448b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233107"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024649"
 ---
 # <a name="retrieve-access-review-results"></a>Recuperar resultados de revisão do acesso
 
-Os administradores podem usar o Azure Active Directory (Azure AD) para [criar uma análise de acesso](active-directory-azure-ad-controls-create-access-review.md) para membros do grupo ou os usuários atribuídos a um aplicativo.  Um usuário com a função de **Administrador Global**, **Administrador de segurança** ou **Leitor de segurança** também pode ler os resultados de uma revisão de acesso.  Para atribuir usuários a uma dessas funções, um administrador com função com privilégios pode usar o PIM do Azure AD para tornar um usuário elegível para ativar a função ou um Administrador global pode [atribuir um usuário à função](active-directory-users-assign-role-azure-portal.md) de forma permanente.
+Os administradores podem usar o Azure Active Directory (Azure AD) para [criar uma análise de acesso](active-directory-azure-ad-controls-create-access-review.md) para membros do grupo ou os usuários atribuídos a um aplicativo.  Um usuário com a função de **Administrador Global**, **Administrador de Conta de Usuário** ou **Administrador de Segurança** ou **Leitor de Segurança** também pode ler os resultados de uma revisão de acesso.  Para atribuir usuários a uma dessas funções, um administrador com função com privilégios pode usar o PIM do Azure AD para tornar um usuário elegível para ativar a função ou um Administrador global pode [atribuir um usuário à função](fundamentals/active-directory-users-assign-role-azure-portal.md) de forma permanente.
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>Localizar uma revisão de acesso
 
@@ -46,7 +46,7 @@ Para exibir os resultados de uma instância concluída de uma revisão de acesso
 
 ## <a name="removing-users-from-an-access-review"></a>Remover usuários de uma revisão de acesso
 
-Por padrão, um usuário excluído permanecerá excluído no Azure AD por 30 dias, durante os quais ele pode ser restaurado por um administrador se necessário.  Após 30 dias, esse usuário será excluído permanentemente.  Além disso, usando o portal do Azure Active Directory, um Administrador Global pode explicitamente [excluir permanentemente um usuário excluído recentemente](active-directory-users-restore.md) antes de atingir o período de tempo.  Após um usuário ter sido excluído permanentemente, os dados posteriores sobre o usuário serão removidos das revisões de acesso ativas.  Auditar informações sobre usuários excluídos na trilha de auditoria.
+Por padrão, um usuário excluído permanecerá excluído no Azure AD por 30 dias, durante os quais ele pode ser restaurado por um administrador se necessário.  Após 30 dias, esse usuário será excluído permanentemente.  Além disso, usando o portal do Azure Active Directory, um Administrador Global pode explicitamente [excluir permanentemente um usuário excluído recentemente](fundamentals/active-directory-users-restore.md) antes de atingir o período de tempo.  Após um usuário ter sido excluído permanentemente, os dados posteriores sobre o usuário serão removidos das revisões de acesso ativas.  Auditar informações sobre usuários excluídos na trilha de auditoria.
 
 ## <a name="next-steps"></a>Próximas etapas
 

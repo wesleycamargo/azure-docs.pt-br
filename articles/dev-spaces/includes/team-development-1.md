@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 41418cb908f2bf149a3d0087728652b44cd6b19e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825489"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939139"
 ---
 Até agora, você executou o código do aplicativo como se fosse o único desenvolvedor trabalhando no aplicativo. Nesta seção, você aprenderá como o Azure Dev Spaces simplifica o desenvolvimento em equipe:
 * Habilite uma equipe de desenvolvedores para trabalhar no mesmo ambiente, trabalhando em um espaço de desenvolvimento compartilhado ou em espaços de desenvolvimento distintos, conforme o necessário.
@@ -56,13 +56,15 @@ webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-c
 
 A coluna Espaço mostra que ambos os serviços estão em execução em um espaço chamado `default`. Qualquer pessoa que abre a URL pública e navega para o aplicativo Web invocará o caminho do código escrito anteriormente que percorre ambos os serviços. Agora suponha que você deseje continuar desenvolvendo `mywebapi`. Como fazer alterações de código e testá-las e não interromper os outros desenvolvedores que estão usando o ambiente de desenvolvimento? Para fazer isso, você configurará seu próprio espaço.
 
-### <a name="create-a-space"></a>Criar um espaço
+### <a name="create-a-dev-space"></a>Criar um espaço de desenvolvimento
 Para executar sua própria versão de `mywebapi` em um espaço que não seja `default`, crie seu próprio espaço usando o seguinte comando:
 
 ``` 
-azds space create --name scott
+azds space select --name scott
 ```
+
+Quando solicitado, selecione `default` como o **espaço de desenvolvimento principal**. Isso significa que o nosso novo espaço, `default/scott`, será derivado do espaço `default`. Em breve, veremos como isso nos ajudará nos testes. 
 
 No exemplo acima, usei meu nome para o novo espaço, de modo que meus colegas o identifiquem como o espaço em que estou trabalhando, mas você pode chamá-lo como desejar e ser flexível sobre o que ele significa, como 'sprint4' ou 'demo'.
 
-Execute o comando `azds space list` para ver uma lista de todos os espaços no ambiente de desenvolvimento. Um asterisco (*) é exibido ao lado do espaço atualmente selecionado. Em seu caso, o espaço chamado 'scott' foi selecionado automaticamente quando foi criado. Você pode selecionar outro espaço a qualquer momento com o comando `azds space select`.
+Execute o comando `azds space list` para ver uma lista de todos os espaços no ambiente de desenvolvimento. Um asterisco (*) é exibido ao lado do espaço atualmente selecionado. Em seu caso, o espaço chamado 'default/scott' foi selecionado automaticamente quando foi criado. Você pode selecionar outro espaço a qualquer momento com o comando `azds space select`.

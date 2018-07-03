@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 03/29/2018
+ms.date: 06/26/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1e8647e34da3d34946a4f6ac298017f6d4c99de6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265353"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061240"
 ---
 # <a name="tutorial-create-app-that-uses-simple-entity"></a>Tutorial: Criar um aplicativo que usa uma entidade simple
 Neste tutorial, crie um aplicativo que demonstra como extrair dados de aprendizado de máquina de um enunciado usando a entidade **Simple**.
@@ -22,125 +22,110 @@ Neste tutorial, crie um aplicativo que demonstra como extrair dados de aprendiza
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Entender as entidades simple 
-> * Criar novo aplicativo LUIS para o domínio de comunicação com a intenção SendMessage
-> * Adicionar a intenção _Nenhuma_ e adicione os enunciados de exemplo
-> * Adicionar entidade simple para extrair o conteúdo da mensagem do enunciado
+> * Criar um novo aplicativo LUIS para o domínio dos recursos humanos (RH) 
+> * Adicionar uma entidade simples para extrair a mensagem do aplicativo
 > * Treinar e publicar o aplicativo
 > * Consulte ponto de extremidade do aplicativo para ver a resposta JSON do LUIS
+> * Adicionar lista de frase para aumentar o sinal de palavras de trabalho
+> * Treinar, publicar o aplicativo e repetir a consulta no ponto de extremidade
 
-Para este artigo, você precisa de uma conta gratuita de [LUIS][LUIS] para criar o seu aplicativo LUIS.
+Para este artigo, você precisa de uma conta gratuita de [LUIS](luis-reference-regions.md#luis-website) para criar o seu aplicativo LUIS.
+
+## <a name="before-you-begin"></a>Antes de começar
+Caso não tenha o aplicativo de recursos humanos do tutorial da [entidade hierárquica](luis-quickstart-intent-and-hier-entity.md), [importe](create-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
+
+Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `simple`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original.  
 
 ## <a name="purpose-of-the-app"></a>Finalidade do aplicativo
-Este aplicativo demonstra como efetuar pull dos dados fora de um enunciado. Considere o seguinte enunciado de um chatbot:
+Este aplicativo demonstra como efetuar pull dos dados fora de um enunciado. Considere os seguintes enunciados de um chatbot:
 
-```JSON
-Send a message telling them to stop
-```
+|Enunciado|Nome do trabalho extraível|
+|:--|:--|
+|Desejo me candidatar para o novo trabalho de contabilidade.|contabilidade|
+|Envie meu currículo para o cargo de engenharia.|engenharia|
+|Preencher o aplicativo para o trabalho 123456|123456|
 
-A intenção é enviar uma mensagem. Os dados importantes do enunciado são a própria mensagem, `telling them to stop`.  
+Este tutorial adiciona uma nova entidade para extrair o nome do trabalho. A capacidade de extrair um número específico de trabalho é mostrada na expressão regular [tutorial](luis-quickstart-intents-regex-entity.md). 
 
 ## <a name="purpose-of-the-simple-entity"></a>Finalidade da entidade simple
-A finalidade da entidade simple é ensinar ao LUIS o que é uma mensagem e onde ela pode ser encontrada em um enunciado. A parte do enunciado que é a mensagem pode mudar de acordo com o enunciado e com base no tamanho do enunciado e na escolha de palavras. LUIS precisa de exemplos de mensagens em qualquer enunciado em todas as intenções.  
+A finalidade da entidade simples no aplicativo LUIS é ensinar ao LUIS o que é um nome trabalho e onde um enunciado pode ser encontrado. A parte do enunciado que é o trabalho pode mudar de acordo com o enunciado e com base no tamanho do enunciado e na escolha de palavras. O LUIS precisa de exemplos de trabalhos em qualquer enunciado em todas as intenções.  
 
-Para este aplicativo simples, a mensagem estará no final do enunciado. 
+É difícil determinar o nome do trabalho porque um nome pode ser um substantivo, um verbo ou uma frase com várias palavras. Por exemplo: 
 
-## <a name="create-a-new-app"></a>Criar um novo aplicativo
-1. Faça logon no site do [LUIS][LUIS]. Certifique-se de fazer logon na região onde você precisa dos pontos de extremidade de LUIS publicados.
+|Trabalhos|
+|--|
+|engenheiro|
+|engenheiro de software|
+|engenheiro de software sênior|
+|líder de equipe de engenharia |
+|controlador de tráfego aéreo|
+|operador de veículo motorizado|
+|motorista de ambulância|
+|vigia|
+|extrusor|
+|construtor de moinhos|
 
-2. No site do [LUIS][LUIS], selecione **Create new app** (Criar novo aplicativo).  
+Esse aplicativo LUIS tem nomes de trabalho em várias intenções. Ao rotular essas palavras em todos os enunciados de intenções, o LUIS aprende mais sobre o que é um trabalho e onde ele é encontrado em enunciados.
 
-    ![Lista de aplicativos LUIS](./media/luis-quickstart-primary-and-secondary-data/app-list.png)
+## <a name="create-job-simple-entity"></a>Criar uma entidade simple de trabalho
 
-3. Na caixa de diálogo pop-up, insira o nome `MyCommunicator`. 
+1. Verifique se o seu aplicativo de recursos humanos está na seção **Compilar** do LUIS. Você pode alterar essa seção selecionando **Compilar** na barra de menus da parte superior direita. 
 
-    ![Lista de aplicativos LUIS](./media/luis-quickstart-primary-and-secondary-data/create-new-app-dialog.png)
+    [ ![Captura de tela do aplicativo LUIS com Compilar realçado na barra de navegação superior direita](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
-4. Após a conclusão desse processo, o aplicativo mostrará a página **Intenções** com a intenção **None**. 
+2. Na página **Intenções**, selecione a intenção **ApplyForJob**. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/intents-list.png "Captura de tela da página Intents do LUIS com a intenção None")](media/luis-quickstart-primary-and-secondary-data/intents-list.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "Captura de tela do LUIS com intenção de “ApplyForJob” realçada")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
 
-## <a name="create-a-new-intent"></a>Criar uma nova intenção
+3. No enunciado, `I want to apply for the new accounting job`, selecione `accounting`, digite `Job` no campo superior do menu pop-up, depois selecione **Criar nova entidade** no menu pop-up. 
 
-1. Na página **Inteções**, selecione **Criar nova intenção**. 
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Captura de tela do LUIS com intenção de “ApplyForJob” com as etapas para criar a entidade realçadas")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
-    [![](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png "Captura de tela do LUIS com o botão \"Create new intent\" realçado")](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png#lightbox)
+4. Na janela pop-up, verifique o nome e o tipo da entidade e selecione **Concluído**.
 
-2. Insira o nome da nova intenção `SendMessage`. Essa intenção deve ser selecionada sempre que um usuário quiser enviar uma mensagem.
+    ![Criar diálogo modal pop-up da entidade simple com o nome do Job e tipo de simple](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-    Ao criar uma intenção, você está criando a categoria principal de informações que você deseja identificar. Ao nomear a categoria, qualquer outro aplicativo que use os resultados de consulta do LUIS poderá usar esse nome de categoria para encontrar uma resposta ou executar uma ação apropriada. O LUIS não responderá a essas perguntas, apenas identifica o tipo de informação que está sendo solicitado em linguagem natural. 
+5. No enunciado, `Submit resume for engineering position`, rotule a palavra engenharia como uma entidade Job. Selecione a palavra engenharia, depois selecione Job no menu pop-up. 
 
-    ![Insira o nome de intenção SendMessage](./media/luis-quickstart-primary-and-secondary-data/create-new-intent-popup-dialog.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Captura de tela do LUIS rotulando a entidade Job realçada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-3. Adicione sete enunciados à intenção `SendMessage` os quais você espera que um usuário solicite, por exemplo:
+    Todos os enunciados são rotulados, mas cinco enunciados não são suficientes para ensinar o LUIS sobre palavras e frases relacionadas a trabalho. Os trabalhos que usam o valor de número não precisam de mais exemplos porque usam uma entidade de expressão regular. Os trabalhos que são palavras ou frases precisam de pelo menos mais 15 exemplos. 
 
-    | Exemplo de enunciados|
-    |--|
-    |Responder com recebi a mensagem, terei a resposta amanhã|
-    |Enviar mensagem de Quando você estará em casa?|
-    |Enviar SMS informando que estou ocupado|
-    |Informar que isso precisa ser feito hoje|
-    |Enviar mensagem instantânea de que estou dirigindo e responderei mais tarde|
-    |Escrever mensagem para David perguntando Quando isso aconteceu?|
-    |diga oi para o greg|
+6. Adicione mais enunciados e marque as palavras ou frases de trabalho como entidade **Job**. Os tipos de trabalho são gerais entre empregos de um serviço de emprego. Se você quisesse trabalhos relacionados a um setor específico, as palavras de trabalho devem retratá-lo. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png "Captura de tela do LUIS após inserir enunciados")](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png#lightbox)
+    |Enunciado|Entidade Job|
+    |:--|:--|
+    |Estou me candidatando para o suporte do Gerente de Programas em P&D|Gerente de Programas|
+    |Aqui está minha candidatura para cozinheiro de linha.|cozinheiro de linha|
+    |Meu currículo para o monitor de campo está anexado.|monitor de acampamento|
+    |Este é o meu CV para assistente administrativo.|assistente administrativo|
+    |Desejo me candidatar para o trabalho de gerenciamento em vendas.|gerenciamento, vendas|
+    |Este é o meu currículo para o novo cargo de contabilidade.|contabilidade|
+    |Minha candidatura para assistente de bar está inclusa.|assistente de bar|
+    |Estou enviando minha candidatura para carpinteiro e armador.|carpinteiro, armador|
+    |Meu CV para motorista de ônibus está aqui.|motorista de ônibus|
+    |Sou enfermeiro registrado. Aqui está o meu currículo.|enfermeiro registrado|
+    |Gostaria de enviar minha documentação para o cargo de professor que vi no jornal.|professor|
+    |Este é o meu CV para o cargo de estoquista de frutas e legumes.|estoquista|
+    |Candidatar-se ao trabalho de azulejista.|azulejista|
+    |CV anexo para arquiteto paisagista.|arquiteto paisagista|
+    |Meu currículo para professor de biologia está anexado.|professor de biologia|
+    |Gostaria de me candidatar para o cargo em fotografia.|fotografia|git 
 
-## <a name="add-utterances-to-none-intent"></a>Adicionar enunciados à intenção None
-
-No momento, o aplicativo LUIS não tem enunciados para a intenção **None**. Ele precisa de enunciados que você não deseja que o aplicativo responda, então ele deve ter enunciados na intenção **None**. Não deixe em branco. 
-    
-1. Selecione **Intenções** no painel esquerdo. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png "Captura de tela do LUIS com o botão \"Intents\" realçado")](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png#lightbox)
-
-2. Selecione a intenção **None**. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png "Captura de tela da seleção da intenção None")](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png#lightbox)
-
-3. Adicione três enunciados que o usuário pode inserir, mas que não são relevantes para o seu aplicativo. Entre os enunciados **None** válidas estão:
-
-    | Exemplo de enunciados|
-    |--|
-    |Cancelar!|
-    |Até logo|
-    |O que está acontecendo?|
-    
-    No aplicativo que chama o LUIS, como um chatbot, se o LUIS retornar a intenção **None** para um enunciado, o bot poderá perguntar se o usuário deseja terminar a conversa. O bot também pode fornecer mais orientações para continuar a conversa, se o usuário não quiser encerrá-lo. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png "Captura de tela do LUIS após inserir enunciados para a intenção None")](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png#lightbox)
-
-## <a name="create-a-simple-entity-to-extract-message"></a>Criar uma entidade simple para extrair a mensagem 
+## <a name="label-entity-in-example-utterances-for-getjobinformation-intent"></a>Entidade de rótulo em enunciados de exemplo para a intenção GetJobInformation
 1. Selecione **Intents** no menu esquerdo.
 
-    ![Selecione o link Intents](./media/luis-quickstart-primary-and-secondary-data/select-intents-from-none-intent.png)
+2. Selecione **GetJobInformation** na lista de intenções. 
 
-2. Selecione `SendMessage` na lista de intenções.
+3. Rotule os trabalhos nos enunciados de exemplo:
 
-    ![Selecione a intenção SendMessage](./media/luis-quickstart-primary-and-secondary-data/select-sendmessage-intent.png)
+    |Enunciado|Entidade Job|
+    |:--|:--|
+    |Há algum trabalho em bancos de dados?|databases|
+    |Procurando uma nova vaga com responsabilidades de contabilidade|contabilidade|
+    |Quais cargos estão disponíveis para engenheiros seniores?|engenheiros seniores|
 
-3. No enunciado, `Reply with I got your message, I will have the answer tomorrow`, selecione a primeira palavra do corpo da mensagem, `I`, e a última palavra do corpo da mensagem, `tomorrow`. Todas essas palavras são selecionadas para a mensagem e um menu suspenso é exibido com uma caixa de texto na parte superior.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png "Captura de tela da seleção de palavras no enunciado da mensagem")](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png#lightbox)
-
-4. Insira o nome da entidade `Message` na caixa de texto.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png "Captura de tela de inserção do nome de entidade na caixa")](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png#lightbox)
-
-5. Selecione **Create new entity** no menu suspenso. A finalidade da entidade é efetuar pull do texto que faz parte do corpo da mensagem. Nesse aplicativo LUIS, a mensagem de texto está no final do enunciado, mas o enunciado e a mensagem podem ter qualquer tamanho. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png "Captura de tela da criação de nova entidade do enunciado")](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png#lightbox)
-
-6. Na janela pop-up, o tipo de entidade padrão é **Simple** e o nome da entidade é `Message`. Mantenha essas configurações e selecione **Done** (Concluído).
-
-    ![Verificar o tipo de entidade](./media/luis-quickstart-primary-and-secondary-data/entity-type.png)
-
-7. Agora que a entidade foi criada, e um enunciado foi rotulada, rotule o restante dos enunciados com essa entidade. Selecione um enunciado e depois selecione a primeira e última palavra de uma mensagem. No menu suspenso, selecione a entidade, `Message`. Agora, a mensagem está rotulada na entidade. Continue rotulando todas as frases de mensagem nos enunciados restantes.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png "Captura de tela de todas os enunciados de mensagem rotuladas")](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png#lightbox)
-
-    A exibição padrão dos enunciados é **Entities view** (Modo de exibição de entidades). Selecione o controle **Entities view** acima dos enunciados. O **Modo de exibição de tokens** exibe o texto do enunciado. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png "Captura de tela de enunciados no modo de exibição de tokens")](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png#lightbox)
+    Há outros enunciados de exemplo, mas eles não contêm palavras de trabalho.
 
 ## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
 O LUIS não fica ciente das alterações nas intenções e entidades (o modelo) até que seja treinado. 
@@ -169,48 +154,227 @@ Na página **Publicar**, selecione o link do **ponto de extremidade** na parte i
 
 [![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Captura de tela da página Publicar com o ponto de extremidade realçado")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
 
-Essa ação abre outra janela do navegador com a URL de ponto de extremidade na barra de endereços. Vá até o final da URL no endereço e insira `text I'm driving and will be 30 minutes late to the meeting`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, é um bom teste e deve retornar os enunciados `SendMessage`.
+Essa ação abre outra janela do navegador com a URL de ponto de extremidade na barra de endereços. Vá até o final da URL no endereço e insira `Here is my c.v. for the programmer job`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, é um bom teste e deve retornar os enunciados `ApplyForJob`.
 
-```
+```JSON
 {
-  "query": "text I'm driving and will be 30 minutes late to the meeting",
+  "query": "Here is my c.v. for the programmer job",
   "topScoringIntent": {
-    "intent": "SendMessage",
-    "score": 0.987501
+    "intent": "ApplyForJob",
+    "score": 0.9826467
   },
   "intents": [
     {
-      "intent": "SendMessage",
-      "score": 0.987501
+      "intent": "ApplyForJob",
+      "score": 0.9826467
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0218927357
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.007849265
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00349470088
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00348804821
     },
     {
       "intent": "None",
-      "score": 0.111048922
+      "score": 0.00319909188
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00222647213
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00211193133
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00172086991
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00138010911
     }
   ],
   "entities": [
     {
-      "entity": "i ' m driving and will be 30 minutes late to the meeting",
-      "type": "Message",
-      "startIndex": 5,
-      "endIndex": 58,
-      "score": 0.162995353
+      "entity": "programmer",
+      "type": "Job",
+      "startIndex": 24,
+      "endIndex": 33,
+      "score": 0.5230502
     }
   ]
 }
 ```
 
+## <a name="names-are-tricky"></a>Nomes são complicados
+O aplicativo LUIS encontrou a intenção correta com alta confiança e extraiu o nome do trabalho, mas nomes são complicados. Tente usar o enunciado `This is the lead welder paperwork`.  
+
+No JSON a seguir, o LUIS responde com a intenção correta, `ApplyForJob`, mas não extrai o nome de trabalho `lead welder`. 
+
+```JSON
+{
+  "query": "This is the lead welder paperwork.",
+  "topScoringIntent": {
+    "intent": "ApplyForJob",
+    "score": 0.468558252
+  },
+  "intents": [
+    {
+      "intent": "ApplyForJob",
+      "score": 0.468558252
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0102701457
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.009442534
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00639619166
+    },
+    {
+      "intent": "None",
+      "score": 0.005859333
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.005087704
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00315379258
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00259344373
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00193389168
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.000420796918
+    }
+  ],
+  "entities": []
+}
+```
+
+Como um nome pode ser qualquer coisa, o LUIS prevê as intenções mais precisamente caso tenha uma lista de frase de palavras para melhorar o sinal.
+
+## <a name="to-boost-signal-add-jobs-phrase-list"></a>Para melhorar o sinal, adicione uma lista de frases de trabalhos
+Abra o [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) do repositório Github LUIS-Samples. A lista tem mais de mil palavras de trabalho e frases. Examine a lista de palavras em busca de palavras de trabalho que sejam significativas para você. Se suas palavras ou frases não estiverem na lista, adicione suas próprias.
+
+1. Na seção **Compilar** do aplicativo LUIS, selecione **Listas de frase**, encontrada no menu **Melhorar o desempenho do aplicativo**.
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png "Captura de tela com o botão Listas de frase realçado no painel de navegação à esquerda")](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png#lightbox)
+
+2. Selecione **Criar nova lista de frase**. 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "Captura de tela do botão Criar nova lista de frase realçado")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
+
+3. Nomeie a nova lista de frase como `Jobs` e copie a lista de jobs-phrase-list.csv para a caixa de texto **Valores**. Selecione enter. 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Captura da caixa de diálogo pop-up Criar nova lista de frase")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+
+    Se você quiser adicionar mais palavras à lista de frases, revise as palavras recomendadas e adicione as que forem relevantes. 
+
+4. Selecione **Salvar** para ativar a lista de frases.
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Captura de tela da caixa de diálogo pop-up Criar nova lista de frases com palavras na caixa Valores da lista de frases")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+
+5. [Treine](#train-the-luis-app) e [publique](#publish-the-app-to-get-the-endpoint-URL) o aplicativo novamente para usar a lista de frases.
+
+6. Repita a consulta no ponto de extremidade com o mesmo enunciado: `This is the lead welder paperwork.`
+
+    A resposta JSON inclui a entidade extraída:
+
+    ```JSON
+    {
+        "query": "This is the lead welder paperwork.",
+        "topScoringIntent": {
+            "intent": "ApplyForJob",
+            "score": 0.920025647
+        },
+        "intents": [
+            {
+            "intent": "ApplyForJob",
+            "score": 0.920025647
+            },
+            {
+            "intent": "GetJobInformation",
+            "score": 0.003800706
+            },
+            {
+            "intent": "Utilities.StartOver",
+            "score": 0.00299335527
+            },
+            {
+            "intent": "MoveEmployee",
+            "score": 0.0027167045
+            },
+            {
+            "intent": "None",
+            "score": 0.00259556063
+            },
+            {
+            "intent": "FindForm",
+            "score": 0.00224019377
+            },
+            {
+            "intent": "Utilities.Stop",
+            "score": 0.00200693542
+            },
+            {
+            "intent": "Utilities.Cancel",
+            "score": 0.00195913855
+            },
+            {
+            "intent": "Utilities.Help",
+            "score": 0.00162656687
+            },
+            {
+            "intent": "Utilities.Confirm",
+            "score": 0.0002851904
+            }
+        ],
+        "entities": [
+            {
+            "entity": "lead welder",
+            "type": "Job",
+            "startIndex": 12,
+            "endIndex": 22,
+            "score": 0.8295959
+            }
+        ]
+    }
+    ```
+
+## <a name="phrase-lists"></a>Listas de frase
+A adição da lista de frases aumentou o sinal das palavras na lista, mas **não** é usada como uma correspondência exata. A lista de frases tem vários trabalhos com a primeira palavra `lead`, e também tem o trabalho `welder`, mas não tem o `lead welder`. Essa lista de frases de trabalhos pode não ser concluída. À medida que você [examinar enunciados de ponto de extremidade](label-suggested-utterances.md) regularmente e encontrar outras palavras de trabalho, adicione-as à sua lista de frases. Em seguida, treine e publique novamente.
+
 ## <a name="what-has-this-luis-app-accomplished"></a>O que esse aplicativo de LUIS realizou?
-Esse aplicativo, com apenas duas intenções e uma entidade, identificou uma intenção de consulta de linguagem natural e retornou dados da mensagem. 
+Esse aplicativo, com uma entidade simple e uma lista de frases com palavras, identificou uma intenção de consulta de linguagem natural e retornou os dados da mensagem. 
 
-O resultado em JSON identifica a intenção com maior pontuação `SendMessage`, com uma pontuação de 0,987501. Todas as pontuações estão entre 1 e 0, com a melhor pontuação mais próxima a 1. A pontuação da intenção `None` é 0,111048922, muito mais próxima a zero. 
-
-Os dados da mensagem têm um tipo, `Message`, bem como um valor, `i ' m driving and will be 30 minutes late to the meeting`. 
-
-Agora, seu chatbot tem informações suficientes para determinar a ação primária, `SendMessage`, e um parâmetro dessa ação, o texto da mensagem. 
+Agora, seu chatbot tem informações suficientes para determinar a ação primária de se candidatar e um parâmetro dessa ação, à qual o trabalho está referenciado. 
 
 ## <a name="where-is-this-luis-data-used"></a>Onde esses dados do LUIS são usados? 
-O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode usar o resultado de topScoringIntent e os dados da entidade para enviar a mensagem por uma API de terceiros. Se houver outras opções de programação para o aplicativo de chamada ou o bot, o LUIS não executará esse trabalho. O LUIS só determina qual é a intenção do usuário. 
+O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode usar o resultado de topScoringIntent e os dados da entidade para usar uma API de terceiros para enviar as informações do trabalho para um representante dos recursos humanos. Se houver outras opções de programação para o aplicativo de chamada ou o bot, o LUIS não executará esse trabalho. O LUIS só determina qual é a intenção do usuário. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando não for mais necessário, exclua o aplicativo LUIS. Para fazer isso, selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
@@ -218,8 +382,4 @@ Quando não for mais necessário, exclua o aplicativo LUIS. Para fazer isso, sel
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba como adicionar uma entidade hierárquica](luis-quickstart-intent-and-hier-entity.md)
-
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+> [Saiba como adicionar uma entidade de keyphrase predefinida](luis-quickstart-intent-and-key-phrase.md)

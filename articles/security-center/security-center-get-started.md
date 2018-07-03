@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 06/26/2018
 ms.author: terrylan
-ms.openlocfilehash: 0004db332ec13e23ed49f2c19e3454a516ca6a40
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d10cef33ef0c325d41c9539107b9a4cab5e916d8
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29531665"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059847"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início rápido: Integrar sua assinatura do Azure ao Centro de Segurança Standard
 A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto a camada Gratuita oferece segurança limitada para somente os recursos do Azure, a camada Standard estende esses recursos para o local e outras nuvens. A Central de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias.
@@ -46,7 +46,7 @@ Você pode visualizar e filtrar a lista de assinaturas clicando no item do menu 
 Em poucos minutos após iniciar a Central de Segurança pela primeira vez, você poderá ver:
 
 - **Recomendações** de maneiras para melhorar a segurança de suas assinaturas do Azure. Clique no bloco **Recomendações** para iniciar uma lista priorizada.
-- Um inventário de recursos de **Computação**, **Rede**, **Armazenamento e dados**, e **Aplicativos** que estão sendo avaliados agora pela Central de Segurança junto com a postura de segurança de cada um.
+- Um inventário de recursos de **Computação e aplicativos**, **Rede**, **Segurança de dados**, e **Identidade e acesso** que estão sendo avaliados agora pela Central de Segurança junto com a postura de segurança de cada um.
 
 Para tirar total proveito da Central de Segurança, você precisa concluir as etapas abaixo para fazer upgrade para a camada Standard e instalar o Microsoft Monitoring Agent.
 
@@ -79,7 +79,7 @@ Para habilitar o provisionamento automático do Microsoft Monitoring Agent:
 2. Selecione a assinatura.
 3. Em **Política de segurança**, selecione **Coleta de Dados**.
 4. Em **Coleta de Dados**, selecione **Ativar** para habilitar o provisionamento automático.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
   ![Habilitar o provisionamento automático][6]
 
@@ -94,14 +94,14 @@ Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de
 2. Selecione a assinatura ou a política que você deseja retornar para Gratuita. A **Política de segurança** abre.
 3. Em **COMPONENTES DE POLÍTICA**, selecione **Tipo de preços**.
 4. Selecione **Gratuita** para alterar a assinatura da camada Standard para a camada Gratuita.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 Se quiser desabilitar o provisionamento automático:
 
 1. Retorne ao menu principal da Central de Segurança e selecione **Política de segurança**.
 2. Selecione a assinatura em que você deseja desabilitar o provisionamento automático.
 3. Em **Política de segurança – Coleta de dados**, selecione **Desativar** em **Integração** para desabilitar o provisionamento automático.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 >[!NOTE]
 > Desabilitar o provisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure em que o agente tenha sido provisionado. Desabilitar o provisionamento automático limita o monitoramento de segurança dos seus recursos.

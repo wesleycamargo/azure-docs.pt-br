@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a76dbb9a232d99615629d1a3fec6010b37e73247
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179054"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046771"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Conectar ao HDInsight (Hadoop) usando o SSH
 
@@ -32,7 +32,7 @@ O HDInsight pode usar o Linux (Ubuntu) como o sistema operacional para os nós n
 
 | Endereço | Porta | Conecta-se a... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nó de borda (Servidor R no HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nó do Edge (ML Services no HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nó de borda (qualquer outro tipo de cluster, se existir um nó de borda) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nó de cabeçalho primário |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nó de cabeçalho secundário |

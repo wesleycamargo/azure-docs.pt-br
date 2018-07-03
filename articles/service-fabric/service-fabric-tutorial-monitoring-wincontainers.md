@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: f839b05a1d97ce78601697469c982839358d6b06
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248234"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300849"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Tutorial: Monitorar os contêineres do Windows no Service Fabric usando o Log Analytics
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > * Configurar o Log Analytics para seu cluster do Service Fabric
 > * Usar um espaço de trabalho do Log Analytics para exibir e consultar logs dos seus contêineres e nós
-> * Configurar o agente do OMS para selecionar métricas de contêiner e de nó
+> * Configurar o agente do Log Analytics para selecionar métricas de contêiner e de nó
 
 ## <a name="prerequisites"></a>pré-requisitos
 Antes de iniciar este tutorial, você deverá:
@@ -81,7 +81,7 @@ Faça as seguintes alterações no seu *template.json*:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Adicione ao OMS o Microsoft Monitoring Agent como uma extensão da máquina virtual. Encontre recursos de conjuntos de dimensionamento de máquinas virtuais: *recursos* > *"apiVersion": "[variables('vmssApiVersion')]"*. Em *propriedades* > *virtualMachineProfile* > *extensionProfile* > *extensões*, adicione a seguinte descrição de extensão na extensão *ServiceFabricNode*: 
+3. Adicione o Microsoft Monitoring Agent como uma extensão da máquina virtual. Encontre recursos de conjuntos de dimensionamento de máquinas virtuais: *recursos* > *"apiVersion": "[variables('vmssApiVersion')]"*. Em *propriedades* > *virtualMachineProfile* > *extensionProfile* > *extensões*, adicione a seguinte descrição de extensão na extensão *ServiceFabricNode*: 
     
     ```json
     {
@@ -181,7 +181,7 @@ Faça as seguintes alterações no seu *template.json*:
     },
     ```
 
-[Veja](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) um modelo de exemplo (usado na parte um deste tutorial) que tem todas essas alterações que você pode referenciar conforme necessário. Essas alterações adicionarão um espaço de trabalho do Log Analytics ao grupo de recursos. O espaço de trabalho será configurado para selecionar eventos de plataforma do Service Fabric das tabelas de armazenamento configurados com o agente [Diagnóstico do Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md). O agente do OMS (Microsoft Monitoring Agent) também foi adicionado a cada nó no cluster como uma extensão de máquina virtual – isso significa que, enquanto você dimensiona seu cluster, o agente é configurado automaticamente em cada computador e conectado ao mesmo espaço de trabalho.
+[Veja](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) um modelo de exemplo (usado na parte um deste tutorial) que tem todas essas alterações que você pode referenciar conforme necessário. Essas alterações adicionarão um espaço de trabalho do Log Analytics ao grupo de recursos. O espaço de trabalho será configurado para selecionar eventos de plataforma do Service Fabric das tabelas de armazenamento configurados com o agente [Diagnóstico do Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md). O agente do Log Analytics (Microsoft Monitoring Agent) também foi adicionado a cada nó no cluster como uma extensão de máquina virtual – isso significa que, enquanto você dimensiona seu cluster, o agente é configurado automaticamente em cada computador e conectado ao mesmo espaço de trabalho.
 
 Implante o modelo com suas novas alterações para atualizar seu cluster atual. Você deverá ver os recursos do Log Analytics no seu grupo de recursos quando tiver terminado. Quando o cluster estiver pronto, implante seu aplicativo em contêiner nele. Na próxima etapa, configuraremos o monitoramento dos contêineres.
 
@@ -191,7 +191,7 @@ Para configurar a solução de contêiner no espaço de trabalho, pesquise *Solu
 
 ![Adicionando a solução de Contêineres](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-Quando *Espaço de trabalho do Log Analytics* for solicitado, selecione o espaço de trabalho que foi criado no seu grupo de recursos e clique em **Criar**. Isso adiciona uma *Solução de monitoramento de contêiner* ao seu espaço de trabalho, o que fará automaticamente o agente do OMS ser implantado pelo modelo para começar a coletar estatísticas e logs do docker. 
+Quando *Espaço de trabalho do Log Analytics* for solicitado, selecione o espaço de trabalho que foi criado no seu grupo de recursos e clique em **Criar**. Isso adiciona uma *Solução de Monitoramento de Contêiner* ao seu espaço de trabalho, o que fará automaticamente o agente do Log Analytics ser implantado pelo modelo para começar a coletar estatísticas e logs do docker. 
 
 Navegue de volta para seu *grupo de recursos*, em que você deverá ver a solução de monitoramento recém-adicionada. Se você clicar nela, a página de aterrissagem deverá mostrar o número de imagens de contêiner que você tem em execução. 
 
@@ -211,11 +211,11 @@ Clicar em qualquer um desses painéis direcionará você à consulta do Log Anal
 
 ![Consulta do contêiner](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
-## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Configurar o agente do OMS para selecionar os contadores de desempenho
+## <a name="configure-log-analytics-agent-to-pick-up-performance-counters"></a>Configurar o agente do Log Analytics para selecionar os contadores de desempenho
 
-Outro benefício de usar o agente do OMS é a capacidade de alterar os contadores de desempenho que você deseja selecionar por meio da experiência de interface do usuário do OMS em vez de ter que configurar o agente de diagnóstico do Azure e fazer uma atualização baseada no modelo do Resource Manager toda as vezes. Para fazer isso, clique em **Espaço de Trabalho do OMS** na página de aterrissagem de sua solução de Monitoramento de Contêiner (ou do Service Fabric).
+Outro benefício de usar o agente do Log Analytics é a capacidade de alterar os contadores de desempenho que você deseja selecionar por meio da experiência de interface do usuário do Log Analytics em vez de ter que configurar o agente de diagnóstico do Azure e fazer uma atualização baseada no modelo do Resource Manager toda as vezes. Para fazer isso, clique em **Espaço de Trabalho do OMS** na página de aterrissagem de sua solução de Monitoramento de Contêiner (ou do Service Fabric).
 
-Isso direcionará você ao seu Espaço de Trabalho do OMS, em que será possível exibir suas soluções, criar painéis personalizados, além de configurar o agente do OMS. 
+Isso direcionará você ao seu Espaço de Trabalho do Log Analytics, em que será possível exibir suas soluções, criar painéis personalizados, além de configurar o agente do Log Analytics. 
 * Clique em **Configurações Avançadas** para abrir o menu Configurações Avançadas.
 * Clique em **Fontes conectadas** > **Servidores Windows** para verificar se você tem *5 Computadores Windows conectados*.
 * Clique em **Dados** > **Contadores de desempenho do Windows** para pesquisar e adicionar novos contadores de desempenho. Aqui você verá uma lista de recomendações do Log Analytics para contadores de desempenho que você pode coletar, bem como a opção de pesquisar outros contadores. Verifique se os contadores **Processor(_Total)\% Tempo de Processador** e **Memory(*)\Available MBytes** estão sendo coletados.
