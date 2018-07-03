@@ -21,6 +21,20 @@
           href: quickstart-csharp-languages.md
         - name: Obter os comprimentos de frase no texto
           href: quickstart-csharp-sentences.md
+    - name: Go
+      items:
+        - name: Traduzir o texto
+          href: quickstart-go-translate.md
+        - name: Converter o script de texto
+          href: quickstart-go-transliterate.md
+        - name: Identificar idioma do texto
+          href: quickstart-go-detect.md
+        - name: Obter traduções alternativas
+          href: quickstart-go-dictionary.md
+        - name: Obter idiomas com suporte
+          href: quickstart-go-languages.md
+        - name: Obter os comprimentos de frase no texto
+          href: quickstart-go-sentences.md
     - name: Java
       items:
         - name: Traduzir o texto

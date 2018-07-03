@@ -4,10 +4,10 @@
 ### Visão Geral e Benefícios  
 ### Vitrines  
 #### [Comparando AppSource e Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
-#### [Desenvolva seu negócio com o AppSource](./grow-your-business-with-appsource.md)  
+#### [Desenvolva seu negócio com o AppSource](./grow-your-business-with-appsource.md) 
+#### [Soluções preferenciais](./preferred-solutions.md)
 ##### [Compilar Sua Página de Destino](./build-your-landing-page.md)  
 ##### [Habilitar compartilhamento de clientes potenciais](./enable-lead-sharing.md)  
-##### [Soluções preferenciais](./preferred-solutions.md)
 ##### [Benefícios GTM no marketplace](./gtm-benefits.md)  
 ##### [Promover Seus Negócios com a Microsoft](./promote-your-business-with-microsoft.md)  
 #### [Aumentar sua empresa com o Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  

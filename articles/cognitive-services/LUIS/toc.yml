@@ -192,11 +192,11 @@
         - name: Aumentar a precisão com testes de lote
           href: luis-tutorial-batch-testing.md
     - name: Publicar seu aplicativo
-      href: PublishApp.md
+      href: luis-how-to-publish-app.md
     - name: Usar modelos predefinidos
       items:
         - name: Usar as entidades predefinidas
-          href: Pre-builtEntities.md
+          href: luis-prebuilt-entities.md
         - name: Usar os domínios predefinidos
           href: luis-how-to-use-prebuilt-domains.md
         - name: Usar o aplicativo predefinido Cortana
@@ -208,7 +208,7 @@
         - name: Criar chaves
           href: luis-how-to-azure-subscription.md
         - name: Adicionar chaves no LUIS
-          href: Manage-Keys.md
+          href: luis-how-to-manage-keys.md
         - name: Exibir o uso do ponto de extremidade com o PowerShell
           href: luis-how-to-manage-from-cloud-shell.md
         - name: Gerenciar versões
@@ -283,6 +283,10 @@
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Android'
         - name: Node.js
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Node.js'
+        - name: Go
+          href: 'https://aka.ms/luis-sdk-go'
+        - name: Java
+          href: 'https://aka.ms/luis-java-sdk'
         - name: Python
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Python'
         - name: Ponto de extremidade do .NET

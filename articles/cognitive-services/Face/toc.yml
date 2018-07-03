@@ -1,11 +1,11 @@
 - name: Documentação da API de Detecção Facial
   href: index.yml
 - name: Visão geral
+  expanded: true
   items:
     - name: O que é a API de Detecção Facial?
       href: Overview.md
 - name: Guia de início rápido
-  expanded: true
   items:
     - name: 'C#'
       href: QuickStarts/CSharp.md
@@ -53,16 +53,18 @@
   items:
     - name: API de Detecção Facial
       href: APIReference.md
+    - name: Glossário
+      href: Glossary.md
     - name: SDKs
       items:
-        - name: Go
-          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face'
+        - name: Windows
+          href: 'https://github.com/Microsoft/Cognitive-Face-Windows'
         - name: Node.js
           href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules'
         - name: Python
           href: 'https://github.com/Microsoft/Cognitive-Face-Python'
-        - name: Windows
-          href: 'https://github.com/Microsoft/Cognitive-Face-Windows'
+        - name: Go
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face'
         - name: Android
           href: 'https://github.com/Microsoft/Cognitive-Face-Android'
         - name: iOS
@@ -81,7 +83,7 @@
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: Glossário
-      href: Glossary.md
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Notas de versão
       href: ReleaseNotes.md
