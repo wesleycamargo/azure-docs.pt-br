@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 5c6ff5ac909e2dc6918f85d39beb781952ee6dd0
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e0146be345215701cf1afe86345afc286933d51b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593089"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750961"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Habilitar sincronização offline para seu aplicativo móvel Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -28,14 +28,14 @@ ms.locfileid: "27593089"
 Este tutorial apresenta o recurso de sincronização offline de Aplicativos móveis do Azure para Xamarin.Android. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local.
 Quando o dispositivo estiver online novamente, essas alterações serão sincronizadas com o serviço remoto.
 
-Neste tutorial, você atualizará o projeto de cliente do tutorial [Criar um aplicativo do Xamarin Android] para dar suporte aos recursos offline dos Aplicativos Móveis do Azure. Se você não usar o projeto baixado do início rápido do servidor, deve adicionar os pacotes de extensão de acesso de dados autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Neste tutorial, você atualizará o projeto de cliente do tutorial [Criar um aplicativo Android do Xamarin] para dar suporte aos recursos offline dos Aplicativos Móveis do Azure. Se você não usar o projeto baixado do início rápido do servidor, deve adicionar os pacotes de extensão de acesso de dados autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Para saber mais sobre o recurso de sincronização offline, confira o tópico [Sincronização de dados Offline em aplicativos móveis do Azure].
+Para saber mais sobre o recurso de sincronização offline, confira o tópico [Sincronização de Dados Offline em Aplicativos Móveis do Azure].
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Atualize o aplicativo cliente para dar suporte aos recursos offline
-Os recursos offline do aplicativo móvel do Azure permitem que você interaja com um banco de dados local quando estiver em um cenário offline. Para usar esses recursos em seu aplicativo, você deve inicializar um [SyncContext] para um repositório local. Referencie sua tabela pela interface [IMobileServiceSyncTable][IMobileServiceSyncTable]. O SQLite é usado como o repositório local no dispositivo.
+Os recursos offline do aplicativo móvel do Azure permitem que você interaja com um banco de dados local quando estiver em um cenário offline. Para usar esses recursos em seu aplicativo, você deve inicializar um [SyncContext] para um repositório local. Em seguida, referencie sua tabela através da interface [IMobileServiceSyncTable](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet). O SQLite é usado como o repositório local no dispositivo.
 
-1. No Visual Studio, abra o gerenciador de pacotes do NuGet no projeto que você concluiu no tutorial [Criar um aplicativo do Xamarin Android] tutorial.  Procure e instale o pacote NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
+1. No Visual Studio, abra o gerenciador de pacotes do NuGet no projeto que você concluiu no tutorial [Criar um aplicativo Android do Xamarin] tutorial.  Procure e instale o pacote NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
 2. Abra o arquivo ToDoActivity.cs e remova o comentário da definição `#define OFFLINE_SYNC_ENABLED`.
 3. No Visual Studio, pressione a tecla **F5** para recompilar e executar o aplicativo cliente. O aplicativo funciona da mesma forma que antes de habilitar a sincronização offline. No entanto, o banco de dados local é agora populado com dados que podem ser usados em um cenário offline.
 
@@ -61,10 +61,10 @@ Nesta seção, reconecte o aplicativo ao back-end do aplicativo móvel. Quando v
 3. (Opcional) Exiba os dados atualizados usando o Pesquisador de Objetos do SQL Server ou uma ferramenta REST, como o Fiddler. Observe que os dados foram sincronizados entre o banco de dados de back-end do aplicativo móvel do Azure e o armazenamento local.
 4. No aplicativo, clique na caixa de seleção ao lado de alguns itens a serem concluídos no repositório local.
 
-   `CheckItem` chama `SyncAsync` para sincronizar cada item concluído com o back-end do Aplicativo Móvel. `SyncAsync` chama push e pull. **Sempre que você executar um pull em uma tabela na qual o cliente fez alterações, um push será sempre executado automaticamente**. Isso garante que todas as tabelas no repositório local juntamente com os relacionamentos permaneçam consistentes. Esse comportamento pode resultar em um push inesperado. Para obter mais informações sobre esse comportamento, confira [Sincronização de dados Offline em aplicativos móveis do Azure].
+   `CheckItem` chama `SyncAsync` para sincronizar cada item concluído com o back-end do Aplicativo Móvel. `SyncAsync` chama push e pull. **Sempre que você executar um pull em uma tabela na qual o cliente fez alterações, um push será sempre executado automaticamente**. Isso garante que todas as tabelas no repositório local juntamente com os relacionamentos permaneçam consistentes. Esse comportamento pode resultar em um push inesperado. Para obter mais informações sobre esse comportamento, confira [Sincronização de Dados Offline em Aplicativos Móveis do Azure].
 
 ## <a name="review-the-client-sync-code"></a>Examine o código de sincronização do cliente
-O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um aplicativo do Xamarin Android] já contém a sincronização offline do código de suporte usando um banco de dados SQLite local. Aqui há um resumo breve do que já está incluído no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados Offline em aplicativos móveis do Azure].
+O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um aplicativo Android do Xamarin] já contém a sincronização offline do código de suporte usando um banco de dados SQLite local. Aqui há um resumo breve do que já está incluído no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de Dados Offline em Aplicativos Móveis do Azure].
 
 * Antes de qualquer operação de tabela poder ser executada, o armazenamento local deve ser inicializado. O banco de dados do armazenamento local é inicializado quando o `ToDoActivity.OnCreate()` executa o `ToDoActivity.InitLocalStoreAsync()`. Isso cria um banco de dados SQLite local usando a classe `MobileServiceSQLiteStore` fornecida pelo SDK do cliente de Aplicativos Móveis do Azure.
 
@@ -96,7 +96,7 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
 
     O código fornecido chama o `ToDoActivity.SyncAsync()` para sincronizar sempre que a lista todoitem é atualizada ou um todoitem é adicionado ou concluído. As sincronizações de código após cada alteração local.
 
-    No código fornecido, todos os registros na tabela remota `TodoItem` são solicitados, mas também é possível filtrar os registros passando uma ID de consulta e uma consulta ao `PushAsync`. Para obter mais informações, consulte a seção *Sincronização Incremental* em [Sincronização de dados Offline em aplicativos móveis do Azure].
+    No código fornecido, todos os registros na tabela remota `TodoItem` são solicitados, mas também é possível filtrar os registros passando uma ID de consulta e uma consulta ao `PushAsync`. Para obter mais informações, consulte a seção *Sincronização Incremental* em [Sincronização de Dados Offline em Aplicativos Móveis do Azure].
 
         // ToDoActivity.cs
         private async Task SyncAsync()
@@ -112,18 +112,18 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
         }
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Sincronização de dados Offline em aplicativos móveis do Azure]
+* [Sincronização de Dados Offline em Aplicativos Móveis do Azure]
 * [SDK .NET de Aplicativos Móveis do Azure HOWTO][8]
 
 <!-- URLs. -->
-[Criar um aplicativo do Xamarin Android]: ../app-service-mobile-xamarin-android-get-started.md
-[Sincronização de dados Offline em aplicativos móveis do Azure]: ../app-service-mobile-offline-data-sync.md
+[Criar um aplicativo Android do Xamarin]: ../app-service-mobile-xamarin-android-get-started.md
+[Sincronização de Dados Offline em Aplicativos Móveis do Azure]: ../app-service-mobile-offline-data-sync.md
 
 <!-- Images -->
 
 <!-- URLs. -->
 [Criar um aplicativo Android do Xamarin]: app-service-mobile-xamarin-android-get-started.md
-[Sincronização de dados offline em Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
+[Sincronização de Dados Offline em Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
