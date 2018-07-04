@@ -5,7 +5,6 @@
 ### Vitrines  
 #### [Comparando AppSource e Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
 #### [Desenvolva seu negócio com o AppSource](./grow-your-business-with-appsource.md) 
-#### [Soluções preferenciais](./preferred-solutions.md)
 ##### [Compilar Sua Página de Destino](./build-your-landing-page.md)  
 ##### [Habilitar compartilhamento de clientes potenciais](./enable-lead-sharing.md)  
 ##### [Benefícios GTM no marketplace](./gtm-benefits.md)  
@@ -19,17 +18,17 @@
 ### Como Publicar em vitrines no marketplace  
 #### [Determinar o Tipo de Lista para Sua Solução](./determine-your-listing-type.md)  
 #### [Tornar-se um fornecedor em vitrines no marketplace](./become-publisher.md)  
-#### [Requisitos por Tipo de Listagem](./listing-type-requirements.md)  
+#### [Requisitos por Tipo de Listagem](./listing-type-requirements.md) 
+#### [Soluções preferenciais](./preferred-solutions.md) 
 
 ### Listas de Verificação da Publicação  
 #### [Lista de Verificação da Publicação para AppSource](./publishing-checklist-appsource.md)  
 #### [Lista de Verificação da Publicação para Azure Marketplace](./publishing-checklist-azure-marketplace.md)  
 
 ### Suporte  
-#### [Suporte para AppSource](./support-appsource.md)  
-#### [Suporte para Azure Marketplace](./support-azure-marketplace.md)  
+#### [Suporte para o Azure Marketplace e AppSource](./support-azure-marketplace.md)  
 
-### Guias  
+### Guias de Publicação  
 #### [Serviços de Consultoria do Azure Marketplace](consulting-services.md)  
 #### [Guia de publicação técnico do aplicativo SaaS do Azure Marketplace](marketplace-saas-applications-technical-publishing-guide.md) 
 

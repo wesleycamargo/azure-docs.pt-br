@@ -7,14 +7,14 @@ manager: carmonm
 keywords: backups; fazendo backup;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/1/2018
+ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606629"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960161"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 
@@ -34,11 +34,14 @@ Antes de proteger (ou fazer backup) uma máquina virtual implementada com o Reso
 Se essas condições já existem em seu ambiente, prossiga para o artigo [Fazer backup das suas VMs](backup-azure-arm-vms.md). Se você precisa configurar ou verificar qualquer um desses pré-requisitos, este artigo orienta você sobre etapas.
 
 ## <a name="supported-operating-systems-for-backup"></a>Versões de sistema operacional compatíveis para backup
- * **Linux**: o Backup do Azure é compatível [uma lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) exceto o CoreOS Linux. 
- 
+
+ * **Linux**: o Backup do Azure é compatível [uma lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) exceto o CoreOS Linux. Para a lista de sistemas operacionais Linux que possuem suporte para restauração de arquivos, consulte [Recuperação de arquivos para backup de máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
+
     > [!NOTE] 
     > Outras distribuições personalizadas do Linux devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python. No entanto, não há suporte para essas distribuições.
- * **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
+    >
+ * **Windows Server**, **Windows client**: não há suporte para versões anteriores ao Windows Server 2008 R2 ou Windows 7.
+
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitações durante o backup e a restauração de uma VM
 Antes de preparar seu ambiente, note as seguintes limitações:

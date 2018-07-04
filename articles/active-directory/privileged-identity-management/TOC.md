@@ -1,17 +1,14 @@
 # Visão geral
-## [Proteger o acesso privilegiado](active-directory-securing-privileged-access.md)
 ## [O que é o PIM do Azure AD?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Proteger o acesso privilegiado](../admin-roles-best-practices.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Funções de diretório no PIM](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [PIM para Recursos do Azure](azure-pim-resource-rbac.md)
 ## [Fluxo de trabalho de aprovação do PIM](azure-ad-pim-approval-workflow.md)
-## [Funções](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-
-
 
 # Introdução
 ## [Requisitos de assinatura](subscription-requirements.md)
 ## [Introdução ao Portal do Azure](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [O assistente de segurança](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Assistente de segurança](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Dar acesso ao PIM](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Habilitar gerenciamento de assinaturas](pim-resource-roles-enable-subscription-management.md)
 ## [Descobrir recursos](pim-resource-roles-discover-resources.md)
@@ -46,16 +43,8 @@
 ### [Concluir uma análise de acesso](pim-resource-roles-complete-access-review.md)
 
 # Perguntas frequentes
-## PIM para funções do diretório
 ## PIM para funções do recurso
 ### [Tipos de Atribuição](pim-resource-roles-eligible-visibility.md)
 
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
-
-# Relacionados
-## [Active Directory do Azure](/azure/active-directory/)
-## [Controle de acesso baseado em função](../../role-based-access-control/overview.md)
-# Recursos
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)

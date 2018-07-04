@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 6a1d4a55074630cc20c98202d2e94ec682c323f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234066"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020399"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Criar uma revisão de acesso de membros do grupo ou acesso do aplicativo com o Azure AD
 
@@ -26,7 +26,7 @@ As atribuições de acesso se tornam "obsoletas" quando os usuários possuem um 
 
 ## <a name="create-an-access-review"></a>Criar uma análise de acesso
 
-1. Como administrador global, vá até a [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) e selecione **Programas**.
+1. Como um administrador global ou administrador de conta de usuário, vá para a [página acessar análises](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) e selecione **Programas**.
 
 2. Selecione o programa que mantém o controle de análise de acesso que deseja criar. O **Programa padrão** está sempre presente ou você pode criar um programa diferente. Por exemplo, é possível optar por ter um programa para cada iniciativa de conformidade ou meta de negócios.
 
@@ -38,7 +38,7 @@ As atribuições de acesso se tornam "obsoletas" quando os usuários possuem um 
 
 6. Para tornar a revisão de acesso recorrente, altere a frequência de Uma vez para Semanal, Mensal, Trimestral ou Anual e use o controle deslizante ou caixa de texto para definir quantos dias cada revisão da série recorrente será aberta para entrada dos revisores. Por exemplo, a duração máxima que você pode definir para uma revisão mensal é de 27 dias, para evitar avaliações sobrepostas. 
 
-7.  A série de revisão de acesso recorrente pode terminar de 3 maneiras: ela é executada continuamente para iniciar revisões indefinidamente, até uma data específica ou após a conclusão de um número definido de ocorrências. Você ou outro administrador global pode interromper a série após a criação, alterando a data em Configurações para que ela encerre nessa data.
+7.  A série de revisão de acesso recorrente pode terminar de 3 maneiras: ela é executada continuamente para iniciar revisões indefinidamente, até uma data específica ou após a conclusão de um número definido de ocorrências. Você, outro usuário administrador de conta, ou outro administrador global pode interromper a série após a criação, alterando a data em Configurações para que ela encerre nessa data.
 
 8. As revisões de acesso podem ser de membros de um grupo ou usuários que foram atribuídos a um aplicativo. Você pode detalhar ainda mais o escopo da análise de acesso para examinar apenas os usuários convidados que são membros (ou atribuídos ao aplicativo), em vez de examinar todos os usuários que são membros ou que têm acesso ao aplicativo.
 

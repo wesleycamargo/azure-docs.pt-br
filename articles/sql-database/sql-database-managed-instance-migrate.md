@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 8f666bc352dc1706da4812590f85adc7695e2f13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647655"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050119"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração da instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -78,11 +78,12 @@ A Instância Gerenciada oferece suporte às opções de migração de banco de d
 
 - Serviço de Migração de Banco de Dados do Azure - migração com tempo de inatividade próximo de zero
 - RESTORE nativo de URL - usa backups nativos do SQL Server e requer algum tempo de inatividade
-- Migrar usando o arquivo BACPAC - usa o arquivo BACPAC do SQL Server ou do Banco de Dados SQL e requer algum tempo de inatividade
 
 ### <a name="azure-database-migration-service"></a>Serviço de Migração de Banco de Dados do Azure
 
 O [DMS (Serviço de Migração de Banco de Dados do Azure)](../dms/dms-overview.md) é um serviço totalmente gerenciado projetado para permitir migrações contínuas de várias fontes de banco de dados para plataformas de dados do Azure com um tempo de inatividade mínimo. Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e SQL Server existentes para o Azure. As opções de implantação na Visualização Pública incluem Banco de Dados SQL do Azure, Instância Gerenciada e SQL Server em uma Máquina Virtual do Azure. O DMS é o método recomendado de migração para as cargas de trabalho empresariais. 
+
+Se você usar o SQL Server Integration Services (SSIS) no SQL Server no local, o DMS ainda não oferece suporte a migração de catálogo do SSIS (SSISDB) que armazena pacotes do SSIS, mas pode provisionar o Integration Runtime (RI) do Azure-SSIS no Azure Data Factory (ADF) que cria um novo SSISDB no Banco de Dados SQL do Azure/Instância Gerenciada e, em seguida, reimplantar seus pacotes nele. Consulte [Criar IR do Azure-SSIS no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
 
 Para saber mais sobre esse cenário e as etapas de configuração do DMS, consulte [Migrar o banco de dados local para a Instância Gerenciada utilizando DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -107,10 +108,6 @@ A tabela a seguir fornece mais informações sobre o método que você pode util
 > Não há suporte para restauração de bancos de dados do sistema. Para migrar objetos de nível de instância (armazenados em bancos de dados mestres ou msdb), é recomendável script e executar scripts T-SQL na instância de destino.
 
 Para um tutorial completo que inclui a restauração de um backup de banco de dados para uma Instância Gerenciada usando uma credencial de SAS, consulte [Restaurar do backup para uma Instância Gerenciada](sql-database-managed-instance-restore-from-backup-tutorial.md).
-
-### <a name="migrate-using-bacpac-file"></a>Migrar utilizando arquivo BACPAC
-
-É possível importar para Banco de Dados SQL do Azure e Instância Gerenciada a partir de uma criação de uma cópia do banco de dados original, com os dados, em um arquivo BACPAC. Consulte [Importar um arquivos BACPAC para um novo Banco de Dados SQL do Azure](sql-database-import.md).
 
 ## <a name="monitor-applications"></a>Monitorar aplicativos
 

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: d93f66282e3f735565389904c65436ed2ad79480
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825751"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054166"
 ---
 # <a name="grow-your-business-with-appsource"></a>Desenvolver seus negócios com o AppSource  
 Use o AppSource quando envolver clientes de negócios para localizar, experimentar e obter aplicativos SaaS (serviços como aplicativos) de linha de negócios e serviços de implementação para ajudar a determinar os resultados de negócios e reduzir o tempo para obtenção de valor.  
@@ -32,8 +32,7 @@ Use o AppSource quando envolver clientes de negócios para localizar, experiment
 | ***Aplicativos para ajudar a melhorar a produtividade, a eficiência e insights de negócios*** | Fornece aplicativos de linhas de negócios, incluindo atendimento ao cliente, RH, operações e mais |  
 | ***Parceiro de implementação experiente para ajudar a adaptar os aplicativos a sua situação exclusiva para o cliente*** | Fornece um catálogo de ofertas de Serviços de Consultoria para soluções com base em Dynamics 365, Power BI, PowerApps e aplicativos de parceiros para ajudar os usuários empresariais a fornecer resultados previsíveis |  
 
-<!-- # Grow your business with AppSource  -->
-O Azure Marketplace e o AppSource são os pontos de lançamento para atividades de mercado conjuntas com a Microsoft e um impulso para o crescimento da sua empresa. Usando a promoção de lançamento, geração de demanda e marketing e vendas conjuntas, a oferta do marketplace pode ser o ponto central do seu mecanismo de negócios na nuvem. Não há taxas para a participação. Os clientes da Microsoft visitam as lojas no marketplace diariamente para encontrar os aplicativos e serviços certos para ajudar a impulsionar os negócios para o cliente. O objetivo da Microsoft é conectar organizações com soluções e serviços da Microsoft e de parceiros da Microsoft.  
+<!-- # Grow your business with AppSource  --> O Azure Marketplace e o AppSource são os pontos de lançamento para atividades de mercado conjuntas com a Microsoft e um impulso para o crescimento da sua empresa. Usando a promoção de lançamento, geração de demanda e marketing e vendas conjuntas, a oferta do marketplace pode ser o ponto central do seu mecanismo de negócios na nuvem. Não há taxas para a participação. Os clientes da Microsoft visitam as lojas no marketplace diariamente para encontrar os aplicativos e serviços certos para ajudar a impulsionar os negócios para o cliente. O objetivo da Microsoft é conectar organizações com soluções e serviços da Microsoft e de parceiros da Microsoft.  
 
 ## <a name="business-benefits-of-joining-a-cloud-marketplace"></a>Os principais benefícios de ingressar em um mercado na nuvem  
 Há muitos motivos atraentes pelos quais você deve ingressar nas lojas no marketplace. Aqui estão os benefícios especificamente para os detalhes de suas ofertas no AppSource para ajudar você a ampliar seus negócios:  
@@ -53,7 +52,7 @@ Há muitos motivos atraentes pelos quais você deve ingressar nas lojas no marke
 *   **Listar suas ofertas de serviços de consultoria**  
     Os usuários comerciais estão procurando parceiros experientes para ajudar o cliente a começar com confiança, oferecendo serviços de consultoria de qualidade projetados para fornecer resultados previsíveis. Liste suas ofertas de serviços de consultoria para ajudar os usuários empresariais a localizar as ofertas para ajudar o cliente a começar rapidamente.  
 *   **Comece a usar com confiança**  
-    A equipe do Microsoft AppSource está aqui para fornecer uma experiência de integração contínua. A equipe do AppSource está aqui para ajudá-lo em cada etapa do processo, se ele está funcionando sobre a experiência de avaliação ou unidade de teste, ajudando você a atender aos critérios de listagem e muito mais.  
+    A equipe do Microsoft AppSource está aqui para fornecer uma experiência de integração contínua. A equipe do AppSource está aqui para ajudá-lo em cada etapa do processo, esteja ele funcionando sobre a experiência de avaliação ou unidade de teste, ajudando você a atender aos critérios de listagem e muito mais.  
 *   **Personalizar sua página de listagem de aplicativo**  
     Você tem a flexibilidade para decidir como deseja comercializar seus aplicativos no AppSource. Forneça um vídeo, dados técnicos, documentação e descrição detalhada. A Microsoft trabalha com você para apresentar seu aplicativo no AppSource de uma maneira interessante.  
 *   **Obtenha insights acionáveis**  
@@ -68,7 +67,7 @@ A qualidade da publicação do seu aplicativo e o compromisso com a geração de
 A lista de verificação a seguir fornece práticas recomendadas de marketing e recursos a serem considerados ao criar ofertas a serem publicadas no AppSource:  
 *   **Esteja ciente das Diretrizes de Marca e de Marca Registrada da Microsoft.**  
     Ao nomear seu aplicativo e fazer referência a marcas comerciais da Microsoft e aos nomes de software, produtos e serviços da Microsoft, siga as Diretrizes de Marca e Marca Comercial da Microsoft, bem como as diretrizes relevantes específicas de produtos.  
-    *   Para obter mais informações sobre a identidade visual e marcas comerciais da Microsoft, visite a página de Diretrizes da Marca e de Marca Comercial da Microsoft localizada em [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Para obter mais informações sobre a identidade visual e marcas comerciais da Microsoft, visite a página de Diretrizes da Marca e de Marca Comercial da Microsoft localizada em [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).  
 *   **Habilitar uma experiência de obtenção imediata, uma oferta de avaliação gratuita ou uma experiência de test drive para seu aplicativo.**  
     Os usuários empresariais desejam experimentar seu aplicativo em primeira mão.  
 *   **Crie uma proposta de valor.**  
@@ -105,14 +104,14 @@ As tabelas a seguir detalham cada etapa de preenchimento do detalhe da oferta.
 
 | Configurações de oferta | Práticas recomendadas | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Nome** | **Nomear sua oferta**<br />A escolha de um nome para seu aplicativo é uma decisão fundamental. Os nomes baseados em benefícios são mais efetivos do que os nomes descritivos. O nome do seu aplicativo deve comunicar o valor principal recebido pelos clientes. A inclusão de palavras-chave de pesquisa no título do seu aplicativo também pode ajudar seu aplicativo a ter uma classificação melhor nos resultados do mecanismo de pesquisa. Siga as Diretrizes de Marca e de Marca Comercial da Microsoft, bem como as diretrizes relevantes específicas do produto ao fazer referência a marcas comerciais e os nomes, software, produtos e serviços da Microsoft.<ul> <li>Para obter mais informações sobre a identidade visual e marcas comerciais da Microsoft, visite a página de Diretrizes da Marca e de Marca Comercial da Microsoft localizada em [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Nome** | **Nomear sua oferta**<br />A escolha de um nome para seu aplicativo é uma decisão fundamental. Os nomes baseados em benefícios são mais efetivos do que os nomes descritivos. O nome do seu aplicativo deve comunicar o valor principal recebido pelos clientes. A inclusão de palavras-chave de pesquisa no título do seu aplicativo também pode ajudar seu aplicativo a ter uma classificação melhor nos resultados do mecanismo de pesquisa. Siga as Diretrizes de Marca e de Marca Comercial da Microsoft, bem como as diretrizes relevantes específicas do produto ao fazer referência a marcas comerciais e os nomes, software, produtos e serviços da Microsoft.<ul> <li>Para obter mais informações sobre a identidade visual e marcas comerciais da Microsoft, visite a página de Diretrizes da Marca e de Marca Comercial da Microsoft localizada em [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
 
 **Detalhes da vitrine - Detalhes da oferta**  
 
 | Configurações de vitrine | Práticas recomendadas | 
 |:---------------------------------------- |:----------------------------------------------------- |
 | **Nome da oferta** | O resumo da oferta é exibido na página de pesquisa da oferta na página inicial do AppSource e na galeria de aplicativos. Inclua palavras-chave no resumo da sua oferta para ajudar a melhorar a classificação do seu aplicativo nos resultados da pesquisa. |
-| **Descrição da oferta** | **Forneça uma boa descrição da oferta**<br />Descreva claramente a proposição de valor de sua oferta nas primeiras frases de sua descrição. Tenha em mente que as primeiras frases podem ser exibidas nos resultados da pesquisa.<br />Não dependa de recursos e em funcionalidades para vender seu produto. Em vez disso, concentre-se no valor que você oferece. Use o vocabulário específico do setor ou palavras com base no benefício tanto quanto possível.<br />Os componentes principais da sua proposta de valor devem incluir informações sobre:<br />• Qual é o produto<br />• Quem ganha mais com ele<br />• De qual necessidade ou problema trata.<br />Mostre ao cliente como sua vida comercial ou de trabalho pode ser diferente depois que ele usar a sua solução.<br />Incorpore as palavras-chave e as variações de palavra-chave à descrição da sua oferta para ajudar a aprimorar a classificação da oferta nos resultados do mecanismo de pesquisa.<br />Fornece a descrição da oferta usando HTML simples.<br />Veja um exemplo de uma página de detalhe da oferta simples (como mostrado no exemplo de detalhe acima) que fornece um resumo da oferta seguido por uma lista dos principais recursos. O número máximo de caracteres é 3.000.<br />_HTML de exemplo_<br /><p>O Organization Insights for Dynamics 365 (online) fornece métricas de uso e adoção importante para sua organização do Dynamics 365, além de ferramentas para ajudá-lo a se manter à frente de problemas de desempenho e suporte.</p> <ul><li><strong>Personalizar os painéis</strong><br /> Configure seu painel para fornecer uma experiência de usuário valiosa e instantâneos dos seus dados mais importantes.<ul> <li><strong>Monitorar a adoção e o uso:</strong> Identifique os usuários mais ativos, o número de solicitações de página, as entidades mais usadas, os fluxos de trabalho e mais.</li> </ul><p>Versão mínima da plataforma com suporte: 8.1.1</p> |
+| **Descrição da oferta** | **Forneça uma boa descrição da oferta**<br />Descreva claramente a proposição de valor de sua oferta nas primeiras frases de sua descrição. Tenha em mente que as primeiras frases podem ser exibidas nos resultados da pesquisa.<br />Não dependa de recursos e em funcionalidades para vender seu produto. Em vez disso, concentre-se no valor que você oferece. Use o vocabulário específico do setor ou palavras com base no benefício tanto quanto possível.<br />Os componentes principais da sua proposta de valor devem incluir informações sobre:<ul> <li>Qual é o produto</li>  <li>Quem ganha mais com ele</li> <li>De qual necessidade ou problema trata.</li> </ul>Mostre ao cliente como sua vida comercial ou de trabalho pode ser diferente depois que ele usar a sua solução.<br />Incorpore as palavras-chave e as variações de palavra-chave à descrição da sua oferta para ajudar a aprimorar a classificação da oferta nos resultados do mecanismo de pesquisa.<br />Fornece a descrição da oferta usando HTML simples.<br />Veja um exemplo de uma página de detalhe da oferta simples (como mostrado no exemplo de detalhe acima) que fornece um resumo da oferta seguido por uma lista dos principais recursos. O número máximo de caracteres é 3.000.<br />*HTML de exemplo*<br />O Organization Insights for Dynamics 365 (online) fornece métricas de uso e adoção importante para sua organização do Dynamics 365, além de ferramentas para ajudá-lo a se manter à frente de problemas de desempenho e suporte. <ul> <li>**Personalizar os painéis**<br />Configure seu painel para fornecer uma experiência de usuário valiosa e instantâneos dos seus dados mais importantes.<ul> <li>**Monitorar a adoção e o uso**<br />Identifique os usuários mais ativos, o número de solicitações de página, as entidades mais usadas, os fluxos de trabalho e mais.</li> </ul></li> </ul>Versão mínima da plataforma com suporte: `8.1.1` |
 
 **Detalhes da vitrine - Detalhes do aplicativo**  
 
@@ -134,7 +133,7 @@ As tabelas a seguir detalham cada etapa de preenchimento do detalhe da oferta.
 | **Capturas de tela** | Adicione até cinco capturas de tela, incorpore palavras-chave de pesquisa aos nomes. |
 
 ### <a name="promote-the-availability-of-your-offer-on-appsource"></a>Promover a disponibilidade da sua oferta no AppSource  
-Quando sua oferta for listada no AppSource, você ganhará o direito de exibir o selo "Disponível no AppSource" na sua página. 
+Quando sua oferta for listada no AppSource, você ganhará o direito de exibir o selo ***Disponível no AppSource*** na sua página. 
 
  ![Notificação do AppSource](./media/marketplace-appsource/appsourcebadge.png)
     
@@ -158,11 +157,11 @@ https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-87
 
 
 #### <a name="link-to-gtm-benefits"></a>Link para os benefícios do GTM
-*  Visite a página [Benefícios GTM no marketplace](./gtm-benefits.md).   
+*  Visite a página [Benefícios do GTM no Marketplace](./gtm-benefits.md).   
 
 ---  
 
-### <a name="link-to-landing-page"></a>Página inicial padrão
+### <a name="link-to-landing-page"></a>Link para a página inicial
 *   Visite a página [Crie sua página inicial](./build-your-landing-page.md).  
 
 #### <a name="link-to-enable-lead-sharing"></a>Link para Habilitar compartilhamento de clientes potenciais  
@@ -183,6 +182,6 @@ Você pode influenciar a classificação de sua oferta nos resultados da pesquis
 Os Microsoft Gold Partners podem se tornar qualificados para que os aplicativos de parceiros fiquem em destaque, ao fornecer uma experiência de avaliação do aplicativo (aplicativo gratuito, avaliação gratuita ou test drive) no AppSource. Os aplicativos podem ser destacados por categoria ou setor, e geralmente são promovidos por pelo menos duas semanas. Para saber mais sobre como os aplicativos em destaque se ajustam ao contexto de seus benefícios de entrada no mercado, examine a seção Benefícios do Marketplace GTM deste guia.   
 
 ## <a name="next-steps"></a>Próximas etapas
-*   Visite a página [Guia do AppSource Publisher e Azure Marketplace](./marketplace-publishers-guide.md).  
+*   Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
 
 ---  
