@@ -1,25 +1,24 @@
 ---
-title: "Novidade no Catálogo de Dados do Azure | Microsoft Docs"
-description: "Este artigo fornece uma visão geral dos novos recursos adicionados ao Catálogo de Dados do Azure."
+title: Novidade no Catálogo de Dados do Azure | Microsoft Docs
+description: Este artigo fornece uma visão geral dos novos recursos adicionados ao Catálogo de Dados do Azure.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 780ab56df19e8d6761fcf88fa7fbed3e8002fbe8
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025053"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>O que há de novo no Catálogo de Dados do Azure
 As atualizações do **Catálogo de Dados do Azure** são liberadas periodicamente. Nem todas as versões incluem novos recursos voltados para o usuário; algumas versões se concentram em funcionalidades de serviço de back-end. Esta página destaca as novas funcionalidades voltadas para o usuário adicionadas ao serviço Catálogo de Dados do Azure.
@@ -99,7 +98,7 @@ Em janeiro de 2017, os seguintes recursos foram adicionados ao Catálogo de Dado
 
 ## <a name="whats-new-for-december-2016"></a>Novidades para dezembro de 2016
 Em dezembro de 2016, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
-*   O Catálogo de Dados do Azure agora está em conformidade com [HIPAA](https://www.microsoft.com/trustcenter/Compliance/HIPAA) e [Cláusulas de Modelo da UE](https://www.microsoft.com/TrustCenter/Compliance/EU-Model-Clauses).
+*   O Catálogo de Dados do Azure agora está em conformidade com [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) e [Cláusulas de Modelo da UE](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses).
 *   Suporte para edição de informações de conexão de fonte de dados. Os proprietários de ativos de dados e os administradores do Catálogo de Dados agora podem editar as informações de conexão para fontes de dados registradas sem necessidade de registrar novamente as fontes de dados.
 *   Suporte para fontes de dados do Salesforce.com. Os usuários agora podem registrar e descobrir objetos do Salesforce.
 
@@ -246,7 +245,7 @@ Em setembro de 2015, os seguintes recursos foram adicionados ao Catálogo de Dad
 * Uma nova experiência de descoberta da fonte de dados de "introdução" no portal do Catálogo de Dados do Azure. Quando os usuários entram na página “Descobrir” do portal do Catálogo de Dados do Azure sem inserir um termo de pesquisa, é apresentada uma visão geral do conteúdo do catálogo, incluindo as marcas usadas com mais frequência, além de especialistas, tipos de fontes de dados e tipos de objeto.
 * Suporte para registro e descoberta de bancos de dados e objetos do SQL Data Warehouse do Azure. Para saber mais sobre o SQL Data Warehouse do Azure, confira [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Suporte para registro e descoberta de modelos do SQL Server Analysis Services e servidores do SQL Server Reporting Services como contêineres. Ao registrar objetos SSAS e SSRS, o Catálogo de Dados do Azure cria uma entrada para o modelo SSAS e o servidor SSRS, bem como para os relatórios e outros objetos. Os contêineres podem ser descobertos e anotados usando o portal do Catálogo de Dados do Azure. Os usuários também podem pesquisar e filtrar o conteúdo de um modelo ou servidor, além de pesquisar e filtrar o conteúdo do catálogo.
-* Suporte para registro e descoberta de objetos do SQL Server Analysis Services via HTTP/HTTPS. Agora, os usuários podem conectar os servidores SSAS usando uma URL (como https://servername/olap/msmdpump.dll), em vez de um nome do servidor, e podem usar a autenticação Básica e conexões Anônimas, além da autenticação do Windows. Para obter mais informações sobre conexões HTTP/HTTPS para SSAS, veja [Configurar o acesso HTTP para Serviços de Análise](https://msdn.microsoft.com/library/gg492140.aspx).
+* Suporte para registro e descoberta de objetos do SQL Server Analysis Services via HTTP/HTTPS. Agora, os usuários podem conectar os servidores SSAS usando uma URL (como https://servername/olap/msmdpump.dll) em vez de um nome do servidor, e podem usar a autenticação Básica e conexões Anônimas, além da autenticação do Windows. Para obter mais informações sobre conexões HTTP/HTTPS para SSAS, veja [Configurar o acesso HTTP para Serviços de Análise](https://msdn.microsoft.com/library/gg492140.aspx).
 * Suporte para fontes de dados Hive no HDInsight. Agora, os usuários podem registrar e descobrir tabelas Hive para Apache Hive no Hadoop em fontes de dados HDInsight. Para obter mais informações sobre o Hive no HDInsight, confira o [centro de documentação do HDInsight](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Suporte ao registro e à descoberta de bancos de dados Oracle e clusters HDFS como contêineres. Ao registrar tabelas e exibições do Oracle ou HDFS, o Catálogo de Dados do Azure cria uma entrada para o banco de dados, as tabelas e as exibições. O banco de dados pode ser descoberto e anotado por meio do portal do Catálogo de Dados do Azure. Os usuários também podem pesquisar e filtrar o conteúdo de um banco de dados ou cluster, além de pesquisar e filtrar o conteúdo do catálogo.
 * Suporte ao registro manual de tipos desconhecidos de fonte de dados. Os usuários podem inserir manualmente informações de fonte de dados usando o portal do Catálogo de Dados do Azure, de modo que as fontes de dados para as quais não há suporte explícito pela ferramenta de registro de fonte de dados possam ser anotadas e descobertas.

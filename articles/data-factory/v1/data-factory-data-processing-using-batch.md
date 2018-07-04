@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ad883248097fd84e2fa064515b6c7a5232aaa3d3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f6b2be357ad53a1852973d40e221da3d41b09ffb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621931"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050566"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Azure Data Factory, que está em disponibilidade geral. Se você usar a versão 2 do serviço Data Factory, que está em versão prévia, consulte [Atividades personalizadas no Data Factory versão 2](../transform-data-using-dotnet-custom-activity.md).
+> Este artigo se aplica à versão 1 do Azure Data Factory, que geralmente está disponível. Se você estiver usando a versão atual do serviço Data Factory, consulte [Atividades personalizadas no Data Factory](../transform-data-using-dotnet-custom-activity.md).
 
 Este artigo descreve uma arquitetura de um exemplo de solução que move e processa os conjuntos de dados em larga escala de maneira automática e agendada. Ele também fornece um passo a passo completo para implementar a solução usando o Data Factory e o Lote do Azure.
 

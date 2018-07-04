@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 01da9d4bbe51d54470046de331a8ce817ddd68ad
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: f7f3f8d28c44a0ecadb9fed895ec2d37a5469142
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285875"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046911"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiar dados de ou para um sistema de arquivos usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-onprem-file-system-connector.md)
-> * [Versão 2 – Versão prévia](connector-file-system.md)
+> * [Versão 1](v1/data-factory-onprem-file-system-connector.md)
+> * [Versão atual](connector-file-system.md)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para o sistema de arquivos. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está em GA (disponibilidade geral), consulte [Conector do sistema de arquivos na V1](v1/data-factory-onprem-file-system-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5a3070582a32adeda45dff233782c3a971885c14
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234505"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018448"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -66,6 +66,9 @@ Este artigo pressupõe que você tenha [uma conta do Azure](https://azure.micros
 2. Selecione **Área de Trabalho Clássica do Windows > Aplicativo de Console (.NET Framework)**.
 
    Para criar um projeto de 3.x, selecione **.NET Core > Aplicativo de Console (.NET Framework)**.
+   
+   > [!NOTE]
+   > 3.x ainda está em versão prévia e está em desenvolvimento. As intruções 3.x neste artigo estão incompletas; para as últimas informações, consulte os problemas do GitHub no final da página.
 
 3. Nomeie o projeto *WebJobsSDKSample* e, em seguida, selecione **OK**.
 

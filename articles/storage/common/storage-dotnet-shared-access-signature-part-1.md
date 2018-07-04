@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cshoe
-ms.openlocfilehash: 4f20e79ea6cb2d9d403f4451f595516d5c2e9373
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ad313c11fb88ec7992220d43c25ca75bf65acc56
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650733"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025094"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Usando SAS (Assinaturas de Acesso Compartilhado)
 
@@ -48,11 +48,11 @@ Um cenário comum em que uma SAS é útil é um serviço onde os usuários leem 
 
 Muitos serviços reais podem usar uma combinação dessas duas abordagens. Por exemplo, alguns dados podem ser processados e validados por meio do proxy front-end, enquanto outros são salvos e/ou lidos diretamente usando SAS.
 
-Além disso, você precisará usar uma SAS para autenticar o objeto de origem em uma operação de cópia em determinados cenários:
+Além disso, você precisará usar uma SAS para autorizar acesso ao objeto de origem em uma operação de cópia em determinados cenários:
 
-* Quando você copia um blob para outro que reside em uma conta de armazenamento diferente, deve usar uma SAS para autenticar o blob de origem. Outra opção é usar uma SAS para também autenticar o blob de destino.
-* Quando você copia um arquivo para outro que reside em uma conta de armazenamento diferente, deve usar uma SAS para autenticar o arquivo de origem. Outra opção é usar uma SAS para também autenticar o arquivo de destino.
-* Quando você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma SAS para autenticar o objeto de origem, mesmo se os objetos de origem e destino residirem dentro da mesma conta de armazenamento.
+* Quando você copia um blob para outro que reside em uma conta de armazenamento diferente, deve usar uma SAS para autorizar acesso ao blob de origem. Outra opção é usar uma SAS para também autorizar acesso ao blob de destino.
+* Quando você copia um arquivo para outro que reside em uma conta de armazenamento diferente, deve usar uma SAS para autorizar acesso ao arquivo de origem. Outra opção é usar uma SAS para também autorizar acesso ao arquivo de destino.
+* Quando você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma SAS para autorizar acesso ao objeto de origem, mesmo se os objetos de origem e destino residirem dentro da mesma conta de armazenamento.
 
 ## <a name="types-of-shared-access-signatures"></a>Tipos de assinaturas de Acesso compartilhado.
 É possível criar dois tipos de assinaturas de acesso compartilhado:
@@ -61,7 +61,7 @@ Além disso, você precisará usar uma SAS para autenticar o objeto de origem em
 * **SAS de Conta.** A SAS de conta delega acesso a recursos em um ou mais dos serviços de armazenamento. Todas as operações disponíveis através de um serviço SAS também estão disponíveis por meio de uma SAS de conta. Além disso, com a SAS de conta, você pode delegar acesso a operações que se aplicam a um determinado serviço, como **Obter/Definir propriedades de serviço** e **Obter status do serviço**. Você também pode delegar acesso a operações de leitura, gravação e exclusão em contêineres de blob, tabelas, filas e compartilhamentos de arquivos que não são permitidos com um SAS de serviço. Consulte [Constructing an Account SAS](https://msdn.microsoft.com/library/mt584140.aspx) (Construindo uma SAS de conta) para obter informações detalhadas sobre como construir o token SAS de conta.
 
 ## <a name="how-a-shared-access-signature-works"></a>Como funciona uma assinatura de acesso compartilhado
-Uma assinatura de acesso compartilhado é um URI assinado que aponta para um ou mais recursos de armazenamento e inclui um token que contém um conjunto especial de parâmetros de consulta. O token indica como os recursos podem ser acessados pelo cliente. Um desses parâmetros de consulta, a assinatura, é construído a partir dos parâmetros SAS e assinado com a chave de conta. Essa assinatura é usada pelo Armazenamento do Azure para autenticar a SAS.
+Uma assinatura de acesso compartilhado é um URI assinado que aponta para um ou mais recursos de armazenamento e inclui um token que contém um conjunto especial de parâmetros de consulta. O token indica como os recursos podem ser acessados pelo cliente. Um desses parâmetros de consulta, a assinatura, é construído a partir dos parâmetros SAS e assinado com a chave de conta. Esta assinatura é usada pelo armazenamento do Azure para autorizar o acesso ao recurso de armazenamento.
 
 Aqui está um exemplo de um URI SAS, mostrando o URI do recurso e o token SAS:
 
@@ -69,20 +69,20 @@ Aqui está um exemplo de um URI SAS, mostrando o URI do recurso e o token SAS:
 
 O token de SAS é uma cadeia de caracteres gerada no lado do *cliente* (consulte a seção [Exemplos de SAS](#sas-examples) para ver exemplos de código). O token de SAS gerado pela biblioteca de clientes de armazenamento, por exemplo, não é controlado pelo Armazenamento do Azure de nenhuma forma. Você pode criar um número ilimitado de tokens SAS no lado do cliente.
 
-Quando um cliente fornece um URI SAS para o Armazenamento do Azure como parte de uma solicitação, o serviço confere os parâmetros SAS e a assinatura para verificar se ele é válido para autenticar a solicitação. Se o serviço verificar que a assinatura é válida, a solicitação será autenticada. Caso contrário, a solicitação será recusada com o código de erro 403 (proibido).
+Quando um cliente fornece um URI SAS para o Armazenamento do Azure como parte de uma solicitação, o serviço confere os parâmetros SAS e a assinatura para verificar se ele é válido para autenticar a solicitação. Se o serviço verificar que a assinatura é válida, a solicitação será autorizada. Caso contrário, a solicitação será recusada com o código de erro 403 (proibido).
 
 ## <a name="shared-access-signature-parameters"></a>Parâmetros de assinatura de acesso compartilhado
 A SAS de conta e os tokens SAS de serviço incluem alguns parâmetros comuns e também usam alguns parâmetros que são diferentes.
 
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Parâmetros comuns a tokens SAS de conta e SAS de serviço
 * **Versão da API** Um parâmetro opcional que especifica a versão do serviço de armazenamento a ser usada para executar a solicitação.
-* **Versão do serviço** Um parâmetro obrigatório que especifica a versão do serviço de armazenamento a ser usada para executar a solicitação.
+* **Versão do serviço** Um parâmetro obrigatório que especifica a versão do serviço de armazenamento a ser usada para autorizar a solicitação.
 * **Hora de início.** É a hora em que a SAS torna-se válida. A hora de início de uma assinatura de acesso compartilhado é opcional. Se a hora de início for omitida, a SAS entrará em vigor imediatamente. A hora inicial deve ser expressa em UTC (Tempo Universal Coordenado), com um designador de UTC especial (“Z”), por exemplo `1994-11-05T13:15:30Z`.
 * **Hora de expiração.** É a hora após a qual a SAS não é mais válida. As melhores práticas sugerem que você especifique uma hora de expiração para uma SAS ou associe-a a uma política de acesso armazenada. A hora de vencimento deve ser expressa em UTC (Tempo Universal Coordenado), com um designador de UTC especial (“Z”), por exemplo `1994-11-05T13:15:30Z` (veja mais abaixo).
 * **Permissões.** As permissões especificadas nas SAS indicam quais operações o cliente pode executar com o recurso de armazenamento usando a SAS. As permissões disponíveis são diferentes entre SAS de conta e de serviço.
 * **IP.** Um parâmetro opcional que especifica um endereço IP ou um intervalo de endereços IP fora do Azure (veja a seção [Estado de configuração da sessão de roteamento](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) da Rota Expressa) do qual as solicitações serão aceitas.
 * **Protocolo.** Um parâmetro opcional que especifica o protocolo permitido para uma solicitação. Os valores possíveis são HTTPS e HTTP (`https,http`), que é o valor padrão, ou somente HTTPS (`https`). Observe que somente HTTP não é um valor permitido.
-* **Assinatura.** A assinatura é construída com os parâmetros especificados como parte do token e depois criptografada. Ela é usada para autenticar a SAS.
+* **Assinatura.** A assinatura é construída com os parâmetros especificados como parte do token e depois criptografada. A assinatura é usada para autorizar acesso a recursos de armazenamento específicos.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parâmetros para um token SAS de serviço
 * **Recurso de armazenamento.** Os recursos de armazenamento para os quais é possível delegar acesso com SAS de serviço incluem:
@@ -118,7 +118,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Permissões |`sp=rw` |As permissões concedidas pelas SAS incluem Ler (r) e Gravar (w). |
 | Intervalo IP |`sip=168.1.5.60-168.1.5.70` |O intervalo de endereços IP do qual uma solicitação será aceita. |
 | Protocolo |`spr=https` |São permitidas somente solicitações usando HTTPS. |
-| Signature |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Usada para autenticar o acesso ao blob. A assinatura é um HMAC computado em uma cadeia-para-assinar e uma chave que usa o algoritmo SHA256 e depois codificado usando a codificação Base64. |
+| Signature |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Usada para autorizar o acesso ao blob. A assinatura é um HMAC computado em uma cadeia-para-assinar e uma chave que usa o algoritmo SHA256 e depois codificado usando a codificação Base64. |
 
 ### <a name="account-sas-uri-example"></a>Exemplo de URI de SAS de conta
 
@@ -151,19 +151,19 @@ A diferença entre as duas formas é importante para um cenário fundamental: re
 1. A hora de expiração especificada na SAS é atingida.
 2. A hora de expiração especificada na política de acesso armazenada referenciada pelas SAS é atingida (se uma política de acesso armazenada for referenciada e especificar uma hora de expiração). Isso pode ocorrer porque o intervalo transcorreu ou porque você modificou a política de acesso armazenada para ter uma hora de expiração no passado, que é uma maneira de revogar a SAS.
 3. A política de acesso armazenada referenciada pelas SAS é excluída, que é uma outra maneira de revogar a SAS. Observe que, se você recriar a política de acesso armazenada exatamente com o mesmo nome, todos os tokens SAS existentes serão novamente válidos de acordo com as permissões associadas a essa política de acesso armazenada (supondo que a hora de expiração não tenha passado na SAS). Se você estiver pretendendo revogar a SAS, certifique-se de usar um nome diferente se recriar a política de acesso com uma hora de expiração no futuro.
-4. A chave de conta usada para criar as SAS é regenerada. Regenerar uma chave de conta causará uma falha de autenticação de todos os componentes do aplicativo que usam essa chave até que eles sejam atualizados para usar a outra chave de conta válida ou a chave de conta recém-regenerada.
+4. A chave de conta usada para criar as SAS é regenerada. Regenerar uma chave de conta causará uma falha de autorização de todos os componentes do aplicativo que usam essa chave até que eles sejam atualizados para usar a outra chave de conta válida ou a chave de conta recém-regenerada.
 
 > [!IMPORTANT]
 > Um URI de assinatura de acesso compartilhado é associado com a chave de conta usada para criar a assinatura e a política de acesso armazenado associada (se houver). Se nenhuma política de acesso armazenado for especificada, a única maneira de revogar uma assinatura de acesso compartilhado é alterar a chave da conta.
 
 ## <a name="authenticating-from-a-client-application-with-a-sas"></a>Autenticação de um aplicativo cliente com uma SAS
-Um cliente que tem uma SAS pode usar a SAS para autenticar uma solicitação em relação a uma conta de armazenamento para a qual ele não tem as chaves da conta. Uma SAS pode ser incluída em uma cadeia de conexão ou usada diretamente por meio do construtor ou método apropriado.
+Um cliente que tem uma SAS pode usar a SAS para autorizar uma solicitação em relação a uma conta de armazenamento para a qual ele não tem as chaves da conta. Uma SAS pode ser incluída em uma cadeia de conexão ou usada diretamente por meio do construtor ou método apropriado.
 
 ### <a name="using-a-sas-in-a-connection-string"></a>Usando uma SAS em uma cadeia de conexão
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### <a name="using-a-sas-in-a-constructor-or-method"></a>Usar uma SAS em um construtor ou método
-Vários construtores de biblioteca de cliente do Armazenamento do Azure e sobrecargas de método oferecem um parâmetro de SAS, para que você possa autenticar uma solicitação de serviço com uma SAS.
+Vários construtores de biblioteca de cliente do Armazenamento do Azure e sobrecargas de método oferecem um parâmetro de SAS, para que você possa autorizar uma solicitação de serviço com uma SAS.
 
 Por exemplo, aqui, um URI SAS é usado para criar uma referência para um blob de blocos. A SAS fornece as únicas credenciais necessárias para a solicitação. A referência de blob de blocos é usada para uma operação de gravação:
 

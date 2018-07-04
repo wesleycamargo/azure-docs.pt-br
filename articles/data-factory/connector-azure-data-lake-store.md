@@ -12,22 +12,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 12402ea30e44534734e0429f850772cbef2f7381
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: cf1ac441f695e5427e57f1a85bafd095777eed80
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287456"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049291"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copiar dados para ou do Azure Data Lake Store usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-azure-datalake-connector.md)
-> * [Versão 2 – Versão prévia](connector-azure-data-lake-store.md)
+> * [Versão 1](v1/data-factory-azure-datalake-connector.md)
+> * [Versão atual](connector-azure-data-lake-store.md)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados para e do Azure Data Lake Store. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está em GA (disponibilidade geral), consulte [Conector do Azure Data Lake Store na V1](v1/data-factory-azure-datalake-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -42,6 +39,9 @@ Especificamente, este conector do Azure Data Lake Store dá suporte à:
 > Se você copiar dados usando o Integration Runtime Auto-hospedado, configure o firewall corporativo para permitir o tráfego de saída para `<ADLS account name>.azuredatalakestore.net` e `login.microsoftonline.com/<tenant>/oauth2/token` na porta 443. O último é o Serviço de Segurança de Token do Azure (STS) com o qual o IR precisa se comunicar para obter o token de acesso.
 
 ## <a name="get-started"></a>Introdução
+
+> [!TIP]
+> Para obter um passo a passo de como usar o conector do Azure Data Lake Store, consulte [Carregar dados no Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

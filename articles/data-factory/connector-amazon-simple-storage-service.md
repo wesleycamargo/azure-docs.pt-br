@@ -10,22 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
-ms.openlocfilehash: a809859e9f0c6e51247abc2d03af673a2850a87e
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3635e8bf1d9ba4061da5b8f416a3b755f7064000
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284882"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045629"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiar dados do Amazon Simple Storage Service usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-amazon-simple-storage-service-connector.md)
-> * [Versão 2 – Versão prévia](connector-amazon-simple-storage-service.md)
+> * [Versão 1](v1/data-factory-amazon-simple-storage-service-connector.md)
+> * [Versão atual](connector-amazon-simple-storage-service.md)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para o Amazon S3. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está em GA (disponibilidade geral), consulte [Conector do Amazon S3 na V1](v1/data-factory-amazon-simple-storage-service-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 

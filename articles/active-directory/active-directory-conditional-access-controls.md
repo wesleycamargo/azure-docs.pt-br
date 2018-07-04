@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 924c41b060f56b4a21e4d29e059eb2968fa19330
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231845"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028941"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>O que são controles de acesso no acesso condicional do Azure Active Directory? 
 
@@ -77,7 +77,7 @@ Usar a autenticação multifator ajuda a proteger recursos para impedir que seja
 
 ### <a name="compliant-device"></a>Dispositivo em conformidade
 
-Você pode configurar políticas de acesso condicional com base no dispositivo. O objetivo de uma política de acesso condicional baseada em dispositivo é conceder acesso aos recursos configurados somente de [dispositivos gerenciados](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Exigir um dispositivo compatível é uma opção para a qual você precisa definir, o que é um dispositivo gerenciado. Se essa opção for selecionada, sua política de acesso condicional concederá acesso a tentativas de acesso feitas com dispositivos que estão [registrados](device-management-introduction.md) no Azure Active Directory e são marcados como compatíveis pela sua solução MDM.
+Você pode configurar políticas de acesso condicional com base no dispositivo. O objetivo de uma política de acesso condicional baseada em dispositivo é conceder acesso aos recursos configurados somente de [dispositivos gerenciados](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Exigir um dispositivo compatível é uma opção para a qual você precisa definir, o que é um dispositivo gerenciado. Se essa opção for selecionada, sua política de acesso condicional concederá acesso a tentativas de acesso feitas com dispositivos que estão [registrados](device-management-introduction.md) no Azure Active Directory e são marcados como compatíveis por Intune (para qualquer dispositivo OS) ou pelo seu sistema de terceiros MDM para dispositivos Windows 10. Sistemas MDM de terceiros para tipos de dispositivo OS, exceto Windows 10, não são suportados.
 
 Para saber mais, confira [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
@@ -173,6 +173,6 @@ Para saber mais sobre como exigir acesso limitado com o SharePoint, confira [con
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você quiser saber como configurar a política de acesso condicional, consulte [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
+- Se você quiser saber como configurar uma política de acesso condicional, consulte [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 

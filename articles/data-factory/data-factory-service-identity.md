@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: f4ce76385897c24bd5259d5a39aa1756769fe2aa
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284473"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050858"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identidade do serviço Azure Data Factory
 
 Este artigo ajuda você a entender o que é a identidade de serviço de data factory e como ela funciona.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-introduction.md).
 
 ## <a name="overview"></a>Visão geral
 
@@ -39,7 +36,7 @@ Identidade do serviço de data factory se beneficia dos dois seguintes recursos:
 
 Identidade do serviço de data factory é gerada da seguinte maneira:
 
-- Ao criar o data factory por meio de **portal do Azure ou do PowerShell**, a identidade do serviço sempre será criada automaticamente a partir da visualização pública ADF V2.
+- Ao criar o data factory por meio do **portal do Azure ou do PowerShell**, a identidade do serviço sempre será criada automaticamente.
 - Ao criar o data factory por meio do **SDK**, a identidade do serviço será criada somente se você especificar "identidade = FactoryIdentity() nova" no objeto de fábrica para a criação. Consulte o exemplo do [início rápido do .NET - criar data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - Ao criar o data factory por meio da **API REST**, a identidade do serviço será criada somente se você especificar a seção "identidade" no corpo da solicitação. Consulte o exemplo do [início rápido do REST - criar data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 

@@ -4,18 +4,18 @@ description: Saiba mais sobre como os módulos são implantados em dispositivos 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f64e6db576b7b1605cc070948a021184fc6ee8ad
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725319"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029253"
 ---
-# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala – versão prévia
+# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala
 
 Os dispositivos do IoT Edge seguem um [ciclo de vida do dispositivo] [ lnk-lifecycle] que é semelhante a outros tipos de dispositivos IoT:
 
@@ -32,15 +32,15 @@ Este artigo se concentra nos estágios de configuração e monitoramento de frot
 1. O serviço Hub IoT recupera o status dos dispositivos IoT Edge e revela os que devem ser monitorados pelo operador.  Por exemplo, um operador pode ver quando um dispositivo de borda não foi configurado com êxito ou se um módulo falha durante o tempo de execução. 
 1. A qualquer momento, novos dispositivos IoT Edge que atendem às condições de destino são configurados para a implantação. Por exemplo, uma implantação que se destina a todos os dispositivos IoT Edge em Washington configura automaticamente um novo dispositivo IoT Edge assim que ele é configurado e adicionado ao grupo de dispositivos de Washington. 
  
-Este artigo o orienta por meio de cada componente envolvido na configuração e no monitoramento de uma implantação. Para obter instruções de criação e atualização de uma implantação, confira [Implantar e monitorar os módulos do IoT Edge em larga escala][lnk-howto].
+Este artigo descreve cada componente envolvido na configuração e no monitoramento de uma implantação. Para obter instruções de criação e atualização de uma implantação, confira [Implantar e monitorar os módulos do IoT Edge em larga escala][lnk-howto].
 
 ## <a name="deployment"></a>Implantação
 
-Uma implantação automática do IoT Edge atribui imagens do módulo do IoT Edge para execução como instâncias em um conjunto de dispositivos IoT Edge de destino. Ele funciona com a configuração de um manifesto de implantação do IoT Edge para incluir uma lista de módulos com os parâmetros de inicialização. Uma implantação pode ser atribuída a um único dispositivo (normalmente com base na ID de dispositivo) ou a um grupo de dispositivos (com base em marcas). Depois que um dispositivo IoT Edge recebe um manifesto de implantação, ele baixa e instala as imagens de contêiner do módulo dos repositórios do respectivo contêiner e os configura adequadamente. Depois de criar uma implantação, um operador pode monitorar o status da implantação para ver se os dispositivos de destino estão configurados corretamente.   
+Uma implantação automática do IoT Edge atribui imagens do módulo do IoT Edge para execução como instâncias em um conjunto de dispositivos IoT Edge de destino. Ele funciona com a configuração de um manifesto de implantação do IoT Edge para incluir uma lista de módulos com os parâmetros de inicialização. Uma implantação pode ser atribuída a um único dispositivo (com base na ID de dispositivo) ou a um grupo de dispositivos (com base em marcas). Depois que um dispositivo IoT Edge recebe um manifesto de implantação, ele baixa e instala as imagens de contêiner do módulo dos repositórios do respectivo contêiner e os configura adequadamente. Depois de criar uma implantação, um operador pode monitorar o status da implantação para ver se os dispositivos de destino estão configurados corretamente.   
 
-Os dispositivos precisam ser provisionados como dispositivos IoT Edge para serem configurados com uma implantação. Os itens abaixo são pré-requisitos e não estão incluídos na implantação:
+Os dispositivos precisam ser provisionados como dispositivos IoT Edge para serem configurados com uma implantação. Os pré-requisitos seguintes devem estar no dispositivo antes de ele poder receber a implantação:
 * O sistema operacional base
-* Docker 
+* Um sistema de gerenciamento de contêiner, como Moby ou Docker
 * Provisionamento do tempo de execução do IoT Edge 
 
 ### <a name="deployment-manifest"></a>Manifesto de implantação
@@ -52,12 +52,16 @@ Os metadados de configuração para cada módulo incluem:
 * type 
 * Status (por exemplo, em execução ou parado) 
 * Política de reinicialização 
-* Repositório de imagem e contêiner 
+* Imagem ou registro de contêiner
 * Rotas para dados de entrada e saída 
+
+Se o módulo de imagem for armazenado em um registro de contêiner privado, o agente IoT Edge segura as credenciais de registro. 
 
 ### <a name="target-condition"></a>Condição de destino
 
-A condição de destino é avaliada continuamente para incluir quaisquer novos dispositivos que atendam aos requisitos ou remover os dispositivos que não atendem mais, durante toda a vida útil da implantação. A implantação será reativada se o serviço detectar qualquer alteração de condição de destino. Por exemplo, você tem uma implantação A que tenha uma condição de destino tags.environment = 'prod'. Quando você iniciar a implantação, há 10 dispositivos de produção. Os módulos são instalados com êxito nesses 10 dispositivos. O Status do agente IoT Edge é mostrado como 10 dispositivos totais, 10 respostas bem sucedidas, 0 respostas com falhas e 0 respostas pendentes. Agora, adicione mais 5 dispositivos com tags.environment = 'prod'. O serviço detecta a alteração e o Status do agente de IoT Edge se torna 15 dispositivos totais, 10 respostas bem sucedidas, 0 respostas com falhas e 5 respostas pendentes ao tentar implantar em cinco novos dispositivos.
+A condição de destino é avaliada continuamente para incluir quaisquer novos dispositivos que atendam aos requisitos ou remover os dispositivos que não atendem mais, durante toda a vida útil da implantação. A implantação será reativada se o serviço detectar qualquer alteração de condição de destino. 
+
+Por exemplo, você tem uma implantação A com uma condição de destino tags.environment = 'prod'. Quando você iniciar a implantação, há 10 dispositivos de produção. Os módulos são instalados com êxito nesses 10 dispositivos. O Status do agente IoT Edge é mostrado como 10 dispositivos totais, 10 respostas bem sucedidas, 0 respostas com falhas e 0 respostas pendentes. Agora, adicione mais 5 dispositivos com tags.environment = 'prod'. O serviço detecta a alteração e o Status do agente de IoT Edge se torna 15 dispositivos totais, 10 respostas bem sucedidas, 0 respostas com falhas e 5 respostas pendentes ao tentar implantar em cinco novos dispositivos.
 
 Use qualquer condição booliana em marcas de dispositivo gêmeo ou deviceId para selecionar os dispositivos de destino. Se você quiser usar a condição com marcas, você precisa adicionar a seção "tags":{} no dispositivo gêmeo no mesmo nível como propriedades. [Saiba mais sobre as marcas em dispositivo gêmeo](../iot-hub/iot-hub-devguide-device-twins.md)
 
@@ -73,7 +77,7 @@ Encontre aqui algumas restrições ao construir uma condição de destino:
 * Em dispositivo gêmeo, você só pode compilar uma condição de destino usando marcas ou deviceId.
 * Aspas duplas não são permitidas em nenhuma parte da condição de destino. Use aspas simples.
 * Aspas simples representam os valores da condição de destino. Portanto, você deve usar as aspas simples com outras aspas simples se isso fizer parte do nome do dispositivo. Por exemplo, a condição de destino para: operator'sDevice precisaria ser gravada como deviceId='operator''sDevice'.
-* Números, letras e os caracteres a seguir são permitidos nos valores de condição de destino:-:.+%_#*?!(),=@;$
+* Números, letras e os caracteres a seguir são permitidos nos valores de condição de destino: `-:.+%_#*?!(),=@;$`.
 
 ### <a name="priority"></a>Prioridade
 

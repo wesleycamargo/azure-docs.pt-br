@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: b1d82f9b527a62109e0301907b87bd683f9912af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05021d5ab8d33e36bff16ce7d2ebacd3db72639a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034196"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -38,7 +39,7 @@ Você pode monitorar as métricas ao longo do tempo no portal do Azure. O exempl
 
 ![captura de tela de acesso às métricas no portal do Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-Para métricas com suporte para dimensões, você deve filtrar pelo valor da dimensão desejado. O exemplo a seguir que mostra como exibir **Transações** no nível de conta com uma resposta de **Sucesso**.
+Para métricas com suporte para dimensões, você pode filtrar a métrica com valor da dimensão desejado. O exemplo a seguir mostra como exibir **transações** no nível de conta em uma operação específica, selecionando valores para a dimensão **nome da API**.
 
 ![captura de tela de acesso às métricas com dimensão no portal do Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -317,7 +318,7 @@ O exemplo a seguir mostra o formato para especificar a ID de recurso para cada u
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * ID de recurso do serviço Arquivo `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>ID de recurso na API REST do Azure Monitor
@@ -402,6 +403,12 @@ Para saber as dimensões de métricas com suporte, você precisa especificar o v
 ## <a name="service-continuity-of-legacy-metrics"></a>Continuidade do serviço de métricas herdadas
 
 As métricas herdadas estão disponíveis paralelamente às métricas gerenciadas do Azure Monitor. O suporte é o mesmo até que o Armazenamento do Azure conclua o serviço nas métricas herdados.
+
+## <a name="faq"></a>Perguntas frequentes
+
+**Armazenamento do Azure dá suporte a métricas para gerenciados discos ou discos não gerenciado?**
+
+Não, a computação do Azure suporta as métricas em discos. Consulte [artigo](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/) para obter mais detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

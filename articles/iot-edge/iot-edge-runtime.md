@@ -4,18 +4,18 @@ description: Saiba mais sobre o tempo de execução do Azure IoT Edge e como ele
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632067"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030372"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Noções básicas sobre o tempo de execução do Azure IoT Edge e sua arquitetura - versão prévia
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o tempo de execução do Azure IoT Edge e sua arquitetura
 
 O tempo de execução do IoT Edge é uma coleção de programas que precisam ser instalados em um dispositivo para ser considerado um dispositivo IoT Edge. Coletivamente, os componentes do tempo de execução do IoT Edge permitem que dispositivos IoT Edge recebam o código para executar na borda e informem os resultados. 
 
@@ -90,7 +90,7 @@ Para começar a execução do agente do Edge, execute o comando de início azure
 
 Cada item no dicionário de módulos contém informações específicas sobre um módulo e é usado pelo agente o Edge para controlar o ciclo de vida do módulo. Estas são algumas das propriedades mais interessantes: 
 
-* **Settings.Image**: a imagem de contêiner que o agente do Edge usa para iniciar o módulo. O agente do Edge deverá ser configurado com as credenciais para o registro de contêiner se a imagem estiver protegida por senha. Para configurar o agente do Edge, use o seguinte comando:`azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.Image**: a imagem de contêiner que o agente do Edge usa para iniciar o módulo. O agente do Edge deverá ser configurado com as credenciais para o registro de contêiner se a imagem estiver protegida por senha. Para configurar o agente do Edge, atualize o arquivo `config.yaml`. No Linux, use o comando a seguir: `sudo nano /etc/iotedge/config.yaml`
 * **settings.createOptions**: uma cadeia de caracteres que é passada diretamente para o daemon do Docker ao iniciar o contêiner do módulo. A adição de opções de Docker a esta propriedade permite opções avançadas, como encaminhamento de porta ou montagem de volumes no contêiner do módulo.  
 * **status**: o estado no qual o agente do Edge coloca o módulo. Geralmente, esse valor é definido como *executando*, já que a maioria das pessoas deseja que o agente do Edge inicie imediatamente todos os módulos no dispositivo. No entanto, você pode especificar o estado inicial de um módulo para ser interrompido e aguardar para mandar o agente do Edge iniciar um módulo. O agente do Edge relata o status de cada módulo para a nuvem nas propriedades relatadas. Uma diferença entre a propriedade desejada e a propriedade relatada é um indicador de um dispositivo com comportamento inadequado. Os status com suporte são:
    * Baixando
@@ -104,7 +104,7 @@ Cada item no dicionário de módulos contém informações específicas sobre um
    * Não íntegro: se o módulo falha ou é considerado não íntegro, o agente do Edge o reinicia.
    * Sempre: se o módulo falha, é considerado não íntegro ou é desligado de alguma forma, o agente do Edge o reinicia. 
 
-Agente do IoT Edge envia a resposta de tempo de execução para o Hub IoT. Aqui está uma lista das possíveis respostas:
+O agente do IoT Edge envia a resposta de tempo de execução para o Hub IoT. Aqui está uma lista das possíveis respostas:
   * 200 - OK
   * 400 - A configuração de implantação está malformada ou inválida.
   * 417 - O dispositivo não tem uma configuração de implantação definida.
@@ -114,7 +114,7 @@ Agente do IoT Edge envia a resposta de tempo de execução para o Hub IoT. Aqui 
 
 ### <a name="security"></a>Segurança
 
-O agente do IoT Edge desempenha um papel fundamental na segurança de um dispositivo IoT Edge. Por exemplo, ele executa ações como verificar a imagem de um módulo antes de iniciá-lo. Esses recursos serão adicionados na disponibilidade geral dos recursos do V2. 
+O agente do IoT Edge desempenha um papel fundamental na segurança de um dispositivo IoT Edge. Por exemplo, ele executa ações como verificar a imagem de um módulo antes de iniciá-lo. Esses recursos serão adicionados na disponibilidade geral. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 

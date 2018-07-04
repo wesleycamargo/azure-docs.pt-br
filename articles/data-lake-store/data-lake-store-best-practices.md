@@ -1,24 +1,26 @@
 ---
-title: Melhores práticas para utilizar o Microsoft Azure Data Lake Store | Microsoft Docs
-description: Aprenda as melhores práticas sobre ingestão de dados, segurança de data e desempenho relacionadas ao uso do Azure Data Lake Store
+title: Melhores práticas para utilizar o Microsoft Azure Data Lake Storeage Gen1 | Microsoft Docs
+description: Aprenda as melhores práticas sobre ingestão de dados, segurança de data e desempenho relacionadas ao uso do Azure Data Lake Storeage Gen1 (anteriormente conhecido como Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
-editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 00eb2b6b60aa6c3224b58556f6dad64d4294c308
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625331"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034215"
 ---
-# <a name="best-practices-for-using-azure-data-lake-store"></a>Práticas recomendadas para usar o Azure Data Lake Store
+# <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storeage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Store. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Store. Antes do Data Lake Store, trabalhar com big data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. Com o Data Lake Store, a maioria dos limites rígidos para tamanho e desempenho foram removidos. No entanto, ainda há algumas considerações que este artigo abrange para que seja possível obter o melhor desempenho com o Data Lake Store. 
 
 ## <a name="security-considerations"></a>Considerações de segurança
@@ -114,7 +116,7 @@ Trabalhos de cópia podem ser disparados por fluxos de trabalho do Apache Oozie 
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Usar Azure Data Factory para agendar trabalhos de cópia 
 
-O Azure Data Factory também pode ser utilizado para agendar trabalhos de cópia usando uma **Atividade de Cópia** e, além disso, pode ser configurado em uma frequência através do **Assistente de Cópia**. Tenha em mente que o Azure Data Factory possui um limite de DMUs (unidades de movimentação de dados na nuvem) e, eventualmente, eleva a taxa de transferência/computação para cargas de trabalho de dados grandes. Além disso, o Azure Data Factory atualmente não oferece atualizações delta entre as contas do Data Lake Store, de modo que pastas como as tabelas de Hive exigiriam uma cópia completa para replicar. Consulte o [Guia de ajuste da atividade de cópia](../data-factory/v1/data-factory-copy-activity-performance.md) para obter mais informações sobre como copiar com o Data Factory. 
+O Azure Data Factory também pode ser utilizado para agendar trabalhos de cópia usando uma **Atividade de Cópia** e, além disso, pode ser configurado em uma frequência através do **Assistente de Cópia**. Tenha em mente que o Azure Data Factory possui um limite de DMUs (unidades de movimentação de dados na nuvem) e, eventualmente, eleva a taxa de transferência/computação para cargas de trabalho de dados grandes. Além disso, o Azure Data Factory atualmente não oferece atualizações delta entre as contas do Data Lake Store, de modo que pastas como as tabelas de Hive exigiriam uma cópia completa para replicar. Consulte o [Guia de ajuste da atividade de cópia](../data-factory/copy-activity-performance.md) para obter mais informações sobre como copiar com o Data Factory. 
 
 ### <a name="adlcopy"></a>AdlCopy
 

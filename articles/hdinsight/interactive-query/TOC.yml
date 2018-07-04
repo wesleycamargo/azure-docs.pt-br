@@ -369,6 +369,10 @@
     - name: Notas de versão
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Notas de versão arquivadas
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Obtenha ajuda no fórum

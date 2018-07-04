@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 05abd943d85fcdd709143bf7fce221dcdfb86011
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215092"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030702"
 ---
-# <a name="service-endpoint-monitor"></a>Monitor de Ponto de Extremidade de Serviço
+# <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
-Você pode usar o recurso de Gerenciador de Ponto de Extremidade de Serviço no [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) para monitorar a conectividade de rede para qualquer ponto de extremidade que tem uma porta TCP aberta. Esses pontos de extremidade incluem sites, aplicativos SaaS, os aplicativos PaaS e bancos de dados SQL. 
+Você pode usar o recurso Monitor de Conectividade de Serviço em [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) para monitorar a conectividade de rede para qualquer ponto de extremidade que tem uma porta TCP aberta. Esses pontos de extremidade incluem sites, aplicativos SaaS, os aplicativos PaaS e bancos de dados SQL. 
 
-Você pode executar as seguintes funções com Monitor de Ponto de Extremidade de Serviço: 
+Você pode executar as seguintes funções com o Monitor de Conectividade de Serviço: 
 
 - Monitore a conectividade de rede para seus aplicativos e serviços de rede de vários locais ou de ramificação. Aplicativos e serviços de rede incluem o Office 365, Dynamics CRM, aplicativos de linha de negócios internos e bancos de dados SQL.
 - Use testes internos para monitorar a conectividade de rede para pontos de extremidade do Office 365 e Dynamics365. 
@@ -34,7 +34,7 @@ Você pode executar as seguintes funções com Monitor de Ponto de Extremidade d
 - Identifica pontos de acesso na rede que podem estar causando o desempenho insatisfatório do aplicativo exibindo a latência contribuída por cada salto em um mapa de topologia.
 
 
-![Monitor de Ponto de Extremidade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Monitor de Conectividade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuração 
@@ -55,11 +55,11 @@ netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmp
 netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
-### <a name="create-service-endpoint-monitor-tests"></a>Crie teste de Monitor de Ponto de Extremidade de Serviço 
+### <a name="create-service-connectivity-monitor-tests"></a>Criar testes do Monitor de Conectividade de Serviço 
 
 Comece criando os testes para monitorar a conectividade de rede aos pontos de extremidade de serviço.
 
-1. Selecione **Monitor de Ponto de Extremidade de Serviço** na guia.
+1. Selecione a guia **Monitor de Conectividade de Serviço**.
 2. Selecione **Adicionar teste** e insira o nome do teste e a descrição. 
 3. Selecione o tipo de teste:<br>
 
@@ -84,7 +84,7 @@ Comece criando os testes para monitorar a conectividade de rede aos pontos de ex
 
 ## <a name="walkthrough"></a>Passo a passo 
 
-Vá até a visualização do painel do Monitor de Desempenho de Rede. Para obter um resumo da integridade de testes diferentes que você criou, olhe a página **Monitor de Ponto de Extremidade de Serviço**. 
+Vá até a visualização do painel do Monitor de Desempenho de Rede. Para obter um resumo da integridade de testes diferentes que você criou, consulte a página **Monitor de Conectividade de Serviço**. 
 
 ![Página Monitor de Ponto de Extremidade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 

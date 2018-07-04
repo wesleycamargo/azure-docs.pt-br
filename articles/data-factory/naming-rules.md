@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: e9d2140edc64daca4df0463dbfdcd5b06f072012
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cca9befb65abed3b6d07a52aa286c43725577121
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620401"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051739"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - regras de nomenclatura
 A tabela a seguir fornece regras de nomenclatura para artefatos Data Factory.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você usar a versão 1 do serviço do Data Factory, que está geralmente disponível (GD), consulte as [regras de nomenclatura no Data Factory versão 1](v1/data-factory-naming-rules.md).
 
 | NOME | Exclusividade do nome | Verificações de validação |
 |:--- |:--- |:--- |
@@ -33,4 +30,4 @@ A tabela a seguir fornece regras de nomenclatura para artefatos Data Factory.
 | Grupo de recursos |Exclusivo em todo o Microsoft Azure. Os nomes não diferenciam maiúsculas de minúsculas. | Para saber mais, veja [Restrições e regras de nomenclatura do Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). |
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba como criar data factories seguindo as instruções passo a passo no artigo [Início rápido: criar uma data factory](quickstart-create-data-factory-powershell.md). 
+Saiba como criar data factories, seguindo as instruções passo a passo no artigo [Início rápido: criar um data factory](quickstart-create-data-factory-powershell.md). 

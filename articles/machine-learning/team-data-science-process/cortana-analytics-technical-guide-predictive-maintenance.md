@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: c3e9b27784a1c0671ca3c87f9a7c55a288362299
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248377"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939680"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial e em outras empresas
 
@@ -54,14 +54,14 @@ As seções a seguir descrevem as partes da solução.
 ### <a name="synthetic-data-source"></a>Fonte de dados sintética
 Para esse modelo, a fonte de dados usada é gerada por meio de um aplicativo da área de trabalho que você baixa e executa localmente após a implantação bem-sucedida.
 
-Para encontrar as instruções para baixar e instalar este aplicativo, selecione o primeiro nó, Gerador de Dados de Manutenção Preditiva, no diagrama do modelo de solução. As instruções podem ser encontradas na barra Propriedades. Esse aplicativo alimenta o serviço [Hub de Eventos do Azure](#azure-event-hub) com pontos de dados, ou eventos, usados no restante do fluxo da solução. Essa fonte de dados deriva de dados publicamente disponíveis no [repositório de dados da NASA](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) usando o [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Para encontrar as instruções para baixar e instalar este aplicativo, selecione o primeiro nó, Gerador de Dados de Manutenção Preditiva, no diagrama do modelo de solução. As instruções podem ser encontradas na barra Propriedades. Esse aplicativo alimenta o serviço [Hub de Eventos do Azure](#azure-event-hub) com pontos de dados, ou eventos, usados no restante do fluxo da solução. Essa fonte de dados deriva de dados publicamente disponíveis no [repositório de dados da NASA](https://c3.nasa.gov/dashlink/resources/139/) usando o [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
 
-O aplicativo de geração de eventos preenche o Hub de Eventos do Azure somente enquanto ele está em execução no computador.
+O aplicativo de geração de eventos preenche o Hub de Eventos do Azure somente enquanto ele está em execução no computador.  
 
-### <a name="azure-event-hub"></a>Hub de Eventos do Azure
+### <a name="azure-event-hub"></a>Hub de Eventos do Azure  
 O serviço [Hub de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) é o destinatário da entrada fornecida pela Fonte de dados sintética.
 
-## <a name="data-preparation-and-analysis"></a>Preparação e análise de dados
+## <a name="data-preparation-and-analysis"></a>Preparação e análise de dados  
 ### <a name="azure-stream-analytics"></a>Stream Analytics do Azure
 Use o [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para fornecer análises praticamente em tempo real no fluxo de entrada do serviço [Hub de Eventos do Azure](#azure-event-hub). Em seguida, publique os resultados em um painel do [Power BI](https://powerbi.microsoft.com) e arquive todos os eventos de entrada não processados no serviço [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) para processamento posterior no serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
@@ -113,11 +113,11 @@ Nesta solução, as consultas produzem como saída três conjuntos de dados com 
 A consulta do segundo trabalho do Stream Analytics, **maintenancesa02asablob**, simplesmente produz como saída todos os eventos do [Hub de Eventos](https://azure.microsoft.com/services/event-hubs/) para o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) e, portanto, não requer alteração, independentemente do formato dos dados, já que as informações completas do evento são transmitidas para o armazenamento.
 
 ### <a name="azure-data-factory"></a>Fábrica de dados do Azure
-O serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) orquestra a movimentação e o processamento de dados. Na Manutenção Preditiva para o Modelo de Solução Aeroespacial, o data factory é composto por três [pipelines](../../data-factory/v1/data-factory-create-pipelines.md) que movem e processam os dados usando diversas tecnologias.  Acesse o data factory abrindo o nó Data Factory na parte inferior do diagrama do modelo de solução criado com a implantação da solução. Erros em seus conjuntos de dados ocorrem devido ao data factory ter sido implantado antes que o gerador de dados fosse iniciado. Esses erros podem ser ignorados e não impedem o funcionamento do seu data factory.
+O serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) orquestra a movimentação e o processamento de dados. Na Manutenção Preditiva para o Modelo de Solução Aeroespacial, o data factory é composto por três [pipelines](../../data-factory/concepts-pipelines-activities.md) que movem e processam os dados usando diversas tecnologias.  Acesse o data factory abrindo o nó Data Factory na parte inferior do diagrama do modelo de solução criado com a implantação da solução. Erros em seus conjuntos de dados ocorrem devido ao data factory ter sido implantado antes que o gerador de dados fosse iniciado. Esses erros podem ser ignorados e não impedem o funcionamento do seu data factory.
 
 ![Erros do conjunto de dados do Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
-Esta seção analisa os [pipelines](../../data-factory/v1/data-factory-create-pipelines.md) e as [atividades](../../data-factory/v1/data-factory-create-pipelines.md) necessários contidos no [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Veja um modo de exibição de diagrama da solução.
+Esta seção analisa os [pipelines e as atividades](../../data-factory/concepts-pipelines-activities.md) necessárias contidas no [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Veja um modo de exibição de diagrama da solução.
 
 ![Fábrica de dados do Azure](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
@@ -126,22 +126,22 @@ Dois dos pipelines desse data factory contêm scripts do [Hive](http://blogs.msd
 Da mesma forma como nas consultas do [Azure Stream Analytics](#azure-stream-analytics-1), os scripts do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) têm um conhecimento implícito sobre o formato dos dados de entrada e precisam ser alteradas com base em seu formato de dados.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-Esse [pipeline](../../data-factory/v1/data-factory-create-pipelines.md) contém uma única atividade - um atividade [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) que usa um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para particionar os dados colocados no [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) durante o trabalho do [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/).
+Esse [pipeline](../../data-factory/concepts-pipelines-activities.md) contém uma única atividade - um atividade [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) que usa um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para particionar os dados colocados no [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) durante o trabalho do [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/).
 
 O script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para essa tarefa de particionamento é ***AggregateFlightInfo.hql***
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
-Esse [pipeline](../../data-factory/v1/data-factory-create-pipelines.md) contém várias atividades e seu resultado final é composto pelas previsões pontuadas do experimento do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) associado a esse modelo de solução.
+Esse [pipeline](../../data-factory/concepts-pipelines-activities.md) contém várias atividades e seu resultado final é composto pelas previsões pontuadas do experimento do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) associado a esse modelo de solução.
 
 As atividades incluídas são:
 
-* A atividade [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para realizar as agregações e os recursos de engenharia necessários para o experimento do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
+* A atividade [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para realizar as agregações e os recursos de engenharia necessários para o experimento do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
   O script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para essa tarefa de particionamento é ***PrepareMLInput.hql***.
-* A atividade[ Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que move os resultados da atividade [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) para um único blob do [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), acessado pela atividade [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx).
+* A atividade[ Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que move os resultados da atividade [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) para um único blob do [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), acessado pela atividade [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx).
 * A atividade [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) chama o experimento do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), que faz com que os resultados sejam colocados em um único blob de [Armazenamento do Azure](https://azure.microsoft.com/services/storage/).
 
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
-Esse [pipeline](../../data-factory/v1/data-factory-create-pipelines.md) contém uma única atividade: uma atividade [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que move os resultados do teste do [Azure Machine Learning](#azure-machine-learning) do ***MLScoringPipeline*** para o [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) provisionado como parte da instalação do modelo de solução.
+Esse [pipeline](../../data-factory/concepts-pipelines-activities.md) contém uma única atividade: uma atividade [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que move os resultados do teste do [Azure Machine Learning](#azure-machine-learning) do ***MLScoringPipeline*** para o [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) provisionado como parte da instalação do modelo de solução.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 O experimento do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) usado para esse modelo de solução fornece a RUL (Vida Útil Restante) de um motor de aeronave. O experimento é específico ao conjunto de dados consumido e exige modificação ou substituição específica para os dados apresentados.
