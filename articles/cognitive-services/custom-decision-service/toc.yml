@@ -31,6 +31,8 @@
       href: custom-decision-service-log-downloader-reference.md
 - name: Recursos
   items:
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/'
     - name: Preço (gratuito)
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-decision-service/'
     - name: UserVoice
