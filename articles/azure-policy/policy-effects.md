@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 23bbbe9cf86268f93ae1f8fcec9303efa8a673de
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796709"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751771"
 ---
 # <a name="understanding-policy-effects"></a>Compreendendo os efeitos da política
 
@@ -90,7 +90,7 @@ Exemplo 3: par **campo/valor** exclusivo usando um [alias](policy-definition.md#
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -304,7 +304,7 @@ Exemplo: avalia os bancos de dados do SQL Server para determinar se transparentD
 
 ## <a name="layering-policies"></a>Políticas de camadas
 
-Um recurso pode ser afetado por várias atribuições. Essas atribuições podem estar no mesmo escopo (recurso específico, grupo de recursos, assinatura ou grupo de gerenciamento) ou em escopos diferentes. Também é provável que cada uma dessas atribuições tenha um efeito diferente definido. De qualquer forma, a condição e o efeito de cada política (atribuída diretamente ou como parte de uma iniciativa) são avaliados de maneira independente. Por exemplo, se forem atribuídas a política 1 com uma condição que restringe que o local da assinatura A seja criado em “westus” com o efeito negar e a política 2 restringindo que os recursos no grupo de recursos B (que está na assinatura A) sejam criados no “eastus” com o efeito auditoria, o resultado seria:
+Um recurso pode ser afetado por várias atribuições. Essas atribuições podem estar no mesmo escopo (recurso específico, grupo de recursos, assinatura ou grupo de gerenciamento) ou em escopos diferentes. Também é provável que cada uma dessas atribuições tenha um efeito diferente definido. De qualquer forma, a condição e o efeito de cada política (atribuída diretamente ou como parte de uma iniciativa) são avaliados de maneira independente. Por exemplo, se a política tiver uma condição que restrinja o local de recurso para assinatura A para ser criada apenas em “westus” com o efeito de negação e a política tiver 2, haverá uma condição que restringe o  local de recurso para o gurpo de recursos B (que está na assinatura A) para apenas ser criada em “eastus” com o efeito de auditoria são ambas atribuídas, o resultado seria:
 
 - Qualquer recurso já presente no grupo de recursos B em “eastus” está em conformidade com a política 2, mas está marcado como não conforme com a política 1.
 - Qualquer recurso já presente no grupo de recursos B não em “eastus” será marcado como não conforme com a política 2 e também pode ser marcado como não conforme com a política 1 se não estiver em “westus”.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: a856c59191a1e35b78d1ab6c2c88ab5288ea1419
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836476"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055283"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Guia estratégico da Solução de Análise de Telemetria do Veículo: aprofundamento na solução
 Este menu fornece links para as seções deste guia estratégico: 
@@ -35,7 +35,7 @@ A solução usa duas fontes de dados diferentes:
 * Sinais de veículo simulados e conjunto de dados de diagnóstico
 * Catálogo de veículos
 
-Um simulador de telemática do veículo é incluído como parte desta solução, conforme mostrado na captura de tela a seguir. Ele emite informações de diagnóstico e sinais que correspondem ao estado do veículo e ao padrão de condução em determinado ponto no tempo. Para baixar a Solução de Simulador de Telemática do Veículo do Visual Studio para fazer personalizações de acordo com suas necessidades, acesse a página da Web [Simulador de telemática do veículo](http://go.microsoft.com/fwlink/?LinkId=717075). O catálogo de veículos contém um conjunto de dados de referência que mapeia os VINs (números de identificação do veículo) para os modelos.
+Um simulador de telemática do veículo é incluído como parte desta solução, conforme mostrado na captura de tela a seguir. Ele emite informações de diagnóstico e sinais que correspondem ao estado do veículo e ao padrão de condução em determinado ponto no tempo.  O catálogo de veículos contém um conjunto de dados de referência que mapeia os VINs (números de identificação do veículo) para os modelos. Nota: O conjunto de dados do Visual Studio Solution do Vehicle Telematics Simulator não está mais disponível. 
 
 ![Simulador de telemática do veículo](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
@@ -363,7 +363,7 @@ Um aplicativo é incluído como parte da solução para operar o modelo de apren
 
 Esse padrão também é aplicável a cenários em que você deseja integrar um aplicativo de linha de negócios ao fluxo de análise em tempo real. Esses cenários incluem alertas, notificações e mensagens.
 
-Para baixar a solução RealtimeDashboardApp do Visual Studio para fazer personalizações, consulte a página da Web [Download do RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078). 
+Nota: os dados da solução RealtimeDashboardApp Visual Studio não estão mais disponíveis.
 
 #### <a name="execute-the-real-time-dashboard-application"></a>**Executar o aplicativo de painel em tempo real**
 1. Extraia o RealtimeDashboardApp e salve-o localmente.
@@ -669,10 +669,9 @@ Este documento contém um detalhamento da Solução de Análise da Telemetria do
 
 ### <a name="references"></a>Referências
 
-* [Solução Vehicle Telematics Simulator do Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) 
 * [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)
 * [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [SDK dos Hubs de Eventos do Azure para ingestão de fluxo](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-* [Funcionalidades de movimentação de dados do Azure Data Factory](../../data-factory/v1/data-factory-data-movement-activities.md)
-* [Atividade .NET do Azure Data Factory](../../data-factory/v1/data-factory-use-custom-activities.md)
+* [Funcionalidades de movimentação de dados do Azure Data Factory](../../data-factory/copy-activity-overview.md)
+* [Atividade .NET do Azure Data Factory](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [Solução de atividade .NET do Azure Data Factory do Visual Studio usada para preparar os dados de exemplo](http://go.microsoft.com/fwlink/?LinkId=717077) 

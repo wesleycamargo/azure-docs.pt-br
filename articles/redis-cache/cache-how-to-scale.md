@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240217"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959375"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Como dimensionar o Cache Redis do Azure
 O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho e o tipo de preço desse cache. Este artigo mostra como dimensionar seu cache no Portal do Azure usando ferramentas como o Azure PowerShell e a CLI do Azure.
@@ -154,7 +154,7 @@ Ao passo que os caches Standard e Premium têm um SLA de 99,9% de disponibilidad
 * Os caches **Basic** ficam offline durante o dimensionamento de operações para um tamanho diferente. Os caches Basic permanecem disponíveis ao dimensionar de **Basic** para **Standard** mas, podem enfrentar um ponto de conexão pequeno. Se ocorrer um ponto de conexão, os clientes redis devem poder restabelecer a sua conexão imediatamente.
 
 
-### <a name="scaling-limitations-with-geo-relication"></a>Limitações no dimensionamento com replicação geográfica
+### <a name="scaling-limitations-with-geo-replication"></a>Limitações no dimensionamento com replicação geográfica
 
 Depois de adicionar um link de replicação geográfica entre dois caches, você não poderá iniciar uma operação de dimensionamento ou alterar o número de fragmentos em um cluster. Desvincule o cache para executar esses comandos. Para obter mais informações, consulte [Configurar Replicação geográfica](cache-how-to-geo-replication.md).
 

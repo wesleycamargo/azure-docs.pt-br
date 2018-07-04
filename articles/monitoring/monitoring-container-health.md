@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 06/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c4294947cba72b1638e77c2dd8de1f5ee37b62a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285977"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335747"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorar a integridade do contêiner do AKS (Serviço do Kubernetes do Azure) (Versão prévia)
 
@@ -37,7 +37,7 @@ Se você estiver interessado em monitorar e gerenciar hosts de contêiner Docker
 ## <a name="requirements"></a>Requisitos 
 Antes de começar, examine os detalhes a seguir para compreender os pré-requisitos com suporte.
 
-- As seguintes versões do cluster do AKS têm suporte: 1.7.7 a 1.9.6.
+- Um cluster AKS novo ou existente
 - Um agente do OMS em contêineres para Linux versão microsoft/oms:ciprod04202018 e posteriores. Esse agente é instalado automaticamente durante a integração da integridade do contêiner.  
 - Um espaço de trabalho do Log Analytics.  Ele pode ser criado quando você habilita o monitoramento do novo cluster do AKS, ou você pode criar um por meio do [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), do [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) ou do [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 - Membro da função Colaborador do Log Analytics para habilitar o monitoramento de contêineres.  Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, consulte [Gerenciar espaços de trabalho](../log-analytics/log-analytics-manage-access.md).
@@ -244,7 +244,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 Depois que o monitoramento for habilitado, poderá levar cerca de 15 minutos até que os dados operacionais para o cluster fiquem visíveis.  
 
 ## <a name="verify-agent-deployed-successfully"></a>Verifique se o agente fez a implantação com êxito
-Para verificar se o agente do OMS foi implantado corretamente, execute o seguinte comando: ` kubectl get ds omsagent --namespace=kube-system`.
+Para verificar se o agente do OMS foi implantado corretamente, execute o seguinte comando: `kubectl get ds omsagent --namespace=kube-system`.
 
 A saída deve ser semelhante ao que segue, indicando que ela foi implantada corretamente:
 

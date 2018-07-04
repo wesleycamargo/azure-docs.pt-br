@@ -2,19 +2,19 @@
 title: Unidades de solicitação e estimando a taxa de transferência - banco de dados do Azure Cosmos | Microsoft Docs
 description: Saiba mais sobre como entender, especificar e estimar os requisitos de unidades de solicitação no Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 16ccda120aef0aa892bf365403f3f0bdc1209ca3
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823716"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053320"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no banco de dados do Azure Cosmos de solicitação
 
@@ -41,7 +41,7 @@ Banco de dados do Azure Cosmos rápida, oferece um desempenho previsível ao res
 
 Com o banco de dados do Azure Cosmos, taxa de transferência reservada é especificada em termos de unidade de solicitação de processamento por segundo. Você pode pensar em solicitação como taxa de transferência. Você reserva um número de unidades de solicitação garantidas para estar disponível para sua inscrição em uma base por segundo. Cada operação no Azure Cosmos DB, incluindo escrevendo um documento, executar uma consulta e atualização de um documento, consome CPU, memória e IOPS. Ou seja, cada operação incorre em uma taxa de solicitação, que é expressa em unidades de solicitação. Quando você entende os fatores que afetam as cobranças da unidade de solicitação e os requisitos de taxa de transferência do seu aplicativo, você pode executar o aplicativo da maneira mais econômica possível. 
 
-Para ajudá-lo a começar, o Azure gestão de programa de banco de dados do Cosmos Andrew Liu discute unidades de solicitação no vídeo a seguir: <br /><br />
+Para ajudá-lo a começar, o gerente do programa Azure Cosmos DB, Andrew Liu, discute unidades de solicitação no vídeo a seguir (há um pequeno erro no exemplo de unidades de solicitação do vídeo. Quando os dados de 1 KB com 100.000 registros são usados, o armazenamento total for 100 MB e não 100 GB): <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
@@ -111,7 +111,7 @@ Para usar a ferramenta:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Usar o cabeçalho de resposta de encargos da solicitação do Azure Cosmos DB
-Todas as respostas do serviço Azure Cosmos DB incluem um cabeçalho personalizado (`x-ms-request-charge`) que contém as unidades de solicitação consumidas para uma determinada solicitação. Você também pode acessar esse cabeçalho por meio de SDKs do Azure Cosmos banco de dados. No SDK .NET, **RequestCharge** é uma propriedade do objeto **ResourceResponse**. Para consultas, o Data Explorer do Azure Cosmos DB no portal do Azure fornece informações de encargos de solicitação para as consultas executadas.
+Todas as respostas do serviço Azure Cosmos DB incluem um cabeçalho personalizado (`x-ms-request-charge`) que contém as unidades de solicitação consumidas para uma determinada solicitação. Você também pode acessar esse cabeçalho por meio de SDKs do Azure Cosmos banco de dados. No SDK .NET, **RequestCharge** é uma propriedade do objeto **ResourceResponse**. Para consultas, o Data Explorer do Azure Cosmos DB no portal do Azure fornece informações de encargos de solicitação para as consultas executadas. Para saber mais sobre como obter e taxa de transferência de conjunto usando APIs de vários modelos diferentes consulte [definir e obter a taxa de transferência de banco de dados do Azure Cosmos](set-throughput.md) artigo.
 
 É um método para calcular a quantidade de produtividade reservados exigida por seu aplicativo registrar o custo de unidade de solicitação associado à execução de operações típicas em relação a um item de representante que é usado pelo seu aplicativo. Em seguida, calcule o número de operações que você antecipar para executar a cada segundo. Certifique-se de também medir e incluem consultas típicas e uso de script de banco de dados do Azure Cosmos.
 

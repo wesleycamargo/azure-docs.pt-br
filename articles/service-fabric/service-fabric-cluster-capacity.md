@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 78cff3ba5bd2f8bc80f302a232e45864159ca88f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aca03452ff5655d3a7180009f42df14c9459a9ff
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641876"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061551"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
@@ -27,6 +27,10 @@ Para qualquer implantação de produção, o planejamento de capacidade é uma e
 * O número de tipos de nós com os quais o cluster precisa começar
 * As propriedades de cada tipo de nó (tamanho, primário, voltado para a Internet, número de VMs etc.)
 * As características de confiabilidade e durabilidade do cluster
+
+> [!NOTE]
+> Você deve revisar minimamente todos os valores da política de upgrade **Não permitido** durante o planejamento. Isso é para garantir que você defina os valores adequadamente e para reduzir a redução de seu cluster posteriormente devido a configurações imutáveis do sistema. 
+> 
 
 Vamos examinar rapidamente cada um desses itens.
 
@@ -46,6 +50,8 @@ O **tipo de nó** pode ser visto como algo equivalente a funções nos Serviços
 Cada tipo de nó é um conjunto de dimensionamento distinto e pode ser para escalar verticalmente ou reduzir verticalmente de forma independente, ter conjuntos diferentes de portas em aberto e ter métrica de capacidade diferente. Para obter mais informações sobre as relações entre os tipos de nó e conjuntos de dimensionamento de máquina virtual, como ao RDP em uma das instâncias, como abrir novo portas e assim por diante, consulte [tipos de nós de cluster do Service Fabric](service-fabric-cluster-nodetypes.md).
 
 Um cluster do Service Fabric pode consistir em mais de um tipo de nó. Nesse caso, o cluster consiste em um tipo de nó primário e um ou mais tipos de nó não primário.
+
+Um único tipo de nó não pode simplesmente exceder 100 nós por conjunto de escala de máquina virtual. Você pode precisar adicionar conjuntos de escala de máquina virtual para atingir a escala desejada, e o escalonamento automático não pode adicionar automaticamente conjuntos de escala de máquina virtual. Adicionar conjuntos de escala de máquina virtual no local a um cluster ativo é uma tarefa desafiadora e, geralmente, isso resulta em usuários provisionando novos clusters com os tipos de nó apropriados provisionados no momento da criação. 
 
 ### <a name="primary-node-type"></a>Tipo de nó primário
 

@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215517"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054646"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma Instância Gerenciada (versão prévia)?
 
@@ -210,7 +210,8 @@ A Instância Gerenciada se beneficia de estar sempre atualizada na nuvem, o que 
 - A Instância Gerenciada não permite especificar caminhos físicos completos, então, todos os cenários correspondentes devem ter suporte de forma diferente: RESTORE DB não dá suporte para WITH MOVE, CREATE DB não permite caminhos físicos, BULK INSERT funciona apenas com Blobs do Azure e etc. 
 - A Instância Gerenciada dá suporte para [Autenticação do Azure AD](sql-database-aad-authentication.md) como alternativa de nuvem para autenticação do Windows. 
 - A Instância Gerenciada gerencia automaticamente o grupo de arquivos XTP e os arquivos para bancos de dados que contêm objetos OLTP na memória
- 
+- Instância gerenciada suporta SSIS (SQL Server Integration Services) e pode hospedar SSIS catalog (SSISDB) que armazena pacotes SSIS, mas eles são executados em um Azure-ISR (Azure-SSIS Integration Runtime) no Azure Data Factory (ADF), consulte [ Crie o IR do Azure-SSIS no ADF ](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+
 ### <a name="managed-instance-administration-features"></a>Recursos de administração de Instância Gerenciada do Banco de Dados SQL do Azure  
 
 A Instância Gerenciada permite que o administrador do sistema concentre-se no que é mais importante para os negócios. Muitas atividades DBA/administrador do sistema não são necessárias ou são simples. Por exemplo, instalação do RDBMS/SO e aplicação de patch, redimensionamento de instância dinâmica e configuração, backups, replicação de banco de dados (incluindo bancos de dados do sistema), configuração de alta disponibilidade e configuração de fluxos de dados de monitoramento de desempenho e integridade. 

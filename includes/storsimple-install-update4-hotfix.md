@@ -4,7 +4,7 @@
 
 Execute as etapas a seguir para baixar a atualização do software do Catálogo do Microsoft Update.
 
-1. Inicie o Internet Explorer e acesse [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Inicie o Internet Explorer e navegue até [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 2. Caso esta seja a primeira vez que você usa o Catálogo do Microsoft Update neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
 
     ![Instalar o catálogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -28,7 +28,7 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
 Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso você já os tenha instalado usando o portal clássico do Azure, ignore essa etapa e vá para [Instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. Para instalar os hotfixes, acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). No prompt de comando, pressione **Enter**.
-2. Selecione a **Opção 1** para fazer logon no dispositivo com acesso completo. Recomendamos que você instale o hotfix no controlador passivo primeiro.
+2. Selecione a Opção 1, **Fazer logon com acesso completo**. Recomendamos que você instale o hotfix no controlador passivo primeiro.
 3. Para instalar o hotfix, no prompt de comando, digite:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -153,7 +153,7 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Monitore o progresso da instalação usando o comando `Get-HcsUpdateStatus` . A atualização é concluída quando o `RunInProgress` muda para `False`.
-4. Depois que a instalação for concluída, o controlador no qual o hotfix do modo de manutenção foi instalado será reiniciado. Faça logon como opção 1 com acesso completo e verifique a versão de firmware de disco. Digite:
+4. Depois que a instalação for concluída, o controlador no qual o hotfix do modo de manutenção foi instalado será reiniciado. Faça logon como opção 1, **Faça logon com acesso completo**, e verifique a versão de firmware de disco. Digite:
    
    `Get-HcsFirmwareVersion`
    

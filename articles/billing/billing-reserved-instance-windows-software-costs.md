@@ -1,5 +1,5 @@
 ---
-title: Custos de software do Windows para Instâncias  de Reserva do Microsoft Azure - Azure Billing |Microsoft Docs
+title: Instâncias de reserva do Azure Custos de software do Windows | Microsoft Docs
 description: Saiba quais medidores de software do Windows não estão incluídos nos custos de Instância de máquina virtual reservada.
 services: billing
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6602424e2b2e4a4c2c3c51b5cb4bb1024a39d2e0
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303344"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064186"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Os custos de software do Windows não estão incluídos nas Instâncias Reservadas do Microsoft Azure
+# <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Custos de software do Windows não incluídos nas instâncias reservadas do Azure
 
-Se não tiver um Benefício do Uso de Híbrido do Azure em suas máquinas virtuais de Instância Reservada, você será cobrado pelos medidores de software do Windows listados na seção a seguir.
+Se você não tiver um Benefício de Uso Híbrido do Azure em suas máquinas virtuais de instância reservadas, será cobrado pelos medidores de software do Windows listados na seção a seguir.
 
-## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>O custo de medidores de software do Windows não está incluído no custo da Instância Reservada
+## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Medidores de software do Windows não incluídos no custo da instância reservada
 
 | MeterId | MeterName no arquivo de utilização | Utilizado por VM |
 | ------- | ------------------------| --- |
@@ -53,14 +53,14 @@ Se não tiver um Benefício do Uso de Híbrido do Azure em suas máquinas virtua
 Você pode obter o custo de cada um desses medidores por meio da API RateCard do Azure. Para obter informações sobre como obter as taxas de um medidor do Azure, consulte [Obter informações sobre preço e metadados para recursos usados em uma assinatura do Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre as Instâncias Reservadas do Azure, confira os seguintes artigos:
+Para saber mais sobre as instâncias reservadas do Azure, consulte os seguintes artigos:
 
-- [Economizar dinheiro de máquinas virtuais com Instâncias Reservadas do Microsoft Azure](billing-save-compute-costs-reservations.md)
-- [Pagar antecipadamente por Máquinas Virtuais com Instâncias Reservadas](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gerenciar as Instâncias Reservadas](billing-manage-reserved-vm-instance.md)
-- [Entender como é aplicado o desconto de Instância Reservada](billing-understand-vm-reservation-charges.md)
-- [Entender o uso da Instância Reservada na sua assinatura Paga pelo Uso](billing-understand-reserved-instance-usage.md)
-- [Entender o uso da Instância Reservada no seu registro de Empresa](billing-understand-reserved-instance-usage-ea.md)
+- [O que são instâncias de VM reservadas do Azure?](billing-save-compute-costs-reservations.md)
+- [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerenciar instâncias reservadas no Azure](billing-manage-reserved-vm-instance.md)
+- [Entenda como o desconto de instância reservada é aplicado](billing-understand-vm-reservation-charges.md)
+- [Entenda o uso de instâncias reservadas para sua assinatura do Pay-As-You-Go](billing-understand-reserved-instance-usage.md)
+- [Entenda o uso reservado de instâncias para o seu registro Enterprise ](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

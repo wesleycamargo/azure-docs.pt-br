@@ -3,8 +3,8 @@ title: Usando a solução Mapa do Serviço no Azure | Microsoft Docs
 description: O Mapa do Serviço é uma solução no Azure que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux, e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre a implantação do Mapa do Serviço em seu ambiente e sobre como usá-lo em diversos cenários.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
@@ -12,20 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa9a6b54576ce8399471891c9ab5b80216f00ee1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 812137a8320634364a7d91fd2e61cd3e9d15fc12
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887486"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751421"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
 
-Este artigo descreve os detalhes de como usar o Mapa do Serviço. Para obter mais informações sobre como configurar o Mapa do Serviço e os agentes de integração, consulte [Configurar a solução Mapa do Serviço no Azure]( monitoring-service-map-configure.md).
+Este artigo descreve os detalhes de integração e como usar o Mapa do Serviço. Para obter mais informações sobre como configurar o Mapa do Serviço e os agentes de integração, consulte [Configurar a solução Mapa do Serviço no Azure]( monitoring-service-map-configure.md).
 
+## <a name="sign-in-to-azure"></a>Entrar no Azure
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+
+## <a name="enable-service-map"></a>Habilitar Mapa do Serviço
+1. No portal do Azure, clique em **Criar um recurso**.
+2. Na barra de pesquisa, digite **Mapa do Serviço** e pressione **Enter**.
+3. Na página de resultados de pesquisa do marketplace, selecione **Mapa de Serviço** da lista.<br><br> ![Selecione a solução Mapa de Serviço nos resultados de pesquisa do Azure Marketplace](./media/monitoring-service-map/marketplace-search-results.png)<br>
+4. No painel de visão geral **Mapa de Serviço**, examine os detalhes de solução e, em seguida, clique em **Criar** para iniciar o processo de integração para seu espaço do Log Analytics.<br><br> ![Integração da Solução do Mapa de Serviço](./media/monitoring-service-map/service-map-onboard.png)
+5. No painel **Configurar uma solução**, selecione um existente ou crie um novo espaço de trabalho do Log Analytics.  Para obter mais informações sobre como criar um novo espaço de trabalho, consulte [Criar um espaço de trabalho do Log Analytics no portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md). Depois de fornecer as informações necessárias, clique em **Criar**.  
+
+Enquanto as informações são verificadas e a solução é implantada, você pode acompanhar seu progresso no menu **Notificações**. 
+
+Acesse o Mapa de Serviço no portal do Azure do seu espaço de trabalho do Log Analytics e selecione a opção **Soluções** no painel esquerdo.<br><br> ![Selecione a opção Soluções no espaço de trabalho](./media/monitoring-service-map/select-solution-from-workspace.png).<br> Na lista de soluções, selecione **ServiceMap(workspaceName)** e na página de visão geral da solução Mapa do Serviço, clique no bloco de resumo do Mapa do Serviço.<br><br> ![Bloco de resumo do Mapa do Serviço](./media/monitoring-service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: Fazer com que seus processos de TI reconheçam a dependência
 
@@ -44,9 +57,10 @@ Se você estiver usando o Azure Site Recovery e precisar de ajuda para definir a
 ### <a name="patch-management"></a>Gerenciamento de patch
 O Mapa do Serviço aprimora seu uso da Avaliação de atualização do sistema, mostrando que outras equipes e servidores dependem de seu serviço, para que você possa notificá-los com antecedência antes de desativar seus sistemas para aplicação de patch. O Mapa do Serviço também aprimora o gerenciamento de patch mostrando se os seus serviços estão disponíveis e conectados corretamente após terem sido corrigidos e reiniciados.
 
-
 ## <a name="mapping-overview"></a>Visão geral do mapeamento
-Os agentes do Mapa do Serviço coletam informações sobre todos os processos conectados a TCP no servidor em que estão instalados e detalhes sobre as conexões de entrada e saída de cada processo. Na lista no painel esquerdo, você pode selecionar computadores ou grupos que possuem agentes do Mapa do Serviço para visualizar suas dependências em um intervalo de tempo especificado. Os mapas de dependência de computador concentram-se em um computador específico e mostram todos os computadores que são clientes TCP diretos ou servidores daquele computador.  Os mapas do Grupo de Computadores mostram os conjuntos de servidores e suas dependências.
+Os agentes do Mapa do Serviço coletam informações sobre todos os processos conectados a TCP no servidor em que estão instalados e detalhes sobre as conexões de entrada e saída de cada processo.
+
+Na lista no painel esquerdo, você pode selecionar computadores ou grupos que possuem agentes do Mapa do Serviço para visualizar suas dependências em um intervalo de tempo especificado. Os mapas de dependência de computador concentram-se em um computador específico e mostram todos os computadores que são clientes TCP diretos ou servidores daquele computador.  Os mapas do Grupo de Computadores mostram os conjuntos de servidores e suas dependências.
 
 ![Visão geral do Mapa do Serviço](media/monitoring-service-map/service-map-overview.png)
 
@@ -187,16 +201,13 @@ O painel **Resumo do Processo** fornece informações adicionais sobre a conecti
 ![Painel Resumo do Processo](media/monitoring-service-map/process-summary.png)
 
 ## <a name="alerts-integration"></a>Integração de alertas
-O Mapa do Serviço integra-se aos Alertas no Log Analytics para mostrar os alertas acionados para o servidor selecionado no intervalo de tempo selecionado. Se houver alertas atuais, o servidor exibirá um ícone e o painel **Alertas do Computador** listará os alertas.
+O Mapa do Serviço integra-se aos Alertas do Microsoft Azure para mostrar os alertas acionados para o servidor selecionado no intervalo de tempo selecionado. Se houver alertas atuais, o servidor exibirá um ícone e o painel **Alertas do Computador** listará os alertas.
 
 ![Painel Alertas do Computador](media/monitoring-service-map/machine-alerts.png)
 
 Para habilitar o Mapa do Serviço para exibir alertas relevantes, crie uma regra de alerta que dispara para um computador específico. Para criar alertas apropriadas:
 - Inclua uma cláusula para agrupar por computador (por exemplo, **intervalo de 1 minuto por Computador**).
 - Escolha o alerta com base na medida métrica.
-
-![Configuração do alerta](media/monitoring-service-map/alert-configuration.png)
-
 
 ## <a name="log-events-integration"></a>Integração de eventos de log
 O Mapa do Serviço integra-se à Pesquisa de Logs para mostrar uma contagem de todos os eventos de log disponíveis para o servidor selecionado no intervalo de tempo selecionado. Você pode clicar em qualquer linha na lista de contagens de eventos para pular para a Pesquisa de Logs e ver os eventos de log individuais.
@@ -224,7 +235,7 @@ O painel **Controle de Alterações do Computador** lista todas as alterações,
 
 A imagem a seguir é uma exibição detalhada de um evento ConfigurationChange que poderá ser exibido após selecionar **Mostrar no Log Analytics**.
 
-![Evento ConfigurationChange](media/monitoring-service-map/configuration-change-event.png)
+![Evento ConfigurationChange](media/monitoring-service-map/configuration-change-event-01.png)
 
 
 ## <a name="performance-integration"></a>Integração de desempenho
@@ -254,7 +265,6 @@ A integração do Mapa do Serviço com Segurança e Auditoria é automática qua
 O painel **Segurança do Computador** mostra dados da solução de Segurança e Auditoria para o servidor selecionado. O painel lista um resumo de quaisquer problemas de segurança pendentes para o servidor durante o intervalo de tempo selecionado. Ao clicar em qualquer um dos problemas de segurança, a busca detalhada será realizada em uma Pesquisa de Logs para obter mais detalhes sobre esses problemas.
 
 ![Painel Segurança do Computador](media/monitoring-service-map/machine-security.png)
-
 
 ## <a name="updates-integration"></a>Integração de atualizações
 A integração do Mapa do Serviço com o Gerenciamento de Atualizações é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.

@@ -12,25 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b54f60286e25c410b9d51de8be122c450080d3
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "23655408"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752768"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtros em exibições do Log Analytics
 Um **filtro** em uma [exibição do Log Analytics](log-analytics-view-designer.md) permite que os usuários filtrem os dados na exibição pelo valor de uma propriedade específica sem modificar a exibição em si.  Por exemplo, você pode permitir que os usuários da sua exibição filtrem somente os dados de um computador ou conjunto de computadores específico.  É possível criar vários filtros em uma única exibição para permitir que os usuários filtrem por várias propriedades.  Este artigo descreve como usar um filtro e adicioná-lo a uma exibição personalizada.
 
 ## <a name="using-a-filter"></a>Como usar um filtro
-Clique em **Filtro** para abrir o painel de filtro para uma exibição.  Isso permite que você selecione um intervalo de tempo e os valores para todos os filtros que estão disponíveis para a exibição.  Quando você seleciona um filtro, ele exibe uma lista de valores disponíveis.  Você pode selecionar um ou mais valores, ou digitá-los. A exibição é atualizada automaticamente para filtrar os valores especificados. 
+Clique no intervalo de dados na parte superior de uma visualização para abrir a lista suspensa, onde você pode alterar o intervalo de dados da exibição.
 
-Se nenhum valor for selecionado para um filtro, ele não será aplicado à exibição.  Se você remover todos os valores de um filtro, ele não será aplicado.
+![Exemplo de filtro](media/log-analytics-view-designer/filters-example-time.png)
+
+Clique em **+** para adicionar um filtro usando filtros personalizados que são definidos para a visualização. Selecione um valor para o filtro no menu suspenso ou digite um valor. Continue a adicionar filtros clicando em **+**. 
 
 
-![Exemplo de filtro](media/log-analytics-view-designer/filters-example.png)
+![Exemplo de filtro](media/log-analytics-view-designer/filters-example-custom.png)
+
+Se você remover todos os valores de um filtro, ele não será aplicado.
 
 
 ## <a name="creating-a-filter"></a>Como criar um filtro

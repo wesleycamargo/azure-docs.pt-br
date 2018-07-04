@@ -1,6 +1,6 @@
 ---
-title: Como disparar ações complexas com Alertas do Azure Monitor e Grupos de Ações
-description: Saiba como criar uma ação do Aplicativo Lógico para processar Alertas do Azure Monitor.
+title: Como disparar ações complexas com Alertas do Azure Monitor e grupos de ações
+description: Saiba como criar uma ação do aplicativo lógico para processar alertas do Azure Monitor.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,18 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: eafb2bcf0175190748c9dd020051cbebfcaee1fd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 14e562234152d2f1f2f2d2b57b34cd5724d3dd14
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263877"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753086"
 ---
-# <a name="create-a-logic-app-action"></a>Criar uma ação do Aplicativo Lógico
-## <a name="overview"></a>Visão geral ##
-Quando um alerta do Azure Monitor dispara, ele chama um [grupo de ações](monitoring-action-groups.md). Os grupos de ações permitem que você dispare uma ou mais ações para notificar as pessoas sobre o alerta e até mesmo corrigi-lo.
+# <a name="create-a-logic-app-action"></a>Criar uma ação do aplicativo lógico
 
-Este artigo mostra como configurar e disparar um Aplicativo Lógico para criar uma conversa no Microsoft Teams quando um alerta é acionado.
+Este artigo mostra como configurar e disparar um aplicativo lógico para criar uma conversa no Microsoft Teams quando um alerta é acionado.
+
+## <a name="overview"></a>Visão geral
+Quando um alerta do Azure Monitor dispara, ele chama um [grupo de ações](monitoring-action-groups.md). Os grupos de ações permitem que você dispare uma ou mais ações para notificar os outros sobre o alerta e até mesmo corrigi-lo.
 
 O processo geral é:
 
@@ -29,33 +30,33 @@ O processo geral é:
 
 -   Definir o comportamento do Aplicativo Lógico
 
--   Copiar o ponto de extremidade HTTP do Aplicativo Lógico em um Grupo de Ações do Azure
+-   Copiar o ponto de extremidade HTTP do aplicativo lógico em um grupo de ação do Microsoft Azure.
 
-O processo será semelhante se você quiser que o Aplicativo Lógico execute uma ação diferente.
+O processo será semelhante se você quiser que o aplicativo lógico execute uma ação diferente.
 
-## <a name="create-an-activity-log-alert--administrative"></a>Criar um alerta de log de Atividades – Administrativo
+## <a name="create-an-activity-log-alert-administrative"></a>Criar um alerta de log de Atividades – Administrativo
 
-1.  Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
+1.  No portal do Microsoft Azure, selecione **Criar um recurso** no canto superior esquerdo.
 
-2.  Pesquise e selecione **Aplicativo Lógico**. Selecione o botão **Criar** .
+2.  Pesquise e selecione **Aplicativo Lógico**, sem seguida selecione **Criar**.
 
-3.  Forneça um nome ao Aplicativo Lógico, escolha um grupo de Recursos e etc.
+3.  Forneça um **Nome** ao Aplicativo Lógico, escolha um **Grupo de recursos** e etc.
 
-    ![Criar caixa de diálogo de Aplicativo Lógico](media/monitoring-action-groups/create-logic-app-dialog.png "Criar caixa de diálogo de aplicativo lógico")
+    ![Criar um aplicativo lógico](media/monitoring-action-groups/create-logic-app-dialog.png "Criar um aplicativo lógico")
 
-4.  Clique no botão Criar para criar o Aplicativo Lógico. Um pop-up será exibido quando o Aplicativo Lógico for criado. Clique no botão Iniciar Recurso para abrir o Designer de Aplicativos Lógicos.
+4.  Selecione **Criar** para criar o aplicativo lógico. Uma mensagem de pop-up indica que um aplicativo lógico foi criado. Selecione **Recursos de Lançamento** para abrir o **Designer de Aplicativos Lógicos**.
 
 5.  Selecione o gatilho **Quando uma solicitação HTTP for recebida**.
 
     ![Gatilhos do Aplicativo Lógico](media/monitoring-action-groups/logic-app-triggers.png "Gatilhos do Aplicativo Lógico")
 
-6.  Selecione **Editar** para alterar o gatilho de solicitação HTTP
+6.  Selecione **Editar** para alterar o gatilho de solicitação HTTP.
 
-    ![Forma de gatilho de solicitação HTTP](media/monitoring-action-groups/http-request-trigger-shape.png "Forma de gatilho de solicitação HTTP")
+    ![HTTP solicita gatilhos](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP solicita gastilhos")
 
 7.  Selecione **Use o conteúdo de amostra para gerar o esquema**.
 
-    ![Use o botão de carga de exemplo](media/monitoring-action-groups/use-sample-payload-button.png "Use o botão de carga de exemplo")
+    ![Use uma carga de exemplo](media/monitoring-action-groups/use-sample-payload-button.png "Use uma carga de exemplo")
 
 8.  Copie e cole o esquema de exemplo a seguir na caixa de diálogo.
 
@@ -96,21 +97,21 @@ O processo será semelhante se você quiser que o Aplicativo Lógico execute uma
         }
     ```
 
-9. O Designer do Aplicativo Lógico exibirá uma anotação lembrando que a solicitação enviada ao Aplicativo Lógico deve definir o cabeçalho Content-Type para aplicativo/json. Prossiga e ignore a caixa de diálogo. O alerta do Azure Monitor fará isso corretamente.
+9. O **Designer do Aplicativo Lógico** exibirá uma janela pop-up lembrando que a solicitação enviada ao Aplicativo Lógico deve definir o cabeçalho **Content-Type** para **aplicativo/json**. Fechar a janela pop-up. O alerta do Azure Monitor define o cabeçalho.
 
-    ![Cabeçalho Content-Type](media/monitoring-action-groups/content-type-header.png "Cabeçalho Content-Type")
+    ![Defina o cabeçalho do Content-Type](media/monitoring-action-groups/content-type-header.png "Definir o cabeçalho Content-Type")
 
-10. Selecione **+ Nova Etapa** e, em seguida, **Adicione uma ação**.
+10. Selecione **+** **Nova Etapa** e, em seguida, **Adicione uma ação**.
 
-    ![Adicionar Ação](media/monitoring-action-groups/add-action.png "Adicionar Ação")
+    ![Adicione uma ação](media/monitoring-action-groups/add-action.png "Adicione uma ação")
 
 11. Pesquise e selecione o conector do Microsoft Teams. Escolha a ação **Microsoft Teams – Postar Mensagem**.
 
     ![Ações do Microsoft Teams](media/monitoring-action-groups/microsoft-teams-actions.png "Ações do Microsoft Teams")
 
-12. Configure a ação do Microsoft Teams. O Designer de Aplicativos Lógicos solicitará que você autentique-se na sua conta do Office365. Escolha a **ID da Equipe** e **ID do Canal** para enviar a mensagem.
+12. Configure a ação do Microsoft Teams. O **Designer de Aplicativos Lógicos** solicitará que você autentique-se na sua conta do Office365. Escolha a **ID da Equipe** e **ID do Canal** para enviar a mensagem.
 
-13. Configure a **Mensagem** usando uma combinação de texto estático e referências aos \<campos\> no conteúdo Dinâmico. Recorte e cole o texto a seguir no campo Mensagem.
+13. Configure a mensagem usando uma combinação de texto estático e referências aos \<campos\> no conteúdo dinâmico. Recorte e cole o texto a seguir no campo **Mensagem**.
 
     ```text
       Activity Log Alert: <eventSource>
@@ -119,30 +120,27 @@ O processo será semelhante se você quiser que o Aplicativo Lógico execute uma
       resourceId: <resourceId>
     ```
 
-    Em seguida, localize e substitua os \<campos\> por marcar de conteúdo Dinâmico com o mesmo nome.
+    Em seguida, localize e substitua os \<campos\> por marcar de conteúdo dinâmico com o mesmo nome.
 
-    **[OBSERVAÇÃO!]** Há dois campos dinâmicos nomeados **status**. Adicione ambos os campos de status à mensagem. Use um no recipiente de propriedades activityLog e exclua o outro. Se você passar o mouse sobre o campo **status** verá a referência de campo completa, conforme mostrado na captura de tela
+    > [!NOTE]
+    > Há dois campos dinâmicos nomeados **status**. Adicione ambos os campos à mensagem. Use um no recipiente de propriedades **activityLog** e exclua o outro campo. Passe o cursor sobre o campo **status** para ver a referência de campo completa, conforme mostrado na captura de tela a seguir:
 
-    ![Ação do Teams - Postar Mensagem](media/monitoring-action-groups/teams-action-post-message.png "Ação do Teams - Postar Mensagem")
+    ![Ação da Microsoft Teams: Publicar uma mensagem](media/monitoring-action-groups/teams-action-post-message.png "Ação Microsoft Teams: Publicar uma mensagem")
 
-14. Salve o Aplicativo Lógico clicando no botão Salvar na parte superior do Designer
+14. Na parte superior do **Designer de Aplicativos Lógicos**, selecione **Salvar** para salvar seu aplicativo lógico.
 
-15. Clique na forma de solicitação HTTP para expandi-la. Copie a URL DE HTTP POST.
-
-    ![URL DE HTTP POST](media/monitoring-action-groups/http-post-url.png "URL DE HTTP POST")
-
-16. Abra o grupo de ações existente e adicione uma ação para referenciar o Aplicativo Lógico. Se você não tiver um grupo de ações existente, consulte <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups> para criar um. Não se esqueça de salvar as alterações.
+15. Abra o grupo de ações existente e adicione uma ação para referenciar o aplicativo lógico. Se você não tiver um grupo de ação existente, consulte [Criar e gerenciar grupos de ação no Portal do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) para criar um. Não se esqueça de salvar as alterações.
 
     ![Atualizar grupo de ações](media/monitoring-action-groups/update-action-group.png "Atualizar grupo de ações")
 
 Na próxima vez que um alerta chamar o grupo de ações, o Aplicativo Lógico será chamado.
 
-## <a name="create-a-service-health-alert"></a>Criar um alerta de Integridade do Serviço
+## <a name="create-a-service-health-alert"></a>Criar um alerta de integridade do serviço
 
-As entradas de Integridade do Serviço fazem parte do log de Atividades, portanto, o processo é semelhante com as alterações a seguir
+As entradas da Integridade de Serviço do Azure são parte do registro de atividade. O processo para criar o alerta é semelhante para [criar um alerta de registro de atividade](#create-an-activity-log-alert-administrative),mas com algumas alterações:
 
-1.  As etapas 1 a 7 são as mesmas.
-2.  Use o esquema de exemplo a seguir para o gatilho HTTP na etapa 8.
+- As etapas 1 a 7 são as mesmas.
+- Para a etapa 8, use o esquema de exemplo a seguir para o gatilho de solicitação HTTP:
 
     ```json
     {
@@ -186,48 +184,51 @@ As entradas de Integridade do Serviço fazem parte do log de Atividades, portant
     }
     ```
 
-3.  As etapas 9 a 10 são as mesmas.
-4.  A partir da Etapa 11, use o processo abaixo.
-5.  Clique no botão **+ Nova Etapa** e escolha **Adicionar uma condição**. Defina as condições a seguir para garantir que o Aplicativo Lógico somente seja executado quando os dados de entrada corresponderem a esses valores
-    - schemaId == Microsoft.Insights/activityLogs
-    - eventSource == ServiceHealth
-    - versão == 0.1.1
+-  As etapas 9 a 10 são as mesmas.
+-  Para as etapas de 11 a 14, use o processo a seguir:
 
-    !["Condição de carga da Integridade do Serviço"](media/monitoring-action-groups/service-health-payload-condition.png "Condição de carga da Integridade do Serviço")
+   1. Selecione **+** **Nova etapa** em seguida, escolha, **Adicionar uma condição**. Defina as condições a seguir para garantir que o aplicativo lógico somente seja executado quando os dados de entrada corresponderem a esses valores
+       - `schemaId == Microsoft.Insights/activityLogs`
+       - `eventSource == ServiceHealth`
+       - `version == 0.1.1`
 
-6. Na condição **se verdadeiro**, adicione a ação do Microsoft Teams usando as etapas de 11 a 13 do exemplo anterior.
+      !["Condição de carga da Integridade do Serviço"](media/monitoring-action-groups/service-health-payload-condition.png "Condição de carga da Integridade do Serviço")
 
-7. Defina a mensagem usando uma combinação de HTML e [conteúdo dinâmico]. Copie e cole o conteúdo abaixo no campo da mensagem. Substitua os campos [incidentType], [trackingID], [title] e [communication] por marcas de conteúdo dinâmico com o mesmo nome
+   1. Na condição **se verdadeiro**, siga as instruções nas etapas de 11 a 13 em [Criar um alerta do registro de atividade ](#create-an-activity-log-alert-administrative) para adicionar a ação da Microsoft Teams.
 
-    ```html
-    <p>
-    <b>Alert Type:</b>&nbsp;<strong>[incidentType]</strong>&nbsp;
-    <strong>Tracking ID:</strong>&nbsp;[trackingId]&nbsp;
-    <strong>Title:</strong>&nbsp;[title]</p>
-    <p>
-    <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details log into the Azure Service Health dashboard</a>
-    </p>
-    <p>[communication]</p>
-    ```
+   1. Defina a mensagem usando uma combinação de HTML e conteúdo dinâmico. Recorte e cole o conteúdo a seguir no campo **Mensagem**. Substitua os campos `[incidentType]`, `[trackingID]`, `[title]`, e `[communication]` pela marcação de conteúdo dinâmica de mesmo nome:
 
-    !["Ação posterior da condição verdadeira da Integridade do Serviço"](media/monitoring-action-groups/service-health-true-condition-post-action.png "Ação posterior da condição verdadeira da Integridade do Serviço")
+       ```html
+       <p>
+       <b>Alert Type:</b>&nbsp;<strong>[incidentType]</strong>&nbsp;
+       <strong>Tracking ID:</strong>&nbsp;[trackingId]&nbsp;
+       <strong>Title:</strong>&nbsp;[title]</p>
+       <p>
+       <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.</a>
+       </p>
+       <p>[communication]</p>
+       ```
 
-8. Para a condição **Se falso** forneça uma Mensagem útil
+       !["Ação posterior da condição verdadeira da Integridade do Serviço"](media/monitoring-action-groups/service-health-true-condition-post-action.png "Ação posterior da condição verdadeira da Integridade do Serviço")
 
-    ```html
-    <p><strong>Service Health Alert</strong></p>
-    <p><b>Unrecognized alert schema</b></p>
-    <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details log into the Azure Service Health dashboard\</a></p>
-    ```
+   1. Para a condição **Se falso** forneça uma mensagem útil:
 
-    !["Ação posterior da condição falsa da Integridade do Serviço"](media/monitoring-action-groups/service-health-false-condition-post-action.png "Ação posterior da condição falsa da Integridade do Serviço")
+       ```html
+       <p><strong>Service Health Alert</strong></p>
+       <p><b>Unrecognized alert schema</b></p>
+       <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
+       ```
 
-9.  Siga as etapas de 15 a 16 do exemplo anterior para salvar o Aplicativo Lógico e atualizar grupo de ações
+       !["Ação posterior da condição falsa da Integridade do Serviço"](media/monitoring-action-groups/service-health-false-condition-post-action.png "Ação posterior da condição falsa da Integridade do Serviço")
 
-## <a name="metric-alert"></a>Alerta de Métrica
+- A etapa 15 é a mesma. Siga as instruções para salvar seu aplicativo lógico e atualizar seu grupo de ações.
 
-1.  As etapas de 1 a 7 são as mesmas do primeiro exemplo
-2.  Use o esquema de exemplo a seguir para o gatilho HTTP na etapa 8.
+## <a name="create-a-metric-alert"></a>Criar um alerta de métrica
+
+O processo para criar o alerta métrico é semelhante para [criar um alerta de registro de atividade](#create-an-activity-log-alert-administrative),mas com algumas alterações:
+
+- As etapas 1 a 7 são as mesmas.
+- Para a etapa 8, use o esquema de exemplo a seguir para o gatilho de solicitação HTTP:
 
     ```json
     {
@@ -271,26 +272,26 @@ As entradas de Integridade do Serviço fazem parte do log de Atividades, portant
     }
     ```
 
-3.  As etapas 9 a 10 são as mesmas.
-4.  A partir da Etapa 11, use o processo abaixo.
-5.  Clique no botão **+ Nova Etapa** e escolha **Adicionar uma condição**. Defina as condições a seguir para garantir que o Aplicativo Lógico somente seja executado quando os dados de entrada corresponderem a esses valores
+- As etapas 9 a 10 são as mesmas.
+- Para as etapas de 11 a 14, use o processo a seguir:
 
-    - schemaId == AzureMonitorMetricAlert
-    - versão == 2.0
+   1. Selecione **+** **Nova etapa** em seguida, escolha, **Adicionar uma condição**. Defina as condições a seguir para garantir que o aplicativo lógico somente seja executado quando os dados de entrada corresponderem a esses valores
+       - `schemaId == AzureMonitorMetricAlert`
+       - `version == 2.0`
 
-    !["Condição de carga de alerta de métrica"](media/monitoring-action-groups/metric-alert-payload-condition.png "Condição de carga de alerta de métrica")
+       !["Condição de carga de alerta de métrica"](media/monitoring-action-groups/metric-alert-payload-condition.png "Condição de carga de alerta de métrica")
 
-6.  Na condição **se verdadeiro** adicionaremos uma forma **Para cada** e a ação do Microsoft Teams e definiremos a Mensagem usando uma combinação de HTML e [conteúdo dinâmico]
+   1. Na condição **se verdadeiro**, adicione um **Para cada** loop e a ação da Microsoft Teams. Defina a mensagem usando uma combinação de HTML e conteúdo dinâmico.
 
-    !["Ação posterior da condição verdadeira de alerta de métrica"](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "Ação posterior da condição verdadeira de alerta de métrica")
+       !["Ação posterior da condição verdadeira de alerta de métrica"](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "Ação posterior da condição verdadeira de alerta de métrica")
 
-7.  Na forma **Se falso**, defina uma ação do Microsoft Teams que comunica que o Alerta de Métrica não corresponde às expectativas do Aplicativo lógico e inclua a carga JSON. Observe como referenciamos o conteúdo dinâmico triggerBody na expressão json().
+   1. Na condição **Se falso**, defina uma ação do Microsoft Teams que comunica que o alerta de métrica não corresponde às expectativas do aplicativo lógico e inclua o aplicativo lógico. Inclui o conteúdo JSON. Observe como referenciar o `triggerBody` conteúdo dinâmico na `json()` expressão.
 
-    !["Ação posterior da condição falsa de alerta de métrica"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "Ação posterior da condição falsa de alerta de métrica")
+       !["Ação posterior da condição falsa de alerta de métrica"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "Ação posterior da condição falsa de alerta de métrica")
 
-8.  Siga as etapas de 15 a 16 do primeiro exemplo para salvar o Aplicativo Lógico e atualizar grupo de ações
+- A etapa 15 é a mesma. Siga as instruções para salvar seu aplicativo lógico e atualizar seu grupo de ações.
 
-## <a name="next-steps"></a>Próximas etapas ##
-* Obtenha uma [visão geral dos alertas do log de atividades](monitoring-overview-alerts.md) e saiba como receber alertas.  
-* Saiba como [configurar alertas sempre que uma notificação de integridade do serviço é postada](monitoring-activity-log-alerts-on-service-notifications.md).
-* Saiba mais sobre [Grupos de Ação](monitoring-action-groups.md)
+## <a name="next-steps"></a>Próximas etapas
+* Obtenha uma [visão geral dos alertas do log de atividades do Microsoft Azure](monitoring-overview-alerts.md) e saiba como receber alertas.  
+* Saiba como [configurar alertas sempre que uma notificação de integridade do Serviço do Azure é publicada](monitoring-activity-log-alerts-on-service-notifications.md).
+* Saiba mais sobre [grupos de ação](monitoring-action-groups.md).

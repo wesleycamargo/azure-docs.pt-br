@@ -15,20 +15,20 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c115414fc6ae599342192196e256597c28e5aa6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: aeb67a73a69684b89609c6b04160357b244f62b7
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293187"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754057"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar o logon único para aplicativos que não estão na galeria de aplicativos do Azure Active Directory
 
-Este artigo é sobre um recurso que permite aos administradores configurar o logon único para aplicativos que não estejam presentes na galeria de aplicativos do Active Directory do Azure *sem escrever código*. Este recurso foi lançado a partir da versão prévia em 18 de novembro de 2015 e está incluído no [Azure Active Directory Premium](active-directory-whatis.md). Se você estiver procurando orientações para desenvolvedores sobre como integrar aplicativos personalizados com o AD do Azure por meio de código, veja [Cenários de autenticação do AD do Azure](active-directory-authentication-scenarios.md).
+Este artigo é sobre um recurso que permite aos administradores configurar o logon único para aplicativos que não estejam presentes na galeria de aplicativos do Active Directory do Azure *sem escrever código*. Este recurso foi lançado a partir da versão prévia em 18 de novembro de 2015 e está incluído no [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Se você estiver procurando orientações para desenvolvedores sobre como integrar aplicativos personalizados com o AD do Azure por meio de código, veja [Cenários de autenticação do AD do Azure](active-directory-authentication-scenarios.md).
 
 A galeria de aplicativos do Active Directory do Azure fornece uma lista de aplicativos que reconhecidamente dão suporte a um formulário de logon único com o Active Directory do Azure, conforme descrito [neste artigo](manage-apps/what-is-single-sign-on.md). Como especialista em TI ou integrador de sistema em sua organização, quando você tiver localizado o aplicativo que deseja conectar, poderá começar seguindo as instruções apresentadas no Portal do Azure para habilitar o logon único.
 
-Clientes com licenças do [Azure Active Directory Premium](active-directory-whatis.md) também obtêm esses recursos adicionais:
+Clientes com licenças do [Azure Active Directory Premium](fundamentals/active-directory-whatis.md) também obtêm esses recursos adicionais:
 
 * Integração de autoatendimento de qualquer aplicativo com suporte a provedores de identidade SAML 2.0 (iniciado por SP ou IdP)
 * Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
@@ -148,18 +148,7 @@ A atribuição de um usuário permitirá que o Azure AD emita um token para o us
 
 ### <a name="test-the-saml-application"></a>Teste o aplicativo SAML
 
-Antes de testar o aplicativo SAML, você deve configurar o aplicativo com o Azure AD e atribuir usuários ou grupos ao aplicativo.
-
-  ![Testando](./media/active-directory-saas-custom-apps/testing.png)
-
-Na página de login único, clique em **Testar configurações de SAML** na seção Domínios e URLs. Isso abre um painel de conteúdo com instruções sobre como testar o aplicativo.
-
-1. Entre no aplicativo. Se o aplicativo estiver configurado como serviço iniciado pelo provedor logon único, você é redirecionado para a URL de logon único em que você pode iniciar na entrada. Se o aplicativo estiver configurado como identidade iniciado pelo provedor logon único, em seguida, você é assinados no aplicativo.
-2.  Se você vir um erro na sua página de entrada da empresa, copie o erro e volte para o Azure AD teste único logon no painel de conteúdo. Cole o erro na caixa e clique em **Obter passos de resolução**. Se o erro estiver na página do aplicativo, você precisa entrar em contato com o fornecedor do aplicativo e compartilhe sua configuração no AD do Azure para validar os valores. 
-3.  Com base no erro, o AD do Azure fornece etapas específicas sobre como resolver o problema.
-
-Para obter mais informações, consulte [ Como depurar o logon único com base em SAML para aplicativos no Active Directory do Azure ](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-debugging/?WT.mc_id=DMC_AAD_?WT.mc_id=UI_AAD_Configure_NonGalleryApps)
-
+Antes de testar o aplicativo SAML, você deve configurar o aplicativo com o Azure AD e atribuir usuários ou grupos ao aplicativo. Para testar aplicativo SAML, consulte [ Como depurar o logon único com base em SAML para aplicativos no Active Directory do Azure](develop/active-directory-saml-debugging.md).
 
 ## <a name="password-single-sign-on"></a>Logon único com senha
 

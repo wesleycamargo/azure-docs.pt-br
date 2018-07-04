@@ -13,18 +13,15 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ffe65260e73aa2daa4ab63840a00076000f8e6a8
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5ff397e8b13d56b3b034854c507f8bef05008812
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264898"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054714"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote do SSIS com a atividade Executar Pacote do SSIS no Azure Data Factory
 Este artigo descreve como executar um pacote SSIS em um pipeline do Azure Data Factory usando uma atividade de Executar Pacote do SSIS. 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. A Atividade de Executar Pacote do SSIS não está disponível na versão 1 do serviço Data Factory, que está com disponibilidade geral (GA). Para obter um método alternativo de executar um pacote SSIS com a versão 1 do serviço Data Factory, veja [Executar pacotes SSIS usando a atividade de procedimento armazenado na versão 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -59,7 +56,7 @@ A primeira etapa é criar uma data factory usando o Portal do Azure.
       - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
          
     Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selecione **V2 (Versão Prévia)** para a **versão**.
+4. Selecione **V2** para a **versão**.
 5. Selecione o **local** do data factory. Apenas os locais com suporte do Data Factory são mostrados na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outros locais.
 6. Selecione **Fixar no painel**.     
 7. Clique em **Criar**.
@@ -177,7 +174,7 @@ Observe os seguintes pontos:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para criar instâncias de Data Factory, a conta de usuário usada para fazer logon no Azure deve ser um membro das funções **colaborador** ou **proprietário**, ou um **administrador** da assinatura do Azure.
-* Atualmente, o Data Factory versão 2 permite que você crie os data factories somente nas regiões Leste dos EUA, Leste dos EUA 2, Europa Ocidental e Sudeste Asiático. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+* Atualmente, o Data Factory permite que você crie fábricas de dados apenas nas regiões Leste dos EUA, Leste dos EUA2, Europa Ocidental e Sudeste Asiático. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
 ### <a name="create-a-pipeline-with-an-ssis-activity"></a>Criar um pipeline com uma atividade do SSIS 
 Nesta etapa, você cria um pipeline com a atividade do SSIS. A atividade é executada em seu pacote SSIS. 

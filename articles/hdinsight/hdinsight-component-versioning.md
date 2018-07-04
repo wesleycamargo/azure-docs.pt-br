@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 3d98ed2be7a040ad889d1d504f303569c265360b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 3ac3df7f7861b8a12778190072e5554927706e08
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271584"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061412"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões do Hadoop disponíveis com o HDInsight?
 
@@ -29,7 +29,7 @@ Saiba mais sobre os componentes e versões do ecossistema Apache Hadoop no Micro
 Cada versão do HDInsight é uma distribuição de nuvem de uma versão do HDP (Hortonworks Data Platform).
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>Componentes do Hadoop disponíveis com diferentes versões do HDInsight
-O HDInsight do Azure dá suporte a várias versões do cluster Hadoop que podem ser implantadas a qualquer momento. Cada opção de versão cria uma versão específica da distribuição de HDP e um conjunto de componentes contidos nessa distribuição. A partir de 17 de fevereiro de 2017, versão padrão do cluster usada pelo Azure HDInsight é a 3.5, baseada em HDP 2.5.
+O HDInsight do Azure dá suporte a várias versões do cluster Hadoop que podem ser implantadas a qualquer momento. Cada opção de versão cria uma versão específica da distribuição de HDP e um conjunto de componentes contidos nessa distribuição. A partir de 4 de abril de 2017, a versão do cluster padrão usada pelo Azure HDInsight é 3.6 e é baseada no HDP 2.6.
 
 As versões do componente associadas às versões do cluster HDInsight são listadas na tabela a seguir: 
 
@@ -53,12 +53,13 @@ As versões do componente associadas às versões do cluster HDInsight são list
 | Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | O Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.1.0, 2.2.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (somente Windows) |-|-|
+| Apache Spark |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (somente Windows) |-|-|
 | Apache Livy |0,4 |0.3 |0.3 |0,2 |-|-|-|
-| Apache Kafka | 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
+| Apache Slider | 0.92.0 |-|-|-|-|-|-|
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Verificar informações atuais de versão do componente do Hadoop
 
@@ -234,7 +235,7 @@ As tabelas abaixo listam os tamanhos de VM (máquina virtual) padrão para clust
 
 * Todas as regiões com suporte, exceto Sul do Brasil e Oeste do Japão:
 
-  | Tipo de cluster | O Hadoop | HBase | Consulta Interativa | Storm | Spark | Servidor R |
+  | Tipo de cluster | O Hadoop | HBase | Consulta Interativa | Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | Cabeçalho: tamanho padrão da VM |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
   | Cabeçalho: tamanhos de VM recomendados |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
@@ -246,7 +247,7 @@ As tabelas abaixo listam os tamanhos de VM (máquina virtual) padrão para clust
   | Borda: tamanho de VM recomendado | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Apenas Sul do Brasil e Oeste do Japão (sem tamanhos v2):
 
-  | Tipo de cluster | O Hadoop | HBase | Consulta Interativa |Storm | Spark | Servidor R |
+  | Tipo de cluster | O Hadoop | HBase | Consulta Interativa |Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | Cabeçalho: tamanho padrão da VM |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | Cabeçalho: tamanhos de VM recomendados |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

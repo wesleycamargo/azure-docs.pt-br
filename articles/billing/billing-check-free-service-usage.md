@@ -1,5 +1,5 @@
 ---
-title: Monitorar e acompanhar o uso de serviços gratuitos – Azure | Microsoft Docs
+title: Monitorar e rastrear o uso de serviços gratuitos do Azure | Microsoft Docs
 description: Saiba como verificar o uso de serviços gratuitos. Use o Portal do Azure e o csv de uso.
 services: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 560137d92491da46fda950dec84a0a7caa3ed720
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7fa0196b7a44ef20ecd63797869dffea55f92c3d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205883"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061309"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Verificar o uso de serviços gratuitos incluídos em sua conta gratuita do Azure 
 

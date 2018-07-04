@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: c01f986bfe3e6a3162988056a268423e07f429bf
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6484142eafa8388117c1e96ab31eefeab188e488
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301143"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750265"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Estender alertas do Log Analytics para os Alertas do Azure
-Até recentemente, o Azure Log Analytics incluía sua própria funcionalidade de alerta, que poderia notificar proativamente você sobre as condições com base em dados do Log Analytics. Você gerenciava regras de alerta no [Portal do Microsoft Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md). Agora a nova experiência de alertas tem alertas integrados entre vários serviços no Microsoft Azure. Isso está disponível como **Alertas** no Azure Monitor no Portal do Azure e oferece suporte a alertas de logs de atividades, métricas e logs do Log Analytics e do Azure Application Insights. 
+Até recentemente, o Azure Log Analytics incluía sua própria funcionalidade de alerta, que poderia notificar proativamente você sobre as condições com base em dados do Log Analytics. Você gerenciava regras de alerta no Portal do Microsoft Operations Management Suite. Agora a nova experiência de alertas tem alertas integrados entre vários serviços no Microsoft Azure. Isso está disponível como **Alertas** no Azure Monitor no Portal do Azure e oferece suporte a alertas de logs de atividades, métricas e logs do Log Analytics e do Azure Application Insights. 
 
 ## <a name="benefits-of-extending-your-alerts"></a>Benefícios de estender seus alertas
 Há várias vantagens de criar e gerenciar alertas no portal do Azure, como:

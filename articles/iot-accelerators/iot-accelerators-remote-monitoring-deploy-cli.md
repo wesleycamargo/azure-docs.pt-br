@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628116"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017502"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implantar o acelerador de solução de Monitoramento Remoto usando a CLI
 
@@ -68,7 +68,7 @@ Criar uma solução Basic resultará no provisionamento dos seguintes serviços 
 | Contagem | Recurso                       | type         | Usadas para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina Virtual Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hospedar microsserviços |
-| 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Camada Basic | Comunicação e gerenciamento de dispositivo |
+| 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Camada Padrão | Comunicação e gerenciamento de dispositivo |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Armazenar dados de configuração e telemetria do dispositivo como regras, alarmes e mensagens |  
 | 1     | [Conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento de VM e pontos de verificação de streaming |
 | 1     | [Aplicativo Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hospedar o aplicativo Web front-end |
@@ -82,7 +82,7 @@ Criar uma solução Standard resultará no provisionamento dos seguintes serviç
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Máquinas Virtuais do Linux](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 mestre e 3 agentes para hospedar microsserviços com redundância |
 | 1     | [Serviço de Contêiner do Azure](https://azure.microsoft.com/services/container-service/) |                 | Orquestrador do [Kubernetes](https://kubernetes.io) |
-| 1     | [Hub IoT do Azure][https://azure.microsoft.com/services/iot-hub/]                     | S1 – Camada Basic | Controle, comando e gerenciamento de dispositivos |
+| 1     | [Hub IoT do Azure][https://azure.microsoft.com/services/iot-hub/]                     | S2 – Camada Padrão | Controle, comando e gerenciamento de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e telemetria do dispositivo como regras, alarmes e mensagens |
 | 5     | [Contas de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 para armazenamento de máquina virtual e 1 para os pontos de verificação de streaming |
 | 1     | [Serviço de Aplicativo](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway de aplicativo sobre SSL |

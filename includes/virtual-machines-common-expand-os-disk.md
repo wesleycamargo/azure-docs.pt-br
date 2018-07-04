@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/18/2018
 ms.author: kirpas;iainfou;sewhee
 ms.custom: include file
-ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ab4d5326fc06cc8676ea93ed529315cc47651e26
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323792"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943446"
 ---
 ## <a name="overview"></a>Visão geral
 Quando você cria uma nova VM (máquina virtual) em um Grupo de Recursos implantando uma imagem do [Azure Marketplace](https://azure.microsoft.com/marketplace/), a unidade do sistema operacional padrão normalmente é 127 GB (algumas imagens têm tamanhos de disco de sistema operacional menores por padrão). Embora seja possível adicionar discos de dados à VM (a quantidade depende do SKU escolhido) e além de ser recomendável instalar aplicativos e cargas de trabalho que consomem bastante CPU nesses discos adicionados, muitas vezes, os clientes precisam expandir a unidade do sistema operacional para oferecer suporte a determinados cenários como estes:

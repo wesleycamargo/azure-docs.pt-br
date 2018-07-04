@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: c5211b43a85383c7c9f42a1d56271addae6d956e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5e7e6608003b365d5516ca2e94a51c0710ad1125
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725336"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061346"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -46,48 +46,53 @@ Para obter informações sobre quais associações estão na visualização ou s
 
 ## <a name="register-binding-extensions"></a>Registrar as extensões de associação
 
-Na versão 2.x do Azure Functions Runtime, é necessário registrar explicitamente as extensões de associação (tipos de associação) usadas em seu aplicativo de funções. 
+Em alguns ambientes de desenvolvimento, você precisa explicitamente *registrar* uma associação que você deseja usar. Extensões de associação são fornecidas em pacotes do NuGet e para registrar uma extensão que você instalar um pacote. A tabela a seguir indica quando e como registrar as extensões de associação.
 
-Versão 2. x do tempo de execução do Functions está atualmente em versão prévia. Para obter informações sobre como configurar um aplicativo de funções para usar a versão 2.x do tempo de execução do Functions, confira [Como direcionar versões do tempo de execução do Azure Functions](set-runtime-version.md).
+|Ambiente de desenvolvimento |Registro<br/> em funções de 1. x  |Registro<br/> em funções 2. x  |
+|---------|---------|---------|
+|Portal do Azure|Automático|[Automático com o prompt](#azure-portal-development)|
+|Local usando as ferramentas de núcleo de funções do Azure|Automático|[Use os comandos principais ferramentas CLI](#local-development-azure-functions-core-tools)|
+|Biblioteca de classes C# usando o Visual Studio de 2017|[Usar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|[Usar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|
+|Biblioteca de classes C# usando o código do Visual Studio|N/D|[Use o .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
-Há um conjunto principal de associações na versão 2. x que são registradas automaticamente, portanto não é necessário registrá-los explicitamente: HTTP, o timer e o armazenamento do Azure (blobs, filas e tabelas). 
+Os seguintes tipos de associação são exceções que não exigem o registro explícito porque eles são registrados automaticamente em todos os ambientes e versões: HTTP, o timer e o armazenamento do Azure (blobs, filas e tabelas). 
 
-As extensões são entregues como pacotes do NuGet, onde o nome do pacote normalmente começa com [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  A maneira como você registrar as extensões de associação depende de como você desenvolver suas funções: 
+### <a name="azure-portal-development"></a>Desenvolvimento do portal do Azure
 
-+ [Localmente em C# usando o Visual Studio ou o VS Code](#local-c-development-using-visual-studio-or-vs-code)
-+ [Localmente usando as ferramentas básicas do Azure Functions](#local-development-azure-functions-core-tools)
-+ No [portal do Azure](#azure-portal-development) 
+Quando você cria uma função ou adiciona uma associação, você será solicitado quando a extensão para o gatilho ou a associação requer o registro. Responder ao aviso clicando **instalar** para registrar a extensão. Instalação pode levar até 10 minutos em um plano de consumo.
 
-As versões do pacote mostradas nesta seção são fornecidas somente como exemplos. Verifique o [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) para determinar qual versão de uma determinada extensão necessária por outras dependências em seu aplicativo de função.    
-
-### <a name="local-csharp"></a>Usando o Visual Studio ou código VS c# desenvolvimento local
-
-Quando você usa o Visual Studio ou o código do Visual Studio para desenvolver localmente funções em c#, instale o pacote do NuGet para a extensão. 
-
-+ **Visual Studio**: Use as ferramentas do Gerenciador de Pacotes do NuGet. O seguinte comendo [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) instala a extensão do Azure Cosmos DB do Console do Gerenciador de Pacotes:
-
-    ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
-    ```
-
-+ **Visual Studio Code**: você pode instalar os pacotes do prompt de comando usando o comando [dotnet Adicionar pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) na CLI .NET, da seguinte maneira:
-
-    ```terminal
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
-    ```
+Você só precisa instalar cada extensão uma vez para um aplicativo de função determinada. 
 
 ### <a name="local-development-azure-functions-core-tools"></a>Ferramentas básicas do Azure Functions para desenvolvimento local
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
-### <a name="azure-portal-development"></a>Desenvolvimento do portal do Azure
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>Biblioteca de classes C# com 2017 do Visual Studio
 
-Quando você cria uma função ou adiciona uma associação a uma função existente, você será solicitado quando a extensão para o gatilho ou a associação que estiver sendo adicionada exigir o registro.   
+Em **2017 do Visual Studio**, você pode instalar os pacotes do Console do Gerenciador de pacotes usando o [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) de comando, conforme mostrado no exemplo a seguir:
 
-Depois que um aviso é exibido para a extensão específica que está sendo instalada, clique em **Instalar** para registrar a extensão. Você só precisa instalar cada extensão uma vez para um aplicativo de função determinada. 
+```powershell
+Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+```
 
->[!Note] 
->O processo de instalação no portal pode levar até 10 minutos em um plano de consumo.
+O nome do pacote a ser usado para uma associação fornecida é fornecido no artigo de referência para essa associação. Para obter um exemplo, consulte o [pacotes seção do artigo de referência de associação do barramento de serviço](functions-bindings-service-bus.md#packages---functions-1x).
+
+Substituir `<target_version>` no exemplo com uma versão específica do pacote, como `3.0.0-beta5`. Versões válidas são listadas nas páginas de pacotes individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem às funções de tempo de execução 1. x ou 2. x são especificadas no artigo de referência para a associação.
+
+### <a name="c-class-library-with-visual-studio-code"></a>Biblioteca de classes C# com o código do Visual Studio
+
+Em **código do Visual Studio**, você pode instalar os pacotes do prompt de comando usando o [dotnet Adicionar pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) comando no .NET Core CLI, conforme mostrado no exemplo a seguir:
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+```
+
+O .NET Core CLI só pode ser usado para o desenvolvimento do Azure Functions 2.x.
+
+O nome do pacote a ser usado para uma associação fornecida é fornecido no artigo de referência para essa associação. Para obter um exemplo, consulte o [pacotes seção do artigo de referência de associação do barramento de serviço](functions-bindings-service-bus.md#packages---functions-1x).
+
+Substituir `<target_version>` no exemplo com uma versão específica do pacote, como `3.0.0-beta5`. Versões válidas são listadas nas páginas de pacotes individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem às funções de tempo de execução 1. x ou 2. x são especificadas no artigo de referência para a associação.
 
 ## <a name="example-trigger-and-binding"></a>Associação e gatilho de exemplo
 

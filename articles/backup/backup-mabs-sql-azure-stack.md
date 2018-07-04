@@ -8,21 +8,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 5541a2fff6bb54f5d62518e7edf54fb9150e3109
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248906"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751790"
 ---
-# <a name="back-up-sql-server-on-azure-stack"></a>Fazer backup do SQL Server no Azure Stack
+# <a name="back-up-sql-server-on-stack"></a>Fazer backup do SQL Server no Stack
 Use este artigo para configurar o MABS (Servidor de Backup do Microsoft Azure) para proteger bancos de dados do SQL Server no Azure Stack.
 
 O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperação do Azure envolvem três etapas:
 
-1. Crie uma política de backup para proteger bancos de dados do SQL Server no Azure.
-2. Criar cópias de backup sob demanda no Azure.
-3. Recuperar o banco de dados do Azure.
+1. Criar uma política de backup para proteger os bancos de dados do SQL Server
+2. Criar cópias de backup sob demanda.
+3. Recuperar o banco de dados dos discos e do Microsoft Azure
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -63,12 +63,6 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
    >
 
 7. Na tela **Examinar alocação de disco**, verifique o espaço geral de armazenamento disponível e o possível espaço em disco. Clique em **Próximo**.
-
-    ![Alocação de disco](./media/backup-azure-backup-sql/pg-storage.png)
-
-    Por padrão, o Servidor de Backup do Azure cria um volume por fonte de dados (banco de dados do SQL Server), usado para a cópia de backup inicial. Usando essa abordagem, o LDM (Gerenciador de Discos Lógicos) limita a proteção do Backup do Azure a 300 fontes de dados (bancos de dados do SQL Server). Para contornar essa limitação, selecione **Colocalizar dados no Pool de Armazenamento DPM**. Com a colocalização, o Servidor de Backup do Azure usa um volume único para várias fontes de dados e pode proteger até 2000 bancos de dados do SQL Server.
-
-    Se você selecionar **Aumentar os volumes automaticamente**, o Servidor de Backup do Azure poderá considerar o aumento do volume de backup conforme os dados de produção aumentam. Se você não selecionar a opção, o Servidor de Backup do Azure limitará o armazenamento de backup usado às fontes de dados no grupo de proteção.
 
 8. Em **Escolher método de criação de réplica**, escolha como criar seu primeiro ponto de recuperação. É possível transferir o backup inicial manualmente (fora da rede) para evitar o congestionamento de largura de banda ou pela rede. Se optar por esperar para transferir o primeiro backup, será possível especificar o tempo da transferência inicial. Clique em **Próximo**.
 
@@ -111,12 +105,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
     * O backup do sábado às 12h é retido por 104 semanas
     * O backup do último sábado às 12h é retido por 60 meses
     * O backup do último sábado de março às 12h é retido por 10 anos
-13. Clique em **Avançar** e selecione a opção apropriada para transferir a cópia do backup inicial para o Azure. Você pode escolher **automaticamente pela rede** ou **Backup Offline**.
-
-    * **Automaticamente pela rede** transfere os dados de backup para o Azure de acordo com o agendamento escolhido para backup.
-    * O **Backup Offline** é explicado em [Fluxo de trabalho de backup offline no Backup do Azure](backup-azure-backup-import-export.md).
-
-    Escolha o mecanismo de transferência relevante para enviar a cópia de backup inicial para o Azure e clique em **Avançar**.
+13. Clique em **Avançar** e selecione a opção apropriada para transferir a cópia do backup inicial para o Azure. Você pode escolher **automaticamente pela rede**
 
 14. Depois de examinar os detalhes da política na tela **Resumo**, clique em **Criar grupo** para concluir o fluxo de trabalho. É possível clicar em **Fechar** e monitorar o andamento do trabalho no espaço de trabalho Monitoramento.
 
@@ -147,11 +136,11 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 2. Clique com o botão direito do mouse no nome do banco de dados e clique em **Recuperar**.
 
     ![Recuperar do Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. O DPM mostra os detalhes do ponto de recuperação. Clique em **Próximo**. Para substituir o banco de dados, selecione o tipo de recuperação **Recuperar na instância original do SQL Server**. Clique em **Próximo**.
+3. O MABS mostra os detalhes do ponto de recuperação. Clique em **Próximo**. Para substituir o banco de dados, selecione o tipo de recuperação **Recuperar na instância original do SQL Server**. Clique em **Próximo**.
 
     ![Recuperar no local original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    Neste exemplo, o DPM recupera o banco de dados para outra instância do SQL Server ou para uma pasta de rede autônoma.
+    Neste exemplo, o MABS recupera o banco de dados para outra instância do SQL Server ou para uma pasta de rede autônoma.
 
 4. Na tela **Especificar opções de recuperação** , você pode selecionar as opções de recuperação, como a limitação do uso da largura de banda de rede para restringir a largura de banda usada pela recuperação. Clique em **Próximo**.
 

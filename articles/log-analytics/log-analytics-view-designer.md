@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91d4efcd7fabc2f284078d752ea68778a9bd8d86
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29939862"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752032"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar exibições personalizadas usando o Designer de Exibição no Log Analytics
 Ao usar o Designer de Exibição no [Azure Log Analytics](log-analytics-overview.md), é possível criar uma variedade de exibições personalizadas no Portal do Azure que podem ajudá-lo a visualizar dados no espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
@@ -55,13 +55,14 @@ As opções estão descritas na tabela a seguir:
 |:--|:--|
 | Atualizar   | Atualiza a exibição com os dados mais recentes. | 
 | Análise | Abre o [portal de Análise Avançada](log-analytics-log-search-portals.md#advanced-analytics-portal) para analisar dados com pesquisas de logs. |
-| Filter    | Define um filtro de tempo para os dados incluídos na exibição. |
-| Editar      | Abre a exibição no Designer de Exibição para editar o conteúdo e a configuração.  |
-| Clone     | Cria uma nova exibição e abre no Designer de Exibição. O nome da nova exibição é o mesmo que o nome original, mas com *Copiar* acrescentado a ele. |
+| Editar       | Abre a exibição no Designer de Exibição para editar o conteúdo e a configuração.  |
+| Clone      | Cria uma nova exibição e abre no Designer de Exibição. O nome da nova exibição é o mesmo que o nome original, mas com *Copiar* acrescentado a ele. |
+| Intervalo de datas | Define um filtro de data e tempo para os dados incluídos na exibição. |
+| +          | Define um filtro personalizado que é definido para a exibição. |
 
 
 ## <a name="create-a-new-view"></a>Criar um novo modo de exibição
-É possível criar uma nova exibição no Designer de Exibição, selecionando o bloco **Designer de Exibição** na página **Visão Geral** do espaço de trabalho do Log Analytics.
+É possível criar uma nova exibição no Designer de Exibição, selecionando **Designer de Exibição** no menu do seu espaço de trabalho do Log Analytics.
 
 ![Bloco Designer de modo de exibição](media/log-analytics-view-designer/view-designer-tile.png)
 
@@ -104,7 +105,6 @@ As opções para trabalhar com exibições no modo de edição são descritas na
 | Exportação      | Exporta a exibição para um [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) que você poderá importar para outro espaço de trabalho. O nome do arquivo é o nome da exibição e tem uma extensão *omsview*. |
 | Importar      | Importa o arquivo *omsview* que foi exportado de outro espaço de trabalho. Essa ação substitui a configuração da exibição existente. |
 | Clone       | Cria uma nova exibição e abre no Designer de Exibição. O nome da nova exibição é o mesmo que o nome original, mas com *Copiar* acrescentado a ele. |
-| Publicar     | Exporta a exibição para um arquivo JSON que você poderá inserir em uma [Solução de gerenciamento](../operations-management-suite/operations-management-suite-solutions-resources-views.md). O nome do arquivo é o mesmo que o nome da exibição, mas com uma extensão *json*. Um segundo arquivo, criado com uma extensão  *resjson* , inclui valores para os recursos que estão definidos no arquivo JSON.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Adicione [Blocos](log-analytics-view-designer-tiles.md) ao modo de exibição personalizado.

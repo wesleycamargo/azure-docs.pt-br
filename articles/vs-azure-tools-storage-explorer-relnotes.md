@@ -12,28 +12,120 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2017
+ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 2878fb737f5daa875b91aefc77c6b8bc495f917e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59415941172fab06b3e86ef4d34d464cf359ce8f
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657563"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025070"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 
-Este artigo contém as notas de versão do Gerenciador de Armazenamento do Azure 1.0.0, bem como notas de versão das versões anteriores.
+Este artigo contém as notas de versão do Gerenciador de Armazenamento do Azure 1.2.0, bem como notas de versão das versões anteriores.
 
 O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 
+## <a name="version-120"></a>Versão 1.2.0
+12/06/2018
+
+### <a name="download-azure-storage-explorer-120"></a>Baixar o Gerenciador de Armazenamento do Azure 1.2.0
+- [Gerenciador de Armazenamento do Azure 1.2.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de Armazenamento do Azure 1.2.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de Armazenamento do Azure 1.2.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Novo
+* Se o Gerenciador de armazenamento não conseguir carregar assinaturas em apenas um subconjunto de seus locatários, em seguida, assinaturas carregadas com êxito serão mostradas junto com uma mensagem de erro especificamente para os locatários que falhou. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
+* No Windows, quando uma atualização está disponível, você agora pode optar por "Atualizar ao fechar". Quando essa opção é selecionada, o instalador da atualização será executado depois de fechar o Gerenciador de armazenamento. [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
+* Restaurar instantâneo foi adicionado ao menu de contexto do editor de compartilhamento de arquivo ao exibir um instantâneo de compartilhamento de arquivo. [#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
+* Botão Limpar fila está sempre habilitado. [#135](https://github.com/Microsoft/AzureStorageExplorer/issues/135)
+* Suporte para entrar pilha do ADFS do Azure foi habilitado novamente. A pilha do Azure versão 1804 ou superior é necessária. [#150](https://github.com/Microsoft/AzureStorageExplorer/issues/150)
+
+### <a name="fixes"></a>Correções
+* Se você exibir instantâneos para um compartilhamento de arquivo cujo nome é um prefixo de outro compartilhamento de arquivos na mesma conta de armazenamento, os instantâneos do compartilhamento de arquivos também seriam listados. Esse problema foi corrigido. [#255](https://github.com/Microsoft/AzureStorageExplorer/issues/255)
+* Quando conectado por meio de SAS, a restauração de um arquivo de um instantâneo de compartilhamento de arquivo resulta em um erro. Esse problema foi corrigido. [#211](https://github.com/Microsoft/AzureStorageExplorer/issues/211)
+* Ao exibir instantâneos para um blob, a ação de promover o instantâneo foi habilitada quando o blob de base e um único instantâneo foram selecionados. A ação está ativada somente se um único instantâneo estiver selecionado. [#230](https://github.com/Microsoft/AzureStorageExplorer/issues/230)
+* Se um único trabalho (como baixar um blob) foi iniciado e posteriormente falha, ele não irá automaticamente novamente até o início do outro trabalho do mesmo tipo. Todos os trabalhos agora devem automaticamente tentar de novo, independentemente de quantos trabalhos foram colocados em fila.
+* Editores abertos para novos contêineres de blob criados no GPV2 e contas de armazenamento de Blob não tem uma coluna de nível de acesso. Esse problema foi corrigido. [#109](https://github.com/Microsoft/AzureStorageExplorer/issues/109)
+* Uma coluna de nível de acesso, às vezes, não aparece quando uma conta de armazenamento ou o contêiner de blob foi conectado via SAS. A coluna será sempre mostrada, mas com um valor vazio se não houver nenhum conjunto de camada de acesso. [#160](https://github.com/Microsoft/AzureStorageExplorer/issues/160)
+* Definir o nível de acesso de um blob de bloco carregado recentemente foi desabilitado. Esse problema foi corrigido. [#171](https://github.com/Microsoft/AzureStorageExplorer/issues/171)
+* Se o botão “Manter Guia Aberta" foi chamado usando o teclado, o foco do teclado seria perdido. Agora, o foco será movido para a guia que foi mantida aberta. [#163](https://github.com/Microsoft/AzureStorageExplorer/issues/163)
+* Para uma consulta no Construtor de Consultas, VoiceOver não estava dando uma descrição utilizável do operador atual. Agora é mais descritivo. [#207](https://github.com/Microsoft/AzureStorageExplorer/issues/207)
+* Os links de paginação para os vários editores não são descritivos. Eles foram alterados para serem mais descritivos. [#205](https://github.com/Microsoft/AzureStorageExplorer/issues/205)
+* Na caixa de diálogo Adicionar Entidade, VoiceOver não foi anunciando de que coluna um elemento de entrada fazia parte. O nome da coluna atual agora está incluído na descrição do elemento. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Caixas de seleção e botões de opção não tem uma borda visível quando focalizados. Esse problema foi corrigido. [#237](https://github.com/Microsoft/AzureStorageExplorer/issues/237)
+
+### <a name="known-issues"></a>Problemas conhecidos
+* Ao usar emuladores, como o emulador de armazenamento do Azure ou Azurite, você precisará tê-los a escutar conexões de suas portas padrão. Caso contrário, o Gerenciador de armazenamento não poderá se conectar a eles.
+* Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se, ao fazer isso, você não for desbloqueado, comente sobre [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
+* Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
+* Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
+
+
+
+
+
+
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Version 1.1.0](#version-110)
+* [Versão 1.0.0](#version-100)
+* [Versão 0.9.6](#version-096)
+* [Versão 0.9.5](#version-095)
+* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versão 0.9.2](#version-092)
+* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
+
+
 ## <a name="version-110"></a>Version 1.1.0
 09/05/2018
-
-### <a name="download-azure-storage-explorer-110"></a>Baixar o Gerenciador de Armazenamento do Azure 1.1.0
-- [Gerenciador de Armazenamento do Azure 1.1.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Azure 1.1.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Azure 1.1.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Novo
 * Agora o Gerenciador de Armazenamento é compatível com o uso de Azurite. Observação: a conexão com o Azurite é fixa para os pontos de extremidade de desenvolvimento padrão.
@@ -60,7 +152,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 * Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
 * Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron.
 * Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
-* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317). 
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
@@ -86,39 +178,9 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 1.0.0](#version-100)
-* [Versão 0.9.6](#version-096)
-* [Versão 0.9.5](#version-095)
-* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versão 0.9.2](#version-092)
-* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-100"></a>Versão 1.0.0
 16/04/2018
-
-### <a name="download-azure-storage-explorer-100"></a>Baixar o Gerenciador de Armazenamento do Azure 1.0.0
-- [Gerenciador de Armazenamento do Azure 1.0.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Azure 1.0.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Azure 1.0.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Novo
 * Autenticação aprimorada que permite que o Gerenciador de Armazenamento use o mesmo repositório de contas que o Visual Studio 2017. Para usar esse recurso, você precisará fazer logon novamente em suas contas e definir novamente as assinaturas filtradas.
@@ -156,7 +218,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 ### <a name="known-issues"></a>Problemas conhecidos
 * Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
 * Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
-* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui. 
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
@@ -184,11 +246,6 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 
 ## <a name="version-096"></a>Versão 0.9.6
 28/02/2018
-
-### <a name="download-azure-storage-explorer-096-preview"></a>Fazer o download do Gerenciador de Armazenamento do Azure 0.9.6 (Versão Prévia)
-- [Gerenciador de Armazenamento do Azure 0.9.6 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Azure 0.9.6 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Azure 0.9.6 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="fixes"></a>Correções
 * Um problema impediu que os blobs/arquivos esperados fossem listados no editor. Esse problema foi corrigido.
@@ -225,11 +282,6 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 
 ## <a name="version-095"></a>Versão 0.9.5
 06/02/2018
-
-### <a name="download-azure-storage-explorer-095-preview"></a>Fazer o download do Gerenciador de Armazenamento do Azure 0.9.5 (Versão Prévia)
-- [Gerenciador de Armazenamento do Azure 0.9.5 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Azure 0.9.5 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Azure 0.9.5 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Novo
 
@@ -279,11 +331,6 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 
 ## <a name="version-094-and-093"></a>Versões 0.9.4 e 0.9.3
 21/01/2018
-
-### <a name="download-azure-storage-explorer-094-preview"></a>Fazer o download do Gerenciador de Armazenamento do Microsoft Azure 0.9.4 (Versão Prévia)
-* [Baixar o Gerenciador de Armazenamento do Azure 0.9.4 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Baixar o Gerenciador de Armazenamento do Azure 0.9.4 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Baixar o Gerenciador de Armazenamento do Azure 0.9.4 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Novo
 * Sua janela existente do Gerenciador de Armazenamento do Azure será reutilizada quando:

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296903"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335832"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planejando uma implantação de Sincronização de Arquivo do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -144,6 +144,9 @@ Para Sincronização de arquivos do Azure e DFS-R trabalharem lado a lado:
 2. Os pontos de extremidade de servidor não devem ser configurados em pastas de replicação somente leitura do DFS-R.
 
 Para obter mais informações, consulte [Visão geral da Replicação do DFS](https://technet.microsoft.com/library/jj127250).
+
+### <a name="sysprep"></a>Sysprep
+Usando o sysprep em um servidor que possua o agente Sincronização de Arquivos do Azure instalado e isso pode levar a resultados inesperados. A instalação do agente e o registro do servidor devem ocorrer depois da implantação da imagem do servidor e da conclusão da mini-instalação do sysprep.
 
 ### <a name="windows-search"></a>Windows Search
 Se a classificação em nuvem estiver habilitada em um ponto de extremidade do servidor, os arquivos que estão com problemas serão ignorados e não indexados pelo Windows Search. Arquivos sem camadas são indexados corretamente.

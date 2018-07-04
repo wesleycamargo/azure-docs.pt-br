@@ -70,7 +70,7 @@ Para implantar um exemplo de máquina virtual com o diagnóstico de inicializaç
 
 Para habilitar o diagnóstico de inicialização em uma máquina virtual existente, siga estas etapas:
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) e selecione a máquina virtual.
+1. Faça logon no [Portal do Azure](https://portal.azure.com) e selecione a máquina virtual.
 2. Em **Suporte + solução de problemas**, selecione **Diagnósticos de inicialização** > **Configurações**, altere o status para **Ligado**e, em seguida, selecione uma conta de armazenamento. 
 4. Verifique se a opção diagnóstico de inicialização está selecionada e, em seguida, salve as alterações.
 

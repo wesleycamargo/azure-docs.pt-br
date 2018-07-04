@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb8382a9801c3570a190259416d846fe518cc6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 967184d9a7590dc0b8c88a49cf178bbd9eb83267
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595029"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063588"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Aprofundamento de segurança da Autenticação de Passagem do Azure Active Directory
 
@@ -132,20 +132,21 @@ A Autenticação de Passagem trata uma solicitação de entrada do usuário conf
 1. Um usuário tenta acessar um aplicativo, por exemplo, [Outlook Web App](https://outlook.office365.com/owa).
 2. Se o usuário ainda não tiver conectado, o aplicativo irá redirecionar o navegador para a página de entrada do Azure AD.
 3. O serviço STS do Azure AD responde de volta com a página **Entrada do usuário**.
-4. O usuário insere o nome de usuário e a senha na página **Entrada do usuário** e seleciona o botão **Entrar**.
-5. O nome de usuário e a senha são enviados ao STS do Azure AD em uma solicitação HTTPS POST.
-6. O STS do Azure AD recupera chaves públicas para todos os Agentes de Autenticação registrados em seu locatário no banco de dados SQL do Azure e criptografa a senha usando-as. 
+4. O usuário digita seu nome de usuário na página **Login do usuário** e, em seguida, seleciona o botão **Próximo**.
+5. O usuário digita sua senha na página **Login do usuário** e, em seguida, seleciona o botão **Login**.
+6. O nome de usuário e a senha são enviados ao STS do Azure AD em uma solicitação HTTPS POST.
+7. O STS do Azure AD recupera chaves públicas para todos os Agentes de Autenticação registrados em seu locatário no banco de dados SQL do Azure e criptografa a senha usando-as. 
     - Isso produz "N" valores de senha criptografados para "N" Agentes de Autenticação registrados no seu locatário.
-7. O STS do Azure AD coloca a solicitação de validação de senha, que consiste no nome de usuário e nos valores de senha criptografada, na fila do Barramento de Serviço específico ao seu locatário.
-8. Como os Agentes de Autenticação inicializados são persistentemente conectados à fila do Barramento de Serviço, um dos Agentes de Autenticação disponíveis recupera a solicitação de validação de senha.
-9. O Agente de Autenticação localiza o valor da senha criptografada que é específico a sua chave pública, usando um identificador, e o descriptografa usando a respectiva chave privada.
-10. O Agente de Autenticação tenta validar o nome de usuário e a senha no Active Directory local usando a [API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) com o parâmetro **dwLogonType** definido como **LOGON32_LOGON_NETWORK**. 
+8. O STS do Azure AD coloca a solicitação de validação de senha, que consiste no nome de usuário e nos valores de senha criptografada, na fila do Barramento de Serviço específico ao seu locatário.
+9. Como os Agentes de Autenticação inicializados são persistentemente conectados à fila do Barramento de Serviço, um dos Agentes de Autenticação disponíveis recupera a solicitação de validação de senha.
+10. O Agente de Autenticação localiza o valor da senha criptografada que é específico a sua chave pública, usando um identificador, e o descriptografa usando a respectiva chave privada.
+11. O Agente de Autenticação tenta validar o nome de usuário e a senha no Active Directory local usando a [API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) com o parâmetro **dwLogonType** definido como **LOGON32_LOGON_NETWORK**. 
     - Essa é a mesma API usada pelos Serviços de Federação do Active Directory (AD FS) para conectar usuários em um cenário de entrada federada.
     - Essa API depende do processo de resolução padrão no Windows Server para localizar o controlador de domínio.
-11. O Agente de Autenticação recebe o resultado do Active Directory, como êxito, nome de usuário ou senha incorretos ou senha expirada.
-12. O Agente de Autenticação encaminha o resultado de volta ao serviço de token de segurança do Azure AD através de um canal HTTPS mutuamente autenticado de saída sobre a porta 443. A autenticação mútua usa o certificado anteriormente emitido para o Agente de Autenticação durante o registro.
-13. O serviço de token de segurança do Azure AD verifica se esse resultado corresponde à solicitação de entrada específica no locatário.
-14. O serviço de token de segurança do Azure AD continua com o procedimento de entrada, conforme configurado. Por exemplo, se a validação de senha fosse bem-sucedida, o usuário poderia ser solicitado para a Multi-Factor Authentication ou redirecionado de volta ao aplicativo.
+12. O Agente de Autenticação recebe o resultado do Active Directory, como êxito, nome de usuário ou senha incorretos ou senha expirada.
+13. O Agente de Autenticação encaminha o resultado de volta ao serviço de token de segurança do Azure AD através de um canal HTTPS mutuamente autenticado de saída sobre a porta 443. A autenticação mútua usa o certificado anteriormente emitido para o Agente de Autenticação durante o registro.
+14. O serviço de token de segurança do Azure AD verifica se esse resultado corresponde à solicitação de entrada específica no locatário.
+15. O serviço de token de segurança do Azure AD continua com o procedimento de entrada, conforme configurado. Por exemplo, se a validação de senha fosse bem-sucedida, o usuário poderia ser solicitado para a Multi-Factor Authentication ou redirecionado de volta ao aplicativo.
 
 ## <a name="operational-security-of-the-authentication-agents"></a>Segurança operacional dos Agentes de Autenticação
 
@@ -208,7 +209,7 @@ Para atualizar automaticamente um Agente de Autenticação:
 ## <a name="next-steps"></a>Próximas etapas
 - [Limitações atuais](active-directory-aadconnect-pass-through-authentication-current-limitations.md): saiba quais cenários têm suporte e quais não têm.
 - [Início rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): instale e execute a Autenticação de Passagem do Azure AD.
-- [Bloqueio Inteligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): configure a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
+- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): configure a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [Como funciona](active-directory-aadconnect-pass-through-authentication-how-it-works.md): conheça as noções básicas de como funciona a Autenticação de Passagem do Azure AD.
 - [Perguntas frequentes](active-directory-aadconnect-pass-through-authentication-faq.md): encontre respostas para perguntas frequentes.
 - [Solução de problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso de Autenticação de Passagem.

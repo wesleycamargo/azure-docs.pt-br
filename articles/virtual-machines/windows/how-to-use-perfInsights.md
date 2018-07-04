@@ -3,7 +3,7 @@ title: Como usar PerfInsights no Microsoft Azure | Microsoft Docs
 description: Aprenda a usar o PerfInsights para solucionar problemas de desempenho da VM do Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
-author: genlin
+author: anandhms
 manager: cshepard
 editor: na
 tags: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160651"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946257"
 ---
-# <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights 
+# <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
 
 [PerfInsights](http://aka.ms/perfinsightsdownload) é uma ferramenta de diagnóstico de autoajuda que coleta e analisa os dados de diagnóstico e fornece um relatório para ajudar a solucionar problemas de desempenho de máquina virtual do Windows no Azure. O PerfInsights pode ser executado em máquinas virtuais como uma ferramenta independente ou diretamente no portal com a instalação da [Extensão de VM de Diagnóstico de Desempenho do Azure](performance-diagnostics-vm-extension.md).
 
@@ -31,7 +31,7 @@ Caso esteja tendo problemas de desempenho com máquinas virtuais, antes de conta
 
 O PerfInsights pode coletar e analisar vários tipos de informações. As seções a seguir cobrem cenários comuns.
 
-### <a name="collect-basic-configuration"></a>Coletar configuração básica 
+### <a name="quick-performance-analysis"></a>Análise de Desempenho Rápida
 
 Este cenário coleta a configuração do disco e outras informações importantes, incluindo:
 
@@ -64,11 +64,11 @@ Este cenário executa o teste de parâmetro de comparação [Diskspd](https://gi
 > Este cenário pode afetar o sistema e não deve ser executado em um sistema de produção ativo. Se necessário, execute este cenário em uma janela de manutenção dedicada para evitar problemas. Uma carga de trabalho maior causada por um teste de parâmetro de comparação ou rastreamento pode afetar adversamente o desempenho da VM.
 >
 
-### <a name="slow-vm-analysis"></a>Análise de VM lenta 
+### <a name="slow-vm-analysis"></a>Análise de VM lenta
 
 Este cenário executa um rastreamento de [contador de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) usando os contadores especificados no arquivo RuleEngineConfig.json. Se a VM for identificada como um servidor que executa o SQL Server, um rastreamento de contador de desempenho será executado. Isso é feito com os contadores encontrados no arquivo RuleEngineConfig.json. Esse cenário também inclui dados de diagnóstico de desempenho.
 
-### <a name="azure-files-analysis"></a>Análise de Arquivos do Azure 
+### <a name="azure-files-analysis"></a>Análise de Arquivos do Azure
 
 Este cenário executa uma captura de contador de desempenho especial junto com um rastreamento de rede. A captura inclui todos os contadores de compartilhamentos de cliente do protocolo SMB. A seguir estão alguns contadores de desempenho de compartilhamento de cliente SMB que fazem parte da captura:
 
@@ -90,9 +90,9 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 |              | Média Tamanho da fila de gravação       |
 |              | Média Comprimento da fila de dados        |
 
-### <a name="custom-slow-vm-analysis"></a>Análise de VM lenta personalizada 
+### <a name="advanced-slow-vm-analysis"></a>Análise de VM Lenta Avançada
 
-Ao executar uma análise de VM lenta personalizada, selecione rastreamentos para executar em paralelo. Se desejar, execute todos eles (Contador de Desempenho, Xperf, Rede e StorPort).  
+Ao executar uma análise de VM lenta avançada, você selecionada traços para executar em paralelo. Se desejar, execute todos eles (Contador de Desempenho, Xperf, Rede e StorPort).  
 
 > [!Note]
 > Este cenário pode afetar o sistema e não deve ser executado em um sistema de produção ativo. Se necessário, execute este cenário em uma janela de manutenção dedicada para evitar problemas. Uma carga de trabalho maior causada por um teste de parâmetro de comparação ou rastreamento pode afetar adversamente o desempenho da VM.
@@ -104,7 +104,7 @@ São coletadas informações sobre a VM do Windows, a configuração de discos o
 
 |Dados coletados                              |  |  | Cenários de desempenho |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Coletar configuração básica | Parâmetros de comparação | Análise de VM lenta | Análise de Arquivos do Azure | Análise de VM lenta personalizada |
+|                               | Análise de Desempenho Rápida | Parâmetros de comparação | Análise de VM lenta | Análise de Arquivos do Azure | Análise de VM Lenta Avançada |
 | Informações de logs de eventos       | sim                        | sim                                | sim                      | sim                  | sim                  |
 | Informações do sistema                | sim                        | sim                                | sim                      | sim                  | sim                  |
 | Mapa de volume                        | sim                        | sim                                | sim                      | sim                  | sim                  |
@@ -171,9 +171,9 @@ Testes de carga de trabalho de E/S do Diskspd (disco do SO [gravação] e unidad
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Possíveis problemas ao executar a ferramenta em VMs de produção
 
--  Para os cenários de parâmetro de comparação ou de "Análise de VM lenta personalizada" configurado para usar o Xperf ou o Diskspd, a ferramenta poderá prejudicar o desempenho da VM. Esses cenários não devem ser executados em um ambiente de produção ativo.
+-  Para os cenários de parâmetro de comparação ou de "Análise de VM lenta avançada" configurado para usar o Xperf ou o Diskspd, a ferramenta poderá prejudicar o desempenho da VM. Esses cenários não devem ser executados em um ambiente de produção ativo.
 
--  Para os cenários de parâmetro de comparação ou de "Análise de VM lenta personalizada" configurado para usar o Diskspd, verifique se nenhuma outra atividade em segundo plano interfere na carga de trabalho de E/S.
+-  Para os cenários de parâmetro de comparação ou de "Análise de VM lenta avançada" configurado para usar o Diskspd, verifique se nenhuma outra atividade em segundo plano interfere na carga de trabalho de E/S.
 
 -  Por padrão, a ferramenta usa a unidade de armazenamento temporário para coletar dados. Se o rastreamento permanecer habilitado por mais tempo, a quantidade de dados coletados poderá ser relevante. Isso pode reduzir a disponibilidade de espaço no disco temporário, podendo afetar, portanto, qualquer aplicativo que dependa dessa unidade.
 
@@ -218,10 +218,16 @@ Para executar a ferramenta PerfInsights, siga estas etapas:
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    Use o seguinte exemplo para executar o cenário personalizado com o Xperf e rastreamentos de Contador de desempenho durante 5 minutos:
+    Use o seguinte exemplo para executar o cenário avançado com o Xperf e rastreamentos de Contador de desempenho durante 5 minutos:
     
     ```
-    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
+
+    Você pode usar o exemplo abaixo para executar o cenário de VM lento por 5 minutos e carregar o arquivo zip de resultado na conta de armazenamento.
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
     ```
 
     Pesquise todas as opções e todos os cenários disponíveis usando o comando **/list**:
@@ -237,7 +243,7 @@ Para executar a ferramenta PerfInsights, siga estas etapas:
     >
     >Por padrão, o PerfInsights tentará atualizar a si próprio para a última versão, se disponível. Use o parâmetro **/SkipAutoUpdate** ou **/sau** para ignorar a atualização automática.  
     >
-    >Se a opção de duração **/d** não for especificada, o PerfInsights solicitará que você reproduza o problema durante a execução dos cenários de vmslow, azurefiles e personalizados. 
+    >Se a chave de duração **/d** não for especificada, PerfInsights solicitará que você reproduza novamente o problema durante a execução de vmslow, azurefiles e cenários avançados. 
 
 Quando os rastreamentos e as operações forem concluídos, um novo arquivo aparecerá na mesma pasta do PerfInsights. O nome do arquivo é **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip.** Envie esse arquivo para o agente de suporte para análise ou abra o relatório no arquivo zip para examinar as conclusões e recomendações.
 
@@ -251,9 +257,9 @@ Selecione a guia **Descobertas**.
 ![Captura de tela do relatório PerfInsights](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
-> As conclusões categorizadas como críticas são problemas conhecidos que podem causar problemas de desempenho. As conclusões categorizadas como importantes representam não ideais que não causam necessariamente problemas de desempenho. As conclusões categorizadas como informativas são apenas instruções informativas.
+> Constatações categorizadas como altas são problemas conhecidos que podem causar problemas de desempenho. Constatações categorizadas como médias representam configurações não adequadas que não necessariamente causam problemas de desempenho. Constatações categorizadas como lentas são declarações apenas informativas.
 
-Analise as recomendações e links para todas as conclusões críticas e importantes. Saiba mais sobre como eles podem afetar o desempenho e também sobre as melhores práticas para configurações de otimização de desempenho.
+Analise as recomendações e links para todas as conclusões altas e médias. Saiba mais sobre como eles podem afetar o desempenho e também sobre as melhores práticas para configurações de otimização de desempenho.
 
 ### <a name="storage-tab"></a>Guia Armazenamento
 

@@ -1,5 +1,5 @@
 ---
-title: Fazer backup de um farm do SharePoint no Azure para o Azure
+title: Fazer backup de um farm do SharePoint no Azure Stack
 description: Use o Servidor de Backup do Azure para fazer backup e restaurar seus dados do SharePoint no Azure Stack. Este artigo fornece informações para configurar seu farm do SharePoint para que os dados desejados possam ser armazenados no Azure. Você pode restaurar dados protegidos do SharePoint do disco ou do Azure.
 services: backup
 author: pvrk
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: da8421441863c8d7f840630614f4f35c16f184d5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 309e817426fff1eb877ab02ae9aa16ddc8f5cf16
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248908"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751890"
 ---
-# <a name="back-up-a-sharepoint-farm-on-azure-stack-to-azure"></a>Fazer backup de um farm do SharePoint no Azure para o Azure
+# <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer backup de um farm do SharePoint no Azure Stack
 Faça backup de um farm do SharePoint no Azure Stack para o Microsoft Azure usando o MABS (Servidor de Backup do Microsoft Azure) da mesma maneira que você faz backup de outras fontes de dados. O Backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diariamente, semanalmente, mensalmente ou anualmente e fornece opções de política de retenção para diversos pontos de backup. Ele também fornece a capacidade de armazenar cópias de disco locais para obter RTOs (Objetivos de Tempo de Recuperação) rápidos e armazenar cópias no Azure para uma retenção econômica e de longo prazo.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versões do SharePoint com suporte e cenários de proteção relacionados
-O Backup do Azure para DPM dá suporte aos seguintes cenários:
+O Backup do Azure para MABS dá suporte aos seguintes cenários:
 
 | Carga de trabalho | Versão | Implantação do SharePoint | Proteção e recuperação |
 | --- | --- | --- | --- | --- | --- |
@@ -41,9 +41,6 @@ Para cada 10 milhões de itens no farm, deve haver pelo menos 2 GB de espaço n
 O Servidor de Backup do Azure é executado como uma conta LocalSystem. Para fazer backup de bancos de dados do SQL Server, o MABS precisa de privilégios sysadmin nessa conta para o servidor que executa o SQL Server. Defina NT AUTHORITY\SYSTEM como *sysadmin* no servidor que executa o SQL Server antes de fazer backup dele.
 
 Se o farm do SharePoint tiver bancos de dados do SQL Server configurados com aliases do SQL Server, instale os componentes de cliente do SQL Server no servidor Web front-end que o MABS protegerá.
-
-### <a name="sharepoint-server"></a>SharePoint Server
-Embora o desempenho dependa de muitos fatores tais como o tamanho do farm do SharePoint, as diretrizes gerais são de que um MABS pode ser usado para proteger um farm do SharePoint de 25 TB.
 
 ### <a name="whats-not-supported"></a>O que não tem suporte
 * O MABS que protege um farm do SharePoint não protege os índices de pesquisa ou os bancos de dados do serviço de aplicativo. Você precisará configurar a proteção desses bancos de dados separadamente.

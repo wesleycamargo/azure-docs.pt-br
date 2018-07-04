@@ -1,0 +1,301 @@
+---
+title: Criar uma função personalizada usando o Azure PowerShell | Microsoft Docs
+description: Saiba como criar funções personalizadas para o controle de acesso baseado em função (RBAC) usando o Azure PowerShell. Isso inclui como lista, criar, atualizar e excluir funções personalizadas.
+services: active-directory
+documentationcenter: ''
+author: rolyon
+manager: mtillman
+ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
+ms.service: role-based-access-control
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 06/20/2018
+ms.author: rolyon
+ms.reviewer: bagovind
+ms.openlocfilehash: 6205198d3f9c4ec5bfa2311014cf9b90dcade6dc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36323291"
+---
+# <a name="create-custom-roles-using-azure-powershell"></a>Criar funções personalizadas usando o Azure PowerShell
+
+Se as [funções internas](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como criar e gerenciar o acesso usando o Azure PowerShell.
+
+## <a name="prerequisites"></a>pré-requisitos
+
+Criar funções personalizadas, você precisará:
+
+- Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de acesso do usuário](built-in-roles.md#user-access-administrator)
+- [Azure PowerShell](/powershell/azure/install-azurerm-ps) instalado localmente
+
+## <a name="list-custom-roles"></a>Listar funções personalizadas
+
+Para listar as funções disponíveis para atribuição em um escopo, use o comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition). O exemplo a seguir lista todas as funções disponíveis para atribuição na assinatura selecionada.
+
+```azurepowershell
+Get-AzureRmRoleDefinition | FT Name, IsCustom
+```
+
+```Example
+Name                                              IsCustom
+----                                              --------
+Virtual Machine Operator                              True
+AcrImageSigner                                       False
+AcrQuarantineReader                                  False
+AcrQuarantineWriter                                  False
+API Management Service Contributor                   False
+...
+```
+
+O exemplo a seguir lista apenas as funções personalizadas disponíveis para atribuição na assinatura selecionada.
+
+```azurepowershell
+Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+```
+
+```Example
+Name                     IsCustom
+----                     --------
+Virtual Machine Operator     True
+```
+
+Se a assinatura selecionada não estiver no `AssignableScopes` da função, a função personalizada não será listada.
+
+## <a name="create-a-custom-role"></a>Criar uma função personalizada
+
+Para criar uma função personalizada, use o comando [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition). Há dois métodos de estruturar a função, usando o objeto `PSRoleDefinition` ou um modelo JSON. 
+
+### <a name="get-operations-for-a-resource-provider"></a>Obter operações para um provedor de recursos
+
+Quando você cria funções personalizadas, é importante conhecer todas as operações possíveis dos provedores de recursos.
+É possível exibir a lista de [operações do provedor de recursos](resource-provider-operations.md) ou usar o comando [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) para obter essas informações.
+Por exemplo, se desejar verificar todas as operações disponíveis para máquinas virtuais, use este comando:
+
+```azurepowershell
+Get-AzureRMProviderOperation <operation> | FT OperationName, Operation, Description -AutoSize
+```
+
+```Example
+PS C:\> Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation, Description -AutoSize
+
+OperationName                                  Operation                                                      Description
+-------------                                  ---------                                                      -----------
+Get Virtual Machine                            Microsoft.Compute/virtualMachines/read                         Get the propertie...
+Create or Update Virtual Machine               Microsoft.Compute/virtualMachines/write                        Creates a new vir...
+Delete Virtual Machine                         Microsoft.Compute/virtualMachines/delete                       Deletes the virtu...
+Start Virtual Machine                          Microsoft.Compute/virtualMachines/start/action                 Starts the virtua...
+...
+```
+
+### <a name="create-a-custom-role-with-the-psroledefinition-object"></a>Criar uma função personalizada com o objeto PSRoleDefinition
+
+Ao usar o PowerShell para criar uma função personalizada, é possível usar uma das [funções internas](built-in-roles.md) como ponto de partida ou começar do zero. O primeiro exemplo nesta seção começa com uma função interna e, em seguida, a personaliza com mais permissões. Edite os atributos para adicionar o `Actions`, o `NotActions` ou o `AssignableScopes` desejado e salve as alterações como uma nova função.
+
+O exemplo a seguir inicia com a função interna [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) para criar uma função personalizada denominada *Operador de Máquina Virtual*. A nova função concede acesso a todas as operações de leitura dos provedores de recursos *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede acesso para iniciar, reiniciar e monitorar as máquinas virtuais. A função personalizada pode ser usada em duas assinaturas.
+
+```azurepowershell
+$role = Get-AzureRmRoleDefinition "Virtual Machine Contributor"
+$role.Id = $null
+$role.Name = "Virtual Machine Operator"
+$role.Description = "Can monitor and restart virtual machines."
+$role.Actions.Clear()
+$role.Actions.Add("Microsoft.Storage/*/read")
+$role.Actions.Add("Microsoft.Network/*/read")
+$role.Actions.Add("Microsoft.Compute/*/read")
+$role.Actions.Add("Microsoft.Compute/virtualMachines/start/action")
+$role.Actions.Add("Microsoft.Compute/virtualMachines/restart/action")
+$role.Actions.Add("Microsoft.Authorization/*/read")
+$role.Actions.Add("Microsoft.Resources/subscriptions/resourceGroups/read")
+$role.Actions.Add("Microsoft.Insights/alertRules/*")
+$role.Actions.Add("Microsoft.Support/*")
+$role.AssignableScopes.Clear()
+$role.AssignableScopes.Add("/subscriptions/00000000-0000-0000-0000-000000000000")
+$role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111")
+New-AzureRmRoleDefinition -Role $role
+```
+
+O exemplo a seguir mostra outra maneira de criar a função *Operador de Máquina Virtual* personalizada. Começa pela criação de um novo `PSRoleDefinition` objeto. As operações de ação são especificadas na variável `perms` e definidas como a propriedade `Actions`. A propriedade `NotActions` é definida lendo o `NotActions` da função interna [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor). Como o [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) não tem nenhum `NotActions`, esta linha não é obrigatória, mas mostra como as informações podem ser recuperadas de outra função.
+
+```azurepowershell
+$role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
+$role.Name = 'Virtual Machine Operator 2'
+$role.Description = 'Can monitor and restart virtual machines.'
+$role.IsCustom = $true
+$perms = 'Microsoft.Storage/*/read','Microsoft.Network/*/read','Microsoft.Compute/*/read'
+$perms += 'Microsoft.Compute/virtualMachines/start/action','Microsoft.Compute/virtualMachines/restart/action'
+$perms += 'Microsoft.Authorization/*/read','Microsoft.Resources/subscriptions/resourceGroups/read'
+$perms += 'Microsoft.Insights/alertRules/*','Microsoft.Support/*'
+$role.Actions = $perms
+$role.NotActions = (Get-AzureRmRoleDefinition -Name 'Virtual Machine Contributor').NotActions
+$subs = '/subscriptions/00000000-0000-0000-0000-000000000000','/subscriptions/11111111-1111-1111-1111-111111111111'
+$role.AssignableScopes = $subs
+New-AzureRmRoleDefinition -Role $role
+```
+
+### <a name="create-a-custom-role-with-json-template"></a>Criar função personalizada com o modelo JSON
+
+Um modelo JSON pode ser usado como a definição da fonte para a função personalizada. O exemplo a seguir cria uma função personalizada que permite acesso de leitura ao armazenamento e aos recursos de computação, acesso ao suporte e adiciona essa função a duas assinaturas. Crie um novo arquivo `C:\CustomRoles\customrole1.json` com o exemplo a seguir. A ID deve ser definida como `null` na criação de função inicial, pois uma nova ID é gerada automaticamente. 
+
+```json
+{
+  "Name": "Custom Role 1",
+  "Id": null,
+  "IsCustom": true,
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Storage/*/read",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/00000000-0000-0000-0000-000000000000",
+    "/subscriptions/11111111-1111-1111-1111-111111111111"
+  ]
+}
+```
+
+Para adicionar a função às assinaturas, execute o seguinte comando do PowerShell:
+
+```azurepowershell
+New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+```
+
+## <a name="update-a-custom-role"></a>Atualizar uma função personalizada
+
+Assim como na criação de uma função personalizada, é possível modificar uma função personalizada existente usando o objeto `PSRoleDefinition` ou um modelo JSON.
+
+### <a name="update-a-custom-role-with-the-psroledefinition-object"></a>Atualizar uma função personalizada com o objeto PSRoleDefinition
+
+Para modificar uma função personalizada, primeiro use o comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para recuperar a definição da função. Depois, faça as alterações desejadas na definição da função. Por fim, use o comando [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) para salvar a definição da função modificada.
+
+O exemplo a seguir adiciona a operação `Microsoft.Insights/diagnosticSettings/*` à função personalizada *Operador de Máquina Virtual* .
+
+```azurepowershell
+$role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+$role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
+Set-AzureRmRoleDefinition -Role $role
+```
+
+```Example
+PS C:\> $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+PS C:\> $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
+PS C:\> Set-AzureRmRoleDefinition -Role $role
+
+Name             : Virtual Machine Operator
+Id               : 88888888-8888-8888-8888-888888888888
+IsCustom         : True
+Description      : Can monitor and restart virtual machines.
+Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
+                   Microsoft.Compute/virtualMachines/start/action...}
+NotActions       : {}
+AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
+                   /subscriptions/11111111-1111-1111-1111-111111111111}
+```
+
+O exemplo a seguir adiciona uma assinatura do Azure para os escopos atribuíveis da função personalizada de *Operador da Máquina Virtual* .
+
+```azurepowershell
+Get-AzureRmSubscription -SubscriptionName Production3
+
+$role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+$role.AssignableScopes.Add("/subscriptions/22222222-2222-2222-2222-222222222222")
+Set-AzureRmRoleDefinition -Role $role
+```
+
+```Example
+PS C:\> Get-AzureRmSubscription -SubscriptionName Production3
+
+Name     : Production3
+Id       : 22222222-2222-2222-2222-222222222222
+TenantId : 99999999-9999-9999-9999-999999999999
+State    : Enabled
+
+PS C:\> $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+PS C:\> $role.AssignableScopes.Add("/subscriptions/22222222-2222-2222-2222-222222222222")
+PS C:\> Set-AzureRmRoleDefinition -Role $role
+
+Name             : Virtual Machine Operator
+Id               : 88888888-8888-8888-8888-888888888888
+IsCustom         : True
+Description      : Can monitor and restart virtual machines.
+Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
+                   Microsoft.Compute/virtualMachines/start/action...}
+NotActions       : {}
+AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
+                   /subscriptions/11111111-1111-1111-1111-111111111111,
+                   /subscriptions/22222222-2222-2222-2222-222222222222}
+```
+
+### <a name="update-a-custom-role-with-a-json-template"></a>Atualizar função personalizada com o modelo JSON
+
+Usando o modelo JSON anterior, você pode facilmente modificar uma função personalizada existente para adicionar ou remover ações. Atualize o modelo JSON e adicione a ação de leitura para rede, conforme mostrado no exemplo a seguir. As definições listadas no modelo não são aplicadas de forma cumulativa a uma definição existente, o que significa que a função aparece exatamente como especificada no modelo. Você também precisa atualizar o campo de ID com a ID da função. Se não tiver certeza de qual é esse valor, será possível usar o cmdlet [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para obter essa informação.
+
+```json
+{
+  "Name": "Custom Role 1",
+  "Id": "acce7ded-2559-449d-bcd5-e9604e50bad1",
+  "IsCustom": true,
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/00000000-0000-0000-0000-000000000000",
+    "/subscriptions/11111111-1111-1111-1111-111111111111"
+  ]
+}
+```
+
+Para atualizar a função existente, execute o seguinte comando do PowerShell:
+
+```azurepowershell
+Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+```
+
+## <a name="delete-a-custom-role"></a>Excluir uma função personalizada
+
+Para excluir uma função personalizada, use o comando [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/remove-azurermroledefinition).
+
+O exemplo a seguir remove a função personalizada *Operador de Máquina Virtual* .
+
+```azurepowershell
+Get-AzureRmRoleDefinition "Virtual Machine Operator"
+Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinition
+```
+
+```Example
+PS C:\> Get-AzureRmRoleDefinition "Virtual Machine Operator"
+
+Name             : Virtual Machine Operator
+Id               : 88888888-8888-8888-8888-888888888888
+IsCustom         : True
+Description      : Can monitor and restart virtual machines.
+Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
+                   Microsoft.Compute/virtualMachines/start/action...}
+NotActions       : {}
+AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
+                   /subscriptions/11111111-1111-1111-1111-111111111111}
+
+PS C:\> Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinition
+
+Confirm
+Are you sure you want to remove role definition with name 'Virtual Machine Operator'.
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+```
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Tutorial: Criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Funções personalizadas no Microsoft Azure](custom-roles.md)
+- [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md)

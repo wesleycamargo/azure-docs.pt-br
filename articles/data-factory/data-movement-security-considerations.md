@@ -11,28 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 80cec0bc8136142f30ea7b957de819379b1bb139
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619126"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053248"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-data-movement-security-considerations.md)
-> * [Versão 2 – Versão prévia](data-movement-security-considerations.md)
+> * [Versão 1](v1/data-factory-data-movement-security-considerations.md)
+> * [Versão atual](data-movement-security-considerations.md)
 
 Este artigo descreve a infraestrutura básica de segurança usada pelos serviços de movimentação de dados no Azure Data Factory para ajudar a proteger seus dados. Os recursos de gerenciamento do Data Factory se baseiam na infraestrutura de segurança do Azure e usam todas as medidas de segurança possíveis oferecidas pelo Azure.
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira [considerações de segurança de movimento de dados para o Data Factory versão 1](v1/data-factory-data-movement-security-considerations.md).
-
 Em uma solução de Data Factory, você cria um ou mais [pipelines](concepts-pipelines-activities.md)de dados. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Esses pipelines residem na região em que o data factory foi criado. 
 
-Embora o Data Factory esteja disponível somente nas regiões Leste dos EUA, Leste dos EUA 2 e Europa Ocidental (versão prévia 2), o serviço de movimentação de dados está disponível [globalmente em várias regiões](concepts-integration-runtime.md#azure-ir). Se o serviço de movimentação de dados ainda não estiver implementado nessa região, o serviço Data Factory garante que os dados não saiam de uma área geográfica ou região, a menos que você explicitamente instrua o serviço a usar uma região alternativa. 
+Mesmo que a fábrica de dados está disponível apenas em algumas regiões, o serviço de movimentação de dados é [disponível globalmente](concepts-integration-runtime.md#integration-runtime-location) para garantir a conformidade de dados, eficiência e rede reduzida os custos de saída. 
 
 O Azure Data Factory não armazena nenhum dado, exceto as credenciais do serviço vinculado de armazenamentos de dados em nuvem, que são criptografadas usando certificados. Com o Data Factory, você cria fluxos de trabalho controlados por dados para orquestrar a movimentação de dados entre os [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) e o processamento de dados usando [serviços de computação](compute-linked-services.md) em outras regiões ou em um ambiente local. Você também pode monitorar e gerenciar fluxos de trabalho usando SDKs e Azure Monitor.
 
@@ -42,7 +39,7 @@ A movimentação de dados com o uso do Data Factory foi certificada para:
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
 -   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
-Se você estiver interessado na conformidade do Azure e como ele protege sua própria infraestrutura, visite a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/trustcenter).
+Se você estiver interessado na conformidade do Azure e como ele protege sua própria infraestrutura, visite a [Central de Confiabilidade da Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 Neste artigo, examinamos as considerações sobre segurança nestes dois cenários de movimentação de dados: 
 

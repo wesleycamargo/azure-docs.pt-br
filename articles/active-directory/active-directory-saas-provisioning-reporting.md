@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: faccaa4496eb1deda23bbfcf335088a023d229d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5011dfbe496472e21a85dee9fa4901dad429a984
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293170"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031722"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o provisionamento automático de conta de usuário
 
@@ -30,9 +30,9 @@ Este artigo descreve como verificar o status de trabalhos de provisionamento dep
 
 ## <a name="overview"></a>Visão geral
 
-Conectores de provisionamento são basicamente configurados e definidos usando o [Portal de gerenciamento do Azure](https://portal.azure.com), seguindo a [documentação fornecida](active-directory-saas-tutorial-list.md) do aplicativo em que o provisionamento de conta de usuário é desejado. Depois de estarem configurados e em execução, os trabalhos de provisionamento para um aplicativo podem ser informados usando um dos dois métodos:
+Conectores de provisionamento são configurados e definidos usando o [Portal do Azure](https://portal.azure.com), seguindo a [documentação fornecida](saas-apps/tutorial-list.md) para o aplicativo suportado. Depois de estarem configurados e em execução, os trabalhos de provisionamento podem ser informados usando um dos dois métodos:
 
-* **Portal de gerenciamento do Azure** – este artigo descreve principalmente a recuperação de informações de relatório do [Portal de gerenciamento do Azure](https://portal.azure.com), que fornece tanto um relatório resumido do provisionamento quanto logs de auditoria de provisionamento detalhados para um determinado aplicativo.
+* **Portal de gerenciamento do Azure** – este artigo descreve principalmente a recuperação de informações de relatório do [Portal do Azure](https://portal.azure.com), que fornece tanto um relatório resumido do provisionamento quanto logs de auditoria de provisionamento detalhados para um determinado aplicativo.
 
 * **API de auditoria** – o Azure Active Directory também fornece uma API de auditoria que permite a recuperação programática dos logs de auditoria de provisionamento detalhados. Consulte a [referência da API de auditoria do Azure Active Directory](active-directory-reporting-api-audit-reference.md) para a documentação específica para usar essa API. Embora este artigo não cubra especificamente como usar a API, ele detalha os tipos de eventos de provisionamento que são registrados no log de auditoria.
 
@@ -54,15 +54,15 @@ Para obter informações de relatório de provisionamento para um determinado ap
 Aqui, você pode acessar tanto o relatório de resumo de provisionamento quanto os logs de auditoria de provisionamento, ambos descritos abaixo.
 
 
-### <a name="provisioning-summary-report"></a>Relatório de resumo de provisionamento
+## <a name="provisioning-summary-report"></a>Relatório de resumo de provisionamento
 
-O relatório de resumo de provisionamento fica visível na guia **Provisionamento** para determinado aplicativo. Ele está localizado na seção de Detalhes de Sincronização sob **Configurações** e fornece as seguintes informações:
+O relatório de resumo de provisionamento fica visível na guia **Provisionamento** para determinado aplicativo. Ele está localizado na seção de **Detalhes de Sincronização** sob **Configurações**, e fornece as seguintes informações:
 
-* O número total de usuários e grupos que foram sincronizados e estão atualmente no escopo para provisionamento entre o sistema de origem e o sistema de destino.
+* O número total de usuários e grupos que foram sincronizados e estão atualmente no escopo para provisionamento entre o sistema de origem e o sistema de destino
 
-* A última vez em que a sincronização foi executada. As sincronizações normalmente ocorrem a cada 20 a 40 minutos, após uma sincronização ser concluída.
+* A última vez em que a sincronização foi executada. As sincronizações normalmente ocorrem a cada 20 a 40 minutos, após uma [sincronização inicial](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) ser concluída.
 
-* Se uma sincronização completa inicial foi ou não concluída.
+* Se uma [sincronização inicial](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) foi ou não concluída
 
 * Se o processo de provisionamento foi colocado em quarentena ou não e qual o motivo do status de quarentena (por exemplo, falha na comunicação com o sistema de destino devido a credenciais de administrador inválidas)
 
@@ -70,7 +70,7 @@ O relatório de resumo de provisionamento deve ser o primeiro local em que os ad
 
  ![Relatório resumido](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
-### <a name="provisioning-audit-logs"></a>Logs de auditoria de provisionamento
+## <a name="provisioning-audit-logs"></a>Logs de auditoria de provisionamento
 Todas as atividades realizadas pelo serviço de provisionamento são registradas nos logs de auditoria do Azure AD, que podem ser exibidos na guia **Logs de auditoria** na categoria **Provisionamento da Conta**. Alguns dos tipos de eventos de atividade incluídos no log são:
 
 * **Eventos de importação** – um evento de "importação" é registrado sempre que o serviço de provisionamento do Azure AD recupera informações sobre um usuário individual ou um grupo de um sistema de origem ou de destino. Durante a sincronização, os usuários são recuperados do sistema de origem primeiro, sendo os resultados registrados como eventos de "importação". As IDs correspondentes dos usuários recuperados então são consultadas em comparação ao sistema de destino para verificar se elas existem, sendo os resultados também registrados como eventos de "importação". Esses eventos registram todos os atributos de usuário mapeados e os valores que foram vistos pelo serviço de provisionamento do Azure AD no momento do evento. 
@@ -89,7 +89,7 @@ Ao examinar eventos de provisionamento para um usuário individual, os eventos g
 
 3. Evento de regra de sincronização: os dados do usuário de sistemas de origem e destino são avaliados com relação aos filtros de escopo e às regras de mapeamento do atributo configurado para determinar qual ação, caso haja, deve ser executada.
 
-4. Evento de exportação: se o evento de regra de sincronização tiver determinado que uma ação deve ser executada (por exemplo, Adicionar, Atualizar, Excluir), os resultados da ação serão registrados em um evento de exportação.
+4. Evento de exportação: se o evento de regra de sincronização tiver determinado que uma ação deve ser executada (Adicionar, Atualizar, Excluir), os resultados da ação serão registrados em um evento de exportação.
 
 ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 
@@ -112,6 +112,9 @@ O caso de uso mais comum para os logs de auditoria de provisionamento é verific
 
 7. Clique em eventos individuais para exibir detalhes estendidos, incluindo todas as propriedades de usuário que foram recuperadas, avaliadas ou gravadas como parte do evento.
 
+Para obter mais informações sobre como usar os logs de auditoria, consulte o vídeo abaixo. Os logs de auditoria são apresentados em torno de 5:30 marcar:
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 ### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>Dicas para exibir os logs de auditoria de provisionamento
 

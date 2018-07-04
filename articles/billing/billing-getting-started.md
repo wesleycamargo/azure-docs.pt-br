@@ -1,5 +1,5 @@
 ---
-title: Evitar custos inesperados e gerenciar a cobrança – Azure | Microsoft Docs
+title: Evitar custos inesperados, gerenciar o faturamento no Azure | Microsoft Docs
 description: Saiba como evitar encargos inesperados em sua conta do Azure. Use recursos de gerenciamento e controle de custos para uma assinatura do Microsoft Azure.
 services: ''
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 797421e40a5550e1897443f35089838a349ad85a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e4db9911697a4d79032b7a6358db642112a5a54e
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607388"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062148"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 

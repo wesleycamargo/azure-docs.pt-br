@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1c1c294a877a996dc0e6cb916b038dc0ca27ed5c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061702"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão geral](log-analytics-itsmc-overview.md).
@@ -85,7 +86,7 @@ Use o procedimento a seguir para conectar a instância do System Center Service 
 - Crie incidentes com base em alertas ou registros de log do Log Analytics ou em alertas do Azure nesta instância do Service Manager.
 
 
-Saiba mais: [Criar itens de trabalho de ITSM para alertas do Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Criar itens de trabalho de ITSM com base nos logs do Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) e [Criar itens de trabalho de ITSM com base nos alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [ Crie itens de trabalho ITSM a partir de alertas do Azure ](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Criar e implantar o serviço de aplicativo Web do Service Manager
 
@@ -190,7 +191,7 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 **Os administradores do ServiceNow devem fazer o seguinte em sua instância do ServiceNow**:
 - Gere a ID do cliente e o segredo do cliente para o produto ServiceNow. Para saber mais sobre como gerar o ID e o segredo do cliente, consulte as informações conforme o necessário:
 
-    - [Configurar o OAuth para Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
+    - [Configurar o OAuth para Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Jacarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Istambul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Helsinque](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -238,7 +239,7 @@ Use o procedimento a seguir para criar uma conexão do ServiceNow:
 
 - Crie incidentes com base em alertas ou registros de log do Log Analytics ou em alertas do Azure nesta instância do ServiceNow.
 
-Saiba mais: [Criar itens de trabalho de ITSM para alertas do Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Criar itens de trabalho de ITSM com base nos logs do Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) e [Criar itens de trabalho de ITSM com base nos alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [ Crie itens de trabalho ITSM a partir de alertas do Azure ](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Criar função de usuário de integração no aplicativo do ServiceNow
 
@@ -329,7 +330,7 @@ Use o procedimento a seguir para criar uma conexão do Provance:
 
 - Crie incidentes com base em alertas ou registros de log do Log Analytics ou em alertas do Azure nesta instância do Provance.
 
-Saiba mais: [Criar itens de trabalho de ITSM para alertas do Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Criar itens de trabalho de ITSM com base nos logs do Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) e [Criar itens de trabalho de ITSM com base nos alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [ Crie itens de trabalho ITSM a partir de alertas do Azure ](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Conectar o Cherwell ao Conector de Gerenciamento de Serviços de TI no Azure
 
@@ -381,7 +382,7 @@ Use o procedimento a seguir para criar uma conexão do Provance:
 
 - Crie incidentes com base em alertas ou registros de log do Log Analytics ou em alertas do Azure nesta instância do Cherwell.
 
-Saiba mais: [Criar itens de trabalho de ITSM para alertas do Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Criar itens de trabalho de ITSM com base nos logs do Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) e [Criar itens de trabalho de ITSM com base nos alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [ Crie itens de trabalho ITSM a partir de alertas do Azure ](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Gerar a ID de Cliente do Cherwell
 
@@ -395,6 +396,4 @@ Para gerar o chave/ID do cliente para Cherwell, use o procedimento a seguir:
 
 
 ## <a name="next-steps"></a>Próximas etapas
- - [Criar itens de trabalho de ITSM para alertas do Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
- - [Criar itens de trabalho de ITSM com base em logs de registros de log do Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [Criar itens de trabalho de ITSM desde alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

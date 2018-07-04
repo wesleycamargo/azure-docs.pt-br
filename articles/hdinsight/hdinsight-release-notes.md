@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 17ba4af006587dd1d34f61a0f5f77cbcd768fcf8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a53bc6459e431d855ba09cda59680c5d8698c488
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410083"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063250"
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de versão dos componentes do Hadoop no Azure HDInsight
 
@@ -27,6 +27,17 @@ Este artigo fornece informações sobre as atualizações de versão **mais rece
 
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, confira o [artigo sobre controle de versão do HDInsight](hdinsight-component-versioning.md).
+
+## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>Notas para 27/06/2018 - Lançamento de novas versões de código aberto, ADLS Gen2 etc. no HDInsight 3.6
+A versão de junho de 2018 do HDInsight está se preparando para ser uma versão significativa com muitas novas atualizações e recursos para nossos clientes, conforme descrito abaixo. Por favor leia este [post](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/) para mais detalhes.
+
+A seguir, os destaques. Para as notas detalhadas da versão, bugs corrigidos, problemas conhecidos, etc., leia este [documento](https://aka.ms/hdirelnotes).
+
+- **Atualize o Hadoop e outros projetos de código aberto** - Além de mais de 1000 correções de erros em mais de 20 projetos de código aberto, esta atualização contém uma nova versão do Spark (2.3) e Kafka (1.0).
+- **Atualize o R Server 9.1 para o Machine Learning Services 9.3** - Com esta versão, estamos oferecendo aos cientistas de dados e engenheiros o melhor do código aberto aprimorado com inovações algorítmicas e facilidade de operacionalização, todos disponíveis em seu idioma preferido a velocidade do Apache Spark. Esta versão expande os recursos oferecidos no R Server com suporte adicional ao Python, levando à alteração do nome do cluster de R Server para ML Services. 
+- **Suporte ao armazenamento de dados do Azure Data Lake Gen2** - o HDInsight suportará a versão de visualização do Armazenamento de dados do Windows Azure Gen2. Nas regiões disponíveis, os clientes poderão escolher uma conta ADLS Gen2 como uma loja para seus clusters HDInsight.
+- **Atualizações do pacote do HDInsight Enterprise Security (Pré-visualização)** - (Pré-visualização) Suporte de pontos de extremidade do serviço de rede virtual para armazenamento de blob do Azure, ADLS Gen1, banco de dados do Cosmos e banco de dados do Azure. 
+
 
 ## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>Notas da versão de 20/03/2018 do Spark 2.2 no HDInsight 3.6
 

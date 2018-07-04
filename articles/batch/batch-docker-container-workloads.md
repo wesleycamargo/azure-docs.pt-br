@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 4ee8425bb5c3830b029b766aad464df0ffb15f41
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801108"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060510"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
@@ -229,7 +229,13 @@ Use a propriedade `ContainerSettings` das classes de tarefa para definir configu
 
 Se você executar tarefas em imagens de contêiner, a [tarefa nuvem](/dotnet/api/microsoft.azure.batch.cloudtask) e a [tarefa do gerenciador de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) exigirão configurações de contêiner. No entanto, [iniciar tarefa](/dotnet/api/microsoft.azure.batch.starttask), [tarefa de preparação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e [tarefa de liberação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) não exigem configurações de contêiner (ou seja, podem ser executados em um contexto de contêiner ou diretamente no nó).
 
-Quando você define as configurações do contêiner, todos os diretórios recursivamente abaixo de `AZ_BATCH_NODE_ROOT_DIR` (a raiz dos diretórios do Lote do Azure no nó) são mapeadas para o contêiner, todas as variáveis de ambiente são mapeadas para o contêiner e a linha de comando da tarefa é executada no contêiner.
+A linha de comando para uma tarefa de contêiner do Azure Batch é executada em um diretório de trabalho no contêiner que é muito semelhante ao ambiente que o Batch configura para uma tarefa regular (sem contêiner):
+
+* Todos os diretórios recursivamente abaixo de `AZ_BATCH_NODE_ROOT_DIR`(a raiz dos diretórios do Azure Batch no nó) são mapeados para o contêiner
+* Todas as variáveis de ambiente de tarefas são mapeadas no contêiner
+* O diretório de trabalho do aplicativo é definido da mesma forma que para uma tarefa normal, para que você possa usar recursos como pacotes de aplicativos e arquivos de recursos
+
+Como o Batch altera o diretório de trabalho padrão em seu contêiner, a tarefa é executada em um local diferente do ponto de entrada do contêiner típico (por exemplo, `c:\`por padrão em um contêiner do Windows ou `/` no Linux). Certifique-se de que a linha de comando da tarefa ou o ponto de entrada do contêiner especifique um caminho absoluto, caso ainda não esteja configurado dessa maneira.
 
 O trecho de código do Python a seguir mostra uma linha de comando básica em execução em um contêiner do Ubuntu obtido do Hub do Docker. As opções de execução do contêiner são argumentos adicionais para o comando `docker create` executado pela tarefa. Aqui, a opção `--rm` remove o contêiner após a conclusão da tarefa.
 
@@ -240,7 +246,7 @@ task_container_settings = batch.models.TaskContainerSettings(
     container_run_options='--rm')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='echo hello',
+    command_line='/bin/echo hello',
     container_settings=task_container_settings
 )
 
@@ -251,7 +257,7 @@ O exemplo C# a seguir mostra as configurações básicas do contêiner para uma 
 ```csharp
 // Simple container task command
 
-string cmdLine = "<my-command-line>";
+string cmdLine = "c:\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",

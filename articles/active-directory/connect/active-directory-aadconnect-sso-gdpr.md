@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a4fc779cdfb177a9817049fd7b62b0014e141ce0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149520"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34592401"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidade do usuário e logon único contínuo do Microsoft Azure AD
 
@@ -28,11 +29,11 @@ ms.locfileid: "32149520"
 ## <a name="overview"></a>Visão geral
 
 
-O SSO Contínuo do Microsoft Azure AD cria o seguinte tipo de log, que pode conter EUII:
+O SSO Contínuo do Microsoft Azure AD cria o seguinte tipo de log, que pode conter Dados Pessoais: 
 
 - Arquivos de log de rastreamento do Azure AD Connect.
 
-A conformidade com a privacidade do usuário para SSO Contínuo pode ser alcançada de duas maneiras:
+Melhore a privacidade do usuário para o SSO Contínuo de duas maneiras:
 
 1.  Mediante solicitação, extraia dados de uma pessoa e remova os dados dessa pessoa das instalações.
 2.  Certifique-se de que nenhum dado é retido além de 48 horas.

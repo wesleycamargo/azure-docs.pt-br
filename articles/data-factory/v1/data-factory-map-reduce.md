@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6bddb3d5beca57852ef62361b278ec1fa8961f45
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: edbef08eaa100248368d7f0b23171f15b52ec56a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621251"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050940"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Chamar Programas MapReduce da Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34621251"
 > * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está na versão prévia, consulte [transformar dados usando a atividade MapReduce na versão 2 do Data Factory](../transform-data-using-hadoop-map-reduce.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [ transformar dados usando a atividade MapReduce no Data Factory ](../transform-data-using-hadoop-map-reduce.md).
 
 
 A atividade de MapReduce do HDInsight em um [pipeline](data-factory-create-pipelines.md) do Data Factory executa programas MapReduce [no seu próprio cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) HDInsight baseado em Windows/Linux, ou em um [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.

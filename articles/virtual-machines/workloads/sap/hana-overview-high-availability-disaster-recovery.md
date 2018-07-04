@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c4c126663d34d65cc7e0aa641bf93b848a5dcae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658308"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062234"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidade e recuperação de desastre de instâncias grandes do SAP HANA no Azure 
 
@@ -44,10 +44,12 @@ A tabela a seguir mostra os métodos e combinações de alta disponibilidade e r
 | Cenário com suporte em Instâncias Grandes HANA | Opção de alta disponibilidade | Opção de recuperação de desastre | Comentários |
 | --- | --- | --- | --- |
 | Nó único | Não disponível. | Instalação da recuperação de desastre dedicada.<br /> Instalação da recuperação de desastre multipropósito. | |
-| Failover automático de host: N + m<br /> incluindo 1 + 1 | Possível com em espera usando a função ativa.<br /> O HANA controla a opção de função. | Instalação da recuperação de desastre dedicada.<br /> Instalação da recuperação de desastre multipropósito.<br /> Sincronização da recuperação de desastre usando a replicação de armazenamento. | Os conjuntos de volumes do HANA são anexados a todos os nós (n + m).<br /> O local de recuperação de desastre deve ter o mesmo número de nós. |
+| Failover automático de host: expansão (com ou sem estado de espera)<br /> incluindo 1 + 1 | Possível com em espera usando a função ativa.<br /> O HANA controla a opção de função. | Instalação da recuperação de desastre dedicada.<br /> Instalação da recuperação de desastre multipropósito.<br /> Sincronização da recuperação de desastre usando a replicação de armazenamento. | Conjuntos de volumes do HANA são conectados a todos os nós.<br /> O local de recuperação de desastre deve ter o mesmo número de nós. |
 | Replicação do sistema HANA | Possível com a instalação primária ou secundária.<br /> A secundária move para a função primária em um caso de failover.<br /> Replicação do sistema HANA e controle de failover do SO. | Instalação da recuperação de desastre dedicada.<br /> Instalação da recuperação de desastre multipropósito.<br /> Sincronização da recuperação de desastre usando a replicação de armazenamento.<br /> A recuperação de desastre usando replicação do sistema HANA ainda não é possível sem componentes de terceiros. | Conjunto separado de volumes de disco são anexados a cada nó.<br /> Somente os volumes de disco de réplica secundária no local de produção são replicados para o local da recuperação de desastre.<br /> Um conjunto de volumes é necessário no local da recuperação de desastre. | 
 
 É em uma configuração de recuperação de desastre dedicada que a unidade da Instância Grande do HANA no local da recuperação de desastre não é usada para executar nenhuma outra carga de trabalho ou sistema de não produção. A unidade é passiva e é implantada apenas se um failover de desastre é executado. No entanto, essa configuração não é uma opção preferencial para muitos clientes.
+
+Consulte os [ cenários suportados pelo HLI ](hana-supported-scenario.md) para aprender o layout de armazenamento e os detalhes de ethernet para sua arquitetura.
 
 > [!NOTE]
 > [Implantações do SAP HANA MCOD](https://launchpad.support.sap.com/#/notes/1681092) (várias instâncias do HANA em uma unidade) como cenários de sobreposição funcionam com os métodos de alta disponibilidade e recuperação de desastres listados na tabela. Uma exceção é o uso da Replicação do Sistema do HANA com um cluster de failover automático baseado no Pacemaker. Esse caso permite somente uma instância do HANA por unidade. Para implantações de [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000), somente métodos de HA e DR não baseados em armazenamento funcionarão se mais de um locatário for implantado. Com um locatário implantado, todos os métodos listados são válidos.  
@@ -60,7 +62,7 @@ A tabela a seguir mostra os métodos e combinações de alta disponibilidade e r
 - [Whitepaper de Alta Disponibilidade do SAP HANA](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [Guia de administração do SAP HANA](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
 - [Vídeo do SAP HANA Academy sobre Replicação do Sistema SAP HANA](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
-- [SAP Note de Suporte nº 1999880 – perguntas frequentes sobre replicação do sistema SAP HANA](https://bcs.wdf.sap.corp/sap/support/notes/1999880)
+- [SAP Note de Suporte nº 1999880 – perguntas frequentes sobre replicação do sistema SAP HANA](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [SAP Note de Suporte SAP nº 2165547 – Fazer backup do SAP HANA e restaurá-lo no ambiente de replicação do sistema SAP HANA](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP Note de Suporte SAP nº 1984882 – uso da replicação do sistema SAP HANA para troca de hardware com tempo de inatividade mínimo/zero](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 

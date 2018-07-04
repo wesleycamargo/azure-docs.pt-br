@@ -5,7 +5,7 @@ Instale os [cmdlets do Azure PowerShell][lnk-powershell-install] antes de contin
 
 As etapas a seguir mostram como configurar a autenticação de senha para um aplicativo do AD usando o PowerShell. Você pode executar esses comandos em uma sessão do PowerShell padrão.
 
-1. Faça logon em sua assinatura do Azure usando o seguinte comando:
+1. Conecte em sua assinatura do Azure usando o seguinte comando:
 
     ```powershell
     Connect-AzureRmAccount

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59631ee0115c817da1b0588c1ad37d2f8b34db67
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621744"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053631"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Azure Data Factory, que já está em GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [Serviços vinculados de computação na versão 2](../compute-linked-services.md).
+> Este artigo se aplica à versão 1 do Azure Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Compute serviços vinculados em ](../compute-linked-services.md).
 
 Este artigo explica os ambientes de computação que você pode usar para processar ou transformar dados. Ele também fornece detalhes sobre as diferentes configurações (sob demanda versus “traga a sua própria”) que o Data Factory oferece suporte ao configurar serviços vinculados que vinculam esses ambientes de computação para um data factory do Azure.
 
@@ -66,7 +66,7 @@ Após 31 de julho de 2018:
 - Se você estiver usando um serviço vinculado sob demanda do HDInsight para executar a versão 1 do Data Factory DotNet Custom Activity, atualize a definição do JSON do DotNet Custom Activity para, em vez disso, usar um serviço vinculado do Lote do Azure. Para obter mais informações, consulte [Usar atividades personalizadas em um pipeline do Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 > [!Note]
-> Se você usar o seu dispositivo vinculado cluster HDInsight existente, “traga seu próprio”, na versão 1 do Data Factory, ou um serviço vinculado HDInsight “traga seu próprio” ou sob demanda na versão 2 do Azure Data Factory, nenhuma ação é necessária. Nesses cenários, a política de suporte de versão mais recente dos clusters HDInsight já é imposta. 
+> Se você usar o dispositivo vinculado HDInsight existente do seu cluster, traga seu próprio na versão 1 do Data Factory ou um serviço vinculado HDInsight sob demanda e personalizado no Azure Data Factory, nenhuma ação será necessária. Nesses cenários, a política de suporte de versão mais recente dos clusters HDInsight já é imposta. 
 >
 > 
 

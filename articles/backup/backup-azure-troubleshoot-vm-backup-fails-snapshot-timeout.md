@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Backup do Azure; agente da VM; conectividade de rede;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 06/25/2018
 ms.author: genli
-ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606351"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754062"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -87,12 +87,12 @@ Devido ao requisito de implantação, a VM não tem acesso à Internet. Ou, talv
 Para funcionar corretamente, a extensão de Backup exige conectividade com endereços IP públicos do Azure. A extensão envia comandos para um ponto de extremidade de armazenamento do Azure (URL de HTTP) para gerenciar os instantâneos da VM. Se a extensão não tiver acesso à Internet pública, o backup, eventualmente, falhará.
 
 É possível implantar um servidor proxy para rotear o tráfego VM.
-##### <a name="create-a-path-for-http-traffic"></a>Criar um caminho para o tráfego HTTP
+##### <a name="create-a-path-for-https-traffic"></a>Criar um caminho para o tráfego HTTP
 
-1. Se você tiver alguma restrição de rede no local (um grupo de segurança de rede, por exemplo), implante um servidor proxy HTTP para rotear o tráfego.
+1. Se você tiver restrições de rede (por exemplo, um grupo de segurança de rede), implante um servidor proxy HTTPs para rotear o tráfego.
 2. Para permitir o acesso à Internet por meio do servidor proxy HTTP, adicione regras ao grupo de segurança de rede, se você tiver um.
 
-Para saber como configurar um proxy HTTP para backups VM, veja [preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+Para saber como configurar um proxy HTTP para backups VM, veja [Preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 A VM de backup ou o servidor proxy por meio do qual o tráfego é roteado requer acesso a endereços IP públicos do Azure
 
@@ -197,7 +197,7 @@ Para resolver o problema, remova o bloqueio do grupo de recursos e execute as et
 1. Remova o bloqueio no grupo de recursos em que a VM está localizada. 
 2. Instale o ARMClient usando o Chocolatey: <br>
    https://github.com/projectkudu/ARMClient
-3. Faça logon no ARMClient: <br>
+3. Entrar no ARMClient: <br>
     `.\armclient.exe login`
 4. Obtenha a coleção de pontos de restauração que corresponde à VM: <br>
     `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`

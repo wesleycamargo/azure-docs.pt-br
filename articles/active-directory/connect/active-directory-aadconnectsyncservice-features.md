@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2dbe14f6c7f8f9f1dcfaf733dc884df5adf919aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f721c371687addfe48d753e7289df78c2be1f3c7
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593164"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36957993"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Recursos do serviço de sincronização do Azure AD Connect
 O recurso de sincronização do Azure AD Connect tem dois componentes:
@@ -58,7 +58,8 @@ As configurações a seguir são definidas pelo Azure AD Connect e não podem se
 | DeviceWriteback |[Azure AD Connect: habilitando o write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Sincronização do Azure AD Connect: extensões do Directory](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite que um atributo seja colocado em quarentena quando ele é uma duplicata de outro objeto, em vez de causar falha de todo o objeto durante a exportação. |
-| PasswordSync |[Implementação de sincronização de hash de senha com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| Sincronização de hash de senha |[Implementação de sincronização de hash de senha com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+|Autenticação de Passagem|[Entrada do usuário com autenticação de passagem do Azure Active Directory](active-directory-aadconnect-pass-through-authentication.md)|
 | UnifiedGroupWriteback |[Visualização: write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Não há suporte no momento. |
 

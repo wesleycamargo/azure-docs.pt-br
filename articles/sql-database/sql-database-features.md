@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: d49cd0096eb173c0f483a7b7ab1f3def745f56a6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c48a0f078da8e56038ec74ee398bd26fe1dc2718
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231603"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054748"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Banco de Dados SQL do Azure versus SQL Server 
 
@@ -32,7 +32,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | **Recurso do SQL** | **Com suporte no Banco de Dados SQL do Azure/servidor lógico** | **Com suporte no Banco de Dados SQL do Azure/Instância Gerenciada (versão prévia)** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sim - veja [Armazenamento de certificados](sql-database-always-encrypted.md) e [Cofre de chaves](sql-database-always-encrypted-azure-key-vault.md) | Sim - veja [Armazenamento de certificados](sql-database-always-encrypted.md) e [Cofre de chaves](sql-database-always-encrypted-azure-key-vault.md) |
-| [Grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | A [alta disponibilidade](sql-database-high-availability.md) é incluída em todos os bancos de dados. A recuperação de desastre é abordada em [Visão geral da continuidade de negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md) | A [alta disponibilidade](sql-database-high-availability.md) é incluída em todos os bancos de dados. A recuperação de desastre é abordada em [Visão geral da continuidade de negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md) |
+| [Grupos de disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | A [alta disponibilidade](sql-database-high-availability.md) é incluída em todos os bancos de dados. A recuperação de desastre é abordada em [Visão geral da continuidade de negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md) | A [alta disponibilidade](sql-database-high-availability.md) é incluída em todos os bancos de dados. A recuperação de desastre é abordada em [Visão geral da continuidade de negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md) |
 | [Anexar um banco de dados](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Não  | Não  |
 | [Funções do aplicativo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | sim | sim |
 |[Auditoria](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Sim](sql-database-auditing.md)| [Sim](sql-database-managed-instance-auditing.md) |
@@ -121,7 +121,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Não – consulte [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | Não, veja [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Auditoria do SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Não - veja [auditoria do Banco de Dados SQL](sql-database-auditing.md) | Sim – consulte [Diferenças de auditoria](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SSDT (SQL Server Data Tools)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | sim | sim |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sim, com um SSIS gerenciado no ambiente do Azure Data Factory (AAD), onde os pacotes são armazenados no SSISDB hospedado pelo Banco de Dados SQL do Azure e executados em [tempo de execução de integração do Azure SSIS](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). | Sim, com um SSIS gerenciado no ambiente do Azure Data Factory (AAD), onde os pacotes são armazenados no SSISDB hospedado pela Instância Gerenciada e executados em [tempo de execução de integração do Azure SSIS](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sim, com um SSIS gerenciado no ambiente da fábrica de dados do Azure (AAD), onde os pacotes estão armazenados no SSISDB hospedado pelo banco de dados SQL e executado no Azure SSIS integração em tempo de execução (IV), consulte [criar IR do SSIS do Azure no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). | Sim, com um SSIS gerenciado no ambiente da fábrica de dados do Azure (AAD), onde os pacotes estão armazenados no SSISDB hospedada pela instância gerenciada e executado no Azure SSIS integração em tempo de execução (IV), consulte [criar IR do SSIS do Azure no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | sim | sim |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | sim | sim |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não - veja [Eventos estendidos](sql-database-xevent-db-diff-from-svr.md) | sim |

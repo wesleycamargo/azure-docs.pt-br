@@ -4,8 +4,6 @@ description: Extrai texto de arquivos de imagem em um pipeline de enriquecimento
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640363"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055278"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidades cognitivas OCR
 
@@ -38,7 +36,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 | Nome do parâmetro     | DESCRIÇÃO |
 |--------------------|-------------|
 | detectOrientation | Habilita a detecção automática da orientação da imagem. <br/> Valores válidos: verdadeiro / falso.|
-|defaultLanguageCode |  Código de idioma do texto de entrada. Os idiomas com suporte incluem: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`.  Se o código de idioma for especificado ou nulo, o idioma é detectado automaticamente.|
+|defaultLanguageCode | <p>  Código de idioma do texto de entrada. As linguagens com suporte incluem: <br/> zh-Hans (Chinês Simplificado) <br/> zh-Hant (Chinês Tradicional) <br/>cs (tcheco) <br/>da (dinamarquês) <br/>nl (holandês) <br/>en (em inglês) <br/>fi (finlandês)  <br/>fr (francês) <br/>  de (alemão) <br/>el (Grego) <br/> hu (húngaro) <br/> it (Italiano) <br/>  ja (Japonês) <br/> ko (Coreano) <br/> nb (Norueguês) <br/>   pl (Polonês) <br/> pt (Português) <br/>  ru (Russo) <br/>  es (Espanhol) <br/>  sv (Sueco) <br/>  tr (Turco) <br/> ar (Árabe) <br/> ro (Romeno) <br/> sr-Cyrl (Cirílico sérvio) <br/> SR-Latn (Latim sérvio) <br/>  SK (Eslovaco). <br/>  unk (desconhecido) <br/><br/> Se o código de idioma for especificado ou nulo, o idioma é detectado automaticamente. </p> |
 | textExtractionAlgorithm | "impresso" ou "manuscrito". O algoritmo de OCR de reconhecimento de texto "manuscrito" está atualmente em visualização e tem suporte apenas em inglês. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades

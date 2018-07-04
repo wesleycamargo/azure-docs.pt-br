@@ -1,6 +1,6 @@
 ---
 title: Planejar a escala do ambiente do Azure Time Series Insights | Microsoft Docs
-description: Este artigo descreve como seguir as práticas recomendadas ao planejar um ambiente do Azure Time Series Insights, incluindo capacidade de armazenamento, retenção de dados, capacidade de entrada e monitoramento.
+description: Este artigo descreve como seguir as práticas recomendadas ao planejar um ambiente do Azure Time Series Insights, incluindo capacidade de armazenamento, retenção de dados, capacidade de entrada e monitoramento, e recuperação de desastre de neócios (BCDR).
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 49842f971645f97d954451ff6755294dc3c5a40f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f0f414e43231fc6d873d639902fd4f71e48f1002
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293257"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751162"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planejar o ambiente do Azure Time Series Insights
 
@@ -94,8 +94,18 @@ Um conjunto de dados de referência é uma coleção de itens que aumentam os ev
 
 Observação: os dados de referência não são unidos retroativamente. Isso significa que somente os dados de entrada atuais e futuros são correspondidos e associados ao conjunto de dados de referência, depois que foi configurado e carregado.  Se você planeja enviar muitos dados históricos para TSI, mas não carregar ou criar dados de referência no TSI antes, talvez seja necessário realizar o trabalho novamente (dica: não é divertido).  
 
-Para saber mais sobre como criar, carregar e gerenciar os dados de referência no TSI, acesse nossa documentação *dados de referência* [documentação] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Para saber mais sobre como criar, carregar e gerenciar os dados de referência no TSI, acesse nossa documentação *dados de referência* [documentação](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
+## <a name="business-disaster-recovery"></a>Recuperação de desastre de negócios
+Por ser um serviço do Azure, o Time Series Insights fornece alta disponibilidade (HA) com redundâncias no nível de região do Azure, sem a necessidade de qualquer trabalho adicional da solução. A plataforma Microsoft Azure também inclui recursos para ajudá-lo a criar soluções com recursos de DR (recuperação de desastres) ou disponibilidade entre regiões. Se você quiser fornecer alta disponibilidade global entre regiões para dispositivos ou usuários, aproveite esses recursos de recuperação de desastres do Azure. O artigo [Orientação Técnica de Continuidade de Negócios do Azure](../resiliency/resiliency-technical-guidance.md) descreve os recursos internos do Azure para recuperação de desastres e continuidade de negócios. A [Recuperação de desastre e alta disponibilidade para aplicativos do Microsoft Azure] [Recuperação de desastres e alta disponibilidade para aplicativos do Azure] o documento fornece diretrizes de arquitetura sobre estratégias para aplicativos do Azure para obter alta disponibilidade e recuperação de desastres.
+
+O Time Series Insights não tem a recuperação de desastres de negócios internos (BCDR).  No entanto, os clientes que exigem BCDR ainda podem implementar uma estratégia de recuperação. Criar um segundo ambiente Time Series Insights em uma região do Azure backup e enviar eventos para esse ambiente secundário da origem do evento primário, utilizando um segundo grupo de consumidores exclusivo e diretrizes BCDR da fonte de evento.  
+
+1.  Crie ambiente na segunda região.  Criar um recurso de ambiente Time Series Insights [aqui](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started).
+2.  Criar um segundo grupo de consumidores exclusivo para a origem do evento e se conectar a essa fonte de evento para o novo ambiente.  Certifique-se de designar o segundo consumidor dedicado.  Você pode aprender mais sobre isso seguindo qualquer [documentação de Hub IoT](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) ou [documentação do hub de Evento](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+3.  Se sua região primária ficar inativa durante um incidente de desastres, alterne as operações para o ambiente do Time Series Insights.  
+
+Para saber mais sobre as políticas de BCDR do Hub IoT, veja [aqui](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr).  Para saber mais sobre as políticas de BCDR do Hub de evento, veja [aqui](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr).  
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Como adicionar uma origem do evento do Hub de Eventos](time-series-insights-how-to-add-an-event-source-eventhub.md)

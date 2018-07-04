@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 118a6d10eeba691fd0886967f90156a0ab8d9fae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642641"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062272"
 ---
+# <a name="description-of-the-different-upgrade-policies"></a>Descrição das diferentes políticas de atualização
+
+- **Dinâmico** - As alterações em uma configuração dinâmica não causam nenhuma reinicialização de processo dos processos do Service Fabric ou de seus processos de host de serviço. 
+- **Estático** - Alterações em uma configuração estática farão com que o nó do Service Fabric seja reiniciado para consumir a mudança. Os serviços nos nós serão reiniciados.
+- **NotAllowed** - Essas configurações não podem ser modificadas. Alterar essas configurações requer que o cluster seja destruído e um novo cluster seja criado. 
+
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as configurações de cluster de Service Fabric e a política de Atualização da Malha
 Este documento explica como personalizar as várias configurações de malha e a política de atualização de malha para o cluster do Service Fabric. Você pode personalizá-los através do [Portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager.
 

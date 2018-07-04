@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: ea612f0c58b92e37d405f9a57611610fa187f7db
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81392cc8b6225302d6835cdb3d23e9bab7d9c930
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619313"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055281"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressão e funções no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-functions-variables.md)
-> * [Versão 2 – Versão prévia](control-flow-expression-language-functions.md)
+> * [Versão 1](v1/data-factory-functions-variables.md)
+> * [Versão atual](control-flow-expression-language-functions.md)
 
-Este artigo fornece detalhes sobre expressões e funções com suporte pelo Azure Data Factory (versão 2). 
+Este artigo fornece detalhes sobre expressões e funções suportadas pelo Azure Data Factory. 
 
 ## <a name="introduction"></a>Introdução
 Os valores JSON na definição podem ser literais ou expressões que são avaliadas no tempo de execução. Por exemplo:   
@@ -40,20 +40,15 @@ Os valores JSON na definição podem ser literais ou expressões que são avalia
 "name": "@pipeline().parameters.password"
 ```
 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte [Funções e variáveis no Data Factory V1](v1/data-factory-functions-variables.md).
-
-
 ## <a name="expressions"></a>Expressões  
-As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Se um valor JSON for uma expressão, o corpo da expressão será extraído removendo a arroba (@). Se for necessária uma cadeia de caracteres literal que comece com @, essa cadeia de caracteres deverá ser substituída usando @@. Os exemplos a seguir mostram como as expressões são avaliadas.  
+As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Se um valor JSON for uma expressão, o corpo da expressão será extraído removendo a arroba (\@). Se for necessária uma cadeia de caracteres literal que comece com @, essa cadeia de caracteres deverá ser substituída usando @@. Os exemplos a seguir mostram como as expressões são avaliadas.  
   
 |Valor JSON|Result|  
 |----------------|------------|  
 |"parameters"|Os “parâmetros” dos caracteres são retornados.|  
 |"parameters[1]"|Os “parâmetros[1]” dos caracteres são retornados.|  
-|"@@"|Uma cadeia de caracteres de 1 caractere que contém \'\@\' será retornada.|  
-|\" \@\"|Uma cadeia de caracteres de 2 caracteres que contém ' \@\' será retornada.|  
+|"\@@"|Uma cadeia de caracteres de 1 caractere que contém \'\@\' será retornada.|  
+|" \@"|Uma cadeia de caracteres de 2 caracteres que contém ' \@\' será retornada.|  
   
  As expressões também podem aparecer dentro de cadeias de caracteres usando um recurso chamado *interpolação de cadeia de caracteres* em que as expressões estão encapsuladas em `@{ ... }`. Por exemplo: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -61,13 +56,13 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
   
 |Valor JSON|Result|  
 |----------------|------------|  
-|"@pipeline().parameters.myString"| Retorna `foo` como uma cadeia de caracteres.|  
-|"@{pipeline().parameters.myString}"| Retorna `foo` como uma cadeia de caracteres.|  
-|"@pipeline().parameters.myNumber"| Retorna `42` como um *número*.|  
-|"@{pipeline().parameters.myNumber}"| Retorna `42` como uma *cadeia de caracteres*.|  
+|"\@pipeline().parameters.myString}"| Retorna `foo` como uma cadeia de caracteres.|  
+|"\@{pipeline().parameters.myString}"| Retorna `foo` como uma cadeia de caracteres.|  
+|"\@pipeline().parameters.myNumber"| Retorna `42` como um *número*.|  
+|"\@{pipeline().parameters.myNumber}"| Retorna `42` como uma *cadeia de caracteres*.|  
 |"A resposta é: @{pipeline().parameters.myNumber}"| Retorna a cadeia de caracteres `Answer is: 42`.|  
-|"@concat('A resposta é: ', string(pipeline().parameters.myNumber))"| Retorna a cadeia de caracteres `Answer is: 42`|  
-|"A resposta é: @@{pipeline().parameters.myNumber}"| Retorna a cadeia de caracteres `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"\@ concat ('Resposta é:', string (pipeline (). Parameters.myNumber))"| Retorna a cadeia de caracteres `Answer is: 42`|  
+|"A resposta é: \@ @ {pipeline (). Parameters.myNumber}"| Retorna a cadeia de caracteres `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Exemplos
 

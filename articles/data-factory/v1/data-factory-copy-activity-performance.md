@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 27d74ce2cf8fdc4434c48c36dd0c0751dbbab232
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505f7345af6224b767d6d3719c123d91f54e48f5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622305"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054285"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](data-factory-copy-activity-performance.md)
-> * [Versão 2 – Versão prévia](../copy-activity-performance.md)
+> * [Versão 1](data-factory-copy-activity-performance.md)
+> * [ Versão 2 (versão atual) ](../copy-activity-performance.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço Data Factory, que está na versão prévia, consulte o [Guia de desempenho e ajuste da atividade de cópia para o Data Factory versão 2](../copy-activity-performance.md).
+> Este artigo se aplica à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço do Data Factory, consulte [ Copiar o desempenho da atividade e o guia de ajuste para o Data Factory ](../copy-activity-performance.md).
 
 A Atividade de cópia do Azure Data Factory fornece uma solução de dados excelente, segura, confiável e de alto desempenho. Ela permite que você a copie dezenas de terabytes de dados diariamente em uma grande variedade de repositórios de dados na nuvem e locais. Desempenho de carregamento de dados de rápido são a chave para garantir que você possa se concentrar no principal problema de "Big Data": a criação de soluções de análise avançada e obtenção de informações aprofundadas de todos esses dados.
 

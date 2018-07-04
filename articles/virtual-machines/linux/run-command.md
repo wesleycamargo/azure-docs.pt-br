@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 93972c88676cceef07b39b4a4ed34bab5b74cbd3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285749"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334866"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Executar scripts de shell em sua VM Linux com o recurso Executar Comando
 

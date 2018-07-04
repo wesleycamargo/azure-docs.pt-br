@@ -3,16 +3,17 @@ title: Escala horizontal do Azure Analysis Services | Microsoft Docs
 description: Replicar os servidores do Azure Analysis Services com escala horizontal
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 05/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5d1d55a1cf29d6dc3574099cd468c42ccfc72f5b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34597120"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -33,6 +34,22 @@ Quando as operações de processamento são concluídas, a sincronização deve 
 
 > [!NOTE]
 > A escala horizontal não aumenta a quantidade de memória disponível para o servidor. Para aumentar a memória, você precisa atualizar seu plano.
+
+## <a name="region-limits"></a>Limites de região
+
+O número de réplicas de consulta que você pode configurar é limitado pela região em que o seu servidor está. Os limites a seguir se aplicam:
+
+|Região  |Número máximo de réplicas  |
+|---------|---------|
+|Leste dos EUA 2    |    7     |
+|Centro-Oeste dos EUA     |    7     |
+|Europa Ocidental     |    7     |
+|Oeste dos EUA     |     7    |
+|Centro dos EUA     |     3    |
+|Sudeste Asiático    |     3    |
+|Todas as outras regiões  |   1    |
+
+
 
 ## <a name="monitor-qpu-usage"></a>Monitorar o uso de QPU
 

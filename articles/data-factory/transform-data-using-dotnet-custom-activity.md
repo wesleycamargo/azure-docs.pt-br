@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 345ea6f91593e14ff19616f5512916ee77f38486
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2dab0adb0728a1fb5e8ac9bebe01f861ed8c7c3a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619942"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055232"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-use-custom-activities.md)
-> * [Versão 2 – Versão prévia](transform-data-using-dotnet-custom-activity.md)
+> * [Versão 1](v1/data-factory-use-custom-activities.md)
+> * [Versão atual](transform-data-using-dotnet-custom-activity.md)
 
 Há dois tipos de atividades que você pode usar em um pipeline do Azure Data Factory.
 
@@ -30,10 +30,6 @@ Há dois tipos de atividades que você pode usar em um pipeline do Azure Data Fa
 - [Atividades de transformação de dados](transform-data.md) para transformar dados usando serviços de computação como Azure HDInsight, Lote do Azure e Azure Machine Learning. 
 
 Para mover dados de/para um armazenamento de dados sem suporte do Data Factory ou para transformar/processar dados de uma forma que não tenha suporte do Data Factory, você pode criar uma **Atividade personalizada** com a sua própria lógica de movimentação ou de transformação de dados e usar essa atividade em um pipeline. A atividade personalizada executa a sua lógica de código personalizada em um pool de máquinas virtuais do **Lote do Azure**.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Atividade de DotNet na V1 (Personalizado) na versão 1 do Data Factory](v1/data-factory-use-custom-activities.md).
- 
 
 Veja os artigos a seguir se você for novo no serviço de Lote do Azure:
 
@@ -288,7 +284,7 @@ namespace SampleApp
   "failureType": ""
   "target": "MyCustomActivity"
   ```
-Caso deseje consumir o conteúdo de stdout.txt em atividades de downstream, é possível obter o caminho para o arquivo stdout.txt na expressão "@activity('MyCustomActivity').output.outputs[0]". 
+Se você deseja consumir o conteúdo de stdout.txt nas atividades de downstream, você pode obter o caminho para o arquivo stdout.txt na expressão "\@activity('MyCustomActivity').output.outputs [0]". 
 
   > [!IMPORTANT]
   > - O activity.json, o linkedServices.json e o datasets.json são armazenados na pasta de tempo de execução da tarefa Batch. Para esse exemplo, o activity.json, linkedServices.json e o datasets.json são armazenados no caminho "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/". Caso seja necessário, limpe-os separadamente. 
@@ -307,7 +303,7 @@ Caso deseje consumir o conteúdo de stdout.txt em atividades de downstream, é p
   A tabela a seguir descreve as diferenças entre a Atividade Personalizada do Data Factory V2 e a Atividade de DotNet do Data Factory versão 1 (Personalizada): 
 
 
-|Diferenças      |versão 2 da Atividade personalizada      | versão 1 da Atividade do DotNet (personalizada)      |
+|Diferenças      | Atividade personalizada      | versão 1 da Atividade do DotNet (personalizada)      |
 | ---- | ---- | ---- |
 |Como a lógica personalizada é definida      |Fornecendo um executável      |Implementando um DLL do .net      |
 |Ambiente de execução da lógica personalizada      |Windows ou Linux      |Windows (.Net Framework 4.5.2)      |
@@ -318,7 +314,7 @@ Caso deseje consumir o conteúdo de stdout.txt em atividades de downstream, é p
 |Registro em log      |Grava diretamente no STDOUT      |Implementando agente na DLL do .Net      |
 
 
-  Se você tiver um código .Net escrito para uma Atividade DotNet (Personalizada) versão 1, será necessário modificar o código para que ele funcione com a Atividade Personalizada versão 2. Atualize seu código seguindo estas diretrizes de alto nível:  
+  Se você tiver um código de .net criado para uma versão de atividade de DotNet 1 (personalizado), você precisa modificar seu código para funcionar com a versão atual da atividade personalizada. Atualize seu código seguindo estas diretrizes de alto nível:  
 
    - Alterar o projeto de uma biblioteca de classes .NET para um Aplicativo de Console. 
    - Inicie o aplicativo com o método `Main`. O método `Execute` da interface `IDotNetActivity` não é mais necessário. 
@@ -327,7 +323,7 @@ Caso deseje consumir o conteúdo de stdout.txt em atividades de downstream, é p
    - O pacote NuGet Microsoft.Azure.Management.DataFactories não é mais necessário. 
    - Compile seu código, carregue o executável e as dependências para o Armazenamento do Azure e defina o caminho na propriedade `folderPath`. 
 
-Para um exemplo completo de como o exemplo de DLL de ponta a ponta e o pipeline descritos no artigo [Usar atividades personalizadas em um pipeline do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) do Data Factory versão 1 podem ser regravados como Atividade Personalizada do Data Factory versão 2, confira [Exemplo de Atividade Personalizada do Data Factory versão 2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Para obter um exemplo completo de como o exemplo DLL e pipeline de ponta a ponta descritos na versão de fábrica de dados 1 artigo [usar atividades personalizadas em um pipeline da fábrica de dados do Azure](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) pode ser reescrita como uma atividade personalizada de fábrica de dados, consulte [ Exemplo de atividade personalizado de fábrica de dados](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Dimensionamento automático do Lote do Azure
 Você também pode criar um pool de Lotes do Azure com o recurso **autoscale** . Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes. 

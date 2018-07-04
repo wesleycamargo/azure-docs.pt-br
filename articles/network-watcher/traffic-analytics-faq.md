@@ -13,152 +13,260 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a4b87d92751c84d96bc70915d16adae7943c145e
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236392"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062870"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
-1.  Quais são os pré-requisitos para usar a Análise de Tráfego?
+Este artigo coleta em um só lugar muitas das perguntas mais freqüentes sobre análise de tráfego no Observador da Rede do Azure.
 
-    Análise de Tráfego exige os pré-requisitos a seguir:
+## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Quais são os pré-requisitos para usar a análise de tráfego?
 
-    - Uma assinatura habilitada para Observador de Rede
-    - Logs de fluxo do NSG habilitados para os NSGs que deseja monitorar
-    - Uma Conta de Armazenamento do Microsoft Azure para armazenar logs de arquivos brutos
-    - Espaço de trabalho do Log Analytics (OMS), com acesso para gravação e leitura
-    - O usuário deve ser atribuído com uma das seguintes funções no nível de assinatura:
-    
-            All permissions *
-            All Read permissions */read
-            All network permissions Microsoft.Network/*
-            All network read permissions Microsoft.Network/*/read
+A análise de tráfego requer os seguintes pré-requisitos:
 
-    Ou, o usuário deve ser atribuído com todas as funções no nível de assinatura a seguir: 
+- Uma assinatura ativada do Watcher de Rede.
+- Os logs de fluxo do Network Security Group (NSG) habilitados para os NSGs que você deseja monitorar.
+- Uma conta de Armazenamento do Azure, para armazenar logs de flog brutos.
+- Um espaço de trabalho do Azure Log Analytics, com acesso de leitura e gravação.
 
-        - Microsoft.Network/applicationGateways/read
-        - Microsoft.Network/connections/read
-        - Microsoft.Network/loadBalancers/read 
-        - Microsoft.Network/localNetworkGateways/read 
-        - Microsoft.Network/networkInterfaces/read 
-        - Microsoft.Network/networkSecurityGroups/read 
-        - Microsoft.Network/publicIPAddresses/read
-        - Microsoft.Network/routeTables/read
-        - Microsoft.Network/virtualNetworkGateways/read 
-        - Microsoft.Network/virtualNetworks/read
+Sua conta deve atender a uma das seguintes opções para ativar a análise de tráfego:
+
+- Sua conta deve ser atribuída a uma das seguintes funções no nível da assinatura: administrador da conta, administrador do serviço ou co-administrador.
+- Sua conta deve ter qualquer uma das seguintes funções de RBAC (controle de acesso baseado em função) no escopo da assinatura: proprietário, colaborador, leitor ou colaborador de rede.
+- Se sua conta não estiver atribuída a uma das funções listadas anteriormente, ela deverá ser atribuída a uma função personalizada à qual são atribuídas as ações a seguir, no nível da assinatura.
+            
+    - Microsoft.Network/applicationGateways/read
+    - Microsoft.Network/connections/read
+    - Microsoft.Network/loadBalancers/read 
+    - Microsoft.Network/localNetworkGateways/read 
+    - Microsoft.Network/networkInterfaces/read 
+    - Microsoft.Network/networkSecurityGroups/read 
+    - Microsoft.Network/publicIPAddresses/read
+    - Microsoft.Network/routeTables/read
+    - Microsoft.Network/virtualNetworkGateways/read 
+    - Microsoft.Network/virtualNetworks/read
         
-Para verificar as funções atribuídas a um usuário para uma assinatura, siga as etapas abaixo:
+Para verificar funções atribuídas a um usuário para uma inscrição:
 
-Faça logon no Azure usando Login-AzureRmAccount 
+1. Entre no Azure usando **Login-AzureRmAccount**. 
 
-Selecione a assinatura exigida usando Select-AzureRmSubscription 
+2. Selecione a assinatura necessária usando **Select-AzureRmSubscription**. 
 
-Agora, liste todas as funções atribuídas a um usuário especificado usando Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators 
+3. Para listar todas as funções atribuídas a um usuário especificado, use **Get-AzureRmRoleAssignment -SignInName [email do usuário] -IncludeClassicAdministrators**. 
 
-Se você não estiver vendo nenhuma saída após a execução dos comandos, entre em contato com o respectivo administrador de assinatura a fim de obter acesso para executá-los.  
-
-Para saber mais detalhes, confira [Gerenciar o controle de acesso baseado em função com o Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+Se você não estiver vendo nenhuma saída, entre em contato com o administrador da assinatura respectiva para obter acesso para executar os comandos. Para obter mais detalhes, consulte [ Gerenciar controle de acesso baseado em função com o Azure PowerShell ](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
 
 
-2.  Em quais regiões do Azure estão disponíveis a Análise de Tráfego?
+## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Em quais regiões do Azure estão disponíveis análises de tráfego?
 
-    Enquanto estiver em versão prévia, você pode usar a Análise de Tráfego para NSGs em qualquer uma das **regiões com suporte** a seguir: Centro-oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Centro-Norte dos EUA, Centro-Sul dos EUA, EUA Central, Oeste dos EUA, Oeste dos EUA 2, Europa Ocidental, Europa Setentrional, Oeste do Reino Unido, Sul do Reino Unido, Leste da Austrália e Sudeste da Austrália. O espaço de trabalho do Log Analytics deve existir no Centro-oeste dos EUA, Leste dos EUA, Europa Ocidental, Sudeste da Austrália ou a região Sul do Reino Unido.
+Você pode usar análises de tráfego para NSGs em qualquer uma das seguintes regiões suportadas: centro-oeste dos EUA, leste dos EUA, leste dos EUA 2, centro-norte dos EUA, centro-sul dos EUA, centro dos EUA, oeste dos EUA, oeste dos EUA 2, Europa Ocidental, norte da Europa Reino Unido Oeste, Reino Unido Sul, Austrália Leste, Austrália Sudeste e Sudeste Asiático. O espaço de trabalho do Log Analytics deve existir na região Oeste Central dos EUA, Leste dos EUA, Europa Ocidental, Reino Unido do Sul, Austrália, Sudeste ou região do Sudeste Asiático.
 
-3.  Os NSGs que eu habilitei os logs de fluxo podem estar em regiões diferentes do meu Espaço de Trabalho OMS?
+## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Os NSGs para os quais eu habilito logs de fluxo podem estar em regiões diferentes da minha área de trabalho?
 
-    sim
+Sim, esses NSGs podem estar em regiões diferentes do seu espaço de trabalho do Log Analytics.
 
-4.  Vários NSGs podem ser configurados dentro de um único espaço de trabalho?
+## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>Vários NSGs podem ser configurados dentro de um único espaço de trabalho?
 
-    sim
+Sim.
 
-5.  É possível utilizar um Espaço de Trabalho OMS existente?
+## <a name="can-i-use-an-existing-workspace"></a>Posso usar um espaço de trabalho existente?
 
-    Sim, se você selecionar um espaço de trabalho existente, certifique-se de que ele foi migrado para a nova linguagem de consulta. Se você não quiser atualizar o espaço de trabalho, será necessário criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md).
+Sim. Se você selecionar um espaço de trabalho existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o espaço de trabalho, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md).
 
-6.  A minha Conta de Armazenamento do Microsoft Azure pode estar em uma assinatura e meu Espaço de Trabalho OMS estar em uma assinatura diferente?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Minha conta de armazenamento do Azure pode estar em uma assinatura e meu espaço de trabalho do Operations Management Suite estar em uma assinatura diferente?
 
-    sim
+Sim, sua conta do Armazenamento do Azure pode estar em uma assinatura e sua área de trabalho do Operations Management Suite pode estar em uma assinatura diferente.
 
-7.  É possível armazenar logs brutos em Conta de Armazenamento diferente, em assinatura diferente?
+## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso armazenar logs brutos em uma assinatura diferente?
 
-    Nº Você pode armazenar logs brutos em qualquer conta de armazenamento onde um NSG esteja habilitado para logs de fluxo, no entanto, tanto a conta de armazenamento quanto os logs brutos devem estar na mesma assinatura e região.
+Não. Você pode armazenar logs brutos em qualquer conta de armazenamento em que um NSG está habilitado para logs de fluxo. No entanto, a conta de armazenamento e os logs brutos devem estar na mesma assinatura e região.
 
-8.  Se eu receber um erro "Não encontrado" ao configurar um NSG para Análise de Tráfego, como poderei resolver isso?
+## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>E se eu não conseguir configurar um NSG para análise de tráfego devido a um erro "Não encontrado"?
 
-    Selecione uma região com suporte listada na pergunta 2. Se você selecionar uma região sem suporte, receberá um erro "Não encontrado".
+Selecione uma região suportada. Se você selecionar uma região sem suporte, receberá um erro "Não encontrado". As regiões suportadas são listadas anteriormente neste artigo.
 
-9.  Nos logs de fluxo do NSG estou recebendo o status de NSG como "Falha ao Carregar", o que fazer em seguida?
+## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>E se eu estiver recebendo o status "Falha ao carregar" na página de logs de fluxo do NSG?
 
-    O provedor Microsoft.Insights deve estar registrado para que o log de fluxo funcione corretamente. Se você não tiver certeza se o provedor Microsoft.Insights está registrado ou não para sua assinatura, substitua *xxxxx-xxxxx-xxxxxx-xxxx* no seguinte comando e, em seguida, execute os comandos do PowerShell a seguir:
+O provedor Microsoft.Insights deve estar registrado para que o log de fluxo funcione corretamente. Se você não tiver certeza se o provedor Microsoft.Insights está registrado para sua assinatura, substitua *xxxxx-xxxxx-xxxxxx-xxxx* no seguinte comando e execute os seguintes comandos do PowerShell:
 
-    ```powershell-interactive
-    **Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-    **Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
-    ```
+```powershell-interactive
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+```
 
-10. Configurei a solução. Por que não visualizo nada no painel?
+## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Configurei a solução. Por que não visualizo nada no painel?
 
-    O painel pode levar até 30 minutos para aparecer pela primeira vez. Primeiro, a solução deverá agregar dados suficientes para que ele obtenha informações relevantes antes que qualquer relatório seja gerado. 
+O painel pode levar até 30 minutos para aparecer pela primeira vez. A solução deve primeiro agregar dados suficientes para obter insights significativos. Então gera relatórios. 
 
-11.  Se eu receber a mensagem a seguir: "Não foi possível localizar dados nesse espaço de trabalho para o intervalo de tempo selecionado. Tente alterar o intervalo de tempo ou selecione um espaço de trabalho diferente", como faço para resolver isso?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>E se eu receber esta mensagem: “Não conseguimos encontrar nenhum dado nesta área de trabalho para o intervalo de tempo selecionado. Tente alterar o intervalo de tempo ou selecione um espaço de trabalho diferente. ”?
 
-        Experimente as opções a seguir:
-        - Tente alterar o intervalo de tempo na barra superior.
-        - Selecione um espaço de trabalho do Log Analytics diferente na barra superior
-        - Tente acessar a Análise de Tráfego após 30 minutos, se tiver sido habilitada recentemente
+Experimente as opções a seguir:
+- Altere o intervalo de tempo na barra superior.
+- Selecione uma área de trabalho do Log Analytics diferente na barra superior.
+- Tente acessar a análise de tráfego após 30 minutos, se ela foi ativada recentemente.
     
-        Se os problemas persistirem, manifeste as preocupações no [Fórum Voz do Usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Se os problemas persistirem, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-12.  Se eu receber a mensagem a seguir: "1) Analisando seus logs de fluxo NSG pela primeira vez. Esse processo pode demorar de 20 a 30 minutos para ser concluído. Verifique novamente após algum tempo. 2) Se a etapa acima não funcionar e seu espaço de trabalho estiver sob a SKU gratuita, então, verifique o uso de espaço de trabalho aqui para validar a quota, caso contrário consulte as perguntas frequentes para obter mais informações", como faço para resolver isso?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>E se eu receber esta mensagem: “Analisando seus logs de fluxo NSG pela primeira vez. Esse processo pode demorar de 20 a 30 minutos para ser concluído. Verifique novamente após algum tempo. 2) Se a etapa acima não funcionar e sua área de trabalho estiver sob o SKU gratuito, verifique aqui o uso do seu espaço de trabalho para validar a cota, caso contrário, consulte as Perguntas frequentes para obter mais informações. ”
 
-        Você pode receber o erro pelos seguintes motivos:
-        - A Análise de tráfego pode ter sido habilitada recentemente e pode não estar agregando dados suficientes para derivar insights significantes.
-        - Seu espaço de trabalho OMS está sob a SKU gratuita e violou os limites de cota. Nesse caso, será necessário utilizar um espaço de trabalho em uma SKU com capacidade maior.
+Você pode ver esta mensagem porque:
+- A análise de tráfego foi ativada recentemente e pode ainda não ter agregado dados suficientes para obter insights significativos.
+- Você está usando a versão gratuita do espaço de trabalho do Operations Management Suite e excedeu os limites de cota. Pode ser necessário usar um espaço de trabalho com uma capacidade maior.
     
-        Se os problemas persistirem, manifeste as preocupações no [Fórum Voz do Usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Se os problemas persistirem, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-13.  Se eu receber a seguinte mensagem: "Parece que há dados do recurso (Topologia) e nenhuma informação de fluxo. Enquanto isso, clique aqui para ver os dados do recurso e consulte as perguntas frequentes para obter mais informações", como faço para resolver isso?
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>E se eu receber esta mensagem: “Parece que temos dados de recursos (Topologia) e nenhuma informação de fluxos. Enquanto isso, clique aqui para ver os dados de recursos e consulte as perguntas frequentes para obter mais informações ”?
 
-        Você está vendo a informação de recursos no painel, no entanto, não há estatísticas relacionadas ao fluxo presentes. Os dados podem estar ausentes porque não há fluxo de comunicação entre os recursos. Aguarde 60 minutos e verifique o status novamente. Se você tiver certeza de que a comunicação flui entre os recursos, então, manifeste as preocupações no [Fórum Voz do Usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Você está vendo a informação de recursos no painel, no entanto, não há estatísticas relacionadas ao fluxo presentes. Os dados podem não estar presentes porque não há fluxos de comunicação entre os recursos. Aguarde 60 minutos e volte a verificar o estado. Se o problema persistir e você tiver certeza de que existem fluxos de comunicação entre recursos, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14. Posso Configurar a análise de tráfego usando o PowerShell ou um modelo do Gerenciador de recursos do Azure?
+## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Posso configurar a análise de tráfego usando o PowerShell ou um modelo ou cliente do Azure Resource Manager?
 
-Sim, configuração de análise de tráfego usando o Windows PowerShell é compatível com a versão 6.2.1 e posteriores; no entanto, o modelo do Azure Resource Manager não está disponível no momento. Para saber mais informações sobre como o PowerShell pode ser usado para configurar a análise de tráfego, confira a seguinte [documentação](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
+Você pode configurar a análise de tráfego usando o Windows PowerShell a partir da versão 6.2.1. Para configurar o log de fluxo e a análise de tráfego para um NSG específico usando o cmdlet Set, consulte [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.3.0). Para obter o log de fluxo e o status de análise de tráfego para um NSG específico, consulte [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus?view=azurermps-6.3.0).
 
-15.  Como a Análise de Tráfego é precificada?
+Atualmente, você não pode usar um modelo do Azure Resource Manager para configurar a análise de tráfego.
 
-A análise de tráfego é medida em relação aos dados processados de log do fluxo pelo serviço e ao armazenamento resultante dos logs aprimorados em um espaço de trabalho do Log Analytics. Para saber mais sobre os preços do plano, [clique aqui](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
+Para configurar a análise de tráfego usando um cliente do Azure Resource Manager, consulte os exemplos a seguir.
 
-16.  Como posso navegar usando o Teclado na Exibição do Mapa Geográfico?
+**Definir exemplo de cmdlet:**
+```
+#Requestbody parameters
+$TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
+$TAstorageId = "/subscriptions/<storage subscription id>/resourcegroups/<storage resource group name> /providers/microsoft.storage/storageaccounts/<storage account name>"
+$networkWatcherResourceGroupName = "<network watcher resource group name>"
+$networkWatcherName = "<network watcher name>"
 
-        A página do mapa geográfico contém duas seções principais:
-    
-        - **Faixa**: a faixa posicionada na parte superior do Mapa Geográfico fornece a capacidade de selecionar filtros de distribuição de tráfego por meio de botões como Implantação/Sem Implantação/Ativo/Inativo/Análise de Tráfego Habilitada/Análise de Tráfego não habilitada/Tráfego de países/Tráfego mal-intencionado permitido/Mal-intencionado/Benigno e informações de legenda. Na seleção dos botões definidos, o respectivo filtro é aplicado no Mapa, como se um usuário selecionasse o botão de filtro "Ativo" sob a faixa, então, o mapa destaca os datacenters "ativos" na implantação.
-        - **Mapa**: a seção Mapa posicionada abaixo da faixa mostra a distribuição de tráfego entre os países de datacenters do Azure.
-    
-        **Navegação do teclado na Faixa**
-    
-        - Por padrão, a seleção na página do mapa geográfico para a faixa é o botão "Azure DCs" do filtro.
-        - Para navegar até outro botão de filtros, é possível utilizar a tecla `Tab` ou `Right arrow` para mover para o próximo. Para navegação regressiva, utilize a tecla `Shift+Tab` ou a `Left arrow`. A precedência de direção da navegação progressiva é da esquerda para a direita, seguida de cima para baixo.
-        - Pressione a tecla de seta `Enter` ou `Down` para aplicar o filtro selecionado. Com base na implantação e seleção de filtro, um ou vários nós na seção Mapa são destacados.
-            - Para alternar entre a **Faixa** e o **Mapa**, pressione `Ctrl+F6`.
+$requestBody = 
+@"
+{
+    'targetResourceId': '${TAtargetUri}',
+    'properties': 
+    {
+        'storageId': '${TAstorageId}',
+        'enabled': '<true to enable flow log or false to disable flow log>',
+        'retentionPolicy' : 
+        {
+            days: <enter number of days like to retail flow logs in storage account>,
+            enabled: <true to enable retention or false to disable retention>
+        }
+    },
+    'flowAnalyticsConfiguration':
+    {
+                'networkWatcherFlowAnalyticsConfiguration':
+      {
+        'enabled':,<true to enable traffic analytics or false to disable traffic analytics>
+        'workspaceId':'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb',
+        'workspaceRegion':'<workspace region>',
+        'workspaceResourceId':'/subscriptions/<workspace subscription id>/resourcegroups/<workspace resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
         
-        **Navegação do teclado no Mapa**
+      }
+
+    }
+}
+"@
+$apiversion = "2016-09-01"
+
+armclient login
+armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
+```
+**Obtenha um exemplo de cmdlet:**
+```
+#Requestbody parameters
+$TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
+
+
+$requestBody = 
+@"
+{
+    'targetResourceId': '${TAtargetUri}'
+}
+“@
+
+
+armclient login
+armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/queryFlowLogStatus?api-version=${apiversion}" $requestBody
+```
+
+
+
+## <a name="how-is-traffic-analytics-priced"></a>Como a Análise de Tráfego é precificada?
+
+A análise de tráfego é medida. A medição é baseada no processamento de dados de log de fluxo pelo serviço e no armazenamento dos logs aprimorados resultantes em um espaço de trabalho do Log Analytics. Para mais detalhes, consulte o [plano de preços](https://azure.microsoft.com/en-us/pricing/details/network-watcher/). 
+
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Como posso navegar usando o teclado na vista de mapa geográfico?
+
+A página do mapa geográfico contém duas seções principais:
     
-        - Após selecionar qualquer filtro na faixa e pressionar `Ctrl+F6`, o foco move-se para um dos nós destacados (**Datacenter do Azure** ou **País/Região**) na exibição do mapa.
-        - Para navegar até outros nós destacados no mapa, é possível utilizar as teclas `Tab` ou `Right arrow` para movimento progressivo e a `Shift+Tab` ou `Left arrow` para movimento regressivo.
-        - Para selecionar qualquer nó destacado no mapa, utilize a tecla `Enter` ou `Down arrow`.
-        - Na seleção de quaisquer desses nós, o foco move-se para a **Caixa de Ferramentas de Informações** do nó. Por padrão, o foco move-se para o botão próximo à **Caixa de Ferramentas de Informações**. Para uma navegação detalhada na exibição da **Caixa**, utilize as teclas `Right` e `Left arrow` para avançar e retroceder, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão com foco na **Caixa de Ferramentas de Informações**.
-        - Pressionar `Tab` enquanto o foco está na **Caixa de Ferramentas de Informações**, o foco move-se para os pontos de extremidade no mesmo continente que o nó selecionado. É possível utilizar as teclas `Right` e `Left arrow` para navegar por esses pontos de extremidade.
-        - Para navegar até outros pontos de extremidade de fluxo/cluster de continentes, utilize `Tab` para movimento progressivo e `Shift+Tab` para movimento regressivo.
-        - Quando o foco estiver em `Continent clusters`, utilize as teclas de seta `Enter` ou `Down` para destacar os pontos de extremidade dentro do cluster do continente. Para navegar através dos pontos de extremidade e o botão próximo à caixa de informações do cluster do continente, utilize a tecla `Right` ou `Left arrow` para movimento progressivo e regressivo, respectivamente. Em qualquer ponto de extremidade você poderá utilizar `Shift+L` para alternar para a linha de conexão do nó selecionado para o ponto de extremidade. Pressionar `Shift+L` novamente o navega até o ponto de extremidade selecionado.
+- **Banner**: o banner na parte superior do mapa geográfico fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, Implantação, Tráfego de países e Malicioso). Quando você seleciona um botão, o respectivo filtro é aplicado no mapa. Por exemplo, se você selecionar o botão Ativo, o mapa destacará os datacenters ativos em sua implantação.
+- **Mapa**: abaixo do banner, a seção do mapa mostra a distribuição de tráfego entre os datacenters e países do Azure.
+    
+### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner
+    
+- Por padrão, a seleção na página de mapa geográfico do banner é o filtro "Azure DCs".
+- Para ir para outro filtro, use a tecla `Tab` ou `Right arrow`. Para retroceder, use a tecla `Shift+Tab` ou a `Left arrow`tecla.
+ A navegação para frente é da esquerda para a direita, seguida de cima para baixo.
+- Pressione `Enter` ou a `Down` tecla de seta para aplicar o filtro selecionado. Com base na seleção e na implantação do filtro, um ou vários nós na seção do mapa são realçados.
+- Para alternar entre banner e mapa, pressione `Ctrl+F6`.
         
-        Em qualquer estágio:
+### <a name="keyboard-navigation-on-the-map"></a>Navegação do teclado no mapa
     
-        - `ESC` recolhe a seleção expandida.
-        - A tecla `UP Arrow` realiza a mesma ação que `ESC`. A tecla `Down arrow` realiza a mesma ação que `Enter`.
-        - Utilize `Shift+Plus` para ampliar e `Shift+Minus` para reduzir.
+- Depois de selecionar qualquer filtro no banner e pressionar `Ctrl+F6`, o foco será movido para um dos nós destacados (**datacenter do Azure** ou **País / Região**) na exibição do mapa.
+- Para mover para outros nós destacados no mapa, use `Tab` ou a tecla `Right arrow` para o movimento de avanço. Use `Shift+Tab` ou a tecla `Left arrow` para movimento para trás.
+- Para selecionar qualquer nó destacado no mapa, utilize a tecla `Enter` ou `Down arrow`.
+- Na seleção de quaisquer desses nós, o foco move-se para a **Caixa de Ferramentas de Informações** do nó. Por padrão, o foco move-se para o botão próximo à **Caixa de Ferramentas de Informações**. Para mover-se ainda mais dentro da visão **Box**, use as teclas `Right arrow` e `Left arrow` para avançar e voltar, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão com foco na **Caixa de Ferramentas de Informações**.
+- Quando você pressiona `Tab` enquanto o foco está na  **Caixa de Ferramentas de Informações**, o foco se move para os pontos finais no mesmo continente que o nó selecionado. Use as teclas `Right arrow` e `Left arrow` para percorrer esses endpoints.
+- Para mover para outros pontos finais de fluxo ou clusters continentais, use `Tab` para o movimento de avanço e `Shift+Tab` para o movimento de retrocesso.
+- Quando o foco estiver em **Continent clusters**, use as teclas de seta `Enter` ou `Down` para realçar os pontos de extremidade dentro do cluster do continente. Para percorrer os endpoints e o botão fechar na caixa de informações do cluster do continente, use a tecla `Right arrow` ou `Left arrow` para o movimento de avanço e retrocesso, respectivamente. Em qualquer ponto de extremidade você poderá utilizar `Shift+L` para alternar para a linha de conexão do nó selecionado para o ponto de extremidade. Você pode pressionar `Shift+L` novamente para ir para o terminal selecionado.
+        
+### <a name="keyboard-navigation-at-any-stage"></a>Navegação do teclado em qualquer estágio
+    
+- `Esc` recolhe a seleção expandida.
+- A tecla `Up arrow` realiza a mesma ação que `Esc`. A tecla `Down arrow` realiza a mesma ação que `Enter`.
+- Utilize `Shift+Plus` para ampliar e `Shift+Minus` para reduzir.
+
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Como posso navegar usando o teclado na exibição de topologia de rede virtual?
+
+A página de topologia de redes virtuais contém duas seções principais:
+    
+- **Banner**: o banner na parte superior da topologia de redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, redes virtuais conectadas, redes virtuais desconectadas e IPs públicos). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão Ativo, a topologia destacará as redes virtuais ativas em sua implantação.
+- **Topologia**: abaixo do banner, a seção de topologia mostra a distribuição de tráfego entre as redes virtuais.
+    
+### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner
+    
+- Por padrão, a seleção na página de topologia de redes virtuais para o banner é o filtro “Conectado VNets”.
+- Para ir para outro filtro, use a tecla `Tab` para avançar. Para retroceder, use a tecla `Shift+Tab`. A navegação para frente é da esquerda para a direita, seguida de cima para baixo.
+- Pressione `Enter` para aplicar o filtro selecionado. Com base na seleção e na implantação do filtro, um ou vários nós (rede virtual) na seção de topologia são realçados.
+- Para alternar entre o banner e a topologia, pressione `Ctrl+F6`.
+        
+### <a name="keyboard-navigation-on-the-topology"></a>Navegação do teclado na topologia
+    
+- Depois de selecionar qualquer filtro no banner e pressionar `Ctrl+F6`, o foco é movido para um dos nós destacados (**VNet**) na visualização de topologia.
+- Para mover para outros nós destacados na visualização de topologia, use a tecla `Shift+Right arrow` para o movimento de avanço. 
+- Em nós realçados, o foco é movido para a **Caixa de Ferramentas de Informações** para o nó. Por padrão, o foco é movido para o botão **Mais detalhes** na **Caixa de ferramentas de informações**. Para mover-se ainda mais dentro da visão **Box**, use as teclas `Right arrow` e `Left arrow` para mover para frente e para trás, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão com foco na **Caixa de Ferramentas de Informações**.
+- Na seleção de qualquer desses nós, você pode visitar todas as suas conexões, uma a uma, pressionando a tecla `Shift+Left arrow`. O foco se move para a **Caixa de ferramentas de informações** dessa conexão. A qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.
+    
+
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-subnet-topology-view"></a>Como posso navegar usando o teclado na exibição de topologia de sub-rede?
+
+A página de topologia de sub-redes virtuais contém duas seções principais:
+    
+- **Banner**: o banner na parte superior da topologia de sub-redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, sub-redes Ativas, Médias e de Gateway). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão Ativo, a topologia destacará a sub-rede virtual ativa em sua implantação.
+- **Topologia**: abaixo do banner, a seção de topologia mostra a distribuição de tráfego entre as sub-redes virtuais.
+    
+### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner
+    
+- Por padrão, a seleção na página de topologia das sub-redes virtuais para o banner é o filtro "Sub-redes".
+- Para ir para outro filtro, use a tecla `Tab` para avançar. Para retroceder, use a tecla `Shift+Tab`. A navegação para frente é da esquerda para a direita, seguida de cima para baixo.
+- Pressione `Enter` para aplicar o filtro selecionado. Com base na seleção e na implantação de filtros, um ou vários nós (Sub-rede) na seção de topologia são realçados.
+- Para alternar entre o banner e a topologia, pressione `Ctrl+F6`.
+        
+### <a name="keyboard-navigation-on-the-topology"></a>Navegação do teclado na topologia
+    
+- Depois de selecionar qualquer filtro no banner e pressionar `Ctrl+F6`, o foco se moverá para um dos nós destacados (**Sub-rede**) na visualização de topologia.
+- Para mover para outros nós destacados na visualização de topologia, use a tecla `Shift+Right arrow` para o movimento de avanço. 
+- Em nós realçados, o foco é movido para a **Caixa de Ferramentas de Informações** para o nó. Por padrão, o foco é movido para o botão **Mais detalhes** na **Caixa de ferramentas de informações**. Para mover-se ainda mais dentro da visão **Box**, use as teclas `Right arrow` e `Left arrow` para avançar e voltar, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão com foco na **Caixa de Ferramentas de Informações**.
+- Na seleção de tais nós, você pode visitar todas as suas conexões, uma a uma, pressionando a tecla `Shift+Left arrow`. O foco se move para a **Caixa de ferramentas de informações** dessa conexão. A qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.    
+

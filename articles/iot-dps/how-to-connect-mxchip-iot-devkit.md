@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 331e589aadf783fc40ab6efbfb554469c27e48d8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5030c7363d02fe9600183e058f2ff3cc23e9475
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629670"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750359"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Use o provisionamento automático do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para registrar o MXChip IoT DevKit com o Hub IoT
 
@@ -115,6 +115,17 @@ Para salvar o unique device secret no Kit de Desenvolvimento:
    - deixe o restante como padrão e clique em **Salvar**
 
    ![Carregar um certificado](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+
+  > [!NOTE]
+  > Se houver um erro com esta mensagem:
+  >
+  > `{"message":"BadRequest:{\r\n \"errorCode\": 400004,\r\n \"trackingId\": \"1b82d826-ccb4-4e54-91d3-0b25daee8974\",\r\n \"message\": \"The certificate is not a valid base64 string value\",\r\n \"timestampUtc\": \"2018-05-09T13:52:42.7122256Z\"\r\n}"}`
+  >
+  > Abra o arquivo de certificado **.pem** como texto (abra com o Bloco de Notas ou qualquer editor de texto) e exclua as linhas:
+  >
+  > `"-----BEGIN CERTIFICATE-----"` e `"-----END CERTIFICATE-----"`.
+  >
+
 
 ## <a name="start-the-devkit"></a>Iniciar o DevKit
 

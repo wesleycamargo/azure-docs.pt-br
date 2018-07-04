@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 276e53784b30c2196ad7455cf9fd801a103fdc30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 719506e35e6abe5ac573c7ceedc1668fd2704bd4
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590847"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961682"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerenciar e personalizar os Serviços de Federação do Active Directory usando o Azure AD Connect
 Este artigo descreve como gerenciar e personalizar os Serviços de Federação do Active Directory (AD FS) usando o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas comuns do AD FS que você pode precisar realizar para obter uma configuração completa de um farm do AD FS.
@@ -246,31 +246,8 @@ Nessa regra, você simplesmente verifica o sinalizador temporário **idflag**. V
 > A sequência dessas regras é importante.
 
 ### <a name="sso-with-a-subdomain-upn"></a>SSO com um subdomínio UPN
-Você pode adicionar mais de um domínio a ser federado usando o Azure AD Connect, conforme descrito em [Adicionar um novo domínio federado](active-directory-aadconnect-federation-management.md#addfeddomain). Você deve modificar a declaração de nome UPN para que a ID do emissor corresponda ao domínio raiz e não ao subdomínio, pois o domínio raiz federado também abrange o filho.
 
-Por padrão, a regra da declaração da ID do emissor é definida como:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Declaração de ID do emissor padrão](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-A regra padrão simplesmente usa o sufixo do UPN na declaração da ID do emissor. Por exemplo, John é um usuário em sub.contoso.com e contoso.com é federado com o Azure AD. João insere john@sub.contoso.com como o nome de usuário ao entrar no Azure AD. A regra de declaração de ID de emissor padrão no AD FS lida com isso da seguinte maneira:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**Valor da declaração:** http://sub.contoso.com/adfs/services/trust/
-
-Para ter apenas o domínio raiz no valor de declaração do emissor, altere a regra de declaração para corresponder ao seguinte:
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+Você pode adicionar mais de um domínio a ser federado usando o Azure AD Connect, conforme descrito em [Adicionar um novo domínio federado](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect versão  1.1.553.0 e mais recente cria a regra de reivindicação correta para issuerID automaticamente. Se você não puder usar o Azure AD Connect versão 1.1.553.0 ou mais recente, é recomendável que a ferramenta [ Regras de Declaração do Azure AD RPT ](https://aka.ms/aadrptclaimrules) seja usada para gerar e definir regras de declaração corretas para a confiança da terceira parte do Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre as [opções de entrada do usuário](active-directory-aadconnect-user-signin.md).
