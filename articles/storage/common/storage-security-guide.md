@@ -3,17 +3,17 @@ title: Guia de segurança do Armazenamento do Azure | Microsoft Docs
 description: Detalha os vários métodos de proteger o Armazenamento do Azure, incluindo, entre outros, RBAC, Criptografia do Serviço de Armazenamento, Criptografia do Cliente, SMB 3.0 e Azure Disk Encryption.
 services: storage
 author: craigshoemaker
-manager: jeconnoc
+manager: twooley
 ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: ba008a86f76a526967bb9dab6ba37043a85f5cf3
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 3c45375a46ee7896509f061828720bcf465aded7
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304127"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342463"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do Armazenamento do Azure
 
@@ -154,7 +154,6 @@ Observação: é recomendável usar apenas uma das chaves em todos os aplicativo
 * [Operations on storage accounts (Operações nas contas de armazenamento)](https://msdn.microsoft.com/library/ee460790.aspx)
 
   Esse artigo na Referência da API REST do Gerenciador de Serviço de Armazenamento contém links para artigos específicos sobre recuperação e regeneração das chaves da conta de armazenamento usando a API REST. Observação: isso se aplica às contas de armazenamento da implantação Clássica.
-* [Say goodbye to key management – manage access to Azure Storage data using Azure AD (Diga adeus ao gerenciamento de chaves – gerencie o acesso aos dados do Armazenamento do Azure usando o Azure AD)](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
 
   Esse artigo mostra como usar o Active Directory para controlar o acesso às chaves de Armazenamento do Microsoft Azure no Cofre de Chaves do Azure. Ele também mostra como usar um trabalho de Automação do Azure para regenerar as chaves por hora.
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2018
+ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 86b57a82573760ac73975e851b2bb4caf769845b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1e7eb3a0098dc27b6f3c47d8d4848b2b9b5f7e61
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308553"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447533"
 ---
 # <a name="what-is-baseline-protection---preview"></a>O que é proteção de linha de base? - versão prévia  
 
@@ -51,7 +51,7 @@ Usuários com acesso a contas privilegiadas têm acesso irrestrito a seu ambient
 
 ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
 
-Essa política de linha de base fornece a opção de excluir usuários e grupos. Você pode querer excluir uma *[ conta administrativa de acesso de emergência ](active-directory-admin-manage-emergency-access-accounts.md)* para garantir que você não seja bloqueado pelo locatário.
+Essa política de linha de base fornece a opção de excluir usuários e grupos. Você pode querer excluir uma *[ conta administrativa de acesso de emergência ](users-groups-roles/directory-emergency-access.md)* para garantir que você não seja bloqueado pelo locatário.
 
 
 ## <a name="enable-a-baseline-policy"></a>Habilitar uma política de linha de base 
@@ -67,9 +67,9 @@ Enquanto as políticas de linha de base estão em visualização, por padrão, e
 
     ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
 
-3. Na página **Azure Active Directory**, na seção **Gerenciar**, clique em **Acesso condicional**.
+3. Na página do **Active Directory do Azure**, na seção **Segurança**, clique em **Acesso condicional**.
 
-    ![Acesso condicional](./media/active-directory-conditional-access-baseline-protection/03.png)
+    ![Acesso condicional](./media/active-directory-conditional-access-baseline-protection/05.png)
 
 4. Na lista de políticas, clique em uma política que começa com **Política de linha de base:**. 
 

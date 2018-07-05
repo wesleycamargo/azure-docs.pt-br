@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359621"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441566"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos
 
@@ -47,7 +47,7 @@ Para concluir este artigo, você deve ter permissões suficientes para registrar
 
    ![exibir registros de aplicativo](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Se a configuração de registros de aplicativo estiver definida como **Não**, somente os [administradores globais](../active-directory/active-directory-assign-admin-roles-azure-portal.md) poderão registrar aplicativos. Verifique se sua conta é de administrador para o locatário do Azure AD. Selecione **Visão geral** e examine as informações do usuário. Se a conta estiver atribuída com a função de usuário, mas a configuração de registro de aplicativo (da etapa anterior) estiver limitada a usuários administradores, peça ao administrador para atribuir a você a função de administrador global ou para permitir que os usuários registrem aplicativos.
+1. Se a configuração de registros de aplicativo estiver definida como **Não**, somente os [administradores globais](../active-directory/users-groups-roles/directory-assign-admin-roles.md) poderão registrar aplicativos. Verifique se sua conta é de administrador para o locatário do Azure AD. Selecione **Visão geral** e examine as informações do usuário. Se a conta estiver atribuída com a função de usuário, mas a configuração de registro de aplicativo (da etapa anterior) estiver limitada a usuários administradores, peça ao administrador para atribuir a você a função de administrador global ou para permitir que os usuários registrem aplicativos.
 
    ![localizar usuário](./media/resource-group-create-service-principal-portal/view-user-info.png)
 

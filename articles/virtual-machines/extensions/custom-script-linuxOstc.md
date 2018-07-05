@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: eac64a5b456eb040bcb1ac01c3c86dfde0847e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 526021ca238be7bc934e639c34d3e49879279a6a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944918"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127645"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usar a Versão 1 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
 A Versão 1 da Extensão de Script Personalizado faz o download e executa scripts em máquinas virtuais do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Você pode fazer o download de scripts a partir do Armazenamento do Microsoft Azure ou outro local acessível da internet, ou você pode fornecê-los para o tempo de execução da extensão. 
@@ -34,7 +34,7 @@ Há duas Extensões do Script Personalizado do Linux:
 * Versão 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * Versão 2 - Microsoft.Azure.Extensions.CustomScript
 
-Por favor troque as implantações novas e existentes para usar a nova versão ([Microsoft.Azure.Extensions.CustomScript](\custom-script-linux.md)) em vez disso. A nova versão tem o objetivo de ser uma substituição perfeita. Assim, a migração é tão fácil quanto alterar o nome e versão. Você não precisa alterar a configuração de extensão.
+Por favor troque as implantações novas e existentes para usar a nova versão ([Microsoft.Azure.Extensions.CustomScript](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux)) em vez disso. A nova versão tem o objetivo de ser uma substituição perfeita. Assim, a migração é tão fácil quanto alterar o nome e versão. Você não precisa alterar a configuração de extensão.
 
  
 

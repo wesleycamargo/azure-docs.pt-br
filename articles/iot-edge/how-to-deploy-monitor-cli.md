@@ -9,12 +9,12 @@ ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 705f7bfa62154bff62b2357bd8f33c01e97404d1
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 3dfb0fe0227fdd0ff1a43cb7b0a89eb9d3e066f4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034257"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097930"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implantar e monitorar módulos do IoT Edge em escala usando a CLI do Azure
 
@@ -31,7 +31,7 @@ Neste artigo, que você configura a CLI 2.0 do Azure e a extensão de IoT. Em se
 * Um [Hub IoT](../iot-hub/iot-hub-create-using-cli.md) na assinatura do Azure. 
 * [Dispositivos do IoT Edge](how-to-register-device-cli.md) com o tempo de execução do IoT Edge instalado.
 * [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. A versão 2.0 da CLI do Azure deve ser 2.0.24 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
-* A [extensão do IoT para CLI 2.0 do Azure](https://github.com/Azure/azure-iot-cli-extension).
+* [Extensão de IoT para CLI 2.0 do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
@@ -65,7 +65,7 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
                  "edgeAgent": {
                    "type": "docker",
                    "settings": {
-                     "image": "microsoft/azureiotedge-agent:1.0-preview",
+                     "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
                      "createOptions": "{}"
                    }
                  },
@@ -74,7 +74,7 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
                    "status": "running",
                    "restartPolicy": "always",
                    "settings": {
-                     "image": "microsoft/azureiotedge-hub:1.0-preview",
+                     "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
                      "createOptions": "{}"
                    }
                  }

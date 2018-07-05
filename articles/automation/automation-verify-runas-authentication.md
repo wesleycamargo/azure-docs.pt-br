@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c1ac698a1774a7a6242506ec65193434bb81cc25
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: af1d05c171eb5544104b12aebb6c7be937061f6a
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598762"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437171"
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Como testar a autenticação da conta Executar como de Automação do Azure
 Depois que uma conta de automação é criada com êxito, você pode executar um teste simples para confirmar que você é capaz de autenticar com êxito no Azure Resource Manager ou na implantação clássica do Azure usando sua conta Executar como de Automação recém-criada ou atualizada.    
@@ -63,7 +63,7 @@ Use o exemplo de código abaixo para [criar um runbook do PowerShell](automation
 Observe que o cmdlet usado para autenticação no runbook - **Connect-AzureRmAccount**, usa o conjunto de parâmetros *ServicePrincipalCertificate*.  Ele se autentica usando o certificado de entidade de serviço, não as credenciais.  
 
 > [!IMPORTANT]
-> **Connect-AzureRmAccount** agora é um alias para **Connect-AzureRMAccount**. Se **Connect-AzureRMAccount** não aparecer, você poderá usar **Add-AzureRmAccount** ou atualizar seus módulos em sua conta de automação.
+> **Connect-AzureRmAccount** agora é um alias para **Connect-AzureRMAccount**. Ao pesquisar sua biblioteca de itens, se você não vir **Connect-AzureRMAccount**, você pode usar **Connect-AzureRmAccount**, ou você pode atualizar seus módulos em sua Conta de Automação.
 
 Quando você [executa o runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) para validar sua conta Executar como, um [trabalho de runbook](automation-runbook-execution.md) é criado, a folha trabalho é exibida e o status do trabalho é mostrado no bloco **Resumo do Trabalho**. O status do trabalho será iniciado como *Na fila* , indicando que ele está aguardando um runbook worker ficar disponível na nuvem. Mudará para *Iniciando* quando um trabalhador reivindicar o trabalho, em seguida, para *Executando* quando o runbook realmente começar a ser executado.  Quando o trabalho do runbook concluir, deveremos ver um status de **Concluído**.
 

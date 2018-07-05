@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.openlocfilehash: a63b15ca5126b45451f0694c9ee75d7b67b1ceaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: 59b6f8b82d0f714d4526147b42f68e14bf0aa2bd
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23020851"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127689"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Coletar dados do CollectD em agentes do Linux no Log Analytics
 O [CollectD](https://collectd.org/) é um daemon do Linux de software livre que coleta periodicamente métricas de desempenho de aplicativos e informações de nível de sistema. Exemplos de aplicativos incluem a Máquina Virtual Java (JVM), o MySQL Server e o Nginx. Este artigo fornece informações sobre a coleta de dados de desempenho do CollectD no Log Analytics.
@@ -114,7 +115,7 @@ Para manter um modelo familiar entre as métricas de infraestrutura já coletada
 | host | Computador |
 | plug-in | Nenhum |
 | plugin_instance | Nome da Instância<br>Se **plugin_instance** é *null*, então InstanceName="*_Total*" |
-| type | ObjectName |
+| Tipo | ObjectName |
 | type_instance | CounterName<br>Se **type_instance** é *null*, então CounterName=**blank** |
 | dsnames[] | CounterName |
 | dstypes | Nenhum |

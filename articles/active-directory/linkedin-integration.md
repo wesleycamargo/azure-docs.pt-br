@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4b3ff0b2481b42f516d28ac17f2616685730b7d5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762363"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109579"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Conexões de conta do LinkedIn para serviços e aplicativos da Microsoft
 Neste artigo, você pode aprender como gerenciar as conexões de conta do LinkedIn para o locatário no centro de administração do Microsoft Azure AD (Azure Active Directory). 
@@ -53,7 +53,7 @@ A funcionalidade de conexões da conta do LinkedIn está ativada por padrão par
 4. Em **Conexões de conta do LinkedIn**:
   * Selecione **Sim** para habilitar conexões de conta do LinkedIn para todos os usuários no locatário
   * Selecione **Selecionado** para habilitar as conexões de conta do LinkedIn apenas para usuários do locatário selecionados
-  * Selecione **Não** para desabilitar as conexões de conta do LinkedIn para todos os usuários ![Habilitar conexões de conta do LinkedIn](./media/linkedin-integration/LinkedIn-integration.png)
+  * Selecione **Não** para desabilitar as conexões de conta do LinkedIn para todos os usuários ![Habilitar conexões de conta do LinkedIn](./media/linkedin-integration/linkedin-integration.png)
 5. Salve as configurações quando terminar selecionando **Salvar**.
 
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Habilitar ou desabilitar as conexões de conta do LinkedIn para aplicativos do Office 2016 da organização utilizando a Política de Grupo
@@ -64,7 +64,7 @@ A funcionalidade de conexões da conta do LinkedIn está ativada por padrão par
 4. Crie um Objeto de Política de Grupo com a configuração a seguir: **Configuração de Usuário** > **Modelos Administrativos** > **Microsoft Office 2016** > **Diversos** > **Mostrar recursos do LinkedIn em aplicativos do Office**.
 5. Selecione **Habilitado** ou **Desabilitado**.
   * Quando a política for **Habilitado**, a configuração **Mostrar recursos do LinkedIn nos aplicativos do Office** que pode ser encontrada na caixa de diálogo Opções do Office 2016 está habilitada. Isso também significa que os usuários em sua organização podem usar os recursos do LinkedIn em seus aplicativos do Office.
-  * Quando a política está **Desabilitado**, a configuração **Mostrar recursos do LinkedIn nos aplicativos do Office** que pode ser encontrada na caixa de diálogo de opções do Office 2016 está definida para o estado desabilitado e os usuários finais não podem alterar essa configuração. Os usuários em sua organização não podem usar recursos do LinkedIn nos seus aplicativos do Office 2016. 
+  * Quando a política está **Desabilitado**, a configuração **Mostrar recursos do LinkedIn nos aplicativos do Office** que pode ser encontrada na caixa de diálogo de opções do Office 2016 está definida para o estado desabilitado e os usuários finais não podem alterar essa configuração. Os usuários em sua organização não podem usar recursos do LinkedIn nos seus aplicativos do Office 2016.
 
 Essa política de grupo afeta somente os aplicativos do Office 2016 para um computador local. Os usuários podem ver LinkedIn recursos nos cartões de perfil em todo o Office 365, mesmo se eles desabilitarem o LinkedIn em seus aplicativos do Office 2016. 
 

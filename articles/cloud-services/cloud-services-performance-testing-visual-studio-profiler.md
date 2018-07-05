@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 8ff7b88a3086488ab669288687c274237ca30b47
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ea46039583681bd89e254d153997e3a300041d4e
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30284550"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341347"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
 Várias técnicas e ferramentas estão disponíveis para testar o desempenho de serviços de nuvem.
@@ -167,7 +167,7 @@ Parabéns! Você começou a usar o criador de perfis.
 ## <a name="next-steps"></a>Próximas etapas
 A instrumentação de binários do Azure no emulador não tem suporte no criador de perfis do Visual Studio, mas para testar a alocação de memória, você poderá escolher essa opção ao criar um perfil. Você também pode escolher a criação de perfis simultânea, que ajuda a determinar se os threads estão perdendo tempo competindo por bloqueios, ou a criação de perfis de interação de camadas, que ajuda a rastrear problemas de desempenho ao interagir entre camadas de um aplicativo, mais frequentemente entre a camada de dados e uma função de trabalho.  Você pode exibir as consultas do banco de dados que seu aplicativo gera e usar os dados da criação de perfis para melhorar o uso do banco de dados. Para obter informações sobre a criação de perfis de interação de camadas, veja a postagem no blog [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3] (Passo a passo: usando o criador de perfis de interação de camadas no Visual Studio Team System 2010).
 
-[1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
+[1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
 [3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png

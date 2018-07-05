@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efdef681dd94cdb97d84de657668c49022b72d95
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: df46a4de32482f9da46b81e6b0fbc55c2cc1af35
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751489"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444235"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -26,7 +26,7 @@ Após a implantação, muitas organizações desejam saber como ou se a SSPR (re
 As perguntas a seguir podem ser respondidas pelos relatórios existentes no [Portal do Azure] (https://portal.azure.com/):
 
 > [!NOTE]
-> Você deve ser [administrador global](../active-directory-assign-admin-roles-azure-portal.md) e aceitar a coleta desses dados em nome de sua organização. Para aceitar, você deve visitar a guia **Relatórios** ou os logs de auditoria pelo menos uma vez. Até lá, os dados não serão coletados para a sua organização.
+> Você deve ser [administrador global](../users-groups-roles/directory-assign-admin-roles.md) e aceitar a coleta desses dados em nome de sua organização. Para aceitar, você deve visitar a guia **Relatórios** ou os logs de auditoria pelo menos uma vez. Até lá, os dados não serão coletados para a sua organização.
 >
 
 * Quantas pessoas foram registradas para a redefinição de senhas?

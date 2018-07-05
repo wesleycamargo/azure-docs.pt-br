@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 806ebe80ad49f2f908bf46549bb4abc533a6d516
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: c59b9982f5ba5a4fa52ab36df5ebb6995b2d45b0
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936693"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085082"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmitir logs de diagnóstico do Azure para um hub de eventos
 Os **[logs de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)** podem ser transmitidos quase em tempo real a qualquer aplicativo usando a opção interna "Exportar para os Hubs de Eventos" no Portal, ou habilitando a ID da Regra de Autorização do Hub de Eventos em uma configuração de diagnóstico por meio de Cmdlets do Azure PowerShell ou da CLI 2.0 do Azure.
@@ -41,7 +41,7 @@ Veja algumas maneiras de usar o recurso de streaming para os Logs de Diagnóstic
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Habilitar o streaming de logs de diagnóstico
 
-Você pode habilitar programaticamente o streaming de logs de diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). De qualquer forma, você cria uma configuração de diagnóstico no qual especifica um namespace de Hubs de Eventos e as categorias de log e as métricas que deseja enviar para o namespace. Um hub de eventos é criado no namespace para cada categoria de log que você habilitar. Uma **categoria de log** de diagnóstico é um tipo de log que um recurso pode coletar.
+Você pode habilitar programaticamente o streaming de logs de diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). De qualquer forma, você cria uma configuração de diagnóstico no qual especifica um namespace de Hubs de Eventos e as categorias de log e as métricas que deseja enviar para o namespace. Um hub de eventos é criado no namespace para cada categoria de log que você habilitar. Uma **categoria de log** de diagnóstico é um tipo de log que um recurso pode coletar.
 
 > [!WARNING]
 > A habilitação e streaming de logs de diagnóstico dos recursos de computação (por exemplo, VMs ou Service Fabric) [exige um conjunto diferente de etapas](../event-hubs/event-hubs-streaming-azure-diags-data.md).

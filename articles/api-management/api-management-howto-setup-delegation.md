@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 02c3a3d996fa253cf56e551a37e098639bf73533
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: ab5d6c531b08a13d465811d68a07e07e9fb0167c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32151936"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109453"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar o registro de usuário e a assinatura do produto
 A delegação permite usar seu site existente para gerenciar a entrada/inscrição e assinatura de produtos feitas por desenvolvedores em vez de usar a funcionalidade integrada no portal do desenvolvedor. Isso permite que seu site tenha os dados dos usuários e realize a validação dessas etapas de forma personalizada.
@@ -175,7 +175,7 @@ Para obter mais informações sobre delegação, consulte o vídeo a seguir:
 [Delegating product subscription]: #delegate-product-subscription
 [solicite um token de logon único (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Crie um usuário]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[chamando a API REST para assinatura do produto]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[chamando a API REST para assinatura do produto]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [código de exemplo fornecido abaixo]: #delegate-example-code
 

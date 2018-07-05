@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/7/2017
 ms.author: sngun
-ms.openlocfilehash: ab24dc98ef4c767f04dc083ac6208e2c9d831935
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 15a4e2fa981617c538edf3731bf9457bf172213c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616797"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113112"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comuns do Azure Cosmos DB
 Este artigo fornece uma visão geral dos vários casos de uso comuns do Azure Cosmos DB.  As recomendações deste artigo servem como ponto de partida ao desenvolver seu aplicativo com o Cosmos DB.   
@@ -51,7 +51,7 @@ Picos de dados podem ser processados por Hubs de eventos do Azure que oferecem i
 
 Para obter uma solução de IoT de exemplo que usa o Azure Cosmos DB, os Hubs de Eventos e o Storm, veja o [repositório hdinsight-storm-examples no GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-Para saber mais sobre as ofertas do Azure para IoT, veja [Criar a Internet das Coisas](http://www.microsoft.com/server-cloud/internet-of-things.aspx). 
+Para saber mais sobre as ofertas do Azure para IoT, veja [Criar a Internet das Coisas](https://www.microsoft.com/en-us/internet-of-things). 
 
 ## <a name="retail-and-marketing"></a>Varejo e marketing
 O Azure Cosmos DB é amplamente usado nas próprias plataformas de comércio eletrônico da Microsoft, que executam a Windows Store e o XBox Live. Ele também é usado no setor varejista para armazenar dados de catálogo e para fornecimento de eventos em pipelines de processamento de pedidos.

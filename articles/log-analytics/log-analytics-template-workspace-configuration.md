@@ -3,22 +3,24 @@ title: Usar modelos do Azure Resource Manager para criar e configurar um espaço
 description: Você pode usar os modelos do Azure Resource Manager para criar e configurar espaços de trabalho do Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: mgoedtel
+manager: carmonm
 editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
-ms.topic: article
-ms.date: 04/25/2018
-ms.author: richrund
-ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.date: 06/11/2018
+ms.author: magoedte
+ms.component: na
+ms.openlocfilehash: 6e23858bcc288b68a70750e7dbcecdf4b43b8870
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133198"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics usando modelos do Azure Resource Manager
 Você pode usar os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar espaços de trabalho do Log Analytics. Os exemplos das tarefas que você pode executar com os modelos incluem:
@@ -35,6 +37,16 @@ Você pode usar os [modelos do Azure Resource Manager](../azure-resource-manager
 * Configurar a análise de log para indexar os dados coletados usando o diagnóstico do Azure
 
 Este artigo fornece exemplos de código que ilustram algumas das configurações que podem ser executadas com os modelos.
+
+## <a name="api-versions"></a>Versões de API
+A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
+
+| Recurso | Tipo de recurso | Versão da API |
+|:---|:---|:---|:---|
+| Espaço de trabalho   | espaços de trabalho    | 2017-03-15-preview |
+| Search      | savedSearches | 2017-03-15-preview |
+| Fonte de dados | datasources   | 2015-11-01-preview |
+| Solução    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
 O exemplo a seguir cria um espaço de trabalho usando um modelo da sua máquina local. O modelo JSON está configurado para solicitar apenas o nome do espaço de trabalho e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente.  

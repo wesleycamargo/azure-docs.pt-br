@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7f0011172185f13f51bcea8061b36012aa5da33b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 125d521d840d2b06687d818ae7b31a2610886dfe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36324211"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342524"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicação de uma região do Azure para outra
 
@@ -170,8 +170,8 @@ Disco temporário | Sempre excluído da replicação | O disco temporário sempr
 Taxa de alteração de dados no disco | Máximo de 10 MBps por disco para armazenamento Premium e 2 MBps por disco para armazenamento Standard | Se a taxa média de alteração de dados no disco for superior a 10 MBps (para Premium) e 2 MBps (para Standard) continuamente, a replicação não será alcançada. No entanto, se for um modo de intermitência de dados ocasional e a taxa de alteração de dados for superior a 10 MBps (para Premium) e 2 MBps (para Standard) por algum tempo e cair, a replicação será alcançada. Nesse caso, talvez você veja os pontos de recuperação um pouco atrasados.
 Discos em contas de armazenamento Standard | Com suporte |
 Discos em contas de armazenamento Premium | Com suporte | Se uma VM tiver discos distribuídos em contas de armazenamento Standard e Premium, você poderá selecionar uma conta de armazenamento de destino diferente para cada disco, a fim de garantir que você tem a mesma configuração de armazenamento na região de destino
-Managed Disks Standard | Suporte para regiões do Azure nas quais há suporte para Azure Site Recovery. Atualmente não há suporte para nuvens governamentais.  |  
-Managed Disks Premium | Suporte para regiões do Azure nas quais há suporte para Azure Site Recovery. Atualmente não há suporte para nuvens governamentais. |
+Managed Disks Standard | Suporte para regiões do Azure nas quais há suporte para Azure Site Recovery. |  
+Managed Disks Premium | Suporte para regiões do Azure nas quais há suporte para Azure Site Recovery. |
 Espaços de armazenamento | Com suporte |         
 Criptografia em repouso (SSE) | Com suporte | SSE é a configuração padrão em contas de armazenamento.   
 ADE (Azure Disk Encryption) | Sem suporte |

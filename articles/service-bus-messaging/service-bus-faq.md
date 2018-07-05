@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802258"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109511"
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
 
-Este artigo discute algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obter informações gerais sobre preços e suporte do Azure.
+Este artigo discute algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](https://azure.microsoft.com/en-us/support/faq/) para obter informações gerais sobre preços e suporte do Azure.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Barramento de Serviço do Azure
 ### <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
@@ -56,7 +56,7 @@ Esta seção responde a algumas perguntas frequentes sobre a estrutura de preço
 
 O artigo [Preços e cobrança do Barramento de Serviço](service-bus-pricing-billing.md) explica os medidores de cobrança no Barramento de Serviço. Para saber mais sobre o preço do Barramento de Serviço, veja [Detalhes de preço do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Você também pode visitar as [Perguntas frequentes sobre o suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obter informações gerais sobre preços do Azure. 
+Você também pode visitar as [Perguntas frequentes sobre o suporte do Azure](https://azure.microsoft.com/en-us/support/faq/) para obter informações gerais sobre preços do Azure. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Como é cobrado o Barramento de Serviço?
 Para saber mais sobre o preço do Barramento de Serviço, consulte [Detalhes de preço do Barramento de Serviço][Pricing overview]. Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado.

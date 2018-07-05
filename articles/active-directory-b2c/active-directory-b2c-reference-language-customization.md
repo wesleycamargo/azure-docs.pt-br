@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 72a2bd20d08cd12cc1965bd06090d2cd705fc111
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: affd52352dcc745557dd66c61ccfa1e7a99dcdb7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711929"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442314"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização de idioma no Azure Active Directory B2C
 
@@ -204,7 +204,7 @@ Ambos Chrome e o Firefox solicitam o idioma definido. Se for um idioma com supor
 | Malaio                 | ms            |
 | Norueguês Bokmal      | nb            |
 | Holandês                 | nl            |
-| Punjabi               | pa            |
+| Panjabi               | pa            |
 | Polonês                | pl            |
 | Português - Brasil   | pt-br         |
 | Português - Portugal | pt-pt         |

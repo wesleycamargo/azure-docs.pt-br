@@ -8,18 +8,18 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6205198d3f9c4ec5bfa2311014cf9b90dcade6dc
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: c8e5f34bb6b38a3f187d86a1ebc0c7019c7f1046
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323291"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437011"
 ---
 # <a name="create-custom-roles-using-azure-powershell"></a>Criar funções personalizadas usando o Azure PowerShell
 
@@ -27,7 +27,7 @@ Se as [funções internas](built-in-roles.md) não atenderem às necessidades es
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Criar funções personalizadas, você precisará:
+Para criar funções personalizadas, você precisará:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de acesso do usuário](built-in-roles.md#user-access-administrator)
 - [Azure PowerShell](/powershell/azure/install-azurerm-ps) instalado localmente
@@ -297,5 +297,5 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Tutorial: Criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Funções personalizadas no Microsoft Azure](custom-roles.md)
+- [Funções personalizadas no Azure](custom-roles.md)
 - [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md)

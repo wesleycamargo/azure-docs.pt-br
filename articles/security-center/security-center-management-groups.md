@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 2c95b06ce34b850d1bfaf60e47d6e5fede148a38
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 05504f94d72f39762672d0e79669dd50d8e6435e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025047"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441475"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
 Este artigo ajuda você a começar fazendo várias ações que maximizam os benefícios que o Centro de Segurança do Azure oferece. A execução dessas ações permite que você obtenha visibilidade de todas as assinaturas do Azure vinculadas ao locatário do Azure Active Directory e gerencie com eficiência a postura de segurança da organização em escala, aplicando políticas de segurança em várias assinaturas de maneira agregada.
@@ -86,7 +86,7 @@ Um administrador de locatário do Azure Active Directory não tem acesso direto 
 5. Execute as tarefas que você precisa fazer com o acesso elevado. Ao terminar, retorne a opção para **Não**.
 
 ### <a name="assign-rbac-roles-to-users"></a>Designe funções RBAC aos usuários
-Depois que um administrador de locatário tiver acesso elevado, ele poderá atribuir uma função de RBAC a usuários relevantes no nível do grupo de gerenciamento raiz. A função recomendada para designar é [**Leitor**](../role-based-access-control/built-in-roles.md#reader). A função é requerida para fornecer visibilidade nível de locatário. A função atribuída será automaticamente propagada para todos os grupos de gerenciamento e assinaturas no grupo de gerenciamento raiz. Para mais informações sobre funções RBAC, consulte [funções disponíveis](../active-directory/active-directory-assign-admin-roles-azure-portal.md#available-roles).
+Depois que um administrador de locatário tiver acesso elevado, ele poderá atribuir uma função de RBAC a usuários relevantes no nível do grupo de gerenciamento raiz. A função recomendada para designar é [**Leitor**](../role-based-access-control/built-in-roles.md#reader). A função é requerida para fornecer visibilidade nível de locatário. A função atribuída será automaticamente propagada para todos os grupos de gerenciamento e assinaturas no grupo de gerenciamento raiz. Para mais informações sobre funções RBAC, consulte [funções disponíveis](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
 
 1. Instale o [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Execute os seguintes comandos: 
