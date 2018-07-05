@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 6/28/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fb870cbfbc233725752b3d97fc0ad048a7c14040
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341725"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446960"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modelos de solução de blockchain Ethereum de pilha do Azure
 
@@ -69,7 +69,7 @@ O modelo de líder de consortium configura a superfície do primeiro membro na r
     ADMINUSERNAME | Nome de usuário do administrador de cada VM implantada | 1 a 64 caracteres | gethadmin
     ADMINPASSWORD (tipo de autenticação = senha)| A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. A senha deve ter três dos seguintes requisitos: um caractere maiúsculo, um caractere minúsculo, um número e um caractere especial. <br />Embora todas as máquinas virtuais tenham inicialmente a mesma senha, você pode alterar a senha após o provisionamento.|12 a 72 caracteres|
     ADMINSSHKEY (tipo de autenticação = sshPublicKey) | A chave de shell segura usada para login remoto. | |
-    GENESISBLOCK | Cadeia de caracteres JSON que representa o bloco gênese personalizado. | |
+    GENESISBLOCK | Cadeia de caracteres JSON que representa o bloco gênese personalizado.  Especificando um valor para esse parâmetro é opcional. | |
     ETHEREUMACCOUNTPSSWD | A senha de administrador usada para proteger a conta de Ethereum. | |
     ETHEREUMACCOUNTPASSPHRASE | A frase secreta usada para gerar a chave privada associada à conta Ethereum. | |
     ETHEREUMNETWORKID | A ID de rede do consórcio. | Usar qualquer valor entre 5 e 999.999.999 | 72
