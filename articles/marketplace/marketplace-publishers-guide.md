@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4b7d861ee0207c6a16c83e23d259411f7e874354
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823377"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309221"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia do Editor do Azure Marketplace e do AppSource  
 
@@ -118,7 +118,7 @@ Cada vitrine fornece opções especializadas para ajudar você a maximizar seu i
 ---   
 
 ## <a name="how-to-publish-in-the-storefronts-on-the-marketplace"></a>Como Publicar em vitrines no marketplace  
-As seções a seguir ajudam você a navegar pelas opções de publicação no AppSource e no Azure Marketplace.  
+As páginas a seguir ajudam você a navegar pelas opções de publicação no AppSource e no Azure Marketplace.  
 
 Torne-se um editor nas vitrines do mercado em três etapas fáceis.  
 1.  Visite a página [ Determinar o tipo de anúncio para sua solução ](./determine-your-listing-type.md).  
@@ -135,7 +135,6 @@ Torne-se um editor nas vitrines do mercado em três etapas fáceis.
 ---  
 
 ## <a name="support"></a>Suporte  
-
 *   Visite a página [ Suporte para AppSource ](./support-appsource.md).  
 *   Visite a página do [ Suporte para o Azure Marketplace ](./support-azure-marketplace.md).  
 
@@ -147,6 +146,7 @@ Torne-se um editor nas vitrines do mercado em três etapas fáceis.
 
 ## <a name="guidelines"></a>Diretrizes  
 *   Visite a página [ Diretrizes ](./guidelines.md).  
+    *   Visite a seção [Diretrizes para criar uma ID da Microsoft para gerenciar uma conta do Marketplace](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account).  
 *   Visite a página [ Registrar no Dev Center ](./register-dev-center.md).  
 *   Visite a página [ Adicionar banco e informações fiscais ](./add-bank-tax-info.md).  
 *   Visite a página [ Ativar avaliação usando o Azure AD ](./enable-trial-using-azure-ad.md).  

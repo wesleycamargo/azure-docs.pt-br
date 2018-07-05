@@ -1,65 +1,24 @@
 ---
 title: Serviço do Banco de Dados SQL do Azure | Microsoft Docs
-description: Saiba mais sobre as camadas de serviço para bancos de dados únicos e em pool para fornecer níveis de desempenho e tamanhos de armazenamento.
+description: O modelo de compra baseado em vCore (visão prévia) permite que você dimensione recursos de computação e armazenamento de forma independente, corresponda ao desempenho local e otimize o preço.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d37bf4fd131e700d4f4c3b07c84754b4014ca228
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648346"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309572"
 ---
-# <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>Serviço do Banco de Dados SQL do Azure - vCore | Microsoft Docs
+# <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviço, recursos de E/S, armazenamento, memória e computação de vCore
 
-O [Banco de Dados SQL do Azure ](sql-database-technical-overview.md) oferece dois modelos de compra para recursos de E/S, armazenamento e computação: um modelo de compra baseado em DTU e um modelo de compra baseado em vCore (versão prévia). A tabela e o gráfico a seguir comparam e contrastam esses dois modelos de compra.
-
-> [!IMPORTANT]
-> Para o modelo de compra com base em DTU, consulte [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md).
-
-
-|**Modelo de compra**|**Descrição**|**Mais adequado para**|
-|---|---|---|
-|Modelo baseado em DTU|Esse modelo é baseado em uma medida em pacote de recursos de E/S, armazenamento e computação. Os níveis de desempenho são expressos em termos de DTUs (Unidades de transação de banco de dados) para bancos de dados individuais, e eDTUs (Unidades de transação de banco de dados elásticos) para pools elásticos. Para saber mais sobre DTUs e eDTUs, consulte [O que são DTUs e eDTUs](sql-database-what-is-a-dtu.md)?|Mais adequado para clientes que desejam opções de recursos simples e pré-configuradas.| 
-|Modelo baseado em vCore|Esse modelo permite dimensionar os recursos de computação e armazenamento de maneira independente – até 80 vCores, 4 TB de armazenamento de dados e 200.000 IOPS. Além disso, permite usar o Benefício Híbrido do Azure para SQL Server para obter redução de custos.|Mais adequado para clientes que valorizam flexibilidade, controle e transparência.|
-||||  
-
-![modelo de preços](./media/sql-database-service-tiers/pricing-model.png)
-
-## <a name="vcore-based-purchasing-model--preview"></a>Modelo de compra baseado no vCore (visão prévia)
-
-Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware. O modelo de compra baseado em vCore (versão prévia) fornece flexibilidade, controle, transparência do consumo de recursos individual e uma forma simples de mover os requisitos de carga de trabalho local para a nuvem. Esse modelo permite escalar computação, memória e armazenamento com base nas necessidades de carga de trabalho. No modelo de compra baseado em vCore, os clientes podem escolher entre camadas de serviço Comercialmente Crítico e de Uso Geral (versão prévia) para ambos os [bancos de dados individuais](sql-database-single-database-resources.md) e [pools elásticos](sql-database-elastic-pool.md). 
-
-As camadas de serviço são diferenciadas por intervalo de níveis de desempenho, design de alta disponibilidade, isolamento de falhas, tipos de armazenamento e intervalo de E/S. O cliente deve configurar separadamente o período necessário de armazenamento e retenção para backups. Ao usar o modelo vCore, os bancos de dados individuais e os pools elásticos são qualificados para economias de até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
-
-No modelo de compra baseado em vCore (preview), os clientes pagam por:
-- Computação (camada de serviço + número de vCores + geração de hardware)*
-- Tipo e quantidade de dados e armazenamento de log 
-- Número de E/S**
-- Armazenamento de backup (RA-GRS)** 
-
-\* Na visualização pública inicial, as CPUs Lógicas Ger 4 são baseadas em processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz
-
-\*\* Durante a versão prévia, 7 dias de backups e E/S são gratuitos
-
-> [!IMPORTANT]
-> Armazenamento de log e dados, E/S e computação são cobrados por banco de dados ou pool elástico. O armazenamento de backups é cobrado por cada banco de dados. Para obter detalhes sobre os encargos de Instância Gerenciada, veja [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).
-
-> [!IMPORTANT]
-> Limitações de região: 
->
-> O modelo de compra baseado em vCore (versão prévia) ainda não está disponível no Sudoeste da Austrália. A versão prévia não está disponível nas regiões a seguir: Europa Ocidental, França Central, Sul do Reino Unido e Oeste do Reino Unido.
-> 
-
-## <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Escolher camada de serviço de recursos de E/S, armazenamento, memória e computação
-
-A conversão para o modelo de compra baseado em vCore (visão prévia) permite que você dimensione recursos de computação e armazenamento de forma independente, corresponda ao desempenho local e otimize o preço. Se o banco de dados ou pool elástico consumir mais de 300 DTU, a conversão para o vCore poderá reduzir o custo. É possível converter usando a API de sua preferência ou o Portal do Azure, sem tempo de inatividade. No entanto, a conversão não é necessária. Se o modelo de compra de DTU atender aos seus requisitos de desempenho e de negócios, você deve continuar utilizando-o. Se você decidir converter do modelo DTU para o modelo vCore, deverá selecionar o nível de desempenho usando a seguinte regra geral: cada 100 DTU na camada Padrão exige pelo menos 1 vCore na camada de Finalidade Geral; cada 125 DTU na camada Premium requer pelo menos 1 vCore no nível Business Critical.
+As camadas de serviço são diferenciadas por intervalo de níveis de desempenho, design de alta disponibilidade, isolamento de falhas, tipos de armazenamento e intervalo de E/S. O cliente deve configurar separadamente o período necessário de armazenamento e retenção para backups. Com o modelo vCore, os bancos de dados individuais e os pools elásticos são qualificados para economias de até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 A tabela a seguir ajuda-o a reconhecer as diferenças entre essas duas camadas:
 
@@ -79,8 +38,6 @@ A tabela a seguir ajuda-o a reconhecer as diferenças entre essas duas camadas:
 
 > [!IMPORTANT]
 > Se você precisar de menos de um vCore de capacidade de computação, use o modelo de compra baseado em DTU.
-
-Para obter detalhes sobre níveis de desempenho específicos e opções de tamanho de armazenamento disponíveis para banco de dados individual, consulte [Limites de recursos baseados em vCore do Banco de Dados SQL para banco de dados individuais](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels) e para pools elásticos consulte [Limites de recursos baseados em vCore do Banco de Dados SQL para pools elásticos](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 Consulte [Perguntas frequentes sobre Banco de Dados SQL](sql-database-faq.md) para obter respostas para as perguntas frequentes. 
 
@@ -118,7 +75,7 @@ No modelo de compra baseado em vCore (visualização), você pode trocar suas li
 
 A migração do modelo baseado em DTU para o modelo baseado em vCore é semelhante ao upgrade ou downgrade dos relacionamentos de replicação geográfica entre os bancos de dados Standard e Premium. Ele não requer a replicação geográfica final, mas o usuário deve observar as regras de sequenciamento. Ao atualizar, será necessário primeiro fazer upgrade do banco de dados secundário e, em seguida, upgrade do primário. Ao fazer downgrade, inverta a ordem: primeiro, você deverá fazer downgrade do banco de dados primário e, em seguida, fazer downgrade do secundário. 
 
-Ao usar a replicação geográfica entre dois pools elásticos, é altamente recomendável designar um pool como o primário e o outro como secundário. Nesse caso, os pools elásticos em migração devem usar a mesma orientação.  No entanto, é tecnicamente possível que um pool elástico contenha bancos de dados primários e secundários. Nesse caso, para migrar corretamente, é necessário tratar o pool com a maior utilização como "principal" e seguir as regras de sequenciamento adequadamente.  
+Ao usar a replicação geográfica entre dois pools elásticos, recomendamos designar um pool como o primário e o outro como secundário. Nesse caso, os pools elásticos em migração devem usar a mesma orientação.  No entanto, é tecnicamente possível que um pool elástico contenha bancos de dados primários e secundários. Nesse caso, para migrar corretamente, é necessário tratar o pool com a maior utilização como "principal" e seguir as regras de sequenciamento adequadamente.  
 
 A tabela a seguir fornece orientação para os cenários de migração específicos: 
 
@@ -142,7 +99,7 @@ A migração de grupos de failover com vários bancos de dados requer a migraç�
 
 ## <a name="creation-of-a-geo-replication-secondary"></a>Criação de um secundário para replicação geográfica
 
-Somente é possível criar um secundário geográfico usando a mesma camada de serviço que o primário. Para bancos de dados com alta taxa de geração de logs, é altamente recomendável que o secundário seja criado com o mesmo nível de desempenho que o primário. Se você estiver criando um secundário geográfico no pool elástico para um banco de dados primário individual, é altamente recomendável que o pool tenha a configuração `maxVCore` que corresponde ao nível de desempenho do banco de dados primário. Se você estiver criando um secundário geográfico no pool elástico para um primário em outro pool elástico, é altamente recomendável que os pools tenham as mesmas configurações`maxVCore`
+Somente é possível criar um secundário geográfico usando a mesma camada de serviço que o primário. Para bancos de dados com alta taxa de geração de logs, recomendamos que o secundário seja criado com o mesmo nível de desempenho que o primário. Se você estiver criando um secundário geográfico no pool elástico para um banco de dados primário individual, recomendamos que o pool tenha a configuração `maxVCore` que corresponde ao nível de desempenho do banco de dados primário. Se você estiver criando um secundário geográfico no pool elástico para um primário em outro pool elástico, recomendamos que os pools tenham as mesmas configurações `maxVCore`
 
 ## <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Usando a cópia do banco de dados para converter um banco de dados baseado em DTU em um banco de dados baseado em vCore.
 
@@ -150,6 +107,5 @@ Somente é possível criar um secundário geográfico usando a mesma camada de s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter detalhes sobre níveis de desempenho específicos e opções de tamanho de armazenamento disponíveis, consulte [Limites de recursos baseados em DTU do Banco de Dados SQL](sql-database-dtu-resource-limits.md) e [Limites de recursos baseados em vCore do Banco de Dados SQL](sql-database-vcore-resource-limits.md).
-- Consulte [Perguntas frequentes sobre Banco de Dados SQL](sql-database-faq.md) para obter respostas para as perguntas frequentes.
-- Saiba mais sobre a [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md)
+- Para obter detalhes sobre níveis de desempenho específicos e opções de tamanho de armazenamento disponíveis para um banco de dados individual, veja [Limites de recursos baseados em vCore do Banco de Dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
+- Para obter detalhes sobre níveis de desempenho específicos e opções de tamanho de armazenamento disponíveis para pools elásticos, veja [Limites de recursos baseados em vCore do Banco de Dados SQL para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a98f2ed2ce55f74ea3967dbb23a762fce566a2f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 60b6769dd3c15bbe628f60318cc08fcac78357ea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595624"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307944"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -63,7 +63,8 @@ Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway
 |Dynamics CRM*     |  
 |Pasta de trabalho do Excel     |  
 |Exchange*     |  
-|Pasta*     | 
+|Pasta*     |
+|IBM Informix* (Beta) |
 |Documento JSON*     |  
 |Linhas de binário*     | 
 |Banco de Dados MySQL     | 
@@ -71,6 +72,8 @@ Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway
 |Consulta ODBC     | 
 |OLE DB     |   
 |Banco de Dados SQL Postgre*    | 
+|Objetos do Salesforce* |  
+|Relatórios do Salesforce* |
 |SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   

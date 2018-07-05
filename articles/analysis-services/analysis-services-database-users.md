@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a2338045c43f9eb240ce55fd1ec31a4db40fd4e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8870c4199d5f24d1e8d07bc97d61a09c07052c1e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598344"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307972"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
 
-No nível do modelo de banco de dados, todos os usuários devem pertencer a uma função. As funções definem os usuários com permissões específicas para o modelo de banco de dados. Qualquer usuário ou grupo de segurança adicionado a uma função deve ter uma conta em um locatário do Azure AD na mesma assinatura que o servidor.
+No nível do modelo de banco de dados, todos os usuários devem pertencer a uma função. As funções definem os usuários com permissões específicas para o modelo de banco de dados. Qualquer usuário ou grupo de segurança adicionado a uma função deve ter uma conta em um locatário do Azure AD na mesma assinatura que o servidor. 
 
 Como você define as funções é diferente dependendo da ferramenta usada, mas o efeito é o mesmo.
 
@@ -27,6 +27,9 @@ As permissões de função incluem:
 *  **Leitura** – os usuários podem usar um aplicativo cliente para se conectar e analisar os dados do modelo de banco de dados.
 
 Ao criar um projeto de modelo tabular, você cria funções e adiciona usuários ou grupos a essas funções usando o Gerenciador de Funções no SSDT. Quando implantado em um servidor, você usa o SSMS, [cmdlets do PowerShell para Analysis Services](https://msdn.microsoft.com/library/hh758425.aspx) ou [TMSL](https://msdn.microsoft.com/library/mt614797.aspx) (Linguagem de Scripts do Modelo Tabular) para adicionar ou remover funções e membros de usuário.
+
+> [!NOTE]
+> Grupos de segurança devem ter a propriedade `MailEnabled` definida como `True`.
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Para adicionar ou gerenciar funções e usuários no SSDT  
   

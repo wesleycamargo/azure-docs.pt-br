@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9610a8b37ead976cfdfa2fed81d4d3932055ddcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d97e380f83cc4e5e5a2d9686a7ac8426967f4b93
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237776"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302192"
 ---
 # <a name="expressroute-manager"></a>ExpressRoute Manager
 
 Use o recurso do Azure ExpressRoute Manager no [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) para monitorar a conectividade de ponta a ponta e o desempenho entre as filiais e o Azure, por meio do Azure ExpressRoute. As principais vantagens são: 
 
 - Detecção automática de circuitos ExpressRoute associados à sua assinatura.
-- Acompanhamento de utilização de largura de banda, perda e latência no circuito, emparelhamento e nível da 
-Rede Virtual do Azure para ExpressRoute.
+- Acompanhamento de utilização de largura de banda, perda e latência no circuito, emparelhamento e nível da Rede Virtual do Azure para ExpressRoute.
 - Descoberta da topologia de rede dos circuitos do ExpressRoute.
 
 ![ExpressRoute Monitor](media/log-analytics-network-performance-monitor/expressroute-intro.png)
@@ -38,7 +37,7 @@ Para abrir a configuração do Monitor de Desempenho de Rede, abra a [solução 
 ### <a name="configure-network-security-group-rules"></a>Configurar regras do grupo de segurança de rede 
 Para servidores no Azure que estão sendo usados para o monitoramento via Monitor de Desempenho de Rede, você deverá configurar as regras do NSG (grupo de segurança de rede) para permitir o tráfego TCP na porta usada pelo Monitor de Desempenho de Rede para transações sintéticas. A porta padrão é 8084. Essa configuração permite que o agente do Operations Management Suite instalado nas VMs do Azure se comunique com um agente de monitoramento local. 
 
-Para obter mais informações sobre o NSG, consulte  [Grupos de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+Para saber mais sobre NSGs, confira  [Grupos de segurança de rede](../virtual-network/manage-network-security-group.md). 
 
 >[!NOTE]
 > Antes de continuar com esta etapa, instale o agente do servidor local e o agente do servidor do Azure e execute o script PowerShell EnableRules.ps1. 

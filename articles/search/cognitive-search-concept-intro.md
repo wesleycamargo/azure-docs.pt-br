@@ -3,17 +3,18 @@ title: Pesquisa cognitiva para extração de dados e processamento de idioma nat
 description: Extração de dados, NLP (processamento de idioma natural) e processamento de imagem para criar conteúdo pesquisável na indexação do Azure Search usando habilidades cognitivas.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641104"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304277"
 ---
 # <a name="what-is-cognitive-search"></a>O que é pesquisa cognitiva?
 
@@ -25,12 +26,12 @@ A integração de IA é por meio de *habilidades cognitivas* que enriquecem os d
 
 As habilidades usadas durante a indexação podem ser predefinidas ou personalizadas:
 
-+ As [habilidades predefinidas](cognitive-search-predefined-skills.md) são baseadas nos mesmos algoritmos de IA usados nas APIs de API de Serviços Cognitivos: [Reconhecimento de Entidade Nomeada](cognitive-search-skill-named-entity-recognition.md), [Extração de Frases-chave](cognitive-search-skill-keyphrases.md) e [OCR](cognitive-search-skill-ocr.md) são apenas alguns. 
++ As [habilidades predefinidas](cognitive-search-predefined-skills.md) são baseadas nos mesmos algoritmos de IA usados nas APIs de Serviços Cognitivos: [Reconhecimento de Entidade Nomeada](cognitive-search-skill-named-entity-recognition.md), [Extração de Frases-chave](cognitive-search-skill-keyphrases.md) e [OCR](cognitive-search-skill-ocr.md) são apenas alguns. 
 
 + As [habilidades personalizadas](cognitive-search-create-custom-skill-example.md) podem ser desenvolvidas por você para qualquer processamento especializado necessário. Exemplos de habilidades personalizadas podem ser um módulo de entidade personalizada ou um classificador de documento direcionado a um domínio específico, como finanças, publicações científicas ou medicina.
 
 > [!NOTE]
-> A Pesquisa Cognitiva está na versão prévia pública e a execução do conjunto de habilidades é oferecida no momento gratuitamente. Posteriormente, o preço dessa capacidade será anunciado.
+> A Pesquisa Cognitiva está em versão prévia pública, e a execução do conjunto de habilidades é oferecida gratuitamente no momento. Posteriormente, o preço dessa capacidade será anunciado.
 
 ## <a name="components-of-cognitive-search"></a>Componentes da pesquisa cognitiva
 

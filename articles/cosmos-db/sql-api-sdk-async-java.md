@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/18/2018
+ms.date: 06/20/2018
 ms.author: sngun
-ms.openlocfilehash: 4b12652783c94d132a5c1f4d4aa352d4e2318edf
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797661"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300672"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java Assíncrono SQL do Azure Cosmos DB para a API SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -53,6 +53,16 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Substituição da dependência org.json por jackson por motivos de desempenho e licenciamento ([github nº 29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Remoção da classe OfferV2 preterida.
+* Adição de método de acessador à classe Offer para taxa de transferência de conteúdo.
+* Qualquer método no Documentos/Recurso que retorne tipos org.json foram alterados para retornar um tipo de objeto jackson.
+* Método getObject(.) de classes que estendem JsonSerializable alterado para retornar um tipo ObjectNode jackson.
+* Método getCollection(.) alterado para retornar a coleção de ObjectNode.
+* Remoção de construtores das subclasses JsonSerializable com argumento org.json.JSONObject.
+* Agora, JsonSerializable.toJson (SerializationFormattingPolicy.Indented) usa dois espaços para recuo.
+  
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
 * Suporte adicionado para Política de Índice Exclusivo.
 * Suporte adicionado para limitação do tamanho do token de continuação do resposta em opções de feed.
@@ -89,6 +99,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.0.0](#2.0.0) |20 de junho de 2018|--- |
 | [1.0.2](#1.0.2) |18 de maio de 2018|--- |
 | [1.0.1](#1.0.1) |20 de abril de 2018|--- |
 | [1.0.0](#1.0.0) |27 de fevereiro de 2018|--- |

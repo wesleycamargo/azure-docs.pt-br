@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34652535"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalar um trabalho do Azure Stream Analytics para aumentar a taxa de transferência
 Este artigo explica como você pode ajustar a consulta do Stream Analytics para aumentar a produtividade para os trabalhos do Streaming Analytics. Você pode usar o guia a seguir para dimensionar seu trabalho a fim de lidar com uma carga maior e aproveitar mais recursos do sistema (como maior largura de banda, mais recursos de CPU, mais memória).
@@ -76,72 +77,6 @@ Para determinados casos de uso de ISV, em que é mais eficiente processar dados 
 > Geralmente, esse padrão de consulta tem um grande número de subconsultas e resulta em topologia muito grande e complexa. O controlador do trabalho pode não conseguir lidar com uma topologia tão grande. Como regra geral, fique com menos de 40 locatários para trabalho com 1 UA e 60 locatários para trabalhos de 3 UAs e 6 UAs. Quando você está excedendo a capacidade do controlador, o trabalho não é iniciado com êxito.
 
 
-## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>Um exemplo de taxa de transferência do Stream Analytics em escala
-Para ajudá-lo a entender como os trabalhos do Stream Analytics escalam, realizamos uma experiência com base na entrada de um dispositivo Raspberry Pi. Esse teste nos permitiu ver o efeito na taxa de transferência de várias partições e unidades de streaming.
-
-Nesse cenário, o dispositivo envia dados de sensor (clientes) para um hub de eventos. Streaming Analytics processa os dados e envia um alerta ou estatísticas como uma saída para outro hub de eventos. 
-
-O cliente envia dados de sensor em formato JSON. A saída de dados também está no formato JSON. Os dados tem esta aparência:
-
-    {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
-
-A consulta a seguir é usada para enviar um alerta quando uma luz é desligada:
-
-    SELECT AVG(lght), "LightOff" as AlertText
-    FROM input TIMESTAMP BY devicetime 
-    PARTITION BY PartitionID
-    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
-
-### <a name="measure-throughput"></a>Medida de taxa de transferência
-
-Neste contexto, a produtividade é a quantidade de dados de entrada processados pelo Stream Analytics em um período fixo. (É medido por 10 minutos.) Para obter a melhor taxa de transferência de processamento para os dados de entrada, tanto a entrada do fluxo de dados quanto a consulta foram particionadas. Nós incluímos **COUNT()** na consulta para medir a quantidade de eventos de entrada processados. Para garantir que o trabalho não esteja apenas esperando pelos eventos de entrada, cada partição do Hub de Eventos de Entrada foi pré-carregada com dados de entrada de cerca de 300 MB.
-
-A tabela a seguir mostra os resultados que vimos quando aumentamos o número de unidades de streaming e a partição correspondente conta nos Hubs de eventos.  
-
-<table border="1">
-<tr><th>Partições de entrada</th><th>Partições de saída</th><th>Unidades de streaming</th><th>Taxa de transferência mantida
-</th></td>
-
-<tr><td>12</td>
-<td>12</td>
-<td>6</td>
-<td>4,06 MB/s</td>
-</tr>
-
-<tr><td>12</td>
-<td>12</td>
-<td>12</td>
-<td>8,06 MB/s</td>
-</tr>
-
-<tr><td>48</td>
-<td>48</td>
-<td>48</td>
-<td>38,32 MB/s</td>
-</tr>
-
-<tr><td>192</td>
-<td>192</td>
-<td>192</td>
-<td>172,67 MB/s</td>
-</tr>
-
-<tr><td>480</td>
-<td>480</td>
-<td>480</td>
-<td>454,27 MB/s</td>
-</tr>
-
-<tr><td>720</td>
-<td>720</td>
-<td>720</td>
-<td>609,69 MB/s</td>
-</tr>
-</table>
-
-E o grafo a seguir mostra uma visualização da relação entre SUs e taxa de transferência.
-
-![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)

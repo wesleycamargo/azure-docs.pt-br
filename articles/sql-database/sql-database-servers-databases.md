@@ -1,33 +1,22 @@
 ---
-title: Criar e gerenciar servidores e bancos de dados SQL do Azure | Microsoft Docs
-description: Saiba mais sobre conceitos de banco de dados e servidor de Banco de Dados SQL do Azure e sobre como criar e gerenciar servidores e bancos dados.
+title: Servidores lógicos e bancos de dados individuais do SQL do Azure | Microsoft Docs
+description: Saiba mais sobre os conceitos de servidor lógico e banco de dados individual do Banco de Dados SQL e seus recursos.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 2600e39dec91fc6916fa7bbd02e318d33cfa3c99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505fd88959feb1c84abc53c6435776a5c5b4123c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649050"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309173"
 ---
-# <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Criar e gerenciar servidores e bancos de dados do Banco de Dados SQL
-
-O Banco de Dados SQL oferece três tipos de bancos de dados:
-
-- Um banco de dados individual criado em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um [conjunto combinado de recursos de computação e armazenamento](sql-database-service-tiers-dtu.md) ou [uma escala independente de recursos de computação e armazenamento](sql-database-service-tiers-vcore.md). Um banco de dados SQL do Azure está associado a um servidor lógico de Banco de Dados SQL, que é criado dentro de uma região do Azure específica.
-- Um banco de dados criado como parte de um [pool de bancos de dados](sql-database-elastic-pool.md) em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um [conjunto combinado de recursos de computação e armazenamento (baseado em DTU)](sql-database-service-tiers-dtu.md) ou uma [escala independente de recursos de computação e armazenamento (baseado em vCore)](sql-database-service-tiers-vcore.md) que são compartilhados entre todos os bancos de dados no pool. Um banco de dados SQL do Azure está associado a um servidor lógico de Banco de Dados SQL, que é criado dentro de uma região do Azure específica.
-- Uma [instância de um SQL Server](sql-database-managed-instance.md) (uma Instância Gerenciada) criada em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de recursos de computação e armazenamento para todos os bancos de dados nessa instância de servidor. Uma instância gerenciada contém bancos de dados do sistema e de usuário. A Instância Gerenciada foi criada para habilitar o lift-and-shift do banco de dados para um PaaS totalmente gerenciado, sem a necessidade de projetar o aplicativo novamente. A Instância Gerenciada fornece alta compatibilidade com o modelo de programação local do SQL Server e dá suporte à grande maioria dos recursos do SQL Server e a ferramentas e serviços complementares.  
-
-O Banco de Dados SQL do Microsoft Azure dá suporte ao cliente de protocolo TDS versão 7.3 ou posterior e permite apenas conexões TCP/IP criptografadas.
-
-> [!IMPORTANT]
-> A Instância Gerenciada do Banco de Dados SQL, atualmente em visualização pública, oferece uma única camada de serviço de Uso Geral. Para obter mais informações, consulte [Instância Gerenciada do Banco de Dados SQL](sql-database-managed-instance.md). O restante deste artigo não se aplica à Instância Gerenciada.
+# <a name="azure-sql-database-logical-servers-and-single-databases-and-their-resources"></a>Servidor lógico e banco de dados individual do Banco de Dados SQL e seus recursos
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>O que é um servidor lógico do SQL Azure?
 
@@ -59,6 +48,20 @@ Um servidor lógico do Banco de Dados do Azure:
 - Os logons de entidade de segurança no nível do servidor podem gerenciar todos os bancos de dados em um servidor
 - Pode conter logons semelhantes aos das instâncias do SQL Server locais que têm permissão para acessar um ou mais bancos de dados no servidor, além de poder receber direitos administrativos limitados. Para obter mais informações, consulte [Logons](sql-database-manage-logins.md).
 - O agrupamento padrão para todos os bancos de dados de usuário criados em um servidor lógico é `SQL_LATIN1_GENERAL_CP1_CI_AS`, em que `LATIN1_GENERAL` é o inglês (Estados Unidos), `CP1` é a página de código 1252, `CI` não diferencia maiúsculas de minúsculas e `AS` diferencia acentos.
+
+## <a name="logical-servers-and-databases"></a>Servidores lógicos e bancos de dados
+
+Em um servidor lógico, você pode criar:
+
+- Um banco de dados individual criado em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um [conjunto combinado de recursos de computação e armazenamento](sql-database-service-tiers-dtu.md) ou [uma escala independente de recursos de computação e armazenamento](sql-database-service-tiers-vcore.md). Um banco de dados SQL do Azure está associado a um servidor lógico de Banco de Dados SQL, que é criado dentro de uma região do Azure específica.
+- Um banco de dados criado como parte de um [pool de bancos de dados](sql-database-elastic-pool.md) em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um [conjunto combinado de recursos de computação e armazenamento (baseado em DTU)](sql-database-service-tiers-dtu.md) ou uma [escala independente de recursos de computação e armazenamento (baseado em vCore)](sql-database-service-tiers-vcore.md) que são compartilhados entre todos os bancos de dados no pool. Um banco de dados SQL do Azure está associado a um servidor lógico de Banco de Dados SQL, que é criado dentro de uma região do Azure específica.
+
+> [!IMPORTANT]
+> Uma Instância Gerenciada do Banco de Dados SQL, atualmente em versão prévia pública, é uma [instância de um SQL Server](sql-database-managed-instance.md) (uma Instância Gerenciada) criada em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de recursos de computação e armazenamento para todos os bancos de dados nessa instância de servidor. Uma instância gerenciada contém bancos de dados do sistema e de usuário. A Instância Gerenciada foi criada para habilitar o lift-and-shift do banco de dados para um PaaS totalmente gerenciado, sem a necessidade de projetar o aplicativo novamente. A Instância Gerenciada fornece alta compatibilidade com o modelo de programação local do SQL Server e dá suporte à grande maioria dos recursos do SQL Server e a ferramentas e serviços complementares. Para saber mais, confira [Instância Gerenciada do Banco de Dados SQL](sql-database-managed-instance.md). O restante deste artigo não se aplica à Instância Gerenciada.
+
+## <a name="tds-and-tcpip-connections"></a>Conexões TCP/IP e TDS
+
+O Banco de Dados SQL do Microsoft Azure dá suporte ao cliente de protocolo TDS versão 7.3 ou posterior e permite apenas conexões TCP/IP criptografadas.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Bancos de dados SQL do Azure protegidos pelo firewall do Banco de Dados SQL
 
@@ -109,7 +112,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do Azure SQL com 
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Obtém um ou mais bancos de dados|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Define propriedades para um banco de dados ou move um banco de dados existente para um pool, elástico|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Remove um banco de dados|
-|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Cria um grupos de recursos]
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Cria um grupos de recursos|
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Cria um servidor|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Retorna informações sobre servidores|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Modifica as propriedades de um servidor|

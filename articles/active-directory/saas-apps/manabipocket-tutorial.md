@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 44b34c20c8b21b58ef67beedc1074f0664048b90
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f4ef40ea5e3d68ed8c04dc2a67042abd74df42aa
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212362"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutorial: integração do Microsoft Azure Active Directory com o Manabi Pocket.
 
@@ -101,35 +100,29 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/manabipocket-tutorial/tutorial_manabipocket_samlbase.png)
 
-3. Na seção **Domínio e URLs do Manabi Pocket**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+3. Na seção **Domínio e URLs do Manabi Pocket**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Manabi Pocket](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
-    
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/assertion_post`
+    a. Na caixa de texto **URL de Logon**, digite a URL: `https://ed-cl.com/`
+
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao Cliente do Manabi Pocket](mailto:info-ed-cl@ntt.com) para obter esses valores.
+    > O valor do Identificador não é real. Atualize esse valor com o Identificador real. Contate a [equipe de suporte ao Cliente do Manabi Pocket](mailto:info-ed-cl@ntt.com) para obter esse valor.
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
-
-    ![Informações de logon único de Domínio e URLs do Manabi Pocket](./media/manabipocket-tutorial/tutorial_manabipocket_url1.png)
-
-    Na caixa de texto **URL de Logon**, digite a URL: `https://ed-cl.com/`
-
-5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![O link de download do Certificado](./media/manabipocket-tutorial/tutorial_manabipocket_certificate.png) 
 
-6. Clique no botão **Salvar** .
+5. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-7. Para configurar o logon único no lado do **Manabi Pocket**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte Manabi Pocket](mailto:info-ed-cl@ntt.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+6. Para configurar o logon único no lado do **Manabi Pocket**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte Manabi Pocket](mailto:info-ed-cl@ntt.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -196,7 +189,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Microsof
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
@@ -222,4 +215,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/manabipocket-tutorial/tutorial_general_201.png
 [202]: ./media/manabipocket-tutorial/tutorial_general_202.png
 [203]: ./media/manabipocket-tutorial/tutorial_general_203.png
-

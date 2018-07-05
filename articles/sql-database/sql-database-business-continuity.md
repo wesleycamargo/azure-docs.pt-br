@@ -12,12 +12,12 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0399b9037e162aa712b87b498b968750226af23a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9149405e2778557a94815812fdf4966d38a3149c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646381"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308448"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 
@@ -38,11 +38,11 @@ A tabela a seguir compara o ERT e o RPO para cada camada de serviço para os tr�
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Use a recuperação pontual para recuperar um banco de dados
 
-O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco a dez minutos para proteger sua empresa contra a perda de dados. Se você estiver usando o [modelo de compra com base em DTU](sql-database-service-tiers-dtu.md), esses backups são armazenados no armazenamento RA-GRS por 35 dias para bancos de dados nas camadas de serviço Standard e Premium e 7 dias para bancos de dados na camada de serviço Básico. Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model). Se você estiver usando o [modelo de compra com base em vCore (versão prévia)](sql-database-service-tiers-vcore.md), a retenção de backups é configurável em até 35 dias nas camadas crítica de Negócios e uso geral. Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md).
+O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco a dez minutos para proteger sua empresa contra a perda de dados. Se você estiver usando o [modelo de compra com base em DTU](sql-database-service-tiers-dtu.md), esses backups são armazenados no armazenamento RA-GRS por 35 dias para bancos de dados nas camadas de serviço Standard e Premium e 7 dias para bancos de dados na camada de serviço Básico. Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-single-database-scale.md). Se você estiver usando o [modelo de compra com base em vCore (versão prévia)](sql-database-service-tiers-vcore.md), a retenção de backups é configurável em até 35 dias nas camadas crítica de Negócios e uso geral. Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md).
 
 Se o período máximo de retenção de PITR com suporte não for suficiente para o aplicativo, será possível estendê-lo configurando uma política LTR (retenção de longo prazo) para o(s) banco(s) de dados. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 
-Você pode usar esses backups automáticos do banco de dados para recuperar um banco de dados de diversos eventos de interrupção, tanto em seu data center quanto em outro. Ao usar os backups automáticos de banco de dados, o tempo estimado de recuperação dependerá de vários fatores, incluindo o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo, o tamanho do banco de dados, o tamanho do log de transações e a largura de banda da rede. Normalmente, o tempo de recuperação é menor do que 12 horas. Ao recuperar em outra região de dados, a perda de dados potencial será limitada a uma hora pelo armazenamento com redundância geográfica dos backups de banco de dados diferenciais por hora.
+Você pode usar esses backups automáticos do banco de dados para recuperar um banco de dados de diversos eventos de interrupção, tanto em seu data center quanto em outro. Ao usar os backups automáticos de banco de dados, o tempo estimado de recuperação dependerá de vários fatores, incluindo o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo, o tamanho do banco de dados, o tamanho do log de transações e a largura de banda da rede. Normalmente, o tempo de recuperação é menor do que 12 horas. Pode levar mais tempo para recuperar um banco de dados muito grande ou ativo. Para obter mais detalhes sobre o tempo de recuperação, confira [tempo de recuperação de banco de dados](sql-database-recovery-using-backups.md#recovery-time). Ao recuperar em outra região de dados, a perda de dados potencial será limitada a uma hora pelo armazenamento com redundância geográfica dos backups de banco de dados diferenciais por hora.
 
 > [!IMPORTANT]
 > Para recuperar usando os backups automáticos, você deverá ser um membro da função Colaborador do SQL Server ou o proprietário da assinatura, consulte [RBAC: funções internas](../role-based-access-control/built-in-roles.md). Você pode recuperar usando o Portal do Azure, o PowerShell ou a API REST. Você não pode usar o Transact-SQL.

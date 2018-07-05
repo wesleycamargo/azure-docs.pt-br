@@ -13,20 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 06/21/2018
 ms.author: maheshu
-ms.openlocfilehash: 408d86d2d79e827da654ad71f66972fe76fc2431
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2929f85b738171f7fb7f5b66af90e4e2ab54f5d0
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212488"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317163"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do Windows Server em um domínio gerenciado
 Este artigo mostra como implantar uma máquina virtual do Windows Server usando o Portal do Azure. Então, mostra como ingressar a máquina virtual em um domínio gerenciado do Azure Active Directory Domain Services (Azure AD DS).
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+
 ## <a name="step-1-create-a-windows-server-virtual-machine"></a>Etapa 1: criar uma máquina virtual do Windows Server
-Para criar uma máquina virtual do Windows ingressada na rede virtual na qual você habilitou o Azure AD DS, faça o seguinte:
+Para criar uma máquina virtual do Windows ingressada na rede virtual na qual você habilitou o Azure AD DS, execute estas etapas:
 
 1. Entre no [Portal do Azure](http://portal.azure.com).
 2. Na parte superior do painel esquerdo, selecione **Novo**.
@@ -68,29 +70,29 @@ Para criar uma máquina virtual do Windows ingressada na rede virtual na qual vo
 ## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>Etapa 2: Conectar-se à máquina virtual do Windows Server usando a conta de administrador local
 Em seguida, conecte-se à máquina virtual do Windows Server recém-criada para ingressar no domínio. Use as credenciais de administrador local especificadas quando você criou a máquina virtual.
 
-Para se conectar à máquina virtual, faça o seguinte:
+Para conectar-se à máquina virtual, execute estas etapas:
 
 1. No painel **Visão geral**, selecione **Conectar**.  
     Um arquivo do Protocolo RDP (.rdp) é criado e baixado.
 
     ![Conectar-se à máquina virtual do Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
-2. Para se conectar à sua VM, abra o arquivo RDP baixado. Se você for solicitado, selecione **Conectar**.
-3. No prompt de logon, insira as **credenciais de administrador local**que você especificou ao criar a máquina virtual (por exemplo, *localhost\mahesh*).
-4. Se você receber um aviso de certificado durante o processo de logon, continue a conexão selecionando **Sim** ou **Continuar**.
+2. Para se conectar à sua VM, abra o arquivo RDP baixado. Se solicitado, selecione **Conectar**.
+3. Insira as **credenciais de administrador local**que você especificou ao criar a máquina virtual (por exemplo, *localhost\mahesh*).
+4. Se você vir um aviso de certificado durante o processo de entrada, selecione **Sim** ou **Continuar** para se conectar.
 
 Neste ponto, você deve estar conectado à máquina virtual do Windows recém-criada com as credenciais de administrador local. A próxima etapa é ingressar a máquina virtual no domínio.
 
 
 ## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>Etapa 3: Ingressar a máquina virtual do Windows Server no domínio gerenciado do Azure AD DS
-Para ingressar a máquina virtual do Windows Server no domínio gerenciado do Azure AD DS, faça o seguinte:
+Para ingressar a máquina virtual do Windows Server no domínio gerenciado do Azure AD DS, execute estas etapas:
 
 1. Conecte-se à VM do Windows Server, como mostrado na “Etapa 2”. Na tela **Iniciar**, abra **Gerenciador do Servidor**.
 2. No painel esquerdo da janela **Gerenciador do Servidor**, selecione **Servidor Local**.
 
     ![A janela Gerenciador do Servidor na máquina virtual](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
-3. Em **Propriedades**, selecione **Grupo de Trabalho**. 
+3. Em **Propriedades**, selecione **Grupo de Trabalho**.
 4. Na janela **Propriedades do Sistema**, selecione **Alterar** para ingressar no domínio.
 
     ![A janela Propriedades do Sistema](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
@@ -99,7 +101,7 @@ Para ingressar a máquina virtual do Windows Server no domínio gerenciado do Az
 
     ![Especificar o domínio no qual ingressar](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 
-6. Você é solicitado a inserir suas credenciais para ingressar no domínio. Certifique-se de especificar as credenciais para um *usuário que pertença ao grupo de administradores DC do Azure AD*. Somente os membros desse grupo têm privilégios para ingressar computadores no domínio gerenciado.
+6. Você recebe uma solicitação para inserir suas credenciais e ingressar no domínio. Use as credenciais de um *usuário que pertença ao grupo de administradores DC do Azure AD*. Somente os membros desse grupo têm privilégios para ingressar computadores no domínio gerenciado.
 
     ![A janela Segurança do Windows para especificar credenciais](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 
@@ -123,30 +125,30 @@ Para ingressar a máquina virtual do Windows Server no domínio gerenciado do Az
 
 ## <a name="troubleshoot-joining-a-domain"></a>Solucionar problemas de ingresso em um domínio
 ### <a name="connectivity-issues"></a>Problemas de conectividade
-Se a máquina virtual for incapaz de localizar o domínio, tente uma ou mais das seguintes opções:
+Se a máquina virtual for incapaz de localizar o domínio, experimente estas etapas de solução de problemas:
 
-* Certifique-se de que a máquina virtual esteja conectada à mesma rede virtual na qual você habilitou o Azure AD DS. Se não estiver conectada, a máquina virtual não poderá se conectar ao domínio e, assim, não será possível ingressar no domínio.
+* Verifique se a máquina virtual está conectada à mesma rede virtual na qual o Azure AD DS está habilitado. Caso contrário, a máquina virtual não poderá se conectar ou ingressar no domínio.
 
-* Verifique se a máquina virtual está em uma rede virtual que, por sua vez, esteja conectada à rede virtual na qual você habilitou o Azure AD DS.
+* Verifique se a máquina virtual está em uma rede virtual que, por sua vez, esteja conectada à rede virtual na qual o Azure AD DS está habilitado.
 
-* Tente executar o ping no domínio usando o nome do domínio gerenciado (por exemplo, *ping contoso100.com*). Se você não puder fazer isso, tente executar o ping dos endereços IP para o domínio exibido na página em que você habilitou o Azure AD DS (por exemplo, *ping 10.0.0.4*). Se você conseguir executar o ping do endereço IP, mas não o domínio, o DNS poderá estar configurado incorretamente. Verifique se os endereços IP do domínio estão configurados como servidores DNS para a rede virtual.
+* Tente executar o ping no nome de domínio DNS do domínio gerenciado (por exemplo, *ping contoso100.com*). Se você não puder fazer isso, tente executar o ping dos endereços IP para o domínio exibido na página em que você habilitou o Azure AD DS (por exemplo, *ping 10.0.0.4*). Se você conseguir executar o ping do endereço IP, mas não do domínio, o DNS poderá estar configurado incorretamente. Verifique se os endereços IP do domínio estão configurados como servidores DNS para a rede virtual.
 
 * Tente liberar o cache do resolvedor DNS na máquina virtual (*ipconfig /flushdns*).
 
 Se uma janela for exibida solicitando credenciais para ingressar no domínio, você não terá problemas de conectividade.
 
 ### <a name="credentials-related-issues"></a>Problemas de credenciais
-Se você estiver enfrentando problemas com as credenciais e não conseguir ingressar no domínio, tente uma ou mais das seguintes opções:
+Se você estiver enfrentando problemas com as credenciais e não conseguir ingressar no domínio, tente as seguintes etapas de solução de problema:
 
-* Tente usar o formato UPN para especificar as credenciais. Se houver vários usuários com o mesmo prefixo UPN no seu locatário ou se o prefixo UPN for muito longo, o SAMAccountName para sua conta poderá ser gerado automaticamente. Portanto, o formato de SAMAccountName para sua conta pode ser diferente do que você espera ou usa em seu domínio local.
+* Tente usar o formato UPN para especificar as credenciais. Se houver vários usuários com o mesmo prefixo UPN no seu locatário ou se o prefixo UPN for muito longo, o SAMAccountName para sua conta poderá ser gerado automaticamente. Nesses casos, o formato de SAMAccountName para sua conta pode ser diferente do que você espera ou usa em seu domínio local.
 
 * Tente usar credenciais de uma conta de usuário que pertença ao grupo *Administradores do DC do AAD*.
 
-* Verifique se você [habilitou a sincronização de senhas](active-directory-ds-getting-started-password-sync.md) de acordo com as etapas descritas no guia de introdução.
+* Verifique se você [habilitou a sincronização de senhas](active-directory-ds-getting-started-password-sync.md) para o domínio gerenciado.
 
-* Use o UPN do usuário conforme configurado no Azure AD (por exemplo, *bob@domainservicespreview.onmicrosoft.com*) para entrar.
+* Verifique se você usou o UPN do usuário conforme configurado no Azure AD (por exemplo, *bob@domainservicespreview.onmicrosoft.com*) para entrar.
 
-* Certifique-se de que já esperou tempo suficiente para a sincronização de senha ser concluída conforme especificado no guia de introdução.
+* Aguarde tempo suficiente até a conclusão da sincronização da senha, conforme especificado no guia de introdução.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Guia de introdução ao Azure AD DS](active-directory-ds-getting-started.md)

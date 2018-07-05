@@ -8,19 +8,18 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 37409ee72591d943a834ff38f077a002a1724ab9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 18c3dbdcf85c5b06b4f0f20c85b9fe751a3719fe
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215385"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317975"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Tutorial: integração do Azure Active Directory com o PagerDuty
 
@@ -60,14 +59,14 @@ Para configurar a integração do PagerDuty ao Azure AD, você precisa adicionar
 
 **Para adicionar o PagerDuty da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory][1]
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
-    
+
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
@@ -102,8 +101,8 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+
     ![Caixa de diálogo Logon único](./media/pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
 3. Na seção **Domínio e URLs do PagerDuty**, execute as seguintes etapas:
@@ -114,12 +113,12 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.pagerduty.com`
 
-    > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do PagerDuty](https://www.pagerduty.com/support/) para obter esses valores. 
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do PagerDuty](https://www.pagerduty.com/support/) para obter esses valores.
 
 4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
-    ![O link de download do Certificado](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
+    ![O link de download do Certificado](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
 5. Clique no botão **Salvar** .
 
@@ -127,34 +126,33 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 6. Na seção **Configuração do PagerDuty**, clique em **Configurar o PagerDuty** para abrir a janela **Configurar logon**. Copie a **URL do serviço de logon único do SAML e a URL de logoff** da **seção de Referência Rápida.**
 
-    ![Configuração do PagerDuty](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png) 
+    ![Configuração do PagerDuty](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png)
 
 7. Em outra janela do navegador da Web, faça logon em seu site de empresa do Pagerduty como administrador.
 
 8. No menu na parte superior, clique em **Configurações de Conta**.
-   
+
     ![Configurações de Conta](./media/pagerduty-tutorial/ic778535.png "Configurações de Conta")
 
 9. Clique em **Logon Único**.
-   
+
     ![Logon Único](./media/pagerduty-tutorial/ic778536.png "Logon Único")
 
 10. Na página **Habilitar Logon Único (SSO)**, execute as seguintes etapas:
-   
+
     ![Habilitar logon único](./media/pagerduty-tutorial/ic778537.png "Habilitar logon único")
-   
+
     a. Abra o certificado codificado em Base 64 baixado no Portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado X.509**
   
     b. Na caixa de texto **URL de Logon**, cole a **URL do Serviço de Logon Único SAML** copiada do Portal do Azure.
   
     c. Na caixa de texto **URL de Logoff**, cole a **URL de Saída** copiada do Portal do Azure.
- 
-    d. Selecione **Ativar Logon Único**.
- 
-    e. Clique em **Salvar Alterações**.
 
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    d. Selecione **Permitir logon com nome de usuário/senha**.
+
+    e. Marque a caixa de seleção **Exigir comparação de contexto de autenticação EXACT**.
+
+    f. Clique em **Salvar Alterações**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -262,8 +260,6 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/pagerduty-tutorial/tutorial_general_01.png
@@ -277,4 +273,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/pagerduty-tutorial/tutorial_general_201.png
 [202]: ./media/pagerduty-tutorial/tutorial_general_202.png
 [203]: ./media/pagerduty-tutorial/tutorial_general_203.png
-

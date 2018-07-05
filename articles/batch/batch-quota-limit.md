@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19cdf81a355bae4d59cb49c1c588b995b040309b
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310529"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304017"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -51,14 +51,10 @@ Se você tiver criado uma conta de Lote com modo de alocação de pool definido 
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação |4 vezes o número de núcleos de nó |
 | [Aplicativos](batch-application-packages.md) por conta do Lote |20 |
 | Pacotes de aplicativos por aplicativo |40 |
-| Tamanho do pacote de aplicativos (cada) |Aproximadamente 195 GB<sup>1</sup> |
-| Tamanho de tarefa inicial máximo | 32768 caracteres<sup>2</sup> |
-| Tempo de vida máximo da tarefa | 7 dias<sup>3</sup> |
+| Tempo de vida máximo da tarefa | 7 dias<sup>1</sup> |
 | Nós de computação em pool de comunicação entre nós habilitada | 100 |
 
-<sup>1</sup> O limite do Armazenamento do Azure para o tamanho máximo do blob de blocos<br />
-<sup>2</sup> Inclui arquivos de recurso e variáveis de ambiente<br />
-<sup>3</sup> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de 7 dias. As tarefas concluídas persistem indefinidamente; os dados das tarefas não concluídas dentro do tempo de vida máximo não ficam acessíveis.
+<sup>1</sup> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de 7 dias. As tarefas concluídas persistem indefinidamente; os dados das tarefas não concluídas dentro do tempo de vida máximo não ficam acessíveis.
 
 
 ## <a name="view-batch-quotas"></a>Exibir cotas do Lote

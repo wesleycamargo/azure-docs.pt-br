@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d8fac770-bb57-4e1f-b50b-9ffeae239d07
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d22720e71788493d3663524f2b70783ba26b84d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b5fb84f8d8fbed7e1d4112e96b00af3e460661a
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218156"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Tutorial: Integração do Azure Active Directory com o Fluxx Labs
 
@@ -67,7 +66,7 @@ Para configurar a integração do Fluxx Labs ao Microsoft Azure Active Directory
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
-    
+
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
@@ -103,7 +102,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_samlbase.png)
 
 3. Na seção **Domínio e URLs do Fluxx Labs**, execute as seguintes etapas:
@@ -123,8 +122,8 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
     |-------------|------------|
     | Produção | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | Pré-produção | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-        
-    > [!NOTE] 
+
+    > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Fluxx Labs](mailto:travis@fluxxlabs.com) para obter esses valores.
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
@@ -135,7 +134,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Botão Salvar em Configurar Logon Único](./media/fluxxlabs-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Fluxx Labs**, clique em **Configurar Fluxx Labs** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+6. Na seção **Configuração do Fluxx Labs**, clique em **Configurar Fluxx Labs** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_configure.png)
 
@@ -148,9 +147,9 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 9. No Painel de Administração, selecione **Plug-ins** > **Integrações** e, em seguida, selecione **SSO de SAML (Desabilitado)**
 
     ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config2.png)
-    
+
 10. Na seção de atributos, realize as seguintes etapas:
-    
+
     ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config3.png)
 
     a. Marque a caixa de seleção **SSO do SAML**.
@@ -159,15 +158,17 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     c. Na caixa de texto **Caminho de retorno de chamada**, digite **/auth/saml/callback**.
 
-    d. Na caixa de texto **URL do Serviço do Consumidor de Declaração (URL de Logon Único)**, cole o valor de **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
+    d. Na caixa de texto **URL do Serviço do Consumidor de Declaração (URL de Logon Único)**, insira o valor da **URL de Resposta** que você inseriu no portal do Azure.
 
-    e. Na caixa de texto **ID da Entidade SP(Público-alvo)**, cole o valor da **ID da Entidade do SAML** que você copiou do portal do Azure.
+    e. Na caixa de texto **Público (ID da Entidade SP)**, insira o valor de **Identificador**, que você inseriu no portal do Azure.
 
-    f. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do Provedor de Identidade**.
+    f. Na caixa de texto **URL de Destino de SSO do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
-    g. Na caixa de texto **Formato do identificador de nome**, insira o valor `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    g. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do Provedor de Identidade**.
 
-    h. Clique em **Salvar**.
+    h. Na caixa de texto **Formato do identificador de nome**, insira o valor `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+
+    i. Clique em **Salvar**.
 
     > [!NOTE]
     > Depois que o conteúdo for salvado, o campo aparecerá em branco por questões de segurança, mas o valor foi salvo na configuração.
@@ -221,7 +222,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory façam logon 
     ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config4.png)
 
 4. Na seção **NOVAS PESSOAS**, execute as etapas a seguir:
-    
+
     ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config5.png)
 
     a. O Fluxx Labs usa email como identificador exclusivo para logons únicos. Preencha o campo **UID do SSO** com o endereço de email do usuário, que corresponde ao endereço de email, que estão usando como logon com o SSO.
@@ -232,7 +233,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory façam logon 
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Fluxx Labs.
 
-![Atribuir a função de usuário][200] 
+![Atribuir a função de usuário][200]
 
 **Para atribuir Brenda Fernandes ao Fluxx Labs, execute as seguintes etapas:**
 
@@ -257,7 +258,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.

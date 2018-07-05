@@ -5,27 +5,22 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: e6762d988da7d34893852505d8ce0fd30622eaaf
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: e168dcab182f9eb30291b58bdde252ec66d18e8c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802537"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301794"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço
 
 Este artigo descreve como usar o Barramento de Serviço do Azure para otimizar o desempenho na troca de mensagens agenciadas. A primeira parte deste artigo descreve os diferentes mecanismos oferecidos para ajudar a melhorar o desempenho. A segunda parte oferece orientação sobre como usar o Barramento de Serviço de uma maneira que possa oferecer o melhor desempenho em um determinado cenário.
 
-Ao longo deste tópico, o termo "cliente" refere-se a qualquer entidade que acesse o Barramento de Serviço. Um cliente pode assumir a função de um remetente ou de um receptor. O termo "remetente" é usado para um cliente de tópico ou fila de Barramento de Serviço que envia mensagens para uma assinatura de tópico ou fila de Barramento de Serviço. O termo "receptor" refere-se a um cliente de fila ou de assinatura do Barramento de Serviço que recebe mensagens de uma fila ou uma assinatura do Barramento de Serviço.
+Ao longo deste artigo, o termo "cliente" refere-se a qualquer entidade que acesse o Barramento de Serviço. Um cliente pode assumir a função de um remetente ou de um receptor. O termo "remetente" é usado para um cliente de tópico ou fila de Barramento de Serviço que envia mensagens para uma assinatura de tópico ou fila de Barramento de Serviço. O termo "receptor" refere-se a um cliente de fila ou de assinatura do Barramento de Serviço que recebe mensagens de uma fila ou uma assinatura do Barramento de Serviço.
 
 Estas seções apresentam vários conceitos usados pelo Barramento de Serviço para melhorar o desempenho.
 
@@ -37,7 +32,7 @@ O Barramento de Serviço permite que os clientes enviem e recebam mensagens por 
 2. Protocolo do sistema de mensagens do Barramento de Serviço (SBMP)
 3. HTTP
 
-AMQP e SBMP são mais eficientes, pois mantêm a conexão com o Barramento de Serviço enquanto a fábrica do sistema de mensagens existir. Ele também implementa o envio em lote e a pré-busca. A menos que mencionado explicitamente, todo o conteúdo deste tópico supõe o uso do AMQP ou do SBMP.
+AMQP e SBMP são mais eficientes, pois mantêm a conexão com o Barramento de Serviço enquanto a fábrica do sistema de mensagens existir. Ele também implementa o envio em lote e a pré-busca. A menos que mencionado explicitamente, todo o conteúdo deste artigo supõe o uso do AMQP ou do SBMP.
 
 ## <a name="reusing-factories-and-clients"></a>Reutilizando fábricas e clientes
 
@@ -45,13 +40,13 @@ Os objetos de cliente do Barramento de Serviço, como [QueueClient][QueueClient]
 
 ## <a name="concurrent-operations"></a>Operações simultâneas
 
-A execução de uma operação (enviar, receber, excluir etc.) leva algum tempo. Esse tempo inclui o processamento da operação pelo serviço do barramento de serviço, além da latência da solicitação e resposta. Para aumentar o número de operações por hora, elas devem ser executadas simultaneamente. Você pode obter essa simultaneidade de várias maneiras diferentes:
+A execução de uma operação (enviar, receber, excluir etc.) leva algum tempo. Esse tempo inclui o processamento da operação pelo serviço do barramento de serviço, além da latência da solicitação e resposta. Para aumentar o número de operações por hora, elas devem ser executadas simultaneamente. 
 
-* **Operações assíncronas**: o cliente agenda operações realizando operações assíncronas. A próxima solicitação é iniciada antes que a solicitação anterior seja concluída. O trecho de código a seguir é um exemplo de uma operação de envio assíncrono:
+O cliente agenda operações simultâneas realizando operações assíncronas. A próxima solicitação é iniciada antes que a solicitação anterior seja concluída. O trecho de código a seguir é um exemplo de uma operação de envio assíncrono:
   
  ```csharp
-  BrokeredMessage m1 = new BrokeredMessage(body);
-  BrokeredMessage m2 = new BrokeredMessage(body);
+  Message m1 = new BrokeredMessage(body);
+  Message m2 = new BrokeredMessage(body);
   
   Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
     {
@@ -65,25 +60,14 @@ A execução de uma operação (enviar, receber, excluir etc.) leva algum tempo.
   Console.WriteLine("All messages sent");
   ```
   
-  O código a seguir é um exemplo de uma operação de recebimento assíncrono:
+  O código a seguir é um exemplo de uma operação de recebimento assíncrono. Consulte o programa completo [aqui](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues):
   
   ```csharp
-  Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  
-  Task.WaitAll(receive1, receive2);
-  Console.WriteLine("All messages received");
-  
-  async void ProcessReceivedMessage(Task<BrokeredMessage> t)
-  {
-    BrokeredMessage m = t.Result;
-    Console.WriteLine("{0} received", m.Label);
-    await m.CompleteAsync();
-    Console.WriteLine("{0} complete", m.Label);
-  }
-  ```
+  var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
+  var doneReceiving = new TaskCompletionSource<bool>();
 
-* **Diversas fábricas**: todos os clientes (remetentes e receptores) criados pelas mesmas fábricas compartilham uma conexão TCP. A taxa de transferência máxima de mensagens é limitada pelo número de operações que podem passar por essa conexão TCP. A taxa de transferência que pode ser obtida com uma única fábrica varia muito de acordo com os tempos de viagem de ida e volta do TCP e com o tamanho da mensagem. Para obter taxas de transferência mais altas, use diversas fábricas de mensagens.
+  receiver.RegisterMessageHandler(
+  ```
 
 ## <a name="receive-mode"></a>Modo de recebimento
 
@@ -108,7 +92,7 @@ mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05
 MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
-O envio em lote não afeta o número de operações faturáveis do sistema de mensagens e está disponível somente para o protocolo de cliente do Barramento de Serviço. O protocolo HTTP não dá suporte ao envio em lote.
+O envio em lote não afeta o número de operações faturáveis do sistema de mensagens e está disponível somente para o protocolo de cliente do Barramento de Serviço usando a biblioteca [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). O protocolo HTTP não dá suporte ao envio em lote.
 
 ## <a name="batching-store-access"></a>Acesso ao repositório do envio em lote
 
@@ -135,7 +119,7 @@ A [pré-busca](service-bus-prefetch.md) permite que o cliente de fila ou de assi
 
 Quando uma mensagem for pré-buscada, ela será bloqueada pelo serviço. Com o bloqueio, a mensagem pré-buscada não pode ser recebida por um receptor diferente. Se o receptor não puder concluir a mensagem antes da expiração do bloqueio, a mensagem ficará disponível para outros destinatários. A cópia pré-buscada da mensagem permanecerá no cache. O receptor que consumir a cópia armazenada em cache expirada receberá uma exceção ao tentar concluir essa mensagem. Por padrão, o bloqueio da mensagem expira após 60 segundos. Esse valor pode ser estendido para 5 minutos. Para impedir o consumo de mensagens expiradas, o tamanho do cache sempre deverá ser menor do que o número de mensagens que podem ser consumidas por um cliente no intervalo de tempo limite de bloqueio.
 
-Ao usar a expiração de bloqueio padrão de 60 segundos, um bom valor para [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] será de 20 vezes as taxas máximas de processamento de todos os receptores da fábrica. Por exemplo, um alocador cria três receptores e cada receptor pode processar até dez mensagens por segundo. A contagem de pré-busca não deve exceder 20 X 3 X 10 = 600. Por padrão, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] é definido como 0, o que significa que nenhuma mensagem adicional será buscada do serviço.
+Ao usar a expiração de bloqueio padrão de 60 segundos, um bom valor para [PrefetchCount][SubscriptionClient.PrefetchCount] será de 20 vezes as taxas máximas de processamento de todos os receptores da fábrica. Por exemplo, um alocador cria três receptores e cada receptor pode processar até dez mensagens por segundo. A contagem de pré-busca não deve exceder 20 X 3 X 10 = 600. Por padrão, [PrefetchCount][QueueClient.PrefetchCount] é definido como 0, o que significa que nenhuma mensagem adicional será buscada do serviço.
 
 A pré-busca de mensagens aumenta a taxa de transferência geral de uma fila ou uma assinatura porque reduz o número geral de operações de mensagem, ou as viagens de ida e volta. A busca da primeira mensagem, no entanto, demorará mais (devido ao tamanho maior da mensagem). O recebimento de mensagens pré-buscadas será mais rápido porque essas mensagens já foram baixadas pelo cliente.
 
@@ -158,12 +142,12 @@ Se uma mensagem com informações importantes que não devem ser perdidas for en
 > [!NOTE]
 > As entidades expressas não dão suporte a transações.
 
-## <a name="use-of-partitioned-queues-or-topics"></a>Uso de filas ou tópicos particionados
+## <a name="partitioned-queues-or-topics"></a>Filas ou tópicos particionados
 
 Internamente, o Barramento de Serviço usa o mesmo nó e o repositório de mensagens para processar e armazenar todas as mensagens para uma entidade de mensagens (fila ou tópico). Uma [fila ou tópico particionado](service-bus-partitioning.md), por outro lado, é distribuído entre vários nós e repositórios de mensagens. As filas e tópicos particionados não só geram uma taxa de transferência mais alta do que as filas e os tópicos normais, como também exibem disponibilidade superior. Para criar uma entidade particionada, defina a propriedade [EnablePartitioning][EnablePartitioning] como **true**, como mostrado no exemplo a seguir. Para obter mais informações sobre entidades particionadas, veja as [Entidades de Mensagens Particionadas][Partitioned messaging entities].
 
 > [!NOTE]
-> As entidades particionadas não são mais compatíveis com a camada [SKU Premium](service-bus-premium-messaging.md). 
+> Não há suporte para entidades particionadas no [SKU Premium](service-bus-premium-messaging.md). 
 
 ```csharp
 // Create partitioned queue.
@@ -172,7 +156,7 @@ qd.EnablePartitioning = true;
 namespaceManager.CreateQueue(qd);
 ```
 
-## <a name="use-of-multiple-queues"></a>Uso de várias filas
+## <a name="multiple-queues"></a>Várias filas
 
 Se não for possível usar uma fila ou tópico particionado, ou se a carga esperada não puder ser manipulada por uma única fila ou tópico particionada, você deverá usar várias entidades de mensagens. Ao usar várias entidades, crie um cliente dedicado para cada entidade em vez de usar o mesmo cliente para todas as entidades.
 

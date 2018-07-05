@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: cb48d6f61991fd16112b3507a413946ec01b4871
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851052"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333625"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns sobre a transição do portal do OMS para o Portal do Azure para usuários do Log Analytics
 Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para gerenciar as configurações e analisar os dados coletados.  Todas as funcionalidades desse portal foram transferidas para o Portal do Azure, onde continuarão a ser desenvolvidas.
@@ -39,7 +39,7 @@ Na lista de espaços de trabalho no Portal do Azure, clique em **Adicionar** na 
 ![Página de visão geral](media/log-analytics-new-portal/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Onde está minha página de visão geral?
-A tela principal no portal do OMS exibe os blocos de todas as soluções de gerenciamento instaladas em seu espaço de trabalho, além de qualquer exibição personalizada que você criou. No Portal do Azure, isso é chamado de página de **Visão geral**. Do espaço de trabalho no Portal do Azure, selecione **Visão geral** no menu ou clique no botão **Visão geral** na página principal.
+A tela principal no portal do OMS exibe os blocos de todas as soluções de gerenciamento instaladas em seu espaço de trabalho, além de qualquer exibição personalizada que você criou. A mesma exibição está disponível no portal do Azure. No seu espaço de trabalho, selecione **Resumo do Espaço de Trabalho**.
 
 ![Página de visão geral](media/log-analytics-new-portal/overview.png)
 

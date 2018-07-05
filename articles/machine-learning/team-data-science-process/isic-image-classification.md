@@ -1,6 +1,6 @@
 ---
-title: Classificação de imagem com o AMLPCV (Pacote do AML (Azure Machine Learning) para Pesquisa Visual Computacional) e o TDSP (Processo de Ciência de Dados de Equipe) | Microsoft Docs
-description: Descreve o uso do TDSP (Processo de Ciência de Dados de Equipe) e AMLPCV para classificação de imagem
+title: Classificação de imagem com o pacote do Azure Machine Learning para pesquisa visual computacional e TDSP (Processo de Ciência de Dados de Equipe) | Microsoft Docs
+description: Descreve o uso de TDSP (Processo de Ciência de Dados de Equipe) e o pacote do Azure Machine Learning para pesquisa visual computacional para classificação de imagem.
 services: machine-learning, team-data-science-process
 documentationcenter: ''
 author: xibingao
@@ -15,73 +15,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: xibingao
-ms.openlocfilehash: a3dcfd8a9292d31c7342b8d50ec58c0da53318d3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f9e88cfb7185845e96f287b39bebaaa24320f537
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837211"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300781"
 ---
-# <a name="skin-cancer-image-classification-with-azure-machine-learning-aml-package-for-computer-vision-amlpcv-and-team-data-science-process-tdsp"></a>Classificação de imagem de câncer de pele com o AMLPCV (Pacote do AML (Azure Machine Learning) para Pesquisa Visual Computacional) e TDSP (Processo de Ciência de Dados de Equipe)
+# <a name="skin-cancer-image-classification-with-the-azure-machine-learning-package-for-computer-vision-and-team-data-science-process"></a>Classificação de imagem de câncer de pele com o pacote do Azure Machine Learning para pesquisa visual computacional e TDSP (Processo de Ciência de Dados de Equipe)
 
-## <a name="introduction"></a>Introdução
+Este artigo mostra como usar o [pacote do Azure Machine Learning para pesquisa visual computacional](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) para treinar, testar e implantar um modelo de *classificação de imagem*. O exemplo usa os modelos e a estrutura do TDSP (Processo de Ciência de Dados de Equipe) no [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation). Este passo a passo fornece o exemplo completo. Ele usa o [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) como a estrutura de aprendizado profundo, e o treinamento é feito em um computador de GPU da [Máquina virtual de Ciência de Dados](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview). A implantação usa a CLI de operacionalização do Azure Machine Learning.
 
-Este artigo mostra como usar o [AMLPCV (Pacote do Azure Machine Learning para Pesquisa Visual Computacional)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) para treinar, testar e implantar um modelo de **classificação de imagem**. A amostra usa os modelos e a estrutura do TDSP no [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation). A amostra completa é fornecida neste passo a passo. Ela usa o [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) como a estrutura de aprendizado profundo e o treinamento é feito em um computador de GPU da [VM de Ciência de Dados](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview). A implantação usa a CLI de Operacionalização do Azure ML.
+Muitos aplicativos no domínio da pesquisa visual computacional podem ser enquadrados como problemas de classificação de imagem. Isso inclui a criação de modelos que respondem a perguntas simples como "Um objeto está presente na imagem?" em que o objeto pode ser um cachorro, carro ou barco. Também inclui respostas a perguntas mais complexas como "Qual classe de gravidade de doença ocular é comprovada pelo exame de retina desse paciente?" O pacote do Azure Machine Learning para a pesquisa visual computacional simplifica o pipeline de modelagem e o processamento de dados de classificação de imagem. 
 
-Muitos aplicativos no domínio da pesquisa visual computacional podem ser enquadrados como problemas de classificação de imagem. Isso inclui a criação de modelos que respondem a perguntas como "Um objeto está presente na imagem?" (o objeto pode ser um *cachorro*, um *carro* ou um *navio*) e perguntas mais complexas como "Qual classe de gravidade de doença ocular é comprovada pelo exame de retina desse paciente?" O AMLPCV simplifica o processamento de dados de classificação de imagem e o pipeline de modelagem. 
+## <a name="link-to-the-github-repository"></a>Link para o repositório do GitHub
+Este artigo é um documento resumido sobre o exemplo. Encontre uma documentação mais extensiva no [site do GitHub](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification).
 
-## <a name="link-to-github-repository"></a>Link para o repositório do GitHub
-Fornecemos uma documentação resumida aqui sobre a amostra. Encontre uma documentação mais extensiva no [site do GitHub](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification).
+## <a name="team-data-science-process-walkthrough"></a>Passo a passo do Processo de Ciência de Dados de Equipe
 
-## <a name="team-data-science-process-tdsp-walkthrough-with-amlpcv"></a>Passo a passo do TDSP (Processo de Ciência de Dados de Equipe) com o AMLPCV
+Este passo a passo usa o ciclo de vida do [Processo de Ciência de Dados de Equipe](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview). Este passo a passo abrange as seguintes etapas do ciclo de vida.
 
-Este passo a passo usa o ciclo de vida do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview).
-
-Este passo a passo abrange as seguintes etapas do ciclo de vida:
-
-### <a name="1-data-acquisionhttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode01dataacquisitionandunderstanding"></a>[1. Aquisição de dados](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/01_data_acquisition_and_understanding)
-O conjunto de dados do ISIC é usado para a tarefa de classificação de imagem. O ISIC (International Skin Imaging Collaboration) é uma parceria entre o meio acadêmico e o setor para facilitar a aplicação de imagens cutâneas digitais para estudar e ajudar a reduzir a mortalidade causada pelo melanoma. Os [arquivos do ISIC](https://isic-archive.com/#images) contêm mais de 13.000 imagens de lesão cutânea com os rótulos benigno ou maligno. Baixamos uma amostra das imagens dos arquivos do ISIC.
+### <a name="1-data-acquisitionhttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode01dataacquisitionandunderstanding"></a>[1. Aquisição de dados](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/01_data_acquisition_and_understanding)
+O conjunto de dados ISIC (International Skin Imaging Collaboration) é usado para a tarefa de classificação de imagem. O ISIC é uma parceria entre o meio acadêmico e o setor para facilitar a aplicação de imagens cutâneas digitais para estudar e ajudar a reduzir a mortalidade causada pelo melanoma. Os [arquivos do ISIC](https://isic-archive.com/#images) contêm mais de 13.000 imagens de lesões cutâneas com os rótulos de benigno ou maligno. Faça o download de uma amostra das imagens dos arquivos do ISIC.
 
 ### <a name="2-modelinghttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode02modeling"></a>[2. Modelagem](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/02_modeling)
-Na etapa de modelagem, as subetapas a seguir são executadas. 
+Na etapa de modelagem, as subetapas a seguir são executadas.
 
-<b>2.1 Criação do conjunto de dados</b><br>
+#### <a name="dataset-creation"></a>Criação do conjunto de dados
 
-Para gerar um objeto de Conjunto de Dados no AMLPCV, forneça um diretório raiz de imagens no disco local. 
+Gere um objeto de conjunto de dados no pacote do Azure Machine Learning para pesquisa visual computacional fornecendo o diretório raiz das imagens no disco local. 
 
-<b>2.2 Visualização e anotação de imagem</b><br>
+#### <a name="image-visualization-and-annotation"></a>Visualização e anotação de imagem
 
-Visualize as imagens no objeto de conjunto de dados e corrija alguns dos rótulos se necessário.
+Visualize as imagens no objeto de conjunto de dados e corrija os rótulos se for necessário.
 
-<b>2.3 Aumento de imagem</b><br>
+#### <a name="image-augmentation"></a>Aumento de imagem
 
 Aumente um objeto de conjunto de dados usando as transformações descritas na biblioteca [imgaug](https://github.com/aleju/imgaug).
 
-<b>2.4 Definição de modelo DNN</b><br>
+#### <a name="dnn-model-definition"></a>Definição de modelo DNN
 
-Defina a arquitetura de modelo usada na etapa de treinamento. Seis modelos pré-treinados diferentes de rede neural profunda são compatíveis com o AMLPCV: AlexNet, Resnet-18, Resnet-34, Resnet-50, Resnet-101 e Resnet-152.
+Defina a arquitetura de modelo usada na etapa de treinamento. Há suporte para seis modelos pré-treinados de rede neural avançada no pacote do Azure Machine Learning para pesquisa visual computacional: AlexNet, Resnet-18, Resnet-34, Resnet-50, Resnet-101 e Resnet-152.
 
-<b>2.5 Treinamento do classificador</b><br>
+#### <a name="classifier-training"></a>Treinamento do classificador
 
 Treine as redes neurais com parâmetros padrão ou personalizados.
 
-<b>2.6 Avaliação e visualização</b><br>
+#### <a name="evaluation-and-visualization"></a>Avaliação e visualização
 
-A subetapa fornece uma funcionalidade para avaliar o desempenho do modelo treinado em um conjunto de dados de teste independente. As métricas de avaliação incluem exatidão, precisão e recuperação e curva ROC.
+Fornece uma funcionalidade para avaliar o desempenho do modelo treinado em um conjunto de dados de teste independente. As métricas de avaliação incluem exatidão, precisão, recuperação e curva ROC.
 
-Essas subetapas são explicadas em detalhes no Jupyter Notebook correspondente. Também fornecemos diretrizes para ativar os parâmetros, como taxa de aprendizado, tamanho do minilote e taxa de abandono, para melhorar ainda mais o desempenho do modelo.
+As subetapas são explicadas em detalhes no Jupyter Notebook correspondente. O notebook também fornece diretrizes para ativar os parâmetros, como taxa de aprendizado, tamanho do minilote e taxa de abandono, para melhorar ainda mais o desempenho do modelo.
 
 ### <a name="3-deploymenthttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode03deployment"></a>[3. Implantação](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/03_deployment)
 
-Essa etapa operacionaliza o modelo produzido na etapa de modelagem. Ela apresenta os pré-requisitos de operacionalização e a configuração. Por fim, o consumo do serviço Web também é explicado. Por meio deste tutorial, você pode aprender a criar modelos de aprendizado profundo com o AMLPCV e operacionalizar o modelo no Azure.
+Essa etapa operacionaliza o modelo produzido na etapa de modelagem. Ela apresenta os pré-requisitos e a configuração necessária. O consumo do serviço Web também é explicado. Neste tutorial, você aprenderá a criar modelos de aprendizado avançado com o pacote do Azure Machine Learning para pesquisa visual computacional e operacionalização do modelo no Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
-Leia outros documentos sobre o [AMLPCV (Pacote do Azure Machine Learning para Pesquisa Visual Computacional)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) e o [TDSP (Processo de Ciência de Dados de Equipe)](https://aka.ms/tdsp) para começar.
+- Leia outras documentações sobre o [pacote do Azure Machine Learning para pesquisa visual computacional](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest).
+- Leia a documentação do [Processo de Ciência de Dados de Equipe](https://aka.ms/tdsp) para começar.
 
 
 ## <a name="references"></a>Referências
 
-* [AMLPCV (Pacote do Azure Machine Learning para Pesquisa Visual Computacional)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
+* [Pacote do Azure Machine Learning para pesquisa visual computacional](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
 * [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation)
-* [VM de Ciência de Dados](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)
+* [Máquina virtual de ciência de dados](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)
 

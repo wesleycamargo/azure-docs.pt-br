@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 93d551bcc6e517702c064ec0bdf6be61d3230cb3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164451"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316661"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referência de tokens do Azure Active Directory v2.0
 O ponto de extremidade do Azure AD (Azure Active Directory) v 2.0 emite vários tipos de tokens de segurança em cada [fluxo de autenticação](active-directory-v2-flows.md). Esta referência descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
@@ -95,8 +95,7 @@ Ao resgatar um token de atualização para um novo token de acesso (e se o aplic
 ## <a name="validating-tokens"></a>Validando tokens
 Atualmente, a única validação de token que os aplicativos devem precisar executar é validar os tokens de ID. Para validar um token de ID, o aplicativo deve validar a assinatura do token de ID e as declarações contidas nele.
 
-<!-- TODO: Link -->
-A Microsoft fornece exemplos de código e bibliotecas que mostram como lidar facilmente com a validação de token. Nas próximas seções, descrevemos o processo subjacente. Várias bibliotecas de software livre de terceiros também estão disponíveis para validação de JWT. Há pelo menos uma opção de biblioteca para quase todas as plataformas e idiomas.
+<!-- TODO: Link --> A Microsoft fornece exemplos de código e bibliotecas que mostram como lidar facilmente com a validação de token. Nas próximas seções, descrevemos o processo subjacente. Várias bibliotecas de software livre de terceiros também estão disponíveis para validação de JWT. Há pelo menos uma opção de biblioteca para quase todas as plataformas e idiomas.
 
 ### <a name="validate-the-signature"></a>validar a assinatura
 Um JWT contém três segmentos, que são separados pelo caractere `.` . O primeiro segmento é conhecido como o *cabeçalho*, o segundo segmento é o *corpo* e o terceiro segmento é a *assinatura*. O segmento de assinatura pode ser usado para validar a autenticidade do token de ID, de modo que o aplicativo possa confiar nele.
@@ -113,7 +112,7 @@ Os tokens de ID são assinados usando algoritmos de criptografia assimétrica pa
 
 A declaração `alg` indica o algoritmo que foi usado para assinar o token. A declaração `kid` indica a chave pública que foi usada para assinar o token.
 
-A qualquer momento, o ponto de extremidade v 2.0 pode assinar um token de ID, usando qualquer conjunto específico de pares de chaves públicas-privadas. O ponto de extremidade v2.0 gira periodicamente o possível conjunto de chaves. Assim, o aplicativo deve ser escrito para tratar essas mudanças de chave automaticamente. Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo ponto de extremidade v2.0 é a cada 24 horas.
+O ponto de extremidade v 2.0 assina os tokens de acesso e a ID usando qualquer um de um conjunto específico de pares de chaves públicas-privadas. O ponto de extremidade v2.0 gira periodicamente o possível conjunto de chaves. Assim, o aplicativo deve ser escrito para tratar essas mudanças de chave automaticamente. Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo ponto de extremidade v2.0 é a cada 24 horas.
 
 Você pode adquirir os dados de chave de assinatura necessários para validar a assinatura usando o documento de metadados do OpenID Connect localizado em:
 
@@ -123,10 +122,11 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 > [!TIP]
 > Experimente a URL em um navegador!
->
->
 
 Esse documento de metadados é um objeto JSON com várias informações úteis, como o local dos vários pontos de extremidade exigidos para a autenticação do OpenID Connect. O documento também inclui um *jwks_uri*, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. O documento JSON localizado em jwks_uri tem todas as informações de chaves públicas que estão em uso atualmente. O aplicativo pode usar a declaração `kid` no cabeçalho do JWT para selecionar qual chave pública neste documento foi usada para assinar um token. Assim, ele executa a validação da assinatura usando a chave pública correta e o algoritmo indicado.
+
+> [!NOTE]
+> A declaração `x5t` foi preterida no ponto de extremidade v 2.0. É recomendável usar a declaração `kid` para validar o token.
 
 Executar a validação de assinatura está fora do escopo deste documento. Muitas bibliotecas de software livre estão disponíveis para ajudá-lo.
 
