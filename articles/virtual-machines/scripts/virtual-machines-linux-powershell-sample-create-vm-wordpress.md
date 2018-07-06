@@ -3,7 +3,7 @@ title: Amostra de Script do Azure PowerShell – WordPress | Microsoft Docs
 description: Amostra de Script do Azure PowerShell – WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ba1138d4c26b7fbcdda50b2f4ba45745a018e855
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b19c03fea7f376a5a16a2eb77e3ebf1cc8189bb6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655847"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098355"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>Criar uma VM do WordPress com o PowerShell
 
-Esse script cria uma máquina virtual e usa a extensão de script personalizado da Máquina Virtual do Azure para instalar o WordPress. Após a execução do script, é possível acessar o site de configuração do WordPress em `http://<public IP of VM>/wordpress`. 
+Esse script cria uma máquina virtual e usa a extensão de script personalizado da Máquina Virtual do Azure para instalar o WordPress. Após a execução do script, é possível acessar o site de configuração do WordPress em `http://<public IP of VM>/wordpress`.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -35,7 +35,7 @@ Esse script cria uma máquina virtual e usa a extensão de script personalizado 
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.ps1 "Create VM WordPress")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 

@@ -17,12 +17,12 @@ ms.date: 06/25/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 786757293e2ad2c47f80745f6bdd9bb5a65add80
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3b0fbbe466f51a6216716d274f238497a8a79294
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936948"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441627"
 ---
 # <a name="permissions-in-azure-active-directory"></a>Permissões no Azure Active Directory
 
@@ -36,7 +36,7 @@ O Microsoft Active Directory do Azure define dois tipos de permissões:
 
 Permissões efetivas são as permissões que seu aplicativo terá ao fazer solicitações para uma API. 
 
-* Para obter permissões delegadas, as permissões efetivas do seu aplicativo será a interseção menos privilegiadas das permissões delegadas que tiver recebido o aplicativo (por meio de consentimento) e os privilégios do usuário conectado no momento. Seu aplicativo não pode ter mais privilégios que o usuário conectado. Dentro das organizações, os privilégios do usuário conectado podem ser determinados pela política ou por associação em uma ou mais funções de administrador. Para obter mais informações sobre as funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](/azure/active-directory/active-directory-assign-admin-roles-azure-portal.md).
+* Para obter permissões delegadas, as permissões efetivas do seu aplicativo será a interseção menos privilegiadas das permissões delegadas que tiver recebido o aplicativo (por meio de consentimento) e os privilégios do usuário conectado no momento. Seu aplicativo não pode ter mais privilégios que o usuário conectado. Dentro das organizações, os privilégios do usuário conectado podem ser determinados pela política ou por associação em uma ou mais funções de administrador. Para obter mais informações sobre as funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
     Por exemplo, suponha que seu aplicativo tenha recebido a `User.ReadWrite.All` a permissão delegada no Microsoft Graph. Essa permissão concede uma permissão ao seu aplicativo para ler e atualizar o perfil de todos os usuários em uma organização. Se o usuário conectado for um administrador global, seu aplicativo poderá atualizar o perfil de todos os usuários na organização. No entanto, se o usuário conectado não estiver em uma função de administrador, seu aplicativo poderá atualizar apenas o perfil do usuário conectado. Não poderá atualizar os perfis de outros usuários na organização porque o que ele tem permissão para agir em nome de usuário não tem os privilégios.
 * Para permissões de aplicativo, as permissões efetivas do seu aplicativo são o nível completo de privilégios indicado pela permissão. Por exemplo, um aplicativo que tenha o `User.ReadWrite.All` permissão de aplicativo pode atualizar o perfil de todos os usuários na organização. 
 

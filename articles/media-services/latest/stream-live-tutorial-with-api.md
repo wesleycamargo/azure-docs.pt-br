@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: juliako
-ms.openlocfilehash: f02820f8382268dfedeee8d07de2438660e5e33e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 82ef04993b597778c808d649032603a0f3672e4c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236868"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110323"
 ---
 # <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>Transmitir ao vivo com Serviços de Mídia do Microsoft Azure v3 usando .NET Core
 
@@ -161,9 +161,9 @@ Depois que o canal é criado, você pode obter URLs de ingestão que você forne
 
 
 ```csharp
-// Get the input endpoint to configure the on premise encoder with
+// Get the input endpoint to configure the on-premises encoder with
 string ingestUrl = liveEvent.Input.Endpoints.First().Url;
-Console.WriteLine($"The ingest url to configure the on premise encoder with is:");
+Console.WriteLine($"The ingest url to configure the on-premises encoder with is:");
 Console.WriteLine($"\t{ingestUrl}");
 Console.WriteLine();
 ```

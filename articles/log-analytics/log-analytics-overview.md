@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: bd90b460-bacf-4345-ae31-26e155beac0e
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: bwren
-ms.openlocfilehash: b951d41dab4d349a8d648e7eaa7e23b73ced2ced
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: 463ac7ee3e640f8bc275adb9e6ac27cc3e6a037a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29939035"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127952"
 ---
 # <a name="what-is-azure-log-analytics"></a>O que é o Azure Log Analytics?
 O Log Analytics desempenha um papel central no gerenciamento do Azure ao coletar a telemetria e outros dados de diversas fontes e fornecer um mecanismo de linguagem de consulta e de análise que fornece informações sobre a operação de seus aplicativos e recursos.  Você pode interagir diretamente com os dados do Log Analytics por meio de exibições e pesquisas de log ou usar as ferramentas de análise em outros serviços do Azure que armazenam seus dados no Log Analytics, como o Application Insights e a Central de Segurança do Azure.  

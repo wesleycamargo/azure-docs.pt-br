@@ -3,7 +3,7 @@ title: Criar e compartilhar painéis de dados do Azure Log Analytics | Microsoft
 description: Este tutorial ajuda a entender como os painéis do Log Analytics podem visualizar todas as pesquisas de logs salvas, fornecendo a você uma lente única para exibir seu ambiente.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
@@ -15,12 +15,13 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: f6a70f33b143a5b9354411af9717d2a21e24af0c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: na
+ms.openlocfilehash: a4b1e59ff9ac4d7f455c87e821fb014ba238d3c9
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409257"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127468"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e compartilhar painéis de dados do Log Analytics
 
