@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: aa309abecdf0fb0c0acaf18e53bde4600c101a44
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 07/02/2018
 ms.locfileid: "34658798"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorias com suporte do Azure Mapas
@@ -102,7 +102,7 @@ Ao fazer uma [pesquisa por categoria](https://docs.microsoft.com/en-us/rest/api/
 | ESTAÇÃO\_FERROVIÁRIA | nacional, ramal ferroviário, metrô, (sub)urbano, estação de trem |
 | LOCADORA\_DE\_AUTOMÓVEIS\_ | instalação de aluguel de carros |
 | ESTACIONAMENTO\_DE\_CARROS\_DE ALUGUEL | estacionamento de aluguel de carros |
-| OFICINAS | oficinas, serviços de pneus, oficinas mecânicas, oficinas de substituição de vidros automóveis, reparação de automóveis em geral, venda de acessórios para automóveis, reparação de motociclos, reparação de caminhões, reparação |
+| REPARAR\_OFICINAS | oficinas, serviços de pneus, oficinas mecânicas, oficinas de substituição de vidros automóveis, reparação de automóveis em geral, venda de acessórios para automóveis, reparação de motociclos, reparação de caminhões, reparação |
 | CENTRO DE\_PESQUISA | instalação de pesquisa |
 | ACOMODAÇÃO\_RESIDENCIAL | comunidade de aposentados, complexo residencial, complexo de apartamentos, complexo de condomínios, propriedade residencial, acomodação residencial |
 | RESTAURANTE | alemã, crioulo-cajun, holandesa, salas de banquetes, bistrô, israelense, eslovaca, jamaicana, vegetariana, frutos do mar, vietnamita, maltesa, sichuan, galesa, chinesa, japonesa, argelina, californiana, fusão, shandong, salada, saboia, espanhola, etíope, taiwanesa, donuts, iraniana, canadense, americana, norueguesa, francesa, hunan, polinésia, afegã, de estrada, oriental, suíça, erótica, creperia, suriname, egípcia, húngara, nepalesa, churrasco, panela quente, hambúrgueres, mediterrânea, latino-americana, tapas, britânica, mexicana, guangdong, asiática (outros), buffet, sushi, mongol, internacional, mexilhões, tailandesa, venezuelana, romena, frango, sopa, kosher, steak house, iogurte/bar de sucos, italiana, coreana, Chipre, bósnia, boliviana, dominicana, belga, tunisina, escocesa, inglesa, paquistanesa, tcheca, havaiana, magrebina, tibetana, árabe, oriente médio, chilena, Xangai, polonesa, filipina, sudanesa, armênia, birmanesa, brasileira, escandinava, búlgara, alimento da alma, colombiana, judaica, pizza, siciliana, orgânica, grega, basca, uruguaia, cafeterias, finlandesa, africana, corsa, síria, caribenha, Dongbei, russa, grelhados, take away, fast food, australiana, irlandesa, comida de boteco, fondue, libanesa, indonésia, dinamarquesa, provençal, teppanyaki, indiana, maurícia, ocidental, peruana, cambojana, lanches, sueca, macrobiótica, sorveteria, eslava, turca, argentina, austríaca, exótica, portuguesa, luxemburguesa, marroquina, sanduíche, cubana, restaurante |
@@ -114,11 +114,11 @@ Ao fazer uma [pesquisa por categoria](https://docs.microsoft.com/en-us/rest/api/
 | SHOPPING\_CENTER | shopping center |
 | CENTRO\_ESPORTIVO | esporte temático, quadra de squash, centro de fitness, centro esportivo |
 | ESTÁDIO | netbol, futebol americano, beisebol, pista de corrida, multiuso, desporto motorizado, campo de críquete, campo de rugby, hóquei no gelo, atletismo, corrida de cavalos, basquete, futebol, estádio, campo de atletismo, pista de corrida |
-| PISCINA | piscina |
+| PISCINA\_ | piscina |
 | QUADRA DE\_TÊNIS | quadra de tênis |
 | TEATRO | anfiteatro, casa de shows, teatro restaurante, centro musical, ópera, cabaré, teatro, teatro de ópera |
 | POSTO DE\_INFORMAÇÕES\_TURÍSTICAS | escritório de informações turísticas |
-| SEMÁFORO | semáforo |
+| SEMÁFORO\_ | semáforo |
 | CENTRO DE\_SERVIÇOS\_DE TRÁFEGO | departamento de controle de tráfego, centro de serviços de tráfego |
 | SINAL\_DE TRÂNSITO | sinal de trânsito |
 | SISTEMA DE\_TRILHA | veículo de aventura, escalada, hipismo, bicicleta de montanha, caminhada, sistema de trilha |

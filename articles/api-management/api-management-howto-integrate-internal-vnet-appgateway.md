@@ -5,7 +5,7 @@ services: api-management
 documentationcenter: ''
 author: solankisamir
 manager: kjoshi
-editor: antonba
+editor: vlvinogr
 ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
 ms.workload: mobile
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: 595abcaafdea5cde3f868567bac7fb9cf0ee424b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c7d4351a9691c9787c42107306220e075f8648a0
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936098"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435116"
 ---
-# <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Como integrar o gerenciamento de API em uma VNET interna com o gateway de aplicativo 
+# <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Como integrar o gerenciamento de API em uma VNET interna com o gateway de aplicativo
 
 ##<a name="overview"> </a> Visão geral
- 
+
 O serviço de gerenciamento de API pode ser configurado em uma rede virtual no modo interno, o que o torna acessível apenas de dentro da rede virtual. O Gateway de Aplicativo do Azure é um Serviço PAAS que fornece um balanceador de carga de Camada 7. Ele atua como um serviço de proxy reverso e fornece também um firewall do aplicativo Web (WAF).
 
 Combinar o Gerenciamento de API provisionado em uma rede virtual interna com o front-end do Gateway de Aplicativo permite os seguintes cenários:
 
 * Usar o mesmo recurso de Gerenciamento de API para consumo por clientes internos e externos.
 * Usar um único recurso de Gerenciamento de API e ter uma sub-rede de APIs definida no Gerenciamento de API disponível para consumidores externos.
-* Fornecer uma maneira rápida de ativar e desativar o acesso ao Gerenciamento de API da Internet pública. 
+* Fornecer uma maneira rápida de ativar e desativar o acesso ao Gerenciamento de API da Internet pública.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -53,7 +53,7 @@ No primeiro exemplo de instalação, todas as suas APIs são gerenciadas somente
 ## <a name="before-you-begin"> </a> Antes de começar
 
 1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente da seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-2. Crie uma rede virtual e sub-redes separadas para o gerenciamento de API e o gateway de aplicativo. 
+2. Crie uma rede virtual e sub-redes separadas para o gerenciamento de API e o gateway de aplicativo.
 3. Se pretende criar um servidor DNS personalizado para a Rede Virtual, você deve fazer isso antes de iniciar a implantação. Verifique novamente se ele funciona garantindo que uma máquina virtual criada em um sub-rede nova na Rede Virtual possa resolver e acessar os pontos de extremidade do serviço do Azure.
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>O que é necessário para criar uma integração entre o gerenciamento de API e o gateway de aplicativo?
@@ -66,7 +66,7 @@ No primeiro exemplo de instalação, todas as suas APIs são gerenciadas somente
 * **Investigação de Integridade Personalizada:** o gateway de aplicativo, por padrão, usa investigações baseadas em endereço IP para entender quais servidores no BackendAddressPool estão ativos. O serviço de gerenciamento de API responde apenas às solicitações que têm o cabeçalho de host correto, portanto, as investigações padrão falham. Uma investigação de integridade personalizada precisa ser definida para ajudar o gateway de aplicativo a determinar que o serviço está ativo e, assim, encaminhar as solicitações.
 * **Certificado de domínio personalizado:** para acessar o gerenciamento de API da Internet, você precisa fazer um mapeamento do nome do host de CNAME para o nome DNS de front-end do Gateway de Aplicativo. Isso garante que o certificado e o cabeçalho do nome do host enviados ao Gateway de Aplicativo que são encaminhados ao Gerenciamento de API possam ser reconhecidos e validados pelo APIM.
 
-## <a name="overview-steps"> </a> Etapas necessárias para integrar o Gerenciamento de API e o Gateway de Aplicativo 
+## <a name="overview-steps"> </a> Etapas necessárias para integrar o Gerenciamento de API e o Gateway de Aplicativo
 
 1. Criar um grupo de recursos para o Gerenciador de Recursos.
 2. Crie uma rede virtual, uma sub-rede e um IP público para o gateway de aplicativo. Crie outra sub-rede para o gerenciamento de API.
@@ -164,14 +164,14 @@ Depois que o comando acima for bem-sucedido, confira a [Configuração DNS neces
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>Configure um nome de domínio personalizado no Gerenciamento de API
 
 ### <a name="step-1"></a>Etapa 1
-Carregue o certificado com a chave privada para o domínio. Para este exemplo será `*.contoso.net`. 
+Carregue o certificado com a chave privada para o domínio. Para este exemplo será `*.contoso.net`.
 
 ```powershell
 $certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName "apim-appGw-RG" -Name "ContosoApi" -HostnameType "Proxy" -PfxPath <full path to .pfx file> -PfxPassword <password for certificate file> -PassThru
 ```
 
 ### <a name="step-2"></a>Etapa 2
-Depois que o certificado é carregado, crie um objeto de configuração de nome do host do proxy com um nome do host `api.contoso.net`, já que o certificado de exemplo fornece autoridade para o domínio `*.contoso.net`. 
+Depois que o certificado é carregado, crie um objeto de configuração de nome do host do proxy com um nome do host `api.contoso.net`, já que o certificado de exemplo fornece autoridade para o domínio `*.contoso.net`.
 
 ```powershell
 $proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname "api.contoso.net"
@@ -236,8 +236,8 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 Crie uma investigação personalizada para o ponto de extremidade de domínio do proxy `ContosoApi` do serviço de gerenciamento de API. O caminho `/status-0123456789abcdef` é um ponto de extremidade de integridade padrão hospedado em todos os serviços de Gerenciamento de API. Defina `api.contoso.net` como um nome de host de investigação personalizado para protegê-lo com o certificado SSL.
 
 > [!NOTE]
-> O nome do host `contosoapi.azure-api.net` é o nome do host do proxy padrão configurado quando um serviço `contosoapi` é criado no Azure público. 
-> 
+> O nome do host `contosoapi.azure-api.net` é o nome do host do proxy padrão configurado quando um serviço `contosoapi` é criado no Azure público.
+>
 
 ```powershell
 $apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName "api.contoso.net" -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
@@ -291,7 +291,7 @@ $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistenta
 
 ### <a name="step-11"></a>Etapa 11
 
-Configure os caminhos de regra de URL para os pools de back-end. Isso permite que você selecione somente algumas das APIs do Gerenciamento de API para serem expostas ao público. Por exemplo, se houver `Echo API` (/echo/), `Calculator API` (/calc/) etc., deixe somente `Echo API` acessível na Internet. 
+Configure os caminhos de regra de URL para os pools de back-end. Isso permite que você selecione somente algumas das APIs do Gerenciamento de API para serem expostas ao público. Por exemplo, se houver `Echo API` (/echo/), `Calculator API` (/calc/) etc., deixe somente `Echo API` acessível na Internet.
 
 O exemplo a seguir cria uma regra simples para o tráfego de roteamento do caminho "/eco/" para o "apimProxyBackendPool" do back-end.
 
@@ -305,7 +305,7 @@ Se o caminho não corresponder às regras de caminho que você deseja habilitar 
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
 ```
 
-A etapa acima garante que apenas solicitações para o caminho "/echo" sejam permitidas pelo gateway de aplicativo. As solicitações para outras APIs configuradas no gerenciamento de API emitirão erros 404 do Gateway de Aplicativo quando acessadas da Internet. 
+A etapa acima garante que apenas solicitações para o caminho "/echo" sejam permitidas pelo gateway de aplicativo. As solicitações para outras APIs configuradas no gerenciamento de API emitirão erros 404 do Gateway de Aplicativo quando acessadas da Internet.
 
 ### <a name="step-12"></a>Etapa 12
 
@@ -340,7 +340,7 @@ $appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGr
 
 ## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>Dê um CNAME ao nome do host do proxy do Gerenciamento de API para o nome DNS público do recurso de Gateway de Aplicativo
 
-Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o Gateway de Aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. 
+Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o Gateway de Aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável.
 
 O nome DNS do gateway de aplicativo deve ser usado para criar um registro CNAME, que aponta o nome de host do proxy APIM (conforme `api.contoso.net` mostrado no exemplo anterior) para esse nome DNS. Para configurar o registro CNAME de IP de front-end, recupere os detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway.
 

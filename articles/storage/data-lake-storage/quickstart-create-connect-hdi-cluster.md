@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 6707610fc3410eab6eb2985c7d8a0ef821354689
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062072"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346576"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Início Rápido: configurar clusters em HDInsight
 
@@ -55,7 +55,7 @@ Siga as instruções na tela para fazer uma instalação de cluster básico. Os 
 
 * [Nome do grupo de recursos](#resource-group-name)
 * [Tipos de cluster e configuração](#cluster-types) 
-* [Logon de cluster e o nome de usuário SSH](#cluster-login-and-ssh-username)
+* [Logon de cluster e o nome de usuário SSH](#cluster-login-and-ssh-user-name)
 * [Localidade](#location)
 
 > [!IMPORTANT]
@@ -117,7 +117,7 @@ Embora uma instalação local do Hadoop use o HDFS (Sistema de Arquivos Distribu
 
 Durante a configuração, para o ponto de extremidade de armazenamento padrão você especifica o Data Lake Storage. O armazenamento padrão contém os logs de aplicativo e de sistema. Opcionalmente, você pode especificar contas adicionais do Azure Data Lake Storage vinculadas que o cluster possa acessar. O cluster HDInsight e as contas de armazenamento padrão dependentes devem estar na mesma localização do Azure.
 
-![Configurações de armazenamento de cluster: pontos de extremidade de armazenamento compatível com HDFS](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
+![Configurações de armazenamento de cluster: pontos de extremidade de armazenamento compatível com HDFS](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > **Desabilite o acesso ao Data Lake Store**. Essas configurações se referem à antiga funcionalidade do *Data Lake Store* e precisam ser desabilitadas para que os recursos do *Data Lake Storage* operem corretamente.

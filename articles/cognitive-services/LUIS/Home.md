@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: bbd0a532e54f9b221739c8ae9ff097fe44fdc4df
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751588"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344824"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é Reconhecimento Vocal (LUIS)?
 O Reconhecimento Vocal (LUIS) é um serviço baseado em nuvem que aplica aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário prever o significado geral, e extrair informações detalhadas relevantes. 
@@ -82,7 +82,7 @@ Depois que LUIS retorna as entidades encontradas na expressão do usuário, o ap
 
 LUIS fornece várias maneiras de identificar e categorizar entidades.
 
-* **Entidades predefinidas** LUIS tem muitos modelos de domínio que incluem intenções, expressões e [entidades predefinidas](pre-builtentities.md). Você pode usar as entidades predefinidas sem a necessidade de usar as intenções e expressões do modelo predefinido. As entidades predefinidas economizam tempo.
+* **Entidades predefinidas** LUIS tem muitos modelos de domínio que incluem intenções, expressões e [entidades predefinidas](luis-prebuilt-entities.md). Você pode usar as entidades predefinidas sem a necessidade de usar as intenções e expressões do modelo predefinido. As entidades predefinidas economizam tempo.
 
 * **Entidades personalizadas** LUIS oferece várias maneiras de identificar suas próprias [entidades](luis-concept-entity-types.md) personalizadas incluindo entidades de aprendizado de máquina, entidades específicas ou literais e uma combinação de literais e aprendizado de máquina.
 

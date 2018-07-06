@@ -8,16 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 7c2158d8e6f64c7c356ba40b3bf56684f00cb8c0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133192"
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Transição para a nova linguagem de consulta do Azure Log Analytics
 O Log Analytics implementou recentemente uma nova linguagem de consulta.  Este artigo fornece assistência na transição para a linguagem para o Log Analytics, caso você já esteja familiarizado com a linguagem herdada e ainda precise de assistência.
@@ -48,7 +50,7 @@ A tabela a seguir fornece uma comparação entre uma variedade de consultas comu
 |                        | Type=Event &#124; top 100 | Event &#124; take 100 |
 | Comparação de cadeias de caracteres      | Type=Event Computer=srv01.contoso.com   | Event &#124; where Computer == "srv01.contoso.com" |
 |                        | Type=Event Computer=contains("contoso") | Evento &#124; em que o Computador contém “contoso” (não diferencia maiúsculas de minúsculas)<br>Evento &#124; em que o Computador contains_cs “Contoso” (diferencia maiúsculas de minúsculas) |
-|                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
+|                        | Type=Event Computer=RegEx("\@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Comparação de datas        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &amp;#124; where TimeGenerated between (datetime(2017-05-01) . datetime(2017-05-31)) |
 | Comparação de boolianos     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| onde IsGatewayInstalled == false |

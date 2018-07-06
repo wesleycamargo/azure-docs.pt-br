@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939680"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099647"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial e em outras empresas
 
@@ -54,7 +54,7 @@ As seções a seguir descrevem as partes da solução.
 ### <a name="synthetic-data-source"></a>Fonte de dados sintética
 Para esse modelo, a fonte de dados usada é gerada por meio de um aplicativo da área de trabalho que você baixa e executa localmente após a implantação bem-sucedida.
 
-Para encontrar as instruções para baixar e instalar este aplicativo, selecione o primeiro nó, Gerador de Dados de Manutenção Preditiva, no diagrama do modelo de solução. As instruções podem ser encontradas na barra Propriedades. Esse aplicativo alimenta o serviço [Hub de Eventos do Azure](#azure-event-hub) com pontos de dados, ou eventos, usados no restante do fluxo da solução. Essa fonte de dados deriva de dados publicamente disponíveis no [repositório de dados da NASA](https://c3.nasa.gov/dashlink/resources/139/) usando o [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Para encontrar as instruções para baixar e instalar este aplicativo, selecione o primeiro nó, Gerador de Dados de Manutenção Preditiva, no diagrama do modelo de solução. As instruções podem ser encontradas na barra Propriedades. Esse aplicativo alimenta o serviço [Hub de Eventos do Azure](#azure-event-hub) com pontos de dados, ou eventos, usados no restante do fluxo da solução. Essa fonte de dados deriva de dados publicamente disponíveis no [repositório de dados da NASA](https://c3.nasa.gov/dashlink/resources/139/) usando o [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 O aplicativo de geração de eventos preenche o Hub de Eventos do Azure somente enquanto ele está em execução no computador.  
 
@@ -82,7 +82,7 @@ Use o [Power BI](https://powerbi.microsoft.com) para mostrar um painel com as ag
 ## <a name="how-to-bring-in-your-own-data"></a>Como inserir seus próprios dados
 Esta seção descreve como inserir seus próprios dados no Azure e quais áreas exigem alterações nos dados trazidos para essa arquitetura.
 
-É improvável que seu conjunto de dados corresponda ao conjunto de dados usado pelo [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) utilizado para esse modelo de solução. A compreensão dos seus dados e dos requisitos é fundamental para a forma como você modificará esse modelo para que ele funcione com seus próprios dados. 
+É improvável que seu conjunto de dados corresponda ao conjunto de dados usado pelo [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) utilizado para esse modelo de solução. A compreensão dos seus dados e dos requisitos é fundamental para a forma como você modificará esse modelo para que ele funcione com seus próprios dados. 
 
 As seções a seguir discutem as partes do modelo que exigem modificações quando um novo conjunto de dados é introduzido.
 

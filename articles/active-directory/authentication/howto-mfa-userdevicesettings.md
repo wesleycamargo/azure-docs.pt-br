@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 8dd30f53dc37734e1c01b3712b5adb7d81a1489b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 363106421e75fa2e1b220d03a7d7cbed25447bcc
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33865894"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098389"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a Autenticação Multifator do Azure na nuvem
 
@@ -75,4 +75,4 @@ A configuração **Restaurar a autenticação multifator em todos os dispositivo
 
 - Para saber mais sobre como [Definir as configurações da Autenticação Multifator do Azure](howto-mfa-mfasettings.md)
 
-- Se os usuários precisarem de ajuda, direcione-os para [Guia do usuário para verificação em duas etapas](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+- Se os usuários precisarem de ajuda, direcione-os para [Guia do usuário para verificação em duas etapas](end-user/current/multi-factor-authentication-end-user.md)

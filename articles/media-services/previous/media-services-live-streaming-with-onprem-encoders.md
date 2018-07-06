@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943205"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098810"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits
 
@@ -146,7 +146,7 @@ Os canais fornecem um ponto de extremidade de visualização (URL de visualizaç
 
 Você pode obter a URL de visualização quando você cria o canal. Para obter a URL, o canal não precisa estar no estado **Executando** . Depois que o canal inicia a ingestão de dados, você pode visualizar o fluxo.
 
-Atualmente, o fluxo de visualização só pode ser entregue em formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado. Use o player [Smooth Streaming Health Monitor](http://smf.cloudapp.net/healthmonitor) para testar o streaming suave. Você também pode usar um player hospedado no Portal do Azure para exibir a transmissão.
+Atualmente, o fluxo de visualização só pode ser entregue em formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado. Use o player [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) para testar o streaming suave. Você também pode usar um player hospedado no Portal do Azure para exibir a transmissão.
 
 #### <a name="allowed-ip-addresses"></a>Endereços IP permitidos
 Você pode definir os endereços IP que têm permissão para conectar-se ao ponto de extremidade de visualização. Se nenhum endereço IP for especificado, qualquer endereço IP será permitido. Um endereço IP permitido pode ser especificado como um dos seguintes:
