@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-ms.openlocfilehash: 991feaa61a73d5ac96159fbd6a7dd1fdd420fd3c
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: e2571a6854d2c3de2425547b69c5435286182ef7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291405"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448145"
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Permissões de usuário padrão no Azure Active Directory
 
@@ -50,8 +50,8 @@ Permissões padrão para usuários membro podem ser restringidas das seguintes m
 
 Permissão | Configurar explicação
 ---------- | ------------
-Capacidade de criar grupos de segurança | Definir essa opção como Não impede que os usuários criem grupos de segurança. Administradores globais e Administradores de conta de usuário ainda podem criar grupos de segurança. Consulte [Cmdlets do Active Directory do Azure para definir as configurações de grupo](../active-directory-accessmanagement-groups-settings-cmdlets.md) para saber como.
-Capacidade de criar grupos do Office 365 | Definir essa opção como Não impede que os usuários criem grupos do Office 365. Definir essa opção para Alguns permite que um conjunto selecionado de usuários crie grupos do Office 365. Administradores globais e Administradores de conta de usuário ainda poderão criar grupos do Office 365. Consulte [Cmdlets do Active Directory do Azure para definir as configurações de grupo](../active-directory-accessmanagement-groups-settings-cmdlets.md) para saber como.
+Capacidade de criar grupos de segurança | Definir essa opção como Não impede que os usuários criem grupos de segurança. Administradores globais e Administradores de conta de usuário ainda podem criar grupos de segurança. Consulte [Cmdlets do Active Directory do Azure para definir as configurações de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
+Capacidade de criar grupos do Office 365 | Definir essa opção como Não impede que os usuários criem grupos do Office 365. Definir essa opção para Alguns permite que um conjunto selecionado de usuários crie grupos do Office 365. Administradores globais e Administradores de conta de usuário ainda poderão criar grupos do Office 365. Consulte [Cmdlets do Active Directory do Azure para definir as configurações de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
 Restringir o acesso ao portal de administração do Azure AD | Definir essa opção como Não impede que os usuários acessem o portal do Azure Active Directory.
 Capacidade de ler outros usuários | Essa configuração só está disponível no PowerShell. A definição como $false impede que todos os não administradores leiam informações de usuário do diretório. Isso não impede a leitura de informações de usuário em outros serviços da Microsoft, como o Exchange Online. Essa configuração destina-se a circunstâncias especiais e configurar como $false não é recomendado.
 

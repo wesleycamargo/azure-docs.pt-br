@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e27d7f75dd3d0391f45805f4424248c8eac483c7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: df808078ffe6eedf8abaa32a94edaaf1355b7fc6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847610"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129897"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
 
@@ -175,7 +175,7 @@ As dicas abaixo poderão ajudar você quando estiver solucionando problemas da C
 * Use `-v` e `-vv` para exibir saídas de comando **detalhadas**. Quando o sinalizador `-vv` é incluído, a CLI do Azure exibe as respostas e solicitações REST reais. Essas opções são úteis para exibir a saída completa do erro.
 * Você pode exibir a **saída do comando como JSON** com a opção `--json`. Por exemplo, o `az batch pool show pool001 --json` exibe propriedades do pool001 no formato JSON. Você pode copiar e modificar essa saída a fim de usá-la em um `--json-file` (consulte [Arquivos JSON](#json-files) anteriormente neste artigo).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-* O [Fórum do Lote][batch_forum] é monitorado por membros da equipe do Lote. Você pode publicar suas perguntas nesse local caso tenha problemas ou queira obter ajuda com uma operação específica.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -183,7 +183,6 @@ As dicas abaixo poderão ajudar você quando estiver solucionando problemas da C
 * Para saber mais sobre recursos do Lote, consulte [Visão geral do Lote do Azure para desenvolvedores](batch-api-basics.md).
 * Para saber mais sobre como usar modelos do Lote para criar pools, trabalhos e tarefas sem escrever código, confira [Usar modelos da CLI do Lote do Azure e Transferência de Arquivos (Versão prévia)](batch-cli-templates.md).
 
-[batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx

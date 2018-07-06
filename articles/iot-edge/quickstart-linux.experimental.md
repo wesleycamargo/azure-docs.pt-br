@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b63c10a8c092d6568f8caf9842f007a5dc9c027
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049155"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099178"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início Rápido: implantar seu primeiro módulo IoT Edge em um dispositivo Linux x64
 
@@ -22,8 +22,8 @@ O Azure IoT Edge permite executar análise e processamento de dados em seus disp
 
 Neste guia de início rápido, você aprende a:
 
-1. Criar um Hub IoT.
-2. Registrar um dispositivo IoT Edge em seu hub IoT.
+1. Crie um Hub IoT.
+2. Registrar um dispositivo IoT Edge em seu Hub IoT.
 3. Iniciar o tempo de execução do IoT Edge.
 4. Implantar um módulo em um dispositivo IoT Edge remotamente.
 
@@ -33,7 +33,7 @@ Este guia de início rápido transforma seu computador máquina virtual Linux em
 
 Se você não tiver uma assinatura do Azure ativa, crie uma [conta gratuita][lnk-account] antes de começar.
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
 Comece o início rápido criando o Hub IoT no portal do Azure.
 ![Criar o Hub IoT][3]
@@ -53,7 +53,7 @@ Registre um dispositivo IoT Edge no Hub IoT recém-criado.
 Instale e inicie o tempo de execução do Azure IoT Edge no dispositivo. 
 ![Registrar um dispositivo][5]
 
-O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Ele tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge é iniciado e inicializa o dispositivo inicializando o agente do IoT Edge. O **agente do IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT. 
+O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge é iniciado e inicializa o dispositivo inicializando o agente do IoT Edge. O **agente do IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registrar o dispositivo para usar o repositório de software
 
@@ -134,8 +134,9 @@ O daemon de segurança é instalado como um serviço do sistema para que o tempo
 6. Exiba os módulos em execução no dispositivo: 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Após fazer logoff e logon, *sudo* não é necessário para o comando acima.
 
    ![Exibir um módulo no dispositivo](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -154,16 +155,19 @@ Neste guia de início rápido, você criou um novo dispositivo IoT Edge e instal
 Abra o prompt de comando no computador executando o seu dispositivo simulado novamente. Confirme se o módulo implantado da nuvem está em execução no seu dispositivo IoT Edge:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Após fazer logoff e logon, *sudo* não é necessário para o comando acima.
 
    ![Exibir três módulos no seu dispositivo](./media/quickstart-linux/iotedge-list-2.png)
 
 Exiba as mensagens que estão sendo enviadas do módulo tempSensor:
 
-   ```bash
-   iotedge logs tempSensor -f 
+  ```bash
+   sudo iotedge logs tempSensor -f 
    ```
+
+Após fazer logoff e logon, *sudo* não é necessário para o comando acima.
 
 ![Exibir os dados do seu módulo](./media/quickstart-linux/iotedge-logs.png)
 
@@ -193,7 +197,7 @@ Remova o tempo de execução do contêiner.
    sudo apt-get remove --purge moby
    ```
 
-Quando você não precisar mais do hub IoT do Azure ou do dispositivo IoT Edge criado neste guia de início rápido, poderá excluí-los no portal do Azure. Navegue até a página de visão geral do seu hub IoT e selecione **Excluir**. 
+Quando você não precisar mais do hub IoT do Azure ou do dispositivo IoT Edge criado neste guia de início rápido, poderá excluí-los no portal do Azure. Navegue até a página de visão geral do seu Hub IoT e selecione **Excluir**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

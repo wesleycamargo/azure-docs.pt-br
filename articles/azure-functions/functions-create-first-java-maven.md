@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/15/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f9b8046e0fb730f55dbdacf567869ae88df2a524
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df3c64938cfc5835fd9eb2f0bbed0135b611347f
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600588"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341514"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Criar sua primeira função com Java e Maven (versão prévia)
 
@@ -114,7 +114,7 @@ public class Function {
 Altere o diretório para a pasta do projeto recém-criado e compile e execute a função com o Maven:
 
 ```
-cd fabrikam-function
+cd fabrikam-functions
 mvn clean package 
 mvn azure-functions:run
 ```
@@ -172,7 +172,7 @@ Quando a implantação for concluída, você verá a URL que pode usar para aces
 Teste o aplicativo de funções em execução no Azure usando `cURL`. Você precisará alterar a URL do exemplo abaixo para corresponder à URL implantada no seu próprio aplicativo de funções da etapa anterior.
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output

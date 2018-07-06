@@ -3,7 +3,7 @@ title: Exemplo de Script da CLI do Azure - Instalar o IIS | Microsoft Docs
 description: Exemplo de Script da CLI do Azure - Instalar o IIS
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/28/2017
-ms.author: nepeters
-ms.openlocfilehash: 691c04d002b345b532bc5d5a37ce7d8f1dcab124
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: iainfou
+ms.openlocfilehash: 341006a352898c7dfab36804ab91b0efd304c656
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654259"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097209"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Criação rápida de uma máquina virtual com a CLI do Azure
 
@@ -34,11 +34,11 @@ Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-windows-iis/create-vm-windows-iis.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

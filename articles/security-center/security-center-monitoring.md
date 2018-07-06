@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/26/2018
 ms.author: terrylan
-ms.openlocfilehash: dc362306e20b4d39aa73a552e47cbcbd3037edbd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 434b73d4625f86fab195dbda1fed9c841791f5b6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063384"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099452"
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitoramento de integridade de segurança na Central de segurança do Azure
 Este artigo o ajuda a usar os recursos de monitoramento na Central de segurança do Azure para monitorar a conformidade com as políticas.
@@ -84,7 +84,7 @@ Essa tabela é classificada (máquinas virtuais e sub-redes) por severidade:
 * Laranja: prioridade média e deve ser endereçado assim que possível
 * Verde (último): estado íntegro
 
-Nessa exibição da topologia, o primeiro nível tem as [redes virtuai](../virtual-network/virtual-networks-overview.md), [gateways da rede virtual](/vpn-gateway/vpn-gateway-site-to-site-create.md) e [rede virtual (clássica)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). O segundo nível tem sub-redes, e o terceiro nível tem as máquinas virtuais que pertencem a essas sub-redes. A coluna da direita tem o status atual do grupo de segurança da rede para esses recursos, como mostrado neste exemplo:
+Nessa exibição da topologia, o primeiro nível tem as [redes virtuai](../virtual-network/virtual-networks-overview.md), [gateways da rede virtual](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) e [rede virtual (clássica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). O segundo nível tem sub-redes, e o terceiro nível tem as máquinas virtuais que pertencem a essas sub-redes. A coluna da direita tem o status atual do grupo de segurança da rede para esses recursos, como mostrado neste exemplo:
 
 ![O status do grupo de segurança de rede na seção de Topologia de rede](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 

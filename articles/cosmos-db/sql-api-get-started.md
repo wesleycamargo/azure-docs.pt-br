@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: 19e7c070285002b59966638ac914ab7a71ca9676
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 461279b5deb992be998e449f8f1ed062e91aae9b
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796886"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081431"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: tutorial de introdução à API do SQL
 > [!div class="op_single_selector"]
@@ -24,9 +24,7 @@ ms.locfileid: "34796886"
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js para MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
+> * [Java](sql-api-java-get-started.md) 
 > 
 
 Bem-vindo(a) ao tutorial de introdução ao API do SQL do Azure Cosmos DB! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos do Azure Cosmos DB.
