@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 10da40cf83dd39251033403a6a6913eb2e3b8b1d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fc4499e56d3508086365a353d5fa3f2bb42082b7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260844"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447295"
 ---
 # <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>Executar uma revisão de acesso no PIM, de acordo com a função de recurso
 O Privileged Identity Management (PIM) para recursos do Azure simplifica o modo como as empresas gerenciam o acesso privilegiado aos recursos no Azure. 

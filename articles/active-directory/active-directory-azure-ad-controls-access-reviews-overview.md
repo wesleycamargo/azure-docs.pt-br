@@ -3,23 +3,24 @@ title: Revisões de acesso do Azure AD | Microsoft Docs
 description: Você pode controlar a associação de grupos e o acesso a aplicativos para atender às iniciativas de governança, gerenciamento de riscos e conformidade da sua organização usando as revisões de acesso do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 31f3ce4ae7915ef463a557a9be60c651acdbabe6
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.reviewer: mwahl
+ms.openlocfilehash: 0180968d85fffcaf1ee5e224e72864d2ab0511ca
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233264"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446037"
 ---
 # <a name="azure-ad-access-reviews"></a>Revisões de acesso do Azure AD
 

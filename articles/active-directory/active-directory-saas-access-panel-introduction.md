@@ -15,12 +15,12 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bc05ff8c6961cd9389a12ff9c082867eecb79bca
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34347492"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448722"
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -40,7 +40,7 @@ O painel de acesso é separado do portal do Azure. Não é preciso ter uma assin
 
 - Exibir e iniciar aplicativos baseados em nuvem aos quais o administrador do Azure AD concedeu acesso. 
 
-- Autogerenciar grupos. Administradores podem criar e gerenciar grupos de segurança e solicitar associações ao grupo de segurança no Azure AD. Para saber mais, confira [Gerenciamento de grupo de autoatendimento para usuários no Azure AD](active-directory-accessmanagement-self-service-group-management.md) e [Gerenciar seus grupos](active-directory-manage-groups.md).
+- Autogerenciar grupos. Administradores podem criar e gerenciar grupos de segurança e solicitar associações ao grupo de segurança no Azure AD. Para saber mais, confira [Gerenciamento de grupo de autoatendimento para usuários no Azure AD](users-groups-roles/groups-self-service-management.md) e [Gerenciar seus grupos](fundamentals/active-directory-manage-groups.md).
 
 
 
@@ -89,7 +89,7 @@ Para entrar com logon único baseado em senha, você deve usar a extensão. Depo
 >
 Você pode baixar a extensão diretamente dos seguintes sites:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- Microsoft Edge
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Caso esteja usando uma URL dos Meus Aplicativos diferente de `https://myapps.microsoft.com`, configure sua URL padrão fazendo o seguinte:
@@ -214,7 +214,7 @@ Por exemplo, se um aplicativo for configurado para autenticar usuários usando o
 
 - Para exibir uma lista de todos os tópicos relacionados ao gerenciamento de aplicativos, confira o [índice do artigo para gerenciamento de aplicativos no Azure Active Directory](active-directory-apps-index.md).
  
-- Para saber como integrar um aplicativo SaaS no Azure AD, confira a [lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md).
+- Para saber como integrar um aplicativo SaaS no Azure AD, confira a [lista de tutoriais sobre como integrar aplicativos SaaS](saas-apps/tutorial-list.md).
  
 - Para saber mais sobre como gerenciar aplicativos com o AD do Azure, consulte a [Introdução ao acesso ao aplicativo de gerenciamento e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
  

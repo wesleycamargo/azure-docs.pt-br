@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: aa4e1d1f78549a8d1955def7a1c57e61d405e347
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 676d5e553e2929ae09d447141ca315fd1cc448e3
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297131"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448692"
 ---
 # <a name="permissions-on-the-azureiotsolutionscom-site"></a>Permissões no site azureiotsolutions.com
 
@@ -68,7 +68,7 @@ Descubra mais sobre as funções de administrador do Azure no artigo [Como adici
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Sou um administrador de serviços e gostaria de alterar o mapeamento de diretório entre minha assinatura e um locatário do AAD específico. Como posso concluir esta tarefa?
 
-Consulte [Como adicionar uma assinatura existente ao seu diretório do Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
+Consulte [Como adicionar uma assinatura existente ao seu diretório do Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Quero alterar um Administrador de Serviços ou um Coadministrador quando o logon for feito com uma conta organizacional
 
@@ -96,9 +96,9 @@ Para continuar a aprender sobre aceleradores de solução IoT, veja como é poss
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles-azure-portal.md
+[lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
 [lnk-portal]: https://portal.azure.com
-[lnk-create-edit-users]: ../active-directory/active-directory-users-profile-azure-portal.md
+[lnk-create-edit-users]:../active-directory/fundamentals/active-directory-users-profile-azure-portal.md
 [lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md

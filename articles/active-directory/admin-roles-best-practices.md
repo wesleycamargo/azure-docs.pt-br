@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 729cb89fbe63dbecb65c6f948052b920bf6e70fe
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4facc88aad5338362f2220148f1b1870ade5fe7e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937445"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445476"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -117,7 +117,7 @@ Certifique-se de não entrar em uma situação em que você pode ser bloqueado i
 
 As contas de acesso de emergência ajudam as organizações a restringir o acesso privilegiado em um ambiente existente do Azure Active Directory. Essas contas são altamente privilegiadas e não são atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas a emergência ou cenários de urgência em que as contas administrativas normais não podem ser usadas. As organizações devem garantir a meta de controlar e reduzir o uso da conta de emergência para somente esse momento durante o qual é necessário. 
 
-Avalie as contas que são atribuídas ou qualificadas para a função de administrador global. Se você não vir nenhuma conta somente em nuvem usando o domínio *.onmicrosoft.com (usado para acesso de emergência), crie-as. Para obter mais informações, consulte [Gerenciamento de contas administrativas de acesso de emergência no Azure AD](active-directory-admin-manage-emergency-access-accounts.md).
+Avalie as contas que são atribuídas ou qualificadas para a função de administrador global. Se você não vir nenhuma conta somente em nuvem usando o domínio *.onmicrosoft.com (usado para acesso de emergência), crie-as. Para obter mais informações, consulte [Gerenciamento de contas administrativas de acesso de emergência no Azure AD](users-groups-roles/directory-emergency-access.md).
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ative a autenticação multifator e registre todas as outras contas altamente privilegiadas de usuário único federado não administrador 
 
@@ -345,7 +345,7 @@ Essa etapa final do roteiro Secured Privileged Access inclui os seguintes compon
 
 #### <a name="review-admin-roles-in-azure-active-directory"></a>Funções de administrador no Azure Active Directory 
 
-Determine se as funções de administrador atuais internas do Azure AD ainda estarão atualizadas e certifique-se de que os usuários estão apenas em funções e delegações que precisam de permissões correspondentes. Usando o Azure AD, você pode designar administradores separados para atender a diferentes funções. Para saber mais informações, consulte [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Determine se as funções de administrador atuais internas do Azure AD ainda estarão atualizadas e certifique-se de que os usuários estão apenas em funções e delegações que precisam de permissões correspondentes. Usando o Azure AD, você pode designar administradores separados para atender a diferentes funções. Para saber mais informações, consulte [Atribuindo funções de administrador no Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md).
 
 #### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Analise os usuários que têm administraçõa dos dispositivos unidos do Azure AD
 

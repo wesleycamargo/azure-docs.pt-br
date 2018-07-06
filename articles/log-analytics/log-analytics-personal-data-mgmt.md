@@ -3,7 +3,7 @@ title: Diretrizes para dados pessoais armazenados no Azure Log Analytics| Micros
 description: Este artigo descreve como gerenciar dados pessoais armazenados no Azure Log Analytics e os métodos para identificá-los e removê-los.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 056779943d05ca743db63f1bc91be058cfae7b30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 3692c83a4991fc67ec176687bd076ab14e4c640d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658847"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129363"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics"></a>Diretrizes para dados pessoais armazenados no Log Analytics
 
@@ -29,7 +30,7 @@ O Log Analytics é um armazenamento de dados no qual é possível localizar dado
 
 ## <a name="strategy-for-personal-data-handling"></a>Estratégia para tratamento de dados pessoais
 
-Enquanto cabe a você e à sua empresa determinar qual estratégia será adotada para o tratamento de dados privados (se for o caso), algumas abordagens possíveis são apresentadas a seguir. As abordagens estão listadas em ordem de preferência, do ponto de vista técnico, da mais para a menos preferencial:
+Enquanto couber a você e à sua empresa determinar qual estratégia será adotada para o tratamento de dados privados (se for o caso), algumas abordagens possíveis são apresentadas a seguir. As abordagens estão listadas em ordem de preferência, do ponto de vista técnico, da mais para a menos preferencial:
 
 * Sempre que possível, pare de coletar, ocultar, anonimizar ou ajustar os dados que estão sendo coletados para excluí-lo de ser considerado "privado". Isso é _sem dúvida_ a abordagem preferencial, evitando a necessidade de criar uma estratégia de tratamento de dados muito cara e impactante.
 * Quando não for possível, tente normalizar os dados para reduzir o impacto na plataforma e no desempenho dos dados. Por exemplo, em vez de registrar uma ID de usuário explícita, crie um dado de pesquisa que correlacionará o nome de usuário e os respectivos detalhes a uma ID interna que poderá ser registrada em outro lugar. Dessa forma, se um dos usuários solicitar que você exclua as informações pessoais, é possível que somente excluir a linha na tabela de consulta correspondente ao usuário seja suficiente. 
@@ -62,7 +63,7 @@ Conforme mencionado na seção [Estratégia para tratamento de dados pessoais](#
 
 ### <a name="view-and-export"></a>Exibir e exportar
 
-Para solicitações de visualização e exportação de dados, poderá ser usada uma [API de Consulta](https://dev.loganalytics.io/). A lógica para converter a forma dos dados em uma forma apropriada para entregar aos usuários será de sua responsabilidade. [Azure Functions](https://azure.microsoft.com/services/functions/) é um ótimo local para hospedar essa lógica.
+Para solicitações de visualização e exportação de dados, poderá ser usada uma [API de consulta](https://dev.loganalytics.io/). A lógica para converter a forma dos dados em uma forma apropriada para entregar aos usuários será de sua responsabilidade. [Azure Functions](https://azure.microsoft.com/services/functions/) é um ótimo local para hospedar essa lógica.
 
 ### <a name="delete"></a>Excluir
 
@@ -76,7 +77,7 @@ A limpeza é uma operação altamente privilegiada que nenhum aplicativo ou usu�
 Depois que a função do Azure Resource Manager for atribuída, dois novos caminhos de API estarão disponíveis: 
 
 * [Limpeza POST] (https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência 
-* Status de limpeza GET - a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo: 
+* Status de limpeza GET – a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo: 
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20

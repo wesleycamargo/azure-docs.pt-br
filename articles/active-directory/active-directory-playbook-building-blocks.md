@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754110"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446768"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
 
@@ -45,7 +45,7 @@ A seguir, estão alguns pré-requisitos necessários para qualquer prova de conc
 | Domínios definidos e verificados | [Adicionar um nome de domínio personalizado ao Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Observação:** Algumas cargas de trabalho, como o Power BI podem ter provisionado um locatário do Azure AD nos bastidores. Para verificar se um determinado domínio é associado a um locatário, navegue até https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Se você obtiver uma resposta bem-sucedida, então o domínio já está atribuído a um locatário e a tomada de controle pode ser necessária. Nesse caso, contate a Microsoft para obter mais orientações. Saiba mais sobre as opções de tomada de controle em: [O que é Inscrição de Autoatendimento do Azure?](active-directory-self-service-signup.md) |
 | Avaliação do Azure AD Premium ou EMS habilitada | [Azure Active Directory Premium gratuito por um mês](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Você atribuiu licenças do Azure AD Premium ou EMS a usuários de PoC | [Licencie a si mesmo e seus usuários no Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
-| Credenciais de Administrador Global do Azure AD | [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
+| Credenciais de Administrador Global do Azure AD | [Atribuindo funções de administrador no Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
 | Opcional mas altamente recomendável: ambiente de laboratório paralelo como um fallback | [Pré-requisitos do Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>Sincronização de diretórios - PHS (sincronização de hash de senha) - nova instalação
@@ -428,7 +428,7 @@ Tempo estimado para Conclusão: 10 minutos
 ### <a name="considerations"></a>Considerações
 
 1. As etapas de prova de conceito neste bloco de construção configura o MFA explicitamente para um usuário em todos os logins. Há outras ferramentas, como Acesso Condicional e Proteção de Identidade que envolvem MFA em outros cenários de destino. Isso será algo a considerar quando passar de prova de conceito para produção.
-2. As etapas de prova de conceito neste bloco de construção são explicitamente usando Chamadas Telefônicas como o método MFA para experiência. Ao fazer a transição de prova de conceito para produção, é recomendável o uso de aplicativos como o [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) como seu segundo fator, sempre que possível.
+2. As etapas de prova de conceito neste bloco de construção são explicitamente usando Chamadas Telefônicas como o método MFA para experiência. Ao fazer a transição de prova de conceito para produção, é recomendável o uso de aplicativos como o [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) como seu segundo fator, sempre que possível.
 Saiba mais em: [Publicação Especial DRAFT NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>Acesso Condicional com MFA para Aplicativos SaaS
@@ -553,7 +553,7 @@ Tempo estimado para conclusão: 20 minutos
 | --- | --- |
 | Dispositivo com certificado do usuário provisionado (Windows, iOS ou Android) da Enterprise PKI | [Implantar Certificados do Usuário](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Domínio do Azure AD federado com ADFS | [Azure AD Connect e federação](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Visão geral dos Serviços de Certificados do Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
-| Para dispositivos iOS tem o aplicativo Microsoft Authenticator instalado | [Introdução ao aplicativo Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| Para dispositivos iOS tem o aplicativo Microsoft Authenticator instalado | [Introdução ao aplicativo Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Etapas
 
