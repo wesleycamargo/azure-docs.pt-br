@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: d4832807bb8ce3a854bee16eae5d0ced37fedcd8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 547c3785fa307838e9a86d38280b90fb31b040b3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215068"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082614"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Tutorial: integração do Azure Active Directory com o Sedgwick CMS
 
@@ -123,7 +123,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | `https://claimlookup.com/Voe/sso` |
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Sedgwick CMS](https://www.sedgwick.com/contact/Pages/contactform.aspx) para obter esses valores.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Sedgwick CMS](https://www.sedgwick.com/help) para obter esses valores.
  
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.

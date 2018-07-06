@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cb77bd4418e105c877202f0f1725350380ea2308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659002"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082200"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gerenciar os direitos de acesso aos dados do Armazenamento do Microsoft Azure com o RBAC (Versão prévia)
 
@@ -35,7 +35,7 @@ Para obter mais informações sobre como as funções internas são definidas pa
 Você também pode definir funções personalizadas para uso com contêineres e filas. Para obter mais informações, consulte [Criar funções personalizadas para controle de acesso baseado em função do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles.md). 
 
 > [!IMPORTANT]
-> Essa visualização destina-se somente a uso de não produção. Os contratos de nível de serviço (SLAs) de produção não estarão disponíveis até que a integração do Azure AD para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do AD do Azure ainda não for suportada para o seu cenário, continue a usar a autorização de Chave Compartilhada ou tokens SAS em seus aplicativos. Para obter informações adicionais sobre a versão prévia, consulte [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory (Versão prévia)](storage-auth-aad.md).
+> Essa visualização destina-se somente a uso de não produção. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Microsoft Azure Active Directory para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Microsoft Azure Active Directory ainda não tiver suporte no seu cenário, continue usando os tokens de autorização ou a chave compartilhada nos aplicativos. Para obter informações adicionais sobre a versão prévia, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
 >
 > Durante a visualização, as atribuições de função do RBAC podem levar até cinco minutos para ser propagadas.
 
@@ -61,7 +61,7 @@ As seções a seguir mostram como atribuir uma função com escopo à conta de a
 
 Para atribuir uma função interna concedendo acesso a todos os contêineres ou filas na conta de armazenamento no Portal do Azure:
 
-1. No [Portal do Azure](https://azure.portal.com/), navegue até sua conta de armazenamento.
+1. No [Portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento.
 2. Selecione sua conta de armazenamento, em seguida, selecione **Controle de Acesso (IAM)** para exibir as configurações de controle de acesso para a conta. Clique no botão **Adicionar** para adicionar uma nova função.
 
     ![Captura de tela mostrando as configurações de controle de acesso de armazenamento](media/storage-auth-aad-rbac/portal-access-control.png)
@@ -78,7 +78,7 @@ Para atribuir uma função interna concedendo acesso a todos os contêineres ou 
 
 As etapas para atribuir uma função interna com escopo a um contêiner ou a uma fila são semelhantes. O procedimento mostrado aqui atribui uma função com escopo a um contêiner, mas você pode seguir as mesmas etapas para atribuir uma função com escopo a uma fila: 
 
-1. No [portal do Azure](https://azure.portal.com/), navegue até sua conta de armazenamento e exiba a **Visão geral** para a conta.
+1. No [portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento e exiba a **Visão geral** para a conta.
 2. Em Serviço Blob, selecione **Procurar blobs**. 
 3. Localize o contêiner para o qual você deseja atribuir uma função e exiba as configurações do contêiner. 
 4. Selecione **Controle de Acesso (IAM)** para exibir as configurações de controle de acesso do contêiner.

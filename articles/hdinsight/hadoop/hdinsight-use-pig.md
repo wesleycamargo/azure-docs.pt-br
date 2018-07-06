@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: d382293ce815f24ad635b50c920d7988b664d79c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d030bdaf4c68a7e2ec9d11cdd8a2f55eccfbd67d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169601"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081160"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Usar o Pig com Hadoop no HDInsight
 
@@ -55,7 +55,7 @@ A linguagem do Pig Latin permite descrever o fluxo de dados a partir de dados br
 
 O Pig Latin também oferece suporte a UDF (funções definidas pelo usuário), que permite que você invoque componentes externos que implementam a lógica que é difícil de modelar no Pig Latin.
 
-Para saber mais sobre o Pig Latin, confira o [Manual de referência do Pig Latin 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) e o [Manual de referência do Pig Latin 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
+Para saber mais sobre o Pig Latin, confira o [Manual de referência do Pig Latin 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) e o [Manual de referência do Pig Latin 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 Para obter um exemplo de uso de UDF com o Hive, confira os seguinte documentos:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
-ms.openlocfilehash: 1b9c0514e93fa89f8776d830ef242fc4963a6f7b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d5ec76a62b56769ee3065cac3542f5a94df4a1c6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316463"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133191"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 
@@ -173,8 +173,8 @@ Console.WriteLine("Creating pool [{0}]...", poolId);
 // Create a pool using the cloud service configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 3,                                                         
-    virtualMachineSize: "small",                                                
+    targetDedicatedComputeNodes: 3,
+    virtualMachineSize: "standard_d1_v2",
     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
 
 // Add named user accounts.
@@ -334,6 +334,4 @@ A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significat
 
 ## <a name="next-steps"></a>Próximas etapas
 
-### <a name="batch-forum"></a>Fórum do Lote
-
-O [Fórum do Lote do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch) no MSDN é um ótimo lugar para discutir sobre o Lote e fazer perguntas sobre o serviço. Acesse diretamente as postagens úteis fixadas e poste suas dúvidas conforme elas surgirem enquanto você cria suas soluções do Lote.
+* Para uma visão geral detalhada do Lote, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md).

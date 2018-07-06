@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3426b6f3f248b670016713d2b58425ff030605af
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34709114"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448745"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Adicionar MSA (Conta da Microsoft) como um provedor de identidade usando políticas personalizadas
 
@@ -150,7 +150,7 @@ Neste ponto, o provedor de identidade foi definido, mas não está disponível e
 1.  Abra o arquivo base da política (por exemplo, TrustFrameworkBase.xml).
 2.  Localize o elemento `<UserJourneys>` e copie todo o conteúdo do nó `<UserJourneys>`.
 3.  Abra o arquivo de extensão (por exemplo, TrustFrameworkExtensions.xml) e localize o elemento `<UserJourneys>`. Se o elemento não existir, adicione um.
-4.  Cole todo o conteúdo do nó `<UserJournesy>` copiado como um filho do elemento `<UserJourneys>`.
+4.  Cole todo o conteúdo do nó `<UserJourneys>` copiado como um filho do elemento `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Exibir o botão
 O elemento `<ClaimsProviderSelections>` define a lista de opções de seleção de provedor de declarações e sua ordem.  O elemento `<ClaimsProviderSelection>` é análogo a um botão de provedor de identidade em uma página de inscrição/entrada. Se você adicionar um elemento `<ClaimsProviderSelection>` para a conta da Microsoft, um novo botão será exibido quando um usuário chegar à página. Para adicionar este elemento:
@@ -160,7 +160,7 @@ O elemento `<ClaimsProviderSelections>` define a lista de opções de seleção 
 3.  Adicione o seguinte trecho XML ao nó `<ClaimsProviderSelections>`:
 
 ```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
+<ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
 ```
 
 ### <a name="link-the-button-to-an-action"></a>Vincular o botão a uma ação
@@ -170,7 +170,7 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 2.  Adicione o seguinte trecho XML ao nó `<ClaimsExchanges>`:
 
 ```xml
-<ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
+<ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
 ```
 
 > [!NOTE]

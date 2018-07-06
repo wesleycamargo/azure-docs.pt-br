@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b3b9228c0733d34ea909a501e8ca6f9e11948381
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 58e3646588e500c4dd5334966d559aaed333b689
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825747"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083154"
 ---
 # <a name="become-a-publisher-in-the-storefronts-on-the-marketplace"></a>Tornar-se um Editor nas vitrines do Marketplace  
 As etapas a seguir irão ajudá-lo a registrar-se como editor nas vitrines do Marketplace. Com base na sua participação existente com a Microsoft e com o tipo de listagem selecionado, algumas das etapas a seguir podem não ser necessárias.  
@@ -30,7 +30,6 @@ As etapas a seguir irão ajudá-lo a registrar-se como editor nas vitrines do Ma
 | 2 | Criar uma ID da Microsoft | 15 minutos | [Criar uma ID da Microsoft](#create-a-microsoft-id) |  
 | 3 | Enviar o formulário de nominação do Marketplace | 1 a 3 dias | [Enviar o formulário de nominação do Marketplace](#submit-the-marketplace-nomination-form) |  
 | 4 | Registrar-se no Microsoft Developer Center (Centro de Desenvolvimento) | 5 a 10 dias | [Registrar no Centro de Desenvolvimento](#register-in-dev-center) |  
-| 5 | Entrar no AppSource | 15 minutos | [Entrar no AppSource](#sign-into-appSource) |  
 | 5 |  Entrar no Portal do Cloud Partner | 15 minutos | [Entrar no Portal do Cloud Partner](#sign-into-cloud-partner-portal) |  
 
 ## <a name="register-in-microsoft-partner-network"></a>Registrar-se no Microsoft Partner Network  
@@ -84,18 +83,6 @@ Uma conta do Centro de Desenvolvimento é necessária para publicar aplicativos 
 
 ---  
 
-## <a name="sign-into-appsource"></a>Entrar no AppSource  
-| 15 minutos |  
-Depois que sua Nominação for aprovada e você tiver se registrado no MPN e no Centro de Desenvolvimento, sua conta do Marketplace será criada com acesso ao AppSource. As primeiras credenciais de entrada são enviadas para seu email de aprovação de Nominação. 
-*   Para acessar o MPN, visite a página Associação localizada em [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
-*   Para acessar o Centro de Desenvolvimento, visite a página do Centro de Desenvolvimento do Windows localizada em [dev.windows.com](https://dev.windows.com).  
-*   Para acessar o AppSource, visite a página AppSource, localizada em [appsource.microsoft.com](https://appsource.microsoft.com).  
-*   Para acessar o Portal do Microsoft Cloud Partner, visite a página do Portal do Cloud Partner, localizada em [cloudpartner.azure.com](https://cloudpartner.azure.com).  
-*   Para obter mais informações sobre como usar o Portal do Cloud Partner, visite a seção Aprender, localizada em [cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn).  
-*   Para documentação sobre o Portal do Cloud Partner, visite a seção Documentação localizada em [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
-
----  
-
 ## <a name="sign-into-cloud-partner-portal"></a>Entrar no Portal do Cloud Partner
 | 15 minutos |  
 Depois que sua Nominação for aprovada e você tiver se registrado no MPN e no Centro de Desenvolvimento, sua conta do Marketplace será criada com acesso ao Portal do Cloud Partner. As primeiras credenciais de entrada são enviadas para seu email de aprovação de Nominação. 
@@ -106,6 +93,6 @@ Depois que sua Nominação for aprovada e você tiver se registrado no MPN e no 
 *   Para documentação sobre o Portal do Cloud Partner, visite a seção Documentação localizada em [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
 
 ## <a name="next-steps"></a>Próximas etapas
-*   Visite a página [Guia do editor do Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  
+*   Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
  
 ---  
