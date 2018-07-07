@@ -115,6 +115,8 @@
   items:
     - name: Perguntas frequentes
       href: FAQs.md
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
     - name: Exportar ou excluir dados da conta
