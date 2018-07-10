@@ -73,7 +73,7 @@ items:
     items:
       - name: Distribuição global
         href: distribute-data-globally.md
-      - name: Instalação de vários mestres
+      - name: Vários mestres
         href: multi-region-writers.md
       - name: Particionamento
         href: partition-data.md
@@ -172,8 +172,6 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor - Java
                 href: bulk-executor-java.md
-              - name: Gerenciar usando o Gerenciador de Armazenamento
-                href: storage-explorer.md
               - name: Consultar
                 items:
                   - name: Executar consultas SQL
@@ -184,8 +182,6 @@ items:
                 href: indexing-policies.md
               - name: Particionamento de dados SQL
                 href: sql-api-partition-data.md
-              - name: 'procedimentos armazenados, gatilhos e UDFs'
-                href: programming.md
               - name: Feed de alteração
                 href: change-feed.md
               - name: Tipos de dados
@@ -262,8 +258,6 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: Recursos
             items:
-              - name: Gerenciar usando o Gerenciador de Armazenamento
-                href: storage-explorer.md
               - name: Extensão Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: Espaço de consulta
@@ -328,12 +322,8 @@ items:
                 href: mongodb-ttl.md
               - name: Visualizar seus dados com o Power BI
                 href: powerbi-visualize.md
-              - name: Gerenciar usando o Gerenciador de Armazenamento
-                href: storage-explorer.md
           - name: Recursos
             items:
-              - name: Gerenciar usando o Gerenciador de Armazenamento
-                href: storage-explorer.md
               - name: Extensão Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Docs do API do Graph
@@ -352,12 +342,8 @@ items:
             items:
               - name: Particionamento do Graph
                 href: graph-partitioning.md
-              - name: Gerenciar usando o Gerenciador de Armazenamento
-                href: storage-explorer.md
           - name: Recursos
             items:
-              - name: Gerenciar usando o Gerenciador de Armazenamento
-                href: storage-explorer.md
               - name: Extensão Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Docs API de Tabela
@@ -410,8 +396,6 @@ items:
                 href: table-sdk-python.md
           - name: Recursos
             items:
-              - name: Gerenciar usando o Gerenciador de Armazenamento
-                href: storage-explorer.md
               - name: Visão geral do armazenamento de tabelas
                 href: table-storage-overview.md
               - name: Guia de criação de armazenamento de tabelas
@@ -450,6 +434,8 @@ items:
         href: regional-failover.md
       - name: Registro em log de diagnóstico
         href: logging.md
+      - name: 'procedimentos armazenados, gatilhos e UDFs'
+        href: programming.md
       - name: Visão geral do BulkExecutor
         href: bulk-executor-overview.md
       - name: Gravações e leituras econômicas
@@ -460,12 +446,10 @@ items:
         href: manage-account-with-powershell.md
       - name: Gerenciar usando o Gerenciador de Armazenamento
         href: storage-explorer.md
-      - name: Gravadores de várias regiões
+      - name: Instalação de vários mestres
         href: multi-master-workaround.md
   - name: Recursos
     items:
-      - name: Gerenciar usando o Gerenciador de Armazenamento
-        href: storage-explorer.md
       - name: Roteiro de consulta
         href: query-cheat-sheet.md
       - name: 20 dias de dicas

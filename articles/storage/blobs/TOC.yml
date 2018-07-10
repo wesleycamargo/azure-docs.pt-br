@@ -20,7 +20,9 @@
       href: storage-quickstart-blobs-cli.md
     - name: Trabalhar com blobs – .NET
       href: storage-quickstart-blobs-dotnet.md
-    - name: Trabalhar com blobs - Java
+    - name: Trabalhar com blobs - Java (V10 do SDK do armazenamento)
+      href: storage-quickstart-blobs-java-v10.md
+    - name: Trabalhar com blobs - Java (V7 do SDK do armazenamento)
       href: storage-quickstart-blobs-java.md
     - name: Trabalhar com blobs – Python
       href: storage-quickstart-blobs-python.md
@@ -190,8 +192,10 @@
           href: storage-https-custom-domain-cdn.md
         - name: Recurso de armazenamento imutável do armazenamento de Blobs do Azure (Visualização)
           href: storage-blob-immutable-storage.md
-        - name: Habilitar a TLS segura para o cliente de Armazenamento do Azure
+        - name: Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure
           href: ../common/storage-security-tls.md
+        - name: Ofertas de conformidade
+          href: ../common/storage-compliance-offerings.md
     - name: Monitorar e solucionar problemas
       items:
         - name: Tutorial da solução de problemas

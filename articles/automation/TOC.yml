@@ -47,6 +47,8 @@
       items:
         - name: Visão geral do Controle de Alterações
           href: automation-change-tracking.md
+        - name: Exibir o conteúdo de arquivos rastreados
+          href: change-tracking-file-contents.md
     - name: Inventário
       items:
         - name: Gerenciar VM com uma coleção de inventários
