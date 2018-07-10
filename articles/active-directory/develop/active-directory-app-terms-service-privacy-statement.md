@@ -74,7 +74,7 @@ Se você registrou seu aplicativo no portal do Azure, siga estas etapas.
 Siga estas etapas se você registrou seu aplicativo no Portal de registro de aplicativos ou no Centro de desenvolvimento.
 
 1. Entre no  [ Portal de Registro de Aplicativos ](https://apps.dev.microsoft.com/).
-2. Selecione seu aplicativo e vá até a seção  ** Perfil **  .
+2. Selecione seu aplicativo e vá até a seção  **Perfil** .
 3. Preencha o **termos da URL do serviço** e **URL da declaração de privacidade** campos.
 4. Salve suas alterações.
 
