@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-  ms.openlocfilehash: 9e60a25d8e41de22010a8b1844fdb6267868333c
-  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+  ms.openlocfilehash: 374e6a75d9ddfb5765418b1044dc525f14f86f67
+  ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/10/2018
-  ms.locfileid: "33943688"
+  ms.lasthandoff: 07/10/2018
+  ms.locfileid: "37950799"
 abstract:
   description: As Máquinas Virtuais Linux do Azure fornecem infraestrutura sob demanda, de alta escala, segura e virtualizada usando Red Hat, Ubuntu ou a distribuição do Linux de sua escolha. Saiba como criar, configurar, gerenciar, atualizar e dimensionar VMs do Linux com nossos guias de início rápido, tutoriais e amostras.
   aside:
@@ -74,7 +74,6 @@ sections:
     - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD com Serviços para Equipes</a>
     - html: Criar uma pilha de servidores web com <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> ou <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Proteger um servidor web com SSL</a>
-    - html: <a href="https://docs.microsoft.com/learn/deploy-custom-vmss-app/index">Implantar aplicativos em um conjunto de dimensionamento de máquinas virtuais do Azure com uma imagem personalizada do Packer</a>
 - title: Treinamento em Vídeo Pluralsight gratuito
   items:
   - type: list

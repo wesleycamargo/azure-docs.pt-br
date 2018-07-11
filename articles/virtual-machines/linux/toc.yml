@@ -51,8 +51,6 @@
       href: tutorial-mean-stack.md
     - name: 16 - Proteger servidor Web com SSL
       href: tutorial-secure-web-server.md
-    - name: Implantar uma imagem do Packer e aplicativos em um conjunto de dimensionamento
-      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Exemplos
   items:
     - name: CLI do Azure

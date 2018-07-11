@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d830a9c07890bde3c7d9e482e904ba3cbf5bfffe
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: b06f53b0169e3afd140be81d9d633844a5876c09
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344913"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38487640"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implantar o provedor de recursos do SQL Server no Azure Stack
 
@@ -42,8 +42,6 @@ Existem vários pré-requisitos que precisam estar em vigor antes de implantar o
     |-----|-----|
     |Versão 1804 (1.0.180513.1)|[SQL RP versão 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
     |Versão 1802 (1.0.180302.1)|[SQL RP versão 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
-    |Versão 1712 (1.0.180102.3, 1.0.180103.2 ou 1.0.180106.1 (sistemas integrados))|[SQL RP versão 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
-    |     |     |
 
 ### <a name="certificates"></a>Certificados
 

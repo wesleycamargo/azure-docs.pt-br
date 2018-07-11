@@ -1,6 +1,6 @@
 ---
-title: Sistemas integrados de registro do Azure para a pilha do Azure | Microsoft Docs
-description: Descreve o processo de registro do Azure para implantações de vários nós conectados do Azure de pilha do Azure.
+title: Sistemas integrados do registro do Azure para o Azure Stack | Microsoft Docs
+description: Descreve o processo de registro do Azure para implantações de vários nós conectados ao Azure de pilha do Azure.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,71 +12,71 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/09/2018
 ms.author: jeffgilb
-ms.reviewer: avishwan
-ms.openlocfilehash: 7d14b246220264641a3bb726d5505c25dc25bbbd
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.reviewer: brbartle
+ms.openlocfilehash: 65525ffe33ddc100dd3066e7c2b52ef8a856fbc3
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248135"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934770"
 ---
-# <a name="register-azure-stack-with-azure"></a>Registrar a pilha do Azure com o Azure
+# <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
-Registrando [Azure pilha](azure-stack-poc.md) com o Azure permite que você para baixar itens do marketplace do Azure e configurar dados de comércio relatadas à Microsoft. Depois de registrar a pilha do Azure, uso é relatado para comércio do Azure e você pode vê-lo sob a assinatura usada para registro.
+Registrando [do Azure Stack](azure-stack-poc.md) com o Azure permite a você para baixar itens do marketplace do Azure e configurar dados de comércio relatórios de volta para a Microsoft. Depois de registrar o Azure Stack, o uso é relatado para comércio do Azure e você pode vê-lo sob a assinatura usada para o registro.
 
-> [!IMPORTANT]
-> Registro é necessário para dar suporte a funcionalidade completa da pilha do Azure, incluindo a distribuição do marketplace. Além disso, você será em violação da pilha do Azure termos de licença se você não registrar ao usar o modelo de cobrança de pagamento que você-uso. Para saber mais sobre a pilha do Azure modelos de licenciamento, consulte o [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
+> [!IMPORTANT]  
+> Registro é necessário para dar suporte à funcionalidade completa do Azure Stack, incluindo a sindicalização do marketplace. Além disso, você será em violação dos termos de licença, se você não registrar ao usar o modelo de cobrança pagamento-como-o uso do Azure Stack. Para saber mais sobre o Azure Stack, modelos de licenciamento, consulte o [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de registrar a pilha do Azure com o Azure, você deve ter:
+Antes de registrar o Azure Stack com o Azure, você deve ter:
 
 - A ID de assinatura para uma assinatura do Azure. Para obter a ID, entre no Azure, clique em **mais serviços** > **assinaturas**, clique na assinatura que você deseja usar, e, em **Essentials** você pode encontrar o ID da assinatura.
 
   > [!NOTE]
   > Alemanha e assinaturas de nuvem do governo dos EUA não têm suporte no momento.
 
-- O nome de usuário e a senha de uma conta que é proprietário da assinatura (há suporte para contas MSA/2FA).
-- Registrado o provedor de recursos da pilha do Azure (consulte a seção de registrar o provedor de recursos da pilha do Azure abaixo para obter detalhes).
+- O nome de usuário e senha para uma conta que seja um proprietário da assinatura (há suporte para contas MSA/2FA).
+- Registrar o provedor de recursos do Azure Stack (consulte a seção de registrar o provedor de recursos do Azure Stack abaixo para obter detalhes).
 
-Se você não tiver uma assinatura do Azure que atende a esses requisitos, você pode [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?b=17.06). Registrando a pilha do Azure, incorre em sem custo na sua assinatura do Azure.
+Se você não tiver uma assinatura do Azure que atende a esses requisitos, você poderá [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?b=17.06). Registrar o Azure Stack incorre em sua assinatura do Azure sem custo.
 
 ### <a name="powershell-language-mode"></a>Modo de linguagem do PowerShell
 
-Para registrar com êxito a pilha do Azure, o modo de linguagem do PowerShell deve ser definido como **FullLanguageMode**.  Para verificar se o modo de linguagem atual está definido como completo, abra uma janela do PowerShell com privilégios elevados e execute os seguintes comandos do PowerShell:
+Para registrar com êxito o Azure Stack, o modo de linguagem do PowerShell deve ser definido como **FullLanguageMode**.  Para verificar se o modo de linguagem atual está definido como completo, abra uma janela do PowerShell com privilégios elevados e execute os seguintes comandos do PowerShell:
 
 ```powershell
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Certifique-se de que a saída retorna **FullLanguageMode**. Se qualquer outro modo de linguagem é retornado, registro precisa ser executado em outro computador ou o modo de idioma precisa ser definido como **FullLanguageMode** antes de continuar.
+Certifique-se a saída retorna **FullLanguageMode**. Se qualquer outro modo de linguagem é retornado, registro precisa ser executado em outro computador ou o modo de linguagem precisará ser definido como **FullLanguageMode** antes de continuar.
 
-### <a name="bkmk_powershell"></a>Instale o PowerShell para a pilha do Azure
+### <a name="bkmk_powershell"></a>Instale o PowerShell para o Azure Stack
 
-Você precisa usar o PowerShell mais recente para a pilha do Azure para registrar com o Azure.
+Você precisa usar o PowerShell mais recente para o Azure Stack para registrar com o Azure.
 
-Se ainda não estiver instalado, [instale o PowerShell para Azure pilha](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
+Se ainda não estiver instalado, [instalar o PowerShell para Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 
-### <a name="bkmk_tools"></a>Baixar as ferramentas de pilha do Azure
+### <a name="bkmk_tools"></a>Baixe as ferramentas do Azure Stack
 
-O repositório do GitHub de ferramentas do Azure pilha contém módulos do PowerShell que dão suporte à funcionalidade de pilha do Azure; incluindo a funcionalidade de registro. Durante o processo de registro, você precisa importar e usar o módulo do PowerShell RegisterWithAzure.psm1, encontrado no repositório de ferramentas da pilha do Azure, para registrar sua instância de pilha do Azure com o Azure.
+O repositório do GitHub de ferramentas do Azure Stack contém módulos do PowerShell que dão suporte à funcionalidade de pilha do Azure; incluindo a funcionalidade de registro. Durante o processo de registro, você precisará importar e usar o módulo PowerShell RegisterWithAzure.psm1, encontrado no repositório de ferramentas do Azure Stack, para registrar sua instância do Azure Stack com o Azure.
 
-Para garantir que você estiver usando a versão mais recente, você deve excluir todas as versões existentes das ferramentas do Azure pilha e [baixar a versão mais recente do GitHub](azure-stack-powershell-download.md) antes de registrar com o Azure.
+Para garantir que você estiver usando a versão mais recente, você deve excluir todas as versões existentes das ferramentas do Azure Stack e [baixar a versão mais recente do GitHub](azure-stack-powershell-download.md) antes de registrar com o Azure.
 
-## <a name="register-azure-stack-in-connected-environments"></a>Registrar a pilha do Azure em ambientes conectados
+## <a name="register-azure-stack-in-connected-environments"></a>Registrar o Azure Stack em ambientes conectados
 
-Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, você precisa registrar o provedor de recursos da pilha do Azure com o Azure e, em seguida, configurar o modelo de cobrança.
+Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, você precisa registrar o provedor de recursos do Azure Stack com o Azure e, em seguida, configurar o modelo de cobrança.
 
 > [!NOTE]
-> Todas essas etapas devem ser executadas em um computador que tenha acesso ao ponto de extremidade com privilégios.
+> Todas essas etapas devem ser executadas em um computador que tem acesso ao ponto de extremidade com privilégios.
 
-### <a name="register-the-azure-stack-resource-provider"></a>Registrar o provedor de recursos da pilha do Azure
+### <a name="register-the-azure-stack-resource-provider"></a>Registrar o provedor de recursos do Azure Stack
 
-Para registrar o provedor de recursos da pilha do Azure com o Azure, inicie o ISE do PowerShell como administrador e use os seguintes comandos do PowerShell com a **EnvironmentName** parâmetro definido para o tipo apropriado de assinatura do Azure (consulte parâmetros abaixo).
+Para registrar o provedor de recursos do Azure Stack com o Azure, inicie o PowerShell ISE como administrador e use os seguintes comandos do PowerShell com o **EnvironmentName** parâmetro definido como o tipo de assinatura do Azure apropriada (consulte parâmetros abaixo).
 
-1. Adicione a conta do Azure que você usa para registrar a pilha do Azure. Para adicionar a conta, execute o **AzureRmAccount adicionar** cmdlet. Você for solicitado a inserir suas credenciais de conta de administrador global do Azure e talvez você precise usar a autenticação de 2 fatores com base na configuração da sua conta.
+1. Adicione a conta do Azure que você usa para registrar o Azure Stack. Para adicionar a conta, execute as **Add-AzureRmAccount** cmdlet. Você precisará inserir suas credenciais de conta de administrador global do Azure e você talvez precise usar a autenticação de fator de 2, com base na configuração da sua conta.
 
    ```PowerShell
       Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
@@ -84,38 +84,38 @@ Para registrar o provedor de recursos da pilha do Azure com o Azure, inicie o IS
 
    | Parâmetro | DESCRIÇÃO |  
    |-----|-----|
-   | EnvironmentName | O nome de ambiente de assinatura de nuvem do Azure. Nomes de ambiente com suporte são **AzureCloud** ou, se usar uma assinatura do Azure na China, **AzureChinaCloud**.  |
+   | EnvironmentName | O nome de ambiente de assinatura de nuvem do Azure. Nomes de ambiente com suporte são **AzureCloud** ou, se usando uma assinatura do Azure na China, **AzureChinaCloud**.  |
    |  |  |
 
-2. Se você tiver várias assinaturas, execute o seguinte comando para selecionar o que você deseja usar:  
+2. Se você tiver várias assinaturas, execute o seguinte comando para selecionar aquela que você deseja usar:  
 
    ```PowerShell
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-3. Execute o comando a seguir para registrar o provedor de recursos da pilha do Azure em sua assinatura do Azure:
+3. Execute o seguinte comando para registrar o provedor de recursos do Azure Stack em sua assinatura do Azure:
 
    ```PowerShell
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-### <a name="register-azure-stack-with-azure-using-the-pay-as-you-use-billing-model"></a>Registrar a pilha do Azure com o Azure usando o modelo de cobrança de pagamento que você-uso
+### <a name="register-azure-stack-with-azure-using-the-pay-as-you-use-billing-model"></a>Registre-se a pilha do Azure com o Azure usando o modelo de cobrança pagamento-como-uso
 
-Use estas etapas para registrar a pilha do Azure com o Azure usando o modelo de cobrança de pagamento que você-uso.
+Use estas etapas para registrar o Azure Stack com o Azure usando o modelo de cobrança pagamento-como-o uso.
 
-1. Iniciar o ISE do PowerShell como administrador e navegue até o **registro** pasta o **mestre de ferramentas AzureStack** diretório criado quando você [baixado as ferramentas do Azure pilha](#bkmk_tools). Importar o **RegisterWithAzure.psm1** módulo usando o PowerShell:
+1. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você [baixado as ferramentas do Azure Stack](#bkmk_tools). Importar o **RegisterWithAzure.psm1** módulo usando o PowerShell:
 
    ```powershell
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. Em seguida, na mesma sessão do PowerShell, verifique se que você está conectado ao Azure PowerShell contexto correto. Essa é a conta do azure que foi usada para registrar o provedor de recursos do Azure pilha acima. PowerShell para executar:
+2. Em seguida, na mesma sessão do PowerShell, verifique se que você está conectado ao Azure PowerShell contexto correto. Essa é a conta do azure que foi usada para registrar o provedor de recursos do Azure Stack acima. PowerShell para executar:
 
    ```powershell
    Add-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>"
    ```
 
-3. Na sessão do PowerShell, execute o **AzsRegistration conjunto** cmdlet. PowerShell para executar:  
+3. Na mesma sessão do PowerShell, execute as **AzsRegistration conjunto** cmdlet. PowerShell para executar:  
 
    ```powershell
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -128,15 +128,15 @@ Use estas etapas para registrar a pilha do Azure com o Azure usando o modelo de 
   |Parâmetro|DESCRIÇÃO|
   |-----|-----|
   |PrivilegedEndpointCredential|As credenciais usadas para [acessar o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). O nome de usuário está no formato **AzureStackDomain\CloudAdmin**.|
-  |PrivilegedEndpoint|Um pré-configurado console remoto do PowerShell que fornece recursos, como a coleta de log e outra post tarefas de implantação. Para obter mais informações, consulte o [usando o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo.|
+  |PrivilegedEndpoint|Um pré-configurados console remoto do PowerShell que fornece recursos como coleta de logs e outro post tarefas de implantação. Para obter mais informações, consulte o [usando o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo.|
   |BillingModel|O modelo de cobrança que usa sua assinatura. Valores para esse parâmetro permitidos são: capacidade, PayAsYouUse e desenvolvimento.|
   |  |  |
 
-  O processo levará entre 10 e 15 minutos. Quando o comando for concluído, você verá a mensagem **"ambiente agora é registrado e ativada usando os parâmetros fornecidos."**
+  O processo levará entre 10 e 15 minutos. Quando o comando for concluído, você verá a mensagem **"seu ambiente agora está registrado e ativado usando os parâmetros fornecidos."**
 
-### <a name="register-azure-stack-with-azure-using-the-capacity-billing-model"></a>Registrar a pilha do Azure com o Azure usando o modelo de cobrança de capacidade
+### <a name="register-azure-stack-with-azure-using-the-capacity-billing-model"></a>Registre-se a pilha do Azure com o Azure usando o modelo de cobrança de capacidade
 
-Siga as mesmas instruções usadas para registrar usando o modelo de cobrança de pagamento que você-uso, mas adicione o número de contrato no qual foi adquirida capacidade e altere o **BillingModel** parâmetro **capacidade**. Todos os outros parâmetros são inalterados.
+Siga as mesmas instruções usadas para registrar usando o modelo de cobrança pagamento-como-o uso, mas adicionar o número do contrato sob a qual a capacidade foi comprada e alterar o **BillingModel** parâmetro **capacidade**. Todos os outros parâmetros são as mesmas.
 
 PowerShell para executar:
 
@@ -149,15 +149,12 @@ Set-AzsRegistration `
     -BillingModel Capacity
 ```
 
-## <a name="register-azure-stack-in-disconnected-environments"></a>Registrar a pilha do Azure em ambientes desconectados
+## <a name="register-azure-stack-in-disconnected-environments"></a>Registrar o Azure Stack em ambientes desconectados
+Se você estiver registrando o Azure Stack em um ambiente desconectado (sem conectividade com a internet), você precisará obter um registro de token do ambiente do Azure Stack e, em seguida, usar esse token em um computador que pode se conectar ao Azure e tem [PowerShell para o Azure Stack instalado](#bkmk_powershell).  
 
-*As informações nesta seção se aplica a partir da versão de atualização do Azure pilha 1712 (180106.1) e não é compatível com versões anteriores.*
+### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Obter um registro de token do ambiente do Azure Stack
 
-Se você estiver registrando pilha do Azure em um ambiente desconectado (sem conectividade com a internet), você precisa obter um registro de token do ambiente de pilha do Azure e, em seguida, usar esse token em um computador que pode se conectar ao Azure e tenha [PowerShell para a pilha do Azure instalado](#bkmk_powershell).  
-
-### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Obter um registro de token do ambiente de pilha do Azure
-
-1. Iniciar o ISE do PowerShell como administrador e navegue até o **registro** pasta o **mestre de ferramentas AzureStack** diretório criado quando você [baixado as ferramentas do Azure pilha](#bkmk_tools). Importar o **RegisterWithAzure.psm1** módulo:  
+1. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você [baixado as ferramentas do Azure Stack](#bkmk_tools). Importar o **RegisterWithAzure.psm1** módulo:  
 
    ```powershell
    Import-Module .\RegisterWithAzure.psm1
@@ -171,20 +168,20 @@ Se você estiver registrando pilha do Azure em um ambiente desconectado (sem con
    ```
 
    > [!TIP]  
-   > O token de registro é salvo no arquivo especificado para *$FilePathForRegistrationToken*. Você pode alterar o caminho de arquivo ou nome de arquivo a seu critério.
+   > O token de registro é salvo no arquivo especificado para *$FilePathForRegistrationToken*. Você pode alterar o caminho do arquivo ou nome de arquivo a seu critério.
 
 3. Salve esse token de registro para uso no Azure máquina conectada. Você pode copiar o arquivo ou o texto de $FilePathForRegistrationToken.
 
-### <a name="connect-to-azure-and-register"></a>Conecte-se ao Azure e ao registro
+### <a name="connect-to-azure-and-register"></a>Conectar-se ao Azure e ao registro
 
-No computador que esteja conectada à internet, execute as mesmas etapas para importar o módulo RegisterWithAzure.psm1 e o logon para o contexto correto do Powershell do Azure. Em seguida, chame Register AzsEnvironment e especifique o token de registro para registrar com o Azure:
+No computador que esteja conectado à internet, execute as mesmas etapas para importar o módulo RegisterWithAzure.psm1 e faça logon para o contexto correto do Azure Powershell. Em seguida, chamar Register AzsEnvironment e especificar o token de registro para registrar com o Azure:
 
   ```Powershell  
   $registrationToken = "<Your Registration Token>"
   Register-AzsEnvironment -RegistrationToken $registrationToken  
   ```
 
-Opcionalmente, você pode usar o cmdlet Get-Content para apontar para um arquivo que contém o token de registro:
+Opcionalmente, você pode usar o cmdlet Get-Content para apontar para um arquivo que contém seu token de registro:
 
   ```Powershell  
   $registrationToken = Get-Content -Path '<Path>\<Registration Token File>'
@@ -196,7 +193,7 @@ Opcionalmente, você pode usar o cmdlet Get-Content para apontar para um arquivo
 
 ### <a name="retrieve-an-activation-key-from-azure-registration-resource"></a>Recuperar uma chave de ativação do recurso de registro do Azure
 
-Em seguida, você precisa recuperar uma chave de ativação do recurso de registro criado no Azure durante o registro AzsEnvironment.
+Em seguida, você precisa recuperar uma chave de ativação do recurso do registro criado no Azure durante o registro AzsEnvironment.
 
 Para obter a chave de ativação, execute os seguintes comandos do PowerShell:  
 
@@ -207,35 +204,35 @@ Para obter a chave de ativação, execute os seguintes comandos do PowerShell:
   ```
 
   > [!TIP]  
-  > A chave de ativação é salvo no arquivo especificado para *$KeyOutputFilePath*. Você pode alterar o caminho de arquivo ou nome de arquivo a seu critério.
+  > A chave de ativação é salvo no arquivo especificado para *$KeyOutputFilePath*. Você pode alterar o caminho do arquivo ou nome de arquivo a seu critério.
 
-### <a name="create-an-activation-resource-in-azure-stack"></a>Criar um recurso de ativação na pilha do Azure
+### <a name="create-an-activation-resource-in-azure-stack"></a>Criar um recurso de ativação no Azure Stack
 
-Retornar para o ambiente de pilha do Azure com o arquivo ou o texto da chave de ativação criado a partir de Get-AzsActivationKey. Em seguida, você criará um recurso de ativação na pilha do Azure usando a chave de ativação. Para criar um recurso de ativação, execute os seguintes comandos do PowerShell:  
+Retornar para o ambiente do Azure Stack com o arquivo ou o texto da chave de ativação criado a partir de Get-AzsActivationKey. Em seguida, você criará um recurso de ativação no Azure Stack usando essa chave de ativação. Para criar um recurso de ativação, execute os seguintes comandos do PowerShell:  
 
   ```Powershell
   $ActivationKey = "<activation key>"
   New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
   ```
 
-Opcionalmente, você pode usar o cmdlet Get-Content para apontar para um arquivo que contém o token de registro:
+Opcionalmente, você pode usar o cmdlet Get-Content para apontar para um arquivo que contém seu token de registro:
 
   ```Powershell
   $ActivationKey = Get-Content -Path '<Path>\<Activation Key File>'
   New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
   ```
 
-## <a name="verify-azure-stack-registration"></a>Verificar o registro de pilha do Azure
+## <a name="verify-azure-stack-registration"></a>Verificar o registro do Azure Stack
 
-Use estas etapas para verificar se o Azure pilha está registrada com êxito com o Azure.
+Use estas etapas para verificar se o Azure Stack está registrado com êxito com o Azure.
 
-1. Entrar para a pilha do Azure [portal do administrador](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;região >. &lt;fqdn >*.
-2. Selecione **mais serviços** > **Marketplace gerenciamento** > **adicionar do Azure**.
+1. Entrar para o Azure Stack [portal do administrador](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;região >. &lt;fqdn >*.
+2. Selecione **mais serviços** > **gerenciamento de Marketplace** > **adicionar do Azure**.
 
-Se você vir uma lista de itens disponíveis do Azure (como o WordPress), a ativação foi bem-sucedida. No entanto, em ambientes desconectados você não verá itens do marketplace do Azure no mercado de pilha do Azure.
+Se você vir uma lista de itens disponíveis do Azure (por exemplo, o WordPress), a ativação foi bem-sucedida. No entanto, em ambientes desconectados você não verá itens do marketplace do Azure no marketplace do Azure Stack.
 
 > [!NOTE]
-> Após a conclusão do registro, o aviso de ativo para não registrar não mais aparecerá.
+> Após a conclusão do registro, o Active Directory aviso por não registrar não aparecerá mais.
 
 ## <a name="renew-or-change-registration"></a>Renovar ou alterar o registro
 
@@ -243,13 +240,13 @@ Se você vir uma lista de itens disponíveis do Azure (como o WordPress), a ativ
 
 Você precisará atualizar ou renovar seu registro nas seguintes circunstâncias:
 
-- Depois que você renovar sua assinatura anual baseado na capacidade.
+- Depois de você renovar sua assinatura anual com base em capacidade.
 - Quando você altera o modelo de cobrança.
-- Quando você expandir alterações (Adicionar ou remover nós) para cobrança baseado na capacidade.
+- Quando você dimensionar as alterações (Adicionar ou remover nós) para cobrança baseada em capacidade.
 
-#### <a name="change-the-subscription-you-use"></a>Alterar a assinatura que você usar
+#### <a name="change-the-subscription-you-use"></a>Alterar a assinatura que você usa
 
-Se você quiser alterar a assinatura usar, primeiro você deve executar o **AzsRegistration remover** cmdlet, em seguida, certifique-se de que você está conectado ao contexto correto do PowerShell do Azure e finalmente executar **AzsRegistration conjunto**  com qualquer alterado parâmetros:
+Se você gostaria de alterar a assinatura é usar, primeiro você deve executar o **AzsRegistration remover** cmdlet, em seguida, verifique se você efetuou logon no contexto correto do Azure PowerShell e finalmente executar **AzsRegistration conjunto**  com qualquer alterado parâmetros:
 
   ```powershell
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
@@ -259,7 +256,7 @@ Se você quiser alterar a assinatura usar, primeiro você deve executar o **AzsR
 
 #### <a name="change-the-billing-model-or-syndication-features"></a>Alterar os recursos de distribuição ou de modelo de cobrança
 
-Se você quiser alterar o modelo de cobrança ou recursos de distribuição para a instalação, você pode chamar a função de registro para definir os novos valores. Você não precisa primeiro remover o registro atual:
+Se você quiser alterar o modelo de cobrança ou recursos de distribuição de sua instalação, você pode chamar a função de registro para definir os novos valores. Você não precisará primeiro remover o registro atual:
 
   ```powershell
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
@@ -269,21 +266,21 @@ Se você quiser alterar o modelo de cobrança ou recursos de distribuição para
 
 Você precisará atualizar ou renovar seu registro nas seguintes circunstâncias:
 
-- Depois que você renovar sua assinatura anual baseado na capacidade.
+- Depois de você renovar sua assinatura anual com base em capacidade.
 - Quando você altera o modelo de cobrança.
-- Quando você expandir alterações (Adicionar ou remover nós) para cobrança baseado na capacidade.
+- Quando você dimensionar as alterações (Adicionar ou remover nós) para cobrança baseada em capacidade.
 
-#### <a name="remove-the-activation-resource-from-azure-stack"></a>Remova o recurso de ativação de pilha do Azure
+#### <a name="remove-the-activation-resource-from-azure-stack"></a>Remover o recurso de ativação do Azure Stack
 
-Primeiro, você precisará remover o recurso de ativação da pilha do Azure e, em seguida, o recurso de registro no Azure.  
+Primeiro, você precisará remover o recurso de ativação do Azure Stack e, em seguida, o recurso de registro no Azure.  
 
-Para remover o recurso de ativação na pilha do Azure, execute os seguintes comandos do PowerShell em seu ambiente de pilha do Azure:  
+Para remover o recurso de ativação no Azure Stack, execute os seguintes comandos do PowerShell em seu ambiente do Azure Stack:  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Em seguida, para remover o recurso de registro no Azure, certifique-se você estiver usando um Azure conectado no computador, faça logon no contexto correto do PowerShell do Azure e executar os comandos apropriados do PowerShell, conforme descrito abaixo.
+Em seguida, para remover o recurso de registro no Azure, verifique se você estiver usando um Azure conectado computador, entre no contexto correto do Azure PowerShell e execute os comandos do PowerShell apropriados, conforme descrito abaixo.
 
 Você pode usar o token de registro usado para criar o recurso:  
 
@@ -292,7 +289,7 @@ Você pode usar o token de registro usado para criar o recurso:
   Unregister-AzsEnvironment -RegistrationToken $registrationToken
   ```
 
-Ou você pode usar o nome do registro:
+Ou você pode usar o nome de registro:
 
   ```Powershell
   $registrationName = "AzureStack-<Cloud Id of Azure Stack Environment>"
@@ -301,8 +298,8 @@ Ou você pode usar o nome do registro:
 
 ### <a name="re-register-using-disconnected-steps"></a>Registre novamente usando as etapas desconectadas
 
-Completamente agora tem não registradas em um cenário de desconectado e deve repetir as etapas para registrar um ambiente de pilha do Azure em um cenário desconectado.
+Você agora tem completamente cancelado em um cenário desconectado e deve repetir as etapas para registrar um ambiente do Azure Stack em um cenário desconectado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Fazer o download de itens do marketplace do Azure](azure-stack-download-azure-marketplace-item.md)
+[Baixar itens do marketplace do Azure](azure-stack-download-azure-marketplace-item.md)

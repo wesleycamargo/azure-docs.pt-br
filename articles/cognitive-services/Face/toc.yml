@@ -25,12 +25,14 @@
       href: QuickStarts/Python.md
     - name: Ruby
       href: QuickStarts/Ruby.md
+- name: Tutoriais
+  items:
+    - name: 'C#'
+      href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: Guias de como fazer
   items:
     - name: Primeiros aplicativos de API de Detecção Facial
       items:
-        - name: 'C#'
-          href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Java para Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
         - name: Python

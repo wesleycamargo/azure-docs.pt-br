@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e8dd425bbb5839b1c2f5ad4e217c61dc50b38ce1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c9249de56979d47a29fc9d7c12b99e41b3ada0fd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346817"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465830"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do SQL
 
@@ -100,9 +100,6 @@ Para adicionar um servidor de hospedagem autônomo que já está configurado, si
    * Para usar uma SKU existente, escolha um SKU disponível e, em seguida, selecione **criar**.
    * Para criar uma SKU, selecione **+ criar novo SKU**. Na **criar SKU**, insira as informações necessárias e, em seguida, selecione **Okey**.
 
-     > [!IMPORTANT]
-     > Caracteres especiais, incluindo espaços e pontos, não têm suporte no **nome** campo. Use os exemplos na captura de tela a seguir para inserir valores para o **família**, **camada**, e **Edition** campos.
-
      ![Criar uma SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Fornecer alta disponibilidade usando o SQL grupos de disponibilidade AlwaysOn
@@ -119,16 +116,18 @@ A configuração de instâncias do SQL Always On requer etapas adicionais e exig
 
 Você deve habilitar [a propagação automática](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) em cada grupo de disponibilidade para cada instância do SQL Server.
 
-Para habilitar a propagação automática em todas as instâncias, editar e, em seguida, execute o seguinte comando SQL para cada instância:
+Para habilitar a propagação automática em todas as instâncias, editar e, em seguida, execute o seguinte comando SQL na réplica primária para cada instância secundária:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON 'InstanceName'
+      MODIFY REPLICA ON '<secondary_node>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
 
-Nas instâncias secundárias, editar e, em seguida, execute o seguinte comando SQL para cada instância:
+Observe que o grupo de disponibilidade deve estar entre colchetes.
+
+Em nós secundários, execute o seguinte comando SQL:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,7 +155,7 @@ Use estes comandos para definir a opção de servidor de autenticação de banco
 
    Sob **servidores de hospedagem SQL**, o provedor de recursos do SQL Server pode se conectar a instâncias do SQL Server reais que servem como back-end do provedor de recursos.
 
-3. Preencha o formulário com os detalhes de conexão para sua instância do SQL Server. Certifique-se de que você use o endereço FQDN do ouvinte AlwaysOn (e número da porta opcional.) Forneça as informações para a conta configurada com privilégios de sysadmin.
+3. Preencha o formulário com os detalhes de conexão para sua instância do SQL Server. Certifique-se de que você use o endereço FQDN do ouvinte AlwaysOn (e o nome de instância e o número de porta opcional). Forneça as informações para a conta configurada com privilégios de sysadmin.
 
 4. Marque a caixa de grupo de disponibilidade AlwaysOn para habilitar o suporte para instâncias do SQL sempre no grupo de disponibilidade.
 
