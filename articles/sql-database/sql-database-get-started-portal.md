@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 06/20/2018
-ms.author: carlrab
-ms.openlocfilehash: 5592a22a5e9dad8b0b0aa2e9c9f704db9a31c914
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 07/02/2018
+ms.author: sachinp
+ms.openlocfilehash: 264397fee8ea37321841a4130cb5977219861053
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308217"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345416"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar um Banco de Dados SQL do Azure no portal do Azure
 
@@ -86,7 +86,7 @@ Execute estas etapas para criar um Banco de Dados SQL que contém os dados de ex
 8. Aceite os termos da versão prévia para usar a opção **Armazenamento Complementar**.
 
    > [!IMPORTANT]
-   > Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto as seguintes: Norte do Reino Unido, Centra-oeste dos EUA, Sul do Reino 2, Leste da China, US DoD Central, Alemanha Central, US DoD Leste, US Gov Sudoeste, US Gov Centro-Sul, Nordeste da Alemanha, Norte da China, US Gov Leste. Em outras regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Consulte [Limitações atuais de P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto as seguintes: , Centro-Oeste dos EUA, Leste da China, USDoDCentral, USGov Iowa, Alemanha Central, USDoDEast, US Gov Sudoeste, Nordeste da Alemanha, Norte da China. Em outras regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Consulte [Limitações atuais de P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 9. Depois de selecionar a camada de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  
 

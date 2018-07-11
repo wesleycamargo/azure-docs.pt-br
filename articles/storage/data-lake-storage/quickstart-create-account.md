@@ -10,12 +10,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: aafb86e7ebc99ea48e09b34b58682c983fe9f293
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cf98d3097128a0f8934fc114bc37a517df118234
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063098"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085381"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Início Rápido: Criar uma conta de armazenamento da versão prévia do Armazenamento do Azure Data Lake Gen2
 
@@ -26,7 +26,7 @@ Para habilitar os recursos do Armazenamento do Data Lake Gen2 em sua conta de ar
 > [!NOTE]
 > A interface do usuário de criação de conta no portal do Azure é atualizada depois da aprovação para criar uma conta de Armazenamento do Data Lake Gen2. Da mesma forma, os argumentos do PowerShell e da CLI relativos ao Armazenamento do Data Lake Gen2 só funcionam quando aprovados para versão prévia.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -50,7 +50,7 @@ O botão inicia um shell interativo que você pode usar para executar as etapas 
 
 ### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
 
-Você também pode instalar e usar a CLI do Azure localmente. Este guia de início rápido exige que você esteja executando a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
+Você também pode instalar e usar a CLI do Azure localmente. Este início rápido exige que você esteja executando a versão 2.0.38 ou posterior da CLI do Azure. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Visão geral da criação de uma conta de Armazenamento do Data Lake Gen2
 
@@ -79,7 +79,7 @@ Para criar um grupo de recursos no portal do Azure, siga estas etapas:
 3. Insira um nome para o novo grupo de recursos.
 4. Selecione a assinatura na qual criar o novo grupo de recursos.
 5. Escolha o local para o grupo de recursos.
-6. Selecione o botão **Criar** .  
+6. Selecione o botão **Criar**.  
 
 ![Captura de tela mostrando a criação do grupo de recursos no portal do Azure](./media/quickstart-create-account/create-resource-group.png)
 
@@ -114,6 +114,15 @@ Para remover um grupo de recursos usando o portal do Azure:
 1. No portal do Azure, expanda o menu à esquerda para abrir o menu de serviços e escolha **Grupo de Recursos** para exibir a lista dos seus grupos de recursos.
 2. Localize o grupo de recursos a ser excluído e clique com o botão direito do mouse no botão **Mais** (**...**) do lado direito da lista.
 3. Selecione **Excluir grupo de recursos** e confirme.
+
+
+## <a name="upgrade-your-powershell-module"></a>Atualizar seu módulo do powershell
+
+Para interagir com o Data Lake Storage Gen2 por meio do PowerShell, você terá que atualizar seu módulo para a versão prévia.
+
+Para fazer isso, abra o um PowerShell elevado e insira o comando a seguir: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+Depois, reinicie o shell.
 
 ## <a name="create-an-account-using-powershell"></a>Criar uma conta usando o PowerShell
 
@@ -151,7 +160,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind StorageV2 
-  -HierarchialNamespace $True
+  -EnableHierarchicalNamespace $True
 ```
 
 ### <a name="clean-up-resources"></a>Limpar recursos
@@ -162,6 +171,12 @@ Para remover o grupo de recursos e seus recursos associados, incluindo a nova co
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
+## <a name="upgrade-your-cli-module"></a>Atualizar seu módulo da CLI
+
+Para interagir com o Data Lake Storage Gen2 por meio da CLI, você precisará adicionar a extensão ao seu shell.
+
+Para fazer isso: usando o Cloud Shell ou um shell local, insira o comando a seguir para fazer isso: `az extension add --name storage-preview`
+
 ## <a name="create-an-account-using-azure-cli"></a>Criar uma conta usando a CLI do Azure 
 
 Para iniciar o Azure Cloud Shell, faça logon no [portal do Azure](https://portal.azure.com).
@@ -171,6 +186,7 @@ Para fazer logon em sua instalação local da CLI, execute o comando de logon:
 ```cli
 az login
 ```
+
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Para criar um novo grupo de recursos com a CLI do Azure, use o comando [az group create](/cli/azure/group#az_group_create). 
@@ -186,7 +202,7 @@ az group create \
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Criar uma conta de armazenamento de uso geral v2
 
-Para criar uma conta de armazenamento de uso geral a partir da CLI do Azure com armazenamento com redundância local, use o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Para criar uma conta de armazenamento de uso geral v2 a partir da CLI do Azure com armazenamento com redundância local, use o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
@@ -195,7 +211,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --hierarchical-namespace true
+    --Enable-hierarchical-namespace true
 ```
 
 ### <a name="clean-up-resources"></a>Limpar recursos

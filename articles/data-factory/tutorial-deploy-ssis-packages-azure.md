@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2b9644b8cfdcca9c9ded7890e325fe9488c9511f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 89cf9c9034c03b6ca51aca4bd2c4cd6edb8bcc13
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061103"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084222"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um Integration Runtime do Azure-SSIS no Azure Data Factory
 Este tutorial fornece etapas para o provisionamento para o portal do Azure de um tempo de execução de integração (IR) do Azure-SSIS no Azure Data Factory. Em seguida, você pode usar o SQL Server Data Tools ou o SQL Server Management Studio para implantar e executar pacotes do SSIS (SQL Server Integration Services) neste tempo de execução no Azure. Para obter informações conceituais sobre IRs do SSIS do Azure, consulte [visão geral do Integration Runtime do Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -29,7 +29,7 @@ Neste tutorial, você completa as seguintes etapas:
 > * Criar um data factory.
 > * Provisionar um tempo de execução de integração do Azure-SSIS.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 - **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 - **Servidor de banco de dados SQL do Azure**. Se você ainda não tiver um servidor de banco de dados, crie um no Portal do Azure antes de começar. O Azure Data Factory cria o Catálogo do SSIS (banco de dados SSISDB) neste servidor de banco de dados. É recomendável que você crie o servidor de banco de dados na mesma região do Azure que a do Integration Runtime. Essa configuração permite que o Integration Runtime grave logs de execução no banco de dados SSISDB sem cruzar regiões do Azure. 
 - Com base no servidor de banco de dados selecionado, o SSISDB pode ser criado em seu nome como um único banco de dados, parte de um pool elástico ou em uma instância gerenciada (versão prévia) e acessível em rede pública ou ingressando em uma rede virtual. Se você usar o Banco de dados do Azure SQL com pontos de extremidade do serviço de rede virtual/Instância Gerenciada (Versão prévia) para hospedar o SSISDB ou precisar de acesso a dados locais, é preciso adicionar o Azure-SSIS IR a uma rede virtual. Confira [Criar Azure-SSIS IR em uma rede virtual](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). 
@@ -39,20 +39,20 @@ Neste tutorial, você completa as seguintes etapas:
 - Confirme que o servidor de Banco de Dados SQL não tem um Catálogo SSIS (Banco de dados SSISDB). O provisionamento de um IR do Azure-SSIS não oferece suporte ao uso de um Catálogo do SSIS existente. 
 
 > [!NOTE]
-> - Você pode criar um data factory nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Sudeste Asiático e Europa Ocidental. 
-> - É possível criar um IR do Azure-SSIS nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Centro dos EUA, Oeste dos EUA 2, Europa Setentrional, Europa Ocidental, Sul do Reino Unido e Leste da Austrália. 
+> - Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [ Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). 
+> - Para obter uma lista de regiões do Azure na qual o Azure-SSIS Integration Runtime está disponível no momento, selecione as regiões relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar o **Tempo de execução de integração do SSIS**: [ produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). 
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome. 
-2. Entre no [portal do Azure](https://portal.azure.com/). 
+2. Entre no [Portal do Azure](https://portal.azure.com/). 
 3. Selecione **Novo** no menu à esquerda, selecione **Dados + Análise**e, em seguida, selecione **Data Factory**. 
 
    ![Seleção de Data Factory no painel "Novo"](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 
 4. Na página **Novo data factory**, insira **MyAzureSsisDataFactory** em **Nome**. 
 
-   ![Página de “Novo data factory”](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
+   ![Página de "Novo data factory"](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
 
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você receber o erro a seguir, altere o nome do data factory (por exemplo, **&lt;yourname&gt;MyAzureSsisDataFactory**) e tente criar novamente. Para ver as regras de nomenclatura para artefatos do Data Factory consulte o artigo [Data Factory - regras de nomenclatura](naming-rules.md). 
 
@@ -71,7 +71,7 @@ Neste tutorial, você completa as seguintes etapas:
 10. Selecione **Criar**. 
 11. No painel, o bloco com o seguinte status é exibido **Implantando o Data Factory**: 
 
-   ![Bloco “Implantando Data Factory”](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+   ![Bloco "Implantando Data Factory"](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
 
 12. Após a criação, a página do **Data Factory** será exibida. 
 

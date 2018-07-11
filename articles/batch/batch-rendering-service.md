@@ -1,5 +1,5 @@
 ---
-title: Serviço de Renderização do Lote do Azure - renderização em escala de nuvem | Microsoft Docs
+title: Renderização de Lote do Azure - renderização em escala de nuvem | Microsoft Docs
 description: Processa trabalhos em máquinas virtuais do Azure diretamente do Maya e com base em pagamento por uso.
 services: batch
 author: dlepow
@@ -8,27 +8,27 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: df1b2da7628e6c3f9f4bcbb02a936c33aad49698
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 954a67ed126b505c9ba0da81b3ace0d25e840adb
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076964"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128581"
 ---
-# <a name="get-started-with-the-batch-rendering-service"></a>Introdução ao serviço de renderização em lotes
+# <a name="get-started-with-batch-rendering"></a>Introdução à Renderização de Lote 
 
-O serviço de renderização do Lote do Azure oferece recursos de renderização em escala de nuvem com base em pagamento por uso. O serviço de renderização em lotes controla o agendamento e enfileiramento de trabalhos, gerenciando falhas e tentativas e fazendo o dimensionamento automático dos trabalhos de renderização. O serviço de Renderização do Lote oferece suporte a aplicativos de renderização incluindo  [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview), e [V-Ray](https://www.chaosgroup.com/vray/maya). O plug-in do Lote para o Maya 2017 facilita iniciar um trabalho de renderização no Azure diretamente da sua área de trabalho.
+A Renderização de Lote do Azure oferece recursos de renderização em escala de nuvem com base em pagamento por uso. A Renderização de Lote lida com agendamento e enfileiramento de trabalhos, gerenciando falhas e tentativas e fazendo o dimensionamento automático dos trabalhos de renderização. A Renderização de Lote oferece suporte a aplicativos de renderização incluindo [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview), e [V-Ray](https://www.chaosgroup.com/vray/maya). O plug-in do Lote para o Maya 2017 facilita iniciar um trabalho de renderização no Azure diretamente da sua área de trabalho.
 
 Com o Maya e o 3ds Max, você pode executar trabalhos usando o aplicativo de área de trabalho [BatchLabs](https://github.com/Azure/BatchLabs) ou a [CLI de Modelos do Lote](batch-cli-templates.md). Usando a CLI do Lote do Azure, você pode executar trabalhos do Lote sem codificar. Em vez disso, você pode usar arquivos de modelo para criar pools, trabalhos e tarefas do Lote. Para saber mais, confira [Usar modelos da CLI do Lote do Azure e Transferência de Arquivos](batch-cli-templates.md).
 
 
 ## <a name="supported-applications"></a>Aplicativos com suporte
 
-O serviço de renderização em lotes atualmente dá suporte aos seguintes aplicativos:
+No momento, a Renderização de Lote dá suporte aos seguintes aplicativos:
 
 Em nós de renderização CentOS 7:
 - E/S de Autodesk Maya 2017 Atualização 5 (recortar 201708032230)
-- E/S de Autodesk Maya 2017 Atualização 2 recortar 201711281015)
+- E/S de Autodesk Maya 2018 Atualização 2 recortar 201711281015
 - Autodesk Arnold for Maya 2017 (versão Arnold 5.0.1.1) MtoA 2.0.1.1 2017
 - Autodesk Arnold for Maya 2018 (versão Arnold 5.0.1.4) MtoA-2.1.0.3-2018
 - Chaos Group V-Ray for Maya 2017 (versão 3.60.04) 
@@ -47,9 +47,9 @@ Nos nós de renderização Windows Server 2016:
 - Blender (2.79)
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar o serviço de renderização em lotes, você precisa ter:
+Para usar a Renderização de Lote, você precisa:
 
 - [Conta do Azure](https://azure.microsoft.com/free/).
 - **Conta do Lote do Azure.** Para obter orientação sobre como criar uma conta do Lote no portal do Azure, confira [Criar uma conta do Lote com o portal do Azure](batch-account-create-portal.md).
@@ -64,7 +64,7 @@ Para usar o plug-in do Lote para Maya, você precisa ter:
 
 ## <a name="basic-batch-concepts"></a>Conceitos básicos do Lote
 
-Antes de começar a usar o serviço de renderização em lotes, é útil estar familiarizado com alguns conceitos do Lote, incluindo trabalhos, pools e nós de computação. Para saber mais sobre o Lote do Azure em geral, confira [Executar cargas de trabalho intrinsecamente paralelas com o Lote](batch-technical-overview.md).
+Antes de começar a usar a Renderização de Lote, é útil estar familiarizado com alguns conceitos do Lote, incluindo trabalhos, pools e nós de computação. Para saber mais sobre o Lote do Azure em geral, confira [Executar cargas de trabalho intrinsecamente paralelas com o Lote](batch-technical-overview.md).
 
 ### <a name="pools"></a>Pools
 
@@ -104,7 +104,7 @@ O Lote do Azure permite que você forneça sua própria imagem personalizada. Us
 
 ## <a name="options-for-submitting-a-render-job"></a>Opções para enviar um trabalho de renderização
 
-Dependendo do aplicativo 3D que você usar, existem várias opções para enviar trabalhos de renderização para o serviço:
+Dependendo do aplicativo 3D que você usar, existem várias opções para enviar trabalhos de renderização:
 
 ### <a name="maya"></a>Maya
 
@@ -121,14 +121,14 @@ Com o 3ds Max, você pode usar:
 - O aplicativo de área de trabalho[BatchLabs](https://azure.github.io/BatchLabs) (confira [Dados do BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) para obter orientação sobre como usar modelos de BatchLabs do 3ds Max)
 - [CLI dos modelos do Lote](batch-cli-templates.md)
 
-Os modelos de Batch Labs do 3ds Max permitem processar cenas VRay e Arnold usando o Serviço de Renderização do Lote do Azure. Há duas variações do modelo para VRay e Arnold, uma para cenas padrão e outra para cenas mais complexas que exigem um arquivo de caminho 3ds Max para ativos e texturas (arquivo .mxp). Para saber mais sobre os modelos de BatchLabs do 3ds Max, confira o repositório [Dados do BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) no GitHub.
+Os modelos de Batch Labs do 3ds Max permitem processar cenas VRay e Arnold usando a Renderização de Lote. Há duas variações do modelo para VRay e Arnold, uma para cenas padrão e outra para cenas mais complexas que exigem um arquivo de caminho 3ds Max para ativos e texturas (arquivo .mxp). Para saber mais sobre os modelos de BatchLabs do 3ds Max, confira o repositório [Dados do BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) no GitHub.
 
-Além disso, você pode usar o [SDK em Python do Lote](https://docs.microsoft.com/azure/batch/batch-python-tutorial) para integrar o serviço de renderização de pipeline existente.
+Além disso, você pode usar o [SDK em Python do Lote](https://docs.microsoft.com/azure/batch/batch-python-tutorial) para integrar a renderização de pipeline existente.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Usar o plug-in do Lote para Maya a fim de enviar um trabalho de renderização
 
-Com o plug-in do Lote para Maya, você pode enviar um trabalho para o serviço de renderização do Lote diretamente do Maya. As seções a seguir descrevem como configurar o trabalho de plug-in e enviá-lo. 
+Com o plug-in do Lote para Maya, você pode enviar um trabalho para a Renderização de Lote diretamente do Maya. As seções a seguir descrevem como configurar o trabalho de plug-in e enviá-lo. 
 
 ### <a name="load-the-batch-plug-in-for-maya"></a>Carregar o plug-in do Lote para Maya
 

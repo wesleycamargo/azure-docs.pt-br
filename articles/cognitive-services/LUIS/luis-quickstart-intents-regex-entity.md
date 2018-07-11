@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 317d5b37b90f6c436e3cecf0486d587f54960598
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 522d24c1c03a338633c340502087300c890d1771
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316535"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128438"
 ---
-# <a name="tutorial-use-regular-expression-entity"></a>Tutorial: usar a entidade de expressão regular
+# <a name="tutorial-3-add-regular-expression-entity"></a>Tutorial: 3. Adicionar entidade de expressão regular
 Neste tutorial, você criará um aplicativo que demonstra como extrair dados formatados de forma consistente a partir de um enunciado usando a entidade de **Expressão Regular**.
 
 
@@ -31,7 +31,7 @@ Neste tutorial, você criará um aplicativo que demonstra como extrair dados for
 Para este artigo, você precisa de uma conta gratuita de [LUIS](luis-reference-regions.md#luis-website) para criar o seu aplicativo LUIS.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Caso não tenha o aplicativo de recursos humanos do tutorial de [domínio personalizado](luis-tutorial-prebuilt-intents-entities.md) das entidades predefinidas, [importe](create-new-app.md#import-new-app) o JSON em um novo aplicativo no site do [LUIS](luis-reference-regions.md#luis-website) do repositório Github de [exemplos do LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
+Caso não tenha o aplicativo de recursos humanos do tutorial de [entidades predefinidas](luis-tutorial-prebuilt-intents-entities.md), [importe](create-new-app.md#import-new-app) o JSON em um novo aplicativo no site do [LUIS](luis-reference-regions.md#luis-website) do repositório Github de [exemplos do LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
 
 Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `regex`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. 
 
@@ -144,54 +144,70 @@ Para obter uma previsão do LUIS em um chatbot ou outro aplicativo, você precis
 
     ![Captura de tela da página Publicar com a URL de ponto de extremidade realçada](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
-2. Vá até o final da URL no endereço e insira `When were HRF-123456 and hrf-234567 published?`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, ele é um bom teste e deve retornar a intenção `FindForm` com os números de formulário de `HRF-123456` e `hrf-234567`.
+2. Vá até o final da URL no endereço e insira `When were HRF-123456 and hrf-234567 published in the last year?`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, ele é um bom teste e deve retornar a intenção `FindForm` com os números de formulário de `HRF-123456` e `hrf-234567`.
 
     ```
     {
-      "query": "When were HRF-123456 and hrf-234567 published?",
+      "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
         "intent": "FindForm",
-        "score": 0.970179737
+        "score": 0.9993477
       },
       "intents": [
         {
           "intent": "FindForm",
-          "score": 0.970179737
+          "score": 0.9993477
         },
         {
           "intent": "ApplyForJob",
-          "score": 0.0131893409
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00364777143
+          "score": 0.0206110049
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.0024568392
+          "score": 0.00533067342
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.004215215
         },
         {
           "intent": "Utilities.Help",
-          "score": 0.00173760345
+          "score": 0.00209096959
         },
         {
           "intent": "None",
-          "score": 0.00173070864
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00130692765
+          "score": 0.0017655947
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.00130328839
+          "score": 0.00109490135
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.0005704638
         },
         {
           "intent": "Utilities.Cancel",
-          "score": 0.0006671795
+          "score": 0.000525338168
         }
       ],
       "entities": [
+        {
+          "entity": "last year",
+          "type": "builtin.datetimeV2.daterange",
+          "startIndex": 53,
+          "endIndex": 61,
+          "resolution": {
+            "values": [
+              {
+                "timex": "2017",
+                "type": "daterange",
+                "start": "2017-01-01",
+                "end": "2018-01-01"
+              }
+            ]
+          }
+        },
         {
           "entity": "hrf-123456",
           "type": "HRF-number",
@@ -237,10 +253,10 @@ Agora seu chatbot tem informações suficientes para determinar a ação primár
 O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode pegar o resultado de topScoringIntent e os números de formulário e pesquisar uma API de terceiros. O LUIS não faz esse trabalho. O LUIS apenas determina qual é a intenção do usuário e extrai os dados sobre essa intenção. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Para fazer isso, selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Meus aplicativos** no menu superior esquerdo. Selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre a entidade KeyPhrase](luis-quickstart-intent-and-key-phrase.md)
+> [Saiba mais sobre a entidade de lista](luis-quickstart-intent-and-list-entity.md)
 

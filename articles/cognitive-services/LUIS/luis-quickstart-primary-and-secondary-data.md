@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/26/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061240"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130883"
 ---
-# <a name="tutorial-create-app-that-uses-simple-entity"></a>Tutorial: Criar um aplicativo que usa uma entidade simple
+# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Tutorial: 6. Adicionar entidade simples e lista de frases
 Neste tutorial, crie um aplicativo que demonstra como extrair dados de aprendizado de máquina de um enunciado usando a entidade **Simple**.
 
 <!-- green checkmark -->
@@ -45,7 +45,7 @@ Este aplicativo demonstra como efetuar pull dos dados fora de um enunciado. Cons
 |Envie meu currículo para o cargo de engenharia.|engenharia|
 |Preencher o aplicativo para o trabalho 123456|123456|
 
-Este tutorial adiciona uma nova entidade para extrair o nome do trabalho. A capacidade de extrair um número específico de trabalho é mostrada na expressão regular [tutorial](luis-quickstart-intents-regex-entity.md). 
+Este tutorial adiciona uma nova entidade para extrair o nome do trabalho. 
 
 ## <a name="purpose-of-the-simple-entity"></a>Finalidade da entidade simple
 A finalidade da entidade simples no aplicativo LUIS é ensinar ao LUIS o que é um nome trabalho e onde um enunciado pode ser encontrado. A parte do enunciado que é o trabalho pode mudar de acordo com o enunciado e com base no tamanho do enunciado e na escolha de palavras. O LUIS precisa de exemplos de trabalhos em qualquer enunciado em todas as intenções.  
@@ -85,7 +85,7 @@ Esse aplicativo LUIS tem nomes de trabalho em várias intenções. Ao rotular es
 
     ![Criar diálogo modal pop-up da entidade simple com o nome do Job e tipo de simple](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. No enunciado, `Submit resume for engineering position`, rotule a palavra engenharia como uma entidade Job. Selecione a palavra engenharia, depois selecione Job no menu pop-up. 
+5. No enunciado, `Submit resume for engineering position`, rotule a palavra `engineering` como uma entidade Job. Selecione a palavra `engineering`, depois selecione **Job** no menu pop-up. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Captura de tela do LUIS rotulando a entidade Job realçada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -107,7 +107,7 @@ Esse aplicativo LUIS tem nomes de trabalho em várias intenções. Ao rotular es
     |Sou enfermeiro registrado. Aqui está o meu currículo.|enfermeiro registrado|
     |Gostaria de enviar minha documentação para o cargo de professor que vi no jornal.|professor|
     |Este é o meu CV para o cargo de estoquista de frutas e legumes.|estoquista|
-    |Candidatar-se ao trabalho de azulejista.|azulejista|
+    |Candidatar-se ao trabalho de azulejista.|bloco|
     |CV anexo para arquiteto paisagista.|arquiteto paisagista|
     |Meu currículo para professor de biologia está anexado.|professor de biologia|
     |Gostaria de me candidatar para o cargo em fotografia.|fotografia|git 
@@ -292,7 +292,7 @@ Abra o [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/mas
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Captura da caixa de diálogo pop-up Criar nova lista de frase")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Se você quiser adicionar mais palavras à lista de frases, revise as palavras recomendadas e adicione as que forem relevantes. 
+    Se você quiser adicionar mais palavras à lista de frases, revise os **Valores Relacionados** e adicione os que forem relevantes. 
 
 4. Selecione **Salvar** para ativar a lista de frases.
 
@@ -369,7 +369,7 @@ Abra o [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/mas
 A adição da lista de frases aumentou o sinal das palavras na lista, mas **não** é usada como uma correspondência exata. A lista de frases tem vários trabalhos com a primeira palavra `lead`, e também tem o trabalho `welder`, mas não tem o `lead welder`. Essa lista de frases de trabalhos pode não ser concluída. À medida que você [examinar enunciados de ponto de extremidade](label-suggested-utterances.md) regularmente e encontrar outras palavras de trabalho, adicione-as à sua lista de frases. Em seguida, treine e publique novamente.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>O que esse aplicativo de LUIS realizou?
-Esse aplicativo, com uma entidade simple e uma lista de frases com palavras, identificou uma intenção de consulta de linguagem natural e retornou os dados da mensagem. 
+Esse aplicativo, com uma entidade simple e uma lista de frases com palavras, identificou uma intenção de consulta de linguagem natural e retornou os dados do trabalho. 
 
 Agora, seu chatbot tem informações suficientes para determinar a ação primária de se candidatar e um parâmetro dessa ação, à qual o trabalho está referenciado. 
 
@@ -377,9 +377,9 @@ Agora, seu chatbot tem informações suficientes para determinar a ação primá
 O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode usar o resultado de topScoringIntent e os dados da entidade para usar uma API de terceiros para enviar as informações do trabalho para um representante dos recursos humanos. Se houver outras opções de programação para o aplicativo de chamada ou o bot, o LUIS não executará esse trabalho. O LUIS só determina qual é a intenção do usuário. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Para fazer isso, selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Meus aplicativos** no menu superior esquerdo. Selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba como adicionar uma entidade de keyphrase predefinida](luis-quickstart-intent-and-key-phrase.md)
+> [Adicionar uma entidade de keyphrase predefinida](luis-quickstart-intent-and-key-phrase.md)

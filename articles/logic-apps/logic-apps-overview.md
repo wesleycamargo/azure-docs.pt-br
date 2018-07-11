@@ -1,39 +1,35 @@
 ---
-title: Visão geral - Integração do Enterprise com os Aplicativos Lógicos do Azure | Microsoft Docs
-description: Crie fluxos de trabalho automatizados e processos de negócios que integram dados, serviços, aplicativos e sistemas em empresas e organizações. Crie soluções para cenários de integração de dados, de sistemas, EAI (integração de aplicativos empresariais) e de orquestração.
-keywords: automatizar, fluxos de trabalho, integração de aplicativos empresariais, EAI, integração de sistemas, integração de dados, orquestração, serviços de integração, iPaaS
+title: Soluções de integração corporativa com os Aplicativos Lógicos do Azure | Microsoft Docs
+description: Saiba como os Aplicativos Lógicos ajudam você a criar fluxos de trabalho automatizados e processos de negócios que integram dados, serviços, aplicativos e sistemas em empresas e organizações. Crie soluções para cenários de integração de dados, de sistemas, EAI (integração de aplicativos empresariais) e de orquestração.
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: c575ae1f9c801072fb1f6f32a13f111b9edd18ce
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 6/29/2018
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: d3640710b3ba209c8e701cf5e340103c1d3d6fa7
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299232"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082202"
 ---
 # <a name="what-is-azure-logic-apps"></a>O que são Aplicativos Lógicos do Azure?
 
-Os [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps) ajudam a criar, agendar e automatizar processos de [fluxos de trabalho](#logic-app-concepts), para que você passa integrar aplicativos, dados, sistemas e serviços entre empresas ou organizações. Os Aplicativos Lógicos simplificam como projetar e criar soluções escalonáveis para integração de aplicativos, integração de dados, integração de sistemas, EAI (integração de aplicativos empresariais) e comunicação B2B (entre empresas), quer seja na nuvem, localmente ou em ambos.
+Os [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps) ajudam você a criar, soluções que integram, aplicativos, dados, sistemas e serviços entre empresas ou organizações por meio da automatização de tarefas e processos comerciais como [fluxos de trabalho](#logic-app-concepts). Os Aplicativos Lógicos é um serviço de nuvem no Azure que simplifica o modo como você projeta e cria soluções escalonáveis para integração de aplicativos, integração de dados, integração de sistemas, EAI (integração de aplicativos empresariais) e comunicação B2B (entre empresas), quer seja na nuvem, localmente ou em ambos.
 
 Por exemplo, eis algumas cargas de trabalho que você pode automatizar com aplicativos lógicos:
 
 * Processe e direcione solicitações entre sistemas locais e serviços de nuvem.
-* Mova arquivos carregados de um servidor FTP para o Armazenamento do Azure. 
+* Mova arquivos carregados de um servidor SFTP ou FTP para o Armazenamento do Azure. 
+* Envie notificações por email com o Office 365 quando ocorrerem eventos em vários sistemas, aplicativos e serviços.
 * Monitore tweets sobre um assunto específico, analise o sentimento e crie alertas ou tarefas de itens que exigem revisão.
 
-Para criar soluções de integração com aplicativos lógicos, escolha de uma galeria crescente de [aproximadamente 200 conectores internos ](../connectors/apis-list.md), como o Banco de Dados SQL, os serviços do Azure, o Office 365, o Salesforce, o Google e muito mais. Esses [conectores](#logic-app-concepts) fornecem [gatilhos](#logic-app-concepts), [ações](#logic-app-concepts) ou ambos para a criação de aplicativos lógicos que acessam dados e os processam em tempo real.
+Para criar soluções de integração com aplicativos lógicos, escolha de uma galeria cada vez maior que já conta com [mais de 200 conectores](../connectors/apis-list.md), incluindo outros serviços do Azure, como o Barramento de Serviço, Functions e Armazenamento; SQL, Office 365, Dynamics, BizTalk, Salesforce, SAP, Oracle DB, compartilhamentos de arquivos e muito mais. Esses [conectores](#logic-app-concepts) fornecem [gatilhos](#logic-app-concepts), [ações](#logic-app-concepts) ou ambos para a criação de aplicativos lógicos que acessam dados e os processam em tempo real.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
@@ -59,56 +55,59 @@ Para saber como as empresas aprimoraram a agilidade e o foco em seus negócios p
 
 Aqui estão mais detalhes sobre os recursos e benefícios que você obtém com os Aplicativos Lógicos:
 
-* **Criar visualmente os fluxos de trabalho com ferramentas fáceis de usar**
+### <a name="visually-build-workflows-with-easy-to-use-tools"></a>Criar visualmente os fluxos de trabalho com ferramentas fáceis de usar
 
-  Economize tempo e simplifique processos complexos com ferramentas de design visual. 
-  Crie aplicativos lógicos do início ao fim usando o Designer de Aplicativos Lógicos pelo navegador no portal do Azure ou no Visual Studio. Inicie o fluxo de trabalho com um gatilho e adicione uma quantidade de ações da [Galeria de conectores](../connectors/apis-list.md).
+Economize tempo e simplifique processos complexos com ferramentas de design visual. Crie aplicativos lógicos do início ao fim usando o Designer de Aplicativos Lógicos pelo navegador no portal do Azure ou no Visual Studio. Inicie o fluxo de trabalho com um gatilho e adicione uma quantidade de ações da [Galeria de conectores](../connectors/apis-list.md).
 
-* **Comece mais rapidamente com modelos de aplicativo lógico**
+### <a name="get-started-faster-with-logic-app-templates"></a>Comece mais rapidamente com modelos de aplicativo lógico
 
-  Crie soluções mais usadas rapidamente escolhendo fluxos de trabalho predefinidos da [Galeria de modelos](../logic-apps/logic-apps-create-logic-apps-from-templates.md). 
-  Os modelos vão de simples conectividade para aplicativos SaaS (software como um serviço) a soluções B2B avançadas e modelos "apenas para diversão". Saiba como [criar aplicativos lógicos de modelos predefinidos](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
+Crie soluções mais usadas rapidamente escolhendo fluxos de trabalho predefinidos da [Galeria de modelos](../logic-apps/logic-apps-create-logic-apps-from-templates.md). Os modelos vão de simples conectividade para aplicativos SaaS (software como um serviço) a soluções B2B avançadas e modelos "apenas para diversão". Saiba como [criar aplicativos lógicos de modelos predefinidos](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-* **Conectar sistemas diferentes entre ambientes diferentes**
+### <a name="connect-disparate-systems-across-different-environments"></a>Conectar sistemas diferentes entre ambientes diferentes
 
-  Alguns padrões e fluxos de trabalho são fáceis de descrever, mas difíceis de implementar no código. 
-  Os aplicativos lógicos o ajudam a conectar sistemas diferentes entre locais e ambientes de nuvem perfeitamente. Por exemplo, você pode conectar uma solução de marketing de nuvem a um sistema de cobrança local ou centralizar mensagens entre APIs e sistemas com um Barramento de Serviço Enterprise. Os aplicativos lógicos fornecem uma maneira rápida, confiável e consistente de fornecer soluções reutilizáveis e reconfiguráveis para esses cenários.
+Alguns padrões e fluxos de trabalho são fáceis de descrever, mas difíceis de implementar no código. Os aplicativos lógicos o ajudam a conectar sistemas diferentes entre locais e ambientes de nuvem perfeitamente. Por exemplo, você pode conectar uma solução de marketing de nuvem a um sistema de cobrança local ou centralizar mensagens entre APIs e sistemas com um Barramento de Serviço Enterprise. Os aplicativos lógicos fornecem uma maneira rápida, confiável e consistente de fornecer soluções reutilizáveis e reconfiguráveis para esses cenários.
 
-* **Suporte de primeira classe para cenários de Enterprise Integration e B2B**
+### <a name="first-class-support-for-enterprise-integration-and-b2b-scenarios"></a>Suporte de primeira classe para cenários de Enterprise Integration e B2B
 
-  Empresas e organizações comunicam-se eletronicamente entre si usando mensagens padrão do setor, mas diferentes protocolos e formatos, como X12, AS2 e EDIFACT. 
-  Com os recursos no [EIP (Enterprise Integration Pack )](../logic-apps/logic-apps-enterprise-integration-overview.md), você pode criar aplicativos lógicos que transformam os formatos de mensagem usados por seus parceiros em formatos que os sistemas da sua organização podem interpretar e processar. Os aplicativos lógicos tratam dessas trocas sem problemas e também com segurança, com assinaturas digitais e criptografia.
+Empresas e organizações comunicam-se eletronicamente entre si usando mensagens padrão do setor, mas diferentes protocolos e formatos, como X12, AS2 e EDIFACT. Com os recursos no [EIP (Enterprise Integration Pack )](../logic-apps/logic-apps-enterprise-integration-overview.md), você pode criar aplicativos lógicos que transformam os formatos de mensagem usados por seus parceiros em formatos que os sistemas da sua organização podem interpretar e processar. Os Aplicativos Lógicos tratam dessas trocas sem problemas e também com segurança, com assinaturas digitais e criptografia.
 
-  Comece discretamente com seus serviços e sistemas atuais e cresça incrementalmente em seu próprio ritmo. Quando estiver pronto, os Aplicativos Lógicos e o EIP o ajudarão a implementar e escalar verticalmente para cenários de integração mais maduros, fornecendo esses recursos e muito mais:
+Comece discretamente com seus serviços e sistemas atuais e cresça incrementalmente em seu próprio ritmo. Quando estiver pronto, os Aplicativos Lógicos e o EIP o ajudarão a implementar e escalar verticalmente para cenários de integração mais maduros, fornecendo esses recursos e muito mais:
 
-  * Crie usando estes produtos e serviços: 
-    * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server) 
-    * [Gerenciamento da API](../api-management/api-management-key-concepts.md) 
-    * [Funções do Azure](../azure-functions/functions-overview.md) 
-    * [Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md)
-  * Processar [mensagens XML](../logic-apps/logic-apps-enterprise-integration-xml.md)
-  * Processar [arquivos simples](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
-  * Trocar mensagens com protocolos [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md) e [X12](../logic-apps/logic-apps-enterprise-integration-x12.md)
-  * Armazenar e gerenciar esses artefatos B2B e outros em um só lugar com [contas de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md):
-    * [Parceiros](../logic-apps/logic-apps-enterprise-integration-partners.md)
-    * [Contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
-    * [Mapas para a transformação XML](../logic-apps/logic-apps-enterprise-integration-maps.md)
-    * [Esquemas para validação XML](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+* Crie usando estes produtos e serviços:
 
-* **Gravar uma vez, reutilizar frequentemente**
+  * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+  * [Funções do Azure](../azure-functions/functions-overview.md)
+  * [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md)
+  * [Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md)
 
-  Crie seus aplicativos lógicos como modelos para que você possa [implantar e reconfigurar os aplicativos](../logic-apps/logic-apps-create-deploy-template.md) em vários ambientes e regiões.
+* Processar [mensagens XML](../logic-apps/logic-apps-enterprise-integration-xml.md)
+* Processar [arquivos simples](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
+* Trocar mensagens com protocolos [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md) e [X12](../logic-apps/logic-apps-enterprise-integration-x12.md)
+* Armazenar e gerenciar esses artefatos B2B e outros em um só lugar com [contas de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md):
 
-* **Extensibilidade integrada**
+  * [Parceiros](../logic-apps/logic-apps-enterprise-integration-partners.md)
+  * [Contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
+  * [Mapas de transformação XML](../logic-apps/logic-apps-enterprise-integration-maps.md)
+  * [Esquemas de validação de XML](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+   
+Por exemplo, se você estiver usando o Microsoft BizTalk Server, os aplicativos lógicos poderão se conectar e se comunicar com o BizTalk Server usando o [conector do BizTalk Server](../connectors/apis-list.md#on-premises-connectors). Em seguida, você pode estender ou executar operações similares a BizTalk em seus aplicativos lógicos, incluindo [conectores de conta de integração](../connectors/apis-list.md#integration-account-connectors), que estão disponíveis com o Enterprise Integration Pack. 
 
-  Se você não encontrar o conector que deseja ou precisar executar código personalizado, pode estender os aplicativos lógicos criando e chamando seus próprios trechos de código sob demanda por meio do [Azure Functions](../azure-functions/functions-overview.md). 
-  Criar suas próprias [APIs](../logic-apps/logic-apps-create-api-app.md) e seus [conectores personalizados](../logic-apps/custom-connector-overview.md) que podem ser chamados dos aplicativos lógicos.
+Indo na outra direção, BizTalk Server pode se conectar e se comunicar com aplicativos lógicos usando o [Microsoft BizTalk Server Adapter para Aplicativos Lógicos](https://www.microsoft.com/download/details.aspx?id=54287). Saiba como [configurar e usar o Adaptador do BizTalk Server](https://docs.microsoft.com/biztalk/core/logic-app-adapter) em seu BizTalk Server.
 
-* **Pague apenas pelo que usar**
+### <a name="write-once-reuse-often"></a>Gravar uma vez, reutilizar frequentemente
+
+Crie seus aplicativos lógicos como modelos para que você possa [implantar e reconfigurar os aplicativos](../logic-apps/logic-apps-create-deploy-template.md) em vários ambientes e regiões.
+
+### <a name="built-in-extensibility"></a>Extensibilidade integrada
+
+Se você não encontrar o conector que deseja ou precisar executar código personalizado, pode estender os aplicativos lógicos criando e chamando seus próprios trechos de código sob demanda por meio do [Azure Functions](../azure-functions/functions-overview.md). Criar suas próprias [APIs](../logic-apps/logic-apps-create-api-app.md) e seus [conectores personalizados](../logic-apps/custom-connector-overview.md) que podem ser chamados dos aplicativos lógicos.
+
+### <a name="pay-only-for-what-you-use"></a>Pague apenas pelo que usar
   
-  Os Aplicativos Lógicos usam [preços e medição](../logic-apps/logic-apps-pricing.md) baseados em consumo, a menos que você tenha aplicativos lógicos criados anteriormente com planos do Serviço de Aplicativo.
+Os Aplicativos Lógicos usam [preços e medição](../logic-apps/logic-apps-pricing.md) baseados em consumo, a menos que você tenha aplicativos lógicos criados anteriormente com planos do Serviço de Aplicativo.
 
 Saiba mais sobre aplicativos lógicos com esses vídeos introdutórios:
+
 * [Integração com Aplicativos Lógicos - Ir de zero a herói](https://channel9.msdn.com/Events/Build/2017/C9R17)
 * [Integração do Enterprise com Aplicativos Lógicos do Azure](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2188)
 * [Criando processos de negócios avançados com Aplicativos Lógicos](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3179)

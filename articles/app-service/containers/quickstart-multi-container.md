@@ -1,7 +1,7 @@
 ---
 title: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres do Azure usando uma configuração de Docker Compose
 description: Implantar seu primeiro aplicativo multicontêiner no Aplicativo Web para Contêineres do Azure em minutos
-keywords: serviço de aplicativo do azure, aplicativo web, linux, docker, compose, multicontêiner, contêiner, kubernetes
+keywords: serviço de aplicativo do azure, aplicativo web, linux, docker, compor, multicontêiner, vários contêineres, aplicativo web para contêineres, vários contêineres, contêiner, kubernetes, wordpress, banco de dados do azure para mysql, banco de dados de produção com contêineres
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: ec5c92415668c925fe360c0c8887fd792a121842
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: bf567402a66f9152c7eb9b97925fec2a159ffe56
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753703"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127413"
 ---
-# <a name="create-a-multicontainer-preview-app-using-web-app-for-containers"></a>Criar um aplicativo multicontêiner (versão prévia) usando Aplicativo Web para Contêineres do Azure
+# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Criar um aplicativo multicontêiner (versão prévia) usando Aplicativo Web para Contêineres do Azure
 
-O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornece uma maneira flexível de usar imagens do Docker. Este guia de início rápido mostra como implantar um aplicativo multicontêiner para o Aplicativo Web para Contêineres no [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) usando uma configuração do Docker Compose. Para Kubernetes, siga as etapas Kubernetes no [tutorial para multicontêiner](tutorial-multi-container-app.md).
+O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornece uma maneira flexível de usar imagens do Docker. Este guia de início rápido mostra como implantar um aplicativo multicontêiner para o Aplicativo Web para Contêineres no [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) usando uma configuração do Docker Compose. Para Kubernetes e uma solução completa usando o BD do Azure para MySQL, siga o [tutorial sobre multicontêiner](tutorial-multi-container-app.md).
 
-Você concluirá este início rápido no Cloud Shell, mas também pode executar esses comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli) (2.0.32 ou posterior). Este guia de início rápido usará um arquivo de configuração do Docker Compose.
+Você concluirá este início rápido no Cloud Shell, mas também pode executar esses comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli) (2.0.32 ou posterior). 
 
 ![Aplicativo multicontêiner de exemplo no Aplicativo Web para Contêineres][1]
 
@@ -36,7 +36,7 @@ Você concluirá este início rápido no Cloud Shell, mas também pode executar 
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
-Para este início rápido, será utilizado o arquivo de composição do [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), mas você irá modificá-lo incluindo o Banco de Dados do Azure para MySQL, armazenamento persistente e Redis. O arquivo de configuração podem ser localizados em [Exemplos do Azure](https://github.com/Azure-Samples/multicontainerwordpress).
+Para este início rápido, use o arquivo de composição do [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). O arquivo de configuração podem ser localizados em [Exemplos do Azure](https://github.com/Azure-Samples/multicontainerwordpress).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -48,10 +48,12 @@ mkdir quickstart
 cd quickstart
 ```
 
-Em seguida, execute o comando a seguir para clonar o repositório de aplicativos de exemplo ao seu diretório de início rápido.
+Em seguida, execute o comando a seguir para clonar o repositório de aplicativos de exemplo ao seu diretório de início rápido. Em seguida, altere para o diretório `multicontainerwordpress`.
 
 ```bash
 git clone https://github.com/Azure-Samples/multicontainerwordpress
+
+cd multicontainerwordpress
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -100,11 +102,9 @@ Quando o Plano do Serviço de Aplicativo for criado, a CLI do Azure mostrará in
 
 ## <a name="create-a-docker-compose-app"></a>Criar um aplicativo Docker Compose
 
-Em seu terminal Cloud Shell, altere para o diretório `multicontainerwordpress`. Crie um [aplicativo Web](app-service-linux-intro.md) multicontêiner no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Substitua _\<app_name>_ por um nome exclusivo do aplicativo.
+Em seu terminal do Cloud Shell, crie um [aplicativo Web](app-service-linux-intro.md) multicontêiner no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Substitua _\<app_name>_ por um nome exclusivo do aplicativo.
 
 ```bash
-cd multicontainerwordpress
-
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 
@@ -138,7 +138,7 @@ Navegue até o aplicativo implantado em (`http://<app_name>.azurewebsites.net`).
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo de WordPress multicontêiner no Aplicativo Web para Contêineres](tutorial-multi-container-app.md)
+> [Criar um aplicativo do WordPress multicontêiner no Aplicativo Web para Contêineres](tutorial-multi-container-app.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

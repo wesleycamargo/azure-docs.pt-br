@@ -54,6 +54,7 @@
 #### [Restaurar as entidades de serviço ausentes](active-directory-ds-troubleshoot-service-principals.md)
 #### [Erros de LDAP Seguro](active-directory-ds-troubleshoot-ldaps.md)
 ### [Resolver erros de locatário incompatíveis](active-directory-ds-mismatched-tenant-error.md)
+### [Domínios suspensos](active-directory-ds-suspension.md)
 
 
 # Referência

@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a76dbb9a232d99615629d1a3fec6010b37e73247
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046771"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446598"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Conectar ao HDInsight (Hadoop) usando o SSH
 
@@ -137,7 +137,19 @@ Para obter informações sobre como alterar a senha de conta de usuário do SSH,
 
 ## <a id="domainjoined"></a>Autenticação: HDInsight associado ao domínio
 
-Se estiver usando um __cluster HDInsight associado ao domínio__, você deverá usar o comando `kinit` após a conexão com o SSH. Este comando solicita um usuário de domínio e uma senha e autentica a sessão com o domínio do Azure Active Directory associado ao cluster.
+Se estiver usando um __cluster HDInsight associado ao domínio__, você deverá usar o comando `kinit` após a conexão com o usuário local SSH. Este comando solicita um usuário de domínio e uma senha e autentica a sessão com o domínio do Azure Active Directory associado ao cluster.
+
+Você também pode habilitar a Autenticação Kerberos em cada nó ingressado em domínio (por exemplo, nó de cabeçalho, nó de borda) para ssh usando a conta de domínio. Para fazer isso, edite o arquivo de configuração do sshd:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+remova o comentário e altere `KerberosAuthentication` para `yes`
+
+```bash
+sudo service sshd restart
+```
+
+A qualquer momento, para verificar se a autenticação Kerberos foi bem-sucedida ou não, use o comando `klist`.
 
 Para obter mais informações, confira [Configurar o HDInsight associado ao domínio](./domain-joined/apache-domain-joined-configure.md).
 
