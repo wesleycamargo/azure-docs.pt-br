@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5863a8edbb20b2b0c231834259f1bb7b0423a8f6
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5bde54a65160c58d8bfba2f6c4c3b6a4317e46ed
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033470"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436435"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início rápido: implantar seu primeiro módulo IoT Edge do Portal do Azure para um dispositivo Windows – versão prévia
 
@@ -37,7 +37,7 @@ O módulo implantado neste guia de início rápido é um sensor simulado que ger
 
 Se você não tiver uma assinatura do Azure ativa, crie uma [conta gratuita][lnk-account] antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido pressupõe que você esteja usando um computador ou uma máquina virtual que execute o Windows para simular um dispositivo de IoT. Caso esteja executando o Windows em uma máquina virtual, habilite a [virtualização aninhada][lnk-nested] e aloque pelo menos 2 GB de memória. 
 
@@ -68,7 +68,7 @@ Registre um dispositivo IoT Edge no Hub IoT recém-criado.
 Instale e inicie o tempo de execução do Azure IoT Edge no dispositivo IoT Edge. 
 ![Registrar um dispositivo][5]
 
-O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Ele tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge é iniciado e inicializa o dispositivo inicializando o agente do IoT Edge. O **agente do IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT. 
+O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge é iniciado e inicializa o dispositivo inicializando o agente do IoT Edge. O **agente do IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT. 
 
 >[!NOTE]
 >As etapas de instalação nesta seção são manuais por agora, enquanto um script de instalação está sendo desenvolvido. 
@@ -81,29 +81,38 @@ As instruções nesta seção configuram o tempo de execução do IoT Edge com c
 
 2. Baixe o pacote de serviço do IoT Edge.
 
-   ```powershell
-   Invoke-WebRequest https://conteng.blob.core.windows.net/iotedged/iotedge.zip -o .\iotedge.zip
-   Expand-Archive .\iotedge.zip C:\ProgramData\iotedge -f
-   $env:Path += ";C:\ProgramData\iotedge"
-   SETX /M PATH "$env:Path"
-   ```
+  ```powershell
+  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+  rmdir C:\ProgramData\iotedge\iotedged-windows
+  $env:Path += ";C:\ProgramData\iotedge"
+  SETX /M PATH "$env:Path"
+  ```
 
-3. Instalar e iniciar o tempo de execução do IoT Edge.
+3. Instale o vcruntime.
+
+  ```powershell
+  Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
+  .\vc_redist.exe /quiet /norestart
+  ```
+
+4. Instalar e iniciar o tempo de execução do IoT Edge.
 
    ```powershell
    New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
    Start-Service iotedge
    ```
 
-4. Adicione exceções de firewall para as portas usadas pelo serviço de IoT Edge.
+5. Adicione exceções de firewall para as portas usadas pelo serviço de IoT Edge.
 
    ```powershell
    New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
    ```
 
-5. Crie um novo arquivo chamado **iotedge.reg** e abra-o com um editor de texto. 
+6. Crie um novo arquivo chamado **iotedge.reg** e abra-o com um editor de texto. 
 
-6. Adicione o seguinte conteúdo e salve o arquivo. 
+7. Adicione o seguinte conteúdo e salve o arquivo. 
 
    ```input
    Windows Registry Editor Version 5.00
@@ -113,7 +122,7 @@ As instruções nesta seção configuram o tempo de execução do IoT Edge com c
    "TypesSupported"=dword:00000007
    ```
 
-7. Navegue até o arquivo no Explorador de Arquivos e clique duas vezes para importar as alterações no Registro do Windows. 
+8. Navegue até o arquivo no Explorador de Arquivos e clique duas vezes para importar as alterações no Registro do Windows. 
 
 ### <a name="configure-the-iot-edge-runtime"></a>Configurar o tempo de execução do IoT Edge 
 
@@ -131,21 +140,27 @@ Configure o tempo de execução com sua cadeia de conexão do dispositivo IoT Ed
 
 4. No arquivo de configuração, localize a seção **Nome de host do dispositivo Edge**. Atualizar o valor do **nome do host** com o nome do host que você copiou do PowerShell.
 
-5. Na janela do PowerShell de administrador, recupere o endereço IP para seu dispositivo IoT Edge. 
+3. Na janela do PowerShell de administrador, recupere o endereço IP para seu dispositivo IoT Edge. 
 
    ```powershell
    ipconfig
    ```
 
-6. Copie o valor para **Endereço IPv4** na seção **vEthernet (DockerNAT)** da saída. 
+4. Copie o valor para **Endereço IPv4** na seção **vEthernet (DockerNAT)** da saída. 
 
-7. Crie uma variável de ambiente chamada **IOTEDGE_HOST**, substituindo *\<ip_address\>* pelo endereço IP para seu dispositivo IoT Edge. 
+5. Crie uma variável de ambiente chamada **IOTEDGE_HOST**, substituindo *\<ip_address\>* pelo endereço IP para seu dispositivo IoT Edge. 
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
+  ```powershell
+  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+  ```
 
-8. No arquivo `config.yaml`, localize a seção **Configurações de conexão**. Atualize os valores de **management_uri** e **workload_uri** com o endereço IP no lugar de **\<GATEWAY_ADDRESS\>** e das portas que você abriu na seção anterior. 
+  Persista a variável de ambiente entre as reinicializações.
+
+  ```powershell
+  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+  ```
+
+6. No arquivo `config.yaml`, localize a seção **Configurações de conexão**. Atualize os valores de **management_uri** e **workload_uri** com o endereço IP e as portas que você abriu na seção anterior. Substitua **\<GATEWAY_ADDRESS\>** pelo seu endereço IP. 
 
    ```yaml
    connect: 
@@ -153,7 +168,7 @@ Configure o tempo de execução com sua cadeia de conexão do dispositivo IoT Ed
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-9. Localize a seção **Escutar configurações** e adicione os mesmos valores para **management_uri** e **workload_uri**. 
+7. Localize a seção **Escutar configurações** e adicione os mesmos valores para **management_uri** e **workload_uri**. 
 
    ```yaml
    listen:
@@ -161,20 +176,15 @@ Configure o tempo de execução com sua cadeia de conexão do dispositivo IoT Ed
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-10. Localize a seção **Configurações de tempo de execução de contêiner Moby**. Remova a marca de comentário da linha **network** e verifique se o valor está definido como `nat`.
+8. Localize a seção **Configurações de tempo de execução de contêiner Moby** e verifique se o valor de **network** está definido como `nat`.
 
-   ```yaml
-   moby_runtime:
-     uri: "npipe://./pipe/docker_engine"
-     network: "nat"
-   ```
+9. Salve o arquivo de configuração. 
 
-11. Salve o arquivo de configuração. 
-
-12. No PowerShell, reinicie o serviço do IoT Edge.
+10. No PowerShell, reinicie o serviço do IoT Edge.
 
    ```powershell
-   Stop-Service iotedge
+   Stop-Service iotedge -NoWait
+   sleep 5
    Start-Service iotedge
    ```
 
@@ -194,9 +204,10 @@ Verifique se o tempo de execução foi instalado e configurado com êxito.
    # Displays logs from today, newest at the bottom.
 
    Get-WinEvent -ea SilentlyContinue `
-  -FilterHashtable @{ProviderName= "iotedged";
-    LogName = "application"; StartTime = [datetime]::Today} |
-  select TimeCreated, Message | Sort-Object -Descending
+    -FilterHashtable @{ProviderName= "iotedged";
+      LogName = "application"; StartTime = [datetime]::Today} |
+    select TimeCreated, Message |
+    sort-object @{Expression="TimeCreated";Descending=$false}
    ```
 
 3. Exiba todos os módulos em execução no seu dispositivo IoT Edge. Como o serviço acabou de ser iniciado pela primeira vez, você só verá o módulo **edgeAgent** em execução. O módulo edgeAgent é executado por padrão e ajuda a instalar e iniciar quaisquer módulos adicionais que você implantar em seu dispositivo. 

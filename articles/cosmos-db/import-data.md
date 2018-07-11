@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 7f8e8d920884c611965ff760bb0369e08163356e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 52d5977b2a454dec803ad1233fcb12cc9573521c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029597"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100344"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: ferramenta de migração de dados
 
@@ -450,7 +450,7 @@ Há uma série de opções avançadas disponíveis durante a importação. Prime
 
 O importador de Registro sequencial do Azure Cosmos DB tem as seguintes opções avançadas adicionais:
 
-1. Número de solicitações paralelas: a ferramenta usa duas solicitações paralelas como padrão. Se os documentos a serem importados forem pequenos, considere aumentar o número de solicitações paralelas. Se esse número for muito elevado, a importação poderá sofrer limitação.
+1. Número de solicitações paralelas: a ferramenta usa duas solicitações paralelas como padrão. Se os documentos a serem importados forem pequenos, considere aumentar o número de solicitações paralelas. Se este número for muito elevado, a importação poderá sofrer limitação.
 2. Desabilitar a geração automática de ID: Se todos os documentos a serem importados contiverem um campo de identificação, selecionar essa opção pode aumentar o desempenho. Documentos com um campo de ID exclusiva ausente não são importados.
 3. Atualizar documentos existentes: a ferramenta por padrão não substitui os documentos existentes com conflitos de ID. Esta opção permite substituir documentos existentes por ids correspondentes. Esse recurso é útil para migrações de dados agendadas que atualizam documentos existentes.
 4. Número de repetições em caso de falha: especifica o número de vezes para tentar a conexão novamente com o Azure Cosmos DB em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).

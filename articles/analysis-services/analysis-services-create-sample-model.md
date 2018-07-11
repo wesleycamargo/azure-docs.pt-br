@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/23/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f44e33d2b735b6743b2b74760f816442c2cd17fe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c63995a461cee6bc39603a43604b8080942bd88b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596780"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442800"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo do portal
 
-Neste tutorial, você deve adicionar um modelo de tabela de banco de dados de exemplo do Adventure Works ao seu servidor. O modelo de exemplo é uma versão completa do modelo de dados de exemplo de Vendas pela Internet do Adventure Works (1200). Um modelo de amostra é útil para testar o gerenciamento de modelos, a conexão com ferramentas e aplicativos do cliente e consultar os dados do modelo. Este tutorial usa o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) para: 
+Neste tutorial, você deve adicionar um modelo de tabela de banco de dados de exemplo do Adventure Works ao seu servidor. O modelo de exemplo é uma versão completa do modelo de dados de exemplo de Vendas pela Internet do Adventure Works (1200). Um modelo de amostra é útil para testar o gerenciamento de modelos, a conexão com ferramentas e aplicativos do cliente e consultar os dados do modelo. Este tutorial usa o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
 
 > [!div class="checklist"]
 > * Adicionar um modelo de dados de tabela de exemplo completo em um servidor 
@@ -61,7 +61,7 @@ Essas etapas descrevem como excluir um modelo de um servidor usando o SSMS. Tamb
 
 1. No SSMS > **Pesquisador de Objetos**, clique em **Conectar** > **Analysis Services**.
 
-2. Em **Conectar ao servidor**, cole no nome do servidor e, em seguida, em **Autenticação**, escolha **Active Directory - Universal com suporte MFAA**, insira seu nome de usuário e, em seguida, clique em **Conectar**.
+2. Em **Conectar ao servidor**, cole no nome do servidor e, em seguida, em **Autenticação**, escolha **Active Directory - Universal com suporte MFA**, insira seu nome de usuário e, em seguida, clique em **Conectar**.
 
     ![Entrar](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-signin.png)
 

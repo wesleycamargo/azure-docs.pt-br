@@ -2,19 +2,19 @@
 title: Migrar o Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMA | Microsoft Docs
 description: Saiba como migrar seu Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMA.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: d0954627978c7725059e0b678783c8c6ffb9e827
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ceab627d98149774a3eb767ee56d688f9c11ff99
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308876"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346834"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrar seu Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMA
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
@@ -88,7 +88,7 @@ Siga estas etapas para criar um banco de dados SQL em branco.
 8. Aceite os termos da versão prévia para usar a opção **Armazenamento Complementar**. 
 
    > [!IMPORTANT]
-   > Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto as seguintes: Norte do Reino Unido, Centra-oeste dos EUA, Sul do Reino 2, Leste da China, US DoD Central, Alemanha Central, US DoD Leste, US Gov Sudoeste, US Gov Centro-Sul, Nordeste da Alemanha, Norte da China, US Gov Leste. Em outras regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Consulte [Limitações atuais de P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto as seguintes: , Centro-Oeste dos EUA, Leste da China, USDoDCentral, USGov Iowa, Alemanha Central, USDoDEast, US Gov Sudoeste, Nordeste da Alemanha, Norte da China. Em outras regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Consulte [Limitações atuais de P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 9. Depois de selecionar a camada de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  
 
@@ -141,9 +141,9 @@ Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Da
 
 ## <a name="migrate-your-database"></a>Migre seu banco de dados
 
-Siga estas etapas para usar o **[Assistente de migração de dados](https://www.microsoft.com/download/details.aspx?id=53595)** para avaliar a preparação do banco de dados para migração para o Banco de Dados SQL do Azure e para concluir a migração.
+Siga estas etapas para usar o **[Assistente de Migração de Dados](https://www.microsoft.com/download/details.aspx?id=53595)** para avaliar a preparação do banco de dados para migração para o Banco de Dados SQL do Azure e para concluir a migração.
 
-1. Abra o **Assistente de migração de dados**. É possível executar o DMA em qualquer computador com conectividade para a instância do SQL Server que contenha o banco de dados que você planeja migrar e a conectividade com a Internet. Não é necessário instalá-lo no computador que hospeda a instância do SQL Server que você está migrando. A regra de firewall criada em um procedimento anterior deve ser para o computador no qual você está executando o Assistente de Migração de Dados.
+1. Abra o **Assistente de Migração de Dados**. É possível executar o DMA em qualquer computador com conectividade para a instância do SQL Server que contenha o banco de dados que você planeja migrar e a conectividade com a Internet. Não é necessário instalá-lo no computador que hospeda a instância do SQL Server que você está migrando. A regra de firewall criada em um procedimento anterior deve ser para o computador no qual você está executando o Assistente de Migração de Dados.
 
      ![abra o assistente de migração de dados](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
 
@@ -164,7 +164,7 @@ Siga estas etapas para usar o **[Assistente de migração de dados](https://www.
     | Configuração      | Valor sugerido | DESCRIÇÃO | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nome do servidor | Seu nome do servidor ou endereço IP | Seu nome do servidor ou endereço IP |
-    | Tipo de autenticação. | O tipo de autenticação preferencial| Opções: autenticação do Windows, Autenticação do SQL Server, Autenticação integrada do Active Directory, Autenticação de senha do Active Directory |
+    | Tipo de autenticação | O tipo de autenticação preferencial| Opções: autenticação do Windows, Autenticação do SQL Server, Autenticação integrada do Active Directory, Autenticação de senha do Active Directory |
     | Nome de Usuário | Seu nome de logon | Seu logon deve ter as permissões **CONTROL SERVER** |
     | Senha| Sua senha | Sua senha |
     | Propriedades da conexão| Selecione **Criptografar conexão** e **Certificado do servidor confiável** conforme apropriado para seu ambiente. | Escolha as propriedades apropriadas para conectar-se ao seu servidor |
@@ -178,7 +178,7 @@ Siga estas etapas para usar o **[Assistente de migração de dados](https://www.
     | Configuração      | Valor sugerido | DESCRIÇÃO | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nome do servidor | Seu nome do servidor de Banco de Dados do Azure totalmente qualificado | Seu nome do servidor de Banco de Dados do Azure totalmente qualificado do procedimento anterior |
-    | Tipo de autenticação. | Autenticação do SQL Server | A autenticação do SQL Server é a única opção enquanto este tutorial é escrito, mas também há suporte para a Autenticação integrada do Active Directory e a Autenticação de senha do Active Directory pelo Banco de Dados SQL do Azure |
+    | Tipo de autenticação | Autenticação do SQL Server | A autenticação do SQL Server é a única opção enquanto este tutorial é escrito, mas também há suporte para a Autenticação integrada do Active Directory e a Autenticação de senha do Active Directory pelo Banco de Dados SQL do Azure |
     | Nome de Usuário | Seu nome de logon | O logon deve ter as permissões **CONTROL DATABASE** para o banco de dados de origem |
     | Senha| Sua senha | Sua senha |
     | Propriedades da conexão| Selecione **Criptografar conexão** e **Certificado do servidor confiável** conforme apropriado para seu ambiente. | Escolha as propriedades apropriadas para conectar-se ao seu servidor |

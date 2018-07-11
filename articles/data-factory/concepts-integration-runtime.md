@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: cd2964d0a579b903ddebfd19c90d2ce38d2374bc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1e44c6eb4294cfb0e150d6dd1c20b9f4805ca84c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050413"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112945"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory
-O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
+O IR (tempo de execução de integração) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
 
-- **Movimentação de dados**: mover dados entre armazenamentos de dados em rede pública e armazenamentos de dados em rede privada (rede privada local ou virtual). Ele fornece suporte para conectores internos, conversão de formato, mapeamento de coluna e transferência de dados de alto desempenho e escalonáveis.
+- **Movimentação de dados**: Mova os dados entre os armazenamentos de dados na rede pública e armazenamentos de dados na rede privada (rede local ou privada virtual). Ele fornece suporte para conectores internos, conversão de formato, mapeamento de coluna e transferência de dados de alto desempenho e escalonáveis.
 - **Expedição de atividade**: expeça e monitore atividades de transformação executadas em uma variedade de serviços de computação, como o Azure HDInsight, o Azure Machine Learning, o Banco de Dados SQL do Azure, o SQL Server e muitos mais.
 - **Execução de pacote SSIS**: execute nativamente pacotes do SSIS (SQL Server Integration Services) em um ambiente de computação gerenciada do Azure.
 
@@ -132,7 +132,7 @@ Selecionar a localização certa para o IR do Azure-SSIS é essencial para alcan
 - Se você não tem um servidor de Banco de Dados SQL do Azure/Instância Gerenciada (versão prévia) existente para hospedar o SSISDB mas tem fontes/destinos de dados locais, você deve criar um novo servidor de Banco de Dados SQL do Azure/Instância Gerenciada (versão prévia) na mesma localização de uma rede virtual conectada à rede local.  Desse modo, você pode criar o IR do Azure-SSIS usando o novo servidor de Banco de Dados SQL do Azure/Instância Gerenciada (versão prévia) e ingressando nessa rede virtual, tudo no mesmo local, minimizando efetivamente as movimentações de dados entre diferentes localizações.
 - Se a localização do seu servidor de Banco de Dados SQL do Azure/Instância Gerenciada (versão prévia) existente em que o SSISDB está hospedado não é a mesma que a localização de uma rede virtual conectada à rede local, primeiro crie o IR do Azure-SSIS usando um servidor de Banco de Dados SQL do Azure/Instância Gerenciada (versão prévia) e ingressando em outra rede virtual na mesma localização e, em seguida, configure uma conexão de rede virtual a rede virtual entre localizações diferentes.
 
-O diagrama a seguir mostra as configurações de localização de data factory e os respectivos tempos de execução de integração:
+O diagrama a seguir mostra as configurações de localização de Data Factory e os respectivos tempos de execução de integração:
 
 ![Localização do Integration Runtime](media/concepts-integration-runtime/integration-runtime-location.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Implantar um aplicativo do Azure Service Fabric com integração contínua (Team Services) | Microsoft Docs
-description: Neste tutorial, você aprende a configurar a integração e a implantação contínua para um aplicativo do Service Fabric usando o Visual Studio Team Services.  Implantar um aplicativo em um cluster do Service Fabric no Azure.
+title: Implantar um aplicativo do Service Fabric com integração contínua (Team Services) no Azure | Microsoft Docs
+description: Neste tutorial, você aprende a configurar a integração e a implantação contínua para um aplicativo do Service Fabric usando o Visual Studio Team Services.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,14 +15,15 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 543b75fbc1e080d13654df06cf36874e3833e851
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: f3cc4f518278cca915e40bd691c6a7674219916e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018375"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109385"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo com CI/CD em um cluster do Service Fabric
+
 Este tutorial é a quarta parte de uma série e descreve como configurar a integração e a implantação contínua de um aplicativo do Service Fabric do Azure usando o Visual Studio Team Services.  É necessário um aplicativo existente do Service Fabric e o aplicativo criado em [Criar um aplicativo .NET](service-fabric-tutorial-create-dotnet-app.md) é usado como exemplo.
 
 Na terceira parte da série, você aprenderá a:
@@ -41,32 +42,37 @@ Nesta série de tutoriais, você aprenderá a:
 > * Configurar CI/CD usando o Visual Studio Team Services
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
+
 Antes de começar este tutorial:
-- Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Instale o Visual Studio 2017](https://www.visualstudio.com/) e instale as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
-- [Instalar o SDK do Service Fabric](service-fabric-get-started.md)
-- Crie um cluster do Service Fabric do Windows no Azure; você pode [seguir este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md) como exemplo
-- Crie uma [conta do Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+
+* Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Instale o Visual Studio 2017](https://www.visualstudio.com/) e instale as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
+* [Instalar o SDK do Service Fabric](service-fabric-get-started.md)
+* Crie um cluster do Service Fabric do Windows no Azure; você pode [seguir este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md) como exemplo
+* Crie uma [conta do Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
 ## <a name="download-the-voting-sample-application"></a>Baixar o aplicativo de exemplo Votação
+
 Se você não tiver criado o aplicativo de exemplo Votação na [parte um esta série de tutoriais](service-fabric-tutorial-create-dotnet-app.md), poderá baixá-lo. Em uma janela de comando, execute o comando a seguir para clonar o repositório de aplicativos de exemplo no computador local.
 
-```
+```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="prepare-a-publish-profile"></a>Preparar um perfil de publicação
+
 Agora que você [criou um aplicativo](service-fabric-tutorial-create-dotnet-app.md) e [implantou o aplicativo no Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), você está pronto para configurar a integração contínua.  Primeiro, prepare um perfil de publicação em seu aplicativo para ser usado pelo processo de implantação que é executado no Team Services.  O perfil de publicação deve ser configurado para direcionar-se ao cluster que você criou anteriormente.  Inicie o Visual Studio e abra um projeto de aplicativo do Service Fabric existente.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no aplicativo e selecione **Publicar...**.
 
-Escolha um perfil de destino em seu projeto de aplicativo a fim de usar para o fluxo de trabalho de integração contínua, por exemplo, Nuvem.  Especifique o ponto de extremidade de conexão do cluster.  Marque a caixa de seleção **Atualizar o Aplicativo** para que seu aplicativo seja atualizado a cada implantação no Team Services.  Clique no hiperlink **Salvar** para salvar as configurações em seu perfil de publicação e, em seguida, clique em **Cancelar** para fechar a caixa de diálogo.  
+Escolha um perfil de destino em seu projeto de aplicativo a fim de usar para o fluxo de trabalho de integração contínua, por exemplo, Nuvem.  Especifique o ponto de extremidade de conexão do cluster.  Marque a caixa de seleção **Atualizar o Aplicativo** para que seu aplicativo seja atualizado a cada implantação no Team Services.  Clique no hiperlink **Salvar** para salvar as configurações em seu perfil de publicação e, em seguida, clique em **Cancelar** para fechar a caixa de diálogo.
 
 ![Perfil de envio por push][publish-app-profile]
 
 ## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Compartilhar sua solução do Visual Studio em um novo repositório Git do Team Services
-Compartilhe os arquivos de origem do seu aplicativo em um projeto de equipe no Team Services, para que você possa gerar builds.  
 
-Crie um novo repositório Git local para seu projeto selecionando **Adicionar ao controle do código-fonte** -> **Git** na barra de status no canto inferior direito do Visual Studio. 
+Compartilhe os arquivos de origem do seu aplicativo em um projeto de equipe no Team Services, para que você possa gerar builds.
+
+Crie um novo repositório Git local para seu projeto selecionando **Adicionar ao controle do código-fonte** -> **Git** na barra de status no canto inferior direito do Visual Studio.
 
 Na exibição **Push** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Enviar por Push para o Visual Studio Team Services**.
 
@@ -79,30 +85,32 @@ Verifique seu email e selecione sua conta na lista suspensa **Domínio do Team S
 A publicação do repositório cria um novo projeto de equipe em sua conta com o mesmo nome do repositório local. Para criar o repositório em um projeto de equipe existente, clique em **Avançado** ao lado do nome do **Repositório** e selecione um projeto de equipe. Você pode exibir seu código na Web selecionando **Vê-lo na Web**.
 
 ## <a name="configure-continuous-delivery-with-vsts"></a>Configurar a entrega contínua com VSTS
+
 Uma definição de build do Team Services descreve um fluxo de trabalho composto por um conjunto de etapas de compilação que são executadas sequencialmente. Crie uma definição de build que produza um pacote de aplicativos do Service Fabric e outros artefatos, para implantar em um cluster do Service Fabric. Saiba mais sobre as [definições de build do Team Services](https://www.visualstudio.com/docs/build/define/create). 
 
 Uma definição de versão do Team Services descreve um fluxo de trabalho que implanta um pacote de aplicativos em um cluster. Quando usadas juntas, a definição de build e a definição de versão executam todo o fluxo de trabalho, começando com os arquivos de origem e terminando com um aplicativo em execução em seu cluster. Saiba mais sobre as [definições de versão](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)do Team Services.
 
 ### <a name="create-a-build-definition"></a>Criar a definição de build
-Abra um navegador da web e navegue até seu novo projeto de equipe em: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
 
-Selecione a guia **Build e versão** e então **Compilações** e **+ Nova definição**.  Em **selecionar um modelo de**, selecione o **aplicativo do Azure Service Fabric** modelo e clique em **aplicar**. 
+Abra um navegador da web e navegue até seu novo projeto de equipe em: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-![Escolher o modelo de build][select-build-template] 
+Selecione a guia **Build e versão** e então **Compilações** e **+ Nova definição**.  Em **selecionar um modelo de**, selecione o **aplicativo do Azure Service Fabric** modelo e clique em **aplicar**.
 
-Em **Tarefas**, digite "VS2017 Hospedado" como a **Fila do agente**. 
+![Escolher o modelo de build][select-build-template]
+
+Em **Tarefas**, digite "VS2017 Hospedado" como a **Fila do agente**.
 
 ![Selecionar tarefas][save-and-queue]
 
-Em **Gatilhos**, habilite a integração contínua definindo o **Status do gatilho**.  Selecione **Salvar e enfileirar** para iniciar uma compilação manualmente.  
+Em **Gatilhos**, habilite a integração contínua definindo o **Status do gatilho**.  Selecione **Salvar e enfileirar** para iniciar uma compilação manualmente.
 
 ![Selecionar gatilhos][save-and-queue2]
 
-A compilação também é disparada durante o push ou o check-in. Para verificar o progresso da compilação, alterne para a guia **Compilações**.  Assim que verificar que o build é executado com êxito, configure uma definição de versão que implante seu aplicativo em um cluster. 
+A compilação também é disparada durante o push ou o check-in. Para verificar o progresso da compilação, alterne para a guia **Compilações**.  Assim que verificar que o build é executado com êxito, configure uma definição de versão que implante seu aplicativo em um cluster.
 
-### <a name="create-a-release-definition"></a>Criar uma definição de versão  
+### <a name="create-a-release-definition"></a>Criar uma definição de versão
 
-Selecione o **Build e versão** guia, em seguida, **versões**, em seguida, **+ nova definição**.  Em **Selecionar um modelo**, selecione o modelo **Implantação do Azure Service Fabric** na lista e **Aplicar**.  
+Selecione o **Build e versão** guia, em seguida, **versões**, em seguida, **+ nova definição**.  Em **Selecionar um modelo**, selecione o modelo **Implantação do Azure Service Fabric** na lista e **Aplicar**.
 
 ![Escolher modelo de versão][select-release-template]
 
@@ -110,11 +118,11 @@ Selecione **Tarefas**->**Ambiente 1** e **+ Novo** para adicionar uma nova conex
 
 ![Adicionar conexão do cluster][add-cluster-connection]
 
-No modo de exibição **Adicionar nova Conexão do Service Fabric**, selecione a autenticação **Baseada em Certificado** ou **Azure Active Directory**.  Especifique o nome de conexão de "mysftestcluster" e um ponto de extremidade do cluster "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (ou o ponto de extremidade do cluster em que você está implantando). 
+No modo de exibição **Adicionar nova Conexão do Service Fabric**, selecione a autenticação **Baseada em Certificado** ou **Azure Active Directory**.  Especifique o nome de conexão de "mysftestcluster" e um ponto de extremidade do cluster "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (ou o ponto de extremidade do cluster em que você está implantando).
 
-Para autenticação baseada em certificado, adicione a **Impressão digital do certificado de servidor** do certificado do servidor usado para criar o cluster.  Em **Certificado do cliente**, adicione a codificação de base 64 do arquivo de certificado do cliente. Veja no pop-up de ajuda do campo informações sobre como obter essa representação de codificação de base 64 do certificado. Essa também é a **Senha** para o arquivo do certificado.  Se você não tiver um certificado do cliente ou do servidor separado, poderá usar o certificado de cluster ou do servidor. 
+Para autenticação baseada em certificado, adicione a **Impressão digital do certificado de servidor** do certificado do servidor usado para criar o cluster.  Em **Certificado do cliente**, adicione a codificação de base 64 do arquivo de certificado do cliente. Veja no pop-up de ajuda do campo informações sobre como obter essa representação de codificação de base 64 do certificado. Essa também é a **Senha** para o arquivo do certificado.  Se você não tiver um certificado do cliente ou do servidor separado, poderá usar o certificado de cluster ou do servidor.
 
-Para as credenciais do Azure Active Directory, adicione a **Impressão digital do certificado de servidor** do certificado do servidor usado para criar o cluster e as credenciais que deseja usar para se conectar ao cluster nos campos **Nome de Usuário** e **Senha**. 
+Para as credenciais do Azure Active Directory, adicione a **Impressão digital do certificado de servidor** do certificado do servidor usado para criar o cluster e as credenciais que deseja usar para se conectar ao cluster nos campos **Nome de Usuário** e **Senha**.
 
 Clique em **Adicionar** para salvar a conexão do cluster.
 
@@ -126,10 +134,11 @@ Habilite um gatilho de implantação contínua para que uma versão seja criada 
 
 ![Habilitar gatilho][enable-trigger]
 
-Selecione **+ Versão** -> **Criar Versão** -> **Criar** para criar manualmente uma versão.  Verifique se a implantação foi bem-sucedida e o aplicativo está em execução no cluster.  Abra um navegador da Web e navegue até [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observe a versão do aplicativo, neste exemplo é "1.0.0.20170616.3". 
+Selecione **+ Versão** -> **Criar Versão** -> **Criar** para criar manualmente uma versão.  Verifique se a implantação foi bem-sucedida e o aplicativo está em execução no cluster.  Abra um navegador da Web e navegue até [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observe a versão do aplicativo, neste exemplo é "1.0.0.20170616.3".
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Confirmar e enviar alterações por push, disparar uma versão
-Para verificar se o pipeline de integração contínua está funcionando ao fazer check-in de algumas alterações de código no Team Services.    
+
+Para verificar se o pipeline de integração contínua está funcionando ao fazer check-in de algumas alterações de código no Team Services.
 
 Ao escrever seu código, suas alterações são rastreadas automaticamente pelo Visual Studio. Confirme as alterações em seu repositório Git local, selecionando o ícone de alterações pendentes (![Pendente][pending]) na barra de status na parte inferior direita.
 
@@ -150,6 +159,7 @@ Verifique se a implantação foi bem-sucedida e o aplicativo está em execução
 ![Service Fabric Explorer][sfx1]
 
 ## <a name="update-the-application"></a>Atualizar o aplicativo
+
 Fazer alterações de código no aplicativo.  Salve e confirme as alterações, seguindo as etapas anteriores.
 
 Depois que a atualização do aplicativo se inicia, você pode observar o progresso da atualização no Service Fabric Explorer:
@@ -161,6 +171,7 @@ A atualização do aplicativo pode levar vários minutos. Quando a atualização
 ![Service Fabric Explorer][sfx3]
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
@@ -171,8 +182,7 @@ Neste tutorial, você aprendeu como:
 
 Prosseguir para o próximo tutorial:
 > [!div class="nextstepaction"]
-> [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md) 
-
+> [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png

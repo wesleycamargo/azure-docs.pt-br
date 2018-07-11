@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061838"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097471"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Tutorial: Balancear a carga do tráfego interno com o Balanceador de Carga Básico para VMs usando o portal do Azure
 
@@ -32,7 +32,7 @@ Se preferir, você pode concluir este tutorial usando a [CLI do Azure](load-bala
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
@@ -75,10 +75,10 @@ Nesta seção, você cria duas máquinas virtuais para o pool de back-end do Bal
     - *myAvailabilitySet* – para o nome do novo Conjunto de disponibilidade que você criar.
     -  *myVNet* – verifique se esse valor está selecionado como a rede virtual.
     - *myBackendSubnet* – verifique se esse valor está selecionado como a sub-rede.
-    - *myNetworkSecurityGroup* – para o nome do novo grupo de segurança (firewall) de rede que você deve criar.
+5. Em **Grupo de segurança de rede**, selecione **Avançado**. Em seguida, para **Grupo de segurança de rede (firewall)**, selecione **Nenhum**.
 5. Clique em **Desabilitado** para desabilitar o diagnóstico de inicialização.
 6. Clique em **OK**, examine as configurações na página de resumo e, em seguida, clique em **Criar**.
-7. Usando as etapas 1 a 6, crie uma segunda VM chamada de *VM2* com *myAvailabilityset* como o Conjunto de disponibilidade, *myVnet* como a rede virtual, *myBackendSubnet* como a sub-rede e *myNetworkSecurityGroup* como seu grupo de segurança de rede. 
+7. Usando as etapas 1 a 6, crie uma segunda VM chamada *VM2* com *myAvailabilityset* como o Conjunto de disponibilidade, *myVnet* como a rede virtual, *myBackendSubnet* como a sub-rede e selecione **Nenhum** para o **Grupo de segurança de rede (firewall)**. 
 
 ### <a name="install-iis-and-customize-the-default-web-page"></a>Instalar o IIS e personalizar a página da Web padrão
 
@@ -100,33 +100,6 @@ Nesta seção, você cria duas máquinas virtuais para o pool de back-end do Bal
 5. Feche a conexão RDP com *myVM1*.
 6. Repita as etapas de 1 a 5 com *myVM2* para instalar o IIS e personalizar a página da Web padrão.
 
-## <a name="create-nsg-rules"></a>Criar regras NSG
-
-Nesta seção, você criará regras NSG para permitir conexões de entrada usando HTTP e RDP.
-
-1. Clique em **Todos os recursos** no menu da esquerda e, depois, na lista de recursos, clique em **myNetworkSecurityGroup**, que está localizado no grupo de recursos **myResourceGroupLB**.
-2. Em **Configurações**, clique em **Regras de segurança de entrada** e clique em **Adicionar**.
-3. Insira esses valores para a regra de segurança de entrada denominada *myHTTPRule* para permitir conexões de entrada HTTP usando a porta 80:
-    - *Service Tag* – para **Fonte**.
-    - *Internet* – para **Marca de serviço de fonte**
-    - *80* - para os **Intervalos de porta de destino**
-    - *TCP* – para **Protocolo**
-    - *Allow* – para **Ação**
-    - *100* - para **Prioridade**
-    - *myHTTPRule* - para nome
-    - *Allow HTTP* - para descrição
-4. Clique em **OK**.
- 
-5. Repita as etapas 2 a 4 para criar outra regra denominada *myRDPRule* para permitir uma conexão de RDP de entrada usando a porta 3389 com os seguintes valores:
-    - *Service Tag* – para **Fonte**.
-    - *Internet* – para **Marca de serviço de fonte**
-    - *3389* - para os **Intervalos de porta de destino**
-    - *TCP* – para **Protocolo**
-    - *Allow* – para **Ação**
-    - *200* - para **Prioridade**
-    - *myRDPRule* - para nome
-    - *Allow RDP* - para descrição
-
 ## <a name="create-basic-load-balancer-resources"></a>Criar recursos do Load Balancer Básico
 
 Nesta seção, você definirá as configurações do balanceador de carga para um pool de endereços de back-end e uma investigação de integridade, também especificará as regras do balanceador de carga e NAT.
@@ -139,7 +112,7 @@ Para distribuir o tráfego para as máquinas virtuais, um pool de endereços de 
 1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** da lista de recursos.
 2. Em **Configurações**, clique em **Pools de back-end** e clique em **Adicionar**.
 3. Na página **Adicionar um pool de back-end**, faça o seguinte:
-    - Em nome, digite *myBackEndPool como o nome de seu pool de back-end.
+    - Para nome, digite *myBackEndPool*, como o nome do pool de back-end.
     - Em **Associado ao**, no menu suspenso, clique em **Conjunto de disponibilidade**
     - Em **Conjunto de disponibilidade**, clique em **myAvailabilitySet**.
     - Clique em **Adicionar uma configuração de IP de rede de destino** para adicionar cada máquina virtual (*myVM1* & *myVM2*) que você criou ao pool de back-end.
@@ -153,7 +126,7 @@ Para distribuir o tráfego para as máquinas virtuais, um pool de endereços de 
 
 Para permitir que o Load Balancer Básico monitore o status de seu aplicativo, use uma investigação de integridade. A investigação de integridade adiciona ou remove dinamicamente VMs da rotação do balanceador de carga com base na resposta às verificações de integridade. Crie uma investigação de integridade *myHealthProbe* para monitorar a integridade das VMs.
 
-1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** na lista de recursos.
+1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** da lista de recursos.
 2. Em **Configurações**, clique em **Investigação de integridade** e clique em **Adicionar**.
 3. Use estes valores para criar a investigação de integridade:
     - *myHealthProbe* – para o nome da investigação de integridade.
@@ -196,7 +169,7 @@ Para testar o balanceador de carga interno, é necessário criar uma máquina vi
 6. Clique em **OK**, examine as configurações na página de resumo e, em seguida, clique em **Criar**.
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
-1. No portal do Azure, obtenha o endereço IP Privado do Balanceador de Carga na tela **Visão Geral**. Para fazer isso: a. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** na lista de recursos.
+1. No portal do Azure, obtenha o endereço IP Privado do Balanceador de Carga na tela **Visão Geral**. Para fazer isso: a. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** da lista de recursos.
     b. Na página de detalhes **Visão Geral**, copie o endereço IP Privado (neste exemplo, 10.1.0.7).
 
 2. Crie uma conexão remota com *myVMTest* da seguinte maneira: a. Clique em **Todos os recursos** no menu esquerdo e, em seguida, na lista de recursos, clique em **myVMTest**, localizada no grupo de recursos *myResourceGroupILB*.

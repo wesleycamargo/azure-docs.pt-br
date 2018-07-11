@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 884237a851461fe3d7a48708d221909804760ceb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 42af2b5ec6b591929f37afebe6546d61b8a3a02a
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063115"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082841"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Python em seu dispositivo simulado
 
@@ -32,9 +32,13 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* O dispositivo Azure IoT Edge criado no início rápido para [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md).
+* O dispositivo do Azure IoT Edge criado no início rápido para [Linux](quickstart-linux.md).
+
+   >[!Note]
+   >Os módulos do Python para o Azure IoT Edge não oferecem suporte para Windows ou dispositivos ARM. 
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Extensão do Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Extensão do Python para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
@@ -73,7 +77,7 @@ Use o pacote do Python **cookiecutter** para criar um modelo de solução em Pyt
 
 4. Na paleta de comandos, digite e execute o comando **Azure: Entrar** e siga as instruções para entrar em sua conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
 
-5. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
+5. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
 
    1. Selecione a pasta na qual deseja criar a solução. 
    2. Forneça um nome para a solução ou aceite o padrão **EdgeSolution**.
@@ -200,7 +204,7 @@ Você pode obter o endereço de imagem de contêiner completo com marca no coman
 
 Você pode usar o portal do Azure para implantar o módulo Python em um dispositivo IoT Edge como foi feito no guia de início rápido, mas também pode implantar e monitorar os módulos do Visual Studio Code. As seções a seguir usam a extensão do Azure IoT Edge para VS Code que estava listada nos pré-requisitos. Caso ainda não o tenha feito, instale-a agora. 
 
-1. Abra a paleta de comandos do VS Code selecionando **Exibir** > **Paleta de Comandos**.
+1. Abra a paleta de comandos do VS Code selecionando **Exibir** > **Paleta de comandos**.
 
 2. Pesquise e execute o comando **Azure: Entrar**. Siga as instruções para entrar na conta do Azure. 
 

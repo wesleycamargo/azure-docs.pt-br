@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cfbd7080ff365daa15618b93dcfb9fd2d07aacff
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d002955bcdb6e521fd3daddc223e07afa50f2208
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046571"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082692"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar os dados de um banco de dados de SQL Server local para um Armazenamento de Blobs do Azure
 Neste tutorial, você usa o Azure PowerShell para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual movimenta os dados entre armazenamentos de dados locais e da nuvem. 
@@ -88,7 +88,7 @@ Você usa o nome e a chave da sua conta de armazenamento do Azure neste tutorial
 5. Nas caixas **Nome da conta de armazenamento** e **key1**, copie os valores e depois cole-os no Bloco de Notas ou outro editor para uso posterior neste tutorial. 
 
 #### <a name="create-the-adftutorial-container"></a>Criar o contêiner adftutorial 
-Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu armazenamento de Blobs do Azure. 
+Nesta seção, você cria um contêiner de blob chamado **adftutorial** no armazenamento de Blobs do Azure. 
 
 1. Na janela **Conta de armazenamento**, alterne para **Visão geral** e depois selecione **Blobs**. 
 
@@ -112,7 +112,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
-#### <a name="install-azure-powershell"></a>Instalar o Azure Powershell
+#### <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
 Instale a versão mais recente do Azure PowerShell caos ainda não a tenha em seu computador. 
 
 1. Vá para [Downloads de SDK do Azure](https://azure.microsoft.com/downloads/). 
@@ -185,7 +185,7 @@ Para saber mais, confira [Como instalar e configurar o Azure PowerShell](/powers
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Para criar instâncias de data factory, a conta de usuário usada para entrar no Azure deve ter uma função de *colaborador* ou *proprietário* atribuída ou deve ser um *administrador* da assinatura do Azure.
-> * Atualmente, só é possível criar data factories nas regiões Leste dos EUA, Leste dos EUA 2 e Europa Ocidental. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure e assim por diante) e serviços de computação (HDInsight e assim por diante) usados pelo data factory podem estar em outras regiões.
+> * Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [ Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure e assim por diante) e serviços de computação (HDInsight e assim por diante) usados pelo data factory podem estar em outras regiões.
 > 
 > 
 

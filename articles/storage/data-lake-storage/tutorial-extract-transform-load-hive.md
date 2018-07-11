@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: ab1f8a4e406a7a58c46c5831c24b22f67a13a413
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8f5771ac860d40eab979bf9be92b18da8f5d850d
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062216"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342361"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutorial: extrair, transformar e carregar dados usando o Apache Hive no Azure HDInsight
 
@@ -40,7 +40,7 @@ A ilustração a seguir mostra o fluxo do aplicativo de ETL típico.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Um cluster Hadoop baseado em Linux no HDInsight**. Veja [Configurar clusters de HDInsight com Hadoop, Spark, Kafka e muito mais](./quickstart-create-connect-hdi-cluster.md) para obter as etapas sobre como criar um novo cluster HDInsight baseado em Linux.
 
@@ -75,33 +75,33 @@ Há muitas maneiras de carregar dados para o armazenamento associado a um cluste
 1. Abra um prompt de comando e use o comando a seguir para carregar o arquivo zip no nó de cabeçalho do cluster HDInsight:
 
     ```bash
-    scp <FILENAME>.zip <SSH-USERNAME>@<CLUSTERNAME>-ssh.azurehdinsight.net:<FILENAME.zip>
+    scp <FILE_NAME>.zip <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net:<FILE_NAME.zip>
     ```
 
-    Substitua *NOME DO ARQUIVO* pelo nome do arquivo .zip. Substitua *NOMEDEUSUÁRIO* pelo logon SSH para o cluster HDInsight. Substitua *NOMEDOCLUSTER* pelo nome do cluster HDInsight.
+    Substitua *FILE_NAME* pelo nome do arquivo .zip. Substitua *SSH_USER_NAME* pelo logon SSH para o cluster HDInsight. Substitua *CLUSTER_NAME* pelo nome do cluster HDInsight.
 
    > [!NOTE]
-   > Se você usar uma senha para autenticar seu logon SSH, a senha será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` e especificar a chave privada correspondente. Por exemplo, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > Se você usar uma senha para autenticar seu logon SSH, a senha será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` e especificar a chave privada correspondente. Por exemplo, `scp -i ~/.ssh/id_rsa FILE_NAME.zip USER_NAME@CLUSTER_NAME-ssh.azurehdinsight.net:`.
 
 2. Após o upload ser concluído, conecte-se ao cluster usando SSH. Insira o seguinte comando no prompt de comando:
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net
     ```
 
 3. Use o comando a seguir para descompactar o arquivo .zip:
 
     ```bash
-    unzip FILENAME.zip
+    unzip <FILE_NAME>.zip
     ```
 
-    Este comando extrai um arquivo .csv com aproximadamente 60 MB.
+    Este comando extrai um arquivo *.csv* com aproximadamente 60 MB.
 
 4. Use os seguintes comandos para criar um diretório e copie o arquivo *.csv* para o diretório:
 
     ```bash
     hdfs dfs -mkdir -p abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data
-    hdfs dfs -put <FILENAME>.csv abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data/
+    hdfs dfs -put <FILE_NAME>.csv abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data/
     ```
 
 5. Crie o sistema de arquivos do Data Lake Storage Gen2.
@@ -154,14 +154,14 @@ Como parte do trabalho do Hive, importe os dados do arquivo. csv em uma tabela d
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE
-    LOCATION 'abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/data';
+    LOCATION 'abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data';
 
     -- Drop the delays table if it exists
     DROP TABLE delays;
     -- Create the delays table and populate it with data
     -- pulled in from the CSV file (via the external table defined previously)
     CREATE TABLE delays
-    LOCATION abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/processed
+    LOCATION abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/processed
     AS
     SELECT YEAR AS year,
         FL_DATE AS flight_date,
@@ -203,7 +203,7 @@ Como parte do trabalho do Hive, importe os dados do arquivo. csv em uma tabela d
 5. Quando você receber o prompt do `jdbc:hive2://localhost:10001/>`, use a consulta a seguir para recuperar dados usando os dados importados de voos atrasados:
 
     ```hiveql
-    INSERT OVERWRITE DIRECTORY 'abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/output'
+    INSERT OVERWRITE DIRECTORY 'abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output'
     ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
     SELECT regexp_replace(origin_city_name, '''', ''),
         avg(weather_delay)
@@ -212,7 +212,7 @@ Como parte do trabalho do Hive, importe os dados do arquivo. csv em uma tabela d
     GROUP BY origin_city_name;
     ```
 
-    Essa consulta recupera uma lista de cidades em que houve atrasos causados pelo clima, além do tempo médio de atrasos e a salva em `abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/output`. Posteriormente, o Sqoop lê os dados desse local e os exporta para o Banco de Dados SQL do Azure.
+    Essa consulta recupera uma lista de cidades em que houve atrasos causados pelo clima, além do tempo médio de atrasos e a salva em `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. Posteriormente, o Sqoop lê os dados desse local e os exporta para o Banco de Dados SQL do Azure.
 
 6. Para sair do Beeline, digite `!quit` no prompt.
 
@@ -237,7 +237,7 @@ Se você já tem um Banco de Dados SQL, deverá obter o nome do servidor. Para l
 3. Após a conclusão da instalação, use o comando a seguir para conectar-se ao servidor de Banco de Dados SQL. Substitua **serverName** pelo nome do servidor do Banco de Dados SQL. Substitua **adminLogin** e **adminPassword** pelo logon do Banco de Dados SQL. Substitua **databaseName** pelo nome do banco de dados.
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <SERVER_NAME>.database.windows.net -U <ADMIN_LOGIN> -p 1433 -D <DATABASE_NAME>
     ```
 
     Quando solicitado, insira a senha para o logon do administrador do Banco de Dados SQL.
@@ -252,7 +252,7 @@ Se você já tem um Banco de Dados SQL, deverá obter o nome do servidor. Para l
     1>
     ```
 
-4. Ao prompt `1>` , insira o seguinte:
+4. Ao prompt `1>`, insira o seguinte:
 
     ```hiveql
     CREATE TABLE [dbo].[delays](
@@ -279,17 +279,17 @@ Se você já tem um Banco de Dados SQL, deverá obter o nome do servidor. Para l
     databaseName       dbo             delays        BASE TABLE
     ```
 
-5. Enter `exit` at the `1>` .
+5. Enter `exit` at the `1>`.
 
 
 ## <a name="export-data-to-sql-database-using-sqoop"></a>Exportar dados para o banco de dados SQL usando Sqoop
 
-Nas seções anteriores, você copiou os dados transformados em `abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/output`. Nesta seção, você pode usar o Sqoop para exportar os dados de `abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/output` para a tabela criada no banco de dados SQL do Azure. 
+Nas seções anteriores, você copiou os dados transformados em `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. Nesta seção, você pode usar o Sqoop para exportar os dados de `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output` para a tabela criada no banco de dados SQL do Azure. 
 
 1. Use o comando a seguir para verificar se o Sqoop pode ver seu Banco de Dados SQL:
 
     ```bash
-    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
+    sqoop list-databases --connect jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433 --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD>
     ```
 
     Esse comando retorna uma lista de bancos de dados, incluindo o banco de dados no qual você criou a tabela de atrasos anteriormente.
@@ -297,7 +297,7 @@ Nas seções anteriores, você copiou os dados transformados em `abfs://<filesys
 2. Use o comando a seguir para exportar dados de hivesampletable para a tabela de atrasos:
 
     ```bash
-    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'abfs://<filesystem_name>@.dfs.core.windows.net/tutorials/flightdelays/output' 
+    sqoop export --connect 'jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433;database=<DATABASE_NAME>' --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD> --table 'delays' --export-dir 'abfs://<FILE_SYSTEM_NAME>@.dfs.core.windows.net/tutorials/flightdelays/output' 
     --fields-terminated-by '\t' -m 1
     ```
 
@@ -306,7 +306,7 @@ Nas seções anteriores, você copiou os dados transformados em `abfs://<filesys
 3. Depois que o comando sqoop for concluído, use o utilitário tsql para se conectar ao banco de dados:
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <SERVER_NAME>.database.windows.net -U <ADMIN_LOGIN> -P <ADMIN_PASSWORD> -p 1433 -D <DATABASE_NAME>
     ```
 
     Use as instruções a seguir para verificar se os dados foram exportados para a tabela de atrasos:

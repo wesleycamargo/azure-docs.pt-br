@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 68c241833aab756bfc5e71c03da5d4175401910d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5408d20a736f262e95ce7014c385b50521967ad
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335815"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127848"
 ---
-# <a name="tutorial-create-app-using-a-list-entity"></a>Tutorial: Criar um aplicativo usando uma entidade de lista
+# <a name="tutorial-4-add-list-entity"></a>Tutorial: 4. Adicionar listar de entidades
 Neste tutorial, crie um aplicativo que demonstra como obter dados que correspondam a uma lista predefinida. 
 
 <!-- green checkmark -->
@@ -30,7 +30,7 @@ Neste tutorial, crie um aplicativo que demonstra como obter dados que correspond
 Para este artigo, você precisa de uma conta gratuita do [LUIS](luis-reference-regions.md#luis-website) para criar seu aplicativo LUIS.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Caso não tenha o aplicativo de recursos humanos do tutorial de [domínio personalizado](luis-quickstart-intents-regex-entity.md) das entidades regex, [importe](create-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
+Caso não tenha o aplicativo de recursos humanos do tutorial da [entidade regex](luis-quickstart-intents-regex-entity.md), [importe](create-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
 
 Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `list`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. 
 
@@ -97,8 +97,6 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
     |234-56-7891 para hh-2345|
 
     [ ![Captura de tela da página Intenção com novos enunciados realçados](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
-
-    Esse aplicativo tem entidade de número predefinido adicionada do tutorial anterior e, portanto, cada número está marcado. Isso pode ser suficiente para seu aplicativo cliente, mas o número não está rotulado com o tipo. Criar uma nova entidade com um nome apropriado permite que o aplicativo cliente processe a entidade ao ser retornado do LUIS.
 
 ## <a name="create-an-employee-list-entity"></a>Criar uma entidade de lista de funcionários
 Agora que a intenção **MoveEmployee** tem enunciados, LUIS precisa entender o que é um funcionário. 
@@ -298,10 +296,10 @@ Agora seu chatbot tem informações suficientes para determinar a ação primár
 O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode levar o resultado de topScoringIntent e os dados da entidade para realizar a próxima etapa. O LUIS não realiza esse trabalho de programação para o bot ou para o aplicativo de chamada. O LUIS só determina qual é a intenção do usuário. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Para fazer isso, selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Aplicativos Mu** no menu superior esquerdo. Selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba como adicionar uma entidade hierárquica](luis-quickstart-intent-and-hier-entity.md)
+> [Adicionar uma entidade hierárquica ao aplicativo](luis-quickstart-intent-and-hier-entity.md)
 

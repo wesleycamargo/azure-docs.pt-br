@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afc9e7c0635f9920aa3ec7c9e6012aa4e41edb9d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062034"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345484"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implantar o Azure Machine Learning como um módulo do IoT Edge – versão prévia
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 >[!NOTE]
 >Os módulos do Azure Machine Learning no Azure IoT Edge são públicos na versão prévia. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para testar o módulo do Machine Learning criado neste tutorial, é necessário um dispositivo IoT Edge. Você pode usar o dispositivo que você configurou no guia de início rápido para dispositivos do [Linux](quickstart-linux.md) ou [Windows](quickstart.md). 
 
@@ -60,7 +60,7 @@ Edite o arquivo de configuração do daemon do IoT Edge:
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Atualize a seção **connect** seção da configuração. Por exemplo: 
+Atualize a seção **connect** seção da configuração com seu endereço IP. Por exemplo: 
 ```yaml
 connect:
   management_uri: "http://172.17.0.1.1:15580"
@@ -125,7 +125,7 @@ Verifique se a imagem de seu contêiner foi criada com êxito e armazenada no Re
 1. Se você implantou o módulo tempSensor no seu dispositivo IoT Edge, talvez ele seja automaticamente populado. Se ainda não estiver na lista de módulos, adicioná-lo.
 
     1. Clique em **Adicionar** e selecione **Módulo do IoT Edge**.
-    2. No campo **Nome**, insira `tempsensor`.
+    2. No campo **Nome**, insira `tempSensor`.
     3. No campo **URI da Imagem**, insira `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
     4. Clique em **Salvar**.
 

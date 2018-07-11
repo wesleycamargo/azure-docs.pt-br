@@ -1,5 +1,5 @@
 ---
-title: Fazer failover e dimensionar um aplicativo de contêineres do Azure Service Fabric | Microsoft Docs
+title: Fazer failover e dimensionar um aplicativo de contêineres no Service Fabric no Azure | Microsoft Docs
 description: Neste tutorial, você aprende como o failover é manipulado em um aplicativo de contêineres do Azure Service Fabric.  Além disso, saiba como dimensionar os contêineres e os serviços em execução em um cluster.
 services: service-fabric
 documentationcenter: ''
@@ -16,25 +16,27 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 27d1918125b8c2f79f6506470ae43354e402f9af
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29555473"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112262"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutorial: Demonstrar o failover e o dimensionamento de serviços de contêiner com o Service Fabric
 
 Este tutorial é a parte três de uma série. Neste tutorial, você aprenderá como o failover é manipulado em aplicativos de contêiner do Service Fabric. Além disso, você aprenderá como dimensionar contêineres. Neste tutorial, você:
 
 > [!div class="checklist"]
-> * Saiba mais sobre o failover do contêiner em um cluster do Service Fabric  
+> * Saiba mais sobre o failover do contêiner em um cluster do Service Fabric
 > * Dimensionar os contêineres de front-end da Web em um aplicativo
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
+
 O aplicativo da [Parte 2](service-fabric-tutorial-package-containers.md) está em execução em um cluster ativo do Service Fabric.
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>Fazer failover de um contêiner em um cluster
+
 O Service Fabric certifica-se de que suas instâncias de contêiner sejam movidas automaticamente para outros nós no cluster caso ocorra uma falha. Também é possível drenar um nó de contêineres manualmente e movê-los normalmente para outros nós no cluster. Há vários modos de dimensionar seus serviços. Neste exemplo, estamos usando o Service Fabric Explorer.
 
 Para fazer failover do contêiner de front-end, execute as seguintes etapas:
@@ -42,13 +44,14 @@ Para fazer failover do contêiner de front-end, execute as seguintes etapas:
 1. Abra o Service Fabric Explorer no cluster – por exemplo, `http://lin4hjim3l4.westus.cloudapp.azure.com:19080`.
 2. Clique no nó **fabric:/TestContainer/azurevotefront** no modo de exibição de árvore e expanda o nó de partição (representado por um GUID). Observe que o nome de nó no modo de exibição de árvore, que mostra os nós no qual o contêiner está em execução no momento – por exemplo `_nodetype_1`
 3. Expanda o nó **Nós** no modo de exibição de árvore. Clique nas reticências (três pontos) ao lado do nó, que está executando o contêiner.
-1. Escolha **Reiniciar** para reiniciar o nó e confirmar a ação de reinicialização. A reinicialização faz o contêiner fazer failover para outro nó no cluster.
+4. Escolha **Reiniciar** para reiniciar o nó e confirmar a ação de reinicialização. A reinicialização faz o contêiner fazer failover para outro nó no cluster.
 
 ![noderestart][noderestart]
 
 Observe como o nome do nó (que indica onde os contêineres de front-end são executados) é alterado para outro nó no cluster. Após alguns instantes, você deverá conseguir procurar o aplicativo novamente e vê-lo em execução em um nó diferente.
 
 ## <a name="scale-containers-and-services-in-a-cluster"></a>Dimensionar contêineres e serviços em um cluster
+
 Os contêineres do Service Fabric podem ser dimensionados em um cluster para acomodar a carga nos serviços. Dimensione um contêiner alterando o número de instâncias em execução no cluster.
 
 Para dimensionar o front-end da Web, siga estas etapas:
@@ -74,10 +77,10 @@ Com essa tarefa de gerenciamento simples, dobramos o número de recursos dispon�
 Neste tutorial, foi demonstrado o failover do contêiner, bem como o dimensionamento de um aplicativo. As etapas a seguir foram concluídas:
 
 > [!div class="checklist"]
-> * Saiba mais sobre o failover do contêiner em um cluster do Service Fabric  
+> * Saiba mais sobre o failover do contêiner em um cluster do Service Fabric
 > * Dimensionar os contêineres de front-end da Web em um aplicativo
 
-Nesta série de tutoriais, você aprendeu a: 
+Nesta série de tutoriais, você aprendeu a:
 > [!div class="checklist"]
 > * Criar imagens de contêiner
 > * Efetuar push de imagens de contêiner para o Registro de Contêiner do Azure

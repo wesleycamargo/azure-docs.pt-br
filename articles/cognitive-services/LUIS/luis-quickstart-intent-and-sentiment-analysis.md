@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: ac959989dbe64460025bfba84df7b6f22c3c1c04
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 1a48810287c1639910db8e39af2da61d836b2988
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958422"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340926"
 ---
-# <a name="tutorial-create-app-that-returns-sentiment-along-with-intent-prediction"></a>Tutorial: Criar o aplicativo que retorna o sentimento junto com a previsão da intenção
+# <a name="tutorial-8--add-sentiment-analysis"></a>Tutorial: 8.  Adicionar análise de sentimento
 Neste tutorial, crie um aplicativo que demonstra como extrair sentimentos positivos, negativos e neutros dos enunciados.
 
 <!-- green checkmark -->
@@ -27,10 +27,10 @@ Neste tutorial, crie um aplicativo que demonstra como extrair sentimentos positi
 > * Treinar e publicar o aplicativo
 > * Consulte ponto de extremidade do aplicativo para ver a resposta JSON do LUIS 
 
-Para este artigo, você precisa de uma conta gratuita de [LUIS][LUIS] para criar o seu aplicativo LUIS.
+Para este artigo, você precisa de uma conta gratuita de [LUIS](luis-reference-regions.md#luis-website) para criar o seu aplicativo LUIS.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Caso não tenha o aplicativo de recursos humanos do tutorial de [entidades keyphrase](luis-quickstart-intent-and-key-phrase.md), [importe](create-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
+Caso não tenha o aplicativo de recursos humanos do tutorial de [entidades keyphrase predefinidas](luis-quickstart-intent-and-key-phrase.md), [importe](create-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
 
 Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `sentiment`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. 
 
@@ -212,13 +212,10 @@ Seu chatbot agora tem informações suficientes para determinar a próxima etapa
 O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode levar o resultado de topScoringIntent e os dados de sentimento do enunciado para realizar a próxima etapa. O LUIS não realiza esse trabalho de programação para o bot ou para o aplicativo de chamada. O LUIS só determina qual é a intenção do usuário. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Para fazer isso, selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Meus aplicativos** no menu superior esquerdo. Selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"] 
 > [Chamar a API de ponto de extremidade de LUIS com C#](luis-get-started-cs-get-intent.md) 
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

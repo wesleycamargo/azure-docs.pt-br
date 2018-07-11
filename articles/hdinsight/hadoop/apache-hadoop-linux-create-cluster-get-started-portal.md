@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: nitinme
-ms.openlocfilehash: b9cf3ae3417b993cd721460484d6228daf7b283c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd803fed4bc6a25904b2ea00a5b21af606ad7153
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627340"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097889"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Início Rápido: Introdução ao Hadoop e ao Hive no Azure HDInsight usando o Portal do Azure
 
@@ -80,7 +80,7 @@ Nesta seção, você criará um cluster Hadoop no HDInsight usando o portal do A
     
     |Propriedade  |DESCRIÇÃO  |
     |---------|---------|
-    |**Tipo de armazenamento primário**     | Neste artigo, selecione **Armazenamento do Azure** para usar o Azure Storage Blob como a conta de armazenamento padrão. Também é possível usar o Azure Data Lake Store como o armazenamento padrão. |
+    |**Tipo de armazenamento primário**     | Neste artigo, selecione **Armazenamento do Azure** para usar o Azure Storage Blob como a conta de armazenamento padrão. Também é possível usar o Azure Data Lake Storage como o armazenamento padrão. |
     |**Método de seleção**     |  Neste artigo, selecione **Minhas assinaturas** para usar uma conta de armazenamento de sua assinatura do Azure. Para usar a conta de armazenamento de outras assinaturas, selecione **Chave de acesso** e, em seguida, forneça a chave de acesso dessa conta. |
     |**Criar uma nova conta de armazenamento**     | Forneça um nome para a conta de armazenamento.|
 
@@ -177,6 +177,7 @@ Neste tutorial, você aprendeu a criar um cluster HDInsight baseado em Linux usa
 Se você estiver pronto para começar a trabalhar com seus próprios dados e precisa saber mais sobre como o HDInsight armazena dados ou obtém dados no HDInsight, consulte os seguintes artigos:
 
 * Para saber mais sobre como o HDInsight usa o Armazenamento do Azure, veja [Usar Armazenamento do Azure com o HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+* Para obter informações sobre como criar um cluster HDInsight com o Data Lake Storage, consulte o [Guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * Para obter informações sobre como carregar arquivos no HDInsight, consulte [Carregar dados no HDInsight](../hdinsight-upload-data.md).
 
 Para saber mais sobre como analisar dados com o HDInsight, consulte os seguintes artigos:

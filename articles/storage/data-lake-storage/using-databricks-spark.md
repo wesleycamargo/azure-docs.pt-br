@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 013369c84ca7f2ec232f542549c22260eca46980
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062527"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096909"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>Tutorial: Acessar dados da versão prévia do Armazenamento do Azure Data Lake Gen2 com DataBricks usando o Spark
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá a executar consultas Spark em um cluster DataBr
 > * Disparar uma função do Azure para processar dados
 > * Executar a análise em seus dados no armazenamento de blobs
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial demonstra como consumir e consultar dados de um voo aéreo, disponibilizados pela [Agência Nacional de Aviação dos EUA (United States Department of Transportation)](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Baixe pelo menos dois anos de dados de linhas aéreas (selecionando todos os campos) e salve o resultado em seu computador. Anote o nome de arquivo e o caminho do download; você precisará dessas informações em uma etapa posterior.
 
@@ -61,7 +61,7 @@ A próxima etapa é criar um [cluster DataBricks](https://docs.azuredatabricks.n
 8. Clique em **Criar Cluster** na parte superior da página (esse processo pode levar até 5 minutos para terminar).
 9. Quando o processo for concluído, selecione **Azure Databricks** na parte superior esquerda da barra de navegação.
 10. Selecione **Notebook** na seção **Novo** na metade inferior da página.
-11. Insira um nome de sua escolha no campo **Nome**.
+11. Insira um nome de sua escolha no campo **Nome** e selecione **Python** como linguagem.
 12. Todos os outros campos podem ser deixados com valores padrão.
 13. Selecione **Criar**.
 14. Cole o código a seguir na célula **Cmd 1** e substitua os valores pelos valores provenientes da conta de armazenamento.
@@ -96,7 +96,7 @@ Abra novamente o DataBricks no navegador e execute as seguintes etapas:
 5. Selecione **Criar**.
 6. Cole o código a seguir na célula **1 Cmd** (esse código é salvo automaticamente no editor).
 
-    ```
+    ```python
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  

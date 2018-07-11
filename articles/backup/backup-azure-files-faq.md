@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 7429516538c892bea04d38a98abcfb13ba960d22
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: de91559d9c3626bdd07c2e497a8aa0b124f00b57
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286392"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434828"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 Este artigo responde perguntas frequentes sobre como fazer backup de Arquivos do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -42,7 +42,7 @@ O backup para compartilhamentos de arquivos do Azure está atualmente em versão
 -   Leste da Austrália (AE) 
 - Sudeste da Austrália (ASE) 
 - Sul do Brasil (BRS)
-- Central do Canadá (CNC)
+- Canadá Central (CNC)
 -   Leste do Canadá (CE)
 -   Central dos EUA (CUS)
 -   Ásia Oriental (EA)
@@ -68,7 +68,7 @@ O backup para compartilhamentos de arquivos do Azure está atualmente em versão
 Escreva para [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) caso precise usá-lo em uma área geográfica específica que não esteja listada acima.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>Quantos compartilhamentos de arquivos do Azure posso proteger em um cofre?<br/>
-Durante a versão prévia, é possível proteger compartilhamentos de arquivos do Azure de até 25 contas de armazenamento por cofre. Também é possível proteger até 200 compartilhamentos de arquivos do Azure em um único cofre.
+Durante a versão prévia, é possível proteger compartilhamentos de arquivos do Azure de até 50 contas de armazenamento por cofre. Também é possível proteger até 200 compartilhamentos de arquivos do Azure em um único cofre.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Posso proteger dois compartilhamentos de arquivo diferentes da mesma conta de armazenamento em cofres diferentes?
 Nº Os compartilhamentos de arquivos em uma mesma Conta de Armazenamento só podem ser protegidos pelo mesmo Cofre.
@@ -81,7 +81,7 @@ Você pode ter até 200 instantâneos para um compartilhamento de arquivos a qua
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Depois de habilitar as redes virtuais na minha conta de armazenamento, o backup dos compartilhamentos de arquivo na conta começa a falhar. Por quê?
 O backup de compartilhamentos de arquivos do Azure não dá suporte a contas de armazenamento que têm redes virtuais habilitadas. Desabilite as redes virtuais nas Contas de Armazenamento para permitir backups bem-sucedidos. 
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restaurar
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share-br"></a>Posso recuperar a partir de um compartilhamento de arquivos do Azure excluído? <br/>
 Quando um compartilhamento de arquivos do Azure é excluído, você vê a lista de backups que serão excluídos e uma solicitação de confirmação. Um compartilhamento de arquivos do Azure excluído não pode ser restaurado.

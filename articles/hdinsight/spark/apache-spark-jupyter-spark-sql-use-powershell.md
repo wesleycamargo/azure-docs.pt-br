@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
 ms.custom: mvc
-ms.openlocfilehash: 1e3f1d5edf12980cb0324bb130725ec2588aa220
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c9f923268e8ca137ceaf88a0c8daa44fdee75095
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36957973"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097505"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>Início Rápido: Criar um cluster Spark no HDInsight usando o PowerShell
 Saiba como criar o cluster do Apache Spark no Azure HDInsight e como executar consultas Spark SQL nas tabelas do Hive. O Apache Spark permite análises rápidas de dados e computação de cluster usando processamento na memória. Para obter informações sobre o Spark no HDInsight, confira [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md).
 
-Neste início rápido, você usa o Azure PowerShell para criar um cluster Spark do HDInsight. O cluster usa Azure Storage Blobs como o armazenamento de cluster.
+Neste início rápido, você usa o Azure PowerShell para criar um cluster Spark do HDInsight. O cluster usa Azure Storage Blobs como o armazenamento de cluster. Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 > [!IMPORTANT]
 > A cobrança dos clusters do HDInsight será proporcional por minuto, independentemente de eles estarem sendo usados ou não. Exclua seu cluster depois de terminar de usá-lo. Para saber mais, confira a seção [Recursos de limpeza](#clean-up-resources) deste artigo.
@@ -41,7 +41,7 @@ Você pode usar um script do PowerShell para criar os recursos.  Ao executar o s
 |Parâmetro|Valor|
 |------|------|
 |Nome do grupo de recursos do Azure | Forneça um nome exclusivo para o grupo de recursos.|
-|Local padrão| Especifique a região do Azure, por exemplo "EUA Central". |
+|Localização| Especifique a região do Azure, por exemplo "EUA Central". |
 |Nome da conta de armazenamento padrão | Forneça um nome exclusivo para a conta de armazenamento. |
 |Nome do cluster | Forneça um nome exclusivo para o cluster Spark do HDInsight.|
 |Credenciais de logon de cluster | Use essa conta para se conectar ao painel de cluster posteriormente no início rápido.|

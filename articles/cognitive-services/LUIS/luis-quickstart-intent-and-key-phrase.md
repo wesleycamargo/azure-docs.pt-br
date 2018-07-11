@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063401"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340943"
 ---
-# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>Tutorial: Saiba como retornar dados da entidade keyPhrase 
+# <a name="tutorial-7-add-keyphrase-entity"></a>Tutorial: 7. Adicionar entidade KeyPhrase 
 Neste tutorial, use um aplicativo que demonstra como extrair os principais assuntos dos enunciados.
 
 <!-- green checkmark -->
@@ -201,10 +201,10 @@ Seu chatbot agora tem informações suficientes para determinar a próxima etapa
 O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode levar o resultado de topScoringIntent e os dados de keyPhrase do enunciado para realizar a próxima etapa. O LUIS não realiza esse trabalho de programação para o bot ou para o aplicativo de chamada. O LUIS só determina qual é a intenção do usuário. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Para fazer isso, selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Meus aplicativos** no menu superior esquerdo. Selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar o aplicativo que retorna o sentimento junto com a previsão da intenção](luis-quickstart-intent-and-sentiment-analysis.md)
+> [Adicionar a análise de sentimento ao aplicativo](luis-quickstart-intent-and-sentiment-analysis.md)
 

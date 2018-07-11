@@ -1,19 +1,20 @@
 ---
-title: "Executar failover e failback de VMs VMware e de servidores físicos replicados para Azure com o Site Recovery | Microsoft Docs"
-description: "Saiba como executar failover de VMs VMware e de servidores físicos para o Azure e o failback para o site local, com o Azure Site Recovery"
+title: Executar failover e failback de VMs VMware e de servidores físicos replicados para Azure com o Site Recovery | Microsoft Docs
+description: Saiba como executar failover de VMs VMware e de servidores físicos para o Azure e o failback para o site local, com o Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/05/2018
+ms.date: 06/13/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 57be12e3d203ba88cf7900598a09abdd206e1495
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115050"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Executar failover e failback de VMs VMware e de servidores físicos replicados para Azure
 
@@ -70,7 +71,7 @@ Confira as propriedades da VM e verifique se a VM está em conformidade com os [
    - **Consistente com o aplicativo mais recente**: essa opção executa failover de todas as VMs para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery.
    - **Personalizado**: especifica um ponto de recuperação.
 
-3. Selecione **Desligar o computador antes de iniciar o failover** para tentar fazer um desligamento das máquinas virtuais de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
+3. Selecione **Desligar o computador antes de iniciar o failover** para tentar fazer um desligamento das máquinas virtuais de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos**.
 
 4. Se você preparou a conexão com a VM do Azure, conecte-se para validá-la após o failover.
 
@@ -113,7 +114,7 @@ Este procedimento considera que a VM local não está disponível e que você es
 
 4. Em **Armazenamento de dado**, selecione o armazenamento de dados de destino mestre para o qual deseja recuperar os discos locais. Use esta opção quando a VM local tiver sido excluída e você precisar criar novos discos. Essa configuração será ignorada se os discos já existirem, mas você precisa especificar um valor.
 5. Selecione a unidade de retenção de destino mestre. A politica de failback é selecionada automaticamente.
-6. Clique em **OK** para iniciar a nova proteção. Um trabalho começará a replicar a máquina virtual do Azure para o site local. Você pode acompanhar o andamento na guia **Trabalhos** .
+6. Clique em **OK** para iniciar a nova proteção. Um trabalho começará a replicar a máquina virtual do Azure para o site local. Você pode acompanhar o andamento na guia **Trabalhos**.
 
 > [!NOTE]
 > Se você deseja recuperar a VM do Azure para uma VM local existente, monte o armazenamento de dados da máquina virtual local com acesso de leitura/gravação no host ESXi do servidor de destino mestre.

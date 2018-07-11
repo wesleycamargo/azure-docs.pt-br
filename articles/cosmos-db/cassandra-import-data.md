@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 26731d80f5917f9d21aacafb5f8a79cfb02855af
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 73c9f1fc26f5cb36cc475a66b67705c6177bebf8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795067"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095665"
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Importar dados do Cassandra
 
@@ -29,7 +29,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Importação de dados usando o comando cqlsh COPY
 > * Importação usando o conector Spark 
 
-# <a name="prerequisites"></a>pré-requisitos
+# <a name="prerequisites"></a>Pré-requisitos
 
 * Instale o [Apache Cassandra](http://cassandra.apache.org/download/) e certifique-se especificamente de que *cqlsh* esteja presente.
 * Aumentar a taxa de transferência: a duração da sua migração de dados depende da taxa de transferência provisionada para suas Tabelas. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para saber mais sobre como aumentar a taxa de transferência no [portal do Azure](https://portal.azure.com), veja [Definir a taxa de transferência para contêineres do Azure Cosmos DB](set-throughput.md).
@@ -57,7 +57,7 @@ Para importar dados do Cassandra para o Azure Cosmos DB para uso com a API do Ca
 1. Crie previamente e dimensione sua tabela:
     * Por padrão, o Azure Cosmos DB provisiona uma nova tabela de API do Cassandra com 1.000 unidades de solicitação por segundo (RU/s) (a criação baseada em CQL está provisionada com 400 RU/s). Antes de iniciar a migração usando cqlsh, crie previamente todas as suas tabelas desde o [portal do Azure](https://portal.azure.com) ou do cqlsh. 
 
-    * No [portal do Azure](https://portal.azure.com), aumente a taxa de transferência das tabelas da taxa de transferência padrão (400 ou 1000 RU/s) para 10.000 RU/s durante a migração. Com a taxa de transferência mais elevada, você pode evitar limitação e migrar em menos tempo. Com cobrança horária no Azure Cosmos DB, você poderá reduzir a taxa de transferência imediatamente após a migração para economizar custos.
+    * No [portal do Azure](https://portal.azure.com), aumente a taxa de transferência das tabelas da taxa de transferência padrão (400 ou 1000 RU/s) para 10.000 RU/s durante a migração. Com a taxa de transferência mais elevada, você pode evitar a limitação de taxa e migrar em menos tempo. Com cobrança horária no Azure Cosmos DB, você poderá reduzir a taxa de transferência imediatamente após a migração para economizar custos.
 
 2. Determine o custo de RU de uma operação. Você pode fazer isso usando o SDK da API do Cassandra do Azure Cosmos DB de sua escolha. Este exemplo mostra a versão do .NET da obtenção de custos de RU. 
 
