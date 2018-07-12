@@ -4,11 +4,11 @@ Para registrar seu aplicativo Web, use as configurações especificadas na tabel
 
 ![Exemplo de configurações de registro para nova aplicativo Web](./media/active-directory-b2c-register-web-app/b2c-new-app-settings.png)
 
-| Configuração      | Valor de exemplo  | Descrição                                        |
+| Configuração      | Valor de exemplo  | DESCRIÇÃO                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Nome** | Aplicativo B2C da Contoso | Insira um **Nome** para o aplicativo que descreva seu aplicativo aos consumidores. | 
-| **Incluir aplicativo Web/API Web** | Sim | Selecione **Sim** para um aplicativo Web. |
-| **Permitir fluxo implícito** | Sim | Escolha **Sim** se o seu aplicativo usar [Entrada do OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md) |
+| **Incluir aplicativo Web/API Web** | sim | Selecione **Sim** para um aplicativo Web. |
+| **Permitir fluxo implícito** | sim | Escolha **Sim** se o seu aplicativo usar [Entrada do OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md) |
 | **URL de Resposta** | `https://localhost:44316` | As URLs de Resposta são pontos de extremidade para onde o Azure AD B2C retorna quaisquer tokens que seus aplicativo solicitarem. Insira uma **URL de Resposta** [apropriada](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url). Neste exemplo, seu aplicativo é local e escuta na porta 44316. |
 
 Clique em **Criar** para registrar seu aplicativo.

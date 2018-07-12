@@ -1,4 +1,4 @@
-| SKU | Descrição |
+| SKU | DESCRIÇÃO |
 |---|---|
 | Basic | Um ponto de entrada de otimização de custo para desenvolvedores aprendendo sobre o Registro de Contêiner do Azure. Registros básicos têm os mesmos recursos de programação que Standard e Premium (integração da autenticação do Azure Active Directory, exclusão de imagem e ganchos Web), no entanto, há restrições de tamanho e uso. |
 | Standard | O registro Standard oferece os mesmos recursos que o Basic, mas com limites de armazenamento e taxa de transferência de imagem maiores. Registros Standard devem atender às necessidades da maioria dos cenários de produção. |

@@ -9,11 +9,11 @@ ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 16bda26a80611b29fdb100736cfc48978e63f75a
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34702408"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38739197"
 ---
 O modelo de projeto do Azure Functions no Visual Studio cria um projeto que pode ser publicado em um aplicativo de funções no Azure. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para o gerenciamento, implantação e compartilhamento de recursos.
 
