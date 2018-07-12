@@ -7,7 +7,7 @@ Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
     ```
-2. Crie um Integration Runtime auto-hospedado. 
+2. Criar um tempo de execução de integração auto-hospedado. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName

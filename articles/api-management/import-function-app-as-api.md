@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: 1962a4aac8e2d15caf4ec33998da1985d3b8a9af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934779"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306466"
 ---
 # <a name="import-a-function-app-as-an-api"></a>Importar um aplicativo de funções como uma API
 
@@ -55,7 +55,7 @@ Neste artigo, você aprenderá a:
 
     * **Inicial**
     * **Ilimitado**   
-7. Clique em **Criar**.
+7. Selecione **Criar**.
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testar a nova API do APIM no portal do Azure
 

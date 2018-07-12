@@ -4,7 +4,7 @@ description: Neste documento, você aprenderá a implantar o AD FS no Azure para
 keywords: implantar o AD FS no azure, implantar adfs do azure, adfs do azure, ad fs do azure, implantar o AD FS, implantar o ad fs, adfs no azure, implantar adfs no azure, implantar o AD FS no azure, adfs do azure, introdução ao AD FS, Azure, AD FS no Azure, iaas, ADFS, mover adfs para o azure
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
-ms.author: anandy; billmath
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34a5e223dfc8ff51ce03a973e88a962643c71202
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212665"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917128"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implantando os Serviços de Federação do Active Directory no Azure
 O AD FS fornece recursos simplificados e seguros de federação de identidade e de logon único (SSO) da Web. A federação com o Azure AD ou o O365 habilita os usuários a se autenticar usando credenciais locais e acessar todos os recursos na nuvem. Como resultado, é importante ter uma infraestrutura altamente disponível do AD FS para garantir o acesso a recursos locais e na nuvem. Implantar o AD FS no Azure pode ajudar a atingir a alta disponibilidade necessária com esforço mínimo.
@@ -323,7 +323,7 @@ Você pode usar uma rede virtual existente ou criar uma nova VNETao implantar es
 
 | Parâmetro | DESCRIÇÃO |
 |:--- |:--- |
-| Local padrão |A região para implantar os recursos, por exemplo, Leste dos EUA. |
+| Localização |A região para implantar os recursos, por exemplo, Leste dos EUA. |
 | StorageAccountType |O tipo de conta de armazenamento criada |
 | VirtualNetworkUsage |Indica se uma nova rede virtual será criada ou se uma existente será usada |
 | VirtualNetworkName |O nome da Rede Virtual para criar, obrigatória no uso da rede virtual nova ou existente |

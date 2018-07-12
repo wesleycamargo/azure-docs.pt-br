@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: cdcd30ea29c5c7066a6ae05f64b5bf0720572599
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061257"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299199"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Node.js em seu dispositivo simulado
 
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* O dispositivo Azure IoT Edge criado no início rápido para [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md).
+* O dispositivo do Azure IoT Edge criado no início rápido para [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md).
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Extensão do Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Docker](https://docs.docker.com/engine/installation/) no mesmo computador com o Visual Studio Code. A CE (Community Edition) é suficiente para este tutorial. 
@@ -70,7 +70,7 @@ Use **npm** para criar um modelo de solução em Node.js para usar de base.
 
 3. Na paleta de comandos, digite e execute o comando **Azure: Entrar** e siga as instruções para entrar em sua conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
 
-4. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
+4. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
 
    1. Selecione a pasta na qual deseja criar a solução. 
    2. Forneça um nome para a solução ou aceite o padrão **EdgeSolution**.
@@ -183,7 +183,7 @@ Você pode obter o endereço de imagem de contêiner completo com marca no coman
 
 Você pode usar o portal do Azure para implantar o módulo Node.js em um dispositivo IoT Edge como foi feito no guia de início rápido, mas também pode implantar e monitorar os módulos do Visual Studio Code. As seções a seguir usam a extensão do Azure IoT Edge para VS Code que estava listada nos pré-requisitos. Caso ainda não o tenha feito, instale-a agora. 
 
-1. Abra a paleta de comandos do VS Code selecionando **Exibir** > **Paleta de Comandos**.
+1. Abra a paleta de comandos do VS Code selecionando **Exibir** > **Paleta de comandos**.
 
 2. Pesquise e execute o comando **Azure: Entrar**. Siga as instruções para entrar na conta do Azure. 
 

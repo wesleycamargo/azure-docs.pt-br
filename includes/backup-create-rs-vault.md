@@ -9,18 +9,18 @@ ms.date: 5/14/2018
 ms.author: markgal
 ms.custom: include file
 ms.openlocfilehash: 5590da80a1c217e7902e8e010688e40f5624898c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34664895"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38730491"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups e os pontos de recuperação criados ao longo do tempo. O cofre de Serviços de Recuperação também contém as políticas de backup associadas às máquinas virtuais protegidas.
 
 Para criar um cofre de Serviços de Recuperação:
 
-1. Entre na sua assinatura no [portal do Azure](https://portal.azure.com/).
+1. Entre na sua assinatura no [Portal do Azure](https://portal.azure.com/).
 2. No menu esquerdo, selecione **Todos os Serviços**.
 
     ![Escolha a opção Todos os Serviços no menu principal](./media/backup-create-rs-vault/click-all-services.png) <br/>

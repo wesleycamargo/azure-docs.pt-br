@@ -23,7 +23,7 @@ Para criar um rótulo de DNS, primeiro selecione **Máquinas Virtuais** no porta
 
 1. Em um computador conectado à Internet, abra o SSMS (SQL Server Management Studio). Se você não tiver o SQL Server Management Studio, poderá baixá-lo [aqui](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, edite o valor **Nome do servidor**. Insira o endereço IP ou o nome DNS completo da máquina virtual (determinado na tarefa anterior). Você também pode adicionar uma vírgula e fornecer a porta TCP do SQL Server. Por exemplo: `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
+1. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, edite o valor **Nome do servidor**. Insira o endereço IP ou o nome DNS completo da máquina virtual (determinado na tarefa anterior). Você também pode adicionar uma vírgula e fornecer a porta TCP do SQL Server. Por exemplo, `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 
 1. Na caixa **Autenticação**, selecione **Autenticação do SQL Server**.
 

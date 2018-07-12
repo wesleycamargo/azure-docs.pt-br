@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: db241c1a3c8bfd15e13ae0bd9f1cdf4c92c7081d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 00cb6cb59f8144782fdacd8c2f9763c2f7036880
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34013929"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906829"
 ---
 >[!NOTE]
 > Deixe comentários nesta página sobre mensagens de erro ou nos [comentários do Azure](https://feedback.azure.com/forums/216843-virtual-machines) com o rótulo #azerrormessage.
@@ -164,7 +164,7 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 |  OperationNotAllowed  |  Não é possível redimensionar a VM, pois o tamanho solicitado {0} não está disponível no cluster em que a VM está alocada no momento. Para redimensionar a VM para {1}, desaloque (esta é a operação de Parada no Portal do Azure) e tente novamente a operação de redimensionamento. Leia mais sobre a estratégia de redimensionamento de VM em https://aka.ms/azure-resizevm.  |
 |  OSProvisioningClientError  |  Falha no provisionamento do SO para a VM "{0}" porque o SO convidado está sendo provisionado.  |
 |  OSProvisioningClientError  |  Falha no provisionamento do SO para a VM "{0}". Detalhes do erro: {1} Verifique se a imagem foi preparada corretamente (generalizada). <ul><li>Instruções para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  Falha na geração da chave host de SSH. Detalhes do erro: {0}. Para resolver esse problema, verifique se o agente do Linux está configurado corretamente. <ul><li>Você pode verificar as instruções em: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/ </li></ul> |
+|  OSProvisioningClientError  |  Falha na geração da chave host de SSH. Detalhes do erro: {0}. Para resolver esse problema, verifique se o agente do Linux está configurado corretamente. <ul><li>Você pode verificar as instruções em: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  O nome de usuário especificado para a VM é inválido para essa distribuição do Linux. Detalhes do erro: {0}.  |
 |  OSProvisioningInternalError  |  Falha no provisionamento do SO para a VM "{0}" devido a um erro interno.  |
 |  OSProvisioningTimedOut  |  O provisionamento do SO para a VM "{0}" não foi concluído no tempo alocado. A VM ainda pode concluir o provisionamento com êxito. Verifique mais tarde o estado do provisionamento.  |

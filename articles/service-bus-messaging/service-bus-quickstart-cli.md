@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: sethm
 ms.openlocfilehash: 717ac3c61ba4e362f01bad91f52ecb217cdbe1cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660471"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630378"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Início rápido: Enviar e receber mensagens usando CLI do Azure e Java
 
@@ -68,7 +68,7 @@ Depois que o último comando executar, copie e cole a cadeia de conexão e o nom
 
 Depois de criar o namespace e a fila, e você tiver as credenciais necessárias, estará pronto para enviar e receber mensagens. É possível examinar o código [nesta pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
 
-1. Certifique-se de que o Cloud Shell está aberto e exibindo o prompt de Bash.
+1. Verifique se o Cloud Shell está aberto e exibindo o prompt de Bash.
 
 2. Clone o [repositório GitHub do Barramento de Serviço](https://github.com/Azure/azure-service-bus/), emitindo o comando a seguir:
 

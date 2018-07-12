@@ -20,7 +20,7 @@ Você pode configurar e monitorar a coleta de [dados de diagnóstico](https://do
 
 Você pode criar [alertas](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) com base em métricas de desempenho específicas. Exemplos dos problemas que podem ser avisados incluem quando o uso médio da CPU excede determinado limite ou o espaço em disco livre disponível fica abaixo de determinado valor. Os alertas podem ser configurados no [portal do Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)usando o [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) ou a [CLI do Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
 
-## <a name="azure-service-health"></a>Integridade de Serviço do Azure
+## <a name="azure-service-health"></a>Integridade do Serviço do Azure
 
 A [Integridade de Serviço do Azure](../articles/service-health/service-health-overview.md) dá suporte e diretrizes personalizadas em caso de problemas nos serviços do Azure, e ajuda você a se preparar para manutenção futura planejada. A Integridade de Serviço do Azure alerta você e suas equipes usando notificações flexíveis e direcionadas.
 

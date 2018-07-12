@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 4ee6eefa431b06e0cb694635e188c87a8a4175c9
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737258"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916472"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Proteger novamente computadores do Azure para um site local
 
@@ -99,7 +99,7 @@ Depois que uma máquina virtual é reinicializada no Azure, leva algum tempo par
 4. Para **Repositório de Dados**, selecione o repositório de dados no qual você deseja recuperar os discos localmente. Essa opção é usada quando a máquina virtual no local é excluída e você precisa criar novos discos. Essa opção será ignorada se os discos já existem. Você ainda precisa especificar um valor.
 5. Selecione a unidade de retenção.
 6. A politica de failback é selecionada automaticamente.
-7. Selecione **Okey** para iniciar a nova proteção. Um trabalho começará a replicar a máquina virtual do Azure para o site local. Você pode acompanhar o andamento na guia **Trabalhos** . Quando a nova proteção for bem-sucedida, a máquina virtual entra em um estado protegido.
+7. Selecione **Okey** para iniciar a nova proteção. Um trabalho começará a replicar a máquina virtual do Azure para o site local. Você pode acompanhar o andamento na guia **Trabalhos**. Quando a nova proteção for bem-sucedida, a máquina virtual entra em um estado protegido.
 
 Observe as seguintes informações:
 - Se você quiser recuperar para um local alternativo (quando a máquina virtual local for excluída), selecione a unidade de retenção e o repositório de dados configurados para o servidor de destino mestre. Quando você realiza o failback para o site local, as máquinas virtuais do VMware no plano de proteção de failback usam o mesmo repositório de dados que o servidor de destino mestre. Então, uma nova máquina virtual é criada no vCenter.
