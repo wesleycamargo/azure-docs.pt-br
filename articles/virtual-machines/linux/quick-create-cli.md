@@ -3,7 +3,7 @@ title: Início Rápido - Criar uma VM Linux com a CLI 2.0 do Azure | Microsoft D
 description: Neste início rápido, você aprende a usar a CLI 2.0 do Azure para criar uma máquina virtual Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/24/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c45f8f010d69337d21fce327933990a573988a4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6536860bb75d068a96899f2d30ec7a6126a28436
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187922"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927624"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli-20"></a>Início Rápido: Criar uma máquina virtual Linux com a CLI 2.0 do Azure
 
@@ -56,7 +56,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-A criação da VM e dos recursos suportados demora alguns minutos. O seguinte exemplo de saída mostra que a operação de criação de VM foi bem-sucedida.
+A criação da VM e dos recursos de suporte demora alguns minutos. O seguinte exemplo de saída mostra que a operação de criação de VM foi bem-sucedida.
 
 ```azurecli-interactive
 {
@@ -105,7 +105,7 @@ Quando terminar, `exit` a sessão do SSH.
 
 ## <a name="view-the-web-server-in-action"></a>Ver o servidor web em ação
 
-Com o NGINX instalado e a porta 80 agora aberta na VM pela Internet, use um navegador da Web de sua escolha para exibir a página inicial padrão do NGINX. Use o endereço IP público da VM obtido em uma etapa anterior. O exemplo a seguir mostra o site da web padrão NGINX:
+Com o NGINX instalado e a porta 80 agora aberta na VM pela Internet, use um navegador da Web de sua escolha para exibir a página inicial padrão do NGINX. Use o endereço IP público da VM obtido em uma etapa anterior. O seguinte exemplo mostra o site padrão do NGINX:
 
 ![Site padrão NGINX](./media/quick-create-cli/nginx.png)
 

@@ -3,7 +3,7 @@ title: Tutorial – Gerenciar discos do Azure com a CLI do Azure | Microsoft Doc
 description: Neste tutorial, você aprenderá a usar a CLI 2.0 do Azure para criar e gerenciar discos do Azure para máquinas virtuais
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/30/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 470e938aa4ef70f9682528003ccdaba2ef6cc013
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 889facbf9612f2462a10c886a428ac052becefd8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839683"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704480"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>Tutorial – Gerenciar discos do Azure com a CLI 2.0 do Azure
 
@@ -50,7 +50,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
 
-| type | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
+| Tipo | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
 |----|----|----|
 | [Propósito geral](sizes-general.md) | Série A, B e D | 1600 |
 | [Computação otimizada](sizes-compute.md) | Série F | 576 |
@@ -65,7 +65,7 @@ Para instalar aplicativos e dados de armazenamento, outros discos de dados podem
 
 ### <a name="max-data-disks-per-vm"></a>Máximo de discos de dados por VM
 
-| type | Tamanho da VM | Máximo de discos de dados por VM |
+| Tipo | Tamanho da VM | Máximo de discos de dados por VM |
 |----|----|----|
 | [Propósito geral](sizes-general.md) | Série A, B e D | 64 |
 | [Computação otimizada](sizes-compute.md) | Série F | 64 |

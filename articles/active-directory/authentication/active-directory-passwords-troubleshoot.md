@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 30409794807618f082cf98de14e374d97a9b4519
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7a23702b40ea46edd6dd139ebdb0a3742193429e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592870"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857211"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de autoatendimento de redefinição de senha
 
@@ -39,7 +39,7 @@ Você está tendo um problema com a SSPR (redefinição de senha de autoatendime
 
 | Erro | Solução |
 | --- | --- |
-| Não consigo ver a seção **Redefinição de Senha** em Azure AD no portal do Azure. | Isso poderá ocorrer se você não tiver uma licença do Azure AD Premium ou Básico atribuída ao administrador que realiza a operação. <br> <br> Atribua uma licença à conta de administrador em questão. Você pode seguir as etapas do artigo [Atribuir, verificar e resolver problemas com licenças](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).|
+| Não consigo ver a seção **Redefinição de Senha** em Azure AD no portal do Azure. | Isso poderá ocorrer se você não tiver uma licença do Azure AD Premium ou Básico atribuída ao administrador que realiza a operação. <br> <br> Atribua uma licença à conta de administrador em questão. Você pode seguir as etapas do artigo [Atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
 | Não consigo ver determinada opção de configuração. | Muitos elementos da interface do usuário ficam ocultos até que sejam necessários. Tente habilitar todas as opções que você deseja ver. |
 | Não consigo ver a guia **Integração local**. | Essa opção só fica visível se você baixou o Azure AD Connect e configurou o write-back de senha. Para saber mais, confira [Guia de introdução ao Azure AD Connect usando as configurações express](./../connect/active-directory-aadconnect-get-started-express.md). |
 
@@ -47,7 +47,7 @@ Você está tendo um problema com a SSPR (redefinição de senha de autoatendime
 
 | Erro | Solução |
 | --- | --- |
-| Não consigo ver nenhum tipo de atividade de gerenciamento de senhas na categoria de evento de auditoria **Gerenciamento de Senhas de Autoatendimento**. | Isso poderá ocorrer se você não tiver uma licença do Azure AD Premium ou Básico atribuída ao administrador que realiza a operação. <br> <br> Para resolver esse problema, você pode atribuir uma licença à conta de administrador em questão. Siga as etapas no artigo [Atribuir, verificar e resolver problemas com licenças](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses). |
+| Não consigo ver nenhum tipo de atividade de gerenciamento de senhas na categoria de evento de auditoria **Gerenciamento de Senhas de Autoatendimento**. | Isso poderá ocorrer se você não tiver uma licença do Azure AD Premium ou Básico atribuída ao administrador que realiza a operação. <br> <br> Para resolver esse problema, você pode atribuir uma licença à conta de administrador em questão. Siga as etapas no artigo [Atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | Os registros do usuário aparecem várias vezes. | Quando um usuário se registra, registramos cada dado individual que é registrado como um evento separado. <br> <br> Se você quiser agregar esses dados e ter maior flexibilidade em como exibi-los, poderá baixar o relatório e abrir os dados como uma tabela dinâmica no Excel.
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>Solucionar problemas do portal de registro de redefinição de senha
@@ -55,7 +55,7 @@ Você está tendo um problema com a SSPR (redefinição de senha de autoatendime
 | Erro | Solução |
 | --- | --- |
 | O diretório não está habilitado para redefinição de senha. **O administrador não habilitou você para usar esse recurso.** | Alterne o sinalizador **Autoatendimento de redefinição de senha habilitado** para **Selecionado** ou **Todos** e selecione **Salvar**. |
-| O usuário não tem uma licença do Azure AD Premium ou Básico atribuída. **O administrador não habilitou você para usar esse recurso.** | Isso poderá ocorrer se você não tiver uma licença do Azure AD Premium ou Básico atribuída ao administrador que realiza a operação. <br> <br> Para resolver esse problema, você pode atribuir uma licença à conta de administrador em questão. Siga as etapas no artigo [Atribuir, verificar e resolver problemas com licenças](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).|
+| O usuário não tem uma licença do Azure AD Premium ou Básico atribuída. **O administrador não habilitou você para usar esse recurso.** | Isso poderá ocorrer se você não tiver uma licença do Azure AD Premium ou Básico atribuída ao administrador que realiza a operação. <br> <br> Para resolver esse problema, você pode atribuir uma licença à conta de administrador em questão. Siga as etapas no artigo [Atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
 | Há um erro ao processar a solicitação. | Isso pode ser causado por vários problemas, mas, em geral, esse erro é causado por uma interrupção do serviço ou um problema de configuração. Se você receber esse erro e ele estiver afetando seus negócios, contate o suporte da Microsoft para obter assistência adicional. |
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>Solucionar problemas do portal de redefinição de senha
@@ -63,7 +63,7 @@ Você está tendo um problema com a SSPR (redefinição de senha de autoatendime
 | Erro | Solução |
 | --- | --- |
 | O diretório não está habilitado para redefinição de senha. | Alterne o sinalizador **Autoatendimento de redefinição de senha habilitado** para **Selecionado** ou **Todos** e selecione **Salvar**. |
-| O usuário não tem uma licença do Azure AD Premium ou Básico atribuída. | Isso poderá ocorrer se você não tiver uma licença do Azure AD Premium ou Básico atribuída ao administrador que realiza a operação. <br> <br> Você pode resolver esse problema atribuindo uma licença à conta de administrador em questão. Siga as etapas no artigo [Atribuir, verificar e resolver problemas com licenças](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses). |
+| O usuário não tem uma licença do Azure AD Premium ou Básico atribuída. | Isso poderá ocorrer se você não tiver uma licença do Azure AD Premium ou Básico atribuída ao administrador que realiza a operação. <br> <br> Você pode resolver esse problema atribuindo uma licença à conta de administrador em questão. Siga as etapas no artigo [Atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | O diretório está habilitado para redefinição de senha, mas o usuário tem informações de autenticação ausentes ou incorretas. | Antes de continuar, verifique se o usuário preencheu corretamente os dados de contato no arquivo no diretório. Para obter mais informações, consulte [Dados usados pelo autoatendimento de redefinição de senha do Azure AD](howto-sspr-authenticationdata.md). |
 | O diretório está habilitado para redefinição de senha, mas o usuário tem somente uma parte dos dados de contato no arquivo quando a política está definida para exigir dois métodos de verificação. | Antes de prosseguir, verifique se o usuário tem pelo menos dois métodos de contato configurados corretamente. Um exemplo é ter um número de telefone celular *e* um número de telefone comercial. |
 | O diretório está habilitado para redefinição de senha e o usuário está configurado corretamente, mas não pode ser contatado. | Isso pode ser o resultado de um erro de serviço temporário ou de dados de contato incorretos que não podemos detectar corretamente. <br> <br> Se o usuário aguardar 10 segundos, surgirão os links “tente novamente” e "entre em contato com seu administrador". Se o usuário selecionar "tente novamente", uma nova chamada será feita. Se o usuário selecionar "entre em contato com seu administrador", ele envia um email de formulário de email aos administradores solicitando a execução de uma redefinição de senha para essa conta de usuário. |

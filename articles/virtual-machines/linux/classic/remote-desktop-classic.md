@@ -3,7 +3,7 @@ title: Área de Trabalho Remota para uma VM do Linux | Microsoft Docs
 description: Saiba como instalar e configurar a Área de Trabalho Remota para se conectar a uma VM Linux do Microsoft Azure para o modelo de implantação clássico
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: iainfou
-ms.openlocfilehash: 0e1bfe468e1572ca98be956d39d82df562dce0e6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: cynthn
+ms.openlocfilehash: 5e68774c3edb7d82fef388c593a6b96c52857be6
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30238606"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927733"
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Usando a Área de Trabalho Remota para se conectar a uma VM do Linux do Microsoft Azure
 > [!IMPORTANT] 
@@ -42,7 +42,7 @@ A ferramenta xrdp é um servidor RDP de software livre que permite a conexão do
 ## <a name="create-an-endpoint-for-remote-desktop"></a>Criar um ponto de extremidade para a Área de Trabalho Remota
 Usaremos o ponto de extremidade padrão 3389 para a Área de Trabalho Remota neste documento. Configure o ponto de extremidade 3389 como a `Remote Desktop` para sua VM Linux como abaixo:
 
-![imagem](./media/remote-desktop/endpoint-for-linux-server.png)
+![image](./media/remote-desktop/endpoint-for-linux-server.png)
 
 Se você não souber como configurar um ponto de extremidade para sua VM, consulte [este guia](setup-endpoints.md).
 
@@ -123,7 +123,7 @@ sudo service xrdp restart
 ## <a name="connect-your-linux-vm-from-a-windows-machine"></a>Conectar-se à VM Linux de uma máquina com Windows
 Em um computador Windows, inicie o cliente de Área de Trabalho Remota e insira o nome DNS da VM Linux. Ou vá para o Painel da VM no Portal do Azure e clique em `Connect` para se conectar à VM Linux. Nesse caso, você vê a janela de logon:
 
-![imagem](./media/remote-desktop/no2.png)
+![image](./media/remote-desktop/no2.png)
 
 Faça logon com o nome de usuário e a senha da sua VM Linux.
 
