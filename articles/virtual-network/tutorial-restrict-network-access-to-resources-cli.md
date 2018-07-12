@@ -18,11 +18,11 @@ ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841972"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232734"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restrinja o acesso à rede a recursos de PaaS com pontos de extremidade de serviço de rede virtual usando a CLI do Azure
 

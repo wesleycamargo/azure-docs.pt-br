@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/05/2018
+ms.date: 7/06/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 091076a86c7f1c3f83f20a47b8f351d050350c9a
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263456"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902982"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Transmitir os dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa
 
@@ -102,7 +102,7 @@ Rotear dados de monitoramento para um hub de eventos com o Azure Monitor permite
 * **IBM QRadar** – o Microsoft Azure DSM e protocolo de Hub de Eventos do Microsoft Azure estão disponíveis para download do [site de suporte da IBM](http://www.ibm.com/support). Você pode [saber mais sobre a integração com o Azure aqui](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** -dependendo da configuração de Splunk, há duas abordagens:
     1. [O Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) está disponível no Splunkbase e em um projeto de software livre. [A documentação está aqui](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
-    2. Se você não puder instalar um complemento na instância do Splunk (por exemplo, Se usar um proxy ou estiver executando na Splunk Cloud), você poderá encaminhar esses eventos para o Splunk HTTP Event Collector usando [essa função disparada por novas mensagens no hub de eventos](https://github.com/sebastus/AzureFunctionForSplunkVS).
+    2. Se você não puder instalar um complemento na instância do Splunk (por exemplo, Se usar um proxy ou estiver executando na Splunk Cloud), você poderá encaminhar esses eventos para o Splunk HTTP Event Collector usando [essa função disparada por novas mensagens no hub de eventos](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** – instruções para configurar o SumoLogic para consumir dados de um hub de eventos estão [disponíveis aqui](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## <a name="next-steps"></a>Próximas etapas

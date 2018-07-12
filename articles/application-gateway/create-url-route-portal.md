@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: ecb8a46c57d31c8a19f3a7b75306e42a7d3981bd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: feb9b0c3d90aea9d5e0351b6691e93186dbfb9f6
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335730"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902071"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicativo com regras de roteamentos com base no caminho usando o portal do Azure
 
@@ -159,7 +159,7 @@ Neste exemplo, você criará três máquinas virtuais a serem usadas como servid
 
     ![Testar a URL de base no gateway de aplicativo](./media/create-url-route-portal/application-gateway-iistest.png)
 
-3. Altere a URL para http://&lt;ip-address&gt;:8080/video/test.htm, substituindo &lt;ip-address&gt; pelo seu endereço IP e você verá algo parecido com o exemplo a seguir:
+3. Altere a URL para http://&lt;ip-address&gt;:8080/images/test.htm, substituindo &lt;ip-address&gt; pelo seu endereço IP e você verá algo parecido com o exemplo a seguir:
 
     ![Testar a URL de imagens no gateway de aplicativo](./media/create-url-route-portal/application-gateway-iistest-images.png)
 

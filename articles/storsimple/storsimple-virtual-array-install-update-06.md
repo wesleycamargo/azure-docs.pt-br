@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
 ms.openlocfilehash: 111976cd684561f5bc63b92f09a20470fe3036d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109984"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606639"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Instalar a Atualização 0.6 em seu StorSimple Virtual Array
 
@@ -57,7 +57,7 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para baixar a atualização ou o hotfix
 
-1. Inicie o Internet Explorer e acesse [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Inicie o Internet Explorer e navegue até [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
 2. Se você estiver usando o Catálogo do Microsoft Update pela primeira vez neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
 

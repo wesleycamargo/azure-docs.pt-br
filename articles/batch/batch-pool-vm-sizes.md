@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 06/27/2018
 ms.author: danlep
-ms.openlocfilehash: addd1e9314a754b40cc5d49c0299f007580f512f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8f428df07de029bc79f26d5941d22e7472addb95
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29763940"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915989"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do Lote do Azure
 
@@ -41,9 +41,8 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a todos 
 | Série A básica | Basic_A0 (A0) |
 | Séria A | Standard_A0 |
 | Série B | Todos |
-| Série Fsv2 <sup>*</sup> | Todos |
 
-<sup>*</sup>Os tamanhos nessa série estão em nossos planos para suporte futuro.
+
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pools na configuração de Serviço de Nuvem
 

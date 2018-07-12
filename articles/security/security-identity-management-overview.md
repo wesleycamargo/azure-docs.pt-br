@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 8763f1dca110a43586619c09f5d25c340c177b09
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: cbf6ac736db9935f5ec52fa4507dab1e56bcde43
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300650"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611180"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 Soluções de gerenciamento e de identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos pelo datacenter corporativo e para a nuvem. Esse tipo de proteção permite níveis adicionais de validação, tais como Autenticação Multifator e políticas de acesso condicional. O monitoramento de atividade suspeita por meio de alertas, auditoria e relatórios de segurança avançados ajuda a reduzir potenciais problemas de segurança. O [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece SSO (logon único) para milhares de aplicativos SaaS (software como serviço) de nuvem e acesso a aplicativos Web executados localmente.
@@ -134,9 +134,9 @@ Com Azure AD Privileged Identity Management, você pode:
 
 Saiba mais:
 
-* [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [Funções no Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-roles.md)
-* [Privileged Identity Management do Azure AD: como adicionar ou remover uma função de usuário](../active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
+* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
+* [Funções no Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-roles.md)
+* [Privileged Identity Management do Azure AD: como adicionar ou remover uma função de usuário](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>Identity Protection
 O Azure AD Identity Protection é um serviço de segurança que fornece uma visão consolidada dos eventos de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. O Identity Protection tira proveito das funcionalidades de detecção de anomalias existentes do Azure AD, que estão disponíveis por meio dos Relatórios de atividades anômalas do Azure AD. O Identity Protection também apresenta novos tipos de eventos de risco que podem detectar anomalias em tempo real.

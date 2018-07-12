@@ -2,19 +2,19 @@
 title: Guia de início rápido - cluster do Docker CE para Linux
 description: Aprenda rapidamente a criar um cluster do Docker CE para os contêineres do Linux no Serviço de Contêiner do Azure com a CLI do Azure.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: cd52982fc650d5fd3b4edd8513946a721306a451
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 46e93953ba8db141b99b14aa78674e85b343adbc
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164084"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903372"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Implantar um cluster do Docker CE
 
@@ -58,7 +58,7 @@ Crie um cluster do Docker CE no Serviço de Contêiner do Azure com o comando [a
 O exemplo a seguir cria um cluster chamado *mySwarmCluster* com um nó mestre do Linux e três nós de agente do Linux.
 
 ```azurecli-interactive
-az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
+az acs create --name mySwarmCluster --orchestrator-type swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 Em alguns casos, como em uma avaliação limitada, uma assinatura do Azure terá acesso limitado aos recursos do Azure. Se a implantação falhar devido à limitação nos núcleos disponíveis, reduza a contagem de agentes padrão, adicionando `--agent-count 1` ao comando [az acs create](/cli/azure/acs#az_acs_create). 
