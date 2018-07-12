@@ -3,7 +3,7 @@ title: Gerenciar Conjuntos de dimensionamento de máquina virtual com a CLI do A
 description: 'Comandos comuns da CLI do Azure 2.0 para gerenciar Conjuntos de dimensionamento de máquina virtual, por exemplo: como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.'
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: iainfou
-ms.openlocfilehash: ca447f3ca0ed6656912a0d3e5082ebd2dd308a14
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: cynthn
+ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652477"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308046"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gerenciar um conjunto de dimensionamento de máquina virtual com a CLI do Azure 2.0
 Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Além disso, talvez você deseje criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos comuns do CLI do Azure 2.0 que permitem executar essas tarefas.

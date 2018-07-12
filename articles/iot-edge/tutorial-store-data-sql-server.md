@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: d0837787dcac44d2cc43701ac181ec7eac2dfa2c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033481"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687208"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na borda com os bancos de dados do SQL Server
 
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como:
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# para extensão do Visual Studio Code (com OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Extensão do Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
-* [SDK 2.1 do .NET Core](https://www.microsoft.com/net/download). 
+* [SDK do .NET Core 2.1](https://www.microsoft.com/net/download). 
 * [Docker CE](https://docs.docker.com/install/) em seu computador de desenvolvimento. 
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner

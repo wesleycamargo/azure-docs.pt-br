@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 191f8973e85186590a2ba840e473f8fff57a9d94
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37053041"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referência de Script do JSON
@@ -4966,7 +4966,7 @@ A tabela a seguir fornece as descrições das propriedades usadas na definição
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |sim |
+| Tipo |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |sim |
 | accountName |Nome da conta da Análise Azure Data Lake. |sim |
 | dataLakeAnalyticsUri |URI da Análise Azure Data Lake. |Não  |
 | autorização |O código de autorização é recuperado automaticamente depois de clicar no botão **Autorizar** no Editor do Data Factory e concluir o logon OAuth. |sim |

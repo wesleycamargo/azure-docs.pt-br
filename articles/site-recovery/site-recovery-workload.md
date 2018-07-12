@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 4d6d3b776995233f3729a76788504678dc8979d7
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e0094b48bc602a1b59339458b430319f4a705d44
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894061"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920096"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quais cargas de trabalho posso proteger com o Azure Site Recovery?
 
@@ -111,8 +111,8 @@ O RDS (Serviços da Área de Trabalho Remota) habilita a infraestrutura da área
 
 | **RDS** |**Replicar VMs do Azure para o Azure** | **Replicar máquinas virtuais do Hyper-V para um site secundário** | **Replicar VMs do Hyper-V para o Azure** | **Replicar VMs do VMware para um site secundário** | **Replicar VMs do VMware para o Azure** | **Replicar servidores físicos para um site secundário** | **Replicar servidores físicos para o Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Área de trabalho virtual em pool (não gerenciada)** |Não |sim |Não  |sim |Não  |sim |Não  |
-| **Área de trabalho virtual em pool (gerenciada e sem UPD)** |Não |sim |Não  |sim |Não  |sim |Não  |
+| **Área de trabalho virtual em pool (não gerenciada)** |Não |Sim |Não  |Sim |Não  |Sim |Não  |
+| **Área de trabalho virtual em pool (gerenciada e sem UPD)** |Não |Sim |Não  |Sim |Não  |Sim |Não  |
 | **Aplicativos remotos e sessões da área de trabalho (sem UDP)** |sim|sim |sim |sim |sim |sim |sim |
 
 [Configurar a recuperação de desastre para RDS usando o Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).

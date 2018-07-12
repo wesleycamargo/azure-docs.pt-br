@@ -18,10 +18,10 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36231844"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quais são as condições no acesso condicional do Active Directory do Azure? 
@@ -223,7 +223,7 @@ Qualquer condição pode ser configurada para "Outros clientes".
 
 **O Exchange ActiveSync dá suporte a todas as condições e controles?**
 
-Nº Aqui está o resumo do suporte ao EAS (Exchange ActiveSync):
+Não. Aqui está o resumo do suporte ao EAS (Exchange ActiveSync):
 
 - O EAS dá suporte apenas a direcionamento para usuário e grupo. Ele não dá suporte a convidados, funções. Se a condição do convidado/função estiver configurada, todos os usuários poderão ser bloqueados porque não podemos determinar se a política se aplica ao usuário ou não.
 
@@ -235,7 +235,7 @@ Nº Aqui está o resumo do suporte ao EAS (Exchange ActiveSync):
 
 **As políticas serão aplicadas a todos os aplicativos clientes por padrão no futuro?**
 
-Nº Não há nenhuma alteração no comportamento padrão da política. As políticas continuam a ser aplicáveis ao navegador e aos clientes de área de trabalho/aplicativos móveis por padrão.
+Não. Não há nenhuma alteração no comportamento padrão da política. As políticas continuam a ser aplicáveis ao navegador e aos clientes de área de trabalho/aplicativos móveis por padrão.
 
 
 

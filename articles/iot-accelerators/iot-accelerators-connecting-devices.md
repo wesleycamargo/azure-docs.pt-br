@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
 ms.openlocfilehash: 139daea3e885636b352d4c9a1ba2651a24195b21
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626948"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309863"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Conectar seu dispositivo ao acelerador da solução de monitoramento remoto (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial mostra como conectar um dispositivo físico ao acelerador da solução de monitoramento remoto.
+Este tutorial mostra como conectar um dispositivo físico ao acelerador de solução de monitoramento remoto.
 
 ## <a name="create-a-c-client-solution-on-windows"></a>Criar uma solução cliente C no Windows
 

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108714"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688721"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar as credenciais da sua conta de armazenamento
 
@@ -68,7 +68,7 @@ Enquanto a conta de armazenamento está sendo salvo, o serviço tenta se comunic
 
 Use os procedimentos a seguir para adicionar as credenciais de conta de armazenamento do Azure:
 
-* Para adicionar uma credencial de conta de armazenamento com a mesma assinatura do Azure como o serviço do Gerenciador de Dispositivos
+* Para adicionar uma credencial de conta de armazenamento com a mesma assinatura do Azure como o serviço Gerenciador de Dispositivos
 * Para adicionar uma credencial de conta de armazenamento do Azure que esteja fora da assinatura do serviço Gerenciador de Dispositivos
 
 [!INCLUDE [add-a-storage-account-update2](../../includes/storsimple-8000-configure-new-storage-account-u2.md)]

@@ -3,15 +3,15 @@ title: Failback do Azure para VMware com Azure Site Recovery | Microsoft Docs
 description: Após o failover de máquinas virtuais no Azure, você pode iniciar um failback para colocar máquinas virtuais para o local. Conheça as etapas de como realizar failback.
 author: nsoneji
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 05/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 1e8e2384d6d5672e29e6d7bc28f0772cd5b78519
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 9d8398582766a27f1457e3a59bdde0c59298ed50
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287510"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919828"
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Failback do Azure para um site local
 
