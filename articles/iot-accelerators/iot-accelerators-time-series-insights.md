@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 7a0a5d4f1fbba5d7bd2813e8b9c300a37853e06c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111469"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968948"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualizar Dados de Monitoramento Remoto com o Time Series Insights
 
@@ -44,7 +44,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 O Azure Time Series Insights é um serviço totalmente gerenciado de análise, armazenamento e visualização para o gerenciamento de dados de série temporal em escala IoT na nuvem. Ele oferece armazenamento de dados de série temporal massivamente escalonável e permite explorar e analisar bilhões de eventos transmitidos por streaming em todo o mundo em questão de segundos. Use o Time Series Insights para armazenar e gerenciar terabytes de dados de série temporal, explorar e visualizar bilhões de eventos simultaneamente, conduzir análises de causa raiz e comparar diversos sites e ativos.
 
-1. Entre no [portal do Azure](http://portal.azure.com/).
+1. Entre no [Portal do Azure](http://portal.azure.com/).
 
 1. Selecione **Criar um recurso** > **Internet das Coisas** > **Time Series Insights**.
 
@@ -57,7 +57,7 @@ O Azure Time Series Insights é um serviço totalmente gerenciado de análise, a
     | Nome do ambiente | A captura de tela a seguir usa o nome **contorosrmtsi**. Ao concluir esta etapa, escolha seu próprio nome exclusivo. |
     | Assinatura | Na lista suspensa, selecione sua assinatura do Azure. |
     | Grupo de recursos | **Criar novo**. Estamos usando o nome **ContosoRM**. |
-    | Local padrão | Estamos usando **Leste dos EUA**. Crie seu ambiente na mesma região que sua solução de Monitoramento Remoto. |
+    | Localização | Estamos usando **Leste dos EUA**. Crie seu ambiente na mesma região que sua solução de Monitoramento Remoto. |
     | Sku |**S1** |
     | Capacity | **1** |
     | Fixar no painel | **Sim** |
@@ -99,7 +99,7 @@ Crie uma nova Origem do Evento para se conectar ao hub IoT. Use o grupo de consu
 1. Clique em **Criar**.
 
 > [!NOTE]
-> Se você precisar conceder acesso a usuários adicionais para o gerenciador do Time Series Insights, use estas etapas para [conceder o acesso a dados](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
+> Se você precisar conceder acesso a usuários adicionais para o gerenciador do Time Series Insights, use estas etapas para [conceder o acesso a dados](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights Explorer
 

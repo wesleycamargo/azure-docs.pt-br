@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: bf811d789c0c6effd6f8940ad433092ea9ba04cb
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c1bf5ba68d8242a0ef0831987ac6fd041c62ace9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210064"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Tutorial: integração do Microsoft Azure Active Directory com o Arc Publishing - SSO
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Arc Publishing - SSO da Galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-arc-publishing---sso-from-the-gallery"></a>Adicionando o Arc Publishing - SSO da Galeria
 Para configurar a integração do Arc Publishing - SSO no Microsoft Azure Active Directory, você precisa adicionar o Arc Publishing - SSO da galeria para a sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Arc Publishing - SSO no Microsoft Azure Active
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **Arc Publishing - SSO**, selecione **Arc Publishing - SSO** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **Arc Publishing - SSO**, selecione **Arc Publishing - SSO** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Arc Publishing - SSO na lista de resultados](./media/arc-tutorial/tutorial_arc_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Para que o logon único funcione, o Microsoft Azure AD precisa saber qual usuár
 Para configurar e testar o logon único do Microsoft Azure AD com o Arc Publishing - SSO, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar usuário de teste do Arc Publishing - SSO](#create-an-arc-publishing---sso-test-user)** – para ter um equivalente de Brenda Fernandes  no Arc Publishing - SSO que é vinculado à representação de usuário do Microsoft Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar usuário de teste do Arc Publishing - SSO](#create-an-arc-publishing---sso-test-user)** – para ter um equivalente de Brenda Fernandes  no Arc Publishing - SSO que é vinculado à representação de usuário do Microsoft Azure AD.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -100,19 +100,19 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/arc-tutorial/tutorial_arc_samlbase.png)
 
-3. Na seção **Arc Publishing - domínio SSO e na seção URLs**, se desejar configurar o aplicativo em modo iniciado pelo **IDP**, siga as etapas abaixo:
+1. Na seção **Arc Publishing - domínio SSO e na seção URLs**, se desejar configurar o aplicativo em modo iniciado pelo **IDP**, siga as etapas abaixo:
 
     ![Arc Publishing - Domínio SS informações de logon único em URLs](./media/arc-tutorial/tutorial_arc_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.okta.com/saml2/service-provider/<Unique ID>`
+    1. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.okta.com/saml2/service-provider/<Unique ID>`
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
+    1. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
     ![Arc Publishing - Domínio SS informações de logon único em URLs](./media/arc-tutorial/tutorial_arc_url1.png)
 
@@ -121,11 +121,11 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Contate a [equipe de suporte ao Cliente do Arc Publishing - SSO ](mailto:inf@washpost.com) para obter esses valores. 
 
-5. Arc Publishing - o aplicativo EBSCO espera as asserções SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. A captura de tela a seguir mostra um exemplo disso.
+1. Arc Publishing - o aplicativo EBSCO espera as asserções SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. A captura de tela a seguir mostra um exemplo disso.
     
     ![Configurar o logon único](./media/arc-tutorial/tutorial_arc_attribute.png)
 
-6. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
+1. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
     
     | Nome do atributo | Valor do atributo |
     | ---------------| --------------- |    
@@ -134,36 +134,36 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
     | email | user.mail |
     | groups | user.assignedroles |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+    1. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
      ![Configurar o logon único](./media/arc-tutorial/tutorial_attribute_04.png)
 
      ![Configurar o logon único](./media/arc-tutorial/tutorial_attribute_05.png)
     
-    b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
+    1. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
     
-    c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
+    1. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
 
-    d. Deixe o **Namespace** em branco.
+    1. Deixe o **Namespace** em branco.
     
-    d. Clique em **Ok**
+    1. Clique em **Ok**
 
     > [!NOTE]
-    > Aqui o atributo de **grupos** é mapeado com **user.assignedroles**. Essas são funções personalizadas criadas no Azure AD para mapear os nomes de grupo no aplicativo. Você pode encontrar mais diretrizes [aqui](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) sobre como criar funções personalizadas no Microsoft AD do Azure. 
+    > Aqui o atributo de **grupos** é mapeado com **user.assignedroles**. Essas são funções personalizadas criadas no Azure AD para mapear os nomes de grupo no aplicativo. Você pode encontrar mais diretrizes [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) sobre como criar funções personalizadas no Microsoft AD do Azure. 
 
-7. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![O link de download do Certificado](./media/arc-tutorial/tutorial_arc_certificate.png) 
 
-8. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/arc-tutorial/tutorial_general_400.png)
     
-9. Na seção **Configuração do Arc Publishing - SSO SSO**, clique em **Configurar Arc Publishing - SSO** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Arc Publishing - SSO SSO**, clique em **Configurar Arc Publishing - SSO** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Arc Publishing - configuração de SSO](./media/arc-tutorial/tutorial_arc_configure.png) 
 
-10. Para configurar o logon único no lado **Arc Publishing - SSO**, é necessário enviar o **Certificado (Base64)** baixado, a [URL de Saída, ID da Entidade SAML e URL do Serviço de Logon Único Arc Publishing ](mailto:inf@washpost.com) para a equipe de suporte do Arc Publishing - SSO. Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado **Arc Publishing - SSO**, é necessário enviar o **Certificado (Base64)** baixado, a [URL de Saída, ID da Entidade SAML e URL do Serviço de Logon Único Arc Publishing ](mailto:inf@washpost.com) para a equipe de suporte do Arc Publishing - SSO. Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -177,25 +177,25 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/arc-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/arc-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
     ![O botão Adicionar](./media/arc-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media/arc-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+    1. Na caixa **Nome**, digite **BrendaFernandes**.
 
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+    1. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
 
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    1. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
-    d. Clique em **Criar**.
+    1. Clique em **Criar**.
  
 ### <a name="create-an-arc-publishing---sso-test-user"></a>Criar um Arc Publishing - SSO usuário de teste
 
@@ -216,23 +216,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Arc Publishing - SSO**.
+1. Na lista de aplicativos, selecione **Arc Publishing - SSO**.
 
     ![O link do Arc Publishing - SSO na lista de Aplicativos](./media/arc-tutorial/tutorial_arc_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

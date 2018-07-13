@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114217"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971991"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: Analisar vídeos com os Serviços de Mídia do Azure 
 
@@ -112,7 +112,7 @@ Ao criar uma **Transformação**, você deverá verificar primeiro se já existe
 
 #### <a name="job"></a>Trabalho
 
-Conforme mecionado acima, o objeto de [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e um [Trabalho](https://docs.microsoft.com/en-us/rest/api/media/jobs) é a solicitação real para os Serviços de Mídia para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. O **Trabalho** especifica informações como o local da entrada vídeo e o local da saída. Você pode especificar o local do seu vídeo usando: URLs HTTPS, URLs da SAS ou ativos que estão em sua conta de Serviço de Mídia. 
+Conforme mecionado acima, o objeto de [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real para os Serviços de Mídia para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. O **Trabalho** especifica informações como o local da entrada vídeo e o local da saída. Você pode especificar o local do seu vídeo usando: URLs HTTPS, URLs da SAS ou ativos que estão em sua conta de Serviço de Mídia. 
 
 Neste exemplo, a entrada de trabalho é um vídeo local.  
 
@@ -120,7 +120,7 @@ Neste exemplo, a entrada de trabalho é um vídeo local.
 
 ### <a name="wait-for-the-job-to-complete"></a>Aguarde a conclusão do trabalho
 
-Este trabalho levará algum tempo para concluir e quando você desejar ser notificado. Há diferentes opções para ser notificado sobre a conclusão do [Trabalho](https://docs.microsoft.com/en-us/rest/api/media/jobs). A opção mais simples (que é mostrada aqui) é usar a sondagem. 
+Este trabalho levará algum tempo para concluir e quando você desejar ser notificado. Há diferentes opções para ser notificado sobre a conclusão do [Trabalho](https://docs.microsoft.com/rest/api/media/jobs). A opção mais simples (que é mostrada aqui) é usar a sondagem. 
 
 Sondagem não é uma prática recomendada para aplicativos de produção devido à latência potencial. A sondagem pode ser acelerada, se houver uso excessivo em uma conta. Os desenvolvedores devem usar a Grade de Eventos.
 

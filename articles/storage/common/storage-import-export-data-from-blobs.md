@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.openlocfilehash: eb41708c7446b3139758678c9247ffbb11da8b40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658999"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969258"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para exportar com segurança grandes quantidades de dados do Armazenamento de Blobs do Azure. O serviço requer que você envie unidades vazias para o datacenter do Azure. O serviço exporta os dados de sua conta de armazenamento para as unidades e, em seguida, envia as unidades de volta.
@@ -24,7 +24,7 @@ Antes de criar um trabalho de exportação para transferir dados para fora do Ar
 
 - Ter uma assinatura ativa do Azure que pode ser usada para o serviço de Importação/Exportação.
 - Ter pelo menos uma conta de Armazenamento do Azure. Consulte a lista de [Contas de armazenamento e tipos de armazenamento com suporte para o serviço de Importação/Exportação](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
-- Ter o número adequado de discos de [tipos com suporte](storage-import-export-requirements.md#supported-disks).
+- Ter o número adequado de discos de [Tipos com suporte](storage-import-export-requirements.md#supported-disks).
 
 ## <a name="step-1-create-an-export-job"></a>Etapa 1: Criar um trabalho de exportação
 
@@ -76,8 +76,8 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
 4. Em **Retornar informações de envio**:
 
     - Selecione a operadora na lista suspensa.
-    - Insira um número de conta da operadora válido que você criou com esse transporte. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. 
-    - Forneça um nome de contato válido e completo, bem como telefone, email, endereço, cidade, zip, estado/município e país/região.
+    - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. 
+    - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
    
 5. Em **resumo**:
 
@@ -115,7 +115,7 @@ Essa etapa *opcional* ajuda você a determinar o número de unidades necessária
 
 1. [Baixe o WAImportExport versão 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) no sistema Windows. 
 2. Descompacte para a pasta padrão `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
-3. Abra uma janela do PowerShell ou uma janela de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta descompactada, execute o seguinte comando:
+3. Abra um PowerShell ou janela de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta descompactada, execute o seguinte comando:
     
     `cd C:\WaImportExportV1`
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264367"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971713"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertas de log no Azure Monitor - Alertas 
 Este artigo fornece detalhes de alertas de Log, que são um dos tipos de alertas de suporte no novo [Alertas do Azure](monitoring-overview-unified-alerts.md) e permitem que os usuários usem a plataforma de análise do Azure como base para alertas. Para obter detalhes de Alertas de Métrica usando Logs, veja [Alertas de métrica quase em tempo real](monitoring-near-real-time-metric-alerts.md)
@@ -120,7 +120,7 @@ As APIs fornecidas para os alertas de logs são RESTful e podem ser acessadas po
 
 Para obter mais detalhes, assim como exemplos sobre como usar a API REST, consulte:
 - [API REST de alerta do Log Analytics](../log-analytics/log-analytics-api-alerts.md) - para criar e gerenciar regras de alerta de pesquisa de log para o Log Analytics do Azure
-- [Azure Monitor agendou API REST de regras de consulta](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) - para criar e gerenciar regras de alerta de pesquisa de log para o Azure Application Insights
+- [Azure Monitor agendou API REST de regras de consulta](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) - para criar e gerenciar regras de alerta de pesquisa de log para o Azure Application Insights
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 Os usuários também podem usar a flexibilidade fornecida pelo [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para criar e atualizar recursos - com a finalidade de criar ou atualizar alertas de Log.

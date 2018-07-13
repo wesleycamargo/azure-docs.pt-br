@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: juliako
-ms.openlocfilehash: b8c9375d8ad915200cbc8b2e1a62979fd1b7d179
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237039"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972172"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -32,7 +32,7 @@ Este artigo fornece uma visão geral detalhada e inclui diagramas dos principais
 
 ## <a name="overview-of-main-components"></a>Visão geral dos componentes principais
 
-Nos Serviços de Mídia, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pelo processamento do conteúdo de transmissão ao vivo. Um LiveEvent fornece um ponto de extremidade de entrada (URL de entrada) que você fornece a um codificador dinâmico local. O LiveEvent recebe fluxos de entrada ao vivo do codificador dinâmico no formato RTMP ou Smooth Streaming e o disponibiliza para streaming por meio de um ou mais [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Um [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) permite que você controle a publicação, gravação e as configurações da janela de DVR do live stream. O LiveEvent também fornece um ponto de extremidade de versão prévia (URL de versão prévia) usado para visualizar e validar o fluxo antes de processamento e entrega adicionais. 
+Nos Serviços de Mídia, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pelo processamento do conteúdo de transmissão ao vivo. Um LiveEvent fornece um ponto de extremidade de entrada (URL de entrada) que você fornece a um codificador dinâmico local. O LiveEvent recebe fluxos de entrada ao vivo do codificador dinâmico no formato RTMP ou Smooth Streaming e o disponibiliza para streaming por meio de um ou mais [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Um [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite que você controle a publicação, gravação e as configurações da janela de DVR do live stream. O LiveEvent também fornece um ponto de extremidade de versão prévia (URL de versão prévia) usado para visualizar e validar o fluxo antes de processamento e entrega adicionais. 
 
 Os Serviços de Mídia fornecem um **Empacotamento Dinâmico** que permite a você visualizar e transmitir seu conteúdo nos formatos de streaming MPEG DASH, HLS, Smooth Streaming, sem a necessidade de empacotar novamente nesses formatos de streaming. Você pode reproduzir com players compatíveis com HLS, DASH ou Smooth. Também é possível usar o [Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) para testar o stream.
 
@@ -101,7 +101,7 @@ O estado atual de um LiveEvent. Os valores possíveis incluem:
 
 ## <a name="liveoutput"></a>LiveOutput
 
-Um [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) permite que você controle a publicação, gravação e as configurações da janela de DVR do live stream. A relação entre LiveEvent e LiveOutput é semelhante à mídia tradicional, em que um canal (LiveEvent) tem um fluxo constante de conteúdo, e um programa (LiveOutput) tem como escopo um evento cronometrado nesse LiveEvent.
+Um [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite que você controle a publicação, gravação e as configurações da janela de DVR do live stream. A relação entre LiveEvent e LiveOutput é semelhante à mídia tradicional, em que um canal (LiveEvent) tem um fluxo constante de conteúdo, e um programa (LiveOutput) tem como escopo um evento cronometrado nesse LiveEvent.
 Você pode especificar o número de horas pelo qual deseja manter o conteúdo gravado para o LiveOutput, definindo a propriedade **ArchiveWindowLength**. **ArchiveWindowLength** é um período ISO 8601 de duração da janela de arquivo (Gravador de Vídeo Digital ou DVR). Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas. 
 
 **ArchiveWindowLength** também determina o número máximo de vezes que os clientes podem voltar no tempo a partir da posição dinâmica atual. Os LiveOutputs podem ser executados no período de tempo especificado, mas o conteúdo que ficar para trás no comprimento da janela será continuamente descartado. O valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.

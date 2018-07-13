@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 06/04/2018
 ms.topic: article
-ms.openlocfilehash: b7cd9ad90198ead7c68d838547232429dbd1289f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757313"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971826"
 ---
-# <a name="use-terraform-to-create-an-azure-virtual-machine-scale"></a>Usar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais
+# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Usar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure
 
 O [conjunto de dimensionamento de máquinas virtuais do Azure](/azure/virtual-machine-scale-sets) permite criar e gerenciar um grupo de máquinas virtuais com balanceamento de carga idênticas, onde o número de instâncias de máquinas virtuais pode aumentar ou diminuir automaticamente em resposta à demanda ou a um cronograma definido. 
 
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como usar o [Azure Cloud Shell](/azure/cloud-sh
 
 - **Crie um par de chaves SSH**: se você ainda não tiver um par de chaves SSH, siga as instruções no artigo, [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys).
 
-## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
+## <a name="create-the-directory-structure"></a>Crie a estrutura de diretórios
 
 1. Navegue até o [Portal do Azure](http://portal.azure.com).
 

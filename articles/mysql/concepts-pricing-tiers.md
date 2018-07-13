@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: d42fa432f57def5e4f80480e41c2299098e20d7d
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 07/11/2018
+ms.openlocfilehash: 547839234e15455f3e268bad4d92972ea1f47e4c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020681"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971930"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -31,7 +31,7 @@ Você pode criar um servidor do Banco de Dados do Azure para MySQL em um dos tr�
 
 Para escolher um tipo de preço, use a tabela a seguir como ponto de partida.
 
-| Tipo de preço  | Cargas de trabalho de destino |
+| Tipo de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
 | Basic | Cargas de trabalho que exigem desempenho de E/S e computação leve. Os exemplos incluem servidores usados para desenvolvimento ou teste ou aplicativos de pequena escala usados com pouca frequência. |
 | Uso geral | A maioria das cargas de trabalho que exigem a computação e a memória balanceadas com a taxa de transferência de E/S escalonável. Os exemplos incluem servidores para hospedar aplicativos Web e móveis e outros aplicativos empresariais.|
@@ -63,6 +63,8 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 | Ásia Oriental | X | X |
 | Sudeste Asiático | X | X |
 | Leste da Austrália |  | X |
+| Austrália Central |  | X |
+| Austrália Central 2 |  | X |
 | Sudeste da Austrália |  | X |
 | Índia Central | X | X |
 | Índia Ocidental | X | X |
@@ -81,7 +83,7 @@ O armazenamento provisionado é a quantidade de capacidade de armazenamento disp
 | Tipo de armazenamento | Armazenamento Standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
 | Tamanho do incremento de armazenamento | 1 GB | 1 GB | 1 GB |
-| IOPS | Variável |3 IOPS/GB<br/>Mín 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Mín 100 IOPS<br/>Max 6000 IOPS |
+| IOPS | Variável |3 IOPS/GB<br/>Mín 100 IOPS<br/>Máx 6000 IOPS | 3 IOPS/GB<br/>Mín 100 IOPS<br/>Máx 6000 IOPS |
 
 Você pode adicionar mais capacidade de armazenamento durante e após a criação do servidor. A camada Básico não oferece garantia de IOPS. Nos tipos de preço Uso Geral e Otimizado para Memória, o IOPS é dimensionado com o tamanho de armazenamento provisionado a uma taxa de 3:1.
 

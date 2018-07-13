@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 4b90d1b9b2ee64722d3c92bcbd8fa205c9b59ebd
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: d46c55f809d24529ea5deeb4d84de44dae876a4b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809600"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968979"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Backup e restauração para o SQL Server em Máquinas Virtuais do Azure
 
@@ -84,8 +84,8 @@ Essa solução de Backup do Azure para VMs do SQL está atualmente em visualiza�
 
 Se quiser gerenciar o backup e restaurar operações em suas VMs do SQL manualmente, há várias opções, dependendo da versão do SQL Server que você está usando. Para obter uma visão geral de backup e restauração, veja um dos seguintes artigos com base em sua versão do SQL Server:
 
-- [Backup e restauração no SQL Server 2016 e posterior](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
-- [Backup e restauração no SQL Server 2014](https://msdn.microsoft.com/en-us/library/ms187048%28v=sql.120%29.aspx)
+- [Backup e restauração no SQL Server 2016 e posterior](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
+- [Backup e restauração no SQL Server 2014](https://msdn.microsoft.com/library/ms187048%28v=sql.120%29.aspx)
 - [Backup e restauração no SQL Server 2012](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)
 - [Backup e restauração no SQL Server 2008 R2](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
 - [Backup e restauração no SQL Server 2008](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)
@@ -105,7 +105,7 @@ A partir do SQL Server 2012 SP1 CU2, você pode fazer backup e restaurar diretam
 | Aprimoramento do 2016 | Detalhes |
 | --- | --- |
 | **Distribuição** |Ao fazer backup para o armazenamento de blobs do Microsoft Azure, o SQL Server 2016 dá suporte ao backup para vários blobs a fim de habilitar o backup de grandes bancos de dados, até o máximo de 12,8 TB. |
-| **Backup de instantâneo** |Com o uso de instantâneos do Azure, o Backup de Instantâneo de Arquivo do SQL Server fornece backups quase imediatos e restaurações rápidas para os arquivos de banco de dados armazenados por meio do serviço de armazenamento de blobs do Azure. Essa funcionalidade permite simplificar suas políticas de backup e restauração. O backup de instantâneo de arquivo também dá suporte à recuperação pontual. Para obter mais informações, veja [Backups de instantâneo para arquivos de banco de dados no Azure](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
+| **Backup de instantâneo** |Com o uso de instantâneos do Azure, o Backup de Instantâneo de Arquivo do SQL Server fornece backups quase imediatos e restaurações rápidas para os arquivos de banco de dados armazenados por meio do serviço de armazenamento de blobs do Azure. Essa funcionalidade permite simplificar suas políticas de backup e restauração. O backup de instantâneo de arquivo também dá suporte à recuperação pontual. Para obter mais informações, veja [Backups de instantâneo para arquivos de banco de dados no Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
 
 Para saber mais, veja um dos seguintes artigos com base em sua versão do SQL Server:
 
