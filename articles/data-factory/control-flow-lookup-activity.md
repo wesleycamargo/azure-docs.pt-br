@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
 ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055271"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38237825"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -54,7 +54,7 @@ As seguintes fontes de dados têm suporte para pesquisa. O número máximo de li
 ```
 
 ## <a name="type-properties"></a>Propriedades de tipo
-NOME | DESCRIÇÃO | type | Obrigatório?
+NOME | DESCRIÇÃO | Tipo | Obrigatório?
 ---- | ----------- | ---- | --------
 dataset | Fornece a referência de conjunto de dados para a pesquisa. Obtenha detalhes da seção "propriedades do conjunto de dados" em cada artigo de conector correspondente. | Pares chave/valor | sim
 fonte | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade de cópia. Obtenha detalhes da seção "Copiar as propriedades da atividade" em cada artigo de conector correspondente. | Pares chave/valor | sim

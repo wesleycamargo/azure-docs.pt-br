@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: bf861dc6317a8cc3a3ed862dfd6c133a1dcbe685
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf1406c8e361e0a1433b0e26c477c3c34e987fcf
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231839"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38562751"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - implantar uma infraestrutura de migração
 
@@ -21,17 +21,17 @@ Este artigo examina como a Contoso define o local e a infraestrutura do Azure, n
 - É uma arquitetura de exemplo que é específica para a Contoso.
 - Se você precisa de todos os elementos descritos no artigo depende de sua estratégia de migração. Por exemplo, se você estiver criando aplicativos de nuvem nativo somente no Azure, talvez seja necessário uma estrutura de rede menos complexa.
 
-Este documento é o segundo de uma série de artigos que documentam como a empresa fictícia Contoso migra recursos locais para a nuvem do Microsoft Azure. A série inclui informações básicas e um conjunto de cenários de implantação que ilustra como configurar uma infraestrutura de migração, avaliar a adequação de recursos locais para migração e executar diferentes tipos de migração. Cenários de crescem em complexidade e incluiremos artigos adicionais ao longo do tempo.
+Este documento é o segundo de uma série de artigos que documentam como a empresa fictícia Contoso migra recursos locais para a nuvem do Microsoft Azure. A série inclui informações básicas e um conjunto de cenários de implantação que ilustra como configurar uma infraestrutura de migração, avaliar a adequação de recursos locais para migração e executar diferentes tipos de migração. Os cenários crescem em complexidade; incluiremos outros artigos ao longo do tempo.
 
 **Artigo** | **Detalhes** | **Status**
 --- | --- | ---
-[O artigo 1: Visão geral](contoso-migration-overview.md) | Fornece uma visão geral de estratégia de migração da Contoso, a série de artigos e os aplicativos de exemplo que usamos. | Disponível
+[Artigo 1: Visão geral](contoso-migration-overview.md) | Fornece uma visão geral de estratégia de migração da Contoso, a série de artigos e os aplicativos de exemplo que usamos. | Disponível
 Artigo 2: Implantar uma infraestrutura do Azure (este artigo) | Descreve como Contoso prepara seu local e a infraestrutura do Azure para a migração. A mesma infraestrutura é usada para todos os cenários de migração da Contoso. | Disponível
-[Artigo 3: Avaliar recursos locais](contoso-migration-assessment.md) | Mostra como a Contoso é executado em uma avaliação de seu aplicativo de SmartHotel de duas camadas do local em execução no VMware. Avaliar a VMs de aplicativo com o [migrar do Azure](migrate-overview.md) service e o banco de dados do SQL Server de aplicativo com o [Assistente de migração de banco de dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
-[Artigo 4: Novo host para as VMs do Azure e uma instância gerenciada do SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como Contoso migra o aplicativo SmartHotel no Azure. Elas migram a VM de front-end do aplicativo usando o [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e o banco de dados de aplicativo usando o serviço de [Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview), para migrar para uma Instância Gerenciada do SQL. | Disponível
-[Artigo 5: Novo host para máquinas virtuais do Azure](contoso-migration-rehost-vm.md) | Mostra como a Contoso migrar seu aplicativo SmartHotel VMs usando apenas o Site Recovery.
+[Artigo 3: Avaliar recursos locais](contoso-migration-assessment.md) | Mostra como a Contoso executa uma avaliação de seu aplicativo SmartHotel local de duas camadas em execução na VMware. As VMs de aplicativo são avaliadas com o serviço [Migrações para Azure](migrate-overview.md) e o banco de dados do SQL Server do aplicativo com o [Assistente de Migração de Dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
+[Artigo 4: Mudança de host para VMs do Azure e para uma Instância Gerenciada do SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como a Contoso migra o aplicativo SmartHotel para o Azure. Elas migram a VM de front-end do aplicativo usando o [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e o banco de dados de aplicativo usando o serviço de [Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview), para migrar para uma Instância Gerenciada do SQL. | Disponível
+[Artigo 5: Mudança de host para VMs do Azure](contoso-migration-rehost-vm.md) | Mostra como a Contoso migrar seu aplicativo SmartHotel VMs usando apenas o Site Recovery.
 [Artigo 6: Novo host para máquinas virtuais do Azure e grupos de disponibilidade do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Mostra como a Contoso migra o aplicativo SmartHotel. Eles usam o Site Recovery para migrar as máquinas virtuais do aplicativo e o serviço de Migração de Banco de Dados para migrar o banco de dados de aplicativo para um Grupo de Disponibilidade do SQL Server. | Disponível
-[ Artigo 7: Re-hospede um aplicativo Linux para VMs do Azure ](contoso-migration-rehost-linux-vm.md) | Demonstra como a Contoso migra o aplicativo osTicket do Linux para VMs do Azure. | Disponível
+[ Artigo 7: Mudança de host de um aplicativo Linux para VMs do Azure ](contoso-migration-rehost-linux-vm.md) | Demonstra como a Contoso migra o aplicativo osTicket do Linux para VMs do Azure. | Disponível
 [Artigo 8: Novo host a um aplicativo do Linux para as VMs do Azure e o Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstra como Contoso migra Linux osTicket aplicativo usando o Site Recovery e o MySQL Workbench para migrar (backup e restauração) a uma instância do MySQL Server do Azure. | Disponível
 
 Neste artigo que a Contoso configurar todos os elementos de infraestrutura, eles precisam completar os cenários de migração. 
@@ -556,7 +556,7 @@ Depois de atualizar as configurações de rede, a Contoso está pronta para cria
 1. No portal do Azure, eles implantam uma nova VM do Windows Server na VNet apropriada.
 2. Eles criam conjuntos de disponibilidade em cada local para a VM. Os conjuntos de disponibilidade fazem o seguinte:
     - Verifique se o tecido do Azure separa as VMs em infraestruturas diferentes na Região do Azure. 
-    -  Permite que a Contoso seja elegível para o SLA de 99,95% para VMs no Azure.  [Saiba mais](https://docs.microsoftcom/azure/virtual-machines/windows/regions-and-availability#availability-sets).
+    -  Permite que a Contoso seja elegível para o SLA de 99,95% para VMs no Azure.  [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
     ![Grupo de disponibilidade](./media/contoso-migration-infrastructure/availability-group.png) 
 3. Depois que a VM é implantada, eles penam a interface de rede da VM. Aqui, eles definem o endereço IP privado como estático e especificam um endereço válido.

@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: sngun
 ms.openlocfilehash: 2e0de0f15612b21345bd8df6f9808222ec328c3d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798722"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38542614"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>BD Cosmos do Azure: compilar um aplicativo Web da API do MongoDB com o .NET e com o Portal do Azure
 
@@ -161,5 +161,5 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure e executar um aplicativo Web usando a API para MongoDB. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar dados no BD Cosmos do Azure para a API do MongoDB](mongodb-migrate.md)
+> [Importar dados no Azure Cosmos DB para a API do MongoDB](mongodb-migrate.md)
 

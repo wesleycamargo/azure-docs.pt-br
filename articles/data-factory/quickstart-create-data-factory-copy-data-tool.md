@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 4df392ec7e100ef0efcbb3876079710a6b9ca4fb
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048019"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38623528"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Use a ferramenta Copy Data para copiar dados 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -37,7 +37,7 @@ Neste guia de início rápido, você usa o Portal do Azure para criar um data fa
    ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory-menu.png)
 2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **Nome**. 
       
-   ![Página de “Novo data factory”](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory.png)
+   ![Página de "Novo data factory"](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory.png)
  
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você visualizar o seguinte erro, altere o nome de data factory (por exemplo, **&lt;yourname&gt;ADFTutorialDataFactory**) e tente criar novamente. Para ver as regras de nomenclatura para artefatos do Data Factory consulte o artigo [Data Factory - regras de nomenclatura](naming-rules.md).
   

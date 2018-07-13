@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.openlocfilehash: fe9292459134972b44037a58235cdd817030a956
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659000"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968925"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
 
@@ -38,7 +38,7 @@ Essa etapa gera um arquivo de diário. O arquivo de diário armazena informaçõ
 Execute as etapas a seguir para preparar as unidades.
 
 1.  Conecte as unidades de disco ao sistema Windows via conectores SATA.
-1.  Crie um único volume NTFS em cada unidade. Atribuir uma letra da unidade ao volume. Não use pontos de montagem.
+1.  Crie um único volume NTFS em cada unidade. Atribua uma letra da unidade ao volume. Não use pontos de montagem.
 2.  Habilite a criptografia BitLocker no volume NTFS. Se estiver usando um Windows Server System, use as instruções em [Como habilitar o BitLocker no Windows Server 2012 R2](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 3.  Copie os dados para o volume criptografado. Use arrastar e soltar, Robocopy ou qualquer outra ferramenta de cópia.
 4.  Abra um PowerShell ou janela de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta descompactada, execute o comando a seguir:

@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 0445817f9ff403156025e38a1e14a3892a9a292b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031185"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38667015"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules---preview"></a>Tutorial: Implantar o Azure Functions como módulos do IoT Edge - versão prévia
 
@@ -39,8 +39,8 @@ Para testar o módulo Functions criado neste tutorial, é preciso de um disposit
 
 Tenha os seguintes pré-requisitos em seu computador de desenvolvimento: 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [C# para a extensão do Visual Studio Code (fornecido por OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) para o Visual Studio Code.
-* [Extensão do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para o Visual Studio Code. 
+* [Extensão C# para Visual Studio Code (fornecido por OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) para o Visual Studio Code.
+* [Extensão do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code. 
 * [SDK 2.1 do .NET Core](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/) em seu computador de desenvolvimento. 
 
@@ -137,7 +137,7 @@ As etapas a seguir mostram como criar uma função do IoT Edge usando o Visual S
 
 6. Salve o arquivo.
 
-## <a name="build-your-iot-edge-solution"></a>Criar sua solução do IoT Edge
+## <a name="build-your-iot-edge-solution"></a>Criar solução IoT Edge
 
 Na seção anterior, você criou uma solução do IoT Edge e adicionou um código a CSharpFunction que filtrará mensagens em que a temperatura relatada do computador estiver abaixo do limite aceitável. Agora você precisa compilar a solução como uma imagem de contêiner e enviar por push para seu registro de contêiner.
 
@@ -155,13 +155,13 @@ Na seção anterior, você criou uma solução do IoT Edge e adicionou um códig
 
 2. No gerenciador do VS Code, abra o arquivo **deployment.template.json** no seu espaço de trabalho da solução IoT Edge. Este arquivo informa ao tempo de execução do IoT Edge quais módulos implantar em um dispositivo. Para saber mais sobre manifestos de implantação, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
 
-3. Encontre a seção **registryCredentials** no manifesto de implantação. Atualize **nome de usuário**, **senha**, e **endereço** com as credenciais de seu registro de contêiner. Esta seção fornece o tempo de execução do IoT Edge em sua permissão de dispositivo para extrair as imagens de contêiner armazenadas no seu registro privado. Os pares de nome de usuário e senha reais são armazenados no arquivo .env que é ignorado para git.
+3. Encontre a seção **registryCredentials** no manifesto de implantação. Atualize **nome de usuário**, **senha**, e **endereço** com as credenciais de seu registro de contêiner. Esta seção fornece o tempo de execução do IoT Edge em sua permissão de dispositivo para extrair as imagens de contêiner armazenadas no seu registro privado. Os pares de nome de usuário e senha reais são armazenados no arquivo .env que é ignorado pelo git.
 
 5. Salve o arquivo.
 
 6. No gerenciador do VS Code, clique com o botão direito do mouse no arquivo **deployment.template.json** e selecione **Compilar solução IoT Edge**. 
 
-Quando você solicitar ao Visual Studio Code para compilar sua solução, primeiro ele usa as informações no modelo de implantação e gera um arquivo `deployment.json` em uma nova pasta **config**. Em seguida, ele executa dois comandos no terminal integrado: `docker build` e `docker push`. Esses dois comandos compilam seu código, conteinerizam as funções e enviam por push para o registro de contêiner que você especificou ao inicializar a solução. 
+Quando você solicitar ao Visual Studio Code para compilar sua solução, primeiro ele usará as informações no modelo de implantação e gerará um arquivo `deployment.json` em uma nova pasta **config**. Em seguida, ele executa dois comandos no terminal integrado: `docker build` e `docker push`. Esses dois comandos compilam seu código, conteinerizam as funções e enviam por push para o registro de contêiner que você especificou ao inicializar a solução. 
 
 ## <a name="view-your-container-image"></a>Exibir sua imagem de contêiner
 
@@ -178,17 +178,17 @@ Você pode usar o portal do Azure para implantar o módulo do Functions em um di
 
 1. Abra a paleta de comandos do VS Code selecionando **Exibir** > **Paleta de comandos**.
 
-2. Pesquise e execute o comando **Azure: Entrar**. Siga as instruções para entrar na sua conta do Azure. 
+2. Pesquise e execute o comando **Azure: Entrar**. Siga as instruções para entrar na conta do Azure. 
 
 3. Na paleta de comandos, pesquise e execute o comando **Hub IoT do Azure: Selecionar Hub IoT**. 
 
-4. Selecione a assinatura que contém seu Hub IoT, depois selecione aquele que você deseja acessar.
+4. Selecione a assinatura que contém seu Hub IoT e selecione a que você deseja acessar.
 
-5. No gerenciador do VS Code, expanda a seção **Dispositivos do Hub IoT do Azure**. 
+5. No explorador do VS Code, expanda a seção **Dispositivos do Hub IoT do Azure**. 
 
 6. Clique com o botão direito do mouse no nome do seu dispositivo IoT Edge e selecione **Criar implantação de dispositivo IoT Edge**. 
 
-7. Navegue até a pasta de solução que contém CSharpFunction. Abra a pasta **config** e selecione o arquivo **deployment.json**. Clique em **Selecionar manifesto de implantação do Edge**.
+7. Navegue até a pasta de solução que contém CSharpFunction. Abra a pasta **config** e selecione o arquivo **deployment.json**. Clique em **Selecionar Manifesto de Implantação do Edge**.
 
 8. Atualize a seção **Dispositivos Hub IoT do Azure**. Você deve ver o novo **CSharpFunction** sendo executado junto com o módulo **TempSensor** em **$edgeAgent** e **$edgeHub**. 
 

@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934967"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307441"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente 
 
@@ -52,7 +52,7 @@ Conclua o seguinte guia de início rápido: [Criar uma nova instância do servi�
     |**Esquema de URL**|"*HTTPS*"|Nesse caso, embora o back-end tenha acesso HTTP não seguro especificamos um acesso de APIM de HTTPS seguro para o back-end. <br/>Esse tipo de cenário (HTTPS para HTTP) é chamado de terminação HTTPS. Você pode fazer isso se sua API existe em uma rede virtual (em que você sabe que o acesso é seguro, mesmo se o HTTPS não é usado). <br/>Talvez você queira usar a "Terminação HTTPS" para economizar em alguns ciclos de CPU.|
     |**Sufixo da URL**|"*hbin*"| O sufixo é um nome que identifica essa API específica nesta instância do APIM. Ele deve ser exclusivo nesta instância de APIM.|
     |**Produtos**|"*Ilimitado*" |Publica a API associando-a a um produto. Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.<br/><br/>Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. <br/>Primeiro, os desenvolvedores devem assinar um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.<br/><br/> Por padrão, cada instância de gerenciamento de API vem com dois produtos de exemplo: **Inicial** e **Ilimitado**.| 
-5. Clique em **Criar**.
+5. Selecione **Criar**.
 
 Neste ponto, você não tem nenhuma operação no APIM mapeada para operações em sua API de back-end. Se você chamar uma operação que é exposta por meio de back-end, mas não por meio de APIM, receberá um **404**. 
 

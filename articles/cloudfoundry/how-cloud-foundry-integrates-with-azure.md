@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062199"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968612"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrar o Cloud Foundry com o Azure
 
@@ -77,7 +77,7 @@ Clique [aqui](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-noz
 ## <a name="7-cost-saving"></a>7. Redução de custos
 ### <a name="cost-saving-for-devtest-environments"></a>Redução de custos para ambientes de desenvolvimento/teste
 #### <a name="b-series-"></a>Série B: *
-Enquanto as séries de VM D e F comumente recomendadas para o ambiente de produção do Cloud Foundry, a nova [série B](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) traz novas opções. As VMs expansíveis série B são ideais para cargas de trabalho que não precisam do desempenho total da CPU continuamente, como servidores web, bancos de dados pequenos e ambientes de desenvolvimento e teste. Normalmente, essas cargas de trabalho têm requisitos de desempenho expansíveis. O custo é de US$ 0,012 por hora (B1) em comparação com US$ 0,05 por hora (F1). Para mais detalhes, consulte a lista completa de [tamanhos de VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general) e [preços](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). 
+Enquanto as séries de VM D e F comumente recomendadas para o ambiente de produção do Cloud Foundry, a nova [série B](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) traz novas opções. As VMs expansíveis série B são ideais para cargas de trabalho que não precisam do desempenho total da CPU continuamente, como servidores web, bancos de dados pequenos e ambientes de desenvolvimento e teste. Normalmente, essas cargas de trabalho têm requisitos de desempenho expansíveis. O custo é de US$ 0,012 por hora (B1) em comparação com US$ 0,05 por hora (F1). Para mais detalhes, consulte a lista completa de [tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general) e [preços](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). 
 #### <a name="managed-standard-disk"></a>Disco Standard gerenciado: 
 Os discos Premium foram recomendados para um desempenho confiável na produção.  Com o [Disco Gerenciado](https://azure.microsoft.com/services/managed-disks/), o armazenamento standard também pode fornecer confiabilidade semelhante, com desempenho diferente. Para cargas de trabalho que não são sensíveis ao desempenho, como os ambientes de desenvolvimento/teste não críticos, os discos Standard gerenciados oferecem uma opção alternativa com menor custo.  
 ### <a name="cost-saving-in-general"></a>Redução de custos em geral 

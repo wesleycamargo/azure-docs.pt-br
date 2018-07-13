@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a913075c051c6b784495917b7edbd7340254a212
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287830"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952623"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas usando o Azure Monitor  
 
@@ -62,7 +62,7 @@ A seguir é detalhado o guia passo a passo sobre o uso de alertas do Azure.
 
     > Os alertas do log de atividades também têm suporte, mas estão em versão prévia. [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Alertas de Métrica: verifique se **Tipo de Recurso** está selecionado com o tipo de sinal **Métrica**; em seguida, após escolher o **recurso** apropriado, clique no botão *Concluído* para retornar a Criar Alerta. Em seguida, use o botão **Adicionar Critérios** para escolher o sinal específico na lista de opções de sinal, o serviço de monitoramento e o tipo listado – disponíveis para o recurso selecionado anteriormente.
+5. *Alertas de Métrica*: verifique se **Tipo de Recurso** está selecionado com o tipo de sinal **Métrica**; em seguida, depois de escolher o **recurso** apropriado, clique no botão *Concluído* para retornar à caixa de diálogo Criar Alerta. Em seguida, use o botão **Adicionar Critérios** para escolher o sinal específico na lista de opções de sinal, o serviço de monitoramento e o tipo listado – disponíveis para o recurso selecionado anteriormente.
 
     ![Selecionar um recurso](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 

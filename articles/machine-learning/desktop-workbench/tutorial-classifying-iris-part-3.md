@@ -7,15 +7,17 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 8eb6470afb44ba1b41e0077a890a36601db5387e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5b751546320ca6728573954290bd2258e837775f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723214"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: Classificar Iris – implantar um modelo
 O Azure Machine Learning (versão prévia) é uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais. Os cientistas de dados podem usá-los para preparar dados, desenvolver experimentos e implantar modelos em escala de nuvem.
@@ -274,7 +276,7 @@ Primeiro, registre o modelo. Em seguida, gere o manifesto, compile a imagem do D
    Para criar um manifesto, use o comando a seguir e forneça a saída de ID de modelo da etapa anterior:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
    ```
    Este comando gera uma ID de manifesto.
 
@@ -283,7 +285,7 @@ Primeiro, registre o modelo. Em seguida, gere o manifesto, compile a imagem do D
    Para criar uma imagem do Docker, use o comando a seguir e forneça a saída do valor da ID de manifesto da etapa anterior. Você também pode incluir as dependências de conda usando a alternância `-c`.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID> -c aml_config\conda_dependencies.yml
+   az ml image create -n irisimage --manifest-id <manifest ID> 
    ```
    Este comando gera uma ID de imagem do Docker.
    

@@ -3,7 +3,7 @@ title: Configurar PostgreSQL em uma VM do Linux | Microsoft Docs
 description: Saiba como instalar e configurar o PostgreSQL em uma máquina virtual Linux no Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: iainfou
-ms.openlocfilehash: 7741f861c5697da1e453c0d613b4b762511cf555
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: cynthn
+ms.openlocfilehash: 903e94cfa932ddd93a931caa8888d93f1bdfe365
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30241004"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932724"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalar e configurar o PostgreSQL no Azure
 PostgreSQL é um banco de dados avançado de código aberto semelhante ao Oracle e DB2. Ele inclui recursos corporativos como conformidade total com ACID, processamento transacional confiável e controle de simultaneidade de várias versões. Também oferece suporte a padrões como ANSI SQL e SQL/MED (inclusive wrappers de dados externos para Oracle, MySQL, MongoDB e muitos outros). Ele é altamente extensível com suporte para mais de 12 idiomas de procedimento, índices GIN e GiST, dados espaciais e vários recursos como NoSQL para aplicativos JSON ou de chave-valor.
@@ -125,7 +125,7 @@ Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você est
    
     Você deverá receber o seguinte resultado:
 
-![imagem](./media/postgresql-install/no1.png)
+![image](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>Configurar o PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -142,7 +142,7 @@ Modifique duas variáveis no arquivo /etc/init.d/postgresql. O prefixo é defini
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![imagem](./media/postgresql-install/no2.png)
+![image](./media/postgresql-install/no2.png)
 
 Altere o arquivo para torná-lo executável:
 
@@ -158,7 +158,7 @@ Verifique se o ponto de extremidade do PostgreSQL está em:
 
 Você deve ver o seguinte resultado:
 
-![imagem](./media/postgresql-install/no3.png)
+![image](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Conectar-se ao banco de dados Postgres
 Alterne para o usuário do postgres mais uma vez:
@@ -189,11 +189,11 @@ Agora você configurou uma tabela de quatro colunas com os seguintes nomes e res
 
 Você deverá ver o seguinte se a tabela tiver sido criada com êxito:
 
-![imagem](./media/postgresql-install/no4.png)
+![image](./media/postgresql-install/no4.png)
 
 Você também pode verificar a estrutura da tabela usando o seguinte comando:
 
-![imagem](./media/postgresql-install/no5.png)
+![image](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>Adicionar dados a uma tabela
 Primeiro, insira as informações em uma linha:
@@ -202,7 +202,7 @@ Primeiro, insira as informações em uma linha:
 
 Você deverá ver este resultado:
 
-![imagem](./media/postgresql-install/no6.png)
+![image](./media/postgresql-install/no6.png)
 
 É possível adicionar algumas pessoas à tabela. Aqui estão algumas opções, ou você pode criar as suas próprias:
 
@@ -219,7 +219,7 @@ Use o seguinte comando para mostrar uma tabela:
 
 A saída é:
 
-![imagem](./media/postgresql-install/no7.png)
+![image](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Excluir dados de uma tabela
 Use o seguinte comando para excluir dados de uma tabela:
@@ -228,7 +228,7 @@ Use o seguinte comando para excluir dados de uma tabela:
 
 Isso exclui todas as informações na linha "John". A saída é:
 
-![imagem](./media/postgresql-install/no8.png)
+![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Atualizar dados em uma tabela
 Use o seguinte comando para atualizar dados em uma tabela. Para este, Sandy confirmou que participará, portanto, mudaremos a confirmação dela de "N" para "Y":

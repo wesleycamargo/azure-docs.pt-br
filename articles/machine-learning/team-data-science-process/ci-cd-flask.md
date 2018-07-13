@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 233da393bb9e030d885ce588f4841dc1c707c1cb
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836259"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968784"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>Aplicativos de DevOps para IA (inteligência artificial): criando pipeline de integração contínua no Azure usando o Docker e Kubernetes
 Para um aplicativo de IA, há geralmente dois fluxos de trabalho: cientistas de dados criando modelos de aprendizado de máquina e desenvolvedores de aplicativos compilando o aplicativo e o expondo ao consumo de usuários finais. Neste artigo, demonstraremos como implementar um pipeline de CI (integração contínua)/CD (entrega contínua) para um aplicativo de IA. O aplicativo de IA é uma combinação de código do aplicativo incorporado com um modelo de ML (aprendizado de máquina) pré-treinado. Neste artigo, estamos buscando um modelo pré-treinado de uma conta de armazenamento de blobs do Azure privada, que pode ser uma conta AWS S3 também. Usaremos um aplicativo Web python flask simples no artigo.
@@ -35,10 +35,10 @@ Você pode baixar o código-fonte do [GitHub](https://github.com/Azure/DevOps-Fo
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 Estes são os pré-requisitos para o pipeline de CI/CD descrito abaixo:
-* [Conta do Visual Studio Team Services](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student)
-* [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Cluster AKS (Serviço de Contêiner do Azure) executando Kubernetes](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Conta de ACR (Registro de Contêiner do Azure)](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
+* [Conta do Visual Studio Team Services](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Cluster AKS (Serviço de Contêiner do Azure) executando Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+* [Conta de ACR (Registro de Contêiner do Azure)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Instale Kubectl para executar comandos no cluster Kubernetes.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) Precisaremos disso para buscar a configuração do cluster do ACS. 
 * Bifurque o repositório para sua conta do GitHub.
 
@@ -69,6 +69,6 @@ A arquitetura de pipeline é fornecida abaixo.
 
 ## <a name="references"></a>Referências
 * [TDSP (Processo de Ciência de dados de Equipe)](https://aka.ms/tdsp)
-* [AML (Azure Machine Learning)](https://docs.microsoft.com/en-us/azure/machine-learning/service/)
+* [AML (Azure Machine Learning)](https://docs.microsoft.com/azure/machine-learning/service/)
 * [VSTS (Visual Studio Team Services)](https://www.visualstudio.com/vso/)
-* [AKS (Serviços do Kubernetes do Azure)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
+* [AKS (Serviços do Kubernetes do Azure)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

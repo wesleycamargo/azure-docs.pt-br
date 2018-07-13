@@ -1,19 +1,19 @@
 ---
 title: Fazer um alerta de métrica clássico notificar um sistema diferente do Azure usando um webhook
 description: Saiba como redirecionar alertas de métrica do Azure para outros sistemas diferentes do Azure.
-author: johnkemnetz
+author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: johnkem
+ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 9cc017aad7fbdc740ab3fa3af5603223e5b844ce
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 74a4066e3d30b1e91fe558fcfeb6f39220e41c02
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262344"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887337"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurar um webhook em um alerta do métrica do Azure
 É possível usar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para encaminhá-lo para serviços que enviam mensagens de SMS, para registrar bugs, notificar uma equipe por meio de serviços de chat ou envio de mensagens ou qualquer outra ação. 
@@ -37,36 +37,33 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 
 ```JSON
 {
-    "WebhookName": "Alert1515515157799",
-    "RequestBody": {
-        "status": "Activated",
-        "context": {
-            "timestamp": "2015-08-14T22:26:41.9975398Z",
-            "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
-            "name": "ruleName1",
-            "description": "some description",
-            "conditionType": "Metric",
-            "condition": {
-                "metricName": "Requests",
-                "metricUnit": "Count",
-                "metricValue": "10",
-                "threshold": "10",
-                "windowSize": "15",
-                "timeAggregation": "Average",
-                "operator": "GreaterThanOrEqual"
-            },
-            "subscriptionId": "s1",
-            "resourceGroupName": "useast",
-            "resourceName": "mysite1",
-            "resourceType": "microsoft.foo/sites",
-            "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
-            "resourceRegion": "centralus",
-            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
+    "status": "Activated",
+    "context": {
+        "timestamp": "2015-08-14T22:26:41.9975398Z",
+        "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
+        "name": "ruleName1",
+        "description": "some description",
+        "conditionType": "Metric",
+        "condition": {
+            "metricName": "Requests",
+            "metricUnit": "Count",
+            "metricValue": "10",
+            "threshold": "10",
+            "windowSize": "15",
+            "timeAggregation": "Average",
+            "operator": "GreaterThanOrEqual"
         },
-        "properties": {
-            "key1": "value1",
-            "key2": "value2"
-        }
+        "subscriptionId": "s1",
+        "resourceGroupName": "useast",
+        "resourceName": "mysite1",
+        "resourceType": "microsoft.foo/sites",
+        "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
+        "resourceRegion": "centralus",
+        "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
+    },
+    "properties": {
+        "key1": "value1",
+        "key2": "value2"
     }
 }
 ```

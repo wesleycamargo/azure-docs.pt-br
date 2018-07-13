@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 14b9a4ed66995a73f00234f4b25f52fccbcbe556
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777293"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38562597"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para aplicativos do Windows Phone usando Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -151,7 +151,7 @@ Nesta seção, você deve criar um aplicativo do Windows Phone que se registra c
 Neste exemplo simples, você transmitiu notificações por push a todos os seus dispositivos Windows Phone 8. Vá para o tutorial a seguir para saber como enviar notificações por push a dispositivos específicos:
 
 > [!div class="nextstepaction"]
->[Notificações por push para dispositivos específicos](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
+>[Notificações por push para especificar dispositivos](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 
 
 <!-- Images. -->

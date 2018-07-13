@@ -14,15 +14,15 @@ ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d2f61f1ebdd473a24115c7774801f5b7694f224f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 483f30a6546cf21d93b96b08eede6afae828d9e4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443198"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548297"
 ---
 # <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Ativar funções para recursos do Azure usando Privileged Identity Management
-O Privileged Identity Management (PIM) apresenta uma nova experiência em ativar funções para recursos do Azure. Membros de função qualificados podem agendar a ativação para uma data e hora no futuro. Eles também podem selecionar uma duração de ativação específica até o valor máximo (configurado pelos administradores). Para obter mais informações, consulte [Como ativar ou desativar funções no Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-how-to-activate-role.md).
+O Privileged Identity Management (PIM) apresenta uma nova experiência em ativar funções para recursos do Azure. Membros de função qualificados podem agendar a ativação para uma data e hora no futuro. Eles também podem selecionar uma duração de ativação específica até o valor máximo (configurado pelos administradores). Para obter mais informações, consulte [Como ativar ou desativar funções no Azure AD Privileged Identity Management](pim-how-to-activate-role.md).
 
 ## <a name="activate-roles"></a>Ativar funções
 Navegue até a seção **Minhas funções** no painel esquerdo. Selecione **Ativar** para a função que você deseja ativar.

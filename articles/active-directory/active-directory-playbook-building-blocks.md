@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446768"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38451692"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
 
@@ -42,7 +42,7 @@ A seguir, estão alguns pré-requisitos necessários para qualquer prova de conc
 | Pré-requisito | Recursos |
 | --- | --- |
 | Locatário Azure AD definido com uma assinatura Azure válida | [Como obter um locatário do Active Directory do Azure](active-directory-howto-tenant.md)<br/>**Observação:** Se você já tem um ambiente com licenças do Azure AD Premium, é possível obter uma assinatura de limite zero, navegando até https://aka.ms/accessaad <br/>Saiba mais em: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
-| Domínios definidos e verificados | [Adicionar um nome de domínio personalizado ao Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Observação:** Algumas cargas de trabalho, como o Power BI podem ter provisionado um locatário do Azure AD nos bastidores. Para verificar se um determinado domínio é associado a um locatário, navegue até https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Se você obtiver uma resposta bem-sucedida, então o domínio já está atribuído a um locatário e a tomada de controle pode ser necessária. Nesse caso, contate a Microsoft para obter mais orientações. Saiba mais sobre as opções de tomada de controle em: [O que é Inscrição de Autoatendimento do Azure?](active-directory-self-service-signup.md) |
+| Domínios definidos e verificados | [Adicionar um nome de domínio personalizado ao Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Observação:** Algumas cargas de trabalho, como o Power BI podem ter provisionado um locatário do Azure AD nos bastidores. Para verificar se um determinado domínio é associado a um locatário, navegue até https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Se você obtiver uma resposta bem-sucedida, então o domínio já está atribuído a um locatário e a tomada de controle pode ser necessária. Nesse caso, contate a Microsoft para obter mais orientações. Saiba mais sobre as opções de tomada de controle em: [O que é Inscrição de Autoatendimento do Azure?](users-groups-roles/directory-self-service-signup.md) |
 | Avaliação do Azure AD Premium ou EMS habilitada | [Azure Active Directory Premium gratuito por um mês](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Você atribuiu licenças do Azure AD Premium ou EMS a usuários de PoC | [Licencie a si mesmo e seus usuários no Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Credenciais de Administrador Global do Azure AD | [Atribuindo funções de administrador no Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
@@ -125,11 +125,11 @@ Tempo estimado para Conclusão: 10 minutos
 | Etapa | Recursos |
 | --- | --- |
 | Vá para a folha de licenças no Portal de Gerenciamento do Azure AD | [Portal de Gerenciamento do Azure AD: Licenciamento](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) |
-| Atribua as licenças para o grupo de segurança com usuários de prova de conceito. | [Atribuir licenças a um grupo de usuários no Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) |
+| Atribua as licenças para o grupo de segurança com usuários de prova de conceito. | [Atribuir licenças a um grupo de usuários no Azure Active Directory](users-groups-roles/licensing-groups-assign.md) |
 
 ### <a name="considerations"></a>Considerações
 
-Em caso de qualquer problema, vá para [Cenários, limitações e problemas conhecidos com o uso de grupos para gerenciar o licenciamento no Azure Active Directory](active-directory-licensing-group-advanced.md)
+Em caso de qualquer problema, vá para [Cenários, limitações e problemas conhecidos com o uso de grupos para gerenciar o licenciamento no Azure Active Directory](users-groups-roles/licensing-group-advanced.md)
 
 ## <a name="saas-federated-sso-configuration"></a>Configuração de SSO Federado SaaS
 
@@ -468,24 +468,24 @@ Tempo estimado para Conclusão: 15 minutos
 
 | Pré-requisito | Recursos |
 | --- | --- |
-| Identificar o administrador global que fará parte da Prova de Conceito para PIM | [Começar a usar o Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) |
-| Identificar o administrador global que se tornará o Administrador de Segurança | [Começar a usar o Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)<br/> [Funções administrativas diferentes no PIM do Azure Active Directory](active-directory-privileged-identity-management-roles.md) |
-| Opcional: Confirme se os administradores globais têm acesso ao email para exercer notificações por email no PIM | [O que é o Azure AD Privileged Identity Management?: Configure as configurações de ativação de função](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
+| Identificar o administrador global que fará parte da Prova de Conceito para PIM | [Começar a usar o Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md) |
+| Identificar o administrador global que se tornará o Administrador de Segurança | [Começar a usar o Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md)<br/> [Funções administrativas diferentes no PIM do Azure Active Directory](privileged-identity-management/pim-roles.md) |
+| Opcional: Confirme se os administradores globais têm acesso ao email para exercer notificações por email no PIM | [O que é o Azure AD Privileged Identity Management?: Configure as configurações de ativação de função](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)
 
 
 ### <a name="steps"></a>Etapas
 
 | Etapa | Recursos |
 | --- | --- |
-| Faça logon em https://portal.azure.com como um administrador global (GA) e inicialize a folha de PIM. O Administrador Global que executa essa etapa é propagado como o administrador de segurança.  Vamos chamar isso de ator GA1 | [Usando o assistente de segurança noAzure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
-| Identifique o administrador global e mova-o de permanente para qualificado. Esse deve ser um administrador separado do usado na etapa 1 para maior clareza. Vamos chamar isso de ator GA2 | [Azure AD Privileged Identity Management: como adicionar ou remover uma função de usuário](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[O que é o Azure AD Privileged Identity Management?: Configure as configurações de ativação de função](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
+| Faça logon em https://portal.azure.com como um administrador global (GA) e inicialize a folha de PIM. O Administrador Global que executa essa etapa é propagado como o administrador de segurança.  Vamos chamar isso de ator GA1 | [Usando o assistente de segurança noAzure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
+| Identifique o administrador global e mova-o de permanente para qualificado. Esse deve ser um administrador separado do usado na etapa 1 para maior clareza. Vamos chamar isso de ator GA2 | [Azure AD Privileged Identity Management: como adicionar ou remover uma função de usuário](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[O que é o Azure AD Privileged Identity Management?: Configure as configurações de ativação de função](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Agora, faça logon como GA2 em https://portal.azure.com e tente alterar "Configurações de Usuário". Observe que algumas opções estão esmaecidas. | |
-| Em uma nova guia e na mesma sessão como a etapa 3, agora navegue até https://portal.azure.com e adicione a folha de PIM ao painel. | [Como ativar ou desativar funções no Azure AD Privileged Identity Management: Adicionar o aplicativo Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
-| Solicitação de ativação para a função de Administrador Global | [Como ativar ou desativar funções no Azure AD Privileged Identity Management: Ativar uma função](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
+| Em uma nova guia e na mesma sessão como a etapa 3, agora navegue até https://portal.azure.com e adicione a folha de PIM ao painel. | [Como ativar ou desativar funções no Azure AD Privileged Identity Management: Adicionar o aplicativo Privileged Identity Management](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Solicitação de ativação para a função de Administrador Global | [Como ativar ou desativar funções no Azure AD Privileged Identity Management: Ativar uma função](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Observe que se GA2 nunca se inscreveu para MFA, o registro para o Azure MFA será necessário |  |
 | Volte à guia original na etapa 3 e clique no botão Atualizar no navegador. Observe que agora você tem acesso para alterar "Configurações de Usuário" | |
 | Opcionalmente, se seus administradores globais tiverem email habilitado, você poderá verificar a caixa de entrada do GA1 e do GA2 e ver a notificação da função que está sendo ativada |  |
-| 8 Verifique o histórico de auditoria e observe o relatório para confirmar se a elevação de GA2 é mostrada. | [O que é o Azure AD Privileged Identity Management?: Examinar a atividade da funçãol](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8 Verifique o histórico de auditoria e observe o relatório para confirmar se a elevação de GA2 é mostrada. | [O que é o Azure AD Privileged Identity Management?: Examinar a atividade da funçãol](privileged-identity-management/pim-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>Considerações
 

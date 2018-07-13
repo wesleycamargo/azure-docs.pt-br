@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: johnpaulkee
-ms.openlocfilehash: 2f5e4587de009329cd8cf0eded88f79afe96a184
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 97d50b6ddcbb46cb291578caab5193e13cc56932
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034238"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868874"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para os novos trabalhos de Banco de Dados Elástico
 
@@ -66,7 +66,7 @@ A migração precisa usar alguns dos *antigos* cmdlets de trabalho elástico par
 # Install the old elastic job cmdlets if necessary and initialize the old jobs cmdlets
 .\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
-# Install the the old jobs cmdlets
+# Install the old jobs cmdlets
 cd Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools
 Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
 .\InstallElasticDatabaseJobsCmdlets.ps1
@@ -365,7 +365,7 @@ Para migrar seus destinos (servidores, bancos de dados e coleções personalizad
 Migrate-TargetGroups $agent
 ```
 
-Resultado de exemplo:
+Exemplo de saída:
 
 ```powershell
 # --------------------- Migrating target groups ---------------------
@@ -562,7 +562,7 @@ Para migrar seus trabalhos, conteúdo de trabalho, gatilhos de trabalho e agenda
 Migrate-Jobs $agent
 ```
 
-Resultado de exemplo:
+Exemplo de saída:
 ```powershell
 --------------------- Migrating jobs and job steps ---------------------
 Job job1
@@ -619,5 +619,5 @@ $jobs | Set-AzureRmSqlElasticJob -Enable
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar e gerenciar Trabalhos Elásticos usando o PowerShell](elastic-jobs-powershell.md)
+- [Criar e gerenciar trabalhos elásticos usando o PowerShell](elastic-jobs-powershell.md)
 - [Criar e gerenciar Trabalhos Elásticos usando T-SQL (Transact-SQL)](elastic-jobs-tsql.md)

@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 824235cfdae6df9d852875281346e35a18277f74
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651268"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531653"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Atualizar estoque usando o PowerShell e tópicos/assinaturas
 
@@ -43,7 +43,7 @@ Para concluir este tutorial, verifique se você tem o seguinte instalado:
 1. [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](http://www.visualstudio.com/vs) ou posterior.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
-Este tutorial requer que esteja em execução a última versão do Azure PowerShell. Se for necessário instalar ou atualizar, consulte [Instalar e configurar o Azure PowerShell][].
+Este tutorial requer que esteja em execução a última versão do Azure PowerShell. Se precisar instalar ou atualizar, confira [Instalar e configurar o Azure PowerShell][].
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -117,7 +117,7 @@ Para executar o código, faça o seguinte:
    dotnet build
    ```
 6.  Navegue até a pasta `\bin\Debug\netcoreapp2.0`.
-7.  Digite o comando a seguir para executar o programa. Certifique-se de substituir `myConnectionString` pelo valor obtido anteriormente e `myQueueName` pelo nome da fila que você criou:
+7.  Digite o comando a seguir para executar o programa. Verifique se você substituiu `myConnectionString` pelo valor obtido anteriormente e `myQueueName` pelo nome da fila que você criou:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
@@ -278,7 +278,7 @@ Neste tutorial, você provisionou recursos usando o Azure PowerShell e, em segui
 > * Enviar as mensagens e verificar se chegaram nas assinaturas esperadas
 > * Receber mensagens das assinaturas
 
-Para mais exemplos de envio e recebimento de mensagens, comece com os [Exemplos de Barramento de Serviço no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
+Para obter mais exemplos de envio e recebimento de mensagens, comece com os [Exemplos de Barramento de Serviço no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
 
 Avance para o próximo tutorial para saber mais sobre como usar os recursos de publicação/assinatura do Barramento de Serviço.
 

@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8cd4f87e690d64e1f69ef39f3422ebc73d79974a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 73b6397ecc97b9e289749aabddfdc4c6161375d4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053085"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38667337"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em C# em seu dispositivo simulado
 
@@ -34,13 +34,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* O dispositivo Azure IoT Edge criado no início rápido para [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md).
+* O dispositivo do Azure IoT Edge criado no início rápido para [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md).
 * A cadeia de caracteres de conexão de chave primária para o dispositivo IoT Edge.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Extensão C# para Visual Studio Code (fornecido por OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) para o Visual Studio Code.
+* [C# para extensão do Visual Studio Code (com OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [Extensão do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code. 
 * [SDK 2.1 do .NET Core](https://www.microsoft.com/net/download).
-* [Docker CE](https://docs.docker.com/install/) no computador de desenvolvimento. 
+* [Docker CE](https://docs.docker.com/install/) em seu computador de desenvolvimento. 
 
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
@@ -60,7 +60,7 @@ As etapas a seguir mostram como criar um projeto de módulo do IoT Edge baseado 
 1. No Visual Studio Code, selecione **Exibir** > **Terminal Integrado** para abrir o terminal integrado do Visual Studio Code.
 2. Selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
 3. Na paleta de comandos, digite e execute o comando **Azure: Entrar** e siga as instruções para entrar em sua conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
-4. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
+4. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
    1. Selecione a pasta na qual deseja criar a solução. 
    2. Forneça um nome para a solução ou aceite o padrão **EdgeSolution**.
    3. Escolha **Módulo C#** como o modelo de módulo. 

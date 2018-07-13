@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 927d2ccef6a250d489273a17b070a4a0aa820bee
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9e5039623b1f9b53c636ebaeb1e956d852185577
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767346"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952045"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -101,13 +101,13 @@ O Privileged Identity Manager do Azure AD oferece um painel de administração q
 *   Usuários e grupos com novas atribuições de função nos últimos 30 dias (funções de Recursos do Azure)
 
 
-![painel PIM - captura de tela][2]
+![painel PIM - captura de tela](./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png)
 
 ## <a name="privileged-role-management"></a>Gerenciamento de funções com privilégios
 
 Com o Azure AD Privileged Identity Management, você pode gerenciar os administradores adicionando ou removendo os administradores permanentes ou elegíveis para cada função de diretório do Azure AD. Com o PIM para Recursos do Azure (versão prévia), Proprietários, Administradores de Acesso do Usuário e Administradores Globais que habilitam o gerenciamento de Assinaturas em seu locatário podem atribuir a usuários ou grupos as funções de recurso do Azure como elegíveis (acesso Just-In-Time), ou acesso com limite de tempo (ativação não necessária), com data/hora de início e de término, ou Permanentes (se for habilitado nas configurações da função).
 
-![adicionar/remover administradores no PIM - captura de tela][3]
+![adicionar/remover administradores no PIM - captura de tela](./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png)
 
 ## <a name="configure-the-role-activation-settings"></a>Definir as configurações de ativação de função
 
@@ -119,7 +119,7 @@ Usando as [configurações de função](active-directory-privileged-identity-man
 * Tíquete de serviço ou número do incidente
 * [Requisitos do fluxo de trabalho de aprovação – Versão prévia](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
 
-![configurações do PIM - ativação do administrador - captura de tela][4]
+![configurações do PIM - ativação do administrador - captura de tela](./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png)
 
 Observe que na imagem, os botões para **Autenticação Multifator** estão desabilitados. Certamente, funções com altos privilégios exigirão MFA para maior proteção.
 
@@ -140,13 +140,13 @@ Um administrador que deseja ativar uma função precisa inicializar o Gerenciame
 
 A ativação de função é personalizável. Nas configurações do PIM, você pode determinar o comprimento de ativação e as informações que o administrador precisa fornecer para ativar a função.
 
-![ativação da função de solicitação do administrador do PIM - captura de tela][5]
+![ativação da função de solicitação do administrador do PIM - captura de tela](./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png)
 
 ## <a name="review-role-activity"></a>Examinar atividade de função
 
 Há duas maneiras de controlar como seus funcionários e os administradores estão usando funções com privilégios. A primeira opção é usar o [Histórico de auditoria das Funções do diretório](active-directory-privileged-identity-management-how-to-use-audit-log.md). Os logs de histórico de auditoria controlam as alterações em atribuições de função privilegiada, histórico de ativação de função e alterações nas configurações de funções dos Recursos do Azure (versão prévia). 
 
-![histórico da ativação do PIM - captura de tela][6]
+![histórico da ativação do PIM - captura de tela](./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png)
 
 A segunda opção é configurar [revisões de acesso](active-directory-privileged-identity-management-how-to-start-security-review.md)regulares. Essas revisões de acesso podem ser executadas pelo revisor (como um gerente de equipe) e atribuídas por ele, ou os funcionários podem examinar por conta própria. Essa é a melhor maneira de monitorar quem ainda precisa ter acesso e quem não precisa mais.
 
@@ -158,12 +158,3 @@ Se sua organização não renovar o Azure AD Premium P2 ou sua versão de avalia
 ## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png
-[3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png
-[4]: ./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png
-[5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
-[6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: 27da52a46b52e06a8ea4f80fa06487aca34c1c3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fdf69003566f704354a17335b1f46fc3077aedbc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606946"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598383"
 ---
 # <a name="install-azure-backup-server-v2"></a>Instalar o Servidor de Backup do Azure v2
 
@@ -47,15 +47,15 @@ Para atualizar do Servidor de Backup v1 para o Servidor de Backup v2, verifique 
 
 3. No assistente do Servidor de Backup do Microsoft Azure, em **Instalar**, selecione **Microsoft Azure Backup Server**.
 
-  ![Instalador de instalação - Selecione instalação](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
+   ![Instalador de instalação - Selecione instalação](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
 
 4. Na página **Inicial**, examine os avisos, e em seguida selecione **Avançar**.
 
-  ![Instalador de instalação - Página Inicial](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
+   ![Instalador de instalação - Página Inicial](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
 
 5. O assistente de instalação executa as verificações de pré-requisitos para certificar de que seu ambiente pode ser atualizado. Na página **Verificações de pré-requisitos**, selecione **Verificar**.
 
-  ![Instalador de instalação - página Verificações de Pré-requisitos](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
+   ![Instalador de instalação - página Verificações de Pré-requisitos](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
 6. Seu ambiente deve passar pelas verificações de pré-requisito. Se seu ambiente não atender as verificações, observe os problemas e corrija-os. Em seguida, selecione **Verificar Novamente**. Depois de passar as verificações de pré-requisitos, selecione **Avançar**.
 
@@ -63,11 +63,11 @@ Para atualizar do Servidor de Backup v1 para o Servidor de Backup v2, verifique 
 
 7. Na página **Configurações do SQL**, selecione a opção relevante para sua instalação do SQL e, em seguida, selecione **Verificar e Instalar**.
 
-  ![Instalador de instalação - Página Configurações do SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
+   ![Instalador de instalação - Página Configurações do SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
   As verificações podem levar alguns minutos. Quando as verificações tiverem terminado, selecione **Avançar**.
 
-  ![Instalador de instalação - botão de Instalação e Verificação de Configurações do SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
+   ![Instalador de instalação - botão de Instalação e Verificação de Configurações do SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
 
 8. Na página **Configurações de instalação**, faça as alterações para o local onde o Servidor de Backup está instalado, ou para o Local de Rascunho. Selecione **Avançar**.
 

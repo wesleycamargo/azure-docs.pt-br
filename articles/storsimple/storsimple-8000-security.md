@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650930"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906382"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança de StorSimple
 
@@ -43,7 +43,7 @@ As seções a seguir descrevem os recursos de segurança do StorSimple que ajuda
 
 O serviço Gerenciador de Dispositivos StorSimple é um serviço de gerenciamento hospedado no Microsoft Azure e usado para gerenciar todos os dispositivos StorSimple que sua organização adquiriu. Você pode acessar o serviço Gerenciador de Dispositivos StorSimple usando suas credenciais organizacionais para fazer logon no Portal do Azure por meio de um navegador da Web.
 
-O acesso ao serviço Gerenciador de Dispositivos StorSimple requer que a organização tenha uma assinatura do Azure que inclua o StorSimple. Sua assinatura determina os recursos que você pode acessar no portal do Azure. Se sua organização não tiver uma assinatura do Azure e você quiser saber mais sobre ela, consulte [Inscrever-se no Azure como uma organização](../active-directory/sign-up-organization.md).
+O acesso ao serviço Gerenciador de Dispositivos StorSimple requer que a organização tenha uma assinatura do Azure que inclua o StorSimple. Sua assinatura determina os recursos que você pode acessar no portal do Azure. Se sua organização não tiver uma assinatura do Azure e você quiser saber mais sobre ela, consulte [Inscrever-se no Azure como uma organização](../active-directory/fundamentals/sign-up-organization.md).
 
 Uma vez que o serviço Gerenciador de Dispositivos StorSimple está hospedado no Azure, ele é protegido pelos recursos de segurança do Azure. Para obter mais informações sobre os recursos de segurança fornecidos pelo Microsoft Azure, acesse a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
@@ -267,7 +267,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **R:** Você pode baixar o novo certificado do serviço Gerenciador de Dispositivos StorSimple e depois fornecê-lo para instalação no repositório de certificados de clientes de acesso remoto. Para obter instruções, vá para:
 
-* [Certificado de importação de cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
+* [Certificado de importação de cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
 **P:** Os meus dados ficarão protegidos se o serviço Gerenciador de Dispositivos StorSimple estiver comprometido?
 

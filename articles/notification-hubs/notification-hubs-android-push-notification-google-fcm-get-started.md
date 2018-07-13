@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 2bc085989ff3bbbc50042c46b338f748a10aa87e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777766"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232778"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: notificações por push para aplicativos Android usando Hubs de Notificação do Azure e Google Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -166,7 +166,7 @@ Agora, o hub de notificação está configurado para funcionar com o Firebase Cl
    
    * **SenderId**: a ID de Remetente obtida anteriormente na guia **Cloud Messaging** de configurações do projeto no [console Firebase](https://firebase.google.com/console/).
    * **HubListenConnectionString**: a cadeia de conexão **DefaultListenAccessSignature** para o hub. Copie essa cadeia de conexão clicando em **Políticas de Acesso** no hub no [portal do Azure].
-   * **HubName**: use o nome do hub de notificação que aparece na página do hub no [portal do Azure].
+   * **HubName**: use o nome do hub de notificação que aparece na página do hub no [Portal do Azure].
      
      `NotificationSettings` :
      
@@ -487,7 +487,7 @@ Agora, o hub de notificação está configurado para funcionar com o Firebase Cl
 
 ## <a name="test-the-app"></a>Testar o aplicativo
 ### <a name="test-send-notification-from-the-notification-hub"></a>Teste enviar notificação pelo hub de notificação
-Você pode enviar notificações por push pelo [portal do Azure] da seguinte maneira: 
+Você pode enviar notificações por push pelo [Portal do Azure] da seguinte maneira: 
 
 1. Selecione **Envio de Teste** na seção **Solução de Problemas**.
 2. Em **Plataformas**, selecione **Android**. 
@@ -532,4 +532,4 @@ Neste tutorial, você usou Firebase Cloud Messaging para enviar notificações p
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

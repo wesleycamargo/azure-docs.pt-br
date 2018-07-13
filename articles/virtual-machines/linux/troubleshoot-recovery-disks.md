@@ -3,7 +3,7 @@ title: Usar uma VM de solução de problemas Linux com a CLI 2.0 do Azure | Micr
 description: Saiba como solucionar problemas de VM Linux conectando o disco do SO a uma VM de recuperação usando a CLI 2.0 do Azure
 services: virtual-machines-linux
 documentationCenter: ''
-authors: iainfoulds
+authors: cynthn
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
-ms.author: iainfou
-ms.openlocfilehash: 1b7c887be67d5d1a209f1647b567f5659f99fb44
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: cynthn
+ms.openlocfilehash: 8e164393b58604d74b9a794479f6e614b8da3d6c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938213"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931388"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Solucionar problemas de uma VM Linux anexando o disco do SO a uma VM de recuperação com a CLI 2.0 do Azure
 Se a VM (máquina virtual) do Linux tiver um erro de disco ou de inicialização, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida em `/etc/fstab` que impede que a VM possa ser inicializada corretamente. Este artigo fornece detalhes sobre como usar a CLI 2.0 do Azure para conectar o disco rígido virtual a outra VM Linux para corrigir erros e recriar a VM original. 
@@ -167,7 +167,7 @@ Depois de resolver os erros, desmonte e desanexe o disco rígido virtual existen
 ## <a name="create-vm-from-original-hard-disk"></a>Criar a VM com base no disco rígido original
 Para criar uma VM com base no disco rígido virtual original, use [esse modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). O modelo JSON real está no seguinte link:
 
-- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
+- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
 O modelo implanta uma VM usando o URI do VHD do comando anterior. Implante o modelo com [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Forneça o URI para o VHD original e, em seguida, especifique o tipo do sistema operacional, o tamanho da VM e o nome da VM da seguinte maneira:
 

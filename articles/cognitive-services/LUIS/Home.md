@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344824"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952531"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é Reconhecimento Vocal (LUIS)?
 O Reconhecimento Vocal (LUIS) é um serviço baseado em nuvem que aplica aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário prever o significado geral, e extrair informações detalhadas relevantes. 
@@ -99,7 +99,7 @@ Um exemplo de [expressão](luis-how-to-add-example-utterances.md) é entrada de 
 Depois que seu aplicativo LUIS é publicado e recebe expressões de usuário real, LUIS fornece vários métodos para aumentar a precisão de previsão: [aprendizado ativo](#active-learning) de expressões de ponto de extremidade, [listas de frases](#phrase-lists) para inclusão de palavra de domínio, e [padrões](#patterns) para reduzir o número de expressões necessárias.
 
 ### <a name="active-learning"></a>Aprendizado ativo
-No processo de [aprendizado ativo](label-suggested-utterances.md), LUIS permite que você adapte seu aplicativo LUIS a expressões reais, selecionando expressões que ele recebeu no ponto de extremidade para sua análise. Você pode aceitar ou corregir a previsão de ponto de extremidade, treinar novamente e republicar. LUIS aprende rapidamente com esse processo iterativo, levando a quantidade mínima de tempo e esforço. 
+No processo de [aprendizado ativo](luis-how-to-review-endoint-utt.md), LUIS permite que você adapte seu aplicativo LUIS a expressões reais, selecionando expressões que ele recebeu no ponto de extremidade para sua análise. Você pode aceitar ou corregir a previsão de ponto de extremidade, treinar novamente e republicar. LUIS aprende rapidamente com esse processo iterativo, levando a quantidade mínima de tempo e esforço. 
 
 ### <a name="phrase-lists"></a>Listas de frase 
 LUIS fornece [listas de frases](luis-concept-feature.md) para que você possa indicar palavras ou frases importantes em seu domínio de modelo. LUIS usa essas listas para adicionar significado adicional a essas palavras e frases que, de outra forma, não seriam encontradas no modelo.

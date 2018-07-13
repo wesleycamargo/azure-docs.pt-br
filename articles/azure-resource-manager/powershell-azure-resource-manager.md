@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 02616ef566dd576c3f406d4b9f3059dab27bf3e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603406"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723488"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gerenciar recursos com o Azure PowerShell
 
@@ -56,7 +56,7 @@ Neste artigo, você implanta uma máquina virtual e a rede virtual relacionada. 
 * [Colaborador de rede](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Colaborador da Conta de Armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Em vez de atribuir funções a usuários individuais, muitas vezes é mais fácil [criar um grupo do Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) para usuários que precisam tomar ações semelhantes. E, em seguida, atribuir esse grupo à função apropriada. Para simplificar este artigo, você cria um grupo do Azure Active Directory sem membros. Além disso, é possível atribuir esse grupo a uma função para um escopo. 
+Em vez de atribuir funções a usuários individuais, muitas vezes é mais fácil [criar um grupo do Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) para usuários que precisam tomar ações semelhantes. E, em seguida, atribuir esse grupo à função apropriada. Para simplificar este artigo, você cria um grupo do Azure Active Directory sem membros. Além disso, é possível atribuir esse grupo a uma função para um escopo. 
 
 O exemplo a seguir cria um grupo e atribui esse grupo à função Colaborador da Máquina Virtual para o grupo de recursos. Para executar o comando `New-AzureAdGroup`, você deverá usar o [Azure Cloud Shell](/azure/cloud-shell/overview) ou [baixar o módulo PowerShell do Azure Active Directory](https://www.powershellgallery.com/packages/AzureAD/).
 

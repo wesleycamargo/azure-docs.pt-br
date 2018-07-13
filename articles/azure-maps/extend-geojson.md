@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 2cc0e29615ad4fc19040055d847435a9dffa9c95
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 319f9cba23d088553f361b6a0d648bbde94e0743
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658796"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968554"
 ---
 # <a name="extending-geojson-geometries"></a>Estender geometrias GeoJSON
 
@@ -30,7 +30,7 @@ A [especificação GeoJSON][1] é compatível com as geometrias a seguir:
 * Point
 * Polygon
 
-Algumas APIs no Azure Mapas (por exemplo: [pesquisa dentro de geometria](https://docs.microsoft.com/en-us/rest/api/maps/search/postsearchinsidegeometry)) aceitar geometrias "Círculo", que não são parte do [GeoJSON especificação][1].
+Algumas APIs no Azure Mapas (por exemplo: [pesquisa dentro de geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) aceitar geometrias "Círculo", que não são parte do [GeoJSON especificação][1].
 
 Este artigo fornece uma explicação detalhada sobre como o Azure Mapas estende a [especificação GeoJSON][1] para representar determinadas geometrias.
 

@@ -1,19 +1,19 @@
 ---
 title: Excluir um cofre dos Serviços de Recuperação no Microsoft Azure
 description: Esse artigo explica como excluir um cofre de Serviços de Recuperação. O artigo inclui etapas de solução de problemas quando você tenta excluir um cofre, mas não é possível.
-services: service-name
+services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: d8169eba6790e49a85d69434663faabe7430942e
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 5a3a67a41525d30b73bb203eeeacbdf49bb35193
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937593"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901843"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação
 
@@ -77,7 +77,7 @@ Para excluir um cofre dos Serviços de Recuperação:
 
 4. Execute o seguinte comando para baixar o pacote do Cliente do Azure Resource Manager de chocolately.org.
 
-    `iex ((New-Object System.Net.WebClient) DownloadString('https://chocolatey.org/install.ps1))`
+    `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
 5. Use o seguinte comando para instalar o Cliente da API do Azure Resource Manager.
 
