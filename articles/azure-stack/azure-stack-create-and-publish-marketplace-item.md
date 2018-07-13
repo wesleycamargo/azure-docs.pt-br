@@ -15,10 +15,10 @@ ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
+ms.lasthandoff: 07/11/2018
 ms.locfileid: "35651531"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Criar e publicar um item do Marketplace
@@ -111,14 +111,14 @@ ms.locfileid: "35651531"
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Referência: Manifest de item do Marketplace
 ### <a name="identity-information"></a>Informações de identidade
-| NOME | Obrigatório | type | Restrições | DESCRIÇÃO |
+| NOME | Obrigatório | Tipo | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | NOME |X |Cadeia de caracteres |[A-Za-z0-9]+ | |
 | Publicador |X |Cadeia de caracteres |[A-Za-z0-9]+ | |
 | Versão |X |Cadeia de caracteres |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadados
-| NOME | Obrigatório | type | Restrições | DESCRIÇÃO |
+| NOME | Obrigatório | Tipo | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Cadeia de caracteres |Recomendação de 80 caracteres |O portal não pode exibir o nome do item normalmente se ele tiver mais de 80 caracteres. |
 | PublisherDisplayName |X |Cadeia de caracteres |Recomendação de 30 caracteres |O portal não pode exibir o nome do Editor normalmente se ele for maior que 30 caracteres. |
@@ -144,7 +144,7 @@ Cada item do Marketplace deve ser marcada com uma categoria que identifica onde 
 ### <a name="links"></a>Links
 Cada item do Marketplace pode incluir vários links para conteúdo adicional. Os links são especificados como uma lista de nomes e URIs.
 
-| NOME | Obrigatório | type | Restrições | DESCRIÇÃO |
+| NOME | Obrigatório | Tipo | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Cadeia de caracteres |Máximo de 64 caracteres | |
 | Uri |X |URI | | |
@@ -152,7 +152,7 @@ Cada item do Marketplace pode incluir vários links para conteúdo adicional. Os
 ### <a name="additional-properties"></a>Propriedades adicionais
 Além dos metadados anteriores, os autores do Marketplace podem fornecer dados de par chave/valor personalizado da seguinte forma:
 
-| NOME | Obrigatório | type | Restrições | DESCRIÇÃO |
+| NOME | Obrigatório | Tipo | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Cadeia de caracteres |Máximo de 25 caracteres | |
 | Valor |X |Cadeia de caracteres |Máximo de 30 caracteres | |
