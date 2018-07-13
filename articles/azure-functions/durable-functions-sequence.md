@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a5b337e5318154e299f82b1102ca832303d752f7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763553"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970047"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadeamento de funções nas Funções Duráveis – Exemplo se sequência Hello
 
@@ -71,7 +71,7 @@ Este é o código-fonte:
 
 Todas as funções de orquestração de JavaScript devem incluir o módulo `durable-functions`. Essa é uma biblioteca de JavaScript que move as ações da função de orquestração para o protocolo de execução da Durável para idiomas de fora do processo. Há três diferenças significativas entre uma função de orquestração e outras funções de JavaScript:
 
-1. A função é uma [função de gerador.](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)
+1. A função é uma [função de gerador.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
 2. A função é encapsulada em uma chamada para o módulo `durable-functions` (aqui `df`).
 3. A função termina chamando `return`, não `context.done`.
 

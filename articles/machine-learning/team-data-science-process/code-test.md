@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: de1ed0b85957413a254503fc72375866dfd1bea1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7d9d63d6c3d5c8ccf1777a46832457670d307d4a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837150"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970852"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Teste de código de ciência de dados com o conjunto de dados de previsão de receita de adulto UCI
 Este artigo oferece diretrizes preliminares para testar o código em um fluxo de trabalho de ciência de dados. Esse teste fornece aos cientistas de dados uma maneira sistemática e eficiente de verificar a qualidade e o resultado esperado de seu código. Usamos um projeto [TDSP (Processo de Ciência de Dados de Equipe) que usa o conjunto de dados Renda de Adulto UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome), o qual publicamos anteriormente para mostrar como o teste de código pode ser feito. 
@@ -128,7 +128,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
        ![Lista de modelos e botão "Processo vazio"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nomeie o build e selecione o agente. Escolha o padrão se quiser usar um DSVM para concluir o processo de build. Para saber mais sobre agentes de configuração, consulte [Build e agentes de versão](https://docs.microsoft.com/en-us/vsts/build-release/concepts/agents/agents?view=vsts).
+    d. Nomeie o build e selecione o agente. Escolha o padrão se quiser usar um DSVM para concluir o processo de build. Para saber mais sobre agentes de configuração, consulte [Build e agentes de versão](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
     
        ![Seleções de build e agente](./media/code-test/select_agent.PNG)
 

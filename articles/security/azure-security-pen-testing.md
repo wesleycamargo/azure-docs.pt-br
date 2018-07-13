@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2018
 ms.author: barclayn
 ms.openlocfilehash: a64316eda25bd02f89b5afdd7b98c0193381d023
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893351"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970812"
 ---
 # <a name="pen-testing"></a>Teste de Caneta
 Um dos benefícios do uso do Azure para implantação e testes de aplicativos é que você pode criar rapidamente ambientes.  Você não precisa se preocupar sobre requisição, aquisição e "posicionamento no rack e empilhamento" do seu próprio hardware local.

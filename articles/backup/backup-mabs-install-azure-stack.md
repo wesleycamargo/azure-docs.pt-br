@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: c9dd6a1818b0afeb5e577724568a8254a70c8228
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: eda3e95c1bd8fb7eef97ee9db10c217c2885198f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753346"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970876"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Servidor de Backup do Azure no Azure Stack
 
@@ -338,7 +338,7 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 
 Se um firewall ou um proxy estiver impedindo o acesso do Azure, inclua os seguintes endereços de domínio na lista de permissões no perfil do firewall/proxy:
 
-- www.msftncsi.com
+- `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
 - \*.WindowsAzure.com
 - \*.microsoftonline.com

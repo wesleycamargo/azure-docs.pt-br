@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "23059921"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Como usar serviço de email SendGrid do PHP
@@ -35,7 +35,7 @@ SendGrid é um [serviço de email baseado em nuvem] que fornece uma [entrega de 
 * Encaminhamento de consultas dos clientes
 * Notificações de email de seu aplicativo
 
-Para obter mais informações, consulte [https://sendgrid.com][https://sendgrid.com].
+Para obter mais informações, confira [https://sendgrid.com][https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Criar uma conta do SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -384,8 +384,8 @@ Exemplo:
 Agora que você já conhece as noções básicas do serviço de email SendGrid, siga estes links para saber mais.
 
 * Documentação do SendGrid: <https://sendgrid.com/docs>
-* Biblioteca de SendGrid PHP: <https://github.com/sendgrid/sendgrid-php>
-* Oferta especial do SendGrid para clientes Azure: <https://sendgrid.com/windowsazure.html>
+* Biblioteca do SendGrid PHP: <https://github.com/sendgrid/sendgrid-php>
+* Oferta especial do SendGrid para clientes do Azure: <https://sendgrid.com/windowsazure.html>
 
 Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php/).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 69806520f3d57cb1d383999ba53fefb7e0bd56b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642804"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970701"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
@@ -320,7 +320,7 @@ a. Algumas atualizações de produtos aparecem somente no respectivo histórico 
 
 P. **O aplicativo de Orquestração de Patch pode ser usado para o cluster de desenvolvimento (cluster de um nó) do patch?**
 
-a. Não, o aplicativo de Orquestração de Patch não pode ser usado para cluster de um nó do patch. Essa limitação ocorre por design, uma vez que os [serviços de sistema do Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) ou todos os aplicativos cliente enfrentam tempo de inatividade e, portanto, qualquer trabalho de reparo para aplicação de patch nunca seria aprovado pelo gerenciador de reparo.
+a. Não, o aplicativo de Orquestração de Patch não pode ser usado para cluster de um nó do patch. Essa limitação ocorre por design, uma vez que os [serviços de sistema do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou todos os aplicativos cliente enfrentam tempo de inatividade e, portanto, qualquer trabalho de reparo para aplicação de patch nunca seria aprovado pelo gerenciador de reparo.
 
 ## <a name="disclaimers"></a>Avisos de Isenção de Responsabilidade
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
-ms.openlocfilehash: 83d3a2d973604e3b8a709b24cabcb3abba1e304c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 080cb3ee536227e5ddce3fac856de79b2b061dcf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658997"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970761"
 ---
 # <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>Autenticar com Azure AD a partir de uma Identidade de Serviço Gerenciada do Azure (versão prévia)
 
@@ -22,7 +22,7 @@ O Armazenamento do Microsoft Azure dá suporte para autenticação do Azure AD (
 Para conceder permissões a uma identidade de serviço gerenciada para contêineres ou filas de armazenamento, você atribui uma função RBAC que inclui permissões de armazenamento para MSI. Para obter mais informações sobre as funções RBAC no armazenamento, consulte [Gerenciar direitos de acesso a dados de armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md). 
 
 > [!IMPORTANT]
-> Essa versão prévia é destinada apenas para uso não produtivo. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Azure AD para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Azure AD ainda não tiver suporte no seu cenário, continue usando os tokens de autorização ou a chave compartilhada nos aplicativos. Para obter informações adicionais sobre a versão prévia, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
+> Essa versão prévia é destinada apenas para uso não produtivo. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Microsoft Azure Active Directory para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Microsoft Azure Active Directory ainda não tiver suporte no seu cenário, continue usando os tokens de autorização ou a chave compartilhada nos aplicativos. Para obter informações adicionais sobre a versão prévia, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
 >
 > Durante a versão prévia, as atribuições de função do RBAC podem levar até cinco minutos para serem propagadas.
 
@@ -32,7 +32,7 @@ Este artigo mostra como autenticar no Armazenamento do Microsoft Azure com MSI a
 
 Antes de poder usar a MSI para autenticar no Armazenamento do Microsoft Azure a partir da VM, primeiro será necessário habilitar a MSI na VM. Para saber mais como habilitar a MSI, consulte um destes artigos:
 
-- [Portal do Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [PowerShell do Azure](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
 - [Modelo do Azure Resource Manager](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
@@ -74,7 +74,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 ``` 
 
 > [!NOTE]
-> A integração do Azure AD ao Armazenamento do Microsoft Azure requer o uso de HTTPS para operações de Armazenamento do Microsoft Azure.
+> A integração do Microsoft Azure Active Directory ao Armazenamento do Microsoft Azure requer o uso de HTTPS para operações de Armazenamento do Microsoft Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

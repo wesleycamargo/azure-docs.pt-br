@@ -27,7 +27,7 @@
         - name: Serviços de Domínio
           tocHref: /azure/active-directory-domain-services/
           topicHref: /azure/active-directory-domain-services/
-    - name: Analysis Services
+    - name: Serviços de análise
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
     - name: Gerenciamento de API
@@ -289,6 +289,9 @@
     - name: ExpressRoute
       tocHref: /azure/expressroute/
       topicHref: /azure/expressroute/
+    - name: Firewall
+      tocHref: /azure/firewall/
+      topicHref: /azure/firewall/
     - name: Diretrizes
       tocHref: /azure/guidance/
       topicHref: /azure/guidance/

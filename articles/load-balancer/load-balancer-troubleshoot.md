@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 07/06/2018
 ms.author: genli
-ms.openlocfilehash: 294bb6dd780d1df642d6e793b29267da1e8b8336
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774906"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37890624"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solucionar problemas do Azure Load Balancer
 
@@ -127,7 +127,6 @@ Se um VIP ILB estiver configurado dentro de uma VNet e uma das VMs de back-end p
 ## <a name="additional-network-captures"></a>Capturas de rede adicionais
 Se você optar por abrir um caso de suporte, colete as informações a seguir para uma resolução mais rápida. Escolha uma única VM de back-end para executar os seguintes testes:
 - Use Psping em uma das VMs de back-end na VNet para testar a resposta da porta de investigação (exemplo: psping 10.0.0.4:3389) e registrar resultados. 
-- Use TCPing em uma das VMs de back-end na VNet para testar a resposta da porta de investigação (exemplo: psping 10.0.0.4:3389) e registrar resultados.
 - Se nenhuma resposta for recebida nesses testes de ping, execute um rastreamento Netsh simultâneo na VM de back-end e na VM de teste da VNet enquanto executa PsPing. Em seguida, interrompa o rastreamento Netsh. 
   
 ## <a name="next-steps"></a>Próximas etapas

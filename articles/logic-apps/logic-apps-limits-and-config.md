@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 2534210c903e77462ece91c577d731d9c8e3726f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8baca0fc46489a22d587ba6e742615b1da79c19a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299708"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970220"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -235,8 +235,8 @@ Todos os aplicativos lógicos em uma região usam os mesmos intervalos de endere
 
 | Região de Aplicativos Lógicos | IP de Saída |
 |-------------------|-------------|
-| Austrália | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
 | Leste da Austrália | 13.75.149.4, 104.210.91.55, 104.210.90.241 |
+| Sudeste da Austrália | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
 | Sul do Brasil | 191.235.82.221, 191.235.91.7, 191.234.182.26 |
 | Canadá Central | 52.233.29.92, 52.228.39.241, 52.228.39.244 |
 | Leste do Canadá | 52.232.128.155, 52.229.120.45, 52.229.126.25 |

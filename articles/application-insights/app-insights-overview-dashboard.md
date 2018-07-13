@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36336764"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970965"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral do Application Insights
 
@@ -28,7 +28,7 @@ O Application Insights sempre forneceu um painel de visão geral resumida para p
 
 O novo painel de visão geral agora inicia por padrão:
 
-![Painel Versão prévia de visão geral](.\media\app-insights-overview-dashboard\overview-0001.png)
+![Painel Versão prévia de visão geral](.\media\app-insights-overview-dashboard\overview.png)
 
 ## <a name="better-performance"></a>Melhor desempenho
 
@@ -60,12 +60,6 @@ Se você desejar, mantenha a visualização padrão. Ou você pode adicionar e e
 Para navegar de volta para a experiência de visão geral basta selecionar:
 
 ![Botão Visão geral](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
-
-## <a name="access-the-classic-overview-dashboard"></a>Acesse o Painel de Visão Geral Clássica
-
-Se você perder a visão geral antiga, escolha **Visão Geral Clássica**.
-
-![Visão Geral Clássica](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

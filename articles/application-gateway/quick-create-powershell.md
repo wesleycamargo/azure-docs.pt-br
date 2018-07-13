@@ -14,11 +14,11 @@ ms.date: 01/25/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 95b806eaabaf0ba93b1e8b6823340e82842b0f1c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202041"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38591378"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – Azure PowerShell
 
@@ -34,7 +34,7 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Você precisa sempre criar recursos em um grupo de recursos. Crie um grupo de recursos do Azure usando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+Você sempre precisa criar recursos em um grupo de recursos. Crie um grupo de recursos do Azure usando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
@@ -42,7 +42,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede 
 
-Você precisa criar uma rede virtual para o gateway de aplicativo ser capaz de se comunicar com outros recursos. Duas sub-redes são criadas neste exemplo: um para o gateway de aplicativo e a outra para os servidores de back-end. 
+Você precisa criar uma rede virtual para o gateway de aplicativo conseguir se comunicar com outros recursos. Duas sub-redes são criadas neste exemplo: um para o gateway de aplicativo e a outra para os servidores de back-end. 
 
 Crie a configuração de sub-rede usando [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Crie a rede virtual usando [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) com as configurações de sub-rede. E, finalmente, crie o endereço IP público usando [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress).
 
@@ -208,7 +208,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Teste o gateway de aplicativo](./media/quick-create-powershell/application-gateway-iistest.png)
 
-Quando você atualizar o navegador, você deve ver o nome da outra VM aparecer.
+Quando atualizar o navegador, você deverá ver o nome da outra VM ser exibido.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

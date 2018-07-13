@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: eb1c769e034f37d05de63896f65290db79103637
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293897"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969537"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Web Node.js no Serviço de Aplicativo do Azure no Linux
 
@@ -28,7 +28,7 @@ ms.locfileid: "35293897"
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Linux. Para implantar o Serviço de aplicativo no _Windows_, consulte [Criar um aplicativo Web Node.js no Azure](../app-service-web-get-started-nodejs.md).
 >
 
-O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este início rápido mostra como implantar um aplicativo Node.js no Serviço de Aplicativo no Linux usando o [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este início rápido mostra como implantar um aplicativo Node.js no Serviço de Aplicativo no Linux usando o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 Você concluirá este início rápido no Cloud Shell, mas você também pode executar esses comandos localmente com [CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -40,7 +40,7 @@ Você concluirá este início rápido no Cloud Shell, mas você também pode exe
 
 ## <a name="install-web-app-extension-for-cloud-shell"></a>Instalar a extensão do aplicativo Web para o Cloud Shell
 
-Para concluir este início rápido, você precisará adicionar a [az web app extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). Se a extensão já estiver instalada, você deve atualizá-la para a versão mais recente. Para atualizar a extensão do aplicativo Web, digite `az extension update -n webapp`.
+Para concluir este início rápido, você precisará adicionar a [az web app extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). Se a extensão já estiver instalada, você deve atualizá-la para a versão mais recente. Para atualizar a extensão do aplicativo Web, digite `az extension update -n webapp`.
 
 Para instalar a extensão webapp, execute o seguinte comando:
 
@@ -136,7 +136,7 @@ O comando `az webapp up` realiza as seguintes ações:
 
 - Criar um aplicativo com o nome especificado.
 
-- Arquivos [de implantação zip](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) do diretório de trabalho atual para o aplicativo Web.
+- Arquivos [de implantação zip](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) do diretório de trabalho atual para o aplicativo Web.
 
 ## <a name="browse-to-the-app"></a>Navegar até o aplicativo
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: e521ef29a338d0c7d80493f92acff4758a091359
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bde7a7788fd01bcbcc63296c0513af8eb4196021
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261280"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970172"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -314,7 +314,7 @@ public static class EnvironmentVariablesExample
 
 As configurações do aplicativo podem ser lidas de variáveis de ambiente ao desenvolver localmente e ao executar no Azure. Ao desenvolver localmente, as configurações do aplicativo são provenientes da coleção `Values` no arquivo *local.settings.json*. Em ambos os ambientes, local e do Azure, `GetEnvironmentVariable("<app setting name>")` recupera o valor da configuração de aplicativo nomeada. Por exemplo, quando você estivesse executando localmente, "Nome do Meu Site" seria retornado se o arquivo *local.settings.json* contivesse `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
-A propriedade [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter os valores de configuração do aplicativo, mas é recomendável que você use `GetEnvironmentVariable` conforme mostrado aqui.
+A propriedade [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter os valores de configuração do aplicativo, mas é recomendável que você use `GetEnvironmentVariable` conforme mostrado aqui.
 
 ## <a name="binding-at-runtime"></a>Associando no tempo de execução
 

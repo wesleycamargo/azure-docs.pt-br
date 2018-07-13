@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
 ms.openlocfilehash: a40971e373a6e2fe6324e06816112e2025506ba8
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/12/2018
 ms.locfileid: "34057971"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
@@ -308,7 +308,7 @@ subnet/prefix | Prefixo de sub-rede, exemplo 24 | 2017-04-02
 ipv6/ipAddress | Endereço IPv6 local da máquina virtual | 2017-04-02 
 macAddress | Endereço mac da máquina virtual | 2017-04-02 
 scheduledevents | Consulte [Eventos agendados](scheduled-events.md) | 2017-08-01
-identidade | Identidade de Serviço Gerenciada (versão prévia) Veja [adquirir um token de acesso](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | {0}01-02-2018{0}
+identidade | Identidade de Serviço Gerenciada (versão prévia) Veja [adquirir um token de acesso](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 01-02-2018
 
 ## <a name="example-scenarios-for-usage"></a>Cenários de exemplo para uso  
 

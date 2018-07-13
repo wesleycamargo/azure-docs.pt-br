@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: saurse
 ms.openlocfilehash: f69975fc30dfdfbcdd801bcdb552e8b4be948607
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606255"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38584333"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
 Este artigo mostra como usar o PowerShell para configurar o Backup do Azure no Windows Server ou no cliente Windows, e como gerenciar backups e recuperações.
 
-## <a name="install-azure-powershell"></a>Instalar o Azure Powershell
+## <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Este artigo se concentra nos cmdlets do PowerShell do ARM (Azure Resource Manager) e do Backup Online da MS que permitem que você use um cofre dos Serviços de Recuperação em um grupo de recursos.

@@ -125,7 +125,7 @@
       items:
         - name: Teste interativo
           href: luis-concept-test.md
-        - name: Teste de lote
+        - name: Teste em lote
           href: luis-concept-batch-test.md
     - name: Enterprise
       items:
@@ -191,7 +191,7 @@
       items:
         - name: Teste interativo
           href: interactive-test.md
-        - name: Teste de lote
+        - name: Teste em lote
           href: luis-how-to-batch-test.md
     - name: Publicar aplicativo
       href: luis-how-to-publish-app.md
@@ -201,8 +201,6 @@
           href: luis-prebuilt-entities.md
         - name: Usar domínios
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Usar Cortana
-          href: luis-how-to-cortana-prebuilt-app.md
     - name: Gerenciar aplicativo
       items:
         - name: Usando o dashboard
@@ -253,7 +251,7 @@
           href: luis-reference-prebuilt-dimension.md
         - name: Entidades preteridas
           href: luis-reference-prebuilt-deprecated.md
-        - name: Entidade de e-mail
+        - name: Entidade de email
           href: luis-reference-prebuilt-email.md
         - name: Entidade de KeyPhrase
           href: luis-reference-prebuilt-keyphrase.md
@@ -271,8 +269,6 @@
           href: luis-reference-prebuilt-url.md
     - name: Referência de domínio predefinido
       href: luis-reference-prebuilt-domains.md
-    - name: Referência do aplicativo predefinido Cortana
-      href: luis-reference-cortana-prebuilt.md
     - name: APIs de criação V2
       href: 'https://aka.ms/luis-authoring-apis'
     - name: API do ponto de extremidade V2

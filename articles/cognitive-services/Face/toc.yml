@@ -29,12 +29,12 @@
   items:
     - name: 'C#'
       href: Tutorials/FaceAPIinCSharpTutorial.md
+    - name: Android
+      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: Guias de como fazer
   items:
     - name: Primeiros aplicativos de API de Detecção Facial
       items:
-        - name: Java para Android
-          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
         - name: Python
           href: Tutorials/FaceAPIinPythonTutorial.md
     - name: Detectar faces em imagem
