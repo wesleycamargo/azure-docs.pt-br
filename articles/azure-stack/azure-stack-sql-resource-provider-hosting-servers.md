@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c9249de56979d47a29fc9d7c12b99e41b3ada0fd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465830"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970544"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do SQL
 
@@ -66,7 +66,7 @@ As informações a seguir fornecem orientação de segurança adicional:
 
 * Todo o armazenamento do Azure Stack é criptografado usando o BitLocker, portanto, qualquer instância do SQL no Azure Stack usará o armazenamento de blob criptografado.
 * O provedor de recursos do SQL totalmente compatível com TLS 1.2. Certifique-se de que qualquer SQL Server que é gerenciado por meio de RP SQL está configurado para o TLS 1.2 _apenas_ padrão para que o RP. Consulte todas as versões com suporte do TLS 1.2, o suporte do SQL Server [suporte a TLS 1.2 para o Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Use o SQL Server Configuration Manager para definir a **ForceEncryption** opção para garantir que todas as comunicações para o SQL server são sempre criptografadas. Ver [para configurar o servidor para forçar conexões criptografadas](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
+* Use o SQL Server Configuration Manager para definir a **ForceEncryption** opção para garantir que todas as comunicações para o SQL server são sempre criptografadas. Ver [para configurar o servidor para forçar conexões criptografadas](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
 * Certifique-se de que qualquer aplicativo cliente também está se comunicando através de uma conexão criptografada.
 * A RP é configurada para confiar nos certificados usados pelas instâncias do SQL Server.
 
@@ -106,8 +106,8 @@ Para adicionar um servidor de hospedagem autônomo que já está configurado, si
 
 A configuração de instâncias do SQL Always On requer etapas adicionais e exige três VMs (ou máquinas físicas). Este artigo pressupõe que você já tenha uma compreensão sólida dos grupos de disponibilidade Always On. Para obter mais informações, consulte os seguintes artigos:
 
-* [Introdução ao SQL Server Always On grupos de disponibilidade em máquinas virtuais do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Sempre em grupos de disponibilidade (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Introdução ao SQL Server Always On grupos de disponibilidade em máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Sempre em grupos de disponibilidade (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > O provedor de recursos do adaptador SQL _apenas_ dá suporte ao SQL 2016 SP1 Enterprise ou instâncias mais tarde para grupos de disponibilidade AlwaysOn. Essa configuração de adaptador requer novos recursos do SQL, como a propagação automática.

@@ -1,6 +1,6 @@
 ---
-title: Habilitar o Backup para a pilha do Azure com o PowerShell | Microsoft Docs
-description: Habilite a infraestrutura de serviço de Backup com o Windows PowerShell para que a pilha do Azure podem ser restaurada, se houver uma falha.
+title: Habilitar o Backup para o Azure Stack com o PowerShell | Microsoft Docs
+description: Habilite o serviço de Backup de infraestrutura com o Windows PowerShell para que o Azure Stack pode ser restaurado se houver uma falha.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,69 +14,61 @@ ms.topic: article
 ms.date: 5/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 4fb40904e59e78e416d4598472a6adeb498e49f4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259848"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968877"
 ---
-# <a name="enable-backup-for-azure-stack-with-powershell"></a>Habilitar o Backup para a pilha do Azure com o PowerShell
+# <a name="enable-backup-for-azure-stack-with-powershell"></a>Habilitar o Backup para o Azure Stack com o PowerShell
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Habilitar a infraestrutura de serviço de Backup com o Windows PowerShell para executar backups periódicos do:
- - Certificado de raiz e o serviço de identidade interna
+Então, habilitar o serviço de Backup de infraestrutura com o Windows PowerShell faça backups periódicos do:
+ - Certificado raiz e o serviço de identidade interna
  - Planos de usuário, ofertas, assinaturas
- - Keyvault segredos
+ - Segredos do Cofre de chaves
  - As políticas e funções de RBAC do usuário
 
 Você pode acessar os cmdlets do PowerShell para habilitar o backup, iniciar o backup e obter informações de backup por meio do ponto de extremidade de gerenciamento do operador.
 
 ## <a name="prepare-powershell-environment"></a>Preparar o ambiente do PowerShell
 
-Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para Azure pilha ](azure-stack-powershell-install.md).
-
-## <a name="generate-a-new-encryption-key"></a>Gere uma nova chave de criptografia
-
-Instalar e PowerShell configurado para a pilha do Azure e as ferramentas de pilha do Azure.
- - Consulte [colocar em funcionamento com o PowerShell no Azure pilha](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
- - Consulte [ferramentas baixar Azure pilha do GitHub](azure-stack-powershell-download.md)
-
-Abra o Windows PowerShell com um prompt com privilégios elevados e execute os seguintes comandos:
-   
-   ```powershell
-    cd C:\tools\AzureStack-Tools-master\Infrastructure
-    Import-Module .\AzureStack.Infra.psm1 
-   ```
-   
-Na sessão do PowerShell, execute os seguintes comandos:
-
-   ```powershell
-   $encryptionkey = New-EncryptionKeyBase64
-   ```
-
-> [!Warning]  
-> Você deve usar as ferramentas de AzureStack para gerar a chave.
+Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para Azure Stack ](azure-stack-powershell-install.md). Para entrar Azure Stack, consulte [configurar o ambiente de operador e entrar no Azure Stack](azure-stack-powershell-configure-admin.md).
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Forneça a chave de criptografia, credenciais e compartilhamento de backup para habilitar o backup
 
-Na sessão do PowerShell, edite o seguinte script PowerShell adicionando as variáveis para o seu ambiente. Execute o script atualizado para fornecer a chave de criptografia, credenciais e compartilhamento de backup para o serviço de Backup de infraestrutura.
+Na sessão do PowerShell, edite o seguinte script do PowerShell, adicionando as variáveis para o seu ambiente. Execute o script atualizado para fornecer a chave de criptografia, credenciais e compartilhamento de backup para o serviço de Backup de infraestrutura.
 
 | Variável        | DESCRIÇÃO   |
 |---              |---                                        |
-| $username       | Tipo de **Username** usando o domínio e o nome de usuário para o local da unidade compartilhada com permissões suficientes de acesso para ler e gravar arquivos. Por exemplo, `Contoso\backupshareuser`. |
+| $username       | Tipo de **nome de usuário** usando o domínio e o nome de usuário para o local da unidade compartilhada com acesso suficiente para ler e gravar arquivos. Por exemplo, `Contoso\backupshareuser`. |
+| $key            | Tipo de **chave de criptografia** usada para criptografar cada backup. |
 | $password       | Tipo de **senha** para o usuário. |
-| $sharepath      | Digite o caminho para o **local de armazenamento de Backup**. Você deve usar uma cadeia de caracteres de convenção de nomenclatura Universal (UNC) para o caminho para um compartilhamento de arquivo hospedado em um dispositivo separado. Uma cadeia de caracteres UNC Especifica o local de recursos, como arquivos compartilhados ou dispositivos. Para garantir a disponibilidade dos dados de backup, o dispositivo deve estar em um local separado. |
+| $sharepath      | Digite o caminho para o **local de armazenamento de Backup**. Você deve usar uma cadeia de caracteres de convenção de nomenclatura Universal (UNC) para o caminho para um compartilhamento de arquivos hospedado em um dispositivo separado. Uma cadeia de caracteres UNC Especifica o local dos recursos, como arquivos compartilhados ou dispositivos. Para garantir a disponibilidade dos dados de backup, o dispositivo deve estar em um local separado. |
 
    ```powershell
-    $username = "domain\backupoadmin"
-    $password = "password"
-    $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
-    $location = Get-AzsLocation
-    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+    $username = "domain\backupadmin"
+   
+    $Secure = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+    $Encrypted = ConvertFrom-SecureString -SecureString $Secure
+    $password = ConvertTo-SecureString -String $Encrypted
     
-    Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
+    $BackupEncryptionKeyBase64 = ""
+    $tempEncryptionKeyString = ""
+    foreach($i in 1..64) { $tempEncryptionKeyString += -join ((65..90) + (97..122) | Get-Random | % {[char]$_}) }
+    $tempEncryptionKeyBytes = [System.Text.Encoding]::UTF8.GetBytes($tempEncryptionKeyString)
+    $BackupEncryptionKeyBase64 = [System.Convert]::ToBase64String($tempEncryptionKeyBytes)
+    $BackupEncryptionKeyBase64
+    
+    $Securekey = ConvertTo-SecureString -String $BackupEncryptionKeyBase64 -AsPlainText -Force
+    $Encryptedkey = ConvertFrom-SecureString -SecureString $Securekey
+    $key = ConvertTo-SecureString -String $Encryptedkey
+    
+    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+
+    Set-AzSBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
    ```
    
 ##  <a name="confirm-backup-settings"></a>Confirme as configurações de backup
@@ -84,22 +76,18 @@ Na sessão do PowerShell, edite o seguinte script PowerShell adicionando as vari
 Na sessão do PowerShell, execute os seguintes comandos:
 
    ```powershell
-   Get-AzsBackupLocation | Select-Object -ExpandProperty externalStoreDefault | Select-Object -Property Path, UserName, Password | ConvertTo-Json
+    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity
    ```
 
-O resultado deve ser semelhante a seguinte saída JSON:
+O resultado deve ser semelhante a seguinte saída:
 
-   ```json
-      {
-    "ExternalStoreDefault":  {
-        "Path":  "\\\\serverIP\\AzSBackupStore\\contoso.com\\seattle",
-        "UserName":  "domain\backupoadmin",
-        "Password":  null
-       }
-   } 
+   ```powershell
+    Path                        : \\serverIP\AzSBackupStore\contoso.com\seattle
+    UserName                    : domain\backupadmin
+    AvailableCapacity           : 60 GB
    ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
- - Saiba como executar um backup, consulte [Azure pilha](azure-stack-backup-back-up-azure-stack.md ).  
- - Saiba como verificar se o backup foi executado, consulte [Confirmar backup concluído no portal de administração](azure-stack-backup-back-up-azure-stack.md ).
+ - Aprenda a executar um backup, consulte [fazer backup do Azure Stack](azure-stack-backup-back-up-azure-stack.md ).  
+ - Saiba como verificar se o backup foi executado, consulte [concluído no portal de administração de backup de confirmar](azure-stack-backup-back-up-azure-stack.md ).

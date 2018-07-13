@@ -263,6 +263,11 @@
 ### [SDKs do dispositivo IoT](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # Recursos
+## [Exemplos de IoT do Azure para C# (.NET)](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/)
+## [Exemplos de IoT do Azure para Node.js](https://azure.microsoft.com/resources/samples/azure-iot-samples-node/)
+## [Exemplos de IoT do Azure para Java](https://azure.microsoft.com/resources/samples/azure-iot-samples-java/)
+## [Exemplos de IoT do Azure para Python](https://azure.microsoft.com/resources/samples/azure-iot-samples-python/)
+## [Exemplos de IoT do Azure para a plataforma iOS](https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/)
 ## [Catálogo de dispositivos Azure Certified para IoT](https://catalog.azureiotsuite.com/)
 ## [Central de Desenvolvedores do IoT do Azure](https://azure.microsoft.com/develop/iot/)
 ## [Solicitações de dados do cliente](iot-hub-customer-data-requests.md)

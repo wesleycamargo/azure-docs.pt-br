@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 9216d43bd6431bb16c14e0bf2d8fb7d174365417
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c61e94191a20696a1fa8c8e632a83f980f256934
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902693"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971084"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Marketplace do Azure disponíveis para o Azure Stack
 
@@ -36,7 +36,7 @@ Sempre que houver atualizações para extensões de máquina virtual (VM) que vo
 |![Extensão de script personalizado](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão de Script personalizado](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Baixe essa atualização para a versão de caixa de entrada da extensão de Script personalizado para Windows.** | Microsoft | Windows |
 |![Extensão de DSC do PowerShell](media/azure-stack-marketplace-azure-items/dsc.png) | [Extensão de DSC do PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **Baixe essa atualização para a versão da caixa de entrada da extensão de DSC do PowerShell. Atualizado para dar suporte a TLS v1.2.** | Microsoft | Windows |
 | ![Extensão de Antimalware da Microsoft](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão de Antimalware da Microsoft](https://docs.microsoft.com/azure/security/azure-security-antimalware)| O Antimalware da Microsoft para Azure é uma solução de agente único para aplicativos e ambientes de locatário, projetado para ser executado em segundo plano sem intervenção humana. **Baixe essa atualização para a versão da caixa de entrada da extensão Antimalware.** | Microsoft | Windows |
-| ![Extensão de diagnóstico do Microsoft Azure](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão de diagnóstico do Microsoft Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-windows)| Diagnóstico do Microsoft Azure é a capacidade do Azure que habilita a coleta de dados de diagnóstico em um aplicativo implantado. **Baixe essa atualização para a versão de caixa de entrada de extensão de diagnóstico para o Windows.** | Microsoft | Windows || ![Extensão de monitoramento da Microsoft](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão de agente de monitoramento da Microsoft](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/oms-windows)| Extensão de agente de monitoramento da Microsoft é usado com o OMS para fornecer funcionalidade de monitoramento de máquinas virtuais. **Baixe essa atualização para a versão de caixa de entrada da extensão de monitoramento de agente para o Windows.** | Microsoft | Windows |
+| ![Extensão de diagnóstico do Microsoft Azure](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão de diagnóstico do Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Diagnóstico do Microsoft Azure é a capacidade do Azure que habilita a coleta de dados de diagnóstico em um aplicativo implantado. **Baixe essa atualização para a versão de caixa de entrada de extensão de diagnóstico para o Windows.** | Microsoft | Windows || ![Extensão de monitoramento da Microsoft](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão de agente de monitoramento da Microsoft](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Extensão de agente de monitoramento da Microsoft é usado com o OMS para fornecer funcionalidade de monitoramento de máquinas virtuais. **Baixe essa atualização para a versão de caixa de entrada da extensão de monitoramento de agente para o Windows.** | Microsoft | Windows |
 |![Extensão de script personalizado](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão de Script personalizado](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)|**Baixe essa atualização para a versão da caixa de entrada de extensão de Script personalizado para Linux. Há várias versões dessa extensão e você deverá baixar 1.5.2.1 e 2.0.x.** | Microsoft | Linux |
 | ![Acesso VM para Linux](media/azure-stack-marketplace-azure-items/cse.png) | [Acesso VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **Baixe essa atualização para a versão de caixa de entrada do Vmacess para extensão do Linux. Esta atualização é importante se você planeja usar VMs do Linux Debian.** | Microsoft | Linux |
 | ![Extensão de Backup Acronis para Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [Extensão de Backup Acronis para Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | A extensão de Backup do Microsoft Azure Acronis faz parte da família de produtos de proteção de dados Acronis Backup. | GmbH internacional de Acronis. | Linux |

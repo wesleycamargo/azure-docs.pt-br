@@ -7,14 +7,15 @@ author: AyoOlubeko
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34645786"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastre para um aplicativo SaaS multilocatário usando replicação geográfica do banco de dados
 
@@ -87,7 +88,7 @@ Mais tarde, em uma etapa de repatriação separada, você faz failover dos banco
 ## <a name="review-the-healthy-state-of-the-application"></a>Examinar o estado de integridade do aplicativo
 
 Antes de iniciar o processo de recuperação, examine o estado de integridade normal do aplicativo.
-1. No navegador da Web, abra o Hub de Eventos da Wingtip Tickets (http://events.wingtip-dpt.&lt;usuário&gt;.trafficmanager.net - replace &lt;usuário&gt; com o valor do usuário da sua implantação).
+1. No navegador da Web, abra o Hub de eventos da Wingtip Tickets (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net – substitua &lt;user&gt; com o valor de usuário da implantação).
     * Role até a parte inferior da página e observe o nome do servidor de catálogo e a localização no rodapé. A localização é a região em que você implantou o aplicativo.
     *DICA: passe o mouse sobre o local para ampliar a exibição.*
     ![Estado íntegro do hub de eventos na região original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
@@ -250,7 +251,7 @@ Nesta tarefa, você atualiza um dos bancos de dados de locatário.
 2. No *ISE do PowerShell*, no script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1, defina o valor a seguir:
     * **$DemoScenario = 5** Exclua um evento de um locatário na região de recuperação
 3. Pressione **F5** para executar o script
-4. Atualize a página de eventos do Contoso Concert Hall (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall - substitute &lt;user&gt; com o valor de usuário da sua implantação) e observe que o último evento foi excluído.
+4. Atualize a página de eventos do Contoso Concert Hall (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall - substitua &lt;user&gt; com o valor de usuário da implantação) e observe que o último evento foi excluído.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>Repatrie o aplicativo para sua região de produção original
 
@@ -283,7 +284,7 @@ Agora vamos imaginar que a interrupção foi resolvida e o script de repatriaç�
     * Pressione **F5** para executar o script de recuperação em uma nova janela do PowerShell.  A repatriação levará vários minutos e pode ser monitorada na janela do PowerShell.
     ![Processo de repatriação](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. Durante a execução do script, atualize a página de Hub de eventos (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)
+4. Durante a execução do script, atualize a página do Hub de eventos (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)
     * Observe que todos os locatários estão online e acessíveis durante este processo.
 
 5. Depois que a repatriação for concluída, atualize o Hub de eventos e abra a página de eventos para Hawthorn Hall. Observe que esse banco de dados foi repatriado para a região original.

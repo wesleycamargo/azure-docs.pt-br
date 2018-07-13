@@ -11,12 +11,12 @@
   items:
     - name: Criar função - portal
       href: functions-create-first-azure-function.md
-    - name: Criar função - CLI do Azure
-      href: functions-create-first-azure-function-azure-cli.md
     - name: Criar função - Visual Studio
       href: functions-create-your-first-function-visual-studio.md
     - name: Criar função - Java/Maven
       href: functions-create-first-java-maven.md
+    - name: Criar função - CLI do Azure
+      href: functions-create-first-azure-function-azure-cli.md
     - name: Criar função - Linux
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: Gatilhos
@@ -97,6 +97,8 @@
       items:
         - name: Visão geral
           href: durable-functions-overview.md
+        - name: Recursos e tipos de função
+          href: durable-functions-types-features-overview.md
         - name: Associações
           href: durable-functions-bindings.md
         - name: Ponto de verificação e reprodução

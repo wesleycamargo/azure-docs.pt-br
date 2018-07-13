@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 6ef165ddc481bf84c6189635e36b97eb9518261e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077801"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35765952"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Exibir a topologia de uma Rede Virtual do Azure
 
@@ -37,10 +37,12 @@ Neste artigo, você aprenderá a exibir recursos em uma Rede Virtual do Microsof
 
     ![Exibir topologia](./media/view-network-topology/view-topology.png)
 
-    Como você viu na imagem anterior, a rede virtual contém três sub-redes. Uma sub-rede tem uma VM implantada nela. A VM tem um adaptador de rede anexado e um endereço IP público associado com ela. As outras duas sub-redes têm uma tabela de rotas associadas com elas. Cada tabela de rota contém duas rotas. Uma sub-rede tem um Grupo de Segurança de Rede associado a ela. Informações de topologia são mostradas apenas para recursos que estão: -no mesmo grupo de recursos e da região da rede virtual *myVnet*. Por exemplo, um Grupo de Segurança de Rede que existe em um grupo de recursos diferente de *MyResourceGroup* não será exibido, mesmo que o Grupo de Segurança de Rede esteja associado a uma sub-rede na rede virtual *MyVnet*.
-        - Dentro, ou associados aos recursos dentro da rede virtual *myVnet*. Por exemplo, um Grupo de Segurança de Rede que não está associado com uma sub-rede ou adaptador de rede na rede virtual *myVnet* não será exibido, mesmo que o Grupo de Segurança de Rede esteja no grupo de recursos *MyResourceGroup*.
+    Como você viu na imagem anterior, a rede virtual contém três sub-redes. Uma sub-rede tem uma VM implantada nela. A VM tem um adaptador de rede anexado e um endereço IP público associado com ela. As outras duas sub-redes têm uma tabela de rotas associadas com elas. Cada tabela de rota contém duas rotas. Uma sub-rede tem um Grupo de Segurança de Rede associado a ela. Informações sobre a topologia são mostradas apenas para recursos que estão:
+    
+    - Dentro do mesmo grupo de recursos e da região que a rede virtual *myVnet*. Por exemplo, um Grupo de Segurança de Rede que existe em um grupo de recursos diferente de *MyResourceGroup* não será exibido, mesmo que o Grupo de Segurança de Rede esteja associado a uma sub-rede na rede virtual *MyVnet*.
+    - Dentro, ou associados aos recursos dentro da rede virtual *myVnet*. Por exemplo, um Grupo de Segurança de Rede que não está associado com uma sub-rede ou adaptador de rede na rede virtual *myVnet* não será exibido, mesmo que o Grupo de Segurança de Rede esteja no grupo de recursos *MyResourceGroup*.
 
-    A topologia mostrada na imagem é a da rede virtual criada após a implantação do **script de exemplo Rotear tráfego por meio de uma solução de virtualização de rede**, que pode ser implantado usando a [CLI do Azure](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ou o [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+  A topologia mostrada na imagem é a da rede virtual criada após a implantação do **script de exemplo Rotear tráfego por meio de uma solução de virtualização de rede**, que pode ser implantado usando a [CLI do Azure](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ou o [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 6. Selecione **Baixar topologia** para baixar a imagem como um arquivo editável, no formato svg.
 

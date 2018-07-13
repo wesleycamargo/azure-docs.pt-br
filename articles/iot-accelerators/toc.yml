@@ -10,6 +10,8 @@
   items:
     - name: Implantar uma solução de monitoramento remoto
       href: quickstart-remote-monitoring-deploy.md
+    - name: Implantar uma solução de manutenção preditiva
+      href: quickstart-predictive-maintenance-deploy.md
     - name: Implantar uma solução de simulação de dispositivo
       href: quickstart-device-simulation-deploy.md
 - name: Tutoriais
@@ -35,7 +37,7 @@
           href: iot-accelerators-remote-monitoring-device-behavior.md
     - name: Manutenção preditiva
       href: iot-accelerators-predictive-walkthrough.md
-    - name: Fábrica Conectada
+    - name: Fábrica conectada
       href: iot-accelerators-connected-factory-features.md
       items:
         - name: Arquitetura
@@ -137,7 +139,7 @@
       items:
         - name: Implantar um acelerador de solução
           href: iot-accelerators-predictive-overview.md
-    - name: Fábrica Conectada
+    - name: Fábrica conectada
       items:
         - name: Implantar um acelerador de solução
           href: iot-accelerators-connected-factory-overview.md
