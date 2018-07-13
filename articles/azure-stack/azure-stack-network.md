@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 2d16d1dc7a53ca388b00ba02b6447e178a9f6edb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989230"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003606"
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede do Azure Stack para ajudá-lo a decidir como se integrar melhor a pilha do Azure em seu ambiente de rede existente. 
@@ -29,7 +29,7 @@ Este artigo fornece informações de infraestrutura de rede do Azure Stack para 
 > Para resolver nomes DNS externos do Azure Stack (por exemplo, www.bing.com), você precisa fornecer os servidores DNS para encaminhar solicitações DNS. Para obter mais informações sobre os requisitos de DNS do Azure Stack, consulte [integração de datacenter do Azure Stack - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Design de rede física
-A solução do Azure Stack requer uma infraestrutura física resiliente e altamente disponível para dar suporte a seus serviços e a operação. Uplinks a partir do ToR comutadores de borda são limitadas a SFP + mídia e as velocidades de 1 GB ou 10 GB. Verifique com seu fornecedor de hardware do fabricante original do equipamento (OEM) para disponibilidade. O diagrama a seguir representa nosso design recomendado:
+A solução do Azure Stack requer uma infraestrutura física resiliente e altamente disponível para dar suporte a seus serviços e a operação. Uplinks a partir do ToR comutadores de borda são limitadas a SFP + ou mídia SFP28 e 1 GB, 10 GB ou velocidades de 25 GB. Verifique com seu fornecedor de hardware do fabricante original do equipamento (OEM) para disponibilidade. O diagrama a seguir apresenta nosso design recomendado:
 
 ![Design de rede do Azure Stack recomendado](media/azure-stack-network/recommended-design.png)
 

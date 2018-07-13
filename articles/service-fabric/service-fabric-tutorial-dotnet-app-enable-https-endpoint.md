@@ -337,7 +337,7 @@ Em seguida, na seção **ServiceManifestImport** do VotingWebPkg, configure uma 
 
 ## <a name="run-the-application-locally"></a>Executar o aplicativo localmente
 
-No Gerenciador de Soluções, selecione o aplicativo de **Votação** e defina a propriedade **URL do aplicativo** para “https://localhost:443”.
+No Gerenciador de Soluções, selecione o aplicativo de **Votação** e defina a propriedade **URL do aplicativo** para “ https://localhost:443 ”.
 
 Salve todos os arquivos e pressione F5 para executar o aplicativo localmente.  Depois que o aplicativo é implantado, um navegador da Web abre como [https://localhost:443](https://localhost:443). Se você estiver usando um certificado autoassinado, verá um aviso informando que seu computador não confia na segurança desse site.  Siga até a página da Web.
 
