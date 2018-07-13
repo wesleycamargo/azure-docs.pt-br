@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3526871f126ac975f323fe84b14883b361b684ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbcbdb0f806241c015e6fbc160465390bead7c37
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35364813"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340766"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gerenciar suas chaves de assinatura do ponto de extremidade do Azure
 
@@ -40,7 +40,7 @@ Para testar e protótipo apenas, use a camada gratuita (F0). Para sistemas de pr
     ![Chaves do Azure](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Faça login no site do [LUIS](luis-reference-regions.md) na sua região e [adicione a nova chave de ponto de extremidade do LUIS](Manage-Keys.md#assign-endpoint-key). 
+    > * Faça login no site do [LUIS](luis-reference-regions.md) na sua região e [adicione a nova chave de ponto de extremidade do LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). 
     > * Você precisa se lembrar do nome do serviço do Azure que você criou para selecioná-lo na página de publicação do [LUIS](luis-reference-regions.md) da região.  
 
 ## <a name="change-luis-pricing-tier"></a>Alterar o tipo de preço do LUIS
@@ -53,7 +53,7 @@ Para testar e protótipo apenas, use a camada gratuita (F0). Para sistemas de pr
     ![Altere sua camada de pagamento do LUIS](./media/luis-usage-tiers/plans.png)
 4.  Quando a alteração de preços é concluída, uma janela pop-up verifica a nova camada de preços. 
     ![Verifique sua camada de pagamento do LUIS](./media/luis-usage-tiers/updated.png)
-5. Lembre-se de [atribuir essa chave do ponto de extremidade](manage-keys.md#assign-endpoint-key) na página **Publicar** e usá-la em todas as consultas de ponto de extremidade. 
+5. Lembre-se de [atribuir essa chave do ponto de extremidade](luis-how-to-manage-keys.md#assign-endpoint-key) na página **Publicar** e usá-la em todas as consultas de ponto de extremidade. 
 
 ## <a name="exceed-pricing-tier-usage"></a>Exceder uso de camada de preços
 Cada camada permite solicitações de ponto de extremidade para sua conta do LUIS em uma taxa específica. Se a taxa de solicitações for maior do que a taxa permitida de sua conta limitada por minuto ou por mês, as solicitações receberão um erro HTTP de "429: Muitas Solicitações."
