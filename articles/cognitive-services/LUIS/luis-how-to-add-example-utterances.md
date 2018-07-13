@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 74a4b77bd9823e5462eecd438cf4c1d863e79892
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 80ccedc7299836cae689edd8a277a7c6d23befa7
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300631"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345049"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Adicionar enunciados de exemplo e rótulo com entidades
 
@@ -194,7 +194,7 @@ Fix this - moved to luis-how-to-add-intents.md - how ?
 
 -->
 ## <a name="train-your-app-after-changing-model-with-utterances"></a>Treinar seu aplicativo após alterar o modelo com enunciados
-Depois de adicionar, editar ou remover enunciados, [treine](luis-how-to-train.md) e [publique](PublishApp.md) seu aplicativo para que as suas alterações afetem as consultas de ponto de extremidade. 
+Depois de adicionar, editar ou remover enunciados, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) seu aplicativo para que as suas alterações afetem as consultas de ponto de extremidade. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
