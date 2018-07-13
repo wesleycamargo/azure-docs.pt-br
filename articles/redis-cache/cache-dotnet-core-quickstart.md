@@ -16,19 +16,19 @@ ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 63bab0e5c77204ea1e122c32a508e31ed9bcd114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660467"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696952"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-core-app"></a>Início Rápido: Usar o Cache Redis do Azure com um aplicativo .NET Core
 
 
 
-Este guia de início rápido mostra como começar a usar o Cache Redis do Microsoft Azure com o .NET Core. O Cache Redis do Microsoft Azure é baseado no famoso software livre Cache Redis. Ele fornece acesso a um cache Redis dedicado e seguro, gerenciado pela Microsoft. Um cache criado usando o cache Redis do Azure é acessível de qualquer aplicativo do Microsoft Azure.
+Este guia de início rápido mostra como começar a usar o Cache Redis do Microsoft Azure com o .NET Core. O Cache Redis do Microsoft Azure é baseado no popular software livre Cache Redis. Ele fornece acesso a um cache Redis dedicado e seguro, gerenciado pela Microsoft. Um cache criado usando o cache Redis do Azure é acessível de qualquer aplicativo do Microsoft Azure.
 
-Neste guia de início rápido, você usará o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) com o código C\# em um aplicativo de console .NET Core. Você irá criar um cache e configurar o aplicativo de cliente .NET Core. Em seguida, você irá adicionar e atualizar objetos no cache. 
+Neste guia de início rápido, você usará o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) com o código C\# em um aplicativo de console .NET Core. Você irá criar um cache e configurar o aplicativo de cliente .NET Core. Em seguida, você adicionará e atualizará objetos no cache. 
 
 Você pode usar qualquer editor de código para concluir as etapas deste início rápido. No entanto, o [Visual Studio Code](https://code.visualstudio.com/) é uma opção excelente nas plataformas Windows, macOS e Linux.
 
@@ -39,7 +39,7 @@ Você pode usar qualquer editor de código para concluir as etapas deste início
 ## <a name="prerequisites"></a>pré-requisitos
 
 * [.NET SDK 2.0](https://www.microsoft.com/net/learn/get-started/windows) ou posterior.
-* O cliente StackExchange.Redis requer [.NET Framework 4 ou superior](https://www.microsoft.com/net/download/dotnet-framework-runtime).
+* O cliente StackExchange.Redis requer o [.NET Framework 4 ou posterior](https://www.microsoft.com/net/download/dotnet-framework-runtime).
 
 ## <a name="create-a-cache"></a>Criar um cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -211,7 +211,7 @@ No *Program.cs*, adicione o seguinte código para o procedimento `Main` com a cl
 
 Salve o *Program.cs*.
 
-Os caches Redis do Azure têm um número configurável de bancos de dados (padrão de 16) que podem ser usados para separar logicamente os dados em um cache Redis. O código se conecta ao banco de dados padrão, o DB 0. Para saber mais, veja [O que são os bancos de dados do Redis?](cache-faq.md#what-are-redis-databases) e [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration).
+Os caches Redis do Azure têm um número configurável de bancos de dados (padrão de 16) que podem ser usados para separar logicamente os dados em um cache Redis. O código se conecta ao banco de dados padrão, DB 0. Para saber mais, veja [O que são os bancos de dados do Redis?](cache-faq.md#what-are-redis-databases) e [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration).
 
 Os itens de cache podem ser armazenados e recuperados usando os métodos `StringSet` e `StringGet`.
 

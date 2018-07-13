@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 4cce2a764a14bcc4c02e5f17082e34fd88cdb977
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2cc00aefb6099eb053aac321625a9b94cb7b4188
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347542"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888867"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Microsoft Azure | (Versão prévia)
 
@@ -323,7 +323,7 @@ A última etapa é assinar o aplicativo em seu espaço de trabalho do Log Analyt
                                     'office365TenantID': '" + $OfficeTennantId + "',
                                     'connectionID': 'office365connection_" + $SubscriptionId + $OfficeTennantId + "',
                                     'office365AdminUsername': '" + $OfficeUsername + "',
-                                    'contentTypes':'Audit.Exchange,Audit.AzureActiveDirectory'
+                                    'contentTypes':'Audit.Exchange,Audit.AzureActiveDirectory,Audit.Sharepoint'
                                   },
                     'etag': '*',
                     'kind': 'Office365',
@@ -531,7 +531,7 @@ As propriedades a seguir são comuns a todos os registros do Office 365.
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| type | *OfficeActivity* |
+| Tipo | *OfficeActivity* |
 | ClientIP | O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido no formato de endereço IPv4 ou IPv6. |
 | OfficeWorkload | Serviço Office 365 ao qual o registro se refere.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Operação | O nome da atividade do usuário ou administrador.  |

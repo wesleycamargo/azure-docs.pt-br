@@ -3,7 +3,7 @@ title: Tutorial – Gerenciar discos do Azure com o Azure PowerShell | Microsoft
 description: Neste tutorial, você aprenderá a usar o Azure PowerShell para criar e gerenciar discos do Azure para máquinas virtuais
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ea9d89b7dd94c38b326b83ff1fbf51595d67599a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 67e95ea4b816e1c21b5a43233360c7fa89f43a7a
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190621"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929297"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerenciar discos do Azure com o Azure PowerShell
 
@@ -48,7 +48,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
 
-| type | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
+| Tipo | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
 |----|----|----|
 | [Propósito geral](sizes-general.md) | Série A, B e D | 1600 |
 | [Computação otimizada](sizes-compute.md) | Série F | 576 |
@@ -63,7 +63,7 @@ Os discos de dados extras podem ser adicionados para instalação de aplicativos
 
 ### <a name="max-data-disks-per-vm"></a>Máximo de discos de dados por VM
 
-| type | Tamanhos comuns | Máximo de discos de dados por VM |
+| Tipo | Tamanhos comuns | Máximo de discos de dados por VM |
 |----|----|----|
 | [Propósito geral](sizes-general.md) | Série A, B e D | 64 |
 | [Computação otimizada](sizes-compute.md) | Série F | 64 |

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: e396d69a61679a85fdfbd3e8fd43216635dec51d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627783"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970392"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitoramento remoto usando o Power BI
 
@@ -94,9 +94,9 @@ Após a conexão do fluxo, você estará pronto para criar seus painéis persona
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Publicação do painel e atualização dos dados
 
-Após a criação bem-sucedida de seus painéis, recomendamos a [publicação de seus painéis do Power BI](https://docs.microsoft.com/en-us/power-bi/desktop-upload-desktop-files) para compartilhamento com outras pessoas.
+Após a criação bem-sucedida de seus painéis, recomendamos a [publicação de seus painéis do Power BI](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) para compartilhamento com outras pessoas.
 
-Convém também [atualizar os dados](https://docs.microsoft.com/en-us/power-bi/refresh-data) no painel publicado para certificar-se de que você tenha o conjunto de dados mais recente.
+Convém também [atualizar os dados](https://docs.microsoft.com/power-bi/refresh-data) no painel publicado para certificar-se de que você tenha o conjunto de dados mais recente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

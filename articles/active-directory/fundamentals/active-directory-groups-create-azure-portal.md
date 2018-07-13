@@ -14,12 +14,12 @@ ms.date: 08/04/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 82d475e5adadb4e7670f24a6193348c9e1b37a16
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3c71c9c49413045e3a730c10e90ea3c12648b4cb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767328"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857714"
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Criar um grupo e adicionar membros no Azure Active Directory
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Este artigo explica como criar e popular um novo grupo no Azure Active Directory
 
    ![Selecionando o comando Adicionar](./media/active-directory-groups-create-azure-portal/add-group-command.png)
 5. Na folha **Grupo** , adicione um nome e uma descrição ao grupo.
-6. Para selecionar os membros a serem adicionados ao grupo, selecione **Atribuído** na caixa **Tipo de associação** e, em seguida, selecione **Membros**. Para saber mais sobre como gerenciar a associação de um grupo dinamicamente, consulte [Usar atributos para criar regras avançadas para a associação de grupo](../active-directory-groups-dynamic-membership-azure-portal.md).
+6. Para selecionar os membros a serem adicionados ao grupo, selecione **Atribuído** na caixa **Tipo de associação** e, em seguida, selecione **Membros**. Para saber mais sobre como gerenciar a associação de um grupo dinamicamente, consulte [Usar atributos para criar regras avançadas para a associação de grupo](../users-groups-roles/groups-dynamic-membership.md).
 
    ![Selecionando membros para adicionar](./media/active-directory-groups-create-azure-portal/select-members.png)
 7. Na folha **Membros**, escolha um ou mais usuários ou dispositivos para adicionar ao grupo e escolha o botão **Selecionar** na parte inferior da folha para adicioná-los ao grupo. A caixa **Usuário** filtra a exibição com base na correspondência de sua entrada com qualquer parte de um nome de usuário ou dispositivo. Caracteres curinga não são aceitos nessa caixa.
@@ -56,4 +56,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Gerenciar configurações de um grupo](active-directory-groups-settings-azure-portal.md)
 * [Gerenciar membros de um grupo](active-directory-groups-members-azure-portal.md)
 * [Gerenciar associações de um grupo](active-directory-groups-membership-azure-portal.md)
-* [Gerenciar regras dinâmicas para usuários em um grupo](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Gerenciar regras dinâmicas para usuários em um grupo](../users-groups-roles/groups-dynamic-membership.md)

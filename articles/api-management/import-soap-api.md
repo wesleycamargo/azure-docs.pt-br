@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: 108758751b7c8ef5906cb55495a2604f918b2714
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934880"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488907"
 ---
 # <a name="import-soap-api"></a>Importar a API SOAP
 
@@ -59,7 +59,7 @@ Conclua o seguinte guia de início rápido: [Criar uma nova instância do servi�
 
     * **Inicial**
     * **Ilimitado**   
-10. Clique em **Criar**.
+10. Selecione **Criar**.
 
 ### <a name="test-the-new-apim-api-in-the-administrative-portal"></a>Testar a nova API de APIM no portal administrativo
 
