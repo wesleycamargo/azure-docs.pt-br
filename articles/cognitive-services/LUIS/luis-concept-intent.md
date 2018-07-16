@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5c2feb0240b676d4e106cbda65aaaed7604a35c5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: cbf1ad2da3bbc86f8c6861458ae9e5d5c49c56ce
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265145"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888571"
 ---
 # <a name="intents-in-luis"></a>Intenções no LUIS
 
@@ -100,5 +100,3 @@ Se a redução do número de intenções ou a divisão das suas intenções em v
 * Saiba mais sobre [entidades](luis-concept-entity-types.md), que são palavras importantes relevantes para intenções
 * Saiba como [adicionar e gerenciar intenções](luis-how-to-add-intents.md) em seu aplicativo LUIS.
 * Examine as [melhores práticas](luis-concept-best-practices.md) da intenção
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

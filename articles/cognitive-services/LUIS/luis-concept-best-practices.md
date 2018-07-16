@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: f68e05ba40827375fbd76448e38916c682075228
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 6c4e4c7acb5083e758aa7c6b94e2464a85ae8e9e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264002"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951100"
 ---
 # <a name="best-practices"></a>Práticas recomendadas
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS. 
@@ -25,7 +25,7 @@ Use o processo de criação de aplicativos para criar seu aplicativo LUIS.
 * Testar do ponto de extremidade 
 * Adicionar recursos
 
-Quando seu aplicativo for [publicado](publishapp.md), use o ciclo de criação de adicionar recursos, publicar e testar do ponto de extremidade. Não comece o próximo ciclo de criação adicionando mais declarações de exemplo. Isso não permite que o LUIS aprenda seu modelo com declarações de usuário do mundo real. 
+Quando seu aplicativo for [publicado](luis-how-to-publish-app.md), use o ciclo de criação de adicionar recursos, publicar e testar do ponto de extremidade. Não comece o próximo ciclo de criação adicionando mais declarações de exemplo. Isso não permite que o LUIS aprenda seu modelo com declarações de usuário do mundo real. 
 
 Para o LUIS ser eficiente em seu trabalho de aprendizado, não expanda as declarações até que o conjunto atual de declarações de exemplo e de ponto de extremidade esteja retornando pontuações confiantes e de alta previsão. Melhore as pontuações usando aprendizado ativo, [padrões](luis-concept-patterns.md) e [listas de frase](luis-concept-feature.md). 
 
@@ -77,7 +77,7 @@ Não aplique essas práticas antes de o seu aplicativo receber solicitações de
 Essa é a intenção de fallback, indicava tudo fora do seu aplicativo. Adicione um exemplo de declaração à intenção None para todos os 10 exemplos de declarações no restante do seu aplicativo LUIS.
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Aproveite o recurso de sugestão para aprendizado ativo
-Use **Examinar declarações de ponto de extremidade** do [aprendizado ativo](label-suggested-utterances.md) regularmente, em vez de adicionar mais exemplos de declarações a intenções. Como o aplicativo está constantemente recebendo declarações de ponto de extremidade, essa lista está crescendo e mudando.
+Use **Examinar declarações de ponto de extremidade** do [aprendizado ativo](luis-how-to-review-endoint-utt.md) regularmente, em vez de adicionar mais exemplos de declarações a intenções. Como o aplicativo está constantemente recebendo declarações de ponto de extremidade, essa lista está crescendo e mudando.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Monitore o desempenho do seu aplicativo
 Monitore a precisão da previsão usando um conjunto de teste. 
@@ -113,6 +113,4 @@ Adicione 10 ou 15 declarações antes do treinamento e da publicação. Isso per
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como [planejar seu aplicativo](plan-your-app.md) no aplicativo LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Saiba como [planejar seu aplicativo](luis-how-plan-your-app.md) no aplicativo LUIS.

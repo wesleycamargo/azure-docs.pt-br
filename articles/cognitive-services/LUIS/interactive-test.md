@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: fb4c3bb117d1ea60c9cc28d2b193ee3c01f6c945
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 927d95f6b6fac922d2c3701b8a5124efb18825f6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221624"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951230"
 ---
 # <a name="test-your-luis-app"></a>Testar seu aplicativo LUIS
 <a name="train-your-app"></a>
@@ -65,7 +65,7 @@ Inspecione detalhes do resultado do teste no painel **Inspecionar**.
 
 ## <a name="view-sentiment-results"></a>Exibir resultados de sentimento
 
-Se a **Análise de sentimento** estiver configurada na página **[Publicar](publishapp.md#enable-sentiment-analysis)**, os resultados de teste incluirão o sentimento encontrado na declaração. 
+Se a **Análise de sentimento** estiver configurada na página **[Publicar](luis-how-to-publish-app.md#enable-sentiment-analysis)**, os resultados de teste incluirão o sentimento encontrado na declaração. 
 
 ![Imagem do painel de Teste com análise de sentimento](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -129,5 +129,5 @@ Confira os [conceitos](luis-concept-batch-test.md) de teste do lote e saiba [com
 
 Se o teste indica que seu aplicativo LUIS não reconhece as intenções e entidades corretas, é possível trabalhar para melhorar a precisão do seu aplicativo LUIS rotulando mais declarações ou adicionando recursos. 
 
-* [Declarações sugeridas de rótulo com o LUIS](Label-Suggested-Utterances.md) 
-* [Usar recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 
+* [Declarações sugeridas de rótulo com o LUIS](luis-how-to-review-endoint-utt.md) 
+* [Usar recursos para melhorar o desempenho do aplicativo de LUIS](luis-how-to-add-features.md) 

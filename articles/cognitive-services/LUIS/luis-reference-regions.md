@@ -10,16 +10,16 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 86a20770178707f72cf2991ca08b6b98eaeaf0cf
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d81fbc03689788066fb9275523a5e96647117c58
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36236281"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346433"
 ---
 # <a name="regions-and-keys"></a>Regiões e chaves
 
-A região na qual você publica seu aplicativo LUIS corresponde à região ou ao local especificado no portal do Azure quando você cria uma chave do ponto de extremidade LUIS do Azure. Quando você [publica um aplicativo](./PublishApp.md), o LUIS gera automaticamente uma URL de ponto de extremidade para a região associada à chave. Para publicar um aplicativo LUIS em mais de uma região, é necessário ter pelo menos uma chave por região. 
+A região na qual você publica seu aplicativo LUIS corresponde à região ou ao local especificado no portal do Azure quando você cria uma chave do ponto de extremidade LUIS do Azure. Quando você [publica um aplicativo](./luis-how-to-publish-app.md), o LUIS gera automaticamente uma URL de ponto de extremidade para a região associada à chave. Para publicar um aplicativo LUIS em mais de uma região, é necessário ter pelo menos uma chave por região. 
 
 ## <a name="luis-website"></a>Site do LUIS
 Há três sites do LUIS dependendo da sua região. É necessário criar e publicar na mesma região. 
