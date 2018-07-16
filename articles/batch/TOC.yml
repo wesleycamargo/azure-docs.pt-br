@@ -87,8 +87,6 @@
           href: batch-job-prep-release.md
         - name: Tarefas de nó simultâneas
           href: batch-parallel-node-tasks.md
-        - name: Contagem de tarefas por estado
-          href: batch-get-task-counts.md
         - name: Dependências da tarefa
           href: batch-task-dependencies.md
         - name: Contas de usuário para a execução de tarefas
@@ -119,7 +117,9 @@
           href: batch-diagnostics.md
         - name: Monitorar com Application Insights
           href: monitor-application-insights.md
-        - name: Consultas de lista eficientes
+        - name: Recursos de contagem por estado
+          href: batch-get-resource-counts.md
+        - name: Consultar recursos com eficiência
           href: batch-efficient-list-queries.md
     - name: Usar ferramentas do desenvolvedor
       items:

@@ -6,12 +6,12 @@ description: Saiba como compilar e gerenciar aplicativos avançados com os servi
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 557717b6fbb93bf3e0ca007fcc8b793441a13283
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 60105912b075e1fa595a31f8274e02025335ec00
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920899"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990907"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -686,6 +686,12 @@ Saiba mais sobre o DevOps com Azure </a>
                                                 <p>Observador de Rede</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/firewall/">
+                                                <img src="media/index/azure_firewall.svg" alt="" />
+                                                <p>Firewall do Azure</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>IA + Machine Learning</h3>
                                     <ul>
@@ -923,8 +929,6 @@ Saiba mais sobre o DevOps com Azure </a>
                                                 <p>API da Pesquisa Visual do Bing</p>
                                             </a>
                                         </li>
-
-
                                         <li>
                                             <a href="/azure/cognitive-services/Bing-Autosuggest/">
                                                 <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
@@ -2118,6 +2122,25 @@ s" alt="" />
                                                 <div class="cardText">
                                                     <h3>Observador de Rede</h3>
                                                     <p>Solução de monitoramento de desempenho e diagnóstico de rede</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/firewall/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_firewall.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Firewall do Azure</h3>
+                                                    <p>Serviço de segurança de rede altamente disponível e escalonável baseado em nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3533,7 +3556,6 @@ s" alt="" />
                                                                     <span>Answer Search</span>
                                                                 </a>
                                                             </li>
-
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
                                                                     <img src="media/index/API_Anomaly_Finder.svg" alt="" />
@@ -3546,8 +3568,6 @@ s" alt="" />
                                                                     <span>Conversation Learner</span>
                                                                 </a>
                                                             </li>
-
-
                                                         </ul>
                                                     </div>
                                                 </div>
