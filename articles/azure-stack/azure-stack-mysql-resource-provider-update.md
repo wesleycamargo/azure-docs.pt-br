@@ -1,6 +1,6 @@
 ---
-title: Bancos de dados fornecida pelo adaptador RP MySQL em AzureStack | Microsoft Docs
-description: Como criar e gerenciar bancos de dados MySQL provisionados usando o provedor de recursos de adaptador do MySQL
+title: Atualizando o provedor de recursos MySQL do Azure Stack | Microsoft Docs
+description: Saiba como você pode atualizar o provedor de recursos MySQL do Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,59 +11,100 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 0a900d75315fd0015633c036877faef84c48d65b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 4e894eaee6bb151b480204905d0a98324f5c353b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031815"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049588"
 ---
-# <a name="create-mysql-databases"></a>Criar bancos de dados MySQL
+# <a name="update-the-mysql-resource-provider"></a>Atualizar o provedor de recursos do MySQL 
 
-Você pode criar e gerenciar bancos de dados de autoatendimento no portal do usuário. Um usuário de pilha do Azure precisa de uma assinatura com uma oferta que inclui o serviço de banco de dados MySQL.
+*Aplica-se a: sistemas integrados do Azure Stack.*
 
-## <a name="test-your-deployment-by-creating-a-mysql-database"></a>Testar a implantação por meio da criação de um banco de dados MySQL
+Um novo adaptador de provedor de recursos do SQL pode ser liberado quando o Azure Stack compilações são atualizadas. Enquanto o adaptador existente continua a funcionar, é recomendável atualizar para a compilação mais recente assim que possível. 
 
-1. Entrar no portal do usuário de pilha do Azure.
-2. Selecione **+ novo** > **dados + armazenamento** > **banco de dados MySQL** > **adicionar**.
-3. Em **criar banco de dados MySQL**, digite o nome do banco de dados e defina as outras configurações conforme necessário para seu ambiente.
+>[!IMPORTANT]
+>Você deve instalar as atualizações na ordem em que elas forem lançadas. Não é possível ignorar as versões. Consulte a lista de versões no [implantar os pré-requisitos do provedor de recursos](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-    ![Criar um teste de banco de dados MySQL](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Atualizar o adaptador de provedor de recursos do MySQL (apenas sistemas integrados)
+Um novo adaptador de provedor de recursos do SQL pode ser liberado quando o Azure Stack compilações são atualizadas. Enquanto o adaptador existente continua a funcionar, é recomendável atualizar para a compilação mais recente assim que possível.  
+ 
+Para atualizar o provedor de recursos que você usar o **UpdateMySQLProvider.ps1** script. O processo é semelhante ao processo usado para instalar um provedor de recursos, conforme descrito na [implantar o provedor de recursos](#deploy-the-resource-provider) seção deste artigo. O script está incluído com o download do provedor de recursos. 
 
-4. Em **criar banco de dados**, selecione **SKU**. Em **selecionar uma SKU MySQL**, escolha a SKU do seu banco de dados.
+O **UpdateMySQLProvider.ps1** script cria uma nova VM com o código mais recente do provedor de recursos e migra as configurações da VM antiga para a nova VM. As configurações que migrar incluem o banco de dados e informações do servidor de hospedagem e de registro de DNS necessários. 
 
-    ![Selecione uma SKU do MySQL](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+>[!NOTE]
+>É recomendável que você baixe a imagem mais recente do Windows Server 2016 Core do gerenciamento do Marketplace. Se você precisar instalar uma atualização, você pode colocar uma **único** pacote MSU no caminho do local de dependência. O script falhará se não houver mais de um arquivo MSU neste local.
 
-    >[!Note]
-    >Como os servidores de hospedagem são adicionados a pilha do Azure, que estão atribuídas a uma SKU. Bancos de dados são criados no pool de servidores em um SKU de hospedagem.
+O script requer o uso dos mesmos argumentos que são descritas para o script DeployMySqlProvider.ps1. Forneça o certificado aqui também.  
 
-5. Em **Login**, selecione ***definir as configurações necessárias***.
-6. Em **selecione um logon**, você pode escolher um logon existente ou selecione **+ criar um novo logon** para configurar um novo logon.  Insira um **logon de banco de dados** nome e **senha**e, em seguida, selecione **Okey**.
+A seguir está um exemplo de como o *UpdateMySQLProvider.ps1* script que pode ser executado do prompt do PowerShell. Certifique-se de alterar as informações de conta e senhas, conforme necessário:  
 
-    ![Criar um novo logon de banco de dados](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
+> [!NOTE] 
+> O processo de atualização é aplicável somente a sistemas integrados. 
 
-    >[!NOTE]
-    >O comprimento do nome de logon do banco de dados não pode exceder 32 caracteres 5.7 do MySQL. Em edições anteriores, ele não pode exceder 16 caracteres.
+```powershell 
+# Install the AzureRM.Bootstrapper module and set the profile. 
+Install-Module -Name AzureRm.BootStrapper -Force 
+Use-AzureRmProfile -Profile 2017-03-09-profile 
 
-7. Selecione **criar** para concluir a configuração do banco de dados.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
+$domain = "AzureStack" 
 
-Depois que o banco de dados é implantado, anote o **cadeia de caracteres de Conexão** em **Essentials**. Você pode usar essa cadeia de caracteres em qualquer aplicativo que precisa acessar o banco de dados MySQL.
+# For integrated systems, use the IP address of one of the ERCS virtual machines 
+$privilegedEndpoint = "AzS-ERCS01" 
 
-![Obter a cadeia de caracteres de conexão para o banco de dados MySQL](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+# Point to the directory where the resource provider installation files were extracted. 
+$tempDir = 'C:\TEMP\MYSQLRP' 
 
-## <a name="update-the-administrative-password"></a>Atualizar a senha administrativa
+# The service admin account (can be Azure Active Directory or Active Directory Federation Services). 
+$serviceAdmin = "admin@mydomain.onmicrosoft.com" 
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass) 
+ 
+# Set credentials for the new resource provider VM. 
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass) 
+ 
+# And the cloudadmin credential required for privileged endpoint access. 
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass) 
 
-Você pode modificar a senha alterando-o na instância do servidor MySQL.
+# Change the following as appropriate. 
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+ 
+# Change directory to the folder where you extracted the installation files. 
+# Then adjust the endpoints. 
+$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
+-VMLocalCredential $vmLocalAdminCreds ` 
+-CloudAdminCredential $cloudAdminCreds ` 
+-PrivilegedEndpoint $privilegedEndpoint ` 
+-DefaultSSLCertificatePassword $PfxPass ` 
+-DependencyFilesLocalPath $tempDir\cert ` 
+-AcceptLicense 
+``` 
+ 
+### <a name="updatemysqlproviderps1-parameters"></a>Parâmetros de UpdateMySQLProvider.ps1 
+Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou se nenhuma validação de parâmetro falhar, você precisará fornecer os parâmetros necessários. 
 
-1. Selecione **recursos ADMINISTRATIVOS** > **servidores de hospedagem MySQL**. Selecione o servidor de hospedagem.
-2. Em **configurações**, selecione **senha**.
-3. Em **senha**, digite a nova senha e, em seguida, selecione **salvar**.
-
-![Atualize a senha de administrador](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
+| Nome do Parâmetro | DESCRIÇÃO | Comentário ou o valor padrão | 
+| --- | --- | --- | 
+| **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _Obrigatório_ | 
+| **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack. | _Obrigatório_ | 
+| **VMLocalCredential** |As credenciais para a conta de administrador local do provedor de recursos SQL VM. | _Obrigatório_ | 
+| **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto de extremidade com privilégios. |  _Obrigatório_ | 
+| **DependencyFilesLocalPath** | O arquivo. pfx do certificado deve ser colocado neste diretório também. | _Opcional_ (_obrigatório_ para vários nós) | 
+| **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ | 
+| **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 | 
+| **RetryDuration** | O intervalo de tempo limite entre novas tentativas, em segundos. | 120 | 
+| **Desinstalar** | Remova o provedor de recursos e todos os recursos associados (consulte as observações a seguir). | Não  | 
+| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  | 
+| **AcceptLicense** | Ignora o prompt para aceitar a licença GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+ 
 
 ## <a name="next-steps"></a>Próximas etapas
-
 [Manter o provedor de recursos MySQL](azure-stack-mysql-resource-provider-maintain.md)
