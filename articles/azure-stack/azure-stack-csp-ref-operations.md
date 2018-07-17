@@ -1,6 +1,6 @@
 ---
-title: Registrar locatários pelo uso de rastreamento de pilha do Azure | Microsoft Docs
-description: Detalhes sobre operações usadas para gerenciar registros de Inquilino e como o uso de locatário é rastreado na pilha do Azure.
+title: Registre os locatários para o uso de controle no Azure Stack | Microsoft Docs
+description: Detalhes sobre operações usadas para gerenciar os registros do inquilino e como o uso do locatário é controlado no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,85 +11,85 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mabrigg
+ms.date: 06/08/2018
+ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159104"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093176"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>Gerenciar o registro do inquilino na pilha do Azure
+# <a name="manage-tenant-registration-in-azure-stack"></a>Gerenciar o registro de locatário no Azure Stack
 
-*Aplica-se a: sistemas integrados de pilha do Azure*
+*Aplica-se a: sistemas integrados do Azure Stack*
 
-Este artigo contém detalhes sobre as operações que você pode usar para gerenciar seus registros de Inquilino e como o uso de locatário é controlado. Você pode encontrar detalhes sobre como adicionar, lista, ou remova os mapeamentos de locatário. Você pode usar o PowerShell ou os pontos de extremidade de API de cobrança para gerenciar o uso de controle.
+Este artigo contém detalhes sobre as operações que você pode usar para gerenciar seus registros de Inquilino e como o uso do locatário é controlado. Você pode encontrar detalhes sobre como adicionar, lista, ou remover mapeamentos de locatário. Você pode usar o PowerShell ou os pontos de extremidade de API de cobrança para gerenciar o uso de controle.
 
-## <a name="add-tenant-to-registration"></a>Adicionar locatário para registro
+## <a name="add-tenant-to-registration"></a>Adicione o locatário ao registro
 
-Use esta operação quando você deseja adicionar um novo locatário em seu registro, para que seu uso é relatado em uma assinatura do Azure conectada ao seu locatário do Azure Active Directory (AD do Azure).
+Use esta operação quando você deseja adicionar um novo locatário em seu registro, para que seu uso é relatado em uma assinatura do Azure conectada com seu locatário do Azure Active Directory (Azure AD).
 
 Você também pode usar essa operação, se você quiser alterar a assinatura associada a um locatário, você pode chamar PUT/New-AzureRMResource novamente. O mapeamento antigo será substituído.
 
-Observe que apenas uma assinatura do Azure pode ser associada um locatário. Se você tentar adicionar uma segunda assinatura para um locatário existente, a primeira assinatura é substituída. 
+Observe que apenas uma assinatura do Azure pode ser associada a um locatário. Se você tentar adicionar uma segunda assinatura para um locatário existente, a primeira assinatura é escrita em excesso. 
 
 
 | Parâmetro                  | DESCRIÇÃO |
 |---                         | --- |
 | registrationSubscriptionID | A assinatura do Azure que foi usada para o registro inicial. |
-| customerSubscriptionID     | A assinatura do Azure (não pilha do Azure) que pertencem ao cliente a ser registrado. Deve ser criado na oferta do provedor de serviços de nuvem (CSP). Na prática, isso significa, por meio do Centro de parceiros. Se um cliente tiver mais de um locatário, essa assinatura deve ser criada no locatário que será usado para fazer logon na pilha do Azure. |
-| resourceGroup              | O grupo de recursos no Azure no qual o registro está armazenado. |
-| registrationName           | O nome do registro de pilha do Azure. É um objeto armazenado no Azure. O nome geralmente está no CloudID-azurestack em formulário, onde CloudID é a ID de nuvem de sua implantação de pilha do Azure. |
+| customerSubscriptionID     | A assinatura do Azure (não o Azure Stack) que pertencem ao cliente a ser registrado. Deve ser criado na oferta de provedor de serviços de nuvem (CSP). Na prática, isso significa, por meio do Partner Center. Se um cliente tiver mais de um locatário, essa assinatura deve ser criada no locatário que será usado para fazer logon no Azure Stack. |
+| resourceGroup              | O grupo de recursos no Azure em que o registro é armazenado. |
+| registrationName           | O nome do registro do seu Azure Stack. Ele é um objeto armazenado no Azure. O nome geralmente está no CloudID-azurestack em formulário, onde CloudID é a ID de nuvem da sua implantação do Azure Stack. |
 
 > [!Note]  
-> Os locatários precisam ser registrados com cada pilha do Azure que eles usam. Se um locatário usa mais de uma pilha do Azure, você precisa atualizar os registros inicias de cada implantação com a assinatura de locatário.
+> Os locatários precisam ser registrados com cada Azure Stack que eles usam. Se um locatário usa mais de uma pilha do Azure, você precisará atualizar os registros iniciais de cada implantação com a assinatura de locatário.
 
 ### <a name="powershell"></a>PowerShell
 
-Use o cmdlet New-AzureRmResource para atualizar o recurso de registro. Faça logon no Azure (`Add-AzureRmAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
+Use o cmdlet New-AzureRmResource para atualizar o recurso de registro. Entrar no Azure (`Add-AzureRmAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
 ```
 
-### <a name="api-call"></a>Chamada de API
+### <a name="api-call"></a>Chamada à API
 
-**Operação**: colocar  
+**Operação**: PUT  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Resposta**: 201 criado  
 **Corpo da resposta**: vazio  
 
-## <a name="list-all-registered-tenants"></a>Lista todos os locatários
+## <a name="list-all-registered-tenants"></a>Listar todos os locatários
 
-Obter uma lista de todos os locatários que foram adicionados a um registro.
+Obtenha uma lista de todos os locatários que foram adicionados a um registro.
 
  > [!Note]  
- > Se nenhum locatários tiveram sido registrados, você não receberá uma resposta.
+ > Se nenhum locatário tenha sido registrado, você não receberá uma resposta.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro                  | DESCRIÇÃO          |
 |---                         | ---                  |
 | registrationSubscriptionId | A assinatura do Azure que foi usada para o registro inicial.   |
-| resourceGroup              | O grupo de recursos no Azure no qual o registro está armazenado.    |
-| registrationName           | O nome do registro de pilha do Azure. É um objeto armazenado no Azure. O nome é normalmente na forma de **azurestack**-***CloudID***, onde ***CloudID*** é a ID de nuvem de sua implantação de pilha do Azure.   |
+| resourceGroup              | O grupo de recursos no Azure em que o registro é armazenado.    |
+| registrationName           | O nome do registro do seu Azure Stack. Ele é um objeto armazenado no Azure. O nome é normalmente na forma de **azurestack**-***CloudID***, onde ***CloudID*** é a ID de nuvem da sua implantação do Azure Stack.   |
 
 ### <a name="powershell"></a>PowerShell
 
-Use o cmdlet Get-AzureRmResovurce para listar todos os locatários. Faça logon no Azure (`Add-AzureRmAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
+Use o cmdlet Get-AzureRmResovurce para listar todos os locatários. Entrar no Azure (`Add-AzureRmAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
-### <a name="api-call"></a>Chamada de API
+### <a name="api-call"></a>Chamada à API
 
 Você pode obter uma lista de todos os mapeamentos de locatário usando a operação GET
 
-**Operação**: GET  
+**Operação**: Introdução  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
 api-version=2017-06-01 HTTP/1.1`  
@@ -115,15 +115,15 @@ api-version=2017-06-01 HTTP/1.1`
 }
 ```
 
-## <a name="remove-a-tenant-mapping"></a>Remover um mapeamento de locatário
+## <a name="remove-a-tenant-mapping"></a>Remover um mapeamento de locatários
 
-Você pode remover um locatário que tenha sido adicionado a um registro. Se esse locatário ainda está usando recursos na pilha do Azure, seu uso é cobrado para a assinatura usada no registro do Azure pilha inicial.
+Você pode remover um locatário que tenha sido adicionado a um registro. Se esse locatário ainda está usando recursos no Azure Stack, seu uso será cobrado para a assinatura usada no registro inicial do Azure Stack.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro                  | DESCRIÇÃO          |
 |---                         | ---                  |
-| registrationSubscriptionId | ID de assinatura para o registro.   |
+| registrationSubscriptionId | ID da assinatura para o registro.   |
 | resourceGroup              | O grupo de recursos para o registro.   |
 | registrationName           | O nome do registro.  |
 | customerSubscriptionId     | A ID de assinatura de cliente.  |
@@ -134,7 +134,7 @@ Você pode remover um locatário que tenha sido adicionado a um registro. Se ess
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
-### <a name="api-call"></a>Chamada de API
+### <a name="api-call"></a>Chamada à API
 
 Você pode remover mapeamentos de locatário usando a operação de exclusão.
 
@@ -147,4 +147,4 @@ Você pode remover mapeamentos de locatário usando a operação de exclusão.
 
 ## <a name="next-steps"></a>Próximas etapas
 
- - Para saber mais sobre como recuperar informações de uso do recurso da pilha do Azure, consulte [uso e cobrança no Azure pilha](/azure-stack-billing-and-chargeback.md).
+ - Para saber mais sobre como recuperar informações de uso de recursos do Azure Stack, consulte [uso e cobrança do Azure Stack](/azure-stack-billing-and-chargeback.md).

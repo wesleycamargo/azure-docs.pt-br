@@ -6,12 +6,12 @@ description: Saiba como compilar e gerenciar aplicativos avançados com os servi
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 69741fb139d2225ce827f4c158603a0ffacbfa76
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ea6241c98cd65af14242301be4681e613d867fbc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004204"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071174"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1253,8 +1253,7 @@ Saiba mais sobre o DevOps com Azure </a>
                                         </li>
                                         <li>
                                             <a href="/azure/iot-edge/">
-                                                <img src="media/index/iot-edge-alt.svg
-s" alt="" />
+                                                <img src="media/index/iot-edge-alt.svg" alt="" />
                                                 <p>IoT Edge</p>
                                             </a>
                                         </li>
@@ -2147,6 +2146,25 @@ s" alt="" />
                                                 <div class="cardText">
                                                     <h3>Firewall do Azure</h3>
                                                     <p>Serviço de segurança de rede altamente disponível e escalonável baseado em nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-wan/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/WAN.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>WAN Virtual</h3>
+                                                    <p>Criar conectividade de ramificação segura de escala global</p>
                                                 </div>
                                             </div>
                                         </div>
