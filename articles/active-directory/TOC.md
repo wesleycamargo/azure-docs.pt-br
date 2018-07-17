@@ -143,9 +143,9 @@
 ## Gerenciar senhas
 ### [Visão geral de senhas](authentication/active-directory-passwords-overview.md)
 ### Documentos do usuário
-#### [Redefinir ou alterar sua senha](active-directory-passwords-update-your-own-password.md)
+#### [Redefinir ou alterar sua senha](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Práticas recomendadas de senha](active-directory-secure-passwords.md)
-#### [Registro de redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md)
+#### [Registro de redefinição de senha de autoatendimento](user-help/active-directory-passwords-reset-register.md)
 ### [Como funciona o SSPR](authentication/concept-sspr-howitworks.md)
 ### [Guia de Implantação de SSPR](authentication/howto-sspr-deployment.md)
 ### [SSPR e Windows 10](authentication/tutorial-sspr-windows.md)
@@ -174,8 +174,8 @@
 ### [Planejar a Associação do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Perguntas frequentes](device-management-faq.md)
 ### Tarefas
-#### [Configurar dispositivos do Windows 10 registrados pelo Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Configurar dispositivos adicionados ao Azure AD](device-management-azuread-joined-devices-setup.md)
+#### [Configurar dispositivos do Windows 10 registrados pelo Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+#### [Configurar dispositivos adicionados ao Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Configurar dispositivos adicionados ao Azure AD](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Implantar no local](active-directory-device-registration-on-premises-setup.md)
 #### [Associação do Azure AD durante a experiência de primeira execução do Windows 10](device-management-azuread-joined-devices-frx.md)
