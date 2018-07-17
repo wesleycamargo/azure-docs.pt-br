@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffcce12800fae3a4d9e4930c918fcafb919b96ed
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737197"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915962"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar recursos do Azure para replicação de máquinas locais
 
@@ -54,11 +54,12 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
 1. No menu do [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** >  **Armazenamento** > **Conta de armazenamento - blob, arquivo, tabela, fila**.
 2. Em **Criar conta de armazenamento**, insira um nome para a conta. Para esses tutoriais, estamos usando **contosovmsacct1910171607**. O nome que você selecionar deve ser exclusivo dentro do Azure e ter entre 3 e 24 caracteres, contendo apenas números e letras minúsculas.
 3. Em **Modelo de implantação**, selecione **Gerenciador de Recursos**.
-4. Em **Tipo de conta**, selecione **Armazenamento (uso geral v1)**. Não selecione armazenamento de blobs. Em **Desempenho**, selecione **Padrão**. 
+4. Em **Tipo de conta**, selecione **Armazenamento (uso geral v1)**. Não selecione armazenamento de blobs.
 5. Em **Replicação**, selecione o padrão **Armazenamento com redundância geográfica com acesso de leitura** para redundância de armazenamento. Estamos deixando **Transferência segura obrigatória** como **Desabilitada**.
-6. Em **Assinatura**, selecione a assinatura na qual você deseja criar a nova conta de armazenamento. 
-2. Em **Grupo de recursos**, digite um novo grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Para esses tutoriais, estamos usando **ContosoRG**.
-3. Em **Localização**, selecione a localização geográfica para sua conta de armazenamento. 
+6. Em **Desempenho**, selecione **Padrão** e, na **Camada de acesso**, escolha a opção padrão **Frequente**.
+7. Em **Assinatura**, selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
+8. Em **Grupo de recursos**, digite um novo grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Para esses tutoriais, estamos usando **ContosoRG**.
+9. Em **Localização**, selecione a localização geográfica para sua conta de armazenamento. 
 
    ![Criar uma conta de armazenamento](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -98,7 +99,7 @@ Quando as VMs do Azure são criadas do armazenamento após o failover, elas são
 
 - [Saiba mais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sobre as redes do Azure.
 - [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) sobre os tipos de armazenamento do Azure.
-- - [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) sobre redundância de armazenamento e [transferência segura](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) para armazenamento.
+- [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) sobre redundância de armazenamento e [transferência segura](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) para armazenamento.
 
 
 

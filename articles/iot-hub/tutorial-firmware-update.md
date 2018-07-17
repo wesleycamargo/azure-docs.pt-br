@@ -12,20 +12,18 @@ ms.workload: na
 ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 515c9917add27663e8d145fee3e1effc89291bc0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0c8734bec1ce14a3a9692efa3a1fcf975067953a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033509"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968895"
 ---
-<!-- **TODO** Update publish config with repo paths before publishing! -->
-
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: implementar um processo de atualização de firmware do dispositivo
 
 Talvez seja necessário atualizar o firmware dos dispositivos conectados ao seu Hub IoT. Por exemplo, talvez você queira adicionar novos recursos para o firmware ou aplicar patches de segurança. Em muitos cenários de IoT, é impraticável visitar fisicamente e depois aplicar manualmente atualizações de firmware para seus dispositivos. Este tutorial mostra como você pode iniciar e monitorar o processo de atualização de firmware remotamente por meio de um aplicativo de back-end conectado ao seu hub.
 
-Para criar e monitorar o processo de atualização de firmware, o aplicativo de back-end neste tutorial cria uma _configuração_ em seu Hub IoT. O gerenciamento de dispositivo automático do Hub IoT usa essa configuração para atualizar um conjunto de _propriedades desejadas do dispositivo gêmeo_ em todos os seus dispositivos resfriadores. As propriedades desejadas especificam os detalhes da atualização de firmware necessária. Enquanto os dispositivos resfriadores estiverem executando o processo de atualização de firmware, eles relatam o status para o aplicativo de back-end usando _propriedades relatadas do dispositivo gêmeo_. O aplicativo de back-end pode usar a configuração para monitorar as propriedades relatadas enviadas do dispositivo e acompanhar o processo de atualização do firmware para conclusão:
+Para criar e monitorar o processo de atualização de firmware, o aplicativo de back-end neste tutorial cria uma _configuração_ em seu Hub IoT. O [gerenciamento de dispositivo automático](iot-hub-auto-device-config.md) do Hub IoT usa essa configuração para atualizar um conjunto de _propriedades desejadas do dispositivo gêmeo_ em todos os seus dispositivos resfriadores. As propriedades desejadas especificam os detalhes da atualização de firmware necessária. Enquanto os dispositivos resfriadores estiverem executando o processo de atualização de firmware, eles relatam o status para o aplicativo de back-end usando _propriedades relatadas do dispositivo gêmeo_. O aplicativo de back-end pode usar a configuração para monitorar as propriedades relatadas enviadas do dispositivo e acompanhar o processo de atualização do firmware para conclusão:
 
 ![Processo de atualização de firmware](media/tutorial-firmware-update/Process.png)
 
@@ -101,7 +99,7 @@ Se você executar esses comandos em um prompt de comando do Windows ou prompt do
 
 ## <a name="start-the-firmware-update"></a>Iniciar a atualização do firmware
 
-Crie uma configuração de gerenciamento de dispositivo automática no aplicativo de back-end para iniciar o processo de atualização de firmware em todos os dispositivos marcados com um **devicetype** do resfriador. Nesta seção, você verá como:
+Crie uma [configuração de gerenciamento de dispositivo automática](iot-hub-auto-device-config.md#create-a-configuration) no aplicativo de back-end para iniciar o processo de atualização de firmware em todos os dispositivos marcados com um **devicetype** do resfriador. Nesta seção, você verá como:
 
 * Crie uma configuração de um aplicativo de back-end.
 * Monitore a conclusão do trabalho.

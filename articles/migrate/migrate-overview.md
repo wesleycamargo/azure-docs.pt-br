@@ -4,15 +4,15 @@ description: Fornece uma visão geral do serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 753a21638745870941ac77e340b5e6aa713c7ffe
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285790"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920715"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -30,7 +30,11 @@ As Migrações para Azure ajudam você a:
 ## <a name="current-limitations"></a>Limitações atuais
 
 - No momento, só é possível avaliar as máquinas virtuais (VMs) VMware locais para migração para VMs do Azure. As VMs VMware devem ser gerenciadas por um vCenter Server (versão 5.5, 6.0 ou 6.5).
-- O suporte para Hyper-V está em nosso roteiro. Enquanto isso, recomendamos que você use o [Planejador de Implantações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para planejar a migração de cargas de trabalho do Hyper-V.
+
+> [!NOTE]
+> Suporte para Hyper-V e Servidores Físicos está em nosso roteiro. Enquanto isso, é recomendável que você use o [Planejador de Implantações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para planejar a migração de cargas de trabalho do Hyper-V e nossas [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/) para planejar a migração de cargas de trabalho físicas.
+
+
 - Você pode encontrar até 1.500 VMs em uma única descoberta e até 1.500 VMs em um único projeto. Além disso, pode estimar até 1.500 VMs em uma única avaliação. Caso deseje descobrir um ambiente maior, você pode dividir a descoberta e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). As Migrações para Azure oferecem suporte a até 20 projetos por assinatura.
 - Você só pode criar um projeto de Migrações para Azure nas regiões Centro-Oeste ou Leste dos EUA. No entanto, isso não afeta sua capacidade de planejar a migração para um local de destino diferente do Azure. O local do projeto de migração é usado apenas para armazenar os metadados descobertos no ambiente local.
 - As Migrações para Azure são compatíveis com discos gerenciados apenas para avaliação de migração.
@@ -48,7 +52,7 @@ Uma avaliação ajuda a identificar a adequação do Azure de VMs locais, a obte
 **Propriedade** | **Detalhes**
 --- | ---
 **Local de destino** | O local do Azure para o qual você deseja migrar.<br/><br/>Atualmente, as Migrações para Azure dão suporte a 30 regiões, incluindo Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, Índia Central, EUA Central, Leste da China, Norte da China, Ásia Oriental, Leste dos EUA, Alemanha Central, Nordeste da Alemanha, Leste dos EUA 2, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Sul do Reino Unido, Oeste do Reino Unido, US Gov – Arizona, US Gov – Texas, US Gov – Virgínia, Centro-Oeste dos EUA, Europa Ocidental, Índia Ocidental, Oeste dos EUA e Oeste dos EUA 2. Por padrão, o local de destino é definido como Oeste dos EUA 2.
-**Tipo de armazenamento** | Você pode especificar o tipo de discos que deseja alocar no Azure. Essa propriedade é aplicável quando o critério de dimensionamento for dimensionamento local. Especifique o tipo de disco de destino como disco gerenciado Premium ou discos gerenciados Standard. O valor padrão é discos gerenciados Premium. Para o dimensionamento com base em desempenho, a recomendação de disco é feita automaticamente com base nos dados de desempenho das VMs. Observe que as Migrações para Azure são compatíveis apenas com discos gerenciados para avaliação de migração.
+**Tipo de armazenamento** | Você pode especificar o tipo dos discos que deseja alocar no Azure. Essa propriedade será aplicável quando o critério de dimensionamento for dimensionamento local. Especifique o tipo de disco de destino como disco gerenciado Premium ou discos gerenciados Standard. O valor padrão é discos gerenciados Premium. Para o dimensionamento com base em desempenho, a recomendação de disco é feita automaticamente com base nos dados de desempenho das VMs. Observe que as Migrações para Azure são compatíveis apenas com discos gerenciados para avaliação de migração.
 **Critério de dimensionamento** | O critério a ser usado pelas Migrações para Azure para VMs do tamanho certo para o Azure. É possível fazer o dimensionamento com base em *histórico de desempenho* das VMs locais ou dimensionar as VMs *como locais* para o Azure sem considerar o histórico de desempenho. O valor padrão está como dimensionamento local.
 **Oferta do Azure** | Você pode especificar o [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual está registrado, e as Migrações para Azure estimam o custo adequadamente.
 **Benefício Híbrido do Azure** | É possível especificar se você tem a garantia do software e é qualificado para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) para obter custos com desconto.

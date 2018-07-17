@@ -4,14 +4,14 @@ description: Saiba mais sobre como executar a análise detalhada da recuperaçã
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: fa66e47715940584259e5cf555f3f6cd6f07e267
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437205"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920164"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Realizar uma análise detalhada da recuperação de desastre para o Azure
 
@@ -20,10 +20,10 @@ Este artigo mostra como executar uma análise detalhada da recuperação de desa
 Este é o quarto tutorial em uma série que mostra como configurar a recuperação de desastres para o Azure para VMs VMware ou VMs do Hyper-V locais.
 
 Este tutorial presume que você concluiu os três primeiros tutoriais: 
-    - No [primeiro tutorial](tutorial-prepare-azure.md), [preparamos os componentes do Azure](tutorial-prepare-azure.md) para a recuperação de desastres do VMware ou do Hyper-V.
-    - No segundo tutorial, preparamos os componentes locais para a recuperação de desastres do[VMware](vmware-azure-tutorial-prepare-on-premises.md) ou do [Hyper-V](hyper-v-prepare-on-premises-tutorial.md).
-    - No terceiro tutorial, configuramos e habilitamos a replicação das nossas [VMs do VMware](vmware-azure-tutorial.md), [VMs do Hyper-V com System Center VMM](hyper-v-vmm-azure-tutorial.md) ou [VMs do Hyper-V sem VMM](hyper-v-azure-tutorial.md) locais.
-- Os tutoriais destinam-se a mostrar o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Todos os tutoriais configuram o Site Recovery com as configurações mais simples, usando padrões quando apropriado. Se você quiser saber mais sobre as etapas de failover de teste em mais detalhes, leia o [Guia](site-recovery-test-failover-to-azure.md).
+    - No [primeiro tutorial](tutorial-prepare-azure.md), configuramos os componentes do Azure necessários para a recuperação de desastres do VMware.
+    - No [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md) , preparamos os componentes locais para a recuperação de desastres e analisamos os pré-requisitos.
+    - No [terceiro tutorial](vmware-azure-tutorial.md) configuramos e habilitamos a replicação para nossa VM VMware local.
+    - Os tutoriais destinam-se a mostrar o **caminho de implantação mais simples para um cenário**. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Se você quiser saber mais sobre as etapas de failover de teste em mais detalhes, leia o [Guia](site-recovery-test-failover-to-azure.md).
 
 Neste tutorial, você aprenderá a:
 
@@ -49,7 +49,7 @@ Antes de executar um failover de teste, confira as propriedades da VM e verifiqu
 Quando você executar um failover de teste, acontecerá o seguinte:
 
 1. Uma verificação de pré-requisitos será executada para conferir se todas as condições exigidas para o failover foram cumpridas.
-2. O failover processa os dados para que uma VM do Azure possa ser criada. Se o ponto de recuperação mais recente for selecionado, um ponto de recuperação será criado nos dados.
+2. O failover processa os dados para que uma VM do Azure possa ser criada. Se você selecionar o último ponto de recuperação, um ponto de recuperação será criado a partir dos dados.
 3. Uma VM do Azure é criada usando os dados processados na etapa anterior.
 
 Execute o failover de teste da seguinte maneira:

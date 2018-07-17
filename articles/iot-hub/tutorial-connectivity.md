@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 47d52fa412adf3f8e7f0c3c4d4afaf9009b4783e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651255"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869553"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Usar um dispositivo simulado para testar a conectividade com o Hub IoT
 
@@ -49,7 +49,7 @@ Você pode verificar a versão atual do Node.js no computador de desenvolvimento
 node --version
 ```
 
-Baixe o projeto Node.js do simulador de dispositivo de exemplo de https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip extraia o arquivo ZIP.
+Baixe o projeto Node.js do simulador de dispositivo de exemplo de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip extraia o arquivo ZIP.
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -123,6 +123,9 @@ Desta vez, você verá um erro de autenticação quando o aplicativo tentar cone
 Se o dispositivo usar um dos SDKs do dispositivo do Hub IoT, o código da biblioteca do SDK gerará o token SAS utilizado para autenticar com o hub. Um token SAS é gerado a partir do nome do hub, do nome do dispositivo e da chave do dispositivo.
 
 Em alguns cenários, como em um gateway de protocolo de nuvem ou como parte de um esquema de autenticação personalizado, você poderá precisar gerar o token SAS por conta própria. Para solucionar problemas com o código de geração do SAS, é útil gerar um token SAS válido para utilizar durante o teste.
+
+> [!NOTE]
+> O exemplo de SimulatedDevice-2.js inclui exemplos de geração de um token SAS com e sem o SDK.
 
 Para gerar um token SAS válido usando a CLI, execute o comando a seguir:
 

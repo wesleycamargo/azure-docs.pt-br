@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d866a6b068e9f6b8a46e53d60653d55e35a2ffd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f56ac74c62334ef64fca45a6430a539e3c4c372c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594016"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38442529"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrar seus diretórios locais no Azure Active Directory
 O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory.  Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure. Este tópico guiará você nas etapas de planejamento, implantação e operação. É uma coleção de links para os tópicos relacionados a essa área.
@@ -33,8 +33,9 @@ O Azure AD Connect integrará seus diretórios locais com o Azure Active Directo
 
 > 
 > - Sincronizar usuários ao Azure Active Directory é um **recurso gratuito** e não requer que os clientes possuam uma assinatura paga.
->- **Não é concedida automaticamente** *nenhuma* licença aos usuários sincronizados. Os administradores ainda têm controle total sobre a atribuição de licenças. 
+> - **Não é concedida automaticamente** *nenhuma* licença aos usuários sincronizados. Os administradores ainda têm controle total sobre a atribuição de licenças. 
 > - A Microsoft recomenda que os administradores de TI sincronizem todos os seus usuários. Isso não apenas desbloqueia o acesso dos usuários a qualquer recurso integrado do Azure Active Directory, como também oferece uma exibição muito mais ampla para que administradores de TI vejam quais aplicativos estão sendo acessados pelos usuários. 
+> - A Microsoft recomenda fortemente não sincronizar usuários com funções de administrador no AAD.
 
 ![O que é o Azure AD Connect](media/active-directory-aadconnect/arch.png)
 

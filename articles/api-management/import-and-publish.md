@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7a4391b436af4ffa303741397f0be7abf0186fb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722840"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar sua primeira API 
 
@@ -52,6 +53,8 @@ Esta seção mostra como importar e publicar uma API de back-end da especificaç
 
     Você pode definir os valores da API durante a criação ou mais tarde, acessando a guia **Configurações**. O asterisco vermelho ao lado de um campo indica que ele é obrigatório.
 
+    Use os valores da tabela abaixo para criar sua primeira API.
+
     |Configuração|Valor|DESCRIÇÃO|
     |---|---|---|
     |**Especificação OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Referencia o serviço que implementa a API. O gerenciamento de API envia as solicitações para esse endereço.|
@@ -66,7 +69,7 @@ Esta seção mostra como importar e publicar uma API de back-end da especificaç
     >[!NOTE]
     > Para publicar a API, você deve associá-la a um produto. É possível fazer isso na **página Configurações**.
     
-3. Clique em **Criar**.
+3. Selecione **Criar**.
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testar a nova API do APIM no portal do Azure
 
@@ -74,19 +77,21 @@ As operações podem ser chamadas diretamente do portal do Azure, o que oferece 
 1. Selecione a API que você criou na etapa anterior (na guia **APIs**).
 2. Pressione a guia **Testar**.  ![Testar a API](./media/api-management-get-started/test-api.png)
 3. Clique em **GetSpeakers**.
-    A página exibe campos para parâmetros de consulta, mas, nesse caso, não há nenhum. A página também exibe campos para os cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. A chave é preenchida automaticamente.
+    A página exibe campos para parâmetros de consulta, nesse caso, não há nenhum, e cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. A chave é preenchida automaticamente.
 4. Pressione **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
 
 ## <a name="call-operation"> </a>Chamar uma operação no portal do desenvolvedor
 
-As operações também podem ser chamadas do **Portal do desenvolvedor** para testar APIs. 
+As operações também podem ser chamadas do **Portal do desenvolvedor** para testar APIs.
 
-1. Selecione **API de Conferência de Demonstração**.
-2. Clique em **GetSpeakers**.
+1. Navegue até o **portal do Desenvolvedor**.
+![Portal do desenvolvedor](./media/api-management-get-started/developer-portal.png)
+
+2. Selecione **APIS**, clique em **API de Conferência de Demonstração** e então em **GetSpeakers**.
     
-    A página exibe campos para parâmetros de consulta, mas, nesse caso, não há nenhum. A página também exibe campos para os cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. Se você criou a instância do APIM, já é um administrador e, portanto, a chave é preenchida automaticamente.
+    A página exibe campos para parâmetros de consulta, nesse caso, não há nenhum, e cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. Se você criou a instância do APIM, já é um administrador e, portanto, a chave é preenchida automaticamente.
 3. Pressione **Experimentar**.
 4. Pressione **Enviar**.
     

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
 ms.author: sethm
-ms.openlocfilehash: b970fe1d9d705bd91e616f19a6ef133d6cfd7dd2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f8979687747453354f60eda15d73b20b2c745a0
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660470"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867198"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Início rápido: Enviar e receber mensagens usando o portal do Azure e .NET
 
@@ -62,7 +62,7 @@ A criação de um novo namespace gera automaticamente uma regra de SAS (assinatu
 4. Na janela **Política: RootManageSharedAccessKey**, clique no botão **Copiar** próximo à **Cadeia de Conexão Primária**, para copiar a cadeia de conexão na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário. 
 
     ![connection-string][connection-string]
-5. Repita a etapa anterior, copiando e colando o valor da **Chave Primária** em um local temporário para uso posterior.
+5. Repita a etapa anterior, copiando e colando o valor de **chave primária** para um local temporário para uso posterior.
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
@@ -87,7 +87,7 @@ Para executar o código, faça o seguinte:
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-3. Navegue até a pasta de exemplo`azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+3. Navegue até a pasta de exemplo `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
 4. Copie a cadeia de conexão e o nome da fila obtidos na seção [Obter as credenciais de gerenciamento](#obtain-the-management-credentials).
 
@@ -99,7 +99,7 @@ Para executar o código, faça o seguinte:
 
 6.  Navegue até a pasta `bin\Debug\netcoreapp2.0`.
 
-7.  Digite o comando a seguir para executar o programa. Certifique-se de substituir `myConnectionString` pelo valor obtido anteriormente e `myQueueName` pelo nome da fila que você criou:
+7.  Digite o comando a seguir para executar o programa. Verifique se você substituiu `myConnectionString` pelo valor obtido anteriormente e `myQueueName` pelo nome da fila que você criou:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"

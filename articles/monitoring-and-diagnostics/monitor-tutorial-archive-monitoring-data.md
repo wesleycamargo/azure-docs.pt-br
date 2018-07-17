@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263143"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918264"
 ---
 # <a name="archive-azure-monitoring-data"></a>Arquivar dados de monitoramento do Azure
 
@@ -30,7 +30,7 @@ Várias camadas do ambiente do Azure produzem dados de log e de métrica que pod
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -136,6 +136,11 @@ Os dados de monitoramento de seu recurso agora estão fluindo para a conta de ar
 Os dados de monitoramento de suas máquinas virtuais agora estão fluindo para a conta de armazenamento.
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Exibir os dados de monitoramento na conta de armazenamento
+
+> [!WARNING]
+> O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 Se você seguiu as etapas anteriores, os dados começaram a fluir para sua conta de armazenamento.
 

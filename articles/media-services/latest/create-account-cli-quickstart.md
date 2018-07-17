@@ -1,5 +1,5 @@
 ---
-title: Início Rápido - Criar uma conta dos Serviços de Mídia do Azure com a CLI 2.0 | Microsoft Docs
+title: Início Rápido - Criar uma conta dos Serviços de Mídia do Azure com a CLI do Azure | Microsoft Docs
 description: Execute as etapas neste início rápido para criar uma conta dos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: f7e5cb28f90466e9366c0a32e2a333e6823b9396
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779711"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767095"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Início Rápido: Criar uma conta dos Serviços de Mídia do Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "33779711"
 
 Não importa se você for um desenvolvedor ou um criador de conteúdo de mídia, para armazenar, criptografar, codificar, gerenciar e transmitir o conteúdo de mídia no Azure, você precisará criar uma conta dos Serviços de Mídia. Ao criar uma conta dos Serviços de Mídia, você precisa fornecer a ID de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está conectada à sua conta de Serviços de Mídia. Essa recurso de conta de armazenamento deve estar na mesma região geográfica que a conta dos Serviços de Mídia.  
 
-Este início rápido descreve as etapas para criar uma nova conta dos Serviços de Mídia do Azure usando a CLI 2.0.  
+Este início rápido descreve as etapas para criar uma nova conta dos Serviços de Mídia do Azure usando a CLI do Azure.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,9 +36,9 @@ Faça logon no [Portal do Azure](http://portal.azure.com) e inicie o **CloudShel
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá a CLI do Azure versão 2.0 ou posterior. Execute `az --version` descobrir a versão que você tem. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá a CLI do Azure versão 2.0 ou posterior. Execute `az --version` descobrir a versão que você tem. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
-## <a name="set-the-azure-subscription"></a>Definir uma assinatura do Azure
+## <a name="set-the-azure-subscription"></a>Definir a assinatura do Azure
 
 No comando a seguir, forneça a ID de assinatura do Azure que você deseja usar para a conta de Serviços de Mídia. Veja uma lista das assinaturas as quais você tem acesso navegando até [Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 

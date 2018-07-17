@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 7cd652231b461236510a1a4fc35734afdb06e501
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 84c92b1c0b2977ca15b82a0884870d78d895a761
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798144"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38543765"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Compilar um aplicativo Node.js usando a API do Graph
 
@@ -176,7 +176,7 @@ module.exports = config;
 
 Agora você pode voltar ao Data Explorer no Portal do Azure e exibir, consultar, modificar e trabalhar com seus novos dados dos grafos.
 
-No Data Explorer, o novo banco de dados aparece no painel **Grafos**. Expanda o banco de dados, seguido pela coleção e, em seguida, selecione **Grafo**.
+No Data Explorer, o novo banco de dados aparece no painel **Grafos**. Expanda o banco de dados, seguido pelo contêiner e, em seguida, selecione **Grafo**.
 
 Os dados gerados pelo aplicativo de exemplo são exibidos no próximo painel dentro da guia **Grafo** quando você seleciona **Aplicar filtro**.
 

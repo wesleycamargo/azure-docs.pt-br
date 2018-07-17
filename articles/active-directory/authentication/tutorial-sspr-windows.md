@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867486"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972974"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Redefinição de senha do Azure AD a partir da tela de logon
 
@@ -28,7 +28,7 @@ Para permitir que os usuários redefinam sua senha do Azure AD na tela de logon 
 * Windows 10 Atualização de abril de 2018 ou cliente mais recente que seja [Azure AD unidos](../device-management-azure-portal.md) ou [Azure AD híbridos unidos](../device-management-hybrid-azuread-joined-devices-setup.md).
 * A redefinição de senha de autoatendimento do Azure AD deve ser habilitada.
 * Configurar e implantar a configuração para habilitar o link Redefinir senha por meio de um dos seguintes métodos:
-   * [Perfil de configuração de dispositivo do Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
+   * [Perfil de configuração de dispositivo do Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). Esse método requer o registro do dispositivo no Intune.
    * [Chave do registro](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar o link Redefinir senha usando o Intune
@@ -66,7 +66,7 @@ Para permitir que os usuários redefinam sua senha do Azure AD na tela de logon 
    * Clique em **Selecionar**
 4. Clique em **Criar**
 
-Mais informações sobre como criar grupos podem ser encontradas no artigo [Gerenciar o acesso a recursos com grupos do Azure Active Directory](../active-directory-manage-groups.md).
+Mais informações sobre como criar grupos podem ser encontradas no artigo [Gerenciar o acesso a recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md).
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>Atribuir a política de configuração de dispositivo para o grupo de dispositivos
 

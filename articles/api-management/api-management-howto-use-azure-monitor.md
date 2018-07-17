@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 658588b29e65c9b1cd2f9d82c1c4528929875b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935554"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972991"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -58,10 +58,14 @@ O Gerenciamento de API emite métricas a cada minuto, permitindo uma visibilidad
 Para acessar as métricas:
 
 1. Selecione **Métricas** no menu na parte inferior da página.
-2. Na lista suspensa, selecione a métrica que interessa (você pode adicionar várias métricas). 
 
+    ![Métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+
+2. Na lista suspensa, selecione a métrica que interessa (você pode adicionar várias métricas).  
     Por exemplo, selecione **Total de Solicitações de Gateway** e **Solicitações de Gateway com Falha** na lista de métricas disponíveis.
-3. O gráfico mostra o número total de chamadas à API. Ele também mostra o número de chamadas à API com falha. 
+3. O gráfico mostra o número total de chamadas à API. Ele também mostra o número de chamadas à API com falha.
+
+    ![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurar uma regra de alerta para a solicitação não autorizada
 
@@ -73,7 +77,10 @@ Para acessar as métricas:
 
 Para configurar alertas:
 
-1. Selecione **Regras de alerta** na barra de menus na parte inferior da página.
+1. Selecione **Alertas (clássicos)** na barra de menus na parte inferior da página.
+
+    ![alertas](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+
 2. Selecione **Adicionar alerta de métrica**.
 3. Insira um **Nome** para o alerta.
 4. Selecione **Solicitações de Gateway Não Autorizadas** como a métrica a ser monitorada.
@@ -100,6 +107,12 @@ Para exibir logs de atividade:
 1. Selecione a instância de serviço do APIM.
 2. Clique em **Log de atividades**.
 
+    ![log de atividades](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. Selecione o escopo de filtragem desejado e clique em **Aplicar**.
+
+    ![logs de atividade](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 ## <a name="diagnostic-logs"></a>Logs de Diagnóstico
 
 Os logs de diagnóstico fornecem informações avançadas sobre operações e erros importantes para auditoria, bem como para fins de solução de problemas. Os logs de diagnóstico são diferentes dos logs de atividades. Os logs de atividades fornecem informações sobre as operações realizadas em seus recursos do Azure. Os Logs de Diagnóstico fornecem informações em operações que o recurso realizou.
@@ -107,7 +120,10 @@ Os logs de diagnóstico fornecem informações avançadas sobre operações e er
 Para configurar logs de diagnóstico:
 
 1. Selecione a instância de serviço do APIM.
-2. Clique em **Log de diagnóstico**.
+2. Clique em **Logs de diagnóstico**.
+
+    ![logs de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+
 3. Clique em **Ativar diagnóstico**. Você pode arquivar os logs de diagnóstico junto com a métrica em uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para o Log Analytics. 
 
 No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por hora) sobre solicitações de API individuais em que cada entrada tem o seguinte esquema:
@@ -157,7 +173,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 }  
 ```
 
-| Propriedade  | type | DESCRIÇÃO |
+| Propriedade  | Tipo | DESCRIÇÃO |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | booleano | True se a solicitação HTTP foi concluída com código de status de resposta dentro do intervalo 2xx a 3xx |
 | tempo real | date-time | Carimbo de data/hora de recebimento da solicitação HTTP pelo gateway |

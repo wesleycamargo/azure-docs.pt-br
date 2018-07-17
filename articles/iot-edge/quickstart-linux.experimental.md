@@ -4,17 +4,17 @@ description: Neste início rápido, aprenda a implantar código pré-compilado r
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 07/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8ee43a1e3b448faae79a7e3086e2e1d639c341f2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099178"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611919"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início Rápido: implantar seu primeiro módulo IoT Edge em um dispositivo Linux x64
 
@@ -32,6 +32,13 @@ Neste guia de início rápido, você aprende a:
 Este guia de início rápido transforma seu computador máquina virtual Linux em um dispositivo IoT Edge. Em seguida, você pode implantar um módulo do portal do Azure em seu dispositivo. O módulo implantado neste guia de início rápido é um sensor simulado que gera dados de temperatura, umidade e pressão. Os outros tutoriais do Azure IoT Edge se baseiam no trabalho feito aqui com a implantação de módulos que analisam os dados simulados para obter informações de negócios. 
 
 Se você não tiver uma assinatura do Azure ativa, crie uma [conta gratuita][lnk-account] antes de começar.
+
+## <a name="prerequisites"></a>pré-requisitos
+
+Este início rápido usa um computador Linux como dispositivo do IoT Edge. Se você não tiver uma disponível para teste, siga as instruções em [Criar uma máquina virtual Linux no portal do Azure](../virtual-machines/linux/quick-create-portal.md). 
+* Você não precisa seguir as etapas para instalar e executar o servidor Web. Depois que você se conectar à sua máquina virtual, poderá parar.  
+* Crie sua máquina virtual em um novo grupo de recursos, que você poderá usar ao criar o restante dos recursos do Azure para este início rápido. Use um nome reconhecível, como *IoTEdgeResources*. 
+* Não é necessário um computador virtual muito grande para testar o IoT Edge. Um tamanho como **B1ms** é o suficiente. 
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -54,6 +61,8 @@ Instale e inicie o tempo de execução do Azure IoT Edge no dispositivo.
 ![Registrar um dispositivo][5]
 
 O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge é iniciado e inicializa o dispositivo inicializando o agente do IoT Edge. O **agente do IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT. 
+
+Siga as etapas a seguir no computador Linux ou VM que você preparou para este início rápido. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registrar o dispositivo para usar o repositório de software
 
@@ -85,11 +94,16 @@ Atualize **apt-get**.
    sudo apt-get update
    ```
 
-Instale o Moby, um tempo de execução do contêiner e seus comandos da CLI. 
+Instale o **Moby**, um tempo de execução de contêiner.
 
    ```bash
    sudo apt-get install moby-engine
-   sudo apt-get install moby-cli   
+   ```
+
+Instale os comandos da CLI para Moby. 
+
+   ```bash
+   sudo apt-get install moby-cli
    ```
 
 ### <a name="install-and-configure-the-iot-edge-security-daemon"></a>Instalar e configurar o daemon de segurança do IoT Edge
@@ -109,15 +123,19 @@ O daemon de segurança é instalado como um serviço do sistema para que o tempo
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Adicione a cadeia de conexão do dispositivo IoT Edge copiada quando você registrou seu dispositivo. Substitua o valor da variável **device_connection_string** que você copiou anteriormente neste guia de início rápido.
+3. Adicione a cadeia de conexão do dispositivo do IoT Edge. Procure a variável **device_connection_string** e atualize seu valor com a cadeia de caracteres que você copiou após registrar seu dispositivo.
 
-4. Reinicie o Daemon de Segurança do Edge:
+4. Salve e feche o arquivo. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+4. Reinicie o daemon de segurança do IoT Edge.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Verifique se o Daemon de Segurança do Edge está em execução como um serviço do sistema:
+5. Verifique se o Daemon de Segurança do Edge está em execução como um serviço do sistema.
 
    ```bash
    sudo systemctl status iotedge
@@ -131,12 +149,14 @@ O daemon de segurança é instalado como um serviço do sistema para que o tempo
    journalctl -u iotedge
    ```
 
-6. Exiba os módulos em execução no dispositivo: 
+6. Visualizar os módulos em execução no seu dispositivo. 
+
+   >[!TIP]
+   >Você precisa usar *sudo* para executar comandos `iotedge` inicialmente. Saia do seu computador e entre novamente para atualizar as permissões, em seguida execute os comandos `iotedge` sem privilégios elevados. 
 
    ```bash
    sudo iotedge list
    ```
-Após fazer logoff e logon, *sudo* não é necessário para o comando acima.
 
    ![Exibir um módulo no dispositivo](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -157,7 +177,6 @@ Abra o prompt de comando no computador executando o seu dispositivo simulado nov
    ```bash
    sudo iotedge list
    ```
-Após fazer logoff e logon, *sudo* não é necessário para o comando acima.
 
    ![Exibir três módulos no seu dispositivo](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -177,7 +196,22 @@ Você também pode exibir a telemetria que o dispositivo está enviando usando a
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você deseja prosseguir para os tutoriais do IoT Edge, pode usar o dispositivo registrado e configurado neste guia de início rápido. Se você deseja remover as instalações do dispositivo, use os comandos a seguir.  
+Se você deseja prosseguir para os tutoriais do IoT Edge, pode usar o dispositivo registrado e configurado neste guia de início rápido. Caso contrário, é possível excluir os recursos do Azure que você criou e remover o tempo de execução do IoT Edge do seu dispositivo. 
+
+### <a name="delete-azure-resources"></a>Excluir recursos do Azure
+
+Se você tiver criado a sua máquina virtual e o Hub IoT em um novo grupo de recursos, é possível excluir esse grupo e todos os recursos associados. Se houver alguma coisa dentro desse grupo de recursos que você deseje manter, então exclua somente os recursos específicos que você deseja apagar. 
+
+Para remover um grupo de recursos, siga as etapas a seguir: 
+
+1. Entre no [portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
+2. Na caixa de texto **Filtrar por nome...**, digite o nome do grupo de recursos que contém seu Hub IoT. 
+3. À direita do seu grupo de recursos, na lista de resultados, clique em **...**, depois em **Excluir grupo de recursos**.
+4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
+
+### <a name="remove-the-iot-edge-runtime"></a>Remover o tempo de execução do IoT Edge
+
+Se você deseja remover as instalações do dispositivo, use os comandos a seguir.  
 
 Remova o tempo de execução do IoT Edge.
 
@@ -185,10 +219,18 @@ Remova o tempo de execução do IoT Edge.
    sudo apt-get remove --purge iotedge
    ```
 
-Exclua os contêineres que foram criados no seu dispositivo. 
+Quando o tempo de execução do IoT Edge for removido, os contêineres criados por ele são interrompidos, mas ainda existem no seu dispositivo. Visualizar todos os contêineres.
 
    ```bash
-   sudo docker rm -f $(sudo docker ps -aq)
+   sudo docker ps -a
+   ```
+
+Exclua os contêineres que foram criados no seu dispositivo pelo tempo de execução do IoT Edge. Altere o nome do contêiner tempSensor se você deu um outro nome para ele. 
+
+   ```bash
+   sudo docker rm -f tempSensor
+   sudo docker rm -f edgeHub
+   sudo docker rm -f edgeAgent
    ```
 
 Remova o tempo de execução do contêiner.
@@ -196,8 +238,6 @@ Remova o tempo de execução do contêiner.
    ```bash
    sudo apt-get remove --purge moby
    ```
-
-Quando você não precisar mais do hub IoT do Azure ou do dispositivo IoT Edge criado neste guia de início rápido, poderá excluí-los no portal do Azure. Navegue até a página de visão geral do seu Hub IoT e selecione **Excluir**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -221,5 +261,6 @@ Este guia de início rápido é pré-requisito para todos os tutoriais do IoT Ed
 [9]: ./media/tutorial-simulate-device-linux/sensor-data.png
 
 <!-- Links -->
+[lnk-account]: https://azure.microsoft.com/free
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

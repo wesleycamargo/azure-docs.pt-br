@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 06/06/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: douge
-ms.openlocfilehash: 99508d6e4e6502fe4fd2a81ee7aaefdde7cd2e15
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: d0cb1c113724af5d07abf75e6d3a45b54e5202dc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945795"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950763"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Início Rápido: Criar um espaço de desenvolvimento Kubernetes com o Azure Dev Spaces (Node.js)
 
@@ -32,9 +32,9 @@ Neste guia, você aprenderá a:
 ## <a name="prerequisites"></a>pré-requisitos
 
 - Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free).
-- Um [cluster do Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) executando o Kubernetes 1.9.6 nas regiões Leste dos EUA, Europa Ocidental ou Leste do Canadá, com o **Roteamento de aplicativo Http** habilitado.
+- Um [cluster do Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) executando o Kubernetes 1.10.3 nas regiões EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral ou CanadaEast, com o **Roteamento de Aplicativo Http** habilitado.
 
-  ![Verifique se o Roteamento de aplicativo Http foi habilitado.](media/common/Kubernetes-Create-Cluster-3.PNG)
+  ![Verifique se o roteamento de aplicativo Http foi habilitado.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
 - Visual Studio Code, que pode ser baixado [aqui](https://code.visualstudio.com/download).
 
@@ -42,8 +42,7 @@ Neste guia, você aprenderá a:
 
 1. Instale a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.0.38 ou superior).
 1. Configure o Dev Spaces no seu cluster do AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Baixe a [extensão do Azure Dev Spaces](https://aka.ms/get-azds-code) para o VS Code.
-1. Instale a extensão: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+1. Baixe a [extensão do Azure Dev Spaces](https://aka.ms/get-azds-code) para o VS Code. Clique em Instalar uma vez na página do Marketplace da extensão e novamente no VS Code.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Compilar e executar um código no Kubernetes
 
@@ -75,7 +74,7 @@ O Azure Dev Spaces não serve apenas para executar o código em Kubernetes; ele 
 O que aconteceu? Edições em arquivos de conteúdo, como HTML e CSS, não exigem a reinicialização do processo do Node.js em portanto, um comando `azds up` ativo sincronizam automaticamente os arquivos de conteúdo modificados diretamente no contêiner em execução no Azure, permitindo uma maneira rápida de ver suas edições de conteúdo.
 
 ### <a name="test-from-a-mobile-device"></a>Testar de um dispositivo móvel
-Abra o aplicativo Web em um dispositivo móvel usando a URL pública para webfrontend. Você deseja copiar e enviar a URL do desktop para seu dispsoitivo para evitar a inserção do endereço longo. Quando o aplicativo Web é carregado em um dispositivo móvel, você verá que a interface do usuário não é exibida corretamente em um dispositivo pequeno.
+Abra o aplicativo Web em um dispositivo móvel usando a URL pública para webfrontend. Você deseja copiar e enviar a URL do desktop para seu dispositivo para evitar a inserção do endereço longo. Quando o aplicativo Web é carregado em um dispositivo móvel, você verá que a interface do usuário não é exibida corretamente em um dispositivo pequeno.
 
 Para corrigir isso, adicione uma metamarca `viewport`:
 1. Abra o arquivo `./public/index.html`
@@ -182,4 +181,4 @@ Nessa configuração, o contêiner está configurado para iniciar o *nodemon*. Q
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Trabalhando com vários contêineres e desenvolvimento em equipe](get-started-nodejs.md#call-a-service-running-in-a-separate-container)
+> [Trabalhando com vários contêineres e desenvolvimento em equipe](team-development-nodejs.md)

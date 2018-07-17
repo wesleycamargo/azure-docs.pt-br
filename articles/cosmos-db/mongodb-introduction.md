@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sngun
-ms.openlocfilehash: c10f1fdc7e373633298b083d1317f17cff3aa2b8
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 214dfe3e676d3b07cf688fa0f7dcaf11462edfe8
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796624"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930878"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Introdução ao Azure Cosmos DB: API para MongoDB
 
@@ -26,7 +26,7 @@ O [Azure Cosmos DB](../cosmos-db/introduction.md) é o serviço multimodelo de b
 
 Os bancos de dados do Azure Cosmos DB podem ser usados como o armazenamento de dados para aplicativos gravados para o [MongoDB](https://docs.mongodb.com/manual/introduction/). Isso funcionalidade significa que, ao usar [drivers](https://docs.mongodb.org/ecosystem/drivers/) existentes, o aplicativo gravado para o MongoDB agora pode se comunicar com o Azure Cosmos DB e usar bancos de dados do Azure Cosmos DB, em vez de bancos de dados do MongoDB. Em muitos casos, é possível alternar o uso do MongoDB para o Azure Cosmos DB, bastando alterar uma cadeia de conexão. Com essa funcionalidade, você pode facilmente compilar e executar aplicativos de banco de dados do MongoDB na nuvem do Azure com a distribuição global e os [SLAs abrangentes líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db) do Azure Cosmos DB e, ao mesmo tempo, continuar usando as ferramentas e competências conhecidas do MongoDB.
 
-**Compatibilidade do MongoDB**: você pode usar seu conhecimento existente de MongoDB, código do aplicativo e as ferramentas como o Azure Cosmos DB implementa o protocolo de transmissão do MongoDB 3.4 (versão 5) e oferece suporte a [pipeline de agregação do MongoDB](mongodb-feature-support.md#aggregation-pipeline). Desenvolva aplicativos usando o MongoDB e implante-os em produção usando o serviço Azure Cosmos DB distribuído globalmente e totalmente gerenciado.
+**Compatibilidade do MongoDB**: você pode usar seu conhecimento existente de MongoDB, código do aplicativo e as ferramentas como o Azure Cosmos DB implementa o protocolo de transmissão do MongoDB 3.4. Desenvolva aplicativos usando o MongoDB e implante-os em produção usando o serviço Azure Cosmos DB distribuído globalmente e totalmente gerenciado. Para saber mais sobre versões com suporte, consulte [Suporte de protocolo do MongoDB](mongodb-feature-support.md#mongodb-protocol-support).
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>Qual é a vantagem de usar o Azure Cosmos DB para aplicativos do MongoDB?
 
@@ -36,7 +36,7 @@ Os bancos de dados do Azure Cosmos DB podem ser usados como o armazenamento de d
 
 **Sem gerenciamento de servidor**: você não precisa gerenciar nem dimensionar os bancos de dados do MongoDB. O Azure Cosmos DB é um serviço totalmente gerenciado, o que significa que você não precisa gerenciar infraestruturas ou Máquinas Virtuais por conta própria. O Azure Cosmos DB está disponível em mais de 30 [Regiões do Azure](https://azure.microsoft.com/regions/services/).
 
-**Níveis de consistência ajustáveis:** atualmente, o Azure Cosmos DB implementa o MongoDB versão 3.4, que tem duas configurações de consistência, forte e eventual. Como o Azure Cosmos DB tem várias APIs, as configurações de consistência são aplicáveis no nível da conta e a imposição da consistência é controlada por cada API. Até o MongoDB 3.6, não havia nenhum conceito de consistência de sessão, portanto, se você definir uma conta de API do MongoDB para usar a consistência da sessão, será feito o downgrade da consistência para eventual ao usar APIs do MongoDB. Se você precisar de uma garantia do tipo read-your-own-write para uma conta de API do MongoDB, o nível de consistência padrão da conta deverá ser definido como forte ou desatualização limitada. Saiba mais em [Como usar níveis de consistência para maximizar a disponibilidade e o desempenho](consistency-levels.md).
+**Níveis de consistência ajustáveis:** como o Azure Cosmos DB dá suporte a APIs multimodelos, as configurações de consistência são aplicáveis no nível da conta e a imposição da consistência é controlada por cada API. Até o MongoDB 3.6, não havia nenhum conceito de consistência de sessão, portanto, se você definir uma conta de API do MongoDB para usar a consistência da sessão, será feito o downgrade da consistência para eventual ao usar APIs do MongoDB. Se você precisar de uma garantia do tipo read-your-own-write para uma conta de API do MongoDB, o nível de consistência padrão da conta deverá ser definido como forte ou desatualização limitada. Saiba mais em [Como usar níveis de consistência para maximizar a disponibilidade e o desempenho](consistency-levels.md).
 
 | Nível de consistência padrão do Azure Cosmos DB |   API do Mongo (3.4) |
 |---|---|

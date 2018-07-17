@@ -11,12 +11,12 @@ ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4d62e8e4cb778e60b39e502f09ce0aafca9b5212
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34054681"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866810"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solucionar problemas de alterações em seu ambiente
 
@@ -113,6 +113,7 @@ Na janela **Configuração do Espaço de Trabalho**, adicione as chaves do Regis
 |Nome do Item     | Nome amigável do arquivo a ser rastreado        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos        |
 |Insira o Caminho     | O caminho para verificar o arquivo, por exemplo: "c:\temp\myfile.txt"       |
+|Carregar o conteúdo do arquivo para todas as configurações| Ativa ou desativa o upload de conteúdo do arquivo em alterações controladas. As opções disponíveis: **Verdadeiro** ou **Falso**.|
 
 ### <a name="add-a-linux-file"></a>Adicionar um arquivo Linux
 
@@ -130,6 +131,7 @@ Na janela **Configuração do Espaço de Trabalho**, adicione as chaves do Regis
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
 |Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** - Ignora os links simbólicos e não inclui os arquivos/diretórios referenciados<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do tratamento do conteúdo retornado      |
+|Carregar o conteúdo do arquivo para todas as configurações| Ativa ou desativa o upload de conteúdo do arquivo em alterações controladas. As opções disponíveis: **Verdadeiro** ou **Falso**.|
 
    > [!NOTE]   
    > A opção "Gerenciar" links não é recomendada. Não há suporte para a recuperação de conteúdo do arquivo.
